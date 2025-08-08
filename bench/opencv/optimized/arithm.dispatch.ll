@@ -468,7 +468,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5add8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5add8uEPKhmS3_mPhmiiE25__cv_trace_location_fn541)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -526,23 +526,20 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !10
   %.not = icmp eq i32 %3, 0
@@ -559,17 +556,14 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #14
+  tail call void @__clang_call_terminate(ptr %8) #13
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5add8sEPKamS3_mPamii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5add8sEPKamS3_mPamiiE25__cv_trace_location_fn541)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -622,18 +616,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6add16uEPKtmS3_mPtmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add16uEPKtmS3_mPtmiiE25__cv_trace_location_fn541)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -693,18 +687,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6add16sEPKsmS3_mPsmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add16sEPKsmS3_mPsmiiE25__cv_trace_location_fn541)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -760,18 +754,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6add32sEPKimS3_mPimii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add32sEPKimS3_mPimiiE25__cv_trace_location_fn541)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -827,18 +821,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6add32fEPKfmS3_mPfmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add32fEPKfmS3_mPfmiiE25__cv_trace_location_fn541)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -894,18 +888,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6add64fEPKdmS3_mPdmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add64fEPKdmS3_mPdmiiE25__cv_trace_location_fn541)
   %10 = lshr i64 %1, 3
   %11 = lshr i64 %3, 3
@@ -1043,18 +1037,18 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_addEdiEEvPKT0_mS6_mPS4_mii.ex
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #14
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_addEdiEEvPKT0_mS6_mPS4_mii.exit, %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5sub8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5sub8uEPKhmS3_mPhmiiE25__cv_trace_location_fn542)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -1112,18 +1106,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5sub8sEPKamS3_mPamii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5sub8sEPKamS3_mPamiiE25__cv_trace_location_fn542)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -1176,18 +1170,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6sub16uEPKtmS3_mPtmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub16uEPKtmS3_mPtmiiE25__cv_trace_location_fn542)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -1247,18 +1241,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6sub16sEPKsmS3_mPsmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub16sEPKsmS3_mPsmiiE25__cv_trace_location_fn542)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -1314,18 +1308,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6sub32sEPKimS3_mPimii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub32sEPKimS3_mPimiiE25__cv_trace_location_fn542)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -1381,18 +1375,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6sub32fEPKfmS3_mPfmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub32fEPKfmS3_mPfmiiE25__cv_trace_location_fn542)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -1448,18 +1442,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6sub64fEPKdmS3_mPdmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub64fEPKdmS3_mPdmiiE25__cv_trace_location_fn542)
   %10 = lshr i64 %1, 3
   %11 = lshr i64 %3, 3
@@ -1597,18 +1591,18 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_subEdiEEvPKT0_mS6_mPS4_mii.ex
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #14
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_subEdiEEvPKT0_mS6_mPS4_mii.exit, %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5min8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5min8uEPKhmS3_mPhmiiE25__cv_trace_location_fn544)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -1667,18 +1661,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #14
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5min8sEPKamS3_mPamii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5min8sEPKamS3_mPamiiE25__cv_trace_location_fn544)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -1731,18 +1725,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6min16uEPKtmS3_mPtmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min16uEPKtmS3_mPtmiiE25__cv_trace_location_fn544)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -1798,18 +1792,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6min16sEPKsmS3_mPsmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min16sEPKsmS3_mPsmiiE25__cv_trace_location_fn544)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -1865,18 +1859,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6min32sEPKimS3_mPimii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min32sEPKimS3_mPimiiE25__cv_trace_location_fn544)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -1932,18 +1926,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6min32fEPKfmS3_mPfmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min32fEPKfmS3_mPfmiiE25__cv_trace_location_fn544)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -2000,18 +1994,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6min64fEPKdmS3_mPdmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min64fEPKdmS3_mPdmiiE25__cv_trace_location_fn544)
   %10 = lshr i64 %1, 3
   %11 = lshr i64 %3, 3
@@ -2155,18 +2149,18 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_minEdiEEvPKT0_mS6_mPS4_mii.ex
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #14
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_minEdiEEvPKT0_mS6_mPS4_mii.exit, %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5max8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5max8uEPKhmS3_mPhmiiE25__cv_trace_location_fn545)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -2225,18 +2219,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5max8sEPKamS3_mPamii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5max8sEPKamS3_mPamiiE25__cv_trace_location_fn545)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -2289,18 +2283,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6max16uEPKtmS3_mPtmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max16uEPKtmS3_mPtmiiE25__cv_trace_location_fn545)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -2356,18 +2350,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6max16sEPKsmS3_mPsmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max16sEPKsmS3_mPsmiiE25__cv_trace_location_fn545)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -2423,18 +2417,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6max32sEPKimS3_mPimii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max32sEPKimS3_mPimiiE25__cv_trace_location_fn545)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -2490,18 +2484,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6max32fEPKfmS3_mPfmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max32fEPKfmS3_mPfmiiE25__cv_trace_location_fn545)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -2558,18 +2552,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6max64fEPKdmS3_mPdmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max64fEPKdmS3_mPdmiiE25__cv_trace_location_fn545)
   %10 = lshr i64 %1, 3
   %11 = lshr i64 %3, 3
@@ -2713,18 +2707,18 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_maxEdiEEvPKT0_mS6_mPS4_mii.ex
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #14
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_maxEdiEEvPKT0_mS6_mPS4_mii.exit, %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline9absdiff8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline9absdiff8uEPKhmS3_mPhmiiE25__cv_trace_location_fn547)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -2780,18 +2774,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline9absdiff8sEPKamS3_mPamii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline9absdiff8sEPKamS3_mPamiiE25__cv_trace_location_fn547)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -2849,18 +2843,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline10absdiff16uEPKtmS3_mPtmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff16uEPKtmS3_mPtmiiE25__cv_trace_location_fn547)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -2919,18 +2913,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #14
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline10absdiff16sEPKsmS3_mPsmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff16sEPKsmS3_mPsmiiE25__cv_trace_location_fn547)
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
@@ -2991,18 +2985,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline10absdiff32sEPKimS3_mPimii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff32sEPKimS3_mPimiiE25__cv_trace_location_fn547)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -3059,18 +3053,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline10absdiff32fEPKfmS3_mPfmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff32fEPKfmS3_mPfmiiE25__cv_trace_location_fn547)
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
@@ -3127,18 +3121,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline10absdiff64fEPKdmS3_mPdmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff64fEPKdmS3_mPdmiiE25__cv_trace_location_fn547)
   %10 = lshr i64 %1, 3
   %11 = lshr i64 %3, 3
@@ -3282,18 +3276,18 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_10op_absdiffEdiEEvPKT0_mS6_mPS4_m
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #14
+  call void @__clang_call_terminate(ptr %84) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_10op_absdiffEdiEEvPKT0_mS6_mPS4_mii.exit, %81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline4or8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline4or8uEPKhmS3_mPhmiiE25__cv_trace_location_fn549)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -3346,18 +3340,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5xor8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5xor8uEPKhmS3_mPhmiiE25__cv_trace_location_fn550)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -3410,18 +3404,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5and8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5and8uEPKhmS3_mPhmiiE25__cv_trace_location_fn551)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -3474,18 +3468,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline5not8uEPKhmS3_mPhmii(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5not8uEPKhmS3_mPhmiiE25__cv_trace_location_fn564)
   %.not23.i = icmp ne i32 %7, 0
   %10 = icmp sgt i32 %6, 0
@@ -3534,11 +3528,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #14
+  call void @__clang_call_terminate(ptr %24) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -3547,7 +3541,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %83 [
     i32 3, label %13
@@ -3754,13 +3748,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
   br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !113
 
 83:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %113
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %84 unwind label %85
 
 84:                                               ; preds = %.noexc
@@ -3782,12 +3776,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %85
-  call void @_ZdlPv(ptr noundef %87) #16
+  call void @_ZdlPv(ptr noundef %87) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 93:                                               ; preds = %9
@@ -3843,11 +3837,11 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #14
+  call void @__clang_call_terminate(ptr %112) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, %109
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 113:                                              ; preds = %83
@@ -3857,8 +3851,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %113
   %eh.lpad-body = phi { ptr, i32 } [ %114, %113 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -3867,7 +3861,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %83 [
     i32 3, label %13
@@ -4074,13 +4068,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !127
 
 83:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %113
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %84 unwind label %85
 
 84:                                               ; preds = %.noexc
@@ -4102,12 +4096,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %85
-  call void @_ZdlPv(ptr noundef %87) #16
+  call void @_ZdlPv(ptr noundef %87) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 93:                                               ; preds = %9
@@ -4163,11 +4157,11 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #14
+  call void @__clang_call_terminate(ptr %112) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, %109
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 113:                                              ; preds = %83
@@ -4177,8 +4171,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %113
   %eh.lpad-body = phi { ptr, i32 } [ %114, %113 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -4187,7 +4181,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %93 [
     i32 3, label %13
@@ -4404,13 +4398,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !135
 
 93:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -4432,12 +4426,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #16
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 103:                                              ; preds = %9
@@ -4495,11 +4489,11 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #14
+  call void @__clang_call_terminate(ptr %124) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 125:                                              ; preds = %93
@@ -4509,8 +4503,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
   %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -4519,7 +4513,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %93 [
     i32 3, label %13
@@ -4736,13 +4730,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !143
 
 93:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -4764,12 +4758,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #16
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 103:                                              ; preds = %9
@@ -4827,11 +4821,11 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #14
+  call void @__clang_call_terminate(ptr %124) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 125:                                              ; preds = %93
@@ -4841,8 +4835,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
   %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -4851,7 +4845,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %93 [
     i32 3, label %13
@@ -5068,13 +5062,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !151
 
 93:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -5096,12 +5090,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #16
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 103:                                              ; preds = %9
@@ -5159,11 +5153,11 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #14
+  call void @__clang_call_terminate(ptr %124) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 125:                                              ; preds = %93
@@ -5173,8 +5167,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
   %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -5183,7 +5177,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %93 [
     i32 3, label %13
@@ -5400,13 +5394,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !159
 
 93:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -5428,12 +5422,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #16
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 103:                                              ; preds = %9
@@ -5491,11 +5485,11 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mP
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #14
+  call void @__clang_call_terminate(ptr %124) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 125:                                              ; preds = %93
@@ -5505,8 +5499,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
   %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -5515,7 +5509,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiiiE25__cv_trace_location_fn868)
   switch i32 %8, label %358 [
     i32 3, label %13
@@ -6167,13 +6161,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   br i1 %.not.i163.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i152.i, !llvm.loop !173
 
 358:                                              ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc unwind label %443
 
 .noexc:                                           ; preds = %358
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 820) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 820) #14
           to label %359 unwind label %360
 
 359:                                              ; preds = %.noexc
@@ -6195,12 +6189,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %360
-  call void @_ZdlPv(ptr noundef %362) #16
+  call void @_ZdlPv(ptr noundef %362) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 368:                                              ; preds = %9
@@ -6345,11 +6339,11 @@ _ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit: ; preds = %._cri
   %441 = landingpad { ptr, i32 }
           catch ptr null
   %442 = extractvalue { ptr, i32 } %441, 0
-  call void @__clang_call_terminate(ptr %442) #14
+  call void @__clang_call_terminate(ptr %442) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, %439
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 443:                                              ; preds = %358
@@ -6359,15 +6353,15 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %443
   %eh.lpad-body = phi { ptr, i32 } [ %444, %443 ], [ %361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKdE26__cv_trace_location_fn1559)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -6481,18 +6475,18 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #14
+  call void @__clang_call_terminate(ptr %63) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKdE26__cv_trace_location_fn1559)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -6601,18 +6595,18 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKdE26__cv_trace_location_fn1559)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -6723,18 +6717,18 @@ _ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKdE26__cv_trace_location_fn1559)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -6846,18 +6840,18 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #14
+  call void @__clang_call_terminate(ptr %61) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKdE26__cv_trace_location_fn1560)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fadd double %.val, -1.000000e+00
@@ -7064,18 +7058,18 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #14
+  call void @__clang_call_terminate(ptr %120) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %117
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKdE26__cv_trace_location_fn1561)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fadd double %.val, -1.000000e+00
@@ -7288,18 +7282,18 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #14
+  call void @__clang_call_terminate(ptr %126) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %123
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_E26__cv_trace_location_fn1562)
   %11 = load double, ptr %8, align 8, !tbaa !31
   %12 = fcmp oeq double %11, 1.000000e+00
@@ -7570,18 +7564,18 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #14
+  call void @__clang_call_terminate(ptr %152) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, %149
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline5div8uEPKhmS3_mPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline5div8uEPKhmS3_mPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5div8uEPKhmS3_mPhmiiPKdE26__cv_trace_location_fn1678)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -7658,18 +7652,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #14
+  call void @__clang_call_terminate(ptr %45) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline5div8sEPKamS3_mPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline5div8sEPKamS3_mPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5div8sEPKamS3_mPamiiPKdE26__cv_trace_location_fn1678)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -7740,18 +7734,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #14
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline6div16uEPKtmS3_mPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline6div16uEPKtmS3_mPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div16uEPKtmS3_mPtmiiPKdE26__cv_trace_location_fn1678)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -7825,18 +7819,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #14
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline6div16sEPKsmS3_mPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline6div16sEPKsmS3_mPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div16sEPKsmS3_mPsmiiPKdE26__cv_trace_location_fn1678)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -7910,18 +7904,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #14
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline6div32sEPKimS3_mPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline6div32sEPKimS3_mPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div32sEPKimS3_mPimiiPKdE26__cv_trace_location_fn1678)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -7992,18 +7986,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #14
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKdE26__cv_trace_location_fn1678)
   %.val = load double, ptr %8, align 8, !tbaa !31
   %11 = fptrunc double %.val to float
@@ -8193,18 +8187,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mP
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #14
+  call void @__clang_call_terminate(ptr %103) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_E26__cv_trace_location_fn1678)
   %11 = load double, ptr %8, align 8, !tbaa !31
   %12 = fcmp oeq double %11, 1.000000e+00
@@ -8475,18 +8469,18 @@ _ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %._c
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #14
+  call void @__clang_call_terminate(ptr %152) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, %149
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKdE26__cv_trace_location_fn1826)
   %11 = load double, ptr %8, align 8, !tbaa !31
   %12 = fptrunc double %11 to float
@@ -8613,18 +8607,18 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEE
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #14
+  call void @__clang_call_terminate(ptr %76) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKdE26__cv_trace_location_fn1826)
   %11 = load double, ptr %8, align 8, !tbaa !31
   %12 = fptrunc double %11 to float
@@ -8742,18 +8736,18 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEE
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #14
+  call void @__clang_call_terminate(ptr %67) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKdE26__cv_trace_location_fn1826)
   %11 = load double, ptr %8, align 8, !tbaa !31
   %12 = fptrunc double %11 to float
@@ -8874,18 +8868,18 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEv
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #14
+  call void @__clang_call_terminate(ptr %70) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKdE26__cv_trace_location_fn1826)
   %11 = load double, ptr %8, align 8, !tbaa !31
   %12 = fptrunc double %11 to float
@@ -9006,18 +9000,18 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEv
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #14
+  call void @__clang_call_terminate(ptr %70) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKdE26__cv_trace_location_fn1827)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !31
@@ -9363,18 +9357,18 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEE
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #14
+  call void @__clang_call_terminate(ptr %220) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %217
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKdE26__cv_trace_location_fn1828)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !31
@@ -9708,18 +9702,18 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEE
   %207 = landingpad { ptr, i32 }
           catch ptr null
   %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #14
+  call void @__clang_call_terminate(ptr %208) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %205
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_E26__cv_trace_location_fn1829)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !31
@@ -10021,18 +10015,18 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; 
   %179 = landingpad { ptr, i32 }
           catch ptr null
   %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #14
+  call void @__clang_call_terminate(ptr %180) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, %177
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline7recip8uEPKhmPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline7recip8uEPKhmPhmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline7recip8uEPKhmPhmiiPKdE26__cv_trace_location_fn1927)
   %.val = load double, ptr %6, align 8, !tbaa !31
   %9 = fptrunc double %.val to float
@@ -10100,18 +10094,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline7recip8sEPKamPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline7recip8sEPKamPamiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline7recip8sEPKamPamiiPKdE26__cv_trace_location_fn1927)
   %.val = load double, ptr %6, align 8, !tbaa !31
   %9 = fptrunc double %.val to float
@@ -10176,18 +10170,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline8recip16uEPKtmPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline8recip16uEPKtmPtmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip16uEPKtmPtmiiPKdE26__cv_trace_location_fn1927)
   %.val = load double, ptr %6, align 8, !tbaa !31
   %9 = fptrunc double %.val to float
@@ -10254,18 +10248,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline8recip16sEPKsmPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline8recip16sEPKsmPsmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip16sEPKsmPsmiiPKdE26__cv_trace_location_fn1927)
   %.val = load double, ptr %6, align 8, !tbaa !31
   %9 = fptrunc double %.val to float
@@ -10332,18 +10326,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3hal12cpu_baseline8recip32sEPKimPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3hal12cpu_baseline8recip32sEPKimPimiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip32sEPKimPimiiPKdE26__cv_trace_location_fn1927)
   %.val = load double, ptr %6, align 8, !tbaa !31
   %9 = fptrunc double %.val to float
@@ -10407,18 +10401,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline8recip32fEPKfmPfmiiPKd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip32fEPKfmPfmiiPKdE26__cv_trace_location_fn1927)
   %.val = load double, ptr %6, align 8, !tbaa !31
   %9 = fptrunc double %.val to float
@@ -10471,18 +10465,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_E26__cv_trace_location_fn1927)
   %9 = lshr i64 %1, 3
   %10 = lshr i64 %3, 3
@@ -10607,11 +10601,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit: ; preds = %._cr
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  call void @__clang_call_terminate(ptr %66) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, %63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -10619,9 +10613,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 define void @_ZN2cv3hal5add8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5add8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5add8uEPKhmS3_mPhmiiE25__cv_trace_location_fn541)
           to label %.noexc unwind label %41
 
@@ -10682,11 +10676,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !10
   %.not.i = icmp eq i32 %36, 0
@@ -10700,31 +10694,31 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal5add8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5add8sEPKamS2_mPamiiPvE25__cv_trace_location_fn541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5add8sEPKamS3_mPamiiE25__cv_trace_location_fn541)
           to label %.noexc unwind label %36
 
@@ -10780,11 +10774,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !10
   %.not.i = icmp eq i32 %31, 0
@@ -10798,18 +10792,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
 
@@ -10817,9 +10811,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 define void @_ZN2cv3hal6add16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6add16uEPKtmS2_mPtmiiPvE25__cv_trace_location_fn541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add16uEPKtmS3_mPtmiiE25__cv_trace_location_fn541)
           to label %.noexc unwind label %43
 
@@ -10882,11 +10876,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #14
+  call void @__clang_call_terminate(ptr %36) #13
   unreachable
 
 .critedge:                                        ; preds = %33, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !10
   %.not.i = icmp eq i32 %38, 0
@@ -10900,18 +10894,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #14
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 43:                                               ; preds = %9
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %44
 }
 
@@ -10919,9 +10913,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
 define void @_ZN2cv3hal6add16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6add16sEPKsmS2_mPsmiiPvE25__cv_trace_location_fn541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add16sEPKsmS3_mPsmiiE25__cv_trace_location_fn541)
           to label %.noexc unwind label %39
 
@@ -10980,11 +10974,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -10998,18 +10992,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
@@ -11017,9 +11011,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 define void @_ZN2cv3hal6add32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6add32sEPKimS2_mPimiiPvE25__cv_trace_location_fn541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add32sEPKimS3_mPimiiE25__cv_trace_location_fn541)
           to label %.noexc unwind label %39
 
@@ -11078,11 +11072,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -11096,18 +11090,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
@@ -11115,9 +11109,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 define void @_ZN2cv3hal6add32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6add32fEPKfmS2_mPfmiiPvE25__cv_trace_location_fn541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6add32fEPKfmS3_mPfmiiE25__cv_trace_location_fn541)
           to label %.noexc unwind label %39
 
@@ -11176,11 +11170,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -11194,25 +11188,25 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6add64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6add64fEPKdmS2_mPdmiiPvE25__cv_trace_location_fn541)
   invoke void @_ZN2cv3hal12cpu_baseline6add64fEPKdmS3_mPdmii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7)
           to label %.critedge unwind label %17
@@ -11231,18 +11225,18 @@ define void @_ZN2cv3hal6add64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
@@ -11250,9 +11244,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 define void @_ZN2cv3hal5sub8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5sub8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5sub8uEPKhmS3_mPhmiiE25__cv_trace_location_fn542)
           to label %.noexc unwind label %41
 
@@ -11313,11 +11307,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !10
   %.not.i = icmp eq i32 %36, 0
@@ -11331,18 +11325,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
 
@@ -11350,9 +11344,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 define void @_ZN2cv3hal5sub8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5sub8sEPKamS2_mPamiiPvE25__cv_trace_location_fn542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5sub8sEPKamS3_mPamiiE25__cv_trace_location_fn542)
           to label %.noexc unwind label %36
 
@@ -11408,11 +11402,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !10
   %.not.i = icmp eq i32 %31, 0
@@ -11426,18 +11420,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
 
@@ -11445,9 +11439,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 define void @_ZN2cv3hal6sub16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6sub16uEPKtmS2_mPtmiiPvE25__cv_trace_location_fn542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub16uEPKtmS3_mPtmiiE25__cv_trace_location_fn542)
           to label %.noexc unwind label %43
 
@@ -11510,11 +11504,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #14
+  call void @__clang_call_terminate(ptr %36) #13
   unreachable
 
 .critedge:                                        ; preds = %33, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !10
   %.not.i = icmp eq i32 %38, 0
@@ -11528,18 +11522,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #14
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 43:                                               ; preds = %9
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %44
 }
 
@@ -11547,9 +11541,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
 define void @_ZN2cv3hal6sub16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6sub16sEPKsmS2_mPsmiiPvE25__cv_trace_location_fn542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub16sEPKsmS3_mPsmiiE25__cv_trace_location_fn542)
           to label %.noexc unwind label %39
 
@@ -11608,11 +11602,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -11626,18 +11620,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
@@ -11645,9 +11639,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 define void @_ZN2cv3hal6sub32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6sub32sEPKimS2_mPimiiPvE25__cv_trace_location_fn542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub32sEPKimS3_mPimiiE25__cv_trace_location_fn542)
           to label %.noexc unwind label %39
 
@@ -11706,11 +11700,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -11724,18 +11718,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
@@ -11743,9 +11737,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 define void @_ZN2cv3hal6sub32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6sub32fEPKfmS2_mPfmiiPvE25__cv_trace_location_fn542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6sub32fEPKfmS3_mPfmiiE25__cv_trace_location_fn542)
           to label %.noexc unwind label %39
 
@@ -11804,11 +11798,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -11822,25 +11816,25 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6sub64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6sub64fEPKdmS2_mPdmiiPvE25__cv_trace_location_fn542)
   invoke void @_ZN2cv3hal12cpu_baseline6sub64fEPKdmS3_mPdmii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7)
           to label %.critedge unwind label %17
@@ -11859,18 +11853,18 @@ define void @_ZN2cv3hal6sub64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
@@ -11878,9 +11872,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 define void @_ZN2cv3hal5min8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5min8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn544)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5min8uEPKhmS3_mPhmiiE25__cv_trace_location_fn544)
           to label %.noexc unwind label %42
 
@@ -11942,11 +11936,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !10
   %.not.i = icmp eq i32 %37, 0
@@ -11960,18 +11954,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #14
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
 
@@ -11979,9 +11973,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 define void @_ZN2cv3hal5min8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5min8sEPKamS2_mPamiiPvE25__cv_trace_location_fn544)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5min8sEPKamS3_mPamiiE25__cv_trace_location_fn544)
           to label %.noexc unwind label %35
 
@@ -12037,11 +12031,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #14
+  call void @__clang_call_terminate(ptr %28) #13
   unreachable
 
 .critedge:                                        ; preds = %25, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !10
   %.not.i = icmp eq i32 %30, 0
@@ -12055,18 +12049,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 35:                                               ; preds = %9
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %36
 }
 
@@ -12074,9 +12068,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
 define void @_ZN2cv3hal6min16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6min16uEPKtmS2_mPtmiiPvE25__cv_trace_location_fn544)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min16uEPKtmS3_mPtmiiE25__cv_trace_location_fn544)
           to label %.noexc unwind label %38
 
@@ -12135,11 +12129,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !10
   %.not.i = icmp eq i32 %33, 0
@@ -12153,18 +12147,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
 
@@ -12172,9 +12166,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 define void @_ZN2cv3hal6min16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6min16sEPKsmS2_mPsmiiPvE25__cv_trace_location_fn544)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min16sEPKsmS3_mPsmiiE25__cv_trace_location_fn544)
           to label %.noexc unwind label %38
 
@@ -12233,11 +12227,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !10
   %.not.i = icmp eq i32 %33, 0
@@ -12251,18 +12245,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
 
@@ -12270,9 +12264,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 define void @_ZN2cv3hal6min32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6min32sEPKimS2_mPimiiPvE25__cv_trace_location_fn544)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min32sEPKimS3_mPimiiE25__cv_trace_location_fn544)
           to label %.noexc unwind label %38
 
@@ -12331,11 +12325,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !10
   %.not.i = icmp eq i32 %33, 0
@@ -12349,18 +12343,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
 
@@ -12368,9 +12362,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 define void @_ZN2cv3hal6min32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6min32fEPKfmS2_mPfmiiPvE25__cv_trace_location_fn544)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6min32fEPKfmS3_mPfmiiE25__cv_trace_location_fn544)
           to label %.noexc unwind label %39
 
@@ -12430,11 +12424,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -12448,25 +12442,25 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6min64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6min64fEPKdmS2_mPdmiiPvE25__cv_trace_location_fn544)
   invoke void @_ZN2cv3hal12cpu_baseline6min64fEPKdmS3_mPdmii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7)
           to label %.critedge unwind label %17
@@ -12485,18 +12479,18 @@ define void @_ZN2cv3hal6min64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
@@ -12504,9 +12498,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 define void @_ZN2cv3hal5max8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5max8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn545)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5max8uEPKhmS3_mPhmiiE25__cv_trace_location_fn545)
           to label %.noexc unwind label %41
 
@@ -12568,11 +12562,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !10
   %.not.i = icmp eq i32 %36, 0
@@ -12586,18 +12580,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
 
@@ -12605,9 +12599,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 define void @_ZN2cv3hal5max8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5max8sEPKamS2_mPamiiPvE25__cv_trace_location_fn545)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5max8sEPKamS3_mPamiiE25__cv_trace_location_fn545)
           to label %.noexc unwind label %35
 
@@ -12663,11 +12657,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #14
+  call void @__clang_call_terminate(ptr %28) #13
   unreachable
 
 .critedge:                                        ; preds = %25, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !10
   %.not.i = icmp eq i32 %30, 0
@@ -12681,18 +12675,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 35:                                               ; preds = %9
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %36
 }
 
@@ -12700,9 +12694,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
 define void @_ZN2cv3hal6max16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6max16uEPKtmS2_mPtmiiPvE25__cv_trace_location_fn545)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max16uEPKtmS3_mPtmiiE25__cv_trace_location_fn545)
           to label %.noexc unwind label %38
 
@@ -12761,11 +12755,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !10
   %.not.i = icmp eq i32 %33, 0
@@ -12779,18 +12773,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
 
@@ -12798,9 +12792,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 define void @_ZN2cv3hal6max16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6max16sEPKsmS2_mPsmiiPvE25__cv_trace_location_fn545)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max16sEPKsmS3_mPsmiiE25__cv_trace_location_fn545)
           to label %.noexc unwind label %38
 
@@ -12859,11 +12853,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !10
   %.not.i = icmp eq i32 %33, 0
@@ -12877,18 +12871,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
 
@@ -12896,9 +12890,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 define void @_ZN2cv3hal6max32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6max32sEPKimS2_mPimiiPvE25__cv_trace_location_fn545)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max32sEPKimS3_mPimiiE25__cv_trace_location_fn545)
           to label %.noexc unwind label %38
 
@@ -12957,11 +12951,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !10
   %.not.i = icmp eq i32 %33, 0
@@ -12975,18 +12969,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
 
@@ -12994,9 +12988,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 define void @_ZN2cv3hal6max32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6max32fEPKfmS2_mPfmiiPvE25__cv_trace_location_fn545)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6max32fEPKfmS3_mPfmiiE25__cv_trace_location_fn545)
           to label %.noexc unwind label %39
 
@@ -13056,11 +13050,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -13074,25 +13068,25 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6max64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6max64fEPKdmS2_mPdmiiPvE25__cv_trace_location_fn545)
   invoke void @_ZN2cv3hal12cpu_baseline6max64fEPKdmS3_mPdmii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7)
           to label %.critedge unwind label %17
@@ -13111,18 +13105,18 @@ define void @_ZN2cv3hal6max64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
@@ -13130,9 +13124,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 define void @_ZN2cv3hal9absdiff8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal9absdiff8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn547)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline9absdiff8uEPKhmS3_mPhmiiE25__cv_trace_location_fn547)
           to label %.noexc unwind label %39
 
@@ -13191,11 +13185,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !10
   %.not.i = icmp eq i32 %34, 0
@@ -13209,18 +13203,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
 
@@ -13228,9 +13222,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 define void @_ZN2cv3hal9absdiff8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal9absdiff8sEPKamS2_mPamiiPvE25__cv_trace_location_fn547)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline9absdiff8sEPKamS3_mPamiiE25__cv_trace_location_fn547)
           to label %.noexc unwind label %41
 
@@ -13291,11 +13285,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !10
   %.not.i = icmp eq i32 %36, 0
@@ -13309,18 +13303,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
 
@@ -13328,9 +13322,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 define void @_ZN2cv3hal10absdiff16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal10absdiff16uEPKtmS2_mPtmiiPvE25__cv_trace_location_fn547)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff16uEPKtmS3_mPtmiiE25__cv_trace_location_fn547)
           to label %.noexc unwind label %42
 
@@ -13392,11 +13386,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !10
   %.not.i = icmp eq i32 %37, 0
@@ -13410,18 +13404,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #14
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
 
@@ -13429,9 +13423,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 define void @_ZN2cv3hal10absdiff16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal10absdiff16sEPKsmS2_mPsmiiPvE25__cv_trace_location_fn547)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff16sEPKsmS3_mPsmiiE25__cv_trace_location_fn547)
           to label %.noexc unwind label %44
 
@@ -13495,11 +13489,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !10
   %.not.i = icmp eq i32 %39, 0
@@ -13513,18 +13507,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
 
@@ -13532,9 +13526,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 define void @_ZN2cv3hal10absdiff32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal10absdiff32sEPKimS2_mPimiiPvE25__cv_trace_location_fn547)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff32sEPKimS3_mPimiiE25__cv_trace_location_fn547)
           to label %.noexc unwind label %40
 
@@ -13594,11 +13588,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #14
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 .critedge:                                        ; preds = %30, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !10
   %.not.i = icmp eq i32 %35, 0
@@ -13612,18 +13606,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #14
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 40:                                               ; preds = %9
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %41
 }
 
@@ -13631,9 +13625,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
 define void @_ZN2cv3hal10absdiff32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal10absdiff32fEPKfmS2_mPfmiiPvE25__cv_trace_location_fn547)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline10absdiff32fEPKfmS3_mPfmiiE25__cv_trace_location_fn547)
           to label %.noexc unwind label %40
 
@@ -13693,11 +13687,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #14
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 .critedge:                                        ; preds = %30, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !10
   %.not.i = icmp eq i32 %35, 0
@@ -13711,25 +13705,25 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #14
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 40:                                               ; preds = %9
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal10absdiff64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal10absdiff64fEPKdmS2_mPdmiiPvE25__cv_trace_location_fn547)
   invoke void @_ZN2cv3hal12cpu_baseline10absdiff64fEPKdmS3_mPdmii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7)
           to label %.critedge unwind label %17
@@ -13748,18 +13742,18 @@ define void @_ZN2cv3hal10absdiff64fEPKdmS2_mPdmiiPv(ptr noundef readonly capture
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
@@ -13767,9 +13761,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 define void @_ZN2cv3hal4or8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal4or8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn549)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline4or8uEPKhmS3_mPhmiiE25__cv_trace_location_fn549)
           to label %.noexc unwind label %36
 
@@ -13825,11 +13819,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !10
   %.not.i = icmp eq i32 %31, 0
@@ -13843,18 +13837,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
 
@@ -13862,9 +13856,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 define void @_ZN2cv3hal5xor8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5xor8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn550)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5xor8uEPKhmS3_mPhmiiE25__cv_trace_location_fn550)
           to label %.noexc unwind label %36
 
@@ -13920,11 +13914,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !10
   %.not.i = icmp eq i32 %31, 0
@@ -13938,18 +13932,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
 
@@ -13957,9 +13951,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 define void @_ZN2cv3hal5and8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5and8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn551)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5and8uEPKhmS3_mPhmiiE25__cv_trace_location_fn551)
           to label %.noexc unwind label %36
 
@@ -14015,11 +14009,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !10
   %.not.i = icmp eq i32 %31, 0
@@ -14033,18 +14027,18 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
 
@@ -14052,9 +14046,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 define void @_ZN2cv3hal5not8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5not8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn571)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5not8uEPKhmS3_mPhmiiE25__cv_trace_location_fn564)
           to label %.noexc unwind label %33
 
@@ -14106,11 +14100,11 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 .critedge:                                        ; preds = %23, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !10
   %.not.i = icmp eq i32 %28, 0
@@ -14124,25 +14118,25 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 33:                                               ; preds = %9
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal5cmp8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5cmp8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14162,25 +14156,25 @@ define void @_ZN2cv3hal5cmp8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal5cmp8sEPKamS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5cmp8sEPKamS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14200,25 +14194,25 @@ define void @_ZN2cv3hal5cmp8sEPKamS2_mPhmiiPv(ptr noundef readonly captures(none
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6cmp16uEPKtmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6cmp16uEPKtmS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14238,25 +14232,25 @@ define void @_ZN2cv3hal6cmp16uEPKtmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6cmp16sEPKsmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6cmp16sEPKsmS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14276,25 +14270,25 @@ define void @_ZN2cv3hal6cmp16sEPKsmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6cmp32sEPKimS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6cmp32sEPKimS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14314,25 +14308,25 @@ define void @_ZN2cv3hal6cmp32sEPKimS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6cmp32fEPKfmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6cmp32fEPKfmS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14352,25 +14346,25 @@ define void @_ZN2cv3hal6cmp32fEPKfmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6cmp64fEPKdmS2_mPhmiiPv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6cmp64fEPKdmS2_mPhmiiPvE25__cv_trace_location_fn868)
   %11 = load i32, ptr %8, align 4, !tbaa !23
   invoke void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %11)
@@ -14390,25 +14384,25 @@ define void @_ZN2cv3hal6cmp64fEPKdmS2_mPhmiiPv(ptr noundef %0, i64 noundef %1, p
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal5mul8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5mul8uEPKhmS2_mPhmiiPvE26__cv_trace_location_fn1559)
   invoke void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14427,25 +14421,25 @@ define void @_ZN2cv3hal5mul8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal5mul8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5mul8sEPKamS2_mPamiiPvE26__cv_trace_location_fn1559)
   invoke void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14464,25 +14458,25 @@ define void @_ZN2cv3hal5mul8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6mul16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6mul16uEPKtmS2_mPtmiiPvE26__cv_trace_location_fn1559)
   invoke void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14501,25 +14495,25 @@ define void @_ZN2cv3hal6mul16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6mul16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6mul16sEPKsmS2_mPsmiiPvE26__cv_trace_location_fn1559)
   invoke void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14538,25 +14532,25 @@ define void @_ZN2cv3hal6mul16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6mul32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6mul32fEPKfmS2_mPfmiiPvE26__cv_trace_location_fn1560)
   invoke void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14575,25 +14569,25 @@ define void @_ZN2cv3hal6mul32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6mul32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6mul32sEPKimS2_mPimiiPvE26__cv_trace_location_fn1561)
   invoke void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14612,25 +14606,25 @@ define void @_ZN2cv3hal6mul32sEPKimS2_mPimiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6mul64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6mul64fEPKdmS2_mPdmiiPvE26__cv_trace_location_fn1562)
   invoke void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -14649,28 +14643,28 @@ define void @_ZN2cv3hal6mul64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal5div8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal5div8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5div8uEPKhmS2_mPhmiiPvE26__cv_trace_location_fn1678)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5div8uEPKhmS3_mPhmiiPKdE26__cv_trace_location_fn1678)
           to label %.noexc unwind label %53
 
@@ -14750,11 +14744,11 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 .critedge:                                        ; preds = %43, %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !10
   %.not.i = icmp eq i32 %48, 0
@@ -14768,28 +14762,28 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 53:                                               ; preds = %9
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal5div8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal5div8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5div8sEPKamS2_mPamiiPvE26__cv_trace_location_fn1678)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5div8sEPKamS3_mPamiiPKdE26__cv_trace_location_fn1678)
           to label %.noexc unwind label %47
 
@@ -14863,11 +14857,11 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 .critedge:                                        ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !10
   %.not.i = icmp eq i32 %42, 0
@@ -14881,28 +14875,28 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 47:                                               ; preds = %9
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal6div16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal6div16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6div16uEPKtmS2_mPtmiiPvE26__cv_trace_location_fn1678)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div16uEPKtmS3_mPtmiiPKdE26__cv_trace_location_fn1678)
           to label %.noexc unwind label %50
 
@@ -14979,11 +14973,11 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 .critedge:                                        ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !10
   %.not.i = icmp eq i32 %45, 0
@@ -14997,28 +14991,28 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #14
+  call void @__clang_call_terminate(ptr %49) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 50:                                               ; preds = %9
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal6div16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal6div16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6div16sEPKsmS2_mPsmiiPvE26__cv_trace_location_fn1678)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div16sEPKsmS3_mPsmiiPKdE26__cv_trace_location_fn1678)
           to label %.noexc unwind label %50
 
@@ -15095,11 +15089,11 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 .critedge:                                        ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !10
   %.not.i = icmp eq i32 %45, 0
@@ -15113,28 +15107,28 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #14
+  call void @__clang_call_terminate(ptr %49) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 50:                                               ; preds = %9
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal6div32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal6div32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6div32sEPKimS2_mPimiiPvE26__cv_trace_location_fn1678)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6div32sEPKimS3_mPimiiPKdE26__cv_trace_location_fn1678)
           to label %.noexc unwind label %47
 
@@ -15208,11 +15202,11 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 .critedge:                                        ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !10
   %.not.i = icmp eq i32 %42, 0
@@ -15226,25 +15220,25 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 47:                                               ; preds = %9
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6div32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6div32fEPKfmS2_mPfmiiPvE26__cv_trace_location_fn1678)
   invoke void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -15263,25 +15257,25 @@ define void @_ZN2cv3hal6div32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal6div64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal6div64fEPKdmS2_mPdmiiPvE26__cv_trace_location_fn1678)
   invoke void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -15300,25 +15294,25 @@ define void @_ZN2cv3hal6div64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal13addWeighted8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal13addWeighted8uEPKhmS2_mPhmiiPvE26__cv_trace_location_fn1826)
   invoke void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15337,25 +15331,25 @@ define void @_ZN2cv3hal13addWeighted8uEPKhmS2_mPhmiiPv(ptr noundef readonly capt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal13addWeighted8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal13addWeighted8sEPKamS2_mPamiiPvE26__cv_trace_location_fn1826)
   invoke void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15374,25 +15368,25 @@ define void @_ZN2cv3hal13addWeighted8sEPKamS2_mPamiiPv(ptr noundef readonly capt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal14addWeighted16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal14addWeighted16uEPKtmS2_mPtmiiPvE26__cv_trace_location_fn1826)
   invoke void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15411,25 +15405,25 @@ define void @_ZN2cv3hal14addWeighted16uEPKtmS2_mPtmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal14addWeighted16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal14addWeighted16sEPKsmS2_mPsmiiPvE26__cv_trace_location_fn1826)
   invoke void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15448,25 +15442,25 @@ define void @_ZN2cv3hal14addWeighted16sEPKsmS2_mPsmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal14addWeighted32sEPKimS2_mPimiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal14addWeighted32sEPKimS2_mPimiiPvE26__cv_trace_location_fn1827)
   invoke void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15485,25 +15479,25 @@ define void @_ZN2cv3hal14addWeighted32sEPKimS2_mPimiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal14addWeighted32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal14addWeighted32fEPKfmS2_mPfmiiPvE26__cv_trace_location_fn1828)
   invoke void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15522,25 +15516,25 @@ define void @_ZN2cv3hal14addWeighted32fEPKfmS2_mPfmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal14addWeighted64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal14addWeighted64fEPKdmS2_mPdmiiPvE26__cv_trace_location_fn1829)
   invoke void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
           to label %.critedge unwind label %17
@@ -15559,28 +15553,28 @@ define void @_ZN2cv3hal14addWeighted64fEPKdmS2_mPdmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal7recip8uEPKhmS2_mPhmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal7recip8uEPKhmS2_mPhmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal7recip8uEPKhmS2_mPhmiiPvE26__cv_trace_location_fn1927)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline7recip8uEPKhmPhmiiPKdE26__cv_trace_location_fn1927)
           to label %.noexc unwind label %45
 
@@ -15651,11 +15645,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 .critedge:                                        ; preds = %35, %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !10
   %.not.i = icmp eq i32 %40, 0
@@ -15669,28 +15663,28 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #14
+  call void @__clang_call_terminate(ptr %44) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 45:                                               ; preds = %9
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal7recip8sEPKamS2_mPamiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal7recip8sEPKamS2_mPamiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal7recip8sEPKamS2_mPamiiPvE26__cv_trace_location_fn1927)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline7recip8sEPKamPamiiPKdE26__cv_trace_location_fn1927)
           to label %.noexc unwind label %42
 
@@ -15758,11 +15752,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !10
   %.not.i = icmp eq i32 %37, 0
@@ -15776,28 +15770,28 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #14
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal8recip16uEPKtmS2_mPtmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal8recip16uEPKtmS2_mPtmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal8recip16uEPKtmS2_mPtmiiPvE26__cv_trace_location_fn1927)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip16uEPKtmPtmiiPKdE26__cv_trace_location_fn1927)
           to label %.noexc unwind label %44
 
@@ -15867,11 +15861,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !10
   %.not.i = icmp eq i32 %39, 0
@@ -15885,28 +15879,28 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal8recip16sEPKsmS2_mPsmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal8recip16sEPKsmS2_mPsmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal8recip16sEPKsmS2_mPsmiiPvE26__cv_trace_location_fn1927)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip16sEPKsmPsmiiPKdE26__cv_trace_location_fn1927)
           to label %.noexc unwind label %44
 
@@ -15976,11 +15970,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !10
   %.not.i = icmp eq i32 %39, 0
@@ -15994,28 +15988,28 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal8recip32sEPKimS2_mPimiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal8recip32sEPKimS2_mPimiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal8recip32sEPKimS2_mPimiiPvE26__cv_trace_location_fn1927)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip32sEPKimPimiiPKdE26__cv_trace_location_fn1927)
           to label %.noexc unwind label %41
 
@@ -16082,11 +16076,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !10
   %.not.i = icmp eq i32 %36, 0
@@ -16100,18 +16094,18 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
 
@@ -16119,9 +16113,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 define void @_ZN2cv3hal8recip32fEPKfmS2_mPfmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal8recip32fEPKfmS2_mPfmiiPvE26__cv_trace_location_fn1927)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline8recip32fEPKfmPfmiiPKdE26__cv_trace_location_fn1927)
           to label %.noexc unwind label %36
 
@@ -16177,11 +16171,11 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !10
   %.not.i = icmp eq i32 %31, 0
@@ -16195,25 +16189,25 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3hal8recip64fEPKdmS2_mPdmiiPv(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal8recip64fEPKdmS2_mPdmiiPvE26__cv_trace_location_fn1927)
   invoke void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8)
           to label %.critedge unwind label %17
@@ -16232,61 +16226,67 @@ define void @_ZN2cv3hal8recip64fEPKdmS2_mPdmiiPv(ptr noundef readnone captures(n
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
 
-declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
+declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #14
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #10
+declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #10
+declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -16331,22 +16331,22 @@ declare i16 @llvm.umax.i16(i16, i16) #12
 declare i16 @llvm.smax.i16(i16, i16) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { builtin nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

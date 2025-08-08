@@ -187,7 +187,7 @@ define void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20
 define void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr writeonly sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %.sroa.4.i = alloca [5 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -196,7 +196,7 @@ define void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load i64, ptr %10, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = load i64, ptr %1, align 8, !range !4, !noundef !3
   switch i64 %12, label %default.unreachable [
     i64 0, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i"
@@ -225,7 +225,7 @@ default.unreachable:                              ; preds = %2
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i": ; preds = %15, %13, %2, %2, %2
   %.sroa.2.0.i = phi ptr [ undef, %2 ], [ %.sroa.2.8.copyload.i, %13 ], [ %17, %15 ], [ undef, %2 ], [ undef, %2 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %19 = load ptr, ptr %18, align 8, !noundef !3
   %20 = icmp eq ptr %19, null
@@ -255,7 +255,7 @@ default.unreachable:                              ; preds = %2
   store ptr %19, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.sroa.3.0.i, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   ret void
 }
 
@@ -275,7 +275,7 @@ define hidden void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !5, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = load i64, ptr %14, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load i64, ptr %1, align 8, !range !4, !noundef !3
   switch i64 %16, label %default.unreachable [
     i64 0, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i"
@@ -304,7 +304,7 @@ default.unreachable:                              ; preds = %2
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i": ; preds = %19, %17, %2, %2, %2
   %.sroa.2.0.i = phi ptr [ undef, %2 ], [ %.sroa.2.8.copyload.i, %17 ], [ %21, %19 ], [ undef, %2 ], [ undef, %2 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %23 = load ptr, ptr %22, align 8, !noundef !3
   %24 = icmp eq ptr %23, null
@@ -459,7 +459,7 @@ define hidden void @"_ZN90_$LT$cranelift_codegen_meta..cdsl..operands..OperandKi
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load i64, ptr %10, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = load i64, ptr %1, align 8, !range !4, !noundef !3
   switch i64 %12, label %default.unreachable [
     i64 0, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit"
@@ -488,7 +488,7 @@ default.unreachable:                              ; preds = %2
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit": ; preds = %2, %2, %2, %13, %15
   %.sroa.2.0 = phi ptr [ undef, %2 ], [ %.sroa.2.8.copyload, %13 ], [ %17, %15 ], [ undef, %2 ], [ undef, %2 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %19 = load ptr, ptr %18, align 8, !noundef !3
   %20 = icmp eq ptr %19, null
@@ -596,10 +596,10 @@ declare void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..oper
 declare zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr align 8, ptr align 1, i64, ptr align 1, i64, ptr align 1, ptr align 8, ptr align 1, i64, ptr align 1, ptr align 8, ptr align 1, i64, ptr align 1, ptr align 8, ptr align 1, i64, ptr align 1, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

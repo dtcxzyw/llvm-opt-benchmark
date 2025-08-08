@@ -1056,7 +1056,7 @@ loop_restoration_alloc.exit.i:                    ; preds = %126, %._crit_edge11
   br i1 %exitcond89.not.i, label %132, label %129, !llvm.loop !34
 
 132:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val.i.i = load i8, ptr %9, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i, 0
@@ -1223,7 +1223,7 @@ loop_restoration_alloc.exit.i:                    ; preds = %126, %._crit_edge11
   br i1 %exitcond117.not.i.i, label %enqueue_lr_jobs.exit.i, label %154, !llvm.loop !37
 
 enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %224 = icmp sgt i32 %4, 0
   br i1 %224, label %.lr.ph.i, label %foreach_rest_unit_in_planes_mt.exit
 
@@ -1776,10 +1776,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

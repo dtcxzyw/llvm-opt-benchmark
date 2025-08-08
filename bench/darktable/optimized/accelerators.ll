@@ -449,7 +449,7 @@ define internal float @_action_process_toggle(ptr noundef %0, i32 %1, i32 nounde
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !6
   %32 = tail call ptr @g_object_ref(ptr noundef %30) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #24
   call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %33, ptr noundef nonnull @.str.119, ptr noundef nonnull %18, ptr noundef nonnull %5) #24
   %34 = load i32, ptr %5, align 4, !tbaa !9
@@ -480,7 +480,7 @@ define internal float @_action_process_toggle(ptr noundef %0, i32 %1, i32 nounde
   br label %44
 
 44:                                               ; preds = %42, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %11, %44, %8, %4
@@ -615,10 +615,10 @@ define internal noundef float @_action_process_entry(ptr noundef %0, i32 %1, i32
   br i1 %.not42, label %25, label %24
 
 24:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @gtk_text_buffer_get_iter_at_offset(ptr noundef nonnull %18, ptr noundef nonnull %5, i32 noundef %.0) #24
   call void @gtk_text_buffer_place_cursor(ptr noundef nonnull %18, ptr noundef nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 25:                                               ; preds = %23
@@ -638,18 +638,18 @@ define internal noundef float @_action_process_entry(ptr noundef %0, i32 %1, i32
   br label %42
 
 29:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = fptosi float %3 to i32
   store i32 %30, ptr %6, align 4, !tbaa !9
   %.not40 = icmp eq ptr %18, null
   br i1 %.not40, label %33, label %31
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @gtk_text_buffer_get_iter_at_offset(ptr noundef nonnull %18, ptr noundef nonnull %7, i32 noundef %30) #24
   %32 = load ptr, ptr @_entry_set_element, align 8, !tbaa !18
   call void @gtk_text_buffer_insert(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef %32, i32 noundef -1) #24
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 33:                                               ; preds = %29
@@ -658,7 +658,7 @@ define internal noundef float @_action_process_entry(ptr noundef %0, i32 %1, i32
   br label %35
 
 35:                                               ; preds = %33, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 36:                                               ; preds = %.critedge
@@ -734,17 +734,11 @@ define zeroext i8 @dt_register_input_driver(ptr noundef %0, ptr noundef readonly
   ret i8 %.01518
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1758,7 +1752,7 @@ _action_find_definition.exit.thread.i.i:          ; preds = %_action_find_defini
   br i1 %or.cond.i, label %41, label %_shortcut_lua_command.exit.thread
 
 41:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %43 = tail call fastcc i32 @_find_relative_instance(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %42)
@@ -1987,7 +1981,7 @@ _shortcut_lua_command.exit:                       ; preds = %139, %.sink.split.i
   %151 = load float, ptr %150, align 8, !tbaa !125
   %152 = fpext reassoc nsz arcp contract afn float %151 to double
   %153 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %136, ptr noundef nonnull %133, ptr noundef nonnull %137, ptr noundef nonnull %133, ptr noundef nonnull %138, ptr noundef %149, double noundef %152, ptr noundef nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %153, null
   br i1 %.not, label %_shortcut_lua_command.exit.thread, label %154
 
@@ -2013,7 +2007,7 @@ declare ptr @gdk_display_get_default() local_unnamed_addr #1
 declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) #1
 
@@ -2022,7 +2016,7 @@ define void @dt_shortcut_copy_lua(ptr noundef %0, ptr noundef %1) local_unnamed_
   %3 = alloca %struct.dt_shortcut_t, align 8
   %4 = alloca [3 x ptr], align 8
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store float 1.000000e+00, ptr %6, align 8
@@ -2086,12 +2080,12 @@ define void @dt_shortcut_copy_lua(ptr noundef %0, ptr noundef %1) local_unnamed_
 37:                                               ; preds = %9, %15, %32
   %.0 = phi ptr [ null, %32 ], [ null, %9 ], [ %17, %15 ]
   call void @_shortcut_copy_lua(ptr noundef %.0, ptr noundef nonnull %3, ptr poison)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_action_locate(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2360,13 +2354,13 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br i1 %.not141, label %33, label %321
 
 33:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 588
   %36 = load i32, ptr %35, align 4, !tbaa !135
@@ -2388,10 +2382,10 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br i1 %.not144, label %320, label %44
 
 44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %45 = tail call i64 @gtk_tree_view_get_type() #25
   %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %45) #24
   %47 = call i32 @gtk_tree_view_get_tooltip_context(ptr noundef %46, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %15) #24
@@ -2409,7 +2403,7 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br i1 %.not146, label %53, label %80
 
 53:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !158
   %54 = load ptr, ptr %14, align 8, !tbaa !160
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %54, ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %16, i32 noundef -1) #24
@@ -2465,10 +2459,10 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
 
 .thread199:                                       ; preds = %71, %78
   %.sroa.4.1 = phi i32 [ 0, %71 ], [ %.sroa.4.0.copyload, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread187
 
 80:                                               ; preds = %48
@@ -2516,9 +2510,9 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br label %.preheader.thread
 
 104:                                              ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %320
 
 105:                                              ; preds = %40
@@ -2647,18 +2641,18 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   %.ph204 = phi ptr [ %95, %.thread181 ], [ @.str.5, %91 ]
   %175 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.69, ptr noundef %84, ptr noundef %85, ptr noundef %90, ptr noundef %.ph204, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5) #24
   store ptr %175, ptr %9, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread187
 
 .preheader.thread:                                ; preds = %96, %100
   %176 = phi ptr [ @.str.5, %96 ], [ %103, %100 ]
   %177 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.69, ptr noundef %84, ptr noundef %85, ptr noundef %90, ptr noundef %97, ptr noundef nonnull @.str.73, ptr noundef nonnull %176) #24
   store ptr %177, ptr %9, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.ph.in.in261 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %.ph.in262 = load ptr, ptr %.ph.in.in261, align 8, !tbaa !105
   %.ph263 = icmp ne ptr %.ph.in262, null
@@ -2980,10 +2974,10 @@ thread-pre-split:                                 ; preds = %282, %._crit_edge25
 
 320:                                              ; preds = %104, %317, %316, %42
   %.1 = phi i32 [ 0, %104 ], [ 0, %42 ], [ 1, %317 ], [ 0, %316 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %321
 
 321:                                              ; preds = %23, %26, %29, %21, %320
@@ -2996,7 +2990,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare ptr @gtk_widget_get_toplevel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_window_get_type() local_unnamed_addr #7
+declare i64 @gtk_window_get_type() local_unnamed_addr #6
 
 declare i32 @gtk_window_is_active(ptr noundef) local_unnamed_addr #1
 
@@ -3009,14 +3003,14 @@ declare ptr @dt_bauhaus_widget_get_tooltip_markup(ptr noundef, i32 noundef) loca
 declare ptr @gtk_widget_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @gtk_widget_is_sensitive(ptr noundef) local_unnamed_addr #1
 
 declare i32 @gtk_tree_view_get_tooltip_context(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_view_get_type() local_unnamed_addr #7
+declare i64 @gtk_tree_view_get_type() local_unnamed_addr #6
 
 declare void @gtk_tree_view_set_tooltip_row(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3027,7 +3021,7 @@ declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare ptr @g_markup_printf_escaped(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @_action_find_definition(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #9 {
+define internal fastcc ptr @_action_find_definition(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
 
@@ -3095,7 +3089,7 @@ declare ptr @gtk_widget_get_parent(ptr noundef) local_unnamed_addr #1
 declare i32 @dt_dev_modulegroups_basics_module_toggle(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @DT_IS_BAUHAUS_WIDGET(ptr noundef readonly %0) unnamed_addr #10 {
+define internal fastcc i32 @DT_IS_BAUHAUS_WIDGET(ptr noundef readonly %0) unnamed_addr #9 {
   %2 = tail call i64 @dt_bh_get_type() #24
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
@@ -3138,12 +3132,12 @@ declare ptr @gtk_label_new(ptr noundef) local_unnamed_addr #1
 declare void @gtk_label_set_markup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_label_get_type() local_unnamed_addr #7
+declare i64 @gtk_label_get_type() local_unnamed_addr #6
 
 declare void @gtk_label_set_line_wrap(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 declare void @gtk_label_set_max_width_chars(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3152,7 +3146,7 @@ declare void @gtk_widget_set_halign(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @gtk_box_pack_start(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_box_get_type() local_unnamed_addr #7
+declare i64 @gtk_box_get_type() local_unnamed_addr #6
 
 declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #1
 
@@ -3171,11 +3165,11 @@ define internal void @_tooltip_reposition(ptr noundef %0, ptr readnone captures(
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call i32 @gdk_window_get_width(ptr noundef nonnull %8) #24
   %11 = call i32 @gdk_window_get_origin(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = call ptr @gdk_window_get_display(ptr noundef nonnull %8) #24
   %13 = call ptr @gdk_display_get_monitor_at_window(ptr noundef %12, ptr noundef nonnull %8) #24
   call void @gdk_monitor_get_workarea(ptr noundef %13, ptr noundef nonnull %6) #24
@@ -3197,9 +3191,9 @@ define internal void @_tooltip_reposition(ptr noundef %0, ptr readnone captures(
   br label %25
 
 25:                                               ; preds = %23, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 26:                                               ; preds = %3, %25
@@ -3211,13 +3205,13 @@ define ptr @dt_shortcuts_prefs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca [3 x i8], align 1
   %4 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %2, i64 noundef 4096) #24
   %5 = call i64 @g_strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   %6 = call i64 @g_strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.94, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %2, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %9 = load ptr, ptr %8, align 8, !tbaa !56
@@ -3368,7 +3362,7 @@ g_set_weak_pointer.exit:                          ; preds = %._crit_edge, %28, %
   br label %100
 
 98:                                               ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) @__const.dt_shortcuts_prefs.relative, i64 3, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %104
@@ -3398,7 +3392,7 @@ g_set_weak_pointer.exit:                          ; preds = %._crit_edge, %28, %
   br i1 %111, label %.critedge, label %112
 
 112:                                              ; preds = %108
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %96, ptr noundef nonnull @.str.104, ptr noundef %97, ptr noundef nonnull @.str.105, i32 noundef 0, ptr noundef nonnull @.str.106, i32 noundef 0, ptr noundef null) #24
   %113 = call i64 @g_signal_connect_data(ptr noundef %96, ptr noundef nonnull @.str.114, ptr noundef nonnull @_instance_edited, ptr noundef %38, ptr noundef null, i32 noundef 0) #24
   %114 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.116, i32 noundef 5) #24
@@ -3441,7 +3435,7 @@ g_set_weak_pointer.exit:                          ; preds = %._crit_edge, %28, %
   br label %g_set_weak_pointer.exit188
 
 g_set_weak_pointer.exit188:                       ; preds = %112, %130, %131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %132 = icmp eq ptr %0, null
   %133 = load ptr, ptr @_selected_action, align 8
@@ -3718,14 +3712,14 @@ g_set_weak_pointer.exit188:                       ; preds = %112, %130, %131
   call void @gtk_box_pack_start(ptr noundef %301, ptr noundef %22, i32 noundef 1, i32 noundef 1, i32 noundef 0) #24
   %302 = call ptr @g_type_check_instance_cast(ptr noundef %288, i64 noundef %255) #24
   call void @gtk_box_pack_start(ptr noundef %302, ptr noundef %254, i32 noundef 0, i32 noundef 0, i32 noundef 0) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %288
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_shortcuts_save(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %3, i64 noundef 4096) #24
   %4 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
@@ -3748,7 +3742,7 @@ define void @dt_shortcuts_save(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 11:                                               ; preds = %8, %7
   call fastcc void @_shortcuts_save(ptr noundef nonnull %3, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3759,14 +3753,14 @@ declare ptr @gtk_tree_store_new(i32 noundef, ...) local_unnamed_addr #1
 declare void @gtk_tree_sortable_set_default_sort_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_sortable_get_type() local_unnamed_addr #7
+declare i64 @gtk_tree_sortable_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_sort_speed_shortcuts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #24
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
   %7 = load ptr, ptr %5, align 8, !tbaa !78
@@ -3877,8 +3871,8 @@ _shortcut_is_speed.exit23:                        ; preds = %51
 
 _shortcut_is_speed.exit.thread:                   ; preds = %38, %41, %44, %48, %51, %15, %21, %24, %28, %31, %58, %_shortcut_is_speed.exit23, %_shortcut_is_speed.exit, %4
   %.0 = phi i32 [ 0, %4 ], [ %65, %58 ], [ 0, %_shortcut_is_speed.exit23 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %21 ], [ 0, %15 ], [ 0, %51 ], [ 0, %48 ], [ 0, %44 ], [ 0, %41 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3887,20 +3881,20 @@ declare void @gtk_tree_sortable_set_sort_column_id(ptr noundef, i32 noundef, i32
 declare ptr @gtk_tree_model_filter_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_model_get_type() local_unnamed_addr #7
+declare i64 @gtk_tree_model_get_type() local_unnamed_addr #6
 
 declare void @g_object_unref(ptr noundef) local_unnamed_addr #1
 
 declare void @gtk_tree_model_filter_set_visible_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_model_filter_get_type() local_unnamed_addr #7
+declare i64 @gtk_tree_model_filter_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_visible_shortcuts(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #24
   %6 = load ptr, ptr %4, align 8, !tbaa !78
@@ -3910,7 +3904,7 @@ define internal range(i32 0, 2) i32 @_visible_shortcuts(ptr noundef %0, ptr noun
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1) #24
   %.not4143.not = icmp eq i32 %11, 0
   br i1 %.not4143.not, label %._crit_edge, label %.lr.ph
@@ -3927,7 +3921,7 @@ define internal range(i32 0, 2) i32 @_visible_shortcuts(ptr noundef %0, ptr noun
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph, %10
   %.not41.lcssa = phi i32 [ 0, %10 ], [ 1, %.lr.ph ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 15:                                               ; preds = %3
@@ -4042,7 +4036,7 @@ define internal range(i32 0, 2) i32 @_visible_shortcuts(ptr noundef %0, ptr noun
 
 .loopexit:                                        ; preds = %.lr.ph51, %67, %43, %40, %36, %33, %30, %25, %47, %54, %.critedge, %._crit_edge
   %.2 = phi i32 [ %.not41.lcssa, %._crit_edge ], [ %72, %67 ], [ 0, %43 ], [ 0, %40 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 1, %47 ], [ 1, %54 ], [ 0, %.critedge ], [ 1, %.lr.ph51 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
@@ -4062,18 +4056,18 @@ define internal range(i32 0, 2) i32 @_search_func(ptr noundef %0, i32 noundef %1
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !147
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %3, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
   %12 = load ptr, ptr %6, align 8, !tbaa !147
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = call noalias ptr @g_utf8_casefold(ptr noundef %14, i64 noundef -1) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %29
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !158
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %3, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #24
   %17 = load ptr, ptr %7, align 8, !tbaa !158
@@ -4097,7 +4091,7 @@ define internal range(i32 0, 2) i32 @_search_func(ptr noundef %0, i32 noundef %1
 
 28:                                               ; preds = %21, %25, %16
   %.1 = phi ptr [ null, %16 ], [ %27, %25 ], [ null, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %28, %11
@@ -4126,7 +4120,7 @@ define internal range(i32 0, 2) i32 @_search_func(ptr noundef %0, i32 noundef %1
   br label %36
 
 36:                                               ; preds = %.critedge, %30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %3) #24
   %.not34 = icmp eq i32 %37, 0
   br i1 %.not34, label %.loopexit, label %.preheader
@@ -4138,7 +4132,7 @@ define internal range(i32 0, 2) i32 @_search_func(ptr noundef %0, i32 noundef %1
   br i1 %.not35, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
 40:                                               ; preds = %.loopexit, %32
@@ -4151,12 +4145,12 @@ declare ptr @gtk_search_entry_new() local_unnamed_addr #1
 declare void @gtk_entry_set_placeholder_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_entry_get_type() local_unnamed_addr #7
+declare i64 @gtk_entry_get_type() local_unnamed_addr #6
 
 declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_widget_get_type() local_unnamed_addr #7
+declare i64 @gtk_widget_get_type() local_unnamed_addr #6
 
 declare void @dt_gui_search_stop(ptr noundef, ptr noundef) #1
 
@@ -4170,9 +4164,9 @@ declare ptr @gtk_tree_view_get_selection(ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @_shortcut_selection_function(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct._GtkTreeIter, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = call i32 @gtk_tree_model_get_iter(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %2) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #24
   %9 = load ptr, ptr %7, align 8, !tbaa !78
@@ -4197,8 +4191,8 @@ define internal range(i32 0, 2) i32 @_shortcut_selection_function(ptr noundef %0
 
 20:                                               ; preds = %5, %16, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %16 ], [ 1, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4210,11 +4204,11 @@ declare void @gtk_widget_set_name(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal void @_shortcut_row_activated(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i64 @gtk_tree_model_get_type() #25
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %7) #24
   %9 = call i32 @gtk_tree_model_get_iter(ptr noundef %8, ptr noundef nonnull %5, ptr noundef %1) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !158
   %10 = call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %7) #24
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
@@ -4239,8 +4233,8 @@ define internal void @_shortcut_row_activated(ptr noundef %0, ptr noundef %1, pt
   br label %23
 
 23:                                               ; preds = %4, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4254,8 +4248,8 @@ define internal i32 @_view_key_pressed(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = tail call i64 @gtk_tree_view_get_type() #25
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %9) #24
   %11 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %10) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !160
   %12 = call i32 @gtk_tree_selection_get_selected(ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %5) #24
   %.not = icmp eq i32 %12, 0
@@ -4278,7 +4272,7 @@ define internal i32 @_view_key_pressed(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not31, label %23, label %59
 
 23:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store float 1.000000e+00, ptr %24, align 8
@@ -4286,11 +4280,11 @@ define internal i32 @_view_key_pressed(ptr noundef %0, ptr noundef %1, ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %25, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %26, i32 noundef -1) #24
   call void @_shortcut_copy_lua(ptr noundef null, ptr noundef nonnull %7, ptr poison)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %59
 
 27:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !158
   %28 = load ptr, ptr %6, align 8, !tbaa !160
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %28, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %8, i32 noundef -1) #24
@@ -4351,20 +4345,20 @@ define internal i32 @_view_key_pressed(ptr noundef %0, ptr noundef %1, ptr nound
 56:                                               ; preds = %53
   %57 = load ptr, ptr %8, align 8, !tbaa !158
   call fastcc void @_remove_shortcut(ptr noundef %57)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %4, i64 noundef 4096) #24
   %58 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %4, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %56, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 
 .critedge29:                                      ; preds = %27, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
 59:                                               ; preds = %.critedge29, %23, %16, %3
@@ -4373,8 +4367,8 @@ define internal i32 @_view_key_pressed(ptr noundef %0, ptr noundef %1, ptr nound
 
 61:                                               ; preds = %.critedge, %59
   %.3 = phi i32 [ %60, %59 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3
 }
 
@@ -4409,16 +4403,16 @@ define internal void @_element_editing_started(ptr readnone captures(none) %0, p
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %2) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @gtk_tree_model_get_iter(ptr noundef %3, ptr noundef nonnull %5, ptr noundef %7) #24
   call void @gtk_tree_path_free(ptr noundef %7) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
   %9 = load ptr, ptr %6, align 8, !tbaa !78
   %10 = call ptr @g_sequence_get(ptr noundef %9) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %11 = tail call i64 @gtk_combo_box_get_type() #25
   %12 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %11) #24
   %13 = call ptr @gtk_combo_box_get_model(ptr noundef %12) #24
@@ -4516,17 +4510,17 @@ define internal void @_element_changed(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %1) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call i32 @gtk_tree_model_get_iter(ptr noundef %3, ptr noundef nonnull %6, ptr noundef %9) #24
   call void @gtk_tree_path_free(ptr noundef %9) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %3, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #24
   %11 = load ptr, ptr %7, align 8, !tbaa !78
   %12 = call ptr @g_sequence_get(ptr noundef %11) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !160
   call void (ptr, ptr, ...) @g_object_get(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %8, ptr noundef null) #24
   %13 = load ptr, ptr %8, align 8, !tbaa !160
@@ -4628,13 +4622,13 @@ _shortcut_default_effect.exit:                    ; preds = %56, %59
 
 64:                                               ; preds = %_shortcut_default_effect.exit, %_action_find_definition.exit.thread.i
   store i32 %16, ptr %45, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %5, i64 noundef 4096) #24
   %65 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %5, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -4643,16 +4637,16 @@ define internal void @_effect_editing_started(ptr readnone captures(none) %0, pt
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %2) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @gtk_tree_model_get_iter(ptr noundef %3, ptr noundef nonnull %5, ptr noundef %7) #24
   call void @gtk_tree_path_free(ptr noundef %7) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
   %9 = load ptr, ptr %6, align 8, !tbaa !78
   %10 = call ptr @g_sequence_get(ptr noundef %9) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %11 = tail call i64 @gtk_combo_box_get_type() #25
   %12 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %11) #24
   %13 = call ptr @gtk_combo_box_get_model(ptr noundef %12) #24
@@ -4888,17 +4882,17 @@ define internal void @_effect_changed(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %1) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call i32 @gtk_tree_model_get_iter(ptr noundef %3, ptr noundef nonnull %6, ptr noundef %9) #24
   call void @gtk_tree_path_free(ptr noundef %9) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %3, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #24
   %11 = load ptr, ptr %7, align 8, !tbaa !78
   %12 = call ptr @g_sequence_get(ptr noundef %11) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !160
   call void (ptr, ptr, ...) @g_object_get(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %8, ptr noundef null) #24
   %13 = load ptr, ptr %8, align 8, !tbaa !160
@@ -4933,13 +4927,13 @@ _shortcut_is_move.exit:                           ; preds = %20, %23
   %or.cond13 = select i1 %.not, i1 %or.cond, i1 false
   %storemerge = select i1 %or.cond13, i32 -1, i32 %16
   store i32 %storemerge, ptr %17, align 4, !tbaa !109
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %5, i64 noundef 4096) #24
   %28 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %5, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -4955,24 +4949,24 @@ define internal void @_speed_edited(ptr readnone captures(none) %0, ptr noundef 
   %8 = tail call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %2, ptr noundef null) #24
   %9 = fptrunc reassoc nsz arcp contract afn double %8 to float
   %10 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %1) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i32 @gtk_tree_model_get_iter(ptr noundef %3, ptr noundef nonnull %6, ptr noundef %10) #24
   call void @gtk_tree_path_free(ptr noundef %10) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %3, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #24
   %12 = load ptr, ptr %7, align 8, !tbaa !78
   %13 = call ptr @g_sequence_get(ptr noundef %12) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store float %9, ptr %14, align 8, !tbaa !125
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %5, i64 noundef 4096) #24
   %15 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %5, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4986,16 +4980,16 @@ define internal void @_instance_edited(ptr readnone captures(none) %0, ptr nound
   %6 = alloca %struct._GtkTreeIter, align 8
   %7 = alloca ptr, align 8
   %8 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %1) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call i32 @gtk_tree_model_get_iter(ptr noundef %3, ptr noundef nonnull %6, ptr noundef %8) #24
   call void @gtk_tree_path_free(ptr noundef %8) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %3, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #24
   %10 = load ptr, ptr %7, align 8, !tbaa !78
   %11 = call ptr @g_sequence_get(ptr noundef %10) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %12 = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #24
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 52
@@ -5027,12 +5021,12 @@ define internal void @_instance_edited(ptr readnone captures(none) %0, ptr nound
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader._crit_edge, %4
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %5, i64 noundef 4096) #24
   %25 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %5, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5043,17 +5037,17 @@ declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef)
 declare void @gtk_scrolled_window_set_policy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_scrolled_window_get_type() local_unnamed_addr #7
+declare i64 @gtk_scrolled_window_get_type() local_unnamed_addr #6
 
 declare void @gtk_container_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_container_get_type() local_unnamed_addr #7
+declare i64 @gtk_container_get_type() local_unnamed_addr #6
 
 declare void @gtk_paned_pack2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_paned_get_type() local_unnamed_addr #7
+declare i64 @gtk_paned_get_type() local_unnamed_addr #6
 
 declare ptr @dt_view_manager_get_current_view(ptr noundef) local_unnamed_addr #1
 
@@ -5068,7 +5062,7 @@ declare ptr @dt_ui_get_container(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not33 = icmp eq ptr %1, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -5159,14 +5153,14 @@ define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0,
 
 ._crit_edge:                                      ; preds = %43, %4
   %.026.lcssa = phi i32 [ 0, %4 ], [ %.1, %43 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.026.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_action_row_activated(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i64 @gtk_tree_model_get_type() #25
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %6) #24
   %8 = call i32 @gtk_tree_model_get_iter(ptr noundef %7, ptr noundef nonnull %5, ptr noundef %1) #24
@@ -5191,7 +5185,7 @@ _action_find_definition.exit:                     ; preds = %4
   br label %13
 
 13:                                               ; preds = %_action_find_definition.exit, %_action_find_definition.exit.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5211,7 +5205,7 @@ define internal noundef i32 @_action_view_click(ptr noundef %0, ptr noundef read
 
 11:                                               ; preds = %3
   %12 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %7) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !156
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load double, ptr %13, align 8, !tbaa !198
@@ -5262,14 +5256,14 @@ define internal noundef i32 @_action_view_click(ptr noundef %0, ptr noundef read
   br label %36
 
 36:                                               ; preds = %35, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 37:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %8, ptr noundef nonnull %5) #24
   %39 = call fastcc i32 @_action_find_and_expand(ptr noundef %8, ptr noundef %5, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %3, %37, %36
@@ -5280,8 +5274,8 @@ define internal noundef i32 @_action_view_click(ptr noundef %0, ptr noundef read
 define internal void @_action_selection_changed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !160
   %5 = call i32 @gtk_tree_selection_get_selected(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %.not = icmp eq i32 %5, 0
@@ -5309,8 +5303,8 @@ define internal void @_action_selection_changed(ptr noundef %0, ptr noundef %1) 
   %18 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #24
   call void @gtk_tree_model_filter_refilter(ptr noundef %18) #24
   call void @gtk_tree_view_expand_all(ptr noundef %15) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5319,21 +5313,21 @@ define internal void @_shortcut_selection_changed(ptr noundef %0, ptr noundef %1
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 @gtk_tree_selection_get_selected(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #24
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !78
   %8 = load ptr, ptr %3, align 8, !tbaa !160
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %8, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #24
   %9 = load ptr, ptr %5, align 8, !tbaa !78
   %10 = call ptr @g_sequence_get(ptr noundef %9) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %11
 
 11:                                               ; preds = %2, %7
@@ -5342,8 +5336,8 @@ define internal void @_shortcut_selection_changed(ptr noundef %0, ptr noundef %1
   %12 = tail call i64 @gtk_widget_get_type() #25
   %13 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %12) #24
   call void @gtk_widget_queue_draw(ptr noundef %13) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5356,7 +5350,7 @@ declare void @gtk_tree_view_column_set_cell_data_func(ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal void @_fill_action_fields(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address_is_null) %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !147
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
   %7 = load ptr, ptr %6, align 8, !tbaa !147
@@ -5456,7 +5450,7 @@ _action_find_definition.exit.thread21:            ; preds = %28, %_action_find_d
 .loopexit:                                        ; preds = %41, %42, %38
   %.010 = phi i32 [ 400, %38 ], [ 700, %42 ], [ 400, %41 ]
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %1, ptr noundef nonnull @.str.215, ptr noundef %.011, ptr noundef nonnull @.str.218, i32 noundef %.010, ptr noundef null) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5505,7 +5499,7 @@ declare ptr @gtk_check_button_new_with_label(ptr noundef) local_unnamed_addr #1
 declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #7
+declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @_fallbacks_toggled(ptr noundef %0, ptr noundef %1) #0 {
@@ -5577,7 +5571,7 @@ define internal void @_restore_clicked(ptr noundef %0, ptr readnone captures(non
   ]
 
 34:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %6, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %6, i64 noundef 4096) #24
   %35 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
@@ -5591,11 +5585,11 @@ define internal void @_restore_clicked(ptr noundef %0, ptr readnone captures(non
   br label %dt_shortcuts_load.exit
 
 dt_shortcuts_load.exit:                           ; preds = %34, %38
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 39:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %5, i64 noundef 4096) #24
   %40 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
@@ -5609,11 +5603,11 @@ dt_shortcuts_load.exit:                           ; preds = %34, %38
   br label %dt_shortcuts_load.exit16
 
 dt_shortcuts_load.exit16:                         ; preds = %39, %43
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 44:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %4, i64 noundef 4096) #24
   %45 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
@@ -5627,16 +5621,16 @@ dt_shortcuts_load.exit16:                         ; preds = %39, %43
   br label %dt_shortcuts_load.exit18
 
 dt_shortcuts_load.exit18:                         ; preds = %44, %48
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 49:                                               ; preds = %dt_shortcuts_load.exit18, %dt_shortcuts_load.exit16, %dt_shortcuts_load.exit, %2
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %3, i64 noundef 4096) #24
   %50 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %3, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5688,7 +5682,7 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
   tail call void @gtk_container_add(ptr noundef %23, ptr noundef %26) #24
   %34 = tail call ptr @gtk_grid_new() #24
   %35 = tail call ptr @gtk_combo_box_text_new() #24
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 48, ptr %4, align 2
   br label %47
 
@@ -5704,7 +5698,7 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 40:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = tail call i64 @gtk_grid_get_type() #25
   %42 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %41) #24
   call void @gtk_grid_attach(ptr noundef %42, ptr noundef %35, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1) #24
@@ -5714,7 +5708,7 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %45, ptr noundef nonnull @.str.243, i32 noundef 1, ptr noundef nonnull @.str.113, double noundef 0.000000e+00, ptr noundef nonnull @.str.244, i32 noundef 3, ptr noundef null) #24
   call void @gtk_grid_attach(ptr noundef %43, ptr noundef %45, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #24
   %46 = call ptr @gtk_combo_box_text_new() #24
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 48, ptr %5, align 2
   br label %68
 
@@ -5728,7 +5722,7 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
   br i1 %51, label %47, label %40
 
 52:                                               ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %41) #24
   call void @gtk_grid_attach(ptr noundef %53, ptr noundef %46, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #24
   %54 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %41) #24
@@ -5821,7 +5815,7 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
   %107 = load ptr, ptr @_shortcuts_store, align 8, !tbaa !170
   %108 = tail call i64 @gtk_tree_model_get_type() #25
   %109 = call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %108) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %110 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %109, ptr noundef nonnull %6) #24
   %.not8494 = icmp eq i32 %110, 0
   br i1 %.not8494, label %._crit_edge97, label %.lr.ph96
@@ -5831,19 +5825,19 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
   br i1 %cond, label %.lr.ph96.split.us, label %.lr.ph96.split
 
 .lr.ph96.split.us:                                ; preds = %.lr.ph96, %._crit_edge93.split.us.us
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %111 = call i32 @gtk_tree_model_iter_children(ptr noundef %109, ptr noundef nonnull %7, ptr noundef nonnull %6) #24
   %.not8590.us = icmp eq i32 %111, 0
   br i1 %.not8590.us, label %._crit_edge93.split.us.us, label %.lr.ph92.us
 
 ._crit_edge93.split.us.us:                        ; preds = %129, %.lr.ph96.split.us
   %112 = call i32 @gtk_tree_model_iter_next(ptr noundef %109, ptr noundef nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not84.us = icmp eq i32 %112, 0
   br i1 %.not84.us, label %._crit_edge97, label %.lr.ph96.split.us, !llvm.loop !203
 
 .lr.ph92.us:                                      ; preds = %.lr.ph96.split.us, %129
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %109, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %8, i32 noundef -1) #24
   %113 = load ptr, ptr %8, align 8, !tbaa !78
   %114 = call ptr @g_sequence_get(ptr noundef %113) #24
@@ -5872,18 +5866,18 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
 
 129:                                              ; preds = %124, %122
   %.1.us.us = phi i32 [ %128, %124 ], [ %123, %122 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not85.us.us = icmp eq i32 %.1.us.us, 0
   br i1 %.not85.us.us, label %._crit_edge93.split.us.us, label %.lr.ph92.us, !llvm.loop !204
 
 .lr.ph96.split:                                   ; preds = %.lr.ph96, %._crit_edge93.split
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %130 = call i32 @gtk_tree_model_iter_children(ptr noundef %109, ptr noundef nonnull %7, ptr noundef nonnull %6) #24
   %.not8590 = icmp eq i32 %130, 0
   br i1 %.not8590, label %._crit_edge93.split, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph96.split, %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %109, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %8, i32 noundef -1) #24
   %131 = load ptr, ptr %8, align 8, !tbaa !78
   %132 = call ptr @g_sequence_get(ptr noundef %131) #24
@@ -5914,18 +5908,18 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
 
 149:                                              ; preds = %147, %142
   %.1 = phi i32 [ %146, %142 ], [ %148, %147 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not85 = icmp eq i32 %.1, 0
   br i1 %.not85, label %._crit_edge93.split, label %.lr.ph92
 
 ._crit_edge93.split:                              ; preds = %149, %.lr.ph96.split
   %150 = call i32 @gtk_tree_model_iter_next(ptr noundef %109, ptr noundef nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not84 = icmp eq i32 %150, 0
   br i1 %.not84, label %._crit_edge97, label %.lr.ph96.split
 
 ._crit_edge97:                                    ; preds = %._crit_edge93.split, %._crit_edge93.split.us.us, %106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %151
 
 151:                                              ; preds = %._crit_edge97, %101
@@ -5942,12 +5936,12 @@ define internal void @_import_clicked(ptr noundef %0, ptr readnone captures(none
 
 158:                                              ; preds = %151, %87
   call void @g_object_unref(ptr noundef %92) #24
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %3, i64 noundef 4096) #24
   %159 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %3, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %160
 
 160:                                              ; preds = %82, %158
@@ -5995,7 +5989,7 @@ define internal void @_export_clicked(ptr noundef %0, ptr readnone captures(none
   tail call void @gtk_container_add(ptr noundef %18, ptr noundef %21) #24
   %29 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #24
   %30 = tail call ptr @gtk_combo_box_text_new() #24
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 48, ptr %3, align 2
   br label %50
 
@@ -6011,7 +6005,7 @@ define internal void @_export_clicked(ptr noundef %0, ptr readnone captures(none
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 35:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %17) #24
   call void @gtk_container_add(ptr noundef %36, ptr noundef %30) #24
   %37 = call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %17) #24
@@ -6108,7 +6102,7 @@ declare void @gtk_widget_set_hexpand(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @gtk_bin_get_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_bin_get_type() local_unnamed_addr #7
+declare i64 @gtk_bin_get_type() local_unnamed_addr #6
 
 declare void @gtk_label_set_use_markup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6136,7 +6130,7 @@ declare void @dt_loc_get_user_config_dir(ptr noundef, i64 noundef) local_unnamed
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_shortcuts_save(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) unnamed_addr #0 {
@@ -6583,7 +6577,7 @@ _action_find_effect_combo.exit.thread:            ; preds = %_action_find_effect
 ; Function Attrs: nounwind uwtable
 define void @dt_shortcuts_load(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %3, i64 noundef 4096) #24
   %4 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
@@ -6604,7 +6598,7 @@ define void @dt_shortcuts_load(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %10
 
 10:                                               ; preds = %7, %9
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6676,7 +6670,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   br label %35
 
 35:                                               ; preds = %.lr.ph327, %287
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %22)
   %.not179 = icmp eq ptr %36, null
   br i1 %.not179, label %287, label %37
@@ -6694,7 +6688,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   br label %287
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %24, align 8
   %42 = call ptr @strtok(ptr noundef nonnull %5, ptr noundef nonnull @.str.270) #24
@@ -7321,11 +7315,11 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   br label %286
 
 286:                                              ; preds = %271, %._crit_edge, %195, %275, %.thread284, %.critedge
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %287
 
 287:                                              ; preds = %286, %35, %.critedge249
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %288 = call i32 @feof(ptr noundef nonnull %22) #24
   %.not178 = icmp eq i32 %288, 0
   br i1 %.not178, label %35, label %._crit_edge328
@@ -7351,7 +7345,7 @@ define void @dt_shortcuts_reinitialise(ptr noundef readnone captures(none) %0) l
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %2, i64 noundef 4096) #24
   %7 = call i64 @g_strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
@@ -7364,8 +7358,8 @@ define void @dt_shortcuts_reinitialise(ptr noundef readnone captures(none) %0) l
   br label %dt_shortcuts_load.exit
 
 dt_shortcuts_load.exit:                           ; preds = %._crit_edge, %9
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #24
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %3, i64 noundef 4096) #24
   %10 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.142, i64 noundef 4096) #24
@@ -7375,7 +7369,7 @@ dt_shortcuts_load.exit:                           ; preds = %._crit_edge, %9
   %14 = load ptr, ptr %13, align 8, !tbaa !176
   call fastcc void @_dump_actions(ptr noundef %11, ptr noundef %14)
   %15 = call i32 @fclose(ptr noundef %11)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -7397,7 +7391,7 @@ dt_shortcuts_load.exit:                           ; preds = %._crit_edge, %9
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_dump_actions(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
@@ -7434,7 +7428,7 @@ define internal fastcc void @_dump_actions(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @dt_shortcuts_select_view(i32 noundef %0) local_unnamed_addr #0 {
@@ -7450,7 +7444,7 @@ define void @dt_shortcuts_select_view(i32 noundef %0) local_unnamed_addr #0 {
 declare void @g_sequence_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_shortcut_compare_func(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #9 {
+define internal i32 @_shortcut_compare_func(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #8 {
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
   %.not.i = icmp eq ptr %0, null
@@ -7816,7 +7810,7 @@ define range(i32 0, 2) i32 @dt_action_widget_invisible(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @g_type_check_instance_is_a(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @g_type_check_instance_is_a(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 declare i32 @gtk_widget_get_visible(ptr noundef) local_unnamed_addr #1
 
@@ -7865,7 +7859,7 @@ define float @dt_action_process(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %94
 
 24:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !9
   %.not73 = icmp eq ptr %2, null
   br i1 %.not73, label %27, label %25
@@ -8053,7 +8047,7 @@ _action_find_elements.exit:                       ; preds = %48, %49, %50, %_act
 
 93:                                               ; preds = %62, %.critedge.thread, %.critedge92, %.thread98
   %.5 = phi nsz float [ %92, %.thread98 ], [ 0xC7EFFFFFE0000000, %.critedge.thread ], [ %63, %62 ], [ 0xC7EFFFFFE0000000, %.critedge92 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 94:                                               ; preds = %93, %23, %21, %16, %9
@@ -8156,7 +8150,7 @@ default.unreachable:                              ; preds = %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @_action_find_elements(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #9 {
+define internal fastcc ptr @_action_find_elements(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #8 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_action_find_definition.exit.thread9, label %2
 
@@ -8519,7 +8513,7 @@ _action_find_definition.exit.thread:              ; preds = %109, %111, %110, %_
   br i1 %or.cond8, label %135, label %151
 
 135:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i32 -536870913, ptr %7, align 8, !tbaa !82
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -8549,7 +8543,7 @@ _action_find_definition.exit.thread:              ; preds = %109, %111, %110, %_
 
 150:                                              ; preds = %141, %147, %135
   %.199 = phi nsz float [ %4, %135 ], [ %145, %147 ], [ %145, %141 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %151
 
 151:                                              ; preds = %127, %150, %126
@@ -8785,7 +8779,7 @@ _interrupt_delayed_release.exit:                  ; preds = %9, %7, %4
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 576
   %63 = load ptr, ptr %62, align 8, !tbaa !134
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @_sc, i64 56, i1 false), !tbaa.struct !249
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !90
@@ -8872,7 +8866,7 @@ _action_find_elements.exit.thread:                ; preds = %83, %60, %_action_f
 
 101:                                              ; preds = %97, %100, %93
   tail call void @dt_shortcuts_save(ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %102
 
 102:                                              ; preds = %55, %101
@@ -8931,7 +8925,7 @@ _action_find_elements.exit.thread:                ; preds = %83, %60, %_action_f
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_interrupt_delayed_release(i32 noundef range(i32 0, 2) %0) unnamed_addr #10 {
+define internal fastcc void @_interrupt_delayed_release(i32 noundef range(i32 0, 2) %0) unnamed_addr #9 {
   %2 = load i32, ptr @_timeout_source, align 4, !tbaa !9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %15, label %3
@@ -9018,13 +9012,13 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   br label %192
 
 27:                                               ; preds = %14, %12
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) @_sc, i64 56, i1 false), !tbaa.struct !249
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %28, align 8, !tbaa !90
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %29, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 576
   %32 = load ptr, ptr %31, align 8, !tbaa !134
@@ -9044,15 +9038,15 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   store i32 %39, ptr %6, align 8, !tbaa !82
   %40 = sext i32 %39 to i64
   %41 = inttoptr i64 %40 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 560
   %44 = load ptr, ptr %43, align 8, !tbaa !81
   %45 = call ptr @g_sequence_search(ptr noundef %44, ptr noundef nonnull %6, ptr noundef nonnull @_shortcut_compare_func, ptr noundef %41) #24
   store ptr %45, ptr %2, align 8, !tbaa !158
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !259
   %46 = call fastcc i32 @_shortcut_closest_match(ptr noundef %2, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %46, 0
@@ -9168,7 +9162,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
 
 98:                                               ; preds = %94
   store i32 536870912, ptr %6, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   store i32 11, ptr %5, align 8, !tbaa !94
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -9284,7 +9278,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
 
 160:                                              ; preds = %158, %136, %.loopexit.i
   store ptr %92, ptr %28, align 8, !tbaa !90
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_shortcut_match.exit
 
 161:                                              ; preds = %.thread.i
@@ -9294,9 +9288,9 @@ _shortcut_match.exit:                             ; preds = %94, %160, %161
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %163 = load i32, ptr %162, align 8, !tbaa !88
   %.not104.i.not = icmp eq i32 %163, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not104.i.not, label %164, label %.thread
 
 164:                                              ; preds = %_shortcut_match.exit
@@ -9334,9 +9328,9 @@ _shortcut_match.exit:                             ; preds = %94, %160, %161
   br label %.thread
 
 .loopexit:                                        ; preds = %61, %93, %56, %161, %47, %50, %53, %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %28, align 8
   %183 = fcmp reassoc nsz arcp contract afn oeq float %0, 0xC7EFFFFFE0000000
   %184 = icmp ne ptr %.pre, null
@@ -9362,8 +9356,8 @@ _shortcut_match.exit:                             ; preds = %94, %160, %161
   br label %191
 
 191:                                              ; preds = %189, %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %192
 
 192:                                              ; preds = %21, %26, %191
@@ -9845,7 +9839,7 @@ declare void @gtk_widget_trigger_tooltip_query(ptr noundef) local_unnamed_addr #
 define void @dt_shortcut_key_press(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dt_device_key_t, align 8
   %5 = alloca %struct.dt_shortcut_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i8 %0, ptr %4, align 8, !tbaa !252
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9904,7 +9898,7 @@ define void @dt_shortcut_key_press(i8 noundef zeroext %0, i32 noundef %1, i32 no
   br label %37
 
 37:                                               ; preds = %28, %27
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %38 = call i32 @dt_view_get_current() #24
   store i32 %38, ptr %5, align 8, !tbaa !82
@@ -10184,22 +10178,22 @@ _interrupt_delayed_release.exit:                  ; preds = %_interrupt_delayed_
   br label %184
 
 184:                                              ; preds = %178, %183
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %185
 
 .critedge100:                                     ; preds = %167, %.critedge
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %185
 
 185:                                              ; preds = %23, %24, %184, %.critedge100
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_cmp_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
+define internal range(i32 0, 2) i32 @_cmp_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = load i8, ptr %0, align 8, !tbaa !252
   %4 = load i8, ptr %1, align 8, !tbaa !252
   %.not = icmp eq i8 %3, %4
@@ -10236,7 +10230,7 @@ declare ptr @dt_ui_main_window(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @dt_shortcut_key_release(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dt_device_key_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i8 %0, ptr %4, align 8, !tbaa !252
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -10310,7 +10304,7 @@ _interrupt_delayed_release.exit:                  ; preds = %22, %24
   br label %41
 
 41:                                               ; preds = %19, %40, %8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10319,7 +10313,7 @@ declare ptr @g_slist_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_delay_for_double_triple(i32 noundef %0, i32 noundef range(i32 -1, 1) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !9
   %4 = tail call ptr @gtk_settings_get_default() #24
   call void (ptr, ptr, ...) @g_object_get(ptr noundef %4, ptr noundef nonnull @.str.315, ptr noundef nonnull %3, ptr noundef null) #24
@@ -10581,14 +10575,14 @@ _action_find_definition.exit.thread:              ; preds = %108, %110, %109, %_
   br label %143
 
 143:                                              ; preds = %134, %137, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_shortcut_key_active(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dt_shortcut_t, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) @_sc, i64 56, i1 false), !tbaa.struct !249
   store i64 0, ptr @_sc, align 8
   store i8 %0, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 8), align 8, !tbaa !6
@@ -10611,7 +10605,7 @@ define range(i32 0, 2) i32 @dt_shortcut_key_active(i8 noundef zeroext %0, i32 no
 
 11:                                               ; preds = %7, %2
   %12 = phi i32 [ 1, %2 ], [ %10, %7 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %12
 }
 
@@ -10654,7 +10648,7 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   br i1 %24, label %25, label %93
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 32), align 8, !tbaa !90
@@ -10687,7 +10681,7 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   br i1 %.not148, label %.thread192, label %41
 
 41:                                               ; preds = %34, %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %33, label %.critedge, label %42
 
 42:                                               ; preds = %41
@@ -10714,16 +10708,16 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   br label %51
 
 51:                                               ; preds = %50, %.critedge
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %4, i64 noundef 4096) #24
   %52 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %4, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %51, %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge179
 
 .thread192:                                       ; preds = %25, %28, %34
@@ -10825,13 +10819,13 @@ thread-pre-split:                                 ; preds = %.thread192
   ]
 
 .critedge179.thread:                              ; preds = %57, %.critedge181, %64, %.critedge183, %88, %69
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %1, align 8, !tbaa !6
   br label %93
 
 .critedge179:                                     ; preds = %.critedge183, %.critedge183, %.critedge183, %72, %thread-pre-split, %56, %53
   %.1 = phi i32 [ 1, %53 ], [ 1, %56 ], [ 0, %thread-pre-split ], [ 0, %.critedge183 ], [ 0, %.critedge183 ], [ 0, %.critedge183 ], [ 1, %72 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %g_set_weak_pointer.exit
 
 93:                                               ; preds = %.critedge179.thread, %22
@@ -11280,7 +11274,7 @@ declare i32 @dt_gui_translated_key_state(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_fix_keyval(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !9
   %3 = tail call ptr @gdk_display_get_default() #24
   %4 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %3) #24
@@ -11289,17 +11283,17 @@ define internal fastcc i32 @_fix_keyval(ptr noundef readonly captures(none) %0) 
   %7 = zext i16 %6 to i32
   %8 = call i32 @gdk_keymap_translate_keyboard_state(ptr noundef %4, i32 noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #24
   %9 = load i32, ptr %2, align 4, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %9
 }
 
 declare i32 @dt_gui_get_scroll_unit_deltas(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.trunc.f64(double) #14
+declare double @llvm.trunc.f64(double) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #14
+declare double @llvm.fabs.f64(double) #13
 
 ; Function Attrs: nounwind uwtable
 define void @dt_action_insert_sorted(ptr noundef %0, ptr noundef initializes((32, 40)) %1) local_unnamed_addr #0 {
@@ -11362,7 +11356,7 @@ define void @dt_action_insert_sorted(ptr noundef %0, ptr noundef initializes((32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @g_utf8_collate(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @g_utf8_collate(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -11385,7 +11379,7 @@ define ptr @dt_action_define(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %13, label %14, label %39
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 16, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %15, align 8, !tbaa !18
@@ -11394,12 +11388,12 @@ define ptr @dt_action_define(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.not = icmp eq ptr %1, null
   %.sroa.sel = select i1 %.not, ptr %15, ptr %6
   %17 = call ptr @dt_action_locate(ptr noundef nonnull %0, ptr noundef nonnull %.sroa.sel, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not47 = icmp eq ptr %17, null
   br i1 %.not47, label %64, label %18
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !9
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 592
@@ -11440,7 +11434,7 @@ define ptr @dt_action_define(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %38
 
 38:                                               ; preds = %28, %30, %29, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 39:                                               ; preds = %12, %38
@@ -11561,7 +11555,7 @@ define void @dt_action_define_fallback(i32 noundef %0, ptr noundef readonly capt
   br i1 %.not, label %61, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr %1, align 8, !tbaa !201
   store ptr %8, ptr %3, align 16, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11609,7 +11603,7 @@ define void @dt_action_define_fallback(i32 noundef %0, ptr noundef readonly capt
   br i1 %.not30, label %60, label %.critedge
 
 .critedge:                                        ; preds = %31, %29, %35
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !82
   store i32 1, ptr %16, align 4, !tbaa !164
   store i64 0, ptr %17, align 8
@@ -11653,11 +11647,11 @@ _mods_fix_primary.exit:                           ; preds = %.critedge, %41
   store i32 0, ptr %28, align 4, !tbaa !93
   %58 = call fastcc i32 @_insert_shortcut(ptr noundef %4, i32 noundef 0, i32 noundef 0)
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 60:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 61:                                               ; preds = %60, %2
@@ -11669,7 +11663,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @gtk_widget_set_has_tooltip(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @_reset_element_on_leave(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #15 {
+define internal noundef i32 @_reset_element_on_leave(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #14 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 588
   store i32 -1, ptr %5, align 4, !tbaa !135
@@ -11709,7 +11703,7 @@ define internal void @_remove_widget_from_hashtable(ptr noundef %0, ptr readnone
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #16
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define void @dt_shortcut_register(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -11722,8 +11716,8 @@ define void @dt_shortcut_register(ptr noundef %0, i32 noundef %1, i32 noundef %2
 9:                                                ; preds = %5
   %10 = tail call ptr @gdk_display_get_default() #24
   %11 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %10) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = call i32 @gdk_keymap_get_entries_for_keyval(ptr noundef %11, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
   %.not32 = icmp eq i32 %12, 0
   br i1 %.not32, label %77, label %.preheader
@@ -11762,7 +11756,7 @@ define void @dt_shortcut_register(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 _mods_fix_primary.exit:                           ; preds = %._crit_edge, %26
   %.0.i = phi i32 [ %29, %26 ], [ %.128, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 8, !tbaa !82
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 1, ptr %30, align 4, !tbaa !164
@@ -11790,7 +11784,7 @@ _mods_fix_primary.exit:                           ; preds = %._crit_edge, %26
   %43 = call fastcc i32 @_insert_shortcut(ptr noundef %8, i32 noundef 0, i32 noundef 0)
   %44 = load ptr, ptr %6, align 8, !tbaa !276
   call void @g_free(ptr noundef %44) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %77
 
 .lr.ph:                                           ; preds = %.preheader, %73
@@ -11851,8 +11845,8 @@ _mods_fix_primary.exit:                           ; preds = %._crit_edge, %26
   br i1 %76, label %.lr.ph, label %._crit_edge.loopexit
 
 77:                                               ; preds = %9, %_mods_fix_primary.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %77, %5
@@ -11868,7 +11862,7 @@ declare i32 @gdk_keymap_translate_keyboard_state(ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define void @dt_action_define_preset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.60, ptr %3, align 16, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !18
@@ -11885,7 +11879,7 @@ define void @dt_action_define_preset(ptr noundef %0, ptr noundef %1) local_unnam
   br label %9
 
 9:                                                ; preds = %7, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -12034,12 +12028,12 @@ dt_action_insert_sorted.exit:                     ; preds = %38, %.critedge2.i, 
   br label %68
 
 68:                                               ; preds = %._crit_edge, %dt_action_insert_sorted.exit
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_user_config_dir(ptr noundef nonnull %3, i64 noundef 4096) #24
   %69 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.139, i64 noundef 4096) #24
   call fastcc void @_shortcuts_save(ptr noundef nonnull %3, i8 noundef zeroext -1)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %70
 
 70:                                               ; preds = %2, %68
@@ -12127,7 +12121,7 @@ define internal fastcc void @_remove_shortcut(ptr noundef %0) unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @dt_action_rename_preset(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.60, ptr %4, align 16, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8, !tbaa !18
@@ -12155,7 +12149,7 @@ define void @dt_action_rename_preset(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %16
 
 16:                                               ; preds = %15, %3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12164,7 +12158,7 @@ declare void @gtk_tree_model_foreach(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_remove_shortcut_from_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #24
   %6 = load ptr, ptr %5, align 8, !tbaa !78
   %7 = icmp eq ptr %6, %3
@@ -12178,7 +12172,7 @@ define internal range(i32 0, 2) i32 @_remove_shortcut_from_store(ptr noundef %0,
 
 12:                                               ; preds = %4, %8
   %.0 = phi i32 [ 1, %8 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -12193,7 +12187,7 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %9, label %39
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %10 = call noalias ptr @g_strdup_vprintf(ptr noundef %2, ptr noundef nonnull %4) #24
   %.not28 = icmp eq ptr %0, null
@@ -12209,7 +12203,7 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .thread:                                          ; preds = %9, %11
   %.035 = phi ptr [ %15, %11 ], [ %0, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !18
   %16 = load i32, ptr %.035, align 8, !tbaa !94
   %17 = icmp eq i32 %16, 7
@@ -12258,7 +12252,7 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
   %36 = load ptr, ptr %5, align 8, !tbaa !18
   call void (ptr, ...) @dt_toast_log(ptr noundef nonnull @.str.162, ptr noundef %36, ptr noundef %10) #24
   call void @g_free(ptr noundef %36) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 37:                                               ; preds = %11
@@ -12268,7 +12262,7 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
 38:                                               ; preds = %37, %.thread36
   call void @g_free(ptr noundef %10) #24
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %38, %3
@@ -12276,7 +12270,7 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #17
+declare void @llvm.va_start.p0(ptr) #16
 
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -12358,7 +12352,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurs
 declare void @dt_toast_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #17
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nounwind uwtable
 define float @dt_accel_get_speed_multiplier(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -12373,7 +12367,7 @@ define float @dt_accel_get_speed_multiplier(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not, label %36, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 536870912, ptr %3, align 8, !tbaa !82
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -12423,7 +12417,7 @@ define float @dt_accel_get_speed_multiplier(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %._crit_edge, %2
@@ -12434,7 +12428,7 @@ define float @dt_accel_get_speed_multiplier(ptr noundef %0, i32 noundef %1) loca
 declare float @dt_conf_get_float(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_accel_connect_instance_iop(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define void @dt_accel_connect_instance_iop(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !165
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dt_dev_gui_module.exit.thread, label %dt_dev_gui_module.exit
@@ -12613,12 +12607,12 @@ declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @dt_action_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %7, align 8, !tbaa !18
   %8 = call ptr @dt_action_locate(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %9 = load i32, ptr %8, align 8, !tbaa !94
   %10 = icmp eq i32 %9, 6
   br i1 %10, label %11, label %13
@@ -12651,7 +12645,7 @@ declare void @g_signal_emit_by_name(ptr noundef, ptr noundef, ...) local_unnamed
 declare void @gtk_button_clicked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_button_get_type() local_unnamed_addr #7
+declare i64 @gtk_button_get_type() local_unnamed_addr #6
 
 declare void @gdk_event_free(ptr noundef) local_unnamed_addr #1
 
@@ -12666,7 +12660,7 @@ declare i32 @g_signal_lookup(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @gtk_widget_activate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_text_view_get_type() local_unnamed_addr #7
+declare i64 @gtk_text_view_get_type() local_unnamed_addr #6
 
 declare ptr @gtk_text_view_get_buffer(ptr noundef) local_unnamed_addr #1
 
@@ -12690,7 +12684,7 @@ declare void @gtk_editable_insert_text(ptr noundef, ptr noundef, i32 noundef, pt
 define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !18
   switch i8 %0, label %41 [
     i8 0, label %7
@@ -12810,7 +12804,7 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
   br label %67
 
 58:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   br i1 %56, label %61, label %59
 
@@ -12830,7 +12824,7 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
   %65 = phi ptr [ %63, %62 ], [ @.str.5, %61 ]
   %66 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.192, ptr noundef %65, ptr noundef nonnull %6, ptr noundef %54) #24
   call void @g_free(ptr noundef %54) #24
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %67
 
 67:                                               ; preds = %.critedge84, %64, %57
@@ -12916,19 +12910,19 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
 
 94:                                               ; preds = %.loopexit, %90, %38, %17
   %.0 = phi ptr [ %19, %17 ], [ %40, %38 ], [ %92, %90 ], [ %.3, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare ptr @gtk_accelerator_get_label(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare noalias ptr @g_utf8_strdown(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @gtk_accelerator_name(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -13209,7 +13203,7 @@ define internal fastcc void @_add_shortcuts_to_tree() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %3, %_shortcuts_store_category.exit
   %.0811 = phi ptr [ %45, %_shortcuts_store_category.exit ], [ %7, %3 ]
   %12 = call ptr @g_sequence_get(ptr noundef %.0811) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = load ptr, ptr @_shortcuts_store, align 8, !tbaa !170
   %14 = tail call i64 @gtk_tree_model_get_type() #25
   %15 = call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #24
@@ -13277,7 +13271,7 @@ _shortcuts_store_category.exit:                   ; preds = %.lr.ph, %16, %_shor
   %43 = call i32 @gtk_tree_model_iter_nth_child(ptr noundef %15, ptr noundef nonnull %1, ptr noundef null, i32 noundef %42) #24
   %44 = load ptr, ptr @_shortcuts_store, align 8, !tbaa !170
   call void (ptr, ptr, ptr, i32, ...) @gtk_tree_store_insert_with_values(ptr noundef %44, ptr noundef null, ptr noundef nonnull %1, i32 noundef -1, i32 noundef 0, ptr noundef %.0811, i32 noundef -1) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %45 = call ptr @g_sequence_iter_next(ptr noundef %.0811) #24
   %46 = call i32 @g_sequence_iter_is_end(ptr noundef %45) #24
   %.not = icmp eq i32 %46, 0
@@ -13293,7 +13287,7 @@ declare i32 @gtk_tree_model_iter_children(ptr noundef, ptr noundef, ptr noundef)
 declare i32 @gtk_tree_model_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @_fallback_type_is_relevant(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @_fallback_type_is_relevant(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -13395,7 +13389,7 @@ _action_find_definition.exit.thread:              ; preds = %20, %22, %21, %_act
 declare noalias ptr @g_utf8_casefold(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @gtk_tree_model_get_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -13507,7 +13501,7 @@ declare void @gtk_tree_view_scroll_to_cell(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @_fill_shortcut_fields(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !78
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #24
   %7 = ptrtoint ptr %4 to i64
@@ -13975,22 +13969,22 @@ _shortcut_is_speed.exit135:                       ; preds = %178, %181, %184, %1
   %237 = select i1 %or.cond, i32 700, i32 %.083
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %1, ptr noundef nonnull @.str.215, ptr noundef %.0, ptr noundef nonnull @.str.216, i32 noundef %.077, ptr noundef nonnull @.str.217, i32 noundef 0, ptr noundef nonnull @.str.218, i32 noundef %237, ptr noundef null) #24
   call void @g_free(ptr noundef %.0) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 declare void @gtk_tree_view_column_set_resizable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #14
+declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_combo_box_get_type() local_unnamed_addr #7
+declare i64 @gtk_combo_box_get_type() local_unnamed_addr #6
 
 declare ptr @gtk_combo_box_get_model(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_list_store_get_type() local_unnamed_addr #7
+declare i64 @gtk_list_store_get_type() local_unnamed_addr #6
 
 declare void @gtk_list_store_clear(ptr noundef) local_unnamed_addr #1
 
@@ -14005,7 +13999,7 @@ declare ptr @gtk_tree_path_get_indices(ptr noundef) local_unnamed_addr #1
 declare ptr @gtk_cell_layout_get_cells(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_cell_layout_get_type() local_unnamed_addr #7
+declare i64 @gtk_cell_layout_get_type() local_unnamed_addr #6
 
 declare void @gtk_cell_layout_add_attribute(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -14016,18 +14010,18 @@ declare void @gtk_combo_box_set_row_separator_func(ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @_effects_separator_func(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %4, i32 noundef -1) #24
   %5 = load i32, ptr %4, align 4, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #20
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
 
 declare i32 @gtk_tree_store_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14050,7 +14044,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_action_find_and_expand(ptr 
   br label %6
 
 6:                                                ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !147
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #24
   %7 = load ptr, ptr @_selected_shortcut, align 8, !tbaa !162
@@ -14072,7 +14066,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_action_find_and_expand(ptr 
   br label %.loopexit.sink.split
 
 14:                                               ; preds = %8, %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1) #24
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %19, label %16
@@ -14083,18 +14077,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @_action_find_and_expand(ptr 
   br i1 %.not20, label %19, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.sink.split
 
 19:                                               ; preds = %14, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = call i32 @gtk_tree_model_iter_next(ptr noundef %0, ptr noundef nonnull %1) #24
   %.not21 = icmp eq i32 %20, 0
   br i1 %.not21, label %.loopexit, label %6
 
 .loopexit.sink.split:                             ; preds = %.thread, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.loopexit.sink.split
@@ -14121,7 +14115,7 @@ declare ptr @gtk_dialog_new_with_buttons(ptr noundef, ptr noundef, i32 noundef, 
 declare void @gtk_dialog_set_default_response(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_dialog_get_type() local_unnamed_addr #7
+declare i64 @gtk_dialog_get_type() local_unnamed_addr #6
 
 declare ptr @gtk_dialog_get_content_area(ptr noundef) local_unnamed_addr #1
 
@@ -14134,14 +14128,14 @@ declare ptr @gtk_combo_box_text_new() local_unnamed_addr #1
 declare void @gtk_combo_box_text_append_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_combo_box_text_get_type() local_unnamed_addr #7
+declare i64 @gtk_combo_box_text_get_type() local_unnamed_addr #6
 
 declare ptr @gtk_grid_new() local_unnamed_addr #1
 
 declare void @gtk_grid_attach(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_grid_get_type() local_unnamed_addr #7
+declare i64 @gtk_grid_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @_import_export_dev_changed(ptr noundef %0, ptr noundef %1) #0 {
@@ -14183,7 +14177,7 @@ declare ptr @gtk_file_chooser_native_new(ptr noundef, ptr noundef, i32 noundef, 
 declare void @gtk_file_chooser_set_select_multiple(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_file_chooser_get_type() local_unnamed_addr #7
+declare i64 @gtk_file_chooser_get_type() local_unnamed_addr #6
 
 declare i32 @dt_conf_get_folder_to_file_chooser(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14194,7 +14188,7 @@ declare ptr @gtk_file_chooser_get_filename(ptr noundef) local_unnamed_addr #1
 declare void @g_sequence_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_store_get_type() local_unnamed_addr #7
+declare i64 @gtk_tree_store_get_type() local_unnamed_addr #6
 
 declare void @dt_conf_set_folder_from_file_chooser(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14322,7 +14316,7 @@ declare void @gtk_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @gtk_tree_store_clear(ptr noundef) local_unnamed_addr #1
 
@@ -14331,21 +14325,21 @@ declare void @g_sequence_free(ptr noundef) local_unnamed_addr #1
 declare ptr @g_sequence_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 declare void @gtk_accelerator_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare ptr @g_list_last(ptr noundef) local_unnamed_addr #1
 
@@ -15014,10 +15008,10 @@ define internal fastcc void @_add_shortcut(ptr noundef %0, i32 noundef %1) unnam
 
 16:                                               ; preds = %2
   %17 = tail call ptr @g_sequence_iter_prev(ptr noundef %12) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !158
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr @_shortcuts_store, align 8, !tbaa !170
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %14) #24
   %.not.i.i = icmp eq ptr %0, null
@@ -15103,9 +15097,9 @@ _shortcuts_store_category.exit:                   ; preds = %16, %20, %_shortcut
   %.020 = phi i32 [ 0, %_shortcuts_store_category.exit ], [ %.0, %.preheader ], [ 0, %51 ]
   %54 = load ptr, ptr @_shortcuts_store, align 8, !tbaa !170
   call void (ptr, ptr, ptr, i32, ...) @gtk_tree_store_insert_with_values(ptr noundef %54, ptr noundef null, ptr noundef nonnull %4, i32 noundef %.020, i32 noundef 0, ptr noundef %12, i32 noundef -1) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 55:                                               ; preds = %.loopexit, %2
@@ -15114,7 +15108,7 @@ _shortcuts_store_category.exit:                   ; preds = %16, %20, %_shortcut
   br i1 %.not25, label %68, label %57
 
 57:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false), !tbaa.struct !249
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %58, align 4, !tbaa !164
@@ -15136,7 +15130,7 @@ _shortcuts_store_category.exit:                   ; preds = %16, %20, %_shortcut
   br label %67
 
 67:                                               ; preds = %63, %57
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 68:                                               ; preds = %67, %55
@@ -15144,10 +15138,10 @@ _shortcuts_store_category.exit:                   ; preds = %16, %20, %_shortcut
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #14
+declare float @llvm.round.f32(float) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #14
+declare float @llvm.fabs.f32(float) #13
 
 declare ptr @g_sequence_insert_sorted(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -15223,6 +15217,12 @@ declare void @gtk_drag_dest_unset(ptr noundef) local_unnamed_addr #1
 
 declare void @gtk_entry_set_width_chars(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
 
@@ -15243,25 +15243,25 @@ declare void @llvm.assume(i1 noundef) #23
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #10 = { inlinehint nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #11 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #16 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #19 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { inlinehint nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #10 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #15 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #17 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #18 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nofree nounwind }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

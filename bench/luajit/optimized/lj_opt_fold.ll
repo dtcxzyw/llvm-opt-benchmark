@@ -330,9 +330,6 @@ lj_opt_cse.exit.thread:                           ; preds = %185, %lj_ir_nextins
   ret i32 %.070
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_cse(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -437,15 +434,12 @@ lj_ir_nextins.exit:                               ; preds = %.loopexit, %37
   ret i32 %.1
 }
 
-declare hidden i32 @lj_ir_emit(ptr noundef) #2
+declare hidden i32 @lj_ir_emit(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_cselim(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -526,7 +520,7 @@ define internal i32 @fold_kfold_numabsneg(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fold_kfold_ldexp(ptr readnone captures(none) %0) #4 {
+define internal noundef i32 @fold_kfold_ldexp(ptr readnone captures(none) %0) #3 {
   ret i32 0
 }
 
@@ -759,7 +753,7 @@ define internal range(i32 2, 4) i32 @fold_kfold_intovarith(ptr noundef captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_bnot(ptr noundef captures(none) initializes((184, 188)) %0) #5 {
+define internal noundef i32 @fold_kfold_bnot(ptr noundef captures(none) initializes((184, 188)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8, !tbaa !28
@@ -769,7 +763,7 @@ define internal noundef i32 @fold_kfold_bnot(ptr noundef captures(none) initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_bswap(ptr noundef captures(none) initializes((184, 188)) %0) #5 {
+define internal noundef i32 @fold_kfold_bswap(ptr noundef captures(none) initializes((184, 188)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8, !tbaa !28
@@ -779,7 +773,7 @@ define internal noundef i32 @fold_kfold_bswap(ptr noundef captures(none) initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 3, 5) i32 @fold_kfold_intcomp(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 3, 5) i32 @fold_kfold_intcomp(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -844,7 +838,7 @@ define internal range(i32 3, 5) i32 @fold_kfold_intcomp(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 5) i32 @fold_kfold_intcomp0(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 5) i32 @fold_kfold_intcomp0(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = icmp eq i32 %3, 0
@@ -1018,7 +1012,7 @@ define internal i32 @fold_kfold_bswap64(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 3, 5) i32 @fold_kfold_int64comp(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 3, 5) i32 @fold_kfold_int64comp(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1082,7 +1076,7 @@ define internal range(i32 3, 5) i32 @fold_kfold_int64comp(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 5) i32 @fold_kfold_int64comp0(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 5) i32 @fold_kfold_int64comp0(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = icmp eq i64 %3, 0
@@ -2102,7 +2096,7 @@ define internal i32 @fold_kfold_add_kptr(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_kfold_add_kright(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_kfold_add_kright(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 197
   %3 = load i8, ptr %2, align 1, !tbaa !28
   switch i8 %3, label %9 [
@@ -2125,7 +2119,7 @@ define internal range(i32 0, 2) i32 @fold_kfold_add_kright(ptr noundef captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_tobit(ptr noundef captures(none) initializes((184, 188)) %0) #5 {
+define internal noundef i32 @fold_kfold_tobit(ptr noundef captures(none) initializes((184, 188)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load double, ptr %3, align 8, !tbaa !28
@@ -2157,7 +2151,7 @@ define internal i32 @fold_kfold_conv_kintu32_num(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_kint_ext(ptr noundef captures(none) initializes((184, 186)) %0) #5 {
+define internal noundef i32 @fold_kfold_conv_kint_ext(ptr noundef captures(none) initializes((184, 186)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -2230,7 +2224,7 @@ define internal i32 @fold_kfold_conv_kint64_num_u64(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_kint64_int_i64(ptr noundef captures(none) initializes((184, 188)) %0) #5 {
+define internal noundef i32 @fold_kfold_conv_kint64_int_i64(ptr noundef captures(none) initializes((184, 188)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i64, ptr %3, align 8, !tbaa !28
@@ -2240,7 +2234,7 @@ define internal noundef i32 @fold_kfold_conv_kint64_int_i64(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 2, 4) i32 @fold_kfold_conv_knum_int_num(ptr noundef captures(none) %0) #5 {
+define internal range(i32 2, 4) i32 @fold_kfold_conv_knum_int_num(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load double, ptr %2, align 8, !tbaa !28
   %4 = fptosi double %3 to i32
@@ -2263,7 +2257,7 @@ define internal range(i32 2, 4) i32 @fold_kfold_conv_knum_int_num(ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_knum_u32_num(ptr noundef captures(none) initializes((184, 188)) %0) #5 {
+define internal noundef i32 @fold_kfold_conv_knum_u32_num(ptr noundef captures(none) initializes((184, 188)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load double, ptr %3, align 8, !tbaa !28
@@ -2332,7 +2326,7 @@ define internal i32 @fold_kfold_tostr_kint(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_strto(ptr noundef %0) #0 {
   %2 = alloca %union.TValue, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i64, ptr %3, align 8, !tbaa !28
   %5 = inttoptr i64 %4 to ptr
@@ -2347,12 +2341,12 @@ define internal i32 @fold_kfold_strto(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1, %7
   %.0 = phi i32 [ %9, %7 ], [ 3, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 3, 5) i32 @fold_kfold_kref(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 3, 5) i32 @fold_kfold_kref(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -2367,7 +2361,7 @@ define internal range(i32 3, 5) i32 @fold_kfold_kref(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_shortcut_round(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_round(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %3 = load i16, ptr %2, align 2, !tbaa !28
   %or.cond3 = icmp ult i16 %3, 3
@@ -2385,7 +2379,7 @@ define internal range(i32 0, 65536) i32 @fold_shortcut_round(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_shortcut_left(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_left(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = zext i16 %3 to i32
@@ -2393,7 +2387,7 @@ define internal range(i32 0, 65536) i32 @fold_shortcut_left(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_shortcut_dropleft(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_shortcut_dropleft(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 64
@@ -2413,7 +2407,7 @@ define internal range(i32 0, 2) i32 @fold_shortcut_dropleft(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_shortcut_leftleft(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_leftleft(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 64
@@ -2432,7 +2426,7 @@ define internal range(i32 0, 65536) i32 @fold_shortcut_leftleft(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_numadd_negx(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_simplify_numadd_negx(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 64
@@ -2457,7 +2451,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numadd_negx(ptr noundef captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_numadd_xneg(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_simplify_numadd_xneg(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 64
@@ -2479,7 +2473,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numadd_xneg(ptr noundef captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_numsub_k(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_numsub_k(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = icmp eq i64 %3, 0
@@ -2525,7 +2519,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numsub_negk(ptr noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_numsub_xneg(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_simplify_numsub_xneg(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 64
@@ -2659,7 +2653,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negk(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negneg(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negneg(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -2729,7 +2723,7 @@ define internal i32 @fold_simplify_numpow_k(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_shortcut_conv_num_int(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_shortcut_conv_num_int(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i8, ptr %3, align 4, !tbaa !28
@@ -2757,7 +2751,7 @@ define internal range(i32 0, 65536) i32 @fold_shortcut_conv_num_int(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_num(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_num(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %3 = load i16, ptr %2, align 2, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -2780,7 +2774,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_num(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_conv_i64_num(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_i64_num(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -2816,7 +2810,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_i64_num(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_i64(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_i64(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -2859,7 +2853,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_i64(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_conv_flt_num(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_flt_num(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i8, ptr %3, align 4, !tbaa !28
@@ -2885,7 +2879,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_flt_num(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_tobit_conv(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_tobit_conv(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %4 = load i16, ptr %3, align 2, !tbaa !28
@@ -2916,7 +2910,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_tobit_conv(ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_floor_conv(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_floor_conv(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %3 = load i16, ptr %2, align 2, !tbaa !28
   %4 = and i16 %3, 31
@@ -2936,7 +2930,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_floor_conv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr noundef readonly captures(none) %0) #7 {
+define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -3030,7 +3024,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fold_simplify_conv_narrow(ptr readnone captures(none) %0) #4 {
+define internal noundef i32 @fold_simplify_conv_narrow(ptr readnone captures(none) %0) #3 {
   ret i32 0
 }
 
@@ -3126,7 +3120,7 @@ define internal i32 @fold_narrow_convert(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = icmp eq i32 %3, 0
@@ -3144,7 +3138,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8, !tbaa !28
@@ -3206,7 +3200,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_intsub_kleft(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_simplify_intsub_kleft(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 197
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -3239,7 +3233,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsub_kleft(ptr noundef capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k64(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k64(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = icmp eq i64 %3, 0
@@ -3409,7 +3403,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intmod_k(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @fold_simplify_intmod_kleft(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 3) i32 @fold_simplify_intmod_kleft(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = icmp eq i32 %3, 0
@@ -3462,7 +3456,7 @@ define internal i32 @fold_simplify_intsub(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_intsubadd_leftcancel(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intsubadd_leftcancel(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 31
@@ -3538,7 +3532,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubsub_leftcancel(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_intsubsub_rightcancel(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_intsubsub_rightcancel(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %4 = load i8, ptr %3, align 4, !tbaa !28
@@ -3615,7 +3609,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubadd_rightcancel(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %4 = load i8, ptr %3, align 4, !tbaa !28
@@ -3693,7 +3687,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_band_k(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_band_k(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 213
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -3734,7 +3728,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_band_k(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_bor_k(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_bor_k(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 213
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -3775,7 +3769,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_bor_k(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_bxor_k(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 65536) i32 @fold_simplify_bxor_k(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 213
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -3887,7 +3881,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_shift_ik(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_shift_andk(ptr noundef captures(none) %0) #8 {
+define internal range(i32 0, 2) i32 @fold_simplify_shift_andk(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -3933,7 +3927,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_shift_andk(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_shift1_ki(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_shift1_ki(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 197
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -3967,7 +3961,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_shift1_ki(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_simplify_shift2_ki(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_simplify_shift2_ki(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 197
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -4439,7 +4433,7 @@ kfold_intop.exit:                                 ; preds = %17, %23, %25, %27, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @fold_simplify_andor_k64(ptr noundef captures(none) %0) #8 {
+define internal range(i32 0, 2) i32 @fold_simplify_andor_k64(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4786,7 +4780,7 @@ kfold_int64arith.exit:                            ; preds = %13, %20, %22, %24, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_reassoc_dup(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_dup(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %4 = load i16, ptr %3, align 2, !tbaa !28
@@ -4812,7 +4806,7 @@ define internal range(i32 0, 65536) i32 @fold_reassoc_dup(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_reassoc_dup_minmax(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_dup_minmax(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %3 = load i16, ptr %2, align 2, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 194
@@ -4832,7 +4826,7 @@ define internal range(i32 0, 65536) i32 @fold_reassoc_dup_minmax(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_reassoc_bxor(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_reassoc_bxor(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 64
@@ -5073,7 +5067,7 @@ kfold_intop.exit.thread:                          ; preds = %13, %kfold_intop.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 8388608
@@ -5224,7 +5218,7 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 5) i32 @fold_abc_invar(ptr noundef readonly captures(none) %0) #7 {
+define internal range(i32 0, 5) i32 @fold_abc_invar(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %3 = load i8, ptr %2, align 4, !tbaa !28
   %4 = and i8 %3, 31
@@ -5267,7 +5261,7 @@ define internal range(i32 0, 5) i32 @fold_abc_invar(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fold_comm_swap(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 2) i32 @fold_comm_swap(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -5286,7 +5280,7 @@ define internal range(i32 0, 2) i32 @fold_comm_swap(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @fold_comm_equal(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 5) i32 @fold_comm_equal(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -5337,7 +5331,7 @@ fold_comm_swap.exit:                              ; preds = %29, %27, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @fold_comm_comp(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 5) i32 @fold_comm_comp(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -5381,7 +5375,7 @@ define internal range(i32 0, 5) i32 @fold_comm_comp(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 65536) i32 @fold_comm_dup(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 65536) i32 @fold_comm_dup(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -5408,7 +5402,7 @@ fold_comm_swap.exit:                              ; preds = %11, %9, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_comm_dup_minmax(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_comm_dup_minmax(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -5624,18 +5618,18 @@ kfold_xload.exit:                                 ; preds = %41, %56, %73, %76
   ret i32 %.0
 }
 
-declare hidden i32 @lj_opt_fwd_aload(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_aload(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fold_kfold_hload_kkptr(ptr readnone captures(none) %0) #4 {
+define internal noundef i32 @fold_kfold_hload_kkptr(ptr readnone captures(none) %0) #3 {
   ret i32 32767
 }
 
-declare hidden i32 @lj_opt_fwd_hload(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_hload(ptr noundef) #1
 
-declare hidden i32 @lj_opt_fwd_uload(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_uload(ptr noundef) #1
 
-declare hidden i32 @lj_opt_fwd_alen(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_alen(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
@@ -5938,7 +5932,7 @@ merge_uref.exit:                                  ; preds = %13
   ret i32 %.3
 }
 
-declare hidden i32 @lj_opt_fwd_hrefk(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_hrefk(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fwd_href_tnew(ptr noundef %0) #0 {
@@ -5959,7 +5953,7 @@ define internal i32 @fold_fwd_href_tnew(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fwd_href_tdup(ptr noundef %0) #0 {
   %2 = alloca %union.TValue, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -5990,7 +5984,7 @@ define internal i32 @fold_fwd_href_tdup(ptr noundef %0) #0 {
 
 23:                                               ; preds = %1, %19, %21
   %.0 = phi i32 [ %22, %21 ], [ 0, %19 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -6240,7 +6234,7 @@ lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @fold_fload_str_len_kgc(ptr noundef captures(none) %0) #8 {
+define internal range(i32 0, 3) i32 @fold_fload_str_len_kgc(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6263,7 +6257,7 @@ define internal range(i32 0, 3) i32 @fold_fload_str_len_kgc(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_fload_str_len_snew(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_fload_str_len_snew(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6289,7 +6283,7 @@ define internal range(i32 0, 65536) i32 @fold_fload_str_len_snew(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @fold_fload_str_len_tostr(ptr noundef captures(none) %0) #5 {
+define internal range(i32 0, 3) i32 @fold_fload_str_len_tostr(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6330,7 +6324,7 @@ define internal i32 @fold_fload_sbuf(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @fold_fload_func_ffid_kgc(ptr noundef captures(none) %0) #8 {
+define internal range(i32 0, 3) i32 @fold_fload_func_ffid_kgc(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6354,7 +6348,7 @@ define internal range(i32 0, 3) i32 @fold_fload_func_ffid_kgc(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @fold_fload_cdata_typeid_kgc(ptr noundef captures(none) %0) #8 {
+define internal range(i32 0, 3) i32 @fold_fload_cdata_typeid_kgc(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6416,7 +6410,7 @@ define internal i32 @fold_fload_cdata_int64_kgc(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_fload_cdata_typeid_cnew(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_fload_cdata_typeid_cnew(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6435,7 +6429,7 @@ define internal range(i32 0, 65536) i32 @fold_fload_cdata_typeid_cnew(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @fold_fload_cdata_ptr_int64_cnew(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 65536) i32 @fold_fload_cdata_ptr_int64_cnew(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = and i32 %3, 65536
@@ -6453,7 +6447,7 @@ define internal range(i32 0, 65536) i32 @fold_fload_cdata_ptr_int64_cnew(ptr nou
   ret i32 %.0
 }
 
-declare hidden i32 @lj_opt_fwd_fload(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_fload(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fwd_sload(ptr noundef %0) #0 {
@@ -6649,7 +6643,7 @@ kfold_xload.exit:                                 ; preds = %1, %7, %24, %27
   ret i32 %.012.i
 }
 
-declare hidden i32 @lj_opt_fwd_xload(ptr noundef) #2
+declare hidden i32 @lj_opt_fwd_xload(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fold_base(ptr noundef %0) #0 {
@@ -6870,7 +6864,7 @@ lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 5) i32 @fold_barrier_tnew_tdup(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 5) i32 @fold_barrier_tnew_tdup(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i16, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 436
@@ -6900,13 +6894,13 @@ define internal i32 @fold_prof(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
-declare hidden i32 @lj_opt_dse_ahstore(ptr noundef) #2
+declare hidden i32 @lj_opt_dse_ahstore(ptr noundef) #1
 
-declare hidden i32 @lj_opt_dse_ustore(ptr noundef) #2
+declare hidden i32 @lj_opt_dse_ustore(ptr noundef) #1
 
-declare hidden i32 @lj_opt_dse_fstore(ptr noundef) #2
+declare hidden i32 @lj_opt_dse_fstore(ptr noundef) #1
 
-declare hidden i32 @lj_opt_dse_xstore(ptr noundef) #2
+declare hidden i32 @lj_opt_dse_xstore(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_cse_carg(ptr noundef %0) #0 {
@@ -7025,86 +7019,92 @@ lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_n
   ret i32 %.0
 }
 
-declare hidden double @lj_vm_foldarith(double noundef, double noundef, i32 noundef) local_unnamed_addr #2
+declare hidden double @lj_vm_foldarith(double noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden double @lj_vm_foldfpm(double noundef, i32 noundef) local_unnamed_addr #2
+declare hidden double @lj_vm_foldfpm(double noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ir_numcmp(double noundef, double noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_numcmp(double noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_vm_modi(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #10
-
-declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_divi64(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_modi64(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_powi64(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_divu64(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_modu64(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_powu64(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i64 @lj_carith_shift64(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_vm_modi(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #10
+declare i32 @llvm.bswap.i32(i32) #9
 
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i64 @lj_carith_divi64(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ir_kptr_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i64 @lj_carith_modi64(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_str_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i64 @lj_carith_powi64(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ir_call(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare hidden i64 @lj_carith_divu64(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_buf_cat2str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i64 @lj_carith_modu64(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_buf_tostr(ptr noundef) local_unnamed_addr #2
+declare hidden i64 @lj_carith_powu64(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_buf_putstr_rep(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_strfmt_putfxint(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_strfmt_putfstr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_strfmt_putfchar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_strfmt_num(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_strfmt_int(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_strfmt_char(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i32 @lj_opt_narrow_convert(ptr noundef) local_unnamed_addr #2
+declare hidden i64 @lj_carith_shift64(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i64 @llvm.bswap.i64(i64) #9
 
-declare hidden i32 @lj_opt_fwd_href_nokey(ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden void @lj_ir_kvalue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_kptr_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_opt_fwd_tptr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_str_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_opt_fwd_sbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ir_call(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare hidden void @lj_ir_growtop(ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_buf_cat2str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_buf_tostr(ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_buf_putstr_rep(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_putfxint(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_putfstr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_putfchar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_num(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_int(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_char(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_opt_narrow_convert(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+
+declare hidden i32 @lj_opt_fwd_href_nokey(ptr noundef) local_unnamed_addr #1
+
+declare hidden void @lj_ir_kvalue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_opt_fwd_tptr(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_opt_fwd_sbuf(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden void @lj_ir_growtop(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
@@ -7131,16 +7131,16 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #11
 declare i16 @llvm.umax.i16(i16, i16) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn nounwind }

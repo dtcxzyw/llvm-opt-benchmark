@@ -65,34 +65,34 @@ declare i32 @crypto_hash_sha512_update(ptr noundef, ptr noundef, i64 noundef) lo
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_sign_ed25519ph_final_create(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #2 {
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %0, ptr noundef nonnull %5) #6
   %7 = call i32 @_crypto_sign_ed25519_detached(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %3, i32 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @crypto_hash_sha512_final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @_crypto_sign_ed25519_detached(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_sign_ed25519ph_final_verify(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #2 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   %6 = call i32 @_crypto_sign_ed25519_verify_detached(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull %2, i32 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 declare i32 @_crypto_sign_ed25519_verify_detached(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5

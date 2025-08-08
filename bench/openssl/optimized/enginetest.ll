@@ -147,9 +147,6 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @test_skip_common_options() local_unnamed_addr #1
 
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -164,10 +161,10 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
   %2 = alloca [512 x ptr], align 16
   %3 = alloca [512 x ptr], align 16
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
   %5 = tail call ptr @ENGINE_new() #8
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 64, ptr noundef nonnull @.str.19, ptr noundef %5) #8
@@ -512,10 +509,10 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
   br i1 %exitcond116.not, label %179, label %175, !llvm.loop !16
 
 179:                                              ; preds = %175
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.055
 }
 
@@ -523,9 +520,9 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 define internal range(i32 0, 2) i32 @test_redirect() #0 {
   %1 = alloca [13 x i8], align 1
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %1, ptr noundef nonnull align 1 dereferenceable(13) @__const.test_redirect.pt, i64 13, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @RSA_new() #8
   %4 = tail call ptr @EVP_PKEY_new() #8
   %5 = icmp eq ptr %3, null
@@ -750,8 +747,8 @@ get_test_pkey.exit:                               ; preds = %10, %.sink.split.i
   call void @EVP_PKEY_free(ptr noundef %.0.i) #8
   %104 = call i32 @ENGINE_free(ptr noundef %.038) #8
   call void @CRYPTO_free(ptr noundef %.040, ptr noundef nonnull @.str.14, i32 noundef 354) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -908,11 +905,8 @@ define internal range(i32 0, 2) i32 @test_x509_dup_w_engine() #0 {
   ret i32 %.033
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -975,7 +969,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ENGINE_get_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @EVP_PKEY_get_size(ptr noundef) local_unnamed_addr #1
 
@@ -1002,7 +996,7 @@ declare ptr @EVP_PKEY_meth_new(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #6 {
+define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #5 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1031,7 +1025,7 @@ define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none)
 declare void @EVP_PKEY_meth_set_encrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @test_encrypt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i64 %4) #7 {
+define internal noundef i32 @test_encrypt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i64 %4) #6 {
   store i1 true, ptr @called_encrypt, align 4
   ret i32 1
 }
@@ -1088,14 +1082,20 @@ declare void @RSA_meth_free(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

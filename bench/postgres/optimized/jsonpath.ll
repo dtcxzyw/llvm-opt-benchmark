@@ -114,17 +114,14 @@ define dso_local noundef i64 @jsonpath_in(ptr noundef readonly captures(none) %0
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   %5 = tail call ptr @parsejsonpath(ptr noundef %0, i32 noundef %1, ptr noundef %2) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %6
 
@@ -180,12 +177,9 @@ define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noun
 
 33:                                               ; preds = %19, %14, %16, %9, %23
   %.0 = phi i64 [ %32, %23 ], [ 0, %9 ], [ 0, %16 ], [ 0, %14 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonpath_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -194,7 +188,7 @@ define dso_local noundef i64 @jsonpath_recv(ptr noundef readonly captures(none) 
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call i32 @pq_getmsgint(ptr noundef %5, i32 noundef 1) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %17
 
@@ -207,7 +201,7 @@ define dso_local noundef i64 @jsonpath_recv(ptr noundef readonly captures(none) 
   %14 = call ptr @pq_getmsgtext(ptr noundef %5, i32 noundef %13, ptr noundef nonnull %2) #13
   %15 = load i32, ptr %2, align 4
   %16 = call fastcc i64 @jsonPathFromCstring(ptr noundef %14, i32 noundef %15, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 
 17:                                               ; preds = %1
@@ -218,16 +212,16 @@ define dso_local noundef i64 @jsonpath_recv(ptr noundef readonly captures(none) 
   unreachable
 }
 
-declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @pq_getmsgtext(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @pq_getmsgtext(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonpath_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -239,8 +233,8 @@ define dso_local i64 @jsonpath_out(ptr noundef readonly captures(none) %0) local
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #13
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %8, 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %2) #13
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef range(i32 0, 1073741824) %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -257,8 +251,8 @@ jsonPathToCstring.exit:                           ; preds = %1, %12
   call void @jspInitByBuffer(ptr noundef nonnull %3, ptr noundef nonnull %13, i32 noundef 0)
   call fastcc void @printJsonPathItem(ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true)
   %14 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = ptrtoint ptr %14 to i64
   ret i64 %15
 }
@@ -272,12 +266,12 @@ define dso_local i64 @jsonpath_send(ptr noundef readonly captures(none) %0) loca
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initStringInfo(ptr noundef nonnull %4) #13
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef range(i32 0, 1073741824) %10) #13
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4
@@ -292,7 +286,7 @@ jsonPathToCstring.exit:                           ; preds = %1, %13
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @jspInitByBuffer(ptr noundef nonnull %2, ptr noundef nonnull %14, i32 noundef 0)
   call fastcc void @printJsonPathItem(ptr noundef %4, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @pq_begintypsend(ptr noundef nonnull %3) #13
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -312,20 +306,20 @@ jsonPathToCstring.exit:                           ; preds = %1, %13
   call void @pfree(ptr noundef %24) #13
   %25 = call ptr @pq_endtypsend(ptr noundef nonnull %3) #13
   %26 = ptrtoint ptr %25 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %26
 }
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
-declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #3
+declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
 
-declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #3
+declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef nonnull ptr @jspOperationName(i32 noundef %0) local_unnamed_addr #0 {
@@ -592,7 +586,7 @@ define dso_local void @jspGetRightArg(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @jspGetBool(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local zeroext i1 @jspGetBool(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -601,14 +595,14 @@ define dso_local zeroext i1 @jspGetBool(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @jspGetNumeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local ptr @jspGetNumeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @jspGetString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local ptr @jspGetString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -653,8 +647,8 @@ define dso_local noundef zeroext i1 @jspGetArraySubscript(ptr noundef readonly c
 define dso_local zeroext i1 @jspIsMutable(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.JsonPathMutableContext, align 8
   %5 = alloca %struct.JsonPathItem, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %6, align 8
@@ -673,8 +667,8 @@ define dso_local zeroext i1 @jspIsMutable(ptr noundef %0, ptr noundef %1, ptr no
   %14 = call fastcc i32 @jspIsMutableWalker(ptr noundef %5, ptr noundef %4)
   %15 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %16
 }
 
@@ -684,7 +678,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
   %4 = alloca %struct.JsonPathItem, align 8
   %5 = alloca %struct.JsonPathItem, align 8
   %6 = alloca %struct.JsonPathItem, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %8 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %9 = trunc nuw i8 %8 to i1
@@ -715,7 +709,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
   %.0109.sroa.phi133 = phi ptr [ %.0109.sroa.gep134, %.lr.ph110 ], [ %.0109.sroa.gep135, %jspGetNext.exit ]
   %.0109 = phi ptr [ %0, %.lr.ph110 ], [ %3, %jspGetNext.exit ]
   %.069108 = phi i32 [ 0, %.lr.ph110 ], [ %.2, %jspGetNext.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load i32, ptr %.0109, align 8
   switch i32 %15, label %.thread [
     i32 53, label %118
@@ -910,8 +904,8 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
 
 .lr.ph:                                           ; preds = %.preheader, %jspGetArraySubscript.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %jspGetArraySubscript.exit ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %86 = load ptr, ptr %.0109.sroa.phi, align 8
   %87 = load ptr, ptr %.0109.sroa.phi124, align 8
   %88 = getelementptr inbounds nuw %struct.anon.6, ptr %87, i64 %indvars.iv
@@ -931,8 +925,8 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
 
 jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %93
   %96 = call fastcc i32 @jspIsMutableWalker(ptr noundef %5, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %.0109.sroa.phi133, align 8
   %98 = sext i32 %97 to i64
@@ -994,38 +988,38 @@ jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %93
   br i1 %120, label %jspGetNext.exit, label %jspGetNext.exit.thread
 
 jspGetNext.exit.thread:                           ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit96
 
 jspGetNext.exit:                                  ; preds = %.thread
   %121 = load ptr, ptr %.0109.sroa.phi, align 8
   call void @jspInitByBuffer(ptr noundef nonnull %3, ptr noundef %121, i32 noundef %119)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %122 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %.loopexit96, label %14
 
 .loopexit96:                                      ; preds = %jspGetNext.exit, %2, %jspGetNext.exit.thread
   %.170 = phi i32 [ %.2, %jspGetNext.exit.thread ], [ 0, %2 ], [ %.2, %jspGetNext.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.170
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @parsejsonpath(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @parsejsonpath(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @flattenJsonPathParseItem(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -1041,7 +1035,7 @@ define internal fastcc noundef zeroext i1 @flattenJsonPathParseItem(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call void @check_stack_depth() #13
   %19 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %19, 0
@@ -1144,10 +1138,10 @@ define internal fastcc noundef zeroext i1 @flattenJsonPathParseItem(ptr noundef 
 
 alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %72 = load i32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %73 = load i32, ptr %3, align 8
   switch i32 %73, label %191 [
     i32 1, label %74
@@ -1230,15 +1224,15 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
 
 86:                                               ; preds = %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
   %87 = load i32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %88 = load i32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %90 = load ptr, ptr %89, align 8
   %.not145 = icmp eq ptr %90, null
@@ -1294,10 +1288,10 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 36
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %112, i32 noundef 4) #13
   %113 = load i32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %114, i32 noundef 4) #13
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1324,10 +1318,10 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
 127:                                              ; preds = %126, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
   %.0131 = phi i32 [ 1, %126 ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ]
   %128 = load i32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %130 = load ptr, ptr %129, align 8
   %.not144 = icmp eq ptr %130, null
@@ -1383,7 +1377,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br label %.critedge150
 
 153:                                              ; preds = %alignStringInfoInt.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %155 = load i32, ptr %154, align 8
   store i32 %155, ptr %13, align 4
@@ -1403,8 +1397,8 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
 
 162:                                              ; preds = %.lr.ph, %.critedge154
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge154 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %163 = load ptr, ptr %160, align 8
   %164 = getelementptr inbounds nuw %struct.anon.13, ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
@@ -1441,8 +1435,8 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   store i32 %169, ptr %183, align 4
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i32 %storemerge, ptr %184, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %185 = load i32, ptr %13, align 4
   %186 = sext i32 %185 to i64
@@ -1450,9 +1444,9 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br i1 %.not143, label %162, label %.critedge156, !llvm.loop !13
 
 187:                                              ; preds = %173, %162
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge150
 
 188:                                              ; preds = %alignStringInfoInt.exit
@@ -1471,7 +1465,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   unreachable
 
 .critedge156:                                     ; preds = %.critedge154, %153
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %195
 
 195:                                              ; preds = %120, %.critedge156, %.critedge152, %.critedge, %147, %140, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %188, %84, %79, %74, %alignStringInfoInt.exit, %alignStringInfoInt.exit
@@ -1503,26 +1497,26 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
 
 .critedge150:                                     ; preds = %187, %110, %206, %207, %198, %148, %150, %142, %144, %132, %92, %103
   %.1 = phi i1 [ false, %187 ], [ false, %103 ], [ false, %92 ], [ false, %132 ], [ false, %144 ], [ false, %142 ], [ false, %150 ], [ false, %148 ], [ false, %198 ], [ true, %207 ], [ true, %206 ], [ false, %110 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.1
 }
 
-declare void @check_stack_depth() local_unnamed_addr #3
+declare void @check_stack_depth() local_unnamed_addr #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #3
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
-declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonPathItem, align 8
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonPathItem, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @check_stack_depth() #13
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
@@ -1829,8 +1823,8 @@ operationPriority.exit201:                        ; preds = %operationPriority.e
 
 103:                                              ; preds = %.lr.ph, %116
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = load ptr, ptr %101, align 8
   %105 = load ptr, ptr %102, align 8
   %106 = getelementptr inbounds nuw %struct.anon.6, ptr %105, i64 %indvars.iv
@@ -1865,8 +1859,8 @@ jspGetArraySubscript.exit:                        ; preds = %103, %111
   br label %116
 
 116:                                              ; preds = %115, %114
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i32, ptr %98, align 8
   %118 = sext i32 %117 to i64
@@ -2288,18 +2282,18 @@ jspGetArraySubscript.exit:                        ; preds = %103, %111
   br label %jspGetNext.exit
 
 jspGetNext.exit:                                  ; preds = %271, %275
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @escape_json_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @escape_json_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @numeric_out(ptr noundef) #3
+declare i64 @numeric_out(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 7) i32 @operationPriority(i32 noundef %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 7) i32 @operationPriority(i32 noundef %0) unnamed_addr #7 {
   %switch.tableidx = add i32 %0, -4
   %2 = icmp ult i32 %switch.tableidx, 38
   br i1 %2, label %switch.lookup, label %4
@@ -2315,14 +2309,20 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.0
 }
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
-declare i32 @exprType(ptr noundef) local_unnamed_addr #3
+declare i32 @exprType(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @datetime_format_has_tz(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @datetime_format_has_tz(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -2334,14 +2334,14 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

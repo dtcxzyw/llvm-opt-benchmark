@@ -71,7 +71,7 @@ define hidden void @pysqlite_close_all_blobs(ptr noundef readonly captures(none)
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr ptr, ptr %9, i64 %.07
   %11 = load ptr, ptr %10, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = call i32 @PyWeakref_GetRef(ptr noundef %11, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %Py_DECREF.exit, label %13
@@ -108,7 +108,7 @@ close_blob.exit:                                  ; preds = %13, %17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %25, %22, %close_blob.exit, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = add nuw nsw i64 %.07, 1
   %27 = load ptr, ptr %3, align 8, !tbaa !3
   %28 = getelementptr i8, ptr %27, i64 16
@@ -117,13 +117,7 @@ Py_DECREF.exit:                                   ; preds = %25, %22, %close_blo
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @PyWeakref_GetRef(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @PyWeakref_GetRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @pysqlite_blob_setup_types(ptr noundef %0) local_unnamed_addr #0 {
@@ -142,15 +136,15 @@ define hidden range(i32 -1, 1) i32 @pysqlite_blob_setup_types(ptr noundef %0) lo
   ret i32 %.0
 }
 
-declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyEval_SaveThread() local_unnamed_addr #2
+declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_close(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_close(ptr noundef) local_unnamed_addr #1
 
-declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #2
+declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @blob_dealloc(ptr noundef %0) #0 {
@@ -368,7 +362,7 @@ check_blob.exit:                                  ; preds = %13
   br label %subscript_index.exit
 
 get_subscript_index.exit.i:                       ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %39 = tail call ptr @PyEval_SaveThread() #5
   %40 = load ptr, ptr %14, align 8, !tbaa !22
@@ -395,7 +389,7 @@ get_subscript_index.exit.i:                       ; preds = %30
 
 read_single.exit.i:                               ; preds = %47, %43
   %.0.i7.i = phi ptr [ null, %43 ], [ %50, %47 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %subscript_index.exit
 
 51:                                               ; preds = %check_blob.exit
@@ -405,9 +399,9 @@ read_single.exit.i:                               ; preds = %47, %43
   br i1 %.not, label %53, label %90
 
 53:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = call i32 @PySlice_Unpack(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %subscript_slice.exit, label %56
@@ -476,9 +470,9 @@ read_single.exit.i:                               ; preds = %47, %43
 
 subscript_slice.exit:                             ; preds = %53, %64, %67, %73, %._crit_edge.i, %80, %83
   %.018.i = phi ptr [ %66, %64 ], [ null, %67 ], [ null, %73 ], [ %74, %._crit_edge.i ], [ %74, %80 ], [ %74, %83 ], [ null, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %subscript_index.exit
 
 90:                                               ; preds = %51
@@ -607,7 +601,7 @@ get_subscript_index.exit.i:                       ; preds = %45
   br label %ass_subscript_index.exit
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = trunc nuw i64 %54 to i8
   store i8 %62, ptr %8, align 1, !tbaa !25
   %63 = load ptr, ptr %16, align 8, !tbaa !22
@@ -641,7 +635,7 @@ get_subscript_index.exit.i:                       ; preds = %45
 
 inner_write.exit.i:                               ; preds = %73, %68, %66
   %.0.i23.i = phi i32 [ -1, %66 ], [ -1, %73 ], [ 0, %68 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ass_subscript_index.exit
 
 77:                                               ; preds = %check_blob.exit
@@ -660,9 +654,9 @@ inner_write.exit.i:                               ; preds = %73, %68, %66
   br label %ass_subscript_index.exit
 
 83:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = call i32 @PySlice_Unpack(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %get_slice_info.exit.thread.i, label %86
@@ -677,7 +671,7 @@ inner_write.exit.i:                               ; preds = %73, %68, %66
   br i1 %92, label %get_slice_info.exit.thread.i, label %93
 
 93:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %94 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 0) #5
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %163, label %96
@@ -816,14 +810,14 @@ inner_write.exit.i14:                             ; preds = %155, %152, %inner_w
 
 163:                                              ; preds = %inner_write.exit.i14, %93
   %.2.i = phi i32 [ %.020.i, %inner_write.exit.i14 ], [ -1, %93 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %get_slice_info.exit.thread.i
 
 get_slice_info.exit.thread.i:                     ; preds = %163, %86, %83
   %.1.i = phi i32 [ %.2.i, %163 ], [ 0, %86 ], [ -1, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ass_subscript_index.exit
 
 164:                                              ; preds = %77
@@ -836,9 +830,9 @@ ass_subscript_index.exit:                         ; preds = %3, %12, %19, %get_s
   ret i32 %.0
 }
 
-declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #2
+declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
-declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #2
+declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @blob_close(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
@@ -1224,7 +1218,7 @@ blob_tell_impl.exit:                              ; preds = %2, %6, %13, %check_
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @blob_write(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0) #5
   %.not = icmp eq i32 %4, 0
@@ -1314,25 +1308,25 @@ blob_write_impl.exit:                             ; preds = %inner_write.exit.i,
   br label %50
 
 50:                                               ; preds = %49, %blob_write_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare i32 @pysqlite_check_connection(ptr noundef) local_unnamed_addr #2
+declare i32 @pysqlite_check_connection(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pysqlite_check_thread(ptr noundef) local_unnamed_addr #2
+declare i32 @pysqlite_check_thread(ptr noundef) local_unnamed_addr #1
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #2
+declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #2
+declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @read_multiple(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -1382,46 +1376,52 @@ Py_DECREF.exit:                                   ; preds = %14, %16, %19
   ret ptr %.0
 }
 
-declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #2
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #2
+declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #2
+declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #1
 
-declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #2
+declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
-declare i32 @PySlice_Unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PySlice_Unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @PySlice_AdjustIndices(i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @PySlice_AdjustIndices(i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #2
+declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
-declare void @PyErr_Clear() local_unnamed_addr #2
+declare void @PyErr_Clear() local_unnamed_addr #1
 
-declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #2
+declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

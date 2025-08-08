@@ -11,8 +11,8 @@ define hidden i32 @_sodium_blake2b_long(ptr noundef %0, i64 noundef %1, ptr noun
   %6 = alloca [4 x i8], align 4
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %9 = icmp ugt i64 %1, 4294967295
   br i1 %9, label %46, label %10
@@ -43,8 +43,8 @@ define hidden i32 @_sodium_blake2b_long(ptr noundef %0, i64 noundef %1, ptr noun
   br label %46
 
 24:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = call i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %5, ptr noundef null, i64 noundef 0, i64 noundef 64) #4
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.loopexit, label %27
@@ -101,40 +101,40 @@ define hidden i32 @_sodium_blake2b_long(ptr noundef %0, i64 noundef %1, ptr noun
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %33, %30, %27, %24, %45
   %.1 = phi i32 [ %43, %45 ], [ %25, %24 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %43, %._crit_edge ], [ %38, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 46:                                               ; preds = %.loopexit, %22, %19, %16, %13, %4
   %.033 = phi i32 [ -1, %4 ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ], [ %.1, %.loopexit ]
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 384) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.033
 }
 
+declare i32 @crypto_generichash_blake2b_init(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @crypto_generichash_blake2b_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @crypto_generichash_blake2b_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @crypto_generichash_blake2b(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @crypto_generichash_blake2b_init(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @crypto_generichash_blake2b_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @crypto_generichash_blake2b_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @crypto_generichash_blake2b(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 

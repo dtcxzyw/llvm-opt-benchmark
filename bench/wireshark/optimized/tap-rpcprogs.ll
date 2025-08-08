@@ -50,22 +50,19 @@ define internal void @rpcprogs_init(ptr readnone captures(none) %0, ptr readnone
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr @prog_list, align 8
   %.not144 = icmp eq ptr %7, null
   br i1 %.not144, label %8, label %23
 
 8:                                                ; preds = %5
-  %9 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #8
+  %9 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #7
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 8
@@ -117,7 +114,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
   br i1 %37, label %38, label %.lr.ph
 
 38:                                               ; preds = %.thread, %36
-  %39 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #8
+  %39 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #7
   %40 = load ptr, ptr @prog_list, align 8
   store ptr %40, ptr %39, align 8
   %41 = load i32, ptr %24, align 8
@@ -178,7 +175,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
 
 .thread173._crit_edge:                            ; preds = %65, %.thread174, %.thread173, %.lr.ph
   %.1159.lcssa = phi ptr [ %7, %.lr.ph ], [ %.1159182, %65 ], [ %55, %.thread174 ], [ %.1159182, %.thread173 ]
-  %70 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #8
+  %70 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #7
   %71 = load ptr, ptr %.1159.lcssa, align 8
   store ptr %71, ptr %70, align 8
   %72 = load i32, ptr %24, align 8
@@ -355,14 +352,14 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
 
 .thread151:                                       ; preds = %.loopexit, %154
   %.0 = phi i32 [ 1, %154 ], [ 0, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @rpcprogs_draw(ptr readnone captures(none) %0) #0 {
   %2 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.4)
   %4 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   %5 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.6)
@@ -424,7 +421,7 @@ define internal void @rpcprogs_draw(ptr readnone captures(none) %0) #0 {
 
 ._crit_edge:                                      ; preds = %47, %1
   %48 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.10)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -435,13 +432,10 @@ declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -450,20 +444,25 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @rpc_prog_name(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold noreturn nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { allocsize(0) }
+attributes #7 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

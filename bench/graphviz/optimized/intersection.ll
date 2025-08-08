@@ -9,10 +9,10 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   %.sroa.5257 = alloca double, align 8
   %.sroa.0252 = alloca double, align 16
   %.sroa.5 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0256)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5257)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0252)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   br label %5
 
 5:                                                ; preds = %4, %5
@@ -592,32 +592,32 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
 
 345:                                              ; preds = %.preheader105, %322, %333, %343, %295, %307, %337, %274
   %.088 = phi double [ %., %274 ], [ %323, %322 ], [ %334, %333 ], [ %344, %343 ], [ 0.000000e+00, %295 ], [ %303, %307 ], [ %303, %337 ], [ -2.000000e+00, %.preheader105 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0252)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0256)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5257)
   ret double %.088
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
+declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

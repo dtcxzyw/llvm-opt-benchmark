@@ -162,7 +162,7 @@ if.then2.i.i.i:                                   ; preds = %invoke.cont17
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i)
   %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i) #7
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, 22
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i
@@ -176,7 +176,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i: ; preds = %if.then.i.i.i.
   %5 = load i64, ptr %ts.i.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %5, 1000000000
   %add.i.i.i.i = add i64 %mul.i.i.i.i, %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i, %if.then2.i.i.i
@@ -248,7 +248,7 @@ if.then2.i.i.i55:                                 ; preds = %invoke.cont22
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i48
 
 if.else.i.i.i41:                                  ; preds = %invoke.cont22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i38)
   %call.i.i.i.i42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i38) #7
   %cmp.i.i.i.i43 = icmp eq i32 %call.i.i.i.i42, 22
   br i1 %cmp.i.i.i.i43, label %if.then.i.i.i.i53, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i44
@@ -262,7 +262,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i44: ; preds = %if.then.i.i.
   %13 = load i64, ptr %ts.i.i.i.i38, align 8
   %mul.i.i.i.i46 = mul i64 %13, 1000000000
   %add.i.i.i.i47 = add i64 %mul.i.i.i.i46, %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i38)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i48
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i48:         ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i44, %if.then2.i.i.i55
@@ -493,7 +493,7 @@ if.then2.i.i.i77:                                 ; preds = %if.end
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i72
 
 if.else.i.i.i65:                                  ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i62)
   %call.i.i.i.i66 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i62) #7
   %cmp.i.i.i.i67 = icmp eq i32 %call.i.i.i.i66, 22
   br i1 %cmp.i.i.i.i67, label %if.then.i.i.i.i75, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i68
@@ -507,7 +507,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i68: ; preds = %if.then.i.i.
   %29 = load i64, ptr %ts.i.i.i.i62, align 8
   %mul.i.i.i.i70 = mul i64 %29, 1000000000
   %add.i.i.i.i71 = add i64 %mul.i.i.i.i70, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i62)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i72
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i72:         ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i68, %if.then2.i.i.i77
@@ -555,7 +555,7 @@ if.then2.i.i.i104:                                ; preds = %invoke.cont36
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i89
 
 if.else.i.i.i82:                                  ; preds = %invoke.cont36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i79)
   %call.i.i.i.i83 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i79) #7
   %cmp.i.i.i.i84 = icmp eq i32 %call.i.i.i.i83, 22
   br i1 %cmp.i.i.i.i84, label %if.then.i.i.i.i102, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i85
@@ -569,7 +569,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i85: ; preds = %if.then.i.i.
   %36 = load i64, ptr %ts.i.i.i.i79, align 8
   %mul.i.i.i.i87 = mul i64 %36, 1000000000
   %add.i.i.i.i88 = add i64 %mul.i.i.i.i87, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i79)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i89
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i89:         ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i85, %if.then2.i.i.i104
@@ -636,7 +636,7 @@ if.then2.i.i.i131:                                ; preds = %if.end47
   br label %while.body.lr.ph.i
 
 if.else.i.i.i116:                                 ; preds = %if.end47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i113)
   %call.i.i.i.i117 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i113) #7
   %cmp.i.i.i.i118 = icmp eq i32 %call.i.i.i.i117, 22
   br i1 %cmp.i.i.i.i118, label %if.then.i.i.i.i129, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i119
@@ -650,7 +650,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i119: ; preds = %if.then.i.i
   %44 = load i64, ptr %ts.i.i.i.i113, align 8
   %mul.i.i.i.i121 = mul i64 %44, 1000000000
   %add.i.i.i.i122 = add i64 %mul.i.i.i.i121, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i113)
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then2.i.i.i131, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i119
@@ -723,7 +723,7 @@ if.then2.i.i.i166:                                ; preds = %invoke.cont52
   br label %while.body.lr.ph.i150
 
 if.else.i.i.i141:                                 ; preds = %invoke.cont52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i138)
   %call.i.i.i.i142 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i138) #7
   %cmp.i.i.i.i143 = icmp eq i32 %call.i.i.i.i142, 22
   br i1 %cmp.i.i.i.i143, label %if.then.i.i.i.i164, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i144
@@ -737,7 +737,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i144: ; preds = %if.then.i.i
   %55 = load i64, ptr %ts.i.i.i.i138, align 8
   %mul.i.i.i.i146 = mul i64 %55, 1000000000
   %add.i.i.i.i147 = add i64 %mul.i.i.i.i146, %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i138)
   br label %while.body.lr.ph.i150
 
 while.body.lr.ph.i150:                            ; preds = %if.then2.i.i.i166, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i144
@@ -826,7 +826,7 @@ if.then2.i.i.i214:                                ; preds = %if.end67
   br label %while.body.lr.ph.i187
 
 if.else.i.i.i177:                                 ; preds = %if.end67
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i174)
   %call.i.i.i.i178 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i174) #7
   %cmp.i.i.i.i179 = icmp eq i32 %call.i.i.i.i178, 22
   br i1 %cmp.i.i.i.i179, label %if.then.i.i.i.i212, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i180
@@ -840,7 +840,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i180: ; preds = %if.then.i.i
   %66 = load i64, ptr %ts.i.i.i.i174, align 8
   %mul.i.i.i.i182 = mul i64 %66, 1000000000
   %add.i.i.i.i183 = add i64 %mul.i.i.i.i182, %65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i174)
   br label %while.body.lr.ph.i187
 
 while.body.lr.ph.i187:                            ; preds = %if.then2.i.i.i214, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i180
@@ -906,7 +906,7 @@ if.then2.i.i.i247:                                ; preds = %invoke.cont72
   br label %while.body.lr.ph.i233
 
 if.else.i.i.i224:                                 ; preds = %invoke.cont72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i221)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i221)
   %call.i.i.i.i225 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i221) #7
   %cmp.i.i.i.i226 = icmp eq i32 %call.i.i.i.i225, 22
   br i1 %cmp.i.i.i.i226, label %if.then.i.i.i.i245, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i227
@@ -920,7 +920,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i227: ; preds = %if.then.i.i
   %75 = load i64, ptr %ts.i.i.i.i221, align 8
   %mul.i.i.i.i229 = mul i64 %75, 1000000000
   %add.i.i.i.i230 = add i64 %mul.i.i.i.i229, %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i221)
   br label %while.body.lr.ph.i233
 
 while.body.lr.ph.i233:                            ; preds = %if.then2.i.i.i247, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i227
@@ -1004,7 +1004,7 @@ if.then2.i.i.i295:                                ; preds = %if.end87
   br label %while.body.lr.ph.i268
 
 if.else.i.i.i258:                                 ; preds = %if.end87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i255)
   %call.i.i.i.i259 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i255) #7
   %cmp.i.i.i.i260 = icmp eq i32 %call.i.i.i.i259, 22
   br i1 %cmp.i.i.i.i260, label %if.then.i.i.i.i293, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i261
@@ -1018,7 +1018,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i261: ; preds = %if.then.i.i
   %83 = load i64, ptr %ts.i.i.i.i255, align 8
   %mul.i.i.i.i263 = mul i64 %83, 1000000000
   %add.i.i.i.i264 = add i64 %mul.i.i.i.i263, %82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i255)
   br label %while.body.lr.ph.i268
 
 while.body.lr.ph.i268:                            ; preds = %if.then2.i.i.i295, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i261
@@ -1079,7 +1079,7 @@ if.then2.i.i.i340:                                ; preds = %invoke.cont92
   br label %while.body.lr.ph.i317
 
 if.else.i.i.i307:                                 ; preds = %invoke.cont92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i304)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i304)
   %call.i.i.i.i308 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i304) #7
   %cmp.i.i.i.i309 = icmp eq i32 %call.i.i.i.i308, 22
   br i1 %cmp.i.i.i.i309, label %if.then.i.i.i.i338, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i310
@@ -1093,7 +1093,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i310: ; preds = %if.then.i.i
   %93 = load i64, ptr %ts.i.i.i.i304, align 8
   %mul.i.i.i.i312 = mul i64 %93, 1000000000
   %add.i.i.i.i313 = add i64 %mul.i.i.i.i312, %92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i304)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i304)
   br label %while.body.lr.ph.i317
 
 while.body.lr.ph.i317:                            ; preds = %if.then2.i.i.i340, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i310
@@ -1170,7 +1170,7 @@ if.then2.i.i.i391:                                ; preds = %if.end107
   br label %while.body.lr.ph.i363
 
 if.else.i.i.i353:                                 ; preds = %if.end107
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i350)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i350)
   %call.i.i.i.i354 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i350) #7
   %cmp.i.i.i.i355 = icmp eq i32 %call.i.i.i.i354, 22
   br i1 %cmp.i.i.i.i355, label %if.then.i.i.i.i389, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i356
@@ -1184,7 +1184,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i356: ; preds = %if.then.i.i
   %103 = load i64, ptr %ts.i.i.i.i350, align 8
   %mul.i.i.i.i358 = mul i64 %103, 1000000000
   %add.i.i.i.i359 = add i64 %mul.i.i.i.i358, %102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i350)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i350)
   br label %while.body.lr.ph.i363
 
 while.body.lr.ph.i363:                            ; preds = %if.then2.i.i.i391, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i356
@@ -1245,7 +1245,7 @@ if.then2.i.i.i441:                                ; preds = %invoke.cont112
   br label %while.body.lr.ph.i413
 
 if.else.i.i.i403:                                 ; preds = %invoke.cont112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i400)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i400)
   %call.i.i.i.i404 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i400) #7
   %cmp.i.i.i.i405 = icmp eq i32 %call.i.i.i.i404, 22
   br i1 %cmp.i.i.i.i405, label %if.then.i.i.i.i439, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i406
@@ -1259,7 +1259,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i406: ; preds = %if.then.i.i
   %113 = load i64, ptr %ts.i.i.i.i400, align 8
   %mul.i.i.i.i408 = mul i64 %113, 1000000000
   %add.i.i.i.i409 = add i64 %mul.i.i.i.i408, %112
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i400)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i400)
   br label %while.body.lr.ph.i413
 
 while.body.lr.ph.i413:                            ; preds = %if.then2.i.i.i441, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i406
@@ -1336,7 +1336,7 @@ if.then2.i.i.i491:                                ; preds = %if.end127
   br label %while.body.lr.ph.i461
 
 if.else.i.i.i452:                                 ; preds = %if.end127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i449)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i449)
   %call.i.i.i.i453 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i449) #7
   %cmp.i.i.i.i454 = icmp eq i32 %call.i.i.i.i453, 22
   br i1 %cmp.i.i.i.i454, label %if.then.i.i.i.i489, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i455
@@ -1350,7 +1350,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i455: ; preds = %if.then.i.i
   %123 = load i64, ptr %ts.i.i.i.i449, align 8
   %mul.i.i.i.i457 = mul i64 %123, 1000000000
   %add.i.i.i.i458 = add i64 %mul.i.i.i.i457, %122
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i449)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i449)
   br label %while.body.lr.ph.i461
 
 while.body.lr.ph.i461:                            ; preds = %if.then2.i.i.i491, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i455
@@ -1437,7 +1437,7 @@ if.then2.i.i.i533:                                ; preds = %invoke.cont132
   br label %while.body.lr.ph.i513
 
 if.else.i.i.i503:                                 ; preds = %invoke.cont132
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i500)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i500)
   %call.i.i.i.i504 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i500) #7
   %cmp.i.i.i.i505 = icmp eq i32 %call.i.i.i.i504, 22
   br i1 %cmp.i.i.i.i505, label %if.then.i.i.i.i531, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i506
@@ -1451,7 +1451,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i506: ; preds = %if.then.i.i
   %134 = load i64, ptr %ts.i.i.i.i500, align 8
   %mul.i.i.i.i508 = mul i64 %134, 1000000000
   %add.i.i.i.i509 = add i64 %mul.i.i.i.i508, %133
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i500)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i500)
   br label %while.body.lr.ph.i513
 
 while.body.lr.ph.i513:                            ; preds = %if.then2.i.i.i533, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i506
@@ -1552,7 +1552,7 @@ if.then2.i.i.i566:                                ; preds = %if.end147
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i554
 
 if.else.i.i.i547:                                 ; preds = %if.end147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i544)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i544)
   %call.i.i.i.i548 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i544) #7
   %cmp.i.i.i.i549 = icmp eq i32 %call.i.i.i.i548, 22
   br i1 %cmp.i.i.i.i549, label %if.then.i.i.i.i564, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i550
@@ -1566,7 +1566,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i550: ; preds = %if.then.i.i
   %147 = load i64, ptr %ts.i.i.i.i544, align 8
   %mul.i.i.i.i552 = mul i64 %147, 1000000000
   %add.i.i.i.i553 = add i64 %mul.i.i.i.i552, %146
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i544)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i544)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i554
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i554:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i550, %if.then2.i.i.i566
@@ -1709,7 +1709,7 @@ if.then2.i.i.i613:                                ; preds = %invoke.cont154
   br label %while.body.lr.ph.i590
 
 if.else.i.i.i580:                                 ; preds = %invoke.cont154
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i577)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i577)
   %call.i.i.i.i581 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i577) #7
   %cmp.i.i.i.i582 = icmp eq i32 %call.i.i.i.i581, 22
   br i1 %cmp.i.i.i.i582, label %if.then.i.i.i.i611, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i583
@@ -1723,7 +1723,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i583: ; preds = %if.then.i.i
   %162 = load i64, ptr %ts.i.i.i.i577, align 8
   %mul.i.i.i.i585 = mul i64 %162, 1000000000
   %add.i.i.i.i586 = add i64 %mul.i.i.i.i585, %161
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i577)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i577)
   br label %while.body.lr.ph.i590
 
 while.body.lr.ph.i590:                            ; preds = %if.then2.i.i.i613, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i583
@@ -1826,7 +1826,7 @@ if.then2.i.i.i635:                                ; preds = %if.end171
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i628
 
 if.else.i.i.i621:                                 ; preds = %if.end171
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i618)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i618)
   %call.i.i.i.i622 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i618) #7
   %cmp.i.i.i.i623 = icmp eq i32 %call.i.i.i.i622, 22
   br i1 %cmp.i.i.i.i623, label %if.then.i.i.i.i633, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i624
@@ -1840,7 +1840,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i624: ; preds = %if.then.i.i
   %174 = load i64, ptr %ts.i.i.i.i618, align 8
   %mul.i.i.i.i626 = mul i64 %174, 1000000000
   %add.i.i.i.i627 = add i64 %mul.i.i.i.i626, %173
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i618)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i618)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i628
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i628:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i624, %if.then2.i.i.i635
@@ -1885,7 +1885,7 @@ if.then2.i.i.i665:                                ; preds = %invoke.cont172
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i647
 
 if.else.i.i.i640:                                 ; preds = %invoke.cont172
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i637)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i637)
   %call.i.i.i.i641 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i637) #7
   %cmp.i.i.i.i642 = icmp eq i32 %call.i.i.i.i641, 22
   br i1 %cmp.i.i.i.i642, label %if.then.i.i.i.i663, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i643
@@ -1899,7 +1899,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i643: ; preds = %if.then.i.i
   %181 = load i64, ptr %ts.i.i.i.i637, align 8
   %mul.i.i.i.i645 = mul i64 %181, 1000000000
   %add.i.i.i.i646 = add i64 %mul.i.i.i.i645, %180
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i637)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i637)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i647
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i647:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i643, %if.then2.i.i.i665
@@ -2005,7 +2005,7 @@ if.then2.i.i.i701:                                ; preds = %for.end.i681
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i691
 
 if.else.i.i.i684:                                 ; preds = %for.end.i681
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i673)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i673)
   %call.i.i.i.i685 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i673) #7
   %cmp.i.i.i.i686 = icmp eq i32 %call.i.i.i.i685, 22
   br i1 %cmp.i.i.i.i686, label %if.then.i.i.i.i699, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i687
@@ -2019,7 +2019,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i687: ; preds = %if.then.i.i
   %191 = load i64, ptr %ts.i.i.i.i673, align 8
   %mul.i.i.i.i689 = mul i64 %191, 1000000000
   %add.i.i.i.i690 = add i64 %mul.i.i.i.i689, %190
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i673)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i673)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i691
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i691:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i687, %if.then2.i.i.i701
@@ -2099,7 +2099,7 @@ if.then2.i.i.i733:                                ; preds = %for.end.i714
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i725
 
 if.else.i.i.i718:                                 ; preds = %for.end.i714
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i703)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i703)
   %call.i.i.i.i719 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i703) #7
   %cmp.i.i.i.i720 = icmp eq i32 %call.i.i.i.i719, 22
   br i1 %cmp.i.i.i.i720, label %if.then.i.i.i.i731, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i721
@@ -2113,7 +2113,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i721: ; preds = %if.then.i.i
   %202 = load i64, ptr %ts.i.i.i.i703, align 8
   %mul.i.i.i.i723 = mul i64 %202, 1000000000
   %add.i.i.i.i724 = add i64 %mul.i.i.i.i723, %201
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i703)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i703)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i725
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i725:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i721, %if.then2.i.i.i733
@@ -2197,7 +2197,7 @@ if.then2.i.i.i760:                                ; preds = %if.end198
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i750
 
 if.else.i.i.i743:                                 ; preds = %if.end198
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i740)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i740)
   %call.i.i.i.i744 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i740) #7
   %cmp.i.i.i.i745 = icmp eq i32 %call.i.i.i.i744, 22
   br i1 %cmp.i.i.i.i745, label %if.then.i.i.i.i758, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i746
@@ -2211,7 +2211,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i746: ; preds = %if.then.i.i
   %211 = load i64, ptr %ts.i.i.i.i740, align 8
   %mul.i.i.i.i748 = mul i64 %211, 1000000000
   %add.i.i.i.i749 = add i64 %mul.i.i.i.i748, %210
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i740)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i740)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i750
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i750:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i746, %if.then2.i.i.i760
@@ -2250,7 +2250,7 @@ if.then2.i.i.i781:                                ; preds = %invoke.cont199
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i772
 
 if.else.i.i.i765:                                 ; preds = %invoke.cont199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i762)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i762)
   %call.i.i.i.i766 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i762) #7
   %cmp.i.i.i.i767 = icmp eq i32 %call.i.i.i.i766, 22
   br i1 %cmp.i.i.i.i767, label %if.then.i.i.i.i779, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i768
@@ -2264,7 +2264,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i768: ; preds = %if.then.i.i
   %219 = load i64, ptr %ts.i.i.i.i762, align 8
   %mul.i.i.i.i770 = mul i64 %219, 1000000000
   %add.i.i.i.i771 = add i64 %mul.i.i.i.i770, %218
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i762)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i762)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i772
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i772:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i768, %if.then2.i.i.i781
@@ -2583,10 +2583,10 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 declare void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -25,7 +25,7 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
   %8 = alloca [782 x i8], align 16
   %9 = alloca i8, align 1
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !3
   %11 = sext i32 %2 to i64
   %12 = getelementptr i8, ptr %1, i64 %11
@@ -527,7 +527,7 @@ switch.hole_check:                                ; preds = %switch.early.test
 
 _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.hole_check, %.thread362, %201
   %211 = phi i1 [ true, %201 ], [ false, %.thread362 ], [ false, %switch.hole_check ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %212 = load i16, ptr %170, align 8, !tbaa !27
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %214 = load double, ptr %213, align 8, !tbaa !19
@@ -574,7 +574,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280: ; preds = %225,
   br label %232
 
 232:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280, %_ZN17double_conversionL7isDigitEii.exit.thread
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 233:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
@@ -649,7 +649,7 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread: ; preds = %_ZN17
   %264 = phi i8 [ %.pre539, %._crit_edge ], [ %167, %165 ]
   %.promoted448 = phi ptr [ %.lcssa444, %._crit_edge ], [ %166, %165 ]
   %265 = phi i8 [ %263, %._crit_edge ], [ 0, %165 ]
-  call void @llvm.lifetime.start.p0(i64 782, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %266 = add i8 %264, -48
   %or.cond228450 = icmp ult i8 %266, 10
   br i1 %or.cond228450, label %.lr.ph456, label %.critedge
@@ -1187,8 +1187,8 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327: ; preds = %_ZN1
 _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread: ; preds = %410, %326, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
   %487 = phi ptr [ %484, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %397, %410 ], [ %.lcssa449, %326 ]
   %.2187383 = phi i32 [ %.2187, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.3188, %410 ], [ %.0185.lcssa, %326 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %8, ptr %10, align 8, !tbaa !3
   %488 = sext i32 %.2187383 to i64
   %489 = getelementptr inbounds i8, ptr %8, i64 %488
@@ -1202,8 +1202,8 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread: ; preds 
   %497 = sub i64 %495, %496
   %498 = trunc i64 %497 to i32
   store i32 %498, ptr %4, align 4, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread368
 
 499:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread544, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
@@ -1272,12 +1272,12 @@ _ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit: ; preds = %511, 
 
 .thread368:                                       ; preds = %433, %424, %415, %525, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317, %459, %407, %400, %340, %333, %323
   %.6 = phi double [ %494, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread ], [ %532, %525 ], [ %335, %333 ], [ %346, %340 ], [ %402, %400 ], [ %472, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317 ], [ %461, %459 ], [ %409, %407 ], [ %325, %323 ], [ %435, %433 ], [ %426, %424 ], [ %417, %415 ]
-  call void @llvm.lifetime.end.p0(i64 782, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit415, %54, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread, %86, %92, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256, %139, %145, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270, %111, %164, %_ZN17double_conversionL7isDigitEii.exit.thread363, %232, %.thread368, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, %197, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360, %38, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit, %22
   %.0 = phi double [ %24, %22 ], [ %40, %38 ], [ %36, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit ], [ %105, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256 ], [ %94, %92 ], [ %88, %86 ], [ %158, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270 ], [ %147, %145 ], [ %141, %139 ], [ 0x7FF0000000000000, %111 ], [ 0x7FF8000000000000, %164 ], [ %189, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360 ], [ %199, %197 ], [ %261, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread ], [ %.6, %.thread368 ], [ %215, %232 ], [ %210, %_ZN17double_conversionL7isDigitEii.exit.thread363 ], [ 0xFFF0000000000000, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread ], [ 0xFFF8000000000000, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread ], [ %53, %.loopexit415 ], [ %56, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }
 
@@ -1294,7 +1294,7 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
   %8 = alloca [782 x i8], align 16
   %9 = alloca i8, align 1
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !40
   %11 = sext i32 %2 to i64
   %.idx = shl nsw i64 %11, 1
@@ -1786,7 +1786,7 @@ switch.hole_check:                                ; preds = %switch.early.test
 
 _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.hole_check, %.thread316, %204
   %211 = phi i1 [ true, %204 ], [ false, %.thread316 ], [ false, %switch.hole_check ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %212 = load i16, ptr %177, align 8, !tbaa !27
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %214 = load double, ptr %213, align 8, !tbaa !19
@@ -1813,7 +1813,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.hole_check, 
   br label %228
 
 228:                                              ; preds = %221, %_ZN17double_conversionL7isDigitEii.exit.thread
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 229:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread
@@ -1885,7 +1885,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264.thread: ; preds = %_ZN17
   %258 = phi i16 [ %.pre478, %._crit_edge ], [ %174, %172 ]
   %.promoted398 = phi ptr [ %.lcssa394, %._crit_edge ], [ %173, %172 ]
   %259 = phi i8 [ %257, %._crit_edge ], [ 0, %172 ]
-  call void @llvm.lifetime.start.p0(i64 782, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %260 = add i16 %258, -48
   %or.cond228400 = icmp ult i16 %260, 10
   br i1 %or.cond228400, label %.lr.ph406, label %.critedge
@@ -2363,8 +2363,8 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_e
 .thread332:                                       ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge, %395, %315
   %464 = phi ptr [ %.pre481, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge ], [ %382, %395 ], [ %.lcssa399, %315 ]
   %.2187338 = phi i32 [ %.2187, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge ], [ %.3188, %395 ], [ %.0185.lcssa, %315 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %8, ptr %10, align 8, !tbaa !3
   %465 = sext i32 %.2187338 to i64
   %466 = getelementptr inbounds i8, ptr %8, i64 %465
@@ -2379,8 +2379,8 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_e
   %475 = lshr exact i64 %474, 1
   %476 = trunc i64 %475 to i32
   store i32 %476, ptr %4, align 4, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread322
 
 477:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread.thread, %.thread341, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread
@@ -2450,12 +2450,12 @@ _ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit: ; preds = %489, 
 
 .thread322:                                       ; preds = %419, %410, %400, %503, %.thread332, %452, %446, %392, %385, %329, %322, %312
   %.6 = phi double [ %471, %.thread332 ], [ %511, %503 ], [ %324, %322 ], [ %336, %329 ], [ %387, %385 ], [ %454, %452 ], [ %448, %446 ], [ %394, %392 ], [ %314, %312 ], [ %421, %419 ], [ %412, %410 ], [ %402, %400 ]
-  call void @llvm.lifetime.end.p0(i64 782, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 .thread:                                          ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit251, %65, %164, %113, %98, %104, %110, %149, %155, %161, %120, %171, %_ZN17double_conversionL7isDigitEii.exit.thread317, %228, %.thread322, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264.thread, %200, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread314, %43, %_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit, %22
   %.0 = phi double [ %24, %22 ], [ %45, %43 ], [ %42, %_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit ], [ %112, %110 ], [ %106, %104 ], [ %100, %98 ], [ %163, %161 ], [ %157, %155 ], [ %151, %149 ], [ 0x7FF0000000000000, %120 ], [ 0x7FF8000000000000, %171 ], [ %192, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread314 ], [ %202, %200 ], [ %255, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264.thread ], [ %.6, %.thread322 ], [ %215, %228 ], [ %210, %_ZN17double_conversionL7isDigitEii.exit.thread317 ], [ 0xFFF0000000000000, %113 ], [ 0xFFF8000000000000, %164 ], [ %64, %_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit251 ], [ %67, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }
 
@@ -2498,12 +2498,6 @@ define noundef float @_ZNK17double_conversion23StringToDoubleConverter8StringToI
   %6 = fptrunc double %5 to float
   ret float %6
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN17double_conversion12_GLOBAL__N_116ConsumeSubStringIPKcEEbPT_S4_S3_b(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2589,7 +2583,7 @@ _ZN17double_conversion12_GLOBAL__N_120ConsumeSubStringImplIPKcPFccEEEbPT_S6_S3_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef nonnull captures(none) %0, i16 noundef zeroext %1, i32 noundef range(i32 10, 17) %2, ptr readnone captures(address) %.0.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef nonnull captures(none) %0, i16 noundef zeroext %1, i32 noundef range(i32 10, 17) %2, ptr readnone captures(address) %.0.val) unnamed_addr #1 {
   %4 = zext i16 %1 to i32
   %5 = icmp eq i16 %1, 0
   %6 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2687,9 +2681,9 @@ _ZN17double_conversionL7isDigitEii.exit30.thread2: ; preds = %32, %_ZN17double_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL16IsHexFloatStringIPKcEEbT_S3_tb(ptr noundef %0, ptr noundef readnone captures(address) %1, i16 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL16IsHexFloatStringIPKcEEbT_S3_tb(ptr noundef %0, ptr noundef readnone captures(address) %1, i16 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !3
   %6 = icmp eq i16 %2, 0
   %7 = zext i16 %2 to i32
@@ -3102,12 +3096,12 @@ _ZN17double_conversionL7isDigitEii.exit87:        ; preds = %_ZN17double_convers
 
 _ZN17double_conversionL7isDigitEii.exit82:        ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i, %17, %_ZN17double_conversionL7isDigitEii.exit.thread.i45, %48, %_ZN17double_conversionL7isDigitEii.exit.thread.i94, %.lr.ph.split.us, %140, %136, %92, %36, %_ZN17double_conversionL7isDigitEii.exit38.thread104.loopexit, %_ZN17double_conversionL7isDigitEii.exit.thread.i58, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread, %70, %_ZN17double_conversionL7isDigitEii.exit87, %100, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64, %66, %_ZN17double_conversionL7isDigitEii.exit38.thread104
   %.010 = phi i1 [ false, %_ZN17double_conversionL7isDigitEii.exit38.thread104 ], [ false, %66 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64 ], [ true, %100 ], [ true, %_ZN17double_conversionL7isDigitEii.exit87 ], [ false, %70 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i58 ], [ false, %_ZN17double_conversionL7isDigitEii.exit38.thread104.loopexit ], [ false, %36 ], [ false, %92 ], [ false, %136 ], [ true, %140 ], [ true, %.lr.ph.split.us ], [ true, %_ZN17double_conversionL7isDigitEii.exit.thread.i94 ], [ false, %48 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i45 ], [ false, %17 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.010
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi4EPKcEEdPT0_S3_btbbdbPb(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, double noundef %6, i1 noundef zeroext %7, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %8) unnamed_addr #3 {
+define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi4EPKcEEdPT0_S3_btbbdbPb(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, double noundef %6, i1 noundef zeroext %7, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %8) unnamed_addr #2 {
   store i8 1, ptr %8, align 1, !tbaa !28
   %.promoted = load ptr, ptr %0, align 8, !tbaa !3
   %10 = load i8, ptr %.promoted, align 1, !tbaa !15
@@ -3903,7 +3897,7 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308: ; preds = %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S2_btbbdbPb(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readnone captures(address) %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, double noundef %5, i1 noundef zeroext %6, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %7) unnamed_addr #3 {
+define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S2_btbbdbPb(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readnone captures(address) %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, double noundef %5, i1 noundef zeroext %6, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %7) unnamed_addr #2 {
   store i8 1, ptr %7, align 1, !tbaa !28
   %.promoted = load ptr, ptr %0, align 8, !tbaa !3
   %9 = load i8, ptr %.promoted, align 1, !tbaa !15
@@ -4340,30 +4334,30 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread198: ; preds =
   ret double %.0
 }
 
-declare noundef double @_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi(ptr, i32, i32 noundef) local_unnamed_addr #4
+declare noundef double @_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi(ptr, i32, i32 noundef) local_unnamed_addr #3
 
-declare noundef float @_ZN17double_conversion13StrtofTrimmedENS_6VectorIKcEEi(ptr, i32, i32 noundef) local_unnamed_addr #4
+declare noundef float @_ZN17double_conversion13StrtofTrimmedENS_6VectorIKcEEi(ptr, i32, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #5
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
-declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #5
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
   %.promoted = load ptr, ptr %0, align 8, !tbaa !40
   %.not13.not = icmp eq ptr %.promoted, %1
   br i1 %.not13.not, label %_ZN17double_conversionL12isWhitespaceEi.exit, label %.lr.ph
@@ -4497,7 +4491,7 @@ _ZN17double_conversion12_GLOBAL__N_120ConsumeSubStringImplIPKtPFccEEEbPT_S6_PKcT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_(ptr noundef nonnull captures(none) %0, i16 noundef zeroext %1, i32 noundef range(i32 10, 17) %2, ptr readnone captures(address) %.0.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_(ptr noundef nonnull captures(none) %0, i16 noundef zeroext %1, i32 noundef range(i32 10, 17) %2, ptr readnone captures(address) %.0.val) unnamed_addr #1 {
   %4 = icmp eq i16 %1, 0
   %5 = load ptr, ptr %0, align 8, !tbaa !40
   br i1 %4, label %6, label %9
@@ -4593,9 +4587,9 @@ _ZN17double_conversionL7isDigitEii.exit30.thread2: ; preds = %31, %_ZN17double_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL16IsHexFloatStringIPKtEEbT_S3_tb(ptr noundef %0, ptr noundef readnone captures(address) %1, i16 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL16IsHexFloatStringIPKtEEbT_S3_tb(ptr noundef %0, ptr noundef readnone captures(address) %1, i16 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq i16 %2, 0
   br i1 %6, label %.split.us, label %.split
 
@@ -5025,12 +5019,12 @@ _ZN17double_conversionL7isDigitEii.exit87:        ; preds = %.backedge, %.backed
 
 _ZN17double_conversionL7isDigitEii.exit82:        ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread1.i, %_ZN17double_conversionL7isDigitEii.exit.thread.i, %_ZN17double_conversionL7isDigitEii.exit.thread.us, %_ZN17double_conversionL7isDigitEii.exit.thread1.i43, %_ZN17double_conversionL7isDigitEii.exit.thread.i45, %_ZN17double_conversionL7isDigitEii.exit38.thread.us, %.lr.ph.split, %.lr.ph.split.us, %78, %_ZN17double_conversionL7isDigitEii.exit.thread.i58, %81, %60, %32, %_ZN17double_conversionL7isDigitEii.exit87, %109, %85, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit64, %57, %_ZN17double_conversionL7isDigitEii.exit38.thread103, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit33
   %.010 = phi i1 [ false, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit33 ], [ false, %_ZN17double_conversionL7isDigitEii.exit38.thread103 ], [ false, %57 ], [ false, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit64 ], [ true, %85 ], [ true, %_ZN17double_conversionL7isDigitEii.exit87 ], [ %111, %109 ], [ false, %32 ], [ false, %60 ], [ false, %81 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i58 ], [ false, %78 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ false, %_ZN17double_conversionL7isDigitEii.exit38.thread.us ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i45 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread1.i43 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.us ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread1.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.010
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi4EPKtEEdPT0_S3_btbbdbPb(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, double noundef %6, i1 noundef zeroext %7, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %8) unnamed_addr #3 {
+define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi4EPKtEEdPT0_S3_btbbdbPb(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, double noundef %6, i1 noundef zeroext %7, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %8) unnamed_addr #2 {
   store i8 1, ptr %8, align 1, !tbaa !28
   %.promoted = load ptr, ptr %0, align 8, !tbaa !40
   %10 = load i16, ptr %.promoted, align 2, !tbaa !42
@@ -5823,14 +5817,20 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.thread315: ; preds = %59
   ret double %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

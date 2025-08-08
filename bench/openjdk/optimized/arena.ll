@@ -58,7 +58,7 @@ define hidden noundef ptr @_ZN9ChunkPool14allocate_chunkEmN17AllocFailStrategy13
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw %class.ChunkPool, ptr @_ZN9ChunkPool6_poolsE, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   %12 = load ptr, ptr %11, align 16
   %.not.i = icmp eq ptr %12, null
@@ -66,14 +66,14 @@ define hidden noundef ptr @_ZN9ChunkPool14allocate_chunkEmN17AllocFailStrategy13
 
 .thread21:                                        ; preds = %10
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %12, align 8
   store ptr %14, ptr %11, align 16
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 .thread:                                          ; preds = %5, %.thread21
@@ -134,13 +134,13 @@ define hidden void @_ZN9ChunkPool16deallocate_chunkEP5Chunk(ptr noundef %0) loca
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw %class.ChunkPool, ptr @_ZN9ChunkPool6_poolsE, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
   %13 = load ptr, ptr %12, align 16
   store ptr %13, ptr %0, align 8
   store ptr %0, ptr %12, align 16
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %15
 
 14:                                               ; preds = %6
@@ -189,7 +189,7 @@ define hidden void @_ZN5Chunk4chopEPS_(ptr noundef %0) local_unnamed_addr #0 ali
 .lr.ph:                                           ; preds = %1, %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit
   %.06 = phi ptr [ %4, %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit ], [ %0, %1 ]
   %4 = load ptr, ptr %.06, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %6 = load i64, ptr %5, align 8
   br label %8
@@ -208,13 +208,13 @@ define hidden void @_ZN5Chunk4chopEPS_(ptr noundef %0) local_unnamed_addr #0 ali
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw %class.ChunkPool, ptr @_ZN9ChunkPool6_poolsE, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
   %14 = load ptr, ptr %13, align 16
   store ptr %14, ptr %.06, align 8
   store ptr %.06, ptr %13, align 16
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit
 
 15:                                               ; preds = %7
@@ -224,7 +224,7 @@ define hidden void @_ZN5Chunk4chopEPS_(ptr noundef %0) local_unnamed_addr #0 ali
   br label %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit
 
 _ZN9ChunkPool16deallocate_chunkEP5Chunk.exit:     ; preds = %12, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
@@ -243,7 +243,7 @@ define hidden void @_ZN5Chunk9next_chopEPS_(ptr noundef captures(none) %0) local
 .lr.ph.i:                                         ; preds = %1, %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i
   %.06.i = phi ptr [ %5, %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i ], [ %4, %1 ]
   %5 = load ptr, ptr %.06.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %7 = load i64, ptr %6, align 8
   br label %9
@@ -262,13 +262,13 @@ define hidden void @_ZN5Chunk9next_chopEPS_(ptr noundef captures(none) %0) local
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw %class.ChunkPool, ptr @_ZN9ChunkPool6_poolsE, i64 %indvars.iv.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
   %15 = load ptr, ptr %14, align 16
   store ptr %15, ptr %.06.i, align 8
   store ptr %.06.i, ptr %14, align 16
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i
 
 16:                                               ; preds = %8
@@ -278,7 +278,7 @@ define hidden void @_ZN5Chunk9next_chopEPS_(ptr noundef captures(none) %0) local
   br label %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i
 
 _ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i:   ; preds = %16, %13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN5Chunk4chopEPS_.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -507,7 +507,7 @@ _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %1, %_ZN10MemTracker
 .lr.ph.i:                                         ; preds = %_ZN5Arena17set_size_in_bytesEm.exit, %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i
   %.06.i = phi ptr [ %34, %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i ], [ %33, %_ZN5Arena17set_size_in_bytesEm.exit ]
   %34 = load ptr, ptr %.06.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %36 = load i64, ptr %35, align 8
   br label %38
@@ -526,13 +526,13 @@ _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %1, %_ZN10MemTracker
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw %class.ChunkPool, ptr @_ZN9ChunkPool6_poolsE, i64 %indvars.iv.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
   %44 = load ptr, ptr %43, align 16
   store ptr %44, ptr %.06.i, align 8
   store ptr %.06.i, ptr %43, align 16
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i
 
 45:                                               ; preds = %37
@@ -542,7 +542,7 @@ _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %1, %_ZN10MemTracker
   br label %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i
 
 _ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i:   ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i1 = icmp eq ptr %34, null
   br i1 %.not.i1, label %_ZN5Chunk4chopEPS_.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -992,7 +992,7 @@ _ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i.preheader: ; preds = %4, %1
 _ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i: ; preds = %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i.preheader, %_ZN9ChunkPool5pruneEv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN9ChunkPool5pruneEv.exit.i ], [ 0, %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i.preheader ]
   %5 = getelementptr inbounds nuw [4 x %class.ChunkPool], ptr @_ZN9ChunkPool6_poolsE, i64 0, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
   %6 = load ptr, ptr %5, align 16
   %.not5.i.i = icmp eq ptr %6, null
@@ -1008,7 +1008,7 @@ _ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i: ; preds = %_ZN17NativeHeapTrim
 _ZN9ChunkPool5pruneEv.exit.i:                     ; preds = %.lr.ph.i.i, %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i
   store ptr null, ptr %5, align 16
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %8, label %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i, !llvm.loop !13
@@ -1052,10 +1052,10 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

@@ -502,7 +502,7 @@ define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr noundef ca
   br i1 %.not, label %63, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 200, ptr %11, align 4
@@ -549,7 +549,7 @@ define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr noundef ca
   br label %getMidiDeviceID.exit
 
 getMidiDeviceID.exit:                             ; preds = %26, %28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @getDeviceStringFromDeviceID(ptr noundef nonnull %8, i64 noundef 100, i32 noundef %.031, i32 noundef 0, i32 noundef 1) #12
   switch i32 %0, label %.thread [
     i32 1, label %.thread34
@@ -605,14 +605,14 @@ getMidiDeviceID.exit:                             ; preds = %26, %28
   %50 = load ptr, ptr %6, align 8
   %51 = load ptr, ptr %2, align 8
   store ptr %50, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   %53 = load i64, ptr %4, align 8
   %54 = mul i64 %53, 1000000
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %54, %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i64 %57, ptr %59, align 8
@@ -676,14 +676,14 @@ define hidden i64 @getMidiTimestamp(ptr noundef readonly captures(address_is_nul
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   %5 = load i64, ptr %2, align 8
   %6 = mul i64 %5, 1000000
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %6, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
@@ -851,10 +851,10 @@ declare ptr @snd_rawmidi_info_get_name(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

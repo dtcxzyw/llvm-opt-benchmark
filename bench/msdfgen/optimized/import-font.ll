@@ -696,7 +696,7 @@ entry:
   %1 = load ptr, ptr %font, align 8
   %conv3 = zext i32 %unicode2 to i64
   %call4 = tail call i32 @FT_Get_Char_Index(ptr noundef %1, i64 noundef %conv3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %kerning.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %kerning.i)
   %2 = load ptr, ptr %font, align 8
   %call3.i = call i32 @FT_Get_Kerning(ptr noundef %2, i32 noundef %call, i32 noundef %call4, i32 noundef 2, ptr noundef nonnull %kerning.i)
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -705,7 +705,7 @@ entry:
   %mul.i = fmul double %conv.i, 1.562500e-02
   %storemerge.i = select i1 %tobool.not.i, double %mul.i, double 0.000000e+00
   store double %storemerge.i, ptr %output, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %kerning.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %kerning.i)
   ret i1 %tobool.not.i
 }
 
@@ -1094,10 +1094,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

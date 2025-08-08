@@ -791,7 +791,7 @@ define dso_local noundef float @_ZN12btMLCPSolver28solveGroupCacheFriendlySetupE
   %11 = alloca %class.CProfileSample, align 1
   %12 = alloca %class.CProfileSample, align 1
   %13 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(128) %7, ptr noundef %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !63
@@ -1828,18 +1828,18 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i267: ; preds = %417, %_ZNK2
 423:                                              ; preds = %.lr.ph.i.i262, %404
   store i32 0, ptr %405, align 4, !tbaa !16
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %442
 
 424:                                              ; preds = %.loopexit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %425 = load i8, ptr @gUseMatrixMultiply, align 1, !tbaa !68, !range !60, !noundef !67
   %426 = trunc nuw i8 %425 to i1
   br i1 %426, label %427, label %435
 
 427:                                              ; preds = %424
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull @.str.1)
   %428 = load ptr, ptr %0, align 8, !tbaa !4
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 120
@@ -1849,24 +1849,24 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i267: ; preds = %417, %_ZNK2
 
 431:                                              ; preds = %427
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %442
 
 432:                                              ; preds = %138, %251, %253, %255, %421, %348, %306, %100, %98
   %.pn66.pn = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ], [ %139, %138 ], [ %422, %421 ], [ %307, %306 ], [ %349, %348 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %443
 
 433:                                              ; preds = %427
   %434 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %443
 
 435:                                              ; preds = %424
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull @.str.2)
   %436 = load ptr, ptr %0, align 8, !tbaa !4
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 128
@@ -1876,14 +1876,14 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i267: ; preds = %417, %_ZNK2
 
 439:                                              ; preds = %435
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %442
 
 440:                                              ; preds = %435
   %441 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %443
 
 442:                                              ; preds = %423, %431, %439
@@ -1896,13 +1896,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i267: ; preds = %417, %_ZNK2
 
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1914,7 +1908,7 @@ define linkonce_odr dso_local void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnu
   store i32 %1, ptr %0, align 8, !tbaa !80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %8, align 4, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.21)
   %9 = mul nsw i32 %2, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2008,14 +2002,14 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %33, %_ZNK20btAli
 .loopexit:                                        ; preds = %.lr.ph.i, %3
   store i32 %9, ptr %10, align 4, !tbaa !16
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 40:                                               ; preds = %33, %18
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %41
 }
 
@@ -2038,7 +2032,7 @@ define dso_local noundef zeroext i1 @_ZN12btMLCPSolver9solveMLCPERK19btContactSo
   br i1 %.not, label %122, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 20, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 1, ptr %12, align 8, !tbaa !7
@@ -2097,7 +2091,7 @@ common.resume:                                    ; preds = %121, %30
   br label %common.resume
 
 _ZN9btMatrixXIfEC2ERKS0_.exit:                    ; preds = %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %34, align 8, !tbaa !25
@@ -2208,7 +2202,7 @@ _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %46, %_ZN20btAligned
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %78, %81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %86 = load i32, ptr %85, align 4, !tbaa !23
   %87 = icmp sgt i32 %86, 0
@@ -2300,14 +2294,14 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i:      ; preds = %109, %_ZN20btAligne
   unreachable
 
 _ZN9btMatrixXIfED2Ev.exit:                        ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i, %117
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %136
 
 121:                                              ; preds = %76, %74
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #14
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 122:                                              ; preds = %8
@@ -2332,7 +2326,7 @@ _ZN9btMatrixXIfED2Ev.exit:                        ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12btMLCPSolver14createMLCPFastERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12btMLCPSolver14createMLCPFastERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.CProfileSample, align 1
   %4 = alloca %class.CProfileSample, align 1
   %5 = alloca %class.CProfileSample, align 1
@@ -2361,7 +2355,7 @@ define dso_local void @_ZN12btMLCPSolver14createMLCPFastERK19btContactSolverInfo
   %28 = select i1 %27, i32 3, i32 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %30 = load i32, ptr %29, align 4, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @.str.3)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %32 = load i32, ptr %31, align 4, !tbaa !16
@@ -2583,7 +2577,7 @@ _ZN9btVectorXIfE7setZeroEv.exit409:               ; preds = %_ZN9btVectorXIfE7se
 ._crit_edge:                                      ; preds = %194, %_ZN9btVectorXIfE7setZeroEv.exit, %_ZN9btVectorXIfE7setZeroEv.exit409
   %109 = phi i1 [ false, %_ZN9btVectorXIfE7setZeroEv.exit409 ], [ false, %_ZN9btVectorXIfE7setZeroEv.exit ], [ true, %194 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %111 = load i32, ptr %110, align 4, !tbaa !16
   %112 = icmp sgt i32 %30, %111
@@ -2756,7 +2750,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i447: ; preds = %163, %_ZNK2
 
 _ZN9btVectorXIfE6resizeEi.exit457:                ; preds = %_ZN9btVectorXIfE6resizeEi.exit433, %.lr.ph.i.i437
   store i32 %30, ptr %140, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull @.str.4)
   br i1 %109, label %.lr.ph771, label %._crit_edge772
 
@@ -2774,7 +2768,7 @@ _ZN9btVectorXIfE6resizeEi.exit457:                ; preds = %_ZN9btVectorXIfE6re
   %177 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN20btAlignedObjectArrayIiED2Ev.exit690
 
 178:                                              ; preds = %.lr.ph, %194
@@ -2807,11 +2801,11 @@ _ZN9btVectorXIfE6resizeEi.exit457:                ; preds = %_ZN9btVectorXIfE6re
 
 ._crit_edge772:                                   ; preds = %198, %_ZN9btVectorXIfE6resizeEi.exit457
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %195 = load i32, ptr %29, align 4, !tbaa !37
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %197 = load i32, ptr %196, align 4, !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @.str.5)
           to label %207 unwind label %308
 
@@ -2848,8 +2842,8 @@ _ZN9btVectorXIfE6resizeEi.exit457:                ; preds = %_ZN9btVectorXIfE6re
 .loopexit764:                                     ; preds = %.lr.ph.i, %207
   %.sroa.14736.2 = phi ptr [ null, %207 ], [ %212, %.lr.ph.i ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull @.str.6)
           to label %213 unwind label %312
 
@@ -2869,8 +2863,8 @@ _ZN20btAlignedObjectArrayI11btJointNodeE7reserveEi.exit: ; preds = %213, %216
   %.sroa.26702.6 = phi ptr [ null, %213 ], [ %220, %216 ]
   %.sroa.17.3 = phi i32 [ 0, %213 ], [ %217, %216 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.7)
           to label %221 unwind label %317
 
@@ -2882,8 +2876,8 @@ _ZN20btAlignedObjectArrayI11btJointNodeE7reserveEi.exit: ; preds = %213, %216
 
 224:                                              ; preds = %221
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull @.str.8)
           to label %225 unwind label %322
 
@@ -2893,7 +2887,7 @@ _ZN20btAlignedObjectArrayI11btJointNodeE7reserveEi.exit: ; preds = %213, %216
           to label %227 unwind label %324
 
 227:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.22)
           to label %.noexc467 unwind label %324
 
@@ -2913,8 +2907,8 @@ _Z9btSetZeroIfEvPT_i.exit.i466:                   ; preds = %.noexc467
 
 234:                                              ; preds = %_Z9btSetZeroIfEvPT_i.exit.i466, %.noexc467
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.22)
           to label %.noexc470 unwind label %324
 
@@ -2934,10 +2928,10 @@ _Z9btSetZeroIfEvPT_i.exit.i469:                   ; preds = %.noexc470
 
 241:                                              ; preds = %_Z9btSetZeroIfEvPT_i.exit.i469, %.noexc470
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull @.str.9)
           to label %242 unwind label %327
 
@@ -3049,8 +3043,8 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i501: ; preds = %280, %_ZNK20b
 282:                                              ; preds = %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i501, %262, %.loopexit763
   store i32 %260, ptr %243, align 4, !tbaa !30
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull @.str.10)
           to label %.preheader762 unwind label %335
 
@@ -3080,7 +3074,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i501: ; preds = %280, %_ZNK20b
 ._crit_edge811:                                   ; preds = %.loopexit, %.preheader762
   %.sroa.26702.0.lcssa = phi ptr [ %.sroa.26702.6, %.preheader762 ], [ %.sroa.26702.5, %.loopexit ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %300 = load i32, ptr %228, align 4, !tbaa !16
   %.not.i511 = icmp eq i32 %300, 0
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 960
@@ -3091,7 +3085,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i501: ; preds = %280, %_ZNK20b
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %306 = load ptr, ptr %305, align 8
   %307 = select i1 %.not.i512, ptr null, ptr %306
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull @.str.11)
           to label %599 unwind label %624
 
@@ -3108,7 +3102,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i501: ; preds = %280, %_ZNK20b
 
 _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687.thread: ; preds = %308, %310
   %.pn = phi { ptr, i32 } [ %311, %310 ], [ %309, %308 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN20btAlignedObjectArrayIiED2Ev.exit690
 
 312:                                              ; preds = %.loopexit764
@@ -3124,7 +3118,7 @@ _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687.thread: ; preds = %308, %31
 
 316:                                              ; preds = %314, %312
   %.pn331 = phi { ptr, i32 } [ %315, %314 ], [ %313, %312 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687
 
 317:                                              ; preds = %_ZN20btAlignedObjectArrayI11btJointNodeE7reserveEi.exit
@@ -3140,7 +3134,7 @@ _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687.thread: ; preds = %308, %31
 
 321:                                              ; preds = %319, %317
   %.pn333 = phi { ptr, i32 } [ %320, %319 ], [ %318, %317 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1110
 
 322:                                              ; preds = %224
@@ -3156,7 +3150,7 @@ _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687.thread: ; preds = %308, %31
 
 326:                                              ; preds = %324, %322
   %.pn335 = phi { ptr, i32 } [ %325, %324 ], [ %323, %322 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1110
 
 327:                                              ; preds = %241
@@ -3181,7 +3175,7 @@ _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687.thread: ; preds = %308, %31
 
 334:                                              ; preds = %333, %327
   %.pn337.pn = phi { ptr, i32 } [ %.pn337, %333 ], [ %328, %327 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1110
 
 335:                                              ; preds = %282
@@ -3231,7 +3225,7 @@ _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687.thread: ; preds = %308, %31
   br i1 %.not360, label %472, label %363
 
 363:                                              ; preds = %361
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %364 = icmp eq i32 %.sroa.3.0803, %.sroa.17.0802
   br i1 %364, label %365, label %378
@@ -3286,7 +3280,7 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread: ; preds =
   %380 = sext i32 %.sroa.3.0803 to i64
   %381 = getelementptr inbounds %struct.btJointNode, ptr %.sroa.26702.7, i64 %380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %381, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !105
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %382 = getelementptr inbounds i32, ptr %.sroa.14736.2, i64 %349
   %383 = load i32, ptr %382, align 4, !tbaa !65
   store i32 %.sroa.3.0803, ptr %382, align 4, !tbaa !65
@@ -3331,13 +3325,13 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread: ; preds =
 408:                                              ; preds = %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread, %370
   %409 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %598
 
 410:                                              ; preds = %.lr.ph779, %465
   %indvars.iv873 = phi i64 [ 0, %.lr.ph779 ], [ %indvars.iv.next874, %465 ]
   %indvars.iv871 = phi i64 [ %405, %.lr.ph779 ], [ %indvars.iv.next872, %465 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv873
   %411 = load ptr, ptr %gep, align 8, !tbaa !64
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 16
@@ -3355,7 +3349,7 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread: ; preds =
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %421, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %15, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %290, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %422 = load float, ptr %392, align 4, !tbaa !78
   %423 = load float, ptr %411, align 4, !tbaa !78
   %424 = load float, ptr %393, align 4, !tbaa !78
@@ -3426,8 +3420,8 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread: ; preds =
   store float 0.000000e+00, ptr %470, align 4, !tbaa !78
   %471 = getelementptr i8, ptr %468, i64 28
   store float 0.000000e+00, ptr %471, align 4, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
   %indvars.iv.next872 = add nsw i64 %indvars.iv871, 1
   %exitcond879.not = icmp eq i64 %indvars.iv.next874, %wide.trip.count878
@@ -3455,7 +3449,7 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread: ; preds =
   br i1 %.not362, label %588, label %478
 
 478:                                              ; preds = %.loopexit761
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %479 = icmp eq i32 %.sroa.3.1, %.sroa.17.1
   br i1 %479, label %480, label %493
@@ -3510,7 +3504,7 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread: ; pred
   %495 = sext i32 %.sroa.3.1 to i64
   %496 = getelementptr inbounds %struct.btJointNode, ptr %.sroa.26702.8, i64 %495
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %496, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !105
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %497 = getelementptr inbounds i32, ptr %.sroa.14736.2, i64 %352
   %498 = load i32, ptr %497, align 4, !tbaa !65
   store i32 %.sroa.3.1, ptr %497, align 4, !tbaa !65
@@ -3554,13 +3548,13 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread: ; pred
 523:                                              ; preds = %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread, %485
   %524 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %598
 
 525:                                              ; preds = %.lr.ph793, %581
   %indvars.iv890 = phi i64 [ 0, %.lr.ph793 ], [ %indvars.iv.next891, %581 ]
   %indvars.iv888 = phi i64 [ %520, %.lr.ph793 ], [ %indvars.iv.next889, %581 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %gep925 = getelementptr ptr, ptr %invariant.gep924, i64 %indvars.iv890
   %526 = load ptr, ptr %gep925, align 8, !tbaa !64
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 48
@@ -3578,7 +3572,7 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread: ; pred
   %.sroa.3.12.vec.insert.i550 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %536, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i549, ptr %18, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i550, ptr %298, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %537 = getelementptr inbounds nuw i8, ptr %526, i64 32
   %538 = load float, ptr %507, align 4, !tbaa !78
   %539 = load float, ptr %537, align 4, !tbaa !78
@@ -3650,8 +3644,8 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread: ; pred
   store float 0.000000e+00, ptr %586, align 4, !tbaa !78
   %587 = getelementptr i8, ptr %584, i64 28
   store float 0.000000e+00, ptr %587, align 4, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
   %indvars.iv.next889 = add nsw i64 %indvars.iv888, 1
   %exitcond896.not = icmp eq i64 %indvars.iv.next891, %wide.trip.count895
@@ -3695,13 +3689,13 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread: ; pred
 
 601:                                              ; preds = %599
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull @.str.12)
           to label %602 unwind label %629
 
 602:                                              ; preds = %601
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.22)
           to label %.noexc560 unwind label %631
 
@@ -3721,10 +3715,10 @@ _Z9btSetZeroIfEvPT_i.exit.i559:                   ; preds = %.noexc560
 
 609:                                              ; preds = %_Z9btSetZeroIfEvPT_i.exit.i559, %.noexc560
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull @.str.13)
           to label %.preheader760 unwind label %634
 
@@ -3748,14 +3742,14 @@ _Z9btSetZeroIfEvPT_i.exit.i559:                   ; preds = %.noexc560
   br label %636
 
 ._crit_edge827:                                   ; preds = %._crit_edge822, %.preheader760
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull @.str.14)
           to label %830 unwind label %956
 
 623:                                              ; preds = %598, %335
   %.sroa.26702.2 = phi ptr [ %.sroa.26702.3, %598 ], [ %.sroa.26702.6, %335 ]
   %.pn366.pn.pn.pn = phi { ptr, i32 } [ %.pn366.pn.pn, %598 ], [ %336, %335 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1110
 
 624:                                              ; preds = %._crit_edge811
@@ -3771,7 +3765,7 @@ _Z9btSetZeroIfEvPT_i.exit.i559:                   ; preds = %.noexc560
 
 628:                                              ; preds = %626, %624
   %.pn340 = phi { ptr, i32 } [ %627, %626 ], [ %625, %624 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1110
 
 629:                                              ; preds = %601
@@ -3787,7 +3781,7 @@ _Z9btSetZeroIfEvPT_i.exit.i559:                   ; preds = %.noexc560
 
 633:                                              ; preds = %631, %629
   %.pn342 = phi { ptr, i32 } [ %632, %631 ], [ %630, %629 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %1110
 
 634:                                              ; preds = %609
@@ -4325,7 +4319,7 @@ _ZN9btMatrixXIfE7addElemEiif.exit.us.i608:        ; preds = %.sink.split.i.us.i6
 956:                                              ; preds = %._crit_edge827
   %957 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
   br label %973
 
@@ -4338,9 +4332,9 @@ _ZN9btMatrixXIfE16multiplyAdd2_p8rEPKfS2_iiii.exit616: ; preds = %._crit_edge.us
 
 ._crit_edge833:                                   ; preds = %_ZN9btMatrixXIfE16multiplyAdd2_p8rEPKfS2_iiii.exit616, %830
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %961 = load i32, ptr %600, align 8, !tbaa !80
   %962 = icmp sgt i32 %961, 0
   br i1 %962, label %.lr.ph836, label %972
@@ -4364,13 +4358,13 @@ _ZN9btMatrixXIfE16multiplyAdd2_p8rEPKfS2_iiii.exit616: ; preds = %._crit_edge.us
   br label %972
 
 972:                                              ; preds = %._crit_edge837, %._crit_edge833
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull @.str.15)
           to label %984 unwind label %1076
 
 973:                                              ; preds = %956, %634
   %.pn354.pn.pn = phi { ptr, i32 } [ %957, %956 ], [ %635, %634 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1110
 
 974:                                              ; preds = %.lr.ph836, %974
@@ -4442,8 +4436,8 @@ _ZN9btMatrixXIfE16multiplyAdd2_p8rEPKfS2_iiii.exit616: ; preds = %._crit_edge.us
 
 _ZN9btMatrixXIfE24copyLowerToUpperTriangleEv.exit: ; preds = %997, %984
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull @.str.16)
           to label %1002 unwind label %1078
 
@@ -4650,7 +4644,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i662: ; preds = %1057, %_ZNK
 1076:                                             ; preds = %972
   %1077 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1110
 
 1078:                                             ; preds = %_ZN9btMatrixXIfE24copyLowerToUpperTriangleEv.exit
@@ -4706,7 +4700,7 @@ _Z9btSetZeroIfEvPT_i.exit.i679:                   ; preds = %_ZN9btVectorXIfE7se
 
 _ZN9btVectorXIfE7setZeroEv.exit680:               ; preds = %1082, %.preheader, %_Z9btSetZeroIfEvPT_i.exit.i679, %_ZN9btVectorXIfE7setZeroEv.exit677
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.not.i.i.i681.not = icmp eq ptr %.sroa.26702.0.lcssa, null
   br i1 %.not.i.i.i681.not, label %_ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit, label %1101
 
@@ -4741,7 +4735,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
 
 1109:                                             ; preds = %1080, %1078
   %.pn346 = phi { ptr, i32 } [ %1081, %1080 ], [ %1079, %1078 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1110
 
 1110:                                             ; preds = %321, %334, %623, %973, %1076, %1109, %633, %628, %326
@@ -4783,7 +4777,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit690:         ; preds = %1115, %_ZN20btAlign
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12btMLCPSolver10createMLCPERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -5026,7 +5020,7 @@ _ZN9btVectorXIfE7setZeroEv.exit192:               ; preds = %_ZN9btVectorXIfE7se
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %94 = mul nsw i32 %11, 6
   tail call void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %93, i32 noundef %94, i32 noundef %94)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.22)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1068
   %96 = load i32, ptr %95, align 4, !tbaa !16
@@ -5043,7 +5037,7 @@ _Z9btSetZeroIfEvPT_i.exit.i194:                   ; preds = %._crit_edge
 
 _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %._crit_edge, %_Z9btSetZeroIfEvPT_i.exit.i194
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %101 = icmp sgt i32 %11, 0
   br i1 %101, label %.lr.ph439, label %130
 
@@ -5100,7 +5094,7 @@ _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %._crit_edge, %_Z9bt
 130:                                              ; preds = %._crit_edge440, %_ZN9btMatrixXIfE7setZeroEv.exit
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   call void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %131, i32 noundef %13, i32 noundef %94)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.22)
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %133 = load i32, ptr %132, align 4, !tbaa !16
@@ -5117,7 +5111,7 @@ _Z9btSetZeroIfEvPT_i.exit.i196:                   ; preds = %130
 
 _ZN9btMatrixXIfE7setZeroEv.exit197:               ; preds = %130, %_Z9btSetZeroIfEvPT_i.exit.i196
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %139 = load i32, ptr %138, align 4, !tbaa !16
   %140 = icmp sgt i32 %13, %139
@@ -5405,7 +5399,7 @@ _ZN9btVectorXIfE6resizeEi.exit245:                ; preds = %_ZN9btVectorXIfE6re
 
 ._crit_edge444:                                   ; preds = %397, %_ZN9btVectorXIfE6resizeEi.exit245
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK9btMatrixXIfE9transposeEv(ptr dead_on_unwind nonnull writable sret(%struct.btMatrixX) align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %131)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %261, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 20, i1 false)
   %262 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -5751,11 +5745,11 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i:      ; preds = %423, %_ZN20btAligne
   unreachable
 
 _ZN9btMatrixXIfED2Ev.exit:                        ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i, %433
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @.str.17)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN9btMatrixXIfEmlERKS0_(ptr dead_on_unwind nonnull writable sret(%struct.btMatrixX) align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %131, ptr noundef nonnull align 8 dereferenceable(88) %93)
           to label %438 unwind label %646
 
@@ -5978,12 +5972,12 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i257:   ; preds = %505, %_ZN20btAligne
   unreachable
 
 _ZN9btMatrixXIfED2Ev.exit267:                     ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i257, %515
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @.str.18)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN9btMatrixXIfEmlERKS0_(ptr dead_on_unwind nonnull writable sret(%struct.btMatrixX) align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %437, ptr noundef nonnull align 8 dereferenceable(88) %261)
           to label %519 unwind label %651
 
@@ -6207,9 +6201,9 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i274:   ; preds = %587, %_ZN20btAligne
   unreachable
 
 _ZN9btMatrixXIfED2Ev.exit284:                     ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i274, %597
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %601 = load i32, ptr %520, align 8, !tbaa !80
   %602 = icmp sgt i32 %601, 0
   br i1 %602, label %.lr.ph447, label %612
@@ -6328,7 +6322,7 @@ _ZN9btVectorXIfE6resizeEi.exit308:                ; preds = %612, %.lr.ph.i.i288
   %645 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #14
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %718
 
 646:                                              ; preds = %_ZN9btMatrixXIfED2Ev.exit
@@ -6344,9 +6338,9 @@ _ZN9btVectorXIfE6resizeEi.exit308:                ; preds = %612, %.lr.ph.i.i288
 
 650:                                              ; preds = %648, %646
   %.pn = phi { ptr, i32 } [ %649, %648 ], [ %647, %646 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %718
 
 651:                                              ; preds = %_ZN9btMatrixXIfED2Ev.exit267
@@ -6362,9 +6356,9 @@ _ZN9btVectorXIfE6resizeEi.exit308:                ; preds = %612, %.lr.ph.i.i288
 
 655:                                              ; preds = %653, %651
   %.pn156 = phi { ptr, i32 } [ %654, %653 ], [ %652, %651 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %718
 
 656:                                              ; preds = %.lr.ph447, %656
@@ -6568,7 +6562,7 @@ common.resume:                                    ; preds = %49, %19
   br label %common.resume
 
 _ZN9btMatrixXIfEC2Eii.exit:                       ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.22)
           to label %.noexc unwind label %49
 
@@ -6586,7 +6580,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %.noexc
 
 _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %.noexc, %_Z9btSetZeroIfEvPT_i.exit.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = load i32, ptr %4, align 4, !tbaa !81
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.preheader.lr.ph, label %._crit_edge20
@@ -6700,7 +6694,7 @@ common.resume:                                    ; preds = %60, %20
   br label %common.resume
 
 _ZN9btMatrixXIfEC2Eii.exit:                       ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.22)
           to label %.noexc unwind label %60
 
@@ -6718,7 +6712,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %.noexc
 
 _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %.noexc, %_Z9btSetZeroIfEvPT_i.exit.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = load i32, ptr %1, align 8, !tbaa !80
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.preheader.lr.ph, label %._crit_edge
@@ -6813,10 +6807,10 @@ _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %.noexc, %_Z9btSetZe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN12btMLCPSolver33solveGroupCacheFriendlyIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(128) %7, ptr noundef %8) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN12btMLCPSolver33solveGroupCacheFriendlyIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(128) %7, ptr noundef %8) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %class.CProfileSample, align 1
   %11 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.19)
   %12 = load ptr, ptr %0, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
@@ -6826,11 +6820,11 @@ define dso_local noundef float @_ZN12btMLCPSolver33solveGroupCacheFriendlyIterat
 
 16:                                               ; preds = %9
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %15, label %17, label %305
 
 17:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull @.str.20)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %19 = load i32, ptr %18, align 4, !tbaa !37
@@ -6854,14 +6848,14 @@ define dso_local noundef float @_ZN12btMLCPSolver33solveGroupCacheFriendlyIterat
 
 ._crit_edge:                                      ; preds = %304, %17
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %310
 
 31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %32
 
 33:                                               ; preds = %.lr.ph, %304
@@ -7346,7 +7340,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
   tail call void @_ZSt9terminatev() #13
   unreachable
@@ -7355,12 +7349,12 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7375,7 +7369,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEEC2ERKS1_(ptr
   store i32 0, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7407,7 +7401,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEEC2ERKS1_(ptr
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %14, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = load ptr, ptr %5, align 8, !tbaa !22
   %23 = icmp sgt i32 %9, 0
   br i1 %23, label %.lr.ph.i, label %_ZNK20btAlignedObjectArrayIS_IiEE4copyEiiPS0_.exit
@@ -7510,14 +7504,14 @@ _ZNK20btAlignedObjectArrayIS_IiEE4copyEiiPS0_.exit: ; preds = %_ZN20btAlignedObj
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %56
 }
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = icmp slt i32 %1, %5
@@ -7666,7 +7660,7 @@ _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %51, %_ZN20btAligned
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !24
   %5 = icmp slt i32 %4, %1
@@ -7851,17 +7845,17 @@ _ZN20btAlignedObjectArrayIS_IiEE10deallocateEv.exit: ; preds = %67, %_ZN20btAlig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #12
+declare float @llvm.fabs.f32(float) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #12
+declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE13copyFromArrayERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.btAlignedObjectArray.2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %6, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7893,7 +7887,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE13copyFromAr
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %10, %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = icmp sgt i32 %5, 0
@@ -7997,23 +7991,29 @@ _ZNK20btAlignedObjectArrayIS_IiEE4copyEiiPS0_.exit: ; preds = %_ZN20btAlignedObj
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %53
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind }
 

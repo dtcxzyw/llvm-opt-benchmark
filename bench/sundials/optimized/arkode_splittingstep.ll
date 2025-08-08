@@ -66,7 +66,7 @@ define ptr @SplittingStepCreate(ptr noundef readonly captures(address_is_null) %
   br label %41
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = tail call ptr @arkCreate(ptr noundef nonnull %4) #12
   store ptr %12, ptr %6, align 8, !tbaa !3
   %13 = icmp eq ptr %12, null
@@ -139,16 +139,13 @@ define ptr @SplittingStepCreate(ptr noundef readonly captures(address_is_null) %
 
 40:                                               ; preds = %18, %23, %37, %38, %14
   %.1 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %23 ], [ null, %37 ], [ %12, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %41
 
 41:                                               ; preds = %5, %40, %10
   %.0 = phi ptr [ null, %10 ], [ %.1, %40 ], [ null, %5 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -22, 1) i32 @splittingStep_CheckArgs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
@@ -249,14 +246,14 @@ splittingStep_CheckNVector.exit.thread:           ; preds = %31, %splittingStep_
   ret i32 %.020
 }
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @arkCreate(ptr noundef) local_unnamed_addr #2
+declare ptr @arkCreate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -20, 1) i32 @splittingStep_InitStepMem(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
@@ -816,12 +813,9 @@ splittingStep_AccessStepMem.exit:                 ; preds = %2
   ret i32 %.0
 }
 
-declare i32 @arkInit(ptr noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @arkInit(ptr noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SplittingStepReInit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, double noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -928,9 +922,9 @@ splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %9, %4, %18, %22, %1
   ret i32 %.0
 }
 
-declare void @SplittingStepCoefficients_Destroy(ptr noundef) local_unnamed_addr #2
+declare void @SplittingStepCoefficients_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SplittingStepCoefficients_Copy(ptr noundef) local_unnamed_addr #2
+declare ptr @SplittingStepCoefficients_Copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @SplittingStepGetNumEvolves(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
@@ -1002,25 +996,25 @@ splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %20, %16, %10, %5, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @SplittingStepCoefficients_LieTrotter(i32 noundef) local_unnamed_addr #2
+declare ptr @SplittingStepCoefficients_LieTrotter(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SplittingStepCoefficients_ThirdOrderSuzuki(i32 noundef) local_unnamed_addr #2
+declare ptr @SplittingStepCoefficients_ThirdOrderSuzuki(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SplittingStepCoefficients_TripleJump(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SplittingStepCoefficients_TripleJump(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_FullRhs(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_FullRhs(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -1092,14 +1086,14 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   br i1 %.not56, label %48, label %.thread
 
 48:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double 0.000000e+00, ptr %5, align 8, !tbaa !63
   %49 = call i32 @SUNStepper_Evolve(ptr noundef %41, double noundef %38, ptr noundef %3, ptr noundef nonnull %5) #12
   %.not57 = icmp eq i32 %49, 0
   br i1 %.not57, label %50, label %.thread63
 
 .thread63:                                        ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 50:                                               ; preds = %48
@@ -1108,7 +1102,7 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   %53 = load i64, ptr %52, align 8, !tbaa !68
   %54 = add nsw i64 %53, 1
   store i64 %54, ptr %52, align 8, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %10, align 8, !tbaa !70
   br label %.thread61
 
@@ -1138,20 +1132,26 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
-declare i32 @SUNStepper_Reset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_Reset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_SetStepDirection(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_SetStepDirection(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_SetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_SetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_Evolve(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_Evolve(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
-declare void @SplittingStepCoefficients_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SplittingStepCoefficients_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
@@ -1166,14 +1166,14 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }

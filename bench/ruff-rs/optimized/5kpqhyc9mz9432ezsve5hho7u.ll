@@ -82,17 +82,17 @@ define hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h479
   br i1 %8, label %_ZN3std4sync6poison4once4Once15call_once_force17he8af2b8fb97aecc3E.exit, label %9, !prof !16
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !13
   store ptr %1, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13
   store ptr %5, ptr %4, align 8, !noalias !13
   call void @_ZN3std3sys4sync4once5futex4Once4call17hc0bb6defe1aa0f88E(ptr noundef nonnull align 4 %6, i1 noundef zeroext true, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.4e4bde5ed64d4151277f7c4c3830d8e6.3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e4bde5ed64d4151277f7c4c3830d8e6.2), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13
   br label %_ZN3std4sync6poison4once4Once15call_once_force17he8af2b8fb97aecc3E.exit
 
 _ZN3std4sync6poison4once4Once15call_once_force17he8af2b8fb97aecc3E.exit: ; preds = %2, %9
@@ -110,17 +110,17 @@ define hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h60c
   br i1 %8, label %_ZN3std4sync6poison4once4Once15call_once_force17h90d82485c39634b3E.exit, label %9, !prof !16
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !17
   store ptr %1, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !17
   store ptr %5, ptr %4, align 8, !noalias !17
   call void @_ZN3std3sys4sync4once5futex4Once4call17hc0bb6defe1aa0f88E(ptr noundef nonnull align 4 %6, i1 noundef zeroext true, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.4e4bde5ed64d4151277f7c4c3830d8e6.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e4bde5ed64d4151277f7c4c3830d8e6.2), !noalias !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !17
   br label %_ZN3std4sync6poison4once4Once15call_once_force17h90d82485c39634b3E.exit
 
 _ZN3std4sync6poison4once4Once15call_once_force17h90d82485c39634b3E.exit: ; preds = %2, %9
@@ -205,10 +205,10 @@ declare void @llvm.assume(i1 noundef) #5
 declare noundef nonnull ptr @_ZN16ruff_source_file10line_index9LineIndex16from_source_text17h5157ead3deabcb58E(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

@@ -1349,13 +1349,13 @@ _ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit: ; preds = %
   br i1 %12, label %13, label %_ZN11MutexLockerD2Ev.exit
 
 13:                                               ; preds = %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit.thread, %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr @_ZN20ClassLoaderDataGraph30_should_clean_deallocate_listsE, align 1
   %14 = tail call noundef zeroext i1 @_ZN13InstanceKlass40should_clean_previous_versions_and_resetEv() #10
   call void @_ZN19MetadataOnStackMarkC1Ebb(ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %14, i1 noundef zeroext false) #10
   call void @_ZN20ClassLoaderDataGraph22clean_deallocate_listsEb(i1 noundef zeroext %14)
   call void @_ZN19MetadataOnStackMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN11MutexLockerD2Ev.exit
 
 15:                                               ; preds = %7
@@ -1735,10 +1735,10 @@ declare void @llvm.trap() #8
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

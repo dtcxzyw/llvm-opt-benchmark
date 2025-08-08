@@ -65,12 +65,9 @@ cs_spfree.exit:                                   ; preds = %25, %21
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @cs_calloc(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @cs_calloc(i32 noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @cs_spfree(ptr noundef %0) local_unnamed_addr #0 {
@@ -95,18 +92,15 @@ define ptr @cs_spfree(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !17
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %6
@@ -178,15 +172,15 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef captures(address_is_null) %
 
 .thread:                                          ; preds = %36, %41, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %41 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @cs_realloc(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cs_realloc(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cs_free(ptr noundef) local_unnamed_addr #2
+declare ptr @cs_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @cs_nfree(ptr noundef %0) local_unnamed_addr #0 {
@@ -491,12 +485,18 @@ cs_dfree.exit:                                    ; preds = %18, %17, %cs_spfree
   ret ptr %31
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

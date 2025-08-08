@@ -854,11 +854,8 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15DynamicPrope
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev19DynamicPropertyImpl6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %1) local_unnamed_addr #0 align 2 {
@@ -975,11 +972,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev19DynamicPropertyImpl
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(13) initializes((0, 13)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_5dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(13) initializes((0, 13)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev19DynamicPropertyImplE, i64 16), ptr %0, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -996,7 +990,7 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingToneES2_(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplC2ENS_19DynamicPropertyTypeEdb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 13), (16, 32)) %0, i32 noundef %1, double noundef %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplC2ENS_19DynamicPropertyTypeEdb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 13), (16, 32)) %0, i32 noundef %1, double noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8, !tbaa !52
@@ -1067,13 +1061,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplC
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplC2ENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryERKNS_23GradingPrimaryPreRenderEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((0, 13), (16, 392)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(82) %4, i1 noundef zeroext %5) unnamed_addr #9 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplC2ENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryERKNS_23GradingPrimaryPreRenderEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((0, 13), (16, 392)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(82) %4, i1 noundef zeroext %5) unnamed_addr #8 align 2 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %8, align 8, !tbaa !52
@@ -1150,7 +1144,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl8
 declare void @_ZNK19OpenColorIO_v2_5dev14GradingPrimary8validateENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(272), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl8setValueERKNS_14GradingPrimaryE(ptr noundef initializes((16, 288)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #10 align 2 {
+define hidden void @_ZThn16_N19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl8setValueERKNS_14GradingPrimaryE(ptr noundef initializes((16, 288)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !65
   tail call void @_ZNK19OpenColorIO_v2_5dev14GradingPrimary8validateENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(272) %1, i32 noundef %4)
@@ -1258,7 +1252,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl
           to label %11 unwind label %62
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN19OpenColorIO_v2_5dev15GradingRGBCurve6CreateERKSt10shared_ptrIKS0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.26") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %12 unwind label %64
 
@@ -1368,7 +1362,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %57, %55
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSC_.exit, %45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl10precomputeEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
           to label %61 unwind label %66
 
@@ -1383,7 +1377,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_
 64:                                               ; preds = %11
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %68
 
 66:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1549,7 +1543,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %1, %9
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit13:             ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !110
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %15, align 4, !tbaa !110
@@ -1562,7 +1556,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit13:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %24
 
 20:                                               ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = load ptr, ptr %5, align 8, !tbaa !112
   %22 = load ptr, ptr %6, align 8, !tbaa !112
   %23 = icmp eq ptr %21, %22
@@ -1572,7 +1566,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit13:             ; preds = %_ZNSt6vectorIfSaIfE
   %.0.idx17 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit13 ], [ %.0.add, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx17
   %25 = load i32, ptr %.0.ptr, align 4, !tbaa !110
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = load ptr, ptr %18, align 8, !tbaa !53
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -1633,7 +1627,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %51, %49
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %32, %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.0.add = add nuw nsw i64 %.0.idx17, 4
   %.not = icmp eq i64 %.0.add, 16
   br i1 %.not, label %20, label %24
@@ -1642,8 +1636,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %56
 
 57:                                               ; preds = %20
@@ -1655,7 +1649,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !93
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1720,13 +1714,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #12 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZThn16_NK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #12 align 2 {
+define hidden noundef nonnull ptr @_ZThn16_NK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -1739,7 +1733,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr %1, align 8, !tbaa !53
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = load ptr, ptr %9, align 8
@@ -1850,20 +1844,20 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %56, %54
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSC_.exit, %44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl10precomputeEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef initializes((8, 16), (24, 25)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #10 align 2 {
+define hidden void @_ZThn16_N19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef initializes((8, 16), (24, 25)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl14getLocalBypassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl14getLocalBypassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !98, !range !50, !noundef !51
   %4 = trunc nuw i8 %3 to i1
@@ -1871,7 +1865,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGrad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumKnotsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumKnotsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !109
@@ -1885,7 +1879,7 @@ define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumCoefsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumCoefsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !109
@@ -1899,40 +1893,40 @@ define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !92
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getCoefsOffsetsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getCoefsOffsetsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !92
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getKnotsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getKnotsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !93
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getCoefsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getCoefsArrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !93
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxKnotsEv() local_unnamed_addr #12 align 2 {
+define hidden noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxKnotsEv() local_unnamed_addr #11 align 2 {
   ret i32 60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxCoefsEv() local_unnamed_addr #12 align 2 {
+define hidden noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxCoefsEv() local_unnamed_addr #11 align 2 {
   ret i32 180
 }
 
@@ -2143,7 +2137,7 @@ declare void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRenderC1ENS_12GradingStyle
 declare void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneERKNS_20GradingTonePreRenderEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1208) initializes((0, 13), (16, 1208)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(936) %2, i1 noundef zeroext %3) unnamed_addr #9 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneERKNS_20GradingTonePreRenderEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1208) initializes((0, 13), (16, 1208)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(936) %2, i1 noundef zeroext %3) unnamed_addr #8 align 2 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %6, align 8, !tbaa !52
@@ -2203,7 +2197,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8set
 declare void @_ZNK19OpenColorIO_v2_5dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef initializes((8, 256)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #10 align 2 {
+define hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef initializes((8, 256)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #9 align 2 {
   tail call void @_ZNK19OpenColorIO_v2_5dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !124
@@ -2330,18 +2324,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(272) ptr @_ZN
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef ptr @_ZThn16_NK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl8getValueEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZThn16_NK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl8getValueEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(392) %2, i64 noundef 392) #27
   ret void
@@ -2473,14 +2467,14 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradin
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 144) #27
@@ -2505,18 +2499,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(248) ptr @_ZN
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef ptr @_ZThn16_NK19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8getValueEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZThn16_NK19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8getValueEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(1208) %2, i64 noundef 1208) #27
   ret void
@@ -2559,33 +2553,33 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev25DynamicPropertyDouble
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef double @_ZThn16_NK19OpenColorIO_v2_5dev25DynamicPropertyDoubleImpl8getValueEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef double @_ZThn16_NK19OpenColorIO_v2_5dev25DynamicPropertyDoubleImpl8getValueEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !tbaa !56
   ret double %3
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev25DynamicPropertyDoubleImpl8setValueEd(ptr noundef %0, double noundef %1) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev25DynamicPropertyDoubleImpl8setValueEd(ptr noundef %0, double noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 32) #27
   ret void
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2727,19 +2721,19 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3016,7 +3010,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #4 comdat align 2 {
@@ -3240,6 +3234,12 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
@@ -3260,21 +3260,21 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold noreturn }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

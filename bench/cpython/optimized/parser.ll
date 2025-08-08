@@ -881,13 +881,7 @@ func_type_rule.exit:                              ; preds = %158, %286, %291, %.
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_Pypegen_stack_overflow(ptr noundef) local_unnamed_addr #2
+declare void @_Pypegen_stack_overflow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @statements_rule(ptr noundef %0) unnamed_addr #0 {
@@ -1110,23 +1104,23 @@ _loop1_2_rule.exit.thread:                        ; preds = %24, %18, %.thread52
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_expect_token(ptr noundef, i32 noundef) #2
+declare ptr @_PyPegen_expect_token(ptr noundef, i32 noundef) #1
 
-declare ptr @_PyPegen_make_module(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_make_module(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #2
+declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
-declare ptr @_PyPegen_seq_flatten(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_flatten(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_NoMemory() local_unnamed_addr #2
+declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
-declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
+declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_Py_asdl_generic_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_Py_asdl_generic_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @compound_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -1636,7 +1630,7 @@ class_def_rule.exit:                              ; preds = %155, %162
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_singleton_seq(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_singleton_seq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
@@ -1875,7 +1869,7 @@ _gather_4_rule.exit:                              ; preds = %63, %.preheader.i.i
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_lookahead(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_lookahead(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_6_rule(ptr noundef %0) #0 {
@@ -1937,7 +1931,7 @@ define internal ptr @_tmp_6_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_lookahead_with_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_lookahead_with_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_7_rule(ptr noundef %0) #0 {
@@ -5109,7 +5103,7 @@ CHECK_CALL.exit163:                               ; preds = %197, %194, %187
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_function_def_decorators(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_function_def_decorators(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @named_expression_rule(ptr noundef %0) unnamed_addr #0 {
@@ -5170,7 +5164,7 @@ invalid_named_expression_rule.exit.thread:        ; preds = %23
   br label %.thread73
 
 .thread:                                          ; preds = %20, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !25
   %26 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1201, ptr noundef nonnull %2) #5
   %.not67.i = icmp eq i32 %26, 0
@@ -5335,7 +5329,7 @@ invalid_named_expression_rule.exit.thread70:      ; preds = %invalid_named_expre
   %109 = load i32, ptr %3, align 8, !tbaa !20
   %110 = add i32 %109, -1
   store i32 %110, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread73
 
 invalid_named_expression_rule.exit:               ; preds = %.thread, %106
@@ -5343,7 +5337,7 @@ invalid_named_expression_rule.exit:               ; preds = %.thread, %106
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %3, align 8, !tbaa !20
   %.1.i = load ptr, ptr %2, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not41 = icmp eq ptr %.1.i, null
   br i1 %.not41, label %invalid_named_expression_rule.exit..thread73_crit_edge, label %.sink.split
 
@@ -5555,7 +5549,7 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   br label %217
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1105, ptr noundef nonnull %2) #5
   %.not89 = icmp eq i32 %15, 0
@@ -5978,7 +5972,7 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread117:                                       ; preds = %192, %178, %29, %.thread120, %205, %197, %162, %158, %46, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %46 ], [ null, %158 ], [ null, %162 ], [ null, %197 ], [ null, %205 ], [ %216, %.thread120 ], [ null, %178 ], [ null, %192 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %217
 
 217:                                              ; preds = %.thread117, %11
@@ -5986,14 +5980,14 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_fill_token(ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_fill_token(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_name_token(ptr noundef) #2
+declare ptr @_PyPegen_name_token(ptr noundef) #1
 
-declare ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %0, i32 noundef range(i32 5, 14) %1, ptr noundef %2, ptr noundef readnone captures(address_is_null, ret: address, provenance) %3) unnamed_addr #3 {
+define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %0, i32 noundef range(i32 5, 14) %1, ptr noundef %2, ptr noundef readnone captures(address_is_null, ret: address, provenance) %3) unnamed_addr #2 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %8
 
@@ -6020,18 +6014,18 @@ define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %0, i32 noundef ra
   ret ptr %.0
 }
 
-declare ptr @_PyAST_NamedExpr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_NamedExpr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_set_expr_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_set_expr_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_raise_error(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @_PyPegen_raise_error(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @_PyPegen_is_memoized(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_is_memoized(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, ...) unnamed_addr #3 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, ...) unnamed_addr #2 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = icmp eq i64 %3, -5
   %10 = add nsw i64 %3, 1
@@ -6041,11 +6035,11 @@ define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %1,
   %14 = select i1 %12, i64 -5, i64 %13
   %15 = call ptr @_PyPegen_raise_error_known_location(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %11, i64 noundef %4, i64 noundef %14, ptr noundef %6, ptr noundef nonnull %8) #5
   call void @llvm.va_end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare ptr @_PyPegen_get_expr_name(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_expr_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
@@ -6062,7 +6056,7 @@ define internal fastcc ptr @bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1128, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -6241,7 +6235,7 @@ bitwise_or_raw.exit:                              ; preds = %73, %71, %67, %59, 
 
 .thread46:                                        ; preds = %.loopexit, %._crit_edge, %86, %10
   %.0 = phi ptr [ %13, %10 ], [ %88, %86 ], [ null, %.loopexit ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -6387,17 +6381,17 @@ define internal ptr @_tmp_114_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_insert_memo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_insert_memo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #4
+declare void @llvm.va_start.p0(ptr) #3
 
-declare ptr @_PyPegen_raise_error_known_location(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_raise_error_known_location(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #4
+declare void @llvm.va_end.p0(ptr) #3
 
-declare i32 @_PyPegen_update_memo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_update_memo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @bitwise_xor_rule(ptr noundef %0) unnamed_addr #0 {
@@ -6414,7 +6408,7 @@ define internal fastcc ptr @bitwise_xor_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1129, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -6593,11 +6587,11 @@ bitwise_xor_raw.exit:                             ; preds = %73, %71, %67, %59, 
 
 .thread46:                                        ; preds = %.loopexit, %._crit_edge, %86, %10
   %.0 = phi ptr [ %13, %10 ], [ %88, %86 ], [ null, %.loopexit ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare ptr @_PyAST_BinOp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_BinOp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @bitwise_and_rule(ptr noundef %0) unnamed_addr #0 {
@@ -6614,7 +6608,7 @@ define internal fastcc ptr @bitwise_and_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1130, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -6793,7 +6787,7 @@ bitwise_and_raw.exit:                             ; preds = %73, %71, %67, %59, 
 
 .thread46:                                        ; preds = %.loopexit, %._crit_edge, %86, %10
   %.0 = phi ptr [ %13, %10 ], [ %88, %86 ], [ null, %.loopexit ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -6812,7 +6806,7 @@ define internal fastcc ptr @shift_expr_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1131, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -7048,7 +7042,7 @@ shift_expr_raw.exit.thread65:                     ; preds = %shift_expr_raw.exit
 
 .thread54:                                        ; preds = %shift_expr_raw.exit.thread65, %._crit_edge, %113, %10
   %.0 = phi ptr [ %13, %10 ], [ %115, %113 ], [ null, %shift_expr_raw.exit.thread65 ], [ %26, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -7067,7 +7061,7 @@ define internal fastcc ptr @sum_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1132, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -7287,7 +7281,7 @@ sum_raw.exit.thread65:                            ; preds = %sum_raw.exit, %sum_
 
 .thread54:                                        ; preds = %sum_raw.exit.thread65, %._crit_edge, %107, %10
   %.0 = phi ptr [ %13, %10 ], [ %109, %107 ], [ null, %sum_raw.exit.thread65 ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -7479,7 +7473,7 @@ define internal fastcc ptr @term_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1133, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -7839,7 +7833,7 @@ term_raw.exit.thread89:                           ; preds = %term_raw.exit, %ter
 
 .thread78:                                        ; preds = %term_raw.exit.thread89, %._crit_edge, %177, %10
   %.0 = phi ptr [ %13, %10 ], [ %179, %177 ], [ null, %term_raw.exit.thread89 ], [ %26, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -7870,7 +7864,7 @@ define internal fastcc ptr @factor_rule(ptr noundef %0) unnamed_addr #0 {
   br label %141
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1134, ptr noundef nonnull %2) #5
   %.not103 = icmp eq i32 %15, 0
@@ -8119,7 +8113,7 @@ define internal fastcc ptr @factor_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread:                                          ; preds = %125, %111, %96, %82, %67, %53, %29, %.thread120, %130, %101, %72, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %72 ], [ null, %101 ], [ null, %130 ], [ %140, %.thread120 ], [ null, %53 ], [ null, %67 ], [ null, %82 ], [ null, %96 ], [ null, %111 ], [ null, %125 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %141
 
 141:                                              ; preds = %.thread, %11
@@ -8248,7 +8242,7 @@ _tmp_149_rule.exit.thread:                        ; preds = %28, %18, %22, %26
   ret void
 }
 
-declare ptr @_PyAST_UnaryOp(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_UnaryOp(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @power_rule(ptr noundef %0) unnamed_addr #0 {
@@ -8398,7 +8392,7 @@ define internal fastcc ptr @await_primary_rule(ptr noundef %0) unnamed_addr #0 {
   br label %85
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1136, ptr noundef nonnull %2) #5
   %.not54 = icmp eq i32 %15, 0
@@ -8538,7 +8532,7 @@ define internal fastcc ptr @await_primary_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread:                                          ; preds = %68, %53, %29, %.thread63, %73, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %73 ], [ %84, %.thread63 ], [ null, %53 ], [ null, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %85
 
 85:                                               ; preds = %.thread, %11
@@ -8561,7 +8555,7 @@ define internal fastcc ptr @primary_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1137, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -8893,13 +8887,13 @@ primary_raw.exit.thread85:                        ; preds = %primary_raw.exit, %
 
 .thread74:                                        ; preds = %primary_raw.exit.thread85, %._crit_edge, %162, %10
   %.0 = phi ptr [ %13, %10 ], [ %164, %162 ], [ null, %primary_raw.exit.thread85 ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Await(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Await(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Attribute(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Attribute(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @genexp_rule(ptr noundef %0) unnamed_addr #0 {
@@ -9086,7 +9080,7 @@ for_if_clauses_rule.exit.thread73:                ; preds = %for_if_clauses_rule
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Call(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Call(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @arguments_rule(ptr noundef %0) unnamed_addr #0 {
@@ -9115,7 +9109,7 @@ define internal fastcc ptr @arguments_rule(ptr noundef %0) unnamed_addr #0 {
   br label %50
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1174, ptr noundef nonnull %2) #5
   %.not34 = icmp eq i32 %15, 0
@@ -9196,7 +9190,7 @@ define internal fastcc ptr @arguments_rule(ptr noundef %0) unnamed_addr #0 {
 
 49:                                               ; preds = %24, %39, %44, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %24 ], [ null, %39 ], [ %48, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
 50:                                               ; preds = %49, %11
@@ -9532,7 +9526,7 @@ _gather_64_rule.exit:                             ; preds = %100, %.preheader.i
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Subscript(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Subscript(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @atom_rule(ptr noundef %0) unnamed_addr #0 {
@@ -9920,7 +9914,7 @@ define internal fastcc ptr @for_if_clauses_rule(ptr noundef %0) unnamed_addr #0 
   ret ptr %.0
 }
 
-declare ptr @_PyAST_GeneratorExp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_GeneratorExp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_comprehension_rule(ptr noundef %0) unnamed_addr #0 {
@@ -11065,7 +11059,7 @@ define internal fastcc ptr @disjunction_rule(ptr noundef %0) unnamed_addr #0 {
   br label %139
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1113, ptr noundef nonnull %2) #5
   %.not57 = icmp eq i32 %15, 0
@@ -11357,7 +11351,7 @@ _loop1_59_rule.exit.thread:                       ; preds = %_loop1_59_rule.exit
 
 .thread86:                                        ; preds = %121, %105, %29, %.thread89, %127, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %127 ], [ %138, %.thread89 ], [ null, %105 ], [ null, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
 139:                                              ; preds = %.thread86, %11
@@ -11508,7 +11502,7 @@ _tmp_158_rule.exit.thread:                        ; preds = %22, %24, %26
   ret ptr %.047
 }
 
-declare ptr @_PyAST_comprehension(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_comprehension(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_for_target_rule(ptr noundef %0) unnamed_addr #0 {
@@ -11626,7 +11620,7 @@ define internal fastcc ptr @star_target_rule(ptr noundef %0) unnamed_addr #0 {
   br label %100
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1183, ptr noundef nonnull %2) #5
   %.not55 = icmp eq i32 %15, 0
@@ -11804,7 +11798,7 @@ CHECK_CALL.exit:                                  ; preds = %67, %74
 
 .thread69:                                        ; preds = %81, %64, %29, %.thread72, %88, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %88 ], [ %99, %.thread72 ], [ null, %64 ], [ null, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %100
 
 100:                                              ; preds = %.thread69, %11
@@ -11812,11 +11806,11 @@ CHECK_CALL.exit:                                  ; preds = %67, %74
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Tuple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Tuple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_seq_insert_in_front(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_insert_in_front(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Starred(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Starred(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @target_with_star_atom_rule(ptr noundef %0) unnamed_addr #0 {
@@ -11845,7 +11839,7 @@ define internal fastcc ptr @target_with_star_atom_rule(ptr noundef %0) unnamed_a
   br label %124
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1184, ptr noundef nonnull %2) #5
   %.not87 = icmp eq i32 %15, 0
@@ -12064,7 +12058,7 @@ define internal fastcc ptr @target_with_star_atom_rule(ptr noundef %0) unnamed_a
 
 .thread:                                          ; preds = %108, %94, %73, %57, %29, %.thread105, %113, %78, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %78 ], [ null, %113 ], [ %123, %.thread105 ], [ null, %57 ], [ null, %73 ], [ null, %94 ], [ null, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %124
 
 124:                                              ; preds = %.thread, %11
@@ -12087,7 +12081,7 @@ define internal fastcc ptr @t_primary_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1188, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -12444,7 +12438,7 @@ t_primary_raw.exit.thread85:                      ; preds = %t_primary_raw.exit,
 
 .thread74:                                        ; preds = %t_primary_raw.exit.thread85, %._crit_edge, %172, %10
   %.0 = phi ptr [ %13, %10 ], [ %174, %172 ], [ null, %t_primary_raw.exit.thread85 ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -13167,7 +13161,7 @@ _gather_95_rule.exit:                             ; preds = %50, %.preheader
   ret ptr %.0
 }
 
-declare ptr @_PyAST_List(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_List(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @conjunction_rule(ptr noundef %0) unnamed_addr #0 {
@@ -13196,7 +13190,7 @@ define internal fastcc ptr @conjunction_rule(ptr noundef %0) unnamed_addr #0 {
   br label %139
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1114, ptr noundef nonnull %2) #5
   %.not57 = icmp eq i32 %15, 0
@@ -13488,7 +13482,7 @@ _loop1_60_rule.exit.thread:                       ; preds = %_loop1_60_rule.exit
 
 .thread86:                                        ; preds = %121, %105, %29, %.thread89, %127, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %127 ], [ %138, %.thread89 ], [ null, %105 ], [ null, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
 139:                                              ; preds = %.thread86, %11
@@ -13496,7 +13490,7 @@ _loop1_60_rule.exit.thread:                       ; preds = %_loop1_60_rule.exit
   ret ptr %.0
 }
 
-declare ptr @_PyAST_BoolOp(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_BoolOp(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @inversion_rule(ptr noundef %0) unnamed_addr #0 {
@@ -13525,7 +13519,7 @@ define internal fastcc ptr @inversion_rule(ptr noundef %0) unnamed_addr #0 {
   br label %84
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1115, ptr noundef nonnull %2) #5
   %.not53 = icmp eq i32 %15, 0
@@ -13664,7 +13658,7 @@ define internal fastcc ptr @inversion_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread:                                          ; preds = %67, %53, %29, %.thread62, %72, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %72 ], [ %83, %.thread62 ], [ null, %53 ], [ null, %67 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %.thread, %11
@@ -14315,11 +14309,11 @@ _loop1_61_rule.exit.thread:                       ; preds = %_loop1_61_rule.exit
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Compare(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Compare(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_get_cmpops(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_cmpops(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_get_exprs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_exprs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @gt_bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
@@ -14616,11 +14610,11 @@ define internal fastcc ptr @is_bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_cmpop_expr_pair(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_cmpop_expr_pair(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PyPegen_check_barry_as_flufl(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_check_barry_as_flufl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_dummy_name(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @_PyPegen_dummy_name(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_expressions_rule(ptr noundef %0) unnamed_addr #0 {
@@ -14952,7 +14946,7 @@ CHECK_CALL.exit102:                               ; preds = %117, %124
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull %2) unnamed_addr #3 {
+define internal fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef nonnull %2, i32 noundef %1) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %CHECK_CALL_NULL_ALLOWED.exit
@@ -15019,7 +15013,7 @@ define internal fastcc ptr @star_expression_rule(ptr noundef %0) unnamed_addr #0
   br label %84
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1108, ptr noundef nonnull %2) #5
   %.not53 = icmp eq i32 %15, 0
@@ -15158,7 +15152,7 @@ define internal fastcc ptr @star_expression_rule(ptr noundef %0) unnamed_addr #0
 
 .thread:                                          ; preds = %67, %53, %29, %.thread62, %72, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %72 ], [ %83, %.thread62 ], [ null, %53 ], [ null, %67 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %.thread, %11
@@ -15166,7 +15160,7 @@ define internal fastcc ptr @star_expression_rule(ptr noundef %0) unnamed_addr #0
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_get_invalid_target(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_invalid_target(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @starred_expression_rule(ptr noundef %0) unnamed_addr #0 {
@@ -15570,7 +15564,7 @@ _gather_58_rule.exit:                             ; preds = %19
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_seq_last_item(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_last_item(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_starred_expression_rule(ptr noundef %0) unnamed_addr #0 {
@@ -16792,7 +16786,7 @@ for_if_clauses_rule.exit.thread287:               ; preds = %162, %151, %166, %f
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_collect_call_seqs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_collect_call_seqs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kwargs_rule(ptr noundef %0) unnamed_addr #0 {
@@ -17006,9 +17000,9 @@ _gather_92_rule.exit124:                          ; preds = %70
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_seq_extract_starred_exprs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_extract_starred_exprs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_86_rule(ptr noundef %0) unnamed_addr #0 {
@@ -17219,7 +17213,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %23, %28, %46, %_tmp
   ret ptr %.052
 }
 
-declare ptr @_PyPegen_join_sequences(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_join_sequences(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kwarg_or_starred_rule(ptr noundef %0) unnamed_addr #0 {
@@ -17799,9 +17793,9 @@ for_if_clauses_rule.exit.thread:                  ; preds = %67, %65
   ret void
 }
 
-declare ptr @_PyPegen_keyword_or_starred(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_keyword_or_starred(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_keyword(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_keyword(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_110_rule(ptr noundef %0) #0 {
@@ -18250,7 +18244,7 @@ for_if_clauses_rule.exit.thread49:                ; preds = %27, %16, %for_if_cl
   ret void
 }
 
-declare ptr @_PyPegen_get_last_comprehension_item(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_last_comprehension_item(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_107_rule(ptr noundef %0) unnamed_addr #0 {
@@ -18347,9 +18341,9 @@ define internal ptr @_tmp_108_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_nonparen_genexp_in_call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_nonparen_genexp_in_call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_arguments_parsing_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_arguments_parsing_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
@@ -18541,9 +18535,9 @@ _tmp_65_rule.exit:                                ; preds = %55, %57
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Slice(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Slice(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Constant(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Constant(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_66_rule(ptr noundef %0) #0 {
@@ -18621,7 +18615,7 @@ define internal fastcc ptr @strings_rule(ptr noundef %0) unnamed_addr #0 {
   br label %209
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1160, ptr noundef nonnull %2) #5
   %.not44 = icmp eq i32 %15, 0
@@ -19116,7 +19110,7 @@ _loop1_79_rule.exit.thread:                       ; preds = %55, %49, %166, %171
 
 .thread95:                                        ; preds = %199, %186, %29, %.thread98, %44, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %44 ], [ %208, %.thread98 ], [ null, %186 ], [ null, %199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %209
 
 209:                                              ; preds = %.thread95, %11
@@ -19124,7 +19118,7 @@ _loop1_79_rule.exit.thread:                       ; preds = %55, %49, %166, %171
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_number_token(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_number_token(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_67_rule(ptr noundef %0) unnamed_addr #0 {
@@ -20021,11 +20015,11 @@ dictcomp_rule.exit:                               ; preds = %197
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_string_token(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_string_token(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_concatenate_strings(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_concatenate_strings(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_joined_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_joined_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fstring_replacement_field_rule(ptr noundef %0) unnamed_addr #0 {
@@ -20716,7 +20710,7 @@ invalid_replacement_field_rule.exit:              ; preds = %223
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_constant_from_token(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_constant_from_token(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @annotated_rhs_rule(ptr noundef %0) #0 {
@@ -20929,7 +20923,7 @@ define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %0) unname
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_formatted_value(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_formatted_value(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
@@ -21083,11 +21077,11 @@ define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_YieldFrom(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_YieldFrom(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Yield(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Yield(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_check_fstring_conversion(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_check_fstring_conversion(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_77_rule(ptr noundef %0) unnamed_addr #0 {
@@ -21254,9 +21248,9 @@ fstring_format_spec_rule.exit.thread83:           ; preds = %27, %34
   ret ptr %.047
 }
 
-declare ptr @_PyPegen_setup_full_format_spec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_setup_full_format_spec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_decoded_constant_from_token(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_decoded_constant_from_token(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_144_rule(ptr noundef %0) #0 {
@@ -21573,9 +21567,9 @@ define internal ptr @_tmp_147_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_lookahead_with_name(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_lookahead_with_name(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_constant_from_string(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_constant_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @tuple_rule(ptr noundef %0) unnamed_addr #0 {
@@ -22051,7 +22045,7 @@ star_named_expressions_rule.exit.thread90:        ; preds = %54, %star_named_exp
   ret ptr %.0
 }
 
-declare ptr @_PyAST_ListComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_ListComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @setcomp_rule(ptr noundef %0) unnamed_addr #0 {
@@ -22206,11 +22200,11 @@ for_if_clauses_rule.exit.thread73:                ; preds = %45, %for_if_clauses
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Dict(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Dict(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_get_keys(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_keys(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_get_values(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_values(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_double_starred_kvpairs_rule(ptr noundef %0) unnamed_addr #0 {
@@ -22723,7 +22717,7 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.052
 }
 
-declare ptr @_PyPegen_key_value_pair(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_key_value_pair(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kvpair_rule(ptr noundef %0) unnamed_addr #0 {
@@ -22836,9 +22830,9 @@ define internal ptr @_tmp_143_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_DictComp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_DictComp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_dict_comprehension_rule(ptr noundef %0) unnamed_addr #0 {
@@ -22951,7 +22945,7 @@ for_if_clauses_rule.exit.thread41:                ; preds = %29, %for_if_clauses
   ret void
 }
 
-declare ptr @_PyAST_SetComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_SetComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_legacy_expression_rule(ptr noundef %0) unnamed_addr #0 {
@@ -23033,7 +23027,7 @@ define internal fastcc void @invalid_legacy_expression_rule(ptr noundef %0) unna
   ret void
 }
 
-declare ptr @_PyAST_IfExp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_IfExp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambdef_rule(ptr noundef %0) unnamed_addr #0 {
@@ -23416,7 +23410,7 @@ define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %0) unna
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_check_legacy_stmt(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_check_legacy_stmt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_112_rule(ptr noundef %0) #0 {
@@ -23517,7 +23511,7 @@ define internal fastcc void @lambda_params_rule(ptr noundef %0) unnamed_addr #0 
   ret void
 }
 
-declare ptr @_PyPegen_soft_keyword_token(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_soft_keyword_token(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_lambda_parameters_rule(ptr noundef %0) unnamed_addr #0 {
@@ -25189,7 +25183,7 @@ define internal fastcc ptr @_loop1_74_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.051
 }
 
-declare ptr @_PyPegen_slash_with_default(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_slash_with_default(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_param_with_default_rule(ptr noundef %0) unnamed_addr #0 {
@@ -25499,9 +25493,9 @@ invalid_default_rule.exit:                        ; preds = %.thread, %28, %25, 
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_name_default_pair(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_name_default_pair(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_arg(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_arg(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_121_rule(ptr noundef %0) #0 {
@@ -26299,7 +26293,7 @@ invalid_lambda_star_etc_rule.exit.thread125:      ; preds = %103, %76, %93, %95,
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_make_arguments(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_make_arguments(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
@@ -26507,7 +26501,7 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_star_etc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_star_etc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_130_rule(ptr noundef %0) unnamed_addr #0 {
@@ -26618,9 +26612,9 @@ define internal fastcc ptr @_tmp_124_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Lambda(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Lambda(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_empty_arguments(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_empty_arguments(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
@@ -27768,7 +27762,7 @@ define internal fastcc ptr @block_rule(ptr noundef %0) unnamed_addr #0 {
   br label %58
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !25
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1029, ptr noundef nonnull %2) #5
   %.not43 = icmp eq i32 %15, 0
@@ -27870,7 +27864,7 @@ define internal fastcc ptr @block_rule(ptr noundef %0) unnamed_addr #0 {
 
 57:                                               ; preds = %24, %37, %47, %52, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %24 ], [ null, %37 ], [ null, %47 ], [ %56, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
 58:                                               ; preds = %57, %11
@@ -27878,10 +27872,10 @@ define internal fastcc ptr @block_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_FunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_FunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @NEW_TYPE_COMMENT(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
+define internal fastcc ptr @NEW_TYPE_COMMENT(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %14, label %4
 
@@ -27907,9 +27901,9 @@ define internal fastcc ptr @NEW_TYPE_COMMENT(ptr noundef %0, ptr noundef readonl
   ret ptr %.0
 }
 
-declare ptr @_PyAST_AsyncFunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_AsyncFunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_expect_forced_token(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_expect_forced_token(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @type_param_rule(ptr noundef %0) unnamed_addr #0 {
@@ -27938,7 +27932,7 @@ define internal fastcc ptr @type_param_rule(ptr noundef %0) unnamed_addr #0 {
   br label %167
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !121
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1100, ptr noundef nonnull %2) #5
   %.not115 = icmp eq i32 %15, 0
@@ -28262,7 +28256,7 @@ type_param_bound_rule.exit:                       ; preds = %58, %60
 
 .thread:                                          ; preds = %158, %142, %125, %109, %83, %67, %29, %.thread139, %129, %96, %90, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %90 ], [ null, %96 ], [ null, %129 ], [ %166, %.thread139 ], [ null, %67 ], [ null, %83 ], [ null, %109 ], [ null, %125 ], [ null, %142 ], [ null, %158 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %167
 
 167:                                              ; preds = %.thread, %11
@@ -28335,7 +28329,7 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %16
   ret ptr %.0
 }
 
-declare ptr @_PyAST_TypeVar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_TypeVar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_type_param_rule(ptr noundef %0) unnamed_addr #0 {
@@ -28520,9 +28514,9 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %16
   ret ptr %.0
 }
 
-declare ptr @_PyAST_TypeVarTuple(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_TypeVarTuple(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_ParamSpec(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_ParamSpec(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_119_rule(ptr noundef %0) unnamed_addr #0 {
@@ -29989,7 +29983,7 @@ define internal fastcc ptr @param_maybe_default_rule(ptr noundef %0) unnamed_add
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_add_type_comment_to_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_add_type_comment_to_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_29_rule(ptr noundef %0) unnamed_addr #0 {
@@ -31187,9 +31181,9 @@ define internal fastcc ptr @invalid_block_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #2
+declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_new_type_comment(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_new_type_comment(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_if_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -31603,7 +31597,7 @@ CHECK_CALL.exit:                                  ; preds = %91, %98
   ret ptr %.0
 }
 
-declare ptr @_PyAST_If(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_If(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @else_block_rule(ptr noundef %0) unnamed_addr #0 {
@@ -32012,7 +32006,7 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_class_def_decorators(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_class_def_decorators(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_26_rule(ptr noundef %0) unnamed_addr #0 {
@@ -32076,7 +32070,7 @@ define internal fastcc ptr @_tmp_26_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_ClassDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_ClassDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
@@ -32241,9 +32235,9 @@ _loop0_34_rule.exit.thread:                       ; preds = %_loop0_34_rule.exit
   ret ptr %.0
 }
 
-declare ptr @_PyAST_With(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_With(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_AsyncWith(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_AsyncWith(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -33469,11 +33463,11 @@ define internal ptr @_tmp_36_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_withitem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_withitem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_For(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_For(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_AsyncFor(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_AsyncFor(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
@@ -33601,7 +33595,7 @@ define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Try(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Try(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_37_rule(ptr noundef %0) unnamed_addr #0 {
@@ -35274,7 +35268,7 @@ except_star_block_rule.exit.thread103:            ; preds = %.except_star_block_
   ret ptr %.051
 }
 
-declare ptr @_PyAST_TryStar(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_TryStar(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_138_rule(ptr noundef %0) #0 {
@@ -35575,11 +35569,11 @@ _tmp_22_rule.exit:                                ; preds = %24, %26
   ret void
 }
 
-declare ptr @_PyAST_ExceptHandler(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_ExceptHandler(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_While(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_While(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_expect_soft_keyword(ptr noundef, ptr noundef) #2
+declare ptr @_PyPegen_expect_soft_keyword(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @subject_expr_rule(ptr noundef %0) unnamed_addr #0 {
@@ -35716,7 +35710,7 @@ CHECK_CALL.exit:                                  ; preds = %42, %49
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Match(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Match(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
@@ -35829,7 +35823,7 @@ define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_match_case(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_match_case(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @open_sequence_pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -36015,7 +36009,7 @@ maybe_star_pattern_rule.exit.thread:              ; preds = %maybe_star_pattern_
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchSequence(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchSequence(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -36183,7 +36177,7 @@ define internal fastcc ptr @star_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   br label %107
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !150
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1088, ptr noundef nonnull %2) #5
   %.not67 = icmp eq i32 %15, 0
@@ -36356,7 +36350,7 @@ define internal fastcc ptr @star_pattern_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread:                                          ; preds = %98, %84, %69, %53, %29, %.thread78, %74, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %74 ], [ %106, %.thread78 ], [ null, %53 ], [ null, %69 ], [ null, %84 ], [ null, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %107
 
 107:                                              ; preds = %.thread, %11
@@ -36426,7 +36420,7 @@ define internal fastcc ptr @pattern_capture_target_rule(ptr noundef %0) unnamed_
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchStar(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchStar(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -36528,7 +36522,7 @@ define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #
   ret ptr %.0
 }
 
-declare i32 @_PyPegen_lookahead_with_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_lookahead_with_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_43_rule(ptr noundef %0) #0 {
@@ -36590,7 +36584,7 @@ define internal ptr @_tmp_43_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchAs(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchAs(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
@@ -37277,7 +37271,7 @@ _gather_41_rule.exit:                             ; preds = %90, %.preheader
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchOr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchOr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -37306,7 +37300,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   br label %221
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !150
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1069, ptr noundef nonnull %2) #5
   %.not77 = icmp eq i32 %15, 0
@@ -37724,7 +37718,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
 
 220:                                              ; preds = %25, %167, %174, %181, %188, %195, %202, %209, %215, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %25 ], [ null, %167 ], [ null, %174 ], [ null, %181 ], [ null, %188 ], [ null, %195 ], [ null, %202 ], [ null, %209 ], [ %219, %215 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %221
 
 221:                                              ; preds = %220, %11
@@ -39243,7 +39237,7 @@ define internal ptr @_tmp_42_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchValue(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchValue(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @complex_number_rule(ptr noundef %0) unnamed_addr #0 {
@@ -39440,7 +39434,7 @@ imaginary_number_rule.exit.thread:                ; preds = %43, %.thread27.i, %
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchSingleton(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchSingleton(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr #0 {
@@ -39723,9 +39717,9 @@ define internal fastcc ptr @real_number_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_ensure_real(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_ensure_real(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_ensure_imaginary(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_ensure_imaginary(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @attr_rule(ptr noundef %0) unnamed_addr #0 {
@@ -39742,7 +39736,7 @@ define internal fastcc ptr @attr_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1081, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -39947,7 +39941,7 @@ attr_raw.exit:                                    ; preds = %name_or_attr_rule.e
 
 .thread61:                                        ; preds = %.loopexit, %._crit_edge, %97, %10
   %.0 = phi ptr [ %13, %10 ], [ %99, %97 ], [ null, %.loopexit ], [ %25, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -40000,7 +39994,7 @@ define internal fastcc ptr @name_or_attr_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_MatchMapping(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchMapping(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @double_star_pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -40254,9 +40248,9 @@ _gather_47_rule.exit:                             ; preds = %64, %.preheader
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_get_pattern_keys(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_pattern_keys(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_get_patterns(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_get_patterns(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @key_value_pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -40594,9 +40588,9 @@ pattern_rule.exit.thread:                         ; preds = %pattern_rule.exit.t
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_key_pattern_pair(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_key_pattern_pair(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_MatchClass(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_MatchClass(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @positional_patterns_rule(ptr noundef %0) unnamed_addr #0 {
@@ -40930,7 +40924,7 @@ _gather_52_rule.exit:                             ; preds = %64, %.preheader
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_map_names_to_ids(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_map_names_to_ids(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_class_pattern_rule(ptr noundef %0) unnamed_addr #0 {
@@ -41496,7 +41490,7 @@ pattern_rule.exit.thread:                         ; preds = %pattern_rule.exit.t
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_seq_first_item(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_first_item(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -41525,7 +41519,7 @@ define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %377
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !169
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1008, ptr noundef nonnull %2) #5
   %.not202 = icmp eq i32 %15, 0
@@ -42296,7 +42290,7 @@ CHECK_CALL.exit.i:                                ; preds = %87, %80
 
 .thread252:                                       ; preds = %350, %336, %323, %309, %269, %255, %215, %201, %29, %.thread255, %364, %355, %328, %301, %292, %283, %274, %247, %238, %229, %220, %193, %184, %44, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %44 ], [ null, %184 ], [ null, %193 ], [ null, %220 ], [ null, %229 ], [ null, %238 ], [ null, %247 ], [ null, %274 ], [ null, %283 ], [ null, %292 ], [ null, %301 ], [ null, %328 ], [ null, %355 ], [ null, %364 ], [ %376, %.thread255 ], [ null, %201 ], [ null, %215 ], [ null, %255 ], [ null, %269 ], [ null, %309 ], [ null, %323 ], [ null, %336 ], [ null, %350 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %377
 
 377:                                              ; preds = %.thread252, %11
@@ -42435,7 +42429,7 @@ CHECK_CALL.exit:                                  ; preds = %46, %53
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Expr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Expr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @return_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -43666,7 +43660,7 @@ _tmp_13_rule.exit:                                ; preds = %51, %53
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Pass(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Pass(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -44042,9 +44036,9 @@ _tmp_17_rule.exit:                                ; preds = %46, %48
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Break(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Break(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Continue(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Continue(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @global_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -44358,7 +44352,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %26, %19, %24
   ret ptr %.0
 }
 
-declare ptr @_PyAST_AnnAssign(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_AnnAssign(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_11_rule(ptr noundef %0) unnamed_addr #0 {
@@ -44575,7 +44569,7 @@ define internal fastcc ptr @_loop1_12_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.051
 }
 
-declare ptr @_PyAST_Assign(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Assign(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @single_target_rule(ptr noundef %0) unnamed_addr #0 {
@@ -45014,7 +45008,7 @@ define internal fastcc ptr @augassign_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_AugAssign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_AugAssign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_assignment_rule(ptr noundef %0) unnamed_addr #0 {
@@ -45478,7 +45472,7 @@ define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_augoperator(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_augoperator(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_ann_assign_target_rule(ptr noundef %0) unnamed_addr #0 {
@@ -45814,9 +45808,9 @@ define internal fastcc ptr @_loop0_116_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.047
 }
 
-declare ptr @_PyAST_TypeAlias(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_TypeAlias(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Return(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Return(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dotted_name_rule(ptr noundef %0) unnamed_addr #0 {
@@ -45833,7 +45827,7 @@ define internal fastcc ptr @dotted_name_rule(ptr noundef %0) unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %9 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1028, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %9, 0
@@ -45972,13 +45966,13 @@ dotted_name_raw.exit:                             ; preds = %44, %46, %40, %37
 
 .thread46:                                        ; preds = %.loopexit, %._crit_edge, %60, %10
   %.0 = phi ptr [ %13, %10 ], [ %62, %60 ], [ null, %.loopexit ], [ %22, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_join_names_with_dot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_join_names_with_dot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Import(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Import(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dotted_as_name_rule(ptr noundef %0) unnamed_addr #0 {
@@ -46138,7 +46132,7 @@ _tmp_22_rule.exit:                                ; preds = %44, %46
   ret ptr %.0
 }
 
-declare ptr @_PyAST_alias(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_alias(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @import_from_targets_rule(ptr noundef %0) unnamed_addr #0 {
@@ -46313,9 +46307,9 @@ CHECK_CALL.exit:                                  ; preds = %53, %62
   ret ptr %.0
 }
 
-declare ptr @_PyAST_ImportFrom(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_ImportFrom(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PyPegen_seq_count_dots(ptr noundef) local_unnamed_addr #2
+declare i32 @_PyPegen_seq_count_dots(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_19_rule(ptr noundef %0) unnamed_addr #0 {
@@ -46670,7 +46664,7 @@ _gather_21_rule.exit:                             ; preds = %52, %.preheader.i.i
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_alias_for_star(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_alias_for_star(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_import_from_targets_rule(ptr noundef %0) unnamed_addr #0 {
@@ -46921,7 +46915,7 @@ _tmp_22_rule.exit:                                ; preds = %44, %46
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Raise(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Raise(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @del_targets_rule(ptr noundef %0) unnamed_addr #0 {
@@ -47167,7 +47161,7 @@ define internal ptr @_tmp_16_rule(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Delete(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Delete(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
@@ -47279,7 +47273,7 @@ define internal fastcc ptr @del_target_rule(ptr noundef %0) unnamed_addr #0 {
   br label %124
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %15 = call i32 @_PyPegen_is_memoized(ptr noundef nonnull %0, i32 noundef 1191, ptr noundef nonnull %2) #5
   %.not87 = icmp eq i32 %15, 0
@@ -47498,7 +47492,7 @@ define internal fastcc ptr @del_target_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread:                                          ; preds = %108, %94, %73, %57, %29, %.thread105, %113, %78, %43, %16
   %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %78 ], [ null, %113 ], [ %123, %.thread105 ], [ null, %57 ], [ null, %73 ], [ null, %94 ], [ null, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %124
 
 124:                                              ; preds = %.thread, %11
@@ -47728,7 +47722,7 @@ define internal fastcc ptr @del_t_atom_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Assert(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Assert(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
@@ -47893,13 +47887,13 @@ _loop0_14_rule.exit.thread:                       ; preds = %_loop0_14_rule.exit
   ret ptr %.0
 }
 
-declare ptr @_PyAST_Global(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Global(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Nonlocal(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Nonlocal(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_Interactive(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Interactive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyPegen_interactive_exit(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_interactive_exit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_1_rule(ptr noundef %0) unnamed_addr #0 {
@@ -48022,9 +48016,9 @@ define internal fastcc ptr @_loop0_1_rule(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.047
 }
 
-declare ptr @_PyAST_Expression(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_Expression(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyAST_FunctionType(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyAST_FunctionType(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
@@ -48189,13 +48183,19 @@ _loop0_100_rule.exit.thread:                      ; preds = %_loop0_100_rule.exi
   ret ptr %.0
 }
 
-declare ptr @_PyPegen_seq_append_to_end(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyPegen_seq_append_to_end(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { "function-inline-cost-multiplier"="2" }
 

@@ -20,7 +20,7 @@ define dso_local noundef i64 @SyncScanShmemSize() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 656, ptr noundef nonnull %1) #4
   store ptr %2, ptr @scan_locations, align 8
   %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
@@ -61,17 +61,11 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !6
 
 .loopexit:                                        ; preds = %9, %0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ss_get_location(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -171,9 +165,9 @@ ss_search.exit:                                   ; preds = %.critedge.i, %38
   ret i32 %spec.store.select
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ss_report_location(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -279,12 +273,18 @@ ss_search.exit:                                   ; preds = %.sink.split.i, %42
   ret void
 }
 
-declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

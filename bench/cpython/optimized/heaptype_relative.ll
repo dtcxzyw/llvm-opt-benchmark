@@ -122,15 +122,9 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @make_sized_heaptypes(ptr noundef %0, ptr noundef %1) #0 {
@@ -138,8 +132,8 @@ define internal ptr @make_sized_heaptypes(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.PyType_Spec, align 8
   %6 = alloca %struct.PyType_Spec, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %Py_XDECREF.exit41, label %8
@@ -215,8 +209,8 @@ Py_XDECREF.exit41.sink.split:                     ; preds = %Py_XDECREF.exit39, 
 
 Py_XDECREF.exit41:                                ; preds = %Py_XDECREF.exit41.sink.split, %2, %8, %Py_XDECREF.exit39
   %.026485972 = phi ptr [ %.026.ph.ph, %Py_XDECREF.exit39 ], [ null, %8 ], [ null, %2 ], [ %.026485972.ph, %Py_XDECREF.exit41.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.026485972
 }
 
@@ -228,10 +222,10 @@ define internal ptr @subclass_var_heaptype(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i64, align 8
   %7 = alloca [2 x %struct.PyType_Slot], align 16
   %8 = alloca %struct.PyType_Spec, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %10
@@ -257,10 +251,10 @@ define internal ptr @subclass_var_heaptype(ptr noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %2, %10
   %.0 = phi ptr [ %19, %10 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -271,9 +265,9 @@ define internal ptr @subclass_heaptype(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca [2 x %struct.PyType_Slot], align 16
   %7 = alloca %struct.PyType_Spec, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %19, label %9
@@ -299,9 +293,9 @@ define internal ptr @subclass_heaptype(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %2, %9
   %.0 = phi ptr [ %18, %9 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -318,19 +312,19 @@ define internal ptr @make_heaptype_with_member(ptr noundef %0, ptr noundef %1, p
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @.str.25, ptr %12, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 8, ptr %14, align 4, !tbaa !10
   %15 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.26, ptr noundef nonnull @make_heaptype_with_member._keywords, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #8
   %.not = icmp eq i32 %15, 0
@@ -344,10 +338,10 @@ define internal ptr @make_heaptype_with_member(ptr noundef %0, ptr noundef %1, p
   %21 = load ptr, ptr %12, align 8, !tbaa !17
   %22 = load i32, ptr %13, align 4, !tbaa !10
   %23 = load i32, ptr %14, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.10, ptr %4, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = add i32 %17, 16
@@ -410,33 +404,33 @@ Py_XDECREF.exit.i:                                ; preds = %16
 
 make_heaptype_with_member_impl.exit:              ; preds = %16, %Py_XDECREF.exit.i
   %.0.i = phi ptr [ %50, %Py_XDECREF.exit.i ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 51:                                               ; preds = %3, %make_heaptype_with_member_impl.exit
   %.0 = phi ptr [ %.0.i, %make_heaptype_with_member_impl.exit ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @test_alignof_max_align_t(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
+define internal noundef nonnull ptr @test_alignof_max_align_t(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret ptr @_Py_NoneStruct
 }
 
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @PyType_FromMetaclass(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -449,7 +443,7 @@ declare i64 @PyType_GetTypeDataSize(ptr noundef) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @var_heaptype_set_data_to_3s(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4) #0 {
@@ -643,22 +637,22 @@ heaptype_with_member_extract_and_check_memb.exit: ; preds = %14
 ; Function Attrs: nounwind uwtable
 define internal ptr @heaptype_with_member_get_memb_relative(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.PyMemberDef, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) @__const.heaptype_with_member_set_memb_relative.def, i64 40, i1 false)
   %4 = call ptr @PyMember_GetOne(ptr noundef %0, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @heaptype_with_member_set_memb_relative(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.PyMemberDef, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) @__const.heaptype_with_member_set_memb_relative.def, i64 40, i1 false)
   %4 = call i32 @PyMember_SetOne(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1) #8
   %5 = icmp slt i32 %4, 0
   %._Py_NoneStruct = select i1 %5, ptr null, ptr @_Py_NoneStruct
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %._Py_NoneStruct
 }
 
@@ -671,7 +665,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @PyMember_SetOne(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -733,16 +727,22 @@ Py_XDECREF.exit:                                  ; preds = %1, %6, %7
 
 declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

@@ -450,27 +450,24 @@ define hidden void @proto_register_srvloc() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull @.str.199)
@@ -773,7 +770,7 @@ define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %215 = load ptr, ptr %210, align 8
   %216 = sub i32 %204, %214
   %217 = tail call ptr @tvb_get_string_enc(ptr noundef %215, ptr noundef %0, i32 noundef %214, i32 noundef %216, i32 noundef 6)
-  %218 = tail call i64 @strcspn(ptr noundef %217, ptr noundef nonnull @.str.278) #7
+  %218 = tail call i64 @strcspn(ptr noundef %217, ptr noundef nonnull @.str.278) #6
   %219 = trunc i64 %218 to i32
   %220 = load ptr, ptr %210, align 8
   %221 = shl i32 %219, 1
@@ -781,7 +778,7 @@ define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %223 = tail call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef %214, i32 noundef %221, ptr noundef %222)
   %224 = add i32 %214, 2
   %225 = add i32 %224, %221
-  %226 = tail call i32 @strcmp(ptr noundef %222, ptr noundef nonnull dereferenceable(11) @.str.279) #7
+  %226 = tail call i32 @strcmp(ptr noundef %222, ptr noundef nonnull dereferenceable(11) @.str.279) #6
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %239
 
@@ -789,7 +786,7 @@ define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %229 = load ptr, ptr %210, align 8
   %230 = sub i32 %204, %225
   %231 = tail call ptr @tvb_get_string_enc(ptr noundef %229, ptr noundef %0, i32 noundef %225, i32 noundef %230, i32 noundef 6)
-  %232 = tail call i64 @strcspn(ptr noundef %231, ptr noundef nonnull @.str.280) #7
+  %232 = tail call i64 @strcspn(ptr noundef %231, ptr noundef nonnull @.str.280) #6
   %233 = trunc i64 %232 to i32
   %234 = load i32, ptr @hf_srvloc_srvrply_svcname, align 4
   %235 = shl i32 %233, 1
@@ -799,7 +796,7 @@ define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit.i
 
 239:                                              ; preds = %.lr.ph913
-  %240 = tail call i32 @strcmp(ptr noundef %222, ptr noundef nonnull dereferenceable(11) @.str.282) #7
+  %240 = tail call i32 @strcmp(ptr noundef %222, ptr noundef nonnull dereferenceable(11) @.str.282) #6
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %.preheader.i, label %.loopexit.i
 
@@ -837,7 +834,7 @@ define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef 
 260:                                              ; preds = %254
   %261 = load ptr, ptr %210, align 8
   %262 = tail call ptr @tvb_get_string_enc(ptr noundef %261, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef 0)
-  %263 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %261, i64 noundef 5) #8
+  %263 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %261, i64 noundef 5) #7
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %270, %260
@@ -865,7 +862,7 @@ unicode_to_bytes.exit.i:                          ; preds = %270
   %271 = sext i32 %.4.i.i to i64
   %272 = getelementptr i8, ptr %263, i64 %271
   store i8 0, ptr %272, align 1
-  %273 = tail call i64 @strtoul(ptr noundef captures(none) %263, ptr noundef null, i32 noundef 10) #6
+  %273 = tail call i64 @strtoul(ptr noundef captures(none) %263, ptr noundef null, i32 noundef 10) #8
   %274 = trunc i64 %273 to i32
   %275 = load i32, ptr @hf_srvloc_protocol, align 4
   %276 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %275, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %274)
@@ -874,7 +871,7 @@ unicode_to_bytes.exit.i:                          ; preds = %270
 277:                                              ; preds = %.lr.ph400.i
   %278 = load ptr, ptr %210, align 8
   %279 = tail call ptr @tvb_get_string_enc(ptr noundef %278, ptr noundef %0, i32 noundef %252, i32 noundef 8, i32 noundef 0)
-  %280 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %278, i64 noundef 9) #8
+  %280 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %278, i64 noundef 9) #7
   br label %.lr.ph.i253.i
 
 .lr.ph.i253.i:                                    ; preds = %287, %277
@@ -902,7 +899,7 @@ unicode_to_bytes.exit260.i:                       ; preds = %287
   %288 = sext i32 %.4.i257.i to i64
   %289 = getelementptr i8, ptr %280, i64 %288
   store i8 0, ptr %289, align 1
-  %290 = tail call i64 @strtoul(ptr noundef captures(none) %280, ptr noundef null, i32 noundef 10) #6
+  %290 = tail call i64 @strtoul(ptr noundef captures(none) %280, ptr noundef null, i32 noundef 10) #8
   %291 = trunc i64 %290 to i32
   %292 = load i32, ptr @hf_srvloc_protocol, align 4
   %293 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %292, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %291)
@@ -918,7 +915,7 @@ unicode_to_bytes.exit260.i:                       ; preds = %287
   %.1386.i = phi i32 [ %259, %.thread.i ], [ %295, %294 ]
   %297 = load ptr, ptr %210, align 8
   %298 = tail call ptr @tvb_get_string_enc(ptr noundef %297, ptr noundef %0, i32 noundef %.1386.i, i32 noundef 16, i32 noundef 0)
-  %299 = tail call noalias dereferenceable_or_null(33) ptr @wmem_alloc(ptr noundef %297, i64 noundef 33) #8
+  %299 = tail call noalias dereferenceable_or_null(33) ptr @wmem_alloc(ptr noundef %297, i64 noundef 33) #7
   br label %.lr.ph61.i.i
 
 .lr.ph61.i.i:                                     ; preds = %323, %296
@@ -974,7 +971,7 @@ unicode_to_bytes.exit261.i:                       ; preds = %323, %309
   %326 = sext i32 %.2.i.i to i64
   %327 = getelementptr i8, ptr %299, i64 %326
   store i8 0, ptr %327, align 1
-  %328 = tail call i64 @strtoul(ptr noundef captures(none) %299, ptr noundef null, i32 noundef 16) #6
+  %328 = tail call i64 @strtoul(ptr noundef captures(none) %299, ptr noundef null, i32 noundef 16) #8
   %329 = trunc i64 %328 to i32
   %330 = load i32, ptr @hf_srvloc_add_ref_ip, align 4
   %331 = add i32 %.1386.i, 2
@@ -982,7 +979,7 @@ unicode_to_bytes.exit261.i:                       ; preds = %323, %309
   %333 = load ptr, ptr %210, align 8
   %334 = add i32 %.1386.i, 18
   %335 = tail call ptr @tvb_get_string_enc(ptr noundef %333, ptr noundef %0, i32 noundef %334, i32 noundef 8, i32 noundef 0)
-  %336 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %333, i64 noundef 9) #8
+  %336 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %333, i64 noundef 9) #7
   br label %.lr.ph.i262.i
 
 .lr.ph.i262.i:                                    ; preds = %343, %unicode_to_bytes.exit261.i
@@ -1010,7 +1007,7 @@ unicode_to_bytes.exit261.i:                       ; preds = %323, %309
   %345 = load ptr, ptr %210, align 8
   %346 = add i32 %295, 2
   %347 = tail call ptr @tvb_get_string_enc(ptr noundef %345, ptr noundef %0, i32 noundef %346, i32 noundef 16, i32 noundef 0)
-  %348 = tail call noalias dereferenceable_or_null(17) ptr @wmem_alloc(ptr noundef %345, i64 noundef 17) #8
+  %348 = tail call noalias dereferenceable_or_null(17) ptr @wmem_alloc(ptr noundef %345, i64 noundef 17) #7
   br label %.lr.ph.i271.i
 
 .lr.ph.i271.i:                                    ; preds = %355, %344
@@ -1038,7 +1035,7 @@ unicode_to_bytes.exit279.i:                       ; preds = %355
   %356 = sext i32 %.4.i275.i to i64
   %357 = getelementptr i8, ptr %348, i64 %356
   store i8 0, ptr %357, align 1
-  %358 = tail call i64 @strtoul(ptr noundef captures(none) %348, ptr noundef null, i32 noundef 16) #6
+  %358 = tail call i64 @strtoul(ptr noundef captures(none) %348, ptr noundef null, i32 noundef 16) #8
   %359 = trunc i64 %358 to i32
   %360 = load i32, ptr @hf_srvloc_network, align 4
   %361 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %360, ptr noundef %0, i32 noundef %346, i32 noundef 4, i32 noundef %359)
@@ -1046,7 +1043,7 @@ unicode_to_bytes.exit279.i:                       ; preds = %355
   %362 = load ptr, ptr %210, align 8
   %363 = add i32 %295, 18
   %364 = tail call ptr @tvb_get_string_enc(ptr noundef %362, ptr noundef %0, i32 noundef %363, i32 noundef 24, i32 noundef 0)
-  %365 = tail call noalias dereferenceable_or_null(25) ptr @wmem_alloc(ptr noundef %362, i64 noundef 25) #8
+  %365 = tail call noalias dereferenceable_or_null(25) ptr @wmem_alloc(ptr noundef %362, i64 noundef 25) #7
   br label %.lr.ph.i280.i
 
 .lr.ph.i280.i:                                    ; preds = %372, %unicode_to_bytes.exit279.i
@@ -1074,7 +1071,7 @@ unicode_to_bytes.exit288.i:                       ; preds = %372
   %373 = sext i32 %.4.i284.i to i64
   %374 = getelementptr i8, ptr %365, i64 %373
   store i8 0, ptr %374, align 1
-  %375 = tail call i64 @strtoul(ptr noundef captures(none) %365, ptr noundef null, i32 noundef 16) #6
+  %375 = tail call i64 @strtoul(ptr noundef captures(none) %365, ptr noundef null, i32 noundef 16) #8
   %376 = trunc i64 %375 to i32
   %377 = load i32, ptr @hf_srvloc_node, align 4
   %378 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %377, ptr noundef %0, i32 noundef %363, i32 noundef 4, i32 noundef %376)
@@ -1082,7 +1079,7 @@ unicode_to_bytes.exit288.i:                       ; preds = %372
   %379 = load ptr, ptr %210, align 8
   %380 = add i32 %295, 42
   %381 = tail call ptr @tvb_get_string_enc(ptr noundef %379, ptr noundef %0, i32 noundef %380, i32 noundef 8, i32 noundef 0)
-  %382 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %379, i64 noundef 9) #8
+  %382 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %379, i64 noundef 9) #7
   br label %.lr.ph.i289.i
 
 .lr.ph.i289.i:                                    ; preds = %389, %unicode_to_bytes.exit288.i
@@ -1115,7 +1112,7 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %390 = sext i32 %.4.i293.lcssa.sink.i to i64
   %391 = getelementptr i8, ptr %.sink417.i, i64 %390
   store i8 0, ptr %391, align 1
-  %392 = tail call i64 @strtoul(ptr noundef captures(none) %.sink417.i, ptr noundef null, i32 noundef 16) #6
+  %392 = tail call i64 @strtoul(ptr noundef captures(none) %.sink417.i, ptr noundef null, i32 noundef 16) #8
   %393 = trunc i64 %392 to i32
   %394 = load i32, ptr %hf_srvloc_socket.sink.i, align 4
   %395 = tail call ptr @proto_tree_add_uint(ptr noundef %244, i32 noundef %394, ptr noundef %0, i32 noundef %.sink412.i, i32 noundef 4, i32 noundef %393)
@@ -1128,12 +1125,12 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
 .loopexit.i:                                      ; preds = %unicode_to_bytes.exit270.i, %.preheader.i, %239, %228
   %.1248.i = phi i32 [ %238, %228 ], [ %225, %239 ], [ %225, %.preheader.i ], [ %397, %unicode_to_bytes.exit270.i ]
   %.0246.i = phi ptr [ @.str.281, %228 ], [ %222, %239 ], [ @.str.281, %.preheader.i ], [ @.str.281, %unicode_to_bytes.exit270.i ]
-  %399 = tail call i32 @strcmp(ptr noundef %.0246.i, ptr noundef nonnull dereferenceable(11) @.str.282) #7
+  %399 = tail call i32 @strcmp(ptr noundef %.0246.i, ptr noundef nonnull dereferenceable(11) @.str.282) #6
   %.not.i = icmp eq i32 %399, 0
   br i1 %.not.i, label %405, label %400
 
 400:                                              ; preds = %.loopexit.i
-  %401 = tail call i32 @strcmp(ptr noundef %.0246.i, ptr noundef nonnull dereferenceable(11) @.str.279) #7
+  %401 = tail call i32 @strcmp(ptr noundef %.0246.i, ptr noundef nonnull dereferenceable(11) @.str.279) #6
   %.not251.i = icmp eq i32 %401, 0
   br i1 %.not251.i, label %405, label %402
 
@@ -1160,7 +1157,7 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %410 = load ptr, ptr %409, align 8
   %411 = tail call ptr @tvb_get_string_enc(ptr noundef %410, ptr noundef %0, i32 noundef 16, i32 noundef range(i32 1, 0) %204, i32 noundef 0)
-  %412 = tail call i64 @strcspn(ptr noundef %411, ptr noundef nonnull @.str.278) #7
+  %412 = tail call i64 @strcspn(ptr noundef %411, ptr noundef nonnull @.str.278) #6
   %413 = trunc i64 %412 to i32
   %414 = load ptr, ptr %409, align 8
   %415 = add i32 %413, -1
@@ -1171,7 +1168,7 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
 418:                                              ; preds = %408
   %sext.i = shl i64 %412, 32
   %419 = ashr exact i64 %sext.i, 32
-  %420 = tail call noalias ptr @wmem_alloc(ptr noundef %414, i64 noundef %419) #8
+  %420 = tail call noalias ptr @wmem_alloc(ptr noundef %414, i64 noundef %419) #7
   %wide.trip.count.i.i = zext nneg i32 %415 to i64
   br label %.lr.ph.i298.i
 
@@ -1239,7 +1236,7 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
 450:                                              ; preds = %444
   %451 = load ptr, ptr %409, align 8
   %452 = tail call ptr @tvb_get_string_enc(ptr noundef %451, ptr noundef %0, i32 noundef %442, i32 noundef 2, i32 noundef 0)
-  %453 = tail call noalias dereferenceable_or_null(3) ptr @wmem_alloc(ptr noundef %451, i64 noundef 3) #8
+  %453 = tail call noalias dereferenceable_or_null(3) ptr @wmem_alloc(ptr noundef %451, i64 noundef 3) #7
   br label %.lr.ph.i307.i
 
 .lr.ph.i307.i:                                    ; preds = %460, %450
@@ -1266,7 +1263,7 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
 461:                                              ; preds = %.lr.ph.i
   %462 = load ptr, ptr %409, align 8
   %463 = tail call ptr @tvb_get_string_enc(ptr noundef %462, ptr noundef %0, i32 noundef %442, i32 noundef 4, i32 noundef 0)
-  %464 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %462, i64 noundef 5) #8
+  %464 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %462, i64 noundef 5) #7
   br label %.lr.ph.i318.i
 
 .lr.ph.i318.i:                                    ; preds = %471, %461
@@ -1298,7 +1295,7 @@ unicode_to_bytes.exit317.i:                       ; preds = %471, %460
   %472 = sext i32 %.4.i311.lcssa.sink.i to i64
   %473 = getelementptr i8, ptr %.sink426.i, i64 %472
   store i8 0, ptr %473, align 1
-  %474 = tail call i64 @strtoul(ptr noundef captures(none) %.sink426.i, ptr noundef null, i32 noundef 10) #6
+  %474 = tail call i64 @strtoul(ptr noundef captures(none) %.sink426.i, ptr noundef null, i32 noundef 10) #8
   %475 = trunc i64 %474 to i32
   %476 = load i32, ptr @hf_srvloc_protocol, align 4
   %477 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %476, ptr noundef %0, i32 noundef %442, i32 noundef %.sink421.i, i32 noundef %475)
@@ -1309,7 +1306,7 @@ unicode_to_bytes.exit317.i:                       ; preds = %471, %460
   %.3390.i = phi i32 [ %449, %.thread388.i ], [ %478, %unicode_to_bytes.exit317.i ]
   %480 = load ptr, ptr %409, align 8
   %481 = tail call ptr @tvb_get_string_enc(ptr noundef %480, ptr noundef %0, i32 noundef %.3390.i, i32 noundef 8, i32 noundef 0)
-  %482 = tail call noalias dereferenceable_or_null(17) ptr @wmem_alloc(ptr noundef %480, i64 noundef 17) #8
+  %482 = tail call noalias dereferenceable_or_null(17) ptr @wmem_alloc(ptr noundef %480, i64 noundef 17) #7
   br label %.lr.ph61.i329.i
 
 .lr.ph61.i329.i:                                  ; preds = %506, %479
@@ -1365,7 +1362,7 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %509 = sext i32 %.2.i338.i to i64
   %510 = getelementptr i8, ptr %482, i64 %509
   store i8 0, ptr %510, align 1
-  %511 = tail call i64 @strtoul(ptr noundef captures(none) %482, ptr noundef null, i32 noundef 16) #6
+  %511 = tail call i64 @strtoul(ptr noundef captures(none) %482, ptr noundef null, i32 noundef 16) #8
   %512 = trunc i64 %511 to i32
   %513 = load i32, ptr @hf_srvloc_add_ref_ip, align 4
   %514 = add i32 %.3390.i, 1
@@ -1373,7 +1370,7 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %516 = load ptr, ptr %409, align 8
   %517 = add i32 %.3390.i, 9
   %518 = tail call ptr @tvb_get_string_enc(ptr noundef %516, ptr noundef %0, i32 noundef %517, i32 noundef 4, i32 noundef 0)
-  %519 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %516, i64 noundef 5) #8
+  %519 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %516, i64 noundef 5) #7
   br label %.lr.ph.i341.i
 
 .lr.ph.i341.i:                                    ; preds = %526, %unicode_to_bytes.exit340.i
@@ -1401,7 +1398,7 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %528 = load ptr, ptr %409, align 8
   %529 = add i32 %478, 1
   %530 = tail call ptr @tvb_get_string_enc(ptr noundef %528, ptr noundef %0, i32 noundef %529, i32 noundef 8, i32 noundef 0)
-  %531 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %528, i64 noundef 9) #8
+  %531 = tail call noalias dereferenceable_or_null(9) ptr @wmem_alloc(ptr noundef %528, i64 noundef 9) #7
   br label %.lr.ph.i352.i
 
 .lr.ph.i352.i:                                    ; preds = %538, %527
@@ -1429,7 +1426,7 @@ unicode_to_bytes.exit362.i:                       ; preds = %538
   %539 = sext i32 %.4.i356.i to i64
   %540 = getelementptr i8, ptr %531, i64 %539
   store i8 0, ptr %540, align 1
-  %541 = tail call i64 @strtoul(ptr noundef captures(none) %531, ptr noundef null, i32 noundef 16) #6
+  %541 = tail call i64 @strtoul(ptr noundef captures(none) %531, ptr noundef null, i32 noundef 16) #8
   %542 = trunc i64 %541 to i32
   %543 = load i32, ptr @hf_srvloc_network, align 4
   %544 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %543, ptr noundef %0, i32 noundef %529, i32 noundef 4, i32 noundef %542)
@@ -1437,7 +1434,7 @@ unicode_to_bytes.exit362.i:                       ; preds = %538
   %545 = load ptr, ptr %409, align 8
   %546 = add i32 %478, 9
   %547 = tail call ptr @tvb_get_string_enc(ptr noundef %545, ptr noundef %0, i32 noundef %546, i32 noundef 12, i32 noundef 0)
-  %548 = tail call noalias dereferenceable_or_null(13) ptr @wmem_alloc(ptr noundef %545, i64 noundef 13) #8
+  %548 = tail call noalias dereferenceable_or_null(13) ptr @wmem_alloc(ptr noundef %545, i64 noundef 13) #7
   br label %.lr.ph.i363.i
 
 .lr.ph.i363.i:                                    ; preds = %555, %unicode_to_bytes.exit362.i
@@ -1465,7 +1462,7 @@ unicode_to_bytes.exit373.i:                       ; preds = %555
   %556 = sext i32 %.4.i367.i to i64
   %557 = getelementptr i8, ptr %548, i64 %556
   store i8 0, ptr %557, align 1
-  %558 = tail call i64 @strtoul(ptr noundef captures(none) %548, ptr noundef null, i32 noundef 16) #6
+  %558 = tail call i64 @strtoul(ptr noundef captures(none) %548, ptr noundef null, i32 noundef 16) #8
   %559 = trunc i64 %558 to i32
   %560 = load i32, ptr @hf_srvloc_node, align 4
   %561 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %560, ptr noundef %0, i32 noundef %546, i32 noundef 4, i32 noundef %559)
@@ -1473,7 +1470,7 @@ unicode_to_bytes.exit373.i:                       ; preds = %555
   %562 = load ptr, ptr %409, align 8
   %563 = add i32 %478, 21
   %564 = tail call ptr @tvb_get_string_enc(ptr noundef %562, ptr noundef %0, i32 noundef %563, i32 noundef 4, i32 noundef 0)
-  %565 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %562, i64 noundef 5) #8
+  %565 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %562, i64 noundef 5) #7
   br label %.lr.ph.i374.i
 
 .lr.ph.i374.i:                                    ; preds = %572, %unicode_to_bytes.exit373.i
@@ -1506,7 +1503,7 @@ unicode_to_bytes.exit351.i:                       ; preds = %572, %526
   %573 = sext i32 %.4.i378.lcssa.sink.i to i64
   %574 = getelementptr i8, ptr %.sink435.i, i64 %573
   store i8 0, ptr %574, align 1
-  %575 = tail call i64 @strtoul(ptr noundef captures(none) %.sink435.i, ptr noundef null, i32 noundef 16) #6
+  %575 = tail call i64 @strtoul(ptr noundef captures(none) %.sink435.i, ptr noundef null, i32 noundef 16) #8
   %576 = trunc i64 %575 to i32
   %577 = load i32, ptr %hf_srvloc_socket.sink431.i, align 4
   %578 = tail call ptr @proto_tree_add_uint(ptr noundef %434, i32 noundef %577, ptr noundef %0, i32 noundef %.sink429.i, i32 noundef 4, i32 noundef %576)
@@ -2387,8 +2384,8 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph900, %.lr.ph905, %655, %.lr.ph919, %.loopexit.loopexit927, %.loopexit.loopexit926, %1107, %985, %755, %650, %71, %154, %158, %838, %1132, %742, %735, %825, %817, %895, %888, %1045, %1038, %1066, %1058, %47, %162, %596, %633, %665, %89, %78, %139, %129, %attr_list.exit, %586, %202
   %.4 = phi i32 [ 12, %665 ], [ %62, %47 ], [ %103, %89 ], [ %87, %78 ], [ %153, %139 ], [ %137, %129 ], [ %193, %162 ], [ %587, %586 ], [ %584, %attr_list.exit ], [ 14, %202 ], [ %611, %596 ], [ %641, %633 ], [ %686, %1132 ], [ %746, %742 ], [ %740, %735 ], [ %829, %825 ], [ %823, %817 ], [ %839, %838 ], [ %899, %895 ], [ %893, %888 ], [ %1049, %1045 ], [ %1043, %1038 ], [ %1070, %1066 ], [ %1064, %1058 ], [ 14, %158 ], [ 14, %154 ], [ 16, %71 ], [ 16, %650 ], [ %761, %755 ], [ %990, %985 ], [ %1112, %1107 ], [ %804, %.loopexit.loopexit926 ], [ %924, %.loopexit.loopexit927 ], [ %76, %.lr.ph919 ], [ %663, %655 ], [ %762, %.lr.ph905 ], [ %1007, %.lr.ph900 ], [ %1130, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4
 }
 
@@ -2402,19 +2399,16 @@ define internal i32 @dissect_srvloc_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_srvloc() local_unnamed_addr #0 {
@@ -2426,43 +2420,43 @@ define hidden void @proto_reg_handoff_srvloc() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_url_entry_v1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext range(i16 0, 256) %4) unnamed_addr #0 {
@@ -2525,10 +2519,10 @@ define internal fastcc noundef i32 @dissect_authblk(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_url_entry_v2(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -2644,43 +2638,43 @@ define internal fastcc void @attr_list2(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_srvloc_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
@@ -2704,20 +2698,26 @@ define internal i32 @get_srvloc_pdu_len(ptr readnone captures(none) %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { allocsize(1) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { allocsize(1) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

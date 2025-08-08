@@ -608,12 +608,6 @@ define hidden ptr @_glfwChooseFBConfig(ptr noundef readonly captures(none) %0, p
   ret ptr %.0.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwRefreshContextAttribs(ptr noundef initializes((528, 536)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
@@ -1017,7 +1011,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %178, label %179, label %.thread164
 
 179:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %180 = load ptr, ptr %34, align 8, !tbaa !154
   call void %180(i32 noundef 33310, ptr noundef nonnull %3) #7
   %181 = load i32, ptr %3, align 4, !tbaa !160
@@ -1063,7 +1057,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %198
 
 198:                                              ; preds = %193, %196
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr = load i32, ptr %97, align 8, !tbaa !157
   %199 = icmp sgt i32 %.pr, 3
   br i1 %199, label %205, label %200
@@ -1078,7 +1072,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %204, label %205, label %.thread164
 
 205:                                              ; preds = %202, %198
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %206 = load ptr, ptr %34, align 8, !tbaa !154
   call void %206(i32 noundef 37158, ptr noundef nonnull %4) #7
   %207 = load i32, ptr %4, align 4, !tbaa !160
@@ -1103,7 +1097,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %214
 
 214:                                              ; preds = %.sink.split169, %211
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread164
 
 .thread164:                                       ; preds = %176, %214, %202, %200
@@ -1112,7 +1106,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %.not111, label %230, label %216
 
 216:                                              ; preds = %.thread164
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %217 = load ptr, ptr %34, align 8, !tbaa !154
   call void %217(i32 noundef 33366, ptr noundef nonnull %5) #7
   %218 = load i32, ptr %5, align 4, !tbaa !160
@@ -1131,7 +1125,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %221
 
 221:                                              ; preds = %.sink.split171, %216
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %230
 
 222:                                              ; preds = %173
@@ -1140,7 +1134,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %.not102, label %230, label %224
 
 224:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %225 = load ptr, ptr %34, align 8, !tbaa !154
   call void %225(i32 noundef 33366, ptr noundef nonnull %6) #7
   %226 = load i32, ptr %6, align 4, !tbaa !160
@@ -1159,7 +1153,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %229
 
 229:                                              ; preds = %.sink.split174, %224
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %230
 
 230:                                              ; preds = %222, %229, %.thread164, %221
@@ -1168,7 +1162,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %.not112, label %238, label %232
 
 232:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %233 = load ptr, ptr %34, align 8, !tbaa !154
   call void %233(i32 noundef 33531, ptr noundef nonnull %7) #7
   %234 = load i32, ptr %7, align 4, !tbaa !160
@@ -1187,7 +1181,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %237
 
 237:                                              ; preds = %.sink.split177, %232
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %238
 
 238:                                              ; preds = %237, %230
@@ -1334,13 +1328,13 @@ define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
@@ -1378,7 +1372,7 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 584
   %18 = load ptr, ptr %17, align 8, !tbaa !154
   call void %18(i32 noundef 33309, ptr noundef nonnull %2) #7
@@ -1414,11 +1408,11 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread38:                                        ; preds = %27, %.thread
   %.3.ph = phi i32 [ 0, %.thread ], [ 1, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %21, %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread44
 
 29:                                               ; preds = %12
@@ -1478,7 +1472,7 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_glfwStringInExtensionString(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @_glfwStringInExtensionString(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0) #8
   %.not23 = icmp eq ptr %3, null
   br i1 %.not23, label %.thread, label %.lr.ph
@@ -1518,7 +1512,7 @@ define hidden range(i32 0, 2) i32 @_glfwStringInExtensionString(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetCurrentContext() local_unnamed_addr #0 {
@@ -1599,7 +1593,7 @@ define void @glfwSwapInterval(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetProcAddress(ptr noundef %0) local_unnamed_addr #0 {
@@ -1631,13 +1625,19 @@ define ptr @glfwGetProcAddress(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 

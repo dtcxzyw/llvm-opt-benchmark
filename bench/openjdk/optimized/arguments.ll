@@ -1722,16 +1722,16 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   br i1 %14, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %15
 
 15:                                               ; preds = %.lr.ph.i._crit_edge
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.sroa.2.0.copyload, ptr %3, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   %16 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
   %17 = icmp sgt i32 %16, -1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %17, label %18, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread
 
 18:                                               ; preds = %15
@@ -1802,10 +1802,10 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %.lr.ph.i._crit_edge
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 28
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %17, i64 20, i1 false)
   %18 = load i32, ptr %5, align 8
   %19 = icmp eq i32 %18, 0
@@ -1817,16 +1817,16 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   br i1 %22, label %_ZL17version_less_than11JDK_VersionS_.exit, label %23
 
 _ZL17version_less_than11JDK_VersionS_.exit:       ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 23:                                               ; preds = %16, %20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5, i64 20, i1 false)
   %24 = load i32, ptr %3, align 8
   %25 = icmp eq i32 %24, 0
@@ -1838,13 +1838,13 @@ _ZL17version_less_than11JDK_VersionS_.exit:       ; preds = %20
   br i1 %28, label %_ZL17version_less_than11JDK_VersionS_.exit3, label %29
 
 _ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 29:                                               ; preds = %23, %26
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.sroa.1.0.copyload, ptr %1, align 4
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4, i64 16, i1 false)
@@ -1873,7 +1873,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments9atojulongEPKcPm(ptr noundef %0, 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal fastcc noundef zeroext i1 @_ZL13parse_integerImEbPKcPT_(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #9 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr %0, align 1
   %5 = sext i8 %4 to i32
   %isdigittmp.i = add nsw i32 %5, -48
@@ -1962,14 +1962,14 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %27
   br label %33
 
 _ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %2, %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i, %18, %23, %25, %27, %29, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 33:                                               ; preds = %30, %21
   %34 = phi ptr [ %19, %21 ], [ %32, %30 ]
   %.3.i = phi i64 [ %15, %21 ], [ %31, %30 ]
   store i64 %.3.i, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
   br label %37
@@ -2144,7 +2144,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrig
   %22 = ptrtoint ptr %.049 to i64
   %23 = ptrtoint ptr %.1 to i64
   %24 = sub i64 %23, %22
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = getelementptr inbounds i8, ptr %.049, i64 %24
   %26 = load i8, ptr %25, align 1
   %.not.i = icmp eq i8 %26, 0
@@ -2167,13 +2167,13 @@ define hidden noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrig
   br i1 %34, label %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread, label %_ZN9Arguments13find_jvm_flagEPKcm.exit
 
 _ZN9Arguments13find_jvm_flagEPKcm.exit.thread:    ; preds = %27, %32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 _ZN9Arguments13find_jvm_flagEPKcm.exit:           ; preds = %32
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #30
   %36 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %33, i64 noundef %35, i1 noundef zeroext false, i1 noundef zeroext false) #31
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %75, label %38
 
@@ -2189,7 +2189,7 @@ _ZN9Arguments13find_jvm_flagEPKcm.exit:           ; preds = %32
   br i1 %.not, label %41, label %75
 
 41:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.051, ptr %4, align 1
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %43 = load i32, ptr %42, align 4
@@ -2203,7 +2203,7 @@ _ZN9Arguments13find_jvm_flagEPKcm.exit:           ; preds = %32
 
 _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
   %.0.i.i.i = phi i1 [ %46, %44 ], [ false, %41 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 47:                                               ; preds = %38
@@ -2251,7 +2251,7 @@ _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 0
   %spec.store.select.i = select i1 %71, ptr null, ptr %69
@@ -2266,7 +2266,7 @@ _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
   br label %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit
 
 _ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit: ; preds = %68, %73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
 75:                                               ; preds = %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread, %65, %47, %39, %_ZN9Arguments13find_jvm_flagEPKcm.exit, %19, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit, %63, %61, %57, %55, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit
@@ -2413,7 +2413,7 @@ define internal fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JV
   ]
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i8, ptr %1, align 1
   %16 = sext i8 %15 to i32
   %isdigittmp.i.i = add nsw i32 %16, -48
@@ -2530,14 +2530,14 @@ _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i:      ; preds = %58
   br label %_ZL13parse_integerIiEbPKcPT_.exit
 
 _ZL13parse_integerIiEbPKcPT_.exit.thread:         ; preds = %14, %38, %46, %52, %55, %58, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
 _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %50, %63
   %66 = phi i8 [ %51, %50 ], [ %.pre48, %63 ]
   %.3.i.i = phi i32 [ %47, %50 ], [ %64, %63 ]
   store i32 %.3.i.i, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
@@ -2564,7 +2564,7 @@ _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %50, %63
   br label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
 78:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %79 = load i8, ptr %1, align 1
   %80 = sext i8 %79 to i32
   %isdigittmp.i.i26 = add nsw i32 %80, -48
@@ -2677,14 +2677,14 @@ _Z14multiply_by_1kIlEbRT_.exit19.thread.i.i:      ; preds = %119
   br label %_ZL13parse_integerIlEbPKcPT_.exit
 
 _ZL13parse_integerIlEbPKcPT_.exit.thread:         ; preds = %78, %102, %108, %113, %116, %119, %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
 _ZL13parse_integerIlEbPKcPT_.exit:                ; preds = %111, %124
   %127 = phi i8 [ %112, %111 ], [ %.pre, %124 ]
   %.3.i.i32 = phi i64 [ %105, %111 ], [ %125, %124 ]
   store i64 %.3.i.i32, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %129, label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
@@ -3956,10 +3956,10 @@ define hidden void @_ZN9Arguments23set_use_compressed_oopsEv() local_unnamed_add
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 1, ptr %1, align 1
   %18 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %25
 
 19:                                               ; preds = %0
@@ -4044,10 +4044,10 @@ define hidden noundef i32 @_ZN9Arguments20set_ergonomics_flagsEv() local_unnamed
   br i1 %26, label %27, label %_ZN9Arguments23set_use_compressed_oopsEv.exit
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 1, ptr %1, align 1
   %28 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZN9Arguments23set_use_compressed_oopsEv.exit
 
 29:                                               ; preds = %0
@@ -4136,10 +4136,10 @@ define hidden void @_ZN9Arguments13set_heap_sizeEv() local_unnamed_addr #0 align
 
 18:                                               ; preds = %.thread
   %19 = tail call noundef i64 @_ZN2os15physical_memoryEv() #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %19, ptr %9, align 8
   %20 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1128, i32 noundef 5, ptr noundef nonnull %9, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %31
 
 21:                                               ; preds = %.thread
@@ -4192,7 +4192,7 @@ define hidden void @_ZN9Arguments13set_heap_sizeEv() local_unnamed_addr #0 align
   %or.cond.not = select i1 %49, i1 true, i1 %51
   %52 = call i64 @llvm.umin.i64(i64 %.039, i64 %50)
   %.1 = select i1 %or.cond.not, i64 %.039, i64 %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %8) #31
   br i1 %53, label %54, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
 
@@ -4219,7 +4219,7 @@ define hidden void @_ZN9Arguments13set_heap_sizeEv() local_unnamed_addr #0 align
 
 _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
   %.0.i = phi i64 [ %68, %64 ], [ %.1, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %69 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1192) #31
   br i1 %69, label %73, label %70
 
@@ -4269,10 +4269,10 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
 
 93:                                               ; preds = %89, %91
   %94 = phi i64 [ %87, %89 ], [ %.pre, %91 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %94, ptr %7, align 8
   %95 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1197, i32 noundef 6, ptr noundef nonnull %7, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %96
 
 96:                                               ; preds = %83, %93, %85, %78
@@ -4314,10 +4314,10 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
   br label %120
 
 120:                                              ; preds = %116, %118
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %121 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %122
 
 122:                                              ; preds = %114, %99, %120, %96
@@ -4331,10 +4331,10 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
   br label %125
 
 125:                                              ; preds = %122, %124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.3, ptr %5, align 8
   %126 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1193, i32 noundef 6, ptr noundef nonnull %5, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %127
 
 127:                                              ; preds = %125, %31
@@ -4351,7 +4351,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
   %135 = add i64 %134, %133
   %136 = load i64, ptr @MaxHeapSize, align 8
   %137 = call noundef i64 @llvm.umin.i64(i64 %135, i64 %136)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %138 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %4) #31
   br i1 %138, label %139, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47
 
@@ -4378,7 +4378,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
 
 _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47: ; preds = %132, %149
   %.0.i46 = phi i64 [ %153, %149 ], [ %137, %132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %154 = load i64, ptr @InitialHeapSize, align 8
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %156, label %187
@@ -4389,7 +4389,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47: ; preds = %132, %149
   %159 = fmul double %158, %157
   %160 = fdiv double %159, 1.000000e+02
   %161 = fptoui double %160 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %162 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %3) #31
   br i1 %162, label %163, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49
 
@@ -4416,16 +4416,16 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47: ; preds = %132, %149
 
 _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49: ; preds = %156, %173
   %.0.i48 = phi i64 [ %177, %173 ], [ %161, %156 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %178 = load i64, ptr @MinHeapSize, align 8
   %179 = call noundef i64 @llvm.umax.i64(i64 %.0.i48, i64 %.0.i46)
   %180 = call noundef i64 @llvm.umax.i64(i64 %179, i64 %178)
   %181 = load i64, ptr @MaxHeapSize, align 8
   %182 = call noundef i64 @llvm.umin.i64(i64 %180, i64 %181)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %182, ptr %2, align 8
   %183 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1192, i32 noundef 6, ptr noundef nonnull %2, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %184 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not52 = icmp eq ptr %184, null
   br i1 %.not52, label %187, label %185
@@ -4443,10 +4443,10 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49: ; preds = %156, %173
 190:                                              ; preds = %187
   %191 = load i64, ptr @InitialHeapSize, align 8
   %192 = call noundef i64 @llvm.umin.i64(i64 %.0.i46, i64 %191)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %192, ptr %1, align 8
   %193 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1191, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %194 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not53 = icmp eq ptr %194, null
   br i1 %.not53, label %197, label %195
@@ -4515,7 +4515,7 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments25set_aggressive_heap_f
   %24 = lshr i64 %14, 1
   %25 = add i64 %14, -167772160
   %26 = tail call noundef i64 @llvm.umin.i64(i64 %24, i64 %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %27 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %13) #31
   br i1 %27, label %28, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
 
@@ -4542,34 +4542,34 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments25set_aggressive_heap_f
 
 _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %23, %38
   %.0.i = phi i64 [ %42, %38 ], [ %26, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %43 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1193) #31
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1193) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %.0.i, ptr %12, align 8
   %45 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1193, i32 noundef 6, ptr noundef nonnull %12, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %75
 
 46:                                               ; preds = %44
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1192) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %.0.i, ptr %11, align 8
   %47 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1192, i32 noundef 6, ptr noundef nonnull %11, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not8 = icmp eq i32 %47, 0
   br i1 %.not8, label %48, label %75
 
 48:                                               ; preds = %46
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1191) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.0.i, ptr %10, align 8
   %49 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1191, i32 noundef 6, ptr noundef nonnull %10, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not9 = icmp eq i32 %49, 0
   br i1 %.not9, label %50, label %75
 
@@ -4582,20 +4582,20 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %23, %38
   %53 = load i64, ptr @MaxHeapSize, align 8
   %54 = lshr i64 %53, 3
   %55 = mul nuw nsw i64 %54, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %55, ptr %9, align 8
   %56 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1195, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not10 = icmp eq i32 %56, 0
   br i1 %.not10, label %57, label %75
 
 57:                                               ; preds = %52
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1196) #31
   %58 = load i64, ptr @NewSize, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %58, ptr %8, align 8
   %59 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1196, i32 noundef 6, ptr noundef nonnull %8, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not11 = icmp eq i32 %59, 0
   br i1 %.not11, label %60, label %75
 
@@ -4603,64 +4603,64 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %23, %38
   store i8 1, ptr @UseLargePages, align 1
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1166) #31
   %61 = load i64, ptr @MaxHeapSize, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %61, ptr %7, align 8
   %62 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1166, i32 noundef 6, ptr noundef nonnull %7, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not12 = icmp eq i32 %62, 0
   br i1 %.not12, label %63, label %75
 
 63:                                               ; preds = %60
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1213) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %64 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1213, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not13 = icmp eq i32 %64, 0
   br i1 %.not13, label %65, label %75
 
 65:                                               ; preds = %63
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1216) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 262144, ptr %5, align 8
   %66 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1216, i32 noundef 6, ptr noundef nonnull %5, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not14 = icmp eq i32 %66, 0
   br i1 %.not14, label %67, label %75
 
 67:                                               ; preds = %65
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1217) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 262144, ptr %4, align 8
   %68 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1217, i32 noundef 6, ptr noundef nonnull %4, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not15 = icmp eq i32 %68, 0
   br i1 %.not15, label %69, label %75
 
 69:                                               ; preds = %67
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1218) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 8192, ptr %3, align 8
   %70 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1218, i32 noundef 6, ptr noundef nonnull %3, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not16 = icmp eq i32 %70, 0
   br i1 %.not16, label %71, label %75
 
 71:                                               ; preds = %69
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1087) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 1
   %72 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1087, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not17 = icmp eq i32 %72, 0
   br i1 %.not17, label %73, label %75
 
 73:                                               ; preds = %71
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1151) #31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 100, ptr %1, align 4
   %74 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1151, i32 noundef 2, ptr noundef nonnull %1, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not18 = icmp eq i32 %74, 0
   %. = select i1 %.not18, i32 0, i32 -6
   br label %75
@@ -4923,7 +4923,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments10parse_uintEPKcPjj(ptr noundef %
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #9 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr %0, align 1
   %5 = sext i8 %4 to i32
   %isdigittmp.i = add nsw i32 %5, -48
@@ -5015,14 +5015,14 @@ _Z14multiply_by_1kIjEbRT_.exit19.thread.i:        ; preds = %30
   br label %36
 
 _ZL13parse_integerIjEbPKcPPcPT_.exit.thread:      ; preds = %2, %20, %26, %28, %30, %32, %14, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
 36:                                               ; preds = %33, %24
   %37 = phi ptr [ %22, %24 ], [ %35, %33 ]
   %.3.i = phi i32 [ %21, %24 ], [ %34, %33 ]
   store i32 %.3.i, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
   br label %40
@@ -5767,10 +5767,10 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 
 321:                                              ; preds = %319
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 601) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i8 0, ptr %42, align 1
   %322 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 601, i32 noundef 0, ptr noundef nonnull %42, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %.not145 = icmp eq i32 %322, 0
   br i1 %.not145, label %.critedge159, label %.loopexit293
 
@@ -5780,10 +5780,10 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 
 325:                                              ; preds = %323
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 480) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i8 0, ptr %41, align 1
   %326 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 480, i32 noundef 0, ptr noundef nonnull %41, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %.not144 = icmp eq i32 %326, 0
   br i1 %.not144, label %.critedge159, label %.loopexit293
 
@@ -5817,19 +5817,19 @@ select.unfold:                                    ; preds = %332, %329
 
 _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit:    ; preds = %332
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1196) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 %333, ptr %40, align 8
   %343 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1196, i32 noundef 6, ptr noundef nonnull %40, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %.not142 = icmp eq i32 %343, 0
   br i1 %.not142, label %344, label %.loopexit293
 
 344:                                              ; preds = %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1195) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 %333, ptr %39, align 8
   %345 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1195, i32 noundef 6, ptr noundef nonnull %39, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %.not143 = icmp eq i32 %345, 0
   br i1 %.not143, label %.critedge159, label %.loopexit293
 
@@ -5860,19 +5860,19 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit255: ; preds = %349
 360:                                              ; preds = %349
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1191) #31
   %361 = load i64, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 %361, ptr %38, align 8
   %362 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1191, i32 noundef 6, ptr noundef nonnull %38, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %.not139 = icmp eq i32 %362, 0
   br i1 %.not139, label %363, label %.loopexit293
 
 363:                                              ; preds = %360
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1192) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 %361, ptr %37, align 8
   %364 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1192, i32 noundef 6, ptr noundef nonnull %37, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.not140 = icmp eq i32 %364, 0
   br i1 %.not140, label %.critedge159, label %.loopexit293
 
@@ -5914,10 +5914,10 @@ select.unfold273:                                 ; preds = %374, %371
 
 _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %374
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1193) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 %375, ptr %36, align 8
   %385 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1193, i32 noundef 6, ptr noundef nonnull %36, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.not137 = icmp eq i32 %385, 0
   br i1 %.not137, label %.critedge159, label %.loopexit293
 
@@ -5956,10 +5956,10 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %374
 408:                                              ; preds = %396
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 789) #31
   %409 = sext i32 %393 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 %409, ptr %35, align 8
   %410 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 789, i32 noundef 4, ptr noundef nonnull %35, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.not135 = icmp eq i32 %410, 0
   br i1 %.not135, label %.critedge159, label %.loopexit293
 
@@ -5998,10 +5998,10 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %374
 433:                                              ; preds = %421
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 788) #31
   %434 = sext i32 %418 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 %434, ptr %34, align 8
   %435 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 788, i32 noundef 4, ptr noundef nonnull %34, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %.not133 = icmp eq i32 %435, 0
   br i1 %.not133, label %.critedge159, label %.loopexit293
 
@@ -6022,10 +6022,10 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %374
 443:                                              ; preds = %439
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 801) #31
   %444 = load i64, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 %444, ptr %33, align 8
   %445 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 801, i32 noundef 3, ptr noundef nonnull %33, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %.not131 = icmp eq i32 %445, 0
   br i1 %.not131, label %.critedge159, label %.loopexit293
 
@@ -6063,10 +6063,10 @@ select.unfold277:                                 ; preds = %452
 
 _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261: ; preds = %452
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 811) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 %455, ptr %32, align 8
   %465 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 811, i32 noundef 4, ptr noundef nonnull %32, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.not129 = icmp eq i32 %465, 0
   br i1 %.not129, label %.critedge159, label %.loopexit293
 
@@ -6095,10 +6095,10 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261: ; preds = %452
 
 480:                                              ; preds = %478
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 617) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 1, ptr %31, align 1
   %481 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 617, i32 noundef 0, ptr noundef nonnull %31, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %.not127 = icmp eq i32 %481, 0
   br i1 %.not127, label %.critedge159, label %.loopexit293
 
@@ -6225,10 +6225,10 @@ sub_1289:                                         ; preds = %519
 
 544:                                              ; preds = %539
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 864) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i8 1, ptr %30, align 1
   %545 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 864, i32 noundef 0, ptr noundef nonnull %30, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %.not126 = icmp eq i32 %545, 0
   br i1 %.not126, label %546, label %.loopexit293
 
@@ -6318,19 +6318,19 @@ sub_1289:                                         ; preds = %519
 
 579:                                              ; preds = %577, %573
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 534) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i8 1, ptr %29, align 1
   %580 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 534, i32 noundef 0, ptr noundef nonnull %29, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.not120 = icmp eq i32 %580, 0
   br i1 %.not120, label %581, label %.loopexit293
 
 581:                                              ; preds = %579
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 533) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i8 1, ptr %28, align 1
   %582 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 533, i32 noundef 0, ptr noundef nonnull %28, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.not121 = icmp eq i32 %582, 0
   br i1 %.not121, label %.critedge159, label %.loopexit293
 
@@ -6341,19 +6341,19 @@ sub_1289:                                         ; preds = %519
 
 586:                                              ; preds = %583
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 534) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 0, ptr %27, align 1
   %587 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 534, i32 noundef 0, ptr noundef nonnull %27, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.not118 = icmp eq i32 %587, 0
   br i1 %.not118, label %588, label %.loopexit293
 
 588:                                              ; preds = %586
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 533) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 1, ptr %26, align 1
   %589 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 533, i32 noundef 0, ptr noundef nonnull %26, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.not119 = icmp eq i32 %589, 0
   br i1 %.not119, label %.critedge159, label %.loopexit293
 
@@ -6364,19 +6364,19 @@ sub_1289:                                         ; preds = %519
 
 593:                                              ; preds = %590
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 534) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 0, ptr %25, align 1
   %594 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 534, i32 noundef 0, ptr noundef nonnull %25, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.not116 = icmp eq i32 %594, 0
   br i1 %.not116, label %595, label %.loopexit293
 
 595:                                              ; preds = %593
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 533) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i8 0, ptr %24, align 1
   %596 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 533, i32 noundef 0, ptr noundef nonnull %24, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.not117 = icmp eq i32 %596, 0
   br i1 %.not117, label %597, label %.loopexit293
 
@@ -6552,28 +6552,28 @@ sub_1289:                                         ; preds = %519
 
 678:                                              ; preds = %676
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1098) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 1, ptr %23, align 1
   %679 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1098, i32 noundef 0, ptr noundef nonnull %23, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not112 = icmp eq i32 %679, 0
   br i1 %.not112, label %680, label %.loopexit293
 
 680:                                              ; preds = %678
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1097) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 0, ptr %22, align 1
   %681 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1097, i32 noundef 0, ptr noundef nonnull %22, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.not113 = icmp eq i32 %681, 0
   br i1 %.not113, label %682, label %.loopexit293
 
 682:                                              ; preds = %680
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1204) #31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 16, ptr %21, align 4
   %683 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1204, i32 noundef 2, ptr noundef nonnull %21, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.not114 = icmp eq i32 %683, 0
   br i1 %.not114, label %.critedge159, label %.loopexit293
 
@@ -6583,28 +6583,28 @@ sub_1289:                                         ; preds = %519
 
 686:                                              ; preds = %684
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1098) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 0, ptr %20, align 1
   %687 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1098, i32 noundef 0, ptr noundef nonnull %20, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.not109 = icmp eq i32 %687, 0
   br i1 %.not109, label %688, label %.loopexit293
 
 688:                                              ; preds = %686
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1097) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 1, ptr %19, align 1
   %689 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1097, i32 noundef 0, ptr noundef nonnull %19, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not110 = icmp eq i32 %689, 0
   br i1 %.not110, label %690, label %.loopexit293
 
 690:                                              ; preds = %688
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1204) #31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4
   %691 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1204, i32 noundef 2, ptr noundef nonnull %18, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not111 = icmp eq i32 %691, 0
   br i1 %.not111, label %.critedge159, label %.loopexit293
 
@@ -6614,12 +6614,12 @@ sub_1289:                                         ; preds = %519
 
 694:                                              ; preds = %692
   %695 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %696 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %695, ptr noundef %17)
   br i1 %696, label %704, label %697
 
 697:                                              ; preds = %694
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %698 = load i8, ptr @DisplayVMOutputToStdout, align 1
   %699 = trunc i8 %698 to i1
   %700 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
@@ -6630,12 +6630,12 @@ sub_1289:                                         ; preds = %519
 
 704:                                              ; preds = %694
   %705 = load i32, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1204) #31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %705, ptr %16, align 4
   %706 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1204, i32 noundef 2, ptr noundef nonnull %16, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not104 = icmp eq i32 %706, 0
   br i1 %.not104, label %707, label %.loopexit293
 
@@ -6646,36 +6646,36 @@ sub_1289:                                         ; preds = %519
   br i1 %709, label %710, label %714
 
 710:                                              ; preds = %707
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1
   %711 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1098, i32 noundef 0, ptr noundef nonnull %15, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not107 = icmp eq i32 %711, 0
   br i1 %.not107, label %712, label %.loopexit293
 
 712:                                              ; preds = %710
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1097) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 1, ptr %14, align 1
   %713 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1097, i32 noundef 0, ptr noundef nonnull %14, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not108 = icmp eq i32 %713, 0
   br i1 %.not108, label %.critedge159, label %.loopexit293
 
 714:                                              ; preds = %707
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %13, align 1
   %715 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1098, i32 noundef 0, ptr noundef nonnull %13, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not105 = icmp eq i32 %715, 0
   br i1 %.not105, label %716, label %.loopexit293
 
 716:                                              ; preds = %714
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 1097) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1
   %717 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1097, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not106 = icmp eq i32 %717, 0
   br i1 %.not106, label %.critedge159, label %.loopexit293
 
@@ -6687,19 +6687,19 @@ sub_1289:                                         ; preds = %519
 
 721:                                              ; preds = %718
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 692) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   %722 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 692, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not102 = icmp eq i32 %722, 0
   br i1 %.not102, label %723, label %.loopexit293
 
 723:                                              ; preds = %721
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 691) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1
   %724 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 691, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not103 = icmp eq i32 %724, 0
   br i1 %.not103, label %.critedge159, label %.loopexit293
 
@@ -6709,19 +6709,19 @@ sub_1289:                                         ; preds = %519
 
 727:                                              ; preds = %725
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 691) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %728 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 691, i32 noundef 0, ptr noundef nonnull %9, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not100 = icmp eq i32 %728, 0
   br i1 %.not100, label %729, label %.loopexit293
 
 729:                                              ; preds = %727
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 692) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1
   %730 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 692, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not101 = icmp eq i32 %730, 0
   br i1 %.not101, label %.critedge159, label %.loopexit293
 
@@ -6731,19 +6731,19 @@ sub_1289:                                         ; preds = %519
 
 733:                                              ; preds = %731
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 694) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %734 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 694, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not98 = icmp eq i32 %734, 0
   br i1 %.not98, label %735, label %.loopexit293
 
 735:                                              ; preds = %733
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 693) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1
   %736 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 693, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not99 = icmp eq i32 %736, 0
   br i1 %.not99, label %.critedge159, label %.loopexit293
 
@@ -6753,19 +6753,19 @@ sub_1289:                                         ; preds = %519
 
 739:                                              ; preds = %737
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 693) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %740 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 693, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not96 = icmp eq i32 %740, 0
   br i1 %.not96, label %741, label %.loopexit293
 
 741:                                              ; preds = %739
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 694) #31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1
   %742 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 694, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 1) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not97 = icmp eq i32 %742, 0
   br i1 %.not97, label %.critedge159, label %.loopexit293
 
@@ -6972,10 +6972,10 @@ define linkonce_odr hidden void @_ZN23SystemMemoryBarrierTypeI24LinuxSystemMemor
   br label %9
 
 9:                                                ; preds = %8, %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1
   %10 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 758, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %11
 
 11:                                               ; preds = %4, %9, %0
@@ -7073,10 +7073,10 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments21finalize_vm_init_args
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %53, ptr %2, align 4
   %56 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1205, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 5) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 
 57:                                               ; preds = %55, %51, %49
@@ -10437,10 +10437,10 @@ declare double @llvm.fabs.f64(double) #28
 declare i32 @llvm.ctpop.i32(i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #28

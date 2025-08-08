@@ -91,10 +91,10 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
   %7 = alloca [6 x float], align 16
   %8 = alloca [6 x float], align 16
   %9 = alloca [6 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %15
 
 .preheader:                                       ; preds = %15
@@ -137,10 +137,10 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
   br i1 %exitcond.not, label %.preheader, label %15, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %39, %.preheader
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 33:                                               ; preds = %.lr.ph, %39
@@ -283,7 +283,7 @@ define internal void @ps_hybrid_synthesis_deint_c(ptr noundef writeonly captures
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, float noundef %6, i32 noundef %7) #1 {
   %9 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %12
 
 .preheader:                                       ; preds = %12
@@ -373,7 +373,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond90.not, label %._crit_edge, label %17, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %57, %.preheader
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -535,20 +535,19 @@ define internal void @ps_stereo_interpolate_ipdopd_c(ptr noundef captures(none) 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

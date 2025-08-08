@@ -202,7 +202,7 @@ define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef initializes(
   %25 = icmp eq i32 %24, 0
   %26 = zext i1 %25 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 291) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load ptr, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %28 = load ptr, ptr %27, align 8
@@ -238,7 +238,7 @@ define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef initializes(
   br label %checkCapabilities.exit
 
 checkCapabilities.exit:                           ; preds = %5, %33, %40, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = load ptr, ptr %2, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1056
   %45 = load ptr, ptr %44, align 8
@@ -433,7 +433,7 @@ define hidden zeroext range(i8 0, 2) i8 @processJavaStart(ptr noundef %0, ptr no
   br i1 %7, label %.critedge22.thread, label %.critedge
 
 .critedge:                                        ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %3, i8 0, i64 312, i1 false)
@@ -461,7 +461,7 @@ define hidden zeroext range(i8 0, 2) i8 @processJavaStart(ptr noundef %0, ptr no
   br i1 %24, label %setLivePhaseEventHandlers.exit.thread, label %setLivePhaseEventHandlers.exit
 
 setLivePhaseEventHandlers.exit.thread:            ; preds = %.critedge, %19, %16
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @JPLISAssertConditionWithMessage(i8 noundef zeroext 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 419) #10
   br label %.critedge22.thread
 
@@ -469,7 +469,7 @@ setLivePhaseEventHandlers.exit:                   ; preds = %19
   %25 = icmp eq i32 %23, 0
   %26 = zext i1 %25 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 661) #10
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @JPLISAssertConditionWithMessage(i8 noundef zeroext %26, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 419) #10
   br i1 %25, label %.critedge22, label %.critedge22.thread
 
@@ -870,7 +870,7 @@ define hidden void @addNativeMethodPrefixCapability(ptr noundef captures(none) %
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 704
   %14 = load ptr, ptr %13, align 8
@@ -895,14 +895,14 @@ define hidden void @addNativeMethodPrefixCapability(ptr noundef captures(none) %
   br label %enableNativeMethodPrefixCapability.exit
 
 enableNativeMethodPrefixCapability.exit:          ; preds = %9, %25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not9 = icmp eq ptr %29, null
   br i1 %.not9, label %47, label %30
 
 30:                                               ; preds = %enableNativeMethodPrefixCapability.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 704
   %33 = load ptr, ptr %32, align 8
@@ -927,7 +927,7 @@ enableNativeMethodPrefixCapability.exit:          ; preds = %9, %25
   br label %enableNativeMethodPrefixCapability.exit10
 
 enableNativeMethodPrefixCapability.exit10:        ; preds = %30, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %47
 
 47:                                               ; preds = %enableNativeMethodPrefixCapability.exit10, %enableNativeMethodPrefixCapability.exit
@@ -1899,8 +1899,8 @@ define hidden i32 @getAllLoadedClassesClassListFetcher(ptr noundef %0, ptr nound
 define hidden ptr @getAllLoadedClasses(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %3, align 4
@@ -1941,8 +1941,8 @@ define hidden ptr @getAllLoadedClasses(ptr noundef %0, ptr noundef readonly capt
 
 commonGetClassList.exit:                          ; preds = %2, %22
   %.017.i = phi ptr [ %.0.i, %22 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.017.i
 }
 
@@ -1959,8 +1959,8 @@ define hidden i32 @getInitiatedClassesClassListFetcher(ptr noundef %0, ptr nound
 define hidden ptr @getInitiatedClasses(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   store i32 0, ptr %4, align 4
@@ -2001,8 +2001,8 @@ define hidden ptr @getInitiatedClasses(ptr noundef %0, ptr noundef readonly capt
 
 commonGetClassList.exit:                          ; preds = %3, %23
   %.017.i = phi ptr [ %.0.i, %23 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.017.i
 }
 
@@ -2280,10 +2280,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

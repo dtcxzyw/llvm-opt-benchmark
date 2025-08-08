@@ -3489,10 +3489,10 @@ define dso_local void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(non
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
   %13 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
@@ -3585,10 +3585,10 @@ define dso_local void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(non
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %43, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -3599,10 +3599,10 @@ define dso_local void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
   %16 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
@@ -3695,10 +3695,10 @@ define dso_local void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly 
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %23, %46, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
@@ -3717,7 +3717,7 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
   %16 = fcmp ogt float %4, %5
   %17 = select i1 %16, float %5, float %4
   %18 = fdiv float %1, %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %19 = fmul float %18, %18
   %20 = icmp sgt i32 %3, 0
   br i1 %20, label %.lr.ph.preheader.i, label %stbtt_FlattenCurves.exit.thread
@@ -3918,11 +3918,11 @@ stbtt__add_point.exit.us.i:                       ; preds = %105, %97, %87, %79,
   br label %stbtt_FlattenCurves.exit.thread
 
 stbtt_FlattenCurves.exit.thread:                  ; preds = %fons__tmpalloc.exit89.us.i, %._crit_edge.i, %34, %37, %.split.us.i, %115, %fons__tmpalloc.exit.i, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %stbtt__rasterize.exit
 
 stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge107.us.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not.i91.us.i, label %stbtt__rasterize.exit, label %.lr.ph.preheader.i28
 
 .lr.ph.preheader.i28:                             ; preds = %stbtt_FlattenCurves.exit
@@ -4159,7 +4159,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.loopexi
 ._crit_edge115.i:                                 ; preds = %._crit_edge109.split.i, %._crit_edge109.split.us.us.i
   %.1.lcssa.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge109.split.us.us.i ], [ %.2.lcssa.i, %._crit_edge109.split.i ]
   tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %137, i32 noundef %.1.lcssa.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.3.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.i.i)
   %223 = icmp sgt i32 %.1.lcssa.i, 1
   br i1 %223, label %.lr.ph.preheader.i.i.i, label %stbtt__sort_edges.exit.i
 
@@ -4218,9 +4218,9 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.loopexi
   br i1 %exitcond.not.i.i.i, label %stbtt__sort_edges.exit.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 stbtt__sort_edges.exit.i:                         ; preds = %238, %._crit_edge115.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.3.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %13, align 8
   %239 = load i32, ptr %0, align 8
   %240 = icmp sgt i32 %239, 64
@@ -6189,8 +6189,8 @@ stbtt__fill_active_edges_new.exit.i.i:            ; preds = %stbtt__fill_active_
   br i1 %1421, label %276, label %stbtt__rasterize_sorted_edges.exit.i, !llvm.loop !35
 
 stbtt__rasterize_sorted_edges.exit.i:             ; preds = %._crit_edge116.i.i, %fons__tmpalloc.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %stbtt__rasterize.exit
 
 stbtt__rasterize.exit:                            ; preds = %stbtt__rasterize_sorted_edges.exit.i, %fons__tmpalloc.exit.i23, %132, %129, %stbtt_FlattenCurves.exit.thread, %stbtt_FlattenCurves.exit
@@ -6219,10 +6219,10 @@ define dso_local ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures
   br i1 %brmerge, label %20, label %fons__tmpalloc.exit.thread
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
   %21 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
@@ -6259,10 +6259,10 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %22
   %.054 = phi i32 [ %38, %22 ], [ 0, %20 ]
   %.053 = phi i32 [ %27, %22 ], [ 0, %20 ]
   %.sink.i = phi i32 [ %44, %22 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %45 = sub nsw i32 %.054, %.053
   store i32 %45, ptr %15, align 8
   %46 = sub nsw i32 %.sink.i, %.055
@@ -6367,10 +6367,10 @@ define dso_local void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captur
   %15 = alloca ptr, align 8
   %16 = alloca %struct.stbtt__bitmap, align 8
   %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %11, align 4
   %18 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %18, 0
@@ -6393,10 +6393,10 @@ define dso_local void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captur
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %10, %19
   %.021 = phi i32 [ %24, %19 ], [ 0, %10 ]
   %.0 = phi i32 [ %30, %19 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %1, ptr %31, align 8
   store i32 %2, ptr %16, align 8
@@ -6541,10 +6541,10 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %103
   %67 = shl nuw i16 %66, 8
   %68 = zext i8 %.val41.i.sink to i16
   %69 = or disjoint i16 %67, %68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
   %70 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %14, i32 noundef %51, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
@@ -6581,10 +6581,10 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   %.083 = phi i32 [ %82, %71 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
   %.082 = phi i32 [ %87, %71 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
   %.sink.i.i = phi i32 [ %93, %71 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %94 = sub nsw i32 %.082, %.084
   %95 = sub nsw i32 %.sink.i.i, %.083
   %96 = add i32 %.06290, 1
@@ -7522,8 +7522,8 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %225, %160, %stbtt_G
   %261 = add i32 %260, 1
   %262 = sub i32 %125, %156
   %263 = add i32 %262, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %264 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %1, i32 noundef %113, ptr noundef nonnull %8)
   %265 = load i32, ptr %20, align 4
   %.not.i.i161 = icmp slt i32 %113, %265
@@ -7666,8 +7666,8 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit.i:           ; preds = %332, %266, %stbtt_G
   br label %stbtt_MakeGlyphBitmapSubpixel.exit
 
 stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit.i, %362
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %365 = load i32, ptr %10, align 8
   %366 = icmp ugt i32 %365, 1
   %.pre280.pre282 = load i32, ptr %97, align 4
@@ -7679,7 +7679,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %370 = load i32, ptr %25, align 8
   %371 = load i32, ptr %120, align 4
   %372 = load i32, ptr %123, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %373 = icmp sgt i32 %372, 0
   br i1 %373, label %.lr.ph148.i, label %stbtt__h_prefilter.exit
@@ -7879,7 +7879,7 @@ stbtt__h_prefilter.exit.loopexit:                 ; preds = %._crit_edge.i
 
 stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.exit.loopexit, %367
   %.pre280.pre = phi i32 [ %.pre280.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre280.pre282, %367 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %469
 
 469:                                              ; preds = %stbtt__h_prefilter.exit, %stbtt_MakeGlyphBitmapSubpixel.exit
@@ -7894,7 +7894,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %475 = load i32, ptr %25, align 8
   %476 = load i32, ptr %120, align 4
   %477 = load i32, ptr %123, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %478 = icmp sgt i32 %476, 0
   br i1 %478, label %.lr.ph163.i, label %stbtt__v_prefilter.exit
@@ -8100,7 +8100,7 @@ stbtt__v_prefilter.exit.loopexit:                 ; preds = %._crit_edge.i147
 
 stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.exit.loopexit, %472
   %.pre = phi i32 [ %.pre.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre280, %472 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %578
 
 578:                                              ; preds = %stbtt__v_prefilter.exit, %469
@@ -9749,8 +9749,8 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 0, ptr %53, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = call fastcc i32 @fons__atlasAddRect(ptr noundef nonnull %calloc24.i, i32 noundef 2, i32 noundef 2, ptr noundef %2, ptr noundef %3)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %fonsPushState.exit, label %56
@@ -9786,8 +9786,8 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
   br label %fonsPushState.exit
 
 fonsPushState.exit:                               ; preds = %66, %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 21100
   store i32 1, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 20620
@@ -11512,10 +11512,10 @@ define internal fastcc noundef ptr @fons__getGlyph(ptr noundef captures(none) %0
   %124 = shl nuw i16 %123, 8
   %125 = zext i8 %.val41.i.i.sink to i16
   %126 = or disjoint i16 %124, %125
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   %127 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %.0158, i32 noundef %.0161, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
@@ -11552,10 +11552,10 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %.loopexit, %128
   %.0189 = phi i32 [ %139, %128 ], [ 0, %.loopexit ]
   %.0188 = phi i32 [ %144, %128 ], [ 0, %.loopexit ]
   %.sink.i.i = phi i32 [ %150, %128 ], [ 0, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %151 = sub nsw i32 %.0188, %.0190
   %152 = shl nsw i32 %18, 1
   %153 = add nsw i32 %151, %152
@@ -14094,8 +14094,8 @@ fons__flush.exit:                                 ; preds = %31, %44
   %93 = fdiv float 1.000000e+00, %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %93, ptr %94, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %95 = load ptr, ptr %53, align 8
   %96 = call fastcc i32 @fons__atlasAddRect(ptr noundef %95, i32 noundef 2, i32 noundef 2, ptr noundef %4, ptr noundef %5)
   %97 = icmp eq i32 %96, 0
@@ -14139,8 +14139,8 @@ fons__flush.exit:                                 ; preds = %31, %44
   br label %fons__addWhiteRect.exit
 
 fons__addWhiteRect.exit:                          ; preds = %._crit_edge, %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %122
 
 122:                                              ; preds = %52, %47, %3, %fons__addWhiteRect.exit
@@ -14181,7 +14181,7 @@ define dso_local ptr @stbi_load(ptr noundef readonly captures(none) %0, ptr noun
   br label %36
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -14233,7 +14233,7 @@ stbi__start_file.exit.i:                          ; preds = %21, %19
   br label %stbi_load_from_file.exit
 
 stbi_load_from_file.exit:                         ; preds = %stbi__start_file.exit.i, %28
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %35 = call i32 @fclose(ptr noundef nonnull %7)
   br label %36
 
@@ -14381,7 +14381,7 @@ stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
   %38 = phi i32 [ %36, %35 ], [ %4, %34 ]
   %39 = load i32, ptr %1, align 4
   %40 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %41 = sext i32 %39 to i64
   %42 = sext i32 %38 to i64
   %43 = mul nsw i64 %41, %42
@@ -14427,7 +14427,7 @@ stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
   br i1 %exitcond.not.i31, label %stbi__vertical_flip.exit, label %.lr.ph.i27, !llvm.loop !84
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %37
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 59:                                               ; preds = %32, %stbi__vertical_flip.exit, %5
@@ -14576,7 +14576,7 @@ stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
   %40 = load i32, ptr %1, align 4
   %41 = load i32, ptr %2, align 4
   %42 = shl i32 %39, 1
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = sext i32 %40 to i64
   %44 = sext i32 %42 to i64
   %45 = mul nsw i64 %44, %43
@@ -14622,7 +14622,7 @@ stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
   br i1 %exitcond.not.i31, label %stbi__vertical_flip.exit, label %.lr.ph.i27, !llvm.loop !84
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %38
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 61:                                               ; preds = %33, %stbi__vertical_flip.exit, %5
@@ -14642,7 +14642,7 @@ define dso_local ptr @stbi_load_16(ptr noundef readonly captures(none) %0, ptr n
   br label %36
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -14694,7 +14694,7 @@ stbi__start_file.exit.i:                          ; preds = %21, %19
   br label %stbi_load_from_file_16.exit
 
 stbi_load_from_file_16.exit:                      ; preds = %stbi__start_file.exit.i, %28
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %35 = call i32 @fclose(ptr noundef nonnull %7)
   br label %36
 
@@ -14848,7 +14848,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store ptr %17, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = call fastcc i32 @stbi__gif_test(ptr noundef nonnull %11)
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %79, label %21
@@ -14982,7 +14982,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
 
 stbi__load_gif_main.exit:                         ; preds = %78, %79
   %.0.i = phi ptr [ %.3.i, %78 ], [ null, %79 ]
-  call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %80 = load i32, ptr @stbi__vertically_flip_on_load, align 4
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %stbi__vertical_flip_slices.exit, label %81
@@ -15012,7 +15012,7 @@ stbi__load_gif_main.exit:                         ; preds = %78, %79
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i14, %stbi__vertical_flip.exit.loopexit.i
   %.014.i = phi ptr [ %108, %stbi__vertical_flip.exit.loopexit.i ], [ %.0.i, %.lr.ph.i14 ]
   %.01213.i = phi i32 [ %109, %stbi__vertical_flip.exit.loopexit.i ], [ 0, %.lr.ph.i14 ]
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i, %.lr.ph.preheader.i.i
@@ -15047,7 +15047,7 @@ stbi__load_gif_main.exit:                         ; preds = %78, %79
   br i1 %exitcond.not.i.i, label %stbi__vertical_flip.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !84
 
 stbi__vertical_flip.exit.loopexit.i:              ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %108 = getelementptr inbounds i8, ptr %.014.i, i64 %94
   %109 = add nuw nsw i32 %.01213.i, 1
   %exitcond.not.i = icmp eq i32 %109, %83
@@ -15108,7 +15108,7 @@ define internal fastcc noalias noundef ptr @stbi__loadf_main(ptr noundef nonnull
   %17 = load i32, ptr %1, align 4
   %18 = load i32, ptr %2, align 4
   %19 = shl i32 %16, 2
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = sext i32 %17 to i64
   %21 = sext i32 %19 to i64
   %22 = mul nsw i64 %21, %20
@@ -15154,7 +15154,7 @@ define internal fastcc noalias noundef ptr @stbi__loadf_main(ptr noundef nonnull
   br i1 %exitcond.not.i.i, label %stbi__vertical_flip.exit.i, label %.lr.ph.i.i, !llvm.loop !84
 
 stbi__vertical_flip.exit.i:                       ; preds = %._crit_edge.i.i, %15
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbi__float_postprocess.exit
 
 38:                                               ; preds = %5
@@ -15357,7 +15357,7 @@ define dso_local noalias noundef ptr @stbi_loadf(ptr noundef readonly captures(n
   br label %29
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -15394,7 +15394,7 @@ stbi_loadf_from_file.exit:                        ; preds = %19, %21
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sink.i.i.i.i, ptr %26, align 8
   %27 = call fastcc noalias noundef ptr @stbi__loadf_main(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = call i32 @fclose(ptr noundef nonnull %7)
   br label %29
 
@@ -15633,7 +15633,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_hdr(ptr noundef readonly captures(
   br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call i64 @ftell(ptr noundef nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
@@ -15672,7 +15672,7 @@ stbi_is_hdr_from_file.exit:                       ; preds = %15, %17
   store ptr %.sink.i.i.i.i, ptr %22, align 8
   %23 = call fastcc i32 @stbi__hdr_test(ptr noundef %2)
   %24 = call i32 @fseek(ptr noundef nonnull %3, i64 noundef %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = call i32 @fclose(ptr noundef nonnull %3)
   br label %26
 
@@ -16039,7 +16039,7 @@ stbi__zreceive.exit31.i:                          ; preds = %stbi__zget8.exit.i.
   ]
 
 100:                                              ; preds = %stbi__zreceive.exit31.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %101 = and i32 %99, 7
   %.not.i32.i = icmp eq i32 %101, 0
   br i1 %.not.i32.i, label %104, label %stbi__zreceive.exit.i.i
@@ -16181,7 +16181,7 @@ stbi__zexpand.exit.i.i:                           ; preds = %160
 stbi__parse_uncompressed_block.exit.thread.i:     ; preds = %160, %145, %135, %._crit_edge.i.i
   %.str.111.sink.i = phi ptr [ @.str.111, %._crit_edge.i.i ], [ @.str.112, %135 ], [ @.str.113, %145 ], [ @.str.41, %160 ]
   store ptr %.str.111.sink.i, ptr @stbi__g_failure_reason, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %stbi__parse_zlib.exit
 
 stbi__parse_uncompressed_block.exit.i:            ; preds = %stbi__zexpand.exit.i.i, %141
@@ -16194,7 +16194,7 @@ stbi__parse_uncompressed_block.exit.i:            ; preds = %stbi__zexpand.exit.
   %171 = load ptr, ptr %11, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 %137
   store ptr %172, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %689
 
 173:                                              ; preds = %stbi__zreceive.exit31.i
@@ -16211,9 +16211,9 @@ default.unreachable:                              ; preds = %stbi__zreceive.exit
   unreachable
 
 177:                                              ; preds = %stbi__zreceive.exit31.i
-  call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 455, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %178 = icmp samesign ult i32 %99, 5
   br i1 %178, label %179, label %stbi__zreceive.exit.i40.i
 
@@ -16714,18 +16714,18 @@ stbi__compute_huffman_codes.exit.thread.sink.split.i: ; preds = %427, %415, %stb
   br label %stbi__compute_huffman_codes.exit.thread.i
 
 stbi__compute_huffman_codes.exit.thread.i:        ; preds = %428, %272, %stbi__compute_huffman_codes.exit.thread.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %stbi__parse_zlib.exit
 
 stbi__compute_huffman_codes.exit.i:               ; preds = %428
   %430 = zext nneg i32 %199 to i64
   %431 = getelementptr inbounds nuw i8, ptr %7, i64 %430
   %432 = call fastcc i32 @stbi__zbuild_huffman(ptr noundef %44, ptr noundef nonnull %431, i32 noundef %221)
-  call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not17.i = icmp eq i32 %432, 0
   br i1 %.not17.i, label %stbi__parse_zlib.exit, label %433
 
@@ -17249,7 +17249,7 @@ stbi__parse_zlib.exit:                            ; preds = %stbi__zreceive.exit
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) 16384) #59
   %6 = icmp eq ptr %5, null
   br i1 %6, label %stbi_zlib_decode_malloc_guesssize.exit, label %7
@@ -17293,7 +17293,7 @@ define dso_local ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, pt
 
 stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %3, %._crit_edge.i, %13, %22
   %.0.i = phi ptr [ null, %22 ], [ null, %3 ], [ %.pre.i, %._crit_edge.i ], [ %17, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
 }
 
@@ -17464,7 +17464,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(no
   br label %30
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call i64 @ftell(ptr noundef nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
@@ -17503,7 +17503,7 @@ stbi_info_from_file.exit:                         ; preds = %19, %21
   store ptr %.sink.i.i.i.i, ptr %26, align 8
   %27 = call fastcc i32 @stbi__info_main(ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %28 = call i32 @fseek(ptr noundef nonnull %6, i64 noundef %9, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = call i32 @fclose(ptr noundef nonnull %6)
   br label %30
 
@@ -17615,7 +17615,7 @@ stbi__jpeg_info.exit.thread:                      ; preds = %19, %18
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 192
   store ptr %30, ptr %31, align 8
   tail call void @free(ptr noundef nonnull %7) #57
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %32 = call fastcc i32 @stbi__parse_png_file(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 0)
   %.not.i.i44 = icmp eq i32 %32, 0
@@ -17654,7 +17654,7 @@ stbi__jpeg_info.exit.thread:                      ; preds = %19, %18
   br label %stbi__png_info.exit.thread
 
 stbi__png_info.exit.thread:                       ; preds = %43, %42
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
 
 47:                                               ; preds = %24
@@ -17667,7 +17667,7 @@ stbi__png_info.exit.thread:                       ; preds = %43, %42
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 192
   store ptr %53, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #59
   %56 = tail call fastcc i32 @stbi__gif_header(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %3, i32 noundef 1)
   %.not.i.i49 = icmp eq i32 %56, 0
@@ -17706,7 +17706,7 @@ stbi__gif_info.exit:                              ; preds = %60, %61
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %69, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 255, ptr %71, align 4
   %72 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef nonnull %0, ptr noundef %5)
@@ -17749,11 +17749,11 @@ stbi__gif_info.exit:                              ; preds = %60, %61
   br label %stbi__bmp_info.exit.thread
 
 stbi__bmp_info.exit.thread:                       ; preds = %84, %83
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 88:                                               ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %89 = tail call fastcc i32 @stbi__psd_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not39 = icmp eq i32 %89, 0
   br i1 %.not39, label %90, label %99
@@ -17799,7 +17799,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr noundef readonly captur
   br label %27
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = tail call i64 @ftell(ptr noundef nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
@@ -17838,7 +17838,7 @@ stbi_is_16_bit_from_file.exit:                    ; preds = %16, %18
   store ptr %.sink.i.i.i.i, ptr %23, align 8
   %24 = call fastcc i32 @stbi__is_16_main(ptr noundef %2)
   %25 = call i32 @fseek(ptr noundef nonnull %3, i64 noundef %6, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = call i32 @fclose(ptr noundef nonnull %3)
   br label %27
 
@@ -17894,7 +17894,7 @@ stbi__start_file.exit:                            ; preds = %13, %15
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @stbi__is_16_main(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = alloca %struct.stbi__png, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %3 = call fastcc i32 @stbi__parse_png_file(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 0)
   %.not.i.i = icmp ne i32 %3, 0
@@ -17905,7 +17905,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__is_16_main(ptr noundef nonnull
   br i1 %or.cond.i, label %stbi__png_is16.exit, label %6
 
 stbi__png_is16.exit:                              ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %stbi__psd_is16.exit
 
 6:                                                ; preds = %1
@@ -17918,7 +17918,7 @@ stbi__png_is16.exit:                              ; preds = %1
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %12, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = tail call fastcc i32 @stbi__get32be(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %14, 943870035
   br i1 %.not.i, label %22, label %15
@@ -20350,7 +20350,7 @@ define dso_local i32 @nvgCreateImageMem(ptr noundef readonly captures(none) %0, 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -20366,7 +20366,7 @@ define dso_local i32 @nvgCreateImageMem(ptr noundef readonly captures(none) %0, 
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %14, ptr %16, align 8
   %17 = call fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %26, label %19
 
@@ -21291,14 +21291,14 @@ nvg__distPtSeg.exit:                              ; preds = %31, %41, %43
   br i1 %or.cond, label %52, label %nvg__normalize.exit
 
 52:                                               ; preds = %nvg__distPtSeg.exit, %25, %16
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 1.000000e+00, ptr %8, align 4
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %1, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float %2, ptr %54, align 4
   call fastcc void @nvg__appendCommands(ptr noundef nonnull %0, ptr noundef %8, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %99
 
 nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
@@ -21330,14 +21330,14 @@ nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %nvg__normalize.exit
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 1.000000e+00, ptr %7, align 4
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %1, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %2, ptr %76, align 4
   call fastcc void @nvg__appendCommands(ptr noundef nonnull %0, ptr noundef %7, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %99
 
 77:                                               ; preds = %nvg__normalize.exit
@@ -21588,7 +21588,7 @@ define dso_local void @nvgRoundedRectVarying(ptr noundef captures(none) %0, floa
   br i1 %or.cond5, label %16, label %31
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 16
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %1, ptr %17, align 4
@@ -21617,7 +21617,7 @@ define dso_local void @nvgRoundedRectVarying(ptr noundef captures(none) %0, floa
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store float 3.000000e+00, ptr %30, align 16
   call fastcc void @nvg__appendCommands(ptr noundef %0, ptr noundef %10, i32 noundef 13)
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %131
 
 31:                                               ; preds = %9
@@ -21854,7 +21854,7 @@ define dso_local void @nvgEllipse(ptr noundef captures(none) %0, float noundef %
 ; Function Attrs: nounwind uwtable
 define dso_local void @nvgCircle(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = alloca [32 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = fsub float %1, %3
@@ -21928,7 +21928,7 @@ define dso_local void @nvgCircle(ptr noundef captures(none) %0, float noundef %1
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store float 3.000000e+00, ptr %45, align 4
   call fastcc void @nvg__appendCommands(ptr noundef %0, ptr noundef %5, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -22436,7 +22436,7 @@ nvg__polyArea.exit:                               ; preds = %165
   br i1 %or.cond, label %.lr.ph.preheader.i, label %191
 
 .lr.ph.preheader.i:                               ; preds = %nvg__polyArea.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %187 = add nsw i64 %wide.trip.count.i, -1
   br label %.lr.ph.i
 
@@ -22454,7 +22454,7 @@ nvg__polyArea.exit:                               ; preds = %165
   br i1 %190, label %.lr.ph.i, label %nvg__polyReverse.exit, !llvm.loop !112
 
 nvg__polyReverse.exit:                            ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre138 = load i32, ptr %183, align 4
   %.pre140.pre = load i32, ptr %138, align 4
   br label %191
@@ -22468,7 +22468,7 @@ nvg__polyReverse.exit:                            ; preds = %.lr.ph.i
   br i1 %or.cond3, label %195, label %202
 
 195:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %196 = icmp sgt i32 %.pre140, 1
   br i1 %196, label %.lr.ph.preheader.i118, label %nvg__polyReverse.exit124
 
@@ -22496,7 +22496,7 @@ nvg__polyReverse.exit124.loopexit:                ; preds = %.lr.ph.i119
 
 nvg__polyReverse.exit124:                         ; preds = %nvg__polyReverse.exit124.loopexit, %195
   %.pre139 = phi i32 [ %.pre139.pre, %nvg__polyReverse.exit124.loopexit ], [ %.pre140, %195 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %202
 
 202:                                              ; preds = %191, %nvg__polyReverse.exit124, %thread-pre-split
@@ -24604,7 +24604,7 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
   br i1 %.not83, label %184, label %157
 
 157:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %158 = load i32, ptr %12, align 8
   %159 = add nsw i32 %158, -1
   %160 = sext i32 %159 to i64
@@ -24638,7 +24638,7 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
   %182 = load i32, ptr %143, align 8
   %183 = add nsw i32 %182, %181
   store i32 %183, ptr %143, align 8
-  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %184
 
 184:                                              ; preds = %157, %156
@@ -24806,7 +24806,7 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
   br label %nvg__flushTextTexture.exit
 
 nvg__flushTextTexture.exit:                       ; preds = %._crit_edge, %266, %272, %282
-  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %292 = load i32, ptr %12, align 8
   %293 = add nsw i32 %292, -1
   %294 = sext i32 %293 to i64
@@ -24848,7 +24848,7 @@ nvg__flushTextTexture.exit:                       ; preds = %._crit_edge, %266, 
   %324 = load i32, ptr %323, align 8
   %325 = add nsw i32 %324, %322
   store i32 %325, ptr %323, align 8
-  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %326 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %327 = load float, ptr %326, align 8
   %328 = fdiv float %327, %40
@@ -27310,8 +27310,8 @@ stbi__jpeg_test.exit:                             ; preds = %7, %26
   store ptr @stbi__idct_simd, ptr %35, align 8
   store ptr @stbi__YCbCr_to_RGB_simd, ptr %36, align 8
   store ptr @stbi__resample_row_hv_2_simd, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %38, align 8
   %or.cond.i.i = icmp ugt i32 %4, 4
@@ -27968,8 +27968,8 @@ stbi__get8.exit96.i.i.i.i:                        ; preds = %stbi__refill_buffer
   br label %stbi__process_scan_header.exit.i.i.i
 
 stbi__process_scan_header.exit.i.i.i:             ; preds = %368, %360
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %57, align 4
   store i32 0, ptr %58, align 8
   store i32 0, ptr %59, align 4
@@ -29093,8 +29093,8 @@ stbi__jpeg_decode_block_prog_ac.exit.sink.split.i.i.i.i: ; preds = %stbi__jpeg_h
   br label %stbi__parse_entropy_coded_data.exit.i.i.i
 
 stbi__parse_entropy_coded_data.exit.i.i.i:        ; preds = %828, %397, %.lr.ph.i45.i.i.i, %.lr.ph268.i.i.i.i, %stbi__jpeg_decode_block_prog_ac.exit.sink.split.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit357.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %._crit_edge255.i.i.i.i, %._crit_edge259.us.i.i.i.i, %._crit_edge276.i.i.i.i, %._crit_edge280.us.i.i.i.i, %.preheader231.lr.ph.i.i.i.i, %523, %.preheader238.lr.ph.i.i.i.i, %.preheader240.i.i.i.i, %.preheader.lr.ph.i.i.i.i, %377, %.preheader225.lr.ph.i.i.i.i, %.preheader227.i.i.i.i
@@ -29103,8 +29103,8 @@ thread-pre-split.i.i.i:                           ; preds = %._crit_edge255.i.i.
 
 .loopexit.i.i.i:                                  ; preds = %908, %841, %503, %425, %thread-pre-split.i.i.i
   %924 = phi i8 [ %.pr.i.i.i, %thread-pre-split.i.i.i ], [ %426, %425 ], [ %504, %503 ], [ %842, %841 ], [ %909, %908 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %925 = icmp eq i8 %924, -1
   br i1 %925, label %.preheader.i.i.i, label %stbi__at_eof.exit.thread96.i.i.i
 
@@ -30547,8 +30547,8 @@ stbi__cleanup_jpeg.exit320.i.i:                   ; preds = %stbi__cleanup_jpeg.
 
 stbi__jpeg_load.exit:                             ; preds = %1204, %39, %.loopexit357.i.i, %stbi__cleanup_jpeg.exit300.i.i, %stbi__cleanup_jpeg.exit311.i.i, %stbi__cleanup_jpeg.exit320.i.i, %1663
   %.0.i.i = phi ptr [ null, %39 ], [ null, %stbi__cleanup_jpeg.exit300.i.i ], [ null, %stbi__cleanup_jpeg.exit311.i.i ], [ %1300, %1663 ], [ %1300, %stbi__cleanup_jpeg.exit320.i.i ], [ null, %.loopexit357.i.i ], [ null, %1204 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @free(ptr noundef nonnull %34) #57
   br label %2815
 
@@ -30624,7 +30624,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   store ptr %1700, ptr %29, align 8
   %1701 = load ptr, ptr %30, align 8
   store ptr %1701, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %0, ptr %11, align 8
   %or.cond.i.i89 = icmp ugt i32 %4, 4
   br i1 %or.cond.i.i89, label %1702, label %1703
@@ -30711,7 +30711,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 
 stbi__png_load.exit:                              ; preds = %1702, %1722, %1730
   %.043.i.i = phi ptr [ null, %1702 ], [ %.0.i.i93, %1730 ], [ null, %1722 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %2815
 
 1736:                                             ; preds = %stbi__get8.exit.i.i
@@ -31017,8 +31017,8 @@ stbi__bmp_test.exit:                              ; preds = %stbi__get16le.exit3
   br i1 %.not134, label %1851, label %2765
 
 1851:                                             ; preds = %stbi__bmp_test.exit.thread131, %stbi__bmp_test.exit
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1852 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 255, ptr %1852, align 4
   %1853 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef nonnull %0, ptr noundef %10)
@@ -32866,8 +32866,8 @@ stbi__skip.exit451.i:                             ; preds = %2723, %2719
 
 stbi__bmp_load.exit:                              ; preds = %1851, %1898, %stbi__malloc_mad3.exit.thread.i, %1910, %2035, %2348, %2757, %2760, %2763
   %.0.i = phi ptr [ null, %1910 ], [ null, %2035 ], [ null, %2348 ], [ null, %stbi__malloc_mad3.exit.thread.i ], [ null, %1898 ], [ null, %1851 ], [ null, %2757 ], [ %.0254.i, %2763 ], [ %.0254.i, %2760 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2815
 
 2765:                                             ; preds = %stbi__bmp_test.exit.thread, %stbi__bmp_test.exit
@@ -32876,7 +32876,7 @@ stbi__bmp_load.exit:                              ; preds = %1851, %1898, %stbi_
   br i1 %.not77, label %2785, label %2767
 
 2767:                                             ; preds = %2765
-  call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %8, i8 0, i64 34928, i1 false)
   %2768 = call fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
   %2769 = icmp eq ptr %2768, %0
@@ -32916,7 +32916,7 @@ stbi__gif_load.exit:                              ; preds = %2770, %2775, %2777,
   %2783 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %2784 = load ptr, ptr %2783, align 8
   call void @free(ptr noundef %2784) #57
-  call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %2815
 
 2785:                                             ; preds = %2765
@@ -35574,9 +35574,9 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %211 = mul i32 %210, %122
   %212 = zext nneg i32 %211 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i82, i8 -1, i64 %212, i1 false)
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %214
 
@@ -36636,15 +36636,15 @@ stbi__readval.exit235.i:                          ; preds = %614
 
 stbi__pic_load_core.exit.thread:                  ; preds = %stbi__readval.exit.i, %stbi__readval.exit235.i, %.loopexit263.sink.split.i
   %.1.ph = phi i32 [ %.03, %.loopexit263.sink.split.i ], [ %.2, %stbi__readval.exit235.i ], [ %.2, %stbi__readval.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %622
 
 stbi__pic_load_core.exit:                         ; preds = %621, %.cont
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not42 = icmp eq ptr %.0.i82, null
   br i1 %.not42, label %622, label %623
 
@@ -57183,10 +57183,10 @@ declare i16 @llvm.bitreverse.i16(i16) #52
 declare float @llvm.sqrt.f32(float) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #53
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #53
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #53
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #54

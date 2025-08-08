@@ -116,17 +116,11 @@ define hidden noalias ptr @SDL_GetHaptics_REAL(ptr noundef writeonly captures(ad
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @SDL_SYS_NumHaptics() local_unnamed_addr #1
 
 declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 declare i32 @SDL_SYS_HapticInstanceID(i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetHapticNameForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -312,7 +306,7 @@ SDL_SetHapticAutocenter_REAL.exit:                ; preds = %54, %52, %48, %43, 
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare zeroext i1 @SDL_SYS_HapticOpen(ptr noundef) local_unnamed_addr #1
 
@@ -429,7 +423,7 @@ define hidden zeroext i1 @SDL_SetHapticAutocenter_REAL(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @SDL_GetHapticFromID_REAL(i32 noundef %0) local_unnamed_addr #4 {
+define hidden noundef ptr @SDL_GetHapticFromID_REAL(i32 noundef %0) local_unnamed_addr #3 {
   %.04 = load ptr, ptr @SDL_haptics, align 8
   %.not5 = icmp eq ptr %.04, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -666,8 +660,8 @@ SDL_IsJoystickHaptic_REAL.exit:                   ; preds = %8
   %37 = tail call zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) #9
   %38 = tail call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #9
   %39 = tail call i32 @SDL_GetNumJoystickAxes_REAL(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %40 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.21) #9
   %.not.i.i = icmp eq ptr %40, null
@@ -714,8 +708,8 @@ SDL_IsJoystickHaptic_REAL.exit:                   ; preds = %8
   br i1 %59, label %.lr.ph.i.i, label %SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i, !llvm.loop !9
 
 SDL_Haptic_Load_Axes_List.exit.thread.i:          ; preds = %.preheader.i.i, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_Haptic_Get_Naxes.exit.thread
 
 SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i: ; preds = %.thread.i.i
@@ -725,8 +719,8 @@ SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i: ; preds = %.thread.i.i
 SDL_Haptic_Load_Axes_List.exit.i:                 ; preds = %51, %SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i
   %.137.i = phi i32 [ %indvars.le.i, %SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i ], [ %48, %51 ]
   %.2.i = phi ptr [ %.135.i, %SDL_Haptic_Load_Axes_List.exit.split.loop.exit52.i ], [ %.034.i, %51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %60 = icmp ne i32 %.137.i, 0
   %61 = icmp ne ptr %.2.i, null
   %or.cond.i = and i1 %60, %61
@@ -1284,7 +1278,7 @@ declare i32 @SDL_HIDAPI_HapticNewEffect(ptr noundef, ptr noundef) local_unnamed_
 declare zeroext i1 @SDL_SYS_HapticNewEffect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_UpdateHapticEffect_REAL(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1733,7 +1727,7 @@ define hidden zeroext i1 @SDL_InitHapticRumble_REAL(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_PlayHapticRumble_REAL(ptr noundef %0, float noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1905,7 +1899,13 @@ declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
@@ -1915,12 +1915,12 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

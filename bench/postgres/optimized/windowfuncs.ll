@@ -19,18 +19,12 @@ define dso_local noundef i64 @window_row_number(ptr noundef readonly captures(no
   ret i64 %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @WinGetCurrentPosition(ptr noundef) local_unnamed_addr #1
 
-declare i64 @WinGetCurrentPosition(ptr noundef) local_unnamed_addr #2
-
-declare void @WinSetMarkPosition(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @WinSetMarkPosition(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_row_number_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @window_row_number_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -95,10 +89,10 @@ rank_up.exit._crit_edge:                          ; preds = %rank_up.exit
   ret i64 %17
 }
 
-declare ptr @WinGetPartitionLocalMemory(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @WinGetPartitionLocalMemory(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @window_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -160,7 +154,7 @@ rank_up.exit:                                     ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_dense_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @window_dense_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -236,10 +230,10 @@ rank_up.exit:                                     ; preds = %9, %10
   ret i64 %.0
 }
 
-declare i64 @WinGetPartitionRowCount(ptr noundef) local_unnamed_addr #2
+declare i64 @WinGetPartitionRowCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_percent_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @window_percent_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -325,10 +319,10 @@ rank_up.exit:                                     ; preds = %9, %10
   ret i64 %30
 }
 
-declare zeroext i1 @WinRowsArePeers(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @WinRowsArePeers(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_cume_dist_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @window_cume_dist_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -371,7 +365,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
   br label %34
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = tail call i64 @WinGetPartitionRowCount(ptr noundef %4) #6
   %11 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 0, ptr noundef nonnull %2) #6
   %12 = load i8, ptr %2, align 1, !range !6, !noundef !7
@@ -418,13 +412,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
 
 .thread:                                          ; preds = %.thread.sink.split, %27
   %31 = phi i64 [ %23, %27 ], [ %.sink, %.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
 32:                                               ; preds = %9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %33, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %53
 
 34:                                               ; preds = %._crit_edge, %.thread
@@ -466,19 +460,19 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
   ret i64 %.1
 }
 
-declare i64 @WinGetFuncArgCurrent(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @WinGetFuncArgCurrent(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_ntile_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @window_ntile_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -508,8 +502,8 @@ define dso_local i64 @window_lag(ptr noundef captures(none) %0) local_unnamed_ad
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef -1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -522,8 +516,8 @@ define dso_local i64 @window_lag(ptr noundef captures(none) %0) local_unnamed_ad
 
 leadlag_common.exit:                              ; preds = %1, %.sink.split.i
   %.017.i = phi i64 [ %6, %1 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.i
 }
 
@@ -533,8 +527,8 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -557,8 +551,8 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
 
 leadlag_common.exit:                              ; preds = %9, %.sink.split.i
   %.017.i = phi i64 [ %14, %9 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.i
 }
 
@@ -568,8 +562,8 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -602,8 +596,8 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
 
 leadlag_common.exit:                              ; preds = %19, %.sink.split.i
   %.017.i = phi i64 [ %.0.i, %19 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.i
 }
 
@@ -613,8 +607,8 @@ define dso_local i64 @window_lead(ptr noundef captures(none) %0) local_unnamed_a
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -627,8 +621,8 @@ define dso_local i64 @window_lead(ptr noundef captures(none) %0) local_unnamed_a
 
 leadlag_common.exit:                              ; preds = %1, %.sink.split.i
   %.017.i = phi i64 [ %6, %1 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.i
 }
 
@@ -638,8 +632,8 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -661,8 +655,8 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
 
 leadlag_common.exit:                              ; preds = %9, %.sink.split.i
   %.017.i = phi i64 [ %13, %9 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.i
 }
 
@@ -672,8 +666,8 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -705,8 +699,8 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
 
 leadlag_common.exit:                              ; preds = %18, %.sink.split.i
   %.017.i = phi i64 [ %.0.i, %18 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.i
 }
 
@@ -715,7 +709,7 @@ define dso_local i64 @window_first_value(ptr noundef captures(none) %0) local_un
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
   %6 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
@@ -728,18 +722,18 @@ define dso_local i64 @window_first_value(ptr noundef captures(none) %0) local_un
 
 10:                                               ; preds = %1, %8
   %.0 = phi i64 [ 0, %8 ], [ %5, %1 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare i64 @WinGetFuncArgInFrame(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @WinGetFuncArgInFrame(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @window_last_value(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
   %6 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
@@ -752,7 +746,7 @@ define dso_local i64 @window_last_value(ptr noundef captures(none) %0) local_unn
 
 10:                                               ; preds = %1, %8
   %.0 = phi i64 [ 0, %8 ], [ %5, %1 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -761,7 +755,7 @@ define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unna
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %2) #6
   %6 = trunc i64 %5 to i32
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
@@ -796,22 +790,28 @@ define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unna
 
 23:                                               ; preds = %.sink.split, %17
   %.0 = phi i64 [ %19, %17 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare zeroext i1 @get_fn_expr_arg_stable(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @get_fn_expr_arg_stable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @WinGetFuncArgInPartition(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @WinGetFuncArgInPartition(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

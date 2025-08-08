@@ -2590,7 +2590,7 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc ptr @type_lowering(ptr noundef %19)
   %21 = tail call ptr @type_get_ptr(ptr noundef %20) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call fastcc ptr @type_lowering(ptr noundef readonly %21)
   %23 = call fastcc ptr @x64_classify_argument_type(ptr noundef %22, i32 noundef %spec.select, ptr noundef %4, i32 noundef 1)
   %24 = load i32, ptr %4, align 4
@@ -2616,7 +2616,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   %.sroa.7.5 = phi i32 [ %spec.select, %32 ], [ %30, %try_use_registers.exit.i ]
   %.sroa.0.4 = phi i32 [ 8, %32 ], [ %31, %try_use_registers.exit.i ]
   %.0.i = phi ptr [ %33, %32 ], [ %23, %try_use_registers.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.0.i, ptr %34, align 8
   br label %35
@@ -2648,7 +2648,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   %.sroa.7.368 = phi i32 [ %.sroa.7.1, %41 ], [ %.sroa.7.6, %x64_classify_parameter.exit53 ]
   %47 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = tail call fastcc ptr @type_lowering(ptr noundef readonly %48)
   %50 = call fastcc ptr @x64_classify_argument_type(ptr noundef %49, i32 noundef %.sroa.7.368, ptr noundef %3, i32 noundef 1)
   %51 = load i32, ptr %3, align 4
@@ -2673,7 +2673,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   %.sroa.7.6 = phi i32 [ %.sroa.7.368, %58 ], [ %56, %try_use_registers.exit.i51 ]
   %.sroa.0.5 = phi i32 [ %.sroa.0.269, %58 ], [ %57, %try_use_registers.exit.i51 ]
   %.0.i52 = phi ptr [ %59, %58 ], [ %50, %try_use_registers.exit.i51 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %60 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   store ptr %.0.i52, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2713,7 +2713,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   %74 = load ptr, ptr %63, align 8
   %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv75
   %76 = load ptr, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %77 = tail call fastcc ptr @type_lowering(ptr noundef readonly %76)
   %78 = call fastcc ptr @x64_classify_argument_type(ptr noundef %77, i32 noundef %.sroa.7.471, ptr noundef %2, i32 noundef 0)
   %79 = load i32, ptr %2, align 4
@@ -2738,7 +2738,7 @@ x64_classify_parameter.exit57:                    ; preds = %try_use_registers.e
   %.sroa.7.7 = phi i32 [ %.sroa.7.471, %86 ], [ %84, %try_use_registers.exit.i55 ]
   %.sroa.0.6 = phi i32 [ %.sroa.0.372, %86 ], [ %85, %try_use_registers.exit.i55 ]
   %.0.i56 = phi ptr [ %87, %86 ], [ %78, %try_use_registers.exit.i55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %88 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv75
   store ptr %.0.i56, ptr %88, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
@@ -2793,10 +2793,10 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

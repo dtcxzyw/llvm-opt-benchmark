@@ -274,7 +274,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   br label %157
 
 113:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %114 = invoke align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %3, i32 range(i32 1, 0) %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.8)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
@@ -385,7 +385,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 _ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit: ; preds = %142
   %156 = getelementptr inbounds nuw i8, ptr %143, i64 32
   store i64 %.sroa.02.1.i, ptr %156, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %106
 
 157:                                              ; preds = %110, %32
@@ -472,10 +472,10 @@ declare void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr align 1, i64, ptr
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

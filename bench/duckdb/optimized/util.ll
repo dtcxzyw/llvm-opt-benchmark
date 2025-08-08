@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  %8 = tail call ptr @__errno_location() #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %8 = tail call ptr @__errno_location() #4
   store i32 0, ptr %8, align 4, !tbaa !8
-  %9 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 0) #4
+  %9 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 0) #5
   %10 = load i32, ptr %8, align 4, !tbaa !8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %34
@@ -24,7 +24,7 @@ define noundef zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef captur
 14:                                               ; preds = %11
   store i64 %9, ptr %2, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %16 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 0) #4
+  %16 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 0) #5
   %17 = load i32, ptr %8, align 4, !tbaa !8
   %.not14 = icmp eq i32 %17, 0
   br i1 %.not14, label %18, label %34
@@ -38,7 +38,7 @@ define noundef zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef captur
 21:                                               ; preds = %18
   store i64 %16, ptr %3, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  %23 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %22, ptr noundef nonnull %6, i32 noundef 0) #4
+  %23 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %22, ptr noundef nonnull %6, i32 noundef 0) #5
   %24 = load i32, ptr %8, align 4, !tbaa !8
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %25, label %34
@@ -62,27 +62,27 @@ define noundef zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef captur
 
 34:                                               ; preds = %21, %14, %18, %5, %11, %25
   %.0 = phi i1 [ false, %25 ], [ true, %11 ], [ true, %5 ], [ true, %18 ], [ true, %14 ], [ true, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @duckdb_je_malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @duckdb_je_malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

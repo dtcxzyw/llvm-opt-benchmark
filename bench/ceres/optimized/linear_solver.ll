@@ -152,8 +152,8 @@ define hidden void @_ZN5ceres8internal12LinearSolver6CreateERKNS1_7OptionsE(ptr 
   br i1 %.not, label %11, label %.critedge, !prof !23
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 77, i64 26, ptr nonnull @.str.4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 77, i64 26, ptr nonnull @.str.4) #20
   call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   unreachable
 
@@ -170,11 +170,11 @@ define hidden void @_ZN5ceres8internal12LinearSolver6CreateERKNS1_7OptionsE(ptr 
   ]
 
 _ZNSt10unique_ptrIN5ceres8internal10CgnrSolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZSt11make_uniqueIN5ceres8internal10CgnrSolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.11") align 8 %4, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %13 = load ptr, ptr %4, align 8, !tbaa !25
   store ptr %13, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 14:                                               ; preds = %.critedge
@@ -184,15 +184,15 @@ _ZNSt10unique_ptrIN5ceres8internal10CgnrSolverESt14default_deleteIS2_EED2Ev.exit
   br i1 %17, label %_ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit, label %19
 
 _ZNSt10unique_ptrIN5ceres8internal33DynamicSparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZSt11make_uniqueIN5ceres8internal33DynamicSparseNormalCholeskySolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.19") align 8 %5, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %18 = load ptr, ptr %5, align 8, !tbaa !33
   store ptr %18, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 19:                                               ; preds = %14
-  %20 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22, !noalias !35
+  %20 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21, !noalias !35
   invoke void @_ZN5ceres8internal26SparseNormalCholeskySolverC1ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal26SparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit unwind label %21, !noalias !35
 
@@ -203,7 +203,7 @@ common.resume:                                    ; preds = %42, %37, %29, %25, 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 256) #23, !noalias !35
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 256) #22, !noalias !35
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal26SparseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %19
@@ -211,14 +211,14 @@ _ZNSt10unique_ptrIN5ceres8internal26SparseNormalCholeskySolverESt14default_delet
   br label %50
 
 23:                                               ; preds = %.critedge
-  %24 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #22, !noalias !38
+  %24 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #21, !noalias !38
   invoke void @_ZN5ceres8internal27SparseSchurComplementSolverC1ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) %24, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit unwind label %25, !noalias !38
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 352) #23, !noalias !38
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 352) #22, !noalias !38
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %23
@@ -226,14 +226,14 @@ _ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_dele
   br label %50
 
 27:                                               ; preds = %.critedge
-  %28 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22, !noalias !41
+  %28 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #21, !noalias !41
   invoke void @_ZN5ceres8internal26DenseSchurComplementSolverC1ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(264) %28, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit unwind label %29, !noalias !41
 
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 264) #23, !noalias !41
+  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 264) #22, !noalias !41
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %27
@@ -247,14 +247,14 @@ _ZNSt10unique_ptrIN5ceres8internal26DenseSchurComplementSolverESt14default_delet
   br i1 %34, label %35, label %_ZNSt10unique_ptrIN5ceres8internal30IterativeSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit
 
 35:                                               ; preds = %31
-  %36 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #22, !noalias !45
+  %36 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #21, !noalias !45
   invoke void @_ZN5ceres8internal27SparseSchurComplementSolverC1ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) %36, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit24 unwind label %37, !noalias !45
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 352) #23, !noalias !45
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 352) #22, !noalias !45
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit24: ; preds = %35
@@ -262,22 +262,22 @@ _ZNSt10unique_ptrIN5ceres8internal27SparseSchurComplementSolverESt14default_dele
   br label %50
 
 _ZNSt10unique_ptrIN5ceres8internal30IterativeSchurComplementSolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZSt11make_uniqueIN5ceres8internal30IterativeSchurComplementSolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.51") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %39 = load ptr, ptr %6, align 8, !tbaa !48
   store ptr %39, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 40:                                               ; preds = %.critedge
-  %41 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #22, !noalias !50
+  %41 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #21, !noalias !50
   invoke void @_ZN5ceres8internal13DenseQRSolverC1ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(272) %41, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal13DenseQRSolverESt14default_deleteIS2_EED2Ev.exit unwind label %42, !noalias !50
 
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef 272) #23, !noalias !50
+  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef 272) #22, !noalias !50
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal13DenseQRSolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %40
@@ -285,16 +285,16 @@ _ZNSt10unique_ptrIN5ceres8internal13DenseQRSolverESt14default_deleteIS2_EED2Ev.e
   br label %50
 
 _ZNSt10unique_ptrIN5ceres8internal25DenseNormalCholeskySolverESt14default_deleteIS2_EED2Ev.exit: ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZSt11make_uniqueIN5ceres8internal25DenseNormalCholeskySolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.67") align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %44 = load ptr, ptr %7, align 8, !tbaa !53
   store ptr %44, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %50
 
 45:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #20
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 125) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 125) #20
   invoke void @_ZN4absl12lts_2024011612log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 28, ptr nonnull @.str.5)
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit unwind label %48
 
@@ -316,9 +316,6 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: cold
 declare void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #8
 
@@ -327,13 +324,10 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: noreturn nounwind
 declare void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal10CgnrSolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ceres::internal::LinearSolver::Options", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 60, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -360,14 +354,14 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal10CgnrSolverE
   br i1 %17, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !23
 
 .noexc.i.i.i:                                     ; preds = %16
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #22
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #21
           to label %19 unwind label %36
 
 19:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
@@ -402,7 +396,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
-  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #23
+  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
@@ -425,19 +419,19 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64
   %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #23
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %41, %38, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ], [ %39, %41 ]
-  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 280) #23
+  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 280) #22
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal33DynamicSparseNormalCholeskySolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ceres::internal::LinearSolver::Options", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 60, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -464,14 +458,14 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal33DynamicSpar
   br i1 %17, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !23
 
 .noexc.i.i.i:                                     ; preds = %16
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #22
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #21
           to label %19 unwind label %36
 
 19:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
@@ -506,7 +500,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
-  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #23
+  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
@@ -529,19 +523,19 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64
   %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #23
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %41, %38, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ], [ %39, %41 ]
-  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 224) #23
+  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 224) #22
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal30IterativeSchurComplementSolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ceres::internal::LinearSolver::Options", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 60, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -568,14 +562,14 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal30IterativeSc
   br i1 %17, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !23
 
 .noexc.i.i.i:                                     ; preds = %16
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #22
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #21
           to label %19 unwind label %36
 
 19:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
@@ -610,7 +604,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
-  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #23
+  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
@@ -633,19 +627,19 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64
   %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #23
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %41, %38, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ], [ %39, %41 ]
-  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 256) #23
+  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 256) #22
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal25DenseNormalCholeskySolverEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.67") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ceres::internal::LinearSolver::Options", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 60, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -672,14 +666,14 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal25DenseNormal
   br i1 %17, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !23
 
 .noexc.i.i.i:                                     ; preds = %16
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #22
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #21
           to label %19 unwind label %36
 
 19:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
@@ -714,7 +708,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
-  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #23
+  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
@@ -737,12 +731,12 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %29, %31
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64
   %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #23
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7
 
 _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %41, %38, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ], [ %39, %41 ]
-  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 232) #23
+  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 232) #22
   resume { ptr, i32 } %.pn
 }
 
@@ -752,7 +746,7 @@ declare void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKci(ptr n
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIN5ceres16LinearSolverTypeETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240116::log_internal::LogMessage::OstreamView", align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !58
   call void @_ZN4absl12lts_2024011612log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
@@ -765,15 +759,15 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
           to label %10 unwind label %11
 
 10:                                               ; preds = %7
-  call void @_ZN4absl12lts_2024011612log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #20
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #20
+  call void @_ZN4absl12lts_2024011612log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 11:                                               ; preds = %7, %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_2024011612log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #20
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #20
+  call void @_ZN4absl12lts_2024011612log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %12
 }
 
@@ -843,9 +837,15 @@ define internal void @_GLOBAL__sub_I_linear_solver.cc() #18 section ".text.start
   %2 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN5EigenL6lastp1E)
   %3 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL3allE)
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
+  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -867,11 +867,11 @@ attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { cold }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { noreturn }
+attributes #20 = { cold }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { noreturn }
+attributes #24 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -4144,13 +4144,10 @@ define hidden void @proto_register_ansi_map() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   %2 = alloca [5 x %struct._stat_tap_table_item_type], align 16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @stat_tap_find_table(ptr noundef %0, ptr noundef nonnull @.str.2646)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -4204,7 +4201,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   br i1 %.not18, label %.loopexit, label %19, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %4, %7
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -4315,7 +4312,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   store ptr null, ptr @SMS_BearerData_tvb, align 8
   store i32 -1, ptr @ansi_map_sms_tele_id, align 4
@@ -5054,7 +5051,7 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
 375:                                              ; preds = %373, %371, %369
   %.0.i = phi ptr [ %374, %373 ], [ %370, %369 ], [ %372, %371 ]
   %376 = call ptr @wmem_file_scope()
-  %377 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %376, i64 noundef 8) #7
+  %377 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %376, i64 noundef 8) #6
   %378 = load i32, ptr %17, align 4
   store i32 %378, ptr %377, align 4
   %379 = load i8, ptr @ServiceIndicator, align 1
@@ -5075,7 +5072,7 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 232
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 408
   %393 = load ptr, ptr %392, align 8
-  %394 = call noalias dereferenceable_or_null(1024) ptr @wmem_alloc(ptr noundef %393, i64 noundef 1024) #7
+  %394 = call noalias dereferenceable_or_null(1024) ptr @wmem_alloc(ptr noundef %393, i64 noundef 1024) #6
   %395 = load ptr, ptr %388, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 408
   %397 = load ptr, ptr %396, align 8
@@ -5617,7 +5614,7 @@ find_saved_invokedata.exit:                       ; preds = %._crit_edge.i, %418
   br label %update_saved_invokedata.exit
 
 670:                                              ; preds = %7
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.2663, ptr noundef nonnull @.str.2664, i32 noundef 15971) #8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.2663, ptr noundef nonnull @.str.2664, i32 noundef 15971) #7
   unreachable
 
 update_saved_invokedata.exit:                     ; preds = %655, %654, %.thread.i30, %375, %363, %dissect_invokeData.exit, %666, %662
@@ -5626,7 +5623,7 @@ update_saved_invokedata.exit:                     ; preds = %655, %654, %.thread
 
 672:                                              ; preds = %4, %update_saved_invokedata.exit
   %.0 = phi i32 [ %671, %update_saved_invokedata.exit ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -5662,9 +5659,6 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @register_stat_tap_table_ui(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @delete_ansi_tcap_subdissector(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -5718,7 +5712,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -5748,7 +5742,7 @@ declare i32 @dissect_ber_set(i1 noundef zeroext, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ChannelData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -5771,7 +5765,7 @@ define internal i32 @dissect_ansi_map_ChannelData(i1 noundef zeroext %0, ptr nou
   br label %22
 
 22:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5834,7 +5828,7 @@ define internal i32 @dissect_ansi_map_FacilitiesDirective_U(i1 noundef zeroext %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_BillingID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -5857,7 +5851,7 @@ define internal i32 @dissect_ansi_map_BillingID(i1 noundef zeroext %0, ptr nound
   br label %22
 
 22:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5870,7 +5864,7 @@ define internal i32 @dissect_ansi_map_ElectronicSerialNumber(i1 noundef zeroext 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_InterMSCCircuitID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -5895,7 +5889,7 @@ define internal i32 @dissect_ansi_map_InterMSCCircuitID(i1 noundef zeroext %0, p
   br label %24
 
 24:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5914,7 +5908,7 @@ define internal i32 @dissect_ansi_map_MobileIdentificationNumber(i1 noundef zero
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ConfidentialityModes(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -5935,7 +5929,7 @@ define internal i32 @dissect_ansi_map_ConfidentialityModes(i1 noundef zeroext %0
   br label %20
 
 20:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5948,7 +5942,7 @@ define internal i32 @dissect_ansi_map_HandoffReason(i1 noundef zeroext %0, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_HandoffState(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -5965,7 +5959,7 @@ define internal i32 @dissect_ansi_map_HandoffState(i1 noundef zeroext %0, ptr no
   br label %16
 
 16:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5997,7 +5991,7 @@ declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, p
 define internal fastcc i32 @dissect_ansi_map_MINType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %8)
   %10 = load ptr, ptr %8, align 8
@@ -6007,7 +6001,7 @@ define internal fastcc i32 @dissect_ansi_map_MINType(i1 noundef zeroext %0, ptr 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_mintype, align 4
@@ -6020,11 +6014,11 @@ define internal fastcc i32 @dissect_ansi_map_MINType(i1 noundef zeroext %0, ptr 
   %23 = load ptr, ptr %14, align 8
   %24 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.2674, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 25:                                               ; preds = %11, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %9
 }
 
@@ -6101,7 +6095,7 @@ define internal i32 @dissect_ansi_map_ControlChannelMode(i1 noundef zeroext %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_MSCID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6120,7 +6114,7 @@ define internal i32 @dissect_ansi_map_MSCID(i1 noundef zeroext %0, ptr noundef %
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6145,7 +6139,7 @@ define internal i32 @dissect_ansi_map_TerminalType(i1 noundef zeroext %0, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_TransactionCapability(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6182,7 +6176,7 @@ define internal i32 @dissect_ansi_map_TransactionCapability(i1 noundef zeroext %
   br label %36
 
 36:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6223,7 +6217,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %11 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %10)
   %12 = load ptr, ptr %10, align 8
@@ -6233,7 +6227,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @ett_digitstype, align 4
@@ -6297,7 +6291,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   br label %dissect_ansi_map_digits_type.exit
 
 55:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %56 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %12, i32 noundef 3)
   %57 = load i32, ptr @hf_ansi_map_nr_digits, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %57, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 1, i32 noundef 0)
@@ -6313,7 +6307,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %65 = load ptr, ptr %16, align 8
   %66 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.2674, ptr noundef %66)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_ansi_map_digits_type.exit
 
 67:                                               ; preds = %13, %13, %13, %13
@@ -6345,7 +6339,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   br label %dissect_ansi_map_digits_type.exit
 
 83:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %84 = load i32, ptr @hf_ansi_map_ia5_digits, align 4
   %85 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %12, i32 noundef 4)
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 408
@@ -6354,7 +6348,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %89 = load ptr, ptr %16, align 8
   %90 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %89, ptr noundef nonnull @.str.2674, ptr noundef %90)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_ansi_map_digits_type.exit
 
 91:                                               ; preds = %13
@@ -6384,15 +6378,15 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   br label %dissect_ansi_map_digits_type.exit
 
 .critedge.i:                                      ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_ansi_map_digits_type.exit
 
 dissect_ansi_map_digits_type.exit:                ; preds = %13, %41, %43, %48, %59, %67, %69, %74, %76, %83, %91, %93, %107, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %109
 
 109:                                              ; preds = %dissect_ansi_map_digits_type.exit, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %11
 }
 
@@ -6405,7 +6399,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_TriggerCapability(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6462,14 +6456,14 @@ define internal i32 @dissect_ansi_map_TriggerCapability(i1 noundef zeroext %0, p
   br label %56
 
 56:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_WINOperationsCapability(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6490,7 +6484,7 @@ define internal i32 @dissect_ansi_map_WINOperationsCapability(i1 noundef zeroext
   br label %20
 
 20:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6517,7 +6511,7 @@ define internal i32 @dissect_ansi_map_AuthorizationDenied(i1 noundef zeroext %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_AuthorizationPeriod(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6536,7 +6530,7 @@ define internal i32 @dissect_ansi_map_AuthorizationPeriod(i1 noundef zeroext %0,
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6550,7 +6544,7 @@ define internal i32 @dissect_ansi_map_CDMARedirectRecord(i1 noundef zeroext %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_DeniedAuthorizationPeriod(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6569,7 +6563,7 @@ define internal i32 @dissect_ansi_map_DeniedAuthorizationPeriod(i1 noundef zeroe
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6588,7 +6582,7 @@ define internal i32 @dissect_ansi_map_AuthenticationCapability(i1 noundef zeroex
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6658,7 +6652,7 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
   br label %dissect_ansi_map_callingfeaturesindicator.exit
 
 dissect_ansi_map_callingfeaturesindicator.exit:   ; preds = %61, %51, %41, %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6678,7 +6672,7 @@ define internal i32 @dissect_ansi_map_CDMAServiceOptionList(i1 noundef zeroext %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ControlNetworkID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6697,7 +6691,7 @@ define internal i32 @dissect_ansi_map_ControlNetworkID(i1 noundef zeroext %0, pt
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6734,7 +6728,7 @@ define internal i32 @dissect_ansi_map_MEIDValidated(i1 noundef zeroext %0, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_MessageWaitingNotificationCount(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6753,14 +6747,14 @@ define internal i32 @dissect_ansi_map_MessageWaitingNotificationCount(i1 noundef
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_MessageWaitingNotificationType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6781,7 +6775,7 @@ define internal i32 @dissect_ansi_map_MessageWaitingNotificationType(i1 noundef 
   br label %20
 
 20:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6806,7 +6800,7 @@ define internal i32 @dissect_ansi_map_OriginationIndicator(i1 noundef zeroext %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_OriginationTriggers(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6879,14 +6873,14 @@ define internal i32 @dissect_ansi_map_OriginationTriggers(i1 noundef zeroext %0,
   br label %72
 
 72:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_PACAIndicator(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6905,7 +6899,7 @@ define internal i32 @dissect_ansi_map_PACAIndicator(i1 noundef zeroext %0, ptr n
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6943,7 +6937,7 @@ define internal i32 @dissect_ansi_map_PSID_RSIDList(i1 noundef zeroext %0, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_SMS_OriginationRestrictions(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -6966,7 +6960,7 @@ define internal i32 @dissect_ansi_map_SMS_OriginationRestrictions(i1 noundef zer
   br label %22
 
 22:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7003,7 +6997,7 @@ define internal i32 @dissect_ansi_map_TerminationRestrictionCode(i1 noundef zero
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_TerminationTriggers(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7030,7 +7024,7 @@ define internal i32 @dissect_ansi_map_TerminationTriggers(i1 noundef zeroext %0,
   br label %26
 
 26:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7109,7 +7103,7 @@ define internal i32 @dissect_ansi_map_CDMAChannelNumber(i1 noundef zeroext %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CDMAServiceOption(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7126,7 +7120,7 @@ define internal i32 @dissect_ansi_map_CDMAServiceOption(i1 noundef zeroext %0, p
   br label %16
 
 16:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7156,7 +7150,7 @@ define internal i32 @dissect_ansi_map_DestinationAddress(i1 zeroext %0, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7218,7 +7212,7 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.exit, label %.lr.ph.i, !llvm.loop !9
 
 dissect_ansi_map_win_trigger_list.exit:           ; preds = %36, %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7231,7 +7225,7 @@ define internal i32 @dissect_ansi_map_GlobalTitle(i1 noundef zeroext %0, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_PC_SSN(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7258,7 +7252,7 @@ define internal i32 @dissect_ansi_map_PC_SSN(i1 noundef zeroext %0, ptr noundef 
   br label %26
 
 26:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7328,7 +7322,7 @@ define internal i32 @dissect_ansi_map_BorderCellAccess(i1 noundef zeroext %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ControlChannelData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7357,14 +7351,14 @@ define internal i32 @dissect_ansi_map_ControlChannelData(i1 noundef zeroext %0, 
   br label %28
 
 28:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ExtendedMSCID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7385,7 +7379,7 @@ define internal i32 @dissect_ansi_map_ExtendedMSCID(i1 noundef zeroext %0, ptr n
   br label %20
 
 20:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7440,7 +7434,7 @@ define internal i32 @dissect_ansi_map_SystemAccessData(i1 noundef zeroext %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_SystemCapabilities(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7469,7 +7463,7 @@ define internal i32 @dissect_ansi_map_SystemCapabilities(i1 noundef zeroext %0, 
   br label %28
 
 28:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7527,7 +7521,7 @@ define internal i32 @dissect_ansi_map_CallingPartyNumberDigits2(i1 noundef zeroe
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CallingPartySubaddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7546,7 +7540,7 @@ define internal i32 @dissect_ansi_map_CallingPartySubaddress(i1 noundef zeroext 
   br label %dissect_ansi_map_Subaddress.exit
 
 dissect_ansi_map_Subaddress.exit:                 ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7565,7 +7559,7 @@ define internal i32 @dissect_ansi_map_RedirectingPartyName(i1 noundef zeroext %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_RedirectingSubaddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7584,7 +7578,7 @@ define internal i32 @dissect_ansi_map_RedirectingSubaddress(i1 noundef zeroext %
   br label %dissect_ansi_map_Subaddress.exit
 
 dissect_ansi_map_Subaddress.exit:                 ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7616,7 +7610,7 @@ define internal i32 @dissect_ansi_map_RoutingRequest_U(i1 noundef zeroext %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_AlertCode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7637,17 +7631,17 @@ define internal i32 @dissect_ansi_map_AlertCode(i1 noundef zeroext %0, ptr nound
   br label %20
 
 20:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CallingPartyName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7696,17 +7690,17 @@ define internal i32 @dissect_ansi_map_NoAnswerTime(i1 noundef zeroext %0, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_OneTimeFeatureIndicator(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_PilotBillingID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7729,7 +7723,7 @@ define internal i32 @dissect_ansi_map_PilotBillingID(i1 noundef zeroext %0, ptr 
   br label %22
 
 22:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7857,7 +7851,7 @@ define internal i32 @dissect_ansi_map_CDMABandClassList(i1 noundef zeroext %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CDMACallMode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7903,14 +7897,14 @@ define internal i32 @dissect_ansi_map_CDMACallMode(i1 noundef zeroext %0, ptr no
   br label %dissect_ansi_map_cdmacallmode.exit
 
 dissect_ansi_map_cdmacallmode.exit:               ; preds = %33, %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CDMAChannelData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -7958,7 +7952,7 @@ define internal i32 @dissect_ansi_map_CDMAChannelData(i1 noundef zeroext %0, ptr
   br label %dissect_ansi_map_cdmachanneldata.exit
 
 dissect_ansi_map_cdmachanneldata.exit:            ; preds = %39, %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7989,7 +7983,7 @@ define internal i32 @dissect_ansi_map_CDMAServingOneWayDelay(i1 noundef zeroext 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CDMAStationClassMark(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8016,7 +8010,7 @@ define internal i32 @dissect_ansi_map_CDMAStationClassMark(i1 noundef zeroext %0
   br label %26
 
 26:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8043,7 +8037,7 @@ define internal i32 @dissect_ansi_map_CDMATargetMeasurementList(i1 noundef zeroe
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_MSLocation(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8064,14 +8058,14 @@ define internal i32 @dissect_ansi_map_MSLocation(i1 noundef zeroext %0, ptr noun
   br label %20
 
 20:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_NAMPSCallMode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8090,14 +8084,14 @@ define internal i32 @dissect_ansi_map_NAMPSCallMode(i1 noundef zeroext %0, ptr n
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_NAMPSChannelData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8116,7 +8110,7 @@ define internal i32 @dissect_ansi_map_NAMPSChannelData(i1 noundef zeroext %0, pt
   br label %18
 
 18:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8304,7 +8298,7 @@ define internal i32 @dissect_ansi_map_RandomVariableBaseStation(i1 noundef zeroe
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ServiceIndicator(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8340,7 +8334,7 @@ define internal i32 @dissect_ansi_map_ServiceIndicator(i1 noundef zeroext %0, pt
   br label %20
 
 20:                                               ; preds = %.sink.split, %10, %13, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8383,7 +8377,7 @@ define internal i32 @dissect_ansi_map_CDMASlotCycleIndex(i1 noundef zeroext %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_ExtendedSystemMyTypeCode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8402,7 +8396,7 @@ define internal i32 @dissect_ansi_map_ExtendedSystemMyTypeCode(i1 noundef zeroex
   br label %19
 
 19:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8473,7 +8467,7 @@ define internal i32 @dissect_ansi_map_FacilitiesDirective2_U(i1 noundef zeroext 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CDMA2000HandoffInvokeIOSData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8493,7 +8487,7 @@ define internal i32 @dissect_ansi_map_CDMA2000HandoffInvokeIOSData(i1 noundef ze
   br label %19
 
 19:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8674,7 +8668,7 @@ define internal i32 @dissect_ansi_map_AnnouncementList(i1 noundef zeroext %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_AnnouncementCode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8697,7 +8691,7 @@ define internal i32 @dissect_ansi_map_AnnouncementCode(i1 noundef zeroext %0, pt
   br label %22
 
 22:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8899,7 +8893,7 @@ define internal i32 @dissect_ansi_map_SMS_BearerData(i1 noundef zeroext %0, ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_SMS_TeleserviceIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   store i32 -1, ptr @ansi_map_sms_tele_id, align 4
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
@@ -8934,7 +8928,7 @@ define internal i32 @dissect_ansi_map_SMS_TeleserviceIdentifier(i1 noundef zeroe
   br label %25
 
 25:                                               ; preds = %6, %20, %16, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8959,7 +8953,7 @@ define internal i32 @dissect_ansi_map_SMS_OriginalDestinationAddress(i1 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_SMS_OriginalDestinationSubaddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -8978,7 +8972,7 @@ define internal i32 @dissect_ansi_map_SMS_OriginalDestinationSubaddress(i1 nound
   br label %dissect_ansi_map_Subaddress.exit
 
 dissect_ansi_map_Subaddress.exit:                 ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -8991,7 +8985,7 @@ define internal i32 @dissect_ansi_map_SMS_OriginalOriginatingAddress(i1 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_SMS_OriginalOriginatingSubaddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -9010,7 +9004,7 @@ define internal i32 @dissect_ansi_map_SMS_OriginalOriginatingSubaddress(i1 nound
   br label %dissect_ansi_map_Subaddress.exit
 
 dissect_ansi_map_Subaddress.exit:                 ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -9943,13 +9937,13 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @wmem_multimap_insert32(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_multimap_lookup32_le(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -10180,7 +10174,7 @@ define internal i32 @dissect_ansi_map_FacilitiesDirective2Res_U(i1 noundef zeroe
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ansi_map_CDMA2000HandoffResponseIOSData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
@@ -10200,7 +10194,7 @@ define internal i32 @dissect_ansi_map_CDMA2000HandoffResponseIOSData(i1 noundef 
   br label %19
 
 19:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -10712,15 +10706,20 @@ define internal i32 @dissect_ansi_map_QualificationRequest2Res_U(i1 noundef zero
   ret i32 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
-attributes #8 = { noreturn }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) }
+attributes #7 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

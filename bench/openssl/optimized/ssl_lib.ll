@@ -318,9 +318,6 @@ define range(i32 0, 2) i32 @ossl_ssl_connection_reset(ptr noundef %0) local_unna
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef) local_unnamed_addr #1
 
 declare i32 @ssl_clear_bad_session(ptr noundef) local_unnamed_addr #1
@@ -334,7 +331,7 @@ declare void @ossl_statem_clear(ptr noundef) local_unnamed_addr #1
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
@@ -343,9 +340,6 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 declare void @X509_VERIFY_PARAM_move_peername(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @RECORD_LAYER_reset(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_set_ssl_version(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -500,7 +494,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_new_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @SSL_CTX_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %3 = atomicrmw add ptr %2, i32 1 monotonic, align 4
   %4 = icmp sgt i32 %3, 0
@@ -1124,7 +1118,7 @@ declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @ssl_cert_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #1
 
@@ -1367,7 +1361,7 @@ define range(i32 0, 2) i32 @SSL_is_tls(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_is_quic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_is_quic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1383,7 +1377,7 @@ define range(i32 0, 2) i32 @SSL_is_quic(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @SSL_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = atomicrmw add ptr %2, i32 1 monotonic, align 4
   %4 = icmp sgt i32 %3, 0
@@ -1526,7 +1520,7 @@ define range(i32 0, 2) i32 @SSL_set_generate_session_id(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_has_matching_session_id(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ssl_session_st, align 8
-  call void @llvm.lifetime.start.p0(i64 928, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread, label %6
 
@@ -1583,7 +1577,7 @@ define range(i32 0, 2) i32 @SSL_has_matching_session_id(ptr noundef %0, ptr noun
 
 .thread:                                          ; preds = %9, %3, %17, %13, %28
   %.0 = phi i32 [ %38, %28 ], [ 0, %13 ], [ 0, %17 ], [ 0, %3 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1917,7 +1911,7 @@ dane_ctx_enable.exit:                             ; preds = %1, %9, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @SSL_CTX_dane_set_flags(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+define i64 @SSL_CTX_dane_set_flags(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load i64, ptr %3, align 8, !tbaa !123
   %5 = or i64 %4, %1
@@ -1926,7 +1920,7 @@ define i64 @SSL_CTX_dane_set_flags(ptr noundef captures(none) %0, i64 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @SSL_CTX_dane_clear_flags(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+define i64 @SSL_CTX_dane_clear_flags(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load i64, ptr %3, align 8, !tbaa !123
   %5 = xor i64 %1, -1
@@ -2473,11 +2467,11 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   br i1 %.not98.i, label %65, label %118
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %4, ptr %7, align 8, !tbaa !283
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !275
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !278
   %trunc.i = trunc nuw i8 %2 to i1
   br i1 %trunc.i, label %101, label %66
@@ -2599,16 +2593,16 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   br label %.thread118.i
 
 .thread118.i:                                     ; preds = %116, %114, %95, %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %118
 
 117:                                              ; preds = %109, %99, %80, %74
   %.1.i = phi i32 [ 0, %74 ], [ 0, %80 ], [ -1, %99 ], [ 0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dane_tlsa_add.exit
 
 118:                                              ; preds = %.thread118.i, %63
@@ -2816,7 +2810,7 @@ define i32 @SSL_set1_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get0_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get0_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8, !tbaa !168
   ret ptr %3
@@ -4085,7 +4079,7 @@ declare ptr @BIO_next(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_get_fd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !364
   %3 = icmp eq ptr %0, null
   br i1 %3, label %SSL_get_rbio.exit.i, label %4
@@ -4134,14 +4128,14 @@ SSL_get_rbio.exit.i:                              ; preds = %.thread20.i.i, %14,
 
 SSL_get_rfd.exit:                                 ; preds = %SSL_get_rbio.exit.i, %19
   %21 = phi i32 [ %.pre.i, %19 ], [ -1, %SSL_get_rbio.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_get_rfd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !364
   %3 = icmp eq ptr %0, null
   br i1 %3, label %SSL_get_rbio.exit, label %4
@@ -4190,7 +4184,7 @@ SSL_get_rbio.exit:                                ; preds = %7, %1, %12, %14, %.
 
 21:                                               ; preds = %19, %SSL_get_rbio.exit
   %22 = phi i32 [ %.pre, %19 ], [ -1, %SSL_get_rbio.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %22
 }
 
@@ -4201,7 +4195,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_get_wfd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !364
   %3 = icmp eq ptr %0, null
   br i1 %3, label %SSL_get_wbio.exit, label %4
@@ -4260,7 +4254,7 @@ SSL_get_wbio.exit:                                ; preds = %7, %1, %12, %14, %1
 
 26:                                               ; preds = %24, %SSL_get_wbio.exit
   %27 = phi i32 [ %.pre, %24 ], [ -1, %SSL_get_wbio.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %27
 }
 
@@ -4785,7 +4779,7 @@ define ptr @SSL_get_verify_callback(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_CTX_get_verify_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @SSL_CTX_get_verify_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load i32, ptr %2, align 8, !tbaa !149
   ret i32 %3
@@ -4800,7 +4794,7 @@ define i32 @SSL_CTX_get_verify_depth(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_verify_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_verify_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8, !tbaa !164
   ret ptr %3
@@ -4888,19 +4882,19 @@ define void @SSL_set_read_ahead(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %8, label %9, label %.thread
 
 .thread:                                          ; preds = %6, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %19
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3232
   store i32 %1, ptr %10, align 8, !tbaa !144
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %10) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3184
   %13 = load ptr, ptr %12, align 8, !tbaa !362
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 144
@@ -4911,7 +4905,7 @@ define void @SSL_set_read_ahead(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %19
 
 19:                                               ; preds = %.thread, %9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4920,7 +4914,7 @@ declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.
 declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_get_read_ahead(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SSL_get_read_ahead(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -4985,7 +4979,7 @@ define i32 @SSL_has_pending(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not21, label %33, label %19
 
 19:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 3296
   %21 = load ptr, ptr %20, align 8, !tbaa !371
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -5008,11 +5002,11 @@ define i32 @SSL_has_pending(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not23, label %25, label %32, !llvm.loop !381
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 .critedge:                                        ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %33
 
 33:                                               ; preds = %.critedge, %10
@@ -5479,14 +5473,14 @@ define i32 @SSL_get_changed_async_fds(ptr noundef %0, ptr noundef %1, ptr nounde
 declare i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_async_callback(ptr noundef writeonly captures(none) initializes((1136, 1144)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define noundef i32 @SSL_CTX_set_async_callback(ptr noundef writeonly captures(none) initializes((1136, 1144)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr %1, ptr %3, align 8, !tbaa !224
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_async_callback_arg(ptr noundef writeonly captures(none) initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define noundef i32 @SSL_CTX_set_async_callback_arg(ptr noundef writeonly captures(none) initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr %1, ptr %3, align 8, !tbaa !226
   ret i32 1
@@ -5779,12 +5773,12 @@ define i32 @SSL_do_handshake(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !392
   %39 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @ssl_do_handshake_intern)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %43
 
 40:                                               ; preds = %34, %30
@@ -6013,7 +6007,7 @@ define i32 @ssl_read_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br i1 %45, label %46, label %58
 
 46:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !392
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %47, align 8, !tbaa !398
@@ -6031,7 +6025,7 @@ define i32 @ssl_read_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %56 = getelementptr inbounds nuw i8, ptr %.ph4447, i64 5432
   %57 = load i64, ptr %56, align 8, !tbaa !401
   store i64 %57, ptr %3, align 8, !tbaa !285
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread41
 
 58:                                               ; preds = %43, %39
@@ -6054,7 +6048,7 @@ declare ptr @ASYNC_get_current_job() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ssl_start_async_job(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread, label %6
 
@@ -6143,7 +6137,7 @@ define internal fastcc i32 @ssl_start_async_job(ptr noundef %0, ptr noundef nonn
 
 .thread:                                          ; preds = %9, %3, %24, %18, %11, %36, %34, %33, %32, %31
   %.0 = phi i32 [ -1, %36 ], [ -1, %31 ], [ -1, %32 ], [ -1, %33 ], [ %35, %34 ], [ 0, %11 ], [ -1, %18 ], [ -1, %24 ], [ 0, %3 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -6210,7 +6204,7 @@ define internal i32 @ssl_io_intern(ptr noundef readonly captures(none) %0) #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %7
 
@@ -6231,7 +6225,7 @@ define i32 @SSL_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnam
 
 13:                                               ; preds = %7, %6
   %.06 = phi i32 [ -1, %6 ], [ %.0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.06
 }
 
@@ -6400,7 +6394,7 @@ SSL_accept.exit.thread:                           ; preds = %20, %31, %SSL_accep
 declare i32 @SSL_in_before(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_get_early_data_status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SSL_get_early_data_status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -6422,7 +6416,7 @@ define i32 @SSL_get_early_data_status(ptr noundef readonly captures(address_is_n
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_peek(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %7
 
@@ -6443,7 +6437,7 @@ define i32 @SSL_peek(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnam
 
 13:                                               ; preds = %7, %6
   %.06 = phi i32 [ -1, %6 ], [ %.0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.06
 }
 
@@ -6520,7 +6514,7 @@ define internal fastcc i32 @ssl_peek_internal(ptr noundef %0, ptr noundef %1, i6
   br i1 %39, label %40, label %52
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !392
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %41, align 8, !tbaa !398
@@ -6538,7 +6532,7 @@ define internal fastcc i32 @ssl_peek_internal(ptr noundef %0, ptr noundef %1, i6
   %50 = getelementptr inbounds nuw i8, ptr %.ph3942, i64 5432
   %51 = load i64, ptr %50, align 8, !tbaa !401
   store i64 %51, ptr %3, align 8, !tbaa !285
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread36
 
 52:                                               ; preds = %37, %33
@@ -6664,7 +6658,7 @@ define i32 @ssl_write_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !392
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %46, align 8, !tbaa !398
@@ -6682,7 +6676,7 @@ define i32 @ssl_write_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   %55 = getelementptr inbounds nuw i8, ptr %.ph4750, i64 5432
   %56 = load i64, ptr %55, align 8, !tbaa !401
   store i64 %56, ptr %4, align 8, !tbaa !285
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread44
 
 57:                                               ; preds = %42, %38
@@ -6744,7 +6738,7 @@ define range(i64 -1, 1) i64 @SSL_sendfile(ptr noundef captures(address_is_null) 
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %7
 
@@ -6765,7 +6759,7 @@ define i32 @SSL_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 
 13:                                               ; preds = %7, %6
   %.06 = phi i32 [ -1, %6 ], [ %.0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.06
 }
 
@@ -6786,7 +6780,7 @@ define range(i32 0, -2147483648) i32 @SSL_write_ex2(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, -2147483648) i32 @SSL_write_early_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread, label %7
 
@@ -6972,7 +6966,7 @@ SSL_connect.exit.thread:                          ; preds = %33, %44, %SSL_conne
 
 .thread:                                          ; preds = %4, %7, %73, %83, %82, %75, %71, %SSL_connect.exit.thread, %30
   %.0 = phi i32 [ 0, %83 ], [ 0, %30 ], [ 0, %SSL_connect.exit.thread ], [ 1, %75 ], [ 0, %71 ], [ %spec.store.select.i.i49, %82 ], [ 0, %73 ], [ 0, %7 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -7045,7 +7039,7 @@ define i32 @SSL_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %30, label %31, label %40
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !392
@@ -7058,7 +7052,7 @@ define i32 @SSL_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %37, ptr %38, align 8, !tbaa !261
   %39 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @ssl_io_intern)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread24
 
 40:                                               ; preds = %28, %24
@@ -7361,7 +7355,7 @@ can_renegotiate.exit:                             ; preds = %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_renegotiate_pending(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_renegotiate_pending(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -7561,7 +7555,7 @@ tailrecurse:                                      ; preds = %208, %5
   br label %.thread136
 
 40:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 2488
   %42 = load i32, ptr %41, align 8, !tbaa !130
   %43 = trunc i64 %2 to i32
@@ -7569,10 +7563,10 @@ tailrecurse:                                      ; preds = %208, %5
   store i32 %44, ptr %41, align 8, !tbaa !130
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %41) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 3184
   %47 = load ptr, ptr %46, align 8, !tbaa !362
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 144
@@ -7582,7 +7576,7 @@ tailrecurse:                                      ; preds = %208, %5
   %52 = call i32 %49(ptr noundef %51, ptr noundef nonnull %6) #20
   %53 = load i32, ptr %41, align 8, !tbaa !130
   %54 = zext i32 %53 to i64
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread136
 
 55:                                               ; preds = %30
@@ -7878,7 +7872,7 @@ declare void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind writable sret(%stru
 declare i32 @ossl_statem_get_in_handshake(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_check_allowed_versions(i32 noundef %0, i32 noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @ssl_check_allowed_versions(i32 noundef %0, i32 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i32 %0, 256
   %.mask = and i32 %0, -256
   %4 = icmp eq i32 %.mask, 65024
@@ -7934,7 +7928,7 @@ define i64 @SSL_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_sessions(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_sessions(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !254
   ret ptr %3
@@ -8308,7 +8302,7 @@ define i64 @SSL_CTX_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ssl_cipher_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 -1, 2) i32 @ssl_cipher_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !422
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8318,7 +8312,7 @@ define range(i32 -1, 2) i32 @ssl_cipher_id_cmp(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @ssl_cipher_ptr_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @ssl_cipher_ptr_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8, !tbaa !424
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !422
@@ -8529,7 +8523,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ssl_get_ciphers_by_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define ptr @ssl_get_ciphers_by_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -8620,7 +8614,7 @@ SSL_get_ciphers.exit:                             ; preds = %17, %14, %9, %7, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_ciphers(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_ciphers(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -9384,7 +9378,7 @@ alpn_value_ok.exit:                               ; preds = %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_alpn_select_cb(ptr noundef writeonly captures(none) initializes((720, 736)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @SSL_CTX_set_alpn_select_cb(ptr noundef writeonly captures(none) initializes((720, 736)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %1, ptr %4, align 8, !tbaa !441
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -9842,10 +9836,10 @@ declare i32 @SSL_get_ex_data_X509_STORE_CTX_idx() local_unnamed_addr #1
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 0, 4294967296) i64 @ssl_session_hash(ptr noundef readonly captures(none) %0) #11 {
+define internal range(i64 0, 4294967296) i64 @ssl_session_hash(ptr noundef readonly captures(none) %0) #10 {
   %.sroa.0 = alloca i32, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load i64, ptr %3, align 8, !tbaa !253
   %5 = icmp ult i64 %4, 4
@@ -9860,12 +9854,12 @@ define internal range(i64 0, 4294967296) i64 @ssl_session_hash(ptr noundef reado
   %.0 = phi ptr [ %.sroa.0, %6 ], [ %2, %1 ]
   %8 = load i32, ptr %.0, align 1
   %9 = zext i32 %8 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret i64 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ssl_session_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
+define internal i32 @ssl_session_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = load i32, ptr %0, align 8, !tbaa !250
   %4 = load i32, ptr %1, align 8, !tbaa !250
   %.not = icmp eq i32 %3, %4
@@ -9993,28 +9987,28 @@ define void @ssl_evp_cipher_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @ossl_quic_free_token_store(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_default_passwd_cb(ptr noundef writeonly captures(none) initializes((184, 192)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_default_passwd_cb(ptr noundef writeonly captures(none) initializes((184, 192)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %1, ptr %3, align 8, !tbaa !206
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef writeonly captures(none) initializes((192, 200)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef writeonly captures(none) initializes((192, 200)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %1, ptr %3, align 8, !tbaa !208
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_default_passwd_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_default_passwd_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !206
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !208
   ret ptr %3
@@ -10143,7 +10137,7 @@ define ptr @SSL_get_default_passwd_cb_userdata(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_cert_verify_callback(ptr noundef writeonly captures(none) initializes((168, 184)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @SSL_CTX_set_cert_verify_callback(ptr noundef writeonly captures(none) initializes((168, 184)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %1, ptr %4, align 8, !tbaa !448
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10152,7 +10146,7 @@ define void @SSL_CTX_set_cert_verify_callback(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_verify(ptr noundef writeonly captures(none) initializes((384, 388), (432, 440)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @SSL_CTX_set_verify(ptr noundef writeonly captures(none) initializes((384, 388), (432, 440)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 %1, ptr %4, align 8, !tbaa !149
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -10973,7 +10967,7 @@ define range(i32 0, 2) i32 @ssl_check_srvr_ecc_cert_and_alg(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ssl_get_server_cert_serverinfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @ssl_get_server_cert_serverinfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %5 = load ptr, ptr %4, align 8, !tbaa !458
   store i64 0, ptr %2, align 8, !tbaa !285
@@ -11177,17 +11171,17 @@ declare i32 @SSL_CTX_add_session(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SSL_SESSION_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #13
+declare i64 @time(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_ssl_method(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_ssl_method(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !99
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_get_ssl_method(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_get_ssl_method(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
@@ -11689,7 +11683,7 @@ define noundef i32 @ssl_undefined_void_function() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @ssl_protocol_to_string(i32 noundef %0) local_unnamed_addr #9 {
+define noundef nonnull ptr @ssl_protocol_to_string(i32 noundef %0) local_unnamed_addr #8 {
   switch i32 %0, label %9 [
     i32 772, label %10
     i32 771, label %2
@@ -12135,7 +12129,7 @@ SSL_get_read_ahead.exit:                          ; preds = %151, %ossl_ctrl_int
   %.0.i106 = phi i32 [ %153, %151 ], [ 0, %ossl_ctrl_internal.exit133 ]
   %154 = load i32, ptr %27, align 8, !tbaa !19
   %155 = icmp eq i32 %154, 0
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %155, label %156, label %.thread.i
 
 156:                                              ; preds = %SSL_get_read_ahead.exit
@@ -12143,10 +12137,10 @@ SSL_get_read_ahead.exit:                          ; preds = %151, %ossl_ctrl_int
   store i32 %.0.i106, ptr %157, align 8, !tbaa !144
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %157) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %158, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %159 = getelementptr inbounds nuw i8, ptr %27, i64 3184
   %160 = load ptr, ptr %159, align 8, !tbaa !362
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 144
@@ -12159,7 +12153,7 @@ SSL_get_read_ahead.exit:                          ; preds = %151, %ossl_ctrl_int
 
 .thread.i:                                        ; preds = %SSL_get_read_ahead.exit, %156
   %166 = phi i32 [ %.pre150, %156 ], [ %149, %SSL_get_read_ahead.exit ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %168 = load ptr, ptr %167, align 8, !tbaa !146
   %169 = getelementptr inbounds nuw i8, ptr %27, i64 1272
@@ -12466,7 +12460,7 @@ SSL_free.exit:                                    ; preds = %24, %19, %1, %5, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_get_SSL_CTX(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_get_SSL_CTX(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !119
   ret ptr %3
@@ -12666,7 +12660,7 @@ define ptr @SSL_get_privatekey(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_CTX_get0_certificate(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define ptr @SSL_CTX_get0_certificate(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %.not = icmp eq ptr %3, null
@@ -12683,7 +12677,7 @@ define ptr @SSL_CTX_get0_certificate(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_CTX_get0_privatekey(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define ptr @SSL_CTX_get0_privatekey(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %.not = icmp eq ptr %3, null
@@ -12872,21 +12866,21 @@ declare ptr @BIO_f_buffer() local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_quiet_shutdown(ptr noundef writeonly captures(none) initializes((456, 460)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_quiet_shutdown(ptr noundef writeonly captures(none) initializes((456, 460)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i32 %1, ptr %3, align 8, !tbaa !169
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_CTX_get_quiet_shutdown(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @SSL_CTX_get_quiet_shutdown(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load i32, ptr %2, align 8, !tbaa !169
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_quiet_shutdown(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @SSL_set_quiet_shutdown(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -12905,7 +12899,7 @@ define void @SSL_set_quiet_shutdown(ptr noundef captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_get_quiet_shutdown(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SSL_get_quiet_shutdown(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -12925,7 +12919,7 @@ define i32 @SSL_get_quiet_shutdown(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_shutdown(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @SSL_set_shutdown(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -13109,7 +13103,7 @@ define ptr @SSL_set_SSL_CTX(ptr noundef captures(address_is_null) %0, ptr nounde
 declare i32 @custom_exts_copy_flags(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_CTX_set_default_verify_paths(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -13414,7 +13408,7 @@ define range(i64 0, 33) i64 @SSL_get_server_random(ptr noundef %0, ptr noundef w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @SSL_SESSION_get_master_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define i64 @SSL_SESSION_get_master_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !476
@@ -13432,7 +13426,7 @@ define i64 @SSL_SESSION_get_master_key(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_master_key(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_master_key(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ugt i64 %2, 512
   br i1 %4, label %8, label %5
 
@@ -13481,7 +13475,7 @@ define ptr @SSL_CTX_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_cert_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_cert_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !290
   ret ptr %3
@@ -13567,7 +13561,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_psk_identity_hint(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_use_psk_identity_hint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -13742,7 +13736,7 @@ define void @SSL_set_psk_client_callback(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_psk_client_callback(ptr noundef writeonly captures(none) initializes((816, 824)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_psk_client_callback(ptr noundef writeonly captures(none) initializes((816, 824)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr %1, ptr %3, align 8, !tbaa !216
   ret void
@@ -13779,7 +13773,7 @@ define void @SSL_set_psk_server_callback(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_psk_server_callback(ptr noundef writeonly captures(none) initializes((824, 832)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_psk_server_callback(ptr noundef writeonly captures(none) initializes((824, 832)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store ptr %1, ptr %3, align 8, !tbaa !218
   ret void
@@ -13816,7 +13810,7 @@ define void @SSL_set_psk_find_session_callback(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_psk_find_session_callback(ptr noundef writeonly captures(none) initializes((832, 840)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_psk_find_session_callback(ptr noundef writeonly captures(none) initializes((832, 840)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr %1, ptr %3, align 8, !tbaa !220
   ret void
@@ -13853,14 +13847,14 @@ define void @SSL_set_psk_use_session_callback(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_psk_use_session_callback(ptr noundef writeonly captures(none) initializes((840, 848)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_psk_use_session_callback(ptr noundef writeonly captures(none) initializes((840, 848)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr %1, ptr %3, align 8, !tbaa !222
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_msg_callback(ptr noundef writeonly captures(none) initializes((368, 376)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_msg_callback(ptr noundef writeonly captures(none) initializes((368, 376)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %1, ptr %3, align 8, !tbaa !145
   ret void
@@ -13897,21 +13891,21 @@ define void @SSL_set_not_resumable_session_callback(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_record_padding_callback(ptr noundef writeonly captures(none) initializes((1048, 1056)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_record_padding_callback(ptr noundef writeonly captures(none) initializes((1048, 1056)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store ptr %1, ptr %3, align 8, !tbaa !153
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_record_padding_callback_arg(ptr noundef writeonly captures(none) initializes((1056, 1064)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_record_padding_callback_arg(ptr noundef writeonly captures(none) initializes((1056, 1064)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr %1, ptr %3, align 8, !tbaa !155
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_record_padding_callback_arg(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_record_padding_callback_arg(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %3 = load ptr, ptr %2, align 8, !tbaa !155
   ret ptr %3
@@ -14286,14 +14280,14 @@ define i64 @SSL_get_num_tickets(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_num_tickets(ptr noundef writeonly captures(none) initializes((1104, 1112)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @SSL_CTX_set_num_tickets(ptr noundef writeonly captures(none) initializes((1104, 1112)) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i64 %1, ptr %3, align 8, !tbaa !137
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @SSL_CTX_get_num_tickets(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i64 @SSL_CTX_get_num_tickets(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %3 = load i64, ptr %2, align 8, !tbaa !137
   ret i64 %3
@@ -14429,7 +14423,7 @@ define i32 @SSL_is_server(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @SSL_set_debug(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @SSL_set_debug(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   ret void
 }
 
@@ -14629,7 +14623,7 @@ define ptr @SSL_get0_security_ex_data(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @SSL_CTX_set_security_level(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @SSL_CTX_set_security_level(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -14638,7 +14632,7 @@ define void @SSL_CTX_set_security_level(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @SSL_CTX_get_security_level(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define i32 @SSL_CTX_get_security_level(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -14647,7 +14641,7 @@ define i32 @SSL_CTX_get_security_level(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @SSL_CTX_set_security_callback(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #15 {
+define void @SSL_CTX_set_security_callback(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14656,7 +14650,7 @@ define void @SSL_CTX_set_security_callback(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_CTX_get_security_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define ptr @SSL_CTX_get_security_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -14665,7 +14659,7 @@ define ptr @SSL_CTX_get_security_callback(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @SSL_CTX_set0_security_ex_data(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #15 {
+define void @SSL_CTX_set0_security_ex_data(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -14674,7 +14668,7 @@ define void @SSL_CTX_set0_security_ex_data(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_CTX_get0_security_ex_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define ptr @SSL_CTX_get0_security_ex_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -14683,7 +14677,7 @@ define ptr @SSL_CTX_get0_security_ex_data(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @SSL_CTX_get_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i64 @SSL_CTX_get_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i64, ptr %2, align 8, !tbaa !121
   ret i64 %3
@@ -14738,7 +14732,7 @@ define i64 @SSL_get_options(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @ossl_quic_get_options(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @SSL_CTX_set_options(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+define i64 @SSL_CTX_set_options(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load i64, ptr %3, align 8, !tbaa !121
   %5 = or i64 %4, %1
@@ -14750,7 +14744,7 @@ define i64 @SSL_CTX_set_options(ptr noundef captures(none) %0, i64 noundef %1) l
 define i64 @SSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ossl_param_st], align 16
   %4 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %cond = icmp eq ptr %0, null
   br i1 %cond, label %.thread, label %5
 
@@ -14775,10 +14769,10 @@ define i64 @SSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   store i64 %15, ptr %13, align 8, !tbaa !122
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3184
   %18 = load ptr, ptr %17, align 8, !tbaa !362
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
@@ -14798,7 +14792,7 @@ define i64 @SSL_set_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .thread:                                          ; preds = %10, %2, %12, %8
   %.0 = phi i64 [ %9, %8 ], [ %31, %12 ], [ 0, %2 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -14807,7 +14801,7 @@ declare i64 @ossl_quic_set_options(ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @SSL_CTX_clear_options(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+define i64 @SSL_CTX_clear_options(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = xor i64 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load i64, ptr %4, align 8, !tbaa !121
@@ -14829,7 +14823,7 @@ define i64 @SSL_clear_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   br i1 %8, label %.thread29, label %9
 
 .thread29:                                        ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %20
 
 9:                                                ; preds = %6
@@ -14843,13 +14837,13 @@ define i64 @SSL_clear_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   br label %13
 
 .thread25:                                        ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %41
 
 13:                                               ; preds = %9, %11
   %14 = phi i32 [ %7, %9 ], [ %.pre, %11 ]
   %.ph = phi ptr [ null, %9 ], [ %12, %11 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = and i32 %14, 128
   %.not24 = icmp eq i32 %15, 0
   br i1 %.not24, label %18, label %16
@@ -14871,10 +14865,10 @@ define i64 @SSL_clear_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   store i64 %24, ptr %22, align 8, !tbaa !122
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %22) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %.ph2831, i64 3184
   %27 = load ptr, ptr %26, align 8, !tbaa !362
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 144
@@ -14894,7 +14888,7 @@ define i64 @SSL_clear_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 
 41:                                               ; preds = %.thread25, %18, %20, %16
   %.0 = phi i64 [ %17, %16 ], [ %40, %20 ], [ 0, %18 ], [ 0, %.thread25 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -14940,7 +14934,7 @@ define ptr @OBJ_bsearch_ssl_cipher_id(ptr noundef %0, ptr noundef %1, i32 nounde
 declare ptr @OBJ_bsearch_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @ssl_cipher_id_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal range(i32 -1, 2) i32 @ssl_cipher_id_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !422
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -14985,7 +14979,7 @@ define ptr @SSL_get0_peer_scts(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %ct_extract_tls_extension_scts.exit.thread, label %ct_extract_tls_extension_scts.exit
 
 ct_extract_tls_extension_scts.exit:               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !283
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 2616
   %20 = load i16, ptr %19, align 8, !tbaa !485
@@ -14994,12 +14988,12 @@ ct_extract_tls_extension_scts.exit:               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 2936
   %24 = call fastcc i32 @ct_move_scts(ptr noundef %23, ptr noundef %22, i32 noundef 1)
   call void @SCT_LIST_free(ptr noundef %22) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %ct_extract_tls_extension_scts.exit.thread
 
 ct_extract_tls_extension_scts.exit.thread:        ; preds = %16, %ct_extract_tls_extension_scts.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 2640
   %27 = load ptr, ptr %26, align 8, !tbaa !347
   %28 = icmp eq ptr %27, null
@@ -15057,7 +15051,7 @@ ct_extract_ocsp_response_scts.exit:               ; preds = %46
   call void @SCT_LIST_free(ptr noundef %47) #20
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %38) #20
   call void @OCSP_RESPONSE_free(ptr noundef nonnull %35) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
 .critedge:                                        ; preds = %50, %.preheader.i, %37, %33, %29, %ct_extract_tls_extension_scts.exit.thread
@@ -15067,7 +15061,7 @@ ct_extract_ocsp_response_scts.exit:               ; preds = %46
   call void @SCT_LIST_free(ptr noundef %.024.i.ph) #20
   call void @OCSP_BASICRESP_free(ptr noundef %.026.i.ph) #20
   call void @OCSP_RESPONSE_free(ptr noundef %.025.i.ph) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 2304
   %55 = load ptr, ptr %54, align 8, !tbaa !20
   %.not.i17 = icmp eq ptr %55, null
@@ -15165,7 +15159,7 @@ define range(i32 0, 2) i32 @SSL_ct_is_enabled(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_ct_is_enabled(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_CTX_ct_is_enabled(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8, !tbaa !237
   %4 = icmp ne ptr %3, null
@@ -15365,7 +15359,7 @@ SSL_CTX_set_ct_validation_callback.exit:          ; preds = %13, %12, %7, %6, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ct_permissive(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #9 {
+define internal noundef i32 @ct_permissive(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #8 {
   ret i32 1
 }
 
@@ -15458,14 +15452,14 @@ define void @SSL_CTX_set0_ctlog_store(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get0_ctlog_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get0_ctlog_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8, !tbaa !291
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_client_hello_cb(ptr noundef writeonly captures(none) initializes((528, 544)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @SSL_CTX_set_client_hello_cb(ptr noundef writeonly captures(none) initializes((528, 544)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %1, ptr %4, align 8, !tbaa !489
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -15474,7 +15468,7 @@ define void @SSL_CTX_set_client_hello_cb(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_new_pending_conn_cb(ptr noundef writeonly captures(none) initializes((544, 560)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @SSL_CTX_set_new_pending_conn_cb(ptr noundef writeonly captures(none) initializes((544, 560)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr %1, ptr %4, align 8, !tbaa !491
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -16138,14 +16132,14 @@ define range(i32 0, 2) i32 @SSL_alloc_buffers(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_keylog_callback(ptr noundef writeonly captures(none) initializes((1032, 1040)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_keylog_callback(ptr noundef writeonly captures(none) initializes((1032, 1040)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store ptr %1, ptr %3, align 8, !tbaa !517
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_keylog_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_keylog_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %3 = load ptr, ptr %2, align 8, !tbaa !517
   ret ptr %3
@@ -16404,7 +16398,7 @@ PACKET_memdup.exit:                               ; preds = %38
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.PACKET, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %.thread, label %9
 
@@ -16437,14 +16431,14 @@ define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %.thread16, %12, %6, %14, %19
   %.0 = phi i32 [ %21, %19 ], [ 0, %14 ], [ 0, %6 ], [ 0, %12 ], [ 0, %.thread16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_bytes_to_cipher_list(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not74.not = icmp ne i32 %4, 0
   %8 = getelementptr i8, ptr %1, i64 8
   %.val62 = load i64, ptr %8, align 8, !tbaa !497
@@ -16665,28 +16659,28 @@ define range(i32 0, 2) i32 @ossl_bytes_to_cipher_list(ptr noundef %0, ptr nounde
 
 64:                                               ; preds = %61, %62, %17, %18, %11, %12, %63
   %.0 = phi i32 [ 0, %63 ], [ 0, %12 ], [ 0, %11 ], [ 0, %18 ], [ 0, %17 ], [ 1, %62 ], [ 1, %61 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 declare ptr @ssl_get_cipher_by_char(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_max_early_data(ptr noundef writeonly captures(none) initializes((1040, 1044)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @SSL_CTX_set_max_early_data(ptr noundef writeonly captures(none) initializes((1040, 1044)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store i32 %1, ptr %3, align 8, !tbaa !133
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_CTX_get_max_early_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @SSL_CTX_get_max_early_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %3 = load i32, ptr %2, align 8, !tbaa !133
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_set_max_early_data(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_set_max_early_data(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -16737,21 +16731,21 @@ define i32 @SSL_get_max_early_data(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_recv_max_early_data(ptr noundef writeonly captures(none) initializes((1044, 1048)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @SSL_CTX_set_recv_max_early_data(ptr noundef writeonly captures(none) initializes((1044, 1048)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   store i32 %1, ptr %3, align 4, !tbaa !135
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_CTX_get_recv_max_early_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @SSL_CTX_get_recv_max_early_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   %3 = load i32, ptr %2, align 4, !tbaa !135
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_set_recv_max_early_data(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_set_recv_max_early_data(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -16802,7 +16796,7 @@ define i32 @SSL_get_recv_max_early_data(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ssl_get_max_send_fragment(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define i32 @ssl_get_max_send_fragment(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
@@ -16832,7 +16826,7 @@ define i32 @ssl_get_max_send_fragment(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ssl_get_split_send_fragment(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define i32 @ssl_get_split_send_fragment(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
@@ -17014,14 +17008,14 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare i32 @ossl_statem_in_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_post_handshake_auth(ptr noundef writeonly captures(none) initializes((1128, 1132)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @SSL_CTX_set_post_handshake_auth(ptr noundef writeonly captures(none) initializes((1128, 1132)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i32 %1, ptr %3, align 8, !tbaa !139
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_post_handshake_auth(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @SSL_set_post_handshake_auth(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -17183,7 +17177,7 @@ define range(i32 0, 2) i32 @SSL_verify_client_post_handshake(ptr noundef %0) loc
 declare i32 @send_certificate_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_session_ticket_cb(ptr noundef writeonly captures(none) initializes((1080, 1104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
+define noundef i32 @SSL_CTX_set_session_ticket_cb(ptr noundef writeonly captures(none) initializes((1080, 1104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store ptr %1, ptr %5, align 8, !tbaa !530
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -17194,7 +17188,7 @@ define noundef i32 @SSL_CTX_set_session_ticket_cb(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_allow_early_data_cb(ptr noundef writeonly captures(none) initializes((1112, 1128)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @SSL_CTX_set_allow_early_data_cb(ptr noundef writeonly captures(none) initializes((1112, 1128)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr %1, ptr %4, align 8, !tbaa !210
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1120
@@ -17203,7 +17197,7 @@ define void @SSL_CTX_set_allow_early_data_cb(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_allow_early_data_cb(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define void @SSL_set_allow_early_data_cb(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -17240,15 +17234,15 @@ define ptr @ssl_evp_cipher_fetch(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br i1 %.not15, label %20, label %12
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !364
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.15, ptr noundef nonnull %5) #20
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = call i32 @EVP_CIPHER_get_params(ptr noundef nonnull %11, ptr noundef nonnull %4) #20
   %15 = icmp ne i32 %14, 0
   %16 = load i32, ptr %5, align 4
@@ -17262,8 +17256,8 @@ define ptr @ssl_evp_cipher_fetch(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 
 19:                                               ; preds = %18, %12
   %.1 = phi ptr [ null, %18 ], [ %11, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %19, %8
@@ -18621,7 +18615,7 @@ declare i32 @ossl_quic_get_domain_flags(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_add_expected_rpk(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !283
   %4 = icmp eq ptr %0, null
   br i1 %4, label %SSL_get0_dane.exit.thread, label %5
@@ -18665,7 +18659,7 @@ SSL_get0_dane.exit.thread10:                      ; preds = %5, %SSL_get0_dane.e
 
 SSL_get0_dane.exit.thread:                        ; preds = %8, %2, %14, %SSL_get0_dane.exit, %SSL_get0_dane.exit.thread10, %17
   %.0 = phi i32 [ %22, %17 ], [ 0, %SSL_get0_dane.exit.thread10 ], [ 0, %SSL_get0_dane.exit ], [ 0, %14 ], [ 0, %2 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -19111,7 +19105,7 @@ define range(i32 0, 2) i32 @SSL_get0_server_cert_type(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_get0_client_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_CTX_get0_client_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -19132,7 +19126,7 @@ define range(i32 0, 2) i32 @SSL_CTX_get0_client_cert_type(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_get0_server_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_CTX_get0_server_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -19252,13 +19246,13 @@ define internal i32 @lh_SSL_SESSION_cfn_thunk(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @lh_SSL_SESSION_doall_thunk(ptr noundef %0, ptr noundef readonly captures(none) %1) #16 {
+define internal void @lh_SSL_SESSION_doall_thunk(ptr noundef %0, ptr noundef readonly captures(none) %1) #15 {
   tail call void %1(ptr noundef %0) #20
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @lh_SSL_SESSION_doall_arg_thunk(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #16 {
+define internal void @lh_SSL_SESSION_doall_arg_thunk(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #15 {
   tail call void %2(ptr noundef %0, ptr noundef %1) #20
   ret void
 }
@@ -19266,7 +19260,7 @@ define internal void @lh_SSL_SESSION_doall_arg_thunk(ptr noundef %0, ptr noundef
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
 
 declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -19352,6 +19346,12 @@ declare i32 @SCT_get_validation_status(ptr noundef) local_unnamed_addr #1
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
 
@@ -19369,21 +19369,21 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

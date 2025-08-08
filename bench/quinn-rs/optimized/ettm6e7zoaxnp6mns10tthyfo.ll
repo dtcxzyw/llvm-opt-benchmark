@@ -27,11 +27,11 @@ define hidden void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h41501c7e117edc7
   br i1 %.not, label %15, label %22, !prof !5
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %14, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call noundef i64 @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$11control_len17haf304bdbd082b7afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
   store i64 %16, ptr %5, align 8
   store ptr %6, ptr %7, align 8
@@ -91,11 +91,11 @@ define hidden void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h9814c4b436ef4bf
   br i1 %.not, label %15, label %22, !prof !5
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %14, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call noundef i64 @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$11control_len17haf304bdbd082b7afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
   store i64 %16, ptr %5, align 8
   store ptr %6, ptr %7, align 8
@@ -155,11 +155,11 @@ define hidden void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h9900840aba8d8df
   br i1 %.not, label %15, label %22, !prof !5
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %14, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call noundef i64 @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$11control_len17haf304bdbd082b7afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
   store i64 %16, ptr %5, align 8
   store ptr %6, ptr %7, align 8
@@ -219,11 +219,11 @@ define hidden void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17haff126bdeddc495
   br i1 %.not, label %15, label %22, !prof !5
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %14, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call noundef i64 @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$11control_len17haf304bdbd082b7afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
   store i64 %16, ptr %5, align 8
   store ptr %6, ptr %7, align 8
@@ -344,7 +344,7 @@ declare noundef ptr @"_ZN9quinn_udp4cmsg3imp98_$LT$impl$u20$quinn_udp..cmsg..CMs
 declare noundef ptr @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$12cmsg_nxt_hdr17he4d14818b1162789E"(ptr noalias noundef readonly align 8 dereferenceable(56), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -160,7 +160,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   %39 = alloca ptr, align 8
   %40 = alloca [1025 x i8], align 16
   %41 = alloca [1025 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr null, ptr %39, align 8
   tail call void @hba_getauthmethod(ptr noundef %0) #16
   %42 = load volatile i32, ptr @InterruptPending, align 4
@@ -227,7 +227,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   ]
 
 67:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %70 = load i32, ptr %69, align 8
@@ -258,7 +258,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 86:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %41) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %89 = load i32, ptr %88, align 8
@@ -381,11 +381,11 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 153:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %38) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %154 = load i32, ptr %0, align 8
   %155 = call i32 @getpeereid(i32 noundef %154, ptr noundef nonnull %34, ptr noundef nonnull %35) #16
   %.not.i = icmp eq i32 %155, 0
@@ -465,33 +465,33 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
 
 auth_peer.exit:                                   ; preds = %161, %162, %165, %166, %172, %175, %181, %183, %187
   %.0.i = phi i32 [ %195, %187 ], [ -1, %165 ], [ -1, %166 ], [ -1, %161 ], [ -1, %162 ], [ -1, %175 ], [ -1, %172 ], [ -1, %183 ], [ -1, %181 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %38) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %CheckPWChallengeAuth.exit
 
 196:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %21) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull readonly align 8 dereferenceable(136) %197, i64 136, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull readonly align 8 dereferenceable(136) %198, i64 136, i1 false)
-  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %23) #16
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %24) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #16
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %26) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %29) #16
-  call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %30) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr null, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr null, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %199 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %200 = load i32, ptr %199, align 8
   %201 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %21, i32 noundef %200, ptr noundef nonnull %24, i32 noundef 1025, ptr noundef nonnull %25, i32 noundef 32, i32 noundef 3) #16
@@ -728,19 +728,19 @@ auth_peer.exit:                                   ; preds = %161, %162, %165, %1
 
 ident_inet.exit:                                  ; preds = %310, %311
   %.0.i77 = phi i32 [ %317, %311 ], [ -1, %310 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #16
-  call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %30) #16
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %29) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #16
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %26) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #16
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %24) #16
-  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %23) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %22) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %21) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %CheckPWChallengeAuth.exit
 
 318:                                              ; preds = %63, %63
@@ -769,7 +769,7 @@ ident_inet.exit:                                  ; preds = %310, %311
   br i1 %or.cond.i81, label %332, label %361
 
 332:                                              ; preds = %326
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %333 = call zeroext i1 @pg_strong_random(ptr noundef nonnull %20, i64 noundef 4) #16
   br i1 %333, label %338, label %334
 
@@ -783,7 +783,7 @@ ident_inet.exit:                                  ; preds = %310, %311
   br label %CheckMD5Auth.exit.i
 
 338:                                              ; preds = %332
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %339 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i.i = icmp eq i32 %339, 0
   br i1 %.not.i.i.i, label %341, label %340, !prof !4
@@ -819,7 +819,7 @@ ident_inet.exit:                                  ; preds = %310, %311
   br label %sendAuthRequest.exit.i.i
 
 sendAuthRequest.exit.i.i:                         ; preds = %353, %341
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %354 = call fastcc ptr @recv_password_packet()
   %355 = icmp eq ptr %354, null
   br i1 %355, label %CheckMD5Auth.exit.i, label %356
@@ -839,7 +839,7 @@ sendAuthRequest.exit.i.i:                         ; preds = %353, %341
 
 CheckMD5Auth.exit.i:                              ; preds = %360, %sendAuthRequest.exit.i.i, %336, %334
   %.010.i.i = phi i32 [ %.0.i.i, %360 ], [ -1, %336 ], [ -1, %334 ], [ -2, %sendAuthRequest.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %363
 
 361:                                              ; preds = %326
@@ -864,7 +864,7 @@ CheckMD5Auth.exit.i:                              ; preds = %360, %sendAuthReque
   br label %CheckPWChallengeAuth.exit
 
 369:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %370 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %370, 0
   br i1 %.not.i.i, label %372, label %371, !prof !4
@@ -899,7 +899,7 @@ CheckMD5Auth.exit.i:                              ; preds = %360, %sendAuthReque
   br label %sendAuthRequest.exit.i
 
 sendAuthRequest.exit.i:                           ; preds = %384, %372
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %385 = call fastcc ptr @recv_password_packet()
   %386 = icmp eq ptr %385, null
   br i1 %386, label %CheckPWChallengeAuth.exit.thread, label %387
@@ -959,7 +959,7 @@ sendAuthRequest.exit.i:                           ; preds = %384, %372
   br label %CheckPWChallengeAuth.exit.thread
 
 413:                                              ; preds = %405
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %414 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i84 = icmp eq i32 %414, 0
   br i1 %.not.i.i84, label %416, label %415, !prof !4
@@ -994,7 +994,7 @@ sendAuthRequest.exit.i:                           ; preds = %384, %372
   br label %sendAuthRequest.exit.i86
 
 sendAuthRequest.exit.i86:                         ; preds = %428, %416
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %429 = call fastcc ptr @recv_password_packet()
   %430 = icmp eq ptr %429, null
   br i1 %430, label %CheckPWChallengeAuth.exit.thread, label %431
@@ -1110,16 +1110,16 @@ list_head.exit69.i:                               ; preds = %455, %list_head.exi
 490:                                              ; preds = %488, %486
   %491 = phi ptr [ %489, %488 ], [ null, %486 ]
   %492 = load ptr, ptr %463, align 8
-  call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %493 = icmp eq ptr %487, null
   %spec.store.select.i.i = select i1 %493, ptr @.str.54, ptr %487
@@ -1297,7 +1297,7 @@ radius_add_attribute.exit174.i.i:                 ; preds = %564, %562, %560
   %indvars.iv202.i.i = phi i64 [ 16, %.lr.ph186.preheader.i.i ], [ %indvars.iv.next203.i.i, %._crit_edge.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph186.preheader.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
   %.0151185.i.i = phi ptr [ %467, %.lr.ph186.preheader.i.i ], [ %587, %._crit_edge.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %585 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %483) #19
   %586 = getelementptr inbounds nuw i8, ptr %581, i64 %585
@@ -1327,7 +1327,7 @@ radius_add_attribute.exit174.i.i:                 ; preds = %564, %562, %560
   %597 = load i32, ptr %465, align 4
   %598 = load ptr, ptr %9, align 8
   call void @pg_freeaddrinfo_all(i32 noundef %597, ptr noundef %598) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %PerformRadiusTransaction.exit.thread.i
 
 599:                                              ; preds = %607, %.lr.ph.i.i
@@ -1350,7 +1350,7 @@ radius_add_attribute.exit174.i.i:                 ; preds = %564, %562, %560
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %599, !llvm.loop !19
 
 ._crit_edge.i.i:                                  ; preds = %607
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
   %608 = icmp samesign ult i64 %indvars.iv.next.i.i, %584
   %indvars.iv.next203.i.i = add nuw nsw i64 %indvars.iv202.i.i, 16
@@ -1482,9 +1482,9 @@ radius_add_attribute.exit175.i.i:                 ; preds = %617, %615, %613
   %678 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #16
   %679 = load i64, ptr %12, align 8
   %680 = add i64 %679, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
   %681 = call i32 @gettimeofday(ptr noundef nonnull %15, ptr noundef null) #16
   %682 = load i64, ptr %470, align 8
@@ -1716,12 +1716,12 @@ radius_add_attribute.exit175.i.i:                 ; preds = %617, %615, %613
   br label %803
 
 803:                                              ; preds = %799, %797, %793, %791, %789, %761, %759, %751, %749, %743, %741, %734, %732, %708
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
   %804 = call i32 @gettimeofday(ptr noundef nonnull %15, ptr noundef null) #16
   %805 = load i64, ptr %15, align 8
@@ -1740,26 +1740,26 @@ PerformRadiusTransaction.exit.thread84.sink.split.i: ; preds = %728, %720, %714,
 
 PerformRadiusTransaction.exit.thread84.i:         ; preds = %PerformRadiusTransaction.exit.thread84.sink.split.i, %726, %718, %712, %._crit_edge195.i.i
   %810 = call i32 @close(i32 noundef %633) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %PerformRadiusTransaction.exit.thread.i
 
 811:                                              ; preds = %795
   %812 = call i32 @close(i32 noundef %633) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %813 = load ptr, ptr %463, align 8
   call fastcc void @set_authn_id(ptr noundef readonly %0, ptr noundef %813)
   call void @pfree(ptr noundef nonnull %429) #16
@@ -1767,33 +1767,33 @@ PerformRadiusTransaction.exit.thread84.i:         ; preds = %PerformRadiusTransa
 
 814:                                              ; preds = %795
   %815 = call i32 @close(i32 noundef %633) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @pfree(ptr noundef nonnull %429) #16
   br label %CheckPWChallengeAuth.exit.thread
 
 PerformRadiusTransaction.exit.thread.i:           ; preds = %PerformRadiusTransaction.exit.thread84.i, %671, %654, %639, %.thread.i.i, %515, %507, %505
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %816 = load ptr, ptr %45, align 8
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 488
   %818 = load ptr, ptr %817, align 8
@@ -1919,7 +1919,7 @@ CheckPWChallengeAuth.exit.thread:                 ; preds = %814, %sendAuthReque
   br i1 %872, label %876, label %888
 
 876:                                              ; preds = %875
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %877 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i90 = icmp eq i32 %877, 0
   br i1 %.not.i90, label %879, label %878, !prof !4
@@ -1950,8 +1950,8 @@ CheckPWChallengeAuth.exit.thread:                 ; preds = %814, %sendAuthReque
   br label %sendAuthRequest.exit
 
 sendAuthRequest.exit:                             ; preds = %879, %887
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   ret void
 
 888:                                              ; preds = %875
@@ -2015,42 +2015,36 @@ switch.lookup:                                    ; preds = %892
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @hba_getauthmethod(ptr noundef) local_unnamed_addr #1
 
-declare void @hba_getauthmethod(ptr noundef) local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
-
-declare zeroext i1 @secure_loaded_verify_locations() local_unnamed_addr #2
+declare zeroext i1 @secure_loaded_verify_locations() local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @errdetail_log(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #3
 
-declare ptr @hba_authname(i32 noundef) local_unnamed_addr #2
+declare ptr @hba_authname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sendAuthRequest(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7, !prof !4
@@ -2103,33 +2097,33 @@ define dso_local void @sendAuthRequest(ptr noundef readnone captures(none) %0, i
   br label %27
 
 27:                                               ; preds = %26, %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @pq_beginmessage(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @pq_beginmessage(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
-declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @pq_endmessage(ptr noundef) local_unnamed_addr #2
+declare void @pq_endmessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) local_unnamed_addr #5
+declare void @proc_exit(i32 noundef) local_unnamed_addr #4
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @recv_password_packet() unnamed_addr #0 {
   %1 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   tail call void @pq_startmsgread() #16
   %2 = tail call i32 @pq_getbyte() #16
   switch i32 %2, label %3 [
@@ -2200,15 +2194,15 @@ define internal fastcc ptr @recv_password_packet() unnamed_addr #0 {
 
 33:                                               ; preds = %0, %31, %10
   %.0 = phi ptr [ null, %10 ], [ %32, %31 ], [ null, %0 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }
 
-declare ptr @get_role_password(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @get_role_password(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @plain_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @plain_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_authn_id(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
@@ -2258,49 +2252,49 @@ define internal fastcc void @set_authn_id(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @pq_startmsgread() local_unnamed_addr #2
+declare void @pq_startmsgread() local_unnamed_addr #1
 
-declare i32 @pq_getbyte() local_unnamed_addr #2
+declare i32 @pq_getbyte() local_unnamed_addr #1
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pq_getmessage(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pq_getmessage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_password_type(ptr noundef) local_unnamed_addr #2
+declare i32 @get_password_type(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CheckSASLAuth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CheckSASLAuth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @pg_strong_random(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @pg_strong_random(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @md5_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @md5_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @pg_getaddrinfo_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-declare i32 @errcode_for_socket_access() local_unnamed_addr #2
+declare i32 @pg_getaddrinfo_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
+declare i32 @errcode_for_socket_access() local_unnamed_addr #1
 
-declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: nounwind
+declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
+
+declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
+
+declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
@@ -2329,7 +2323,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   br label %.preheader63, !llvm.loop !27
 
 13:                                               ; preds = %.preheader63
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %14, %13
@@ -2428,7 +2422,7 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
 
 .loopexit:                                        ; preds = %.preheader61, %32, %31, %._crit_edge
   %.144 = phi i1 [ true, %._crit_edge ], [ false, %31 ], [ false, %32 ], [ false, %.preheader61 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit64
 
 .loopexit64:                                      ; preds = %.preheader63, %6, %2, %.loopexit
@@ -2436,39 +2430,45 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   ret i1 %.043
 }
 
-declare i32 @close(i32 noundef) local_unnamed_addr #2
+declare i32 @close(i32 noundef) local_unnamed_addr #1
 
-declare void @pg_freeaddrinfo_all(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pg_freeaddrinfo_all(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @check_usermap(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @check_usermap(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @pg_isblank(i8 noundef signext) local_unnamed_addr #2
+declare zeroext i1 @pg_isblank(i8 noundef signext) local_unnamed_addr #1
 
-declare i32 @getpeereid(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getpeereid(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @pg_md5_binary(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @pg_md5_binary(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #6
+declare i16 @llvm.bswap.i16(i16) #5
 
-declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
+declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
+declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
@@ -2480,18 +2480,18 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

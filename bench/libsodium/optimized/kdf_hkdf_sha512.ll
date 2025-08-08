@@ -37,20 +37,14 @@ declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_kdf_hkdf_sha512_extract(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.crypto_kdf_hkdf_sha512_state, align 8
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @crypto_auth_hmacsha512_init(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #6
   %8 = call i32 @crypto_auth_hmacsha512_update(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %4) #6
   %9 = call i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %6, ptr noundef nonnull %0) #6
   call void @sodium_memzero(ptr noundef nonnull %6, i64 noundef 416) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @crypto_kdf_hkdf_sha512_keygen(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -65,9 +59,9 @@ define dso_local range(i32 -1, 1) i32 @crypto_kdf_hkdf_sha512_expand(ptr noundef
   %6 = alloca %struct.crypto_auth_hmacsha512_state, align 8
   %7 = alloca [64 x i8], align 16
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1
   %9 = icmp ugt i64 %1, 16320
   br i1 %9, label %10, label %.preheader
@@ -138,43 +132,49 @@ define dso_local range(i32 -1, 1) i32 @crypto_kdf_hkdf_sha512_expand(ptr noundef
 
 39:                                               ; preds = %38, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_kdf_hkdf_sha512_keybytes() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_kdf_hkdf_sha512_keybytes() local_unnamed_addr #3 {
   ret i64 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_kdf_hkdf_sha512_bytes_min() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_kdf_hkdf_sha512_bytes_min() local_unnamed_addr #3 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_kdf_hkdf_sha512_bytes_max() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_kdf_hkdf_sha512_bytes_max() local_unnamed_addr #3 {
   ret i64 16320
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_kdf_hkdf_sha512_statebytes() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_kdf_hkdf_sha512_statebytes() local_unnamed_addr #3 {
   ret i64 416
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }

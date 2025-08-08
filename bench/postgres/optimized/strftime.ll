@@ -70,7 +70,7 @@ define dso_local i64 @pg_strftime(ptr noundef %0, i64 noundef %1, ptr noundef re
   %5 = alloca i32, align 4
   %6 = tail call ptr @__errno_location() #5
   %7 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %9 = call fastcc ptr @_fmt(ptr noundef %2, ptr noundef %3, ptr noundef %0, ptr noundef %8, ptr noundef %5)
@@ -99,15 +99,12 @@ define dso_local i64 @pg_strftime(ptr noundef %0, i64 noundef %1, ptr noundef re
 
 18:                                               ; preds = %14, %13, %10
   %.0 = phi i64 [ 0, %13 ], [ %17, %14 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
@@ -402,7 +399,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
 
 121:                                              ; preds = %.thread, %109
   %.033.i506 = phi i32 [ %108, %.thread ], [ %.033.i, %109 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %122 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.2, i32 noundef %.033.i506) #6
   %123 = icmp ult ptr %.0209, %3
   br i1 %123, label %.lr.ph.preheader.i.i.i, label %_conv.exit.i
@@ -429,11 +426,11 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
 
 _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i, %121
   %.06.lcssa.i.i.i = phi ptr [ %.0209, %121 ], [ %.067.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %127 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_add.exit
 
 130:                                              ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 1, ptr %25, align 4
   %131 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.53, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %25)
   %132 = load i32, ptr %25, align 4
@@ -448,7 +445,7 @@ _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i,
   br label %137
 
 137:                                              ; preds = %136, %130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_add.exit
 
 138:                                              ; preds = %.preheader
@@ -457,7 +454,7 @@ _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i,
 
 140:                                              ; preds = %.preheader
   %141 = load i32, ptr %37, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %142 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.2, i32 noundef %141) #6
   %143 = icmp ult ptr %.0209, %3
   br i1 %143, label %.lr.ph.preheader.i.i283, label %_conv.exit
@@ -484,12 +481,12 @@ _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i,
 
 _conv.exit:                                       ; preds = %.lr.ph.i.i285, %147, %140
   %.06.lcssa.i.i = phi ptr [ %.0209, %140 ], [ %scevgep.i.i284, %147 ], [ %.067.i.i286, %.lr.ph.i.i285 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_add.exit
 
 150:                                              ; preds = %.preheader
   %151 = load i32, ptr %37, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %152 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.3, i32 noundef %151) #6
   %153 = icmp ult ptr %.0209, %3
   br i1 %153, label %.lr.ph.preheader.i.i289, label %_conv.exit296
@@ -516,7 +513,7 @@ _conv.exit:                                       ; preds = %.lr.ph.i.i285, %147
 
 _conv.exit296:                                    ; preds = %.lr.ph.i.i291, %157, %150
   %.06.lcssa.i.i288 = phi ptr [ %.0209, %150 ], [ %scevgep.i.i290, %157 ], [ %.067.i.i293, %.lr.ph.i.i291 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_add.exit
 
 160:                                              ; preds = %.preheader
@@ -525,7 +522,7 @@ _conv.exit296:                                    ; preds = %.lr.ph.i.i291, %157
 
 162:                                              ; preds = %.preheader
   %163 = load i32, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %164 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, i32 noundef %163) #6
   %165 = icmp ult ptr %.0209, %3
   br i1 %165, label %.lr.ph.preheader.i.i298, label %_conv.exit305
@@ -552,7 +549,7 @@ _conv.exit296:                                    ; preds = %.lr.ph.i.i291, %157
 
 _conv.exit305:                                    ; preds = %.lr.ph.i.i300, %169, %162
   %.06.lcssa.i.i297 = phi ptr [ %.0209, %162 ], [ %scevgep.i.i299, %169 ], [ %.067.i.i302, %.lr.ph.i.i300 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_add.exit
 
 172:                                              ; preds = %.preheader
@@ -560,7 +557,7 @@ _conv.exit305:                                    ; preds = %.lr.ph.i.i300, %169
   %174 = srem i32 %173, 12
   %.not248 = icmp eq i32 %174, 0
   %spec.select = select i1 %.not248, i32 12, i32 %174
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %175 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %20, ptr noundef nonnull @.str.2, i32 noundef %spec.select) #6
   %176 = icmp ult ptr %.0209, %3
   br i1 %176, label %.lr.ph.preheader.i.i307, label %_conv.exit314
@@ -587,13 +584,13 @@ _conv.exit305:                                    ; preds = %.lr.ph.i.i300, %169
 
 _conv.exit314:                                    ; preds = %.lr.ph.i.i309, %180, %172
   %.06.lcssa.i.i306 = phi ptr [ %.0209, %172 ], [ %scevgep.i.i308, %180 ], [ %.067.i.i311, %.lr.ph.i.i309 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_add.exit
 
 183:                                              ; preds = %.preheader
   %184 = load i32, ptr %33, align 4
   %185 = add i32 %184, 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %186 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %19, ptr noundef nonnull @.str.5, i32 noundef %185) #6
   %187 = icmp ult ptr %.0209, %3
   br i1 %187, label %.lr.ph.preheader.i.i316, label %_conv.exit323
@@ -620,12 +617,12 @@ _conv.exit314:                                    ; preds = %.lr.ph.i.i309, %180
 
 _conv.exit323:                                    ; preds = %.lr.ph.i.i318, %191, %183
   %.06.lcssa.i.i315 = phi ptr [ %.0209, %183 ], [ %scevgep.i.i317, %191 ], [ %.067.i.i320, %.lr.ph.i.i318 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_add.exit
 
 194:                                              ; preds = %.preheader
   %195 = load i32, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %196 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %18, ptr noundef nonnull @.str.3, i32 noundef %195) #6
   %197 = icmp ult ptr %.0209, %3
   br i1 %197, label %.lr.ph.preheader.i.i325, label %_conv.exit332
@@ -652,7 +649,7 @@ _conv.exit323:                                    ; preds = %.lr.ph.i.i318, %191
 
 _conv.exit332:                                    ; preds = %.lr.ph.i.i327, %201, %194
   %.06.lcssa.i.i324 = phi ptr [ %.0209, %194 ], [ %scevgep.i.i326, %201 ], [ %.067.i.i329, %.lr.ph.i.i327 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_add.exit
 
 204:                                              ; preds = %.preheader
@@ -660,7 +657,7 @@ _conv.exit332:                                    ; preds = %.lr.ph.i.i327, %201
   %206 = srem i32 %205, 12
   %.not247 = icmp eq i32 %206, 0
   %spec.select252 = select i1 %.not247, i32 12, i32 %206
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %207 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.3, i32 noundef %spec.select252) #6
   %208 = icmp ult ptr %.0209, %3
   br i1 %208, label %.lr.ph.preheader.i.i334, label %_conv.exit341
@@ -687,12 +684,12 @@ _conv.exit332:                                    ; preds = %.lr.ph.i.i327, %201
 
 _conv.exit341:                                    ; preds = %.lr.ph.i.i336, %212, %204
   %.06.lcssa.i.i333 = phi ptr [ %.0209, %204 ], [ %scevgep.i.i335, %212 ], [ %.067.i.i338, %.lr.ph.i.i336 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_add.exit
 
 215:                                              ; preds = %.preheader
   %216 = load i32, ptr %36, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %217 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.2, i32 noundef %216) #6
   %218 = icmp ult ptr %.0209, %3
   br i1 %218, label %.lr.ph.preheader.i.i343, label %_conv.exit350
@@ -719,13 +716,13 @@ _conv.exit341:                                    ; preds = %.lr.ph.i.i336, %212
 
 _conv.exit350:                                    ; preds = %.lr.ph.i.i345, %222, %215
   %.06.lcssa.i.i342 = phi ptr [ %.0209, %215 ], [ %scevgep.i.i344, %222 ], [ %.067.i.i347, %.lr.ph.i.i345 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_add.exit
 
 225:                                              ; preds = %.preheader
   %226 = load i32, ptr %35, align 8
   %227 = add i32 %226, 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %228 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef %227) #6
   %229 = icmp ult ptr %.0209, %3
   br i1 %229, label %.lr.ph.preheader.i.i352, label %_conv.exit359
@@ -752,7 +749,7 @@ _conv.exit350:                                    ; preds = %.lr.ph.i.i345, %222
 
 _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233, %225
   %.06.lcssa.i.i351 = phi ptr [ %.0209, %225 ], [ %scevgep.i.i353, %233 ], [ %.067.i.i356, %.lr.ph.i.i354 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_add.exit
 
 236:                                              ; preds = %.preheader
@@ -817,7 +814,7 @@ _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233
 
 258:                                              ; preds = %.preheader
   %259 = load i32, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %260 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, i32 noundef %259) #6
   %261 = icmp ult ptr %.0209, %3
   br i1 %261, label %.lr.ph.preheader.i.i379, label %_conv.exit386
@@ -844,7 +841,7 @@ _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233
 
 _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265, %258
   %.06.lcssa.i.i378 = phi ptr [ %.0209, %258 ], [ %scevgep.i.i380, %265 ], [ %.067.i.i383, %.lr.ph.i.i381 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_add.exit
 
 268:                                              ; preds = %.preheader
@@ -882,7 +879,7 @@ _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265
   %280 = load i32, ptr %32, align 8
   %281 = sub i32 %279, %280
   %282 = sdiv i32 %281, 7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %283 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.2, i32 noundef %282) #6
   %284 = icmp ult ptr %.0209, %3
   br i1 %284, label %.lr.ph.preheader.i.i397, label %_conv.exit404
@@ -909,14 +906,14 @@ _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265
 
 _conv.exit404:                                    ; preds = %.lr.ph.i.i399, %288, %277
   %.06.lcssa.i.i396 = phi ptr [ %.0209, %277 ], [ %scevgep.i.i398, %288 ], [ %.067.i.i401, %.lr.ph.i.i399 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_add.exit
 
 291:                                              ; preds = %.preheader
   %292 = load i32, ptr %32, align 8
   %293 = icmp eq i32 %292, 0
   %spec.select253 = select i1 %293, i32 7, i32 %292
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %294 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.11, i32 noundef %spec.select253) #6
   %295 = icmp ult ptr %.0209, %3
   br i1 %295, label %.lr.ph.preheader.i.i406, label %_conv.exit413
@@ -943,7 +940,7 @@ _conv.exit404:                                    ; preds = %.lr.ph.i.i399, %288
 
 _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299, %291
   %.06.lcssa.i.i405 = phi ptr [ %.0209, %291 ], [ %scevgep.i.i407, %299 ], [ %.067.i.i410, %.lr.ph.i.i408 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_add.exit
 
 302:                                              ; preds = %.preheader, %.preheader, %.preheader
@@ -1039,7 +1036,7 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
   ]
 
 351:                                              ; preds = %350
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %352 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.2, i32 noundef %.3216.ph) #6
   %353 = icmp ult ptr %.0209, %3
   br i1 %353, label %.lr.ph.preheader.i.i415, label %_conv.exit422
@@ -1066,7 +1063,7 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
 
 _conv.exit422:                                    ; preds = %.lr.ph.i.i417, %357, %351
   %.06.lcssa.i.i414 = phi ptr [ %.0209, %351 ], [ %scevgep.i.i416, %357 ], [ %.067.i.i419, %.lr.ph.i.i417 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_add.exit
 
 360:                                              ; preds = %350
@@ -1103,7 +1100,7 @@ _conv.exit422:                                    ; preds = %.lr.ph.i.i417, %357
 378:                                              ; preds = %374, %372
   %.0.i429 = phi i32 [ %373, %372 ], [ %spec.select522, %374 ]
   %379 = call i32 @llvm.abs.i32(i32 %.0.i429, i1 true)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %380 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, i32 noundef %379) #6
   %381 = icmp ult ptr %.0209, %3
   br i1 %381, label %.lr.ph.preheader.i.i40.i, label %_yconv.exit431
@@ -1130,7 +1127,7 @@ _conv.exit422:                                    ; preds = %.lr.ph.i.i417, %357
 
 _yconv.exit431:                                   ; preds = %.lr.ph.i.i42.i, %385, %378
   %.06.lcssa.i.i39.i = phi ptr [ %.0209, %378 ], [ %.067.i.i44.i, %.lr.ph.i.i42.i ], [ %scevgep.i.i41.i, %385 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_add.exit
 
 388:                                              ; preds = %350
@@ -1150,7 +1147,7 @@ _yconv.exit431:                                   ; preds = %.lr.ph.i.i42.i, %38
   %spec.select255.neg663 = select i1 %.not242, i32 -6, i32 %.neg662
   %396 = add i32 %394, %spec.select255.neg663
   %397 = sdiv i32 %396, 7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %398 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef %397) #6
   %399 = icmp ult ptr %.0209, %3
   br i1 %399, label %.lr.ph.preheader.i.i433, label %_conv.exit440
@@ -1177,12 +1174,12 @@ _yconv.exit431:                                   ; preds = %.lr.ph.i.i42.i, %38
 
 _conv.exit440:                                    ; preds = %.lr.ph.i.i435, %403, %392
   %.06.lcssa.i.i432 = phi ptr [ %.0209, %392 ], [ %scevgep.i.i434, %403 ], [ %.067.i.i437, %.lr.ph.i.i435 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_add.exit
 
 406:                                              ; preds = %.preheader
   %407 = load i32, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %408 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.11, i32 noundef %407) #6
   %409 = icmp ult ptr %.0209, %3
   br i1 %409, label %.lr.ph.preheader.i.i442, label %_conv.exit449
@@ -1209,7 +1206,7 @@ _conv.exit440:                                    ; preds = %.lr.ph.i.i435, %403
 
 _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413, %406
   %.06.lcssa.i.i441 = phi ptr [ %.0209, %406 ], [ %scevgep.i.i443, %413 ], [ %.067.i.i446, %.lr.ph.i.i444 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_add.exit
 
 416:                                              ; preds = %.preheader
@@ -1217,7 +1214,7 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
   br label %_add.exit
 
 418:                                              ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 1, ptr %26, align 4
   %419 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %26)
   %420 = load i32, ptr %26, align 4
@@ -1232,7 +1229,7 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
   br label %425
 
 425:                                              ; preds = %424, %418
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_add.exit
 
 426:                                              ; preds = %.preheader
@@ -1259,7 +1256,7 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
 437:                                              ; preds = %433, %431
   %.0.i456 = phi i32 [ %432, %431 ], [ %spec.select523, %433 ]
   %438 = call i32 @llvm.abs.i32(i32 %.0.i456, i1 true)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %439 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.2, i32 noundef %438) #6
   %440 = icmp ult ptr %.0209, %3
   br i1 %440, label %.lr.ph.preheader.i.i40.i459, label %_yconv.exit466
@@ -1286,7 +1283,7 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
 
 _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, %444, %437
   %.06.lcssa.i.i39.i458 = phi ptr [ %.0209, %437 ], [ %.067.i.i44.i463, %.lr.ph.i.i42.i461 ], [ %scevgep.i.i41.i460, %444 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_add.exit
 
 447:                                              ; preds = %.preheader
@@ -1405,7 +1402,7 @@ _add.exit484:                                     ; preds = %483, %.lr.ph.i488, 
   %488 = srem i64 %485, 60
   %489 = add nsw i64 %487, %488
   %490 = trunc i64 %489 to i32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %491 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.15, i32 noundef %490) #6
   %492 = icmp ult ptr %phi.call, %3
   br i1 %492, label %.lr.ph.preheader.i.i495, label %_conv.exit502
@@ -1432,7 +1429,7 @@ _add.exit484:                                     ; preds = %483, %.lr.ph.i488, 
 
 _conv.exit502:                                    ; preds = %.lr.ph.i.i497, %496, %_add.exit484
   %.06.lcssa.i.i494 = phi ptr [ %phi.call, %_add.exit484 ], [ %scevgep.i.i496, %496 ], [ %.067.i.i499, %.lr.ph.i.i497 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_add.exit
 
 499:                                              ; preds = %.preheader
@@ -1462,9 +1459,6 @@ _add.exit:                                        ; preds = %456, %.lr.ph.i470, 
 506:                                              ; preds = %38, %.loopexit
   ret ptr %.0209
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
@@ -1541,7 +1535,7 @@ define internal fastcc ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 noundef ze
   br i1 %exitcond.not.i, label %_add.exit, label %.lr.ph.i, !llvm.loop !4
 
 41:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef %.033) #6
   %43 = icmp ult ptr %4, %5
   br i1 %43, label %.lr.ph.preheader.i.i, label %_conv.exit
@@ -1569,7 +1563,7 @@ define internal fastcc ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 noundef ze
 
 _conv.exit:                                       ; preds = %.lr.ph.i.i, %48, %41
   %.06.lcssa.i.i = phi ptr [ %4, %41 ], [ %scevgep.i.i, %48 ], [ %.067.i.i, %.lr.ph.i.i ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_add.exit
 
 _add.exit:                                        ; preds = %39, %.lr.ph.i, %33, %_conv.exit, %29
@@ -1578,7 +1572,7 @@ _add.exit:                                        ; preds = %39, %.lr.ph.i, %33,
 
 51:                                               ; preds = %_add.exit
   %52 = call i32 @llvm.abs.i32(i32 %.0, i1 true)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.2, i32 noundef %52) #6
   %54 = icmp ult ptr %.034, %5
   br i1 %54, label %.lr.ph.preheader.i.i40, label %_conv.exit47
@@ -1606,7 +1600,7 @@ _add.exit:                                        ; preds = %39, %.lr.ph.i, %33,
 
 _conv.exit47:                                     ; preds = %.lr.ph.i.i42, %59, %51
   %.06.lcssa.i.i39 = phi ptr [ %.034, %51 ], [ %scevgep.i.i41, %59 ], [ %.067.i.i44, %.lr.ph.i.i42 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %62
 
 62:                                               ; preds = %_conv.exit47, %_add.exit
@@ -1614,15 +1608,21 @@ _conv.exit47:                                     ; preds = %.lr.ph.i.i42, %59, 
   ret ptr %.1
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind willreturn memory(none) }
 attributes #6 = { nounwind }

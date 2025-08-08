@@ -25,7 +25,7 @@ define signext range(i8 0, 2) i8 @ucol_looksLikeCollationBinary_77(ptr noundef %
   br i1 %or.cond3, label %59, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !3
   %9 = call i32 @udata_swapDataHeader_77(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -1, ptr noundef null, ptr noundef nonnull %4)
   %10 = load i32, ptr %4, align 4, !tbaa !3
@@ -108,7 +108,7 @@ define signext range(i8 0, 2) i8 @ucol_looksLikeCollationBinary_77(ptr noundef %
 
 58:                                               ; preds = %53, %34, %32, %45, %38, %49, %24
   %.2 = phi i8 [ 1, %24 ], [ 0, %34 ], [ 0, %32 ], [ 0, %45 ], [ 0, %38 ], [ 0, %49 ], [ %spec.select, %53 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 59:                                               ; preds = %3, %58
@@ -116,18 +116,12 @@ define signext range(i8 0, 2) i8 @ucol_looksLikeCollationBinary_77(ptr noundef %
   ret i8 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @udata_swapDataHeader_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @udata_swapDataHeader_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @udata_readInt32_77(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @udata_readInt32_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ucol_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -565,7 +559,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion3EPK12UD
   ret i32 %.0
 }
 
-declare void @udata_printError_77(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @udata_printError_77(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UDataSwapperPKviPvR10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 {
@@ -575,7 +569,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UD
   br i1 %8, label %9, label %179
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %or.cond = icmp ult i32 %2, 8
   br i1 %or.cond, label %10, label %11
 
@@ -856,7 +850,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UD
 
 178:                                              ; preds = %.sink.split, %170, %40
   %.1 = phi i32 [ %.0, %40 ], [ %.0, %170 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %179
 
 179:                                              ; preds = %5, %178
@@ -1013,22 +1007,27 @@ define i32 @ucol_swapInverseUCA_77(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @utrie_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @utrie_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @utrie2_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @utrie2_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

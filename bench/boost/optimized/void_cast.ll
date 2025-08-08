@@ -226,12 +226,6 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
   ret ptr %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN5boost13serialization13void_downcastERKNS0_18extended_type_infoES3_PKv(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::serialization::void_cast_detail::void_caster_argument", align 8
@@ -260,7 +254,7 @@ define noundef ptr @_ZN5boost13serialization13void_downcastERKNS0_18extended_typ
   br label %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit
 
 _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit: ; preds = %7, %10, %12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %14, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -268,10 +262,10 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !19
   %17 = call ptr @_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %17, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %.not, label %25, label %18
 
@@ -286,7 +280,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 
 25:                                               ; preds = %18, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit
   %.1 = phi ptr [ %24, %18 ], [ null, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 26:                                               ; preds = %3, %25
@@ -394,7 +388,7 @@ define noundef ptr @_ZN5boost13serialization11void_upcastERKNS0_18extended_type_
   br label %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit
 
 _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit: ; preds = %7, %10, %12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %14, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -402,10 +396,10 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !19
   %17 = call ptr @_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %17, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %.not, label %25, label %18
 
@@ -420,7 +414,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 
 25:                                               ; preds = %18, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit
   %.1 = phi ptr [ %24, %18 ], [ null, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 26:                                               ; preds = %3, %25
@@ -456,7 +450,7 @@ define void @_ZNK5boost13serialization16void_cast_detail11void_caster18recursive
   br label %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE20get_mutable_instanceEv.exit
 
 _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE20get_mutable_instanceEv.exit: ; preds = %2, %11, %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !19
   %15 = call { ptr, ptr } @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE24_M_get_insert_unique_posERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %16 = extractvalue { ptr, ptr } %15, 1
@@ -465,14 +459,14 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 
 17:                                               ; preds = %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE20get_mutable_instanceEv.exit
   %18 = extractvalue { ptr, ptr } %15, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr %3, align 8, !tbaa !19
   %19 = call ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE10_M_insert_IS5_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSG_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef %18, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE6insertEOS5_.exit
 
 _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE6insertEOS5_.exit: ; preds = %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE20get_mutable_instanceEv.exit, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !16
   %.not47 = icmp eq ptr %20, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -500,7 +494,7 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   br i1 %36, label %37, label %75
 
 37:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load ptr, ptr %32, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !3
@@ -509,13 +503,13 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   store ptr %41, ptr %24, align 8, !tbaa !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %5, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !19
   %42 = invoke ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE4findERKS5_.exit unwind label %68
 
 _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE4findERKS5_.exit: ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = icmp eq ptr %42, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %43, label %44, label %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit
 
@@ -562,7 +556,7 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
 68:                                               ; preds = %37
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 70:                                               ; preds = %44
@@ -581,12 +575,12 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   br label %74
 
 _ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit: ; preds = %57, %_ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE4findERKS5_.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 74:                                               ; preds = %.body, %70, %68
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %71, %70 ], [ %69, %68 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %121
 
 75:                                               ; preds = %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit, %30
@@ -598,7 +592,7 @@ _ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18exten
   br i1 %80, label %81, label %119
 
 81:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %82 = load ptr, ptr %21, align 8, !tbaa !3
   %83 = load ptr, ptr %32, align 8, !tbaa !19
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -607,13 +601,13 @@ _ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18exten
   store ptr %85, ptr %28, align 8, !tbaa !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %7, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !19
   %86 = invoke ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE4findERKS5_.exit22 unwind label %112
 
 _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE4findERKS5_.exit22: ; preds = %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %87 = icmp eq ptr %86, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %87, label %88, label %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit25
 
@@ -660,7 +654,7 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
 112:                                              ; preds = %81
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %118
 
 114:                                              ; preds = %88
@@ -679,12 +673,12 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   br label %118
 
 _ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit25: ; preds = %101, %_ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE4findERKS5_.exit22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %119
 
 118:                                              ; preds = %.body23, %114, %112
   %.pn18 = phi { ptr, i32 } [ %eh.lpad-body24, %.body23 ], [ %115, %114 ], [ %113, %112 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %121
 
 119:                                              ; preds = %75, %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit25
@@ -705,10 +699,10 @@ declare noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoeqERKS1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail11void_casterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
@@ -795,7 +789,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @__cxx_global_var_init() #6 section ".text.startup" comdat($_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE10m_instanceE) personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_var_init() #5 section ".text.startup" comdat($_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE10m_instanceE) personality ptr @__gxx_personality_v0 {
   %1 = load i8, ptr @_ZGVN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE10m_instanceE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %10
@@ -924,7 +918,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost13serialization16void_c
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
   tail call void @_ZSt9terminatev() #17
   unreachable
@@ -933,10 +927,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #9
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -958,10 +952,10 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -984,7 +978,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost13serialization16void_c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE24_M_get_insert_unique_posERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 {
@@ -1155,10 +1149,10 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 {
@@ -1260,7 +1254,7 @@ _ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_Id
 }
 
 ; Function Attrs: nounwind
-declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 {
@@ -1361,21 +1355,27 @@ _ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_I
   ret ptr %.sroa.0.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { nofree nounwind }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nofree nounwind }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }

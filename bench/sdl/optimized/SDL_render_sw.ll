@@ -32,11 +32,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SW_CreateRendererForSurface(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %1) #9
+  %4 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %1) #8
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   br label %72
 
 7:                                                ; preds = %3
@@ -98,7 +98,7 @@ define hidden zeroext i1 @SW_CreateRendererForSurface(ptr noundef %0, ptr nounde
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %36 = load i32, ptr %35, align 4
-  %37 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %36) #9
+  %37 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %36) #8
   switch i32 %36, label %51 [
     i32 353504258, label %.thread40.thread45.thread.sink.split.i
     i32 357698562, label %.thread40.thread45.thread48.sink.split.i
@@ -188,49 +188,49 @@ define hidden zeroext i1 @SW_CreateRendererForSurface(ptr noundef %0, ptr nounde
   ]
 
 58:                                               ; preds = %.thread40.thread45.i, %.thread40.thread45.i
-  %59 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 375789572) #9
+  %59 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 375789572) #8
   br label %.thread40.thread.sink.split.i
 
 60:                                               ; preds = %.thread40.thread45.i, %.thread40.thread45.i
-  %61 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 371595268) #9
+  %61 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 371595268) #8
   br label %.thread40.thread.sink.split.i
 
 .thread40.thread45.thread48.sink.split.i:         ; preds = %43, %41, %39, %10
   %.sink.i = phi i32 [ 357764866, %43 ], [ 359862274, %41 ], [ 357698562, %39 ], [ 359796738, %10 ]
-  %62 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink.i) #9
+  %62 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink.i) #8
   br label %.thread40.thread45.thread48.i
 
 .thread40.thread45.thread48.i:                    ; preds = %.thread40.thread45.thread48.sink.split.i, %.thread40.thread45.i, %.thread40.thread45.i
-  %63 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 374740996) #9
+  %63 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 374740996) #8
   br label %.thread40.thread.sink.split.i
 
 .thread40.thread45.thread.sink.split.i:           ; preds = %42, %40, %38, %10
   %.sink49.i = phi i32 [ 353570562, %42 ], [ 355667970, %40 ], [ 353504258, %38 ], [ 355602434, %10 ]
-  %64 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink49.i) #9
+  %64 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink49.i) #8
   br label %.thread40.thread45.thread.i
 
 .thread40.thread45.thread.i:                      ; preds = %.thread40.thread45.thread.sink.split.i, %.thread40.thread45.i
-  %65 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 370546692) #9
+  %65 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 370546692) #8
   br label %.thread40.thread.sink.split.i
 
 .thread.i:                                        ; preds = %52, %51, %10
-  %66 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 370546692) #9
+  %66 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 370546692) #8
   br label %.thread40.thread.sink.split.i
 
 .thread40.thread.sink.split.i:                    ; preds = %.thread.i, %.thread40.thread45.thread.i, %.thread40.thread45.thread48.i, %60, %58, %50, %49, %48, %47, %46, %45, %44, %10
   %.sink50.i = phi i32 [ 373694468, %44 ], [ 376840196, %45 ], [ 377888772, %46 ], [ 370546692, %47 ], [ 371595268, %48 ], [ 374740996, %49 ], [ 375789572, %50 ], [ 372645892, %.thread40.thread45.thread.i ], [ 376840196, %.thread40.thread45.thread48.i ], [ 373694468, %60 ], [ 377888772, %58 ], [ 372645892, %.thread.i ], [ 372645892, %10 ]
-  %67 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink50.i) #9
+  %67 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink50.i) #8
   br label %SW_SelectBestFormats.exit
 
 SW_SelectBestFormats.exit:                        ; preds = %.thread40.i, %.thread40.thread.sink.split.i
-  tail call void @SDL_SetupRendererColorspace(ptr noundef nonnull %0, i32 noundef %2) #9
+  tail call void @SDL_SetupRendererColorspace(ptr noundef nonnull %0, i32 noundef %2) #8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %69 = load i32, ptr %68, align 8
   %.not38 = icmp eq i32 %69, 301991328
   br i1 %.not38, label %72, label %70
 
 70:                                               ; preds = %SW_SelectBestFormats.exit
-  %71 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #9
+  %71 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #8
   br label %72
 
 72:                                               ; preds = %SW_SelectBestFormats.exit, %7, %70, %5
@@ -238,18 +238,15 @@ SW_SelectBestFormats.exit:                        ; preds = %.thread40.i, %.thre
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @SW_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal void @SW_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, 519
   br i1 %4, label %5, label %8
@@ -300,11 +297,11 @@ define internal zeroext i1 @SW_GetOutputSize(ptr noundef readonly captures(none)
   br i1 %.not17, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef nonnull %18, ptr noundef %1, ptr noundef %2) #9
+  %20 = tail call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef nonnull %18, ptr noundef %1, ptr noundef %2) #8
   br label %23
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
+  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #8
   br label %23
 
 23:                                               ; preds = %11, %12, %21, %19
@@ -319,12 +316,12 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
-  %9 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %5, i32 noundef %7, i32 noundef %8) #9
-  %10 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %9) #9
+  %9 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %5, i32 noundef %7, i32 noundef %8) #8
+  %10 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %9) #8
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %3
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #8
   br label %switch.lookup
 
 13:                                               ; preds = %3
@@ -345,7 +342,7 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
 
 22:                                               ; preds = %20, %18, %13
   %23 = phi float [ 0.000000e+00, %13 ], [ %21, %20 ], [ 2.550000e+02, %18 ]
-  %24 = tail call float @SDL_roundf_REAL(float noundef %23) #9
+  %24 = tail call float @SDL_roundf_REAL(float noundef %23) #8
   %25 = fptoui float %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %27 = load float, ptr %26, align 4
@@ -362,7 +359,7 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
 
 33:                                               ; preds = %31, %29, %22
   %34 = phi float [ 0.000000e+00, %22 ], [ %32, %31 ], [ 2.550000e+02, %29 ]
-  %35 = tail call float @SDL_roundf_REAL(float noundef %34) #9
+  %35 = tail call float @SDL_roundf_REAL(float noundef %34) #8
   %36 = fptoui float %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load float, ptr %37, align 8
@@ -379,7 +376,7 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
 
 44:                                               ; preds = %42, %40, %33
   %45 = phi float [ 0.000000e+00, %33 ], [ %43, %42 ], [ 2.550000e+02, %40 ]
-  %46 = tail call float @SDL_roundf_REAL(float noundef %45) #9
+  %46 = tail call float @SDL_roundf_REAL(float noundef %45) #8
   %47 = fptoui float %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %49 = load float, ptr %48, align 4
@@ -396,13 +393,13 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
 
 55:                                               ; preds = %53, %51, %44
   %56 = phi float [ 0.000000e+00, %44 ], [ %54, %53 ], [ 2.550000e+02, %51 ]
-  %57 = tail call float @SDL_roundf_REAL(float noundef %56) #9
+  %57 = tail call float @SDL_roundf_REAL(float noundef %56) #8
   %58 = fptoui float %57 to i8
-  %59 = tail call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %9, i8 noundef zeroext %25, i8 noundef zeroext %36, i8 noundef zeroext %47) #9
-  %60 = tail call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %9, i8 noundef zeroext %58) #9
+  %59 = tail call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %9, i8 noundef zeroext %25, i8 noundef zeroext %36, i8 noundef zeroext %47) #8
+  %60 = tail call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %9, i8 noundef zeroext %58) #8
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %62 = load i32, ptr %61, align 8
-  %63 = tail call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %9, i32 noundef %62) #9
+  %63 = tail call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %9, i32 noundef %62) #8
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
@@ -452,7 +449,7 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
   br i1 %or.cond75, label %switch.lookup, label %.thread
 
 .thread:                                          ; preds = %78, %73, %67, %77
-  %82 = tail call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef nonnull %9, i1 noundef zeroext true) #9
+  %82 = tail call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef nonnull %9, i1 noundef zeroext true) #8
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %78, %73, %55, %.thread, %11
@@ -470,7 +467,7 @@ define internal noundef zeroext i1 @SW_UpdateTexture(ptr readnone captures(none)
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %7) #9
+  %11 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %7) #8
   br i1 %11, label %12, label %51
 
 12:                                               ; preds = %10, %5
@@ -527,7 +524,7 @@ define internal noundef zeroext i1 @SW_UpdateTexture(ptr readnone captures(none)
   br i1 %.not26, label %51, label %50
 
 50:                                               ; preds = %._crit_edge
-  tail call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %7) #9
+  tail call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %7) #8
   br label %51
 
 51:                                               ; preds = %._crit_edge, %50, %10
@@ -536,7 +533,7 @@ define internal noundef zeroext i1 @SW_UpdateTexture(ptr readnone captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @SW_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #5 {
+define internal noundef zeroext i1 @SW_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -564,12 +561,12 @@ define internal noundef zeroext i1 @SW_LockTexture(ptr readnone captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SW_UnlockTexture(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @SW_UnlockTexture(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @SW_SetRenderTarget(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #7 {
+define internal noundef zeroext i1 @SW_SetRenderTarget(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -582,7 +579,7 @@ define internal noundef zeroext i1 @SW_SetRenderTarget(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @SW_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef zeroext i1 @SW_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret i1 true
 }
 
@@ -591,7 +588,7 @@ define internal noundef zeroext i1 @SW_QueueDrawPoints(ptr noundef %0, ptr nound
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #9
+  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #8
   %.not = icmp ne ptr %8, null
   br i1 %.not, label %9, label %.loopexit
 
@@ -628,7 +625,7 @@ define internal noundef zeroext i1 @SW_QueueFillRects(ptr noundef %0, ptr nounde
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #9
+  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #8
   %.not = icmp ne ptr %8, null
   br i1 %.not, label %9, label %.loopexit
 
@@ -675,7 +672,7 @@ define internal noundef zeroext i1 @SW_QueueFillRects(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SW_QueueCopy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef 32, i64 noundef 0, ptr noundef nonnull %6) #9
+  %7 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef 32, i64 noundef 0, ptr noundef nonnull %6) #8
   %.not = icmp ne ptr %7, null
   br i1 %.not, label %8, label %39
 
@@ -728,7 +725,7 @@ define internal noundef zeroext i1 @SW_QueueCopy(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SW_QueueCopyEx(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, double noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, float noundef %8, float noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef 64, i64 noundef 0, ptr noundef nonnull %11) #9
+  %12 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef 64, i64 noundef 0, ptr noundef nonnull %11) #8
   %.not = icmp ne ptr %12, null
   br i1 %.not, label %13, label %50
 
@@ -800,7 +797,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   %20 = load float, ptr %19, align 8
   %21 = sext i32 %16 to i64
   %22 = mul nsw i64 %17, %21
-  %23 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %22, i64 noundef 0, ptr noundef nonnull %18) #9
+  %23 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %22, i64 noundef 0, ptr noundef nonnull %18) #8
   %.not141 = icmp ne ptr %23, null
   br i1 %.not141, label %24, label %.loopexit
 
@@ -897,7 +894,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   %72 = fptosi float %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %.0127144, i64 12
   store i32 %72, ptr %73, align 4
-  tail call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %68) #9
+  tail call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %68) #8
   %74 = fmul float %20, %.sroa.021.0.copyload
   %75 = fcmp olt float %74, 0.000000e+00
   br i1 %75, label %80, label %76
@@ -910,7 +907,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 80:                                               ; preds = %43, %76
   %81 = phi float [ %79, %76 ], [ 0.000000e+00, %43 ]
-  %82 = tail call float @SDL_roundf_REAL(float noundef %81) #9
+  %82 = tail call float @SDL_roundf_REAL(float noundef %81) #8
   %83 = fptoui float %82 to i8
   %84 = getelementptr inbounds nuw i8, ptr %.0127144, i64 16
   store i8 %83, ptr %84, align 4
@@ -926,7 +923,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 91:                                               ; preds = %80, %87
   %92 = phi float [ %90, %87 ], [ 0.000000e+00, %80 ]
-  %93 = tail call float @SDL_roundf_REAL(float noundef %92) #9
+  %93 = tail call float @SDL_roundf_REAL(float noundef %92) #8
   %94 = fptoui float %93 to i8
   %95 = getelementptr inbounds nuw i8, ptr %.0127144, i64 17
   store i8 %94, ptr %95, align 1
@@ -942,7 +939,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 102:                                              ; preds = %91, %98
   %103 = phi float [ %101, %98 ], [ 0.000000e+00, %91 ]
-  %104 = tail call float @SDL_roundf_REAL(float noundef %103) #9
+  %104 = tail call float @SDL_roundf_REAL(float noundef %103) #8
   %105 = fptoui float %104 to i8
   %106 = getelementptr inbounds nuw i8, ptr %.0127144, i64 18
   store i8 %105, ptr %106, align 2
@@ -957,7 +954,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 112:                                              ; preds = %102, %108
   %113 = phi float [ %111, %108 ], [ 0.000000e+00, %102 ]
-  %114 = tail call float @SDL_roundf_REAL(float noundef %113) #9
+  %114 = tail call float @SDL_roundf_REAL(float noundef %113) #8
   %115 = fptoui float %114 to i8
   %116 = getelementptr inbounds nuw i8, ptr %.0127144, i64 19
   store i8 %115, ptr %116, align 1
@@ -1018,7 +1015,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   %143 = fptosi float %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %.0129146, i64 4
   store i32 %143, ptr %144, align 4
-  tail call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %.0129146) #9
+  tail call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %.0129146) #8
   %145 = fmul float %20, %.sroa.0.0.copyload
   %146 = fcmp olt float %145, 0.000000e+00
   br i1 %146, label %151, label %147
@@ -1031,7 +1028,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 151:                                              ; preds = %130, %147
   %152 = phi float [ %150, %147 ], [ 0.000000e+00, %130 ]
-  %153 = tail call float @SDL_roundf_REAL(float noundef %152) #9
+  %153 = tail call float @SDL_roundf_REAL(float noundef %152) #8
   %154 = fptoui float %153 to i8
   %155 = getelementptr inbounds nuw i8, ptr %.0129146, i64 8
   store i8 %154, ptr %155, align 4
@@ -1047,7 +1044,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 162:                                              ; preds = %151, %158
   %163 = phi float [ %161, %158 ], [ 0.000000e+00, %151 ]
-  %164 = tail call float @SDL_roundf_REAL(float noundef %163) #9
+  %164 = tail call float @SDL_roundf_REAL(float noundef %163) #8
   %165 = fptoui float %164 to i8
   %166 = getelementptr inbounds nuw i8, ptr %.0129146, i64 9
   store i8 %165, ptr %166, align 1
@@ -1063,7 +1060,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 173:                                              ; preds = %162, %169
   %174 = phi float [ %172, %169 ], [ 0.000000e+00, %162 ]
-  %175 = tail call float @SDL_roundf_REAL(float noundef %174) #9
+  %175 = tail call float @SDL_roundf_REAL(float noundef %174) #8
   %176 = fptoui float %175 to i8
   %177 = getelementptr inbounds nuw i8, ptr %.0129146, i64 10
   store i8 %176, ptr %177, align 2
@@ -1078,7 +1075,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 
 183:                                              ; preds = %173, %179
   %184 = phi float [ %182, %179 ], [ 0.000000e+00, %173 ]
-  %185 = tail call float @SDL_roundf_REAL(float noundef %184) #9
+  %185 = tail call float @SDL_roundf_REAL(float noundef %184) #8
   %186 = fptoui float %185 to i8
   %187 = getelementptr inbounds nuw i8, ptr %.0129146, i64 11
   store i8 %186, ptr %187, align 1
@@ -1092,7 +1089,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SW_InvalidateCachedState(ptr readnone captures(none) %0) #6 {
+define internal void @SW_InvalidateCachedState(ptr readnone captures(none) %0) #5 {
   ret void
 }
 
@@ -1137,7 +1134,7 @@ define internal noundef zeroext i1 @SW_RunCommandQueue(ptr noundef readonly capt
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %36) #9
+  %37 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %36) #8
   %.not12.i = icmp eq ptr %37, null
   br i1 %.not12.i, label %..thread_crit_edge.i, label %38
 
@@ -1152,8 +1149,8 @@ define internal noundef zeroext i1 @SW_RunCommandQueue(ptr noundef readonly capt
 
 SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_crit_edge.i, %38
   %39 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %30, %4 ], [ %37, %38 ], [ %33, %31 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #9
-  %40 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %39) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  %40 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %39) #8
   br i1 %40, label %41, label %.loopexit341
 
 41:                                               ; preds = %SW_ActivateRenderer.exit
@@ -1232,7 +1229,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 86:                                               ; preds = %84, %82, %75
   %87 = phi float [ 0.000000e+00, %75 ], [ %85, %84 ], [ 2.550000e+02, %82 ]
-  %88 = call float @SDL_roundf_REAL(float noundef %87) #9
+  %88 = call float @SDL_roundf_REAL(float noundef %87) #8
   %89 = fptoui float %88 to i8
   store i8 %89, ptr %44, align 1
   %90 = getelementptr inbounds nuw i8, ptr %.0272365, i64 24
@@ -1252,7 +1249,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 99:                                               ; preds = %97, %95, %86
   %100 = phi float [ 0.000000e+00, %86 ], [ %98, %97 ], [ 2.550000e+02, %95 ]
-  %101 = call float @SDL_roundf_REAL(float noundef %100) #9
+  %101 = call float @SDL_roundf_REAL(float noundef %100) #8
   %102 = fptoui float %101 to i8
   store i8 %102, ptr %45, align 2
   %103 = getelementptr inbounds nuw i8, ptr %.0272365, i64 28
@@ -1272,7 +1269,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 112:                                              ; preds = %110, %108, %99
   %113 = phi float [ 0.000000e+00, %99 ], [ %111, %110 ], [ 2.550000e+02, %108 ]
-  %114 = call float @SDL_roundf_REAL(float noundef %113) #9
+  %114 = call float @SDL_roundf_REAL(float noundef %113) #8
   %115 = fptoui float %114 to i8
   store i8 %115, ptr %46, align 1
   %116 = getelementptr inbounds nuw i8, ptr %.0272365, i64 32
@@ -1290,7 +1287,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 123:                                              ; preds = %121, %119, %112
   %124 = phi float [ 0.000000e+00, %112 ], [ %122, %121 ], [ 2.550000e+02, %119 ]
-  %125 = call float @SDL_roundf_REAL(float noundef %124) #9
+  %125 = call float @SDL_roundf_REAL(float noundef %124) #8
   %126 = fptoui float %125 to i8
   store i8 %126, ptr %47, align 4
   br label %.loopexit339
@@ -1330,7 +1327,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 146:                                              ; preds = %144, %142, %135
   %147 = phi float [ 0.000000e+00, %135 ], [ %145, %144 ], [ 2.550000e+02, %142 ]
-  %148 = call float @SDL_roundf_REAL(float noundef %147) #9
+  %148 = call float @SDL_roundf_REAL(float noundef %147) #8
   %149 = fptoui float %148 to i8
   %150 = getelementptr inbounds nuw i8, ptr %.0272365, i64 24
   %151 = load float, ptr %150, align 4
@@ -1349,7 +1346,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 159:                                              ; preds = %157, %155, %146
   %160 = phi float [ 0.000000e+00, %146 ], [ %158, %157 ], [ 2.550000e+02, %155 ]
-  %161 = call float @SDL_roundf_REAL(float noundef %160) #9
+  %161 = call float @SDL_roundf_REAL(float noundef %160) #8
   %162 = fptoui float %161 to i8
   %163 = getelementptr inbounds nuw i8, ptr %.0272365, i64 28
   %164 = load float, ptr %163, align 4
@@ -1368,7 +1365,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 172:                                              ; preds = %170, %168, %159
   %173 = phi float [ 0.000000e+00, %159 ], [ %171, %170 ], [ 2.550000e+02, %168 ]
-  %174 = call float @SDL_roundf_REAL(float noundef %173) #9
+  %174 = call float @SDL_roundf_REAL(float noundef %173) #8
   %175 = fptoui float %174 to i8
   %176 = getelementptr inbounds nuw i8, ptr %.0272365, i64 32
   %177 = load float, ptr %176, align 4
@@ -1385,11 +1382,11 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 183:                                              ; preds = %181, %179, %172
   %184 = phi float [ 0.000000e+00, %172 ], [ %182, %181 ], [ 2.550000e+02, %179 ]
-  %185 = call float @SDL_roundf_REAL(float noundef %184) #9
+  %185 = call float @SDL_roundf_REAL(float noundef %184) #8
   %186 = fptoui float %185 to i8
-  %187 = call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %39, ptr noundef null) #9
-  %188 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %149, i8 noundef zeroext %162, i8 noundef zeroext %175, i8 noundef zeroext %186) #9
-  %189 = call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef %39, ptr noundef null, i32 noundef %188) #9
+  %187 = call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %39, ptr noundef null) #8
+  %188 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %149, i8 noundef zeroext %162, i8 noundef zeroext %175, i8 noundef zeroext %186) #8
+  %189 = call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef %39, ptr noundef null, i32 noundef %188) #8
   store i8 1, ptr %43, align 8
   br label %.loopexit339
 
@@ -1454,12 +1451,12 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   br i1 %221, label %222, label %225
 
 222:                                              ; preds = %.loopexit
-  %223 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %191, i8 noundef zeroext %192, i8 noundef zeroext %193, i8 noundef zeroext %194) #9
-  %224 = call zeroext i1 @SDL_DrawPoints(ptr noundef %39, ptr noundef %200, i32 noundef %198, i32 noundef %223) #9
+  %223 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %191, i8 noundef zeroext %192, i8 noundef zeroext %193, i8 noundef zeroext %194) #8
+  %224 = call zeroext i1 @SDL_DrawPoints(ptr noundef %39, ptr noundef %200, i32 noundef %198, i32 noundef %223) #8
   br label %.loopexit339
 
 225:                                              ; preds = %.loopexit
-  %226 = call zeroext i1 @SDL_BlendPoints(ptr noundef %39, ptr noundef %200, i32 noundef %198, i32 noundef %202, i8 noundef zeroext %191, i8 noundef zeroext %192, i8 noundef zeroext %193, i8 noundef zeroext %194) #9
+  %226 = call zeroext i1 @SDL_BlendPoints(ptr noundef %39, ptr noundef %200, i32 noundef %198, i32 noundef %202, i8 noundef zeroext %191, i8 noundef zeroext %192, i8 noundef zeroext %193, i8 noundef zeroext %194) #8
   br label %.loopexit339
 
 227:                                              ; preds = %73
@@ -1523,12 +1520,12 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   br i1 %258, label %259, label %262
 
 259:                                              ; preds = %.loopexit337
-  %260 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %228, i8 noundef zeroext %229, i8 noundef zeroext %230, i8 noundef zeroext %231) #9
-  %261 = call zeroext i1 @SDL_DrawLines(ptr noundef %39, ptr noundef %237, i32 noundef %235, i32 noundef %260) #9
+  %260 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %228, i8 noundef zeroext %229, i8 noundef zeroext %230, i8 noundef zeroext %231) #8
+  %261 = call zeroext i1 @SDL_DrawLines(ptr noundef %39, ptr noundef %237, i32 noundef %235, i32 noundef %260) #8
   br label %.loopexit339
 
 262:                                              ; preds = %.loopexit337
-  %263 = call zeroext i1 @SDL_BlendLines(ptr noundef %39, ptr noundef %237, i32 noundef %235, i32 noundef %239, i8 noundef zeroext %228, i8 noundef zeroext %229, i8 noundef zeroext %230, i8 noundef zeroext %231) #9
+  %263 = call zeroext i1 @SDL_BlendLines(ptr noundef %39, ptr noundef %237, i32 noundef %235, i32 noundef %239, i8 noundef zeroext %228, i8 noundef zeroext %229, i8 noundef zeroext %230, i8 noundef zeroext %231) #8
   br label %.loopexit339
 
 264:                                              ; preds = %73
@@ -1592,12 +1589,12 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   br i1 %295, label %296, label %299
 
 296:                                              ; preds = %.loopexit338
-  %297 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %265, i8 noundef zeroext %266, i8 noundef zeroext %267, i8 noundef zeroext %268) #9
-  %298 = call zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef %39, ptr noundef %274, i32 noundef %272, i32 noundef %297) #9
+  %297 = call i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef %39, i8 noundef zeroext %265, i8 noundef zeroext %266, i8 noundef zeroext %267, i8 noundef zeroext %268) #8
+  %298 = call zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef %39, ptr noundef %274, i32 noundef %272, i32 noundef %297) #8
   br label %.loopexit339
 
 299:                                              ; preds = %.loopexit338
-  %300 = call zeroext i1 @SDL_BlendFillRects(ptr noundef %39, ptr noundef %274, i32 noundef %272, i32 noundef %276, i8 noundef zeroext %265, i8 noundef zeroext %266, i8 noundef zeroext %267, i8 noundef zeroext %268) #9
+  %300 = call zeroext i1 @SDL_BlendFillRects(ptr noundef %39, ptr noundef %274, i32 noundef %272, i32 noundef %276, i8 noundef zeroext %265, i8 noundef zeroext %266, i8 noundef zeroext %267, i8 noundef zeroext %268) #8
   br label %.loopexit339
 
 301:                                              ; preds = %73
@@ -1634,13 +1631,13 @@ switch.edge.i:                                    ; preds = %301
   br i1 %or.cond3.i, label %switch.edge.thread.i, label %PrepTextureForCopy.exit
 
 switch.edge.thread.i:                             ; preds = %switch.edge.i, %301, %301, %301
-  %320 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %.0272.val322.val, i1 noundef zeroext false) #9
+  %320 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %.0272.val322.val, i1 noundef zeroext false) #8
   br label %PrepTextureForCopy.exit
 
 PrepTextureForCopy.exit:                          ; preds = %switch.edge.i, %switch.edge.thread.i
-  %321 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %.0272.val322.val, i8 noundef zeroext %312, i8 noundef zeroext %313, i8 noundef zeroext %314) #9
-  %322 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %.0272.val322.val, i8 noundef zeroext %315) #9
-  %323 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val322.val, i32 noundef %.0272.val) #9
+  %321 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %.0272.val322.val, i8 noundef zeroext %312, i8 noundef zeroext %313, i8 noundef zeroext %314) #8
+  %322 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %.0272.val322.val, i8 noundef zeroext %315) #8
+  %323 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val322.val, i32 noundef %.0272.val) #8
   %324 = load ptr, ptr %19, align 8
   %.not309 = icmp eq ptr %324, null
   br i1 %.not309, label %338, label %325
@@ -1685,11 +1682,11 @@ PrepTextureForCopy.exit:                          ; preds = %switch.edge.i, %swi
   br i1 %349, label %350, label %352
 
 350:                                              ; preds = %344
-  %351 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %309, ptr noundef nonnull %304, ptr noundef %39, ptr noundef nonnull %305) #9
+  %351 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %309, ptr noundef nonnull %304, ptr noundef %39, ptr noundef nonnull %305) #8
   br label %.loopexit339
 
 352:                                              ; preds = %344, %338
-  %353 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %39, i1 noundef zeroext false) #9
+  %353 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %39, i1 noundef zeroext false) #8
   %354 = load i32, ptr %305, align 4
   %355 = icmp slt i32 %354, 0
   br i1 %355, label %._crit_edge400, label %356
@@ -1725,54 +1722,54 @@ PrepTextureForCopy.exit:                          ; preds = %switch.edge.i, %swi
   %373 = load i32, ptr %372, align 4
   %374 = getelementptr inbounds nuw i8, ptr %309, i64 4
   %375 = load i32, ptr %374, align 4
-  %376 = call ptr @SDL_CreateSurface_REAL(i32 noundef %371, i32 noundef %373, i32 noundef %375) #9
+  %376 = call ptr @SDL_CreateSurface_REAL(i32 noundef %371, i32 noundef %373, i32 noundef %375) #8
   %.not312 = icmp eq ptr %376, null
   br i1 %.not312, label %.loopexit339, label %377
 
 377:                                              ; preds = %370
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #9
-  %378 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %309, ptr noundef nonnull %21) #9
-  %379 = call zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef nonnull %309, ptr noundef nonnull %22) #9
-  %380 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %309, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  %378 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %309, ptr noundef nonnull %21) #8
+  %379 = call zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef nonnull %309, ptr noundef nonnull %22) #8
+  %380 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %309, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #8
   store i32 0, ptr %20, align 4
   store i32 0, ptr %70, align 4
   %381 = load i32, ptr %341, align 4
   store i32 %381, ptr %71, align 4
   %382 = load i32, ptr %372, align 4
   store i32 %382, ptr %72, align 4
-  %383 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %309, i32 noundef 0) #9
-  %384 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %309, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %385 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %309, i8 noundef zeroext -1) #9
+  %383 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %309, i32 noundef 0) #8
+  %384 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %309, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #8
+  %385 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %309, i8 noundef zeroext -1) #8
   %386 = getelementptr inbounds nuw i8, ptr %.0272365, i64 56
   %387 = load i32, ptr %386, align 8
-  %388 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %309, ptr noundef nonnull %304, ptr noundef nonnull %376, ptr noundef nonnull %20, i32 noundef %387) #9
+  %388 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %309, ptr noundef nonnull %304, ptr noundef nonnull %376, ptr noundef nonnull %20, i32 noundef %387) #8
   %389 = load i8, ptr %23, align 1
   %390 = load i8, ptr %24, align 1
   %391 = load i8, ptr %25, align 1
-  %392 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %376, i8 noundef zeroext %389, i8 noundef zeroext %390, i8 noundef zeroext %391) #9
+  %392 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %376, i8 noundef zeroext %389, i8 noundef zeroext %390, i8 noundef zeroext %391) #8
   %393 = load i8, ptr %22, align 1
-  %394 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %376, i8 noundef zeroext %393) #9
+  %394 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %376, i8 noundef zeroext %393) #8
   %395 = load i32, ptr %21, align 4
-  %396 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %376, i32 noundef %395) #9
-  %397 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef nonnull %376, ptr noundef null, ptr noundef %39, ptr noundef nonnull %305) #9
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %376) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #9
+  %396 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %376, i32 noundef %395) #8
+  %397 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef nonnull %376, ptr noundef null, ptr noundef %39, ptr noundef nonnull %305) #8
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %376) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit339
 
 398:                                              ; preds = %364
   %399 = getelementptr inbounds nuw i8, ptr %.0272365, i64 56
   %400 = load i32, ptr %399, align 8
-  %401 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %309, ptr noundef nonnull %304, ptr noundef nonnull %39, ptr noundef nonnull %305, i32 noundef %400) #9
+  %401 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %309, ptr noundef nonnull %304, ptr noundef nonnull %39, ptr noundef nonnull %305, i32 noundef %400) #8
   br label %.loopexit339
 
 402:                                              ; preds = %73
@@ -1805,13 +1802,13 @@ switch.edge.i328:                                 ; preds = %402
   br i1 %or.cond3.i329, label %switch.edge.thread.i327, label %PrepTextureForCopy.exit330
 
 switch.edge.thread.i327:                          ; preds = %switch.edge.i328, %402, %402, %402
-  %417 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %.0272.val324.val, i1 noundef zeroext false) #9
+  %417 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %.0272.val324.val, i1 noundef zeroext false) #8
   br label %PrepTextureForCopy.exit330
 
 PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %switch.edge.thread.i327
-  %418 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %.0272.val324.val, i8 noundef zeroext %409, i8 noundef zeroext %410, i8 noundef zeroext %411) #9
-  %419 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %.0272.val324.val, i8 noundef zeroext %412) #9
-  %420 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val324.val, i32 noundef %.0272.val323) #9
+  %418 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %.0272.val324.val, i8 noundef zeroext %409, i8 noundef zeroext %410, i8 noundef zeroext %411) #8
+  %419 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %.0272.val324.val, i8 noundef zeroext %412) #8
+  %420 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val324.val, i32 noundef %.0272.val323) #8
   %421 = load ptr, ptr %19, align 8
   %.not306 = icmp eq ptr %421, null
   br i1 %.not306, label %436, label %422
@@ -1856,13 +1853,13 @@ PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %
   %449 = load i32, ptr %448, align 8
   %450 = getelementptr i8, ptr %437, i64 280
   %.val = load ptr, ptr %450, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #9
-  %451 = call zeroext i1 @SDL_SurfaceValid(ptr noundef %39) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %451 = call zeroext i1 @SDL_SurfaceValid(ptr noundef %39) #8
   br i1 %451, label %452, label %SW_RenderCopyEx.exit
 
 452:                                              ; preds = %436
@@ -1880,7 +1877,7 @@ PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %
   br i1 %.not.i331, label %461, label %459
 
 459:                                              ; preds = %452
-  %460 = call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %.val) #9
+  %460 = call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %.val) #8
   br i1 %460, label %461, label %SW_RenderCopyEx.exit
 
 461:                                              ; preds = %459, %452
@@ -1894,7 +1891,7 @@ PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %471 = load i32, ptr %470, align 8
-  %472 = call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %463, i32 noundef %465, i32 noundef %467, ptr noundef %469, i32 noundef %471) #9
+  %472 = call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %463, i32 noundef %465, i32 noundef %467, ptr noundef %469, i32 noundef %471) #8
   %.not206.i = icmp eq ptr %472, null
   br i1 %.not206.i, label %473, label %477
 
@@ -1905,13 +1902,13 @@ PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %
   br i1 %.not207.i, label %SW_RenderCopyEx.exit, label %476
 
 476:                                              ; preds = %473
-  call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %.val) #9
+  call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %.val) #8
   br label %SW_RenderCopyEx.exit
 
 477:                                              ; preds = %461
-  %478 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %.val, ptr noundef nonnull %9) #9
-  %479 = call zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef nonnull %.val, ptr noundef nonnull %10) #9
-  %480 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %.val, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
+  %478 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %.val, ptr noundef nonnull %9) #8
+  %479 = call zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef nonnull %.val, ptr noundef nonnull %10) #8
+  %480 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %.val, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %481 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %482 = load ptr, ptr %481, align 8
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 4
@@ -2036,11 +2033,11 @@ switch.lookup:                                    ; preds = %497
   br i1 %.not215.i, label %545, label %551
 
 545:                                              ; preds = %537
-  %546 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %472, i8 noundef zeroext %538) #9
+  %546 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %472, i8 noundef zeroext %538) #8
   %547 = load i8, ptr %11, align 1
   %548 = load i8, ptr %12, align 1
   %549 = load i8, ptr %13, align 1
-  %550 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %472, i8 noundef zeroext %547, i8 noundef zeroext %548, i8 noundef zeroext %549) #9
+  %550 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %472, i8 noundef zeroext %547, i8 noundef zeroext %548, i8 noundef zeroext %549) #8
   %.pr.pre.i = load i32, ptr %9, align 4
   br label %551
 
@@ -2104,17 +2101,17 @@ switch.lookup:                                    ; preds = %497
 569:                                              ; preds = %.thread38.i, %565, %562, %562, %562, %558, %558, %558, %558
   %570 = load i32, ptr %453, align 4
   %571 = load i32, ptr %455, align 4
-  %572 = call ptr @SDL_CreateSurface_REAL(i32 noundef %570, i32 noundef %571, i32 noundef 372645892) #9
+  %572 = call ptr @SDL_CreateSurface_REAL(i32 noundef %570, i32 noundef %571, i32 noundef 372645892) #8
   %.not222.i = icmp eq ptr %572, null
   br i1 %.not222.i, label %.thread27.i, label %575
 
 .thread27.i:                                      ; preds = %569
   %573 = load i32, ptr %9, align 4
-  %574 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef %573) #9
+  %574 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef %573) #8
   br label %712
 
 575:                                              ; preds = %569
-  %576 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %572, i32 noundef 4) #9
+  %576 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %572, i32 noundef 4) #8
   br label %.thread10.i
 
 .thread10.i:                                      ; preds = %575, %.thread38.i, %565, %551, %535
@@ -2128,39 +2125,39 @@ switch.lookup:                                    ; preds = %497
 
 .thread18.i:                                      ; preds = %.thread10.i
   %581 = load i32, ptr %9, align 4
-  %582 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef %581) #9
+  %582 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef %581) #8
   br label %594
 
 583:                                              ; preds = %.thread10.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   %584 = load i32, ptr %453, align 4
   %585 = load i32, ptr %455, align 4
-  %586 = call ptr @SDL_CreateSurface_REAL(i32 noundef %584, i32 noundef %585, i32 noundef 372645892) #9
+  %586 = call ptr @SDL_CreateSurface_REAL(i32 noundef %584, i32 noundef %585, i32 noundef 372645892) #8
   %.not223.i = icmp eq ptr %586, null
   br i1 %.not223.i, label %.thread31.i, label %589
 
 .thread31.i:                                      ; preds = %583
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %587 = load i32, ptr %9, align 4
-  %588 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef %587) #9
+  %588 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef %587) #8
   br label %712
 
 589:                                              ; preds = %583
-  %590 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef 0) #9
-  %591 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %472, ptr noundef nonnull %405, ptr noundef nonnull %586, ptr noundef nonnull %14, i32 noundef %449) #9
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %472) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
+  %590 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %472, i32 noundef 0) #8
+  %591 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %472, ptr noundef nonnull %405, ptr noundef nonnull %586, ptr noundef nonnull %14, i32 noundef %449) #8
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %472) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %592 = load i32, ptr %9, align 4
-  %593 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %586, i32 noundef %592) #9
+  %593 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %586, i32 noundef %592) #8
   br i1 %591, label %594, label %712
 
 594:                                              ; preds = %589, %.thread18.i
   %.018424.i = phi ptr [ %472, %.thread18.i ], [ %586, %589 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #9
-  call void @SDLgfx_rotozoomSurfaceSizeTrig(i32 noundef %454, i32 noundef %456, double noundef %440, ptr noundef nonnull %441, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @SDLgfx_rotozoomSurfaceSizeTrig(i32 noundef %454, i32 noundef %456, double noundef %440, ptr noundef nonnull %441, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #8
   %595 = and i32 %449, -3
   %596 = icmp ne i32 %595, 0
   %597 = zext i1 %596 to i32
@@ -2168,7 +2165,7 @@ switch.lookup:                                    ; preds = %497
   %599 = and i32 %443, 2
   %600 = load double, ptr %16, align 8
   %601 = load double, ptr %17, align 8
-  %602 = call ptr @SDLgfx_rotateSurface(ptr noundef nonnull %.018424.i, double noundef %440, i32 noundef %597, i32 noundef %598, i32 noundef %599, ptr noundef nonnull %15, double noundef %600, double noundef %601, ptr noundef nonnull %441) #9
+  %602 = call ptr @SDLgfx_rotateSurface(ptr noundef nonnull %.018424.i, double noundef %440, i32 noundef %597, i32 noundef %598, i32 noundef %599, ptr noundef nonnull %15, double noundef %600, double noundef %601, ptr noundef nonnull %441) #8
   %.not224.i = icmp ne ptr %602, null
   %603 = icmp ne ptr %.0183.i, null
   %or.cond15.i = and i1 %603, %.not224.i
@@ -2177,7 +2174,7 @@ switch.lookup:                                    ; preds = %497
 604:                                              ; preds = %594
   %605 = load double, ptr %16, align 8
   %606 = load double, ptr %17, align 8
-  %607 = call ptr @SDLgfx_rotateSurface(ptr noundef nonnull %.0183.i, double noundef %440, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, double noundef %605, double noundef %606, ptr noundef nonnull %441) #9
+  %607 = call ptr @SDLgfx_rotateSurface(ptr noundef nonnull %.0183.i, double noundef %440, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, double noundef %605, double noundef %606, ptr noundef nonnull %441) #8
   %.not225.not.i = icmp eq ptr %607, null
   br i1 %.not225.not.i, label %711, label %609
 
@@ -2209,11 +2206,11 @@ switch.lookup:                                    ; preds = %497
 
 622:                                              ; preds = %621
   %623 = load i8, ptr %10, align 1
-  %624 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext %623) #9
+  %624 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext %623) #8
   %625 = load i8, ptr %11, align 1
   %626 = load i8, ptr %12, align 1
   %627 = load i8, ptr %13, align 1
-  %628 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext %625, i8 noundef zeroext %626, i8 noundef zeroext %627) #9
+  %628 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext %625, i8 noundef zeroext %626, i8 noundef zeroext %627) #8
   br label %629
 
 629:                                              ; preds = %622, %621
@@ -2223,7 +2220,7 @@ switch.lookup:                                    ; preds = %497
   br i1 %or.cond.i.i, label %632, label %650
 
 632:                                              ; preds = %629
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %633 = load i32, ptr %8, align 4
   %634 = sitofp i32 %633 to float
   %635 = fmul float %445, %634
@@ -2244,25 +2241,25 @@ switch.lookup:                                    ; preds = %497
   %647 = fmul float %447, %646
   %648 = fptosi float %647 to i32
   store i32 %648, ptr %67, align 4
-  %649 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %7, i32 noundef %449) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
+  %649 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %7, i32 noundef %449) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Blit_to_Screen.exit.i
 
 650:                                              ; preds = %629
-  %651 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %8) #9
+  %651 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %8) #8
   br label %Blit_to_Screen.exit.i
 
 652:                                              ; preds = %609
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
-  %653 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.018241.i, i32 noundef 0) #9
+  %653 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.018241.i, i32 noundef 0) #8
   %654 = fcmp une float %445, 1.000000e+00
   %655 = fcmp une float %447, 1.000000e+00
   %or.cond.i242.i = or i1 %654, %655
   br i1 %or.cond.i242.i, label %656, label %Blit_to_Screen.exit244.i
 
 656:                                              ; preds = %652
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %657 = load i32, ptr %18, align 4
   %658 = sitofp i32 %657 to float
   %659 = fmul float %445, %658
@@ -2283,18 +2280,18 @@ switch.lookup:                                    ; preds = %497
   %671 = fmul float %447, %670
   %672 = fptosi float %671 to i32
   store i32 %672, ptr %61, align 4
-  %673 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %.018241.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %6, i32 noundef %449) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  %673 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %.018241.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %6, i32 noundef %449) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %673, label %675, label %710
 
 Blit_to_Screen.exit244.i:                         ; preds = %652
-  %674 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %.018241.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %18) #9
+  %674 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %.018241.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %18) #8
   br i1 %674, label %Blit_to_Screen.exit, label %710
 
 675:                                              ; preds = %656
-  %676 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0) #9
+  %676 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %677 = load i32, ptr %18, align 4
   %678 = sitofp i32 %677 to float
   %679 = fmul float %445, %678
@@ -2315,14 +2312,14 @@ Blit_to_Screen.exit244.i:                         ; preds = %652
   %691 = fmul float %447, %690
   %692 = fptosi float %691 to i32
   store i32 %692, ptr %64, align 4
-  %693 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %5, i32 noundef %449) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  %693 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %5, i32 noundef %449) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %693, label %696, label %710
 
 Blit_to_Screen.exit:                              ; preds = %Blit_to_Screen.exit244.i
-  %694 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0) #9
+  %694 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef nonnull %602, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
-  %695 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %18) #9
+  %695 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef nonnull %602, ptr noundef null, ptr noundef %39, ptr noundef nonnull %18) #8
   br i1 %695, label %696, label %710
 
 696:                                              ; preds = %675, %Blit_to_Screen.exit
@@ -2336,29 +2333,29 @@ Blit_to_Screen.exit:                              ; preds = %Blit_to_Screen.exit
   %704 = load ptr, ptr %703, align 8
   %705 = getelementptr inbounds nuw i8, ptr %602, i64 16
   %706 = load i32, ptr %705, align 8
-  %707 = call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %698, i32 noundef %700, i32 noundef %702, ptr noundef %704, i32 noundef %706) #9
+  %707 = call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %698, i32 noundef %700, i32 noundef %702, ptr noundef %704, i32 noundef %706) #8
   %.not226.i = icmp eq ptr %707, null
   br i1 %.not226.i, label %710, label %708
 
 708:                                              ; preds = %696
-  %709 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %707, i32 noundef 2) #9
+  %709 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %707, i32 noundef 2) #8
   call fastcc void @Blit_to_Screen(ptr noundef nonnull %707, ptr noundef %39, ptr noundef %8, float noundef %445, float noundef %447, i32 noundef %449)
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %707) #9
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %707) #8
   br label %710
 
 710:                                              ; preds = %675, %708, %696, %Blit_to_Screen.exit, %Blit_to_Screen.exit244.i, %656
-  call void @SDL_DestroySurface_REAL(ptr noundef %.018241.i) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #9
+  call void @SDL_DestroySurface_REAL(ptr noundef %.018241.i) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %Blit_to_Screen.exit.i
 
 Blit_to_Screen.exit.i:                            ; preds = %632, %650, %710
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %602) #9
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %602) #8
   br label %711
 
 711:                                              ; preds = %Blit_to_Screen.exit.i, %608, %604
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %712
 
 712:                                              ; preds = %711, %589, %.thread31.i, %.thread27.i
@@ -2370,7 +2367,7 @@ Blit_to_Screen.exit.i:                            ; preds = %632, %650, %710
   br i1 %.not227.i, label %716, label %715
 
 715:                                              ; preds = %712
-  call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %.val) #9
+  call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %.val) #8
   br label %716
 
 716:                                              ; preds = %715, %712
@@ -2378,20 +2375,20 @@ Blit_to_Screen.exit.i:                            ; preds = %632, %650, %710
   br i1 %.not228.i, label %718, label %717
 
 717:                                              ; preds = %716
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.01831723.i) #9
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.01831723.i) #8
   br label %718
 
 718:                                              ; preds = %717, %716
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.018425.i) #9
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.018425.i) #8
   br label %SW_RenderCopyEx.exit
 
 SW_RenderCopyEx.exit:                             ; preds = %436, %459, %473, %476, %718
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit339
 
 719:                                              ; preds = %73
@@ -2435,13 +2432,13 @@ switch.edge.i333:                                 ; preds = %730
   br i1 %or.cond3.i334, label %switch.edge.thread.i332, label %PrepTextureForCopy.exit335
 
 switch.edge.thread.i332:                          ; preds = %switch.edge.i333, %730, %730, %730
-  %742 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %.0272.val326.val, i1 noundef zeroext false) #9
+  %742 = call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef %.0272.val326.val, i1 noundef zeroext false) #8
   br label %PrepTextureForCopy.exit335
 
 PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %switch.edge.thread.i332
-  %743 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %.0272.val326.val, i8 noundef zeroext %734, i8 noundef zeroext %735, i8 noundef zeroext %736) #9
-  %744 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %.0272.val326.val, i8 noundef zeroext %737) #9
-  %745 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val326.val, i32 noundef %.0272.val325) #9
+  %743 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %.0272.val326.val, i8 noundef zeroext %734, i8 noundef zeroext %735, i8 noundef zeroext %736) #8
+  %744 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %.0272.val326.val, i8 noundef zeroext %737) #8
+  %745 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val326.val, i32 noundef %.0272.val325) #8
   %746 = load ptr, ptr %19, align 8
   %.not303 = icmp eq ptr %746, null
   br i1 %.not303, label %761, label %747
@@ -2456,10 +2453,10 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   br i1 %or.cond404, label %761, label %._crit_edge396
 
 ._crit_edge396:                                   ; preds = %747
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 %748, ptr %26, align 4
   store i32 %750, ptr %48, align 4
-  call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %26) #9
+  call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %26) #8
   %751 = icmp sgt i32 %725, 0
   br i1 %751, label %.lr.ph, label %._crit_edge
 
@@ -2484,7 +2481,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   br i1 %exitcond.not, label %._crit_edge, label %754, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %754, %._crit_edge396
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %761
 
 761:                                              ; preds = %747, %._crit_edge, %PrepTextureForCopy.exit335
@@ -2512,7 +2509,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %776 = load i32, ptr %771, align 4
   %777 = load i32, ptr %772, align 4
   %778 = load i32, ptr %773, align 4
-  %779 = call zeroext i1 @SDL_SW_BlitTriangle(ptr noundef %732, ptr noundef %.0270344, ptr noundef nonnull %766, ptr noundef nonnull %767, ptr noundef %39, ptr noundef nonnull %768, ptr noundef nonnull %769, ptr noundef nonnull %770, i32 %776, i32 %777, i32 %778, i32 noundef %774, i32 noundef %775) #9
+  %779 = call zeroext i1 @SDL_SW_BlitTriangle(ptr noundef %732, ptr noundef %.0270344, ptr noundef nonnull %766, ptr noundef nonnull %767, ptr noundef %39, ptr noundef nonnull %768, ptr noundef nonnull %769, ptr noundef nonnull %770, i32 %776, i32 %777, i32 %778, i32 noundef %774, i32 noundef %775) #8
   %780 = add nuw nsw i32 %.1343, 3
   %781 = getelementptr inbounds nuw i8, ptr %.0270344, i64 60
   %782 = icmp slt i32 %780, %725
@@ -2533,10 +2530,10 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   br i1 %or.cond405, label %799, label %._crit_edge397
 
 ._crit_edge397:                                   ; preds = %785
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 %786, ptr %27, align 4
   store i32 %788, ptr %49, align 4
-  call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %27) #9
+  call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %27) #8
   %789 = icmp sgt i32 %725, 0
   br i1 %789, label %.lr.ph349, label %._crit_edge350
 
@@ -2561,7 +2558,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   br i1 %exitcond378.not, label %._crit_edge350, label %792, !llvm.loop !16
 
 ._crit_edge350:                                   ; preds = %792, %._crit_edge397
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %799
 
 799:                                              ; preds = %785, %._crit_edge350, %783
@@ -2579,7 +2576,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %806 = load i32, ptr %803, align 4
   %807 = load i32, ptr %804, align 4
   %808 = load i32, ptr %805, align 4
-  %809 = call zeroext i1 @SDL_SW_FillTriangle(ptr noundef %39, ptr noundef %.0352, ptr noundef nonnull %801, ptr noundef nonnull %802, i32 noundef %729, i32 %806, i32 %807, i32 %808) #9
+  %809 = call zeroext i1 @SDL_SW_FillTriangle(ptr noundef %39, ptr noundef %.0352, ptr noundef nonnull %801, ptr noundef nonnull %802, i32 noundef %729, i32 %806, i32 %807, i32 %808) #8
   %810 = add nuw nsw i32 %.3351, 3
   %811 = getelementptr inbounds nuw i8, ptr %.0352, i64 36
   %812 = icmp slt i32 %810, %725
@@ -2592,7 +2589,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   br i1 %.not, label %.loopexit341, label %73, !llvm.loop !18
 
 .loopexit341:                                     ; preds = %.loopexit339, %41, %SW_ActivateRenderer.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i1 %40
 }
 
@@ -2614,7 +2611,7 @@ define internal ptr @SW_RenderReadPixels(ptr noundef readonly captures(none) %0,
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %11) #9
+  %12 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %11) #8
   %.not12.i = icmp eq ptr %12, null
   br i1 %.not12.i, label %..thread_crit_edge.i, label %13
 
@@ -2629,7 +2626,7 @@ define internal ptr @SW_RenderReadPixels(ptr noundef readonly captures(none) %0,
 
 SW_ActivateRenderer.exit:                         ; preds = %2, %6, %..thread_crit_edge.i, %13
   %14 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %5, %2 ], [ %12, %13 ], [ %8, %6 ]
-  %15 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %14) #9
+  %15 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %14) #8
   br i1 %15, label %16, label %58
 
 16:                                               ; preds = %SW_ActivateRenderer.exit
@@ -2662,7 +2659,7 @@ SW_ActivateRenderer.exit:                         ; preds = %2, %6, %..thread_cr
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %30, %26, %19, %16
-  %38 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #9
+  %38 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #8
   br label %58
 
 39:                                               ; preds = %30
@@ -2683,7 +2680,7 @@ SW_ActivateRenderer.exit:                         ; preds = %2, %6, %..thread_cr
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = tail call ptr @SDL_DuplicatePixels(i32 noundef %21, i32 noundef %32, i32 noundef %56, i32 noundef 301991328, ptr noundef %54, i32 noundef %43) #9
+  %57 = tail call ptr @SDL_DuplicatePixels(i32 noundef %21, i32 noundef %32, i32 noundef %56, i32 noundef 301991328, ptr noundef %54, i32 noundef %43) #8
   br label %58
 
 58:                                               ; preds = %SW_ActivateRenderer.exit, %39, %37
@@ -2699,7 +2696,7 @@ define internal zeroext i1 @SW_RenderPresent(ptr noundef readonly captures(none)
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef nonnull %3) #9
+  %5 = tail call zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef nonnull %3) #8
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -2711,7 +2708,7 @@ define internal zeroext i1 @SW_RenderPresent(ptr noundef readonly captures(none)
 define internal void @SW_DestroyTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8
-  tail call void @SDL_DestroySurface_REAL(ptr noundef %4) #9
+  tail call void @SDL_DestroySurface_REAL(ptr noundef %4) #8
   ret void
 }
 
@@ -2725,22 +2722,19 @@ define internal void @SW_DestroyRenderer(ptr noundef readonly captures(none) %0)
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef nonnull %3) #9
+  %7 = tail call zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef nonnull %3) #8
   br label %8
 
 8:                                                ; preds = %6, %1
-  tail call void @SDL_free_REAL(ptr noundef %5) #9
+  tail call void @SDL_free_REAL(ptr noundef %5) #8
   ret void
 }
 
-declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @SW_CreateRenderer(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.9) #9
+  %4 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.9) #8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
@@ -2750,20 +2744,20 @@ define internal zeroext i1 @SW_CreateRenderer(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not11, label %.thread, label %11
 
 .thread:                                          ; preds = %3, %5
-  %7 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.10, i1 noundef zeroext false) #9
+  %7 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.10, i1 noundef zeroext false) #8
   %.str.11..str.12 = select i1 %7, ptr @.str.11, ptr @.str.12
-  %8 = tail call zeroext i1 @SDL_SetHint_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.11..str.12) #9
-  %9 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %1) #9
-  %10 = tail call zeroext i1 @SDL_SetHint_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13) #9
+  %8 = tail call zeroext i1 @SDL_SetHint_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.11..str.12) #8
+  %9 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %1) #8
+  %10 = tail call zeroext i1 @SDL_SetHint_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13) #8
   br label %13
 
 11:                                               ; preds = %5
-  %12 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %1) #9
+  %12 = tail call ptr @SDL_GetWindowSurface_REAL(ptr noundef %1) #8
   br label %13
 
 13:                                               ; preds = %11, %.thread
   %14 = phi ptr [ %9, %.thread ], [ %12, %11 ]
-  %15 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %14) #9
+  %15 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %14) #8
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
@@ -2775,36 +2769,36 @@ define internal zeroext i1 @SW_CreateRenderer(ptr noundef %0, ptr noundef %1, i3
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @trianglepoint_2_fixedpoint(ptr noundef) local_unnamed_addr #2
+declare void @trianglepoint_2_fixedpoint(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
@@ -2822,7 +2816,7 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull ca
   br i1 %.not, label %.split, label %13
 
 .split:                                           ; preds = %7, %.split
-  %11 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SetDrawState.sdl_assert_data, ptr noundef nonnull @__func__.SetDrawState, ptr noundef nonnull @.str.7, i32 noundef 647) #9
+  %11 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SetDrawState.sdl_assert_data, ptr noundef nonnull @__func__.SetDrawState, ptr noundef nonnull @.str.7, i32 noundef 647) #8
   switch i32 %11, label %.thread26 [
     i32 0, label %.split
     i32 1, label %12
@@ -2837,7 +2831,7 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull ca
   br i1 %.not28, label %.thread26, label %14
 
 14:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load i32, ptr %10, align 4
   %16 = load i32, ptr %8, align 4
   %17 = add nsw i32 %16, %15
@@ -2857,14 +2851,14 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull ca
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %28, ptr %29, align 4
-  %30 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %3) #9
-  %31 = call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %0, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  %30 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %3) #8
+  %31 = call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %0, ptr noundef nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 .thread26:                                        ; preds = %.split, %12, %13
   %32 = load ptr, ptr %1, align 8
-  %33 = tail call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %0, ptr noundef %32) #9
+  %33 = tail call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %0, ptr noundef %32) #8
   br label %34
 
 34:                                               ; preds = %.thread26, %14
@@ -2875,48 +2869,48 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull ca
   ret void
 }
 
-declare zeroext i1 @SDL_DrawPoints(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_DrawPoints(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_BlendPoints(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_BlendPoints(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_DrawLines(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_DrawLines(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_BlendLines(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_BlendLines(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_BlendFillRects(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_BlendFillRects(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_BlitSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_BlitSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SW_BlitTriangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32, i32, i32, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SW_BlitTriangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32, i32, i32, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SW_FillTriangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32, i32, i32) local_unnamed_addr #2
+declare zeroext i1 @SDL_SW_FillTriangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32, i32, i32) local_unnamed_addr #1
 
-declare ptr @SDL_GetWindowSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetWindowSurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @llvm.debugtrap() #9
+declare void @llvm.debugtrap() #8
 
-declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDLgfx_rotozoomSurfaceSizeTrig(i32 noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDLgfx_rotozoomSurfaceSizeTrig(i32 noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDLgfx_rotateSurface(ptr noundef, double noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDLgfx_rotateSurface(ptr noundef, double noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Blit_to_Screen(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, i32 noundef %5) unnamed_addr #0 {
@@ -2927,7 +2921,7 @@ define internal fastcc void @Blit_to_Screen(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %10, label %34
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = load i32, ptr %2, align 4
   %12 = sitofp i32 %11 to float
   %13 = fmul float %3, %12
@@ -2954,33 +2948,39 @@ define internal fastcc void @Blit_to_Screen(ptr noundef %0, ptr noundef %1, ptr 
   %31 = fptosi float %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %31, ptr %32, align 4
-  %33 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
+  %33 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 34:                                               ; preds = %6
-  %35 = tail call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef nonnull %2) #9
+  %35 = tail call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef nonnull %2) #8
   br label %36
 
 36:                                               ; preds = %34, %10
   ret void
 }
 
-declare ptr @SDL_DuplicatePixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_DuplicatePixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetHint_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetHint_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -2989,15 +2989,15 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind allocsize(0,1) }

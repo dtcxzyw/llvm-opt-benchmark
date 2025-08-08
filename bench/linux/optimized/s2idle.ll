@@ -208,7 +208,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 59:                                               ; preds = %56
   %60 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %60, ptr %3, align 8
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %61, ptr %62, align 8
@@ -240,7 +240,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   br label %82
 
 82:                                               ; preds = %72, %65, %59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 83:                                               ; preds = %82, %56
@@ -265,7 +265,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 95:                                               ; preds = %92
   %96 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %96, ptr %2, align 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %97, ptr %98, align 8
@@ -299,10 +299,10 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 
 117:                                              ; preds = %108, %101, %95
   %118 = phi i32 [ %.pre, %108 ], [ %.pre11, %101 ], [ %93, %95 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %119 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %119, ptr %1, align 8
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %120, ptr %121, align 8
@@ -334,7 +334,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   br label %141
 
 141:                                              ; preds = %131, %124, %117
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %142
 
 142:                                              ; preds = %141, %92
@@ -528,7 +528,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 31:                                               ; preds = %28
   %32 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %32, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %33, ptr %34, align 8
@@ -537,7 +537,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br i1 %36, label %.thread, label %37
 
 .thread:                                          ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 37:                                               ; preds = %31
@@ -566,7 +566,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 
 53:                                               ; preds = %37, %44
   %.pr = phi i32 [ %.pr.pre10, %37 ], [ %.pr.pre, %44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = icmp sgt i32 %.pr, 0
   br i1 %54, label %55, label %.thread9
 
@@ -574,7 +574,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %.pr15 = phi i32 [ %29, %.thread ], [ %.pr, %53 ]
   %56 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %56, ptr %2, align 8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %57, ptr %58, align 8
@@ -583,7 +583,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br i1 %60, label %.thread16, label %61
 
 .thread16:                                        ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %79
 
 61:                                               ; preds = %55
@@ -612,7 +612,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 
 77:                                               ; preds = %61, %68
   %.pr8 = phi i32 [ %.pr8.pre12, %61 ], [ %.pr8.pre, %68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %78 = icmp sgt i32 %.pr8, 0
   br i1 %78, label %79, label %.thread9
 
@@ -620,7 +620,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %.pr818 = phi i32 [ %.pr15, %.thread16 ], [ %.pr8, %77 ]
   %80 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %80, ptr %1, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %81, ptr %82, align 8
@@ -652,7 +652,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br label %102
 
 102:                                              ; preds = %92, %85, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.thread9
 
 .thread9:                                         ; preds = %28, %53, %102, %77
@@ -1342,10 +1342,10 @@ declare dso_local void @acpi_s2idle_restore() #3
 declare dso_local void @acpi_s2idle_end() #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

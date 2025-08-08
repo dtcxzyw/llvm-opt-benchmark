@@ -1795,13 +1795,13 @@ define hidden void @png_init_read_transformations(ptr noalias noundef %0) local_
   br i1 %.not398, label %18, label %8
 
 8:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 1, 0) %6, i32 noundef 100000) #11
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %png_gamma_threshold.exit.thread, label %png_gamma_threshold.exit
 
 png_gamma_threshold.exit.thread:                  ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1146
   %11 = load i16, ptr %10, align 2
   %12 = or i16 %11, 1
@@ -1812,7 +1812,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   %13 = load i32, ptr %2, align 4
   %14 = call i32 @png_gamma_significant(i32 noundef %13) #11
   %.not451 = icmp eq i32 %14, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1146
   %16 = load i16, ptr %15, align 2
   %17 = or i16 %16, 1
@@ -7083,7 +7083,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i244, %.lr.p
   %2192 = load ptr, ptr %4, align 8
   %2193 = getelementptr inbounds nuw i8, ptr %2192, i64 1
   %2194 = getelementptr inbounds nuw i8, ptr %0, i64 621
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %2195 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2196 = load i8, ptr %2195, align 8
   %2197 = zext i8 %2196 to i32
@@ -7272,7 +7272,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i244, %.lr.p
   br i1 %2299, label %.lr.ph.i255, label %png_do_unshift.exit, !llvm.loop !179
 
 png_do_unshift.exit:                              ; preds = %.lr.ph.i255, %.lr.ph102.i, %.lr.ph104.i, %.lr.ph106.i, %2191, %2233, %2235, %2238, %2248, %2263, %2278
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre401 = load i32, ptr %14, align 4
   br label %2300
 
@@ -8825,10 +8825,10 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -420,8 +420,8 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [2 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -561,8 +561,8 @@ rb_scan_args_set.exit:                            ; preds = %26
   %62 = inttoptr i64 %2 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %.sink, ptr %63, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -966,10 +966,10 @@ define internal noundef i64 @ossl_ec_group_initialize(i32 noundef %0, ptr nounde
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [4 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_group_type) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
@@ -1185,10 +1185,10 @@ RB_SYMBOL_P.exit.thread40:                        ; preds = %76, %RB_SYMBOL_P.ex
   %106 = inttoptr i64 %2 to ptr
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %.2, ptr %107, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -1341,7 +1341,7 @@ define internal noundef i64 @ossl_ec_group_set_generator(i64 noundef returned %0
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_order(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1367,14 +1367,14 @@ define internal i64 @ossl_ec_group_get_order(i64 noundef %0) #0 {
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %2, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_cofactor(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1400,7 +1400,7 @@ define internal i64 @ossl_ec_group_get_cofactor(i64 noundef %0) #0 {
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %2, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %15
 }
 
@@ -1699,7 +1699,7 @@ define internal i64 @ossl_ec_point_alloc(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_point_type) #8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -1842,7 +1842,7 @@ RSTRING_PTR.exit:                                 ; preds = %48, %54
   br label %66
 
 66:                                               ; preds = %61, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -2240,7 +2240,7 @@ RSTRING_PTR.exit:                                 ; preds = %30, %36
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_add(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr @id_i_group, align 8, !tbaa !6
   %5 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %4) #8
   store i64 %5, ptr %3, align 8, !tbaa !6
@@ -2298,7 +2298,7 @@ define internal noundef i64 @ossl_ec_point_add(i64 noundef %0, i64 noundef %1) #
   unreachable
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %22
 }
 
@@ -2309,13 +2309,13 @@ define internal noundef i64 @ossl_ec_point_mul(i32 noundef %0, ptr noundef reado
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i64, ptr @id_i_group, align 8, !tbaa !6
   %10 = tail call i64 @rb_attr_get(i64 noundef %2, i64 noundef %9) #8
   store i64 %10, ptr %4, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_point_type) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -2454,23 +2454,17 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_scan_args_set.ex
   unreachable
 
 75:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %22
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i64 @EC_get_builtin_curves(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
@@ -2481,10 +2475,10 @@ declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #5
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare i64 @rb_obj_alloc(i64 noundef) local_unnamed_addr #1
 
@@ -2596,7 +2590,7 @@ define internal void @ossl_ec_group_free(ptr noundef %0) #0 {
 declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i64 @ossl_pem_passwd_value(i64 noundef) local_unnamed_addr #1
 
@@ -2613,7 +2607,7 @@ declare void @ossl_clear_error() local_unnamed_addr #1
 declare i32 @EVP_PKEY_get_base_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @EVP_PKEY_get0_EC_KEY(ptr noundef) local_unnamed_addr #1
 
@@ -2831,7 +2825,7 @@ declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @EC_POINT_is_on_curve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #6
+declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #5
 
 declare i32 @EC_POINT_invert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2843,16 +2837,22 @@ declare i32 @EC_POINT_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 
 declare i32 @EC_POINT_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { cold noreturn nounwind }

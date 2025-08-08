@@ -284,8 +284,8 @@ _ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit:    ; preds = %switch.lookup, %70
 
 75:                                               ; preds = %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
   %76 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %77 = load ptr, ptr %51, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 800
   %79 = load ptr, ptr %78, align 8
@@ -495,8 +495,8 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   br label %_ZL47print_thread_details_for_supposed_stack_addressPKvS0_P12outputStream.exit
 
 _ZL47print_thread_details_for_supposed_stack_addressPKvS0_P12outputStream.exit: ; preds = %199, %201
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %202
 
 202:                                              ; preds = %_ZL47print_thread_details_for_supposed_stack_addressPKvS0_P12outputStream.exit, %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
@@ -788,10 +788,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

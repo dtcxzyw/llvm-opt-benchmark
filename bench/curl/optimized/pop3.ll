@@ -242,7 +242,7 @@ pop3_perform_command.exit.i.i:                    ; preds = %59, %pop3_is_multil
   br i1 %.not.i16.i.i, label %75, label %.critedge.i.i.i
 
 75:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
   %76 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
   %77 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
@@ -253,7 +253,7 @@ pop3_perform_command.exit.i.i:                    ; preds = %59, %pop3_is_multil
   %.not16.i.i.i = icmp ne i32 %76, 0
   %.not17.i.i.i = icmp eq i8 %77, 0
   %or.cond.i.i.i = or i1 %.not16.i.i.i, %.not17.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i.i.i, label %pop3_perform.exit.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %75, %71, %pop3_perform_command.exit.i.i
@@ -445,7 +445,7 @@ pop3_parse_url_options.exit:                      ; preds = %.critedge.i, %.sink
   br i1 %.not.i21, label %49, label %.critedge.i20
 
 49:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
   %50 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
   %51 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
@@ -456,7 +456,7 @@ pop3_parse_url_options.exit:                      ; preds = %.critedge.i, %.sink
   %.not16.i = icmp ne i32 %50, 0
   %.not17.i = icmp eq i8 %51, 0
   %or.cond.i = or i1 %.not16.i, %.not17.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i, label %pop3_multi_statemach.exit, label %.critedge.i20
 
 .critedge.i20:                                    ; preds = %49, %45, %41
@@ -489,7 +489,7 @@ define internal i32 @pop3_multi_statemach(ptr noundef %0, ptr noundef writeonly 
   br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
   %13 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
   %14 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
@@ -500,7 +500,7 @@ define internal i32 @pop3_multi_statemach(ptr noundef %0, ptr noundef writeonly 
   %.not16 = icmp ne i32 %13, 0
   %.not17 = icmp eq i8 %14, 0
   %or.cond = or i1 %.not16, %.not17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond, label %23, label %.critedge
 
 .critedge:                                        ; preds = %12, %8, %2
@@ -534,7 +534,7 @@ define internal i32 @pop3_doing(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %.not.i, label %12, label %.critedge.i
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
   %13 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
   %14 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
@@ -545,7 +545,7 @@ define internal i32 @pop3_doing(ptr noundef %0, ptr noundef writeonly captures(n
   %.not16.i = icmp ne i32 %13, 0
   %.not17.i = icmp eq i8 %14, 0
   %or.cond.i = or i1 %.not16.i, %.not17.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i, label %pop3_multi_statemach.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %12, %8, %2
@@ -764,21 +764,15 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   ret i32 %.275
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @Curl_conn_is_ssl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Curl_conn_is_ssl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_pp_statemach(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @Curl_pp_getsock(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_pp_statemach(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
-
-declare i32 @Curl_pp_getsock(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
@@ -786,9 +780,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1088
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !123
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %9 = load i32, ptr %8, align 8, !tbaa !86
@@ -970,7 +964,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %90 = or i8 %89, 4
   store i8 %90, ptr %88, align 8, !tbaa !126
   %91 = add i64 %73, -5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not8298103.i = icmp eq i64 %91, 0
   br i1 %.not8298103.i, label %.critedge90.thread.i, label %.lr.ph.lr.ph.i
 
@@ -980,7 +974,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %.lr.ph.i
 
 .critedge90.thread.i:                             ; preds = %.critedge90.i, %.critedge2.i, %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %pop3_state_servergreet_resp.exit.thread
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
@@ -1039,8 +1033,8 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 .critedge90.i:                                    ; preds = %103, %.critedge4.i
   %106 = getelementptr inbounds nuw i8, ptr %.16899.i, i64 %.065.lcssa.i
   %107 = sub i64 %.1100.i, %.065.lcssa.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not8298.i = icmp eq i64 %107, 0
   br i1 %.not8298.i, label %.critedge90.thread.i, label %.lr.ph.i.backedge
 
@@ -1130,7 +1124,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 147:                                              ; preds = %27
   %148 = load ptr, ptr %16, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1272
   %150 = call i32 @Curl_sasl_continue(ptr noundef nonnull %149, ptr noundef %0, i32 noundef range(i32 1, 0) %26, ptr noundef nonnull %3) #6
   %.not.i52 = icmp eq i32 %150, 0
@@ -1197,7 +1191,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %163, %169, %.sink.split.i.i, %175
   %.0.i = phi i32 [ %150, %147 ], [ 0, %151 ], [ 0, %153 ], [ %164, %163 ], [ 67, %175 ], [ %173, %169 ], [ 0, %.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %pop3_state_servergreet_resp.exit
 
 176:                                              ; preds = %27
@@ -1341,13 +1335,13 @@ pop3_state_servergreet_resp.exit.thread:          ; preds = %191, %187, %178, %7
 
 .critedge:                                        ; preds = %210, %181, %135, %124, %.critedge.i, %51, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i, %177, %142, %134, %36, %21, %11
   %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %190 ], [ 67, %.thread.i ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ 27, %51 ], [ %64, %.critedge.i ], [ %126, %124 ], [ 8, %135 ], [ %186, %181 ], [ %213, %210 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) #3 {
+define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) #2 {
   %6 = icmp ugt i64 %3, 3
   br i1 %6, label %7, label %8
 
@@ -1402,14 +1396,14 @@ define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %
   ret i1 %.0
 }
 
-declare void @Curl_sasl_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_sasl_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_pp_init(ptr noundef) local_unnamed_addr #2
+declare void @Curl_pp_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pop3_perform_upgrade_tls(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
   %4 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %1, i32 noundef 0) #6
   br i1 %4, label %7, label %5
@@ -1477,35 +1471,35 @@ define internal fastcc i32 @pop3_perform_upgrade_tls(ptr noundef %0, ptr noundef
 
 pop3_perform_capa.exit:                           ; preds = %33, %23, %7, %20, %5
   %.0 = phi i32 [ %8, %7 ], [ 0, %20 ], [ %6, %5 ], [ %32, %23 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @Curl_pp_flushsend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_pp_flushsend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_pp_readresp(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_pp_readresp(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Curl_pp_moredata(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_pp_moredata(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_ssl_cfilter_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_ssl_cfilter_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_pp_sendf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @Curl_pp_sendf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i16 @Curl_sasl_decode_mech(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @Curl_sasl_decode_mech(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !125
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1272
   %5 = tail call zeroext i1 @Curl_sasl_can_authenticate(ptr noundef nonnull %4, ptr noundef %0) #6
@@ -1622,21 +1616,21 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
 
 pop3_perform_user.exit:                           ; preds = %.thread, %.sink.split.i, %40, %23, %33, %59, %55, %48, %47, %6
   %.0 = phi i32 [ 0, %6 ], [ %34, %33 ], [ %.029, %23 ], [ 67, %59 ], [ 67, %55 ], [ 67, %48 ], [ 67, %47 ], [ %44, %40 ], [ 0, %.sink.split.i ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare zeroext i1 @Curl_sasl_can_authenticate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_sasl_can_authenticate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_sasl_start(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_sasl_start(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [33 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1088
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %7 = load ptr, ptr %6, align 8, !tbaa !131
   %.not = icmp eq ptr %7, null
@@ -1690,35 +1684,35 @@ define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) un
 
 36:                                               ; preds = %.sink.split, %30, %8
   %.0 = phi i32 [ 27, %8 ], [ %33, %30 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @Curl_MD5_init(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_MD5_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_MD5_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_MD5_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #2
+declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @Curl_MD5_final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_MD5_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @Curl_sasl_continue(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_sasl_continue(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_xfer_setup1(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @Curl_xfer_setup1(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @Curl_dyn_tail(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_dyn_tail(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #2
+declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #2
+declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pop3_perform_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -1827,40 +1821,46 @@ define internal noundef i32 @pop3_get_message(ptr noundef readonly captures(none
   ret i32 0
 }
 
-declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_sasl_parse_url_auth_option(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_sasl_parse_url_auth_option(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_pgrsSetDownloadCounter(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_pgrsSetDownloadCounter(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_pp_disconnect(ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_pp_disconnect(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_sasl_cleanup(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @Curl_sasl_cleanup(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

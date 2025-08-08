@@ -45,15 +45,9 @@ define hidden i32 @lexbor_bst_init(ptr noundef writeonly captures(address_is_nul
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @lexbor_dobject_create() local_unnamed_addr #1
 
 declare i32 @lexbor_dobject_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_bst_clean(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -317,7 +311,7 @@ lexbor_bst_entry_make.exit35:                     ; preds = %39, %44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lexbor_bst_search(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @lexbor_bst_search(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -342,7 +336,7 @@ define hidden ptr @lexbor_bst_search(ptr noundef readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lexbor_bst_search_close(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @lexbor_bst_search_close(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not15 = icmp eq ptr %1, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -676,7 +670,7 @@ define hidden ptr @lexbor_bst_remove_close(ptr noundef captures(none) %0, ptr no
 declare ptr @lexbor_dobject_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_bst_serialize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -689,7 +683,7 @@ define hidden void @lexbor_bst_serialize(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %44, label %.preheader
 
@@ -786,20 +780,26 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly captures(add
   br label %44
 
 44:                                               ; preds = %4, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 declare i64 @lexbor_conv_int64_to_data(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

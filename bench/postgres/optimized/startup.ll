@@ -349,7 +349,7 @@ sub_1143:                                         ; preds = %sub_0142
   %89 = tail call zeroext i1 @SetVariable(ptr noundef %88, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #15
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 384), align 8
   %91 = tail call zeroext i1 @SetVariableBool(ptr noundef %90, ptr noundef nonnull @.str.22) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.cont
 
 .cont:                                            ; preds = %.cont.backedge, %48
@@ -804,7 +804,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %.sroa.11.4 = phi ptr [ %.sroa.11.0, %.preheader.i ], [ %.sroa.11.3, %250 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.3, %250 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %255 = icmp eq ptr %.sroa.30124.1, null
   %256 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8, !range !6
   %257 = trunc nuw i8 %256 to i1
@@ -1228,15 +1228,12 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   ret i32 %.4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @pg_logging_init(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_logging_init(ptr noundef) local_unnamed_addr #2
-
-declare void @pg_logging_set_pre_callback(ptr noundef) local_unnamed_addr #2
+declare void @pg_logging_set_pre_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @log_pre_callback() #3 {
+define internal void @log_pre_callback() #2 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
   %.not = icmp eq ptr %1, null
   %2 = load ptr, ptr @stdout, align 8
@@ -1252,10 +1249,10 @@ define internal void @log_pre_callback() #3 {
   ret void
 }
 
-declare void @pg_logging_set_locus_callback(ptr noundef) local_unnamed_addr #2
+declare void @pg_logging_set_locus_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @log_locus_callback(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
+define internal void @log_locus_callback(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #3 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -1275,85 +1272,82 @@ define internal void @log_locus_callback(ptr noundef writeonly captures(none) in
   ret void
 }
 
-declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @usage(i16 noundef zeroext) local_unnamed_addr #2
+declare void @usage(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @showVersion() unnamed_addr #3 {
+define internal fastcc void @showVersion() unnamed_addr #2 {
   %1 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.99)
   ret void
 }
 
-declare ptr @get_progname(ptr noundef) local_unnamed_addr #2
+declare ptr @get_progname(ptr noundef) local_unnamed_addr #1
 
-declare void @setDecimalLocale() local_unnamed_addr #2
+declare void @setDecimalLocale() local_unnamed_addr #1
 
-declare i32 @PQenv2encoding() local_unnamed_addr #2
+declare i32 @PQenv2encoding() local_unnamed_addr #1
 
-declare void @refresh_utf8format(ptr noundef) local_unnamed_addr #2
+declare void @refresh_utf8format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #8
+declare i32 @isatty(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #8
 
-declare zeroext i1 @SetVariable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SetVariable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SetVariableBool(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SetVariableBool(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @simple_prompt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @simple_prompt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @PQconnectdbParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PQconnectdbParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
-declare i32 @PQstatus(ptr noundef) local_unnamed_addr #2
+declare i32 @PQstatus(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQconnectionNeedsPassword(ptr noundef) local_unnamed_addr #2
+declare i32 @PQconnectionNeedsPassword(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PQuser(ptr noundef) local_unnamed_addr #2
+declare ptr @PQuser(ptr noundef) local_unnamed_addr #1
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @PQfinish(ptr noundef) local_unnamed_addr #2
+declare void @PQfinish(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #2
+declare void @psql_setup_cancel_handler() local_unnamed_addr #1
 
-declare void @psql_setup_cancel_handler() local_unnamed_addr #2
-
-declare void @pqsignal_fe(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pqsignal_fe(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @empty_signal_handler(i32 %0) #11 {
+define internal void @empty_signal_handler(i32 %0) #10 {
   ret void
 }
 
-declare ptr @PQsetNoticeProcessor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PQsetNoticeProcessor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @NoticeProcessor(ptr noundef, ptr noundef) #2
+declare void @NoticeProcessor(ptr noundef, ptr noundef) #1
 
-declare void @SyncVariables() local_unnamed_addr #2
+declare void @SyncVariables() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
@@ -1362,10 +1356,10 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @getenv(ptr noundef nonnull @.str.92) #15
   %8 = call i32 @find_my_exec(ptr noundef %0, ptr noundef nonnull %4) #15
   %9 = icmp slt i32 %8, 0
@@ -1389,13 +1383,13 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not4, label %17, label %14
 
 14:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = call ptr @pstrdup(ptr noundef nonnull %7) #15
   store ptr %15, ptr %6, align 8
   call void @expand_tilde(ptr noundef nonnull %6) #15
   %16 = load ptr, ptr %6, align 8
   call fastcc void @process_psqlrc_file(ptr noundef %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 17:                                               ; preds = %13, %11
@@ -1408,91 +1402,91 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %17, %19, %14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare zeroext i1 @listAllDbs(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @listAllDbs(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare ptr @PSQLexec(ptr noundef) local_unnamed_addr #2
+declare ptr @PSQLexec(ptr noundef) local_unnamed_addr #1
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #2
+declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_logging_config(i32 noundef) local_unnamed_addr #2
+declare void @pg_logging_config(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare zeroext i1 @SendQuery(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SendQuery(ptr noundef) local_unnamed_addr #1
 
-declare ptr @psql_scan_create(ptr noundef) local_unnamed_addr #2
+declare ptr @psql_scan_create(ptr noundef) local_unnamed_addr #1
 
-declare void @psql_scan_setup(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @psql_scan_setup(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare zeroext i1 @standard_strings() local_unnamed_addr #2
+declare zeroext i1 @standard_strings() local_unnamed_addr #1
 
-declare ptr @conditional_stack_create() local_unnamed_addr #2
+declare ptr @conditional_stack_create() local_unnamed_addr #1
 
-declare void @psql_scan_set_passthrough(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @psql_scan_set_passthrough(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @HandleSlashCmds(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @HandleSlashCmds(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @psql_scan_destroy(ptr noundef) local_unnamed_addr #2
+declare void @psql_scan_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @conditional_stack_destroy(ptr noundef) local_unnamed_addr #2
+declare void @conditional_stack_destroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @process_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @process_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @connection_warnings(i1 noundef zeroext) local_unnamed_addr #2
+declare void @connection_warnings(i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @initializeInput(i32 noundef) local_unnamed_addr #2
+declare void @initializeInput(i32 noundef) local_unnamed_addr #1
 
-declare i32 @MainLoop(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
-
-declare zeroext i1 @setQFout(ptr noundef) local_unnamed_addr #2
+declare i32 @MainLoop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
+
+declare zeroext i1 @setQFout(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
-declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @do_pset(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @do_pset(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @DeleteVariable(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @DeleteVariable(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slashUsage(i16 noundef zeroext) local_unnamed_addr #2
+declare void @slashUsage(i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @helpVariables(i16 noundef zeroext) local_unnamed_addr #2
+declare void @helpVariables(i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @find_my_exec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @find_my_exec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @get_etc_path(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @get_etc_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_psqlrc_file(ptr noundef %0) unnamed_addr #0 {
@@ -1523,18 +1517,18 @@ define internal fastcc void @process_psqlrc_file(ptr noundef %0) unnamed_addr #0
   ret void
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare void @expand_tilde(ptr noundef) local_unnamed_addr #2
+declare void @expand_tilde(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @get_home_path(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @get_home_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #9
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
-declare ptr @CreateVariableSpace() local_unnamed_addr #2
+declare ptr @CreateVariableSpace() local_unnamed_addr #1
 
-declare void @SetVariableHooks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SetVariableHooks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bool_substitute_hook(ptr noundef %0) #0 {
@@ -1611,7 +1605,7 @@ define internal zeroext i1 @fetch_count_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @histfile_hook(ptr readnone captures(none) %0) #11 {
+define internal noundef zeroext i1 @histfile_hook(ptr readnone captures(none) %0) #10 {
   ret i1 true
 }
 
@@ -1638,7 +1632,7 @@ define internal zeroext i1 @histsize_hook(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @ignoreeof_substitute_hook(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -1656,7 +1650,7 @@ define internal ptr @ignoreeof_substitute_hook(ptr noundef %0) #0 {
 
 10:                                               ; preds = %6, %8, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %6 ], [ %9, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -1738,7 +1732,7 @@ define internal noundef zeroext i1 @echo_hidden_hook(ptr noundef %0) #0 {
   br label %11
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2) #15
   br i1 %7, label %.thread, label %10
 
@@ -1746,12 +1740,12 @@ define internal noundef zeroext i1 @echo_hidden_hook(ptr noundef %0) #0 {
   %8 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %9 = zext nneg i8 %8 to i32
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 424), align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11
 
 10:                                               ; preds = %6
   call void @PsqlVarEnumError(ptr noundef nonnull @.str.82, ptr noundef %0, ptr noundef nonnull @.str.120) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11
 
 11:                                               ; preds = %5, %.thread, %10
@@ -1771,7 +1765,7 @@ define internal noundef zeroext i1 @on_error_rollback_hook(ptr noundef %0) #0 {
   br label %12
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = call zeroext i1 @ParseVariableBool(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2) #15
   br i1 %7, label %.thread, label %11
 
@@ -1780,12 +1774,12 @@ define internal noundef zeroext i1 @on_error_rollback_hook(ptr noundef %0) #0 {
   %9 = shl nuw nsw i8 %8, 1
   %10 = zext nneg i8 %9 to i32
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 428), align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %12
 
 11:                                               ; preds = %6
   call void @PsqlVarEnumError(ptr noundef nonnull @.str.105, ptr noundef %0, ptr noundef nonnull @.str.122) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %12
 
 12:                                               ; preds = %5, %.thread, %11
@@ -1914,7 +1908,7 @@ define internal noundef zeroext i1 @histcontrol_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @prompt1_hook(ptr noundef %0) #14 {
+define internal noundef zeroext i1 @prompt1_hook(ptr noundef %0) #13 {
   %.not = icmp eq ptr %0, null
   %2 = select i1 %.not, ptr @.str.13, ptr %0
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 440), align 8
@@ -1922,7 +1916,7 @@ define internal noundef zeroext i1 @prompt1_hook(ptr noundef %0) #14 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @prompt2_hook(ptr noundef %0) #14 {
+define internal noundef zeroext i1 @prompt2_hook(ptr noundef %0) #13 {
   %.not = icmp eq ptr %0, null
   %2 = select i1 %.not, ptr @.str.13, ptr %0
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 448), align 8
@@ -1930,7 +1924,7 @@ define internal noundef zeroext i1 @prompt2_hook(ptr noundef %0) #14 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @prompt3_hook(ptr noundef %0) #14 {
+define internal noundef zeroext i1 @prompt3_hook(ptr noundef %0) #13 {
   %.not = icmp eq ptr %0, null
   %2 = select i1 %.not, ptr @.str.13, ptr %0
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 456), align 8
@@ -2060,35 +2054,41 @@ define internal zeroext i1 @hide_tableam_hook(ptr noundef %0) #0 {
   ret i1 %2
 }
 
-declare void @pg_free(ptr noundef) local_unnamed_addr #2
+declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ParseVariableBool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ParseVariableBool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ParseVariableNum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ParseVariableNum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PsqlVarEnumError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PsqlVarEnumError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQsetErrorVerbosity(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQsetErrorVerbosity(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PQsetErrorContextVisibility(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQsetErrorContextVisibility(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }

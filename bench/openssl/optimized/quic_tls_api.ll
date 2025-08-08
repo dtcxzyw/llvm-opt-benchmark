@@ -32,7 +32,7 @@ define range(i32 0, 2) i32 @SSL_set_quic_tls_cbs(ptr noundef %0, ptr noundef rea
 
 13:                                               ; preds = %6, %9, %11, %3
   %14 = phi ptr [ null, %3 ], [ %12, %11 ], [ null, %9 ], [ %0, %6 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = tail call i32 @SSL_is_tls(ptr noundef %0) #5
   %.not25 = icmp eq i32 %15, 0
   br i1 %.not25, label %16, label %17
@@ -223,24 +223,21 @@ tls_callbacks_from_dispatch.exit:                 ; preds = %73
 
 100:                                              ; preds = %tls_callbacks_from_dispatch.exit.thread, %98, %tls_callbacks_from_dispatch.exit, %16
   %.0 = phi i32 [ 0, %16 ], [ 0, %tls_callbacks_from_dispatch.exit ], [ %., %98 ], [ 0, %tls_callbacks_from_dispatch.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_is_tls(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_is_tls(ptr noundef) local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @ossl_quic_tls_free(ptr noundef) local_unnamed_addr #2
+declare void @ossl_quic_tls_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @crypto_send_cb(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -446,12 +443,9 @@ define internal i32 @alert_cb(ptr noundef %0, i8 noundef zeroext %1) #0 {
   ret i32 %.0
 }
 
-declare ptr @ossl_quic_tls_new(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_quic_tls_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_tls_configure(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ossl_quic_tls_configure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_set_quic_tls_transport_params(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -490,7 +484,13 @@ define i32 @SSL_set_quic_tls_transport_params(ptr noundef %0, ptr noundef %1, i6
   ret i32 %.0
 }
 
-declare i32 @ossl_quic_tls_set_transport_params(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_tls_set_transport_params(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #3
@@ -499,8 +499,8 @@ declare void @llvm.assume(i1 noundef) #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }

@@ -12573,7 +12573,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate11postProcessEP11TIntermNod
   br i1 %cond, label %22, label %31
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -12588,7 +12588,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate11postProcessEP11TIntermNod
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
 31:                                               ; preds = %22, %19, %3
@@ -12967,7 +12967,7 @@ define void @_ZN7glslang13TIntermediate20addSymbolLinkageNodeERPNS_16TIntermAggr
 
 18:                                               ; preds = %9, %3
   %.0 = phi ptr [ %8, %3 ], [ %17, %9 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 20, i1 false)
   %19 = load ptr, ptr %.0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
@@ -13002,7 +13002,7 @@ define void @_ZN7glslang13TIntermediate20addSymbolLinkageNodeERPNS_16TIntermAggr
   store ptr %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 256
   store ptr %38, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %1, align 8
   %49 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr nonnull align 8 poison, ptr noundef %48, ptr noundef nonnull %40)
   store ptr %49, ptr %1, align 8
@@ -16254,7 +16254,7 @@ define void @_ZN7glslang16TIntermAggregate14setPragmaTableERKNS_12TPragmaTableE(
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %5, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i.i.i = icmp eq ptr %5, %1
   br i1 %.not.i.i.i.i, label %_ZN7glslang12TPragmaTableaSERKS0_.exit, label %13
 
@@ -16331,7 +16331,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
   br label %_ZN7glslang12TPragmaTableaSERKS0_.exit
 
 _ZN7glslang12TPragmaTableaSERKS0_.exit:           ; preds = %2, %34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -23355,10 +23355,10 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE5clearEv.exit: ; pred
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

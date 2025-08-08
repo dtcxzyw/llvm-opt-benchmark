@@ -235,14 +235,14 @@ _ZN3url12_GLOBAL__N_110IsAllASCIIIchEEbPKT_RKNS_9ComponentE.exit.i.i: ; preds = 
   br i1 %.not.i13.i, label %128, label %65
 
 65:                                               ; preds = %_ZN3url12_GLOBAL__N_110IsAllASCIIIchEEbPKT_RKNS_9ComponentE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1024, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %68, ptr %66, align 8, !tbaa !17
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 16), ptr %7, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1024, ptr %70, align 8
@@ -272,7 +272,7 @@ _ZN3url12_GLOBAL__N_110IsAllASCIIIchEEbPKT_RKNS_9ComponentE.exit.i.i: ; preds = 
   br i1 %or.cond.i.i.i.i, label %90, label %84
 
 84:                                               ; preds = %81
-  call void @_ZdaPv(ptr noundef nonnull %82) #11
+  call void @_ZdaPv(ptr noundef nonnull %82) #10
   br label %90
 
 85:                                               ; preds = %74, %65
@@ -286,15 +286,15 @@ _ZN3url12_GLOBAL__N_110IsAllASCIIIchEEbPKT_RKNS_9ComponentE.exit.i.i: ; preds = 
   br i1 %or.cond.i7.i.i.i, label %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit8.i.i.i, label %89
 
 89:                                               ; preds = %85
-  call void @_ZdaPv(ptr noundef nonnull %87) #11
+  call void @_ZdaPv(ptr noundef nonnull %87) #10
   br label %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit8.i.i.i
 
 _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit8.i.i.i: ; preds = %89, %85
-  call void @llvm.lifetime.end.p0(i64 2072, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body.i.i
 
 90:                                               ; preds = %84, %81
-  call void @llvm.lifetime.end.p0(i64 2072, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %91 = load ptr, ptr %66, align 8, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %93 = load i32, ptr %92, align 4, !tbaa !8
@@ -382,11 +382,11 @@ _ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringIcEEvPKT_iPNS_12CanonOutputTIcEE.
   br i1 %or.cond.i.i.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i.i, label %122
 
 122:                                              ; preds = %_ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringIcEEvPKT_iPNS_12CanonOutputTIcEE.exit40.i.i
-  call void @_ZdaPv(ptr noundef nonnull %120) #11
+  call void @_ZdaPv(ptr noundef nonnull %120) #10
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i.i
 
 _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i.i:  ; preds = %122, %_ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringIcEEvPKT_iPNS_12CanonOutputTIcEE.exit40.i.i
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i
 
 123:                                              ; preds = %111, %102
@@ -404,11 +404,11 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i.i:  ; preds = %122, %_ZN3url12_GLO
   br i1 %or.cond.i43.i.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit44.i.i, label %127
 
 127:                                              ; preds = %.body.i.i
-  call void @_ZdaPv(ptr noundef nonnull %125) #11
+  call void @_ZdaPv(ptr noundef nonnull %125) #10
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit44.i.i
 
 _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit44.i.i: ; preds = %127, %.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 128:                                              ; preds = %_ZN3url12_GLOBAL__N_110IsAllASCIIIchEEbPKT_RKNS_9ComponentE.exit.i.i
@@ -608,7 +608,7 @@ _ZN3url12_GLOBAL__N_110IsAllASCIIIttEEbPKT_RKNS_9ComponentE.exit: ; preds = %.lr
   br i1 %.not, label %87, label %41
 
 41:                                               ; preds = %_ZN3url12_GLOBAL__N_110IsAllASCIIIttEEbPKT_RKNS_9ComponentE.exit
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 1024, ptr %43, align 8
@@ -712,11 +712,11 @@ _ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringIcEEvPKT_iPNS_12CanonOutputTIcEE.
   br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit, label %82
 
 82:                                               ; preds = %_ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringIcEEvPKT_iPNS_12CanonOutputTIcEE.exit
-  call void @_ZdaPv(ptr noundef nonnull %80) #11
+  call void @_ZdaPv(ptr noundef nonnull %80) #10
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit
 
 _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %_ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringIcEEvPKT_iPNS_12CanonOutputTIcEE.exit, %82
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringItEEvPKT_iPNS_12CanonOutputTIcEE.exit
 
 .loopexit:                                        ; preds = %62, %71
@@ -739,11 +739,11 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %_ZN3url12_GLOBAL__N
   br i1 %or.cond.i41, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit42, label %86
 
 86:                                               ; preds = %83
-  call void @_ZdaPv(ptr noundef nonnull %84) #11
+  call void @_ZdaPv(ptr noundef nonnull %84) #10
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit42
 
 _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit42:    ; preds = %83, %86
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %lpad.phi
 
 87:                                               ; preds = %_ZN3url12_GLOBAL__N_110IsAllASCIIIttEEbPKT_RKNS_9ComponentE.exit
@@ -755,19 +755,13 @@ _ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringItEEvPKT_iPNS_12CanonOutputTIcEE.
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
@@ -778,17 +772,17 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef non
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %7
 
 7:                                                ; preds = %6, %1
   ret void
 }
 
-declare void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #5 comdat {
+define linkonce_odr void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #4 comdat {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -929,7 +923,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit23:      ; preds = %select.unfold.i.i16
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3url14RawCanonOutputILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZN3url14RawCanonOutputILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
@@ -940,11 +934,11 @@ define linkonce_odr void @_ZN3url14RawCanonOutputILi1024EED0Ev(ptr noundef nonnu
   br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit
 
 _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %1, %6
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -952,7 +946,7 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %1, %6
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr noundef nonnull align 8 dereferenceable(1048) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %narrow = tail call i32 @llvm.smax.i32(i32 %1, i32 -1)
   %3 = sext i32 %narrow to i64
-  %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #12
+  %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -967,7 +961,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
   br i1 %or.cond, label %13, label %12
 
 12:                                               ; preds = %2
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #10
   br label %13
 
 13:                                               ; preds = %12, %2
@@ -978,7 +972,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
@@ -989,27 +983,27 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef non
   br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit
 
 _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %1, %6
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 
-declare noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItEE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItEE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
@@ -1020,7 +1014,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef non
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -1028,7 +1022,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef non
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3url15RawCanonOutputWILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZN3url15RawCanonOutputWILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
@@ -1039,11 +1033,11 @@ define linkonce_odr void @_ZN3url15RawCanonOutputWILi1024EED0Ev(ptr noundef nonn
   br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit
 
 _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit:      ; preds = %1, %6
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -1053,7 +1047,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EE6ResizeEi(ptr nounde
   %4 = icmp slt i32 %1, 0
   %5 = shl nuw nsw i64 %3, 1
   %6 = select i1 %4, i64 -1, i64 %5
-  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #12
+  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1069,7 +1063,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EE6ResizeEi(ptr nounde
   br i1 %or.cond, label %17, label %16
 
 16:                                               ; preds = %2
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #10
   br label %17
 
 17:                                               ; preds = %16, %2
@@ -1080,7 +1074,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EE6ResizeEi(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
@@ -1091,15 +1085,21 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED0Ev(ptr noundef non
   br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit
 
 _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit:      ; preds = %1, %6
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
-declare void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
@@ -1108,18 +1108,17 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { builtin allocsize(0) }
+attributes #10 = { builtin nounwind }
+attributes #11 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -84,25 +84,19 @@ define hidden void @lj_serialize_dict_prep_str(ptr noundef %0, ptr noundef %1) l
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare hidden i32 @lj_tab_len(ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_tab_len(ptr noundef) local_unnamed_addr #2
-
-declare hidden void @lj_tab_resize(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_tab_resize(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 
-declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_newkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_newkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_serialize_dict_prep_mt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -173,7 +167,7 @@ define hidden void @lj_serialize_dict_prep_mt(ptr noundef %0, ptr noundef %1) lo
   ret void
 }
 
-declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_serialize_put(ptr noundef returned initializes((64, 68)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -955,7 +949,7 @@ define internal fastcc ptr @serialize_get(ptr noundef %0, ptr noundef %1, ptr no
   %8 = alloca i32, align 4
   %9 = alloca %union.TValue, align 8
   %10 = load ptr, ptr %1, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = icmp ult ptr %0, %10
   br i1 %11, label %12, label %serialize_ru124.exit.thread, !prof !23
 
@@ -1049,7 +1043,7 @@ serialize_ru124.exit.thread189:                   ; preds = %12, %thread-pre-spl
   br i1 %55, label %56, label %87
 
 56:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = icmp ult ptr %.0.i192, %10
   br i1 %57, label %58, label %.thread203, !prof !23
 
@@ -1106,12 +1100,12 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   unreachable
 
 .thread203:                                       ; preds = %serialize_ru124.exit178, %56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %serialize_ru124.exit.thread
 
 86:                                               ; preds = %73
   store i64 %79, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %282
 
 87:                                               ; preds = %54
@@ -1120,9 +1114,9 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   br i1 %or.cond, label %89, label %212
 
 89:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !67
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %91 = load i32, ptr %90, align 8, !tbaa !18
@@ -1144,7 +1138,7 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   br i1 %100, label %101, label %thread-pre-split225
 
 101:                                              ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %102 = icmp ult ptr %.0.i192, %10
   br i1 %102, label %103, label %.thread220, !prof !23
 
@@ -1224,7 +1218,7 @@ serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge: ; preds = %
   unreachable
 
 .thread220:                                       ; preds = %serialize_ru124.exit180, %serialize_ru124.exit182, %101, %126
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread240
 
 serialize_ru124.exit182.thread215:                ; preds = %serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge, %129
@@ -1232,7 +1226,7 @@ serialize_ru124.exit182.thread215:                ; preds = %serialize_ru124.exi
   %.0.i181218 = phi ptr [ %134, %serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge ], [ %132, %129 ]
   %141 = add i32 %140, -8
   %or.cond3 = icmp ult i32 %141, 6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %or.cond3, label %thread-pre-split225, label %211
 
 thread-pre-split225:                              ; preds = %98, %serialize_ru124.exit182.thread215
@@ -1360,7 +1354,7 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
 
 .preheader:                                       ; preds = %.loopexit, %205
   %.10 = phi ptr [ %206, %205 ], [ %.7, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %195 = call fastcc ptr @serialize_get(ptr noundef %.10, ptr noundef nonnull %1, ptr noundef nonnull %9)
   %196 = load i64, ptr %175, align 8, !tbaa !28
   %197 = and i64 %196, -8
@@ -1379,7 +1373,7 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
 
 205:                                              ; preds = %.preheader
   %206 = call fastcc ptr @serialize_get(ptr noundef %195, ptr noundef nonnull %1, ptr noundef nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %207 = load i32, ptr %7, align 4, !tbaa !67
   %208 = add i32 %207, -1
   store i32 %208, ptr %7, align 4, !tbaa !67
@@ -1391,18 +1385,18 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   %209 = load i32, ptr %90, align 8, !tbaa !18
   %210 = add nsw i32 %209, 1
   store i32 %210, ptr %90, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %282
 
 .thread240:                                       ; preds = %serialize_ru124.exit184, %serialize_ru124.exit186, %.thread220, %144, %156
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %serialize_ru124.exit.thread
 
 211:                                              ; preds = %serialize_ru124.exit182.thread215
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread249
 
 212:                                              ; preds = %87
@@ -1534,14 +1528,14 @@ serialize_ru124.exit.thread:                      ; preds = %260, %254, %3, %214
 
 282:                                              ; preds = %264, %.thread246, %.thread243, %86, %.thread, %45, %50, %39
   %.0127 = phi ptr [ %37, %39 ], [ %.0.i192, %50 ], [ %.0.i177202, %86 ], [ %.13, %264 ], [ %43, %45 ], [ %34, %.thread ], [ %.9, %.thread243 ], [ %218, %.thread246 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0127
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_serialize_encode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SBufExt, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1574,19 +1568,19 @@ define hidden ptr @lj_serialize_encode(ptr noundef %0, ptr noundef readonly capt
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = call ptr @lj_str_new(ptr noundef %0, ptr noundef %23, i64 noundef %26) #11
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_serialize_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SBufExt, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1617,14 +1611,14 @@ define hidden void @lj_serialize_decode(ptr noundef %0, ptr noundef writeonly ca
   unreachable
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 15) i32 @lj_serialize_peektype(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 15) i32 @lj_serialize_peektype(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = load ptr, ptr %0, align 8, !tbaa !22
@@ -1661,20 +1655,20 @@ switch.lookup:                                    ; preds = %serialize_ru124.exi
 
 serialize_ru124.exit.thread:                      ; preds = %serialize_ru124.exit.thread4, %switch.lookup, %1, %serialize_ru124.exit
   %.0 = phi i32 [ 0, %serialize_ru124.exit ], [ 0, %1 ], [ %switch.load, %switch.lookup ], [ 4, %serialize_ru124.exit.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #4
+declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
 
-declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc nonnull ptr @serialize_wu124_(ptr noundef writeonly captures(ret: address, provenance) initializes((1, 2)) %0, i32 noundef range(i32 224, 0) %1) unnamed_addr #8 {
+define internal fastcc nonnull ptr @serialize_wu124_(ptr noundef writeonly captures(ret: address, provenance) initializes((1, 2)) %0, i32 noundef range(i32 224, 0) %1) unnamed_addr #7 {
   %3 = icmp ult i32 %1, 8160
   br i1 %3, label %4, label %12
 
@@ -1702,16 +1696,16 @@ define internal fastcc nonnull ptr @serialize_wu124_(ptr noundef writeonly captu
   ret ptr %.0
 }
 
-declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_lightud_intern(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_lightud_intern(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc ptr @serialize_ru124_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 {
+define internal fastcc ptr @serialize_ru124_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #8 {
   %4 = load i32, ptr %2, align 4, !tbaa !67
   %.not = icmp eq i32 %4, 255
   br i1 %.not, label %14, label %5
@@ -1750,6 +1744,12 @@ define internal fastcc ptr @serialize_ru124_(ptr noundef readonly captures(addre
   ret ptr %.014
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
@@ -1760,15 +1760,15 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

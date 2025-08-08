@@ -82,11 +82,11 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !11
   %6 = tail call ptr @opt_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @rsautl_options) #3
   br label %7
@@ -489,103 +489,103 @@ default.unreachable233:                           ; preds = %100, %58
 
 .thread:                                          ; preds = %66, %70, %.loopexit155
   %.0 = phi i32 [ %.0106, %.loopexit155 ], [ 1, %70 ], [ 1, %66 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_next() local_unnamed_addr #1
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @opt_help(ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_arg() local_unnamed_addr #1
+
+declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_rand(i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
+
+declare i32 @app_RAND_load() local_unnamed_addr #1
+
+declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @load_pubkey(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @load_cert_pass(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_free(ptr noundef) local_unnamed_addr #1
+
+declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_get_size(ptr noundef) local_unnamed_addr #1
+
+declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_verify_recover_init(ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_verify_recover(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_decrypt_init(ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ASN1_parse_dump(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @BIO_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
+
+declare void @release_engine(ptr noundef) local_unnamed_addr #1
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
+
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
+
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_next() local_unnamed_addr #2
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @opt_help(ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_arg() local_unnamed_addr #2
-
-declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_rand(i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
-
-declare i32 @app_RAND_load() local_unnamed_addr #2
-
-declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @load_pubkey(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @load_cert_pass(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #2
-
-declare void @X509_free(ptr noundef) local_unnamed_addr #2
-
-declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_get_size(ptr noundef) local_unnamed_addr #2
-
-declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_verify_recover_init(ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_verify_recover(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_decrypt_init(ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ASN1_parse_dump(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @BIO_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
-
-declare void @release_engine(ptr noundef) local_unnamed_addr #2
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
-
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

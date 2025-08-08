@@ -645,8 +645,8 @@ entry:
   %ref.tmp11.i = alloca %"class.std::unique_ptr.146", align 8
   %workers_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %workers_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %sessions_.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %call.i.i = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteISB_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %sessions_.i, ptr noundef nonnull align 8 dereferenceable(32) %sessionId)
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
@@ -680,8 +680,8 @@ _ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN4node9inspector8protocol11NodeWorkers7ReceiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit
 
 _ZN4node9inspector8protocol11NodeWorkers7ReceiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit: ; preds = %entry, %if.then.i, %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   call void @_ZN4node9inspector8protocol16DispatchResponse2OKEv(ptr sret(%"class.node::inspector::protocol::DispatchResponse") align 8 %agg.result) #14
   ret void
 }
@@ -1405,8 +1405,8 @@ _ZNKSt14default_deleteIN4node9inspector24InspectorSessionDelegateEEclEPS2_.exit.
 _ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit24: ; preds = %_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector24InspectorSessionDelegateEEclEPS2_.exit.i21
   store ptr null, ptr %agg.tmp6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
   %call.i.i.i = call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #13, !noalias !34
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol10NodeWorker10WorkerInfoE, i64 16), ptr %call.i.i.i, align 8, !noalias !34
   %m_workerId.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -1432,8 +1432,8 @@ _ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteI
   store i64 %39, ptr %agg.tmp10, align 8, !alias.scope !37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #14, !noalias !31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #14, !noalias !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
   call void @_ZN4node9inspector8protocol10NodeWorker8Frontend16attachedToWorkerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS2_10WorkerInfoESt14default_deleteISD_EEb(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %id, ptr noundef nonnull %agg.tmp10, i1 noundef zeroext %waiting) #14
   %40 = load ptr, ptr %agg.tmp10, align 8
   %cmp.not.i25 = icmp eq ptr %40, null
@@ -3639,10 +3639,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

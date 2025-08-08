@@ -52,25 +52,22 @@ define range(i32 0, 2) i32 @ECPKParameters_print_fp(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_s_file() local_unnamed_addr #1
 
-declare ptr @BIO_s_file() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %5
@@ -281,14 +278,11 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
   %92 = load ptr, ptr %4, align 8, !tbaa !3
   call void @CRYPTO_clear_free(ptr noundef %92, i64 noundef %.0100192, ptr noundef nonnull @.str, i32 noundef 220) #5
   call void @BN_CTX_free(ptr noundef %.099194) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.092197
 }
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_KEY_print_fp(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -314,7 +308,7 @@ define i32 @EC_KEY_print_fp(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   ret i32 %.0
 }
 
-declare i32 @EC_KEY_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EC_KEY_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ECParameters_print_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -340,50 +334,50 @@ define i32 @ECParameters_print_fp(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %.0
 }
 
-declare i32 @ECParameters_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ECParameters_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_CTX_new() local_unnamed_addr #2
+declare ptr @BN_CTX_new() local_unnamed_addr #1
 
-declare i32 @EC_GROUP_get_asn1_flag(ptr noundef) local_unnamed_addr #2
+declare i32 @EC_GROUP_get_asn1_flag(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_indent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_indent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #2
+declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
-declare ptr @EC_curve_nid2nist(i32 noundef) local_unnamed_addr #2
+declare ptr @EC_curve_nid2nist(i32 noundef) local_unnamed_addr #1
 
-declare i32 @EC_GROUP_get_field_type(ptr noundef) local_unnamed_addr #2
+declare i32 @EC_GROUP_get_field_type(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare i32 @EC_GROUP_get_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EC_GROUP_get_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_get0_generator(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_get0_generator(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_get0_cofactor(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_get0_cofactor(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EC_GROUP_get_point_conversion_form(ptr noundef) local_unnamed_addr #2
+declare i32 @EC_GROUP_get_point_conversion_form(ptr noundef) local_unnamed_addr #1
 
-declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_get0_seed(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_get0_seed(ptr noundef) local_unnamed_addr #1
 
-declare i64 @EC_GROUP_get_seed_len(ptr noundef) local_unnamed_addr #2
+declare i64 @EC_GROUP_get_seed_len(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EC_GROUP_get_basis_type(ptr noundef) local_unnamed_addr #2
+declare i32 @EC_GROUP_get_basis_type(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [133 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %13
 
@@ -444,28 +438,34 @@ define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %0, ptr nounde
 
 .loopexit:                                        ; preds = %27, %24, %36, %13, %8
   %.022 = phi i32 [ 0, %8 ], [ 0, %13 ], [ %., %36 ], [ 0, %24 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 133, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.022
 }
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

@@ -172,23 +172,17 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #2
+declare i32 @rand() local_unnamed_addr #1
 
-declare i32 @lwGetPixel(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lwGetPixel(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @lwDrawPixel(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @lwDrawPixel(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.skyscraper, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -331,7 +325,7 @@ generateSkyscraper.exit:                          ; preds = %._crit_edge.i, %33
   br i1 %64, label %17, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge53:                                    ; preds = %75, %1, %.split45.us
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 .lr.ph52:                                         ; preds = %.split45.us, %75
@@ -378,9 +372,9 @@ generateSkyscraper.exit:                          ; preds = %._crit_edge.i, %33
 define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 80, ptr %2, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 20, ptr %3, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !32
@@ -556,33 +550,39 @@ sdslen.exit:                                      ; preds = %renderCanvas.exit, 
   br label %83
 
 83:                                               ; preds = %15, %7, %sdslen.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @lwCreateCanvas(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @lwCreateCanvas(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @sdsfree(ptr noundef) local_unnamed_addr #3
+declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 
-declare void @lwFreeCanvas(ptr noundef) local_unnamed_addr #3
+declare void @lwFreeCanvas(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sdsempty() local_unnamed_addr #3
+declare ptr @sdsempty() local_unnamed_addr #2
 
-declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

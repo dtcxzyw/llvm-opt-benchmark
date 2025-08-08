@@ -125,9 +125,6 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -153,7 +150,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ippusb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %8 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
@@ -196,7 +193,7 @@ define internal i32 @dissect_ippusb(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 29:                                               ; preds = %.thread
   %30 = tail call ptr @wmem_file_scope()
-  %31 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %30, i64 noundef 8) #8
+  %31 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %30, i64 noundef 8) #7
   %32 = tail call ptr @wmem_file_scope()
   %33 = tail call noalias ptr @wmem_tree_new(ptr noundef %32)
   store ptr %33, ptr %31, align 8
@@ -226,7 +223,7 @@ get_ippusb_conversation_data.exit:                ; preds = %.thread, %29
   br i1 %46, label %47, label %is_http_header.exit.thread
 
 47:                                               ; preds = %45
-  %48 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #9
+  %48 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %is_http_header.exit, label %50
 
@@ -235,7 +232,7 @@ get_ippusb_conversation_data.exit:                ; preds = %.thread, %29
   br i1 %51, label %52, label %is_http_header.exit.thread
 
 52:                                               ; preds = %50
-  %53 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #9
+  %53 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %is_http_header.exit, label %55
 
@@ -244,7 +241,7 @@ get_ippusb_conversation_data.exit:                ; preds = %.thread, %29
   br i1 %56, label %57, label %is_http_header.exit.thread
 
 57:                                               ; preds = %55
-  %58 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #9
+  %58 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #8
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %is_http_header.exit, label %is_http_header.exit.thread
 
@@ -308,7 +305,7 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   br i1 %46, label %94, label %is_http_header.exit261
 
 94:                                               ; preds = %91
-  %95 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #9
+  %95 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #8
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %107, label %97
 
@@ -317,7 +314,7 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   br i1 %98, label %99, label %is_http_header.exit261
 
 99:                                               ; preds = %97
-  %100 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #9
+  %100 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #8
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %107, label %102
 
@@ -326,7 +323,7 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   br i1 %103, label %104, label %is_http_header.exit261
 
 104:                                              ; preds = %102
-  %105 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #9
+  %105 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %is_http_header.exit261
 
@@ -335,7 +332,7 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %110 = load i32, ptr %109, align 4
   %111 = call ptr @wmem_file_scope()
-  %112 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %111, i64 noundef 24) #8
+  %112 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %111, i64 noundef 24) #7
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   store i32 %110, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 12
@@ -379,7 +376,7 @@ is_http_header.exit261:                           ; preds = %104, %102, %97, %91
   %137 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %138 = load i32, ptr %137, align 4
   %139 = call ptr @wmem_file_scope()
-  %140 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %139, i64 noundef 24) #8
+  %140 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %139, i64 noundef 24) #7
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store i32 %134, ptr %141, align 4
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 12
@@ -403,7 +400,7 @@ is_http_header.exit261:                           ; preds = %104, %102, %97, %91
   br i1 %152, label %153, label %161
 
 153:                                              ; preds = %129
-  %154 = call i32 @strncmp(ptr noundef %37, ptr noundef nonnull dereferenceable(15) @.str.38, i64 noundef 14) #9
+  %154 = call i32 @strncmp(ptr noundef %37, ptr noundef nonnull dereferenceable(15) @.str.38, i64 noundef 14) #8
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %161
 
@@ -412,7 +409,7 @@ is_http_header.exit261:                           ; preds = %104, %102, %97, %91
   br i1 %157, label %160, label %158
 
 158:                                              ; preds = %156
-  %159 = call i32 @strncmp(ptr noundef %37, ptr noundef nonnull dereferenceable(30) @.str.39, i64 noundef 29) #9
+  %159 = call i32 @strncmp(ptr noundef %37, ptr noundef nonnull dereferenceable(30) @.str.39, i64 noundef 29) #8
   %.not245 = icmp eq i32 %159, 0
   br i1 %.not245, label %161, label %160
 
@@ -672,12 +669,9 @@ is_http_header.exit261:                           ; preds = %104, %102, %97, %91
 
 .thread271:                                       ; preds = %79, %215, %299, %300
   %.1 = phi i32 [ %301, %300 ], [ 0, %299 ], [ %7, %215 ], [ 0, %79 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ippusb() local_unnamed_addr #0 {
@@ -690,28 +684,28 @@ define hidden void @proto_reg_handoff_ippusb() local_unnamed_addr #0 {
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #3
+declare i32 @g_direct_hash(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @ippusb_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #4 {
+define internal noundef ptr @ippusb_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #3 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @ippusb_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #4 {
+define internal noundef ptr @ippusb_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #3 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal void @ippusb_free_temporary_key(ptr readnone captures(none) %0) #4 {
+define internal void @ippusb_free_temporary_key(ptr readnone captures(none) %0) #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal void @ippusb_free_persistent_key(ptr readnone captures(none) %0) #4 {
+define internal void @ippusb_free_persistent_key(ptr readnone captures(none) %0) #3 {
   ret void
 }
 
@@ -761,7 +755,7 @@ declare ptr @fragment_add_check(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -785,7 +779,7 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
@@ -794,21 +788,26 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { allocsize(1) }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #2 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { allocsize(1) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -217,13 +217,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
@@ -231,7 +225,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEESL_EEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EERNSV_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %9
@@ -239,7 +233,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 9:                                                ; preds = %5
@@ -247,7 +241,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
           cleanup
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %10
 }
 
@@ -285,7 +279,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   br i1 %.not.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %19, !llvm.loop !20
 
 _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit: ; preds = %19, %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEEclINS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENSM_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINSJ_20ConstIndexedViewTypeISP_SQ_E4typeEEE19ReturnAsIndexedViewEST_E4typeERKSP_RKSQ_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::IndexedView") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3igl12placeholdersL3allE)
   %25 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEERSI_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %26 unwind label %29
@@ -294,7 +288,7 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   call void @free(ptr noundef %28) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 29:                                               ; preds = %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit
@@ -303,14 +297,14 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   call void @free(ptr noundef %32) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEESL_EEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EERNSV_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %9
@@ -318,7 +312,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 9:                                                ; preds = %5
@@ -326,7 +320,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
           cleanup
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %10
 }
 
@@ -364,7 +358,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   br i1 %.not.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %19, !llvm.loop !24
 
 _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit: ; preds = %19, %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEclINS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENSM_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINSJ_20ConstIndexedViewTypeISP_SQ_E4typeEEE19ReturnAsIndexedViewEST_E4typeERKSP_RKSQ_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::IndexedView.191") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3igl12placeholdersL3allE)
   %25 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEERSI_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %26 unwind label %29
@@ -373,7 +367,7 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   call void @free(ptr noundef %28) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 29:                                               ; preds = %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit
@@ -382,14 +376,14 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   call void @free(ptr noundef %32) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELi3ELi1ELin1ELi3EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELi3ELi1ELin1ELi3EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEESL_EEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EERNSV_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %9
@@ -397,7 +391,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 9:                                                ; preds = %5
@@ -405,7 +399,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
           cleanup
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %10
 }
 
@@ -497,7 +491,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEaSIS2_EERS2_RKNS
   br i1 %.not.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELi3ELi1ELin1ELi3EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %40, !llvm.loop !33
 
 _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELi3ELi1ELin1ELi3EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit: ; preds = %40, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEaSIS2_EERS2_RKNS_9EigenBaseIT_EE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEclINS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENSM_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINSJ_20ConstIndexedViewTypeISP_SQ_E4typeEEE19ReturnAsIndexedViewEST_E4typeERKSP_RKSQ_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::IndexedView.191") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3igl12placeholdersL3allE)
   %46 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEERSI_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %47 unwind label %50
@@ -506,7 +500,7 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !4
   call void @free(ptr noundef %49) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 50:                                               ; preds = %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELi3ELi1ELin1ELi3EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit
@@ -515,14 +509,14 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   call void @free(ptr noundef %53) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_ISI_Lin1ELin1ELi1ELin1ELin1EEESK_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNSN_IT0_EERNS1_15PlainObjectBaseIT1_EERNSW_IT2_EERNSW_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_ISI_Lin1ELin1ELi1ELin1ELin1EEESK_NS2_IiLin1ELi1ELi0ELin1ELi1EEESM_EEvRKNS1_10MatrixBaseIT_EERKNSN_IT0_EERNS1_15PlainObjectBaseIT1_EERNSW_IT2_EERNSW_IT3_EERNSW_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %9
@@ -530,7 +524,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 9:                                                ; preds = %5
@@ -538,7 +532,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
           cleanup
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %10
 }
 
@@ -576,7 +570,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   br i1 %.not.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_ISK_Lin1ELin1ELi1ELin1ELin1EEESM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESO_EEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERNS3_15PlainObjectBaseIT1_EERNSY_IT2_EERNSY_IT3_EERNSY_IT4_EEEUlRiE_ESU_SQ_SQ_SU_.exit, label %19, !llvm.loop !36
 
 _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_ISK_Lin1ELin1ELi1ELin1ELin1EEESM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESO_EEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERNS3_15PlainObjectBaseIT1_EERNSY_IT2_EERNSY_IT3_EERNSY_IT4_EEEUlRiE_ESU_SQ_SQ_SU_.exit: ; preds = %19, %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEclINS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENSM_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINSJ_20ConstIndexedViewTypeISP_SQ_E4typeEEE19ReturnAsIndexedViewEST_E4typeERKSP_RKSQ_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::IndexedView.217") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3igl12placeholdersL3allE)
   %25 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEaSINS_11IndexedViewIKNS1_ISH_Lin1ELi3ELi0ELin1ELi3EEENS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEERSI_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %26 unwind label %29
@@ -585,7 +579,7 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   call void @free(ptr noundef %28) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 29:                                               ; preds = %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_ISK_Lin1ELin1ELi1ELin1ELin1EEESM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESO_EEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERNS3_15PlainObjectBaseIT1_EERNSY_IT2_EERNSY_IT3_EERNSY_IT4_EEEUlRiE_ESU_SQ_SQ_SU_.exit
@@ -594,14 +588,14 @@ _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_nt
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   call void @free(ptr noundef %32) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEESJ_SK_NS2_IiLin1ELi1ELi0ELin1ELi1EEESL_EEvRKNS1_10MatrixBaseIT_EERKNSM_IT0_EERNS1_15PlainObjectBaseIT1_EERNSV_IT2_EERNSV_IT3_EERNSV_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %9
@@ -609,7 +603,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 9:                                                ; preds = %5
@@ -617,7 +611,7 @@ define weak_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CG
           cleanup
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %10
 }
 
@@ -659,7 +653,7 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   br i1 %.not.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %23, !llvm.loop !37
 
 _ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit: ; preds = %23, %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNK5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEclINS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENSM_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINSJ_20ConstIndexedViewTypeISP_SQ_E4typeEEE19ReturnAsIndexedViewEST_E4typeERKSP_RKSQ_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::IndexedView.217") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3igl12placeholdersL3allE)
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !38
@@ -680,8 +674,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
           to label %.noexc16 unwind label %53
 
 .noexc16:                                         ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEEvRKNS_9EigenBaseIT_EE.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = load ptr, ptr %11, align 8, !tbaa !39
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -707,12 +701,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEERSI_RKNS_9DenseBaseIT_EE.exit.i: ; preds = %.noexc17, %.noexc16
   %44 = phi i64 [ %.pre.i.i.i.i.i.i.i, %.noexc17 ], [ %40, %.noexc16 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %45 = load ptr, ptr %2, align 8, !tbaa !46
   store ptr %45, ptr %8, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %44, ptr %46, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %8, ptr %9, align 8, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %7, ptr %47, align 8, !tbaa !54
@@ -724,14 +718,14 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6n
           to label %50 unwind label %53
 
 50:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEERSI_RKNS_9DenseBaseIT_EE.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   call void @free(ptr noundef %52) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 53:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEERSI_RKNS_9DenseBaseIT_EE.exit.i, %43, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEEvRKNS_9EigenBaseIT_EE.exit.i, %32
@@ -740,7 +734,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6n
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !4
   call void @free(ptr noundef %56) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %54
 }
 
@@ -1363,8 +1357,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEEvRKNS_9EigenBaseIT_EE.exit: ; preds = %2, %13
   %18 = mul nsw i64 %10, %8
   tail call void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEELin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %18, i64 noundef %8, i64 noundef %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = load ptr, ptr %1, align 8, !tbaa !98
   %20 = load ptr, ptr %19, align 8, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1410,12 +1404,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEERSI_RKNS_9DenseBaseIT_EE.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEEvRKNS_9EigenBaseIT_EE.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %39 = phi i64 [ %.pre.i.i.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i ], [ %25, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEEvRKNS_9EigenBaseIT_EE.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = load ptr, ptr %0, align 8, !tbaa !101
   store ptr %40, ptr %4, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %39, ptr %41, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !104
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %42, align 8, !tbaa !106
@@ -1424,10 +1418,10 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6n
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %44, align 8, !tbaa !94
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEEENS3_INS_11IndexedViewIKSL_NS4_IiLin1ELi1ELi0ELin1ELi1EEENS0_8AllRangeILin1EEEEEEENS0_9assign_opISK_SK_EELi0EEELi0ELi0EE3runERSW_(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -2363,8 +2357,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEEvRKNS_9EigenBaseIT_EE.exit: ; preds = %2, %13
   %18 = mul nsw i64 %10, %8
   tail call void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEELin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %18, i64 noundef %8, i64 noundef %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = load ptr, ptr %1, align 8, !tbaa !142
   %20 = load ptr, ptr %19, align 8, !tbaa !144
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -2410,12 +2404,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEaSINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEERSI_RKNS_9DenseBaseIT_EE.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEEvRKNS_9EigenBaseIT_EE.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %39 = phi i64 [ %.pre.i.i.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i ], [ %26, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKSI_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEEvRKNS_9EigenBaseIT_EE.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = load ptr, ptr %0, align 8, !tbaa !144
   store ptr %40, ptr %4, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %39, ptr %41, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !147
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %42, align 8, !tbaa !149
@@ -2424,10 +2418,10 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6n
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %44, align 8, !tbaa !140
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEENS3_INS_11IndexedViewIKSL_NS4_IiLin1ELi1ELi0ELin1ELi1EEENS0_8AllRangeILin1EEEEEEENS0_9assign_opISK_SK_EELi0EEELi0ELi0EE3runERSW_(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -2999,8 +2993,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKNS1_ISH_Lin1ELi3ELi0ELin1ELi3EEENS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEEvRKNS_9EigenBaseIT_EE.exit: ; preds = %2
   %12 = mul nsw i64 %8, 3
   tail call void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEELin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12, i64 noundef %8, i64 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load ptr, ptr %1, align 8, !tbaa !39
   %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3038,12 +3032,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEaSINS_11IndexedViewIKNS1_ISH_Lin1ELi3ELi0ELin1ELi3EEENS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEERSI_RKNS_9DenseBaseIT_EE.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKNS1_ISH_Lin1ELi3ELi0ELin1ELi3EEENS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEEvRKNS_9EigenBaseIT_EE.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %28 = phi i64 [ %.pre.i.i.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i ], [ 3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE16_resize_to_matchINS_11IndexedViewIKNS1_ISH_Lin1ELi3ELi0ELin1ELi3EEENS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILi3EEEEEEEvRKNS_9EigenBaseIT_EE.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = load ptr, ptr %0, align 8, !tbaa !144
   store ptr %29, ptr %4, align 8, !tbaa !47
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %28, ptr %30, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !147
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %31, align 8, !tbaa !54
@@ -3052,10 +3046,10 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6n
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %33, align 8, !tbaa !140
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEENS3_INS_11IndexedViewIKNS4_ISK_Lin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi1ELi0ELin1ELi1EEENS0_8AllRangeILi3EEEEEEENS0_9assign_opISK_SK_EELi0EEELi0ELi0EE3runERSX_(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -3569,6 +3563,12 @@ define internal void @_GLOBAL__sub_I_remove_unreferenced.cpp() #23 section ".tex
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL5log_5E)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24

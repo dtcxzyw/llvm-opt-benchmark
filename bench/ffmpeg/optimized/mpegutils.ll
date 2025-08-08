@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @ff_draw_horiz_band(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %.not = icmp eq ptr %11, null
@@ -89,17 +89,11 @@ define void @ff_draw_horiz_band(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %51
 
 51:                                               ; preds = %33, %20, %8, %34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
@@ -130,7 +124,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %28 = shl i32 %5, %27
   %29 = zext i1 %14 to i32
   %30 = or disjoint i32 %28, %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %31 = mul nsw i32 %6, %5
   %32 = sext i32 %31 to i64
   %33 = tail call ptr @av_malloc_array(i64 noundef %32, i64 noundef 320) #6
@@ -498,11 +492,11 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .critedge:                                        ; preds = %.preheader250.lr.ph, %.preheader251, %220, %._crit_edge274
   call void @av_freep(ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %224
 
 223:                                              ; preds = %.thread, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %306
 
 224:                                              ; preds = %.critedge, %22, %9
@@ -520,7 +514,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not217, label %306, label %232
 
 232:                                              ; preds = %228
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %234 = load i32, ptr %233, align 8, !tbaa !29
   %235 = call signext i8 @av_get_picture_type_char(i32 noundef %234) #6
@@ -728,35 +722,41 @@ get_segmentation_char.exit.us:                    ; preds = %296, %294, %292, %g
 
 ._crit_edge299:                                   ; preds = %.lr.ph298.split, %._crit_edge295.us, %._crit_edge291
   %305 = call i32 @av_bprint_finalize(ptr noundef nonnull %11, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %306
 
 306:                                              ; preds = %228, %._crit_edge299, %224, %223
   ret void
 }
 
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @av_frame_new_side_data(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_frame_new_side_data(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare signext i8 @av_get_picture_type_char(i32 noundef) local_unnamed_addr #2
+declare signext i8 @av_get_picture_type_char(i32 noundef) local_unnamed_addr #1
 
-declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @av_bprint_chars(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
+declare void @av_bprint_chars(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
 
-declare void @av_bprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_bprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @av_bprint_clear(ptr noundef) local_unnamed_addr #2
+declare void @av_bprint_clear(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
@@ -765,9 +765,9 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

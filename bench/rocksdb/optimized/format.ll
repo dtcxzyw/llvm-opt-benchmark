@@ -372,9 +372,6 @@ _ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EE
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb9cassandra9Tombstone11DeserializeEPKcm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.0") align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr i8, ptr %1, i64 %2
@@ -444,7 +441,7 @@ _ZSt11make_sharedIN7rocksdb9cassandra9TombstoneEJRaS3_RiRlEESt10shared_ptrINSt9e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !49
   %.not.i = icmp eq ptr %3, null
@@ -497,9 +494,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb9cassandra14ExpiringColumn11DeserializeEPKcm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.3") align 8 captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -592,7 +586,7 @@ _ZSt11make_sharedIN7rocksdb9cassandra14ExpiringColumnEJRaS3_RlRiRPKcS5_EESt10sha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !49
   %.not.i = icmp eq ptr %3, null
@@ -899,7 +893,7 @@ define noundef zeroext i1 @_ZNK7rocksdb9cassandra14ExpiringColumn7ExpiredEv(ptr 
 }
 
 ; Function Attrs: nounwind
-declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #6
+declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7rocksdb9cassandra14ExpiringColumn11ToTombstoneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.0") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(44) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1021,7 +1015,7 @@ _ZN7rocksdb9cassandra9SerializeIlEEvT_PNSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK7rocksdb9cassandra9Tombstone11CollectableEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb9cassandra9Tombstone11CollectableEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !57
   %5 = sext i32 %4 to i64
@@ -1044,10 +1038,10 @@ define void @_ZN7rocksdb9cassandra8RowValueC2Eil(ptr noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb9cassandra8RowValueC2ESt6vectorISt10shared_ptrINS0_10ColumnBaseEESaIS5_EEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 4), (8, 48)) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb9cassandra8RowValueC2ESt6vectorISt10shared_ptrINS0_10ColumnBaseEESaIS5_EEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 4), (8, 48)) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #7 align 2 {
   store i32 2147483647, ptr %0, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %4, align 8, !tbaa !94
@@ -1179,7 +1173,7 @@ define void @_ZNK7rocksdb9cassandra8RowValue20RemoveExpiredColumnsEPb(ptr dead_o
   %5 = alloca %"class.std::shared_ptr.3", align 8
   %6 = alloca %"class.std::vector", align 8
   store i8 0, ptr %2, align 1, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !99
@@ -1231,7 +1225,7 @@ define void @_ZNK7rocksdb9cassandra8RowValue20RemoveExpiredColumnsEPb(ptr dead_o
   br i1 %30, label %31, label %106
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %32 = load ptr, ptr %.sroa.037.041, align 8, !tbaa !44, !noalias !102
   store ptr %32, ptr %5, align 8, !tbaa !62, !alias.scope !102
@@ -1328,7 +1322,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %76, %74
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %57, %64, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE9push_backERKS4_.exit
 
 80:                                               ; preds = %124, %23
@@ -1340,7 +1334,7 @@ _ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_poli
   %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %193
 
 .critedge:                                        ; preds = %48
@@ -1393,7 +1387,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17: ; preds = %102, %10
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19: ; preds = %.critedge, %90, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17, %105
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %106
 
 106:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19, %29
@@ -1603,7 +1597,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit36
 
 _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit36: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i34, %186
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 191:                                              ; preds = %._crit_edge
@@ -1615,14 +1609,14 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit36
 193:                                              ; preds = %80, %82, %191
   %.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %81, %80 ], [ %83, %82 ]
   call void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !95
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !96
@@ -1715,7 +1709,7 @@ define void @_ZNK7rocksdb9cassandra8RowValue33ConvertExpiredColumnsToTombstonesE
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = alloca %"class.std::vector", align 8
   store i8 0, ptr %2, align 1, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !99
@@ -1769,7 +1763,7 @@ define void @_ZNK7rocksdb9cassandra8RowValue33ConvertExpiredColumnsToTombstonesE
   br i1 %34, label %35, label %195
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %36 = load ptr, ptr %.sroa.057.062, align 8, !tbaa !44, !noalias !106
   store ptr %36, ptr %5, align 8, !tbaa !62, !alias.scope !106
@@ -1816,7 +1810,7 @@ _ZSt19static_pointer_castIN7rocksdb9cassandra14ExpiringColumnENS1_10ColumnBaseEE
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %62 = load ptr, ptr %47, align 8, !tbaa !4, !noalias !109
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -1863,7 +1857,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9Tombst
 83:                                               ; preds = %.noexc21
   store ptr %78, ptr %16, align 8, !tbaa !49, !alias.scope !115
   store ptr %81, ptr %6, align 8, !tbaa !56, !alias.scope !115
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %81, ptr %7, align 8, !tbaa !44
   store ptr %78, ptr %17, align 8, !tbaa !49
   %84 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
@@ -1953,7 +1947,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %116, %114
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE9push_backEOS4_.exit, %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i8 1, ptr %2, align 1, !tbaa !100
   %120 = load ptr, ptr %16, align 8, !tbaa !49
   %.not.i.i26 = icmp eq ptr %120, null
@@ -2004,7 +1998,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28: ; preds = %138, %13
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %126, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28, %141
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %142 = load ptr, ptr %13, align 8, !tbaa !49
   %.not.i.i30 = icmp eq ptr %142, null
   br i1 %.not.i.i30, label %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %143
@@ -2054,7 +2048,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32: ; preds = %160, %15
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %148, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32, %163
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE9push_backERKS4_.exit
 
 164:                                              ; preds = %213, %27
@@ -2076,19 +2070,19 @@ _ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_poli
   %171 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   br label %.body
 
 .body:                                            ; preds = %168, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %170
   %.pn = phi { ptr, i32 } [ %171, %170 ], [ %169, %168 ], [ %82, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %172
 
 172:                                              ; preds = %.body, %166
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %167, %166 ]
   call void @_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %282
 
 .critedge:                                        ; preds = %52
@@ -2141,7 +2135,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i36: ; preds = %191, %18
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit38
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit38: ; preds = %.critedge, %179, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i36, %194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %195
 
 195:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb9cassandra14ExpiringColumnELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit38, %33
@@ -2351,7 +2345,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit56
 
 _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit56: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i54, %275
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 280:                                              ; preds = %._crit_edge
@@ -2363,12 +2357,12 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit56
 282:                                              ; preds = %164, %172, %280
   %.pn17.pn = phi { ptr, i32 } [ %281, %280 ], [ %165, %164 ], [ %.pn.pn, %172 ]
   call void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn17.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !49
   %.not.i = icmp eq ptr %3, null
@@ -2426,7 +2420,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 define void @_ZNK7rocksdb9cassandra8RowValue16RemoveTombstonesEi(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::cassandra::RowValue") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !99
@@ -2769,7 +2763,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit30
 
 _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit30: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i28, %153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 158:                                              ; preds = %._crit_edge
@@ -2781,7 +2775,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit30
 160:                                              ; preds = %42, %158
   %.pn.pn = phi { ptr, i32 } [ %159, %158 ], [ %43, %42 ]
   call void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2844,7 +2838,7 @@ _ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit: ; preds = %17
   br label %162
 
 28:                                               ; preds = %_ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %29 = icmp ugt i64 %2, 12
   br i1 %29, label %.lr.ph, label %._crit_edge
@@ -2858,7 +2852,7 @@ _ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit: ; preds = %17
 33:                                               ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.01952 = phi i64 [ 12, %.lr.ph ], [ %41, %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.051 = phi i64 [ 0, %.lr.ph ], [ %.sroa.speculated, %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN7rocksdb9cassandra10ColumnBase11DeserializeEPKcm(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef %1, i64 noundef %.01952)
           to label %34 unwind label %79
 
@@ -2953,7 +2947,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %74, %72
   br label %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE9push_backEOS4_.exit, %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %78 = icmp ult i64 %41, %2
   br i1 %78, label %33, label %._crit_edge.loopexit, !llvm.loop !119
 
@@ -2979,7 +2973,7 @@ _ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2
 
 86:                                               ; preds = %85, %79
   %.pn.pn = phi { ptr, i32 } [ %.pn, %85 ], [ %80, %79 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %161
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt12__shared_ptrIN7rocksdb9cassandra10ColumnBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3163,7 +3157,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit42
 
 _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit42: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i40, %154
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %162
 
 159:                                              ; preds = %._crit_edge
@@ -3175,7 +3169,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit42
 161:                                              ; preds = %159, %86
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %86 ], [ %160, %159 ]
   call void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn
 
 162:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit42, %27
@@ -3255,7 +3249,7 @@ define void @_ZN7rocksdb9cassandra8RowValue5MergeEOSt6vectorIS1_SaIS1_EE(ptr dea
   br label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEEZNS4_5MergeEOS8_E3$_0EvT_SC_T0_.exit"
 
 "_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEEZNS4_5MergeEOS8_E3$_0EvT_SC_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %34, %40, %43
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %44, align 8, !tbaa !125
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -3293,7 +3287,7 @@ define void @_ZN7rocksdb9cassandra8RowValue5MergeEOSt6vectorIS1_SaIS1_EE(ptr dea
 
 .lr.ph:                                           ; preds = %56, %_ZNSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEaSERKS3_.exit
   %.sroa.0119.0164 = phi ptr [ %199, %_ZNSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEaSERKS3_.exit ], [ %58, %56 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %61 = load ptr, ptr %.sroa.0119.0164, align 8, !tbaa !44
   %62 = load ptr, ptr %61, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -3360,15 +3354,15 @@ _ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairI
 
 .critedge.i:                                      ; preds = %66, %78, %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE11lower_boundERS8_.exit.i
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %78 ], [ %.19.i.i.i.i, %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE11lower_boundERS8_.exit.i ], [ %44, %66 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %10, ptr %7, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = invoke ptr @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc unwind label %120
 
 .noexc:                                           ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 82:                                               ; preds = %.noexc, %78
@@ -3460,7 +3454,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
 120:                                              ; preds = %.critedge.i75, %.critedge.i60, %.critedge.i, %140, %122, %.lr.ph
   %121 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %325
 
 122:                                              ; preds = %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE4findERS8_.exit
@@ -3506,15 +3500,15 @@ _ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairI
 
 .critedge.i60:                                    ; preds = %136, %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE11lower_boundERS8_.exit.i58, %128
   %.08.lcssa.i.i.i11.i61 = phi ptr [ %.19.i.i.i.i53, %136 ], [ %.19.i.i.i.i53, %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE11lower_boundERS8_.exit.i58 ], [ %44, %128 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %10, ptr %5, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %139 = invoke ptr @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.08.lcssa.i.i.i11.i61, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc62 unwind label %120
 
 .noexc62:                                         ; preds = %.critedge.i60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %140
 
 140:                                              ; preds = %.noexc62, %136
@@ -3566,15 +3560,15 @@ _ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairI
 
 .critedge.i75:                                    ; preds = %157, %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE11lower_boundERS8_.exit.i73, %149
   %.08.lcssa.i.i.i11.i76 = phi ptr [ %.19.i.i.i.i68, %157 ], [ %.19.i.i.i.i68, %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEE11lower_boundERS8_.exit.i73 ], [ %44, %149 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %10, ptr %3, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %160 = invoke ptr @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.08.lcssa.i.i.i11.i76, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc77 unwind label %120
 
 .noexc77:                                         ; preds = %.critedge.i75
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %161
 
 161:                                              ; preds = %.noexc77, %157
@@ -3664,7 +3658,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i8
   br label %_ZNSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEaSERKS3_.exit
 
 _ZNSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEaSERKS3_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i87, %161, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %82, %147
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0164, i64 16
   %.not148 = icmp eq ptr %199, %60
   br i1 %.not148, label %._crit_edge, label %.lr.ph
@@ -3697,7 +3691,7 @@ _ZNSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEaSERKS3_.exit: ; preds = %_ZN
 
 .thread133:                                       ; preds = %._crit_edge, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEEZNS4_5MergeEOS8_E3$_0EvT_SC_T0_.exit", %53
   %.1137 = phi i64 [ %52, %53 ], [ 0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEEZNS4_5MergeEOS8_E3$_0EvT_SC_T0_.exit" ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %214 = load ptr, ptr %46, align 8, !tbaa !131
   %.not149168 = icmp eq ptr %214, %44
@@ -3953,7 +3947,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br label %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit108
 
 _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit108: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i106, %313
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread138
 
 318:                                              ; preds = %._crit_edge172
@@ -3965,7 +3959,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit10
 320:                                              ; preds = %232, %251, %318
   %.pn41.pn = phi { ptr, i32 } [ %319, %318 ], [ %233, %232 ], [ %252, %251 ]
   call void @_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %325
 
 .thread138:                                       ; preds = %201, %_ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit108
@@ -3981,13 +3975,13 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EED2Ev.exit10
   unreachable
 
 _ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEED2Ev.exit: ; preds = %.thread138
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %326
 
 325:                                              ; preds = %120, %320
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %320 ], [ %121, %120 ]
   call void @_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn41.pn.pn
 
 326:                                              ; preds = %_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEED2Ev.exit, %21
@@ -3995,7 +3989,7 @@ _ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapIaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESt4lessIaESaISt4pairIKaS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !130
   invoke void @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -4013,7 +4007,7 @@ _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb9cassandra10ColumnBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN7rocksdb9cassandra10ColumnBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #4 comdat align 2 {
   tail call void @llvm.trap() #29
   unreachable
 }
@@ -4021,32 +4015,32 @@ define linkonce_odr void @_ZN7rocksdb9cassandra10ColumnBaseD0Ev(ptr noundef nonn
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb9cassandra6ColumnD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN7rocksdb9cassandra6ColumnD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #25
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb9cassandra14ExpiringColumnD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN7rocksdb9cassandra14ExpiringColumnD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #8 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb9cassandra10ColumnBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN7rocksdb9cassandra10ColumnBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb9cassandra9TombstoneD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN7rocksdb9cassandra9TombstoneD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #9
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
   tail call void @_ZSt9terminatev() #29
   unreachable
@@ -4055,10 +4049,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #12
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -4095,7 +4089,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4168,27 +4162,27 @@ _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #16
+declare void @llvm.trap() #15
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8
@@ -4197,14 +4191,14 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6Col
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6ColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5
@@ -4220,16 +4214,16 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassan
 }
 
 ; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
+declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8
@@ -4238,14 +4232,14 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9Tom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra9TombstoneESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5
@@ -4261,18 +4255,18 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8
@@ -4281,14 +4275,14 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14Ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra14ExpiringColumnESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5
@@ -4528,7 +4522,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EE13_M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::cassandra::RowValue", align 8
   %.sroa.0.i.i.i13.i = alloca { i32, i64 }, align 8
   %.sroa.0.i.i110.i.i = alloca { i32, i64 }, align 8
@@ -4567,7 +4561,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 24:                                               ; preds = %21
   %25 = udiv exact i64 %22, 48
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = add nsw i64 %25, -2
   %27 = lshr i64 %26, 1
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4678,7 +4672,7 @@ _ZN7rocksdb9cassandra8RowValueD2Ev.exit24.i.i.i:  ; preds = %69, %_ZSt8_DestroyI
   br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_RT0_.exit.i.i", label %32, !llvm.loop !162
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %_ZN7rocksdb9cassandra8RowValueD2Ev.exit24.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -4688,7 +4682,7 @@ _ZN7rocksdb9cassandra8RowValueD2Ev.exit24.i.i.i:  ; preds = %69, %_ZSt8_DestroyI
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_RT0_.exit"
   %.sroa.0.03.i.i = phi ptr [ %79, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_RT0_.exit" ], [ %storemerge35, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_RT0_.exit.i.i" ]
   %79 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -48
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false)
   %80 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -32
   %81 = load ptr, ptr %80, align 8, !tbaa !95
@@ -4787,7 +4781,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_RT0_.exit"
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_RT0_.exit": ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i, %119
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %124 = icmp sgt i64 %90, 48
   br i1 %124, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !163
 
@@ -4820,7 +4814,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
   br i1 %136, label %137, label %177
 
 137:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %138 = load ptr, ptr %13, align 8, !tbaa !95
   %139 = load ptr, ptr %14, align 8, !tbaa !96
@@ -4910,7 +4904,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit.i.i: ; preds = %173, %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i.i
   store i64 %141, ptr %131, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 177:                                              ; preds = %135
@@ -4918,7 +4912,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6v
   br i1 %178, label %179, label %219
 
 179:                                              ; preds = %177
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i42.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i42.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i42.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %180 = load ptr, ptr %13, align 8, !tbaa !95
   %181 = load ptr, ptr %14, align 8, !tbaa !96
@@ -5008,11 +5002,11 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit54.i.i: ; preds = %215, %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i52.i.i
   store i64 %183, ptr %134, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i42.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i42.i.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 219:                                              ; preds = %177
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i55.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i55.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i55.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %220 = load ptr, ptr %13, align 8, !tbaa !95
   %221 = load ptr, ptr %14, align 8, !tbaa !96
@@ -5099,7 +5093,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit67.i.i: ; preds = %252, %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i65.i.i
   store i64 %223, ptr %12, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i55.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i55.i.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 256:                                              ; preds = %125
@@ -5107,7 +5101,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6v
   br i1 %257, label %258, label %295
 
 258:                                              ; preds = %256
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i76.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i76.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i76.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %259 = load ptr, ptr %13, align 8, !tbaa !95
   %260 = load ptr, ptr %14, align 8, !tbaa !96
@@ -5194,7 +5188,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit88.i.i: ; preds = %291, %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i86.i.i
   store i64 %262, ptr %12, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i76.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i76.i.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 295:                                              ; preds = %256
@@ -5202,7 +5196,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6v
   br i1 %296, label %297, label %337
 
 297:                                              ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i97.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i97.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i97.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %298 = load ptr, ptr %13, align 8, !tbaa !95
   %299 = load ptr, ptr %14, align 8, !tbaa !96
@@ -5292,11 +5286,11 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit109.i.i: ; preds = %333, %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i107.i.i
   store i64 %301, ptr %134, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i97.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i97.i.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 337:                                              ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i110.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i110.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i110.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   %338 = load ptr, ptr %13, align 8, !tbaa !95
   %339 = load ptr, ptr %14, align 8, !tbaa !96
@@ -5386,7 +5380,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit122.i.i: ; preds = %373, %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i120.i.i
   store i64 %341, ptr %131, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i110.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i110.i.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit122.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit109.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit88.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit67.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit54.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit.i.i
@@ -5435,7 +5429,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6v
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit.i33.i: ; preds = %386
   %388 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i13.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.1.i.i, i64 16, i1 false)
   %389 = getelementptr inbounds nuw i8, ptr %.sroa.018.1.i.i, i64 16
   %390 = load ptr, ptr %389, align 8, !tbaa !95
@@ -5464,7 +5458,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6v
   store ptr %392, ptr %398, align 8, !tbaa !96
   store ptr %394, ptr %400, align 8, !tbaa !97
   store i64 %395, ptr %388, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i13.i)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_SF_SF_T0_.exit.i", !llvm.loop !166
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEET_SF_SF_T0_.exit": ; preds = %386
@@ -5479,7 +5473,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -5666,7 +5660,7 @@ _ZN7rocksdb9cassandra8RowValueD2Ev.exit:          ; preds = %84, %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN7rocksdb9cassandra8RowValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN7rocksdb9cassandra8RowValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5763,10 +5757,10 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEESaIS4_EEaSEOS6_.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_SF_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca { i32, i64 }, align 8
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit29, label %.preheader
@@ -5802,7 +5796,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   br i1 %13, label %14, label %104
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.033, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %.pn32, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !95
@@ -6003,7 +5997,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_
 
 _ZN7rocksdb9cassandra8RowValueD2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i, %100
   store i64 %.val1.i, ptr %5, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %105
 
 104:                                              ; preds = %10
@@ -6020,7 +6014,7 @@ _ZN7rocksdb9cassandra8RowValueD2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_T0_"(ptr %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb9cassandra8RowValueESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS4_5MergeEOS8_E3$_0EEEvT_T0_"(ptr %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6164,7 +6158,7 @@ _ZN7rocksdb9cassandra8RowValueD2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<signed char, std::pair<const signed char, std::shared_ptr<rocksdb::cassandra::ColumnBase>>, std::_Select1st<std::pair<const signed char, std::shared_ptr<rocksdb::cassandra::ColumnBase>>>, std::less<signed char>>::_Auto_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !173
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
@@ -6212,7 +6206,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cass
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %15
@@ -6271,7 +6265,7 @@ _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_
 
 _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i
   %.sroa.0.010 = phi ptr [ %8, %.thread ], [ %16, %_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.010
 }
 
@@ -6488,7 +6482,7 @@ _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !178
   %.not = icmp eq ptr %3, null
@@ -6553,13 +6547,19 @@ _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
@@ -6580,23 +6580,23 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #6 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #10 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #11 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #12 = { cold nofree noreturn }
-attributes #13 = { mustprogress noinline nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #17 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #18 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #5 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #9 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #10 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress noinline nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #16 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

@@ -361,7 +361,7 @@ define i32 @i2d_TS_RESP_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS7_to_TS_TST_INFO(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call i32 @OBJ_obj2nid(ptr noundef %4) #4
@@ -428,12 +428,9 @@ define ptr @PKCS7_to_TS_TST_INFO(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %25, %24, %19, %10, %7
   %.0 = phi ptr [ null, %10 ], [ null, %19 ], [ null, %24 ], [ %32, %25 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
@@ -444,9 +441,6 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i64 @PKCS7_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @X509_ALGOR_it() #1
 
@@ -531,6 +525,12 @@ ts_resp_set_tst_info.exit.thread:                 ; preds = %18, %23, %6, %8, %4
 }
 
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

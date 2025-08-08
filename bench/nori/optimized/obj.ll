@@ -508,7 +508,7 @@ _ZN10filesystem4pathD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPNSt7
           to label %98 unwind label %74
 
 98:                                               ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 1)
           to label %.noexc64 unwind label %74
 
@@ -524,7 +524,7 @@ _ZN10filesystem4pathD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPNSt7
 
 102:                                              ; preds = %.noexc64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull @.str.5)
           to label %104 unwind label %74
 
@@ -2174,8 +2174,8 @@ define linkonce_odr hidden void @_ZNK10filesystem8resolver7resolveERKNS_4pathE(p
 11:                                               ; preds = %.lr.ph, %24
   %.sroa.07.012 = phi ptr [ %6, %.lr.ph ], [ %25, %24 ]
   call void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwind writable sret(%"class.filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %.sroa.07.012, ptr noundef nonnull align 8 dereferenceable(34) %2)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef 1)
           to label %14 unwind label %12
 
@@ -2190,8 +2190,8 @@ define linkonce_odr hidden void @_ZNK10filesystem8resolver7resolveERKNS_4pathE(p
   %16 = call i32 @stat(ptr noundef %15, ptr noundef nonnull %4) #27
   %17 = icmp eq i32 %16, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %17, label %_ZN10filesystem4pathD2Ev.exit, label %18
 
 18:                                               ; preds = %14
@@ -2500,9 +2500,9 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJN10filesystem4pathEE
   %4 = alloca %"class.tinyformat::detail::FormatListN", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5), !noalias !62
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !62
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !62
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %4, align 8, !alias.scope !65, !noalias !62
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2516,7 +2516,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJN10filesystem4pathEE
           to label %11 unwind label %12, !noalias !62
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !62
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !62
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %_ZN10tinyformat6formatIJN10filesystem4pathEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit unwind label %12
 
@@ -2532,7 +2532,7 @@ common.resume:                                    ; preds = %15, %12
 
 _ZN10tinyformat6formatIJN10filesystem4pathEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit: ; preds = %11
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #27
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %14 unwind label %15
 
@@ -5509,7 +5509,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail9FormatArg10formatImplIN1
   br label %_ZN10tinyformat11formatValueIN10filesystem4pathEEEvRSoPKcS5_iRKT_.exit
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 1)
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN10filesystemlsERSoRKNS_4pathE.exit.i unwind label %11
@@ -5522,7 +5522,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail9FormatArg10formatImplIN1
 
 _ZN10filesystemlsERSoRKNS_4pathE.exit.i:          ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10tinyformat11formatValueIN10filesystem4pathEEEvRSoPKcS5_iRKT_.exit
 
 _ZN10tinyformat11formatValueIN10filesystem4pathEEEvRSoPKcS5_iRKT_.exit: ; preds = %8, %_ZN10filesystemlsERSoRKNS_4pathE.exit.i
@@ -5540,7 +5540,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN10file
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef 1)
           to label %.noexc unwind label %18
 
@@ -5556,7 +5556,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN10file
 
 10:                                               ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %11 unwind label %18
 
@@ -5610,9 +5610,9 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_s
   %4 = alloca %"class.tinyformat::detail::FormatListN", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5), !noalias !86
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !86
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %4, align 8, !alias.scope !89, !noalias !86
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5626,7 +5626,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_s
           to label %11 unwind label %12, !noalias !86
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !86
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %_ZN10tinyformat6formatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpRKT_.exit unwind label %12
 
@@ -5642,7 +5642,7 @@ common.resume:                                    ; preds = %15, %12
 
 _ZN10tinyformat6formatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpRKT_.exit: ; preds = %11
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #27
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %14 unwind label %15
 
@@ -6187,10 +6187,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21

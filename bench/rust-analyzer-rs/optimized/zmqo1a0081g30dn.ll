@@ -49,12 +49,12 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %18 = sub i64 0, %2
   %19 = and i64 %17, %18
   %.0 = select i1 %15, i64 0, i64 %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
   %21 = lshr i64 %.0, %20
   store i64 %21, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !10
   store ptr %7, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -63,9 +63,9 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h2d9c5fd67e032b8dE.llvm.17170699433178345342"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !10
   %22 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h183e6ca355b2a912E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7
   %23 = sub i64 64, %14
   %24 = extractvalue { ptr, i64 } %22, 0
   %25 = extractvalue { ptr, i64 } %22, 1
@@ -74,7 +74,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store ptr %24, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %25, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 28:                                               ; preds = %10
@@ -102,17 +102,17 @@ declare i64 @llvm.ctpop.i64(i64) #3
 ; Function Attrs: nonlazybind uwtable
 declare noundef i64 @_ZN7dashmap3ncb17h30bae42c71bbea1bE(i64 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h2d9c5fd67e032b8dE.llvm.17170699433178345342"(ptr noalias noundef sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h183e6ca355b2a912E"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #5

@@ -599,11 +599,11 @@ for.end61:                                        ; preds = %for.end61.loopexit,
   call void @_ZdlPv(ptr noundef null) #12
   %longest.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %longest2.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(12) %longest.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest.i, ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i)
   %52 = load i32, ptr %this, align 8
   %inc65 = add i32 %52, 1
   store i32 %inc65, ptr %this, align 8
@@ -693,11 +693,11 @@ entry:
   tail call void @_ZdlPv(ptr noundef null) #12
   %longest.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %longest2.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(12) %longest.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest.i, ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i)
   %8 = load i32, ptr %NumEntries3.i.i4.i.i, align 8
   %cmp.i = icmp eq i32 %8, 0
   %9 = load i32, ptr %NumTombstones4.i.i6.i.i, align 4
@@ -1305,10 +1305,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

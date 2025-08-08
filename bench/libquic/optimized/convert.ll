@@ -96,19 +96,13 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
   ret ptr %.031
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare ptr @bn_wexpand(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @bn_wexpand(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
-
-declare void @bn_correct_top(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 0, 4294967296) i64 @BN_bn2bin(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -138,7 +132,7 @@ define hidden range(i64 0, 4294967296) i64 @BN_bn2bin(ptr noundef %0, ptr nounde
   ret i64 %4
 }
 
-declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -223,15 +217,15 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   ret i32 %.017
 }
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @CBB_add_space(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %1) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %BN_bn2bin_padded.exit, label %6
@@ -316,11 +310,11 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
 
 BN_bn2bin_padded.exit:                            ; preds = %36, %34, %19, %10, %9, %3
   %56 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %10 ], [ 0, %19 ], [ 1, %34 ], [ 1, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %56
 }
 
-declare i32 @CBB_add_space(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_add_space(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr #0 {
@@ -426,9 +420,9 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -601,7 +595,7 @@ bn_x2bn.exit:                                     ; preds = %2, %4, %19, %26, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isxdigit(i32 noundef) local_unnamed_addr #5
+declare i32 @isxdigit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
@@ -715,18 +709,18 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.046
 }
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
-declare i64 @BN_div_word(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @BN_div_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -978,7 +972,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
   ret i32 %.0
 }
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_print_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -998,16 +992,16 @@ define hidden range(i32 0, 2) i32 @BN_print_fp(ptr noundef %0, ptr noundef %1) l
   ret i32 %.0
 }
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_s_file() local_unnamed_addr #2
+declare ptr @BIO_s_file() local_unnamed_addr #1
 
-declare i32 @BIO_set_fp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_set_fp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @BN_get_word(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden i64 @BN_get_word(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !6
   switch i32 %3, label %7 [
@@ -1238,15 +1232,21 @@ BN_bin2bn.exit.thread:                            ; preds = %34, %25, %31, %33, 
   ret ptr %.0
 }
 
-declare void @BN_zero(ptr noundef) local_unnamed_addr #2
+declare void @BN_zero(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_clear_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BN_clear_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @bn_expand(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @bn_expand(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
@@ -1258,13 +1258,13 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #8
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nounwind }

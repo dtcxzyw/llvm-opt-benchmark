@@ -1098,7 +1098,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %22 = add nuw i64 %.sroa.03.0.i, 1
   %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %11, i64 range(i64 1, -2305843009213693957) %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !216
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !216
   %23 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 8
   br i1 %23, label %.thread.i, label %24
 
@@ -1156,7 +1156,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h54ce1b218729b16eE.exit.thr
   %.pn.i.pn = phi { i64, i64 } [ %28, %27 ], [ %51, %50 ], [ %46, %45 ]
   %.sroa.7.0.i.i.ph = extractvalue { i64, i64 } %.pn.i.pn, 0
   %.sroa.9.0.i.i.ph = extractvalue { i64, i64 } %.pn.i.pn, 1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !216
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !216
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17he532fc21fd6a8d41E.exit.i
 
 52:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.4810805515561423230.exit.i.i
@@ -1280,7 +1280,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.48
   br label %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc982028a607db6eaE.exit"
 
 "_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc982028a607db6eaE.exit": ; preds = %_ZN4core10intrinsics10typed_swap17h4d5ab3e46ae6c762E.exit, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.4810805515561423230.exit.i.i.i, %100
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !216
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !216
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17he532fc21fd6a8d41E.exit.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -1740,10 +1740,10 @@ declare i16 @llvm.ctlz.i16(i16, i1 immarg) #29
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #31
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32

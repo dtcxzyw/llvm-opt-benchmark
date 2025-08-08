@@ -33,7 +33,7 @@ define hidden void @"_ZN112_$LT$rand..rngs..adapter..reseeding..ReseedingCore$LT
 16:                                               ; preds = %2, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @_ZN9rand_core11SeedableRng8from_rng17h3d42a950aaa21be9E(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 1 %17), !noalias !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -46,8 +46,8 @@ define hidden void @"_ZN112_$LT$rand..rngs..adapter..reseeding..ReseedingCore$LT
   %21 = load ptr, ptr %20, align 8, !alias.scope !14, !noalias !11, !nonnull !4, !align !18, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 16, !alias.scope !14, !noalias !11, !nonnull !4, !align !19, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   store ptr %21, ptr %4, align 8, !noalias !20
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %23, ptr %24, align 8, !noalias !20
@@ -72,7 +72,7 @@ common.resume.i:                                  ; preds = %26
 
 .thread.i:                                        ; preds = %19
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb10a0e374f6b6f3eE.llvm.1671926039682192694"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 16, !alias.scope !5, !noalias !13
   br label %"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031.exit"
@@ -83,7 +83,7 @@ common.resume.i:                                  ; preds = %26
   %33 = load i64, ptr %32, align 16, !alias.scope !26, !noalias !27, !noundef !4
   store i64 %33, ptr %6, align 8, !alias.scope !26, !noalias !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %31, i64 48, i1 false), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11
   br label %"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031.exit"
 
 "_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031.exit": ; preds = %.thread.i, %30
@@ -141,7 +141,7 @@ define hidden void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$
   %4 = alloca { i64, [7 x i64] }, align 16
   %5 = alloca { { { { { ptr, ptr } }, {} }, {} } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !35
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @_ZN9rand_core11SeedableRng8from_rng17h3d42a950aaa21be9E(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -154,8 +154,8 @@ define hidden void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$
   %10 = load ptr, ptr %9, align 8, !alias.scope !38, !noalias !35, !nonnull !4, !align !18, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 16, !alias.scope !38, !noalias !35, !nonnull !4, !align !19, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %10, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %12, ptr %13, align 8
@@ -180,7 +180,7 @@ common.resume:                                    ; preds = %15
 
 .thread:                                          ; preds = %8
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb10a0e374f6b6f3eE.llvm.1671926039682192694"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load i64, ptr %.phi.trans.insert, align 16
   br label %24
@@ -192,7 +192,7 @@ common.resume:                                    ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %22, ptr %23, align 8, !alias.scope !35, !noalias !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull readonly align 16 dereferenceable(48) %20, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
   br label %24
 
 24:                                               ; preds = %19, %.thread
@@ -263,11 +263,11 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit": ; preds = %21
   %25 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 %12
   %26 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 %.09
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !alias.scope !49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %27 = icmp ult i64 %.0, %12
   br i1 %27, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit"
 }
@@ -436,12 +436,6 @@ declare hidden void @_ZN9rand_core11SeedableRng8from_rng17h3d42a950aaa21be9E(ptr
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef align 16 dereferenceable(48), i32 noundef, ptr noalias noundef align 1 dereferenceable(256)) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h64bcbe45d26a7fa4E.llvm.7035662188962510802"(i32 noundef, i32 noundef, ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
@@ -458,7 +452,13 @@ declare hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt
 declare hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb10a0e374f6b6f3eE.llvm.1671926039682192694"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #8
+declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
@@ -476,8 +476,8 @@ attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

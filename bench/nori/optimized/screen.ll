@@ -3368,12 +3368,12 @@ define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef no
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 244
   tail call void @glfwGetFramebufferSize(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @glfwGetWindowContentScale(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %16 = load float, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store float %16, ptr %17, align 8
   %18 = fcmp oeq float %16, 1.000000e+00
@@ -3402,7 +3402,7 @@ define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef no
   br i1 %34, label %.split, label %.split16
 
 .split16:                                         ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %calloc.i = call dereferenceable_or_null(176) ptr @calloc(i64 1, i64 176)
   %35 = icmp eq ptr %calloc.i, null
   br i1 %35, label %53, label %36
@@ -3446,11 +3446,11 @@ define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef no
 
 nvgCreateGL3.exit:                                ; preds = %36, %53
   %.0.i = phi ptr [ null, %53 ], [ %51, %36 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 .split:                                           ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %calloc.i20 = call dereferenceable_or_null(176) ptr @calloc(i64 1, i64 176)
   %54 = icmp eq ptr %calloc.i20, null
   br i1 %54, label %72, label %55
@@ -3494,7 +3494,7 @@ nvgCreateGL3.exit:                                ; preds = %36, %53
 
 nvgCreateGL3.exit22:                              ; preds = %55, %72
   %.0.i21 = phi ptr [ null, %72 ], [ %70, %55 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
 73:                                               ; preds = %nvgCreateGL3.exit, %nvgCreateGL3.exit22
@@ -4116,10 +4116,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %75, %70
   %87 = load ptr, ptr %11, align 8
   call void @nvgBeginPath(ptr noundef %87)
   %88 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %89
 
 89:                                               ; preds = %89, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
@@ -4142,7 +4142,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %89, %_ZN7nano
   br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !30
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %97
 
 97:                                               ; preds = %97, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
@@ -4162,11 +4162,11 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %97
   %.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.356.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.sroa.2.0.copyload.i.i.i, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @nvgFillColor(ptr noundef %88, <2 x float> %.sroa.0.0.copyload.i.i.i, <2 x float> %.sroa.356.12.vec.insert)
   %105 = load ptr, ptr %11, align 8
   %106 = load float, ptr %10, align 16
@@ -4215,7 +4215,7 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %97
   %145 = load ptr, ptr %11, align 8
   call void @nvgFill(ptr noundef %145)
   %146 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %147
 
 147:                                              ; preds = %147, %_ZN7nanogui5ColorC2Eii.exit
@@ -4227,8 +4227,8 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %97
   br i1 %exitcond.not.i.i33, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34, label %147, !llvm.loop !32
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34:            ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %150
 
 150:                                              ; preds = %150, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34
@@ -4251,7 +4251,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37: ; preds = %150, %_ZN7n
   br i1 %exitcond.not.i2.i.i39, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37, !llvm.loop !30
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %158
 
 158:                                              ; preds = %158, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40
@@ -4271,11 +4271,11 @@ _ZN7nanogui5ColorC2Eii.exit51:                    ; preds = %158
   %.sroa.0.0.copyload.i.i.i43 = load <2 x float>, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i45 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i44, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.3.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.sroa.2.0.copyload.i.i.i45, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @nvgFillColor(ptr noundef %146, <2 x float> %.sroa.0.0.copyload.i.i.i43, <2 x float> %.sroa.3.12.vec.insert)
   %166 = load ptr, ptr %11, align 8
   call void @nvgFontBlur(ptr noundef %166, float noundef 0.000000e+00)
@@ -4491,12 +4491,12 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Screen12resize_eventERKNS_5ArrayIi
 _ZNKSt8functionIFvN7nanogui5ArrayIiLm2EEEEEclES2_.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
 
 9:                                                ; preds = %_ZNKSt8functionIFvN7nanogui5ArrayIiLm2EEEEEclES2_.exit, %2
@@ -6307,8 +6307,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11G
   br i1 %.not32, label %26, label %18
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   call void @glGetShaderInfoLog(i32 noundef %14, i32 noundef 512, ptr noundef nonnull %8, ptr noundef nonnull %7)
   %19 = load i32, ptr %8, align 4
@@ -6325,8 +6325,8 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
   %24 = getelementptr inbounds [513 x i8], ptr %7, i64 0, i64 %23
   store i8 0, ptr %24, align 1
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %49
 
 26:                                               ; preds = %2
@@ -6337,8 +6337,8 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
   br i1 %.not33, label %36, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @glGetShaderInfoLog(i32 noundef %15, i32 noundef 512, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %29 = load i32, ptr %6, align 4
@@ -6355,8 +6355,8 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
   %34 = getelementptr inbounds [513 x i8], ptr %5, i64 0, i64 %33
   store i8 0, ptr %34, align 1
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.21, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 36:                                               ; preds = %26
@@ -6371,8 +6371,8 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
   br i1 %.not34, label %46, label %38
 
 38:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   call void @glGetProgramInfoLog(i32 noundef %13, i32 noundef 512, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %39 = load i32, ptr %4, align 4
@@ -6389,8 +6389,8 @@ _ZL23glnvg__dumpProgramErrorjPKc.exit:            ; preds = %38, %41
   %44 = getelementptr inbounds [513 x i8], ptr %3, i64 0, i64 %43
   store i8 0, ptr %44, align 1
   %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @.str.14, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 46:                                               ; preds = %36
@@ -7537,12 +7537,12 @@ _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt
 _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   %16 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @glfwGetWindowContentScale(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %17 = load float, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 248
   store float %17, ptr %18, align 8
   call void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef nonnull align 8 dereferenceable(384) %16, i32 poison, i32 poison)
@@ -7953,10 +7953,10 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 declare float @llvm.sqrt.f32(float) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28

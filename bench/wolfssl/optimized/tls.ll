@@ -100,29 +100,23 @@ define range(i32 -320, 1) i32 @BuildTlsHandshakeHash(ptr noundef %0, ptr noundef
   ret i32 %.029
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_Md5GetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_Md5GetHash(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ShaGetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ShaGetHash(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IsAtLeastTLSv1_2(ptr noundef) local_unnamed_addr #1
 
-declare i32 @IsAtLeastTLSv1_2(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256GetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha256GetHash(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @wc_Sha384GetHash(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_Sha384GetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @BuildTlsFinished(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [48 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 48, ptr %4, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %6 = call i32 @BuildTlsHandshakeHash(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 0
@@ -182,31 +176,31 @@ select.unfold:                                    ; preds = %11, %8
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %3, %11
   %.1 = phi i32 [ %6, %3 ], [ -173, %11 ], [ %26, %.preheader.i ], [ %26, %.lr.ph35.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
-declare i32 @wc_PRF_TLS(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_PRF_TLS(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i16 @MakeTLSv1_1() local_unnamed_addr #5 {
+define noundef i16 @MakeTLSv1_1() local_unnamed_addr #4 {
   ret i16 515
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i16 @MakeTLSv1_2() local_unnamed_addr #5 {
+define noundef i16 @MakeTLSv1_2() local_unnamed_addr #4 {
   ret i16 771
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i16 @MakeTLSv1_3() local_unnamed_addr #5 {
+define noundef i16 @MakeTLSv1_3() local_unnamed_addr #4 {
   ret i16 1027
 }
 
@@ -338,7 +332,7 @@ TLSX_Remove.exit40:                               ; preds = %.lr.ph52, %.critedg
   ret i32 %.025
 }
 
-declare i32 @IsTLS_ex(i16) local_unnamed_addr #2
+declare i32 @IsTLS_ex(i16) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @TLSX_Remove(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -385,7 +379,7 @@ define void @TLSX_Remove(ptr noundef captures(address_is_null) %0, i32 noundef %
   ret void
 }
 
-declare i32 @wolfSSL_CTX_UseSupportedCurve(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_UseSupportedCurve(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_set_groups(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -515,17 +509,17 @@ TLSX_Remove.exit40:                               ; preds = %.lr.ph52, %.critedg
   ret i32 %.025
 }
 
-declare i32 @wolfSSL_UseSupportedCurve(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @wolfSSL_UseSupportedCurve(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_DeriveTlsKeys(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull readonly align 1 dereferenceable(32) %4, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull readonly align 1 dereferenceable(32) %5, i64 32, i1 false)
   %11 = call i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %9, i32 noundef 64, i32 noundef %6, i32 noundef %7, ptr noundef null, i32 noundef -2) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %11
 }
 
@@ -545,7 +539,7 @@ define i32 @DeriveTlsKeys(ptr noundef %0) local_unnamed_addr #0 {
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %10, %13
   %15 = shl nuw nsw i32 %14, 1
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 173
@@ -559,12 +553,12 @@ define i32 @DeriveTlsKeys(ptr noundef %0) local_unnamed_addr #0 {
   %26 = load ptr, ptr %25, align 16, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %28 = load i32, ptr %27, align 4, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %19, i64 32, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %29, ptr noundef nonnull readonly align 1 dereferenceable(32) %20, i64 32, i1 false)
   %30 = call i32 @wc_PRF_TLS(ptr noundef nonnull %3, i32 noundef %15, ptr noundef nonnull %18, i32 noundef 48, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %2, i32 noundef 64, i32 noundef %21, i32 noundef %24, ptr noundef %26, i32 noundef %28) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -574,21 +568,21 @@ define i32 @DeriveTlsKeys(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %32, %1
   %.0 = phi i32 [ %33, %32 ], [ %30, %1 ]
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @StoreKeys(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @StoreKeys(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_MakeTlsMasterSecret(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull readonly align 1 dereferenceable(32) %4, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull readonly align 1 dereferenceable(32) %5, i64 32, i1 false)
   %11 = call i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @master_label, i32 noundef 13, ptr noundef nonnull %9, i32 noundef 64, i32 noundef %6, i32 noundef %7, ptr noundef null, i32 noundef -2) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %11
 }
 
@@ -612,9 +606,9 @@ define i32 @MakeTlsMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 48, ptr %5, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %11 = call i32 @BuildTlsHandshakeHash(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, 0
@@ -667,8 +661,8 @@ define i32 @MakeTlsMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %10
   %.0 = phi i32 [ %11, %10 ], [ %29, %.preheader.i ], [ %29, %.lr.ph35.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 36:                                               ; preds = %1
@@ -689,12 +683,12 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %51 = load ptr, ptr %50, align 16, !tbaa !46
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %53 = load i32, ptr %52, align 4, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull readonly align 1 dereferenceable(32) %44, i64 32, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %54, ptr noundef nonnull readonly align 1 dereferenceable(32) %45, i64 32, i1 false)
   %55 = call i32 @wc_PRF_TLS(ptr noundef nonnull %39, i32 noundef 48, ptr noundef %41, i32 noundef %43, ptr noundef nonnull @master_label, i32 noundef 13, ptr noundef nonnull %4, i32 noundef 64, i32 noundef %46, i32 noundef %49, ptr noundef %51, i32 noundef %53) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %56
 
 56:                                               ; preds = %36, %ForceZero.exit
@@ -715,7 +709,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %68 = zext i16 %67 to i32
   %69 = add nuw nsw i32 %65, %68
   %70 = shl nuw nsw i32 %69, 1
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 173
@@ -729,12 +723,12 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %81 = load ptr, ptr %80, align 16, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %83 = load i32, ptr %82, align 4, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %74, i64 32, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %84, ptr noundef nonnull readonly align 1 dereferenceable(32) %75, i64 32, i1 false)
   %85 = call i32 @wc_PRF_TLS(ptr noundef nonnull %3, i32 noundef %70, ptr noundef nonnull %73, i32 noundef 48, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %2, i32 noundef 64, i32 noundef %76, i32 noundef %79, ptr noundef %81, i32 noundef %83) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %DeriveTlsKeys.exit
 
@@ -744,7 +738,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 
 DeriveTlsKeys.exit:                               ; preds = %58, %87
   %.0.i = phi i32 [ %88, %87 ], [ %85, %58 ]
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
 89:                                               ; preds = %DeriveTlsKeys.exit, %56
@@ -755,7 +749,7 @@ DeriveTlsKeys.exit:                               ; preds = %58, %87
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_make_eap_keys(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -775,18 +769,18 @@ define i32 @wolfSSL_make_eap_keys(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %21 = load i32, ptr %20, align 4, !tbaa !47
   %22 = call i32 @wc_PRF_TLS(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %11, i32 noundef 48, ptr noundef nonnull %3, i32 noundef %13, ptr noundef nonnull %5, i32 noundef 64, i32 noundef %14, i32 noundef %17, ptr noundef %19, i32 noundef %21) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -173, 8) i32 @wolfSSL_GetHmacType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -173, 8) i32 @wolfSSL_GetHmacType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wolfSSL_GetHmacType_ex.exit, label %3
 
@@ -809,7 +803,7 @@ wolfSSL_GetHmacType_ex.exit:                      ; preds = %3, %switch.lookup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -173, 8) i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -173, 8) i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -868,14 +862,14 @@ define range(i32 -173, 1) i32 @wolfSSL_SetTlsHmacInner(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-declare void @WriteSEQ(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @WriteSEQ(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @TLS_hmac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.Hmac, align 16
   %10 = alloca [13 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %TLS_hmac_SetInner.exit, label %12
 
@@ -976,23 +970,23 @@ wolfSSL_GetHmacType.exit:                         ; preds = %40, %switch.lookup
 
 TLS_hmac_SetInner.exit:                           ; preds = %12, %17, %8, %.thread
   %.034 = phi i32 [ %.0, %.thread ], [ -173, %8 ], [ %39, %17 ], [ -173, %12 ]
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.034
 }
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_GetMacSecret(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_GetMacSecret(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Hmac_UpdateFinal_CT(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4, ptr noundef nonnull %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.wc_HashAlg, align 16
   %9 = alloca [8 x i8], align 1
   %10 = alloca [144 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %12 = load i8, ptr %11, align 8, !tbaa !77
   %switch.tableidx = add i8 %12, -4
@@ -1188,7 +1182,7 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
 106:                                              ; preds = %.lr.ph170, %._crit_edge
   %.0118168 = phi i32 [ %.0125181, %.lr.ph170 ], [ %175, %._crit_edge ]
   %.0121167 = phi i32 [ %99, %.lr.ph170 ], [ %136, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %107 = add i32 %.0118168, %100
   %108 = xor i32 %.0118168, -1
   %109 = add i32 %43, %108
@@ -1339,17 +1333,17 @@ Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %1
 
 .thread:                                          ; preds = %Hmac_HashUpdate.exit148, %Hmac_HashFinalRaw.exit, %149, %159
   %.2.ph = phi i32 [ %.0.i149, %Hmac_HashFinalRaw.exit ], [ %.0.i147, %Hmac_HashUpdate.exit148 ], [ -173, %149 ], [ -173, %159 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Hmac_HashUpdate.exit.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %175 = add nuw nsw i32 %.0118168, 1
   %176 = icmp slt i32 %175, %27
   br i1 %176, label %106, label %._crit_edge171, !llvm.loop !81
 
 ._crit_edge171:                                   ; preds = %._crit_edge, %97
-  call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %177 = load i8, ptr %11, align 8, !tbaa !77
   %178 = zext i8 %177 to i32
   %179 = call i32 @wc_HashGetDigestSize(i32 noundef %178) #17
@@ -1386,20 +1380,20 @@ Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %1
 
 Hmac_OuterHash.exit:                              ; preds = %._crit_edge171, %183, %.thread21.i
   %.1.i = phi i32 [ %.3.i, %.thread21.i ], [ %184, %183 ], [ -173, %._crit_edge171 ]
-  call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Hmac_HashUpdate.exit.thread
 
 Hmac_HashUpdate.exit.thread:                      ; preds = %7, %85, %75, %switch.lookup, %.thread, %Hmac_HashUpdate.exit144, %Hmac_HashUpdate.exit142, %Hmac_HashUpdate.exit, %Hmac_OuterHash.exit
   %.0116 = phi i32 [ %.1.i, %Hmac_OuterHash.exit ], [ -173, %7 ], [ %.0.i, %Hmac_HashUpdate.exit ], [ %.0.i141, %Hmac_HashUpdate.exit142 ], [ %.0.i143, %Hmac_HashUpdate.exit144 ], [ %.2.ph, %.thread ], [ -173, %switch.lookup ], [ -173, %75 ], [ -173, %85 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0116
 }
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -125, 1) i32 @TLSX_Append(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
@@ -1596,7 +1590,7 @@ TLSX_New.exit.thread:                             ; preds = %11, %4, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @TLSX_CheckUnsupportedExtension(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @TLSX_CheckUnsupportedExtension(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8, !tbaa !100
   %.not6.i = icmp eq ptr %4, null
@@ -1639,7 +1633,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %13, %.lr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @TLSX_Find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef ptr @TLSX_Find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %.critedge, label %.lr.ph
 
@@ -1666,10 +1660,10 @@ define noundef i32 @TLSX_HandleUnsupportedExtension(ptr noundef %0) local_unname
   ret i32 -429
 }
 
-declare i32 @SendAlert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SendAlert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @TLSX_SetResponse(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @TLSX_SetResponse(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8, !tbaa !100
   %.not6.i = icmp eq ptr %4, null
@@ -1697,7 +1691,7 @@ TLSX_Find.exit.thread:                            ; preds = %6, %2, %TLSX_Find.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @TLSX_SNI_Status(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
+define zeroext i8 @TLSX_SNI_Status(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -1902,7 +1896,7 @@ TLSX_SNI_Free.exit48:                             ; preds = %58, %64
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i16 @TLSX_SNI_GetRequest(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #10 {
+define zeroext i16 @TLSX_SNI_GetRequest(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -1966,7 +1960,7 @@ TLSX_SNI_Find.exit.thread:                        ; preds = %6, %13, %4, %9, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @TLSX_SNI_SetOptions(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
+define void @TLSX_SNI_SetOptions(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #8 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -2010,7 +2004,7 @@ TLSX_SNI_Find.exit.thread:                        ; preds = %5, %12, %3, %8, %TL
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #11 {
+define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #10 {
   %6 = icmp ult i32 %1, 44
   br i1 %6, label %.thread165, label %7
 
@@ -2396,7 +2390,7 @@ TLSX_SupportedCurve_New.exit:                     ; preds = %.lr.ph, %53, %TLSX_
   ret i32 %.0
 }
 
-declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #2
+declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 2) i32 @TLSX_UseSupportedCurve(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
@@ -2522,7 +2516,7 @@ TLSX_SupportedCurve_New.exit:                     ; preds = %34, %33, %21, %45, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 1) i32 @TLSX_SupportedCurve_CheckPriority(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !59
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8, !tbaa !100
@@ -2598,7 +2592,7 @@ TLSX_Find.exit.thread.sink.split:                 ; preds = %13, %.lr.ph, %._cri
 
 TLSX_Find.exit.thread:                            ; preds = %6, %TLSX_Find.exit.thread.sink.split, %1
   %.023 = phi i32 [ 0, %1 ], [ %.023.ph, %TLSX_Find.exit.thread.sink.split ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.023
 }
 
@@ -2676,7 +2670,7 @@ define internal fastcc range(i32 -173, 2) i32 @TLSX_PopulateSupportedGroups(ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 1) i32 @TLSX_SupportedFFDHE_Set(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !59
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8, !tbaa !100
@@ -2873,14 +2867,14 @@ tlsx_ffdhe_find_group.exit:                       ; preds = %.thread55.i, %50, %
 
 .critedge:                                        ; preds = %6, %13, %TLSX_Find.exit, %1, %tlsx_ffdhe_find_group.exit
   %.0 = phi i32 [ %.031, %tlsx_ffdhe_find_group.exit ], [ 0, %1 ], [ 0, %TLSX_Find.exit ], [ 0, %13 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -173, 65536) i32 @TLSX_SupportedCurve_Preferred(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 -173, 65536) i32 @TLSX_SupportedCurve_Preferred(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8, !tbaa !100
   %.not6.i = icmp eq ptr %4, null
@@ -2940,7 +2934,7 @@ TLSX_Find.exit.thread:                            ; preds = %6, %TLSX_Find.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @TLSX_ValidateSupportedCurves(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @TLSX_ValidateSupportedCurves(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %6 = load i32, ptr %5, align 16, !tbaa !134
   %7 = icmp eq i8 %1, -52
@@ -3537,7 +3531,7 @@ TLSX_PointFormat_New.exit:                        ; preds = %34, %33, %21, %45, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -428, 1) i32 @TLSX_EncryptThenMac_Respond(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define range(i32 -428, 1) i32 @TLSX_EncryptThenMac_Respond(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %3 = load ptr, ptr %2, align 8, !tbaa !100
   %.not6.i = icmp eq ptr %3, null
@@ -3827,7 +3821,7 @@ define ptr @TLSX_SignatureAlgorithms_New(ptr noundef %0, i16 noundef zeroext %1,
   ret ptr %6
 }
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @TLSX_SignatureAlgorithms_FreeAll(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -4320,7 +4314,7 @@ TLSX_Push.exit:                                   ; preds = %TLSX_KeyShareEntry_
 ; Function Attrs: nounwind uwtable
 define i32 @TLSX_KeyShare_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !161
   switch i8 %3, label %TLSX_KeyShare_Find.exit105 [
     i8 1, label %6
@@ -4732,7 +4726,7 @@ TLSX_Find.exit.i113:                              ; preds = %.lr.ph.i.i107
 
 TLSX_KeyShare_Find.exit105:                       ; preds = %110, %TLSX_Find.exit.i78, %.lr.ph.i101, %28, %TLSX_Find.exit.i, %42, %46, %.loopexit.i71, %63, %59, %51, %TLSX_KeyShare_Find.exit, %TLSX_Find.exit.i61, %.loopexit.i60, %.loopexit.i, %74, %81, %TLSX_KeyShareEntry_Parse.exit, %9, %.loopexit.i111, %88, %85, %6, %157, %.loopexit, %4, %93
   %.1 = phi i32 [ -328, %93 ], [ -394, %4 ], [ %8, %6 ], [ 0, %157 ], [ %155, %.loopexit ], [ 0, %88 ], [ %86, %85 ], [ -125, %.loopexit.i111 ], [ -421, %74 ], [ -421, %81 ], [ -328, %TLSX_KeyShareEntry_Parse.exit ], [ -328, %9 ], [ -421, %.loopexit.i ], [ -421, %.loopexit.i60 ], [ -421, %TLSX_Find.exit.i61 ], [ -328, %TLSX_KeyShare_Find.exit ], [ -328, %51 ], [ -328, %59 ], [ -328, %63 ], [ -421, %.loopexit.i71 ], [ -421, %46 ], [ -421, %42 ], [ -421, %TLSX_Find.exit.i ], [ -421, %28 ], [ -421, %.lr.ph.i101 ], [ -421, %TLSX_Find.exit.i78 ], [ -421, %110 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -5536,7 +5530,7 @@ TLSX_Push.exit:                                   ; preds = %5, %2, %TLSX_Find.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 zeroext %2, i8 zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #12 {
+define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 zeroext %2, i8 zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #11 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %62, label %8
 
@@ -5713,7 +5707,7 @@ TLSX_SupportedGroups_Find.exit.thread:            ; preds = %39, %TLSX_Find.exit
 ; Function Attrs: nounwind uwtable
 define i32 @TLSX_KeyShare_Setup(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !161
   %4 = icmp eq ptr %0, null
   br i1 %4, label %TLSX_KeyShare_New.exit, label %5
@@ -5834,7 +5828,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
 
 TLSX_KeyShare_New.exit:                           ; preds = %13, %9, %17, %TLSX_Find.exit, %2, %5, %46, %31
   %.0 = phi i32 [ %30, %31 ], [ 0, %46 ], [ -173, %5 ], [ -173, %2 ], [ -173, %TLSX_Find.exit ], [ -125, %17 ], [ -192, %9 ], [ -192, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5842,9 +5836,9 @@ TLSX_KeyShare_New.exit:                           ; preds = %13, %9, %17, %TLSX_
 define i32 @TLSX_KeyShare_Establish(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !51
   store i32 0, ptr %1, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1224
@@ -5872,8 +5866,8 @@ define i32 @TLSX_KeyShare_Establish(ptr noundef %0, ptr noundef writeonly captur
 
 18:                                               ; preds = %2, %16, %14
   %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ %7, %2 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5933,7 +5927,7 @@ define range(i32 0, 2) i32 @TLSX_SupportExtensions(ptr noundef %0) local_unnamed
   ret i32 %10
 }
 
-declare i32 @IsTLS(ptr noundef) local_unnamed_addr #2
+declare i32 @IsTLS(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @TLSX_PopulateExtensions(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
@@ -6360,9 +6354,9 @@ TLSX_Push.exit:                                   ; preds = %12, %18, %5, %3
 define range(i32 -394, 1) i32 @TLSX_GetRequestSize(ptr noundef %0, i8 noundef zeroext %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %.not.i = icmp eq ptr %0, null
   %.sink54.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -6511,13 +6505,13 @@ thread-pre-split:                                 ; preds = %48, %49, %57
 
 TLSX_SupportExtensions.exit.thread:               ; preds = %3, %46, %39, %TLSX_SupportExtensions.exit, %63
   %.027 = phi i32 [ 0, %63 ], [ 0, %TLSX_SupportExtensions.exit ], [ %40, %39 ], [ %47, %46 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, i8 noundef zeroext %2, ptr noundef nonnull captures(none) %3) unnamed_addr #10 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, i8 noundef zeroext %2, ptr noundef nonnull captures(none) %3) unnamed_addr #9 {
   %.not7681 = icmp eq ptr %0, null
   br i1 %.not7681, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
@@ -6830,8 +6824,8 @@ TLSX_SupportedVersions_GetSize.exit:              ; preds = %121, %117, %28, %25
 define range(i32 -394, 1) i32 @TLSX_WriteRequest(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
   %.not.i = icmp eq ptr %0, null
   %.sink62.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -7019,13 +7013,13 @@ thread-pre-split:                                 ; preds = %60, %68
 
 TLSX_SupportExtensions.exit.thread:               ; preds = %4, %53, %45, %TLSX_SupportExtensions.exit, %91
   %.038 = phi i32 [ 0, %91 ], [ 0, %TLSX_SupportExtensions.exit ], [ %47, %45 ], [ %57, %53 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.038
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly captures(address) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull captures(none) %4) unnamed_addr #13 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly captures(address) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull captures(none) %4) unnamed_addr #12 {
   %6 = icmp eq i8 %3, 1
   %7 = and i8 %3, -5
   %or.cond.i62 = icmp eq i8 %7, 2
@@ -7637,9 +7631,9 @@ TLSX_SupportedVersions_Write.exit:                ; preds = %175, %286, %287, %.
 define range(i32 -394, 1) i32 @TLSX_GetResponseSize(ptr noundef %0, i8 noundef zeroext %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   switch i8 %1, label %25 [
     i8 2, label %6
@@ -7773,8 +7767,8 @@ TLSX_SupportExtensions.exit.thread29._crit_edge:  ; preds = %TLSX_SupportExtensi
 
 54:                                               ; preds = %TLSX_SupportExtensions.exit.thread29, %50
   %.019 = phi i32 [ 0, %50 ], [ %43, %TLSX_SupportExtensions.exit.thread29 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019
 }
 
@@ -7782,7 +7776,7 @@ TLSX_SupportExtensions.exit.thread29._crit_edge:  ; preds = %TLSX_SupportExtensi
 define range(i32 -394, 1) i32 @TLSX_WriteResponse(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %TLSX_SupportExtensions.exit.thread, label %7
 
@@ -7804,7 +7798,7 @@ TLSX_SupportExtensions.exit:                      ; preds = %7, %9
   br i1 %or.cond, label %15, label %TLSX_SupportExtensions.exit.thread
 
 15:                                               ; preds = %TLSX_SupportExtensions.exit
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
   switch i8 %2, label %37 [
     i8 2, label %16
@@ -7934,7 +7928,7 @@ TLSX_PointFormat_ValidateResponse.exit:           ; preds = %16, %16, %16, %16, 
   br label %71
 
 71:                                               ; preds = %65, %61
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %TLSX_SupportExtensions.exit.thread
 
 TLSX_SupportExtensions.exit.thread:               ; preds = %4, %71, %TLSX_SupportExtensions.exit
@@ -7949,12 +7943,12 @@ TLSX_SupportExtensions.exit.thread:               ; preds = %4, %71, %TLSX_Suppo
   br label %76
 
 .critedge:                                        ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
 76:                                               ; preds = %TLSX_SupportExtensions.exit.thread, %73, %.critedge
   %.1 = phi i32 [ %41, %.critedge ], [ 0, %73 ], [ 0, %TLSX_SupportExtensions.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -8025,7 +8019,7 @@ define i32 @TLSX_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1
   %8 = icmp eq i8 %3, 13
   %9 = or i1 %7, %8
   %10 = zext i1 %9 to i8
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp eq ptr %0, null
   %12 = icmp eq ptr %1, null
   %or.cond.not290 = or i1 %11, %12
@@ -8915,7 +8909,7 @@ TLSX_SNI_Find.exit.i261:                          ; preds = %.lr.ph.i45.i
 
 TLSX_SNI_VerifyParse.exit:                        ; preds = %219, %184, %253, %245, %241, %238, %230, %229, %223, %222, %214, %213, %209, %208, %207, %199, %191, %190, %183, %182, %176, %73, %72, %TLSX_GetMinSize_Server.exit, %TLSX_GetMinSize_Client.exit, %52, %41, %20, %306, %333, %278, %.thread.sink.split.i, %.preheader.i, %.thread65.i, %.thread75.i, %277, %5
   %.0205 = phi i32 [ -173, %5 ], [ %.0210.lcssa, %277 ], [ 0, %278 ], [ 0, %.preheader.i ], [ 0, %.thread65.i ], [ 0, %.thread75.i ], [ -402, %.thread.sink.split.i ], [ 0, %333 ], [ 0, %306 ], [ -328, %20 ], [ -457, %41 ], [ -328, %52 ], [ -328, %TLSX_GetMinSize_Client.exit ], [ -328, %TLSX_GetMinSize_Server.exit ], [ -424, %72 ], [ -424, %73 ], [ -424, %176 ], [ -424, %182 ], [ -424, %183 ], [ -424, %190 ], [ -424, %191 ], [ -424, %199 ], [ -424, %207 ], [ -424, %208 ], [ -424, %209 ], [ -424, %213 ], [ -328, %214 ], [ -424, %222 ], [ -424, %223 ], [ -424, %229 ], [ -424, %230 ], [ -424, %238 ], [ -424, %241 ], [ -424, %245 ], [ -424, %253 ], [ -424, %184 ], [ -424, %219 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0205
 }
 
@@ -8970,7 +8964,7 @@ TLSX_SetResponse.exit:                            ; preds = %18, %TLSX_Find.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #11 {
+define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #10 {
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %TLSX_SignatureAlgorithms_MapPss.exit, label %6
 
@@ -9167,7 +9161,7 @@ TLSX_EncryptThenMac_Use.exit:                     ; preds = %.lr.ph.i.i, %26, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithmsCert_Parse(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #14 {
+define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithmsCert_Parse(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #13 {
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %22, label %5
 
@@ -9243,7 +9237,7 @@ define ptr @wolfTLS_client_method_ex(ptr noundef readnone captures(none) %0) loc
   ret ptr %2
 }
 
-declare void @InitSSL_Method(ptr noundef, i16) local_unnamed_addr #2
+declare void @InitSSL_Method(ptr noundef, i16) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @wolfTLSv1_1_client_method() local_unnamed_addr #0 {
@@ -9461,68 +9455,68 @@ define ptr @wolfTLSv1_3_server_method_ex(ptr noundef readnone captures(none) %0)
   ret ptr %2
 }
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ShaFinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ShaFinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha256FinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256FinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha384FinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384FinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512FinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512FinalRaw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashGetBlockSize(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashGetBlockSize(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashInit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashUpdate(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashUpdate(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashFinal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HashFinal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
-
-declare ptr @wc_Dh_ffdhe2048_Get() local_unnamed_addr #2
-
-declare i32 @wc_InitDhKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_DhSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @DhGenKeyPair(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
-declare i32 @wc_FreeDhKey(ptr noundef) local_unnamed_addr #2
+declare ptr @wc_Dh_ffdhe2048_Get() local_unnamed_addr #1
 
-declare i32 @wc_ecc_init_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitDhKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_set_curve(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_DhSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EccMakeKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @DhGenKeyPair(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_export_x963(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @wc_ecc_free(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_FreeDhKey(ptr noundef) local_unnamed_addr #1
 
-declare i32 @DhAgree(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_init_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_import_x963_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_set_curve(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EccSharedSecret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EccMakeKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @wc_ecc_export_x963(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @wc_ecc_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @DhAgree(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @wc_ecc_import_x963_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @EccSharedSecret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @TLSX_SNI_SetStatus(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext range(i8 1, 4) %2) unnamed_addr #9 {
+define internal fastcc void @TLSX_SNI_SetStatus(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext range(i8 1, 4) %2) unnamed_addr #8 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -9565,6 +9559,12 @@ TLSX_SNI_Find.exit.thread:                        ; preds = %5, %12, %3, %8, %TL
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
 
@@ -9575,21 +9575,21 @@ declare i8 @llvm.umax.i8(i8, i8) #16
 declare i16 @llvm.umin.i16(i16, i16) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind willreturn memory(read) }

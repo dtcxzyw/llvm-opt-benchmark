@@ -21,21 +21,15 @@ define dso_local void @_ZN5DonutC2Ev(ptr noundef nonnull writeonly align 4 captu
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull align 4 captures(none) dereferenceable(113) %0, i32 %1, <2 x float> %2, float noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull align 4 captures(none) dereferenceable(113) %0, i32 %1, <2 x float> %2, float noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %struct.b2Capsule, align 4
   %8 = alloca %struct.b2BodyDef, align 8
   %9 = alloca %struct.b2ShapeDef, align 8
   %10 = alloca %struct.b2WeldJointDef, align 8
   %11 = fmul float %3, 0x401921FB60000000
   %12 = fdiv float %11, 7.000000e+00
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %14 = fmul float %12, -5.000000e-01
@@ -50,12 +44,12 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   store float %19, ptr %18, align 4, !tbaa !10
   %.sroa.049.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.049.4.vec.extract = extractelement <2 x float> %2, i64 1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %8)
   store i32 2, ptr %8, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %5, ptr %20, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %9)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store float 1.000000e+00, ptr %21, align 4, !tbaa !21
@@ -70,7 +64,7 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   br label %36
 
 27:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @b2DefaultWeldJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2WeldJointDef) align 8 %10)
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store float 5.000000e+00, ptr %28, align 8, !tbaa !27
@@ -116,10 +110,10 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
 48:                                               ; preds = %50
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 1, ptr %49, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 50:                                               ; preds = %27, %50
@@ -154,28 +148,28 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   br i1 %exitcond63.not, label %48, label %50, !llvm.loop !39
 }
 
-declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #3
+declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #2
 
-declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #4
+declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #4
+declare float @cosf(float noundef) local_unnamed_addr #3
 
-declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare float @sinf(float noundef) local_unnamed_addr #3
 
-declare i64 @b2CreateCapsuleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #2
 
-declare void @b2DefaultWeldJointDef(ptr dead_on_unwind writable sret(%struct.b2WeldJointDef) align 8) local_unnamed_addr #3
+declare i64 @b2CreateCapsuleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare <2 x float> @b2Body_GetRotation(i64) local_unnamed_addr #3
+declare void @b2DefaultWeldJointDef(ptr dead_on_unwind writable sret(%struct.b2WeldJointDef) align 8) local_unnamed_addr #2
 
-declare i64 @b2CreateWeldJoint(i32, ptr noundef) local_unnamed_addr #3
+declare <2 x float> @b2Body_GetRotation(i64) local_unnamed_addr #2
+
+declare i64 @b2CreateWeldJoint(i32, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(113) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(113) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %5
 
@@ -197,21 +191,27 @@ define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(
   br i1 %exitcond.not, label %3, label %5, !llvm.loop !40
 }
 
-declare void @b2DestroyBody(i64) local_unnamed_addr #3
+declare void @b2DestroyBody(i64) local_unnamed_addr #2
 
-declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #3
+declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #2
 
-declare float @b2Atan2(float noundef, float noundef) local_unnamed_addr #3
+declare float @b2Atan2(float noundef, float noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
 

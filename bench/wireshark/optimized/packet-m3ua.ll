@@ -632,9 +632,6 @@ declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare i32 @address_type_get_by_name(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -646,9 +643,6 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -703,7 +697,7 @@ define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, 
   ]
 
 32:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 0)
   %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 2)
   %35 = call i32 @tvb_reported_length(ptr noundef %30)
@@ -911,11 +905,11 @@ dissect_routing_context_parameter.exit.i:         ; preds = %.lr.ph.i.i, %72
   br label %dissect_v5_parameter.exit
 
 dissect_v5_parameter.exit:                        ; preds = %32, %156, %157
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %956
 
 161:                                              ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %162 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 0)
   %163 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 2)
   %164 = call i32 @tvb_reported_length(ptr noundef %30)
@@ -1280,11 +1274,11 @@ dissect_subsystem_numbers_parameter.exit:         ; preds = %.lr.ph.i, %336
   br label %dissect_v6_parameter.exit
 
 dissect_v6_parameter.exit:                        ; preds = %161, %371, %372
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %956
 
 376:                                              ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %377 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 0)
   %378 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 2)
   %379 = call i32 @tvb_reported_length(ptr noundef %30)
@@ -1649,11 +1643,11 @@ dissect_subsystem_numbers_parameter.exit55:       ; preds = %.lr.ph.i51, %551
   br label %dissect_v7_parameter.exit
 
 dissect_v7_parameter.exit:                        ; preds = %376, %586, %587
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %956
 
 591:                                              ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %592 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 0)
   %593 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 2)
   %594 = call i32 @tvb_reported_length(ptr noundef %30)
@@ -1923,9 +1917,9 @@ dissect_service_indicators_parameter.exit76:      ; preds = %.lr.ph.i72, %730
 
 744:                                              ; preds = %599
   %745 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %746 = load ptr, ptr %12, align 8
-  %747 = call noalias dereferenceable_or_null(28) ptr @wmem_alloc0(ptr noundef %746, i64 noundef 28) #7
+  %747 = call noalias dereferenceable_or_null(28) ptr @wmem_alloc0(ptr noundef %746, i64 noundef 28) #6
   %748 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef 12)
   %749 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 2)
   %750 = add i16 %749, -16
@@ -2276,7 +2270,7 @@ proto_item_set_generated.exit116.i:               ; preds = %911, %908, %proto_i
 dissect_protocol_data_parameter.exit:             ; preds = %proto_item_set_generated.exit116.i, %920
   %922 = load i32, ptr @m3ua_pref_mtp3_standard, align 4
   store i32 %922, ptr @mtp3_standard, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %951
 
 923:                                              ; preds = %599
@@ -2330,7 +2324,7 @@ dissect_protocol_data_parameter.exit:             ; preds = %proto_item_set_gene
   br label %dissect_parameter.exit
 
 dissect_parameter.exit:                           ; preds = %591, %951, %952
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %956
 
 956:                                              ; preds = %dissect_parameter.exit, %dissect_v7_parameter.exit, %dissect_v6_parameter.exit, %dissect_v5_parameter.exit, %22
@@ -2525,7 +2519,7 @@ define internal fastcc void @dissect_originating_point_code_list_parameter(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %6 = zext i16 %5 to i32
   %7 = add nsw i32 %6, -4
@@ -2575,12 +2569,12 @@ define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr
   %34 = icmp ult i16 %33, 8
   %35 = select i1 %34, ptr @.str.342, ptr @.str.343
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.365, i32 noundef %8, ptr noundef nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -2589,7 +2583,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @register_frame_end_routine(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @m3ua_reset_mtp3_standard() #4 {
+define internal void @m3ua_reset_mtp3_standard() #3 {
   %1 = load i32, ptr @m3ua_pref_mtp3_standard, align 4
   store i32 %1, ptr @mtp3_standard, align 4
   ret void
@@ -2620,17 +2614,22 @@ define internal i32 @get_dissect_m3ua_tcp_len(ptr readnone captures(none) %0, pt
   ret i32 %6
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

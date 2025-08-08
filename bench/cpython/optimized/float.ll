@@ -69,7 +69,7 @@ define internal ptr @float_fromstring(ptr readnone captures(none) %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @float_fromdouble(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -81,7 +81,7 @@ define internal ptr @float_fromdouble(ptr readnone captures(none) %0, ptr nounde
 
 8:                                                ; preds = %2, %5
   %.0 = phi ptr [ %7, %5 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -133,15 +133,9 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyFloat_FromString(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #1
 
@@ -152,6 +146,12 @@ declare ptr @PyFloat_GetInfo() local_unnamed_addr #1
 declare double @PyFloat_GetMax() local_unnamed_addr #1
 
 declare double @PyFloat_GetMin() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

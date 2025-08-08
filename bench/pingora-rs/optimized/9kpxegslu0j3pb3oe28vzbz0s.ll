@@ -43,7 +43,7 @@ define void @_ZN15pingora_timeout5timer9TimerStub4poll17h605e6a2ca564641cE(ptr d
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE() unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 24, 49) 48, i64 noundef 8) #16, !noalias !3
   %4 = icmp eq ptr %3, null
@@ -90,7 +90,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %0
   store i64 1, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 0, ptr %.sroa.526.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %16 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %7, 1
   ret { ptr, ptr } %17
@@ -108,7 +108,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %0
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN79_$LT$pingora_timeout..timer..TimerManager$u20$as$u20$core..default..Default$GT$7default17h1145d9462febafb8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([544 x i8]) align 8 captures(none) dereferenceable(544) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [512 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %2, i8 0, i64 512, i1 false)
   %3 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
           to label %6 unwind label %4
@@ -131,7 +131,7 @@ define void @"_ZN79_$LT$pingora_timeout..timer..TimerManager$u20$as$u20$core..de
   store i64 -2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i8 0, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 13:                                               ; preds = %4
@@ -148,7 +148,7 @@ define void @"_ZN79_$LT$pingora_timeout..timer..TimerManager$u20$as$u20$core..de
 define void @_ZN15pingora_timeout5timer12TimerManager3new17hd3c2cf43a1568868E(ptr dead_on_unwind noalias noundef writable writeonly sret([544 x i8]) align 8 captures(none) dereferenceable(544) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [512 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %2, i8 0, i64 512, i1 false), !noalias !12
   %3 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
           to label %"_ZN79_$LT$pingora_timeout..timer..TimerManager$u20$as$u20$core..default..Default$GT$7default17h1145d9462febafb8E.exit" unwind label %4, !noalias !12
@@ -180,7 +180,7 @@ define void @_ZN15pingora_timeout5timer12TimerManager3new17hd3c2cf43a1568868E(pt
   store i64 -2, ptr %13, align 8, !alias.scope !12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i8 0, ptr %14, align 8, !alias.scope !12
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !12
   ret void
 }
 
@@ -231,7 +231,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   %25 = udiv i32 %21, 1000000
   %26 = zext nneg i32 %25 to i128
   %27 = add nuw nsw i128 %23, %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %9, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 8
@@ -247,7 +247,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br i1 %31, label %34, label %32, !prof !17
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit41", %20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %._crit_edge, %.backedge
@@ -264,7 +264,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br label %38
 
 38:                                               ; preds = %72, %34
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %35, align 8, !noundef !15
   %.not35 = icmp eq ptr %39, null
   br i1 %.not35, label %43, label %40
@@ -319,7 +319,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br i1 %.not36, label %52, label %58
 
 52:                                               ; preds = %50, %58
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = cmpxchg ptr %29, i64 8, i64 0 release monotonic, align 8
   %54 = extractvalue { i64, i1 } %53, 1
   br i1 %54, label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit41", label %55, !prof !17
@@ -340,15 +340,15 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br i1 %.not45, label %52, label %59
 
 59:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i128 %.val40, ptr %3, align 16
   %60 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h5106c52ec77e3b25E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %3)
           to label %61 unwind label %.loopexit
 
 61:                                               ; preds = %59
   %62 = extractvalue { ptr, ptr } %60, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not37 = icmp eq ptr %62, null
   br i1 %.not37, label %68, label %63, !prof !6
 
@@ -382,8 +382,8 @@ _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %63
           to label %72 unwind label %.loopexit
 
 72:                                               ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 73:                                               ; preds = %49, %70
@@ -400,7 +400,7 @@ _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %63
 define hidden noundef zeroext i1 @_ZN15pingora_timeout5timer12TimerManager20should_i_start_clock17he37e9bbf115498d2E(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #2 {
   %2 = alloca [16 x i8], align 8
   %3 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
   %5 = extractvalue { i64, i32 } %4, 0
   %6 = extractvalue { i64, i32 } %4, 1
@@ -412,7 +412,7 @@ define hidden noundef zeroext i1 @_ZN15pingora_timeout5timer12TimerManager20shou
   %10 = load i32, ptr %9, align 8, !range !16, !noundef !15
   %11 = call { i64, i32 } @_ZN3std4time7Instant14duration_since17h5749396069831f9cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %8, i32 noundef %10)
   %12 = extractvalue { i64, i32 } %11, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %14 = load atomic i64, ptr %13 seq_cst, align 8
   %15 = add i64 %14, 2
@@ -420,7 +420,7 @@ define hidden noundef zeroext i1 @_ZN15pingora_timeout5timer12TimerManager20shou
   br i1 %.not, label %27, label %16
 
 16:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
   %18 = extractvalue { i64, i32 } %17, 0
   %19 = extractvalue { i64, i32 } %17, 1
@@ -431,7 +431,7 @@ define hidden noundef zeroext i1 @_ZN15pingora_timeout5timer12TimerManager20shou
   %22 = load i32, ptr %9, align 8, !range !16, !noundef !15
   %23 = call { i64, i32 } @_ZN3std4time7Instant14duration_since17h5749396069831f9cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, i64 noundef %21, i32 noundef %22)
   %24 = extractvalue { i64, i32 } %23, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = cmpxchg ptr %13, i64 %14, i64 %24 seq_cst seq_cst, align 8
   %26 = extractvalue { i64, i1 } %25, 1
   br label %27
@@ -494,7 +494,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br i1 %42, label %51, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, !prof !23
 
 43:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %44 = tail call fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE()
   %45 = extractvalue { ptr, ptr } %44, 0
   %46 = extractvalue { ptr, ptr } %44, 1
@@ -566,7 +566,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26"
 
 "_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26": ; preds = %71, %75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %76 = call fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE()
   %77 = extractvalue { ptr, ptr } %76, 0
   %78 = extractvalue { ptr, ptr } %76, 1
@@ -611,7 +611,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
           to label %92 unwind label %.thread
 
 92:                                               ; preds = %90, %86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.val21 = load ptr, ptr %6, align 8, !nonnull !15, !noundef !15
   %.val22 = load ptr, ptr %79, align 8
   %93 = atomicrmw add ptr %.val21, i64 1 monotonic, align 8
@@ -646,7 +646,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   store ptr %.val21, ptr %5, align 8
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.val22, ptr %106, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %108 = load i128, ptr %7, align 16, !noundef !15
   %109 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h2c8d250552e672a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %107, i128 noundef %108, ptr noundef nonnull %.val21, ptr noundef nonnull %.val22)
@@ -672,8 +672,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
           to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit" unwind label %110
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit": ; preds = %112, %117
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %118 = cmpxchg ptr %80, i64 8, i64 0 release monotonic, align 8
   %119 = extractvalue { i64, i1 } %118, 1
   br i1 %119, label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34", label %120, !prof !17
@@ -683,7 +683,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
 
 "_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34": ; preds = %120, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"
 
 121:                                              ; preds = %104, %59, %123, %.thread, %110
@@ -722,7 +722,7 @@ _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %43
 
 132:                                              ; preds = %127
   call void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"
 }
 
@@ -826,10 +826,10 @@ declare hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$
 declare hidden void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17h822635e5e2324fa6E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

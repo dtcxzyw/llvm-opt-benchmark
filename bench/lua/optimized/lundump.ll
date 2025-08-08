@@ -35,7 +35,7 @@ define hidden ptr @luaU_undump(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %7 = alloca [12 x i8], align 1
   %8 = alloca [12 x i8], align 1
   %9 = alloca %struct.LoadState, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i8, ptr %2, align 1, !tbaa !4
   switch i8 %10, label %13 [
     i8 64, label %11
@@ -62,7 +62,7 @@ define hidden ptr @luaU_undump(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   store i8 %17, ptr %18, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 1, ptr %19, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = call i64 @luaZ_read(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 3) #7
   %.not.i.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i.i, label %loadBlock.exit.i.i, label %21
@@ -82,7 +82,7 @@ loadBlock.exit.i.i:                               ; preds = %14
   unreachable
 
 checkliteral.exit.i:                              ; preds = %loadBlock.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %23 = load i64, ptr %1, align 8, !tbaa !20
   %24 = add i64 %23, -1
   store i64 %24, ptr %1, align 8, !tbaa !20
@@ -155,7 +155,7 @@ loadByte.exit18.i:                                ; preds = %45, %.thread.i17.i
   unreachable
 
 52:                                               ; preds = %loadByte.exit18.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = call i64 @luaZ_read(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 6) #7
   %.not.i.i19.i = icmp eq i64 %53, 0
   br i1 %.not.i.i19.i, label %loadBlock.exit.i20.i, label %54
@@ -175,7 +175,7 @@ loadBlock.exit.i20.i:                             ; preds = %52
   unreachable
 
 checkliteral.exit23.i:                            ; preds = %loadBlock.exit.i20.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %56 = load i64, ptr %1, align 8, !tbaa !20
   %57 = add i64 %56, -1
   store i64 %57, ptr %1, align 8, !tbaa !20
@@ -287,7 +287,7 @@ loadByte.exit.i33.i:                              ; preds = %93, %.thread.i.i32.
   unreachable
 
 fchecksize.exit35.i:                              ; preds = %loadByte.exit.i33.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = call i64 @luaZ_read(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 8) #7
   %.not.i.i36.i = icmp eq i64 %101, 0
   br i1 %.not.i.i36.i, label %loadInteger.exit.i, label %102
@@ -299,7 +299,7 @@ fchecksize.exit35.i:                              ; preds = %loadByte.exit.i33.i
 loadInteger.exit.i:                               ; preds = %fchecksize.exit35.i
   store i64 23, ptr %19, align 8, !tbaa !19
   %103 = load i64, ptr %6, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not14.i = icmp eq i64 %103, 22136
   br i1 %.not14.i, label %105, label %104
 
@@ -308,7 +308,7 @@ loadInteger.exit.i:                               ; preds = %fchecksize.exit35.i
   unreachable
 
 105:                                              ; preds = %loadInteger.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = call i64 @luaZ_read(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 8) #7
   %.not.i.i38.i = icmp eq i64 %106, 0
   br i1 %.not.i.i38.i, label %loadNumber.exit.i, label %107
@@ -320,7 +320,7 @@ loadInteger.exit.i:                               ; preds = %fchecksize.exit35.i
 loadNumber.exit.i:                                ; preds = %105
   store i64 31, ptr %19, align 8, !tbaa !19
   %108 = load double, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %109 = fcmp une double %108, 3.705000e+02
   br i1 %109, label %110, label %checkHeader.exit
 
@@ -401,25 +401,19 @@ loadByte.exit:                                    ; preds = %.thread.i, %118
   %145 = load ptr, ptr %125, align 8, !tbaa !4
   %146 = getelementptr inbounds i8, ptr %145, i64 -16
   store ptr %146, ptr %125, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %124
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare hidden ptr @luaF_newLclosure(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaF_newLclosure(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @luaD_inctop(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare hidden ptr @luaH_new(ptr noundef) local_unnamed_addr #1
 
-declare hidden void @luaD_inctop(ptr noundef) local_unnamed_addr #2
+declare hidden ptr @luaF_newproto(ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaH_new(ptr noundef) local_unnamed_addr #2
-
-declare hidden ptr @luaF_newproto(ptr noundef) local_unnamed_addr #2
-
-declare hidden void @luaC_barrier_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @luaC_barrier_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @loadFunction(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -726,7 +720,7 @@ loadUint.exit.i:                                  ; preds = %134
 
 142:                                              ; preds = %loadUint.exit.i
   %143 = sub nuw nsw i32 4, %141
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %144 = zext nneg i32 %143 to i64
   %145 = load ptr, ptr %7, align 8, !tbaa !17
   %146 = call i64 @luaZ_read(ptr noundef %145, ptr noundef nonnull %6, i64 noundef %144) #7
@@ -741,7 +735,7 @@ loadBlock.exit.i.i:                               ; preds = %142
   %148 = load i64, ptr %8, align 8, !tbaa !19
   %149 = add i64 %148, %144
   store i64 %149, ptr %8, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %loadAlign.exit.i
 
 loadAlign.exit.i:                                 ; preds = %loadBlock.exit.i.i, %loadUint.exit.i
@@ -934,7 +928,7 @@ loadByte.exit.i:                                  ; preds = %214, %.thread.i.i
   br label %253
 
 228:                                              ; preds = %loadByte.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %229 = load ptr, ptr %7, align 8, !tbaa !17
   %230 = call i64 @luaZ_read(ptr noundef %229, ptr noundef nonnull %5, i64 noundef 8) #7
   %.not.i.i42.i = icmp eq i64 %230, 0
@@ -949,14 +943,14 @@ loadNumber.exit.i:                                ; preds = %228
   %233 = add i64 %232, 8
   store i64 %233, ptr %8, align 8, !tbaa !19
   %234 = load double, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store double %234, ptr %205, align 8, !tbaa !4
   %235 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i8 19, ptr %235, align 8, !tbaa !26
   br label %253
 
 236:                                              ; preds = %loadByte.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %237 = load ptr, ptr %7, align 8, !tbaa !17
   %238 = call i64 @luaZ_read(ptr noundef %237, ptr noundef nonnull %4, i64 noundef 8) #7
   %.not.i.i43.i = icmp eq i64 %238, 0
@@ -971,7 +965,7 @@ loadInteger.exit.i:                               ; preds = %236
   %241 = add i64 %240, 8
   store i64 %241, ptr %8, align 8, !tbaa !19
   %242 = load i64, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %242, ptr %205, align 8, !tbaa !4
   %243 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i8 3, ptr %243, align 8, !tbaa !26
@@ -1470,7 +1464,7 @@ loadUint.exit77.i:                                ; preds = %447
 
 456:                                              ; preds = %453
   %457 = sub nuw nsw i32 4, %455
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %458 = zext nneg i32 %457 to i64
   %459 = load ptr, ptr %7, align 8, !tbaa !17
   %460 = call i64 @luaZ_read(ptr noundef %459, ptr noundef nonnull %3, i64 noundef %458) #7
@@ -1485,7 +1479,7 @@ loadBlock.exit.i.i71:                             ; preds = %456
   %462 = load i64, ptr %8, align 8, !tbaa !19
   %463 = add i64 %462, %458
   store i64 %463, ptr %8, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %loadAlign.exit.i72
 
 loadAlign.exit.i72:                               ; preds = %loadBlock.exit.i.i71, %453
@@ -1814,7 +1808,7 @@ loadDebug.exit:                                   ; preds = %598, %loadUint.exit
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @error(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @error(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !7
@@ -1824,14 +1818,14 @@ define internal fastcc void @error(ptr noundef nonnull readonly captures(none) %
   unreachable
 }
 
-declare hidden i64 @luaZ_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden i64 @luaZ_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaO_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare hidden ptr @luaO_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #2
+declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @loadString(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
@@ -1839,7 +1833,7 @@ define internal fastcc void @loadString(ptr noundef nonnull captures(none) %0, p
   %5 = alloca %struct.TValue, align 8
   %6 = alloca [41 x i8], align 16
   %7 = load ptr, ptr %0, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %10
@@ -1951,7 +1945,7 @@ loadByte.exit.i.i74:                              ; preds = %.loadByte.exit.i.i7
   br i1 %.not.i.i75, label %loadSize.exit76, label %.preheader
 
 loadSize.exit76:                                  ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !28
   %59 = call zeroext i8 @luaH_getint(ptr noundef %58, i64 noundef %56, ptr noundef nonnull %5) #7
@@ -1975,7 +1969,7 @@ loadSize.exit76:                                  ; preds = %52
   br label %69
 
 69:                                               ; preds = %loadSize.exit76, %64, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %148
 
 70:                                               ; preds = %loadSize.exit
@@ -1984,7 +1978,7 @@ loadSize.exit76:                                  ; preds = %52
   br i1 %72, label %73, label %90
 
 73:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %74 = add nsw i64 %33, -1
   %75 = load ptr, ptr %8, align 8, !tbaa !17
   %76 = call i64 @luaZ_read(ptr noundef %75, ptr noundef nonnull %6, i64 noundef %74) #7
@@ -2019,7 +2013,7 @@ loadBlock.exit:                                   ; preds = %73
   br label %89
 
 89:                                               ; preds = %loadBlock.exit, %84, %88
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
 90:                                               ; preds = %70
@@ -2135,25 +2129,31 @@ loadBlock.exit78:                                 ; preds = %120
   br label %148
 
 148:                                              ; preds = %147, %143, %129, %loadSize.exit, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare hidden ptr @luaM_malloc_(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @luaM_malloc_(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaZ_getaddr(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @luaZ_getaddr(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden zeroext i8 @luaH_getint(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden zeroext i8 @luaH_getint(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaS_newextlstr(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @luaS_newextlstr(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @luaS_createlngstrobj(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @luaS_createlngstrobj(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden void @luaH_setint(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @luaH_setint(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @luaC_barrierback_(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @luaC_barrierback_(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
@@ -2162,10 +2162,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #2 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

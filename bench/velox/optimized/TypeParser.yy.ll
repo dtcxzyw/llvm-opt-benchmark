@@ -198,7 +198,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4type6ParserE, i64 16), ptr %this, align 8
   %yystack_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZNSt6vectorIN8facebook5velox4type6Parser17stack_symbol_typeESaIS4_EEC2EmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, i64 noundef 200, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEEC2Em.exit unwind label %terminate.lpad.i
 
@@ -210,7 +210,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEEC2Em.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %scanner = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %scanner_yyarg, ptr %scanner, align 8
   ret void
@@ -944,7 +944,7 @@ define void @_ZN8facebook5velox4type6Parser7yypush_EPKcONS2_17stack_symbol_typeE
 entry:
   %ref.tmp.i = alloca %"struct.facebook::velox::type::Parser::stack_symbol_type", align 16
   %yystack_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i)
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -983,7 +983,7 @@ _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_
   %6 = getelementptr i8, ptr %5, i64 %sub.ptr.sub.i.i.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 -64
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE4moveERS5_(ptr noundef nonnull align 16 dereferenceable(64) %add.ptr.i.i.i, ptr noundef nonnull align 16 dereferenceable(64) %sym)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -994,7 +994,7 @@ entry:
   %ref.tmp = alloca %"struct.facebook::velox::type::Parser::stack_symbol_type", align 16
   call void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1EaONS2_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(64) %sym)
   %yystack_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad
 
@@ -1039,7 +1039,7 @@ _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp) #26
   ret void
 
@@ -2729,7 +2729,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN8facebook5velox4type6Parser6yypop_Ei.exit:     ; preds = %for.body.i.i, %try.cont752
   %yyerrstatus_.2779 = phi i32 [ %yyerrstatus_.0688, %try.cont752 ], [ %yyerrstatus_.2778, %for.body.i.i ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad70.loopexit
 
@@ -2772,7 +2772,7 @@ _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_
           to label %cleanup unwind label %lpad70.loopexit
 
 cleanup:                                          ; preds = %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %yylhs) #26
   br label %yynewstate.backedge
 
@@ -2891,7 +2891,7 @@ for.end:                                          ; preds = %for.body.i.i520.pre
 
 invoke.cont813:                                   ; preds = %for.end
   store i8 1, ptr %error_token, align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i526)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i526)
   invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526)
           to label %.noexc541 unwind label %lpad816
 
@@ -2934,7 +2934,7 @@ _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_
           to label %invoke.cont817 unwind label %lpad816
 
 invoke.cont817:                                   ; preds = %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i535
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i526)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i526)
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %error_token) #26
   %316 = load ptr, ptr %_M_finish.i.i.i, align 8
   %317 = load ptr, ptr %yystack_, align 8
@@ -7020,10 +7020,10 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #21

@@ -1038,8 +1038,8 @@ ExplainEndOutput.exit:                            ; preds = %.critedge142, %276,
   br label %307
 
 300:                                              ; preds = %ExplainEndOutput.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %301 = load ptr, ptr %7, align 8
   %302 = load ptr, ptr %301, align 8
   %303 = tail call ptr @cstring_to_text(ptr noundef %302) #13
@@ -1050,8 +1050,8 @@ ExplainEndOutput.exit:                            ; preds = %.critedge142, %276,
   %305 = load i64, ptr %5, align 8
   %306 = inttoptr i64 %305 to ptr
   call void @pfree(ptr noundef %306) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %307
 
 307:                                              ; preds = %300, %297
@@ -1061,9 +1061,6 @@ ExplainEndOutput.exit:                            ; preds = %.critedge142, %276,
   call void @pfree(ptr noundef %309) #13
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @NewExplainState() local_unnamed_addr #0 {
@@ -1076,32 +1073,29 @@ define dso_local ptr @NewExplainState() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #3
 
-declare ptr @defGetString(ptr noundef) local_unnamed_addr #4
+declare ptr @defGetString(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #4
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @JumbleQuery(ptr noundef) local_unnamed_addr #3
 
-declare ptr @JumbleQuery(ptr noundef) local_unnamed_addr #4
-
-declare ptr @QueryRewrite(ptr noundef) local_unnamed_addr #4
+declare ptr @QueryRewrite(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainBeginOutput(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1146,7 +1140,7 @@ define dso_local void @ExplainBeginOutput(ptr noundef captures(none) %0) local_u
   ret void
 }
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainSeparatePlans(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1207,7 +1201,7 @@ define dso_local void @ExplainEndOutput(ptr noundef captures(none) %0) local_unn
   ret void
 }
 
-declare ptr @begin_tup_output_tupdesc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @begin_tup_output_tupdesc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExplainResultDesc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1262,23 +1256,23 @@ define dso_local noundef ptr @ExplainResultDesc(ptr noundef readonly captures(no
   br i1 %26, label %.lr.ph22, label %.critedge
 }
 
-declare void @do_text_output_multiline(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @do_text_output_multiline(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #4
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #3
 
-declare void @do_tup_output(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @do_tup_output(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pfree(ptr noundef) local_unnamed_addr #4
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
-declare void @end_tup_output(ptr noundef) local_unnamed_addr #4
+declare void @end_tup_output(ptr noundef) local_unnamed_addr #3
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #4
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
-declare ptr @makeStringInfo() local_unnamed_addr #4
+declare ptr @makeStringInfo() local_unnamed_addr #3
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #4
+declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #3
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -1288,10 +1282,10 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
   %11 = alloca %struct.BufferUsage, align 8
   %12 = alloca %struct.BufferUsage, align 8
   %13 = alloca %struct.MemoryContextCounters, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
@@ -1317,19 +1311,19 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
   br label %26
 
 26:                                               ; preds = %25, %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #13
   %28 = load i64, ptr %9, align 8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load i64, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = call ptr @pg_plan_query(ptr noundef %0, ptr noundef %4, i32 noundef %1, ptr noundef %5) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #13
   %33 = load i64, ptr %8, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load i64, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %reass.add = sub i64 %33, %28
   %reass.mul = mul i64 %reass.add, 1000000000
   %36 = sub i64 %35, %30
@@ -1363,23 +1357,23 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
   %49 = trunc nuw i8 %48 to i1
   %50 = select i1 %49, ptr %13, ptr null
   call void @ExplainOnePlan(ptr noundef %31, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %10, ptr noundef %., ptr noundef %50)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @pg_plan_query(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @pg_plan_query(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @MemoryContextMemConsumed(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @MemoryContextMemConsumed(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @BufferUsageAccumDiff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @BufferUsageAccumDiff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #0 {
@@ -1393,7 +1387,7 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = alloca %struct.timespec, align 8
   %18 = alloca %struct.SerializeMetrics, align 8
   %19 = alloca %struct.SerializeMetrics, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %18, i8 0, i64 144, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %21 = load i8, ptr %20, align 1, !range !4, !noundef !5
@@ -1419,12 +1413,12 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = shl nuw nsw i8 %33, 3
   %35 = zext nneg i8 %34 to i32
   %.288 = or disjoint i32 %spec.select99, %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #13
   %37 = load i64, ptr %17, align 8
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %39 = load i64, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %40 = call ptr @GetActiveSnapshot() #13
   call void @PushCopiedSnapshot(ptr noundef %40) #13
   call void @UpdateActiveSnapshotCommandId() #13
@@ -1500,12 +1494,12 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   %.084 = phi i32 [ 1, %74 ], [ 0, %70 ]
   call void @ExecutorRun(ptr noundef %57, i32 noundef %.084, i64 noundef 0) #13
   call void @ExecutorFinish(ptr noundef %57) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #13
   %77 = load i64, ptr %16, align 8
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %79 = load i64, ptr %78, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %reass.add = sub i64 %77, %37
   %reass.mul = mul i64 %reass.add, 1000000000
   %80 = sub i64 %79, %39
@@ -1523,7 +1517,7 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not96, label %95, label %88
 
 88:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %89 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %90 = load i32, ptr %89, align 8, !noalias !8
@@ -1541,7 +1535,7 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
 
 GetSerializationMetrics.exit:                     ; preds = %92, %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %18, ptr noundef nonnull align 8 dereferenceable(144) %19, i64 144, i1 false)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %95
 
 95:                                               ; preds = %GetSerializationMetrics.exit, %85
@@ -1774,14 +1768,14 @@ ExplainIndentText.exit.i:                         ; preds = %223, %216
   br label %show_memory_counters.exit
 
 229:                                              ; preds = %202
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %230 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %207) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.391, ptr noundef nonnull @.str.86, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %231 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %208) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.86, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %show_memory_counters.exit
 
 show_memory_counters.exit:                        ; preds = %229, %ExplainIndentText.exit.i, %201
@@ -1834,7 +1828,7 @@ show_memory_counters.exit:                        ; preds = %229, %ExplainIndent
   br i1 %257, label %258, label %278
 
 258:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false)
   %259 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %260 = load ptr, ptr %259, align 8
@@ -1876,7 +1870,7 @@ show_memory_counters.exit:                        ; preds = %229, %ExplainIndent
   br label %ExplainPrintJITSummary.exit
 
 ExplainPrintJITSummary.exit:                      ; preds = %258, %274
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %278
 
 278:                                              ; preds = %ExplainPrintJITSummary.exit, %254
@@ -2065,10 +2059,10 @@ peek_buffer_usage.exit.thread.i:                  ; preds = %peek_buffer_usage.e
   %398 = load i64, ptr %18, align 8
   %399 = add i64 %398, 1023
   %400 = lshr i64 %399, 10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %401 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %400) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef nonnull %.str.13..str.14.i, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   %402 = load i8, ptr %28, align 1, !range !4, !noundef !5
   %403 = trunc nuw i8 %402 to i1
@@ -2084,12 +2078,12 @@ ExplainPrintSerialize.exit:                       ; preds = %318, %peek_buffer_u
   br label %406
 
 406:                                              ; preds = %ExplainPrintSerialize.exit, %278
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %407 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #13
   %408 = load i64, ptr %11, align 8
   %409 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %410 = load i64, ptr %409, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @ExecutorEnd(ptr noundef %57) #13
   call void @FreeQueryDesc(ptr noundef %57) #13
   call void @PopActiveSnapshot() #13
@@ -2102,12 +2096,12 @@ ExplainPrintSerialize.exit:                       ; preds = %318, %peek_buffer_u
   br label %414
 
 414:                                              ; preds = %413, %406
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %415 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #13
   %416 = load i64, ptr %10, align 8
   %417 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %418 = load i64, ptr %417, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %reass.add129 = sub i64 %416, %408
   %reass.mul130 = mul i64 %reass.add129, 1000000000
   %419 = sub i64 %418, %410
@@ -2133,7 +2127,7 @@ ExplainPrintSerialize.exit:                       ; preds = %318, %peek_buffer_u
 
 432:                                              ; preds = %429, %426, %414
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.37, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 
@@ -2343,7 +2337,7 @@ ExplainOneQuery.exit:                             ; preds = %tailrecurse.backedg
   ret void
 }
 
-declare zeroext i1 @CreateTableAsRelExists(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @CreateTableAsRelExists(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainDummyGroup(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -2423,19 +2417,19 @@ ExplainYAMLLineStarting.exit:                     ; preds = %26, %27
   ret void
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #4
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
 
-declare void @ExplainExecuteQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ExplainExecuteQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #4
+declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #3
 
-declare ptr @GetActiveSnapshot() local_unnamed_addr #4
+declare ptr @GetActiveSnapshot() local_unnamed_addr #3
 
-declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #4
+declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #3
 
-declare ptr @CreateIntoRelDestReceiver(ptr noundef) local_unnamed_addr #4
+declare ptr @CreateIntoRelDestReceiver(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateExplainSerializeDestReceiver(ptr noundef %0) local_unnamed_addr #0 {
@@ -2454,15 +2448,15 @@ define dso_local noundef ptr @CreateExplainSerializeDestReceiver(ptr noundef %0)
   ret ptr %2
 }
 
-declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @GetIntoRelEFlags(ptr noundef) local_unnamed_addr #4
+declare i32 @GetIntoRelEFlags(ptr noundef) local_unnamed_addr #3
 
-declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #4
+declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainOpenGroup(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
@@ -2587,7 +2581,7 @@ define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80), (84, 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2677,7 +2671,7 @@ list_length.exit:                                 ; preds = %2
 51:                                               ; preds = %47, %41, %.critedge
   %.0 = phi ptr [ %49, %47 ], [ %38, %41 ], [ %38, %.critedge ]
   call fastcc void @ExplainNode(ptr noundef %.0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
   %54 = trunc nuw i8 %53 to i1
@@ -2715,7 +2709,7 @@ list_length.exit:                                 ; preds = %2
   br i1 %69, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 70:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = load i32, ptr %4, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %73, label %.critedge.i
@@ -2729,7 +2723,7 @@ list_length.exit:                                 ; preds = %2
 ._crit_edge32.i:                                  ; preds = %86, %73
   %76 = load ptr, ptr %5, align 8
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef %76, i1 noundef zeroext false, ptr noundef readonly %0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ExplainPrintSettings.exit
 
 .lr.ph31.i:                                       ; preds = %73, %86
@@ -2766,11 +2760,11 @@ list_length.exit:                                 ; preds = %2
   br i1 %89, label %.lr.ph31.i, label %._crit_edge32.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ExplainPrintSettings.exit
 
 ExplainPrintSettings.exit:                        ; preds = %51, %._crit_edge.i, %._crit_edge32.i, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i8, ptr %90, align 8, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
@@ -2787,14 +2781,14 @@ ExplainPrintSettings.exit:                        ; preds = %51, %._crit_edge.i,
   br i1 %or.cond, label %100, label %102
 
 100:                                              ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %101 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %96) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %102
 
 102:                                              ; preds = %100, %93, %ExplainPrintSettings.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3263,64 +3257,64 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   br label %307
 
 245:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %246 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %16) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.374, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %248 = load i64, ptr %247, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %249 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %248) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.375, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %251 = load i64, ptr %250, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %252 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %251) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.376, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %254 = load i64, ptr %253, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %255 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %254) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.377, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %257 = load i64, ptr %256, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %258 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %257) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.378, ptr noundef null, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %260 = load i64, ptr %259, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %261 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %260) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.379, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %263 = load i64, ptr %262, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %264 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %263) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.380, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %266 = load i64, ptr %265, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %267 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %266) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.381, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %269 = load i64, ptr %268, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %270 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %269) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.382, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %272 = load i64, ptr %271, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %273 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %272) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.383, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %274 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %307
@@ -3535,7 +3529,7 @@ list_length.exit.thread:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPrintJITSummary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.JitInstrumentation, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -3577,17 +3571,17 @@ define dso_local void @ExplainPrintJITSummary(ptr noundef captures(none) %0, ptr
   br label %23
 
 23:                                               ; preds = %2, %19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #4
+declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #3
 
-declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #4
+declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #3
 
-declare void @PopActiveSnapshot() local_unnamed_addr #4
+declare void @PopActiveSnapshot() local_unnamed_addr #3
 
-declare void @CommandCounterIncrement() local_unnamed_addr #4
+declare void @CommandCounterIncrement() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ExplainPreScanNode(ptr noundef %0, ptr noundef %1) #0 {
@@ -3676,9 +3670,9 @@ define internal zeroext i1 @ExplainPreScanNode(ptr noundef %0, ptr noundef %1) #
   ret i1 %41
 }
 
-declare ptr @select_rtable_names_for_explain(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @select_rtable_names_for_explain(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @deparse_context_for_plan_tree(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @deparse_context_for_plan_tree(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -4465,10 +4459,10 @@ switch.lookup1205:                                ; preds = %307
   %345 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %346 = load i32, ptr %345, align 8
   %347 = sext i32 %346 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %348 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %52, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %347) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef nonnull %52, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %349
 
 349:                                              ; preds = %325, %335, %318
@@ -5333,16 +5327,16 @@ show_scan_qual.exit787.thread:                    ; preds = %757, %766, %show_sc
   br i1 %.not.i788, label %778, label %773
 
 773:                                              ; preds = %769
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %774 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %51, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %772) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef nonnull %51, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %775 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %776 = load i64, ptr %775, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %777 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %50, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %776) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.259, ptr noundef null, ptr noundef nonnull %50, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %808
 
 778:                                              ; preds = %769
@@ -5502,16 +5496,16 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
 
 857:                                              ; preds = %828
   %858 = load i64, ptr %817, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %859 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %49, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %858) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef nonnull %49, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %860 = getelementptr inbounds nuw i8, ptr %817, i64 8
   %861 = load i64, ptr %860, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %862 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %48, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %861) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.259, ptr noundef null, ptr noundef nonnull %48, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %863
 
 863:                                              ; preds = %857, %855
@@ -5744,8 +5738,8 @@ show_instrumentation_count.exit:                  ; preds = %950, %.sink.split.i
   %.val756 = load ptr, ptr %976, align 8
   %977 = getelementptr i8, ptr %.val756, i64 248
   %.val756.val = load ptr, ptr %977, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %978 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %979 = trunc nuw i8 %978 to i1
   %980 = icmp ne ptr %.val756.val, null
@@ -5760,8 +5754,8 @@ show_instrumentation_count.exit:                  ; preds = %950, %.sink.split.i
   br label %show_ctescan_info.exit
 
 show_ctescan_info.exit:                           ; preds = %975, %981
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %show_scan_qual.exit783
 
 984:                                              ; preds = %thread-pre-split963
@@ -5802,10 +5796,10 @@ show_scan_qual.exit811.thread:                    ; preds = %993, %1002, %show_s
   %1003 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %1004 = load i32, ptr %1003, align 8
   %1005 = sext i32 %1004 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1006 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %45, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1005) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %45, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1007 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1008 = trunc nuw i8 %1007 to i1
   br i1 %1008, label %1009, label %1013
@@ -5871,10 +5865,10 @@ show_scan_qual.exit813.thread:                    ; preds = %1030, %1039, %show_
   %1040 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %1041 = load i32, ptr %1040, align 8
   %1042 = sext i32 %1041 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1043 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %44, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1042) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %44, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %1044 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1045 = trunc nuw i8 %1044 to i1
   br i1 %1045, label %1046, label %show_scan_qual.exit783
@@ -6015,8 +6009,8 @@ show_scan_qual.exit817:                           ; preds = %1105
 show_scan_qual.exit817.thread:                    ; preds = %1105, %1114, %show_scan_qual.exit817
   %1115 = getelementptr i8, ptr %0, i64 344
   %.val757 = load ptr, ptr %1115, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1116 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1117 = trunc nuw i8 %1116 to i1
   %1118 = icmp ne ptr %.val757, null
@@ -6031,8 +6025,8 @@ show_scan_qual.exit817.thread:                    ; preds = %1105, %1114, %show_
   br label %show_table_func_scan_info.exit
 
 show_table_func_scan_info.exit:                   ; preds = %show_scan_qual.exit817.thread, %1119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %show_scan_qual.exit783
 
 1122:                                             ; preds = %thread-pre-split963
@@ -6695,10 +6689,10 @@ show_upper_qual.exit854:                          ; preds = %1455, %1458
   %1478 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %1479 = load i32, ptr %1478, align 8
   %1480 = sext i32 %1479 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1481 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %41, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1480) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.288, ptr noundef null, ptr noundef nonnull %41, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %1482
 
 1482:                                             ; preds = %1477, %1476
@@ -6715,20 +6709,20 @@ show_upper_qual.exit854:                          ; preds = %1455, %1458
   %1488 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %1489 = load i32, ptr %1488, align 8
   %1490 = sext i32 %1489 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1491 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %40, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1490) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.289, ptr noundef null, ptr noundef nonnull %40, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1492 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %39, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1468) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %39, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %1493 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1494 = load i64, ptr %1493, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1495 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %38, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1494) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.86, ptr noundef nonnull %38, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %1550
 
 1496:                                             ; preds = %1472
@@ -6922,18 +6916,18 @@ ExplainIndentText.exit76.i:                       ; preds = %1588, %1581
 
 1597:                                             ; preds = %1573
   %1598 = sext i32 %1567 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1599 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1598) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.289, ptr noundef null, ptr noundef nonnull %37, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1600 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %36, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1569) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %36, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1601 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1565) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.86, ptr noundef nonnull %35, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1602
 
 1602:                                             ; preds = %1597, %1595
@@ -7027,8 +7021,8 @@ show_upper_qual.exit865.thread:                   ; preds = %1622, %1631, %show_
 show_upper_qual.exit867:                          ; preds = %1639, %1642
   %1648 = getelementptr i8, ptr %0, i64 272
   %.val758 = load ptr, ptr %1648, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1649 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1650 = trunc nuw i8 %1649 to i1
   %1651 = icmp ne ptr %.val758, null
@@ -7043,8 +7037,8 @@ show_upper_qual.exit867:                          ; preds = %1639, %1642
   br label %show_windowagg_info.exit
 
 show_windowagg_info.exit:                         ; preds = %show_upper_qual.exit867, %1652
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %show_scan_qual.exit783
 
 1655:                                             ; preds = %thread-pre-split963
@@ -7123,7 +7117,7 @@ show_upper_qual.exit871:                          ; preds = %1674
   br i1 %.not.i877, label %1733, label %1704
 
 1704:                                             ; preds = %1701
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @tuplesort_get_stats(ptr noundef nonnull %1703, ptr noundef nonnull %32) #13
   %1705 = load i32, ptr %32, align 8
   %1706 = call ptr @tuplesort_method_name(i32 noundef %1705) #13
@@ -7166,15 +7160,15 @@ ExplainIndentText.exit.i878:                      ; preds = %1726, %1719
 
 1730:                                             ; preds = %1704
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.296, ptr noundef null, ptr noundef %1706, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %1731 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %31, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1711) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.86, ptr noundef nonnull %31, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.298, ptr noundef null, ptr noundef %1709, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %1732
 
 1732:                                             ; preds = %1730, %ExplainIndentText.exit.i878
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1733
 
 1733:                                             ; preds = %1732, %1701, %1697
@@ -7248,10 +7242,10 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
 
 1772:                                             ; preds = %1753
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.296, ptr noundef null, ptr noundef %1744, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %1773 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %30, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1749) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.86, ptr noundef nonnull %30, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.298, ptr noundef null, ptr noundef %1747, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %1774
 
@@ -8013,29 +8007,29 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 
 2164:                                             ; preds = %2160
   %2165 = sext i32 %.sroa.0.1.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %2166 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %29, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2165) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2167 = sext i32 %.sroa.11.1.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2167) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.333, ptr noundef null, ptr noundef nonnull %28, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %2169 = zext nneg i32 %.sroa.17.1.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %2170 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %27, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2169) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.334, ptr noundef null, ptr noundef nonnull %27, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %2171 = sext i32 %.sroa.25.1.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %2172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %26, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2171) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.335, ptr noundef null, ptr noundef nonnull %26, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %25, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %2162) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %25, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %show_scan_qual.exit783
 
 2174:                                             ; preds = %2160
@@ -8099,8 +8093,8 @@ ExplainIndentText.exit82.i:                       ; preds = %2199, %2192
 2203:                                             ; preds = %thread-pre-split963
   %2204 = getelementptr i8, ptr %0, i64 232
   %.val762 = load ptr, ptr %2204, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %2205 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %2206 = trunc nuw i8 %2205 to i1
   %2207 = icmp ne ptr %.val762, null
@@ -8115,13 +8109,13 @@ ExplainIndentText.exit82.i:                       ; preds = %2199, %2192
   br label %show_material_info.exit
 
 show_material_info.exit:                          ; preds = %2203, %2208
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %show_scan_qual.exit783
 
 2211:                                             ; preds = %thread-pre-split963
   %2212 = load ptr, ptr %53, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @initStringInfo(ptr noundef nonnull %22) #13
   %2213 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %2214 = load i32, ptr %2213, align 4
@@ -8273,31 +8267,31 @@ ExplainIndentText.exit91.i:                       ; preds = %2272, %2265
 
 2296:                                             ; preds = %2294
   %2297 = load i64, ptr %2285, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %2298 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2297) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef nonnull %21, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %2299 = load i64, ptr %2286, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %2300 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2299) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef nonnull %20, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %2301 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %2302 = load i64, ptr %2301, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %2303 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2302) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.346, ptr noundef null, ptr noundef nonnull %19, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %2304 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %2305 = load i64, ptr %2304, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2306 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2305) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.347, ptr noundef null, ptr noundef nonnull %18, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %2307 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %.081.i) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2330
 
 2308:                                             ; preds = %2294
@@ -8411,31 +8405,31 @@ ExplainIndentText.exit93.i:                       ; preds = %2365, %2358
 
 2375:                                             ; preds = %2346
   %2376 = load i64, ptr %2338, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %2377 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2376) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %2378 = load i64, ptr %2339, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %2379 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2378) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %2380 = getelementptr inbounds nuw i8, ptr %2338, i64 16
   %2381 = load i64, ptr %2380, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %2382 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2381) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.346, ptr noundef null, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %2383 = getelementptr inbounds nuw i8, ptr %2338, i64 24
   %2384 = load i64, ptr %2383, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2385 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2384) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.347, ptr noundef null, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2386 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2350) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %2387
 
 2387:                                             ; preds = %2375, %ExplainIndentText.exit93.i
@@ -8457,14 +8451,14 @@ ExplainIndentText.exit93.i:                       ; preds = %2365, %2358
   br i1 %2395, label %.lr.ph101.i914, label %show_memoize_info.exit, !llvm.loop !23
 
 show_memoize_info.exit:                           ; preds = %2391, %2280, %2330, %.preheader.i913
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %show_scan_qual.exit783
 
 2396:                                             ; preds = %thread-pre-split963
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %2397 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %2398 = trunc nuw i8 %2397 to i1
   br i1 %2398, label %2399, label %show_recursive_union_info.exit
@@ -8498,10 +8492,10 @@ show_memoize_info.exit:                           ; preds = %2391, %2280, %2330,
   br label %show_recursive_union_info.exit
 
 show_recursive_union_info.exit:                   ; preds = %2396, %2409
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %show_scan_qual.exit783
 
 show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, %1895, %1674, %1388, %1336, %1284, %1194, %1153, %1080, %640, %ExplainIndentText.exit82.i, %ExplainIndentText.exit.i901, %2164, %.loopexit.i, %2133, %2132, %.preheader.i881, %1817, %1783, %.preheader.i872, %1733, %1684, %.sink.split.i833, %1231, %1228, %.preheader.i, %808, %show_scan_qual.exit787.thread, %724, %721, %show_scan_qual.exit835.thread, %1257, %show_scan_qual.exit829, %1203, %show_scan_qual.exit823, %1162, %show_scan_qual.exit813.thread, %1046, %1017, %1019, %thread-pre-split963, %show_upper_qual.exit889, %1904, %show_upper_qual.exit871, %1683, %show_hashagg_info.exit, %1612, %show_upper_qual.exit850, %1397, %show_upper_qual.exit844, %1345, %show_upper_qual.exit838, %1293, %show_scan_qual.exit815, %1089, %show_instrumentation_count.exit, %show_ctescan_info.exit, %show_scan_qual.exit781.thread, %708, %show_scan_qual.exit775, %649, %show_recursive_union_info.exit, %show_memoize_info.exit, %show_material_info.exit, %1859, %show_windowagg_info.exit, %show_table_func_scan_info.exit
@@ -8752,10 +8746,10 @@ list_length.exit927:                              ; preds = %2517, %2522
 2529:                                             ; preds = %2527, %list_length.exit927
   %2530 = sub i32 %2525, %2519
   %2531 = sext i32 %2530 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %2532 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2531) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ExplainMissingMembers.exit
 
 2533:                                             ; preds = %.thread967
@@ -8784,10 +8778,10 @@ list_length.exit930:                              ; preds = %2533, %2538
 2545:                                             ; preds = %2543, %list_length.exit930
   %2546 = sub i32 %2541, %2535
   %2547 = sext i32 %2546 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %2548 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2547) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ExplainMissingMembers.exit
 
 ExplainMissingMembers.exit:                       ; preds = %2545, %2543, %2529, %2527, %.thread967
@@ -9118,10 +9112,10 @@ ExplainSubPlans.exit953:                          ; preds = %2681, %.preheader, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPropertyInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2) #13
   call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -9293,7 +9287,7 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   ret void
 }
 
-declare void @InstrJitAgg(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @InstrJitAgg(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainPrintJIT(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
@@ -9353,10 +9347,10 @@ ExplainIndentText.exit:                           ; preds = %28, %35
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4
   %43 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %43) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
@@ -9465,10 +9459,10 @@ ExplainIndentText.exit67:                         ; preds = %80, %87
 
 118:                                              ; preds = %8
   %119 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %120 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %119) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.79, i1 noundef zeroext true, ptr noundef nonnull %0)
   %121 = and i32 %1, 4
   %.not68 = icmp eq i32 %121, 0
@@ -9607,7 +9601,7 @@ define dso_local void @ExplainQueryParameters(ptr noundef readonly captures(none
   ret void
 }
 
-declare ptr @BuildParamLogString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @BuildParamLogString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPropertyList(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -9855,9 +9849,9 @@ ExplainYAMLLineStarting.exit:                     ; preds = %94, %95
   ret void
 }
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #4
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 6) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -10033,11 +10027,11 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   ret void
 }
 
-declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @escape_xml(ptr noundef) local_unnamed_addr #4
+declare ptr @escape_xml(ptr noundef) local_unnamed_addr #3
 
-declare void @escape_json(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @escape_json(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -10331,19 +10325,19 @@ ExplainYAMLLineStarting.exit:                     ; preds = %59, %60
   ret void
 }
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPropertyUInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %2) #13
   call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #4
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPropertyBool(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -10352,9 +10346,9 @@ define dso_local void @ExplainPropertyBool(ptr noundef %0, i1 noundef zeroext %1
   ret void
 }
 
-declare ptr @lcons_int(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lcons_int(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #4
+declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr noundef %1) #0 {
@@ -10368,7 +10362,7 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i32, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 13
@@ -10377,14 +10371,14 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #13
   %20 = load i64, ptr %7, align 8
   %.neg = mul i64 %20, -1000000000
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load i64, ptr %21, align 8
   %.neg53 = sub i64 %.neg, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %13, align 8
   br label %23
 
@@ -10448,9 +10442,9 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
   %53 = getelementptr i8, ptr %10, i64 %52
   %54 = getelementptr i8, ptr %53, i64 24
   %55 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %54, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = load i8, ptr %46, align 8
   switch i8 %56, label %63 [
     i8 0, label %57
@@ -10483,9 +10477,9 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
   %.sink28.i = phi ptr [ %5, %60 ], [ %4, %57 ]
   %70 = load i32, ptr %.sink28.i, align 4
   call void @fmgr_info(i32 noundef %70, ptr noundef %49) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %43
   br i1 %exitcond.not.i, label %serialize_prepare_info.exit, label %47, !llvm.loop !31
@@ -10617,13 +10611,13 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %104, !llvm.loop !41
 
 143:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %144 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #13
   %145 = load i64, ptr %3, align 8
   %146 = mul i64 %145, 1000000000
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %148 = load i64, ptr %147, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %150 = load i64, ptr %149, align 8
   %151 = add i64 %148, %.sroa.015.0.neg54
@@ -10646,7 +10640,7 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   br label %161
 
 161:                                              ; preds = %159, %154
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 true
 }
 
@@ -10727,23 +10721,23 @@ define internal void @serializeAnalyzeDestroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare ptr @get_explain_guc_options(ptr noundef) local_unnamed_addr #4
+declare ptr @get_explain_guc_options(ptr noundef) local_unnamed_addr #3
 
-declare ptr @GetConfigOptionByName(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @GetConfigOptionByName(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #4
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare void @InstrEndLoop(ptr noundef) local_unnamed_addr #4
+declare void @InstrEndLoop(ptr noundef) local_unnamed_addr #3
 
-declare ptr @get_constraint_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_constraint_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @planstate_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @planstate_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainIndexScanDetails(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -10803,7 +10797,7 @@ explain_get_index_name.exit:                      ; preds = %5, %.thread.i
   ret void
 }
 
-declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #4
+declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
@@ -10859,10 +10853,10 @@ ExplainOpenSetAsideGroup.exit:                    ; preds = %17, %.sink.split.i
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %ExplainOpenSetAsideGroup.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %10) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.255, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 31:                                               ; preds = %29, %ExplainOpenSetAsideGroup.exit
@@ -11083,7 +11077,7 @@ define internal fastcc void @show_instrumentation_count(ptr noundef %0, i32 noun
   ret void
 }
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr %.8.val, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
@@ -11095,11 +11089,11 @@ define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #4
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
 
-declare ptr @make_orclause(ptr noundef) local_unnamed_addr #4
+declare ptr @make_orclause(ptr noundef) local_unnamed_addr #3
 
-declare ptr @make_andclause(ptr noundef) local_unnamed_addr #4
+declare ptr @make_andclause(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @show_wal_usage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -11210,37 +11204,37 @@ ExplainIndentText.exit:                           ; preds = %29, %36
   br label %75
 
 64:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %10) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.354, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i64, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %67) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.355, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load i64, ptr %69, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %71 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %70) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.356, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load i64, ptr %72, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %74 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %73) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.357, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
 75:                                               ; preds = %20, %62, %64
   ret void
 }
 
-declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #4
+declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExplainTargetRel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -11446,23 +11440,23 @@ list_length.exit.thread:                          ; preds = %35, %63, %58, %list
   ret void
 }
 
-declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @get_namespace_name_or_temp(i32 noundef) local_unnamed_addr #4
+declare ptr @get_namespace_name_or_temp(i32 noundef) local_unnamed_addr #3
 
-declare i32 @get_rel_namespace(i32 noundef) local_unnamed_addr #4
+declare i32 @get_rel_namespace(i32 noundef) local_unnamed_addr #3
 
-declare ptr @get_func_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_func_name(i32 noundef) local_unnamed_addr #3
 
-declare i32 @get_func_namespace(i32 noundef) local_unnamed_addr #4
+declare i32 @get_func_namespace(i32 noundef) local_unnamed_addr #3
 
-declare ptr @set_deparse_context_plan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @set_deparse_context_plan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @deparse_expression(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @deparse_expression(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @make_ands_explicit(ptr noundef) local_unnamed_addr #4
+declare ptr @make_ands_explicit(ptr noundef) local_unnamed_addr #3
 
-declare void @tuplestore_get_stats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @tuplestore_get_stats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @show_storage_info(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -11476,10 +11470,10 @@ define internal fastcc void @show_storage_info(ptr noundef %0, i64 noundef %1, p
 
 9:                                                ; preds = %3
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.268, ptr noundef null, ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %6) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.86, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 11:                                               ; preds = %3
@@ -11519,7 +11513,7 @@ ExplainIndentText.exit:                           ; preds = %16, %23
 define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp slt i32 %1, 1
   br i1 %12, label %102, label %13
 
@@ -11615,7 +11609,7 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   %59 = load i8, ptr %58, align 1, !range !4, !noundef !5
   %60 = trunc nuw i8 %59 to i1
   %61 = call i32 @exprType(ptr noundef %53) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %62 = call ptr @lookup_type_cache(i32 noundef %61, i32 noundef 6) #13
   %.not31.i = icmp eq i32 %57, 0
@@ -11698,7 +11692,7 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   br label %show_sortorder_options.exit
 
 show_sortorder_options.exit:                      ; preds = %91, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %93 = load ptr, ptr %11, align 8
   %94 = call ptr @pstrdup(ptr noundef %93) #13
   %95 = call ptr @lappend(ptr noundef %.015, ptr noundef %94) #13
@@ -11727,7 +11721,7 @@ show_sortorder_options.exit:                      ; preds = %91, %.sink.split.i
   br label %102
 
 102:                                              ; preds = %._crit_edge, %101, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -11886,29 +11880,29 @@ define internal fastcc void @show_grouping_set_keys(ptr noundef readonly capture
   ret void
 }
 
-declare ptr @get_tle_by_resno(ptr noundef, i16 noundef signext) local_unnamed_addr #4
+declare ptr @get_tle_by_resno(ptr noundef, i16 noundef signext) local_unnamed_addr #3
 
-declare void @resetStringInfo(ptr noundef) local_unnamed_addr #4
+declare void @resetStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #4
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
-declare i32 @exprType(ptr noundef) local_unnamed_addr #4
+declare i32 @exprType(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #4
+declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #3
 
-declare ptr @get_collation_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_collation_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @get_opname(i32 noundef) local_unnamed_addr #4
+declare ptr @get_opname(i32 noundef) local_unnamed_addr #3
 
-declare i32 @get_equality_op_for_ordering_op(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @get_equality_op_for_ordering_op(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @tuplesort_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @tuplesort_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @tuplesort_method_name(i32 noundef) local_unnamed_addr #4
+declare ptr @tuplesort_method_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @tuplesort_space_type_name(i32 noundef) local_unnamed_addr #4
+declare ptr @tuplesort_space_type_name(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @show_incremental_sort_group_info(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) unnamed_addr #0 {
@@ -12046,16 +12040,16 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   br label %114
 
 82:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @initStringInfo(ptr noundef nonnull %10) #13
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %10, ptr noundef nonnull @.str.304, ptr noundef %1) #13
   %83 = load ptr, ptr %10, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.305, ptr noundef %83, i1 noundef zeroext true, ptr noundef nonnull %3)
   %84 = load i64, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %85 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %84) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @ExplainPropertyList(ptr noundef nonnull @.str.307, ptr noundef %.1, ptr noundef nonnull %3)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load i64, ptr %86, align 8
@@ -12067,23 +12061,23 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %91 = load i64, ptr %90, align 8
   %92 = load i64, ptr %0, align 8
   %93 = sdiv i64 %91, %92
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %94 = call ptr @tuplesort_space_type_name(i32 noundef 1) #13
   call void @initStringInfo(ptr noundef nonnull %11) #13
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.308, ptr noundef %94) #13
   %95 = load ptr, ptr %11, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.309, ptr noundef %95, i1 noundef zeroext true, ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %93) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.86, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %97 = load i64, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %97) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.311, ptr noundef nonnull @.str.86, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.309, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %99
 
 99:                                               ; preds = %89, %82
@@ -12097,68 +12091,74 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %105 = load i64, ptr %104, align 8
   %106 = load i64, ptr %0, align 8
   %107 = sdiv i64 %105, %106
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %108 = call ptr @tuplesort_space_type_name(i32 noundef 0) #13
   call void @initStringInfo(ptr noundef nonnull %12) #13
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %12, ptr noundef nonnull @.str.308, ptr noundef %108) #13
   %109 = load ptr, ptr %12, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.309, ptr noundef %109, i1 noundef zeroext true, ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %110 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %107) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.86, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = load i64, ptr %100, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %111) #13
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.311, ptr noundef nonnull @.str.86, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.309, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %113
 
 113:                                              ; preds = %103, %99
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.305, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %114
 
 114:                                              ; preds = %70, %74, %113
   ret void
 }
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pq_beginmessage_reuse(ptr noundef, i8 noundef signext) local_unnamed_addr #4
+declare void @pq_beginmessage_reuse(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
-declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @pq_sendcountedtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @pq_sendcountedtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #4
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #3
 
-declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @getTypeBinaryOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @getTypeBinaryOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #8
+declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #8
+declare i16 @llvm.bswap.i16(i16) #7
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #7
+
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -12176,14 +12176,14 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

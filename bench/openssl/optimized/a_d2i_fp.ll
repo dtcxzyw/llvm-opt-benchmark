@@ -25,9 +25,9 @@ define ptr @ASN1_d2i_fp(ptr noundef readnone captures(none) %0, ptr noundef read
 
 11:                                               ; preds = %4
   %12 = tail call i64 @BIO_ctrl(ptr noundef nonnull %8, i32 noundef 106, i64 noundef 0, ptr noundef %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %8, ptr noundef nonnull %5)
   %14 = icmp slt i32 %13, 0
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !3
@@ -44,8 +44,8 @@ define ptr @ASN1_d2i_fp(ptr noundef readnone captures(none) %0, ptr noundef read
 ASN1_d2i_bio.exit:                                ; preds = %11, %15
   %.0.i = phi ptr [ null, %11 ], [ %19, %15 ]
   call void @BUF_MEM_free(ptr noundef %.pre.i) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @BIO_free(ptr noundef nonnull %8) #4
   br label %21
 
@@ -54,28 +54,25 @@ ASN1_d2i_bio.exit:                                ; preds = %11, %15
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_s_file() local_unnamed_addr #1
 
-declare ptr @BIO_s_file() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_d2i_bio(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @asn1_d2i_read_bio(ptr noundef %2, ptr noundef nonnull %5)
   %8 = icmp slt i32 %7, 0
   %.pre = load ptr, ptr %5, align 8, !tbaa !3
@@ -92,15 +89,12 @@ define ptr @ASN1_d2i_bio(ptr noundef readnone captures(none) %0, ptr noundef rea
 14:                                               ; preds = %4, %9
   %.0 = phi ptr [ null, %4 ], [ %13, %9 ]
   call void @BUF_MEM_free(ptr noundef %.pre) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -108,10 +102,10 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @BUF_MEM_new() #4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -343,22 +337,22 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
 
 105:                                              ; preds = %.thread143, %102, %9
   %.095 = phi i32 [ -1, %9 ], [ -1, %.thread143 ], [ %103, %102 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.095
 }
 
-declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
+declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_item_d2i_bio_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %1, null
   br i1 %8, label %18, label %9
 
@@ -383,20 +377,20 @@ define ptr @ASN1_item_d2i_bio_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 18:                                               ; preds = %5, %17
   %.0 = phi ptr [ %.09, %17 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare ptr @ASN1_item_d2i_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_d2i_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_item_d2i_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %1, null
   br i1 %6, label %ASN1_item_d2i_bio_ex.exit, label %7
 
@@ -421,8 +415,8 @@ define ptr @ASN1_item_d2i_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 ASN1_item_d2i_bio_ex.exit:                        ; preds = %3, %15
   %.0.i = phi ptr [ %.09.i, %15 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
 }
 
@@ -443,9 +437,9 @@ define ptr @ASN1_item_d2i_fp_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 12:                                               ; preds = %5
   %13 = tail call i64 @BIO_ctrl(ptr noundef nonnull %9, i32 noundef 106, i64 noundef 0, ptr noundef %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %9, ptr noundef nonnull %6)
   %15 = icmp slt i32 %14, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !3
@@ -462,8 +456,8 @@ define ptr @ASN1_item_d2i_fp_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 ASN1_item_d2i_bio_ex.exit:                        ; preds = %12, %16
   %.09.i = phi ptr [ null, %12 ], [ %20, %16 ]
   call void @BUF_MEM_free(ptr noundef %.pre.i) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = call i32 @BIO_free(ptr noundef nonnull %9) #4
   br label %22
 
@@ -478,28 +472,34 @@ define ptr @ASN1_item_d2i_fp(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   ret ptr %4
 }
 
-declare ptr @BUF_MEM_new() local_unnamed_addr #2
+declare ptr @BUF_MEM_new() local_unnamed_addr #1
 
-declare i32 @ERR_set_mark() local_unnamed_addr #2
+declare i32 @ERR_set_mark() local_unnamed_addr #1
 
-declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @ERR_peek_last_error() local_unnamed_addr #2
+declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 
-declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
+declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
-declare i32 @ERR_clear_last_mark() local_unnamed_addr #2
+declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

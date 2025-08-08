@@ -669,9 +669,6 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
@@ -679,9 +676,6 @@ declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
 
@@ -2921,12 +2915,12 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @none_graticule(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i32 %4, i32 %5) #4 {
+define internal void @none_graticule(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i32 %4, i32 %5) #3 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @green_graticule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) #5 {
+define internal void @green_graticule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) #4 {
   %7 = alloca [4 x i8], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load float, ptr %8, align 8, !tbaa !155
@@ -4173,7 +4167,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %.not130, label %.critedge, label %1074
 
 1074:                                             ; preds = %1071
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -16777088, ptr %7, align 4
   %1075 = getelementptr inbounds nuw [14 x [3 x i16]], ptr %11, i64 0, i64 %indvars.iv139
   %1076 = getelementptr inbounds [3 x i16], ptr %1075, i64 0, i64 %12
@@ -4293,7 +4287,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not.i, label %draw_htext.exit, label %1093, !llvm.loop !161
 
 draw_htext.exit:                                  ; preds = %1093, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 6
   br i1 %exitcond142.not, label %.critedge, label %1071, !llvm.loop !162
@@ -4303,7 +4297,7 @@ draw_htext.exit:                                  ; preds = %1093, %._crit_edge.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @color_graticule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
+define internal void @color_graticule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
   %7 = alloca [4 x i8], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load float, ptr %8, align 8, !tbaa !155
@@ -5579,7 +5573,7 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %.not182, label %.critedge, label %1103
 
 1103:                                             ; preds = %1100
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -16777216, ptr %7, align 4
   %1104 = getelementptr inbounds nuw [14 x [3 x i16]], ptr %11, i64 0, i64 %indvars.iv191
   %1105 = getelementptr inbounds [3 x i16], ptr %1104, i64 0, i64 %12
@@ -5707,7 +5701,7 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not.i, label %draw_htext.exit, label %1127, !llvm.loop !161
 
 draw_htext.exit:                                  ; preds = %1127, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, 6
   br i1 %exitcond194.not, label %.critedge, label %1100, !llvm.loop !164
@@ -5717,7 +5711,7 @@ draw_htext.exit:                                  ; preds = %1127, %._crit_edge.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @invert_graticule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
+define internal void @invert_graticule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load float, ptr %7, align 8, !tbaa !155
   %9 = sext i32 %5 to i64
@@ -6021,7 +6015,7 @@ draw_ihtext.exit:                                 ; preds = %156, %._crit_edge.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @green_graticule16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) #5 {
+define internal void @green_graticule16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) #4 {
   %7 = alloca [4 x i16], align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4, !tbaa !57
@@ -7301,7 +7295,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
 
 1105:                                             ; preds = %.split, %draw_htext16.exit
   %indvars.iv149 = phi i64 [ 0, %.split ], [ %indvars.iv.next150, %draw_htext16.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 %1093, ptr %7, align 2, !tbaa !58
   store i16 0, ptr %1094, align 2, !tbaa !58
   store i16 0, ptr %1095, align 2, !tbaa !58
@@ -7418,7 +7412,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not.i, label %draw_htext16.exit, label %1120, !llvm.loop !175
 
 draw_htext16.exit:                                ; preds = %1120, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 6
   br i1 %exitcond152.not, label %.critedge.split, label %1105, !llvm.loop !176
@@ -7428,7 +7422,7 @@ draw_htext16.exit:                                ; preds = %1120, %._crit_edge.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @color_graticule16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
+define internal void @color_graticule16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
   %7 = alloca [4 x i16], align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4, !tbaa !57
@@ -8728,7 +8722,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
 
 1126:                                             ; preds = %.split, %draw_htext16.exit
   %indvars.iv196 = phi i64 [ 0, %.split ], [ %indvars.iv.next197, %draw_htext16.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %1127 = getelementptr inbounds nuw [14 x [3 x i16]], ptr %14, i64 0, i64 %indvars.iv196
   %1128 = getelementptr inbounds [3 x i16], ptr %1127, i64 0, i64 %15
@@ -8848,7 +8842,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not.i, label %draw_htext16.exit, label %1143, !llvm.loop !175
 
 draw_htext16.exit:                                ; preds = %1143, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next197, 6
   br i1 %exitcond199.not, label %.critedge.split, label %1126, !llvm.loop !178
@@ -8858,7 +8852,7 @@ draw_htext16.exit:                                ; preds = %1143, %._crit_edge.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @invert_graticule16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
+define internal void @invert_graticule16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
   %7 = alloca [4 x i16], align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4, !tbaa !57
@@ -9333,7 +9327,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
 
 400:                                              ; preds = %.split, %draw_ihtext16.exit
   %indvars.iv183 = phi i64 [ 0, %.split ], [ %indvars.iv.next184, %draw_ihtext16.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 %389, ptr %7, align 2, !tbaa !58
   store i16 %389, ptr %390, align 2, !tbaa !58
   store i16 %389, ptr %391, align 2, !tbaa !58
@@ -9453,7 +9447,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not.i, label %draw_ihtext16.exit, label %415, !llvm.loop !183
 
 draw_ihtext16.exit:                               ; preds = %415, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, 6
   br i1 %exitcond186.not, label %.critedge.split, label %400, !llvm.loop !184
@@ -9463,19 +9457,19 @@ draw_ihtext16.exit:                               ; preds = %415, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #9
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @envelope_instant(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
+define internal fastcc void @envelope_instant(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9633,10 +9627,10 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @envelope_instant16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
+define internal fastcc void @envelope_instant16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = sdiv i32 %4, 2
@@ -9776,7 +9770,7 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @draw_idots(ptr noundef captures(none) %0, i32 noundef %1, float noundef %2) unnamed_addr #10 {
+define internal fastcc void @draw_idots(ptr noundef captures(none) %0, i32 noundef %1, float noundef %2) unnamed_addr #9 {
   %4 = fsub nsz float 1.000000e+00, %2
   %5 = shl nsw i32 %1, 1
   %6 = sext i32 %5 to i64
@@ -9908,7 +9902,7 @@ define internal fastcc void @draw_idots(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 noundef range(i32 -1073741824, 1073741824) %1, i32 noundef range(i32 -2147483648, 2147483647) %2, float noundef %3) unnamed_addr #10 {
+define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 noundef range(i32 -1073741824, 1073741824) %1, i32 noundef range(i32 -2147483648, 2147483647) %2, float noundef %3) unnamed_addr #9 {
   %5 = fsub nsz float 1.000000e+00, %3
   %6 = shl nsw i32 %1, 1
   %7 = sext i32 %6 to i64
@@ -10118,6 +10112,12 @@ declare i32 @ff_formats_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @ff_make_format_list(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
@@ -10136,14 +10136,14 @@ declare i8 @llvm.umax.i8(i8, i8) #11
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn nounwind }

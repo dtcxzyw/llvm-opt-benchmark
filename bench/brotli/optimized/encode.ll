@@ -183,15 +183,9 @@ define ptr @BrotliEncoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare hidden ptr @BrotliBootstrapAlloc(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden ptr @BrotliBootstrapAlloc(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare hidden void @BrotliInitMemoryManager(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare hidden void @BrotliInitMemoryManager(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @BrotliEncoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 {
@@ -285,10 +279,10 @@ BrotliEncoderCleanupState.exit:                   ; preds = %21, %24
   ret void
 }
 
-declare hidden void @BrotliBootstrapFree(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliBootstrapFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @BrotliEncoderMaxCompressedSize(i64 noundef %0) local_unnamed_addr #4 {
+define i64 @BrotliEncoderMaxCompressedSize(i64 noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq i64 %0, 0
   br i1 %2, label %10, label %3
 
@@ -394,16 +388,16 @@ BrotliEncoderSetParameter.exit60:                 ; preds = %25
   store i32 16, ptr %51, align 4, !tbaa !59
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 1592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %3, ptr %8, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %4, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %53 = load i64, ptr %5, align 8, !tbaa !69
   store i64 %53, ptr %10, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %6, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !69
   store i32 %0, ptr %30, align 4, !tbaa !36
   store i32 %1, ptr %31, align 8, !tbaa !37
@@ -452,19 +446,19 @@ BrotliEncoderIsFinished.exit.thread:              ; preds = %BrotliEncoderSetPar
   br i1 %69, label %70, label %.critedge
 
 .critedge:                                        ; preds = %67, %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %BrotliEncoderCreateInstance.exit.thread
 
 70:                                               ; preds = %63, %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 0, ptr %5, align 8, !tbaa !69
   %71 = add i64 %22, -1
   %or.cond.not = icmp ult i64 %71, %14
@@ -1368,7 +1362,7 @@ InjectBytePaddingBlock.exit.i.i119:               ; preds = %402, %397, %394
   %441 = zext i1 %440 to i32
   %442 = shl i64 %438, 1
   %443 = add i64 %442, 503
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %444 = load i8, ptr %362, align 2, !tbaa !75
   %445 = zext i8 %444 to i64
   store i64 %445, ptr %8, align 8, !tbaa !69
@@ -1525,7 +1519,7 @@ SetTotalOut.exit.i:                               ; preds = %506, %505, %498
   br label %513
 
 513:                                              ; preds = %.sink.split.i, %SetTotalOut.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.i114.backedge
 
 .backedge.i114.backedge:                          ; preds = %513, %431, %417, %InjectBytePaddingBlock.exit.i.i119
@@ -2017,7 +2011,7 @@ ProcessMetadata.exit:                             ; preds = %742, %.thread168, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliEncoderIsFinished(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @BrotliEncoderIsFinished(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6964
   %3 = load i32, ptr %2, align 4, !tbaa !57
   %4 = icmp eq i32 %3, 2
@@ -2052,10 +2046,10 @@ define internal fastcc range(i32 0, 2) i32 @EncodeData(ptr noundef %0, i32 nound
   %17 = getelementptr i8, ptr %0, i64 1520
   %.val321 = load i64, ptr %17, align 8, !tbaa !83
   %18 = sub i64 %.val, %.val321
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr %12, align 4, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %20 = trunc i64 %.val321 to i32
   %21 = icmp ugt i64 %.val321, 3221225471
   br i1 %21, label %22, label %WrapPosition.exit
@@ -2175,7 +2169,7 @@ WrapPosition.exit:                                ; preds = %5, %22
   br label %.thread
 
 .thread:                                          ; preds = %71, %72, %75
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1610
   %80 = load i8, ptr %79, align 2, !tbaa !75
   %81 = zext i8 %80 to i64
@@ -2297,7 +2291,7 @@ WrapPosition.exit.i:                              ; preds = %130, %127
   store i64 %144, ptr %17, align 8, !tbaa !83
   store ptr %92, ptr %4, align 8, !tbaa !71
   store i64 %138, ptr %3, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1852
 
 145:                                              ; preds = %71
@@ -2360,7 +2354,7 @@ WrapPosition.exit.i:                              ; preds = %130, %127
   br i1 %.not.i, label %183, label %427
 
 183:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %185 = load i32, ptr %30, align 4, !tbaa !47
@@ -2884,7 +2878,7 @@ HasherSize.exit.i:                                ; preds = %321, %HashMemAllocI
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   store i32 0, ptr %425, align 8, !tbaa !222
   store i32 1, ptr %181, align 8, !tbaa !135
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %430
 
@@ -4806,7 +4800,7 @@ GetInsertLengthCode.exit:                         ; preds = %1591, %1595, %1609,
 
 GetBrotliStorage.exit395:                         ; preds = %1636, %1645
   %1647 = phi ptr [ %1646, %1645 ], [ %1644, %1636 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1648 = getelementptr inbounds nuw i8, ptr %0, i64 1610
   %1649 = load i8, ptr %1648, align 2, !tbaa !75
   %1650 = zext i8 %1649 to i64
@@ -4848,7 +4842,7 @@ GetBrotliStorage.exit395:                         ; preds = %1636, %1645
 
 WrapPosition.exit.i396:                           ; preds = %1673, %GetBrotliStorage.exit395
   %.0.i.i397 = phi i32 [ %1679, %1673 ], [ %1671, %GetBrotliStorage.exit395 ]
-  call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %7, ptr noundef nonnull align 8 dereferenceable(1400) %0, i64 1400, i1 false), !tbaa.struct !574
   %1680 = icmp eq i64 %1659, 0
   br i1 %1680, label %1681, label %1692
@@ -4888,7 +4882,7 @@ WrapPosition.exit.i396:                           ; preds = %1673, %GetBrotliSto
   br i1 %1702, label %.lr.ph.preheader.i.i, label %ShouldCompress.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1698
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   %1703 = add nuw nsw i64 %1659, 12
   %1704 = udiv i64 %1703, 13
@@ -4991,7 +4985,7 @@ ShannonEntropy.exit.i.i:                          ; preds = %FastLog2.exit26.i.i
   %1751 = fcmp olt double %.2.i.i.i, %.pre.i.i
   %.0.i.i.i = select i1 %1751, double %.pre.i.i, double %.2.i.i.i
   %1752 = fcmp ule double %.0.i.i.i, %1742
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %1752, label %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge, label %1753
 
 ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge: ; preds = %ShannonEntropy.exit.i.i
@@ -5028,7 +5022,7 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   br label %1803
 
 1766:                                             ; preds = %1762
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @BrotliInitBlockSplit(ptr noundef nonnull %8) #18
   %1767 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @BrotliInitBlockSplit(ptr noundef nonnull %1767) #18
@@ -5045,9 +5039,9 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   br i1 %1775, label %1776, label %1788
 
 1776:                                             ; preds = %1766
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 1, ptr %9, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !590
   %1777 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1778 = load i32, ptr %1777, align 8, !tbaa !591
@@ -5075,8 +5069,8 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   %1786 = phi ptr [ null, %._crit_edge.i398 ], [ %.pre117.i, %1779 ]
   %1787 = phi i64 [ 1, %._crit_edge.i398 ], [ %.pre.i399, %1779 ]
   call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %.pre-phi.i, i64 noundef range(i64 0, 4294967296) %174, i8 noundef zeroext %1661, i8 noundef zeroext %1663, ptr noundef nonnull %1515, i64 noundef %1787, ptr noundef %1786, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1790
 
 1788:                                             ; preds = %1766
@@ -5115,7 +5109,7 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   store ptr null, ptr %1772, align 8, !tbaa !600
   %1802 = load ptr, ptr %1773, align 8, !tbaa !601
   call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1802) #18
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1803
 
 1803:                                             ; preds = %1796, %1764, %1760
@@ -5136,7 +5130,7 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   br label %WriteMetaBlockInternal.exit
 
 WriteMetaBlockInternal.exit:                      ; preds = %1681, %1753, %1803, %1808
-  call void @llvm.lifetime.end.p0(i64 1400, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1811 = load i64, ptr %15, align 8, !tbaa !69
   %1812 = lshr i64 %1811, 3
   %1813 = getelementptr inbounds nuw i8, ptr %1647, i64 %1812
@@ -5215,18 +5209,18 @@ UpdateLastProcessedPos.exit403:                   ; preds = %WrapPosition.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1669, ptr noundef nonnull align 8 dereferenceable(16) %1670, i64 16, i1 false)
   store ptr %1647, ptr %4, align 8, !tbaa !71
   store i64 %1812, ptr %3, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1852
 
 1852:                                             ; preds = %.critedge, %66, %61, %57, %.thread443, %1635, %WrapPosition.exit.i, %56, %53, %39
   %.0 = phi i32 [ 1, %WrapPosition.exit.i ], [ 1, %.thread443 ], [ 1, %1635 ], [ 1, %56 ], [ 1, %39 ], [ 1, %53 ], [ 0, %57 ], [ 0, %61 ], [ 0, %66 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliEncoderHasMoreOutput(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @BrotliEncoderHasMoreOutput(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6928
   %3 = load i64, ptr %2, align 8, !tbaa !72
   %.not = icmp ne i64 %3, 0
@@ -5275,7 +5269,7 @@ CheckFlushComplete.exit:                          ; preds = %19, %9, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @BrotliEncoderVersion() local_unnamed_addr #4 {
+define noundef i32 @BrotliEncoderVersion() local_unnamed_addr #3 {
   ret i32 16781312
 }
 
@@ -5306,11 +5300,11 @@ define ptr @BrotliEncoderPrepareDictionary(i32 noundef %0, i64 noundef %1, ptr n
   ret ptr %.0
 }
 
-declare hidden ptr @BrotliCreateManagedDictionary(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden ptr @BrotliCreateManagedDictionary(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden ptr @CreatePreparedDictionary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare hidden ptr @CreatePreparedDictionary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliDestroyManagedDictionary(ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliDestroyManagedDictionary(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @BrotliEncoderDestroyPreparedDictionary(ptr noundef %0) local_unnamed_addr #1 {
@@ -5356,11 +5350,11 @@ define void @BrotliEncoderDestroyPreparedDictionary(ptr noundef %0) local_unname
   ret void
 }
 
-declare hidden void @DestroyPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @DestroyPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -5500,16 +5494,16 @@ define range(i32 0, 2) i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %0
   ret i32 %.1
 }
 
-declare hidden i32 @AttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden i32 @AttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @BrotliEncoderEstimatePeakMemoryUsage(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
 SanitizeParams.exit:
   %3 = alloca %struct.BrotliEncoderParams, align 8
-  call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 0, ptr %4, align 4, !tbaa !46
@@ -5868,15 +5862,15 @@ HasherSize.exit:                                  ; preds = %87, %107, %108, %10
 
 189:                                              ; preds = %181, %83
   %.0 = phi i64 [ %86, %83 ], [ %188, %181 ]
-  call void @llvm.lifetime.end.p0(i64 1400, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 4, !tbaa !59
   %3 = icmp eq i32 %2, -558043678
   br i1 %3, label %4, label %8
@@ -6056,16 +6050,16 @@ define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef readonly c
   ret i64 %.0
 }
 
-declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliInitDistanceParams(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @BrotliInitDistanceParams(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
-declare hidden void @BrotliCompressFragmentFast(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliCompressFragmentFast(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliCompressFragmentTwoPass(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliCompressFragmentTwoPass(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 2) i32 @UpdateLastProcessedPos(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -6110,7 +6104,7 @@ WrapPosition.exit6:                               ; preds = %WrapPosition.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ExtendLastCommand(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #10 {
+define internal fastcc void @ExtendLastCommand(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1488
@@ -6455,11 +6449,11 @@ CombineLengthCodes.exit:                          ; preds = %205, %GetCopyLength
   ret void
 }
 
-declare hidden void @BrotliCreateZopfliBackwardReferences(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliCreateZopfliBackwardReferences(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliCreateBackwardReferences(i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliCreateBackwardReferences(i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @InitializeH5(ptr noundef %0, ptr noalias noundef writeonly captures(none) initializes((0, 56)) %1) unnamed_addr #0 {
@@ -6620,7 +6614,7 @@ define internal fastcc void @InitializeH68(ptr noundef %0, ptr noalias noundef w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH4(ptr writeonly captures(none) %.8.val, i32 noundef range(i32 0, 2) %0, i64 noundef range(i64 0, 4294967296) %1, ptr noalias noundef readonly captures(none) %2) unnamed_addr #11 {
+define internal fastcc void @PrepareH4(ptr writeonly captures(none) %.8.val, i32 noundef range(i32 0, 2) %0, i64 noundef range(i64 0, 4294967296) %1, ptr noalias noundef readonly captures(none) %2) unnamed_addr #10 {
   %.not = icmp ne i32 %0, 0
   %4 = icmp samesign ult i64 %1, 4097
   %or.cond = select i1 %.not, i1 %4, i1 false
@@ -6665,7 +6659,7 @@ define internal fastcc void @PrepareH4(ptr writeonly captures(none) %.8.val, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH5(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH5(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !268
   %.not = icmp eq i32 %1, 0
@@ -6707,7 +6701,7 @@ define internal fastcc void @PrepareH5(ptr noalias noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH6(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH6(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !291
   %.not = icmp eq i32 %1, 0
@@ -6748,7 +6742,7 @@ define internal fastcc void @PrepareH6(ptr noalias noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH40(ptr noalias noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH40(ptr noalias noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 131072
@@ -6789,7 +6783,7 @@ define internal fastcc void @PrepareH40(ptr noalias noundef captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH41(ptr noalias noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH41(ptr noalias noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 131072
@@ -6830,7 +6824,7 @@ define internal fastcc void @PrepareH41(ptr noalias noundef captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH42(ptr noalias noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH42(ptr noalias noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 131072
@@ -6871,7 +6865,7 @@ define internal fastcc void @PrepareH42(ptr noalias noundef captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH54(ptr writeonly captures(none) %.8.val, i32 noundef range(i32 0, 2) %0, i64 noundef range(i64 0, 4294967296) %1, ptr noalias noundef readonly captures(none) %2) unnamed_addr #11 {
+define internal fastcc void @PrepareH54(ptr writeonly captures(none) %.8.val, i32 noundef range(i32 0, 2) %0, i64 noundef range(i64 0, 4294967296) %1, ptr noalias noundef readonly captures(none) %2) unnamed_addr #10 {
   %.not = icmp ne i32 %0, 0
   %4 = icmp samesign ult i64 %1, 32769
   %or.cond = select i1 %.not, i1 %4, i1 false
@@ -6916,7 +6910,7 @@ define internal fastcc void @PrepareH54(ptr writeonly captures(none) %.8.val, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH58(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH58(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !422
   %.not = icmp eq i32 %1, 0
@@ -6959,7 +6953,7 @@ define internal fastcc void @PrepareH58(ptr noalias noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH68(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @PrepareH68(ptr noalias noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !446
   %.not = icmp eq i32 %1, 0
@@ -7000,7 +6994,7 @@ define internal fastcc void @PrepareH68(ptr noalias noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @PrepareH35(ptr noalias noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #13 {
+define internal fastcc void @PrepareH35(ptr noalias noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load i32, ptr %5, align 8, !tbaa !196
   %.not = icmp eq i32 %6, 0
@@ -7117,7 +7111,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %.preheader.i, %Prep
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @PrepareH55(ptr noalias noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #13 {
+define internal fastcc void @PrepareH55(ptr noalias noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load i32, ptr %5, align 8, !tbaa !203
   %.not = icmp eq i32 %6, 0
@@ -7244,7 +7238,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %.preheader.i, %Prep
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @PrepareH65(ptr noalias noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #13 {
+define internal fastcc void @PrepareH65(ptr noalias noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = load i32, ptr %5, align 8, !tbaa !212
   %.not = icmp eq i32 %6, 0
@@ -7394,18 +7388,18 @@ PrepareHROLLING.exit:                             ; preds = %.preheader.i, %Prep
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
-declare hidden i32 @BrotliIsMostlyUTF8(ptr noundef, i64 noundef, i64 noundef, i64 noundef, double noundef) local_unnamed_addr #3
+declare hidden i32 @BrotliIsMostlyUTF8(ptr noundef, i64 noundef, i64 noundef, i64 noundef, double noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliStoreUncompressedMetaBlock(i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliStoreUncompressedMetaBlock(i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliStoreMetaBlockFast(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliStoreMetaBlockFast(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliStoreMetaBlockTrivial(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliStoreMetaBlockTrivial(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 1, 4294967296) %2, i64 noundef range(i64 0, 4294967296) %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef captures(none) %8) unnamed_addr #14 {
+define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 1, 4294967296) %2, i64 noundef range(i64 0, 4294967296) %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef captures(none) %8) unnamed_addr #13 {
   %10 = alloca [3 x i32], align 4
   %11 = alloca [6 x i32], align 16
   %12 = icmp slt i32 %4, 5
@@ -7713,9 +7707,9 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   br i1 %.not42, label %._crit_edge76, label %.lr.ph.preheader, !llvm.loop !743
 
 ._crit_edge76:                                    ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   br label %158
 
@@ -8114,33 +8108,39 @@ ShannonEntropy.exit.i49:                          ; preds = %FastLog2.exit67.i, 
   br label %ChooseContextMap.exit
 
 ChooseContextMap.exit:                            ; preds = %340, %344, %345
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %346
 
 346:                                              ; preds = %ShouldUseComplexStaticContextMap.exit, %ChooseContextMap.exit, %9
   ret void
 }
 
-declare hidden void @BrotliBuildMetaBlockGreedy(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliBuildMetaBlockGreedy(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliBuildMetaBlock(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliBuildMetaBlock(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliOptimizeHistograms(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliOptimizeHistograms(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliStoreMetaBlock(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliStoreMetaBlock(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #15
+declare double @log2(double noundef) local_unnamed_addr #14
 
-declare hidden void @BrotliInitBlockSplit(ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliInitBlockSplit(ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliDestroyBlockSplit(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliDestroyBlockSplit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @BrotliInitSharedEncoderDictionary(ptr noundef) local_unnamed_addr #3
+declare hidden void @BrotliInitSharedEncoderDictionary(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
@@ -8168,20 +8168,20 @@ declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { nounwind }

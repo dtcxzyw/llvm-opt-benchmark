@@ -360,7 +360,7 @@ _ZN8facebook5velox6memory16MemoryArbitrator6ConfigD2Ev.exit: ; preds = %invoke.c
   store ptr @"_ZNSt17_Function_handlerIFvPN8facebook5velox6memory10MemoryPoolEEZNS2_13MemoryManagerC1ERKNS2_20MemoryManagerOptionsEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i27, align 8
   %defaultRoot_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %this, ptr %ref.tmp22, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22, !noalias !12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull @.str.13, i64 noundef 16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %invoke.cont25 unwind label %lpad.i.i
@@ -373,7 +373,7 @@ lpad.i.i:                                         ; preds = %_ZN8facebook5velox6
 
 invoke.cont25:                                    ; preds = %_ZN8facebook5velox6memory16MemoryArbitrator6ConfigD2Ev.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !9
   store i32 1, ptr %ref.tmp26, align 4
   store ptr null, ptr %ref.tmp27, align 8
   store ptr null, ptr %ref.tmp28, align 8
@@ -1400,7 +1400,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %guard.i)
   %defaultRoot_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %defaultRoot_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
@@ -1427,7 +1427,7 @@ invoke.cont:                                      ; preds = %call2.i.noexc
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %sub.i = add i64 %3, %call2.i1
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %guard.i) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %guard.i)
   %cmp.not = icmp eq i64 %sub.i, %sub.ptr.div.i.i
   br i1 %cmp.not, label %if.end3, label %if.then2
 
@@ -2919,7 +2919,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont26 unwind label %lpad23
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %guard.i)
   %defaultRoot_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load ptr, ptr %defaultRoot_.i, align 8
   %vtable.i12 = load ptr, ptr %5, align 8
@@ -2947,7 +2947,7 @@ invoke.cont28:                                    ; preds = %call2.i.noexc
   %sub.i = add i64 %7, %call2.i14
   %add.i = sub i64 %sub.i, %sub.ptr.div.i.i
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %guard.i) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %guard.i)
   %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call27, i64 noundef %add.i)
           to label %invoke.cont30 unwind label %lpad23
 
@@ -3484,8 +3484,8 @@ entry:
   %ref.tmp2.i = alloca %"class.std::thread::id", align 8
   %guard.i = alloca %"class.folly::SharedMutexImpl<false>::ReadHolder", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(176) ptr @_ZN8facebook5velox6memory20defaultMemoryManagerEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %guard.i)
   %call.i.i = tail call i64 @pthread_self() #27
   store i64 %call.i.i, ptr %ref.tmp2.i, align 8
   %call.i.i1.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, i64 noundef 8, i64 noundef 3339675911)
@@ -3510,8 +3510,8 @@ _ZN8facebook5velox6memory13MemoryManager24deprecatedSharedLeafPoolEv.exit: ; pre
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.2", ptr %3, i64 %rem.i
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %guard.i) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %guard.i)
   ret ptr %4
 }
 
@@ -4991,10 +4991,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

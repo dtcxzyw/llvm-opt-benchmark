@@ -152,31 +152,25 @@ SDL_AddAssertionToReport.exit:                    ; preds = %14, %16
   ret i32 %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_LockSpinlock_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LockSpinlock_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
+declare void @SDL_UnlockSpinlock_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockSpinlock_REAL(ptr noundef) local_unnamed_addr #2
-
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @SDL_AbortAssertion() unnamed_addr #3 {
+define internal fastcc void @SDL_AbortAssertion() unnamed_addr #2 {
   tail call void @SDL_Quit_REAL() #15
   tail call void @SDL_ExitProcess(i32 noundef 42) #17
   unreachable
 }
 
 ; Function Attrs: noreturn
-declare void @SDL_ExitProcess(i32 noundef) local_unnamed_addr #4
+declare void @SDL_ExitProcess(i32 noundef) local_unnamed_addr #3
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_AssertionsQuit() local_unnamed_addr #0 {
@@ -250,10 +244,10 @@ SDL_GenerateAssertionReport.exit:                 ; preds = %0, %SDL_ResetAssert
   ret void
 }
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @SDL_SetAssertionHandler_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden void @SDL_SetAssertionHandler_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   %SDL_PromptAssertion. = select i1 %.not, ptr @SDL_PromptAssertion, ptr %0
   %. = select i1 %.not, ptr null, ptr %1
@@ -269,11 +263,11 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
   %5 = alloca i32, align 4
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, ptr noundef nonnull align 16 dereferenceable(80) @__const.SDL_PromptAssertion.buttons, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -396,7 +390,7 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
   br i1 %69, label %77, label %.preheader
 
 .preheader:                                       ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %70 = load ptr, ptr @stderr, align 8
   %71 = call i64 @fwrite(ptr nonnull @.str.21, i64 49, i64 1, ptr %70) #18
   %72 = load ptr, ptr @stderr, align 8
@@ -439,12 +433,12 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
 
 .thread58:                                        ; preds = %91, %88, %85, %82, %.lr.ph, %94, %.preheader
   %.2.ph = phi i32 [ 2, %.preheader ], [ 2, %94 ], [ 2, %.lr.ph ], [ 1, %82 ], [ 0, %85 ], [ 3, %88 ], [ 4, %91 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %102
 
 94:                                               ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %95 = load ptr, ptr @stderr, align 8
   %96 = call i64 @fwrite(ptr nonnull @.str.21, i64 49, i64 1, ptr %95) #18
   %97 = load ptr, ptr @stderr, align 8
@@ -473,21 +467,21 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
 
 107:                                              ; preds = %40, %43, %46, %49, %52, %106, %105, %35, %36
   %.0 = phi i32 [ 2, %36 ], [ 2, %35 ], [ 2, %40 ], [ 1, %43 ], [ 0, %46 ], [ 3, %49 ], [ %., %52 ], [ %.034, %106 ], [ %.034, %105 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetAssertionReport_REAL() local_unnamed_addr #6 {
+define hidden ptr @SDL_GetAssertionReport_REAL() local_unnamed_addr #5 {
   %1 = load ptr, ptr @triggered_assertions, align 8
   ret ptr %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @SDL_ResetAssertionReport_REAL() local_unnamed_addr #7 {
+define hidden void @SDL_ResetAssertionReport_REAL() local_unnamed_addr #6 {
   %1 = load ptr, ptr @triggered_assertions, align 8
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -509,12 +503,12 @@ define hidden void @SDL_ResetAssertionReport_REAL() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @SDL_GetDefaultAssertionHandler_REAL() local_unnamed_addr #8 {
+define hidden noundef nonnull ptr @SDL_GetDefaultAssertionHandler_REAL() local_unnamed_addr #7 {
   ret ptr @SDL_PromptAssertion
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetAssertionHandler_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define hidden ptr @SDL_GetAssertionHandler_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -528,76 +522,82 @@ define hidden ptr @SDL_GetAssertionHandler_REAL(ptr noundef writeonly captures(a
   ret ptr %5
 }
 
-declare void @SDL_Quit_REAL() local_unnamed_addr #2
+declare void @SDL_Quit_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @debug_print(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   call void @SDL_LogMessageV_REAL(i32 noundef 2, i32 noundef 5, ptr noundef %0, ptr noundef nonnull %2) #15
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #9
 
-declare void @SDL_LogMessageV_REAL(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_LogMessageV_REAL(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetToplevelForKeyboardFocus() local_unnamed_addr #2
+declare ptr @SDL_GetToplevelForKeyboardFocus() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-declare zeroext i1 @SDL_ShowMessageBox_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
+declare zeroext i1 @SDL_ShowMessageBox_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-declare zeroext i1 @SDL_RestoreWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_RestoreWindow_REAL(ptr noundef) local_unnamed_addr #1
+
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn }

@@ -8,9 +8,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h75bf5d9970c77168E(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
@@ -52,9 +52,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2e6c3c6fe9d0c6cE.exit": ; preds = %._crit_edge.i, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -163,13 +163,13 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %10
 
 10:                                               ; preds = %37, %2
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i64, ptr %1, align 8
   %12 = icmp eq i64 %11, -9223372036854775808
   br i1 %12, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit.thread, label %13
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit.thread: ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 13:                                               ; preds = %10
@@ -180,7 +180,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit.threa
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit.thread11: ; preds = %13
   %.sroa.4.0.copyload514 = load i64, ptr %.sroa.4.0..sroa_idx4, align 1
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 15:                                               ; preds = %13
@@ -201,7 +201,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit: ; pr
   store i64 -9223372036854775808, ptr %1, align 8
   %.sroa.0.0.copyload3.pr = load i8, ptr %4, align 1
   %.sroa.4.0.copyload5 = load i64, ptr %.sroa.4.0..sroa_idx4, align 1
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i8 %.sroa.0.0.copyload3.pr, 4
   br i1 %.not, label %18, label %.loopexit
 
@@ -224,7 +224,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit: ; pr
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, -9223372036854775808
   br i1 %25, label %26, label %27
@@ -258,7 +258,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit: ; pr
   br label %30
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h5b5e847beca3d7c0E.exit2: ; preds = %26, %30
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 34:                                               ; preds = %18
@@ -1052,10 +1052,10 @@ declare void @"_ZN4core3ptr372drop_in_place$LT$core..iter..adapters..fuse..Fuse$
 declare { ptr, ptr } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3de73e577cb15a81E"(ptr align 1, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

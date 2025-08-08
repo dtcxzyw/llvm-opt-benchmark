@@ -579,7 +579,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget7IsValidEv.exit: ; preds = 
   br i1 %.not1.i.i, label %.critedge2.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget7IsValidEv.exit.thread
 
 .critedge2.thread:                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget7IsValidEv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i4
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget7IsValidEv.exit.thread: ; preds = %11, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget7IsValidEv.exit
@@ -600,7 +600,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget7IsValidEv.exit.thread: ; p
 
 .critedge2:                                       ; preds = %25
   %.pre = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i.i.i.i.i3 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i.i3, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEE13_FetchPointerEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i4
 
@@ -631,7 +631,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   unreachable
 
 35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage13SetEditTargetERKNS_13UsdEditTargetE(ptr noundef nonnull align 8 dereferenceable(1282) %30, ptr noundef nonnull align 8 dereferenceable(72) %12)
           to label %.critedge unwind label %54
 
@@ -1005,10 +1005,10 @@ _ZNSt10shared_ptrISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EED2Ev.
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

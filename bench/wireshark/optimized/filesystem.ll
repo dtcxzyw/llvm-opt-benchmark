@@ -101,14 +101,8 @@ define ptr @find_last_pathname_separator(ptr noundef readonly %0) local_unnamed_
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define ptr @get_basename(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -120,7 +114,7 @@ define ptr @get_basename(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @get_dirname(ptr noundef %0) local_unnamed_addr #3 {
+define noundef ptr @get_dirname(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @strrchr(ptr noundef readonly %0, i32 noundef 47) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -135,9 +129,9 @@ define noundef ptr @get_dirname(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define i32 @test_for_directory(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @test_for_directory(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #22
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
@@ -157,20 +151,20 @@ define i32 @test_for_directory(ptr noundef readonly captures(none) %0) local_unn
 
 13:                                               ; preds = %8, %5
   %.0 = phi i32 [ %7, %5 ], [ %., %8 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define i32 @test_for_fifo(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @test_for_fifo(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #22
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
@@ -190,14 +184,14 @@ define i32 @test_for_fifo(ptr noundef readonly captures(none) %0) local_unnamed_
 
 13:                                               ; preds = %8, %5
   %.0 = phi i32 [ %7, %5 ], [ %., %8 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @test_for_regular_file(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define zeroext i1 @test_for_regular_file(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -215,12 +209,12 @@ define zeroext i1 @test_for_regular_file(ptr noundef readonly captures(address_i
 
 10:                                               ; preds = %3, %1, %5
   %.0 = phi i1 [ %9, %5 ], [ false, %1 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_executable_path(ptr noundef %0) local_unnamed_addr #7 {
+define noalias ptr @get_executable_path(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @progfile_dir, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -235,10 +229,10 @@ define noalias ptr @get_executable_path(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @configuration_init(ptr noundef %0) local_unnamed_addr #7 {
+define noalias ptr @configuration_init(ptr noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.utsname, align 1
   %4 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.29)
@@ -273,7 +267,7 @@ configuration_environment_variable.exit.i:        ; preds = %6, %1
 
 13:                                               ; preds = %12, %10, %configuration_environment_variable.exit.i
   tail call void @g_free(ptr noundef %8)
-  call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @uname(ptr noundef nonnull %3) #22
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %get_current_executable_path.exit.i, label %16
@@ -316,7 +310,7 @@ configuration_environment_variable.exit.i:        ; preds = %6, %1
 
 get_current_executable_path.exit.i:               ; preds = %30, %27, %25, %23, %21, %19, %16, %13
   %spec.select.i = phi ptr [ @get_current_executable_path.executable_path, %30 ], [ %0, %13 ], [ %0, %16 ], [ %0, %25 ], [ %0, %23 ], [ %0, %21 ], [ %0, %19 ], [ %0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load i8, ptr %spec.select.i, align 1
   %33 = icmp eq i8 %32, 47
   br i1 %33, label %34, label %36
@@ -451,7 +445,7 @@ get_current_executable_path.exit.i:               ; preds = %30, %27, %25, %23, 
   %101 = sub i64 %99, %100
   %102 = trunc i64 %101 to i32
   %103 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef %102, ptr noundef %.063.i)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i, label %file_exists.exit.thread.i, label %104
 
@@ -467,11 +461,11 @@ get_current_executable_path.exit.i:               ; preds = %30, %27, %25, %23, 
   br i1 %109, label %file_exists.exit.thread.i, label %110
 
 file_exists.exit.thread.i:                        ; preds = %106, %98
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %111
 
 110:                                              ; preds = %106, %104
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i1 true, ptr @running_in_build_directory_flag, align 1
   br label %111
 
@@ -538,13 +532,13 @@ configuration_init_posix.exit:                    ; preds = %41, %50, %.thread.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define ptr @get_progfile_dir() local_unnamed_addr #9 {
+define ptr @get_progfile_dir() local_unnamed_addr #8 {
   %1 = load ptr, ptr @progfile_dir, align 8
   ret ptr %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_current_working_dir() local_unnamed_addr #7 {
+define ptr @get_current_working_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @current_working_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %4
@@ -560,10 +554,10 @@ define ptr @get_current_working_dir() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_get_current_dir() local_unnamed_addr #8
+declare ptr @g_get_current_dir() local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_datafile_dir() local_unnamed_addr #7 {
+define ptr @get_datafile_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @datafile_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %29
@@ -638,28 +632,28 @@ configuration_environment_variable.exit:          ; preds = %2, %4
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_getenv(ptr noundef) local_unnamed_addr #8
+declare ptr @g_getenv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @started_with_special_privs() local_unnamed_addr #8
+declare zeroext i1 @started_with_special_privs() local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #8
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_path_is_absolute(ptr noundef) local_unnamed_addr #8
+declare i32 @g_path_is_absolute(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #8
+declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @application_flavor_name_lower() local_unnamed_addr #8
+declare ptr @application_flavor_name_lower() local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #8
+declare void @g_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_doc_dir() local_unnamed_addr #7 {
+define ptr @get_doc_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @doc_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %14
@@ -700,7 +694,7 @@ define ptr @get_doc_dir() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_plugins_dir() local_unnamed_addr #7 {
+define ptr @get_plugins_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @plugin_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %3
@@ -716,7 +710,7 @@ define ptr @get_plugins_dir() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @init_plugin_dir() unnamed_addr #7 {
+define internal fastcc void @init_plugin_dir() unnamed_addr #6 {
   %1 = tail call i32 @get_application_flavor()
   switch i32 %1, label %3 [
     i32 0, label %configuration_environment_variable.exit
@@ -777,7 +771,7 @@ configuration_environment_variable.exit:          ; preds = %0, %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_plugins_dir_with_version() local_unnamed_addr #7 {
+define ptr @get_plugins_dir_with_version() local_unnamed_addr #6 {
   %1 = load ptr, ptr @plugin_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %3
@@ -806,7 +800,7 @@ define ptr @get_plugins_dir_with_version() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_plugins_pers_dir() local_unnamed_addr #7 {
+define ptr @get_plugins_pers_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @plugin_pers_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %6
@@ -824,7 +818,7 @@ define ptr @get_plugins_pers_dir() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_plugins_pers_dir_with_version() local_unnamed_addr #7 {
+define ptr @get_plugins_pers_dir_with_version() local_unnamed_addr #6 {
   %1 = load ptr, ptr @plugin_pers_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %6
@@ -855,7 +849,7 @@ define ptr @get_plugins_pers_dir_with_version() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_extcap_dir() local_unnamed_addr #7 {
+define ptr @get_extcap_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @extcap_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %31
@@ -933,7 +927,7 @@ init_extcap_dir.exit:                             ; preds = %10, %14, %20, %25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_extcap_pers_dir() local_unnamed_addr #7 {
+define ptr @get_extcap_pers_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @extcap_pers_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %6
@@ -951,18 +945,18 @@ define ptr @get_extcap_pers_dir() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @running_in_build_directory() local_unnamed_addr #9 {
+define zeroext i1 @running_in_build_directory() local_unnamed_addr #8 {
   %.b1 = load i1, ptr @running_in_build_directory_flag, align 1
   ret i1 %.b1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define noundef nonnull ptr @get_systemfile_dir() local_unnamed_addr #10 {
+define noundef nonnull ptr @get_systemfile_dir() local_unnamed_addr #9 {
   ret ptr @.str.5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @set_profile_name(ptr noundef %0) local_unnamed_addr #7 {
+define void @set_profile_name(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @persconfprofile, align 8
   tail call void @g_free(ptr noundef %2)
   %.not = icmp eq ptr %0, null
@@ -989,13 +983,13 @@ define void @set_profile_name(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define nonnull ptr @get_profile_name() local_unnamed_addr #9 {
+define nonnull ptr @get_profile_name() local_unnamed_addr #8 {
   %1 = load ptr, ptr @persconfprofile, align 8
   %.not = icmp eq ptr %1, null
   %.str.6. = select i1 %.not, ptr @.str.6, ptr %1
@@ -1003,7 +997,7 @@ define nonnull ptr @get_profile_name() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @is_default_profile() local_unnamed_addr #11 {
+define zeroext i1 @is_default_profile() local_unnamed_addr #10 {
   %1 = load ptr, ptr @persconfprofile, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -1019,12 +1013,12 @@ define zeroext i1 @is_default_profile() local_unnamed_addr #11 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @has_global_profiles() local_unnamed_addr #7 {
+define noundef zeroext i1 @has_global_profiles() local_unnamed_addr #6 {
   %1 = alloca %struct.stat, align 8
   %2 = alloca %struct.stat, align 8
   %3 = tail call ptr @get_datafile_dir()
   %4 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @stat(ptr noundef readonly %4, ptr noundef nonnull %2) #22
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %test_for_directory.exit, label %7
@@ -1034,13 +1028,13 @@ define noundef zeroext i1 @has_global_profiles() local_unnamed_addr #7 {
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 16384
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %11, label %test_for_directory.exit.thread, label %test_for_directory.exit.thread16
 
 test_for_directory.exit:                          ; preds = %0
   %12 = tail call ptr @__errno_location() #23
   %13 = load i32, ptr %12, align 4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = icmp eq i32 %13, 21
   br i1 %14, label %test_for_directory.exit.thread, label %test_for_directory.exit.thread16
 
@@ -1061,7 +1055,7 @@ test_for_directory.exit.thread:                   ; preds = %7, %test_for_direct
 18:                                               ; preds = %.lr.ph, %test_for_directory.exit14.thread20
   %19 = phi ptr [ %16, %.lr.ph ], [ %30, %test_for_directory.exit14.thread20 ]
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %4, ptr noundef nonnull @.str.8, ptr noundef nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %21 = call i32 @stat(ptr noundef readonly %20, ptr noundef nonnull %1) #22
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %test_for_directory.exit14, label %23
@@ -1070,13 +1064,13 @@ test_for_directory.exit.thread:                   ; preds = %7, %test_for_direct
   %24 = load i32, ptr %17, align 8
   %25 = and i32 %24, 61440
   %26 = icmp eq i32 %25, 16384
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %26, label %.loopexit22, label %test_for_directory.exit14.thread20
 
 test_for_directory.exit14:                        ; preds = %18
   %27 = tail call ptr @__errno_location() #23
   %28 = load i32, ptr %27, align 4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = icmp eq i32 %28, 21
   br i1 %29, label %.loopexit22, label %test_for_directory.exit14.thread20
 
@@ -1102,23 +1096,23 @@ test_for_directory.exit.thread16:                 ; preds = %7, %.loopexit, %tes
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_global_profiles_dir() local_unnamed_addr #7 {
+define noalias ptr @get_global_profiles_dir() local_unnamed_addr #6 {
   %1 = tail call ptr @get_datafile_dir()
   %2 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   ret ptr %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #8
+declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_dir_close(ptr noundef) local_unnamed_addr #8
+declare void @g_dir_close(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @profile_store_persconffiles(i1 noundef zeroext %0) local_unnamed_addr #7 {
+define void @profile_store_persconffiles(i1 noundef zeroext %0) local_unnamed_addr #6 {
   br i1 %0, label %2, label %4
 
 2:                                                ; preds = %1
@@ -1133,16 +1127,16 @@ define void @profile_store_persconffiles(i1 noundef zeroext %0) local_unnamed_ad
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_hash(ptr noundef) #8
+declare i32 @g_str_hash(ptr noundef) #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_equal(ptr noundef, ptr noundef) #8
+declare i32 @g_str_equal(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @profile_register_persconffile(ptr noundef %0) local_unnamed_addr #7 {
+define void @profile_register_persconffile(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load i8, ptr @do_store_persconffiles, align 1, !range !13, !noundef !14
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %12
@@ -1165,13 +1159,13 @@ define void @profile_register_persconffile(ptr noundef %0) local_unnamed_addr #7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @set_persconffile_dir(ptr noundef %0) local_unnamed_addr #7 {
+define void @set_persconffile_dir(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @persconffile_dir, align 8
   tail call void @g_free(ptr noundef %2)
   %3 = tail call noalias ptr @g_strdup(ptr noundef %0)
@@ -1180,14 +1174,14 @@ define void @set_persconffile_dir(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_profiles_dir() local_unnamed_addr #7 {
+define noalias ptr @get_profiles_dir() local_unnamed_addr #6 {
   %1 = tail call fastcc ptr @get_persconffile_dir_no_profile()
   %2 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   ret ptr %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @get_persconffile_dir_no_profile() unnamed_addr #7 {
+define internal fastcc ptr @get_persconffile_dir_no_profile() unnamed_addr #6 {
   %1 = load ptr, ptr @persconffile_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %32
@@ -1271,11 +1265,11 @@ configuration_environment_variable.exit:          ; preds = %2, %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i32 -1, 1) i32 @create_profiles_dir(ptr noundef writeonly captures(none) %0) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @create_profiles_dir(ptr noundef writeonly captures(none) %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call fastcc ptr @get_persconffile_dir_no_profile()
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   %6 = call i32 @stat(ptr noundef %5, ptr noundef nonnull %2) #22
@@ -1295,12 +1289,12 @@ define range(i32 -1, 1) i32 @create_profiles_dir(ptr noundef writeonly captures(
 
 create_persconffile_profile.exit.thread:          ; preds = %10, %7
   store ptr %5, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %23
 
 .thread:                                          ; preds = %1, %10
   tail call void @g_free(ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = tail call fastcc ptr @get_persconffile_dir_no_profile()
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %13, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   %15 = call i32 @stat(ptr noundef %14, ptr noundef nonnull %3) #22
@@ -1332,14 +1326,14 @@ create_persconffile_profile.exit.thread:          ; preds = %10, %7
 
 23:                                               ; preds = %create_persconffile_profile.exit.thread, %22, %.critedge, %19
   %.0 = phi i32 [ -1, %19 ], [ 0, %.critedge ], [ -1, %22 ], [ -1, %create_persconffile_profile.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @create_persconffile_profile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define i32 @create_persconffile_profile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split, label %6
 
@@ -1389,15 +1383,15 @@ define i32 @create_persconffile_profile(ptr noundef %0, ptr noundef writeonly ca
 
 20:                                               ; preds = %19, %.thread, %6, %15
   %.012 = phi i32 [ -1, %15 ], [ -1, %6 ], [ %.018, %.thread ], [ -1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_profile_dir(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
+define noalias ptr @get_profile_dir(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   br i1 %1, label %3, label %14
 
 3:                                                ; preds = %2
@@ -1436,7 +1430,7 @@ define noalias ptr @get_profile_dir(ptr noundef %0, i1 noundef zeroext %1) local
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noalias ptr @get_persconffile_dir(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc noalias ptr @get_persconffile_dir(ptr noundef %0) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1468,7 +1462,7 @@ define internal fastcc noalias ptr @get_persconffile_dir(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @profile_exists(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
+define zeroext i1 @profile_exists(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   %3 = alloca %struct.stat, align 8
   %4 = icmp eq ptr %0, null
   %or.cond.not = and i1 %4, %1
@@ -1476,7 +1470,7 @@ define zeroext i1 @profile_exists(ptr noundef %0, i1 noundef zeroext %1) local_u
 
 5:                                                ; preds = %2
   %6 = tail call ptr @get_profile_dir(ptr noundef %0, i1 noundef zeroext %1)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @stat(ptr noundef readonly %6, ptr noundef nonnull %3) #22
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %13
@@ -1496,7 +1490,7 @@ define zeroext i1 @profile_exists(ptr noundef %0, i1 noundef zeroext %1) local_u
 
 test_for_directory.exit:                          ; preds = %9, %13
   %.0.i = phi i1 [ %12, %9 ], [ %17, %13 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @g_free(ptr noundef %6)
   br label %18
 
@@ -1506,7 +1500,7 @@ test_for_directory.exit:                          ; preds = %9, %13
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.stat, align 8
@@ -1527,7 +1521,7 @@ define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr noundef writ
   %.01623.i = phi ptr [ %27, %25 ], [ %13, %8 ]
   %14 = load ptr, ptr %.01623.i, align 8
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %10, ptr noundef nonnull @.str.8, ptr noundef %14)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %file_exists.exit.thread.i, label %16
 
@@ -1543,11 +1537,11 @@ define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr noundef writ
   br i1 %21, label %file_exists.exit.thread.i, label %22
 
 file_exists.exit.thread.i:                        ; preds = %18, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
 22:                                               ; preds = %18, %16
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = tail call i32 @remove(ptr noundef nonnull %15) #22
   %.not19.i = icmp eq i32 %23, 0
   br i1 %.not19.i, label %25, label %24
@@ -1571,7 +1565,7 @@ reset_default_profile.exit:                       ; preds = %25, %8, %24
 
 28:                                               ; preds = %2
   %29 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call i32 @stat(ptr noundef readonly %29, ptr noundef nonnull %4) #22
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %test_for_directory.exit, label %32
@@ -1581,13 +1575,13 @@ reset_default_profile.exit:                       ; preds = %25, %8, %24
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 61440
   %36 = icmp eq i32 %35, 16384
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %36, label %test_for_directory.exit.thread, label %delete_directory.exit
 
 test_for_directory.exit:                          ; preds = %28
   %37 = tail call ptr @__errno_location() #23
   %38 = load i32, ptr %37, align 4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq i32 %38, 21
   br i1 %39, label %test_for_directory.exit.thread, label %delete_directory.exit
 
@@ -1612,7 +1606,7 @@ test_for_directory.exit.thread:                   ; preds = %32, %test_for_direc
 43:                                               ; preds = %.thread.i, %.lr.ph.i10
   %44 = phi ptr [ %41, %.lr.ph.i10 ], [ %55, %.thread.i ]
   %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %29, ptr noundef nonnull @.str.8, ptr noundef nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = call i32 @stat(ptr noundef readonly %45, ptr noundef nonnull %3) #22
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %test_for_directory.exit.i, label %48
@@ -1621,13 +1615,13 @@ test_for_directory.exit.thread:                   ; preds = %32, %test_for_direc
   %49 = load i32, ptr %42, align 8
   %50 = and i32 %49, 61440
   %51 = icmp eq i32 %50, 16384
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %51, label %.thread.i, label %test_for_directory.exit.thread24.i
 
 test_for_directory.exit.i:                        ; preds = %43
   %52 = tail call ptr @__errno_location() #23
   %53 = load i32, ptr %52, align 4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not19.i11 = icmp eq i32 %53, 21
   br i1 %.not19.i11, label %.thread.i, label %test_for_directory.exit.thread24.i
 
@@ -1665,7 +1659,7 @@ delete_directory.exit:                            ; preds = %test_for_directory.
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef i32 @rename_persconffile_profile(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
+define noundef i32 @rename_persconffile_profile(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
   %5 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
   %6 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %1)
   %7 = tail call i32 @rename(ptr noundef %5, ptr noundef %6) #22
@@ -1687,33 +1681,33 @@ define noundef i32 @rename_persconffile_profile(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_mkdir_with_parents(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @g_mkdir_with_parents(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define ptr @allowed_profile_filenames() local_unnamed_addr #9 {
+define ptr @allowed_profile_filenames() local_unnamed_addr #8 {
   %1 = load ptr, ptr @profile_files, align 8
   ret ptr %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @create_persconffile_dir(ptr noundef writeonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @create_persconffile_dir(ptr noundef writeonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @persconfprofile, align 8
   %3 = tail call i32 @create_persconffile_profile(ptr noundef %2, ptr noundef %0)
   ret i32 %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.stat, align 8
   %9 = alloca %struct._GHashTableIter, align 8
   %10 = alloca ptr, align 8
   %11 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = tail call ptr @get_profile_dir(ptr noundef %1, i1 noundef zeroext %2)
   %13 = load ptr, ptr @profile_files, align 8
   %14 = icmp eq ptr %13, null
@@ -1739,7 +1733,7 @@ define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr nound
 21:                                               ; preds = %test_for_directory.exit.thread.i, %.lr.ph.i
   %22 = phi ptr [ %19, %.lr.ph.i ], [ %35, %test_for_directory.exit.thread.i ]
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %12, ptr noundef nonnull @.str.8, ptr noundef nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call i32 @stat(ptr noundef readonly %23, ptr noundef nonnull %8) #22
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %test_for_directory.exit.i, label %26
@@ -1748,13 +1742,13 @@ define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr nound
   %27 = load i32, ptr %20, align 8
   %28 = and i32 %27, 61440
   %29 = icmp eq i32 %28, 16384
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %29, label %test_for_directory.exit.thread.i, label %test_for_directory.exit.thread22.i
 
 test_for_directory.exit.i:                        ; preds = %21
   %30 = tail call ptr @__errno_location() #23
   %31 = load i32, ptr %30, align 4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not19.i = icmp eq i32 %31, 21
   br i1 %.not19.i, label %test_for_directory.exit.thread.i, label %test_for_directory.exit.thread22.i
 
@@ -1787,7 +1781,7 @@ test_for_directory.exit.thread.i:                 ; preds = %34, %test_for_direc
   %40 = load ptr, ptr %10, align 8
   %41 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %12, ptr noundef nonnull @.str.8, ptr noundef %40)
   %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %11, ptr noundef nonnull @.str.8, ptr noundef %40)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i29 = icmp eq ptr %41, null
   br i1 %.not.i29, label %test_for_regular_file.exit.thread, label %43
 
@@ -1797,14 +1791,14 @@ test_for_directory.exit.thread.i:                 ; preds = %34, %test_for_direc
   br i1 %.not4.i, label %test_for_regular_file.exit, label %test_for_regular_file.exit.thread
 
 test_for_regular_file.exit.thread:                ; preds = %39, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 test_for_regular_file.exit:                       ; preds = %43
   %45 = load i32, ptr %38, align 8
   %46 = and i32 %45, 61440
   %47 = icmp eq i32 %46, 32768
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %test_for_regular_file.exit
@@ -1849,19 +1843,19 @@ copy_directory.exit.thread:                       ; preds = %51, %36, %17, %copy
 
 55:                                               ; preds = %copy_directory.exit.thread, %54
   %.034 = phi i32 [ 0, %copy_directory.exit.thread ], [ -1, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.034
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @copy_file_binary_mode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @copy_file_binary_mode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
@@ -1946,7 +1940,7 @@ define noundef zeroext i1 @copy_file_binary_mode(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_persdatafile_dir() local_unnamed_addr #7 {
+define ptr @get_persdatafile_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @persdatafile_dir, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %.tail.thread
@@ -1984,10 +1978,10 @@ sub_0:                                            ; preds = %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_get_home_dir() local_unnamed_addr #8
+declare ptr @g_get_home_dir() local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @set_persdatafile_dir(ptr noundef %0) local_unnamed_addr #7 {
+define void @set_persdatafile_dir(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @persdatafile_dir, align 8
   tail call void @g_free(ptr noundef %2)
   %3 = tail call noalias ptr @g_strdup(ptr noundef %0)
@@ -1996,7 +1990,7 @@ define void @set_persdatafile_dir(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_persconffile_path(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
+define noalias ptr @get_persconffile_path(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   br i1 %1, label %3, label %16
 
 3:                                                ; preds = %2
@@ -2035,7 +2029,7 @@ profile_register_persconffile.exit:               ; preds = %3, %6, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_datafile_path(ptr noundef %0) local_unnamed_addr #7 {
+define noalias ptr @get_datafile_path(ptr noundef %0) local_unnamed_addr #6 {
   %.b4 = load i1, ptr @running_in_build_directory_flag, align 1
   br i1 %.b4, label %2, label %6
 
@@ -2059,7 +2053,7 @@ define noalias ptr @get_datafile_path(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @get_docfile_path(ptr noundef %0) local_unnamed_addr #7 {
+define noalias ptr @get_docfile_path(ptr noundef %0) local_unnamed_addr #6 {
   %.b3 = load i1, ptr @running_in_build_directory_flag, align 1
   br i1 %.b3, label %2, label %4
 
@@ -2098,7 +2092,7 @@ get_doc_dir.exit:                                 ; preds = %.sink.split.i, %4, 
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define noundef nonnull ptr @file_open_error_message(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define noundef nonnull ptr @file_open_error_message(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   switch i32 %0, label %10 [
     i32 2, label %3
     i32 13, label %4
@@ -2146,13 +2140,13 @@ define noundef nonnull ptr @file_open_error_message(i32 noundef %0, i1 noundef z
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #13
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @g_strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @g_strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnamed_addr #11 {
   switch i32 %0, label %3 [
     i32 28, label %6
     i32 122, label %2
@@ -2172,9 +2166,9 @@ define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @file_exists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define noundef zeroext i1 @file_exists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -2194,12 +2188,12 @@ define noundef zeroext i1 @file_exists(ptr noundef readonly captures(address_is_
 
 10:                                               ; preds = %5, %1, %9
   %.0 = phi i1 [ true, %9 ], [ false, %1 ], [ false, %5 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %3
 
@@ -2302,17 +2296,17 @@ getc_unlocked.exit27.backedge:                    ; preds = %37, %39
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @files_identical(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define zeroext i1 @files_identical(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3) #22
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %20, label %7
@@ -2336,17 +2330,17 @@ define zeroext i1 @files_identical(ptr noundef readonly captures(none) %0, ptr n
 
 20:                                               ; preds = %7, %2, %10
   %.0 = phi i1 [ %19, %10 ], [ false, %2 ], [ false, %7 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %3) #22
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %22
@@ -2380,16 +2374,16 @@ define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr noundef readonly captur
 
 22:                                               ; preds = %8, %11, %16, %6, %2
   %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %11 ], [ true, %8 ], [ %21, %16 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 577, i32 noundef 420)
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %.preheader
@@ -2443,31 +2437,31 @@ define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare void @report_open_failure(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
+declare void @report_open_failure(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare void @report_write_failure(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @report_write_failure(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @close(i32 noundef) local_unnamed_addr #8
+declare i32 @close(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #14
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare void @report_read_failure(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @report_read_failure(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @data_file_url(ptr noundef %0) local_unnamed_addr #7 {
+define noalias ptr @data_file_url(ptr noundef %0) local_unnamed_addr #6 {
   %2 = tail call i32 @g_path_is_absolute(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2489,10 +2483,10 @@ define noalias ptr @data_file_url(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_filename_to_uri(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare noalias ptr @g_filename_to_uri(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias ptr @doc_file_url(ptr noundef %0) local_unnamed_addr #7 {
+define noalias ptr @doc_file_url(ptr noundef %0) local_unnamed_addr #6 {
   %2 = tail call i32 @g_path_is_absolute(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2549,7 +2543,7 @@ get_doc_dir.exit:                                 ; preds = %5, %.sink.split.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @free_progdirs() local_unnamed_addr #7 {
+define void @free_progdirs() local_unnamed_addr #6 {
   %1 = load ptr, ptr @persconffile_dir, align 8
   tail call void @g_free(ptr noundef %1)
   store ptr null, ptr @persconffile_dir, align 8
@@ -2596,73 +2590,79 @@ define void @free_progdirs() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #16
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_application_flavor() local_unnamed_addr #8
+declare i32 @get_application_flavor() local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #8
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #17
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_get_user_config_dir() local_unnamed_addr #8
+declare ptr @g_get_user_config_dir() local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_file_test(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @g_file_test(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @getpwuid(i32 noundef) local_unnamed_addr #8
+declare ptr @getpwuid(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare i32 @getuid() local_unnamed_addr #15
+declare i32 @getuid() local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_get_keys(ptr noundef) local_unnamed_addr #8
+declare ptr @g_hash_table_get_keys(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_first(ptr noundef) local_unnamed_addr #8
+declare ptr @g_list_first(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_list_free(ptr noundef) local_unnamed_addr #8
+declare void @g_list_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__uflow(ptr noundef) local_unnamed_addr #8
+declare i32 @__uflow(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
@@ -2674,23 +2674,23 @@ declare void @llvm.assume(i1 noundef) #19
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 attributes #0 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

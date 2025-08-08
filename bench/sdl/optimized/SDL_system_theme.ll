@@ -54,8 +54,8 @@ define hidden noundef zeroext i1 @SDL_SystemTheme_Init() local_unnamed_addr #0 {
   br i1 %.not31, label %47, label %19
 
 19:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %21(ptr noundef nonnull %18, ptr noundef nonnull %3) #4
@@ -70,8 +70,8 @@ define hidden noundef zeroext i1 @SDL_SystemTheme_Init() local_unnamed_addr #0 {
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %29 = load ptr, ptr @system_theme_data.0, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 296
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef nonnull %4) #4
@@ -103,16 +103,16 @@ switch.lookup:                                    ; preds = %38
   br label %DBus_ExtractThemeVariant.exit
 
 DBus_ExtractThemeVariant.exit:                    ; preds = %38, %26, %33, %switch.lookup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %44
 
 44:                                               ; preds = %DBus_ExtractThemeVariant.exit, %19
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull %18) #4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
 47:                                               ; preds = %14, %44, %10
@@ -140,18 +140,15 @@ DBus_ExtractThemeVariant.exit:                    ; preds = %38, %26, %33, %swit
   ret i1 %.not
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @SDL_DBus_GetContext() local_unnamed_addr #2
+declare ptr @SDL_DBus_GetContext() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @DBus_ExtractThemeVariant(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.DBusMessageIter, align 8
   %4 = load ptr, ptr @system_theme_data.0, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0) #4
@@ -184,13 +181,10 @@ switch.lookup:                                    ; preds = %13
 
 19:                                               ; preds = %13, %switch.lookup, %8, %1
   %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ true, %13 ], [ true, %switch.lookup ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -204,9 +198,9 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   br i1 %.not, label %39, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef %1, ptr noundef nonnull %4) #4
@@ -263,9 +257,9 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
 
 .sink.split:                                      ; preds = %10, %17, %22, %26, %29, %33, %36, %.critedge
   %.1.ph = phi i32 [ 0, %.critedge ], [ 1, %36 ], [ 1, %33 ], [ 1, %29 ], [ 1, %26 ], [ 1, %22 ], [ 1, %17 ], [ 1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %.sink.split, %3
@@ -274,19 +268,25 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @SDL_SystemTheme_Get() local_unnamed_addr #3 {
+define hidden i32 @SDL_SystemTheme_Get() local_unnamed_addr #2 {
   %1 = load i32, ptr @system_theme_data.1, align 8
   ret i32 %1
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetSystemTheme(i32 noundef) local_unnamed_addr #2
+declare void @SDL_SetSystemTheme(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

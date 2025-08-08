@@ -1466,7 +1466,7 @@ invoke.cont73:                                    ; preds = %_ZN5eastl14fixed_fu
           to label %invoke.cont77 unwind label %lpad70
 
 invoke.cont77:                                    ; preds = %invoke.cont73
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tempStorage.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempStorage.i.i)
   %37 = load ptr, ptr %mMgrFuncPtr.i.i94, align 8
   %cmp.i.not.i.i = icmp eq ptr %37, null
   br i1 %cmp.i.not.i.i, label %if.end4.i.i, label %if.then2.i.i
@@ -1513,7 +1513,7 @@ _ZN5eastl14fixed_functionILi24EFivEE4swapERS2_.exit: ; preds = %if.end12.i.i, %i
   %45 = load ptr, ptr %mInvokeFuncPtr.i.i95, align 8
   store ptr %45, ptr %mInvokeFuncPtr.i.i93, align 8
   store ptr %44, ptr %mInvokeFuncPtr.i.i95, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tempStorage.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempStorage.i.i)
   %cmp.i.i.i103.not = icmp eq ptr %42, null
   %call82 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.i.i103.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 432, ptr noundef nonnull @.str.16)
           to label %invoke.cont81 unwind label %lpad70
@@ -1529,7 +1529,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %invoke.cont86 unwind label %lpad70
 
 invoke.cont86:                                    ; preds = %invoke.cont83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tempStorage.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempStorage.i.i.i)
   %47 = load ptr, ptr %mMgrFuncPtr.i.i94, align 8
   %cmp.i.not.i.i.i109 = icmp eq ptr %47, null
   br i1 %cmp.i.not.i.i.i109, label %if.end4.i.i.i, label %if.then2.i.i.i
@@ -1576,7 +1576,7 @@ _ZN5eastl4swapILi24EiJEEEvRNS_14fixed_functionIXT_EFT0_DpT1_EEES7_.exit: ; preds
   %55 = load ptr, ptr %mInvokeFuncPtr.i.i95, align 8
   store ptr %55, ptr %mInvokeFuncPtr.i.i93, align 8
   store ptr %54, ptr %mInvokeFuncPtr.i.i95, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tempStorage.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempStorage.i.i.i)
   %call.i.i114 = invoke noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(40) %fn68)
           to label %invoke.cont89 unwind label %lpad70
 
@@ -1781,7 +1781,7 @@ land.rhs:                                         ; preds = %invoke.cont141, %if
           to label %invoke.cont152 unwind label %lpad145
 
 invoke.cont152:                                   ; preds = %land.rhs
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tempStorage.i.i.i196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempStorage.i.i.i196)
   %81 = load ptr, ptr %mMgrFuncPtr.i.i189, align 8
   %cmp.i.not.i.i.i199 = icmp eq ptr %81, null
   br i1 %cmp.i.not.i.i.i199, label %if.end4.i.i.i203, label %if.then2.i.i.i200
@@ -1828,7 +1828,7 @@ _ZN5eastl4swapILi0EiJEEEvRNS_14fixed_functionIXT_EFT0_DpT1_EEES7_.exit: ; preds 
   %89 = load ptr, ptr %mInvokeFuncPtr.i.i188, align 8
   store ptr %89, ptr %mInvokeFuncPtr.i.i186, align 8
   store ptr %88, ptr %mInvokeFuncPtr.i.i188, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tempStorage.i.i.i196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempStorage.i.i.i196)
   %call.i.i217 = invoke noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(32) %fn0)
           to label %invoke.cont155 unwind label %lpad145
 
@@ -3907,7 +3907,7 @@ entry:
   %nErrorCount.i9 = alloca i32, align 4
   %nErrorCount.i = alloca i32, align 4
   %call = tail call noundef i32 @_Z22TestFixedFunctionBasicv()
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i)
   store i32 0, ptr %nErrorCount.i, align 4
   store i64 0, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   store i64 0, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
@@ -3941,7 +3941,7 @@ _Z21TestFixedFunctionDtorv.exit:                  ; preds = %entry
   %inc3.i10.i = add nsw i64 %4, 1
   store i64 %inc3.i10.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %5 = load i32, ptr %nErrorCount.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i)
   %add2 = add nsw i32 %5, %call
   %call3 = call noundef i32 @_Z32TestFixedFunctionExistingClosurev()
   %add4 = add nsw i32 %add2, %call3
@@ -3951,14 +3951,14 @@ _Z21TestFixedFunctionDtorv.exit:                  ; preds = %entry
   %add8 = add nsw i32 %add6, %call7
   %call9 = call noundef i32 @_Z40TestFixedFunctionPointerToMemberFunctionv()
   %add10 = add nsw i32 %add8, %call9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i9)
   store i32 0, ptr %nErrorCount.i9, align 4
   %call2.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i9, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @.str.14)
   %call10.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i9, ptr noundef nonnull @.str, i32 noundef 286, ptr noundef nonnull @.str.14)
   %call20.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i9, ptr noundef nonnull @.str, i32 noundef 292, ptr noundef nonnull @.str.14)
   %call31.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i9, ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @.str.14)
   %6 = load i32, ptr %nErrorCount.i9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i9)
   %add12 = add nsw i32 %add10, %6
   %call13 = call noundef i32 @_Z24TestFixedFunctionStdBindv()
   %add14 = add nsw i32 %add12, %call13
@@ -5061,10 +5061,10 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

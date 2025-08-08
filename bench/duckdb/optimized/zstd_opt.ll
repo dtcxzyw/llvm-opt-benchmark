@@ -91,7 +91,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %33, i32 4095)
   %34 = icmp eq i32 %.val, 3
   %35 = select i1 %34, i32 3, i32 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %37 = load i32, ptr %36, align 4, !tbaa !20
   store i32 %37, ptr %9, align 4, !tbaa !26
@@ -99,8 +99,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
   %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = load ptr, ptr %40, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.i, i8 0, i64 12, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %43 = load ptr, ptr %42, align 8, !tbaa !29
@@ -166,7 +166,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
   %84 = trunc i64 %83 to i32
   %.not488.i = icmp eq i32 %84, 0
   %85 = zext i1 %.not488.i to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %86 = call noundef i32 %31(ptr noundef %41, ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.0.i239, ptr noundef %14, ptr noundef %2, i32 noundef %85, i32 noundef %35)
   store i32 %86, ptr %11, align 4, !tbaa !26
   %87 = sub i64 %81, %48
@@ -180,7 +180,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
 
 .thread66:                                        ; preds = %80
   %92 = getelementptr inbounds nuw i8, ptr %.0.i239, i64 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %745
 
 93:                                               ; preds = %80
@@ -261,7 +261,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit: ; preds = %96,
 
 .thread147:                                       ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit
   %140 = load i32, ptr %137, align 4, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %529
 
 .preheader189:                                    ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit, %.preheader189
@@ -412,7 +412,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17: ; preds = %1
   %226 = zext i32 %.2467.i.lcssa to i64
   %227 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %39, i64 %226
   store i32 1073741824, ptr %227, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not491.i220 = icmp eq i32 %225, 0
   br i1 %.not491.i220, label %.loopexit, label %.lr.ph224
 
@@ -621,7 +621,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit27._crit_edge: ;
   %351 = load i32, ptr %350, align 4, !tbaa !49
   %352 = getelementptr inbounds nuw i8, ptr %348, i64 12
   %353 = load i32, ptr %352, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %349, i64 12, i1 false)
   %354 = icmp ugt i32 %351, 3
   br i1 %354, label %355, label %359
@@ -678,7 +678,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit27._crit_edge: ;
 _ZN11duckdb_zstdL11ZSTD_newRepEPKjjj.exit:        ; preds = %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i, %.sink.split.i.i
   %.sroa.2.0.copyload.i = phi i32 [ %.sroa.2.0.copyload.pre.i, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i ], [ %.sroa.2.0.copyload4.i, %.sink.split.i.i ]
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %375 = getelementptr inbounds nuw i8, ptr %336, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %375, align 4
   %.sroa.481.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %336, i64 24
@@ -726,7 +726,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit32: ; preds = %.
   %.0.i31 = phi i32 [ %395, %388 ], [ 0, %.split471.i ]
   %396 = zext i1 %342 to i32
   %397 = add nsw i32 %.0.i31, %340
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %398 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %399 = call noundef i32 %31(ptr noundef %41, ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %229, ptr noundef %14, ptr noundef nonnull %398, i32 noundef %396, i32 noundef %35)
   store i32 %399, ptr %12, align 4, !tbaa !26
@@ -741,7 +741,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit32: ; preds = %.
   br i1 %.not494.i, label %.thread129, label %406
 
 .thread129:                                       ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread113
 
 406:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit32
@@ -967,7 +967,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit33:          ; preds = %473, %476
   br i1 %exitcond275.not, label %513, label %416, !llvm.loop !66
 
 513:                                              ; preds = %._crit_edge209
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %514 = add i32 %.13.i.lcssa, 1
   %515 = zext i32 %514 to i64
   %516 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %39, i64 %515
@@ -1000,7 +1000,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit33:          ; preds = %473, %476
 .thread300:                                       ; preds = %406
   %521 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_match_t", ptr %41, i64 %408
   %522 = load i32, ptr %521, align 4, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %523 = icmp eq i32 %410, 0
   br i1 %523, label %524, label %._crit_edge277
 
@@ -1033,7 +1033,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit33:          ; preds = %473, %476
   %.sroa.0214.2.i146154 = phi i32 [ %.sroa.0214.0.i237, %.thread147 ], [ %.sroa.0214.2.i313320, %._crit_edge277 ]
   %531 = zext i32 %.4450.i142161 to i64
   %532 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %39, i64 %531, i32 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %532, i64 12, i1 false)
   %533 = icmp ugt i32 %.sroa.6217.4.i145156, 3
   br i1 %533, label %534, label %538
@@ -1090,7 +1090,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit33:          ; preds = %473, %476
 .thread162:                                       ; preds = %.sink.split.i.i37, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i44
   %.sroa.2.0.copyload.i40 = phi i32 [ %.sroa.2.0.copyload.pre.i46, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i44 ], [ %.sroa.2.0.copyload4.i38, %.sink.split.i.i37 ]
   %.sroa.0.0.copyload.i41 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i41, ptr %2, align 4
   store i32 %.sroa.2.0.copyload.i40, ptr %.sroa.443.0..sroa_idx.i, align 4
   %554 = add i32 %.4450.i142161, 2
@@ -1513,9 +1513,9 @@ _ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10
 _ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit: ; preds = %_ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit.loopexit, %6
   %.pre-phi = phi i64 [ %.pre284, %_ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit.loopexit ], [ %48, %6 ]
   %747 = sub i64 %49, %.pre-phi
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %747
 }
 
@@ -1562,7 +1562,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %34, i32 4095)
   %35 = icmp eq i32 %.val, 3
   %36 = select i1 %35, i32 3, i32 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %38 = load i32, ptr %37, align 4, !tbaa !20
   store i32 %38, ptr %10, align 4, !tbaa !26
@@ -1570,8 +1570,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = load ptr, ptr %41, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.i, i8 0, i64 12, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %44 = load ptr, ptr %43, align 8, !tbaa !29
@@ -1639,7 +1639,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
   %86 = trunc i64 %85 to i32
   %.not488.i = icmp eq i32 %86, 0
   %87 = zext i1 %.not488.i to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %88 = call noundef i32 %32(ptr noundef %42, ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0.i353, ptr noundef %15, ptr noundef %2, i32 noundef %87, i32 noundef %36)
   store i32 %88, ptr %12, align 4, !tbaa !26
   %89 = sub i64 %83, %49
@@ -1653,7 +1653,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
 
 .thread131:                                       ; preds = %82
   %94 = getelementptr inbounds nuw i8, ptr %.0.i353, i64 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %981
 
 95:                                               ; preds = %82
@@ -1744,7 +1744,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit: ; preds = %98,
 
 .thread220:                                       ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit
   %152 = load i32, ptr %149, align 4, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %753
 
 .preheader308:                                    ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit, %.preheader308
@@ -1902,7 +1902,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17: ; preds = %1
   %244 = zext i32 %.2467.i.lcssa to i64
   %245 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %40, i64 %244
   store i32 1073741824, ptr %245, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not491.i334 = icmp eq i32 %243, 0
   br i1 %.not491.i334, label %.loopexit, label %.lr.ph338
 
@@ -2341,7 +2341,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit76: ; preds = %4
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 16
   %536 = getelementptr inbounds nuw i8, ptr %534, i64 12
   %537 = load i32, ptr %536, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull readonly align 4 dereferenceable(12) %535, i64 12, i1 false)
   %538 = icmp ugt i32 %.sroa.5.0.copyload.i, 3
   br i1 %538, label %539, label %543
@@ -2398,7 +2398,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit76: ; preds = %4
 _ZN11duckdb_zstdL11ZSTD_newRepEPKjjj.exit:        ; preds = %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i, %.sink.split.i.i
   %.sroa.2.0.copyload.i = phi i32 [ %.sroa.2.0.copyload.pre.i, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i ], [ %.sroa.2.0.copyload4.i, %.sink.split.i.i ]
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.5.0..sroa_idx98.i = getelementptr inbounds nuw i8, ptr %528, i64 4
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx98.i, align 4, !tbaa !26
   %.sroa.6100.0..sroa_idx101.i = getelementptr inbounds nuw i8, ptr %528, i64 8
@@ -2431,7 +2431,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit42.thread: ; pre
   %570 = load i32, ptr %569, align 4, !tbaa !49
   %571 = getelementptr inbounds nuw i8, ptr %567, i64 12
   %572 = load i32, ptr %571, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %568, i64 12, i1 false)
   %573 = icmp ugt i32 %570, 3
   br i1 %573, label %574, label %578
@@ -2488,7 +2488,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit42.thread: ; pre
 _ZN11duckdb_zstdL11ZSTD_newRepEPKjjj.exit92:      ; preds = %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i88, %.sink.split.i.i81
   %.sroa.2.0.copyload.i84 = phi i32 [ %.sroa.2.0.copyload.pre.i90, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i88 ], [ %.sroa.2.0.copyload4.i82, %.sink.split.i.i81 ]
   %.sroa.0.0.copyload.i85 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %594 = getelementptr inbounds nuw i8, ptr %379, i64 16
   store i64 %.sroa.0.0.copyload.i85, ptr %594, align 4
   %.sroa.481.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %379, i64 24
@@ -2526,7 +2526,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit97: ; preds = %5
   %.0.i96 = phi i32 [ %613, %602 ], [ 256, %599 ]
   %614 = zext i1 %561 to i32
   %615 = add nsw i32 %.0.i96, %559
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %616 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %617 = call noundef i32 %32(ptr noundef %42, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %247, ptr noundef %15, ptr noundef nonnull %616, i32 noundef %614, i32 noundef %36)
   store i32 %617, ptr %13, align 4, !tbaa !26
@@ -2541,7 +2541,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit97: ; preds = %5
   br i1 %.not494.i, label %.thread202, label %624
 
 .thread202:                                       ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread186
 
 624:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit97
@@ -2775,7 +2775,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit98:          ; preds = %692, %695
   br i1 %exitcond390.not, label %736, label %.preheader, !llvm.loop !66
 
 736:                                              ; preds = %._crit_edge327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %737 = add i32 %.13.i.lcssa, 1
   %738 = zext i32 %737 to i64
   %739 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %40, i64 %738
@@ -2808,7 +2808,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit98:          ; preds = %692, %695
 .thread417:                                       ; preds = %624
   %745 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_match_t", ptr %42, i64 %626
   %746 = load i32, ptr %745, align 4, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %747 = icmp eq i32 %628, 0
   br i1 %747, label %748, label %._crit_edge392
 
@@ -2841,7 +2841,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit98:          ; preds = %692, %695
   %.sroa.0214.2.i219227 = phi i32 [ %.sroa.0214.0.i351, %.thread220 ], [ %.sroa.0214.2.i430437, %._crit_edge392 ]
   %755 = zext i32 %.4450.i215234 to i64
   %756 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %40, i64 %755, i32 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %756, i64 12, i1 false)
   %757 = icmp ugt i32 %.sroa.6217.4.i218229, 3
   br i1 %757, label %758, label %762
@@ -2898,7 +2898,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit98:          ; preds = %692, %695
 .thread235:                                       ; preds = %.sink.split.i.i102, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i109
   %.sroa.2.0.copyload.i105 = phi i32 [ %.sroa.2.0.copyload.pre.i111, %._ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit_crit_edge.i109 ], [ %.sroa.2.0.copyload4.i103, %.sink.split.i.i102 ]
   %.sroa.0.0.copyload.i106 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i106, ptr %2, align 4
   store i32 %.sroa.2.0.copyload.i105, ptr %.sroa.443.0..sroa_idx.i, align 4
   %778 = add i32 %.4450.i215234, 2
@@ -3333,9 +3333,9 @@ _ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10
 _ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit: ; preds = %_ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit.loopexit, %6
   %.pre-phi = phi i64 [ %.pre399, %_ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit.loopexit ], [ %49, %6 ]
   %983 = sub i64 %50, %.pre-phi
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %983
 }
 
@@ -3375,7 +3375,7 @@ define noundef i64 @_ZN11duckdb_zstd27ZSTD_compressBlock_btultra2EPNS_17ZSTD_mat
   br i1 %or.cond, label %30, label %39
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false)
   %31 = call fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmNS_15ZSTD_dictMode_eE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %3, i64 noundef range(i64 9, 0) %4, i32 noundef 0)
   call void @_ZN11duckdb_zstd18ZSTD_resetSeqStoreEPNS_10seqStore_tE(ptr noundef nonnull %1)
@@ -3390,19 +3390,13 @@ define noundef i64 @_ZN11duckdb_zstd27ZSTD_compressBlock_btultra2EPNS_17ZSTD_mat
   store i32 %37, ptr %24, align 4, !tbaa !95
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %37, ptr %38, align 4, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %30, %27, %21, %16, %5
   %40 = call fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmNS_15ZSTD_dictMode_eE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 0)
   ret i64 %40
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN11duckdb_zstd39ZSTD_compressBlock_btopt_dictMatchStateEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef initializes((224, 228)) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
@@ -3513,7 +3507,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit:       ; preds = %13, %18, %23, %28, 
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i32, ptr %39, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = load i32, ptr %8, align 4, !tbaa !101
   %66 = getelementptr i8, ptr %0, i64 28
   %.val149 = load i32, ptr %66, align 4, !tbaa !95
@@ -3748,12 +3742,12 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %93, %.thread63.i, %
   %168 = add i32 %reass.sub, -8
   %169 = tail call i32 @llvm.umax.i32(i32 %167, i32 %168)
   %spec.select193 = select i1 %164, i32 %169, i32 %168
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %spec.select193
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i64 @_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 {
+define internal fastcc noundef i64 @_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #3 {
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
@@ -3973,19 +3967,19 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit49:   ; preds = %58, %.thread63.i48,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN11duckdb_zstdL38ZSTD_opt_getNextMatchAndUpdateSeqStoreEPNS_13ZSTD_optLdm_tEjj(ptr noundef nonnull captures(none) initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc void @_ZN11duckdb_zstdL38ZSTD_opt_getNextMatchAndUpdateSeqStoreEPNS_13ZSTD_optLdm_tEjj(ptr noundef nonnull captures(none) initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !106
   %6 = icmp eq i64 %5, 0
@@ -4344,7 +4338,7 @@ define internal fastcc void @_ZN11duckdb_zstdL17ZSTD_rescaleFreqsEPNS_10optState
   br i1 %.not, label %_ZN11duckdb_zstdL7sum_u32EPKjm.exit, label %103
 
 103:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 255, ptr %5, align 4, !tbaa !26
   %104 = load ptr, ptr %0, align 8, !tbaa !60
   %105 = call noundef i32 @_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm(ptr noundef %104, ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2)
@@ -4369,7 +4363,7 @@ define internal fastcc void @_ZN11duckdb_zstdL17ZSTD_rescaleFreqsEPNS_10optState
 _ZN11duckdb_zstdL19ZSTD_downscaleStatsEPjjjNS_16base_directive_eE.exit: ; preds = %.split.us.i
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %113, ptr %114, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN11duckdb_zstdL7sum_u32EPKjm.exit
 
 _ZN11duckdb_zstdL7sum_u32EPKjm.exit:              ; preds = %_ZN11duckdb_zstdL19ZSTD_downscaleStatsEPjjjNS_16base_directive_eE.exit, %102
@@ -4661,7 +4655,7 @@ _ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit: ; preds = %219, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN11duckdb_zstdL33ZSTD_optLdm_processMatchCandidateEPNS_13ZSTD_optLdm_tEPNS_12ZSTD_match_tEPjjj(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
+define internal fastcc void @_ZN11duckdb_zstdL33ZSTD_optLdm_processMatchCandidateEPNS_13ZSTD_optLdm_tEPNS_12ZSTD_match_tEPjjj(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !106
   %8 = icmp eq i64 %7, 0
@@ -4868,7 +4862,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi168, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !103
   %69 = shl nuw i32 1, %68
@@ -5432,7 +5426,7 @@ _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_m
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %143, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit.sink.split
   %.3.i = phi i32 [ %.3.i.ph, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit.sink.split ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -5524,7 +5518,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi126, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !103
   %69 = shl nuw i32 1, %68
@@ -5912,7 +5906,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %143, %.thread60
   %.3.i = phi i32 [ %.10423.i, %.thread60 ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -6004,7 +5998,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi126, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !103
   %69 = shl nuw i32 1, %68
@@ -6392,7 +6386,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %143, %.thread60
   %.3.i = phi i32 [ %.10423.i, %.thread60 ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -6484,7 +6478,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi126, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !103
   %69 = shl nuw i32 1, %68
@@ -6872,7 +6866,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %143, %.thread60
   %.3.i = phi i32 [ %.10423.i, %.thread60 ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -6970,7 +6964,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi174, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !103
   %74 = shl nuw i32 1, %73
@@ -7589,7 +7583,7 @@ _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_m
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %163, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit.sink.split
   %.3.i = phi i32 [ %.3.i.ph, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit.sink.split ], [ %170, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -7686,7 +7680,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi130, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !103
   %74 = shl nuw i32 1, %73
@@ -8118,7 +8112,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %163, %.thread64
   %.3.i = phi i32 [ %.10423.i, %.thread64 ], [ %170, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -8215,7 +8209,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi130, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !103
   %74 = shl nuw i32 1, %73
@@ -8647,7 +8641,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %163, %.thread64
   %.3.i = phi i32 [ %.10423.i, %.thread64 ], [ %170, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -8744,7 +8738,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi130, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !103
   %74 = shl nuw i32 1, %73
@@ -9176,7 +9170,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %163, %.thread64
   %.3.i = phi i32 [ %.10423.i, %.thread64 ], [ %170, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -9271,7 +9265,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi222, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !103
   %71 = shl nuw i32 1, %70
@@ -9999,7 +9993,7 @@ _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_m
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %184, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit.sink.split
   %.3.i = phi i32 [ %.3.i.ph, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit.sink.split ], [ %191, %184 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -10093,7 +10087,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi178, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !103
   %71 = shl nuw i32 1, %70
@@ -10643,7 +10637,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %184, %.thread78
   %.3.i = phi i32 [ %.13.i, %.thread78 ], [ %191, %184 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -10737,7 +10731,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi178, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !103
   %71 = shl nuw i32 1, %70
@@ -11285,7 +11279,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %184, %.thread78
   %.3.i = phi i32 [ %.13.i, %.thread78 ], [ %191, %184 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -11379,7 +11373,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi178, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !103
   %71 = shl nuw i32 1, %70
@@ -11927,7 +11921,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50
 
 _ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit: ; preds = %184, %.thread78
   %.3.i = phi i32 [ %.13.i, %.thread78 ], [ %191, %184 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit
 
 _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_PKjjjNS_15ZSTD_dictMode_eEj.exit: ; preds = %8, %_ZN11duckdb_zstdL29ZSTD_insertBtAndGetAllMatchesEPNS_12ZSTD_match_tEPNS_17ZSTD_matchState_tEPjPKhS6_NS_15ZSTD_dictMode_eEPKjjjj.exit
@@ -11935,11 +11929,17 @@ _ZN11duckdb_zstdL29ZSTD_btGetAllMatches_internalEPNS_12ZSTD_match_tEPNS_17ZSTD_m
   ret i32 %.0.i
 }
 
-declare noundef i32 @_ZN11duckdb_zstd23HUF_getNbBitsFromCTableEPKmj(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @_ZN11duckdb_zstd23HUF_getNbBitsFromCTableEPKmj(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare noundef i32 @_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i32 @_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN11duckdb_zstd18ZSTD_resetSeqStoreEPNS_10seqStore_tE(ptr noundef) local_unnamed_addr #9
+declare void @_ZN11duckdb_zstd18ZSTD_resetSeqStoreEPNS_10seqStore_tE(ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
@@ -11959,16 +11959,15 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -60,7 +60,7 @@ define hidden noundef i32 @mbedtls_sha1_starts(ptr noundef writeonly captures(no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @mbedtls_internal_sha1_process(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct.anon, align 4
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr %1, align 1, !tbaa !4
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -1411,15 +1411,9 @@ define hidden noundef i32 @mbedtls_internal_sha1_process(ptr noundef captures(no
   %1313 = add i32 %1312, %1275
   store i32 %1313, ptr %319, align 4, !tbaa !7
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 88)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @mbedtls_sha1_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
@@ -1668,7 +1662,7 @@ define hidden noundef i32 @mbedtls_sha1_finish(ptr noundef %0, ptr noundef write
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @mbedtls_sha1(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_sha1_context, align 4
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %5, align 4, !tbaa !7
@@ -1712,9 +1706,15 @@ define hidden noundef i32 @mbedtls_sha1(ptr noundef %0, i64 noundef %1, ptr noun
 mbedtls_sha1_update.exit:                         ; preds = %3, %._crit_edge.i, %._crit_edge.thread.i
   %19 = call i32 @mbedtls_sha1_finish(ptr noundef nonnull %4, ptr noundef %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92)
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
@@ -1727,7 +1727,6 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

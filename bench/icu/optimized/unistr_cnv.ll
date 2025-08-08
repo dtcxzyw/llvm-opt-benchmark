@@ -54,7 +54,7 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
 
 14:                                               ; preds = %11, %9
   %.036 = phi i32 [ %13, %11 ], [ %2, %9 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %16, label %53
@@ -204,7 +204,7 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
   br label %_ZN6icu_7713UnicodeString9setLengthEi.exit
 
 _ZN6icu_7713UnicodeString9setLengthEi.exit:       ; preds = %72, %68, %87, %88, %75, %.critedge, %81
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
 
 89:                                               ; preds = %4, %_ZN6icu_7713UnicodeString9setLengthEi.exit
@@ -328,11 +328,11 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciP10UConverterR10UEr
   br i1 %9, label %10, label %67
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !10
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = lshr i32 %2, 2
   %14 = add nuw nsw i32 %13, %2
   %.inv = icmp sgt i32 %2, 27
@@ -421,8 +421,8 @@ _ZN6icu_7713UnicodeString9setLengthEi.exit:       ; preds = %46, %50
   br i1 %.not20, label %._crit_edge, label %22, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_ZN6icu_7713UnicodeString9setLengthEi.exit, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %67
 
 67:                                               ; preds = %5, %.loopexit
@@ -466,7 +466,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPcjPKc(ptr noundef nonn
   %26 = sub i64 %25, %22
   %27 = trunc i64 %26 to i32
   %.046 = select i1 %21, i32 %4, i32 %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !8
   %28 = icmp eq i32 %spec.select69, 0
   %29 = select i1 %19, i1 true, i1 %28
@@ -575,19 +575,13 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPcjPKc(ptr noundef nonn
 
 88:                                               ; preds = %82, %85, %68, %73, %30
   %.1 = phi i32 [ %31, %30 ], [ %69, %68 ], [ %81, %73 ], [ %87, %85 ], [ %84, %82 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %89
 
 89:                                               ; preds = %6, %88
   %.042 = phi i32 [ %.1, %88 ], [ 0, %6 ]
   ret i32 %.042
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -618,7 +612,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UE
   br label %59
 
 15:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i16, ptr %16, align 8, !tbaa !6
   %18 = and i16 %17, 2
@@ -668,7 +662,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UE
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 1024
   %47 = ptrtoint ptr %10 to i64
   br label %48
@@ -688,13 +682,13 @@ define noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UE
   br i1 %55, label %48, label %56, !llvm.loop !17
 
 56:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %57
 
 57:                                               ; preds = %56, %37
   %.026 = phi i32 [ %53, %56 ], [ %42, %37 ]
   %58 = call i32 @u_terminateChars_77(ptr noundef %3, i32 noundef %.027, i32 noundef %.026, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %13, %14, %57
@@ -783,6 +777,12 @@ declare noundef signext i8 @_ZN6icu_7713UnicodeString18cloneArrayIfNeededEiiaPPi
 declare void @u_charsToUChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @ucnv_toUnicode_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

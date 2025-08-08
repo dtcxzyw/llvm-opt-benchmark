@@ -85,7 +85,7 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 0, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %1, i64 %35, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %38, %34
@@ -124,7 +124,7 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
 
 GostTransform.exit:                               ; preds = %38
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 62:                                               ; preds = %GostTransform.exit, %32
@@ -137,7 +137,7 @@ GostTransform.exit:                               ; preds = %38
   %64 = phi i64 [ %90, %GostTransform.exit55 ], [ %63, %62 ]
   %.157 = phi i64 [ %64, %GostTransform.exit55 ], [ %.0, %62 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 %.157
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %66
 
 66:                                               ; preds = %66, %.lr.ph
@@ -176,7 +176,7 @@ GostTransform.exit:                               ; preds = %38
 
 GostTransform.exit55:                             ; preds = %66
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %90 = add i64 %64, 32
   %.not47 = icmp ugt i64 %90, %2
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -201,20 +201,14 @@ GostTransform.exit55:                             ; preds = %66
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [8 x i32], align 16
   %4 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i8, ptr %5, align 8, !tbaa !12
@@ -223,7 +217,7 @@ define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, pt
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 73
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -262,7 +256,7 @@ define dso_local void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, pt
 
 GostTransform.exit:                               ; preds = %9
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %GostTransform.exit, %2
@@ -305,14 +299,14 @@ GostTransform.exit:                               ; preds = %9
 
 54:                                               ; preds = %37
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 120) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Gost(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #6 {
+define internal fastcc void @Gost(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #5 {
   %3 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0181.0.copyload = load i32, ptr %0, align 8
   %.sroa.12187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.12187.0.copyload = load i32, ptr %.sroa.12187.0..sroa_idx, align 4
@@ -1531,13 +1525,13 @@ define internal fastcc void @Gost(ptr noundef captures(none) %0, ptr noundef non
   %1142 = xor i32 %1141, %1027
   %1143 = xor i32 %1142, %1012
   store i32 %1143, ptr %.sroa.65.0..sroa_idx, align 4, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @php_hash_copy(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @php_hash_copy(ptr noundef, ptr noundef, ptr noundef) #6
 
-declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_gost_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
@@ -1563,16 +1557,22 @@ define internal i32 @php_gost_unserialize(ptr noundef %0, i64 noundef %1, ptr no
   ret i32 %.07
 }
 
-declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

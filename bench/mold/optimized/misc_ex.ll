@@ -57,7 +57,7 @@ define void @_ZN3tbb6detail2r115affinity_helperD2Ev(ptr noundef nonnull readonly
   %7 = load i32, ptr @_ZN3tbb6detail2r1L9num_masksE, align 4, !tbaa !11
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 7
-  %10 = tail call i32 @sched_setaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %9, ptr noundef nonnull %2) #11
+  %10 = tail call i32 @sched_setaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %9, ptr noundef nonnull %2) #10
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN3tbb6detail2r1L24set_thread_affinity_maskEmPK9cpu_set_t.exit, label %11
 
@@ -89,7 +89,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
   tail call void @_ZSt9terminatev() #15
   unreachable
 }
@@ -115,8 +115,8 @@ define void @_ZN3tbb6detail2r115affinity_helper21protect_affinity_maskEb(ptr nou
   %11 = select i1 %9, i64 -1, i64 %10
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #16
   store ptr %12, ptr %0, align 8, !tbaa !7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %12, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %10, i1 noundef false) #11
-  %13 = tail call i32 @sched_getaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %10, ptr noundef nonnull %12) #11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %12, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %10, i1 noundef false) #10
+  %13 = tail call i32 @sched_getaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %10, ptr noundef nonnull %12) #10
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit, label %14
 
@@ -140,7 +140,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit: ; preds = %7, %1
   br i1 %.not, label %_ZN3tbb6detail2r1L24set_thread_affinity_maskEmPK9cpu_set_t.exit, label %23
 
 23:                                               ; preds = %15
-  %24 = tail call i32 @sched_setaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %20, ptr noundef %16) #11
+  %24 = tail call i32 @sched_setaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %20, ptr noundef %16) #10
   %.not.i2 = icmp eq i32 %24, 0
   br i1 %.not.i2, label %_ZN3tbb6detail2r1L24set_thread_affinity_maskEmPK9cpu_set_t.exit, label %25
 
@@ -199,7 +199,7 @@ define noundef i32 @_ZN3tbb6detail2r122AvailableHwConcurrencyEv() local_unnamed_
   br i1 %8, label %9, label %_ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit.i
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @sysconf(i32 noundef 84) #11
+  %10 = tail call i64 @sysconf(i32 noundef 84) #10
   %11 = trunc i64 %10 to i32
   br label %12
 
@@ -212,9 +212,9 @@ define noundef i32 @_ZN3tbb6detail2r122AvailableHwConcurrencyEv() local_unnamed_
   %17 = select i1 %15, i64 -1, i64 %16
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #16
   %19 = sext i32 %14 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %18, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %19, i1 noundef false) #11
-  %20 = tail call i32 @getpid() #11
-  %21 = tail call i32 @sched_getaffinity(i32 noundef %20, i64 noundef %19, ptr noundef nonnull %18) #11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %18, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %19, i1 noundef false) #10
+  %20 = tail call i32 @getpid() #10
+  %21 = tail call i32 @sched_getaffinity(i32 noundef %20, i64 noundef %19, ptr noundef nonnull %18) #10
   %.not.i1 = icmp eq i32 %21, 0
   br i1 %.not.i1, label %29, label %22
 
@@ -234,12 +234,12 @@ define noundef i32 @_ZN3tbb6detail2r122AvailableHwConcurrencyEv() local_unnamed_
 
 29:                                               ; preds = %12
   store i32 %.043.i, ptr @_ZN3tbb6detail2r1L9num_masksE, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %30 = call noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN3tbb6detail2r1L13iompLinkTableE, i64 noundef 1, ptr noundef nonnull %1, i32 noundef 1)
   br i1 %30, label %31, label %60
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %32, align 8, !tbaa !10
@@ -257,8 +257,8 @@ define noundef i32 @_ZN3tbb6detail2r122AvailableHwConcurrencyEv() local_unnamed_
 
 .noexc.i:                                         ; preds = %34
   store ptr %39, ptr %2, align 8, !tbaa !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %39, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %37, i1 noundef false) #11
-  %40 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %37, ptr noundef nonnull %39) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %39, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %37, i1 noundef false) #10
+  %40 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %37, ptr noundef nonnull %39) #10
   %.not.i.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i.i, label %_ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i.i, label %41
 
@@ -280,8 +280,8 @@ _ZN3tbb6detail2r115affinity_helper21protect_affinity_maskEb.exit.i: ; preds = %_
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %18, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %19, i1 noundef false) #11
-  %47 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %19, ptr noundef nonnull %18) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %18, i8 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %19, i1 noundef false) #10
+  %47 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef range(i64 -274877906944, 274877906817) %19, ptr noundef nonnull %18) #10
   %.not.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i, label %_ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i, label %48
 
@@ -319,15 +319,15 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
           to label %58 unwind label %49
 
 58:                                               ; preds = %_ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i
-  call void @_ZN3tbb6detail2r115affinity_helperD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @_ZN3tbb6detail2r115affinity_helperD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
 59:                                               ; preds = %51, %49
   %.pn.i = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ]
-  call void @_ZN3tbb6detail2r115affinity_helperD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #11
+  call void @_ZN3tbb6detail2r115affinity_helperD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn.i
 
 60:                                               ; preds = %58, %29
@@ -345,7 +345,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
 ._crit_edge.i:                                    ; preds = %65, %60
   %.0.lcssa.i = phi i32 [ 0, %60 ], [ %spec.select.i, %65 ]
   store ptr %18, ptr @_ZN3tbb6detail2r1L12process_maskE, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZN3tbb6detail2r1L36initialize_hardware_concurrency_infoEv.exit
 
 65:                                               ; preds = %68
@@ -376,7 +376,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %80
-  %83 = tail call i64 @sysconf(i32 noundef 84) #11
+  %83 = tail call i64 @sysconf(i32 noundef 84) #10
   br label %86
 
 84:                                               ; preds = %80
@@ -408,7 +408,7 @@ _ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St
   br i1 %92, label %95, label %93
 
 93:                                               ; preds = %.lr.ph.i.i
-  %94 = tail call noundef i32 @sched_yield() #11
+  %94 = tail call noundef i32 @sched_yield() #10
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i
 
 95:                                               ; preds = %.lr.ph.i.i
@@ -442,38 +442,38 @@ _ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.e
   ret i32 %103
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+; Function Attrs: nounwind
+declare i32 @sched_setaffinity(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @_ZN3tbb6detail2r115runtime_warningEPKcz(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @sched_setaffinity(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
-
-declare void @_ZN3tbb6detail2r115runtime_warningEPKcz(ptr noundef, ...) local_unnamed_addr #9
+declare i32 @sched_getaffinity(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @sched_getaffinity(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #8
-
-; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #8
+declare i32 @getpid() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @_ZN3tbb6detail2r114dynamic_unlinkEPv(ptr noundef) local_unnamed_addr #9
-
-; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #11
+declare void @_ZN3tbb6detail2r114dynamic_unlinkEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #8
+declare void @llvm.x86.sse2.pause() #10
+
+; Function Attrs: nounwind
+declare i32 @sched_yield() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
@@ -488,11 +488,11 @@ attributes #3 = { cold nofree noreturn }
 attributes #4 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { builtin nounwind }

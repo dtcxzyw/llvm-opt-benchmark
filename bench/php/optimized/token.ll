@@ -162,9 +162,6 @@ lxb_css_syntax_token_string_free.exit:            ; preds = %12, %19
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden void @lxb_css_syntax_token_string_free(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -190,9 +187,6 @@ define hidden void @lxb_css_syntax_token_string_free(ptr noundef readonly captur
 }
 
 declare ptr @lexbor_dobject_free(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lxb_css_syntax_token_consume_n(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -328,7 +322,7 @@ declare ptr @lexbor_mraw_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @lexbor_str_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_string_make(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -419,7 +413,7 @@ declare i32 @lxb_css_syntax_tokenizer_cache_push(ptr noundef, ptr noundef) local
 declare ptr @lexbor_mraw_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_by_id(i32 noundef %0) local_unnamed_addr #4 {
+define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_by_id(i32 noundef %0) local_unnamed_addr #3 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 27
   br i1 %2, label %switch.lookup, label %4
@@ -458,7 +452,7 @@ declare ptr @lexbor_shs_entry_get_lower_static(ptr noundef, ptr noundef, i64 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8, !tbaa !26
   switch i32 %6, label %.loopexit [
@@ -758,7 +752,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
 
 .loopexit:                                        ; preds = %87, %98, %103, %3, %134, %126, %124, %116, %114, %.thread, %95, %108, %78, %70, %56, %48, %18, %148, %146, %140, %132, %122, %76, %64, %58, %50, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %12, %7
   %.0169 = phi i32 [ %11, %7 ], [ %17, %12 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %55, %50 ], [ %63, %58 ], [ %69, %64 ], [ %77, %76 ], [ %123, %122 ], [ %133, %132 ], [ %145, %140 ], [ %147, %146 ], [ %149, %148 ], [ %23, %18 ], [ %49, %48 ], [ %57, %56 ], [ %75, %70 ], [ %79, %78 ], [ %113, %.thread ], [ %96, %95 ], [ %112, %108 ], [ %115, %114 ], [ %121, %116 ], [ %125, %124 ], [ %131, %126 ], [ %139, %134 ], [ 1, %3 ], [ %104, %103 ], [ %102, %98 ], [ %92, %87 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0169
 }
 
@@ -778,7 +772,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   br i1 %10, label %181, label %11
 
 11:                                               ; preds = %7, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8, !tbaa !26
   switch i32 %13, label %lxb_css_syntax_token_serialize.exit [
@@ -1126,7 +1120,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
 
 lxb_css_syntax_token_serialize.exit:              ; preds = %112, %123, %128, %11, %14, %20, %27, %33, %36, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66, %69, %71, %78, %80, %87, %94, %100, %103, %120, %133, %.thread.i, %140, %142, %148, %151, %153, %159, %162, %168, %175, %178
   %.0169.i = phi i32 [ %..i44, %14 ], [ %..i43, %20 ], [ %..i41, %33 ], [ %..i40, %36 ], [ %..i39, %39 ], [ %..i38, %42 ], [ %..i37, %45 ], [ %..i36, %48 ], [ %..i35, %51 ], [ %..i34, %54 ], [ %..i33, %57 ], [ %..i32, %60 ], [ %..i31, %63 ], [ %..i30, %66 ], [ %..i28, %71 ], [ %..i26, %80 ], [ %..i25, %87 ], [ %..i23, %100 ], [ %..i13, %148 ], [ %..i10, %159 ], [ %..i8, %168 ], [ %..i7, %175 ], [ %..i, %178 ], [ 2, %27 ], [ 2, %69 ], [ 2, %78 ], [ 2, %94 ], [ 2, %103 ], [ %..i16, %.thread.i ], [ 2, %120 ], [ 2, %133 ], [ 2, %140 ], [ 2, %142 ], [ 2, %151 ], [ 2, %153 ], [ 2, %162 ], [ 1, %11 ], [ 2, %128 ], [ 2, %123 ], [ 2, %112 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %181
 
 181:                                              ; preds = %7, %lxb_css_syntax_token_serialize.exit
@@ -1142,10 +1136,10 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %4 = alloca [128 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca %struct.lexbor_str_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i32, ptr %7, align 8, !tbaa !26
   switch i32 %8, label %lxb_css_syntax_token_serialize.exit.thread [
@@ -1444,12 +1438,12 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   br label %lxb_css_syntax_token_serialize.exit
 
 lxb_css_syntax_token_serialize.exit.thread:       ; preds = %105, %100, %89, %20, %50, %58, %72, %80, %97, %110, %116, %118, %126, %128, %136, %2
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %313
 
 lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %52, %60, %66, %78, %.thread.i, %124, %134, %142, %148, %150
   %.0169.i = phi i32 [ %13, %9 ], [ %19, %14 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %57, %52 ], [ %65, %60 ], [ %71, %66 ], [ %79, %78 ], [ %125, %124 ], [ %135, %134 ], [ %147, %142 ], [ %149, %148 ], [ %151, %150 ], [ %115, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %.0169.i, 0
   br i1 %.not, label %152, label %313
 
@@ -1464,7 +1458,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
 157:                                              ; preds = %152
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %158, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %159 = load i32, ptr %7, align 8, !tbaa !26
   switch i32 %159, label %lxb_css_syntax_token_serialize.exit37.thread [
     i32 12, label %160
@@ -1762,13 +1756,13 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   br label %lxb_css_syntax_token_serialize.exit37
 
 lxb_css_syntax_token_serialize.exit37.thread:     ; preds = %256, %251, %240, %171, %201, %209, %223, %231, %248, %261, %267, %269, %277, %279, %287, %157
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %6, align 8, !tbaa !37
   br label %303
 
 lxb_css_syntax_token_serialize.exit37:            ; preds = %160, %165, %177, %179, %181, %183, %185, %187, %189, %191, %193, %195, %197, %199, %203, %211, %217, %229, %.thread.i30, %275, %285, %293, %299, %301
   %.0169.i12 = phi i32 [ %164, %160 ], [ %170, %165 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %208, %203 ], [ %216, %211 ], [ %222, %217 ], [ %230, %229 ], [ %276, %275 ], [ %286, %285 ], [ %298, %293 ], [ %300, %299 ], [ %302, %301 ], [ %266, %.thread.i30 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not9 = icmp eq i32 %.0169.i12, 0
   %.pre44 = load ptr, ptr %6, align 8, !tbaa !37
   br i1 %.not9, label %306, label %303
@@ -1804,8 +1798,8 @@ lxb_css_syntax_token_serialize.exit37:            ; preds = %160, %165, %177, %1
 
 315:                                              ; preds = %313, %314, %311
   %.0 = phi ptr [ %312, %311 ], [ null, %314 ], [ null, %313 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1844,7 +1838,7 @@ define hidden ptr @lxb_css_syntax_token_create_noi(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lxb_css_syntax_token_clean_noi(ptr noundef writeonly captures(none) initializes((0, 104)) %0) local_unnamed_addr #5 {
+define hidden void @lxb_css_syntax_token_clean_noi(ptr noundef writeonly captures(none) initializes((0, 104)) %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   ret void
 }
@@ -1856,7 +1850,7 @@ define hidden ptr @lxb_css_syntax_token_destroy_noi(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 80
   %.val = load i32, ptr %2, align 8, !tbaa !26
   %switch.tableidx = add i32 %.val, -1
@@ -1875,7 +1869,7 @@ lxb_css_syntax_token_type_name.exit:              ; preds = %1, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @lxb_css_syntax_token_type_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden i32 @lxb_css_syntax_token_type_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 80
   %.val = load i32, ptr %2, align 8, !tbaa !26
   ret i32 %.val
@@ -1886,16 +1880,22 @@ declare ptr @lexbor_str_append(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

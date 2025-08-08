@@ -1642,8 +1642,8 @@ _ZN19hb_ot_map_builder_t14add_gpos_pauseEPFbPK18hb_ot_shape_plan_tP9hb_font_tP11
 
 449:                                              ; preds = %446
   %450 = load i32, ptr %434, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %451 = load ptr, ptr %0, align 8
   %452 = load i32, ptr %435, align 4
   %453 = invoke i32 @hb_ot_layout_table_get_lookup_count(ptr noundef %451, i32 noundef %452)
@@ -1778,8 +1778,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i: ; preds = %49
   br i1 %508, label %.noexc310, label %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit, !llvm.loop !14
 
 _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.noexc311, %._crit_edge.i307
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %509
 
 509:                                              ; preds = %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit, %446, %444
@@ -1809,8 +1809,8 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.
   %525 = getelementptr inbounds nuw i8, ptr %.0239443, i64 32
   %526 = load i8, ptr %525, align 4
   %527 = load i32, ptr %.0239443, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %528 = load ptr, ptr %0, align 8
   %529 = load i32, ptr %435, align 4
   %530 = invoke i32 @hb_ot_layout_table_get_lookup_count(ptr noundef %528, i32 noundef %529)
@@ -1950,8 +1950,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i321: ; preds = 
   br i1 %588, label %533, label %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336, !llvm.loop !14
 
 _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336: ; preds = %.noexc335, %._crit_edge.i318
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %589
 
 589:                                              ; preds = %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336, %.lr.ph445
@@ -3416,10 +3416,10 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #11
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

@@ -31561,8 +31561,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN10JNIHandles16re
 define internal fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.FormatBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %3, null
   br i1 %9, label %.split20.i, label %.split.i
 
@@ -31753,8 +31753,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i30.i: ; preds = %73, %_ZN18Safep
   unreachable
 
 _ZL19check_wrapped_arrayP10JavaThreadPKcPvS3_Pm.exit: ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %4, label %77 [
     i32 0, label %75
     i32 1, label %76
@@ -41172,10 +41172,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

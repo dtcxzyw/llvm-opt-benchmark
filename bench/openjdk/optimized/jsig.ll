@@ -88,14 +88,14 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %3, %
 ._crit_edge:                                      ; preds = %15, %17
   %20 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %16
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %20, align 8
   %22 = call i32 @sigemptyset(ptr noundef nonnull %5) #9
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i32 0, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
   br label %53
 
@@ -125,7 +125,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %3, %
 call_os_signal.exit:                              ; preds = %29, %30
   %35 = phi ptr [ %31, %30 ], [ %27, %29 ]
   %36 = tail call ptr %35(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = zext nneg i32 %0 to i64
   %38 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %37
   store ptr %36, ptr %38, align 8
@@ -134,7 +134,7 @@ call_os_signal.exit:                              ; preds = %29, %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 136
   store i32 0, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = call i32 @sigaddset(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
   %43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
   br label %53
@@ -426,10 +426,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

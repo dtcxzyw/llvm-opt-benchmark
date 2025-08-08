@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54728c9b0e01f5b6E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hab398ab75256039fE"(ptr align 8 %0, ptr nonnull align 1 %2, ptr nonnull align 1 %4)
@@ -26,7 +25,6 @@ define { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$
   %.pn.i = phi { i64, i64 } [ %9, %8 ], [ %5, %1 ]
   %.sroa.0.0.i = phi i64 [ %10, %8 ], [ %6, %1 ]
   %.sroa.3.0.i = extractvalue { i64, i64 } %.pn.i, 1
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   %11 = icmp ne i64 %.sroa.0.0.i, 0
   %.sroa.3.0 = select i1 %11, i64 %.sroa.3.0.i, i64 undef
   %.sroa.0.0 = zext i1 %11 to i64
@@ -40,8 +38,7 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %3 = alloca { {} }, align 1
   %4 = alloca { i64, [15 x i64] }, align 16
   %5 = alloca { i64, [15 x i64] }, align 16
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17ha72fee4f4a1dbc7cE"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %4, ptr align 8 %1, ptr nonnull align 1 %3, ptr nonnull align 1 %7)
@@ -58,8 +55,7 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1608427781bc8218E.exit"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1608427781bc8218E.exit": ; preds = %10, %11
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load i64, ptr %5, align 16, !range !6, !noundef !3
   %13 = icmp eq i64 %12, 8
   br i1 %13, label %16, label %14
@@ -82,8 +78,7 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %3 = alloca { {} }, align 1
   %4 = alloca { i64, [15 x i64] }, align 16
   %5 = alloca { i64, [15 x i64] }, align 16
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h98998218371188cdE"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %4, ptr align 8 %1, ptr nonnull align 1 %3, ptr nonnull align 1 %7)
@@ -100,8 +95,7 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hba9d5ed6259a5cc6E.exit"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hba9d5ed6259a5cc6E.exit": ; preds = %10, %11
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load i64, ptr %5, align 16, !range !6, !noundef !3
   %13 = icmp eq i64 %12, 8
   br i1 %13, label %16, label %14
@@ -655,10 +649,10 @@ declare void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle.
 declare void @"_ZN128_$LT$core..option..Option$LT$V$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..option..Option$LT$A$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h36678a38e45dfac3E"(ptr sret({ { i64, ptr, {} }, i64 }) align 8, ptr align 1, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

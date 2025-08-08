@@ -1211,9 +1211,9 @@ define void @_ZNK3nix9BuiltPath8outPathsEv(ptr dead_on_unwind noalias writable s
   br i1 %switch.i.i, label %13, label %23
 
 13:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(65) %1), !noalias !34
   invoke void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ESt16initializer_listIS1_ERKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull %4, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %14 unwind label %21
@@ -1247,9 +1247,9 @@ common.resume.i.i:                                ; preds = %42, %21
 
 "_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt3setIN3nix9StorePathESt4lessIS6_ESaIS6_EEEEONS5_10overloadedIJZNKS5_9BuiltPath8outPathsEvE3$_0ZNKSD_8outPathsEvE3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !27
   br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 23:                                               ; preds = %12
@@ -1276,7 +1276,7 @@ common.resume.i.i:                                ; preds = %42, %21
 .lr.ph.i.i.i.i.i.i:                               ; preds = %23, %39
   %.sroa.01.04.i.i.i.i.i.i = phi ptr [ %40, %39 ], [ %30, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i.i.i.i.i, i64 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !49
   %34 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %.noexc.i.i.i.i.i.i unwind label %42
 
@@ -1292,7 +1292,7 @@ common.resume.i.i:                                ; preds = %42, %21
           to label %39 unwind label %42
 
 39:                                               ; preds = %36, %.noexc.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !49
   %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.04.i.i.i.i.i.i) #27
   %41 = icmp eq ptr %40, %31
   br i1 %41, label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath8outPathsEvE3$_0ZNKS2_8outPathsEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit", label %.lr.ph.i.i.i.i.i.i
@@ -1335,7 +1335,7 @@ define void @_ZNK3nix20SingleBuiltPathBuilt17discardOutputPathEv(ptr dead_on_unw
   br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !62
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !62
   call void @_ZNK3nix20SingleBuiltPathBuilt17discardOutputPathEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::SingleDerivedPathBuilt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(81) %6), !noalias !67
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %5, align 8
@@ -1474,7 +1474,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3nix22SingleDerivedPathBuiltD2Ev.exit
 
 _ZN3nix22SingleDerivedPathBuiltD2Ev.exit:         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %60, %73, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !62
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !62
   br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 "_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %12, %_ZN3nix22SingleDerivedPathBuiltD2Ev.exit
@@ -1488,7 +1488,7 @@ _ZN3nix22SingleDerivedPathBuiltD2Ev.exit:         ; preds = %_ZNSt7__cxx1112basi
           to label %81 unwind label %90
 
 81:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %83 = load i8, ptr %82, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %83, -1
@@ -1506,7 +1506,7 @@ _ZN3nix22SingleDerivedPathBuiltD2Ev.exit:         ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN3nix17SingleDerivedPathD2Ev.exit:              ; preds = %84, %81
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 88:                                               ; preds = %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
@@ -1538,7 +1538,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_17SingleDerivedPathEJS1_EEENS_3ref
   store i32 1, ptr %7, align 4, !noalias !70
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix17SingleDerivedPathESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !70
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !70
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 -1, ptr %9, align 8, !noalias !70
   store ptr %8, ptr %3, align 8, !noalias !70
@@ -1561,7 +1561,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i8, ptr %13, align 8, !noalias !70
   store i8 %14, ptr %9, align 8, !noalias !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !70
   store ptr %5, ptr %12, align 8, !alias.scope !70
   store ptr %8, ptr %4, align 8, !alias.scope !70
   store ptr %8, ptr %0, align 8
@@ -1716,7 +1716,7 @@ define void @_ZNK3nix15SingleBuiltPath17discardOutputPathEv(ptr dead_on_unwind n
 
 11:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !91
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !91
   call void @_ZNK3nix20SingleBuiltPathBuilt17discardOutputPathEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::SingleDerivedPathBuilt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(81) %1), !noalias !94
   %12 = load ptr, ptr %3, align 8, !noalias !97
   store ptr %12, ptr %0, align 8, !alias.scope !97
@@ -1855,7 +1855,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i"
 
 "_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %70, %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !91
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !91
   br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
 "_ZSt5visitIN3nix10overloadedIJZNKS0_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS2_17discardOutputPathEvE3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %9, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix17SingleDerivedPathEEEONS4_10overloadedIJZNKS4_15SingleBuiltPath17discardOutputPathEvE3$_0ZNKS8_17discardOutputPathEvE3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SI_.exit.i"
@@ -2025,7 +2025,7 @@ _ZNSt10shared_ptrIN3nix17SingleDerivedPathEED2Ev.exit: ; preds = %1, %20, %33, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix17SingleDerivedPathD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.160, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, -1
@@ -2047,7 +2047,7 @@ define linkonce_odr void @_ZN3nix17SingleDerivedPathD2Ev(ptr noundef nonnull ali
   unreachable
 
 _ZNSt7variantIJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEED2Ev.exit: ; preds = %1, %.noexc.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2856,13 +2856,13 @@ define void @_ZNK3nix9BuiltPath15toRealisedPathsERNS_5StoreE(ptr dead_on_unwind 
   ]
 
 32:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(65) %1)
           to label %.noexc5 unwind label %273
 
 .noexc5:                                          ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %.noexc.i.i.i.i.i.i unwind label %67
 
@@ -2903,8 +2903,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 240
   store i8 1, ptr %47, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %48 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(248) %23)
           to label %.noexc5.i.i.i.i.i.i unwind label %69
 
@@ -2920,7 +2920,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           to label %53 unwind label %69
 
 53:                                               ; preds = %50, %.noexc5.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %54 = load i8, ptr %47, align 8
   switch i8 %54, label %56 [
     i8 -1, label %_ZN3nix12RealisedPathD2Ev.exit.i.i.i.i.i.i
@@ -2989,25 +2989,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 "_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #26
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath15toRealisedPathsERNS0_5StoreEE3$_0ZNKS2_15toRealisedPathsES4_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 72:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %73 = load ptr, ptr %1, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %75 = load i8, ptr %74, align 8, !noalias !114
@@ -3314,7 +3314,7 @@ _ZN3nix9DrvOutputD2Ev.exit.i.i.i.i.i.i:           ; preds = %_ZNKSt7__cxx1112bas
 
 173:                                              ; preds = %172
   store i8 0, ptr %107, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %174 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(248) %17)
           to label %.noexc.i.i.i.i11.i.i unwind label %228
 
@@ -3330,7 +3330,7 @@ _ZN3nix9DrvOutputD2Ev.exit.i.i.i.i.i.i:           ; preds = %_ZNKSt7__cxx1112bas
           to label %179 unwind label %228
 
 179:                                              ; preds = %176, %.noexc.i.i.i.i11.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %180 = load i8, ptr %107, align 8
   switch i8 %180, label %182 [
     i8 -1, label %_ZN3nix12RealisedPathD2Ev.exit.i.i.i.i14.i.i
@@ -3475,7 +3475,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %_ZN3nix9StorePathC2ERKS0_.exit.i.i.i.i.i.i unwind label %153
 
 _ZN3nix9StorePathC2ERKS0_.exit.i.i.i.i.i.i:       ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %.noexc52.i.i.i.i.i.i unwind label %259
 
@@ -3509,8 +3509,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 0, ptr %97, align 8
   store i8 1, ptr %99, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %242 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(248) %19)
           to label %.noexc58.i.i.i.i.i.i unwind label %261
 
@@ -3526,7 +3526,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           to label %247 unwind label %261
 
 247:                                              ; preds = %244, %.noexc58.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %248 = load i8, ptr %99, align 8
   switch i8 %248, label %250 [
     i8 -1, label %_ZN3nix12RealisedPathD2Ev.exit65.i.i.i.i.i.i
@@ -3622,20 +3622,20 @@ _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3nix
   unreachable
 
 "_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON3nix10overloadedIJZNKS5_9BuiltPath15toRealisedPathsERNS5_5StoreEE3$_0ZNKS7_15toRealisedPathsES9_E3$_1EEERKSt7variantIJNS5_17DerivedPathOpaqueENS5_14BuiltPathBuiltEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_.exit.i.i": ; preds = %._crit_edge.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %"_ZSt5visitIN3nix10overloadedIJZNKS0_9BuiltPath15toRealisedPathsERNS0_5StoreEE3$_0ZNKS2_15toRealisedPathsES4_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 273:                                              ; preds = %.invoke, %_ZNK3nix15SingleBuiltPath7outPathEv.exit.i.i.i.i.i.i, %32
@@ -3833,8 +3833,8 @@ define linkonce_odr i8 @_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15Sin
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %3, align 1
   store ptr %3, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3898,18 +3898,18 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char
 
 _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit: ; preds = %31, %33
   %36 = phi i1 [ %32, %31 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %36, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread, label %37
 
 .sink.split:                                      ; preds = %2, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 37:                                               ; preds = %.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %5, align 1
   store ptr %5, ptr %6, align 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3972,13 +3972,13 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i10: ; preds = %_ZNSt11ch
 
 _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16: ; preds = %57, %59
   %62 = phi i1 [ %58, %57 ], [ %60, %59 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %62, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split: ; preds = %37, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i15, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16
@@ -3988,13 +3988,13 @@ _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp
   br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i10, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit, %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
@@ -4008,8 +4008,8 @@ define linkonce_odr i8 @_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_
   %5 = alloca %class.anon.139, align 8
   %6 = alloca i8, align 1
   %7 = alloca %class.anon.139, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %6, align 1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4060,34 +4060,34 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11ch
 
 28:                                               ; preds = %11
   %29 = icmp eq i8 %13, -1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %29, label %57, label %32
 
 30:                                               ; preds = %3
   unreachable
 
 _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit.thread: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
 
 _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit.thread17: ; preds = %3, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %32
 
 _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit: ; preds = %3
   call void @_ZZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_ENUlOT_T0_E_clIRKS2_St17integral_constantImLm1EEEEDaSA_SB_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %.pre.i = load i8, ptr %6, align 1
   %31 = trunc i8 %.pre.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %31, label %57, label %32
 
 32:                                               ; preds = %28, %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit.thread17, %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %4, align 1
   store ptr %4, ptr %5, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4138,21 +4138,21 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i11: ; preds = %_ZNSt11
 
 52:                                               ; preds = %36
   %53 = icmp eq i8 %.fr, -1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %53, label %56, label %57
 
 54:                                               ; preds = %32
   unreachable
 
 _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15.thread: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i11, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15.thread20: ; preds = %32, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i11, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15: ; preds = %32
@@ -4160,8 +4160,8 @@ _ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT
   %.pre.i6 = load i8, ptr %4, align 1
   %.pre.i6.fr = freeze i8 %.pre.i6
   %55 = trunc i8 %.pre.i6.fr to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %52, %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15.thread, %_ZStltIJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EES8_.exit15
@@ -4190,8 +4190,8 @@ _ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19varia
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %3, align 1
   store ptr %3, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4255,18 +4255,18 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i8: ; preds = %_ZNSt11cha
 
 _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14: ; preds = %36, %38
   %41 = phi i1 [ %37, %36 ], [ %39, %38 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %41, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %42
 
 .sink.split:                                      ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i12, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 42:                                               ; preds = %.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %5, align 1
   store ptr %5, ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4329,13 +4329,13 @@ _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char
 
 _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit: ; preds = %62, %64
   %67 = phi i1 [ %63, %62 ], [ %65, %64 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %67, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split: ; preds = %42, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
 
 _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
@@ -4344,13 +4344,13 @@ _ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp
   br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
 _ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i12, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i8, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
 _ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
 _ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit: ; preds = %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14, %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
@@ -4656,7 +4656,7 @@ define linkonce_odr void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ESt16i
   store i64 0, ptr %11, align 8
   %.idx = shl nsw i64 %2, 5
   %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %.not6.i = icmp eq i64 %2, 0
   br i1 %.not6.i, label %.loopexit, label %.lr.ph.i
@@ -4719,7 +4719,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_inse
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 33:                                               ; preds = %27, %.noexc.thread
@@ -5104,7 +5104,7 @@ _ZNSt12__shared_ptrIN3nix17SingleDerivedPathELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS2_22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.160, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %.not.i.i = icmp eq i8 %4, -1
@@ -5126,7 +5126,7 @@ define linkonce_odr void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJN3nix17
   unreachable
 
 _ZNSt8__detail9__variant16_Variant_storageILb0EJN3nix17DerivedPathOpaqueENS2_22SingleDerivedPathBuiltEEED2Ev.exit: ; preds = %1, %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5323,27 +5323,27 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_Iden
 15:                                               ; preds = %.lr.ph, %20
   %.02225 = phi ptr [ %.02223, %.lr.ph ], [ %.022, %20 ]
   %16 = getelementptr inbounds nuw i8, ptr %.02225, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %9, align 1
   store ptr %9, ptr %10, align 8
   store ptr %1, ptr %13, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix11RealisationENS4_10OpaquePathEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(248) %16)
   %17 = load i8, ptr %9, align 1
   %18 = trunc i8 %17 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %7, align 1
   store ptr %7, ptr %8, align 8
   store ptr %16, ptr %14, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix11RealisationENS4_10OpaquePathEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(248) %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %20
 
 20:                                               ; preds = %15, %19
@@ -5371,8 +5371,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_Iden
   %.021.lcssa29 = phi ptr [ %.021.lcssa30, %25 ], [ %.02225, %._crit_edge ]
   %.sroa.07.0 = phi ptr [ %26, %25 ], [ %.02225, %._crit_edge ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %5, align 1
   store ptr %5, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5380,20 +5380,20 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_Iden
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix11RealisationENS4_10OpaquePathEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(248) %1)
   %30 = load i8, ptr %5, align 1
   %31 = trunc i8 %30 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %3, align 1
   store ptr %3, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %33, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix11RealisationENS4_10OpaquePathEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(248) %28)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %27, %._crit_edge.thread, %32
@@ -5418,8 +5418,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_IdentityIS1_E
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %8, align 1
   store ptr %8, ptr %9, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5427,20 +5427,20 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_IdentityIS1_E
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix11RealisationENS4_10OpaquePathEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(248) %13)
   %15 = load i8, ptr %8, align 1
   %16 = trunc i8 %15 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %16, label %_ZNKSt4lessIN3nix12RealisedPathEEclERKS1_S4_.exit, label %_ZNKSt8__detail10_Synth3wayclISt7variantIJN3nix11RealisationENS3_10OpaquePathEEES6_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i
 
 _ZNKSt8__detail10_Synth3wayclISt7variantIJN3nix11RealisationENS3_10OpaquePathEEES6_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i: ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %6, align 1
   store ptr %6, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %17, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix11RealisationENS4_10OpaquePathEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(248) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNKSt4lessIN3nix12RealisedPathEEclERKS1_S4_.exit
 
 _ZNKSt4lessIN3nix12RealisedPathEEclERKS1_S4_.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclISt7variantIJN3nix11RealisationENS3_10OpaquePathEEES6_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, %12, %5
@@ -6337,7 +6337,7 @@ _ZN3nix9StorePathC2ERKS0_.exit:                   ; preds = %2
   br i1 %.not.i.i, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ERKS9_.exit, label %17
 
 17:                                               ; preds = %_ZN3nix9StorePathC2ERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %9, ptr %4, align 8
   %18 = invoke noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i unwind label %47
@@ -6365,7 +6365,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %18, ptr %11, align 8
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ERKS9_.exit
 
@@ -6387,7 +6387,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 34:                                               ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ERKS9_.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %35, ptr %3, align 8
   %36 = invoke noundef ptr @_ZNSt8_Rb_treeIN3nix9DrvOutputESt4pairIKS1_NS0_9StorePathEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i11 unwind label %49
@@ -6415,7 +6415,7 @@ _ZNSt8_Rb_treeIN3nix9DrvOutputESt4pairIKS1_NS0_9StorePathEESt10_Select1stIS5_ESt
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %36, ptr %28, align 8
   br label %_ZNSt3mapIN3nix9DrvOutputENS0_9StorePathESt4lessIS1_ESaISt4pairIKS1_S2_EEEC2ERKS9_.exit
 
@@ -7059,9 +7059,9 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJNSt7__cxx1112basic_stringIcSt11char
 .noexc:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i8 -7, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN5boost2io6detail13call_put_headIcSt11char_traitsIcEKN3nix7MagentaINSt7__cxx1112basic_stringIcS4_SaIcEEEEEEEvRSt13basic_ostreamIT_T0_EPKv, ptr %11, align 8
@@ -7071,11 +7071,11 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJNSt7__cxx1112basic_stringIcSt11char
           to label %.noexc.i unwind label %17
 
 .noexc.i:                                         ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN5boost2io6detail13call_put_headIcSt11char_traitsIcEKN3nix7MagentaINSt7__cxx1112basic_stringIcS4_SaIcEEEEEEEvRSt13basic_ostreamIT_T0_EPKv, ptr %14, align 8
@@ -7091,8 +7091,8 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJNSt7__cxx1112basic_stringIcSt11char
   br label %.body
 
 19:                                               ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %9) #26
   ret void
 
@@ -7198,7 +7198,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERK
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, i8 0, i64 21, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
@@ -7208,7 +7208,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERK
   store i64 0, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
   store i8 0, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -7708,7 +7708,7 @@ _ZNKSt5ctypeIcE5widenEc.exit97:                   ; preds = %162, %165
   %.0.i96 = phi i8 [ %164, %162 ], [ %169, %165 ]
   store i32 -1, ptr %9, align 8
   %170 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %171 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull align 1 dereferenceable(1) %4) #26
@@ -7718,9 +7718,9 @@ _ZNKSt5ctypeIcE5widenEc.exit97:                   ; preds = %162, %165
   store i64 0, ptr %172, align 8
   %173 = load ptr, ptr %170, align 8
   store i8 0, ptr %173, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
@@ -7730,7 +7730,7 @@ _ZNKSt5ctypeIcE5widenEc.exit97:                   ; preds = %162, %165
   store i64 0, ptr %176, align 8
   %177 = load ptr, ptr %174, align 8
   store i8 0, ptr %177, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i8 0, ptr %179, align 8
@@ -8763,7 +8763,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %20, %.noexc
 32:                                               ; preds = %_ZNKSt5ctypeIcE5widenEc.exit
   store i32 -1, ptr %8, align 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 1 dereferenceable(1) %6) #26
@@ -8773,9 +8773,9 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %20, %.noexc
   store i64 0, ptr %35, align 8
   %36 = load ptr, ptr %33, align 8
   store i8 0, ptr %36, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 1 dereferenceable(1) %5) #26
@@ -8785,7 +8785,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %20, %.noexc
   store i64 0, ptr %39, align 8
   %40 = load ptr, ptr %37, align 8
   store i8 0, ptr %40, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i8 0, ptr %42, align 8
@@ -8876,7 +8876,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
 72:                                               ; preds = %66
   store i32 -1, ptr %9, align 8
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 1 dereferenceable(1) %4) #26
@@ -8886,9 +8886,9 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
   store i64 0, ptr %75, align 8
   %76 = load ptr, ptr %73, align 8
   store i8 0, ptr %76, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
@@ -8898,7 +8898,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
   store i64 0, ptr %79, align 8
   %80 = load ptr, ptr %77, align 8
   store i8 0, ptr %80, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i8 0, ptr %82, align 8
@@ -9088,7 +9088,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost2io6detail22parse_printf_direct
   br i1 %.not288, label %26, label %18
 
 18:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %19 = and i8 %5, 1
   %.not.i = icmp eq i8 %19, 0
   br i1 %.not.i, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit, label %20
@@ -9117,7 +9117,7 @@ common.resume:                                    ; preds = %380, %274, %205, %1
   br label %common.resume
 
 _ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %524
 
 26:                                               ; preds = %6
@@ -9155,7 +9155,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %30, %33
   br i1 %.not289, label %53, label %42
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %43 = and i8 %5, 1
   %.not.i212 = icmp eq i8 %43, 0
   br i1 %.not.i212, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213, label %44
@@ -9181,7 +9181,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %30, %33
   br label %common.resume
 
 _ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213: ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %524
 
 53:                                               ; preds = %39, %_ZNKSt5ctypeIcE5widenEc.exit
@@ -9281,7 +9281,7 @@ _ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   br i1 %.not291, label %112, label %101
 
 101:                                              ; preds = %_ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET0_RKSG_SI_RT_RKT1_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %102 = and i8 %5, 1
   %.not.i218 = icmp eq i8 %102, 0
   br i1 %.not.i218, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219, label %103
@@ -9307,7 +9307,7 @@ _ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   br label %common.resume
 
 _ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219: ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %524
 
 112:                                              ; preds = %_ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET0_RKSG_SI_RT_RKT1_.exit
@@ -9488,7 +9488,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %159, %
 
 ._crit_edge:                                      ; preds = %192, %152
   %.lcssa = phi ptr [ %153, %152 ], [ %194, %192 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %197 = and i8 %5, 1
   %.not.i226 = icmp eq i8 %197, 0
   br i1 %.not.i226, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227, label %198
@@ -9514,7 +9514,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %159, %
   br label %common.resume
 
 _ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227: ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %524
 
 _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit.thread: ; preds = %165, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit
@@ -9627,7 +9627,7 @@ _ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   br i1 %.not293, label %276, label %265
 
 265:                                              ; preds = %262
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %266 = and i8 %5, 1
   %.not.i239 = icmp eq i8 %266, 0
   br i1 %.not.i239, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240, label %267
@@ -9653,7 +9653,7 @@ _ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   br label %common.resume
 
 _ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240: ; preds = %265
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %524
 
 276:                                              ; preds = %262
@@ -9869,7 +9869,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
 
 .loopexit.thread:                                 ; preds = %362, %320, %.loopexit
   %371 = phi ptr [ %.pre318, %.loopexit ], [ %321, %320 ], [ %364, %362 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %372 = and i8 %5, 1
   %.not.i251 = icmp eq i8 %372, 0
   br i1 %.not.i251, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252, label %373
@@ -9895,7 +9895,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   br label %common.resume
 
 _ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252: ; preds = %.loopexit.thread
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %524
 
 382:                                              ; preds = %.loopexit
@@ -13316,7 +13316,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost2
   br label %9
 
 9:                                                ; preds = %7, %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -13401,7 +13401,7 @@ _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_E
 
 _ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit: ; preds = %_ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit.loopexit, %.preheader.i, %20
   %52 = phi i32 [ %.pre, %_ZN5boost2io6detail10distributeIcSt11char_traitsIcESaIcERKNS1_10put_holderIcS4_EEEEvRNS_12basic_formatIT_T0_T1_EET2_.exit.loopexit ], [ %11, %.preheader.i ], [ %11, %20 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %10, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17057,7 +17057,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix17SingleDerivedPat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix17SingleDerivedPathESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.160, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, -1
@@ -17080,7 +17080,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix17SingleDerivedPat
   unreachable
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN3nix17SingleDerivedPathEEEvRS0_PT_.exit: ; preds = %1, %.noexc.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -18202,7 +18202,7 @@ define linkonce_odr void @_ZN8nlohmann6detail10type_error6createINS_10basic_json
           to label %13 unwind label %56
 
 13:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26, !noalias !189
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %16 unwind label %14
@@ -18215,7 +18215,7 @@ define linkonce_odr void @_ZN8nlohmann6detail10type_error6createINS_10basic_json
 
 16:                                               ; preds = %13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %17 unwind label %58
 
@@ -19214,10 +19214,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #22

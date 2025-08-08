@@ -435,7 +435,7 @@ declare noundef ptr @_ZN3zmq5ctx_t16choose_io_threadEm(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t9send_stopEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #6 align 2 {
   %2 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 64, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8, !tbaa !13
@@ -444,17 +444,11 @@ define void @_ZN3zmq8object_t9send_stopEv(ptr noundef nonnull align 8 dereferenc
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %5, i32 noundef %7, ptr noundef nonnull align 64 dereferenceable(64) %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
 declare void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648), i32 noundef, ptr noundef nonnull align 64 dereferenceable(64)) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t9send_plugEPNS_5own_tEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 {
@@ -466,7 +460,7 @@ define void @_ZN3zmq8object_t9send_plugEPNS_5own_tEb(ptr noundef nonnull readonl
   br label %6
 
 6:                                                ; preds = %5, %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %7, align 8, !tbaa !13
@@ -475,7 +469,7 @@ define void @_ZN3zmq8object_t9send_plugEPNS_5own_tEb(ptr noundef nonnull readonl
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %9, i32 noundef %11, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -496,7 +490,7 @@ define void @_ZN3zmq8object_t12send_commandERKNS_9command_tE(ptr noundef nonnull
 define void @_ZN3zmq8object_t8send_ownEPNS_5own_tES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.zmq::command_t", align 64
   tail call void @_ZN3zmq5own_t10inc_seqnumEv(ptr noundef nonnull align 8 dereferenceable(1444) %1)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8, !tbaa !13
@@ -507,7 +501,7 @@ define void @_ZN3zmq8object_t8send_ownEPNS_5own_tES2_(ptr noundef nonnull readon
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %10, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -521,7 +515,7 @@ define void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(
   br label %7
 
 7:                                                ; preds = %6, %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 64, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 3, ptr %8, align 8, !tbaa !13
@@ -532,14 +526,14 @@ define void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %11, i32 noundef %13, ptr noundef nonnull align 64 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t16send_conn_failedEPNS_14session_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 64, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 18, ptr %4, align 8, !tbaa !13
@@ -548,7 +542,7 @@ define void @_ZN3zmq8object_t16send_conn_failedEPNS_14session_base_tE(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %8, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -562,7 +556,7 @@ define void @_ZN3zmq8object_t9send_bindEPNS_5own_tEPNS_6pipe_tEb(ptr noundef non
   br label %7
 
 7:                                                ; preds = %6, %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 64, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 4, ptr %8, align 8, !tbaa !13
@@ -573,14 +567,14 @@ define void @_ZN3zmq8object_t9send_bindEPNS_5own_tEPNS_6pipe_tEb(ptr noundef non
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %11, i32 noundef %13, ptr noundef nonnull align 64 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 64, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 5, ptr %4, align 8, !tbaa !13
@@ -589,14 +583,14 @@ define void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnu
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %8, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t19send_activate_writeEPNS_6pipe_tEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 6, ptr %5, align 8, !tbaa !13
@@ -607,14 +601,14 @@ define void @_ZN3zmq8object_t19send_activate_writeEPNS_6pipe_tEm(ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %10, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t11send_hiccupEPNS_6pipe_tEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 7, ptr %5, align 8, !tbaa !13
@@ -625,14 +619,14 @@ define void @_ZN3zmq8object_t11send_hiccupEPNS_6pipe_tEPv(ptr noundef nonnull re
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %10, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t20send_pipe_peer_statsEPNS_6pipe_tEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 {
   %6 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 64, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 19, ptr %7, align 8, !tbaa !13
@@ -647,14 +641,14 @@ define void @_ZN3zmq8object_t20send_pipe_peer_statsEPNS_6pipe_tEmPNS_5own_tEPNS_
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %12, i32 noundef %14, ptr noundef nonnull align 64 dereferenceable(64) %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t23send_pipe_stats_publishEPNS_5own_tEmmPNS_19endpoint_uri_pair_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 {
   %6 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 64, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 20, ptr %7, align 8, !tbaa !13
@@ -669,14 +663,14 @@ define void @_ZN3zmq8object_t23send_pipe_stats_publishEPNS_5own_tEmmPNS_19endpoi
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %12, i32 noundef %14, ptr noundef nonnull align 64 dereferenceable(64) %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t14send_pipe_termEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 64, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 8, ptr %4, align 8, !tbaa !13
@@ -685,14 +679,14 @@ define void @_ZN3zmq8object_t14send_pipe_termEPNS_6pipe_tE(ptr noundef nonnull r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %8, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t18send_pipe_term_ackEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 64, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 9, ptr %4, align 8, !tbaa !13
@@ -701,14 +695,14 @@ define void @_ZN3zmq8object_t18send_pipe_term_ackEPNS_6pipe_tE(ptr noundef nonnu
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %8, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t13send_pipe_hwmEPNS_6pipe_tEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 64, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 10, ptr %6, align 8, !tbaa !13
@@ -721,14 +715,14 @@ define void @_ZN3zmq8object_t13send_pipe_hwmEPNS_6pipe_tEii(ptr noundef nonnull 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %10, i32 noundef %12, ptr noundef nonnull align 64 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t13send_term_reqEPNS_5own_tES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 11, ptr %5, align 8, !tbaa !13
@@ -739,14 +733,14 @@ define void @_ZN3zmq8object_t13send_term_reqEPNS_5own_tES2_(ptr noundef nonnull 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %10, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t9send_termEPNS_5own_tEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 12, ptr %5, align 8, !tbaa !13
@@ -757,14 +751,14 @@ define void @_ZN3zmq8object_t9send_termEPNS_5own_tEi(ptr noundef nonnull readonl
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %10, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 64, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %4, align 8, !tbaa !13
@@ -773,14 +767,14 @@ define void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull rea
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %8, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t18send_term_endpointEPNS_5own_tEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 64, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 14, ptr %5, align 8, !tbaa !13
@@ -791,14 +785,14 @@ define void @_ZN3zmq8object_t18send_term_endpointEPNS_5own_tEPNSt7__cxx1112basic
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %8, i32 noundef %10, ptr noundef nonnull align 64 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t9send_reapEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call noundef ptr @_ZNK3zmq5ctx_t10get_reaperEv(ptr noundef nonnull align 8 dereferenceable(648) %5)
@@ -811,7 +805,7 @@ define void @_ZN3zmq8object_t9send_reapEPNS_13socket_base_tE(ptr noundef nonnull
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %9, i32 noundef %11, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -820,7 +814,7 @@ declare noundef ptr @_ZNK3zmq5ctx_t10get_reaperEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t11send_reapedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #6 align 2 {
   %2 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call noundef ptr @_ZNK3zmq5ctx_t10get_reaperEv(ptr noundef nonnull align 8 dereferenceable(648) %4)
@@ -831,14 +825,14 @@ define void @_ZN3zmq8object_t11send_reapedEv(ptr noundef nonnull readonly align 
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %7, i32 noundef %9, ptr noundef nonnull align 64 dereferenceable(64) %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t21send_inproc_connectedEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 64, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 17, ptr %4, align 8, !tbaa !13
@@ -847,26 +841,26 @@ define void @_ZN3zmq8object_t21send_inproc_connectedEPNS_13socket_base_tE(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !12
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %6, i32 noundef %8, ptr noundef nonnull align 64 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8object_t9send_doneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #6 align 2 {
   %2 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 64, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 21, ptr %3, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   call void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648) %5, i32 noundef 0, ptr noundef nonnull align 64 dereferenceable(64) %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_stopEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t12process_stopEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 413) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -876,7 +870,7 @@ define void @_ZN3zmq8object_t12process_stopEv(ptr nonnull readnone align 8 captu
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_plugEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t12process_plugEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 418) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -886,7 +880,7 @@ define void @_ZN3zmq8object_t12process_plugEv(ptr nonnull readnone align 8 captu
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t11process_ownEPNS_5own_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t11process_ownEPNS_5own_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 423) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -896,7 +890,7 @@ define void @_ZN3zmq8object_t11process_ownEPNS_5own_tE(ptr nonnull readnone alig
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_attachEPNS_8i_engineE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t14process_attachEPNS_8i_engineE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 428) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -906,7 +900,7 @@ define void @_ZN3zmq8object_t14process_attachEPNS_8i_engineE(ptr nonnull readnon
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_bindEPNS_6pipe_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t12process_bindEPNS_6pipe_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 433) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -916,7 +910,7 @@ define void @_ZN3zmq8object_t12process_bindEPNS_6pipe_tE(ptr nonnull readnone al
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t21process_activate_readEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t21process_activate_readEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 438) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -926,7 +920,7 @@ define void @_ZN3zmq8object_t21process_activate_readEv(ptr nonnull readnone alig
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t22process_activate_writeEm(ptr nonnull readnone align 8 captures(none) %0, i64 %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t22process_activate_writeEm(ptr nonnull readnone align 8 captures(none) %0, i64 %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 443) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -936,7 +930,7 @@ define void @_ZN3zmq8object_t22process_activate_writeEm(ptr nonnull readnone ali
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_hiccupEPv(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t14process_hiccupEPv(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 448) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -946,7 +940,7 @@ define void @_ZN3zmq8object_t14process_hiccupEPv(ptr nonnull readnone align 8 ca
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t23process_pipe_peer_statsEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr nonnull readnone align 8 captures(none) %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t23process_pipe_peer_statsEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr nonnull readnone align 8 captures(none) %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #9 align 2 {
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 455) #13
   %7 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -956,7 +950,7 @@ define void @_ZN3zmq8object_t23process_pipe_peer_statsEmPNS_5own_tEPNS_19endpoin
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t26process_pipe_stats_publishEmmPNS_19endpoint_uri_pair_tE(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t26process_pipe_stats_publishEmmPNS_19endpoint_uri_pair_tE(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3) unnamed_addr #9 align 2 {
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 462) #13
   %7 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -966,7 +960,7 @@ define void @_ZN3zmq8object_t26process_pipe_stats_publishEmmPNS_19endpoint_uri_p
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t17process_pipe_termEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t17process_pipe_termEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 467) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -976,7 +970,7 @@ define void @_ZN3zmq8object_t17process_pipe_termEv(ptr nonnull readnone align 8 
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t21process_pipe_term_ackEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t21process_pipe_term_ackEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 472) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -986,7 +980,7 @@ define void @_ZN3zmq8object_t21process_pipe_term_ackEv(ptr nonnull readnone alig
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t16process_pipe_hwmEii(ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t16process_pipe_hwmEii(ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2) unnamed_addr #9 align 2 {
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 477) #13
   %6 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -996,7 +990,7 @@ define void @_ZN3zmq8object_t16process_pipe_hwmEii(ptr nonnull readnone align 8 
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t16process_term_reqEPNS_5own_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t16process_term_reqEPNS_5own_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 482) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1006,7 +1000,7 @@ define void @_ZN3zmq8object_t16process_term_reqEPNS_5own_tE(ptr nonnull readnone
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_termEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t12process_termEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 487) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1016,7 +1010,7 @@ define void @_ZN3zmq8object_t12process_termEi(ptr nonnull readnone align 8 captu
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t16process_term_ackEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t16process_term_ackEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 492) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1026,7 +1020,7 @@ define void @_ZN3zmq8object_t16process_term_ackEv(ptr nonnull readnone align 8 c
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t21process_term_endpointEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t21process_term_endpointEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 497) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1036,7 +1030,7 @@ define void @_ZN3zmq8object_t21process_term_endpointEPNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_reapEPNS_13socket_base_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t12process_reapEPNS_13socket_base_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !18
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 502) #13
   %5 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1046,7 +1040,7 @@ define void @_ZN3zmq8object_t12process_reapEPNS_13socket_base_tE(ptr nonnull rea
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_reapedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t14process_reapedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 507) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1056,7 +1050,7 @@ define void @_ZN3zmq8object_t14process_reapedEv(ptr nonnull readnone align 8 cap
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_seqnumEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t14process_seqnumEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 512) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1066,7 +1060,7 @@ define void @_ZN3zmq8object_t14process_seqnumEv(ptr nonnull readnone align 8 cap
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t19process_conn_failedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
+define void @_ZN3zmq8object_t19process_conn_failedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 517) #13
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -1074,6 +1068,12 @@ define void @_ZN3zmq8object_t19process_conn_failedEv(ptr nonnull readnone align 
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.1)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1084,8 +1084,8 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { builtin nounwind }
 attributes #13 = { cold nounwind }

@@ -394,7 +394,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   br i1 %.not.i.i.i, label %40, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hbbd601a33d0834b0E.exit"
 
 40:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !19
   store ptr @anon.d38b881a75336d54f1641bafdf4b5c5a.32, ptr %7, align 8, !noalias !19
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %41, align 8, !noalias !19
@@ -412,7 +412,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   br i1 %.not.i.i23.i, label %46, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hbbd601a33d0834b0E.exit"
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !27
   store ptr @anon.d38b881a75336d54f1641bafdf4b5c5a.32, ptr %6, align 8, !noalias !27
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %47, align 8, !noalias !27
@@ -595,7 +595,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   br i1 %.not.i.i.i, label %74, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hc33fec99b50df3d6E.exit"
 
 74:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !61
   store ptr @anon.d38b881a75336d54f1641bafdf4b5c5a.32, ptr %7, align 8, !noalias !61
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %75, align 8, !noalias !61
@@ -613,7 +613,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   br i1 %.not.i.i23.i, label %80, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hc33fec99b50df3d6E.exit"
 
 80:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !69
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !69
   store ptr @anon.d38b881a75336d54f1641bafdf4b5c5a.32, ptr %6, align 8, !noalias !69
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %81, align 8, !noalias !69
@@ -1223,7 +1223,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   br i1 %.not.i.i.i.i, label %83, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h33ce05b0113f633bE.exit.i"
 
 83:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !209
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !209
   store ptr @anon.d38b881a75336d54f1641bafdf4b5c5a.32, ptr %5, align 8, !noalias !209
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %84, align 8, !noalias !209
@@ -1241,7 +1241,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   br i1 %.not.i.i23.i.i, label %89, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h33ce05b0113f633bE.exit.i"
 
 89:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !217
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !217
   store ptr @anon.d38b881a75336d54f1641bafdf4b5c5a.32, ptr %4, align 8, !noalias !217
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %90, align 8, !noalias !217
@@ -1685,9 +1685,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd23d9f17b4a9e67dE.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24), i64 noundef, i32 noundef) unnamed_addr #1
 
@@ -1699,6 +1696,9 @@ declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h3201b9525c9
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h1323122aae3844b7E.llvm.11489394707175253082"(ptr noalias noundef align 8 dereferenceable(24), i64 noundef, i32 noundef) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

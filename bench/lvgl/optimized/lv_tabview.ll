@@ -64,15 +64,9 @@ define noundef ptr @lv_tabview_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_tabview_add_tab(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -128,11 +122,11 @@ define ptr @lv_tabview_get_content(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_pct(i32 noundef) local_unnamed_addr #2
+declare i32 @lv_pct(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_tabview_get_tab_bar(ptr noundef %0) local_unnamed_addr #0 {
@@ -140,11 +134,11 @@ define ptr @lv_tabview_get_tab_bar(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @lv_button_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_button_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @button_clicked_event_cb(ptr noundef %0) #0 {
@@ -156,17 +150,17 @@ define internal void @button_clicked_event_cb(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @lv_group_get_default() local_unnamed_addr #2
+declare ptr @lv_group_get_default() local_unnamed_addr #1
 
-declare void @lv_group_add_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_group_add_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_center(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_center(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_tabview_set_active(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -263,7 +257,7 @@ define void @lv_tabview_rename_tab(ptr noundef %0, i32 noundef %1, ptr noundef %
   ret void
 }
 
-declare ptr @lv_obj_get_child_by_type(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_child_by_type(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_tabview_get_tab_count(ptr noundef %0) local_unnamed_addr #0 {
@@ -279,17 +273,17 @@ define i32 @lv_tabview_get_tab_count(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %4
 }
 
-declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_scroll_to_x(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_to_x(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_content_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_content_height(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_scroll_to_y(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_to_y(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_set_state(ptr noundef, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_set_state(ptr noundef, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_tabview_set_tab_bar_position(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -375,19 +369,19 @@ define void @lv_tabview_set_tab_bar_position(ptr noundef %0, i32 noundef %1) loc
   ret void
 }
 
-declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_scroll_snap_x(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scroll_snap_x(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_scroll_snap_y(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scroll_snap_y(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_display_get_dpi(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_display_get_dpi(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_display(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_display(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_tabview_set_tab_bar_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -418,7 +412,7 @@ define void @lv_tabview_set_tab_bar_size(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_tabview_get_tab_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_tabview_get_tab_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -431,11 +425,11 @@ define i32 @lv_tabview_get_tab_active(ptr noundef readonly captures(address_is_n
   ret i32 %4
 }
 
-declare i32 @lv_obj_get_child_count_by_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_child_count_by_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @cont_scroll_end_event_cb(ptr noundef %0) #0 {
@@ -473,7 +467,7 @@ lv_tabview_get_tab_active.exit:                   ; preds = %6
   br i1 %14, label %39, label %15
 
 15:                                               ; preds = %11, %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_obj_get_scroll_end(ptr noundef %3, ptr noundef nonnull %2) #5
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %17 = load i32, ptr %16, align 4, !tbaa !3
@@ -520,42 +514,48 @@ lv_tabview_get_tab_active.exit40:                 ; preds = %19, %27
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %lv_tabview_get_tab_active.exit40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %39
 
 39:                                               ; preds = %lv_tabview_get_tab_active.exit, %1, %.critedge, %11
   ret void
 }
 
-declare void @lv_obj_set_scrollbar_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scrollbar_mode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare void @lv_obj_get_scroll_end(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_get_scroll_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_index_by_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_index_by_type(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

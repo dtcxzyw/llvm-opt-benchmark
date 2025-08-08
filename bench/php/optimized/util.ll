@@ -100,7 +100,7 @@ define hidden ptr @phar_get_link_source(ptr noundef captures(ret: address, prove
   br i1 %.not, label %61, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !18
   %6 = load i8, ptr %4, align 1, !tbaa !19
   %7 = icmp eq i8 %6, 47
@@ -175,7 +175,7 @@ zend_string_release.exit.i:                       ; preds = %41, %40, %33, %zend
 
 phar_get_link_location.exit:                      ; preds = %8, %11, %zend_string_release.exit.i
   %.0.i29 = phi ptr [ %10, %8 ], [ %42, %zend_string_release.exit.i ], [ %4, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
@@ -222,16 +222,10 @@ zend_hash_str_find_ptr.exit:                      ; preds = %49, %phar_get_link_
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @phar_get_efp(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -506,7 +500,7 @@ phar_get_pharfp.exit11:                           ; preds = %31, %33
   ret i32 %.0
 }
 
-declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @phar_seek_efp(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -619,7 +613,7 @@ phar_get_fp_offset.exit:                          ; preds = %16, %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @phar_get_fp_offset(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
+define internal fastcc i64 @phar_get_fp_offset(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 256
@@ -669,7 +663,7 @@ define internal fastcc i64 @phar_get_fp_offset(ptr noundef readonly captures(non
   ret i64 %.0
 }
 
-declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phar_mount_entry(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -684,14 +678,14 @@ define hidden range(i32 -1, 1) i32 @phar_mount_entry(ptr noundef %0, ptr noundef
   %11 = alloca ptr, align 8
   store ptr %3, ptr %8, align 8, !tbaa !18
   store i64 %4, ptr %9, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %.sroa.13)
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.13, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %.sroa.22, i8 0, i64 18, i1 false)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call i32 @phar_path_check(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #16
   %13 = icmp ugt i32 %12, 1
   br i1 %13, label %zend_string_release_ex.exit, label %14
@@ -774,13 +768,13 @@ zend_string_alloc.exit:                           ; preds = %30
 
 46:                                               ; preds = %zend_string_alloc.exit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %37, ptr %7, align 8, !tbaa !19
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 13, ptr %48, align 8, !tbaa !19
   %49 = call ptr @zend_hash_add(ptr noundef nonnull %47, ptr noundef nonnull %37, ptr noundef nonnull %7) #16
   %.not.i = icmp eq ptr %49, null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i, label %50, label %zend_hash_add_ptr.exit
 
 zend_hash_add_ptr.exit:                           ; preds = %46
@@ -803,7 +797,7 @@ zend_hash_add_ptr.exit:                           ; preds = %46
   %.sroa.524.0 = phi i32 [ %54, %51 ], [ 0, %zend_hash_add_ptr.exit ]
   %.sroa.2235.0 = phi i16 [ 17, %51 ], [ 25, %zend_hash_add_ptr.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !19
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 13, ptr %58, align 8, !tbaa !19
@@ -856,11 +850,11 @@ zend_hash_add_mem.exit:                           ; preds = %64, %66
   store i16 %.sroa.2235.0, ptr %.sroa.2235.0..sroa_idx, align 1
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 148
   store i32 0, ptr %.sroa.28.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zend_string_release_ex.exit
 
 69:                                               ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_efree(ptr noundef %.sroa.1330.044) #16
   %70 = load i32, ptr %38, align 4, !tbaa !19
   %71 = and i32 %70, 64
@@ -882,26 +876,26 @@ zend_hash_add_mem.exit:                           ; preds = %64, %66
 
 zend_string_release_ex.exit:                      ; preds = %zend_hash_add_mem.exit, %77, %72, %69, %17, %5, %50, %32, %29
   %.0 = phi i32 [ -1, %32 ], [ -1, %50 ], [ -1, %29 ], [ -1, %5 ], [ -1, %17 ], [ 0, %zend_hash_add_mem.exit ], [ -1, %69 ], [ -1, %72 ], [ -1, %77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %.sroa.13)
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @phar_path_check(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @phar_path_check(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #3
+declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 
-declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -912,12 +906,12 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %10
 
@@ -1135,20 +1129,20 @@ zend_hash_str_find_ptr.exit57:                    ; preds = %101
 
 .thread:                                          ; preds = %.thread.sink.split, %93, %17, %15, %79, %zend_string_starts_with_cstr_ci.exit60, %99, %37, %.thread66, %11
   %.0 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %.thread66 ], [ null, %37 ], [ %91, %99 ], [ %91, %zend_string_starts_with_cstr_ci.exit60 ], [ null, %79 ], [ null, %17 ], [ %91, %93 ], [ %.0.ph, %.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare zeroext i1 @zend_is_executing() local_unnamed_addr #3
+declare zeroext i1 @zend_is_executing() local_unnamed_addr #2
 
-declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #3
+declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #2
 
-declare i32 @phar_split_fname(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @phar_split_fname(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1244,12 +1238,12 @@ define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr noundef captures(none) 
 
 zend_hash_str_find_ptr.exit271.thread:            ; preds = %38, %43, %._crit_edge314
   %51 = load ptr, ptr %0, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %51, ptr %9, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 13, ptr %52, align 8, !tbaa !19
   %53 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 432), align 8, !tbaa !71
   %54 = trunc i64 %4 to i32
   store i32 %54, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 440), align 8, !tbaa !72
@@ -1438,12 +1432,12 @@ zend_hash_str_find_ptr.exit265.thread:            ; preds = %100, %97, %63
   br label %zend_hash_str_find_ptr.exit259.thread
 
 zend_hash_str_find_ptr.exit259.thread:            ; preds = %124, %129, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %107, ptr %8, align 8, !tbaa !19
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 13, ptr %134, align 8, !tbaa !19
   %135 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %136
 
 136:                                              ; preds = %zend_hash_str_find_ptr.exit259.thread, %106
@@ -1591,12 +1585,12 @@ zend_hash_str_find_ptr.exit247:                   ; preds = %213, %197
   br i1 %or.cond3, label %zend_hash_str_add_ptr.exit279, label %202
 
 zend_hash_str_add_ptr.exit279:                    ; preds = %zend_hash_str_find_ptr.exit247
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.1, ptr %7, align 8, !tbaa !19
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 13, ptr %200, align 8, !tbaa !19
   %201 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %202
 
 202:                                              ; preds = %zend_hash_str_add_ptr.exit279, %zend_hash_str_find_ptr.exit247
@@ -1634,18 +1628,18 @@ phar_free_alias.exit.thread:                      ; preds = %86, %79, %82, %zend
   ret i32 %.0
 }
 
-declare ptr @phar_fix_filepath(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @phar_fix_filepath(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @php_resolve_path(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @php_resolve_path(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i8, ptr %5, align 1, !tbaa !19
   %.not122 = icmp eq i8 %11, 114
   br i1 %.not122, label %12, label %16
@@ -2055,7 +2049,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(add
 
 205:                                              ; preds = %.thread144, %190, %197, %175, %172, %169, %153, %133, %140, %127, %118, %119, %110, %111, %.split159.us, %102, %94, %97, %86, %89, %73, %74, %30, %31, %.split, %16, %101, %93
   %.0 = phi i32 [ -1, %93 ], [ -1, %101 ], [ -1, %16 ], [ -1, %.split ], [ -1, %31 ], [ -1, %30 ], [ -1, %74 ], [ -1, %73 ], [ 0, %89 ], [ 0, %86 ], [ 0, %97 ], [ 0, %94 ], [ -1, %102 ], [ -1, %.split159.us ], [ -1, %111 ], [ -1, %110 ], [ -1, %119 ], [ -1, %118 ], [ -1, %127 ], [ 0, %140 ], [ 0, %133 ], [ -1, %153 ], [ -1, %169 ], [ -1, %172 ], [ -1, %175 ], [ 0, %197 ], [ 0, %190 ], [ -1, %.thread144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
@@ -2068,7 +2062,7 @@ define hidden ptr @phar_get_entry_info_dir(ptr noundef %0, ptr noundef %1, i64 n
   %11 = alloca %struct._php_stream_statbuf, align 8
   store ptr %1, ptr %7, align 8, !tbaa !18
   store i64 %2, ptr %8, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %17, label %12
 
@@ -2294,8 +2288,8 @@ zend_string_alloc.exit:                           ; preds = %76
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %129 = call ptr @zend_hash_find(ptr noundef nonnull %44, ptr noundef nonnull %121) #16
   %.not.i126 = icmp eq ptr %129, null
   br i1 %.not.i126, label %130, label %133
@@ -2420,13 +2414,13 @@ zend_hash_str_find_ptr.exit:                      ; preds = %179
 
 190:                                              ; preds = %zend_hash_str_find_ptr.exit.thread, %zend_hash_str_find_ptr.exit, %184, %174, %175, %165, %166, %158, %160, %141, %142, %130, %131, %151
   %.3 = phi ptr [ null, %151 ], [ null, %131 ], [ null, %130 ], [ null, %142 ], [ null, %141 ], [ null, %160 ], [ null, %158 ], [ null, %166 ], [ null, %165 ], [ null, %175 ], [ null, %174 ], [ null, %184 ], [ null, %zend_hash_str_find_ptr.exit ], [ %183, %zend_hash_str_find_ptr.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread140
 
 .thread140:                                       ; preds = %188, %105, %97, %102, %190, %70, %72, %66, %67, %58, %50, %43, %38, %39, %31, %32, %25, %26, %zend_string_alloc.exit
   %.0 = phi ptr [ %81, %zend_string_alloc.exit ], [ %.3, %190 ], [ null, %26 ], [ null, %25 ], [ null, %32 ], [ null, %31 ], [ null, %39 ], [ null, %38 ], [ null, %43 ], [ null, %50 ], [ null, %58 ], [ null, %67 ], [ null, %66 ], [ null, %72 ], [ %.mux, %70 ], [ null, %102 ], [ null, %97 ], [ null, %105 ], [ null, %188 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
 
@@ -2441,7 +2435,7 @@ define hidden range(i32 -1, 1) i32 @phar_copy_on_write(ptr noundef captures(none
   %2 = alloca %struct._zend_array, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8, !tbaa !58
   store ptr %5, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2455,7 +2449,7 @@ define hidden range(i32 -1, 1) i32 @phar_copy_on_write(ptr noundef captures(none
   br i1 %12, label %90, label %13
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call noalias ptr @_emalloc_320() #16
   %15 = load ptr, ptr %11, align 8, !tbaa !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %14, ptr noundef nonnull align 8 dereferenceable(320) %15, i64 320, i1 false), !tbaa.struct !96
@@ -2569,7 +2563,7 @@ phar_copy_cached_phar.exit.loopexit:              ; preds = %72
 
 phar_copy_cached_phar.exit:                       ; preds = %phar_copy_cached_phar.exit.loopexit, %42
   %74 = phi ptr [ %.pre, %phar_copy_cached_phar.exit.loopexit ], [ %14, %42 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 448), align 8, !tbaa !59
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 432), align 8, !tbaa !71
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 416), align 8, !tbaa !61
@@ -2582,13 +2576,13 @@ phar_copy_cached_phar.exit:                       ; preds = %phar_copy_cached_ph
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !70
   %80 = zext i32 %76 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %74, ptr %3, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %81, align 8, !tbaa !19
   %82 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %79, i64 noundef range(i64 1, 0) %80, ptr noundef nonnull %3) #16
   %.not.i = icmp eq ptr %82, null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i, label %83, label %zend_hash_str_add_ptr.exit
 
 83:                                               ; preds = %77
@@ -2606,11 +2600,11 @@ zend_hash_str_add_ptr.exit:                       ; preds = %77, %phar_copy_cach
 
 90:                                               ; preds = %1, %zend_hash_str_add_ptr.exit, %83
   %.0 = phi i32 [ -1, %83 ], [ 0, %zend_hash_str_add_ptr.exit ], [ -1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare noalias ptr @_emalloc_40() local_unnamed_addr #3
+declare noalias ptr @_emalloc_40() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @phar_create_writeable_entry(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -2869,7 +2863,7 @@ define hidden range(i32 -1, 1) i32 @phar_open_entry_fp(ptr noundef %0, ptr nound
   %4 = alloca %struct._phar_entry_data, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.thread, label %7
 
@@ -3375,7 +3369,7 @@ phar_set_fp_type.exit:                            ; preds = %237, %238
 
 255:                                              ; preds = %12, %phar_set_fp_type.exit, %phar_get_pharfp.exit122, %phar_get_pharfp.exit110, %17, %20, %23, %.thread, %227, %212, %phar_decompress_filter.exit.thread160, %127, %phar_open_archive_fp.exit.thread
   %.1 = phi i32 [ -1, %212 ], [ -1, %227 ], [ -1, %phar_decompress_filter.exit.thread160 ], [ -1, %127 ], [ -1, %phar_open_archive_fp.exit.thread ], [ %13, %12 ], [ 0, %.thread ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ %., %phar_get_pharfp.exit110 ], [ -1, %phar_get_pharfp.exit122 ], [ %.104, %phar_set_fp_type.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
@@ -3393,13 +3387,13 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
   %14 = alloca ptr, align 8
   store ptr %2, ptr %10, align 8, !tbaa !18
   store i64 %3, ptr %11, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.14)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.17)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %20, label %15
 
@@ -3536,7 +3530,7 @@ zend_string_alloc.exit:                           ; preds = %61, %58
   %85 = or disjoint i16 %68, %82
   %.sroa.1945.1 = or disjoint i16 %85, %83
   %86 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !19
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 13, ptr %87, align 8, !tbaa !19
@@ -3560,7 +3554,7 @@ zend_string_alloc.exit:                           ; preds = %61, %58
   br label %104
 
 97:                                               ; preds = %zend_string_alloc.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %98 = call i32 @_php_stream_free(ptr noundef nonnull %53, i32 noundef 3) #16
   %.not34 = icmp eq ptr %6, null
   br i1 %.not34, label %102, label %99
@@ -3617,7 +3611,7 @@ zend_string_alloc.exit:                           ; preds = %61, %58
   store i16 %.sroa.1945.1, ptr %.sroa.1945.0..sroa_idx, align 1
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 148
   store i32 0, ptr %.sroa.28.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %106 = getelementptr inbounds nuw i8, ptr %64, i64 264
   %107 = load i32, ptr %106, align 8, !tbaa !74
   %108 = add nsw i32 %107, 1
@@ -3633,17 +3627,17 @@ zend_string_alloc.exit:                           ; preds = %61, %58
 
 112:                                              ; preds = %47, %48, %34, %35, %29, %24, %20, %104, %102, %57
   %.0 = phi ptr [ null, %102 ], [ %52, %104 ], [ null, %57 ], [ null, %20 ], [ null, %24 ], [ %30, %29 ], [ null, %35 ], [ null, %34 ], [ null, %48 ], [ null, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.17)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
 }
 
-declare ptr @_php_stream_fopen_tmpfile(i32 noundef) local_unnamed_addr #3
+declare ptr @_php_stream_fopen_tmpfile(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phar_add_virtual_dirs(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -3732,9 +3726,9 @@ zend_string_release.exit:                         ; preds = %26, %31, %38, %39
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #6
+declare i64 @time(ptr noundef) local_unnamed_addr #5
 
-declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phar_copy_entry_fp(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3884,12 +3878,12 @@ phar_seek_efp.exit:                               ; preds = %26, %28, %phar_get_
   ret i32 %.027
 }
 
-declare i32 @_php_stream_copy_to_stream_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_php_stream_copy_to_stream_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @phar_postprocess_file(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @phar_postprocess_file(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @phar_decompress_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden noundef ptr @phar_decompress_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 2
@@ -3917,17 +3911,17 @@ define hidden noundef ptr @phar_decompress_filter(ptr noundef readonly captures(
   ret ptr %.05
 }
 
-declare ptr @php_stream_filter_create(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare ptr @php_stream_filter_create(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #3
+declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #2
 
-declare void @_php_stream_filter_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_php_stream_filter_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @php_stream_filter_remove(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @php_stream_filter_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @_php_stream_filter_flush(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_filter_flush(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @_php_stream_flush(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_flush(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @phar_open_jit(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4055,15 +4049,15 @@ define hidden range(i32 -1, 1) i32 @phar_free_alias(ptr noundef readonly capture
   ret i32 %.0
 }
 
-declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @phar_request_initialize() local_unnamed_addr #3
+declare void @phar_request_initialize() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @phar_compress_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden noundef ptr @phar_compress_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !102
   %5 = trunc i32 %4 to i16
@@ -4087,10 +4081,10 @@ define hidden noundef ptr @phar_compress_filter(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phar_verify_signature(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
@@ -4107,7 +4101,7 @@ define hidden range(i32 -1, 1) i32 @phar_verify_signature(ptr noundef %0, i64 no
   %20 = alloca [16 x i8], align 16
   %21 = alloca %struct.PHP_MD5_CTX, align 4
   store ptr %3, ptr %10, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %22 = tail call i32 @_php_stream_seek(ptr noundef %0, i64 noundef 0, i32 noundef 0) #16
   switch i32 %2, label %258 [
     i32 18, label %23
@@ -4120,8 +4114,8 @@ define hidden range(i32 -1, 1) i32 @phar_verify_signature(ptr noundef %0, i64 no
   ]
 
 23:                                               ; preds = %9, %9, %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %24 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef nonnull @.str.36, i64 noundef 7) #16
   %.not233 = icmp eq ptr %24, null
   br i1 %.not233, label %25, label %28
@@ -4279,18 +4273,18 @@ phar_hex_str.exit:                                ; preds = %74, %._crit_edge.lo
   %96 = getelementptr inbounds i8, ptr %95, i64 %.016.lcssa.i
   store i8 0, ptr %96, align 1, !tbaa !19
   store i64 %.016.lcssa.i, ptr %7, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %261
 
 97:                                               ; preds = %zend_string_release_ex.exit192, %58, %.critedge, %40, %25, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %261
 
 98:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %99 = icmp ult i64 %4, 64
   br i1 %99, label %100, label %103
 
@@ -4383,18 +4377,18 @@ phar_hex_str.exit202:                             ; preds = %.lr.ph.i194
   %136 = getelementptr inbounds nuw i8, ptr %.pre.i200, i64 128
   store i8 0, ptr %136, align 1, !tbaa !19
   store i64 128, ptr %7, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %261
 
 137:                                              ; preds = %108, %109, %100, %101
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %261
 
 138:                                              ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %139 = icmp ult i64 %4, 32
   br i1 %139, label %140, label %143
 
@@ -4487,18 +4481,18 @@ phar_hex_str.exit211:                             ; preds = %.lr.ph.i203
   %176 = getelementptr inbounds nuw i8, ptr %.pre.i209, i64 64
   store i8 0, ptr %176, align 1, !tbaa !19
   store i64 64, ptr %7, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %17) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %261
 
 177:                                              ; preds = %148, %149, %140, %141
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %17) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %261
 
 178:                                              ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #16
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %179 = icmp ult i64 %4, 20
   br i1 %179, label %180, label %183
 
@@ -4591,18 +4585,18 @@ phar_hex_str.exit220:                             ; preds = %.lr.ph.i212
   %216 = getelementptr inbounds nuw i8, ptr %.pre.i218, i64 40
   store i8 0, ptr %216, align 1, !tbaa !19
   store i64 40, ptr %7, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %19) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %261
 
 217:                                              ; preds = %188, %189, %180, %181
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %19) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %261
 
 218:                                              ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #16
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %21) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %219 = icmp ult i64 %4, 16
   br i1 %219, label %220, label %223
 
@@ -4695,13 +4689,13 @@ phar_hex_str.exit229:                             ; preds = %.lr.ph.i221
   %256 = getelementptr inbounds nuw i8, ptr %.pre.i227, i64 32
   store i8 0, ptr %256, align 1, !tbaa !19
   store i64 32, ptr %7, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %21) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %261
 
 257:                                              ; preds = %228, %229, %220, %221
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %21) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %261
 
 258:                                              ; preds = %9
@@ -4714,18 +4708,18 @@ phar_hex_str.exit229:                             ; preds = %.lr.ph.i221
 
 261:                                              ; preds = %phar_hex_str.exit, %phar_hex_str.exit202, %phar_hex_str.exit211, %phar_hex_str.exit220, %phar_hex_str.exit229, %258, %259, %257, %217, %177, %137, %97
   %.1110 = phi i32 [ -1, %97 ], [ -1, %137 ], [ -1, %177 ], [ -1, %217 ], [ -1, %257 ], [ -1, %259 ], [ -1, %258 ], [ 0, %phar_hex_str.exit229 ], [ 0, %phar_hex_str.exit220 ], [ 0, %phar_hex_str.exit211 ], [ 0, %phar_hex_str.exit202 ], [ 0, %phar_hex_str.exit ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.1110
 }
 
-declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @phar_call_openssl_signverify(i1 noundef zeroext %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca [4 x %struct._zval_struct], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !109
   br i1 %0, label %12, label %14
 
@@ -5053,36 +5047,36 @@ zval_ptr_dtor_str.exit86:                         ; preds = %zval_ptr_dtor_str.e
 
 zval_ptr_dtor_str.exit80:                         ; preds = %14, %12, %76, %71, %zval_ptr_dtor_str.exit77, %148, %160, %151
   %.0 = phi i32 [ -1, %160 ], [ 0, %151 ], [ %., %148 ], [ -1, %zval_ptr_dtor_str.exit77 ], [ -1, %71 ], [ -1, %76 ], [ -1, %12 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
-declare void @PHP_SHA512InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_SHA512InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA512Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @PHP_SHA512Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA512Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_SHA512Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA256InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_SHA256InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA256Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @PHP_SHA256Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA256Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_SHA256Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA1InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_SHA1InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA1Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @PHP_SHA1Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PHP_SHA1Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_SHA1Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PHP_MD5InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_MD5InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PHP_MD5Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @PHP_MD5Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PHP_MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PHP_MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -5097,7 +5091,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %14 = alloca %struct.PHP_SHA1_CTX, align 4
   %15 = alloca [16 x i8], align 16
   %16 = alloca %struct.PHP_MD5_CTX, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = tail call i32 @_php_stream_seek(ptr noundef %1, i64 noundef 0, i32 noundef 0) #16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %19 = load ptr, ptr %18, align 8, !tbaa !100
@@ -5123,8 +5117,8 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   ]
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @PHP_SHA512InitArgs(ptr noundef nonnull %8, ptr noundef null) #16
   %25 = call i64 @_php_stream_read(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 1024) #16
   %.not4754 = icmp eq i64 %25, 0
@@ -5142,8 +5136,8 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %28 = call noalias ptr @_estrndup(ptr noundef nonnull %7, i64 noundef 64) #16
   store ptr %28, ptr %2, align 8, !tbaa !18
   store i64 64, ptr %3, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 29:                                               ; preds = %21
@@ -5151,8 +5145,8 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   br label %30
 
 30:                                               ; preds = %29, %21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @PHP_SHA256InitArgs(ptr noundef nonnull %10, ptr noundef null) #16
   %31 = call i64 @_php_stream_read(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 1024) #16
   %.not4858 = icmp eq i64 %31, 0
@@ -5170,13 +5164,13 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %34 = call noalias ptr @_estrndup(ptr noundef nonnull %9, i64 noundef 32) #16
   store ptr %34, ptr %2, align 8, !tbaa !18
   store i64 32, ptr %3, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %60
 
 35:                                               ; preds = %21, %21, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %11, align 8, !tbaa !18
   store i64 0, ptr %12, align 8, !tbaa !51
   %36 = tail call i32 @_php_stream_seek(ptr noundef %1, i64 noundef 0, i32 noundef 2) #16
@@ -5199,8 +5193,8 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   br label %.thread
 
 .thread:                                          ; preds = %43, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %94
 
 47:                                               ; preds = %35
@@ -5208,13 +5202,13 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   store ptr %48, ptr %2, align 8, !tbaa !18
   %49 = load i64, ptr %12, align 8, !tbaa !51
   store i64 %49, ptr %3, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %60
 
 50:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @PHP_SHA1InitArgs(ptr noundef nonnull %14, ptr noundef null) #16
   %51 = call i64 @_php_stream_read(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 1024) #16
   %.not4450 = icmp eq i64 %51, 0
@@ -5232,13 +5226,13 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %54 = call noalias ptr @_estrndup(ptr noundef nonnull %13, i64 noundef 20) #16
   store ptr %54, ptr %2, align 8, !tbaa !18
   store i64 20, ptr %3, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %60
 
 55:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @PHP_MD5InitArgs(ptr noundef nonnull %16, ptr noundef null) #16
   %56 = call i64 @_php_stream_read(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 1024) #16
   %.not4349 = icmp eq i64 %56, 0
@@ -5256,8 +5250,8 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %59 = call noalias ptr @_estrndup(ptr noundef nonnull %15, i64 noundef 16) #16
   store ptr %59, ptr %2, align 8, !tbaa !18
   store i64 16, ptr %3, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %60
 
 60:                                               ; preds = %47, %._crit_edge, %._crit_edge53, %._crit_edge61, %._crit_edge57
@@ -5325,68 +5319,68 @@ phar_hex_str.exit:                                ; preds = %69, %._crit_edge.lo
 
 94:                                               ; preds = %.thread, %phar_hex_str.exit
   %.1 = phi i32 [ 0, %phar_hex_str.exit ], [ -1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
-declare ptr @zend_hash_add_empty_element(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_add_empty_element(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #10
 
-declare noalias ptr @_emalloc_32() local_unnamed_addr #3
+declare noalias ptr @_emalloc_32() local_unnamed_addr #2
 
-declare noalias ptr @_emalloc_160() local_unnamed_addr #3
+declare noalias ptr @_emalloc_160() local_unnamed_addr #2
 
-declare noalias ptr @_emalloc_320() local_unnamed_addr #3
+declare noalias ptr @_emalloc_320() local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
 
-declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
-declare i32 @_php_stream_truncate_set_size(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_truncate_set_size(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_efree_32(ptr noundef) local_unnamed_addr #3
+declare void @_efree_32(ptr noundef) local_unnamed_addr #2
 
-declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #3
+declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @_safe_malloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @_safe_malloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @phar_metadata_tracker_clone(ptr noundef) local_unnamed_addr #3
+declare void @phar_metadata_tracker_clone(ptr noundef) local_unnamed_addr #2
 
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @destroy_phar_manifest_entry(ptr noundef) #3
+declare void @destroy_phar_manifest_entry(ptr noundef) #2
 
-declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @phar_manifest_copy_ctor(ptr noundef captures(none) %0) #0 {
@@ -5397,7 +5391,7 @@ define internal void @phar_manifest_copy_ctor(ptr noundef captures(none) %0) #0 
   ret void
 }
 
-declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @phar_update_cached_entry(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -5450,6 +5444,12 @@ zend_string_addref.exit:                          ; preds = %14, %20
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
@@ -5457,19 +5457,19 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

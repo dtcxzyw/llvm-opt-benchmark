@@ -1996,7 +1996,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.16, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %85
 
@@ -2181,7 +2181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit11.i.i.i.i: ; preds = %74,
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %87 = ptrtoint ptr %5 to i64
   %88 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE, i64 0, i64 %87 seq_cst seq_cst, align 8
   %89 = extractvalue { i64, i1 } %88, 1
@@ -3456,7 +3456,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullRprim9_I
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread: ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %23
 
 _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit: ; preds = %3
@@ -3468,7 +3468,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.
   %16 = select i1 %.not1.i.i.i, i64 %12, i64 %10
   %.pre17 = and i64 %16, 7
   %17 = icmp eq i64 %.pre17, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit
@@ -3516,7 +3516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.
   br label %.body
 
 42:                                               ; preds = %29, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.pre-phi20, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit, label %43
 
 43:                                               ; preds = %42
@@ -5146,7 +5146,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19TfDelegatedCountPtrINS0_8_CountedIS7_EEEENS0_15_RemoteTypeInfoIS7_EEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %4, align 8
@@ -5156,7 +5156,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %7 = load i64, ptr %2, align 8
   %8 = mul i64 %7, -7046029254386353067
   %9 = call noundef i64 @llvm.bswap.i64(i64 %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %9
 }
 
@@ -5564,7 +5564,7 @@ define internal void @_GLOBAL__sub_I_unitTestNullRenderDelegate.cpp() #15 sectio
   %2 = alloca [3 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %5 = inttoptr i64 %4 to ptr
   %.not.i.i.i = icmp eq i64 %4, 0
@@ -5852,8 +5852,8 @@ common.resume:                                    ; preds = %_ZN32pxrInternal_v0
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
   %120 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__29Hd_UnitTestNullRenderDelegate21SUPPORTED_RPRIM_TYPESE, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %121 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %122 = inttoptr i64 %121 to ptr
   %.not.i.i.i1 = icmp eq i64 %121, 0
@@ -6192,7 +6192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i: ; preds = %255, %249
 
 __cxx_global_var_init.2.exit:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i28
   %260 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__29Hd_UnitTestNullRenderDelegate21SUPPORTED_SPRIM_TYPESE, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN32pxrInternal_v0_24__pxrReserved__29Hd_UnitTestNullRenderDelegate21SUPPORTED_BPRIM_TYPESE, i8 0, i64 24, i1 false)
   %261 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__29Hd_UnitTestNullRenderDelegate21SUPPORTED_BPRIM_TYPESE, ptr nonnull @__dso_handle) #22
   ret void
@@ -6214,10 +6214,10 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20

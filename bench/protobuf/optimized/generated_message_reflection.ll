@@ -11253,12 +11253,12 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 sw.bb:                                            ; preds = %land.lhs.true2.i
   %call1 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawIN4absl12lts_202308024CordEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef %lhs, ptr noundef nonnull %field)
   %call2 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawIN4absl12lts_202308024CordEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef %rhs, ptr noundef nonnull %field)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %call1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1, ptr noundef nonnull align 8 dereferenceable(16) %call2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %land.lhs.true2.i, %land.lhs.true.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
@@ -11616,12 +11616,12 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 sw.bb:                                            ; preds = %land.lhs.true2.i
   %call1 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawIN4absl12lts_202308024CordEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef %lhs, ptr noundef nonnull %field)
   %call2 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawIN4absl12lts_202308024CordEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef %rhs, ptr noundef nonnull %field)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %call1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1, ptr noundef nonnull align 8 dereferenceable(16) %call2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %land.lhs.true2.i, %land.lhs.true.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
@@ -12619,7 +12619,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %view.i)
   %data_.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %0 = load ptr, ptr %data_.i, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %0)
@@ -12643,7 +12643,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
 
 invoke.cont3:                                     ; preds = %invoke.cont.i
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i) #30
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %view.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %view.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, i64 17, ptr nonnull @.str.107)
           to label %invoke.cont5 unwind label %lpad
 
@@ -13146,8 +13146,8 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp32.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32.i)
   %type_once_.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %6 = load ptr, ptr %type_once_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -14020,8 +14020,8 @@ _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14S
   %idx.ext.i.i.i.i = zext i32 %add.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 %idx.ext.i.i.i.i
   store i32 0, ptr %add.ptr.i.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp32.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32.i)
   br label %if.end
 
 lpad:                                             ; preds = %sw.default28.i241, %sw.bb23.i214, %sw.bb21.i228, %if.then5.i.i.i.i58.i, %if.then.i.i.i.i56.i, %lor.lhs.false.i.i.i.i52.i, %sw.bb17.i229, %sw.bb15.i230, %sw.bb13.i231, %sw.bb11.i233, %sw.bb9.i234, %sw.bb7.i235, %sw.bb5.i236, %sw.bb3.i237, %sw.bb.i238, %if.then5.i.i.i.i.i250, %if.then.i.i.i.i.i248, %lor.lhs.false.i.i.i.i.i205, %sw.default28.i154, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper17GetArenaStringPtrEv.exit.i67, %sw.bb23.i66, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetCordEv.exit.i96, %sw.bb21.i95, %if.then5.i.i.i.i328.i, %if.then.i.i.i.i326.i, %lor.lhs.false.i.i.i.i322.i, %call.i.i.noexc185, %sw.bb17.i97, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetEnumEv.exit.i99, %sw.bb15.i98, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetBoolEv.exit.i101, %sw.bb13.i100, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetDoubleEv.exit.i104, %sw.bb11.i103, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetFloatEv.exit.i106, %sw.bb9.i105, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint64Ev.exit.i108, %sw.bb7.i107, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint32Ev.exit.i110, %sw.bb5.i109, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt64Ev.exit.i112, %sw.bb3.i111, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt32Ev.exit.i139, %sw.bb.i113, %if.then5.i.i.i.i.i163, %if.then.i.i.i.i.i161, %lor.lhs.false.i.i.i.i.i57, %sw.default28.i, %sw.bb23.i, %sw.bb21.i, %if.then5.i.i.i.i303.i, %if.then.i.i.i.i301.i, %lor.lhs.false.i.i.i.i297.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb.i, %if.then5.i.i.i.i.i, %if.then.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.then6, %if.then
@@ -14041,8 +14041,8 @@ if.then6:                                         ; preds = %if.end
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp29.i50)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp32.i51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32.i51)
   %type_once_.i.i.i52 = getelementptr inbounds nuw i8, ptr %call9, i64 24
   %131 = load ptr, ptr %type_once_.i.i.i52, align 8
   %tobool.not.i.i.i53 = icmp eq ptr %131, null
@@ -14165,13 +14165,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i.i141 = zext i32 %call.i.i.i.i169 to i64
   %add.ptr.i10.i.i.i.i142 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i140, i64 %idx.ext.i9.i.i.i.i141
   %147 = load i32, ptr %add.ptr.i10.i.i.i.i142, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i.i)
   store i32 %147, ptr %v.addr.i.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i.i)
           to label %.noexc170 unwind label %lpad
 
 .noexc170:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt32Ev.exit.i139
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb3.i111:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14241,13 +14241,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i53.i = zext i32 %call.i.i.i29.i171 to i64
   %add.ptr.i10.i.i.i54.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i52.i, i64 %idx.ext.i9.i.i.i53.i
   %157 = load i64, ptr %add.ptr.i10.i.i.i54.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i64.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i64.i)
   store i64 %157, ptr %v.addr.i64.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i64.i)
           to label %.noexc172 unwind label %lpad
 
 .noexc172:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt64Ev.exit.i112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i64.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i64.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb5.i109:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14317,13 +14317,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i94.i = zext i32 %call.i.i.i70.i173 to i64
   %add.ptr.i10.i.i.i95.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i93.i, i64 %idx.ext.i9.i.i.i94.i
   %167 = load i32, ptr %add.ptr.i10.i.i.i95.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i105.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i105.i)
   store i32 %167, ptr %v.addr.i105.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i105.i)
           to label %.noexc174 unwind label %lpad
 
 .noexc174:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint32Ev.exit.i110
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i105.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i105.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb7.i107:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14393,13 +14393,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i135.i = zext i32 %call.i.i.i111.i175 to i64
   %add.ptr.i10.i.i.i136.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i134.i, i64 %idx.ext.i9.i.i.i135.i
   %177 = load i64, ptr %add.ptr.i10.i.i.i136.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i146.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i146.i)
   store i64 %177, ptr %v.addr.i146.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i146.i)
           to label %.noexc176 unwind label %lpad
 
 .noexc176:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint64Ev.exit.i108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i146.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i146.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb9.i105:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14469,13 +14469,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i176.i = zext i32 %call.i.i.i152.i177 to i64
   %add.ptr.i10.i.i.i177.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i175.i, i64 %idx.ext.i9.i.i.i176.i
   %187 = load float, ptr %add.ptr.i10.i.i.i177.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i187.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i187.i)
   store float %187, ptr %v.addr.i187.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i187.i)
           to label %.noexc178 unwind label %lpad
 
 .noexc178:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetFloatEv.exit.i106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i187.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i187.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb11.i103:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14545,13 +14545,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i217.i = zext i32 %call.i.i.i193.i179 to i64
   %add.ptr.i10.i.i.i218.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i216.i, i64 %idx.ext.i9.i.i.i217.i
   %197 = load double, ptr %add.ptr.i10.i.i.i218.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i228.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i228.i)
   store double %197, ptr %v.addr.i228.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i228.i)
           to label %.noexc180 unwind label %lpad
 
 .noexc180:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetDoubleEv.exit.i104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i228.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i228.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb13.i100:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14621,14 +14621,14 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i258.i = zext i32 %call.i.i.i234.i181 to i64
   %add.ptr.i10.i.i.i259.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i257.i, i64 %idx.ext.i9.i.i.i258.i
   %207 = load i8, ptr %add.ptr.i10.i.i.i259.i, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i269.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i269.i)
   %frombool.i.i102 = and i8 %207, 1
   store i8 %frombool.i.i102, ptr %v.addr.i269.i, align 1
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 1 dereferenceable(1) %v.addr.i269.i)
           to label %.noexc182 unwind label %lpad
 
 .noexc182:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetBoolEv.exit.i101
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i269.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i269.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb15.i98:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14698,13 +14698,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i299.i = zext i32 %call.i.i.i275.i183 to i64
   %add.ptr.i10.i.i.i300.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i298.i, i64 %idx.ext.i9.i.i.i299.i
   %217 = load i32, ptr %add.ptr.i10.i.i.i300.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i310.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i310.i)
   store i32 %217, ptr %v.addr.i310.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i310.i)
           to label %.noexc184 unwind label %lpad
 
 .noexc184:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetEnumEv.exit.i99
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i310.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i310.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb17.i97:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14840,13 +14840,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i356.i = zext i32 %call.i.i.i332.i191 to i64
   %add.ptr.i10.i.i.i357.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i355.i, i64 %idx.ext.i9.i.i.i356.i
   %237 = load ptr, ptr %add.ptr.i10.i.i.i357.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i367.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i367.i)
   store ptr %237, ptr %v.addr.i367.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIPN4absl12lts_202308024CordEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i367.i)
           to label %.noexc192 unwind label %lpad
 
 .noexc192:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetCordEv.exit.i96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i367.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i367.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb23.i66:                                      ; preds = %land.lhs.true2.i.i89, %land.lhs.true.i.i85, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i64
@@ -14916,13 +14916,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i397.i = zext i32 %call.i.i.i373.i193 to i64
   %add.ptr.i10.i.i.i398.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i396.i, i64 %idx.ext.i9.i.i.i397.i
   %retval.sroa.0.0.copyload.i.i68 = load ptr, ptr %add.ptr.i10.i.i.i398.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.i.i)
   store ptr %retval.sroa.0.0.copyload.i.i68, ptr %v.i.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldINS0_8internal14ArenaStringPtrEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
           to label %.noexc194 unwind label %lpad
 
 .noexc194:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper17GetArenaStringPtrEv.exit.i67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.i.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.default28.i154:                                ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -14975,16 +14975,16 @@ _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14S
   %idx.ext.i.i.i.i83 = zext i32 %add.i.i.i.i82 to i64
   %add.ptr.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %rhs, i64 %idx.ext.i.i.i.i83
   store i32 0, ptr %add.ptr.i.i.i.i84, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp29.i50)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp32.i51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32.i51)
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit, %if.end
   br i1 %cmp.not, label %if.end28, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp29.i198)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp32.i199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32.i199)
   %type_once_.i.i.i200 = getelementptr inbounds nuw i8, ptr %field_lhs.0, i64 24
   %254 = load ptr, ptr %type_once_.i.i.i200, align 8
   %tobool.not.i.i.i201 = icmp eq ptr %254, null
@@ -15042,91 +15042,91 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207: ; preds = %if.then5.
 
 sw.bb.i238:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %261 = load i32, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i.i197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i.i197)
   store i32 %261, ptr %v.addr.i.i197, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i.i197)
           to label %.noexc255 unwind label %lpad
 
 .noexc255:                                        ; preds = %sw.bb.i238
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i.i197)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb3.i237:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %262 = load i64, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i24.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i24.i)
   store i64 %262, ptr %v.addr.i24.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i24.i)
           to label %.noexc256 unwind label %lpad
 
 .noexc256:                                        ; preds = %sw.bb3.i237
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i24.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb5.i236:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %263 = load i32, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i27.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i27.i)
   store i32 %263, ptr %v.addr.i27.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i27.i)
           to label %.noexc257 unwind label %lpad
 
 .noexc257:                                        ; preds = %sw.bb5.i236
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i27.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i27.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb7.i235:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %264 = load i64, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i30.i)
   store i64 %264, ptr %v.addr.i30.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i30.i)
           to label %.noexc258 unwind label %lpad
 
 .noexc258:                                        ; preds = %sw.bb7.i235
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i30.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb9.i234:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %265 = load float, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i33.i)
   store float %265, ptr %v.addr.i33.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i33.i)
           to label %.noexc259 unwind label %lpad
 
 .noexc259:                                        ; preds = %sw.bb9.i234
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i33.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb11.i233:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %266 = load double, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i36.i)
   store double %266, ptr %v.addr.i36.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i36.i)
           to label %.noexc260 unwind label %lpad
 
 .noexc260:                                        ; preds = %sw.bb11.i233
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i36.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb13.i231:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %267 = load i8, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i39.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i39.i)
   %frombool.i.i232 = and i8 %267, 1
   store i8 %frombool.i.i232, ptr %v.addr.i39.i, align 1
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 1 dereferenceable(1) %v.addr.i39.i)
           to label %.noexc261 unwind label %lpad
 
 .noexc261:                                        ; preds = %sw.bb13.i231
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i39.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i39.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb15.i230:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
   %268 = load i32, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i42.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i42.i)
   store i32 %268, ptr %v.addr.i42.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i42.i)
           to label %.noexc262 unwind label %lpad
 
 .noexc262:                                        ; preds = %sw.bb15.i230
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i42.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i42.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb17.i229:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
@@ -15195,24 +15195,24 @@ land.lhs.true2.i.i222:                            ; preds = %land.lhs.true.i.i21
 
 sw.bb21.i228:                                     ; preds = %land.lhs.true2.i.i222
   %280 = load ptr, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i59.i)
   store ptr %280, ptr %v.addr.i59.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIPN4absl12lts_202308024CordEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i59.i)
           to label %.noexc267 unwind label %lpad
 
 .noexc267:                                        ; preds = %sw.bb21.i228
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i59.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb23.i214:                                     ; preds = %land.lhs.true2.i.i222, %land.lhs.true.i.i218, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i212
   %retval.sroa.0.0.copyload.i.i215 = load ptr, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.i.i196)
   store ptr %retval.sroa.0.0.copyload.i.i215, ptr %v.i.i196, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldINS0_8internal14ArenaStringPtrEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i196)
           to label %.noexc268 unwind label %lpad
 
 .noexc268:                                        ; preds = %sw.bb23.i214
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.i196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.i.i196)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.default28.i241:                                ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i207
@@ -15243,8 +15243,8 @@ lpad.i242:                                        ; preds = %invoke.cont33.i245,
   unreachable
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %sw.bb17.i229, %.noexc255, %.noexc256, %.noexc257, %.noexc258, %.noexc259, %.noexc260, %.noexc261, %.noexc262, %.noexc267, %.noexc268
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp29.i198)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp32.i199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32.i199)
   br label %if.end28
 
 if.end28:                                         ; preds = %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb1EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit, %if.end19
@@ -18582,7 +18582,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %view.i)
   %data_.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %0 = load ptr, ptr %data_.i, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %0)
@@ -18606,7 +18606,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
 
 invoke.cont3:                                     ; preds = %invoke.cont.i
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i) #30
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %view.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %view.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, i64 17, ptr nonnull @.str.107)
           to label %invoke.cont5 unwind label %lpad
 
@@ -31117,7 +31117,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %view.i)
   %data_.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %0 = load ptr, ptr %data_.i, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %0)
@@ -31141,7 +31141,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
 
 invoke.cont3:                                     ; preds = %invoke.cont.i
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view.i) #30
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %view.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %view.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, i64 17, ptr nonnull @.str.107)
           to label %invoke.cont5 unwind label %lpad
 
@@ -40919,7 +40919,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp20 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -40948,7 +40948,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 10
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -43486,9 +43486,9 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp21.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp26.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp26.i)
   %type_once_.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %6 = load ptr, ptr %type_once_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -44195,9 +44195,9 @@ lpad23.i:                                         ; preds = %invoke.cont27.i, %i
   unreachable
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb0EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt32Ev.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt64Ev.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint32Ev.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint64Ev.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetFloatEv.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetDoubleEv.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetBoolEv.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetEnumEv.exit.i, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper10GetMessageEv.exit.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp21.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp26.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp26.i)
   br label %if.end
 
 lpad:                                             ; preds = %sw.default.i203, %sw.bb19.i188, %sw.bb17.i191, %sw.bb15.i192, %sw.bb13.i193, %sw.bb11.i195, %sw.bb9.i196, %sw.bb7.i197, %sw.bb5.i198, %sw.bb3.i199, %sw.bb.i200, %if.then5.i.i.i.i.i210, %if.then.i.i.i.i.i208, %lor.lhs.false.i.i.i.i.i182, %sw.default.i134, %sw.bb19.i60, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper10GetMessageEv.exit.i73, %call.i.i.i313.i.noexc, %if.then.i.i312.i, %sw.bb17.i63, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetEnumEv.exit.i79, %sw.bb15.i78, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetBoolEv.exit.i81, %sw.bb13.i80, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetDoubleEv.exit.i84, %sw.bb11.i83, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetFloatEv.exit.i86, %sw.bb9.i85, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint64Ev.exit.i88, %sw.bb7.i87, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint32Ev.exit.i90, %sw.bb5.i89, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt64Ev.exit.i92, %sw.bb3.i91, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt32Ev.exit.i119, %sw.bb.i93, %if.then5.i.i.i.i.i143, %if.then.i.i.i.i.i141, %lor.lhs.false.i.i.i.i.i54, %sw.default.i, %sw.bb19.i, %call.i.i.i290.i.noexc, %if.then.i.i289.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb.i, %if.then5.i.i.i.i.i, %if.then.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.else28, %if.else, %if.then6, %if.then
@@ -44221,9 +44221,9 @@ if.then6:                                         ; preds = %if.end
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i46)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp21.i47)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp26.i48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp26.i48)
   %type_once_.i.i.i49 = getelementptr inbounds nuw i8, ptr %call9, i64 24
   %102 = load ptr, ptr %type_once_.i.i.i49, align 8
   %tobool.not.i.i.i50 = icmp eq ptr %102, null
@@ -44346,13 +44346,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i.i121 = zext i32 %call.i.i.i.i149 to i64
   %add.ptr.i10.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i120, i64 %idx.ext.i9.i.i.i.i121
   %118 = load i32, ptr %add.ptr.i10.i.i.i.i122, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i.i)
   store i32 %118, ptr %v.addr.i.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i.i)
           to label %.noexc150 unwind label %lpad
 
 .noexc150:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt32Ev.exit.i119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb3.i91:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44422,13 +44422,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i49.i = zext i32 %call.i.i.i25.i151 to i64
   %add.ptr.i10.i.i.i50.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i48.i, i64 %idx.ext.i9.i.i.i49.i
   %128 = load i64, ptr %add.ptr.i10.i.i.i50.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i60.i)
   store i64 %128, ptr %v.addr.i60.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i60.i)
           to label %.noexc152 unwind label %lpad
 
 .noexc152:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetInt64Ev.exit.i92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i60.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb5.i89:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44498,13 +44498,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i90.i = zext i32 %call.i.i.i66.i153 to i64
   %add.ptr.i10.i.i.i91.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i89.i, i64 %idx.ext.i9.i.i.i90.i
   %138 = load i32, ptr %add.ptr.i10.i.i.i91.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i101.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i101.i)
   store i32 %138, ptr %v.addr.i101.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i101.i)
           to label %.noexc154 unwind label %lpad
 
 .noexc154:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint32Ev.exit.i90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i101.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i101.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb7.i87:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44574,13 +44574,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i131.i = zext i32 %call.i.i.i107.i155 to i64
   %add.ptr.i10.i.i.i132.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i130.i, i64 %idx.ext.i9.i.i.i131.i
   %148 = load i64, ptr %add.ptr.i10.i.i.i132.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i142.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i142.i)
   store i64 %148, ptr %v.addr.i142.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i142.i)
           to label %.noexc156 unwind label %lpad
 
 .noexc156:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetUint64Ev.exit.i88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i142.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i142.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb9.i85:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44650,13 +44650,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i172.i = zext i32 %call.i.i.i148.i157 to i64
   %add.ptr.i10.i.i.i173.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i171.i, i64 %idx.ext.i9.i.i.i172.i
   %158 = load float, ptr %add.ptr.i10.i.i.i173.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i183.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i183.i)
   store float %158, ptr %v.addr.i183.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i183.i)
           to label %.noexc158 unwind label %lpad
 
 .noexc158:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper8GetFloatEv.exit.i86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i183.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i183.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb11.i83:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44726,13 +44726,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i213.i = zext i32 %call.i.i.i189.i159 to i64
   %add.ptr.i10.i.i.i214.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i212.i, i64 %idx.ext.i9.i.i.i213.i
   %168 = load double, ptr %add.ptr.i10.i.i.i214.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i224.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i224.i)
   store double %168, ptr %v.addr.i224.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i224.i)
           to label %.noexc160 unwind label %lpad
 
 .noexc160:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper9GetDoubleEv.exit.i84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i224.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i224.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb13.i80:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44802,14 +44802,14 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i254.i = zext i32 %call.i.i.i230.i161 to i64
   %add.ptr.i10.i.i.i255.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i253.i, i64 %idx.ext.i9.i.i.i254.i
   %178 = load i8, ptr %add.ptr.i10.i.i.i255.i, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i265.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i265.i)
   %frombool.i.i82 = and i8 %178, 1
   store i8 %frombool.i.i82, ptr %v.addr.i265.i, align 1
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 1 dereferenceable(1) %v.addr.i265.i)
           to label %.noexc162 unwind label %lpad
 
 .noexc162:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetBoolEv.exit.i81
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i265.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i265.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb15.i78:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44879,13 +44879,13 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   %idx.ext.i9.i.i.i295.i = zext i32 %call.i.i.i271.i163 to i64
   %add.ptr.i10.i.i.i296.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i294.i, i64 %idx.ext.i9.i.i.i295.i
   %188 = load i32, ptr %add.ptr.i10.i.i.i296.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i306.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i306.i)
   store i32 %188, ptr %v.addr.i306.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, ptr noundef nonnull %call9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i306.i)
           to label %.noexc164 unwind label %lpad
 
 .noexc164:                                        ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper7GetEnumEv.exit.i79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i306.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i306.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb17.i63:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i56
@@ -44937,7 +44937,7 @@ sw.bb19.i60:                                      ; preds = %_ZNK6google8protobu
           to label %.noexc170 unwind label %lpad
 
 .noexc170:                                        ; preds = %sw.bb19.i60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i46)
           to label %.noexc.i unwind label %lpad.i61
 
@@ -44953,7 +44953,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
 
 invoke.cont.i62:                                  ; preds = %.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i46) #30
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
@@ -44995,9 +44995,9 @@ lpad23.i135:                                      ; preds = %invoke.cont27.i138,
   unreachable
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper10GetMessageEv.exit.i73, %.noexc150, %.noexc152, %.noexc154, %.noexc156, %.noexc158, %.noexc160, %.noexc162, %.noexc164, %invoke.cont.i62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp21.i47)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp26.i48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp26.i48)
   br label %if.end20
 
 if.else:                                          ; preds = %if.end
@@ -45008,8 +45008,8 @@ if.end20:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.not, label %if.else28, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp21.i176)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24.i)
   %type_once_.i.i.i177 = getelementptr inbounds nuw i8, ptr %field_lhs.0, i64 24
   %197 = load ptr, ptr %type_once_.i.i.i177, align 8
   %tobool.not.i.i.i178 = icmp eq ptr %197, null
@@ -45067,91 +45067,91 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184: ; preds = %if.then5.
 
 sw.bb.i200:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %204 = load i32, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i.i175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i.i175)
   store i32 %204, ptr %v.addr.i.i175, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i.i175)
           to label %.noexc215 unwind label %lpad
 
 .noexc215:                                        ; preds = %sw.bb.i200
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i.i175)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb3.i199:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %205 = load i64, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i20.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i20.i)
   store i64 %205, ptr %v.addr.i20.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i20.i)
           to label %.noexc216 unwind label %lpad
 
 .noexc216:                                        ; preds = %sw.bb3.i199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i20.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb5.i198:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %206 = load i32, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i23.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i23.i)
   store i32 %206, ptr %v.addr.i23.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i23.i)
           to label %.noexc217 unwind label %lpad
 
 .noexc217:                                        ; preds = %sw.bb5.i198
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i23.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i23.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb7.i197:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %207 = load i64, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i26.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i26.i)
   store i64 %207, ptr %v.addr.i26.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i26.i)
           to label %.noexc218 unwind label %lpad
 
 .noexc218:                                        ; preds = %sw.bb7.i197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i26.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i26.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb9.i196:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %208 = load float, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i29.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i29.i)
   store float %208, ptr %v.addr.i29.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i29.i)
           to label %.noexc219 unwind label %lpad
 
 .noexc219:                                        ; preds = %sw.bb9.i196
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i29.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb11.i195:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %209 = load double, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.addr.i32.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i32.i)
   store double %209, ptr %v.addr.i32.i, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 8 dereferenceable(8) %v.addr.i32.i)
           to label %.noexc220 unwind label %lpad
 
 .noexc220:                                        ; preds = %sw.bb11.i195
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.addr.i32.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i32.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb13.i193:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %210 = load i8, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i35.i)
   %frombool.i.i194 = and i8 %210, 1
   store i8 %frombool.i.i194, ptr %v.addr.i35.i, align 1
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 1 dereferenceable(1) %v.addr.i35.i)
           to label %.noexc221 unwind label %lpad
 
 .noexc221:                                        ; preds = %sw.bb13.i193
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i35.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb15.i192:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
   %211 = load i32, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i38.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i38.i)
   store i32 %211, ptr %v.addr.i38.i, align 4
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs, ptr noundef nonnull %field_lhs.0, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i38.i)
           to label %.noexc222 unwind label %lpad
 
 .noexc222:                                        ; preds = %sw.bb15.i192
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i38.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i38.i)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.bb17.i191:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
@@ -45160,7 +45160,7 @@ sw.bb17.i191:                                     ; preds = %_ZNK6google8protobu
           to label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit unwind label %lpad
 
 sw.bb19.i188:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i174)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i174, ptr noundef nonnull align 8 dereferenceable(32) %string_val.i)
           to label %.noexc224 unwind label %lpad
 
@@ -45176,7 +45176,7 @@ lpad.i.i190:                                      ; preds = %.noexc224
 
 _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN14MessageWrapper9SetStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %.noexc224
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i174) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i174)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 sw.default.i203:                                  ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i184
@@ -45207,8 +45207,8 @@ lpad.i204:                                        ; preds = %invoke.cont25.i, %i
   unreachable
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %sw.bb17.i191, %.noexc215, %.noexc216, %.noexc217, %.noexc218, %.noexc219, %.noexc220, %.noexc221, %.noexc222, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN14MessageWrapper9SetStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp21.i176)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i)
   br label %if.end30
 
 if.else28:                                        ; preds = %if.end20
@@ -45770,9 +45770,9 @@ land.lhs.true.i:                                  ; preds = %if.then13
   br i1 %cmp4.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   call void @_ZN4absl12lts_2023080218container_internal24DropDeletesWithoutResizeERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE18GetPolicyFunctionsEvE5value, ptr noundef nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then13
@@ -45834,7 +45834,7 @@ entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %sub.i.i.i.i = add i64 %new_capacity, 27
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -4
   %mul.i.i.i = shl i64 %new_capacity, 2
@@ -45877,7 +45877,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %sub.i.i20.i.i = sub i64 %new_capacity, %5
   store i64 %sub.i.i20.i.i, ptr %call5.i.i2.i.i1.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %6 = load ptr, ptr %slots_.i.i, align 8
   %cmp.not20 = icmp eq i64 %2, 0
   br i1 %cmp.not20, label %if.end23, label %for.body
@@ -47404,10 +47404,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27

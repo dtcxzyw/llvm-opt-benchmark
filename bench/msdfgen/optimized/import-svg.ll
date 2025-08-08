@@ -193,7 +193,7 @@ sw.bb:                                            ; preds = %while.body4, %while
   br i1 %contourStart.0832, label %if.end, label %NEXT_CONTOUR
 
 if.end:                                           ; preds = %sw.bb
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i)
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end
@@ -217,11 +217,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   %call.i.i = call double @strtod(ptr noundef nonnull %pathDef.addr.6, ptr noundef nonnull %end.i.i) #16
   %6 = load ptr, ptr %end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %6, %pathDef.addr.6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br i1 %cmp.i.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i)
   br label %while.cond.i.i5.i
 
 while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, %land.rhs.i
@@ -244,7 +244,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   %call.i9.i = call double @strtod(ptr noundef nonnull %pathDef.addr.7, ptr noundef nonnull %end.i3.i) #16
   %8 = load ptr, ptr %end.i3.i, align 8
   %cmp.i10.i = icmp ugt ptr %8, %pathDef.addr.7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i)
   br i1 %cmp.i10.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i
@@ -260,7 +260,7 @@ sw.bb13:                                          ; preds = %while.body4, %while
   br i1 %contourStart.0832, label %return, label %NEXT_CONTOUR
 
 sw.bb17:                                          ; preds = %while.body4, %while.body4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i35)
   br label %while.cond.i.i.i37
 
 while.cond.i.i.i37:                               ; preds = %while.body.i.i.i38, %sw.bb17
@@ -284,11 +284,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40:     ; preds = %while.cond.i.i.i37
   %call.i.i41 = call double @strtod(ptr noundef nonnull %pathDef.addr.10, ptr noundef nonnull %end.i.i35) #16
   %10 = load ptr, ptr %end.i.i35, align 8
   %cmp.i.i42 = icmp ugt ptr %10, %pathDef.addr.10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i35)
   br i1 %cmp.i.i42, label %land.rhs.i44, label %return
 
 land.rhs.i44:                                     ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i34)
   br label %while.cond.i.i5.i45
 
 while.cond.i.i5.i45:                              ; preds = %while.body.i.i6.i46, %land.rhs.i44
@@ -311,7 +311,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48:    ; preds = %while.cond.i.i5.i45
   %call.i9.i50 = call double @strtod(ptr noundef nonnull %pathDef.addr.11, ptr noundef nonnull %end.i3.i34) #16
   %12 = load ptr, ptr %end.i3.i34, align 8
   %cmp.i10.i51 = icmp ugt ptr %12, %pathDef.addr.11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i34)
   br i1 %cmp.i10.i51, label %if.end20, label %return
 
 if.end20:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48
@@ -335,7 +335,7 @@ lpad:                                             ; preds = %if.end20
   br label %common.resume
 
 sw.bb29:                                          ; preds = %while.body4, %while.body4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   br label %while.cond.i.i59
 
 while.cond.i.i59:                                 ; preds = %while.body.i.i60, %sw.bb29
@@ -359,7 +359,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i62:       ; preds = %while.cond.i.i59
   %call.i63 = call double @strtod(ptr noundef nonnull %pathDef.addr.14, ptr noundef nonnull %end.i) #16
   %15 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %15, %pathDef.addr.14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br i1 %cmp.i, label %if.end32, label %return
 
 if.end32:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62
@@ -381,7 +381,7 @@ lpad42:                                           ; preds = %if.end32
   br label %common.resume
 
 sw.bb44:                                          ; preds = %while.body4, %while.body4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i66)
   br label %while.cond.i.i68
 
 while.cond.i.i68:                                 ; preds = %while.body.i.i69, %sw.bb44
@@ -405,7 +405,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i71:       ; preds = %while.cond.i.i68
   %call.i72 = call double @strtod(ptr noundef nonnull %pathDef.addr.16, ptr noundef nonnull %end.i66) #16
   %18 = load ptr, ptr %end.i66, align 8
   %cmp.i73 = icmp ugt ptr %18, %pathDef.addr.16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i66)
   br i1 %cmp.i73, label %if.end47, label %return
 
 if.end47:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71
@@ -427,7 +427,7 @@ lpad58:                                           ; preds = %if.end47
   br label %common.resume
 
 sw.bb60:                                          ; preds = %while.body4, %while.body4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i78)
   br label %while.cond.i.i.i80
 
 while.cond.i.i.i80:                               ; preds = %while.body.i.i.i81, %sw.bb60
@@ -451,11 +451,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83:     ; preds = %while.cond.i.i.i80
   %call.i.i84 = call double @strtod(ptr noundef nonnull %pathDef.addr.18, ptr noundef nonnull %end.i.i78) #16
   %21 = load ptr, ptr %end.i.i78, align 8
   %cmp.i.i85 = icmp ugt ptr %21, %pathDef.addr.18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i78)
   br i1 %cmp.i.i85, label %land.rhs.i87, label %return
 
 land.rhs.i87:                                     ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i77)
   br label %while.cond.i.i5.i88
 
 while.cond.i.i5.i88:                              ; preds = %while.body.i.i6.i89, %land.rhs.i87
@@ -478,11 +478,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91:    ; preds = %while.cond.i.i5.i88
   %call.i9.i93 = call double @strtod(ptr noundef nonnull %pathDef.addr.19, ptr noundef nonnull %end.i3.i77) #16
   %23 = load ptr, ptr %end.i3.i77, align 8
   %cmp.i10.i94 = icmp ugt ptr %23, %pathDef.addr.19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i77)
   br i1 %cmp.i10.i94, label %if.end63, label %return
 
 if.end63:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i99)
   br label %while.cond.i.i.i101
 
 while.cond.i.i.i101:                              ; preds = %while.body.i.i.i102, %if.end63
@@ -505,11 +505,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104:    ; preds = %while.cond.i.i.i101
   %call.i.i105 = call double @strtod(ptr noundef nonnull %pathDef.addr.22, ptr noundef nonnull %end.i.i99) #16
   %25 = load ptr, ptr %end.i.i99, align 8
   %cmp.i.i106 = icmp ugt ptr %25, %pathDef.addr.22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i99)
   br i1 %cmp.i.i106, label %land.rhs.i108, label %return
 
 land.rhs.i108:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i98)
   br label %while.cond.i.i5.i109
 
 while.cond.i.i5.i109:                             ; preds = %while.body.i.i6.i110, %land.rhs.i108
@@ -532,7 +532,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112:   ; preds = %while.cond.i.i5.i10
   %call.i9.i114 = call double @strtod(ptr noundef nonnull %pathDef.addr.23, ptr noundef nonnull %end.i3.i98) #16
   %27 = load ptr, ptr %end.i3.i98, align 8
   %cmp.i10.i115 = icmp ugt ptr %27, %pathDef.addr.23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i98)
   br i1 %cmp.i10.i115, label %if.end66, label %return
 
 if.end66:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112
@@ -583,7 +583,7 @@ if.then94:                                        ; preds = %sw.bb83, %sw.bb83, 
 if.end105:                                        ; preds = %sw.bb83, %if.then94
   %controlPoint.sroa.0.6 = phi double [ %sub.i, %if.then94 ], [ %node.sroa.0.0829, %sw.bb83 ]
   %controlPoint.sroa.14.6 = phi double [ %sub3.i, %if.then94 ], [ %node.sroa.39.0828, %sw.bb83 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i130)
   br label %while.cond.i.i.i132
 
 while.cond.i.i.i132:                              ; preds = %while.body.i.i.i133, %if.end105
@@ -607,11 +607,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135:    ; preds = %while.cond.i.i.i132
   %call.i.i136 = call double @strtod(ptr noundef nonnull %pathDef.addr.26, ptr noundef nonnull %end.i.i130) #16
   %30 = load ptr, ptr %end.i.i130, align 8
   %cmp.i.i137 = icmp ugt ptr %30, %pathDef.addr.26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i130)
   br i1 %cmp.i.i137, label %land.rhs.i139, label %return
 
 land.rhs.i139:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i129)
   br label %while.cond.i.i5.i140
 
 while.cond.i.i5.i140:                             ; preds = %while.body.i.i6.i141, %land.rhs.i139
@@ -634,7 +634,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143:   ; preds = %while.cond.i.i5.i14
   %call.i9.i145 = call double @strtod(ptr noundef nonnull %pathDef.addr.27, ptr noundef nonnull %end.i3.i129) #16
   %32 = load ptr, ptr %end.i3.i129, align 8
   %cmp.i10.i146 = icmp ugt ptr %32, %pathDef.addr.27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i129)
   br i1 %cmp.i10.i146, label %if.end108, label %return
 
 if.end108:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143
@@ -658,7 +658,7 @@ lpad120:                                          ; preds = %if.end108
   br label %common.resume
 
 sw.bb122:                                         ; preds = %while.body4, %while.body4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i155)
   br label %while.cond.i.i.i157
 
 while.cond.i.i.i157:                              ; preds = %while.body.i.i.i158, %sw.bb122
@@ -682,11 +682,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160:    ; preds = %while.cond.i.i.i157
   %call.i.i161 = call double @strtod(ptr noundef nonnull %pathDef.addr.30, ptr noundef nonnull %end.i.i155) #16
   %35 = load ptr, ptr %end.i.i155, align 8
   %cmp.i.i162 = icmp ugt ptr %35, %pathDef.addr.30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i155)
   br i1 %cmp.i.i162, label %land.rhs.i164, label %return
 
 land.rhs.i164:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i154)
   br label %while.cond.i.i5.i165
 
 while.cond.i.i5.i165:                             ; preds = %while.body.i.i6.i166, %land.rhs.i164
@@ -709,11 +709,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168:   ; preds = %while.cond.i.i5.i16
   %call.i9.i170 = call double @strtod(ptr noundef nonnull %pathDef.addr.31, ptr noundef nonnull %end.i3.i154) #16
   %37 = load ptr, ptr %end.i3.i154, align 8
   %cmp.i10.i171 = icmp ugt ptr %37, %pathDef.addr.31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i154)
   br i1 %cmp.i10.i171, label %if.end126, label %return
 
 if.end126:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i176)
   br label %while.cond.i.i.i178
 
 while.cond.i.i.i178:                              ; preds = %while.body.i.i.i179, %if.end126
@@ -736,11 +736,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181:    ; preds = %while.cond.i.i.i178
   %call.i.i182 = call double @strtod(ptr noundef nonnull %pathDef.addr.34, ptr noundef nonnull %end.i.i176) #16
   %39 = load ptr, ptr %end.i.i176, align 8
   %cmp.i.i183 = icmp ugt ptr %39, %pathDef.addr.34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i176)
   br i1 %cmp.i.i183, label %land.rhs.i185, label %return
 
 land.rhs.i185:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i175)
   br label %while.cond.i.i5.i186
 
 while.cond.i.i5.i186:                             ; preds = %while.body.i.i6.i187, %land.rhs.i185
@@ -763,11 +763,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189:   ; preds = %while.cond.i.i5.i18
   %call.i9.i191 = call double @strtod(ptr noundef nonnull %pathDef.addr.35, ptr noundef nonnull %end.i3.i175) #16
   %41 = load ptr, ptr %end.i3.i175, align 8
   %cmp.i10.i192 = icmp ugt ptr %41, %pathDef.addr.35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i175)
   br i1 %cmp.i10.i192, label %if.end130, label %return
 
 if.end130:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i197)
   br label %while.cond.i.i.i199
 
 while.cond.i.i.i199:                              ; preds = %while.body.i.i.i200, %if.end130
@@ -790,11 +790,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202:    ; preds = %while.cond.i.i.i199
   %call.i.i203 = call double @strtod(ptr noundef nonnull %pathDef.addr.38, ptr noundef nonnull %end.i.i197) #16
   %43 = load ptr, ptr %end.i.i197, align 8
   %cmp.i.i204 = icmp ugt ptr %43, %pathDef.addr.38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i197)
   br i1 %cmp.i.i204, label %land.rhs.i206, label %return
 
 land.rhs.i206:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i196)
   br label %while.cond.i.i5.i207
 
 while.cond.i.i5.i207:                             ; preds = %while.body.i.i6.i208, %land.rhs.i206
@@ -817,7 +817,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210:   ; preds = %while.cond.i.i5.i20
   %call.i9.i212 = call double @strtod(ptr noundef nonnull %pathDef.addr.39, ptr noundef nonnull %end.i3.i196) #16
   %45 = load ptr, ptr %end.i3.i196, align 8
   %cmp.i10.i213 = icmp ugt ptr %45, %pathDef.addr.39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i196)
   br i1 %cmp.i10.i213, label %if.end133, label %return
 
 if.end133:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210
@@ -864,7 +864,7 @@ sw.bb155:                                         ; preds = %while.body4, %while
   %sub3.i232 = fsub double %add3.i228, %controlPoint.sroa.36.2
   %controlPoint.sroa.0.8 = select i1 %switch, double %sub.i231, double %node.sroa.0.0829
   %controlPoint.sroa.14.8 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0828
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i236)
   br label %while.cond.i.i.i238
 
 while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239, %sw.bb155
@@ -888,11 +888,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
   %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i.i236) #16
   %50 = load ptr, ptr %end.i.i236, align 8
   %cmp.i.i243 = icmp ugt ptr %50, %pathDef.addr.42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i236)
   br i1 %cmp.i.i243, label %land.rhs.i245, label %return
 
 land.rhs.i245:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i235)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i235)
   br label %while.cond.i.i5.i246
 
 while.cond.i.i5.i246:                             ; preds = %while.body.i.i6.i247, %land.rhs.i245
@@ -915,11 +915,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249:   ; preds = %while.cond.i.i5.i24
   %call.i9.i251 = call double @strtod(ptr noundef nonnull %pathDef.addr.43, ptr noundef nonnull %end.i3.i235) #16
   %52 = load ptr, ptr %end.i3.i235, align 8
   %cmp.i10.i252 = icmp ugt ptr %52, %pathDef.addr.43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i235)
   br i1 %cmp.i10.i252, label %if.end183, label %return
 
 if.end183:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i257)
   br label %while.cond.i.i.i259
 
 while.cond.i.i.i259:                              ; preds = %while.body.i.i.i260, %if.end183
@@ -942,11 +942,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262:    ; preds = %while.cond.i.i.i259
   %call.i.i263 = call double @strtod(ptr noundef nonnull %pathDef.addr.46, ptr noundef nonnull %end.i.i257) #16
   %54 = load ptr, ptr %end.i.i257, align 8
   %cmp.i.i264 = icmp ugt ptr %54, %pathDef.addr.46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i257)
   br i1 %cmp.i.i264, label %land.rhs.i266, label %return
 
 land.rhs.i266:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i256)
   br label %while.cond.i.i5.i267
 
 while.cond.i.i5.i267:                             ; preds = %while.body.i.i6.i268, %land.rhs.i266
@@ -969,7 +969,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270:   ; preds = %while.cond.i.i5.i26
   %call.i9.i272 = call double @strtod(ptr noundef nonnull %pathDef.addr.47, ptr noundef nonnull %end.i3.i256) #16
   %56 = load ptr, ptr %end.i3.i256, align 8
   %cmp.i10.i273 = icmp ugt ptr %56, %pathDef.addr.47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i256)
   br i1 %cmp.i10.i273, label %if.end186, label %return
 
 if.end186:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270
@@ -1003,7 +1003,7 @@ lpad203:                                          ; preds = %if.end195
   br label %common.resume
 
 sw.bb205:                                         ; preds = %while.body4, %while.body4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i286)
   br label %while.cond.i.i.i288
 
 while.cond.i.i.i288:                              ; preds = %while.body.i.i.i289, %sw.bb205
@@ -1027,11 +1027,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291:    ; preds = %while.cond.i.i.i288
   %call.i.i292 = call double @strtod(ptr noundef nonnull %pathDef.addr.50, ptr noundef nonnull %end.i.i286) #16
   %59 = load ptr, ptr %end.i.i286, align 8
   %cmp.i.i293 = icmp ugt ptr %59, %pathDef.addr.50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i286)
   br i1 %cmp.i.i293, label %land.rhs.i295, label %return
 
 land.rhs.i295:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i285)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i285)
   br label %while.cond.i.i5.i296
 
 while.cond.i.i5.i296:                             ; preds = %while.body.i.i6.i297, %land.rhs.i295
@@ -1054,11 +1054,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299:   ; preds = %while.cond.i.i5.i29
   %call.i9.i301 = call double @strtod(ptr noundef nonnull %pathDef.addr.51, ptr noundef nonnull %end.i3.i285) #16
   %61 = load ptr, ptr %end.i3.i285, align 8
   %cmp.i10.i302 = icmp ugt ptr %61, %pathDef.addr.51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i285)
   br i1 %cmp.i10.i302, label %if.end208, label %return
 
 if.end208:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i306)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i306)
   br label %while.cond.i.i308
 
 while.cond.i.i308:                                ; preds = %while.body.i.i309, %if.end208
@@ -1081,11 +1081,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i311:      ; preds = %while.cond.i.i308
   %call.i312 = call double @strtod(ptr noundef nonnull %pathDef.addr.54, ptr noundef nonnull %end.i306) #16
   %63 = load ptr, ptr %end.i306, align 8
   %cmp.i313 = icmp ugt ptr %63, %pathDef.addr.54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i306)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i306)
   br i1 %cmp.i313, label %if.end211, label %return
 
 if.end211:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i316)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i316)
   br label %while.cond.i.i318
 
 while.cond.i.i318:                                ; preds = %while.body.i.i319, %if.end211
@@ -1108,11 +1108,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i321:      ; preds = %while.cond.i.i318
   %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.56, ptr noundef nonnull %end.i316, i32 noundef 10) #16
   %65 = load ptr, ptr %end.i316, align 8
   %cmp.i323 = icmp ugt ptr %65, %pathDef.addr.56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i316)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i316)
   br i1 %cmp.i323, label %if.end214, label %return
 
 if.end214:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i325)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i325)
   br label %while.cond.i.i327
 
 while.cond.i.i327:                                ; preds = %while.body.i.i328, %if.end214
@@ -1136,11 +1136,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i330:      ; preds = %while.cond.i.i327
   %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.58, ptr noundef nonnull %end.i325, i32 noundef 10) #16
   %67 = load ptr, ptr %end.i325, align 8
   %cmp.i332 = icmp ugt ptr %67, %pathDef.addr.58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i325)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i325)
   br i1 %cmp.i332, label %if.end217, label %return
 
 if.end217:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i338)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i338)
   br label %while.cond.i.i.i340
 
 while.cond.i.i.i340:                              ; preds = %while.body.i.i.i341, %if.end217
@@ -1164,11 +1164,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343:    ; preds = %while.cond.i.i.i340
   %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i.i338) #16
   %69 = load ptr, ptr %end.i.i338, align 8
   %cmp.i.i345 = icmp ugt ptr %69, %pathDef.addr.60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i338)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i338)
   br i1 %cmp.i.i345, label %land.rhs.i347, label %return
 
 land.rhs.i347:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i337)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i337)
   br label %while.cond.i.i5.i348
 
 while.cond.i.i5.i348:                             ; preds = %while.body.i.i6.i349, %land.rhs.i347
@@ -1191,7 +1191,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351:   ; preds = %while.cond.i.i5.i34
   %call.i9.i353 = call double @strtod(ptr noundef nonnull %pathDef.addr.61, ptr noundef nonnull %end.i3.i337) #16
   %71 = load ptr, ptr %end.i3.i337, align 8
   %cmp.i10.i354 = icmp ugt ptr %71, %pathDef.addr.61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i337)
   br i1 %cmp.i10.i354, label %if.end220, label %return
 
 if.end220:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351
@@ -1201,8 +1201,8 @@ if.end220:                                        ; preds = %_ZN7msdfgenL14skipE
   %node.sroa.39.9 = select i1 %cmp222, double %add4.i360, double %call.i9.i353
   %node.sroa.0.9 = select i1 %cmp222, double %add.i358, double %call.i.i344
   %mul = fmul double %call.i312, 0x3F91DF46A2529D39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp182.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp182.i)
   %cmp.i.i361 = fcmp oeq double %node.sroa.0.9, %prevNode.sroa.0.2825
   %cmp3.i.i = fcmp oeq double %node.sroa.39.9, %prevNode.sroa.25.2824
   %72 = select i1 %cmp.i.i361, i1 %cmp3.i.i, i1 false
@@ -1452,8 +1452,8 @@ common.resume:                                    ; preds = %lpad.i, %lpad189.i,
   resume { ptr, i32 } %common.resume.op
 
 _ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit: ; preds = %invoke.cont190.i, %if.end220, %invoke.cont.i, %if.end119.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp182.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp182.i)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, %invoke.cont204, %invoke.cont154, %invoke.cont121, %invoke.cont82, %invoke.cont59, %invoke.cont43, %invoke.cont, %if.end8
@@ -1732,7 +1732,7 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   br i1 %tobool26.not, label %if.end37, label %if.then27
 
 if.then27:                                        ; preds = %invoke.cont24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.then27
@@ -1755,11 +1755,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i24, ptr noundef nonnull %end.i) #16
   %4 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %4, %incdec.ptr.i.i24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br i1 %cmp.i, label %land.lhs.true, label %if.end37
 
 land.lhs.true:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i13)
   br label %while.cond.i.i15
 
 while.cond.i.i15:                                 ; preds = %while.body.i.i16, %land.lhs.true
@@ -1785,12 +1785,12 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i18:       ; preds = %while.cond.i.i15
   br i1 %cmp.i20, label %land.lhs.true32, label %_ZN7msdfgenL10readDoubleERdRPKc.exit22
 
 _ZN7msdfgenL10readDoubleERdRPKc.exit22:           ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i13)
   br label %if.end37
 
 land.lhs.true32:                                  ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i18
   store ptr %7, ptr %viewBox, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i13)
   %call34 = call fastcc noundef zeroext i1 @_ZN7msdfgenL10readDoubleERdRPKc(ptr noundef nonnull align 8 dereferenceable(8) %dims, ptr noundef nonnull align 8 dereferenceable(8) %viewBox)
   br i1 %call34, label %land.rhs, label %if.end37
 
@@ -2276,7 +2276,7 @@ invoke.cont22:                                    ; preds = %invoke.cont19
   br i1 %tobool24.not, label %if.end38, label %if.then25
 
 if.then25:                                        ; preds = %invoke.cont22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.then25
@@ -2303,12 +2303,12 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   br i1 %cmp.i, label %land.lhs.true29, label %_ZN7msdfgenL10readDoubleERdRPKc.exit
 
 _ZN7msdfgenL10readDoubleERdRPKc.exit:             ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %if.end38
 
 land.lhs.true29:                                  ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i
   store ptr %4, ptr %viewBoxStr, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   %call32 = call fastcc noundef zeroext i1 @_ZN7msdfgenL10readDoubleERdRPKc(ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %viewBoxStr)
   br i1 %call32, label %land.lhs.true33, label %if.end38
 
@@ -2651,7 +2651,7 @@ if.then137:                                       ; preds = %invoke.cont134
   br label %cleanup.sink.split
 
 if.end139:                                        ; preds = %invoke.cont134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i)
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end139
@@ -2674,11 +2674,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   %call.i.i = call double @strtod(ptr noundef nonnull %pd133.1, ptr noundef nonnull %end.i.i) #16
   %11 = load ptr, ptr %end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %11, %pd133.1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br i1 %cmp.i.i, label %land.rhs.i, label %cleanup
 
 land.rhs.i:                                       ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i)
   br label %while.cond.i.i5.i
 
 while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, %land.rhs.i
@@ -2701,7 +2701,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   %call.i9.i = call double @strtod(ptr noundef nonnull %pd133.2, ptr noundef nonnull %end.i3.i) #16
   %13 = load ptr, ptr %end.i3.i, align 8
   %cmp.i10.i = icmp ugt ptr %13, %pd133.2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i)
   br i1 %cmp.i10.i, label %if.end144, label %cleanup
 
 if.end144:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i
@@ -2711,7 +2711,7 @@ if.end144:                                        ; preds = %_ZN7msdfgenL14skipE
           to label %invoke.cont149 unwind label %lpad.loopexit.split-lp
 
 invoke.cont149:                                   ; preds = %if.end144
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i92)
   br label %while.cond.i.i.i94
 
 while.cond.i.i.i94:                               ; preds = %while.body.i.i.i95, %invoke.cont149
@@ -2734,11 +2734,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97:     ; preds = %while.cond.i.i.i94
   %call.i.i98 = call double @strtod(ptr noundef nonnull %pd133.5, ptr noundef nonnull %end.i.i92) #16
   %15 = load ptr, ptr %end.i.i92, align 8
   %cmp.i.i99 = icmp ugt ptr %15, %pd133.5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i92)
   br i1 %cmp.i.i99, label %land.rhs.i101, label %cleanup
 
 land.rhs.i101:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i91)
   br label %while.cond.i.i5.i102
 
 while.cond.i.i5.i102:                             ; preds = %while.body.i.i6.i103, %land.rhs.i101
@@ -2761,7 +2761,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105:   ; preds = %while.cond.i.i5.i10
   %call.i9.i107 = call double @strtod(ptr noundef nonnull %pd133.6, ptr noundef nonnull %end.i3.i91) #16
   %17 = load ptr, ptr %end.i3.i91, align 8
   %cmp.i10.i108 = icmp ugt ptr %17, %pd133.6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i91)
   br i1 %cmp.i10.i108, label %do.body, label %cleanup
 
 do.body:                                          ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126
@@ -2774,7 +2774,7 @@ do.body:                                          ; preds = %_ZN7msdfgenL14skipE
           to label %do.cond unwind label %lpad.loopexit
 
 do.cond:                                          ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i113)
   br label %while.cond.i.i.i115
 
 while.cond.i.i.i115:                              ; preds = %while.body.i.i.i116, %do.cond
@@ -2797,11 +2797,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118:    ; preds = %while.cond.i.i.i115
   %call.i.i119 = call double @strtod(ptr noundef nonnull %pd133.9, ptr noundef nonnull %end.i.i113) #16
   %19 = load ptr, ptr %end.i.i113, align 8
   %cmp.i.i120 = icmp ugt ptr %19, %pd133.9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i113)
   br i1 %cmp.i.i120, label %land.rhs.i122, label %do.end
 
 land.rhs.i122:                                    ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i112)
   br label %while.cond.i.i5.i123
 
 while.cond.i.i5.i123:                             ; preds = %while.body.i.i6.i124, %land.rhs.i122
@@ -2824,7 +2824,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126:   ; preds = %while.cond.i.i5.i12
   %call.i9.i128 = call double @strtod(ptr noundef nonnull %pd133.10, ptr noundef nonnull %end.i3.i112) #16
   %21 = load ptr, ptr %end.i3.i112, align 8
   %cmp.i10.i129 = icmp ugt ptr %21, %pd133.10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i112)
   br i1 %cmp.i10.i129, label %do.body, label %do.end
 
 do.end:                                           ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118
@@ -2967,11 +2967,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.addr.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %partial.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %str.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %values.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %count.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %partial.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store float 1.000000e+00, ptr %transformation, align 4, !alias.scope !14
   %arrayinit.element.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 4
   store float 0.000000e+00, ptr %arrayinit.element.i.i.i, align 4, !alias.scope !14
@@ -3231,16 +3231,16 @@ while.body.i20.i:                                 ; preds = %while.cond.i19.i, %
   br label %while.cond.i19.i, !llvm.loop !5
 
 _ZN7msdfgenL19parseTransformationERiPKc.exit:     ; preds = %while.cond.loopexit.i, %while.cond.preheader.i, %if.else75.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.addr.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %values.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %partial.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %str.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %values.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %count.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %partial.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %tobool1.not = icmp eq ptr %transformationOriginString, null
   br i1 %tobool1.not, label %if.end13, label %if.then2
 
 if.then2:                                         ; preds = %_ZN7msdfgenL19parseTransformationERiPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i)
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then2
@@ -3263,11 +3263,11 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   %call.i.i = call double @strtod(ptr noundef nonnull %transformationOriginString.addr.0, ptr noundef nonnull %end.i.i) #16
   %28 = load ptr, ptr %end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %28, %transformationOriginString.addr.0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else
 
 land.rhs.i:                                       ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i3.i)
   br label %while.cond.i.i5.i
 
 while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, %land.rhs.i
@@ -3290,7 +3290,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   %call.i9.i = call double @strtod(ptr noundef nonnull %transformationOriginString.addr.1, ptr noundef nonnull %end.i3.i) #16
   %30 = load ptr, ptr %end.i3.i, align 8
   %cmp.i10.i = icmp ugt ptr %30, %transformationOriginString.addr.1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i)
   br i1 %cmp.i10.i, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i
@@ -3500,7 +3500,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp8, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %land.lhs.true
@@ -3524,7 +3524,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   %call.i = call double @strtod(ptr noundef nonnull %curStr.3, ptr noundef nonnull %end.i) #16
   %6 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %6, %curStr.3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i
@@ -3592,10 +3592,10 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #11
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #11

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @allow_list_match(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8, !tbaa !3
@@ -22,19 +22,13 @@ define i32 @allow_list_match(ptr noundef readonly captures(none) %0, ptr noundef
 
 10:                                               ; preds = %4, %8
   %11 = phi i32 [ %9, %8 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %11
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @regex_list_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @regex_list_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @init_allow_list(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -72,11 +66,11 @@ define i32 @init_allow_list(ptr noundef captures(address_is_null) %0) local_unna
   ret i32 %.0
 }
 
-declare ptr @mpool_malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @mpool_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @init_regex_list(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @init_regex_list(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @is_allow_list_ok(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -98,7 +92,7 @@ define i32 @is_allow_list_ok(ptr noundef readonly captures(address_is_null) %0) 
   ret i32 %8
 }
 
-declare i32 @is_regex_ok(ptr noundef) local_unnamed_addr #2
+declare i32 @is_regex_ok(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @allow_list_done(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -124,13 +118,19 @@ define void @allow_list_done(ptr noundef captures(address_is_null) %0) local_unn
   ret void
 }
 
-declare void @regex_list_done(ptr noundef) local_unnamed_addr #2
+declare void @regex_list_done(ptr noundef) local_unnamed_addr #1
 
-declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

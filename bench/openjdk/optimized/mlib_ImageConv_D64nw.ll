@@ -30,7 +30,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr noundef readonly captures(none
   br i1 %21, label %22, label %240
 
 22:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 12800, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %reass.sub.i = sub i32 %.val.fr, %4
   %23 = add i32 %reass.sub.i, 1
   %24 = mul nsw i32 %15, %6
@@ -486,7 +486,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr noundef readonly captures(none
   br label %mlib_ImageConv1xN.exit
 
 mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %239
-  call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit691
 
 240:                                              ; preds = %8
@@ -1132,10 +1132,10 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #3

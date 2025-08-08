@@ -22,8 +22,8 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr noundef readonly captures(none
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load i8, ptr %0, align 1, !tbaa !4
   store i8 %8, ptr %6, align 1, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -61,10 +61,10 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr noundef readonly captures(none
   store i8 %33, ptr %34, align 1, !tbaa !4
   call void @DES_set_odd_parity(ptr noundef nonnull %6) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @DES_ecb_encrypt(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 1) #8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = load i8, ptr %35, align 1, !tbaa !4
   store i8 %36, ptr %5, align 1, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -102,11 +102,11 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr noundef readonly captures(none
   store i8 %61, ptr %62, align 1, !tbaa !4
   call void @DES_set_odd_parity(ptr noundef nonnull %5) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %5, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @DES_ecb_encrypt(ptr noundef %1, ptr noundef nonnull %63, ptr noundef nonnull %7, i32 noundef 1) #8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %65 = load i8, ptr %64, align 1, !tbaa !4
   store i8 %65, ptr %4, align 1, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 15
@@ -144,20 +144,14 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr noundef readonly captures(none
   store i8 %90, ptr %91, align 1, !tbaa !4
   call void @DES_set_odd_parity(ptr noundef nonnull %4) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %4, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @DES_ecb_encrypt(ptr noundef %1, ptr noundef nonnull %92, ptr noundef nonnull %7, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -165,15 +159,15 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   %4 = alloca [8 x i8], align 1
   %5 = alloca [14 x i8], align 1
   %6 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 14)
   call void @Curl_strntoupper(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %spec.select) #8
   %8 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %spec.select
   %9 = sub nuw nsw i64 14, %spec.select
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %9, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = load i8, ptr %5, align 1, !tbaa !4
   store i8 %10, ptr %4, align 1, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -211,10 +205,10 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   store i8 %35, ptr %36, align 1, !tbaa !4
   call void @DES_set_odd_parity(ptr noundef nonnull %4) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %4, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @DES_ecb_encrypt(ptr noundef nonnull @Curl_ntlm_core_mk_lm_hash.magic, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load i8, ptr %37, align 1, !tbaa !4
   store i8 %38, ptr %3, align 1, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -252,23 +246,23 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   store i8 %63, ptr %64, align 1, !tbaa !4
   call void @DES_set_odd_parity(ptr noundef nonnull %3) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %3, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @DES_ecb_encrypt(ptr noundef nonnull @Curl_ntlm_core_mk_lm_hash.magic, ptr noundef nonnull %65, ptr noundef nonnull %6, i32 noundef 1) #8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %66, i8 0, i64 5, i1 false)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @Curl_strntoupper(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_strntoupper(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -328,7 +322,7 @@ ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i, %6
   ret i32 %.0
 }
 
-declare i32 @Curl_md4it(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_md4it(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -394,12 +388,12 @@ ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i24, %ascii_
   ret i32 %.0
 }
 
-declare i32 @Curl_hmacit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_hmacit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @time(ptr noundef null) #8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !12
@@ -473,24 +467,24 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef 
 
 53:                                               ; preds = %5, %52, %50
   %.0 = phi i32 [ %49, %50 ], [ 0, %52 ], [ 27, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #5
+declare i64 @time(ptr noundef) local_unnamed_addr #4
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %2, align 1
   store i64 %7, ptr %5, align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -508,16 +502,22 @@ define dso_local i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef %0, ptr noundef re
   br label %14
 
 14:                                               ; preds = %4, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
-declare void @DES_set_odd_parity(ptr noundef) local_unnamed_addr #2
+declare void @DES_set_odd_parity(ptr noundef) local_unnamed_addr #1
 
-declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #2
+declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #7
@@ -526,12 +526,12 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

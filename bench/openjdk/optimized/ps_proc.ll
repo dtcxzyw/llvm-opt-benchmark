@@ -70,10 +70,10 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   store i32 %0, ptr %18, align 8
   %19 = tail call ptr @add_thread_info(ptr noundef nonnull %9, i32 noundef %0) #16
   store ptr @process_ops, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load i32, ptr %18, align 8
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull @.str.15, i32 noundef %20) #16
   %22 = call noalias ptr @fopen64(ptr noundef nonnull %4, ptr noundef nonnull @.str.16)
@@ -216,10 +216,10 @@ fgets_no_cr.exit.i:                               ; preds = %.backedge.i, %.preh
   br label %read_lib_info.exit
 
 read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %74 = load i32, ptr %18, align 8
   %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.3, i32 noundef %74) #16
   %76 = call ptr @opendir(ptr noundef nonnull %8)
@@ -340,7 +340,7 @@ define internal fastcc range(i32 0, 3) i32 @ptrace_attach(i32 noundef %0, ptr no
   br label %49
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %6, align 4
   br label %ptrace_continue.exit.i
 
@@ -421,11 +421,11 @@ ptrace_continue.exit.i.backedge:                  ; preds = %.thread.i, %36
 
 ptrace_waitpid.exit.thread:                       ; preds = %32, %39, %47, %46
   %.08.i.ph = phi i32 [ 1, %46 ], [ 1, %47 ], [ 1, %39 ], [ 0, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 48:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.4, i32 noundef %0) #16
   br label %49
 
@@ -730,10 +730,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13

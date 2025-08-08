@@ -65,17 +65,11 @@ define range(i32 0, 14) i32 @av_hwdevice_find_type_by_name(ptr noundef readonly 
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @av_hwdevice_get_type_name(i32 noundef %0) local_unnamed_addr #3 {
+define ptr @av_hwdevice_get_type_name(i32 noundef %0) local_unnamed_addr #2 {
   %2 = add i32 %0, -1
   %or.cond = icmp ult i32 %2, 13
   br i1 %or.cond, label %3, label %7
@@ -92,7 +86,7 @@ define ptr @av_hwdevice_get_type_name(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #4 {
+define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #3 {
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %.split.us, label %.split
 
@@ -139,9 +133,9 @@ define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @av_hwdevice_ctx_alloc(i32 noundef %0) local_unnamed_addr #5 {
+define ptr @av_hwdevice_ctx_alloc(i32 noundef %0) local_unnamed_addr #4 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %6
 
 3:                                                ; preds = %6
@@ -198,18 +192,18 @@ define ptr @av_hwdevice_ctx_alloc(i32 noundef %0) local_unnamed_addr #5 {
 
 .thread:                                          ; preds = %3, %10, %23, %20
   %.016 = phi ptr [ %19, %20 ], [ null, %23 ], [ null, %10 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.016
 }
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #5
 
-declare ptr @av_buffer_create(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @av_buffer_create(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @hwdevice_ctx_free(ptr readnone captures(none) %0, ptr noundef %1) #5 {
+define internal void @hwdevice_ctx_free(ptr readnone captures(none) %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !29
@@ -238,14 +232,14 @@ define internal void @hwdevice_ctx_free(ptr readnone captures(none) %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @av_freep(ptr noundef nonnull %15) #11
   call void @av_freep(ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #6
+declare void @av_freep(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_hwdevice_ctx_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @av_hwdevice_ctx_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -265,15 +259,15 @@ define i32 @av_hwdevice_ctx_init(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @av_hwframe_ctx_alloc(ptr noundef %0) local_unnamed_addr #5 {
+define ptr @av_hwframe_ctx_alloc(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !38
   %8 = tail call noalias ptr @av_mallocz(i64 noundef 112) #11
   %.not = icmp eq ptr %8, null
@@ -327,17 +321,17 @@ define ptr @av_hwframe_ctx_alloc(ptr noundef %0) local_unnamed_addr #5 {
 
 27:                                               ; preds = %1, %25, %19
   %.0 = phi ptr [ %18, %19 ], [ null, %25 ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #6
+declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @hwframe_ctx_free(ptr readnone captures(none) %0, ptr noundef %1) #5 {
+define internal void @hwframe_ctx_free(ptr readnone captures(none) %0, ptr noundef %1) #4 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !52
@@ -378,14 +372,14 @@ define internal void @hwframe_ctx_free(ptr readnone captures(none) %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @av_freep(ptr noundef nonnull %20) #11
   call void @av_freep(ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #6
+declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @av_hwframe_ctx_init(ptr noundef %0) local_unnamed_addr #5 {
+define range(i32 -2147483648, 1) i32 @av_hwframe_ctx_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !34
@@ -470,7 +464,7 @@ define range(i32 -2147483648, 1) i32 @av_hwframe_ctx_init(ptr noundef %0) local_
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %3, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load i32, ptr %49, align 8, !tbaa !64
   %51 = sext i32 %50 to i64
@@ -480,7 +474,7 @@ define range(i32 -2147483648, 1) i32 @av_hwframe_ctx_init(ptr noundef %0) local_
   br i1 %.not.i, label %hwframe_pool_prealloc.exit.thread, label %.preheader.i
 
 hwframe_pool_prealloc.exit.thread:                ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %70
 
 .preheader.i:                                     ; preds = %47
@@ -496,7 +490,7 @@ hwframe_pool_prealloc.exit.thread:                ; preds = %47
 
 hwframe_pool_prealloc.exit.thread42:              ; preds = %.preheader.i
   call void @av_freep(ptr noundef nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %69
 
 .lr.ph.i:                                         ; preds = %.lr.ph49
@@ -541,7 +535,7 @@ hwframe_pool_prealloc.exit.thread42:              ; preds = %.preheader.i
 
 hwframe_pool_prealloc.exit:                       ; preds = %.lr.ph30.i, %._crit_edge.i
   call void @av_freep(ptr noundef nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %68 = icmp slt i32 %.1.ph.i, 0
   br i1 %68, label %70, label %69
 
@@ -553,14 +547,14 @@ hwframe_pool_prealloc.exit:                       ; preds = %.lr.ph30.i, %._crit
   ret i32 %.030
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #6
+declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #5
 
-declare i32 @av_image_check_size(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @av_image_check_size(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_hwframe_transfer_get_formats(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define i32 @av_hwframe_transfer_get_formats(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -580,7 +574,7 @@ define i32 @av_hwframe_transfer_get_formats(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_hwframe_transfer_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define i32 @av_hwframe_transfer_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -589,7 +583,7 @@ define i32 @av_hwframe_transfer_data(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not, label %8, label %53
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %10 = load ptr, ptr %9, align 8, !tbaa !73
   %.not.i = icmp eq ptr %10, null
@@ -615,7 +609,7 @@ define i32 @av_hwframe_transfer_data(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %35
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %9, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !34
@@ -633,7 +627,7 @@ av_hwframe_transfer_get_formats.exit:             ; preds = %21
 
 .thread:                                          ; preds = %av_hwframe_transfer_get_formats.exit, %21
   %.0.i6062.ph = phi i32 [ %29, %av_hwframe_transfer_get_formats.exit ], [ -38, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
 31:                                               ; preds = %av_hwframe_transfer_get_formats.exit
@@ -642,7 +636,7 @@ av_hwframe_transfer_get_formats.exit:             ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 116
   store i32 %33, ptr %34, align 4, !tbaa !81
   call void @av_freep(ptr noundef nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %31, %19
@@ -680,7 +674,7 @@ av_hwframe_transfer_get_formats.exit:             ; preds = %21
 
 transfer_data_alloc.exit:                         ; preds = %8, %11, %52
   %.018.i = phi i32 [ %.017.i, %52 ], [ -22, %8 ], [ -12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread67
 
 53:                                               ; preds = %3
@@ -773,7 +767,7 @@ transfer_data_alloc.exit:                         ; preds = %8, %11, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #5 {
+define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !34
@@ -783,7 +777,7 @@ define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_
   br i1 %.not, label %27, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %11 = load i32, ptr %10, align 4, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -824,7 +818,7 @@ define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_
 
 26:                                               ; preds = %.sink.split, %15, %9
   %.0 = phi i32 [ -12, %9 ], [ -12, %15 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
 
 27:                                               ; preds = %3
@@ -870,12 +864,12 @@ define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_
   ret i32 %.1
 }
 
-declare ptr @av_frame_alloc() local_unnamed_addr #6
+declare ptr @av_frame_alloc() local_unnamed_addr #5
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #6
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_hwframe_map(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define i32 @av_hwframe_map(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1030,7 +1024,7 @@ define i32 @av_hwframe_map(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @av_hwdevice_hwconfig_alloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define noalias ptr @av_hwdevice_hwconfig_alloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1050,13 +1044,13 @@ define noalias ptr @av_hwdevice_hwconfig_alloc(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @av_hwdevice_get_hwframe_constraints(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
+define ptr @av_hwdevice_get_hwframe_constraints(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !97
   %.not = icmp eq ptr %9, null
@@ -1091,12 +1085,12 @@ av_hwframe_constraints_free.exit:                 ; preds = %12
 
 21:                                               ; preds = %12, %10, %2, %av_hwframe_constraints_free.exit
   %.0 = phi ptr [ null, %av_hwframe_constraints_free.exit ], [ null, %2 ], [ null, %10 ], [ %11, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_hwframe_constraints_free(ptr noundef %0) local_unnamed_addr #5 {
+define void @av_hwframe_constraints_free(ptr noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !98
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -1114,9 +1108,9 @@ define void @av_hwframe_constraints_free(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @av_hwdevice_ctx_create(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define range(i32 -2147483648, 1) i32 @av_hwdevice_ctx_create(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @av_hwdevice_ctx_alloc(i32 noundef %1)
   store ptr %7, ptr %6, align 8, !tbaa !38
   %.not = icmp eq ptr %7, null
@@ -1160,14 +1154,14 @@ av_hwdevice_ctx_init.exit.thread:                 ; preds = %av_hwdevice_ctx_ini
   %storemerge = phi ptr [ null, %26 ], [ %7, %18 ], [ %7, %av_hwdevice_ctx_init.exit ]
   %.012 = phi i32 [ %.0, %26 ], [ 0, %18 ], [ 0, %av_hwdevice_ctx_init.exit ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @av_hwdevice_ctx_create_derived_opts(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define noundef i32 @av_hwdevice_ctx_create_derived_opts(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not70 = icmp eq ptr %2, null
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
@@ -1274,18 +1268,18 @@ av_hwdevice_ctx_init.exit:                        ; preds = %40
   %storemerge = phi ptr [ null, %.thread52 ], [ %17, %40 ], [ %17, %av_hwdevice_ctx_init.exit ], [ %13, %12 ]
   %.0 = phi i32 [ %.234, %.thread52 ], [ 0, %40 ], [ 0, %av_hwdevice_ctx_init.exit ], [ 0, %12 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @av_hwdevice_ctx_create_derived(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define noundef i32 @av_hwdevice_ctx_create_derived(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @av_hwdevice_ctx_create_derived_opts(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @ff_hwframe_map_create(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define range(i32 -2147483648, 1) i32 @ff_hwframe_map_create(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = tail call noalias ptr @av_mallocz(i64 noundef 32) #11
@@ -1338,10 +1332,10 @@ define range(i32 -2147483648, 1) i32 @ff_hwframe_map_create(ptr noundef %0, ptr 
   ret i32 %.023
 }
 
-declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_hwframe_unmap(ptr noundef %0, ptr noundef %1) #5 {
+define internal void @ff_hwframe_unmap(ptr noundef %0, ptr noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !113
   %.not = icmp eq ptr %4, null
@@ -1359,19 +1353,19 @@ define internal void @ff_hwframe_unmap(ptr noundef %0, ptr noundef %1) #5 {
   ret void
 }
 
-declare void @av_free(ptr noundef) local_unnamed_addr #6
+declare void @av_free(ptr noundef) local_unnamed_addr #5
 
-declare i32 @av_frame_replace(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @av_frame_replace(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
-declare void @av_frame_unref(ptr noundef) local_unnamed_addr #6
+declare void @av_frame_unref(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -37, -38) i32 @av_hwframe_ctx_create_derived(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define range(i32 -37, -38) i32 @av_hwframe_ctx_create_derived(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !34
@@ -1476,12 +1470,12 @@ define range(i32 -37, -38) i32 @av_hwframe_ctx_create_derived(ptr noundef writeo
 
 .thread:                                          ; preds = %19, %.thread71, %.thread69
   %.1 = phi i32 [ %.14675, %.thread71 ], [ 0, %.thread69 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ff_hwframe_map_replace(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
+define i32 @ff_hwframe_map_replace(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1492,7 +1486,7 @@ define i32 @ff_hwframe_map_replace(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @hwdevice_ctx_get_name(ptr noundef readonly captures(none) %0) #8 {
+define internal ptr @hwdevice_ctx_get_name(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1500,28 +1494,34 @@ define internal ptr @hwdevice_ctx_get_name(ptr noundef readonly captures(none) %
   ret ptr %5
 }
 
-declare void @av_buffer_pool_uninit(ptr noundef) local_unnamed_addr #6
+declare void @av_buffer_pool_uninit(ptr noundef) local_unnamed_addr #5
 
-declare ptr @av_default_item_name(ptr noundef) #6
+declare ptr @av_default_item_name(ptr noundef) #5
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @av_frame_get_buffer(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @av_frame_get_buffer(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @av_frame_move_ref(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @av_frame_move_ref(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }

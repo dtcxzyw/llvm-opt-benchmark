@@ -33,9 +33,9 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %6 = alloca %struct.ExecParallelEstimateContext, align 8
   %7 = alloca %struct.ExecParallelInitializeDSMContext, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i64 @dsa_minimum_size() #9
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %11 = load ptr, ptr %10, align 8
@@ -489,33 +489,30 @@ ExecSerializePlan.exit:                           ; preds = %75, %.critedge.i, %
   unreachable
 
 293:                                              ; preds = %281
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @dsa_minimum_size() local_unnamed_addr #1
 
-declare i64 @dsa_minimum_size() local_unnamed_addr #2
+declare void @ExecSetParamPlanMulti(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSetParamPlanMulti(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @CreateParallelContext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @CreateParallelContext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i64 @EstimateParamListSpace(ptr noundef) local_unnamed_addr #2
+declare i64 @EstimateParamListSpace(ptr noundef) local_unnamed_addr #1
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1) #0 {
@@ -682,16 +679,16 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   ret i1 %.0
 }
 
-declare void @InitializeParallelDSM(ptr noundef) local_unnamed_addr #2
+declare void @InitializeParallelDSM(ptr noundef) local_unnamed_addr #1
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @SerializeParamList(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SerializeParamList(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -760,15 +757,12 @@ define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef readonly ca
   ret ptr %.0
 }
 
-declare void @InstrInit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @InstrInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @dsa_create_in_place_ext(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @dsa_create_in_place_ext(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
@@ -777,7 +771,7 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonl
   %6 = alloca ptr, align 8
   %7 = alloca i16, align 2
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef -1) #9
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %.lr.ph.i, label %EstimateParamExecSpace.exit
@@ -790,8 +784,8 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonl
 13:                                               ; preds = %29, %.lr.ph.i
   %14 = phi i32 [ %9, %.lr.ph.i ], [ %39, %29 ]
   %.01215.i = phi i64 [ 4, %.lr.ph.i ], [ %38, %29 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load ptr, ptr %11, align 8
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw %struct.ParamExecData, ptr %15, i64 %16
@@ -829,8 +823,8 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonl
   %36 = trunc nuw i8 %35 to i1
   %37 = call i64 @datumEstimateSpace(i64 noundef %33, i1 noundef zeroext %36, i1 noundef zeroext %31, i32 noundef %30) #9
   %38 = call i64 @add_size(i64 noundef %24, i64 noundef %37) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef %14) #9
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !9
@@ -854,8 +848,8 @@ EstimateParamExecSpace.exit:                      ; preds = %29, %3
 
 49:                                               ; preds = %.lr.ph, %67
   %50 = phi i32 [ %45, %.lr.ph ], [ %75, %67 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = load ptr, ptr %47, align 8
   %52 = zext nneg i32 %50 to i64
   %53 = getelementptr inbounds nuw %struct.ParamExecData, ptr %51, i64 %52
@@ -896,14 +890,14 @@ EstimateParamExecSpace.exit:                      ; preds = %29, %3
   %73 = load i8, ptr %72, align 8, !range !4, !noundef !5
   %74 = trunc nuw i8 %73 to i1
   call void @datumSerialize(i64 noundef %71, i1 noundef zeroext %74, i1 noundef zeroext %69, i32 noundef %68, ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %75 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef %50) #9
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %49, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %67, %EstimateParamExecSpace.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %41
 }
 
@@ -1092,11 +1086,11 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecParallelCreateReaders(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1142,11 +1136,11 @@ define dso_local void @ExecParallelCreateReaders(ptr noundef captures(none) %0) 
   ret void
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare void @shm_mq_set_handle(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_set_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateTupleQueueReader(ptr noundef) local_unnamed_addr #2
+declare ptr @CreateTupleQueueReader(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecParallelReinitialize(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1253,11 +1247,11 @@ ExecParallelSetupTupleQueues.exit:                ; preds = %28, %18, %10
   ret void
 }
 
-declare void @ReinitializeParallelDSM(ptr noundef) local_unnamed_addr #2
+declare void @ReinitializeParallelDSM(ptr noundef) local_unnamed_addr #1
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @dsa_free(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @dsa_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noundef %1) #0 {
@@ -1492,15 +1486,15 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
   ret void
 }
 
-declare void @shm_mq_detach(ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_detach(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @DestroyTupleQueueReader(ptr noundef) local_unnamed_addr #2
+declare void @DestroyTupleQueueReader(ptr noundef) local_unnamed_addr #1
 
-declare void @WaitForParallelWorkersToFinish(ptr noundef) local_unnamed_addr #2
+declare void @WaitForParallelWorkersToFinish(ptr noundef) local_unnamed_addr #1
 
-declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecParallelCleanup(ptr noundef %0) local_unnamed_addr #0 {
@@ -1748,16 +1742,16 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
   ret i1 %58
 }
 
-declare void @dsa_detach(ptr noundef) local_unnamed_addr #2
+declare void @dsa_detach(ptr noundef) local_unnamed_addr #1
 
-declare void @DestroyParallelContext(ptr noundef) local_unnamed_addr #2
+declare void @DestroyParallelContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.ParallelWorkerContext, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693951, i1 noundef zeroext false) #9
   %7 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693947, i1 noundef zeroext false) #9
   %8 = load i32, ptr @ParallelWorkerNumber, align 4
@@ -1779,7 +1773,7 @@ define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_u
 18:                                               ; preds = %16, %2
   %.0 = phi i32 [ %17, %16 ], [ 0, %2 ]
   %19 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693943, i1 noundef zeroext true) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693944, i1 noundef zeroext false) #9
   %21 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693950, i1 noundef zeroext false) #9
   %22 = tail call ptr @stringToNode(ptr noundef %21) #9
@@ -1788,7 +1782,7 @@ define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_u
   %24 = call ptr @RestoreParamList(ptr noundef nonnull %4) #9
   %25 = call ptr @GetActiveSnapshot() #9
   %26 = call ptr @CreateQueryDesc(ptr noundef %22, ptr noundef %20, ptr noundef %25, ptr noundef null, ptr noundef %14, ptr noundef %24, ptr noundef null, i32 noundef %.0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr @debug_query_string, align 8
@@ -1819,7 +1813,7 @@ define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_u
   %46 = call ptr @dsa_get_address(ptr noundef %30, i64 noundef %44) #9
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %48 = load ptr, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.0.copyload5.i = load i32, ptr %46, align 1
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store ptr %49, ptr %3, align 8
@@ -1849,7 +1843,7 @@ define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_u
   br i1 %exitcond.not.i, label %RestoreParamExecParams.exit, label %52, !llvm.loop !18
 
 RestoreParamExecParams.exit:                      ; preds = %52, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 62:                                               ; preds = %RestoreParamExecParams.exit, %18
@@ -1906,17 +1900,17 @@ RestoreParamExecParams.exit:                      ; preds = %52, %45
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef %14) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @pgstat_report_activity(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pgstat_report_activity(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dsa_attach_in_place(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @dsa_attach_in_place(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @dsa_get_address(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @dsa_get_address(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr noundef %1) #0 {
@@ -2066,15 +2060,15 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   ret i1 %.0
 }
 
-declare void @ExecSetTupleBound(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSetTupleBound(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @InstrStartParallelQuery() local_unnamed_addr #2
+declare void @InstrStartParallelQuery() local_unnamed_addr #1
 
-declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #2
+declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #1
 
-declare void @InstrEndParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InstrEndParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, ptr noundef %1) #0 {
@@ -2134,167 +2128,173 @@ define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, pt
   ret i1 %35
 }
 
-declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #2
+declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #1
 
-declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #2
+declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
-declare i64 @pgstat_get_my_query_id() local_unnamed_addr #2
+declare i64 @pgstat_get_my_query_id() local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @nodeToString(ptr noundef) local_unnamed_addr #2
+declare ptr @nodeToString(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSeqScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSeqScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexOnlyScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexOnlyScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecForeignScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecForeignScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAppendEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAppendEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecCustomScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecCustomScanEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecBitmapHeapEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecBitmapHeapEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashJoinEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashJoinEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSortEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSortEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIncrementalSortEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIncrementalSortEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAggEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAggEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecMemoizeEstimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecMemoizeEstimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @planstate_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @planstate_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @shm_mq_create(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_mq_create(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @shm_mq_set_receiver(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_set_receiver(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @shm_mq_attach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @shm_mq_attach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @dsa_allocate_extended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @dsa_allocate_extended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #2
+declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 
-declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @datumSerialize(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @datumSerialize(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @datumEstimateSpace(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumEstimateSpace(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecSeqScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSeqScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexOnlyScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexOnlyScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecForeignScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecForeignScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAppendInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAppendInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecCustomScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecCustomScanInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecBitmapHeapInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecBitmapHeapInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashJoinInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashJoinInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSortInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSortInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIncrementalSortInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIncrementalSortInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAggInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAggInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecMemoizeInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecMemoizeInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSeqScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSeqScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexOnlyScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexOnlyScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecForeignScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecForeignScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAppendReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAppendReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecCustomScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecCustomScanReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecBitmapHeapReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecBitmapHeapReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashJoinReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashJoinReInitializeDSM(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @InstrAggNode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InstrAggNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSortRetrieveInstrumentation(ptr noundef) local_unnamed_addr #2
+declare void @ExecSortRetrieveInstrumentation(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIncrementalSortRetrieveInstrumentation(ptr noundef) local_unnamed_addr #2
+declare void @ExecIncrementalSortRetrieveInstrumentation(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashRetrieveInstrumentation(ptr noundef) local_unnamed_addr #2
+declare void @ExecHashRetrieveInstrumentation(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAggRetrieveInstrumentation(ptr noundef) local_unnamed_addr #2
+declare void @ExecAggRetrieveInstrumentation(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecMemoizeRetrieveInstrumentation(ptr noundef) local_unnamed_addr #2
+declare void @ExecMemoizeRetrieveInstrumentation(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecBitmapHeapRetrieveInstrumentation(ptr noundef) local_unnamed_addr #2
+declare void @ExecBitmapHeapRetrieveInstrumentation(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @InstrJitAgg(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InstrJitAgg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @shm_mq_set_sender(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_mq_set_sender(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateTupleQueueDestReceiver(ptr noundef) local_unnamed_addr #2
+declare ptr @CreateTupleQueueDestReceiver(ptr noundef) local_unnamed_addr #1
 
-declare ptr @stringToNode(ptr noundef) local_unnamed_addr #2
+declare ptr @stringToNode(ptr noundef) local_unnamed_addr #1
 
-declare ptr @RestoreParamList(ptr noundef) local_unnamed_addr #2
+declare ptr @RestoreParamList(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @GetActiveSnapshot() local_unnamed_addr #2
+declare ptr @GetActiveSnapshot() local_unnamed_addr #1
 
-declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSeqScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSeqScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIndexOnlyScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIndexOnlyScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecForeignScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecForeignScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAppendInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAppendInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecCustomScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecCustomScanInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecBitmapHeapInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecBitmapHeapInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashJoinInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashJoinInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecSortInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSortInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecIncrementalSortInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecIncrementalSortInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAggInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAggInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecMemoizeInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecMemoizeInitializeWorker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @InstrEndLoop(ptr noundef) local_unnamed_addr #2
+declare void @InstrEndLoop(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
@@ -2303,12 +2303,12 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.smax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

@@ -231,7 +231,7 @@ define internal fastcc noundef ptr @Resolve(ptr noundef %0, ptr noundef %1) unna
   br i1 %or.cond, label %19, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @stat64(ptr noundef nonnull readonly %4, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %ProgramExists.exit.thread
@@ -244,11 +244,11 @@ define internal fastcc noundef ptr @Resolve(ptr noundef %0, ptr noundef %1) unna
   br i1 %12, label %ProgramExists.exit.thread, label %ProgramExists.exit
 
 ProgramExists.exit.thread:                        ; preds = %6, %8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 ProgramExists.exit:                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = and i32 %10, 64
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %19, label %14
@@ -521,10 +521,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

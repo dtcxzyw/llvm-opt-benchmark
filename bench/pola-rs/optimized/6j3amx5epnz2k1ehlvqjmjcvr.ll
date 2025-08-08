@@ -52,7 +52,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h3b26
   unreachable
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.02.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %.sroa.02.sroa.2.0..sroa_idx, align 8
   %.sroa.02.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -72,7 +72,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h3b26
   br label %13
 
 12:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 
 13:                                               ; preds = %10, %14
@@ -227,10 +227,10 @@ declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17he212956
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6

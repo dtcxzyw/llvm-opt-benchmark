@@ -1524,8 +1524,8 @@ define hidden void @_ZN14KlassHierarchy21print_class_hierarchyEP12outputStreambb
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %9, align 8
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
   %33 = ptrtoint ptr %32 to i64
@@ -1547,8 +1547,8 @@ define hidden void @_ZN14KlassHierarchy21print_class_hierarchyEP12outputStreambb
   br i1 %.not.i, label %_ZN14KlassInfoTableC2Eb.exit.thread, label %.preheader.i
 
 _ZN14KlassInfoTableC2Eb.exit.thread:              ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
 .preheader.i:                                     ; preds = %38, %.preheader.i
@@ -1568,8 +1568,8 @@ _ZN14KlassInfoTableC2Eb.exit:                     ; preds = %.preheader.i
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %6) #15
   call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   %.pr = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = icmp eq ptr %.pr, null
   br i1 %44, label %45, label %46
 
@@ -2916,7 +2916,7 @@ define hidden void @_ZN18ParHeapInspectTask4workEj(ptr noundef nonnull align 8 d
   br i1 %9, label %10, label %_ZN14KlassInfoTableD2Ev.exit
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %5, align 8
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
   %12 = ptrtoint ptr %11 to i64
@@ -2946,12 +2946,12 @@ define hidden void @_ZN18ParHeapInspectTask4workEj(ptr noundef nonnull align 8 d
   br i1 %exitcond.not.i, label %21, label %.preheader.i, !llvm.loop !10
 
 .thread:                                          ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store volatile i8 0, ptr %7, align 8
   br label %_ZN14KlassInfoTableD2Ev.exit
 
 21:                                               ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21RecordInstanceClosure, i64 16), ptr %6, align 8
@@ -2969,7 +2969,7 @@ define hidden void @_ZN18ParHeapInspectTask4workEj(ptr noundef nonnull align 8 d
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26KlassInfoTableMergeClosure, i64 16), ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %33, align 8
@@ -3002,7 +3002,7 @@ _ZN15KlassInfoBucket7iterateEP16KlassInfoClosure.exit.i.i: ; preds = %.lr.ph.i.i
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN15KlassInfoBucket7iterateEP16KlassInfoClosure.exit.i.i
   %40 = load i8, ptr %34, align 8
   %41 = trunc i8 %40 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #15
   br i1 %41, label %42, label %45
 
@@ -3243,7 +3243,7 @@ define hidden void @_ZN14HeapInspection15heap_inspectionEP12outputStreamP13Worke
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load i64, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %5, align 8
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
   %21 = ptrtoint ptr %20 to i64
@@ -3265,7 +3265,7 @@ define hidden void @_ZN14HeapInspection15heap_inspectionEP12outputStreamP13Worke
   br i1 %.not.i, label %_ZN14KlassInfoTableC2Eb.exit.thread, label %.preheader.i
 
 _ZN14KlassInfoTableC2Eb.exit.thread:              ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 .preheader.i:                                     ; preds = %26, %.preheader.i
@@ -3279,7 +3279,7 @@ _ZN14KlassInfoTableC2Eb.exit.thread:              ; preds = %26
 
 _ZN14KlassInfoTableC2Eb.exit:                     ; preds = %.preheader.i
   %.pr = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = icmp eq ptr %.pr, null
   br i1 %31, label %66, label %32
 
@@ -5127,10 +5127,10 @@ declare void @llvm.assume(i1 noundef) #13
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

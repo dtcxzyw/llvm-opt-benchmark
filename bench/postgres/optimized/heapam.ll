@@ -130,14 +130,8 @@ define dso_local void @heap_setscanlimits(ptr noundef writeonly captures(none) i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_prepare_pagescan(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define dso_local void @heap_prepare_pagescan(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %struct.HeapTupleData, align 8
@@ -258,7 +252,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %71 = zext i16 %.026.i4470 to i64
   %72 = add nsw i64 %71, -1
   %73 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %46, i64 0, i64 %72
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %74 = load i32, ptr %73, align 4
   %75 = and i32 %74, 98304
   %76 = icmp eq i32 %75, 32768
@@ -287,7 +281,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 88:                                               ; preds = %77, %70
   %.1.i47 = phi i32 [ %.025.i4571, %70 ], [ %87, %77 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %89 = add i16 %.026.i4470, 1
   %.not.i46 = icmp ugt i16 %89, %56
   br i1 %.not.i46, label %page_collect_tuples.exit, label %70, !llvm.loop !9
@@ -319,7 +313,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %104 = zext i16 %.026.i4975 to i64
   %105 = add nsw i64 %104, -1
   %106 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %92, i64 0, i64 %105
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %107, 98304
   %109 = icmp eq i32 %108, 32768
@@ -351,7 +345,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 123:                                              ; preds = %119, %110, %103
   %.1.i52 = phi i32 [ %.025.i5076, %103 ], [ %122, %119 ], [ %.025.i5076, %110 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %124 = add i16 %.026.i4975, 1
   %.not.i51 = icmp ugt i16 %124, %102
   br i1 %.not.i51, label %page_collect_tuples.exit, label %103, !llvm.loop !9
@@ -380,7 +374,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %138 = zext i16 %.026.i5480 to i64
   %139 = add nsw i64 %138, -1
   %140 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %126, i64 0, i64 %139
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %141 = load i32, ptr %140, align 4
   %142 = and i32 %141, 98304
   %143 = icmp eq i32 %142, 32768
@@ -414,7 +408,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 158:                                              ; preds = %154, %144, %137
   %.1.i57 = phi i32 [ %.025.i5581, %137 ], [ %157, %154 ], [ %.025.i5581, %144 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %159 = add i16 %.026.i5480, 1
   %.not.i56 = icmp ugt i16 %159, %136
   br i1 %.not.i56, label %page_collect_tuples.exit, label %137, !llvm.loop !9
@@ -427,14 +421,14 @@ page_collect_tuples.exit:                         ; preds = %68, %88, %123, %158
   ret void
 }
 
-declare void @heap_page_prune_opt(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @heap_page_prune_opt(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @CheckForSerializableConflictOutNeeded(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @CheckForSerializableConflictOutNeeded(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   tail call void @RelationIncrementReferenceCount(ptr noundef %0) #13
   %7 = and i32 %5, 2
   %.not = icmp eq i32 %7, 0
@@ -541,14 +535,14 @@ define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32
   ret ptr %.043
 }
 
-declare void @RelationIncrementReferenceCount(ptr noundef) local_unnamed_addr #3
+declare void @RelationIncrementReferenceCount(ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare void @PredicateLockRelation(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PredicateLockRelation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initscan(ptr noundef captures(none) initializes((64, 68), (72, 77), (80, 88), (100, 106), (112, 120), (128, 136), (144, 152)) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc void @initscan(ptr noundef captures(none) initializes((64, 68), (72, 77), (80, 88), (100, 106), (112, 120), (128, 136), (144, 152)) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -762,7 +756,7 @@ define internal fastcc void @initscan(ptr noundef captures(none) initializes((64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heap_scan_stream_read_next_parallel(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((132, 136)) %1, ptr readnone captures(none) %2) #2 {
+define internal i32 @heap_scan_stream_read_next_parallel(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((132, 136)) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i8, ptr %4, align 4, !range !6, !noundef !7
   %6 = trunc nuw i8 %5 to i1
@@ -794,7 +788,7 @@ define internal i32 @heap_scan_stream_read_next_parallel(ptr readnone captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heap_scan_stream_read_next_serial(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #2 {
+define internal i32 @heap_scan_stream_read_next_serial(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i8, ptr %4, align 4, !range !6, !noundef !7
   %6 = trunc nuw i8 %5 to i1
@@ -897,10 +891,10 @@ heapgettup_advance_block.exit:                    ; preds = %27, %34, %37, %38, 
   ret i32 %56
 }
 
-declare ptr @read_stream_begin_relation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @read_stream_begin_relation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_rescan(ptr noundef captures(none) initializes((64, 68), (72, 77), (80, 84), (100, 106), (112, 120), (128, 136), (144, 152)) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #2 {
+define dso_local void @heap_rescan(ptr noundef captures(none) initializes((64, 68), (72, 77), (80, 84), (100, 106), (112, 120), (128, 136), (144, 152)) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
   br i1 %2, label %7, label %24
 
 7:                                                ; preds = %6
@@ -985,12 +979,12 @@ define dso_local void @heap_rescan(ptr noundef captures(none) initializes((64, 6
   ret void
 }
 
-declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #3
+declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #2
 
-declare void @read_stream_reset(ptr noundef) local_unnamed_addr #3
+declare void @read_stream_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_endscan(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @heap_endscan(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %.not28 = icmp eq i32 %3, 0
@@ -1078,18 +1072,18 @@ define dso_local void @heap_endscan(ptr noundef %0) local_unnamed_addr #2 {
   ret void
 }
 
-declare void @read_stream_end(ptr noundef) local_unnamed_addr #3
+declare void @read_stream_end(ptr noundef) local_unnamed_addr #2
 
-declare void @RelationDecrementReferenceCount(ptr noundef) local_unnamed_addr #3
+declare void @RelationDecrementReferenceCount(ptr noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #3
+declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #2
 
-declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #3
+declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @heap_getnext(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local ptr @heap_getnext(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %5 = load ptr, ptr %4, align 8
@@ -1179,21 +1173,21 @@ define dso_local ptr @heap_getnext(ptr noundef %0, i32 noundef %1) local_unnamed
   ret ptr %.0
 }
 
-declare ptr @GetHeapamTableAmRoutine() local_unnamed_addr #3
+declare ptr @GetHeapamTableAmRoutine() local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @heapgettup_pagemode(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @heapgettup_pagemode(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1380,7 +1374,7 @@ BufferGetPage.exit54:                             ; preds = %58, %64
   %.in.i = phi i32 [ %104, %102 ], [ %2, %.lr.ph.i.preheader ]
   %.01622.i = phi ptr [ %103, %102 ], [ %3, %.lr.ph.i.preheader ]
   %104 = add i32 %.in.i, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %105 = load i32, ptr %.01622.i, align 8
   %106 = and i32 %105, 1
   %.not17.i = icmp eq i32 %106, 0
@@ -1517,11 +1511,11 @@ heap_getattr.exit:                                ; preds = %118, %142, %145, %1
   %183 = load i64, ptr %182, align 8
   %184 = call i64 @FunctionCall2Coll(ptr noundef nonnull %179, i32 noundef %181, i64 noundef %.0.i, i64 noundef %183) #13
   %.not18.not.i = icmp eq i64 %184, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not18.not.i, label %HeapKeyTest.exit, label %102
 
 .critedge.i:                                      ; preds = %heap_getattr.exit, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HeapKeyTest.exit
 
 .critedge.sink.split:                             ; preds = %.lr.ph
@@ -1576,7 +1570,7 @@ heap_fetch_next_buffer.exit.thread:               ; preds = %49, %heap_fetch_nex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @heapgettup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @heapgettup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1893,7 +1887,7 @@ HeapKeyTest.exit.us74:                            ; preds = %138, %.lr.ph.split.
   %.in.i = phi i32 [ %185, %183 ], [ %2, %.lr.ph.i.preheader ]
   %.01622.i = phi ptr [ %184, %183 ], [ %3, %.lr.ph.i.preheader ]
   %185 = add i32 %.in.i, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %186 = load i32, ptr %.01622.i, align 8
   %187 = and i32 %186, 1
   %.not17.i = icmp eq i32 %187, 0
@@ -2030,11 +2024,11 @@ heap_getattr.exit:                                ; preds = %199, %223, %226, %2
   %264 = load i64, ptr %263, align 8
   %265 = call i64 @FunctionCall2Coll(ptr noundef nonnull %260, i32 noundef %262, i64 noundef %.0.i, i64 noundef %264) #13
   %.not18.not.i = icmp eq i64 %265, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not18.not.i, label %HeapKeyTest.exit, label %183
 
 .critedge.i:                                      ; preds = %heap_getattr.exit, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HeapKeyTest.exit
 
 .critedge:                                        ; preds = %183, %138, %113
@@ -2072,10 +2066,10 @@ heap_fetch_next_buffer.exit.thread:               ; preds = %69, %heap_fetch_nex
   ret void
 }
 
-declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #3
+declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_getnextslot(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_getnextslot(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 256
@@ -2147,14 +2141,14 @@ define dso_local noundef zeroext i1 @heap_getnextslot(ptr noundef %0, i32 nounde
   ret i1 %17
 }
 
-declare ptr @ExecStoreBufferHeapTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @ExecStoreBufferHeapTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_set_tidrange(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @heap_set_tidrange(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.ItemPointerData, align 2
   %5 = alloca %struct.ItemPointerData, align 2
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -2230,15 +2224,15 @@ define dso_local void @heap_set_tidrange(ptr noundef captures(none) %0, ptr noun
   br label %45
 
 45:                                               ; preds = %3, %31, %28
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_getnextslot_tidrange(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_getnextslot_tidrange(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2428,7 +2422,7 @@ define dso_local noundef zeroext i1 @heap_getnextslot_tidrange(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val52 = load i16, ptr %6, align 2
   %7 = getelementptr i8, ptr %2, i64 6
@@ -2558,14 +2552,14 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %58, %63
   ret i1 %.0
 }
 
-declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PredicateLockTID(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @PredicateLockTID(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = tail call zeroext i1 @CheckForSerializableConflictOutNeeded(ptr noundef %1, ptr noundef %4) #13
   br i1 %7, label %8, label %60
@@ -2608,7 +2602,7 @@ define dso_local void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %0
   br i1 %or.cond7.i, label %26, label %HeapTupleHeaderGetUpdateXid.exit
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -2642,7 +2636,7 @@ define dso_local void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %0
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %26
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 38:                                               ; preds = %18
@@ -2702,7 +2696,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %HeapTupleHeaderGetX
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = zext i1 %6 to i8
   %10 = icmp slt i32 %2, 0
@@ -2915,7 +2909,7 @@ HeapTupleHeaderGetXmin.exit90:                    ; preds = %79, %84
   br i1 %or.cond7.i, label %112, label %HeapTupleHeaderGetUpdateXid.exit
 
 112:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %113 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -2949,7 +2943,7 @@ HeapTupleHeaderGetXmin.exit90:                    ; preds = %79, %84
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %112
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %112 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %HeapTupleGetUpdateXid.exit.i, %108, %55
@@ -2965,12 +2959,12 @@ HeapTupleIsHotUpdated.exit.thread:                ; preds = %37, %HeapTupleHeade
   ret i1 %.2
 }
 
-declare ptr @GlobalVisTestFor(ptr noundef) local_unnamed_addr #3
+declare ptr @GlobalVisTestFor(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @HeapTupleIsSurelyDead(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @HeapTupleIsSurelyDead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_get_latest_tid(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @heap_get_latest_tid(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2994,7 +2988,7 @@ define dso_local void @heap_get_latest_tid(ptr noundef readonly captures(none) %
   %.sroa.7.0 = phi i16 [ %.sroa.7.0.copyload, %2 ], [ %.sroa.7.0.copyload48, %104 ]
   %.sroa.0.0 = phi i16 [ %.sroa.0.0.copyload, %2 ], [ %.sroa.0.0.copyload42, %104 ]
   %.031 = phi i32 [ 0, %2 ], [ %.0.i39, %104 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = zext i16 %.sroa.0.0 to i32
   %14 = shl nuw i32 %13, 16
   %15 = zext i16 %.sroa.7.0 to i32
@@ -3144,7 +3138,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %72, %HeapTupleHe
   br i1 %or.cond7.i, label %92, label %104
 
 92:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %93 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i38, ptr noundef nonnull %3, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -3178,32 +3172,32 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %72, %HeapTupleHe
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %92
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %92 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %104
 
 104:                                              ; preds = %HeapTupleGetUpdateXid.exit.i, %85
   %.0.i39 = phi i32 [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %.val.i.i38, %85 ]
   call void @UnlockReleaseBuffer(i32 noundef %17) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %12
 
 105:                                              ; preds = %65, %70, %HeapTupleHeaderIndicatesMovedPartitions.exit, %HeapTupleHeaderIndicatesMovedPartitions.exit.thread, %HeapTupleHeaderGetXmin.exit, %40, %BufferGetPage.exit, %32
   call void @UnlockReleaseBuffer(i32 noundef %17) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #3
+declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetBulkInsertState() local_unnamed_addr #2 {
+define dso_local ptr @GetBulkInsertState() local_unnamed_addr #1 {
   %1 = tail call ptr @palloc(i64 noundef 24) #13
   %2 = tail call ptr @GetAccessStrategy(i32 noundef 2) #13
   store ptr %2, ptr %1, align 8
@@ -3218,10 +3212,10 @@ define dso_local ptr @GetBulkInsertState() local_unnamed_addr #2 {
   ret ptr %1
 }
 
-declare ptr @GetAccessStrategy(i32 noundef) local_unnamed_addr #3
+declare ptr @GetAccessStrategy(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FreeBulkInsertState(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @FreeBulkInsertState(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3239,7 +3233,7 @@ define dso_local void @FreeBulkInsertState(ptr noundef %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReleaseBulkInsertStatePin(ptr noundef captures(none) initializes((12, 20)) %0) local_unnamed_addr #2 {
+define dso_local void @ReleaseBulkInsertStatePin(ptr noundef captures(none) initializes((12, 20)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3259,12 +3253,12 @@ define dso_local void @ReleaseBulkInsertStatePin(ptr noundef captures(none) init
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_insert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local void @heap_insert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.xl_heap_insert, align 2
   %8 = alloca %struct.xl_heap_header, align 2
   %9 = tail call i32 @GetCurrentTransactionId() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %10 = tail call fastcc ptr @heap_prepare_insert(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef %2, i32 noundef %3)
   %11 = load i32, ptr %10, align 8
@@ -3350,8 +3344,8 @@ BufferGetPage.exit87:                             ; preds = %BufferGetPage.exit.
   br i1 %60, label %61, label %143
 
 61:                                               ; preds = %57, %50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %18, label %62, label %68
 
 62:                                               ; preds = %61
@@ -3500,8 +3494,8 @@ BufferGetPage.exit89:                             ; preds = %62, %68
   %141 = trunc i64 %138 to i32
   %142 = getelementptr inbounds nuw i8, ptr %.0.i.i88, i64 4
   store i32 %141, ptr %142, align 4
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %143
 
 143:                                              ; preds = %44, %53, %57, %122
@@ -3531,14 +3525,14 @@ BufferGetPage.exit89:                             ; preds = %62, %68
   br label %152
 
 152:                                              ; preds = %149, %148
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @GetCurrentTransactionId() local_unnamed_addr #3
+declare i32 @GetCurrentTransactionId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @heap_prepare_insert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc ptr @heap_prepare_insert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr @ParallelWorkerNumber, align 4
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %12
@@ -3628,22 +3622,22 @@ define internal fastcc ptr @heap_prepare_insert(ptr noundef %0, ptr noundef %1, 
   ret ptr %.0
 }
 
-declare i32 @RelationGetBufferForTuple(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RelationGetBufferForTuple(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @RelationPutHeapTuple(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @RelationPutHeapTuple(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @visibilitymap_clear(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @visibilitymap_clear(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #3
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @log_heap_new_cid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @log_heap_new_cid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.xl_heap_new_cid, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @GetTopTransactionId() #13
@@ -3711,38 +3705,38 @@ define internal fastcc void @log_heap_new_cid(ptr noundef readonly captures(none
   tail call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 34) #13
   %38 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 112) #13
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #2
 
-declare void @XLogBeginInsert() local_unnamed_addr #3
+declare void @XLogBeginInsert() local_unnamed_addr #2
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #3
+declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @CacheInvalidateHeapTuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CacheInvalidateHeapTuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pgstat_count_heap_insert(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @pgstat_count_heap_insert(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.xl_heap_new_cid, align 4
   %8 = alloca %union.PGAlignedBlock, align 8
   %9 = alloca i32, align 4
   %10 = tail call i32 @GetCurrentTransactionId() #13
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %11 = load i32, ptr @wal_level, align 4
   %12 = icmp sgt i32 %11, 1
@@ -4027,7 +4021,7 @@ BufferGetPage.exit:                               ; preds = %126, %132
   br i1 %or.cond3, label %165, label %192
 
 165:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %166 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %167 = load ptr, ptr %166, align 8
   %168 = call i32 @GetTopTransactionId() #13
@@ -4087,7 +4081,7 @@ log_heap_new_cid.exit:                            ; preds = %174, %190
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %7, i32 noundef 34) #13
   %191 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 112) #13
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %192
 
 192:                                              ; preds = %log_heap_new_cid.exit, %164
@@ -4312,32 +4306,32 @@ log_heap_new_cid.exit:                            ; preds = %174, %190
 
 ._crit_edge250:                                   ; preds = %.lr.ph249, %.loopexit
   call void @pgstat_count_heap_insert(ptr noundef nonnull %0, i64 noundef %74) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare ptr @ExecFetchSlotHeapTuple(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @ExecFetchSlotHeapTuple(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #3
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
-declare i64 @PageGetHeapFreeSpace(ptr noundef) local_unnamed_addr #3
+declare i64 @PageGetHeapFreeSpace(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #3
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @visibilitymap_set(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare zeroext i8 @visibilitymap_set(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_heap_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @simple_heap_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #13
   tail call void @heap_insert(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef null)
   ret void
 }
 
-declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
+define dso_local i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.HeapTupleData, align 8
@@ -4352,14 +4346,14 @@ define dso_local i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %19 = alloca %struct.xl_heap_header, align 2
   store i32 %2, ptr %9, align 4
   %20 = tail call i32 @GetCurrentTransactionId() #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 1
   %21 = tail call zeroext i1 @IsInParallelMode() #13
   br i1 %21, label %22, label %26
@@ -4506,7 +4500,7 @@ BufferGetPage.exit:                               ; preds = %34, %40
   br i1 %.not, label %113, label %90
 
 90:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 0, ptr %17, align 1
   %91 = call fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %.val150, i16 noundef zeroext %88, i32 noundef 3, ptr noundef nonnull %17)
   br i1 %91, label %92, label %112
@@ -4555,7 +4549,7 @@ heap_acquire_tuplock.exit:                        ; preds = %97, %95, %92
   br i1 %111, label %112, label %.thread
 
 .thread:                                          ; preds = %109, %103, %101
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %120, %122, %128
@@ -4565,7 +4559,7 @@ heap_acquire_tuplock.exit:                        ; preds = %97, %95, %92
 
 112:                                              ; preds = %109, %90
   %.4 = phi i8 [ %.0165, %90 ], [ %.3167, %109 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %UpdateXmaxHintBits.exit
 
 113:                                              ; preds = %84
@@ -4694,7 +4688,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %113, %143, %142, %1
   br i1 %or.cond7.i, label %171, label %HeapTupleHeaderGetUpdateXid.exit
 
 171:                                              ; preds = %.thread180
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %172 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -4728,7 +4722,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %113, %143, %142, %1
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %171
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %171 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread180, %HeapTupleGetUpdateXid.exit.i
@@ -4895,13 +4889,13 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread180, %HeapTu
   br i1 %275, label %.thread184, label %341
 
 .thread184:                                       ; preds = %272
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %291
 
 276:                                              ; preds = %265
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %.not200 = icmp eq i32 %266, 1
   br i1 %.not200, label %291, label %277
 
@@ -5018,8 +5012,8 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread180, %HeapTu
   %339 = trunc i64 %336 to i32
   %340 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %339, ptr %340, align 4
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %341
 
 341:                                              ; preds = %259, %268, %272, %335
@@ -5080,28 +5074,28 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread180, %HeapTu
 
 362:                                              ; preds = %357, %361, %192, %194
   %.0 = phi i32 [ %.3183, %194 ], [ %.3183, %192 ], [ 0, %361 ], [ 0, %357 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
-declare zeroext i1 @IsInParallelMode() local_unnamed_addr #3
+declare zeroext i1 @IsInParallelMode() local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @visibilitymap_pin(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @visibilitymap_pin(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @HeapTupleSatisfiesUpdate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @HeapTupleSatisfiesUpdate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw [4 x %struct.anon.3], ptr @tupleLockExtraInfo, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -5248,22 +5242,22 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
 
 82:                                               ; preds = %11, %._crit_edge, %4
   %.0 = phi i1 [ false, %4 ], [ %81, %._crit_edge ], [ false, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
-declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #2
 
-declare void @XactLockTableWait(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @XactLockTableWait(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @HeapTupleHeaderGetCmax(ptr noundef) local_unnamed_addr #3
+declare i32 @HeapTupleHeaderGetCmax(ptr noundef) local_unnamed_addr #2
 
-declare void @UnlockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @UnlockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @HeapTupleHeaderAdjustCmax(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @HeapTupleHeaderAdjustCmax(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #2 {
+define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #1 {
   %5 = alloca [1600 x i8], align 16
   %6 = alloca [1600 x i64], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5272,8 +5266,8 @@ define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef n
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 126
   %12 = load i8, ptr %11, align 2
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 12800, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %3, align 1
   %13 = load i32, ptr @wal_level, align 4
   %14 = icmp sgt i32 %13, 1
@@ -5368,15 +5362,15 @@ define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef n
 
 54:                                               ; preds = %._crit_edge, %52, %33, %32, %26, %30, %25, %4, %15, %20, %23
   %.0 = phi ptr [ null, %23 ], [ null, %20 ], [ null, %15 ], [ null, %4 ], [ null, %25 ], [ %31, %30 ], [ %1, %26 ], [ null, %32 ], [ null, %33 ], [ %53, %52 ], [ %39, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare void @MultiXactIdSetOldestMember() local_unnamed_addr #3
+declare void @MultiXactIdSetOldestMember() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #2 {
+define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #1 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -5445,7 +5439,7 @@ define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 nound
   br i1 %34, label %.outer._crit_edge, label %37
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %38 = call i32 @GetMultiXactIdMembers(i32 noundef %0, ptr noundef nonnull %14, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.preheader.i, label %MultiXactIdGetUpdateXid.exit
@@ -5479,7 +5473,7 @@ define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 nound
 
 MultiXactIdGetUpdateXid.exit:                     ; preds = %37, %.loopexit.i
   %.08.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %49 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.08.i) #13
   br i1 %49, label %50, label %.outer._crit_edge
 
@@ -5502,7 +5496,7 @@ MultiXactIdGetUpdateXid.exit:                     ; preds = %37, %.loopexit.i
 
 get_mxact_status_for_lock.exit:                   ; preds = %50
   %59 = call i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %3, i32 noundef %.0.i) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %60 = call i32 @GetMultiXactIdMembers(i32 noundef %59, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph.i, label %.thread
@@ -5572,7 +5566,7 @@ get_mxact_status_for_lock.exit:                   ; preds = %50
 .thread:                                          ; preds = %79, %77, %76, %get_mxact_status_for_lock.exit
   %.028.lcssa4658728694.i = phi i16 [ %.129.i, %79 ], [ %.129.i, %77 ], [ %.129.i, %76 ], [ 0, %get_mxact_status_for_lock.exit ]
   %81 = phi i16 [ %80, %79 ], [ %78, %77 ], [ 4288, %76 ], [ 4240, %get_mxact_status_for_lock.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %204
 
 82:                                               ; preds = %.lr.ph.lr.ph
@@ -5599,7 +5593,7 @@ get_mxact_status_for_lock.exit:                   ; preds = %50
 
 get_mxact_status_for_lock.exit106:                ; preds = %84
   %93 = tail call i32 @MultiXactIdCreate(i32 noundef %0, i32 noundef %.96, i32 noundef %3, i32 noundef %.0.i105) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %94 = call i32 @GetMultiXactIdMembers(i32 noundef %93, ptr noundef nonnull %12, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph.i108, label %GetMultiXactIdHintBits.exit126
@@ -5669,7 +5663,7 @@ get_mxact_status_for_lock.exit106:                ; preds = %84
 GetMultiXactIdHintBits.exit126:                   ; preds = %get_mxact_status_for_lock.exit106, %110, %111, %113
   %.028.lcssa4658728694.i107 = phi i16 [ %.129.i116, %113 ], [ %.129.i116, %111 ], [ %.129.i116, %110 ], [ 0, %get_mxact_status_for_lock.exit106 ]
   %115 = phi i16 [ %114, %113 ], [ %112, %111 ], [ 4288, %110 ], [ 4240, %get_mxact_status_for_lock.exit106 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %204
 
 116:                                              ; preds = %82
@@ -5742,7 +5736,7 @@ GetMultiXactIdHintBits.exit126:                   ; preds = %get_mxact_status_fo
 
 get_mxact_status_for_lock.exit129:                ; preds = %137
   %146 = tail call i32 @MultiXactIdCreate(i32 noundef %0, i32 noundef %.079, i32 noundef %3, i32 noundef %.0.i128) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %147 = call i32 @GetMultiXactIdMembers(i32 noundef %146, ptr noundef nonnull %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %148 = icmp sgt i32 %147, 0
   br i1 %148, label %.lr.ph.i131, label %.thread188
@@ -5812,7 +5806,7 @@ get_mxact_status_for_lock.exit129:                ; preds = %137
 .thread188:                                       ; preds = %166, %164, %163, %get_mxact_status_for_lock.exit129
   %.028.lcssa4658728694.i130 = phi i16 [ %.129.i139, %166 ], [ %.129.i139, %164 ], [ %.129.i139, %163 ], [ 0, %get_mxact_status_for_lock.exit129 ]
   %168 = phi i16 [ %167, %166 ], [ %165, %164 ], [ 4288, %163 ], [ 4240, %get_mxact_status_for_lock.exit129 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %204
 
 169:                                              ; preds = %116
@@ -5841,7 +5835,7 @@ get_mxact_status_for_lock.exit129:                ; preds = %137
 
 get_mxact_status_for_lock.exit152:                ; preds = %172
   %181 = tail call i32 @MultiXactIdCreate(i32 noundef %0, i32 noundef %.96, i32 noundef %3, i32 noundef %.0.i151) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %182 = call i32 @GetMultiXactIdMembers(i32 noundef %181, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %.lr.ph.i154, label %GetMultiXactIdHintBits.exit172
@@ -5911,7 +5905,7 @@ get_mxact_status_for_lock.exit152:                ; preds = %172
 GetMultiXactIdHintBits.exit172:                   ; preds = %get_mxact_status_for_lock.exit152, %198, %199, %201
   %.028.lcssa4658728694.i153 = phi i16 [ %.129.i162, %201 ], [ %.129.i162, %199 ], [ %.129.i162, %198 ], [ 0, %get_mxact_status_for_lock.exit152 ]
   %203 = phi i16 [ %202, %201 ], [ %200, %199 ], [ 4288, %198 ], [ 4240, %get_mxact_status_for_lock.exit152 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %204
 
 204:                                              ; preds = %20, %.thread188, %.thread, %22, %GetMultiXactIdHintBits.exit172, %GetMultiXactIdHintBits.exit126, %25, %24, %23
@@ -5924,16 +5918,16 @@ GetMultiXactIdHintBits.exit172:                   ; preds = %get_mxact_status_fo
   ret void
 }
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @heap_toast_delete(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @heap_toast_delete(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @pgstat_count_heap_delete(ptr noundef) local_unnamed_addr #3
+declare void @pgstat_count_heap_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_heap_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @simple_heap_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.TM_FailureData, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #13
   %5 = call i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %4, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext false)
   switch i32 %5, label %15 [
@@ -5972,12 +5966,12 @@ define dso_local void @simple_heap_delete(ptr noundef %0, ptr noundef %1) local_
   unreachable
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #2 {
+define dso_local i32 @heap_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #1 {
   %10 = alloca %struct.xl_heap_update, align 4
   %11 = alloca %struct.xl_heap_header, align 2
   %12 = alloca %struct.xl_heap_header, align 2
@@ -6006,17 +6000,17 @@ define dso_local i32 @heap_update(ptr noundef %0, ptr noundef readonly captures(
   %35 = alloca %struct.xl_heap_lock, align 4
   store i32 %3, ptr %21, align 4
   %36 = tail call i32 @GetCurrentTransactionId() #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 0, ptr %23, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 0, ptr %24, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %28) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %29) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %37 = tail call zeroext i1 @IsInParallelMode() #13
   br i1 %37, label %38, label %42
 
@@ -6141,8 +6135,8 @@ BufferGetPage.exit:                               ; preds = %58, %64
   %.0410 = phi i1 [ false, %.lr.ph.i ], [ %.1411, %156 ]
   %106 = phi i32 [ %101, %.lr.ph.i ], [ %157, %156 ]
   %.0342.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %156 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %107 = shl i32 %106, 16
   %sext.i = add i32 %107, -458752
   %108 = ashr exact i32 %sext.i, 16
@@ -6236,8 +6230,8 @@ heap_attr_equals.exit.i:                          ; preds = %117
 156:                                              ; preds = %154, %150, %145, %142, %140, %115, %110
   %.1411 = phi i1 [ %.0410, %110 ], [ %.0410, %115 ], [ %.0410, %142 ], [ %.0410, %150 ], [ %.0410, %145 ], [ %.0410, %140 ], [ %spec.select494, %154 ]
   %.1.i = phi ptr [ %111, %110 ], [ %116, %115 ], [ %.0342.i, %142 ], [ %.0342.i, %150 ], [ %.0342.i, %145 ], [ %141, %140 ], [ %.0342.i, %154 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %157 = call i32 @bms_next_member(ptr noundef %50, i32 noundef %106) #13
   %158 = icmp sgt i32 %157, -1
   br i1 %158, label %105, label %HeapDetermineColumnsInfo.exit
@@ -6295,8 +6289,8 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %156, %88
   br i1 %.not326, label %230, label %179
 
 179:                                              ; preds = %173
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 0, ptr %31, align 1
   %180 = load i32, ptr %7, align 4
   %181 = call fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %.val358, i16 noundef zeroext %177, i32 noundef %180, ptr noundef nonnull %31)
@@ -6362,7 +6356,7 @@ heap_acquire_tuplock.exit:                        ; preds = %187, %185, %182
 212:                                              ; preds = %203
   %213 = getelementptr i8, ptr %205, i64 4
   %.val.i = load i32, ptr %213, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %214 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i, ptr noundef nonnull %18, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %215 = icmp sgt i32 %214, 0
   br i1 %215, label %.preheader.i.i, label %.thread441.sink.split
@@ -6392,7 +6386,7 @@ heap_acquire_tuplock.exit:                        ; preds = %187, %185, %182
 223:                                              ; preds = %218
   %224 = load i32, ptr %219, align 4
   call void @pfree(ptr noundef nonnull %216) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not328 = icmp eq i32 %224, 0
   br i1 %.not328, label %.thread441, label %225
 
@@ -6401,19 +6395,19 @@ heap_acquire_tuplock.exit:                        ; preds = %187, %185, %182
   br i1 %226, label %.thread441, label %267
 
 .thread441.sink.split:                            ; preds = %212, %.thread422
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread441
 
 .thread441:                                       ; preds = %.thread441.sink.split, %223, %225, %203
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %227 = xor i1 %181, true
   %228 = select i1 %227, i1 true, i1 %.1295
   br label %.thread444
 
 229:                                              ; preds = %heap_acquire_tuplock.exit, %199
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.backedge
 
 230:                                              ; preds = %173
@@ -6491,8 +6485,8 @@ UpdateXmaxHintBits.exit:                          ; preds = %250, %261, %262
   br i1 %.not327.not, label %.thread488, label %.thread444
 
 267:                                              ; preds = %225
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %.pre531 = load ptr, ptr %95, align 8
   br label %.thread488
 
@@ -6534,7 +6528,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %250, %261, %262
   br i1 %or.cond7.i, label %281, label %HeapTupleHeaderGetUpdateXid.exit
 
 281:                                              ; preds = %.thread454
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %282 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i, ptr noundef nonnull %17, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %283 = icmp sgt i32 %282, 0
   br i1 %283, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -6568,7 +6562,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %250, %261, %262
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %281
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %281 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread454, %HeapTupleGetUpdateXid.exit.i
@@ -6672,7 +6666,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread454, %HeapTu
   br i1 %.not332, label %.thread459, label %337
 
 337:                                              ; preds = %335
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %338 = call i32 @GetMultiXactIdMembers(i32 noundef %.val354, ptr noundef nonnull %16, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %339 = icmp sgt i32 %338, 0
   br i1 %339, label %.lr.ph.i376, label %GetMultiXactIdHintBits.exit
@@ -6742,7 +6736,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread454, %HeapTu
 GetMultiXactIdHintBits.exit:                      ; preds = %337, %354, %355, %357
   %.028.lcssa4658728694.i = phi i16 [ %.129.i, %357 ], [ %.129.i, %355 ], [ %.129.i, %354 ], [ 0, %337 ]
   %359 = phi i16 [ %358, %357 ], [ %356, %355 ], [ 4288, %354 ], [ 4240, %337 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %360 = or i16 %359, 8192
   br label %.thread459
 
@@ -6828,9 +6822,9 @@ GetMultiXactIdHintBits.exit:                      ; preds = %337, %354, %355, %3
   br i1 %or.cond343, label %408, label %529
 
 408:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %33) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %34) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %409 = load ptr, ptr %95, align 8
   %410 = getelementptr i8, ptr %409, i64 4
   %.val353 = load i32, ptr %410, align 4
@@ -6927,7 +6921,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %337, %354, %355, %3
   br i1 %471, label %472, label %501
 
 472:                                              ; preds = %468, %461
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @XLogBeginInsert() #13
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %56, i8 noundef zeroext 8) #13
   %473 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -6967,7 +6961,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %337, %354, %355, %3
   %499 = trunc i64 %496 to i32
   %500 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %499, ptr %500, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %501
 
 501:                                              ; preds = %456, %464, %468, %472
@@ -7039,9 +7033,9 @@ GetMultiXactIdHintBits.exit:                      ; preds = %337, %354, %355, %3
 
 .loopexit:                                        ; preds = %523, %526, %._crit_edge523
   %.0311 = phi i32 [ %514, %._crit_edge523 ], [ %56, %526 ], [ %56, %523 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %529
 
 529:                                              ; preds = %401, %.loopexit
@@ -7317,13 +7311,13 @@ BufferGetPage.exit387:                            ; preds = %BufferGetPage.exit3
   br label %.thread475
 
 .thread475:                                       ; preds = %661, %671, %668, %679, %675, %665
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 0, ptr %14, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i16 0, ptr %15, align 2
   %680 = icmp slt i32 %.1312, 0
   br i1 %680, label %681, label %687
@@ -7711,12 +7705,12 @@ BufferGetPage.exit.i:                             ; preds = %687, %681
 log_heap_update.exit:                             ; preds = %879, %881
   call void @XLogSetRecordFlags(i8 noundef zeroext 1) #13
   %896 = call i64 @XLogInsert(i8 noundef zeroext 10, i8 noundef zeroext %.1.i391) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %625, label %897, label %914
 
 897:                                              ; preds = %log_heap_update.exit
@@ -7865,31 +7859,31 @@ BufferGetPage.exit401:                            ; preds = %915, %921
   call void @bms_free(ptr noundef %.sink539) #13
   call void @bms_free(ptr noundef %.034.lcssa.i.sink) #13
   call void @bms_free(ptr noundef %50) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.0
 }
 
-declare ptr @RelationGetIndexAttrBitmap(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @RelationGetIndexAttrBitmap(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @bms_free(ptr noundef) local_unnamed_addr #3
+declare void @bms_free(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @HeapTupleGetUpdateXid(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local i32 @HeapTupleGetUpdateXid(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call i32 @GetMultiXactIdMembers(i32 noundef %.val, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.preheader.i, label %MultiXactIdGetUpdateXid.exit
@@ -7923,22 +7917,22 @@ define dso_local i32 @HeapTupleGetUpdateXid(ptr noundef readonly captures(none) 
 
 MultiXactIdGetUpdateXid.exit:                     ; preds = %1, %.loopexit.i
   %.08.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.08.i
 }
 
-declare zeroext i1 @TransactionIdDidAbort(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdDidAbort(i32 noundef) local_unnamed_addr #2
 
-declare ptr @heap_toast_insert_or_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @heap_toast_insert_or_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pgstat_count_heap_update(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare void @pgstat_count_heap_update(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_heap_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
+define dso_local void @simple_heap_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.TM_FailureData, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #13
   %8 = call i32 @heap_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
   switch i32 %8, label %18 [
@@ -7977,13 +7971,13 @@ define dso_local void @simple_heap_update(ptr noundef %0, ptr noundef readonly c
   unreachable
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0, 4), (12, 24)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #2 {
+define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0, 4), (12, 24)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -7993,11 +7987,11 @@ define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0
   %15 = alloca ptr, align 8
   %16 = alloca %struct.xl_heap_lock, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.val276 = load i16, ptr %17, align 2
   %18 = getelementptr i8, ptr %1, i64 6
   %.val277 = load i16, ptr %18, align 2
@@ -8110,7 +8104,7 @@ BufferGetPage.exit281:                            ; preds = %48, %54
   ]
 
 80:                                               ; preds = %.backedge, %.backedge, %.backedge
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %81 = load ptr, ptr %68, align 8
   %82 = getelementptr i8, ptr %81, i64 4
   %.val273 = load i32, ptr %82, align 4
@@ -8130,7 +8124,7 @@ BufferGetPage.exit281:                            ; preds = %48, %54
   br i1 %.not, label %110, label %91
 
 91:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %92 = and i16 %84, 128
   %93 = icmp ne i16 %92, 0
   %94 = call i32 @GetMultiXactIdMembers(i32 noundef %.val273, ptr noundef nonnull %15, i1 noundef zeroext false, i1 noundef zeroext %93) #13
@@ -8177,12 +8171,12 @@ BufferGetPage.exit281:                            ; preds = %48, %54
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %122
 
 109:                                              ; preds = %99
   call void @pfree(ptr noundef nonnull %100) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge.thread378
 
 110:                                              ; preds = %89
@@ -8253,7 +8247,7 @@ BufferGetPage.exit281:                            ; preds = %48, %54
 .thread391:                                       ; preds = %133
   %136 = load i32, ptr %6, align 4
   call void @LockBuffer(i32 noundef %136, i32 noundef 2) #13
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit415
 
 .thread318:                                       ; preds = %133, %125
@@ -8610,17 +8604,17 @@ UpdateXmaxHintBits.exit:                          ; preds = %277, %278, %290, %2
   %.2291.ph = phi i8 [ 0, %heap_acquire_tuplock.exit ], [ %.3292, %239 ], [ %.3292, %245 ], [ %.3292, %266 ], [ %.3292, %UpdateXmaxHintBits.exit ], [ %.3292, %305 ], [ %.3292, %303 ], [ %.3292, %296 ], [ %.0289, %204 ], [ %.0289, %199 ], [ %.0289, %152 ], [ %.0289, %174 ], [ %.0289, %186 ], [ %.0289, %.thread318 ], [ %.0289, %140 ]
   %.4228.ph = phi i1 [ false, %heap_acquire_tuplock.exit ], [ %.1225302, %239 ], [ %.1225302, %245 ], [ %.1225302, %266 ], [ %.1225302, %UpdateXmaxHintBits.exit ], [ %.1225302, %305 ], [ %.1225302, %303 ], [ %.1225302, %296 ], [ %.1225302, %204 ], [ %.1225302, %199 ], [ %.1225308, %152 ], [ %.1225, %174 ], [ %.1225315453, %186 ], [ %.1225, %.thread318 ], [ %.1225, %140 ]
   %.3.ph = phi i32 [ 6, %heap_acquire_tuplock.exit ], [ 6, %239 ], [ 6, %245 ], [ %265, %266 ], [ 0, %UpdateXmaxHintBits.exit ], [ %., %305 ], [ 0, %303 ], [ 0, %296 ], [ %79, %204 ], [ 0, %199 ], [ 0, %152 ], [ 0, %174 ], [ 0, %186 ], [ 0, %.thread318 ], [ 0, %140 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %309
 
 .critedge.thread378:                              ; preds = %113, %113, %112, %115, %118, %109
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %448
 
 .critedge:                                        ; preds = %140, %.thread368, %274, %192, %199, %179, %186, %167, %174, %152
   %.2291 = phi i8 [ %.0289, %192 ], [ %.3292, %.thread368 ], [ %.3292, %274 ], [ %.0289, %199 ], [ %.0289, %152 ], [ %.0289, %179 ], [ %.0289, %186 ], [ %.0289, %167 ], [ %.0289, %174 ], [ %.0289, %140 ]
   %.4228 = phi i1 [ %.1225302, %192 ], [ %.1225302, %.thread368 ], [ %.1225302, %274 ], [ %.1225302, %199 ], [ %.1225308, %152 ], [ %.1225315453, %179 ], [ %.1225315453, %186 ], [ %.1225, %167 ], [ %.1225, %174 ], [ %.1225, %140 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge.backedge
 
 309:                                              ; preds = %.critedge.thread, %.backedge
@@ -8647,7 +8641,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %277, %278, %290, %2
   br i1 %or.cond7.i, label %317, label %HeapTupleHeaderGetUpdateXid.exit
 
 317:                                              ; preds = %.loopexit415
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %318 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %319 = icmp sgt i32 %318, 0
   br i1 %319, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -8681,7 +8675,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %277, %278, %290, %2
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %317
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %317 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.loopexit415, %HeapTupleGetUpdateXid.exit.i
@@ -8836,7 +8830,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.loopexit415, %Heap
   br i1 %416, label %417, label %444
 
 417:                                              ; preds = %413, %406
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @XLogBeginInsert() #13
   %418 = load i32, ptr %6, align 4
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %418, i8 noundef zeroext 8) #13
@@ -8874,7 +8868,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.loopexit415, %Heap
   %442 = trunc i64 %439 to i32
   %443 = getelementptr inbounds nuw i8, ptr %.0.i.i280, i64 4
   store i32 %442, ptr %443, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %444
 
 444:                                              ; preds = %399, %409, %413, %417
@@ -8911,17 +8905,17 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.loopexit415, %Heap
   br label %455
 
 455:                                              ; preds = %451, %453
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.14
 }
 
-declare i32 @GetMultiXactIdMembers(i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @GetMultiXactIdMembers(i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.HeapTupleData, align 8
   %8 = alloca i32, align 4
@@ -8958,12 +8952,12 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %5, %HeapTupleHea
 
 29:                                               ; preds = %HeapTupleHeaderIndicatesMovedPartitions.exit.thread
   tail call void @MultiXactIdSetOldestMember() #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 2
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -9119,13 +9113,13 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
   br i1 %.not70.i, label %93, label %.loopexit125.i
 
 93:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %94 = and i32 %91, 4096
   %.not71.i = icmp eq i32 %94, 0
   br i1 %.not71.i, label %119, label %95
 
 95:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %96 = and i32 %91, 128
   %97 = icmp ne i32 %96, 0
   %98 = call i32 @GetMultiXactIdMembers(i32 noundef %.val86.i, ptr noundef nonnull %14, i1 noundef zeroext false, i1 noundef zeroext %97) #13
@@ -9182,11 +9176,11 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
   %.055.ph.i = phi i32 [ 5, %110 ], [ 8, %114 ], [ 12, %.lr.ph.i ]
   %117 = load ptr, ptr %14, align 8
   call void @pfree(ptr noundef %117) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread113.i
 
 118:                                              ; preds = %116, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread117.i
 
 119:                                              ; preds = %93
@@ -9239,7 +9233,7 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
   br i1 %137, label %.thread113.thread.i, label %138
 
 .thread113.thread.i:                              ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit127.i
 
 138:                                              ; preds = %135
@@ -9257,11 +9251,11 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
   br i1 %.not74.i, label %.thread117.i, label %.thread113.thread242.i
 
 .thread113.thread242.i:                           ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit.i
 
 .thread117.i:                                     ; preds = %142, %118
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre237.i = load ptr, ptr %36, align 8
   %.phi.trans.insert238.i = getelementptr inbounds nuw i8, ptr %.pre237.i, i64 18
   %.pre239.i = load i16, ptr %.phi.trans.insert238.i, align 2
@@ -9270,7 +9264,7 @@ HeapTupleHeaderGetXmin.exit94.i:                  ; preds = %81, %._crit_edge235
 .thread113.i:                                     ; preds = %141, %.thread.i
   %.156.i = phi i32 [ %.055.ph.i, %.thread.i ], [ 5, %141 ]
   %.7.i = phi i32 [ %105, %.thread.i ], [ %136, %141 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   switch i32 %.156.i, label %heap_lock_updated_tuple_rec.exit [
     i32 8, label %.loopexit.i
     i32 5, label %51
@@ -9361,7 +9355,7 @@ BufferGetPage.exit96.i:                           ; preds = %148, %144
   br i1 %192, label %193, label %220
 
 193:                                              ; preds = %190, %184
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %45, label %194, label %198
 
 194:                                              ; preds = %193
@@ -9407,7 +9401,7 @@ BufferGetPage.exit98.i:                           ; preds = %198, %194
   %218 = trunc i64 %215 to i32
   %219 = getelementptr inbounds nuw i8, ptr %.0.i.i97.i, i64 4
   store i32 %218, ptr %219, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %220
 
 220:                                              ; preds = %BufferGetPage.exit98.i, %190, %187, %156
@@ -9464,7 +9458,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread.i: ; preds = %HeapTupleHeade
   br i1 %or.cond7.i.i, label %248, label %HeapTupleHeaderGetUpdateXid.exit.i
 
 248:                                              ; preds = %242
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %249 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i99.i, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %250 = icmp sgt i32 %249, 0
   br i1 %250, label %.preheader.i.i.i.i, label %HeapTupleGetUpdateXid.exit.i.i
@@ -9498,7 +9492,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread.i: ; preds = %HeapTupleHeade
 
 HeapTupleGetUpdateXid.exit.i.i:                   ; preds = %.loopexit.i.i.i.i, %248
   %.08.i.i.i.i = phi i32 [ %.1.i.i.i.i, %.loopexit.i.i.i.i ], [ 0, %248 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre240.i = load ptr, ptr %36, align 8
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
@@ -9541,12 +9535,12 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %HeapTupleGetUpdateX
 
 heap_lock_updated_tuple_rec.exit:                 ; preds = %.thread113.i, %.loopexit128.i, %268
   %.0.i = phi i32 [ %.1.i, %268 ], [ %.1.i, %.loopexit128.i ], [ undef, %.thread113.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %269
 
 269:                                              ; preds = %HeapTupleHeaderIndicatesMovedPartitions.exit, %HeapTupleHeaderIndicatesMovedPartitions.exit.thread, %heap_lock_updated_tuple_rec.exit
@@ -9554,10 +9548,10 @@ heap_lock_updated_tuple_rec.exit:                 ; preds = %.thread113.i, %.loo
   ret i32 %.0
 }
 
-declare zeroext i1 @ConditionalXactLockTableWait(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @ConditionalXactLockTableWait(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_finish_speculative(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @heap_finish_speculative(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.xl_heap_confirm, align 2
   %.val25 = load i16, ptr %1, align 2
   %4 = getelementptr i8, ptr %1, i64 2
@@ -9654,7 +9648,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %59, %52
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val27 = load i16, ptr %23, align 2
   store i16 %.val27, ptr %3, align 2
   tail call void @XLogBeginInsert() #13
@@ -9668,7 +9662,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %67 = trunc i64 %64 to i32
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %67, ptr %68, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 69:                                               ; preds = %40, %55, %59, %63
@@ -9680,11 +9674,11 @@ BufferGetPage.exit:                               ; preds = %11, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_abort_speculative(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @heap_abort_speculative(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %struct.xl_heap_delete, align 4
   %5 = tail call i32 @GetCurrentTransactionId() #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val36 = load i16, ptr %1, align 2
   %6 = getelementptr i8, ptr %1, i64 2
   %.val37 = load i16, ptr %6, align 2
@@ -9825,7 +9819,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   br i1 %88, label %89, label %115
 
 89:                                               ; preds = %85, %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 8, ptr %90, align 1
   %91 = load i16, ptr %67, align 4
@@ -9862,7 +9856,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %113 = trunc i64 %110 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %113, ptr %114, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
 115:                                              ; preds = %66, %81, %85, %89
@@ -9882,15 +9876,15 @@ BufferGetPage.exit:                               ; preds = %13, %19
 120:                                              ; preds = %119, %115
   call void @ReleaseBuffer(i32 noundef %11) #13
   call void @pgstat_count_heap_delete(ptr noundef nonnull %0) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_inplace_lock(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_inplace_lock(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.HeapTupleData, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @CacheInvalidateHeapTupleInplace(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -9933,12 +9927,12 @@ define dso_local noundef zeroext i1 @heap_inplace_lock(ptr noundef %0, ptr nound
   br i1 %.not, label %28, label %26
 
 26:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = call fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %.val, i16 noundef zeroext %24, i32 noundef 2, ptr noundef null)
   br i1 %27, label %34, label %.thread41
 
 .thread41:                                        ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 28:                                               ; preds = %19
@@ -9963,7 +9957,7 @@ define dso_local noundef zeroext i1 @heap_inplace_lock(ptr noundef %0, ptr nound
   call void @LockBuffer(i32 noundef %2, i32 noundef 0) #13
   call void %3(ptr noundef %4) #13
   %35 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %.val, i32 noundef 4, i16 noundef zeroext %24, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread38
 
 .thread38:                                        ; preds = %32, %33, %34
@@ -9974,20 +9968,20 @@ define dso_local noundef zeroext i1 @heap_inplace_lock(ptr noundef %0, ptr nound
 
 .thread:                                          ; preds = %5, %28, %.thread41, %.thread38
   %.036 = phi i1 [ false, %.thread38 ], [ true, %.thread41 ], [ true, %28 ], [ true, %5 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.036
 }
 
-declare void @CacheInvalidateHeapTupleInplace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CacheInvalidateHeapTupleInplace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @LockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @LockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ForgetInplace_Inval() local_unnamed_addr #3
+declare void @ForgetInplace_Inval() local_unnamed_addr #2
 
-declare void @InvalidateCatalogSnapshot() local_unnamed_addr #3
+declare void @InvalidateCatalogSnapshot() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_inplace_update_and_unlock(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local void @heap_inplace_update_and_unlock(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca %struct.xl_heap_inplace, align 4
@@ -9997,9 +9991,9 @@ define dso_local void @heap_inplace_update_and_unlock(ptr noundef %0, ptr nounde
   %11 = alloca i32, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %14 = load i32, ptr %1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 22
@@ -10073,8 +10067,8 @@ define dso_local void @heap_inplace_update_and_unlock(ptr noundef %0, ptr nounde
   br i1 %59, label %60, label %107
 
 60:                                               ; preds = %56, %49
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %61 = icmp slt i32 %3, 0
   br i1 %61, label %62, label %68
 
@@ -10100,9 +10094,9 @@ BufferGetPage.exit:                               ; preds = %62, %68
   %75 = load i16, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 14
   %77 = load i16, ptr %76, align 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %78 = getelementptr i8, ptr %2, i64 8
   %.val = load i16, ptr %78, align 2
   store i16 %.val, ptr %7, align 4
@@ -10154,11 +10148,11 @@ BufferGetPage.exit:                               ; preds = %62, %68
   %105 = trunc i64 %102 to i32
   %106 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 4
   store i32 %105, ptr %106, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
 107:                                              ; preds = %89, %56, %52, %37
@@ -10187,25 +10181,25 @@ BufferGetPage.exit:                               ; preds = %62, %68
   br label %119
 
 119:                                              ; preds = %118, %107
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @inplaceGetInvalidationMessages(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @inplaceGetInvalidationMessages(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PreInplace_Inval() local_unnamed_addr #3
+declare void @PreInplace_Inval() local_unnamed_addr #2
 
-declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @XLogRegisterBlock(i8 noundef zeroext, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare void @XLogRegisterBlock(i8 noundef zeroext, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @AtInplace_Inval() local_unnamed_addr #3
+declare void @AtInplace_Inval() local_unnamed_addr #2
 
-declare void @AcceptInvalidationMessages() local_unnamed_addr #3
+declare void @AcceptInvalidationMessages() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_inplace_unlock(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @heap_inplace_unlock(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   tail call void @LockBuffer(i32 noundef %2, i32 noundef 0) #13
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @UnlockTuple(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 7) #13
@@ -10214,7 +10208,7 @@ define dso_local void @heap_inplace_unlock(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_prepare_freeze_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 10)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_prepare_freeze_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 10)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -10301,7 +10295,7 @@ HeapTupleHeaderGetXvac.exit.thread:               ; preds = %HeapTupleHeaderGetX
   br i1 %.not, label %224, label %46
 
 46:                                               ; preds = %HeapTupleHeaderGetXvac.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i103 = icmp eq i32 %44, 0
   %47 = and i16 %42, 4304
   %48 = icmp eq i16 %47, 4224
@@ -10348,7 +10342,7 @@ HeapTupleHeaderGetXvac.exit.thread:               ; preds = %HeapTupleHeaderGetX
   br i1 %63, label %FreezeMultiXactId.exit.thread, label %72
 
 72:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = call i32 @GetMultiXactIdMembers(i32 noundef %44, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.preheader.i.i, label %MultiXactIdGetUpdateXid.exit.i
@@ -10382,7 +10376,7 @@ HeapTupleHeaderGetXvac.exit.thread:               ; preds = %HeapTupleHeaderGetX
 
 MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %72
   %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %72 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %84 = load i32, ptr %1, align 4
   %85 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.08.i.i, i32 noundef %84) #13
   br i1 %85, label %86, label %91
@@ -10464,7 +10458,7 @@ MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %72
 FreezeMultiXactId.exit.thread130:                 ; preds = %121, %125
   %126 = load ptr, ptr %8, align 8
   call void @pfree(ptr noundef %126) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %256
 
 .lr.ph.i:                                         ; preds = %109, %117
@@ -10600,7 +10594,7 @@ FreezeMultiXactId.exit.thread:                    ; preds = %46, %71, %95, %91, 
   %.0.i104129 = phi i32 [ %.0113.i, %FreezeMultiXactId.exit ], [ 0, %46 ], [ 0, %71 ], [ 0, %95 ], [ %.08.i.i, %91 ], [ 0, %102 ]
   %.0128 = phi i16 [ %spec.select138.sink.i, %FreezeMultiXactId.exit ], [ 2, %46 ], [ 2, %71 ], [ 2, %95 ], [ 4, %91 ], [ 2, %102 ]
   store i8 1, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %183 = zext nneg i16 %.0128 to i32
   %184 = and i32 %183, 4
   %.not98 = icmp eq i32 %184, 0
@@ -10632,7 +10626,7 @@ FreezeMultiXactId.exit.thread:                    ; preds = %46, %71, %95, %91, 
   %196 = load i16, ptr %12, align 4
   %197 = and i16 %196, -8193
   store i16 %197, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %198 = call i32 @GetMultiXactIdMembers(i32 noundef %.0.i104129, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %199 = icmp sgt i32 %198, 0
   br i1 %199, label %.lr.ph.i105, label %GetMultiXactIdHintBits.exit
@@ -10702,7 +10696,7 @@ FreezeMultiXactId.exit.thread:                    ; preds = %46, %71, %95, %91, 
 GetMultiXactIdHintBits.exit:                      ; preds = %193, %214, %215, %217
   %.028.lcssa4658728694.i = phi i16 [ %.129.i, %217 ], [ %.129.i, %215 ], [ %.129.i, %214 ], [ 0, %193 ]
   %219 = phi i16 [ %218, %217 ], [ %216, %215 ], [ 4288, %214 ], [ 4240, %193 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %220 = load i16, ptr %15, align 2
   %221 = or i16 %220, %219
   store i16 %221, ptr %15, align 2
@@ -10833,7 +10827,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %193, %214, %215, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @heap_tuple_should_freeze(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
+define dso_local zeroext i1 @heap_tuple_should_freeze(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i16, ptr %6, align 4
@@ -10909,7 +10903,7 @@ HeapTupleHeaderGetXmin.exit.thread:               ; preds = %4, %14, %HeapTupleH
   br label %67
 
 38:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load i32, ptr %3, align 4
   %40 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %., i32 noundef %39) #13
   br i1 %40, label %41, label %42
@@ -10968,7 +10962,7 @@ HeapTupleHeaderGetXmin.exit.thread:               ; preds = %4, %14, %HeapTupleH
 
 ._crit_edge.thread:                               ; preds = %42, %._crit_edge
   %.3.lcssa65 = phi i1 [ %spec.select61, %._crit_edge ], [ %spec.select60, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 67:                                               ; preds = %26, %34, %37, %30, %._crit_edge.thread
@@ -10998,7 +10992,7 @@ HeapTupleHeaderGetXvac.exit:                      ; preds = %67
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_pre_freeze_checks(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @heap_pre_freeze_checks(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %5, label %11
 
@@ -11092,10 +11086,10 @@ BufferGetPage.exit:                               ; preds = %5, %11
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !40
 }
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @heap_freeze_prepared_tuples(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local void @heap_freeze_prepared_tuples(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %5, label %11
 
@@ -11181,15 +11175,15 @@ heap_execute_freeze_tuple.exit:                   ; preds = %36, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_freeze_tuple(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @heap_freeze_tuple(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.HeapTupleFreeze, align 4
   %7 = alloca i8, align 1
   %8 = alloca %struct.VacuumCutoffs, align 4
   %9 = alloca %struct.HeapPageFreeze, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %1, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %2, ptr %10, align 4
@@ -11250,15 +11244,15 @@ heap_execute_freeze_tuple.exit:                   ; preds = %28, %30
   br label %38
 
 38:                                               ; preds = %heap_execute_freeze_tuple.exit, %5
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @heap_tuple_needs_eventual_freeze(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @heap_tuple_needs_eventual_freeze(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i16, ptr %2, align 4
   %3 = and i16 %.val.i, 768
@@ -11303,10 +11297,10 @@ HeapTupleHeaderGetXvac.exit:                      ; preds = %11
   ret i1 %.0
 }
 
-declare zeroext i1 @MultiXactIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @MultiXactIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i16, ptr %4, align 4
@@ -11327,7 +11321,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %2, %7
   br i1 %or.cond7.i, label %11, label %HeapTupleHeaderGetUpdateXid.exit
 
 11:                                               ; preds = %HeapTupleHeaderGetXmin.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i, ptr noundef nonnull %3, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -11361,7 +11355,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %2, %7
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %11
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i16, ptr %4, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit
 
@@ -11416,18 +11410,18 @@ HeapTupleHeaderGetXvac.exit.thread:               ; preds = %HeapTupleHeaderGetU
   ret void
 }
 
-declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.SnapshotData, align 8
   %6 = alloca %struct.ItemPointerData, align 2
   %7 = alloca %struct.HeapTupleData, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   store i32 6, ptr %5, align 8
@@ -12088,9 +12082,9 @@ index_delete_check_htid.exit:                     ; preds = %293, %294
   br i1 %320, label %332, label %321
 
 321:                                              ; preds = %index_delete_check_htid.exit
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %181, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %322 = call zeroext i1 @heap_hot_search_buffer(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %.287, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef null, i1 noundef zeroext true)
   br i1 %322, label %331, label %323
 
@@ -12112,14 +12106,14 @@ index_delete_check_htid.exit:                     ; preds = %293, %294
 .thread:                                          ; preds = %326, %323
   %.3109.ph = phi i32 [ %330, %326 ], [ %.0106257, %323 ]
   %.3105.ph = phi i1 [ %spec.select, %326 ], [ %.0102258, %323 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val145.pre = load i16, ptr %248, align 2
   br label %332
 
 331:                                              ; preds = %321
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre289 = add nuw nsw i64 %indvars.iv, 1
   br label %384
 
@@ -12201,7 +12195,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %347, %351
   br i1 %or.cond7.i, label %369, label %HeapTupleHeaderGetUpdateXid.exit
 
 369:                                              ; preds = %365
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %370 = call i32 @GetMultiXactIdMembers(i32 noundef %.val.i.i189, ptr noundef nonnull %3, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %371 = icmp sgt i32 %370, 0
   br i1 %371, label %.preheader.i.i.i, label %HeapTupleGetUpdateXid.exit.i
@@ -12235,7 +12229,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %347, %351
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %369
   %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %369 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %HeapTupleGetUpdateXid.exit.i, %365, %340
@@ -12272,17 +12266,17 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %HeapTupleHeaderGetX
   %.085.lcssa = phi i32 [ 0, %index_delete_prefetch_buffer.exit ], [ %.085.lcssa.ph, %.thread205.loopexit ]
   call void @UnlockReleaseBuffer(i32 noundef %.085.lcssa) #13
   store i32 %.0127.lcssa, ptr %12, align 4
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %388
 }
 
-declare i32 @get_tablespace_maintenance_io_concurrency(i32 noundef) local_unnamed_addr #3
+declare i32 @get_tablespace_maintenance_io_concurrency(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @log_heap_visible(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
+define dso_local i64 @log_heap_visible(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca %struct.xl_heap_visible, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %3, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 %4, ptr %7, align 4
@@ -12339,30 +12333,30 @@ define dso_local i64 @log_heap_visible(ptr noundef %0, i32 noundef %1, i32 nound
   %spec.select = select i1 %or.cond, i8 8, i8 10
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %1, i8 noundef zeroext %spec.select) #13
   %35 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 64) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %35
 }
 
-declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #3
+declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #2
 
-declare i32 @HeapTupleSatisfiesVacuum(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @HeapTupleSatisfiesVacuum(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @GetTopTransactionIdIfAny() local_unnamed_addr #3
+declare i32 @GetTopTransactionIdIfAny() local_unnamed_addr #2
 
-declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #3
+declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #2
 
-declare void @CheckForSerializableConflictOut(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @CheckForSerializableConflictOut(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ss_get_location(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ss_get_location(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @table_block_parallelscan_startblock_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @table_block_parallelscan_startblock_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @table_block_parallelscan_nextpage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @table_block_parallelscan_nextpage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @heapgettup_initial_block(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc i32 @heapgettup_initial_block(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -12416,12 +12410,12 @@ define internal fastcc i32 @heapgettup_initial_block(ptr noundef captures(none) 
   ret i32 %.0
 }
 
-declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @read_stream_next_buffer(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @read_stream_next_buffer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #9 {
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #8 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %71
 
@@ -12544,36 +12538,36 @@ fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, 
   ret i64 %.0
 }
 
-declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @HeapTupleSetHintBits(ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare void @HeapTupleSetHintBits(ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @datumIsEqual(i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @datumIsEqual(i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @ConditionalLockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @ConditionalLockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @MultiXactIdIsRunning(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @MultiXactIdIsRunning(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @MultiXactIdExpand(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @MultiXactIdExpand(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @MultiXactIdCreate(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @MultiXactIdCreate(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %4) unnamed_addr #1 {
 get_mxact_status_for_lock.exit:
   store i8 0, ptr %4, align 1
   %5 = zext i32 %2 to i64
@@ -12646,16 +12640,16 @@ get_mxact_status_for_lock.exit:
   ret i32 %.0
 }
 
-declare zeroext i1 @DoLockModesConflict(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @DoLockModesConflict(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @MultiXactIdCreateFromMembers(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @MultiXactIdCreateFromMembers(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 noundef range(i32 0, 6) %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 noundef range(i32 0, 6) %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = and i16 %2, 4304
   %11 = icmp eq i16 %10, 4224
   br i1 %11, label %.thread, label %12
@@ -12835,16 +12829,16 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   br label %96
 
 96:                                               ; preds = %95, %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.027
 }
 
-declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp sgt i16 %3, %4
@@ -12899,19 +12893,25 @@ define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
-declare zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef) local_unnamed_addr #2
 
-declare i32 @GetTopTransactionId() local_unnamed_addr #3
+declare i32 @GetTopTransactionId() local_unnamed_addr #2
 
-declare i32 @HeapTupleHeaderGetCmin(ptr noundef) local_unnamed_addr #3
+declare i32 @HeapTupleHeaderGetCmin(ptr noundef) local_unnamed_addr #2
 
-declare ptr @toast_flatten_tuple(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @toast_flatten_tuple(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -12935,16 +12935,16 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #12
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

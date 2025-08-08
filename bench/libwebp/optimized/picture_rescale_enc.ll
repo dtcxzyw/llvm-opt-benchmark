@@ -272,7 +272,7 @@ AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRecta
 ; Function Attrs: nounwind uwtable
 define i32 @WebPPictureCrop(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPPicture, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %AdjustAndCheckRectangle.exit.thread, label %SnapTopLeftPosition.exit.i
 
@@ -417,22 +417,16 @@ AdjustAndCheckRectangle.exit:                     ; preds = %14
 
 AdjustAndCheckRectangle.exit.thread:              ; preds = %14, %11, %SnapTopLeftPosition.exit.i, %AdjustAndCheckRectangle.exit, %5, %101, %26
   %.0 = phi i32 [ 1, %101 ], [ %29, %26 ], [ 0, %5 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %11 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -445,7 +439,7 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %10 = alloca %struct.WebPPicture, align 8
   store i32 %1, ptr %8, align 4, !tbaa !4
   store i32 %2, ptr %9, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %187, label %12
 
@@ -516,7 +510,7 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %50 = load i32, ptr %9, align 4, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %52 = load i32, ptr %51, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = call i32 @WebPRescalerInit(ptr noundef nonnull %7, i32 noundef %14, i32 noundef %16, ptr noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %52, i32 noundef 1, ptr noundef nonnull %36) #5
   %.not.i = icmp eq i32 %53, 0
   br i1 %.not.i, label %63, label %.preheader.i
@@ -538,12 +532,12 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %62, label %.lr.ph.i, label %.loopexit90, !llvm.loop !31
 
 63:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %64 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 5) #5
   br label %187
 
 .loopexit90:                                      ; preds = %.lr.ph.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pr = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i59 = icmp eq ptr %.pr, null
   br i1 %.not.i59, label %AlphaMultiplyY.exit, label %65
@@ -570,7 +564,7 @@ AlphaMultiplyY.exit:                              ; preds = %40, %.loopexit90, %
   %80 = load i32, ptr %9, align 4, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = call i32 @WebPRescalerInit(ptr noundef nonnull %6, i32 noundef %14, i32 noundef %16, ptr noundef %78, i32 noundef %79, i32 noundef %80, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %36) #5
   %.not.i60 = icmp eq i32 %83, 0
   br i1 %.not.i60, label %RescalePlane.exit65, label %.preheader.i61
@@ -592,11 +586,11 @@ AlphaMultiplyY.exit:                              ; preds = %40, %.loopexit90, %
   br i1 %92, label %.lr.ph.i63, label %.loopexit89, !llvm.loop !31
 
 RescalePlane.exit65:                              ; preds = %AlphaMultiplyY.exit
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %134
 
 .loopexit89:                                      ; preds = %.lr.ph.i63, %.preheader.i61
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !23
   %95 = add nsw i32 %14, 1
@@ -615,7 +609,7 @@ RescalePlane.exit65:                              ; preds = %AlphaMultiplyY.exit
   %108 = ashr i32 %107, 1
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %110 = load i32, ptr %109, align 4, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %111 = call i32 @WebPRescalerInit(ptr noundef nonnull %5, i32 noundef %96, i32 noundef %98, ptr noundef %102, i32 noundef %105, i32 noundef %108, i32 noundef %110, i32 noundef 1, ptr noundef nonnull %36) #5
   %.not.i66 = icmp eq i32 %111, 0
   br i1 %.not.i66, label %RescalePlane.exit71, label %.preheader.i67
@@ -637,11 +631,11 @@ RescalePlane.exit65:                              ; preds = %AlphaMultiplyY.exit
   br i1 %120, label %.lr.ph.i69, label %.loopexit, !llvm.loop !31
 
 RescalePlane.exit71:                              ; preds = %.loopexit89
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %134
 
 .loopexit:                                        ; preds = %.lr.ph.i69, %.preheader.i67
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !25
   %123 = load i32, ptr %99, align 4, !tbaa !24
@@ -709,7 +703,7 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %168 = load i32, ptr %167, align 8, !tbaa !29
   %169 = shl nsw i32 %168, 2
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %170 = call i32 @WebPRescalerInit(ptr noundef nonnull %4, i32 noundef %14, i32 noundef %16, ptr noundef %164, i32 noundef %165, i32 noundef %166, i32 noundef %169, i32 noundef 4, ptr noundef nonnull %148) #5
   %.not.i74 = icmp eq i32 %170, 0
   br i1 %.not.i74, label %180, label %.preheader.i75
@@ -731,12 +725,12 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
   br i1 %179, label %.lr.ph.i77, label %.loopexit91, !llvm.loop !31
 
 180:                                              ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 5) #5
   br label %187
 
 .loopexit91:                                      ; preds = %.lr.ph.i77, %.preheader.i75
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %182 = load ptr, ptr %163, align 8, !tbaa !28
   %183 = load i32, ptr %167, align 8, !tbaa !29
   %184 = shl i32 %183, 2
@@ -754,7 +748,7 @@ AlphaMultiplyY.exit73:                            ; preds = %139, %136, %.loopex
 
 187:                                              ; preds = %3, %AlphaMultiplyY.exit73, %180, %150, %134, %63, %38, %26, %18
   %.047 = phi i32 [ %151, %150 ], [ 1, %AlphaMultiplyY.exit73 ], [ %181, %180 ], [ %39, %38 ], [ %135, %134 ], [ %64, %63 ], [ %29, %26 ], [ %19, %18 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.047
 }
 
@@ -767,7 +761,7 @@ declare void @WebPInitAlphaProcessing() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @RescalePlane(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, i32 noundef range(i32 1, 5) %9) unnamed_addr #0 {
   %11 = alloca %struct.WebPRescaler, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call i32 @WebPRescalerInit(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %9, ptr noundef nonnull %8) #5
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -790,7 +784,7 @@ define internal fastcc range(i32 0, 2) i32 @RescalePlane(ptr noundef %0, i32 nou
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.017 = phi i32 [ 0, %10 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.017
 }
 
@@ -808,11 +802,17 @@ declare void @WebPMultRows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i
 
 declare void @WebPMultARGBRows(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

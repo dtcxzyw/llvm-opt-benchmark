@@ -114,14 +114,8 @@ find_assoc.exit:                                  ; preds = %.preheader.i, %7, %
   ret ptr %.010.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -356,7 +350,7 @@ free_address.exit81:                              ; preds = %free_address.exit, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @packet(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = alloca %struct._sctp_tmp_info, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -378,7 +372,7 @@ define internal noundef i32 @packet(ptr readnone captures(none) %0, ptr noundef 
 
 19:                                               ; preds = %13
   %20 = sext i32 %15 to i64
-  %21 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %17, i64 noundef %20) #10
+  %21 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %17, i64 noundef %20) #9
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -414,7 +408,7 @@ copy_address.exit:                                ; preds = %19, %13, %25
 
 39:                                               ; preds = %33
   %40 = sext i32 %35 to i64
-  %41 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %37, i64 noundef %40) #10
+  %41 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %37, i64 noundef %40) #9
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -507,7 +501,7 @@ find_assoc.exit.thread:                           ; preds = %82, %70, %find_asso
   br i1 %.not1541, label %.thread1634, label %89
 
 89:                                               ; preds = %find_assoc.exit.thread
-  %90 = tail call noalias dereferenceable_or_null(3464) ptr @g_malloc0(i64 noundef 3464) #11
+  %90 = tail call noalias dereferenceable_or_null(3464) ptr @g_malloc0(i64 noundef 3464) #10
   %91 = load i16, ptr %75, align 4
   store i16 %91, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -521,7 +515,7 @@ find_assoc.exit.thread:                           ; preds = %82, %70, %find_asso
 
 97:                                               ; preds = %89
   %98 = sext i32 %27 to i64
-  %99 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %98) #10
+  %99 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %98) #9
   %100 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -542,7 +536,7 @@ copy_address.exit1580:                            ; preds = %89, %97
 
 108:                                              ; preds = %copy_address.exit1580
   %109 = sext i32 %47 to i64
-  %110 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %109) #10
+  %110 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %109) #9
   %111 = getelementptr inbounds nuw i8, ptr %90, i64 48
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %90, i64 40
@@ -623,14 +617,14 @@ copy_address.exit1581:                            ; preds = %copy_address.exit15
   %155 = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @g_free)
   %156 = getelementptr inbounds nuw i8, ptr %90, i64 352
   store ptr %155, ptr %156, align 8
-  %157 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc0(i64 noundef 20) #11
+  %157 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc0(i64 noundef 20) #10
   %158 = getelementptr inbounds nuw i8, ptr %90, i64 272
   store ptr %157, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i32 -1, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 12
   store i32 -1, ptr %160, align 4
-  %161 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc0(i64 noundef 20) #11
+  %161 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc0(i64 noundef 20) #10
   %162 = getelementptr inbounds nuw i8, ptr %90, i64 280
   store ptr %161, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -682,7 +676,7 @@ copy_address.exit1581:                            ; preds = %copy_address.exit15
   br i1 %193, label %194, label %287
 
 194:                                              ; preds = %190, %186, %182, %178, %174, %170, %copy_address.exit1581
-  %195 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %195 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load i32, ptr %93, align 8
   %198 = load i32, ptr %94, align 4
@@ -694,7 +688,7 @@ copy_address.exit1581:                            ; preds = %copy_address.exit15
 
 201:                                              ; preds = %194
   %202 = sext i32 %198 to i64
-  %203 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %199, i64 noundef %202) #10
+  %203 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %199, i64 noundef %202) #9
   %204 = getelementptr inbounds nuw i8, ptr %195, i64 32
   store ptr %203, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %195, i64 24
@@ -715,7 +709,7 @@ copy_address.exit1582:                            ; preds = %194, %201
 
 212:                                              ; preds = %copy_address.exit1582
   %213 = sext i32 %209 to i64
-  %214 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %210, i64 noundef %213) #10
+  %214 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %210, i64 noundef %213) #9
   %215 = getelementptr inbounds nuw i8, ptr %195, i64 56
   store ptr %214, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %195, i64 48
@@ -725,7 +719,7 @@ copy_address.exit1582:                            ; preds = %194, %201
   br label %copy_address.exit1583
 
 copy_address.exit1583:                            ; preds = %copy_address.exit1582, %212
-  %218 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %218 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %219, i8 0, i64 24, i1 false)
   store i32 %197, ptr %219, align 8
@@ -733,7 +727,7 @@ copy_address.exit1583:                            ; preds = %copy_address.exit15
 
 220:                                              ; preds = %copy_address.exit1583
   %221 = sext i32 %198 to i64
-  %222 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %199, i64 noundef %221) #10
+  %222 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %199, i64 noundef %221) #9
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 32
   store ptr %222, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 24
@@ -750,7 +744,7 @@ copy_address.exit1584:                            ; preds = %copy_address.exit15
 
 227:                                              ; preds = %copy_address.exit1584
   %228 = sext i32 %209 to i64
-  %229 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %210, i64 noundef %228) #10
+  %229 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %210, i64 noundef %228) #9
   %230 = getelementptr inbounds nuw i8, ptr %218, i64 56
   store ptr %229, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %218, i64 48
@@ -912,12 +906,12 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   %.sink1742 = phi i32 [ 16, %312 ], [ 4, %.lr.ph1668 ]
   %.sink1738 = phi i32 [ 3, %312 ], [ 2, %.lr.ph1668 ]
   %.sink1737 = phi i64 [ 16, %312 ], [ 4, %.lr.ph1668 ]
-  %313 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %313 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   %314 = load ptr, ptr %309, align 8
   %315 = tail call ptr @tvb_get_ptr(ptr noundef %314, i32 noundef 4, i32 noundef %.sink1742)
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %313, i8 0, i64 24, i1 false)
   store i32 %.sink1738, ptr %313, align 8
-  %316 = tail call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef %315, i64 noundef %.sink1737) #10
+  %316 = tail call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef %315, i64 noundef %.sink1737) #9
   %317 = getelementptr inbounds nuw i8, ptr %313, i64 16
   store ptr %316, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %313, i64 8
@@ -1103,8 +1097,8 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   br i1 %.not1548, label %431, label %428
 
 428:                                              ; preds = %425
-  %429 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
-  %430 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %429 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
+  %430 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   br label %431
 
 431:                                              ; preds = %428, %425, %422, %419, %416, %413, %410, %407
@@ -1267,13 +1261,13 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
 521:                                              ; preds = %520, %517
   %522 = zext i16 %.313881612 to i64
   %.sink1749 = select i1 %495, i64 16, i64 %522
-  %523 = tail call noalias ptr @g_malloc(i64 noundef %.sink1749) #11
+  %523 = tail call noalias ptr @g_malloc(i64 noundef %.sink1749) #10
   %524 = load ptr, ptr %459, align 8
   %525 = tail call ptr @tvb_memcpy(ptr noundef %524, ptr noundef %523, i32 noundef 0, i64 noundef %.sink1749)
   %526 = load ptr, ptr %435, align 8
   %527 = tail call ptr @g_list_append(ptr noundef %526, ptr noundef %523)
   store ptr %527, ptr %435, align 8
-  %528 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %528 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   store i32 %497, ptr %528, align 4
   %529 = load i64, ptr %436, align 8
   %530 = trunc i64 %529 to i32
@@ -1422,13 +1416,13 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
 
 602:                                              ; preds = %601, %596
   %603 = zext i16 %598 to i64
-  %604 = tail call noalias ptr @g_malloc(i64 noundef %603) #11
+  %604 = tail call noalias ptr @g_malloc(i64 noundef %603) #10
   %605 = load ptr, ptr %459, align 8
   %606 = tail call ptr @tvb_memcpy(ptr noundef %605, ptr noundef %604, i32 noundef 0, i64 noundef %603)
   %607 = load ptr, ptr %441, align 8
   %608 = tail call ptr @g_list_append(ptr noundef %607, ptr noundef %604)
   store ptr %608, ptr %441, align 8
-  %609 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %609 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   store i32 %588, ptr %609, align 4
   %610 = load i64, ptr %436, align 8
   %611 = trunc i64 %610 to i32
@@ -1546,7 +1540,7 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   br i1 %.not1550, label %708, label %662
 
 662:                                              ; preds = %660, %.loopexit1644
-  %663 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %663 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   %664 = load i32, ptr %93, align 8
   %665 = load i32, ptr %94, align 4
   %666 = load ptr, ptr %95, align 8
@@ -1557,7 +1551,7 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
 
 668:                                              ; preds = %662
   %669 = sext i32 %665 to i64
-  %670 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %666, i64 noundef %669) #10
+  %670 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %666, i64 noundef %669) #9
   %671 = getelementptr inbounds nuw i8, ptr %663, i64 16
   store ptr %670, ptr %671, align 8
   %672 = getelementptr inbounds nuw i8, ptr %663, i64 8
@@ -1569,7 +1563,7 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
 copy_address.exit1586:                            ; preds = %662, %668
   %674 = load i16, ptr %126, align 8
   %675 = tail call fastcc ptr @add_address(ptr noundef %663, ptr noundef %90, i16 noundef zeroext %674)
-  %676 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %676 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   %677 = load i32, ptr %104, align 8
   %678 = load i32, ptr %105, align 4
   %679 = load ptr, ptr %106, align 8
@@ -1580,7 +1574,7 @@ copy_address.exit1586:                            ; preds = %662, %668
 
 681:                                              ; preds = %copy_address.exit1586
   %682 = sext i32 %678 to i64
-  %683 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %679, i64 noundef %682) #10
+  %683 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %679, i64 noundef %682) #9
   %684 = getelementptr inbounds nuw i8, ptr %676, i64 16
   store ptr %683, ptr %684, align 8
   %685 = getelementptr inbounds nuw i8, ptr %676, i64 8
@@ -1627,7 +1621,7 @@ copy_address.exit1587:                            ; preds = %copy_address.exit15
   br label %1615
 
 708:                                              ; preds = %660
-  %709 = tail call noalias dereferenceable_or_null(216) ptr @g_malloc(i64 noundef 216) #11
+  %709 = tail call noalias dereferenceable_or_null(216) ptr @g_malloc(i64 noundef 216) #10
   %710 = load i32, ptr %7, align 4
   store i32 %710, ptr %709, align 8
   %711 = getelementptr inbounds nuw i8, ptr %709, i64 4
@@ -1757,7 +1751,7 @@ copy_address.exit1587:                            ; preds = %copy_address.exit15
   br label %876
 
 780:                                              ; preds = %776, %772, %768, %764, %760, %756, %752
-  %781 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %781 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %782, i8 0, i64 24, i1 false)
   store i32 %28, ptr %782, align 8
@@ -1766,7 +1760,7 @@ copy_address.exit1587:                            ; preds = %copy_address.exit15
 
 784:                                              ; preds = %780
   %785 = sext i32 %27 to i64
-  %786 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %785) #10
+  %786 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %785) #9
   %787 = getelementptr inbounds nuw i8, ptr %781, i64 32
   store ptr %786, ptr %787, align 8
   %788 = getelementptr inbounds nuw i8, ptr %781, i64 24
@@ -1784,7 +1778,7 @@ copy_address.exit1588:                            ; preds = %780, %784
 
 792:                                              ; preds = %copy_address.exit1588
   %793 = sext i32 %47 to i64
-  %794 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %793) #10
+  %794 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %793) #9
   %795 = getelementptr inbounds nuw i8, ptr %781, i64 56
   store ptr %794, ptr %795, align 8
   %796 = getelementptr inbounds nuw i8, ptr %781, i64 48
@@ -1794,7 +1788,7 @@ copy_address.exit1588:                            ; preds = %780, %784
   br label %copy_address.exit1589
 
 copy_address.exit1589:                            ; preds = %copy_address.exit1588, %792
-  %798 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %798 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %799, i8 0, i64 24, i1 false)
   store i32 %28, ptr %799, align 8
@@ -1802,7 +1796,7 @@ copy_address.exit1589:                            ; preds = %copy_address.exit15
 
 800:                                              ; preds = %copy_address.exit1589
   %801 = sext i32 %27 to i64
-  %802 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %801) #10
+  %802 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %801) #9
   %803 = getelementptr inbounds nuw i8, ptr %798, i64 32
   store ptr %802, ptr %803, align 8
   %804 = getelementptr inbounds nuw i8, ptr %798, i64 24
@@ -1819,7 +1813,7 @@ copy_address.exit1590:                            ; preds = %copy_address.exit15
 
 807:                                              ; preds = %copy_address.exit1590
   %808 = sext i32 %47 to i64
-  %809 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %808) #10
+  %809 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %808) #9
   %810 = getelementptr inbounds nuw i8, ptr %798, i64 56
   store ptr %809, ptr %810, align 8
   %811 = getelementptr inbounds nuw i8, ptr %798, i64 48
@@ -1946,7 +1940,7 @@ copy_address.exit1591:                            ; preds = %copy_address.exit15
   %881 = inttoptr i64 %880 to ptr
   %882 = tail call ptr @g_list_prepend(ptr noundef %879, ptr noundef %881)
   store ptr %882, ptr %878, align 8
-  %883 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %883 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   %884 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %883, i8 0, i64 24, i1 false)
   store i32 %28, ptr %883, align 8
@@ -1955,7 +1949,7 @@ copy_address.exit1591:                            ; preds = %copy_address.exit15
 
 886:                                              ; preds = %876
   %887 = sext i32 %27 to i64
-  %888 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %887) #10
+  %888 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %26, i64 noundef %887) #9
   %889 = getelementptr inbounds nuw i8, ptr %883, i64 16
   store ptr %888, ptr %889, align 8
   %890 = getelementptr inbounds nuw i8, ptr %883, i64 8
@@ -1984,7 +1978,7 @@ copy_address.exit1592:                            ; preds = %876, %886
   br label %898
 
 898:                                              ; preds = %897, %895, %893
-  %899 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %899 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %899, i8 0, i64 24, i1 false)
   store i32 %48, ptr %899, align 8
   %900 = icmp eq i32 %47, 0
@@ -1992,7 +1986,7 @@ copy_address.exit1592:                            ; preds = %876, %886
 
 901:                                              ; preds = %898
   %902 = sext i32 %47 to i64
-  %903 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %902) #10
+  %903 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %902) #9
   %904 = getelementptr inbounds nuw i8, ptr %899, i64 16
   store ptr %903, ptr %904, align 8
   %905 = getelementptr inbounds nuw i8, ptr %899, i64 8
@@ -2171,12 +2165,12 @@ copy_address.exit1593:                            ; preds = %898, %901
   %.sink1789 = phi i32 [ 16, %996 ], [ 4, %.lr.ph1654 ]
   %.sink1785 = phi i32 [ 3, %996 ], [ 2, %.lr.ph1654 ]
   %.sink1784 = phi i64 [ 16, %996 ], [ 4, %.lr.ph1654 ]
-  %997 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #11
+  %997 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
   %998 = load ptr, ptr %993, align 8
   %999 = tail call ptr @tvb_get_ptr(ptr noundef %998, i32 noundef 4, i32 noundef %.sink1789)
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %997, i8 0, i64 24, i1 false)
   store i32 %.sink1785, ptr %997, align 8
-  %1000 = tail call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef %999, i64 noundef %.sink1784) #10
+  %1000 = tail call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef %999, i64 noundef %.sink1784) #9
   %1001 = getelementptr inbounds nuw i8, ptr %997, i64 16
   store ptr %1000, ptr %1001, align 8
   %1002 = getelementptr inbounds nuw i8, ptr %997, i64 8
@@ -2415,7 +2409,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   br i1 %.not1559, label %1151, label %1153
 
 1151:                                             ; preds = %1150
-  %1152 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %1152 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   br label %1153
 
 1153:                                             ; preds = %1151, %1150
@@ -2428,7 +2422,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   br i1 %.not1560, label %1156, label %1158
 
 1156:                                             ; preds = %1153
-  %1157 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #11
+  %1157 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #10
   br label %1158
 
 1158:                                             ; preds = %1156, %1153
@@ -2571,7 +2565,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   br i1 %1243, label %1252, label %1267
 
 1252:                                             ; preds = %1251
-  %1253 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
+  %1253 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #10
   %1254 = load ptr, ptr %1211, align 8
   %1255 = tail call ptr @tvb_memcpy(ptr noundef %1254, ptr noundef %1253, i32 noundef 0, i64 noundef 16)
   %1256 = load ptr, ptr %1211, align 8
@@ -2594,7 +2588,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %1268 = load ptr, ptr %1211, align 8
   %1269 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1268, i32 noundef 2)
   %1270 = zext i16 %1269 to i64
-  %1271 = tail call noalias ptr @g_malloc(i64 noundef %1270) #11
+  %1271 = tail call noalias ptr @g_malloc(i64 noundef %1270) #10
   %1272 = load ptr, ptr %1211, align 8
   %1273 = tail call ptr @tvb_memcpy(ptr noundef %1272, ptr noundef %1271, i32 noundef 0, i64 noundef %1270)
   %1274 = load i32, ptr %1188, align 8
@@ -2609,7 +2603,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %1277 = load ptr, ptr %1191, align 8
   %1278 = tail call ptr @g_list_append(ptr noundef %1277, ptr noundef %.11412)
   store ptr %1278, ptr %1191, align 8
-  %1279 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #11
+  %1279 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #10
   store i32 %1247, ptr %1279, align 4
   %1280 = load i64, ptr %1169, align 8
   %1281 = trunc i64 %1280 to i32
@@ -3057,13 +3051,13 @@ copy_address.exit1593:                            ; preds = %898, %901
 
 1497:                                             ; preds = %1496, %1489
   %1498 = zext i16 %1493 to i64
-  %1499 = tail call noalias ptr @g_malloc(i64 noundef %1498) #11
+  %1499 = tail call noalias ptr @g_malloc(i64 noundef %1498) #10
   %1500 = load ptr, ptr %1211, align 8
   %1501 = tail call ptr @tvb_memcpy(ptr noundef %1500, ptr noundef %1499, i32 noundef 0, i64 noundef %1498)
   %1502 = load ptr, ptr %1168, align 8
   %1503 = tail call ptr @g_list_append(ptr noundef %1502, ptr noundef %1499)
   store ptr %1503, ptr %1168, align 8
-  %1504 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #11
+  %1504 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #10
   store i32 %1491, ptr %1504, align 4
   %1505 = load i64, ptr %1169, align 8
   %1506 = trunc i64 %1505 to i32
@@ -3470,7 +3464,7 @@ free_address.exit:                                ; preds = %.thread1634, %1674,
   br label %free_address.exit1604
 
 free_address.exit1604:                            ; preds = %free_address.exit, %1683, %1686
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 1
 }
 
@@ -3636,7 +3630,7 @@ declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(none) %0, ptr noundef returned %1) unnamed_addr #0 {
@@ -3704,7 +3698,7 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 14130177278493761, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %47 = call i64 @g_strlcpy(ptr noundef nonnull %46, ptr noundef nonnull %3, i64 noundef 8)
@@ -3713,7 +3707,7 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   %50 = sub i32 %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %50, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
 52:                                               ; preds = %38, %45, %35
@@ -3733,7 +3727,7 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   br i1 %61, label %.thread, label %68
 
 .thread:                                          ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const.calc_checksum.str.4, i64 7, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %63 = call i64 @g_strlcpy(ptr noundef nonnull %62, ptr noundef nonnull %4, i64 noundef 8)
@@ -3742,20 +3736,20 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   %66 = sub i32 %64, %65
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %66, ptr %67, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
 68:                                               ; preds = %55, %52
   br i1 %.0, label %73, label %69
 
 69:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 22051046311022165, ptr %5, align 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %71 = call i64 @g_strlcpy(ptr noundef nonnull %70, ptr noundef nonnull %5, i64 noundef 8)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 0, ptr %72, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 73:                                               ; preds = %.thread, %69, %68
@@ -3769,7 +3763,7 @@ declare ptr @g_ptr_array_new_with_free_func(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef ptr @add_address(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i16 noundef zeroext %2) unnamed_addr #0 {
@@ -3948,7 +3942,7 @@ addresses_equal.exit:                             ; preds = %26, %19, %14, %10
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit, %4
-  %49 = tail call noalias dereferenceable_or_null(1056) ptr @g_malloc(i64 noundef 1056) #11
+  %49 = tail call noalias dereferenceable_or_null(1056) ptr @g_malloc(i64 noundef 1056) #10
   store i32 %2, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %0, align 8
@@ -3963,7 +3957,7 @@ addresses_equal.exit:                             ; preds = %26, %19, %14, %10
 
 57:                                               ; preds = %._crit_edge
   %58 = sext i32 %53 to i64
-  %59 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %55, i64 noundef %58) #10
+  %59 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %55, i64 noundef %58) #9
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -4031,13 +4025,19 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -4045,15 +4045,14 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { allocsize(2) }
-attributes #11 = { allocsize(0) }
+attributes #9 = { allocsize(2) }
+attributes #10 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

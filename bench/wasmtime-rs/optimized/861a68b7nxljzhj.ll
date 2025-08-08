@@ -53,7 +53,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.2.0..sroa_idx, i64 344, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %4, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.2.0..sroa_idx, i64 344, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -81,7 +81,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 "_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.exit": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 216
   call void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %12), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -513,7 +513,7 @@ default.unreachable3:                             ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17hc379e64a37b3fcd3E(ptr align 8 %1, i64 %30)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds i16, ptr %28, i64 %30
   store ptr %28, ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -531,7 +531,7 @@ default.unreachable3:                             ; preds = %2
   br i1 %38, label %_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit, label %.lr.ph.i
 
 _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4, !noundef !3
   call void @_ZN4core4hash6Hasher9write_u3217h1d373960503e710aE(ptr align 8 %1, i32 %40)
@@ -555,7 +555,7 @@ _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %2
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i64, ptr %51, align 16, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17hc379e64a37b3fcd3E(ptr align 8 %1, i64 %52)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = getelementptr inbounds i16, ptr %50, i64 %52
   store ptr %50, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -573,7 +573,7 @@ _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %2
   br i1 %60, label %_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit2, label %.lr.ph.i1
 
 _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit2: ; preds = %.lr.ph.i1, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %76
 
 61:                                               ; preds = %2
@@ -719,10 +719,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

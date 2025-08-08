@@ -46,8 +46,8 @@ define dso_local void @_Z10DumpInfoGLv() local_unnamed_addr #0 {
   %8 = tail call ptr %7(i32 noundef 7938)
   %9 = load ptr, ptr @glad_glGetString, align 8, !tbaa !4
   %10 = tail call ptr %9(i32 noundef 35724)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load ptr, ptr @glad_glGetIntegerv, align 8, !tbaa !4
   call void %11(i32 noundef 33307, ptr noundef nonnull %1)
   %12 = load ptr, ptr @glad_glGetIntegerv, align 8, !tbaa !4
@@ -61,19 +61,13 @@ define dso_local void @_Z10DumpInfoGLv() local_unnamed_addr #0 {
   %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %16, i32 noundef %17)
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %10)
   %puts4 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z12CheckErrorGLv() local_unnamed_addr #0 {
@@ -93,7 +87,7 @@ define dso_local void @_Z12CheckErrorGLv() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z10PrintLogGLj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !8
   %3 = load ptr, ptr @glad_glIsShader, align 8, !tbaa !4
   %4 = tail call zeroext i8 %3(i32 noundef %0)
@@ -116,7 +110,7 @@ define dso_local void @_Z10PrintLogGLj(i32 noundef %0) local_unnamed_addr #0 {
   call void %10(i32 noundef %0, i32 noundef 35716, ptr noundef nonnull %2)
   %11 = load i32, ptr %2, align 4, !tbaa !8
   %12 = sext i32 %11 to i64
-  %13 = call noalias ptr @malloc(i64 noundef %12) #7
+  %13 = call noalias ptr @malloc(i64 noundef %12) #6
   %14 = load ptr, ptr @glad_glIsShader, align 8, !tbaa !4
   %15 = call zeroext i8 %14(i32 noundef %0)
   %.not12 = icmp eq i8 %15, 0
@@ -137,19 +131,19 @@ define dso_local void @_Z10PrintLogGLj(i32 noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %.sink.split, %16
   %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %13)
-  call void @free(ptr noundef %13) #6
+  call void @free(ptr noundef %13) #7
   br label %23
 
 23:                                               ; preds = %21, %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z24CreateProgramFromStringsPKcS0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -160,13 +154,13 @@ define dso_local noundef i32 @_Z24CreateProgramFromStringsPKcS0_(ptr noundef %0,
   %7 = alloca i32, align 4
   %8 = load ptr, ptr @glad_glCreateShader, align 8, !tbaa !4
   %9 = tail call i32 %8(i32 noundef 35633)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !10
   %10 = load ptr, ptr @glad_glShaderSource, align 8, !tbaa !4
   call void %10(i32 noundef %9, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null)
   %11 = load ptr, ptr @glad_glCompileShader, align 8, !tbaa !4
   call void %11(i32 noundef %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !8
   %12 = load ptr, ptr @glad_glGetShaderiv, align 8, !tbaa !4
   call void %12(i32 noundef %9, i32 noundef 35713, ptr noundef nonnull %6)
@@ -179,26 +173,26 @@ _ZL23sCreateShaderFromStringPKcj.exit.thread:     ; preds = %2
   call void @_Z10PrintLogGLj(i32 noundef %9)
   %16 = load ptr, ptr @glad_glDeleteShader, align 8, !tbaa !4
   call void %16(i32 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 _ZL23sCreateShaderFromStringPKcj.exit:            ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = icmp eq i32 %9, 0
   br i1 %17, label %44, label %18
 
 18:                                               ; preds = %_ZL23sCreateShaderFromStringPKcj.exit
   %19 = load ptr, ptr @glad_glCreateShader, align 8, !tbaa !4
   %20 = call i32 %19(i32 noundef 35632)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !10
   %21 = load ptr, ptr @glad_glShaderSource, align 8, !tbaa !4
   call void %21(i32 noundef %20, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null)
   %22 = load ptr, ptr @glad_glCompileShader, align 8, !tbaa !4
   call void %22(i32 noundef %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
   %23 = load ptr, ptr @glad_glGetShaderiv, align 8, !tbaa !4
   call void %23(i32 noundef %20, i32 noundef 35713, ptr noundef nonnull %4)
@@ -211,13 +205,13 @@ _ZL23sCreateShaderFromStringPKcj.exit17.thread:   ; preds = %18
   call void @_Z10PrintLogGLj(i32 noundef %20)
   %27 = load ptr, ptr @glad_glDeleteShader, align 8, !tbaa !4
   call void %27(i32 noundef %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 _ZL23sCreateShaderFromStringPKcj.exit17:          ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = icmp eq i32 %20, 0
   br i1 %28, label %44, label %29
 
@@ -230,7 +224,7 @@ _ZL23sCreateShaderFromStringPKcj.exit17:          ; preds = %18
   call void %33(i32 noundef %31, i32 noundef %20)
   %34 = load ptr, ptr @glad_glLinkProgram, align 8, !tbaa !4
   call void %34(i32 noundef %31)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !8
   %35 = load ptr, ptr @glad_glGetProgramiv, align 8, !tbaa !4
   call void %35(i32 noundef %31, i32 noundef 35714, ptr noundef nonnull %7)
@@ -252,7 +246,7 @@ _ZL23sCreateShaderFromStringPKcj.exit17:          ; preds = %18
 
 43:                                               ; preds = %40, %38
   %.2 = phi i32 [ 0, %38 ], [ %31, %40 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %44
 
 44:                                               ; preds = %_ZL23sCreateShaderFromStringPKcj.exit17.thread, %_ZL23sCreateShaderFromStringPKcj.exit.thread, %43, %_ZL23sCreateShaderFromStringPKcj.exit17, %_ZL23sCreateShaderFromStringPKcj.exit
@@ -281,7 +275,7 @@ define dso_local noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef %0, p
   tail call void %13(i32 noundef %11, i32 noundef %7)
   %14 = load ptr, ptr @glad_glLinkProgram, align 8, !tbaa !4
   tail call void %14(i32 noundef %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !8
   %15 = load ptr, ptr @glad_glGetProgramiv, align 8, !tbaa !4
   call void %15(i32 noundef %11, i32 noundef 35714, ptr noundef nonnull %3)
@@ -303,7 +297,7 @@ define dso_local noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef %0, p
 
 23:                                               ; preds = %20, %18
   %.2 = phi i32 [ 0, %18 ], [ %11, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 24:                                               ; preds = %23, %6, %2
@@ -329,20 +323,20 @@ define internal fastcc noundef i32 @_ZL21sCreateShaderFromFilePKcj(ptr noundef %
   %12 = tail call i64 @ftell(ptr noundef nonnull %5)
   %13 = tail call i32 @fseek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 0)
   %14 = add nsw i64 %12, 1
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #6
   %16 = tail call i64 @fread(ptr noundef %15, i64 noundef %12, i64 noundef 1, ptr noundef nonnull %5)
   %17 = tail call i32 @fclose(ptr noundef nonnull %5)
   %18 = getelementptr inbounds i8, ptr %15, i64 %12
   store i8 0, ptr %18, align 1, !tbaa !14
   %19 = load ptr, ptr @glad_glCreateShader, align 8, !tbaa !4
   %20 = tail call i32 %19(i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %15, ptr %3, align 8, !tbaa !10
   %21 = load ptr, ptr @glad_glShaderSource, align 8, !tbaa !4
   call void %21(i32 noundef %20, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null)
   %22 = load ptr, ptr @glad_glCompileShader, align 8, !tbaa !4
   call void %22(i32 noundef %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
   %23 = load ptr, ptr @glad_glGetShaderiv, align 8, !tbaa !4
   call void %23(i32 noundef %20, i32 noundef 35713, ptr noundef nonnull %4)
@@ -357,9 +351,9 @@ define internal fastcc noundef i32 @_ZL21sCreateShaderFromFilePKcj(ptr noundef %
   br label %29
 
 29:                                               ; preds = %26, %10
-  call void @free(ptr noundef nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @free(ptr noundef nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %29, %7
@@ -368,34 +362,40 @@ define internal fastcc noundef i32 @_ZL21sCreateShaderFromFilePKcj(ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0) }
+attributes #6 = { nounwind allocsize(0) }
+attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

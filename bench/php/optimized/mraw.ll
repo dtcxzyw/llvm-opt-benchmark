@@ -48,9 +48,6 @@ define hidden i32 @lexbor_mraw_init(ptr noundef writeonly captures(address_is_nu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @lexbor_mem_create() local_unnamed_addr #1
 
 declare i32 @lexbor_mem_init(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -58,9 +55,6 @@ declare i32 @lexbor_mem_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @lexbor_bst_create() local_unnamed_addr #1
 
 declare i32 @lexbor_bst_init(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_mraw_clean(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -245,7 +239,7 @@ lexbor_mraw_mem_alloc.exit.thread:                ; preds = %27, %53, %15, %lexb
 declare ptr @lexbor_bst_remove_close(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_mraw_calloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -264,7 +258,7 @@ define hidden ptr @lexbor_mraw_calloc(ptr noundef captures(none) %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_mraw_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -313,7 +307,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr noundef captures(none) %0, ptr nounde
   br i1 %27, label %28, label %lexbor_mraw_realloc_tail.exit
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = add i64 %8, 8
   %30 = call ptr @lexbor_mem_chunk_init(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %29) #7
   %31 = load ptr, ptr %4, align 8, !tbaa !25
@@ -344,7 +338,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr noundef captures(none) %0, ptr nounde
 
 43:                                               ; preds = %37, %28
   %.1.i = phi ptr [ %35, %37 ], [ null, %28 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %lexbor_mraw_realloc_tail.exit.thread
 
 lexbor_mraw_realloc_tail.exit:                    ; preds = %26
@@ -441,14 +435,14 @@ define hidden noalias noundef ptr @lexbor_mraw_free(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lexbor_mraw_data_size_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden i64 @lexbor_mraw_data_size_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8, !tbaa !28
   ret i64 %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_mraw_data_size_set_noi(ptr noundef writeonly captures(none) initializes((-8, 0)) %0, i64 noundef %1) local_unnamed_addr #6 {
+define hidden void @lexbor_mraw_data_size_set_noi(ptr noundef writeonly captures(none) initializes((-8, 0)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   store i64 %1, ptr %3, align 1
   ret void
@@ -474,13 +468,19 @@ declare ptr @lexbor_mem_chunk_init(ptr noundef, ptr noundef, i64 noundef) local_
 
 declare ptr @lexbor_mem_chunk_make(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

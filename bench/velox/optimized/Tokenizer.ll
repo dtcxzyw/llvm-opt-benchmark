@@ -231,7 +231,7 @@ sw.bb4:                                           ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i32 3, ptr %state, align 4
   call void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %this)
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -258,7 +258,7 @@ if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv.exit
 
 _ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv.exit: ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv.exit, %sw.bb2
@@ -320,7 +320,7 @@ sw.bb4.i:                                         ; preds = %entry
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store i32 3, ptr %state.i, align 4
   call void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(72) %this)
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -340,7 +340,7 @@ _ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_.ex
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_.exit.i.i.i.i.i.i, %sw.epilog.i
   %4 = load i32, ptr %state.i, align 4
   %cmp.not.i.i.not = icmp eq i32 %4, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br i1 %cmp.not.i.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev.exit.i.i, %entry
@@ -933,7 +933,7 @@ lpad:                                             ; preds = %invoke.cont8
 
 if.end:                                           ; preds = %while.end
   %call.i7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__endptr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__endptr.i.i)
   %call.i.i.i = tail call ptr @__errno_location() #25
   %6 = load i32, ptr %call.i.i.i, align 4
   store i32 0, ptr %call.i.i.i, align 4
@@ -979,7 +979,7 @@ if.then.i9.i.i:                                   ; preds = %if.else.i.i
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.else.i.i, %if.then.i9.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__endptr.i.i)
   %call.i89 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
           to label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev.exit unwind label %lpad
 
@@ -2073,8 +2073,8 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %Search, i64 %call.i.i.i.i
   %call.i.i.i.i1 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %Format) #24
   %add.ptr.i.i.i2 = getelementptr inbounds i8, ptr %Format, i64 %call.i.i.i.i1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %Search, ptr %agg.tmp3, align 8
   %agg.tmp.sroa.2.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
   store ptr %add.ptr.i.i.i, ptr %agg.tmp.sroa.2.0.agg.tmp3.sroa_idx, align 8
@@ -2117,14 +2117,14 @@ for.inc28.i.i:                                    ; preds = %for.end.i.i
   br i1 %cmp.i.not.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_.exit.i.thread, label %for.body13.preheader.i.i, !llvm.loop !53
 
 _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_.exit.i.thread: ; preds = %for.inc28.i.i, %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Formatter.i.i), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %Formatter.i.i), !noalias !49
   br label %if.else.i.i
 
 _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_.exit.i: ; preds = %for.end.i.i
   store ptr %OuterIt.sroa.0.023.i.i, ptr %ref.tmp.i, align 8, !noalias !49
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr %InnerIt.sroa.0.0.lcssa.ph.i.i, ptr %2, align 8, !noalias !49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Formatter.i.i), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %Formatter.i.i), !noalias !49
   store ptr %Format, ptr %Formatter.i.i, align 8, !noalias !54
   %3 = getelementptr inbounds nuw i8, ptr %Formatter.i.i, i64 8
   store ptr %add.ptr.i.i.i2, ptr %3, align 8, !noalias !54
@@ -2140,9 +2140,9 @@ if.else.i.i:                                      ; preds = %_ZNK5boost9algorith
   br label %_ZN5boost9algorithm20find_format_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail13first_finderFIPKcNS0_8is_equalEEENS8_13const_formatFINS_14iterator_rangeISB_EEEEEET_RKSI_T0_T1_.exit
 
 _ZN5boost9algorithm20find_format_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail13first_finderFIPKcNS0_8is_equalEEENS8_13const_formatFINS_14iterator_rangeISB_EEEEEET_RKSI_T0_T1_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Formatter.i.i), !noalias !49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Formatter.i.i), !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -2297,10 +2297,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

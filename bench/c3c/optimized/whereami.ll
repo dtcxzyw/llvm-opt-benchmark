@@ -10,24 +10,24 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
   %1 = alloca [4096 x i8], align 16
   %2 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %get_executable_path_raw.exit.thread33
 
 get_executable_path_raw.exit.thread:              ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 get_executable_path_raw.exit.thread33:            ; preds = %0
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %5 = trunc i64 %4 to i32
   %spec.select = call i32 @llvm.smax.i32(i32 %5, i32 0)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %6 = add nuw i32 %spec.select, 1
   %7 = zext i32 %6 to i64
   %8 = call noalias ptr @malloc(i64 noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
   %.not.i27 = icmp eq ptr %9, null
   br i1 %.not.i27, label %get_executable_path_raw.exit31, label %10
@@ -45,7 +45,7 @@ get_executable_path_raw.exit.thread33:            ; preds = %0
   br label %get_executable_path_raw.exit31
 
 get_executable_path_raw.exit31:                   ; preds = %get_executable_path_raw.exit.thread33, %10, %13
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %15 = zext nneg i32 %spec.select to i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   store i8 0, ptr %16, align 1
@@ -108,10 +108,10 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

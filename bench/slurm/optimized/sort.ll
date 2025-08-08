@@ -279,20 +279,17 @@ define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #2
+declare i64 @time(ptr noundef) local_unnamed_addr #1
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_sort_job_by_cluster_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -336,12 +333,12 @@ define internal i32 @_sort_job_by_batch_host(ptr noundef readonly captures(none)
   ret i32 %.06
 }
 
-declare i32 @get_log_level() local_unnamed_addr #3
+declare i32 @get_log_level() local_unnamed_addr #2
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_num_cpus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_num_cpus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -360,7 +357,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_cpus(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_min_tmp_disk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_min_tmp_disk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -379,7 +376,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_min_tmp_disk(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_num_nodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_num_nodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -398,7 +395,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_nodes(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_time_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_time_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -420,8 +417,8 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_end(ptr noundef readonly
 define internal i32 @_sort_job_by_group_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %5, align 8
@@ -442,13 +439,13 @@ define internal i32 @_sort_job_by_group_name(ptr noundef readonly captures(none)
   %.b3 = load i1, ptr @reverse_order, align 1
   %16 = sub nsw i32 0, %15
   %spec.select = select i1 %.b3, i32 %16, i32 %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_group_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_group_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -467,7 +464,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_group_id(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_sockets(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_sockets(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -488,7 +485,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_sockets(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -562,7 +559,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_id(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_cores(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_cores(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -606,7 +603,7 @@ define internal i32 @_sort_job_by_name(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_threads(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_threads(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -627,7 +624,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_threads(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_time_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_time_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -689,7 +686,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_left(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_min_memory(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_min_memory(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -755,7 +752,7 @@ define internal i32 @_sort_job_by_node_list(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_priority(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_priority(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val8 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val8, i64 24
   %.val8.val = load i32, ptr %3, align 8
@@ -802,7 +799,7 @@ define internal i32 @_sort_job_by_partition(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_time_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_time_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -907,7 +904,7 @@ define internal i32 @_sort_job_by_user_name(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_user_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_user_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -949,7 +946,7 @@ define internal i32 @_sort_job_by_reservation(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_time_submit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_time_submit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -968,7 +965,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_submit(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_job_by_num_sct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_job_by_num_sct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -1010,13 +1007,10 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_sct(ptr noundef readonly 
   ret i32 %.012
 }
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sort_jobs_by_start_time(ptr noundef %0) local_unnamed_addr #0 {
@@ -1194,7 +1188,7 @@ define internal i32 @_sort_step_by_cluster_name(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_step_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_step_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 168
@@ -1262,7 +1256,7 @@ define internal i32 @_sort_step_by_partition(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_step_by_time_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_step_by_time_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 196
@@ -1277,7 +1271,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_limit(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_step_by_time_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_step_by_time_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 144
@@ -1292,7 +1286,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_start(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_step_by_time_used(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal range(i32 -1, 2) i32 @_sort_step_by_time_used(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = load i64, ptr @now, align 8
@@ -1329,7 +1323,7 @@ define internal i32 @_sort_step_by_user_name(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_step_by_user_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_step_by_user_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 256
@@ -1343,30 +1337,36 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_user_id(ptr noundef readonly
   ret i32 %spec.select
 }
 
-declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @gid_to_string(i32 noundef) local_unnamed_addr #3
+declare ptr @gid_to_string(i32 noundef) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #3
+declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #2
 
-declare void @hostlist_sort(ptr noundef) local_unnamed_addr #3
+declare void @hostlist_sort(ptr noundef) local_unnamed_addr #2
 
-declare i32 @hostlist_cmp_first(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hostlist_cmp_first(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #3
+declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @job_state_string(i32 noundef) local_unnamed_addr #3
+declare ptr @job_state_string(i32 noundef) local_unnamed_addr #2
 
-declare ptr @job_state_string_compact(i32 noundef) local_unnamed_addr #3
+declare ptr @job_state_string_compact(i32 noundef) local_unnamed_addr #2
 
-declare i64 @job_time_used(ptr noundef) local_unnamed_addr #3
+declare i64 @job_time_used(ptr noundef) local_unnamed_addr #2
 
-declare ptr @uid_to_string_cached(i32 noundef) local_unnamed_addr #3
+declare ptr @uid_to_string_cached(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @difftime(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare double @difftime(i64 noundef, i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #10
@@ -1381,15 +1381,15 @@ declare i64 @llvm.smax.i64(i64, i64) #10
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }

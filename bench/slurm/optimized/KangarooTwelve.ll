@@ -63,7 +63,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   br i1 %or.cond, label %29, label %.thread
 
 29:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 3, ptr %4, align 1
   store i32 0, ptr %13, align 8
   store i64 1, ptr %10, align 8
@@ -77,11 +77,11 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   %33 = add i32 %32, 7
   %34 = and i32 %33, -8
   store i32 %34, ptr %31, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph
 
 .critedge:                                        ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread116
 
 35:                                               ; preds = %9
@@ -107,7 +107,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %13, align 8
   %49 = load i64, ptr %10, align 8
   %50 = add i64 %49, 1
@@ -125,11 +125,11 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %56 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef 32) #4
   %.not93 = icmp eq i32 %56, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not93, label %.thread, label %.thread116
 
 .critedge103:                                     ; preds = %52, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread116
 
 .thread:                                          ; preds = %21, %54, %41, %35
@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   br i1 %68, label %69, label %77
 
 69:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %70 = load i64, ptr %10, align 8
   %71 = add i64 %70, 1
   store i64 %71, ptr %10, align 8
@@ -182,7 +182,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
 75:                                               ; preds = %73
   %76 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %58, ptr noundef nonnull %6, i64 noundef 32) #4
   %.not101 = icmp eq i32 %76, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not101, label %78, label %.thread116
 
 77:                                               ; preds = %65
@@ -190,7 +190,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   br label %78
 
 .critedge108:                                     ; preds = %73, %69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread116
 
 78:                                               ; preds = %77, %75
@@ -202,13 +202,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
@@ -218,7 +212,7 @@ declare i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef, ptr noundef, i6
 define dso_local i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
@@ -293,7 +287,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   br i1 %.not39, label %45, label %37
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = add i64 %32, 1
   store i64 %38, ptr %31, align 8
   %39 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #4
@@ -309,7 +303,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %44 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %43, ptr noundef nonnull %6, i64 noundef 32) #4
   %.not42 = icmp eq i32 %44, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not42, label %._crit_edge, label %.critedge48
 
 ._crit_edge:                                      ; preds = %42
@@ -375,7 +369,7 @@ right_encode.exit62:                              ; preds = %.lr.ph22.i55, %45
   br i1 %.not43, label %73, label %.critedge48
 
 .critedge:                                        ; preds = %40, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge48
 
 73:                                               ; preds = %30, %right_encode.exit62
@@ -402,7 +396,7 @@ right_encode.exit62:                              ; preds = %.lr.ph22.i55, %45
 
 .critedge48:                                      ; preds = %42, %.critedge, %73, %28, %10, %4, %right_encode.exit62, %81, %79
   %.0 = phi i32 [ %80, %79 ], [ 0, %81 ], [ 1, %right_encode.exit62 ], [ 1, %4 ], [ 1, %10 ], [ 1, %28 ], [ 1, %73 ], [ 1, %.critedge ], [ 1, %42 ]
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -426,7 +420,7 @@ define dso_local i32 @KangarooTwelve_Squeeze(ptr noundef %0, ptr noundef %1, i64
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.KangarooTwelve_Instance, align 8
-  call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq i64 %3, 0
   br i1 %8, label %20, label %9
 
@@ -455,9 +449,15 @@ define dso_local i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef
 
 20:                                               ; preds = %16, %9, %6, %18
   %.0 = phi i32 [ %19, %18 ], [ 1, %6 ], [ 1, %9 ], [ 1, %16 ]
-  call void @llvm.lifetime.end.p0(i64 456, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3

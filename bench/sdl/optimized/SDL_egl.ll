@@ -134,7 +134,7 @@ switch.lookup:                                    ; preds = %3
 
 SDL_EGL_GetErrorName.exit:                        ; preds = %3, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %3 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load i8, ptr %.0.i, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
@@ -146,19 +146,13 @@ SDL_EGL_GetErrorName.exit:                        ; preds = %3, %switch.lookup
 11:                                               ; preds = %9, %SDL_EGL_GetErrorName.exit
   %.0 = phi ptr [ %4, %9 ], [ %.0.i, %SDL_EGL_GetErrorName.exit ]
   %12 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_EGL_HasExtension(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -275,15 +269,15 @@ define hidden noundef zeroext i1 @SDL_EGL_HasExtension(ptr noundef readonly capt
   ret i1 %.0
 }
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_EGL_GetProcAddressInternal(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -341,7 +335,7 @@ define hidden ptr @SDL_EGL_GetProcAddressInternal(ptr noundef readonly captures(
   ret ptr %.0
 }
 
-declare ptr @SDL_LoadFunction_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_LoadFunction_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_EGL_UnloadLibrary(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -404,9 +398,9 @@ define hidden void @SDL_EGL_UnloadLibrary(ptr noundef captures(none) %0) local_u
   ret void
 }
 
-declare void @SDL_UnloadObject_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnloadObject_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_EGL_LoadLibraryOnly(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -914,7 +908,7 @@ SDL_EGL_LoadLibraryInternal.exit:                 ; preds = %25
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_EGL_LoadLibrary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -948,9 +942,9 @@ define hidden zeroext i1 @SDL_EGL_LoadLibrary(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not9.i, label %SDL_EGL_GetVersion.exit, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %23 = call i32 (ptr, ptr, ...) @SDL_sscanf_REAL(ptr noundef nonnull %21, ptr noundef nonnull @.str.111, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %24 = icmp eq i32 %23, 2
@@ -972,8 +966,8 @@ define hidden zeroext i1 @SDL_EGL_LoadLibrary(ptr noundef %0, ptr noundef %1, pt
   br label %33
 
 33:                                               ; preds = %32, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %SDL_EGL_GetVersion.exit
 
 SDL_EGL_GetVersion.exit:                          ; preds = %14, %18, %33
@@ -1188,9 +1182,9 @@ SDL_EGL_GetProcAddressInternal.exit:              ; preds = %86, %.thread.i, %92
   br i1 %.not9.i62, label %SDL_EGL_GetVersion.exit63, label %147
 
 147:                                              ; preds = %143
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %148 = call i32 (ptr, ptr, ...) @SDL_sscanf_REAL(ptr noundef nonnull %146, ptr noundef nonnull @.str.111, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %149 = icmp eq i32 %148, 2
@@ -1212,8 +1206,8 @@ SDL_EGL_GetProcAddressInternal.exit:              ; preds = %86, %.thread.i, %92
   br label %158
 
 158:                                              ; preds = %157, %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %SDL_EGL_GetVersion.exit63
 
 SDL_EGL_GetVersion.exit63:                        ; preds = %139, %143, %158
@@ -1227,7 +1221,7 @@ SDL_EGL_GetVersion.exit63:                        ; preds = %139, %143, %158
   ret i1 %.047
 }
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1235,8 +1229,8 @@ define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captu
   %4 = alloca i32, align 4
   %5 = alloca [8 x ptr], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %8 = load i32, ptr %7, align 8
@@ -1387,9 +1381,9 @@ define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captu
   br i1 %.not9.i, label %SDL_EGL_GetVersion.exit, label %90
 
 90:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %91 = call i32 (ptr, ptr, ...) @SDL_sscanf_REAL(ptr noundef nonnull %89, ptr noundef nonnull @.str.111, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %92 = icmp eq i32 %91, 2
@@ -1411,8 +1405,8 @@ define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captu
   br label %101
 
 101:                                              ; preds = %100, %93
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_EGL_GetVersion.exit
 
 SDL_EGL_GetVersion.exit:                          ; preds = %82, %86, %101
@@ -1423,13 +1417,13 @@ SDL_EGL_GetVersion.exit:                          ; preds = %82, %86, %101
 
 104:                                              ; preds = %._crit_edge, %SDL_EGL_GetVersion.exit, %57, %51, %35, %26, %22, %17, %10
   %.0 = phi i1 [ %11, %10 ], [ %27, %26 ], [ %36, %35 ], [ %52, %51 ], [ %58, %57 ], [ true, %SDL_EGL_GetVersion.exit ], [ %81, %._crit_edge ], [ %23, %22 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @SDL_EGL_SetRequiredVisualId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @SDL_EGL_SetRequiredVisualId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1478,7 +1472,7 @@ switch.lookup:                                    ; preds = %12
 
 SDL_EGL_GetErrorName.exit.i:                      ; preds = %12, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %12 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load i8, ptr %.0.i.i, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %SDL_EGL_SetErrorEx.exit
@@ -1490,7 +1484,7 @@ SDL_EGL_GetErrorName.exit.i:                      ; preds = %12, %switch.lookup
 SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorName.exit.i, %21
   %.0.i = phi ptr [ %2, %21 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %23 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 24:                                               ; preds = %7, %SDL_EGL_SetErrorEx.exit, %11, %5
@@ -1506,11 +1500,11 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
   %6 = alloca [128 x ptr], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 12324, ptr %3, align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %10 = load i32, ptr %9, align 8
@@ -1791,7 +1785,7 @@ thread-pre-split:                                 ; preds = %117
 .lr.ph:                                           ; preds = %159, %.lr.ph
   %164 = phi ptr [ %172, %.lr.ph ], [ %160, %159 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %159 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 176
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
@@ -1804,7 +1798,7 @@ thread-pre-split:                                 ; preds = %117
   %174 = load i32, ptr %173, align 8
   %175 = load i32, ptr %7, align 4
   %176 = icmp eq i32 %174, %175
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.pre = load i32, ptr %4, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %177 = sext i32 %.pre.pre to i64
@@ -1833,7 +1827,7 @@ thread-pre-split:                                 ; preds = %117
   br i1 %.not156, label %196, label %184
 
 184:                                              ; preds = %181
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %185 = getelementptr inbounds nuw i8, ptr %.pre183, i64 176
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %.pre183, i64 16
@@ -1846,7 +1840,7 @@ thread-pre-split:                                 ; preds = %117
   %194 = load i32, ptr %193, align 8
   %195 = load i32, ptr %8, align 4
   %.not157 = icmp eq i32 %194, %195
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not157, label %196, label %262
 
 196:                                              ; preds = %184, %181, %.lr.ph172
@@ -1987,21 +1981,21 @@ thread-pre-split:                                 ; preds = %117
   br label %279
 
 279:                                              ; preds = %._crit_edge, %273, %148
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %or.cond.not
 }
 
-declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [33 x i32], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 988
@@ -2243,7 +2237,7 @@ switch.lookup:                                    ; preds = %123
 
 SDL_EGL_GetErrorName.exit.i:                      ; preds = %123, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %123 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %129 = load i8, ptr %.0.i.i, align 1
   %130 = icmp eq i8 %129, 0
   br i1 %130, label %131, label %SDL_EGL_SetErrorEx.exit
@@ -2255,7 +2249,7 @@ SDL_EGL_GetErrorName.exit.i:                      ; preds = %123, %switch.lookup
 SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorName.exit.i, %131
   %.0.i = phi ptr [ %3, %131 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %133 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0.i) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 134:                                              ; preds = %102
@@ -2315,7 +2309,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   br i1 %.not108, label %.critedge, label %164
 
 164:                                              ; preds = %162
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   call void %163(i32 noundef 33307, ptr noundef nonnull %5) #7
   %165 = load i32, ptr %5, align 4
@@ -2328,16 +2322,16 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   br label %169
 
 169:                                              ; preds = %167, %164
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %139, %138, %89, %83, %155, %158, %160, %169, %162, %SDL_EGL_SetErrorEx.exit, %54, %15
   %.0 = phi ptr [ null, %SDL_EGL_SetErrorEx.exit ], [ null, %54 ], [ null, %15 ], [ %120, %162 ], [ %120, %169 ], [ %120, %160 ], [ %120, %158 ], [ %120, %155 ], [ null, %83 ], [ null, %89 ], [ null, %138 ], [ null, %139 ]
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #2
+declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_EGL_MakeCurrent(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2429,7 +2423,7 @@ switch.lookup:                                    ; preds = %44
 
 SDL_EGL_GetErrorName.exit.i:                      ; preds = %44, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %44 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load i8, ptr %.0.i.i, align 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %SDL_EGL_SetErrorEx.exit
@@ -2441,7 +2435,7 @@ SDL_EGL_GetErrorName.exit.i:                      ; preds = %44, %switch.lookup
 SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorName.exit.i, %53
   %.0.i = phi ptr [ %4, %53 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %55 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull %.0.i) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %56
 
 56:                                               ; preds = %30, %37, %12, %SDL_EGL_SetErrorEx.exit, %15, %7
@@ -2470,9 +2464,9 @@ define hidden noundef zeroext i1 @SDL_EGL_DestroyContext(ptr noundef readonly ca
   ret i1 true
 }
 
-declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_EGL_SetSwapInterval(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2525,7 +2519,7 @@ switch.lookup:                                    ; preds = %22
 
 SDL_EGL_GetErrorName.exit.i:                      ; preds = %22, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %22 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load i8, ptr %.0.i.i, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %SDL_EGL_SetErrorEx.exit
@@ -2537,7 +2531,7 @@ SDL_EGL_GetErrorName.exit.i:                      ; preds = %22, %switch.lookup
 SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorName.exit.i, %30
   %.0.i = phi ptr [ %3, %30 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %32 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull %.0.i) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %SDL_EGL_SetErrorEx.exit, %20, %10, %6
@@ -2597,7 +2591,7 @@ switch.lookup:                                    ; preds = %11
 
 SDL_EGL_GetErrorName.exit.i:                      ; preds = %11, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %11 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i8, ptr %.0.i.i, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %SDL_EGL_SetErrorEx.exit
@@ -2609,7 +2603,7 @@ SDL_EGL_GetErrorName.exit.i:                      ; preds = %11, %switch.lookup
 SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorName.exit.i, %20
   %.0.i = phi ptr [ %3, %20 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %22 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull %.0.i) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %2, %SDL_EGL_SetErrorEx.exit
@@ -2621,7 +2615,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
 define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [33 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i1 @SDL_EGL_ChooseConfig(ptr noundef %0)
   br i1 %6, label %7, label %.critedge
 
@@ -2783,7 +2777,7 @@ switch.lookup:                                    ; preds = %77
 
 SDL_EGL_GetErrorName.exit.i:                      ; preds = %77, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %77 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %84 = load i8, ptr %.0.i.i, align 1
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %SDL_EGL_SetErrorEx.exit
@@ -2795,19 +2789,19 @@ SDL_EGL_GetErrorName.exit.i:                      ; preds = %77, %switch.lookup
 SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorName.exit.i, %86
   %.0.i = phi ptr [ %4, %86 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %88 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull %.0.i) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %45, %64, %SDL_EGL_SetErrorEx.exit, %3, %14
   %.038 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %SDL_EGL_SetErrorEx.exit ], [ %75, %64 ], [ null, %45 ], [ null, %51 ]
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.038
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_EGL_CreateOffscreenSurface(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) @__const.SDL_EGL_CreateOffscreenSurface.attributes, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %5, align 4
@@ -2830,12 +2824,12 @@ define hidden ptr @SDL_EGL_CreateOffscreenSurface(ptr noundef readonly captures(
 
 18:                                               ; preds = %3, %8
   %.0 = phi ptr [ %17, %8 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_EGL_DestroySurface(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2858,25 +2852,31 @@ define hidden void @SDL_EGL_DestroySurface(ptr noundef readonly captures(none) %
   ret void
 }
 
-declare ptr @SDL_LoadObject_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_LoadObject_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ClearError_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_ClearError_REAL() local_unnamed_addr #1
 
-declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0,1) }

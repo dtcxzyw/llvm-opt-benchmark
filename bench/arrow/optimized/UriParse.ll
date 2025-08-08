@@ -456,12 +456,12 @@ define i32 @uriParseSingleUriA(ptr noundef %0, ptr noundef %1, ptr noundef write
   br i1 %.not, label %.thread, label %5
 
 .thread:                                          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %uriParseSingleUriExA.exit
 
 5:                                                ; preds = %3
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %uriParseSingleUriExA.exit, label %8
 
@@ -488,7 +488,7 @@ define i32 @uriParseSingleUriA(ptr noundef %0, ptr noundef %1, ptr noundef write
 
 uriParseSingleUriExA.exit:                        ; preds = %.thread, %5, %8, %15
   %.0.i.i = phi i32 [ 2, %5 ], [ %10, %15 ], [ 0, %8 ], [ 2, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i.i
 }
 
@@ -507,7 +507,7 @@ define i32 @uriParseSingleUriExA(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 11:                                               ; preds = %8, %4
   %.0 = phi ptr [ %10, %8 ], [ %2, %4 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = icmp eq ptr %0, null
   %13 = icmp eq ptr %1, null
   %or.cond.i = or i1 %12, %13
@@ -537,14 +537,14 @@ define i32 @uriParseSingleUriExA(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 uriParseSingleUriExMmA.exit:                      ; preds = %11, %15, %21
   %.0.i = phi i32 [ 2, %11 ], [ %16, %21 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @uriParseSingleUriExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.UriParserStateStructA, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -584,14 +584,11 @@ define i32 @uriParseSingleUriExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 22:                                               ; preds = %14, %20, %12, %5
   %.0 = phi i32 [ 2, %5 ], [ 10, %12 ], [ %15, %20 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #3
+declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -867,9 +864,6 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef captures(address_i
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define void @uriFreeUriMembersA(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %0, ptr noundef null)
@@ -880,8 +874,8 @@ define void @uriFreeUriMembersA(ptr noundef captures(address_is_null) %0) local_
 define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.UriUriStructA, align 8
   %3 = alloca %struct.UriParserStateStructA, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   call void @uriResetUriA(ptr noundef nonnull %2) #7
@@ -896,20 +890,20 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixA(ptr noundef %0) local_u
   %11 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %2, ptr noundef nonnull @defaultMemoryManager)
   %12 = icmp eq ptr %10, %5
   %13 = zext i1 %12 to i32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %13
 }
 
-declare void @uriResetUriA(ptr noundef) local_unnamed_addr #3
+declare void @uriResetUriA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
   %6 = alloca [4 x i8], align 1
   %7 = alloca [14 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %10
@@ -1654,25 +1648,25 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
 
 .thread372:                                       ; preds = %272, %264, %249, %240, %233, %332, %340, %338, %347, %362, %308, %295, %285, %209, %202, %.loopexit, %195, %374, %154, %162, %160, %84, %92, %90, %187, %180, %164, %130, %117, %107, %60, %47, %37, %23, %12
   %.1 = phi ptr [ null, %12 ], [ null, %180 ], [ null, %23 ], [ null, %187 ], [ null, %37 ], [ null, %47 ], [ null, %60 ], [ null, %107 ], [ null, %117 ], [ null, %130 ], [ %179, %164 ], [ null, %90 ], [ null, %92 ], [ null, %84 ], [ null, %160 ], [ null, %162 ], [ null, %154 ], [ null, %332 ], [ null, %340 ], [ null, %338 ], [ null, %347 ], [ %373, %362 ], [ null, %308 ], [ null, %295 ], [ null, %285 ], [ null, %209 ], [ null, %202 ], [ null, %.loopexit ], [ null, %195 ], [ null, %374 ], [ null, %233 ], [ null, %240 ], [ null, %249 ], [ null, %264 ], [ null, %272 ]
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpFourA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %5 = call i32 @uriParseIpFourAddressA(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
-declare i32 @uriParseIpFourAddressA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @uriParseIpFourAddressA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @uriParseUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2102,12 +2096,12 @@ define i32 @uriParseSingleUriW(ptr noundef %0, ptr noundef %1, ptr noundef write
   br i1 %.not, label %.thread, label %5
 
 .thread:                                          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %uriParseSingleUriExW.exit
 
 5:                                                ; preds = %3
   %6 = tail call i64 @wcslen(ptr noundef nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %uriParseSingleUriExW.exit, label %8
 
@@ -2134,7 +2128,7 @@ define i32 @uriParseSingleUriW(ptr noundef %0, ptr noundef %1, ptr noundef write
 
 uriParseSingleUriExW.exit:                        ; preds = %.thread, %5, %8, %15
   %.0.i.i = phi i32 [ 2, %5 ], [ %10, %15 ], [ 0, %8 ], [ 2, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i.i
 }
 
@@ -2153,7 +2147,7 @@ define i32 @uriParseSingleUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 11:                                               ; preds = %8, %4
   %.0 = phi ptr [ %10, %8 ], [ %2, %4 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = icmp eq ptr %0, null
   %13 = icmp eq ptr %1, null
   %or.cond.i = or i1 %12, %13
@@ -2183,14 +2177,14 @@ define i32 @uriParseSingleUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 uriParseSingleUriExMmW.exit:                      ; preds = %11, %15, %21
   %.0.i = phi i32 [ 2, %11 ], [ %16, %21 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @uriParseSingleUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.UriParserStateStructW, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -2230,7 +2224,7 @@ define i32 @uriParseSingleUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 22:                                               ; preds = %14, %20, %12, %5
   %.0 = phi i32 [ 2, %5 ], [ 10, %12 ], [ %15, %20 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2518,8 +2512,8 @@ define void @uriFreeUriMembersW(ptr noundef captures(address_is_null) %0) local_
 define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.UriUriStructW, align 8
   %3 = alloca %struct.UriParserStateStructW, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @wcslen(ptr noundef %0) #8
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %4
   call void @uriResetUriW(ptr noundef nonnull %2) #7
@@ -2534,19 +2528,19 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %0) local_u
   %11 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %2, ptr noundef nonnull @defaultMemoryManager)
   %12 = icmp eq ptr %10, %5
   %13 = zext i1 %12 to i32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %13
 }
 
-declare void @uriResetUriW(ptr noundef) local_unnamed_addr #3
+declare void @uriResetUriW(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [14 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %9
@@ -3286,25 +3280,25 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 .thread372:                                       ; preds = %270, %262, %247, %238, %231, %330, %338, %336, %345, %360, %306, %293, %283, %207, %200, %.loopexit, %193, %372, %152, %160, %158, %82, %90, %88, %185, %178, %162, %128, %115, %105, %58, %45, %35, %20, %11
   %.1 = phi ptr [ null, %11 ], [ null, %178 ], [ null, %20 ], [ null, %185 ], [ null, %35 ], [ null, %45 ], [ null, %58 ], [ null, %105 ], [ null, %115 ], [ null, %128 ], [ %177, %162 ], [ null, %88 ], [ null, %90 ], [ null, %82 ], [ null, %158 ], [ null, %160 ], [ null, %152 ], [ null, %330 ], [ null, %338 ], [ null, %336 ], [ null, %345 ], [ %371, %360 ], [ null, %306 ], [ null, %293 ], [ null, %283 ], [ null, %207 ], [ null, %200 ], [ null, %.loopexit ], [ null, %193 ], [ null, %372 ], [ null, %231 ], [ null, %238 ], [ null, %247 ], [ null, %262 ], [ null, %270 ]
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpFourW(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i64 @wcslen(ptr noundef %0) #8
   %4 = getelementptr inbounds nuw i32, ptr %0, i64 %3
   %5 = call i32 @uriParseIpFourAddressW(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %4) #7
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
-declare i32 @uriParseIpFourAddressW(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @uriParseIpFourAddressW(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcA(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
@@ -3658,7 +3652,7 @@ define internal fastcc ptr @uriParsePctEncodedA(ptr noundef nonnull captures(non
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @uriParsePartHelperTwoA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @uriParsePartHelperTwoA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %7, label %5
 
@@ -4384,7 +4378,7 @@ uriParsePathAbsNoLeadSlashA.exit:                 ; preds = %tailrecurse.i.i36, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @uriParseUriTailA(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @uriParseUriTailA(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %uriParseUriTailTwoA.exit
 
@@ -4443,7 +4437,7 @@ uriParseUriTailTwoA.exit:                         ; preds = %uriParseUriTailTwoA
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4594,7 +4588,7 @@ tailrecurse:                                      ; preds = %7, %4
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = tail call ptr %6(ptr noundef %3, i64 noundef 1, i64 noundef 32) #7
@@ -4708,7 +4702,7 @@ tailrecurse:                                      ; preds = %26, %24
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @uriParseHierPartA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @uriParseHierPartA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %uriParsePathRootlessA.exit
 
@@ -5036,10 +5030,10 @@ define internal fastcc ptr @uriParsePcharA(ptr noundef nonnull captures(none) %0
   ret ptr %.0
 }
 
-declare void @uriFixEmptyTrailSegmentA(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @uriFixEmptyTrailSegmentA(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseIpLit2A(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @uriParseIpLit2A(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %10, label %5
 
@@ -5818,7 +5812,7 @@ uriOnExitOwnPortUserInfoA.exit.thread:            ; preds = %18, %24, %58, %48, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %8, label %5
 
@@ -6061,7 +6055,7 @@ uriParseAuthorityTwoA.exit:                       ; preds = %52, %uriParsePortA.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !33
@@ -6105,7 +6099,7 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr nounde
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !33
@@ -6287,7 +6281,7 @@ tailrecurse.backedge:                             ; preds = %13, %10
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %1, ptr %5, align 8, !tbaa !40
@@ -6438,14 +6432,14 @@ tailrecurse.backedge:                             ; preds = %9, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare zeroext i8 @uriGetOctetValue(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @uriGetOctetValue(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @uriWriteQuadToDoubleByte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @uriWriteQuadToDoubleByte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
@@ -6799,7 +6793,7 @@ define internal fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull captures(non
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %7, label %5
 
@@ -7524,7 +7518,7 @@ uriParsePathAbsNoLeadSlashW.exit:                 ; preds = %tailrecurse.i.i36, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %uriParseUriTailTwoW.exit
 
@@ -7583,7 +7577,7 @@ uriParseUriTailTwoW.exit:                         ; preds = %uriParseUriTailTwoW
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !51
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7734,7 +7728,7 @@ tailrecurse:                                      ; preds = %7, %4
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = tail call ptr %6(ptr noundef %3, i64 noundef 1, i64 noundef 32) #7
@@ -7848,7 +7842,7 @@ tailrecurse:                                      ; preds = %26, %24
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @uriParseHierPartW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @uriParseHierPartW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %uriParsePathRootlessW.exit
 
@@ -8176,10 +8170,10 @@ define internal fastcc ptr @uriParsePcharW(ptr noundef nonnull captures(none) %0
   ret ptr %.0
 }
 
-declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %10, label %5
 
@@ -8949,7 +8943,7 @@ uriOnExitOwnPortUserInfoW.exit.thread:            ; preds = %15, %21, %55, %45, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #3 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %8, label %5
 
@@ -9192,7 +9186,7 @@ uriParseAuthorityTwoW.exit:                       ; preds = %52, %uriParsePortW.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !72
@@ -9236,7 +9230,7 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nounde
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !72
@@ -9418,7 +9412,7 @@ tailrecurse.backedge:                             ; preds = %13, %10
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %1, ptr %5, align 8, !tbaa !79
@@ -9568,13 +9562,19 @@ tailrecurse.backedge:                             ; preds = %9, %6
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 

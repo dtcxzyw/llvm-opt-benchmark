@@ -654,7 +654,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdShadersDiscoveryPlugin13D
           to label %51 unwind label %48
 
 51:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %53, label %58
@@ -676,12 +676,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdShadersDiscoveryPlugin13D
   unreachable
 
 58:                                               ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPseudoRootEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1282) %52)
           to label %59 unwind label %253
 
 59:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !7
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.06.0.copyload.i.i = load i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimDefaultPredicateE, align 8, !noalias !10
   %.sroa.2.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimDefaultPredicateE, i64 8), align 8, !noalias !10
@@ -715,7 +715,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim19GetFilteredChildrenERKNS_22Usd_P
           to label %71 unwind label %255
 
 71:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim19GetFilteredChildrenERKNS_22Usd_PrimFlagsPredicateE.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
@@ -1037,7 +1037,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19UsdPrimSiblingRangeD2Ev.exit: ; preds = %
   br label %.body
 
 _ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorneERKS0_.exit.thread: ; preds = %169, %173, %163, %167, %_ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorneERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !22
   store ptr %165, ptr %4, align 8, !noalias !25
   %.not.i.i.i.i.i37 = icmp eq ptr %165, null
   br i1 %.not.i.i.i.i.i37, label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i, label %259
@@ -1074,7 +1074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
   br label %.body
 
 269:                                              ; preds = %266, %263, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %270 unwind label %277
 
@@ -2180,14 +2180,14 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
   %3 = alloca %"class.std::unique_ptr.124", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__18NdrDiscoveryPluginE, ptr %4, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentINS_25UsdShadersDiscoveryPluginENS_18NdrDiscoveryPluginEEEPvS3_b, ptr %5, align 8
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__25UsdShadersDiscoveryPluginE, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1, i64 noundef 24, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25NdrDiscoveryPluginFactoryINS_25UsdShadersDiscoveryPluginEEE, i64 16), ptr %7, align 8
   store ptr %7, ptr %3, align 8
@@ -2224,7 +2224,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseESt14de
   resume { ptr, i32 } %14
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryINS_25NdrDiscoveryPluginFactoryINS_25UsdShadersDiscoveryPluginEEEEEvv.exit: ; preds = %8, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5751,7 +5751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit32: ; preds = %_ZN32px
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -5773,7 +5773,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit32: ; preds = %_ZN32px
           to label %84 unwind label %110
 
 84:                                               ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 232
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %86)
@@ -6092,10 +6092,10 @@ define internal void @_GLOBAL__sub_I_discoveryPlugin.cpp() #14 section ".text.st
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

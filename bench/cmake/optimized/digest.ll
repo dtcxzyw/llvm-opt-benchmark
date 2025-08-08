@@ -180,19 +180,13 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   ret i1 %.029
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @Curl_auth_is_digest_supported() local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @Curl_auth_is_digest_supported() local_unnamed_addr #1 {
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca [33 x i8], align 16
@@ -206,20 +200,20 @@ define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr no
   %17 = alloca [9 x i8], align 1
   %18 = alloca [13 x i8], align 1
   %19 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #10
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %16) #10
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %17, ptr noundef nonnull align 1 dereferenceable(9) @__const.Curl_auth_create_digest_md5_message.nonceCount, i64 9, i1 false)
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %18, ptr noundef nonnull align 1 dereferenceable(13) @__const.Curl_auth_create_digest_md5_message.method, i64 13, i1 false)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %19, ptr noundef nonnull align 1 dereferenceable(5) @.str.11, i64 5, i1 false)
   %20 = tail call ptr @Curl_bufref_ptr(ptr noundef %1) #10
   %21 = tail call i64 @Curl_bufref_len(ptr noundef %1) #10
@@ -375,7 +369,7 @@ switch.early.test59.i:                            ; preds = %.lr.ph.i49.i
   br i1 %.not82, label %64, label %auth_decode_digest_md5_message.exit.thread
 
 64:                                               ; preds = %.loopexit103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !12
   %65 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !15
   %66 = call ptr %65(ptr noundef nonnull %15) #10
@@ -390,7 +384,7 @@ switch.early.test59.i:                            ; preds = %.lr.ph.i49.i
 .loopexit.thread:                                 ; preds = %67
   %69 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   call void %69(ptr noundef nonnull %66) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %auth_decode_digest_md5_message.exit.thread
 
 .lr.ph.i:                                         ; preds = %67, %76
@@ -422,7 +416,7 @@ switch.early.test59.i:                            ; preds = %.lr.ph.i49.i
   br i1 %.not14.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !16
 
 auth_digest_get_qop_values.exit:                  ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %auth_decode_digest_md5_message.exit.thread
 
 .loopexit:                                        ; preds = %76
@@ -430,7 +424,7 @@ auth_digest_get_qop_values.exit:                  ; preds = %64
   %79 = icmp eq i32 %78, 0
   %80 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   call void %80(ptr noundef nonnull %66) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %79, label %auth_decode_digest_md5_message.exit.thread, label %81
 
 81:                                               ; preds = %.loopexit
@@ -586,49 +580,49 @@ auth_digest_get_qop_values.exit:                  ; preds = %64
 
 auth_decode_digest_md5_message.exit.thread:       ; preds = %.loopexit.thread, %.loopexit.i, %43, %22, %6, %auth_digest_get_qop_values.exit, %178, %118, %85, %83, %81, %.loopexit, %.loopexit103, %181, %147, %126
   %.071 = phi i32 [ 0, %181 ], [ 27, %147 ], [ 27, %126 ], [ 61, %.loopexit103 ], [ 27, %auth_digest_get_qop_values.exit ], [ 61, %.loopexit ], [ %82, %81 ], [ 27, %83 ], [ 27, %85 ], [ 27, %118 ], [ 27, %178 ], [ 61, %6 ], [ 61, %22 ], [ 61, %43 ], [ 61, %.loopexit.i ], [ 61, %.loopexit.thread ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %19) #10
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %18) #10
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %17) #10
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %16) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.071
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @Curl_rand_hex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @Curl_rand_hex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @Curl_MD5_init(ptr noundef) local_unnamed_addr #5
+declare ptr @Curl_MD5_init(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Curl_MD5_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @Curl_MD5_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #5
+declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @Curl_MD5_final(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @Curl_MD5_final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @Curl_auth_build_spn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @Curl_auth_build_spn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #5
+declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @curl_free(ptr noundef) #5
+declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr noundef captures(none) initializes((48, 53)) %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr noundef captures(none) initializes((48, 53)) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca [256 x i8], align 16
   %5 = alloca [1024 x i8], align 16
@@ -678,8 +672,8 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   %.promoted = phi ptr [ %0, %2 ], [ %storemerge, %.loopexit ]
   %.062 = phi i1 [ false, %2 ], [ %.567, %.loopexit ]
   %.060 = phi i1 [ false, %2 ], [ %.5, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %.critedge2, %29
@@ -767,7 +761,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   br i1 %.not83, label %91, label %65
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !12
   %66 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !15
   %67 = call ptr %66(ptr noundef nonnull %5) #10
@@ -846,11 +840,11 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   br i1 %.not96, label %.thread, label %90
 
 .thread:                                          ; preds = %65, %79, %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread114
 
 90:                                               ; preds = %79, %85, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 
 91:                                               ; preds = %63
@@ -963,20 +957,20 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
 
 .thread114:                                       ; preds = %37, %51, %58, %93, %113, %.thread
   %.170.ph = phi i32 [ 27, %.thread ], [ 27, %37 ], [ 27, %51 ], [ 27, %58 ], [ 27, %93 ], [ 61, %113 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %142
 
 .loopexit:                                        ; preds = %124, %128
   %storemerge = phi ptr [ %129, %128 ], [ %125, %124 ]
   store ptr %storemerge, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 130:                                              ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.not, label %134, label %131
 
 131:                                              ; preds = %130
@@ -1010,7 +1004,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_auth_digest_cleanup(ptr noundef captures(none) initializes((48, 53)) %0) local_unnamed_addr #3 {
+define dso_local void @Curl_auth_digest_cleanup(ptr noundef captures(none) initializes((48, 53)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   %3 = load ptr, ptr %0, align 8, !tbaa !98
   tail call void %2(ptr noundef %3) #10
@@ -1051,13 +1045,13 @@ define dso_local void @Curl_auth_digest_cleanup(ptr noundef captures(none) initi
   ret void
 }
 
-declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #3 {
+define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #2 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %10 = load i8, ptr %9, align 4, !tbaa !105
   %11 = icmp ult i8 %10, 2
@@ -1089,7 +1083,7 @@ define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9) unnamed_addr #3 {
+define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9) unnamed_addr #2 {
   %11 = alloca [32 x i8], align 16
   %12 = alloca [65 x i8], align 16
   %13 = alloca [65 x i8], align 16
@@ -1099,14 +1093,14 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
   %17 = alloca i64, align 8
   %18 = alloca [12 x i8], align 1
   %19 = alloca [65 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %15) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8, !tbaa !110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -1125,7 +1119,7 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
   br i1 %.not179, label %26, label %32
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %27 = call i32 @Curl_rand_bytes(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 12) #10
   %.not180 = icmp eq i32 %27, 0
   br i1 %.not180, label %28, label %.thread
@@ -1137,13 +1131,13 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
 
 .thread:                                          ; preds = %26, %28
   %.1.ph = phi i32 [ %29, %28 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %154
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %16, align 8, !tbaa !12
   store ptr %31, ptr %24, align 8, !tbaa !99
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %32
 
 32:                                               ; preds = %30, %23
@@ -1235,7 +1229,7 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
   br i1 %.not194, label %.thread223, label %73
 
 73:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %74 = call i32 %9(ptr noundef nonnull %11, ptr noundef nonnull @.str.27, i64 noundef 0) #10, !callees !111
   %.not195 = icmp eq i32 %74, 0
   br i1 %.not195, label %77, label %75
@@ -1243,7 +1237,7 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   call void %76(ptr noundef nonnull %67) #10
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %154
 
 77:                                               ; preds = %73
@@ -1251,7 +1245,7 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
   %78 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.26, ptr noundef nonnull %67, ptr noundef nonnull %19) #10
   %79 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   call void %79(ptr noundef nonnull %67) #10
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not196 = icmp eq ptr %78, null
   br i1 %.not196, label %154, label %.thread223
 
@@ -1434,18 +1428,18 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
 
 154:                                              ; preds = %.thread234, %75, %.thread, %149, %143, %126, %97, %93, %92, %.thread223, %77, %66, %61, %57, %49, %45, %40, %36, %136, %152, %113, %.thread227
   %.2 = phi i32 [ 0, %152 ], [ 27, %136 ], [ 27, %113 ], [ 27, %.thread227 ], [ %74, %75 ], [ 27, %36 ], [ %42, %40 ], [ 27, %45 ], [ %51, %49 ], [ 27, %57 ], [ %63, %61 ], [ 27, %66 ], [ 27, %77 ], [ %81, %.thread223 ], [ 27, %92 ], [ %95, %93 ], [ 27, %97 ], [ 27, %126 ], [ 27, %143 ], [ 27, %149 ], [ %.1.ph, %.thread ], [ 27, %.thread234 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @auth_digest_md5_to_ascii(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
+define internal void @auth_digest_md5_to_ascii(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -1464,10 +1458,10 @@ define internal void @auth_digest_md5_to_ascii(ptr noundef readonly captures(non
   ret void
 }
 
-declare i32 @Curl_md5it(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @Curl_md5it(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @auth_digest_sha256_to_ascii(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
+define internal void @auth_digest_sha256_to_ascii(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -1486,26 +1480,26 @@ define internal void @auth_digest_sha256_to_ascii(ptr noundef readonly captures(
   ret void
 }
 
-declare i32 @Curl_sha256it(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @Curl_sha256it(ptr noundef, ptr noundef, i64 noundef) #4
 
-declare i32 @Curl_sha512_256it(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @Curl_sha512_256it(ptr noundef, ptr noundef, i64 noundef) #4
 
-declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #5
+declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #4
 
-declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #5
+declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare i32 @Curl_rand_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @Curl_rand_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @auth_digest_string_quoted(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc ptr @auth_digest_string_quoted(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %9, %1
@@ -1569,18 +1563,24 @@ define internal fastcc ptr @auth_digest_string_quoted(ptr noundef readonly captu
   ret ptr %13
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

@@ -425,8 +425,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingScene
   %19 = add nuw i64 %18, %14
   %20 = mul i64 %19, -7046029254386353067
   %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !8
   store i64 %21, ptr %5, align 8, !noalias !8
   br label %22
 
@@ -447,8 +447,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingScene
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %31 = load i64, ptr %6, align 8, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8
   %32 = or i64 %31, 1
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 752
   %34 = load atomic i64, ptr %33 acquire, align 8, !noalias !8
@@ -486,7 +486,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE4findERSD_.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE4findERSD_.exit: ; preds = %42, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = load ptr, ptr %7, align 8
   %.not.i4 = icmp eq ptr %47, null
   br i1 %.not.i4, label %48, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -505,7 +505,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE4findERSD_.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load ptr, ptr %47, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
@@ -1229,7 +1229,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %312, %_ZN
   br label %449
 
 344:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_19HdDataSourceLocatorEEEED2Ev.exit80
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14
   invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %46, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr nonnull align 4 dereferenceable(8) %8, ptr nonnull align 8 dereferenceable(592) %46)
           to label %.noexc unwind label %199
 
@@ -1282,7 +1282,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
           to label %371 unwind label %199
 
 371:                                              ; preds = %.noexc, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !14
   %372 = invoke noundef nonnull align 8 dereferenceable(592) ptr @_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_IS4_NS3_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS4_4HashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S6_EEEEES7_S9_NSA_ISB_ISC_SF_EEEEixERSC_(ptr noundef nonnull align 8 dereferenceable(592) %68, ptr noundef nonnull align 4 dereferenceable(8) %8)
           to label %373 unwind label %199
 
@@ -1716,8 +1716,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneI
   %33 = add nuw i64 %32, %28
   %34 = mul i64 %33, -7046029254386353067
   %35 = call noundef i64 @llvm.bswap.i64(i64 %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !20
   store i64 %35, ptr %5, align 8, !noalias !20
   br label %36
 
@@ -1737,8 +1737,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneI
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %36
   %44 = load i64, ptr %6, align 8, !noalias !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !20
   %45 = or i64 %44, 1
   %46 = load atomic i64, ptr %20 acquire, align 8, !noalias !20
   %47 = urem i64 %35, %46
@@ -1774,7 +1774,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %.not.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE4findERSE_.exit.thread, label %.lr.ph.i.i, !llvm.loop !23
 
 59:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !24
   invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %4, ptr noundef nonnull align 8 dereferenceable(592) %21, ptr noundef nonnull align 4 dereferenceable(8) %.076, ptr nonnull align 4 dereferenceable(8) %.076, ptr nonnull align 8 dereferenceable(592) %21)
           to label %.noexc28 unwind label %.loopexit.split-lp.loopexit
 
@@ -1827,7 +1827,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
           to label %86 unwind label %.loopexit.split-lp.loopexit
 
 86:                                               ; preds = %.noexc28, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !24
   %87 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 48
   br label %.lr.ph.i.i30
 
@@ -2032,8 +2032,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneI
   %20 = add nuw i64 %19, %15
   %21 = mul i64 %20, -7046029254386353067
   %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !41
   store i64 %22, ptr %9, align 8, !noalias !41
   br label %23
 
@@ -2054,8 +2054,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneI
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %32 = load i64, ptr %10, align 8, !noalias !41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !41
   %33 = or i64 %32, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %35 = load atomic i64, ptr %34 acquire, align 8, !noalias !41
@@ -2098,7 +2098,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !44
   call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %8, ptr noundef nonnull align 8 dereferenceable(592) %54, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nonnull align 4 dereferenceable(8) %1, ptr nonnull align 8 dereferenceable(592) %54), !noalias !47
   %55 = load ptr, ptr %8, align 8, !noalias !47
   %.not.i.i14 = icmp eq ptr %55, null
@@ -2148,7 +2148,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit: ; preds = %53, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !44
   br label %81
 
 81:                                               ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit, %48
@@ -2190,8 +2190,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   %103 = add nuw i64 %102, %98
   %104 = mul i64 %103, -7046029254386353067
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !51
   store i64 %105, ptr %6, align 8, !noalias !51
   br label %106
 
@@ -2211,8 +2211,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %106
   %114 = load i64, ptr %7, align 8, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !51
   %115 = or i64 %114, 1
   %116 = load atomic i64, ptr %90 acquire, align 8, !noalias !51
   %117 = urem i64 %105, %116
@@ -2256,8 +2256,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %138 = add nuw i64 %137, %133
   %139 = mul i64 %138, -7046029254386353067
   %140 = call noundef i64 @llvm.bswap.i64(i64 %139)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !54
   store i64 %140, ptr %4, align 8, !noalias !54
   br label %141
 
@@ -2278,8 +2278,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %141
   %149 = getelementptr inbounds nuw i8, ptr %.016.i.i23, i64 24
   %150 = load i64, ptr %5, align 8, !noalias !54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !54
   %151 = or i64 %150, 1
   %152 = getelementptr inbounds nuw i8, ptr %.016.i.i23, i64 32
   %153 = load atomic i64, ptr %152 acquire, align 8, !noalias !54
@@ -2315,7 +2315,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 166:                                              ; preds = %161
   %167 = getelementptr inbounds nuw i8, ptr %.016.i.i34, i64 616
   store i8 1, ptr %167, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !58
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !58
   call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %91, ptr noundef nonnull align 4 dereferenceable(8) %93, ptr nonnull align 4 dereferenceable(8) %93, ptr nonnull align 8 dereferenceable(592) %91), !noalias !61
   %168 = load ptr, ptr %3, align 8, !noalias !61
   %.not.i.i40 = icmp eq ptr %168, null
@@ -2365,7 +2365,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit43
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit43: ; preds = %166, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !58
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !58
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE4findERSE_.exit.thread
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE4findERSE_.exit.thread: ; preds = %127, %.lr.ph.i.i22, %164, %.lr.ph.i.i33, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit43
@@ -3010,8 +3010,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_Visite
   %305 = add nuw i64 %304, %300
   %306 = mul i64 %305, -7046029254386353067
   %307 = call noundef i64 @llvm.bswap.i64(i64 %306)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !68
   store i64 %307, ptr %6, align 8, !noalias !68
   br label %308
 
@@ -3032,8 +3032,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_Visite
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %308
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %317 = load i64, ptr %7, align 8, !noalias !68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !68
   %318 = or i64 %317, 1
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %320 = load atomic i64, ptr %319 acquire, align 8, !noalias !68
@@ -3895,13 +3895,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %107 = phi ptr [ %86, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i ], [ %92, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ]
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %15, ptr %108, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %7, ptr %3, align 8
   %109 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS4_RKS5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEES3_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %110 unwind label %189
 
 110:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.extract = extractvalue { ptr, i8 } %109, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %109, 1
   %111 = load i32, ptr %74, align 4
@@ -4491,8 +4491,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(593) ptr @_ZN3tbb6de
   %17 = add nuw i64 %16, %12
   %18 = mul i64 %17, -7046029254386353067
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !82
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !82
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !82
   store i64 %19, ptr %3, align 8, !noalias !82
   br label %20
 
@@ -4512,8 +4512,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(593) ptr @_ZN3tbb6de
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %20
   %28 = load i64, ptr %4, align 8, !noalias !82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !82
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !82
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !82
   %29 = or i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8, !noalias !82
@@ -4797,8 +4797,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(592) ptr @_ZN3tbb6de
   %17 = add nuw i64 %16, %12
   %18 = mul i64 %17, -7046029254386353067
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !88
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !88
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !88
   store i64 %19, ptr %3, align 8, !noalias !88
   br label %20
 
@@ -4818,8 +4818,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(592) ptr @_ZN3tbb6de
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %20
   %28 = load i64, ptr %4, align 8, !noalias !88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !88
   %29 = or i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8, !noalias !88
@@ -4883,8 +4883,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(593) ptr @_ZN3tbb6de
   %17 = add nuw i64 %16, %12
   %18 = mul i64 %17, -7046029254386353067
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !94
   store i64 %19, ptr %3, align 8, !noalias !94
   br label %20
 
@@ -4904,8 +4904,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(593) ptr @_ZN3tbb6de
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %20
   %28 = load i64, ptr %4, align 8, !noalias !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !94
   %29 = or i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8, !noalias !94
@@ -4965,8 +4965,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(112) ptr @_ZN3tbb6de
   %13 = and i64 %12, -8
   %14 = mul i64 %13, -7046029254386353067
   %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !100
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !100
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !100
   store i64 %15, ptr %7, align 8, !noalias !100
   br label %16
 
@@ -4986,8 +4986,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(112) ptr @_ZN3tbb6de
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %16
   %24 = load i64, ptr %8, align 8, !noalias !100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !100
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !100
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !100
   %25 = or i64 %24, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load atomic i64, ptr %26 acquire, align 8, !noalias !100
@@ -5025,8 +5025,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %43, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i
   store ptr %1, ptr %9, align 8, !alias.scope !104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEEPNS1_10value_nodeISE_mEEmDpOT_(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10), !noalias !107
   store ptr %45, ptr %5, align 8, !noalias !107
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -5038,8 +5038,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 50:                                               ; preds = %.loopexit
   %51 = load ptr, ptr %5, align 8, !noalias !107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !107
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !107
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !107
   store i64 1, ptr %3, align 8, !noalias !107
   br label %52
 
@@ -5059,8 +5059,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i: ; preds = %52
   %60 = load i64, ptr %4, align 8, !noalias !107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !107
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !107
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !107
   %61 = or i64 %60, 1
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %61, ptr %62, align 8, !noalias !107
@@ -5072,8 +5072,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE7emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_15solist_iteratorISH_SE_EEbEDpOT_.exit: ; preds = %.loopexit, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %65 = load ptr, ptr %64, align 8, !noalias !107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE4findERSD_.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE4findERSD_.exit: ; preds = %35, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE7emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_15solist_iteratorISH_SE_EEbEDpOT_.exit
@@ -5432,8 +5432,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneI
   %48 = add nuw i64 %47, %43
   %49 = mul i64 %48, -7046029254386353067
   %50 = tail call noundef i64 @llvm.bswap.i64(i64 %49)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !114
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !114
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !114
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !114
   store i64 %50, ptr %12, align 8, !noalias !114
   br label %51
 
@@ -5453,8 +5453,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneI
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %51
   %59 = load i64, ptr %13, align 8, !noalias !114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !114
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !114
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !114
   %60 = or i64 %59, 1
   %61 = load atomic i64, ptr %24 acquire, align 8, !noalias !114
   %62 = urem i64 %50, %61
@@ -5752,8 +5752,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   %176 = add nuw i64 %175, %171
   %177 = mul i64 %176, -7046029254386353067
   %178 = tail call noundef i64 @llvm.bswap.i64(i64 %177)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !127
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !127
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !127
   store i64 %178, ptr %10, align 8, !noalias !127
   br label %179
 
@@ -5773,8 +5773,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %179
   %187 = load i64, ptr %11, align 8, !noalias !127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !127
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !127
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !127
   %188 = or i64 %187, 1
   %189 = load atomic i64, ptr %28 acquire, align 8, !noalias !127
   %190 = urem i64 %178, %189
@@ -5930,8 +5930,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
   %265 = add nuw i64 %264, %260
   %266 = mul i64 %265, -7046029254386353067
   %267 = tail call noundef i64 @llvm.bswap.i64(i64 %266)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !130
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !130
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !130
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !130
   store i64 %267, ptr %8, align 8, !noalias !130
   br label %268
 
@@ -5952,8 +5952,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %268
   %276 = getelementptr inbounds nuw i8, ptr %.016.i.i58, i64 24
   %277 = load i64, ptr %9, align 8, !noalias !130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !130
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !130
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !130
   %278 = or i64 %277, 1
   %279 = getelementptr inbounds nuw i8, ptr %.016.i.i58, i64 32
   %280 = load atomic i64, ptr %279 acquire, align 8, !noalias !130
@@ -7726,8 +7726,8 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
   %1020 = add nuw i64 %1019, %1015
   %1021 = mul i64 %1020, -7046029254386353067
   %1022 = tail call noundef i64 @llvm.bswap.i64(i64 %1021)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1022, ptr %4, align 8
   br label %1023
 
@@ -7747,8 +7747,8 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i: ; preds = %1023
   %1031 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1032 = or i64 %1031, 1
   %1033 = load atomic i64, ptr %688 acquire, align 8
   %1034 = urem i64 %1022, %1033
@@ -8527,8 +8527,8 @@ _ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurr
   %1355 = add nuw i64 %1354, %1350
   %1356 = mul i64 %1355, -7046029254386353067
   %1357 = tail call noundef i64 @llvm.bswap.i64(i64 %1356)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !169
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !169
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !169
   store i64 %1357, ptr %6, align 8, !noalias !169
   br label %1358
 
@@ -8548,8 +8548,8 @@ _ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurr
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i151: ; preds = %1358
   %1366 = load i64, ptr %7, align 8, !noalias !169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !169
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !169
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !169
   %1367 = or i64 %1366, 1
   %1368 = load atomic i64, ptr %1341 acquire, align 8, !noalias !169
   %1369 = urem i64 %1357, %1368
@@ -11002,8 +11002,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENSA_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SE_NSB_4HashESt8equal_toISB_ESG_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit21: ; preds = %79, %82
   %83 = getelementptr inbounds %"struct.std::atomic.14", ptr %.0.i.i18, i64 %31
   %84 = load atomic i64, ptr %83 acquire, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %3, align 8
   br label %85
 
@@ -11024,8 +11024,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE21split_order_key_dummyEm.exit: ; preds = %85
   %.0.i23 = inttoptr i64 %84 to ptr
   %93 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = and i64 %93, -2
   %95 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %.0.i23, i64 noundef %94)
   %96 = or i64 %1, 1
@@ -11682,8 +11682,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapISB_NSA_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENSB_4HashESt8equal_toISB_ENS8_IS9_ISC_SF_EEEEEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SL_SG_SI_SN_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit21: ; preds = %79, %82
   %83 = getelementptr inbounds %"struct.std::atomic.14", ptr %.0.i.i18, i64 %31
   %84 = load atomic i64, ptr %83 acquire, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %3, align 8
   br label %85
 
@@ -11704,8 +11704,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE21split_order_key_dummyEm.exit: ; preds = %85
   %.0.i23 = inttoptr i64 %84 to ptr
   %93 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = and i64 %93, -2
   %95 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %.0.i23, i64 noundef %94)
   %96 = or i64 %1, 1
@@ -11891,8 +11891,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
   %17 = add nuw i64 %16, %12
   %18 = mul i64 %17, -7046029254386353067
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %19, ptr %6, align 8
   br label %20
 
@@ -11912,8 +11912,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit: ; preds = %20
   %28 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %29 = or i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
@@ -12349,8 +12349,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsISA_NSA_4HashESt8equal_toISA_ESB_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit21: ; preds = %79, %82
   %83 = getelementptr inbounds %"struct.std::atomic.14", ptr %.0.i.i18, i64 %31
   %84 = load atomic i64, ptr %83 acquire, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %3, align 8
   br label %85
 
@@ -12371,8 +12371,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE21split_order_key_dummyEm.exit: ; preds = %85
   %.0.i23 = inttoptr i64 %84 to ptr
   %93 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = and i64 %93, -2
   %95 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %.0.i23, i64 noundef %94)
   %96 = or i64 %1, 1
@@ -15612,8 +15612,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENSA_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SE_NSB_4HashESt8equal_toISB_ESG_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit21: ; preds = %79, %82
   %83 = getelementptr inbounds %"struct.std::atomic.14", ptr %.0.i.i18, i64 %31
   %84 = load atomic i64, ptr %83 acquire, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %3, align 8
   br label %85
 
@@ -15634,8 +15634,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE21split_order_key_dummyEm.exit: ; preds = %85
   %.0.i23 = inttoptr i64 %84 to ptr
   %93 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = and i64 %93, -2
   %95 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17insert_dummy_nodeEPNS1_9list_nodeImEEm(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %.0.i23, i64 noundef %94)
   %96 = or i64 %1, 1
@@ -15876,8 +15876,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 43:                                               ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEEPNS1_10value_nodeISE_mEEmDpOT_.exit
   %44 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %6, align 8
   br label %45
 
@@ -15897,8 +15897,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 53:                                               ; preds = %45
   %54 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %55 = or i64 %54, 1
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %55, ptr %56, align 8
@@ -15967,8 +15967,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
   %16 = add nuw i64 %15, %11
   %17 = mul i64 %16, -7046029254386353067
   %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %18, ptr %5, align 8
   br label %19
 
@@ -15988,8 +15988,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit: ; preds = %19
   %27 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = or i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load atomic i64, ptr %29 acquire, align 8
@@ -16194,8 +16194,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 42:                                               ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSE_EESQ_IJEEEEEPNS1_10value_nodeISI_mEEmDpOT_.exit
   %43 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %6, align 8
   br label %44
 
@@ -16215,8 +16215,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 52:                                               ; preds = %44
   %53 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %54 = or i64 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %54, ptr %55, align 8
@@ -16285,8 +16285,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
   %16 = add nuw i64 %15, %11
   %17 = mul i64 %16, -7046029254386353067
   %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %18, ptr %5, align 8
   br label %19
 
@@ -16306,8 +16306,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit: ; preds = %19
   %27 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = or i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load atomic i64, ptr %29 acquire, align 8
@@ -16514,8 +16514,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 43:                                               ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEEPNS1_10value_nodeISE_mEEmDpOT_.exit
   %44 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %6, align 8
   br label %45
 
@@ -16535,8 +16535,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 53:                                               ; preds = %45
   %54 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %55 = or i64 %54, 1
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %55, ptr %56, align 8
@@ -16605,8 +16605,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
   %16 = add nuw i64 %15, %11
   %17 = mul i64 %16, -7046029254386353067
   %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %18, ptr %5, align 8
   br label %19
 
@@ -16626,8 +16626,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit: ; preds = %19
   %27 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = or i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load atomic i64, ptr %29 acquire, align 8
@@ -17039,8 +17039,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_32HdDependencyForwardingSceneIndex14_LocatorsEntryEEEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISB_SE_NSB_11HashFunctorESt8equal_toISB_ESG_Lb0EEEE23unordered_segment_tableELm63EEixEm.exit21: ; preds = %79, %82
   %83 = getelementptr inbounds %"struct.std::atomic.14", ptr %.0.i.i18, i64 %31
   %84 = load atomic i64, ptr %83 acquire, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %3, align 8
   br label %85
 
@@ -17061,8 +17061,8 @@ _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocat
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE21split_order_key_dummyEm.exit: ; preds = %85
   %.0.i23 = inttoptr i64 %84 to ptr
   %93 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = and i64 %93, -2
   %95 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 16)
   store ptr null, ptr %95, align 8
@@ -17291,8 +17291,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
   %9 = and i64 %8, -8
   %10 = mul i64 %9, -7046029254386353067
   %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %11, ptr %5, align 8
   br label %12
 
@@ -17312,8 +17312,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit: ; preds = %12
   %20 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = or i64 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load atomic i64, ptr %22 acquire, align 8
@@ -17614,8 +17614,8 @@ define linkonce_odr { ptr, ptr } @_ZN3tbb6detail2d125concurrent_unordered_baseIN
   %14 = add nuw i64 %13, %9
   %15 = mul i64 %14, -7046029254386353067
   %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %3, align 8
   br label %17
 
@@ -17635,8 +17635,8 @@ define linkonce_odr { ptr, ptr } @_ZN3tbb6detail2d125concurrent_unordered_baseIN
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit: ; preds = %17
   %25 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = or i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load atomic i64, ptr %27 acquire, align 8
@@ -17716,8 +17716,8 @@ define linkonce_odr { ptr, ptr } @_ZN3tbb6detail2d125concurrent_unordered_baseIN
   %14 = add nuw i64 %13, %9
   %15 = mul i64 %14, -7046029254386353067
   %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %3, align 8
   br label %17
 
@@ -17737,8 +17737,8 @@ define linkonce_odr { ptr, ptr } @_ZN3tbb6detail2d125concurrent_unordered_baseIN
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit: ; preds = %17
   %25 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = or i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load atomic i64, ptr %27 acquire, align 8
@@ -17818,8 +17818,8 @@ define linkonce_odr { ptr, ptr } @_ZN3tbb6detail2d125concurrent_unordered_baseIN
   %14 = add nuw i64 %13, %9
   %15 = mul i64 %14, -7046029254386353067
   %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %3, align 8
   br label %17
 
@@ -17839,8 +17839,8 @@ define linkonce_odr { ptr, ptr } @_ZN3tbb6detail2d125concurrent_unordered_baseIN
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit: ; preds = %17
   %25 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = or i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load atomic i64, ptr %27 acquire, align 8
@@ -18008,10 +18008,10 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

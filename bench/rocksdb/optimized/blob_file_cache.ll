@@ -46,12 +46,6 @@ $_ZGVZN7rocksdb21BasicTypedCacheHelperINS_14BlobFileReaderELNS_14CacheEntryRoleE
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb13BlobFileCacheC2EPNS_5CacheEPKNS_16ImmutableOptionsEPKNS_11FileOptionsEjPNS_13HistogramImplERKSt10shared_ptrINS_8IOTracerEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8, !tbaa !4
@@ -143,11 +137,11 @@ define void @_ZN7rocksdb13BlobFileCache17GetBlobFileReaderERKNS_11ReadOptionsEmP
   %9 = alloca ptr, align 8
   %10 = alloca %"class.std::unique_ptr.68", align 8
   store i64 %3, ptr %7, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 8, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = load ptr, ptr %1, align 8, !tbaa !4
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
@@ -301,7 +295,7 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit45: ; preds = %71, %
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %._ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit_crit_edge, %89
   %98 = phi ptr [ %.pre, %._ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit_crit_edge ], [ %91, %89 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !123
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %100 = load ptr, ptr %99, align 8, !tbaa !38
@@ -388,7 +382,7 @@ _ZN7rocksdb6StatusD2Ev.exit53:                    ; preds = %.critedge35, %_ZNKS
   br label %_ZN7rocksdb21BasicTypedCacheHelperINS_14BlobFileReaderELNS_14CacheEntryRoleE13EE14GetBasicHelperEv.exit.i
 
 _ZN7rocksdb21BasicTypedCacheHelperINS_14BlobFileReaderELNS_14CacheEntryRoleE13EE14GetBasicHelperEv.exit.i: ; preds = %131, %129, %_ZN7rocksdb6StatusD2Ev.exit53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12, !noalias !137
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !137
   store ptr @.str, ptr %6, align 8, !tbaa !65, !noalias !137
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %133, align 8, !tbaa !67, !noalias !137
@@ -399,7 +393,7 @@ _ZN7rocksdb21BasicTypedCacheHelperINS_14BlobFileReaderELNS_14CacheEntryRoleE13EE
           to label %137 unwind label %145
 
 137:                                              ; preds = %_ZN7rocksdb21BasicTypedCacheHelperINS_14BlobFileReaderELNS_14CacheEntryRoleE13EE14GetBasicHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12, !noalias !137
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !137
   %138 = load i8, ptr %0, align 8, !tbaa !125
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %.critedge, label %140
@@ -506,13 +500,13 @@ _ZNKSt14default_deleteIN7rocksdb14BlobFileReaderEEclEPS1_.exit.i: ; preds = %.cr
   br label %_ZNSt10unique_ptrIN7rocksdb14BlobFileReaderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb14BlobFileReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %.critedge30, %_ZNKSt14default_deleteIN7rocksdb14BlobFileReaderEEclEPS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %174
 
 173:                                              ; preds = %145, %_ZN7rocksdb6StatusD2Ev.exit61, %170, %_ZN7rocksdb6StatusD2Ev.exit, %117
   %.pn24 = phi { ptr, i32 } [ %118, %117 ], [ %171, %170 ], [ %120, %_ZN7rocksdb6StatusD2Ev.exit ], [ %148, %_ZN7rocksdb6StatusD2Ev.exit61 ], [ %146, %145 ]
   call void @_ZNSt10unique_ptrIN7rocksdb14BlobFileReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %178
 
 174:                                              ; preds = %_ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit45, %_ZNSt10unique_ptrIN7rocksdb14BlobFileReaderESt14default_deleteIS1_EED2Ev.exit
@@ -539,13 +533,13 @@ _ZNSt10unique_ptrIN7rocksdb14BlobFileReaderESt14default_deleteIS1_EED2Ev.exit: ;
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit75:                 ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn27
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %174, %_ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -574,7 +568,7 @@ define void @_ZN7rocksdb13BlobFileCache5EvictEm(ptr noundef nonnull readonly ali
   %3 = alloca i64, align 8
   %4 = alloca %"class.rocksdb::Slice", align 8
   store i64 %1, ptr %3, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 8, ptr %5, align 8
@@ -583,7 +577,7 @@ define void @_ZN7rocksdb13BlobFileCache5EvictEm(ptr noundef nonnull readonly ali
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -647,6 +641,12 @@ _ZNKSt14default_deleteIN7rocksdb14BlobFileReaderEEclEPS1_.exit: ; preds = %2, %4
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

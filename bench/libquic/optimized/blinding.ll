@@ -46,12 +46,9 @@ BN_BLINDING_free.exit:                            ; preds = %6, %3
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @BN_new() local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @BN_BLINDING_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -71,13 +68,10 @@ define hidden void @BN_BLINDING_free(ptr noundef captures(address_is_null) %0) l
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_BLINDING_convert(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -91,7 +85,7 @@ define hidden range(i32 0, 2) i32 @BN_BLINDING_convert(ptr noundef %0, ptr nound
   br i1 %11, label %12, label %44
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @BN_init(ptr noundef nonnull %6) #5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @BN_with_flags(ptr noundef nonnull %6, ptr noundef nonnull %13, i32 noundef 4) #5
@@ -121,7 +115,7 @@ define hidden range(i32 0, 2) i32 @BN_BLINDING_convert(ptr noundef %0, ptr nound
   br label %bn_blinding_update.exit.thread17
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = load ptr, ptr %16, align 8, !tbaa !13
   %24 = call ptr @BN_mod_inverse_ex(ptr noundef %23, ptr noundef nonnull %7, ptr noundef %23, ptr noundef nonnull %6, ptr noundef %4) #5
   %25 = icmp eq ptr %24, null
@@ -145,20 +139,20 @@ define hidden range(i32 0, 2) i32 @BN_BLINDING_convert(ptr noundef %0, ptr nound
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %31, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bn_blinding_update.exit.thread17
 
 32:                                               ; preds = %28
   %33 = add nsw i32 %.02235.i.i, -1
   call void @ERR_clear_error() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = load ptr, ptr %1, align 8, !tbaa !6
   %35 = call i32 @BN_rand_range(ptr noundef %34, ptr noundef nonnull %13) #5
   %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %17
 
 36:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = load ptr, ptr %1, align 8, !tbaa !6
   %38 = call i32 @BN_mod_exp_mont(ptr noundef %37, ptr noundef %37, ptr noundef %2, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %3) #5
   %.not27.i.i = icmp eq i32 %38, 0
@@ -196,12 +190,12 @@ bn_blinding_update.exit.thread12:                 ; preds = %44, %47
   br label %53
 
 bn_blinding_update.exit.thread17:                 ; preds = %43, %39, %21, %._crit_edge.i.i, %.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 31, ptr %8, align 8, !tbaa !14
   br label %53
 
 bn_blinding_update.exit:                          ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 0, ptr %8, align 8, !tbaa !14
   br label %bn_blinding_update.exit.thread
 
@@ -217,7 +211,7 @@ bn_blinding_update.exit.thread:                   ; preds = %47, %bn_blinding_up
   ret i32 %.0
 }
 
-declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @BN_BLINDING_invert(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -227,29 +221,35 @@ define hidden i32 @BN_BLINDING_invert(ptr noundef %0, ptr noundef readonly captu
   ret i32 %7
 }
 
-declare void @BN_init(ptr noundef) local_unnamed_addr #2
+declare void @BN_init(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BN_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_from_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_from_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_mod_inverse_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BN_mod_inverse_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_clear_error() local_unnamed_addr #2
+declare void @ERR_clear_error() local_unnamed_addr #1
 
-declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #5 = { nounwind }
 

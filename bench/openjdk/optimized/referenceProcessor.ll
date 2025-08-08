@@ -6357,7 +6357,7 @@ define linkonce_odr hidden void @_ZN29RefProcSoftWeakFinalPhaseTask7rp_workEjP17
   %22 = select i1 %18, i1 %21, i1 false
   %23 = select i1 %22, i32 %1, i32 0
   call void @_ZN24RefProcWorkerTimeTrackerC1EP15WorkerDataArrayIdEj(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef %14, i32 noundef %23) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load ptr, ptr %15, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %.012.i = load ptr, ptr %25, align 8
@@ -6377,8 +6377,8 @@ define linkonce_odr hidden void @_ZN29RefProcSoftWeakFinalPhaseTask7rp_workEjP17
   call void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %37, i32 noundef 1, i64 noundef %36) #17
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZN24RefProcWorkerTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %38) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %.012.i14 = load ptr, ptr %40, align 8
@@ -6397,8 +6397,8 @@ define linkonce_odr hidden void @_ZN29RefProcSoftWeakFinalPhaseTask7rp_workEjP17
   call void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %51, i32 noundef 2, i64 noundef %50) #17
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZN24RefProcWorkerTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %52) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = load ptr, ptr %15, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %.012.i15 = load ptr, ptr %54, align 8
@@ -6417,7 +6417,7 @@ define linkonce_odr hidden void @_ZN29RefProcSoftWeakFinalPhaseTask7rp_workEjP17
   call void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %65, i32 noundef 3, i64 noundef %64) #17
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZN24RefProcWorkerTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %66) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %67 = load ptr, ptr %5, align 8
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
@@ -6459,7 +6459,7 @@ define linkonce_odr hidden void @_ZN30RefProcKeepAliveFinalPhaseTask7rp_workEjP1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23RefProcPhantomPhaseTask7rp_workEjP17BoolObjectClosureP10OopClosureP29EnqueueDiscoveredFieldClosureP11VoidClosure(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
   %7 = alloca %class.RefProcSubPhasesWorkerTimeTracker, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -6481,7 +6481,7 @@ define linkonce_odr hidden void @_ZN23RefProcPhantomPhaseTask7rp_workEjP17BoolOb
   call void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %23, i32 noundef 4, i64 noundef %22) #17
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZN24RefProcWorkerTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %24) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
@@ -7723,10 +7723,10 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

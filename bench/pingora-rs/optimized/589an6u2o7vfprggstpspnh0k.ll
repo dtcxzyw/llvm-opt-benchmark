@@ -45,10 +45,10 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..
 define internal noundef zeroext i1 @"_ZN64_$LT$alloc..ffi..c_str..NulError$u20$as$u20$core..fmt..Debug$GT$3fmt17h59034891720ec4b9E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17he11036884f0650dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.c65d37a4dd8a3d799feadd7c0cd0458f.4, i64 noundef 8, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c65d37a4dd8a3d799feadd7c0cd0458f.2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c65d37a4dd8a3d799feadd7c0cd0458f.3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %5
 }
 
@@ -82,7 +82,7 @@ define void @_ZN17pingora_boringssl3ext8add_host17hca7f5b4ad76d7266E(ptr dead_on
   br label %11
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call noundef i32 @X509_VERIFY_PARAM_add1_host(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3) #11
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
@@ -105,14 +105,14 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %8, %_
   br label %13
 
 13:                                               ; preds = %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17pingora_boringssl3ext25ssl_set_verify_cert_store17h0f16c6f56923cd31E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef i32 @SSL_set1_verify_cert_store(ptr noundef nonnull %1, ptr noundef nonnull %2) #11
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
@@ -129,14 +129,14 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit: ; preds = %3
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.69.0..sroa_idx, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %.pr, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.58.0.copyload, ptr %.sroa.211.0..sroa_idx, align 8
   br label %8
 
 _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %3, %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %8
 
@@ -147,7 +147,7 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %3, %_
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17pingora_boringssl3ext19ssl_use_certificate17h6b0695896e41fbccE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef i32 @SSL_use_certificate(ptr noundef nonnull %1, ptr noundef nonnull %2) #11
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
@@ -164,14 +164,14 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit: ; preds = %3
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.69.0..sroa_idx, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %.pr, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.58.0.copyload, ptr %.sroa.211.0..sroa_idx, align 8
   br label %8
 
 _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %3, %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %8
 
@@ -182,7 +182,7 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %3, %_
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17pingora_boringssl3ext18ssl_add_chain_cert17hce90e10a1f600579E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef i32 @SSL_add1_chain_cert(ptr noundef nonnull %1, ptr noundef nonnull %2) #11
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
@@ -199,14 +199,14 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit: ; preds = %3
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.69.0..sroa_idx, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %.pr, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.58.0.copyload, ptr %.sroa.211.0..sroa_idx, align 8
   br label %8
 
 _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %3, %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %8
 
@@ -225,7 +225,7 @@ define void @_ZN17pingora_boringssl3ext19ssl_set_groups_list17h388bd0d63fd7f801E
   %5 = alloca [32 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN72_$LT$$RF$str$u20$as$u20$alloc..ffi..c_str..CString..new..SpecNewImpl$GT$13spec_new_impl17hec3c22376edc25e5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %8 = load i64, ptr %7, align 8, !range !7, !alias.scope !4, !noundef !3
@@ -233,7 +233,7 @@ define void @_ZN17pingora_boringssl3ext19ssl_set_groups_list17h388bd0d63fd7f801E
   br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5344276a87fdad9E.exit", label %9, !prof !8
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.c65d37a4dd8a3d799feadd7c0cd0458f.1, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c65d37a4dd8a3d799feadd7c0cd0458f.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c65d37a4dd8a3d799feadd7c0cd0458f.6) #12
           to label %12 unwind label %10, !noalias !4
@@ -262,8 +262,8 @@ common.resume:                                    ; preds = %22, %25, %10
   %16 = load ptr, ptr %15, align 8, !alias.scope !4, !nonnull !3, !align !9, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !4, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = tail call noundef i32 @SSL_set1_curves_list(ptr noundef nonnull %1, ptr noundef nonnull %16) #11
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread, label %21
@@ -294,7 +294,7 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit: ; preds = %21
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.69.0..sroa_idx, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.pr, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.58.0.copyload, ptr %.sroa.211.0..sroa_idx, align 8
@@ -303,7 +303,7 @@ _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit: ; preds = %21
   br i1 %27, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21", label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h96dea55b1ef41a42E.exit21.sink.split"
 
 _ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit.thread: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5344276a87fdad9E.exit", %_ZN17pingora_boringssl3ext3cvt17h8fa4deefe5cd540cE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
   store i8 0, ptr %16, align 1
   %28 = icmp eq i64 %18, 0
@@ -325,10 +325,10 @@ define void @_ZN17pingora_boringssl3ext24ssl_use_second_key_share17h6f232b53aba9
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17pingora_boringssl3ext17clear_error_stack17h5d4730bad885e45dE() unnamed_addr #1 {
   %1 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN6boring5error10ErrorStack3get17h3d48cef12adf2e3eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1)
   call void @"_ZN4core3ptr46drop_in_place$LT$boring..error..ErrorStack$GT$17h61e40af37c39694bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -436,10 +436,10 @@ declare void @_ZN6boring3ssl3Ssl12new_from_ref17h58cfb4990ddc8b6bE(ptr dead_on_u
 declare void @SSL_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

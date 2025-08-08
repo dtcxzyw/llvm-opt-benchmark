@@ -13,8 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca [64 x i8], align 16
   %13 = alloca [1 x %struct.wc_HashAlg], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = icmp eq ptr %0, null
   %15 = or i32 %3, %1
   %16 = or i32 %15, %5
@@ -159,31 +159,25 @@ define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32
 
 72:                                               ; preds = %.thread, %._crit_edge161, %23, %19, %11
   %.091 = phi i32 [ -173, %11 ], [ %21, %19 ], [ %24, %23 ], [ %.2102.ph, %.thread ], [ %., %._crit_edge161 ]
-  call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.091
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_HashTypeConvert(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashTypeConvert(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashInit_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashInit_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashUpdate(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashUpdate(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_HashFinal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HashFinal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_PBKDF1(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -196,8 +190,8 @@ define i32 @wc_PBKDF2_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %11 = alloca [64 x i8], align 16
   %12 = alloca [1 x %struct.Hmac], align 16
   %13 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = icmp eq ptr %0, null
   %15 = or i32 %4, %2
   %16 = or i32 %15, %6
@@ -317,7 +311,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
 
 .preheader.us:                                    ; preds = %.lr.ph106.split.us, %32
   %.0100.us = phi i32 [ %33, %32 ], [ 0, %.lr.ph106.split.us ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %60 = shl nuw nsw i32 %.0100.us, 3
   %61 = sub nuw nsw i32 24, %60
   %62 = lshr i32 %.053104.us, %61
@@ -325,7 +319,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   store i8 %63, ptr %13, align 1, !tbaa !11
   %64 = call i32 @wc_HmacUpdate(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1) #6
   %.not76.us = icmp eq i32 %64, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not76.us, label %32, label %.thread88
 
 ._crit_edge.us:                                   ; preds = %xorbuf.exit.us
@@ -350,7 +344,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
 
 .preheader:                                       ; preds = %.lr.ph106.split.split, %69
   %.0100 = phi i32 [ %70, %69 ], [ 0, %.lr.ph106.split.split ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %71 = shl nuw nsw i32 %.0100, 3
   %72 = sub nuw nsw i32 24, %71
   %73 = lshr i32 %.053104, %72
@@ -358,7 +352,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   store i8 %74, ptr %13, align 1, !tbaa !11
   %75 = call i32 @wc_HmacUpdate(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1) #6
   %.not76 = icmp eq i32 %75, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not76, label %69, label %.thread88
 
 76:                                               ; preds = %69
@@ -383,20 +377,20 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
 
 84:                                               ; preds = %22, %.thread88, %18, %10
   %.052 = phi i32 [ -173, %10 ], [ -173, %18 ], [ %.2, %.thread88 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.052
 }
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_PBKDF2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -420,12 +414,12 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %16 = alloca [1 x %struct.sp_int], align 16
   %17 = alloca [1 x %struct.sp_int], align 16
   %18 = alloca [145 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %19 = icmp eq ptr %0, null
   %20 = icmp slt i32 %2, 1
   %or.cond = or i1 %19, %20
@@ -535,7 +529,7 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
 73:                                               ; preds = %.lr.ph186, %.thread159.thread201
   %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %137, %.thread159.thread201 ]
   %.0122184 = phi i32 [ %6, %.lr.ph186 ], [ %138, %.thread159.thread201 ]
-  call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %74 = call i32 @wc_HashTypeConvert(i32 noundef %7) #6
   %75 = call i32 @wc_HashInit(ptr noundef nonnull %11, i32 noundef %74) #6
   %.not.i = icmp eq i32 %75, 0
@@ -582,7 +576,7 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
 
 DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %.0.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %75, %73 ]
-  call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %90 = icmp slt i32 %.0.i, 0
   br i1 %90, label %.thread164, label %.preheader172
 
@@ -649,10 +643,10 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 145, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %117 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %18) #6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %65, i64 %51, i1 false)
-  call void @llvm.lifetime.end.p0(i64 145, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %130
 
 118:                                              ; preds = %114
@@ -715,50 +709,56 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
 
 141:                                              ; preds = %.thread164, %140, %46, %32, %29, %27, %23, %10
   %.0 = phi i32 [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr, %29 ], [ -192, %32 ], [ -125, %46 ], [ %.1127, %140 ], [ %.1127, %.thread164 ]
-  call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
-declare i32 @wc_HashGetBlockSize(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashGetBlockSize(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @sp_init(ptr noundef) local_unnamed_addr #2
+declare i32 @sp_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sp_read_unsigned_bin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sp_read_unsigned_bin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sp_add_d(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sp_add_d(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sp_clear(ptr noundef) local_unnamed_addr #2
+declare void @sp_clear(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sp_init_multi(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sp_init_multi(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sp_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sp_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #2
+declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_HashInit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashInit(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

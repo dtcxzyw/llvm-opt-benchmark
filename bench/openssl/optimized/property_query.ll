@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_property_find_property(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -26,30 +26,24 @@ define ptr @ossl_property_find_property(ptr noundef %0, ptr noundef %1, ptr noun
 
 14:                                               ; preds = %3, %7, %10
   %.0 = phi ptr [ %13, %10 ], [ null, %7 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ossl_property_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_property_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @ossl_bsearch(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ossl_bsearch(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @property_idx_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal i32 @property_idx_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !9
   %5 = sub nsw i32 %3, %4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_property_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ossl_property_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !11
   ret i32 %3
@@ -77,10 +71,10 @@ define ptr @ossl_property_get_string_value(ptr noundef %0, ptr noundef readonly 
   ret ptr %.0
 }
 
-declare ptr @ossl_property_value_str(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ossl_property_value_str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_property_get_number_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i64 @ossl_property_get_number_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -101,7 +95,7 @@ define i64 @ossl_property_get_number_value(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_property_has_optional(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_property_has_optional(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -112,7 +106,7 @@ define range(i32 0, 2) i32 @ossl_property_has_optional(ptr noundef readonly capt
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_property_is_enabled(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %2, null
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %6, %5
@@ -125,14 +119,14 @@ define range(i32 0, 2) i32 @ossl_property_is_enabled(ptr noundef %0, ptr noundef
   br i1 %9, label %ossl_property_find_property.exit.thread, label %ossl_property_find_property.exit
 
 ossl_property_find_property.exit.thread:          ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 ossl_property_find_property.exit:                 ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %2, align 8, !tbaa !7
   %12 = call ptr @ossl_bsearch(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %11, i32 noundef 24, ptr noundef nonnull @property_idx_cmp, i32 noundef 0) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
 
@@ -179,10 +173,16 @@ ossl_property_find_property.exit:                 ; preds = %7
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

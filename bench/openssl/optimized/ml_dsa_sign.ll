@@ -22,7 +22,7 @@ define i32 @ossl_ml_dsa_sign(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64
   %20 = alloca [64 x i8], align 16
   %21 = alloca [64 x i8], align 16
   %22 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = tail call ptr @ossl_ml_dsa_key_get_priv(ptr noundef %0) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %msg_encode.exit.thread, label %25
@@ -114,14 +114,14 @@ msg_encode.exit:                                  ; preds = %33
   %67 = and i64 %66, 4294967295
   %68 = mul i64 %57, %55
   %69 = and i64 %68, 4294967295
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %71 = load i32, ptr %70, align 8, !tbaa !23
   %72 = ashr i32 %71, 2
@@ -328,7 +328,7 @@ vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vec
   %170 = phi i64 [ %92, %vector_ntt.exit184.i ], [ %422, %420 ]
   %.0135.i = phi i64 [ 0, %vector_ntt.exit184.i ], [ %423, %420 ]
   %171 = load ptr, ptr %133, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %13, ptr noundef nonnull readonly align 16 dereferenceable(64) %20, i64 64, i1 false)
   br i1 %.not.i176.i, label %vector_expand_mask.exit.i, label %.lr.ph.i186.i
 
@@ -344,7 +344,7 @@ vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vec
   br i1 %exitcond334.not.i, label %vector_expand_mask.exit.i, label %.lr.ph.i186.i, !llvm.loop !37
 
 vector_expand_mask.exit.i:                        ; preds = %.lr.ph.i186.i, %168
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.val155.i = load ptr, ptr %16, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.val155.i, ptr nonnull readonly align 4 %104, i64 %164, i1 false)
   %177 = load i64, ptr %108, align 8, !tbaa !29
@@ -895,14 +895,14 @@ shake_xof_2.exit.thread.i:                        ; preds = %210, %shake_xof_2.e
 
 ml_dsa_sign_internal.exit:                        ; preds = %52, %shake_xof_2.exit.thread.i
   %.0.i38 = phi i32 [ %.0133.i, %shake_xof_2.exit.thread.i ], [ 0, %52 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str, i32 noundef 394) #5
   br label %424
 
@@ -921,19 +921,13 @@ ml_dsa_sign_internal.exit:                        ; preds = %52, %shake_xof_2.ex
 
 msg_encode.exit.thread:                           ; preds = %41, %35, %424, %425, %msg_encode.exit, %26, %12
   %.032 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 0, %msg_encode.exit ], [ %.031, %425 ], [ %.031, %424 ], [ 0, %35 ], [ 0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.032
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ossl_ml_dsa_key_get_priv(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_ml_dsa_key_get_priv(ptr noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ml_dsa_verify(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
@@ -944,7 +938,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_verify(ptr noundef %0, i32 noundef %1, p
   %14 = alloca [64 x i8], align 16
   %15 = alloca [64 x i8], align 16
   %16 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = tail call ptr @ossl_ml_dsa_key_get_pub(ptr noundef %0) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %msg_encode.exit.thread, label %19
@@ -1001,9 +995,9 @@ msg_encode.exit:                                  ; preds = %20
   %.027 = phi i64 [ %.133, %36 ], [ %3, %19 ]
   %.023 = phi ptr [ %.0.i34, %36 ], [ %2, %19 ]
   %.0 = phi ptr [ %spec.select, %36 ], [ null, %19 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -1019,9 +1013,9 @@ msg_encode.exit:                                  ; preds = %20
   %52 = and i64 %45, 4294967295
   %53 = mul i64 %45, %43
   %54 = and i64 %53, 4294967295
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %56 = load i32, ptr %55, align 8, !tbaa !23
   %57 = ashr i32 %56, 2
@@ -1370,77 +1364,83 @@ shake_xof_2.exit.thread.i:                        ; preds = %217, %210, %shake_x
 
 ml_dsa_verify_internal.exit:                      ; preds = %39, %shake_xof_2.exit.thread.i
   %.0.i26 = phi i32 [ %.089.i, %shake_xof_2.exit.thread.i ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str, i32 noundef 431) #5
   br label %msg_encode.exit.thread
 
 msg_encode.exit.thread:                           ; preds = %28, %22, %msg_encode.exit, %9, %ml_dsa_verify_internal.exit
   %.024 = phi i32 [ %.0.i26, %ml_dsa_verify_internal.exit ], [ 0, %9 ], [ 0, %msg_encode.exit ], [ 0, %22 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.024
 }
 
-declare ptr @ossl_ml_dsa_key_get_pub(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_ml_dsa_key_get_pub(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_w1_encode(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_w1_encode(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_sig_encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_sig_encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_matrix_expand_A(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_matrix_expand_A(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestSqueeze(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestSqueeze(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ossl_ml_dsa_poly_ntt(ptr noundef) local_unnamed_addr #2
+declare void @ossl_ml_dsa_poly_ntt(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_poly_expand_mask(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_poly_expand_mask(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_ml_dsa_matrix_mult_vector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_ml_dsa_matrix_mult_vector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef) local_unnamed_addr #2
+declare void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_key_compress_high_bits(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_key_compress_high_bits(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_poly_sample_in_ball(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_poly_sample_in_ball(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ossl_ml_dsa_poly_ntt_mult(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_ml_dsa_poly_ntt_mult(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_key_compress_low_bits(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_key_compress_low_bits(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_key_compress_make_hint(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_key_compress_make_hint(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_sig_decode(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_sig_decode(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ml_dsa_key_compress_use_hint(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ml_dsa_key_compress_use_hint(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind memory(none) }

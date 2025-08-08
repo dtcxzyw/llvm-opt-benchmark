@@ -552,12 +552,6 @@ _ZN7Minisat3vecINS_5lboolEiED2Ev.exit:            ; preds = %_ZN7Minisat3vecIjiE
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1195,10 +1189,10 @@ define noundef i32 @_ZN7Minisat6Solver6newVarENS_5lboolEb(ptr noundef nonnull al
 
 _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit: ; preds = %21, %.preheader.i.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !124
   call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %30, i32 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = add nsw i32 %23, 2
   call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %31)
   %32 = load ptr, ptr %22, align 8, !tbaa !109
@@ -1214,10 +1208,10 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   br label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22
 
 _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22: ; preds = %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit, %.preheader.i.i19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !124
   call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %30, i32 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %.sroa.02.0.copyload = load i8, ptr @_ZN7MinisatL7l_UndefE, align 1, !tbaa !124
   %38 = add nsw i32 %.0, 1
@@ -4465,11 +4459,11 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE6insertES1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !124
   %4 = add nsw i32 %1, 1
   call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8, !tbaa !91
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
@@ -4968,7 +4962,7 @@ _ZN7Minisat3vecIjiE6shrinkEi.exit:                ; preds = %2, %._crit_edge38, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Minisat6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 dereferenceable(857) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Minisat::vec.3", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %4 = load i32, ptr %3, align 4, !tbaa !123
@@ -5088,7 +5082,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %30, %41
   br label %_ZN7Minisat3vecIiiED2Ev.exit
 
 _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %60, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 63:                                               ; preds = %._crit_edge
@@ -5109,7 +5103,7 @@ _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %60, %.preheader.i.i
   br label %_ZN7Minisat3vecIiiED2Ev.exit8
 
 _ZN7Minisat3vecIiiED2Ev.exit8:                    ; preds = %65, %.preheader.i.i7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -5624,8 +5618,8 @@ _ZN7MinisatL4copyIiEEvRKNS_3vecIT_iEERS3_b.exit:  ; preds = %_ZN7Minisat3vecIiiE
 define i8 @_ZN7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.Minisat::vec.1", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i64, ptr %5, align 8, !tbaa !192
@@ -6387,8 +6381,8 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %240
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit
 
 _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %.loopexit127, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn47
 
 .thread106:                                       ; preds = %.split.us, %.thread104, %279, %346, %272
@@ -6402,8 +6396,8 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %.loopexit127, %.pre
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit88
 
 _ZN7Minisat3vecINS_3LitEiED2Ev.exit88:            ; preds = %.thread106, %.preheader.i.i87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %.sroa.027.1110
 }
 
@@ -7166,10 +7160,10 @@ define void @_ZN7Minisat6Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiiEERi(p
 
 ._crit_edge.i:                                    ; preds = %50, %54
   %59 = add nsw i32 %34, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4, !tbaa !65
   call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = load i32, ptr %4, align 4, !tbaa !65
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %4, align 4, !tbaa !65
@@ -7240,9 +7234,9 @@ define void @_ZN7Minisat6Solver8toDimacsEP8_IO_FILERKNS_3vecINS_3LitEiEE(ptr nou
   br label %210
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !65
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -7561,13 +7555,13 @@ _ZNK7Minisat6Solver9satisfiedERKNS_6ClauseE.exit67: ; preds = %76, %59, %_ZNK7Mi
 177:                                              ; preds = %171, %._crit_edge.i70
   %.pre-phi10.i72 = phi i64 [ %.pre.i71, %._crit_edge.i70 ], [ %173, %171 ]
   %178 = add nsw i32 %169, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !65
   invoke void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %178, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc73 unwind label %162
 
 .noexc73:                                         ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %179 = add nsw i32 %165, 1
   %180 = load ptr, ptr %5, align 8, !tbaa !103
   %181 = getelementptr inbounds i32, ptr %180, i64 %.pre-phi10.i72
@@ -7620,7 +7614,7 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit74:          ; preds = %._ZL6mapVariRN7Mini
   br label %207
 
 207:                                              ; preds = %204, %._crit_edge120
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %208 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i = icmp eq ptr %208, null
   br i1 %.not.i.i, label %_ZN7Minisat3vecIiiED2Ev.exit, label %.preheader.i.i
@@ -7632,7 +7626,7 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit74:          ; preds = %._ZL6mapVariRN7Mini
   br label %_ZN7Minisat3vecIiiED2Ev.exit
 
 _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %207, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %210
 
 210:                                              ; preds = %_ZN7Minisat3vecIiiED2Ev.exit, %10
@@ -7640,7 +7634,7 @@ _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %207, %.preheader.i.
 
 211:                                              ; preds = %88, %191, %162
   %.pn53 = phi { ptr, i32 } [ %163, %162 ], [ %192, %191 ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %212 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i75 = icmp eq ptr %212, null
   br i1 %.not.i.i75, label %_ZN7Minisat3vecIiiED2Ev.exit77, label %.preheader.i.i76
@@ -7652,7 +7646,7 @@ _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %207, %.preheader.i.
   br label %_ZN7Minisat3vecIiiED2Ev.exit77
 
 _ZN7Minisat3vecIiiED2Ev.exit77:                   ; preds = %211, %.preheader.i.i76
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn53
 }
 
@@ -7662,7 +7656,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Minisat6Solver10printStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(857) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %struct.rusage, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %2) #29
   %4 = load i64, ptr %2, align 8, !tbaa !220
   %5 = sitofp i64 %4 to double
@@ -7671,7 +7665,7 @@ define void @_ZNK7Minisat6Solver10printStatsEv(ptr noundef nonnull readonly alig
   %8 = sitofp i64 %7 to double
   %9 = fdiv double %8, 1.000000e+06
   %10 = fadd double %9, %5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = call noundef double @_ZN7Minisat11memUsedPeakEb(i1 noundef zeroext false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load i64, ptr %12, align 8, !tbaa !192
@@ -8285,7 +8279,7 @@ _ZN7Minisat3vecIjiE6shrinkEi.exit57:              ; preds = %_ZN7Minisat3vecIjiE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Minisat6Solver14garbageCollectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(857) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Minisat::ClauseAllocator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %5 = load i32, ptr %4, align 8, !tbaa !141
@@ -8326,7 +8320,7 @@ define void @_ZN7Minisat6Solver14garbageCollectEv(ptr noundef nonnull align 8 ca
   br label %_ZN7Minisat15ClauseAllocatorD2Ev.exit
 
 _ZN7Minisat15ClauseAllocatorD2Ev.exit:            ; preds = %21, %24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %22
 
 25:                                               ; preds = %14, %10
@@ -8354,7 +8348,7 @@ _ZN7Minisat15ClauseAllocatorD2Ev.exit4:           ; preds = %25, %29
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !149
   store i32 %37, ptr %6, align 8, !tbaa !149
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -8486,7 +8480,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat12DoubleOption5parseEPKc(ptr 
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #29
   %20 = load ptr, ptr %2, align 8, !tbaa !249
   %21 = icmp ne ptr %20, null
@@ -8540,7 +8534,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat12DoubleOption5parseEPKc(ptr 
   br label %50
 
 50:                                               ; preds = %17, %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
 _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
@@ -8684,7 +8678,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat9IntOption5parseEPKc(ptr noun
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #29
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %2, align 8, !tbaa !249
@@ -8723,7 +8717,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat9IntOption5parseEPKc(ptr noun
   br label %41
 
 41:                                               ; preds = %17, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
 _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
@@ -8965,11 +8959,11 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6insertEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !65
   %5 = add nsw i32 %1, 1
   call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(17) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !104
   %8 = load ptr, ptr %4, align 8, !tbaa !103
@@ -10114,6 +10108,12 @@ define internal void @_GLOBAL__sub_I_Solver.cc() #26 section ".text.startup" {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19opt_min_learnts_lim, i64 48), align 8, !tbaa !261
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #1

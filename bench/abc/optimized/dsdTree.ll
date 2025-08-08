@@ -50,17 +50,11 @@ define noalias noundef ptr @Dsd_TreeNodeCreate(i32 noundef %0, i32 noundef %1, i
   ret ptr %calloc
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %4, null
@@ -95,13 +89,13 @@ define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr noundef captures(none) %1) l
   ret void
 }
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Dsd_TreeUnmark(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define void @Dsd_TreeUnmark(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp sgt i32 %3, 0
@@ -131,7 +125,7 @@ define void @Dsd_TreeUnmark(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dsd_TreeUnmark_rec(ptr noundef captures(none) %0) unnamed_addr #6 {
+define internal fastcc void @Dsd_TreeUnmark_rec(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2, !tbaa !26
   %4 = add i16 %3, -1
@@ -175,7 +169,7 @@ define internal fastcc void @Dsd_TreeUnmark_rec(ptr noundef captures(none) %0) u
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Dsd_TreeNodeGetInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
+define void @Dsd_TreeNodeGetInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   store i32 0, ptr @s_DepthMax, align 4, !tbaa !28
   store i32 0, ptr @s_GateSizeMax, align 4, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -225,7 +219,7 @@ define void @Dsd_TreeNodeGetInfo(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @Dsd_TreeGetInfo_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc void @Dsd_TreeGetInfo_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %.off = add i32 %3, -3
   %switch = icmp ult i32 %.off, 2
@@ -287,7 +281,7 @@ define internal fastcc void @Dsd_TreeGetInfo_rec(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Dsd_TreeNodeGetInfoOne(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
+define void @Dsd_TreeNodeGetInfoOne(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   store i32 0, ptr @s_DepthMax, align 4, !tbaa !28
   store i32 0, ptr @s_GateSizeMax, align 4, !tbaa !28
   %4 = ptrtoint ptr %0 to i64
@@ -316,7 +310,7 @@ define void @Dsd_TreeNodeGetInfoOne(ptr noundef %0, ptr noundef writeonly captur
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeGetAigCost_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define i32 @Dsd_TreeGetAigCost_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i16, ptr %2, align 8, !tbaa !13
   %4 = sext i16 %3 to i32
@@ -373,7 +367,7 @@ define i32 @Dsd_TreeGetAigCost_rec(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeGetAigCost(ptr noundef %0) local_unnamed_addr #8 {
+define i32 @Dsd_TreeGetAigCost(ptr noundef %0) local_unnamed_addr #7 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -382,7 +376,7 @@ define i32 @Dsd_TreeGetAigCost(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCountNonTerminalNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @Dsd_TreeCountNonTerminalNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp sgt i32 %3, 0
@@ -438,7 +432,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr noundef captures(none) %0) unnamed_addr #6 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2, !tbaa !26
   %4 = add i16 %3, 1
@@ -483,7 +477,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNon
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodesOne(ptr noundef %0) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodesOne(ptr noundef %0) local_unnamed_addr #5 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -493,7 +487,7 @@ define range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodesOne
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCountPrimeNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @Dsd_TreeCountPrimeNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp sgt i32 %3, 0
@@ -549,7 +543,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr noundef captures(none) %0) unnamed_addr #6 {
+define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2, !tbaa !26
   %4 = add i16 %3, 1
@@ -597,7 +591,7 @@ define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr noundef captures(non
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %0) local_unnamed_addr #6 {
+define i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %0) local_unnamed_addr #5 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -607,9 +601,9 @@ define i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !23
@@ -619,12 +613,12 @@ define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) 
   %9 = inttoptr i64 %8 to ptr
   %10 = call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef %9, ptr noundef %1, ptr noundef %3)
   %11 = load i32, ptr %3, align 4, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %11
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8, !tbaa !13
   %6 = icmp slt i16 %5, 2
@@ -731,9 +725,9 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = icmp sgt i32 %5, 0
@@ -837,12 +831,12 @@ Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTer
 Dsd_TreeUnmark.exit:                              ; preds = %48, %Dsd_TreeCountNonTerminalNodes.exit, %._crit_edge
   %58 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %58, ptr %1, align 4, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %34
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
+define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %5 = load i16, ptr %4, align 2, !tbaa !26
   %6 = add i16 %5, 1
@@ -889,9 +883,9 @@ define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 {
+define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #8 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
@@ -905,12 +899,12 @@ define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr noundef readnone capt
   tail call fastcc void @Dsd_TreeUnmark_rec(ptr noundef %7)
   %12 = load i32, ptr %4, align 4, !tbaa !28
   store i32 %12, ptr %2, align 4, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @Dsd_TreeNonDsdMax_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @Dsd_TreeNonDsdMax_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %2, label %._crit_edge [
     i32 1, label %.loopexit
@@ -963,7 +957,7 @@ define range(i32 -32768, 32768) i32 @Dsd_TreeNonDsdMax_rec(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @Dsd_TreeNonDsdMax(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @Dsd_TreeNonDsdMax(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %.preheader, label %17
 
@@ -1011,7 +1005,7 @@ define range(i32 -32768, 32768) i32 @Dsd_TreeNonDsdMax(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeSuppSize_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define i32 @Dsd_TreeSuppSize_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %2, label %.preheader [
     i32 1, label %.loopexit
@@ -1053,7 +1047,7 @@ define i32 @Dsd_TreeSuppSize_rec(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeSuppSize(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define i32 @Dsd_TreeSuppSize(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %.preheader, label %17
 
@@ -1101,7 +1095,7 @@ define i32 @Dsd_TreeSuppSize(ptr noundef readonly captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint3_rec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define void @Dsd_TreePrint3_rec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8, !tbaa !3
   switch i32 %3, label %129 [
     i32 2, label %4
@@ -1698,7 +1692,7 @@ Vec_StrPush.exit76:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint3(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Dsd_TreePrint3(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = sext i32 %2 to i64
@@ -1926,7 +1920,7 @@ Vec_StrPush.exit26:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint4_rec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define void @Dsd_TreePrint4_rec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8, !tbaa !3
   switch i32 %3, label %129 [
     i32 2, label %4
@@ -2529,7 +2523,7 @@ Vec_StrPush.exit78:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint4(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Dsd_TreePrint4(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = sext i32 %2 to i64
@@ -2759,9 +2753,9 @@ Vec_StrPush.exit27:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @Dsd_TreePrint(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4, !tbaa !28
   %9 = icmp eq i32 %5, -1
   br i1 %9, label %.preheader, label %28
@@ -2812,14 +2806,14 @@ define void @Dsd_TreePrint(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.preheader, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, i32 noundef %7) unnamed_addr #3 {
+define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, i32 noundef %7) unnamed_addr #2 {
   %9 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @Extra_PrintSymbols(ptr noundef %0, i8 noundef signext 32, i32 noundef %5, i32 noundef 0) #16
   %.not = icmp eq i32 %2, 0
   %.str.17..str.18 = select i1 %.not, ptr @.str.17, ptr @.str.18
@@ -3224,12 +3218,12 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr noundef reado
   br label %214
 
 214:                                              ; preds = %.loopexit, %.loopexit.thread
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = ptrtoint ptr %4 to i64
@@ -3292,7 +3286,7 @@ common.ret37:                                     ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca [6 x i8], align 1
   %7 = alloca i64, align 8
   %8 = load i32, ptr %2, align 8, !tbaa !3
@@ -3331,9 +3325,9 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %23, label %24, label %90
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = tail call ptr @Dsd_TreeGetPrimeFunction(ptr noundef %1, ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %1, ptr noundef %25)
   store i64 %26, ptr %7, align 8, !tbaa !78
   tail call void @Cudd_Ref(ptr noundef %25) #16
@@ -3446,8 +3440,8 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 
 ._crit_edge111:                                   ; preds = %71, %Abc_TtPrintHexRev.exit
   %89 = call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %146
 
 90:                                               ; preds = %20
@@ -3559,16 +3553,16 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
-declare ptr @Dsd_TreeGetPrimeFunction(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @Dsd_TreeGetPrimeFunction(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #4
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #3
 
-declare i32 @Abc_TtCanonicize(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @Abc_TtCanonicize(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
+define void @Dsd_TreePrint2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq i32 %4, -1
   br i1 %6, label %.preheader, label %27
 
@@ -3628,9 +3622,9 @@ define void @Dsd_TreePrint2(ptr noundef %0, ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_NodePrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @Dsd_NodePrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !28
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
@@ -3638,14 +3632,14 @@ define void @Dsd_NodePrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
   %7 = icmp ne ptr %1, %6
   %8 = zext i1 %7 to i32
   call fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr noundef %6, i32 noundef %8, ptr noundef nonnull @.str.14, i32 noundef 0, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #3 {
+define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #2 {
   %7 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @Extra_PrintSymbols(ptr noundef %0, i8 noundef signext 32, i32 noundef %4, i32 noundef 0) #16
   %.not = icmp eq i32 %2, 0
   %.str.17..str.18 = select i1 %.not, ptr @.str.17, ptr @.str.18
@@ -3990,12 +3984,12 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr noundef reado
   br label %184
 
 184:                                              ; preds = %.loopexit, %.loopexit.thread
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   tail call void @Cudd_Ref(ptr noundef %5) #16
@@ -4110,23 +4104,29 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr noundef read
   ret ptr %.2
 }
 
-declare ptr @Extra_bddFindOneCube(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @Extra_bddFindOneCube(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @Cudd_bddPermute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @Cudd_bddPermute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #4
+declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
-declare void @Extra_PrintSymbols(ptr noundef, i8 noundef signext, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @Extra_PrintSymbols(ptr noundef, i8 noundef signext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
@@ -4144,17 +4144,17 @@ declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef capt
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

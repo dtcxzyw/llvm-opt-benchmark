@@ -484,8 +484,8 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   br i1 %52, label %53, label %151
 
 53:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 32400, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32400, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %54 = add nsw i32 %1, 9
   %55 = and i32 %54, -4
   %56 = add nsw i32 %55, 16
@@ -630,8 +630,8 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   br i1 %exitcond134.not.i, label %.loopexit109.us.i, label %.preheader.us.i, !llvm.loop !20
 
 selfguided_restoration_fast_internal.exit:        ; preds = %.loopexit109.us.i, %53, %.lr.ph117.i
-  call void @llvm.lifetime.end.p0(i64 32400, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32400, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %151
 
 151:                                              ; preds = %selfguided_restoration_fast_internal.exit, %.loopexit
@@ -641,8 +641,8 @@ selfguided_restoration_fast_internal.exit:        ; preds = %.loopexit109.us.i, 
   br i1 %154, label %155, label %243
 
 155:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 32400, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32400, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %156 = add nsw i32 %1, 9
   %157 = and i32 %156, -4
   %158 = add nsw i32 %157, 16
@@ -759,8 +759,8 @@ selfguided_restoration_fast_internal.exit:        ; preds = %.loopexit109.us.i, 
   br i1 %exitcond94.not.i, label %selfguided_restoration_internal.exit, label %.preheader.us.i54, !llvm.loop !22
 
 selfguided_restoration_internal.exit:             ; preds = %._crit_edge.us.i, %155
-  call void @llvm.lifetime.end.p0(i64 32400, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32400, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %243
 
 243:                                              ; preds = %selfguided_restoration_internal.exit, %151
@@ -1915,7 +1915,7 @@ define hidden void @av1_foreach_rest_unit_in_plane(ptr noundef readonly captures
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %25 = load i32, ptr %24, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2016,7 +2016,7 @@ av1_foreach_rest_unit_in_row.exit.i:              ; preds = %.lr.ph.split.i.i, %
   br i1 %80, label %39, label %foreach_rest_unit_in_tile.exit, !llvm.loop !42
 
 foreach_rest_unit_in_tile.exit:                   ; preds = %av1_foreach_rest_unit_in_row.exit.i, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -3657,10 +3657,10 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #10

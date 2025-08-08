@@ -403,16 +403,16 @@ if.end6:                                          ; preds = %if.end8.i.i.i.i.i.i
 
 if.then8:                                         ; preds = %if.end6
   %conv = zext nneg i32 %5 to i64
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hex.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hex.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %15 = inttoptr i64 %conv to ptr
   store ptr %15, ptr %ref.tmp.i.i, align 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchItEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8
   %call3.i.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex.i, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i.i, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %conv.i3 = sext i32 %call3.i.i to i64
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex.i, i64 noundef %conv.i3)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hex.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hex.i)
   br label %while.cond.backedge
 
 if.end10:                                         ; preds = %for.end.loopexit.i.i.i.i.i.i.i, %if.end6
@@ -421,28 +421,28 @@ if.end10:                                         ; preds = %for.end.loopexit.i.
   %conv12 = zext nneg i32 %17 to i64
   %shr = lshr i32 %5, 10
   %narrow = add nuw nsw i32 %shr, 55232
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hex.i5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hex.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i4)
   %18 = and i32 %narrow, 65535
   %retval.sroa.0.0.insert.ext.i.i.i.i.i6 = zext nneg i32 %18 to i64
   %19 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i6 to ptr
   store ptr %19, ptr %ref.tmp.i.i4, align 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchItEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i7, align 8
   %call3.i.i8 = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex.i5, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i.i4, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i4)
   %conv.i9 = sext i32 %call3.i.i8 to i64
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex.i5, i64 noundef %conv.i9)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hex.i5)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hex.i11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hex.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hex.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i10)
   %20 = inttoptr i64 %conv12 to ptr
   store ptr %20, ptr %ref.tmp.i.i10, align 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchItEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i13, align 8
   %call3.i.i14 = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex.i11, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i.i10, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i10)
   %conv.i15 = sext i32 %call3.i.i14 to i64
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex.i11, i64 noundef %conv.i15)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hex.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hex.i11)
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
@@ -454,14 +454,14 @@ define hidden void @_ZN6google8protobuf13json_internal10JsonWriter12WriteUEscape
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %hex = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i16 %val to i64
   %0 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %0, ptr %ref.tmp.i, align 8
   %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchItEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8
   %call3.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %conv = sext i32 %call3.i to i64
   call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex, i64 noundef %conv)
   ret void
@@ -487,10 +487,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

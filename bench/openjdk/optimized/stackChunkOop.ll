@@ -6356,8 +6356,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit: ; preds = %47, %_Z
   store i8 0, ptr %64, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, i1 noundef zeroext false)
   %65 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = load ptr, ptr %60, align 8
   %.not.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i.i
@@ -6397,8 +6397,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i: ; 
   br label %_ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE0EE8do_frameIL11ChunkFrames0E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE0EE8do_frameIL11ChunkFrames0E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit: ; preds = %81, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %83 = load ptr, ptr %60, align 8
   %.not.i.i6 = icmp eq ptr %83, null
   br i1 %.not.i.i6, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i7, label %84
@@ -6482,8 +6482,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %
 
 .lr.ph:                                           ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit33
   %116 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = load ptr, ptr %113, align 8
   %.not.i.i.i16 = icmp eq ptr %117, null
   br i1 %.not.i.i.i16, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i18, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i.i17
@@ -6523,8 +6523,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i18: 
   br label %_ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE0EE8do_frameIL11ChunkFrames0E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE0EE8do_frameIL11ChunkFrames0E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit: ; preds = %132, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %134 = load ptr, ptr %113, align 8
   %.not.i.i20 = icmp eq ptr %134, null
   br i1 %.not.i.i20, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i22, label %135
@@ -7004,7 +7004,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10get_oopmapEPhi.exit: ; preds = %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.frame, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4980
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
@@ -7069,7 +7069,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.i: ; preds = %_ZNK21
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE14update_reg_mapI11RegisterMapEEvPT_.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE14update_reg_mapI11RegisterMapEEvPT_.exit: ; preds = %3, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
@@ -7502,8 +7502,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit: ; preds = %47, %_Z
   store i8 0, ptr %64, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, i1 noundef zeroext false)
   %65 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = load ptr, ptr %60, align 8
   %.not.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i.i
@@ -7543,8 +7543,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i: ; 
   br label %_ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE1EE8do_frameIL11ChunkFrames0E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE1EE8do_frameIL11ChunkFrames0E11RegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit: ; preds = %81, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %83 = load ptr, ptr %60, align 8
   %.not.i.i6 = icmp eq ptr %83, null
   br i1 %.not.i.i6, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i7, label %84
@@ -7628,8 +7628,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %
 
 .lr.ph:                                           ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit33
   %116 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = load ptr, ptr %113, align 8
   %.not.i.i.i16 = icmp eq ptr %117, null
   br i1 %.not.i.i.i16, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i18, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i.i17
@@ -7669,8 +7669,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.thread.i.i18: 
   br label %_ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE1EE8do_frameIL11ChunkFrames0E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit
 
 _ZN22DoBarriersStackClosureILN17stackChunkOopDesc11BarrierTypeE1EE8do_frameIL11ChunkFrames0E16SmallRegisterMapEEbRK21StackChunkFrameStreamIXT_EEPKT0_.exit: ; preds = %132, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %134 = load ptr, ptr %113, align 8
   %.not.i.i20 = icmp eq ptr %134, null
   br i1 %.not.i.i20, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i22, label %135
@@ -7778,8 +7778,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4952
   store i8 0, ptr %14, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE11RegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %16, ptr noundef nonnull %8)
@@ -7796,8 +7796,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit: ; preds = %2
   %23 = load ptr, ptr %19, align 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %22, ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextIK16SmallRegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef null, i1 noundef zeroext false)
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14handle_deoptedEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread
@@ -7817,8 +7817,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
 
 31:                                               ; preds = %.lr.ph, %31
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14handle_deoptedEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = load ptr, ptr %28, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE16SmallRegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %32, ptr noundef null)
   %33 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
@@ -7832,8 +7832,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
   %37 = load ptr, ptr %35, align 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %36, ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextIK16SmallRegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef null, i1 noundef zeroext false)
   %39 = load ptr, ptr %25, align 8
   %40 = load ptr, ptr %7, align 8
@@ -7956,8 +7956,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit: ; preds = %47, %_Z
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 4952
   store i8 0, ptr %64, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE11RegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %66, ptr noundef nonnull %8)
@@ -8083,8 +8083,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE8to_frameEv.exit: ; preds = %72, %7
   %123 = load ptr, ptr %69, align 8
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %122, ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %125 = load ptr, ptr %60, align 8
   %.not.i.i6 = icmp eq ptr %125, null
   br i1 %.not.i.i6, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i7, label %126
@@ -8180,8 +8180,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %
   br label %168
 
 168:                                              ; preds = %.lr.ph, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit29
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %169 = load ptr, ptr %158, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE16SmallRegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %169, ptr noundef null)
   %170 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
@@ -8293,8 +8293,8 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE8to_frameEv.exit48: ; preds = %175,
   %213 = load ptr, ptr %172, align 8
   %214 = load ptr, ptr %213, align 8
   call void %214(ptr noundef nonnull align 8 dereferenceable(8) %172, ptr noundef %212, ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %215 = load ptr, ptr %155, align 8
   %.not.i.i16 = icmp eq ptr %215, null
   br i1 %.not.i.i16, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i18, label %216
@@ -9180,9 +9180,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 4952
   store i8 0, ptr %16, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %10, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN22DerivedPointersSupport17RelativizeClosureE, i64 16), ptr %6, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE11RegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, ptr noundef nonnull %10)
   %17 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
@@ -9198,9 +9198,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit: ; preds = %2
   %23 = load ptr, ptr %19, align 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %22, ptr noundef nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextIK16SmallRegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i1 noundef zeroext false)
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14handle_deoptedEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread
@@ -9219,9 +9219,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
 
 30:                                               ; preds = %.lr.ph, %30
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14handle_deoptedEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN22DerivedPointersSupport17RelativizeClosureE, i64 16), ptr %3, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE16SmallRegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %3, ptr noundef null)
   %31 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
@@ -9235,9 +9235,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
   %35 = load ptr, ptr %33, align 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %34, ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EE4nextIK16SmallRegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i1 noundef zeroext false)
   %37 = load ptr, ptr %25, align 8
   %38 = load ptr, ptr %9, align 8
@@ -9362,9 +9362,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit: ; preds = %49, %_Z
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 4952
   store i8 0, ptr %66, align 8
   call void @_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI11RegisterMapEEvPT_b(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %10, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN22DerivedPointersSupport17RelativizeClosureE, i64 16), ptr %6, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE11RegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, ptr noundef nonnull %10)
   %67 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
@@ -9489,9 +9489,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE8to_frameEv.exit: ; preds = %72, %7
   %123 = load ptr, ptr %69, align 8
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %122, ptr noundef nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %125 = load ptr, ptr %62, align 8
   %.not.i.i6 = icmp eq ptr %125, null
   br i1 %.not.i.i6, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i7, label %126
@@ -9586,9 +9586,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %
   br label %167
 
 167:                                              ; preds = %.lr.ph, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN22DerivedPointersSupport17RelativizeClosureE, i64 16), ptr %3, align 8
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE24iterate_derived_pointersIN22DerivedPointersSupport17RelativizeClosureE16SmallRegisterMapEEvPT_PKT0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %3, ptr noundef null)
   %168 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
@@ -9700,9 +9700,9 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE8to_frameEv.exit48: ; preds = %173,
   %211 = load ptr, ptr %170, align 8
   %212 = load ptr, ptr %211, align 8
   call void %212(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef %210, ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %213 = load ptr, ptr %155, align 8
   %.not.i.i16 = icmp eq ptr %213, null
   br i1 %.not.i.i16, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i18, label %214
@@ -12747,10 +12747,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

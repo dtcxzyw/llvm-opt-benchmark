@@ -130,7 +130,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %actions.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %actions.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %actions.i.i, i8 0, i64 152, i1 false)
   %sa_mask.i.i = getelementptr inbounds nuw i8, ptr %actions.i.i, i64 8
   %call.i.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i.i) #14
@@ -138,7 +138,7 @@ if.end.i:                                         ; preds = %if.end
   store i32 268435456, ptr %sa_flags.i.i, align 8
   store ptr @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosix22profilingSignalHandlerEi, ptr %actions.i.i, align 8
   %call1.i.i = call noundef i32 @sigaction(i32 noundef 27, ptr noundef nonnull %actions.i.i, ptr noundef null) #14
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %actions.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %actions.i.i)
   %cmp.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
 
@@ -172,7 +172,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %actions.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %actions.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %actions.i.i, i8 0, i64 152, i1 false)
   %sa_mask.i.i = getelementptr inbounds nuw i8, ptr %actions.i.i, i64 8
   %call.i.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i.i) #14
@@ -180,7 +180,7 @@ if.end.i:                                         ; preds = %if.end
   store i32 268435456, ptr %sa_flags.i.i, align 8
   store ptr null, ptr %actions.i.i, align 8
   %call1.i.i = call noundef i32 @sigaction(i32 noundef 27, ptr noundef nonnull %actions.i.i, ptr noundef null) #14
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %actions.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %actions.i.i)
   %cmp.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
 
@@ -562,10 +562,10 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

@@ -62,7 +62,7 @@ define dso_local noundef zeroext i1 @blk_check_size_and_read_all(ptr noundef %0,
   unreachable
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = tail call ptr @blk_bs(ptr noundef %0) #6
   store i64 %3, ptr %6, align 8
   %23 = icmp eq i64 %3, 0
@@ -97,12 +97,12 @@ define dso_local noundef zeroext i1 @blk_check_size_and_read_all(ptr noundef %0,
   br i1 %39, label %blk_pread_nonzeroes.exit, label %.lr.ph.i
 
 blk_pread_nonzeroes.exit:                         ; preds = %34, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
 40:                                               ; preds = %29, %.lr.ph.i
   %.0.i.ph = phi i32 [ %25, %.lr.ph.i ], [ %32, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %41 = call ptr @qdev_get_human_name(ptr noundef %1) #6
   %42 = sub i32 0, %.0.i.ph
   %43 = call ptr @blk_name(ptr noundef %0) #6
@@ -117,32 +117,26 @@ blk_pread_nonzeroes.exit:                         ; preds = %34, %21
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @blk_getlength(ptr noundef) #1
 
-declare i64 @blk_getlength(ptr noundef) #2
+declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @blk_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @blk_name(ptr noundef) local_unnamed_addr #2
+declare ptr @qdev_get_human_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @qdev_get_human_name(ptr noundef) local_unnamed_addr #2
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #2
+declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BlockSizes, align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -344,16 +338,16 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
 
 84:                                               ; preds = %77, %80, %83, %76, %70, %67, %60
   %.043 = phi i1 [ false, %60 ], [ false, %70 ], [ false, %83 ], [ false, %76 ], [ false, %67 ], [ true, %80 ], [ true, %77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.043
 }
 
-declare i32 @blk_probe_blocksizes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @blk_probe_blocksizes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @blk_bs(ptr noundef) local_unnamed_addr #2
+declare ptr @blk_bs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -427,19 +421,19 @@ define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr noundef r
   ret i1 %11
 }
 
-declare i32 @blk_set_perm(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @blk_set_perm(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @blk_enable_write_cache(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @blk_enable_write_cache(ptr noundef) local_unnamed_addr #1
 
-declare i32 @blk_get_on_error(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @blk_get_on_error(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @blk_set_enable_write_cache(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @blk_set_enable_write_cache(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @blk_set_on_error(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @blk_set_on_error(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @block_acct_setup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @block_acct_setup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @blk_get_stats(ptr noundef) local_unnamed_addr #2
+declare ptr @blk_get_stats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @blkconf_geometry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -535,24 +529,30 @@ define dso_local noundef zeroext i1 @blkconf_geometry(ptr noundef %0, ptr nounde
   ret i1 %.0
 }
 
-declare void @hd_geometry_guess(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @hd_geometry_guess(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @hd_bios_chs_auto_trans(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @hd_bios_chs_auto_trans(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @bdrv_block_status(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @bdrv_block_status(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @blk_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @blk_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }

@@ -29,10 +29,10 @@ define internal fastcc void @point_double_internal(ptr noundef %0, ptr noundef %
   %5 = alloca [1 x %struct.gf_s], align 16
   %6 = alloca [1 x %struct.gf_s], align 16
   %7 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @ossl_gf_sqr(ptr noundef nonnull %6, ptr noundef %1) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %4, ptr noundef nonnull %8) #7
@@ -321,10 +321,10 @@ gf_subx_nr.exit43:                                ; preds = %149
   br label %162
 
 162:                                              ; preds = %161, %gf_subx_nr.exit43
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -332,36 +332,30 @@ gf_subx_nr.exit43:                                ; preds = %149
 define i64 @ossl_curve448_point_eq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.gf_s], align 16
   %4 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef %1) #7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %0) #7
   %7 = call i64 @gf_eq(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i64 @gf_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @gf_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_curve448_point_valid(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.gf_s], align 16
   %3 = alloca [1 x %struct.gf_s], align 16
   %4 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -381,25 +375,25 @@ define i64 @ossl_curve448_point_valid(ptr noundef %0) local_unnamed_addr #0 {
   %11 = call i64 @gf_eq(ptr noundef nonnull %6, ptr noundef nonnull @ZERO) #7
   %12 = xor i64 %11, -1
   %13 = and i64 %10, %12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
-declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @gf_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gf_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @gf_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gf_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.gf_s], align 16
   %5 = alloca [1 x %struct.niels_s], align 16
   %6 = alloca [1 x %struct.curve448_scalar_s], align 16
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @ossl_curve448_scalar_add(ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull @precomputed_scalarmul_adjustment) #7
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %6, ptr noundef nonnull %6) #7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -521,7 +515,7 @@ constant_time_lookup_niels.exit:                  ; preds = %57
   br i1 %exitcond.not.i.i36, label %gf_cond_swap.exit.i, label %61, !llvm.loop !22
 
 gf_cond_swap.exit.i:                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @gf_sub(ptr noundef nonnull %4, ptr noundef nonnull @ZERO, ptr noundef nonnull %8) #7
   %71 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -134217729, 134217727) %60) #8, !srcloc !23
   %72 = xor i64 %60, -1
@@ -543,7 +537,7 @@ gf_cond_swap.exit.i:                              ; preds = %61
   br i1 %exitcond.not.i.i.i, label %cond_neg_niels.exit, label %74, !llvm.loop !24
 
 cond_neg_niels.exit:                              ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = icmp ne i64 %indvars.iv42, 0
   %or.cond = or i1 %13, %83
   br i1 %or.cond, label %84, label %88
@@ -574,23 +568,23 @@ cond_neg_niels.exit:                              ; preds = %74
 91:                                               ; preds = %90
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 192) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 56) #7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @ossl_curve448_scalar_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_halve(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_halve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
   %4 = alloca [1 x %struct.gf_s], align 16
   %5 = alloca [1 x %struct.gf_s], align 16
   %6 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
@@ -879,13 +873,13 @@ gf_weak_reduce.exit:                              ; preds = %150
   br label %162
 
 162:                                              ; preds = %161, %gf_weak_reduce.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef initializes((56, 57)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -897,13 +891,13 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef 
   %8 = alloca [1 x %struct.gf_s], align 16
   %9 = alloca [1 x %struct.curve448_point_s], align 16
   %10 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull readonly align 16 dereferenceable(256) %1, i64 256, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @ossl_gf_sqr(ptr noundef nonnull %5, ptr noundef nonnull %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %8, ptr noundef nonnull %11) #7
@@ -920,16 +914,16 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef 
   call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #7
   call void @ossl_gf_mul(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %7) #7
   %13 = call i64 @gf_isr(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   call void @ossl_gf_mul(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %7) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @ossl_gf_mul(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
   call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -946,17 +940,17 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef 
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 256) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @gf_serialize(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @gf_serialize(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @gf_lobit(ptr noundef) local_unnamed_addr #2
+declare i64 @gf_lobit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_curve448_point_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -972,7 +966,7 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   %6 = alloca [1 x %struct.gf_s], align 16
   %7 = alloca [1 x %struct.gf_s], align 16
   %8 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %4, ptr noundef nonnull align 1 dereferenceable(57) %1, i64 57, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load i8, ptr %9, align 8, !tbaa !16
@@ -998,7 +992,7 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   %21 = call i64 @gf_lobit(ptr noundef %0) #7
   %22 = xor i64 %21, %.neg.i.i
   %23 = xor i64 %22, -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @gf_sub(ptr noundef nonnull %3, ptr noundef nonnull @ZERO, ptr noundef %0) #7
   %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %23) #8, !srcloc !23
   %25 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !23
@@ -1022,12 +1016,12 @@ gf_cond_neg.exit:                                 ; preds = %26
   %isneg = icmp eq i8 %17, 0
   %35 = select i1 %isneg, i64 %16, i64 0
   %36 = and i64 %20, %35
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @ossl_gf_sqr(ptr noundef nonnull %7, ptr noundef nonnull %0) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %5, ptr noundef nonnull %15) #7
   call void @gf_add(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
@@ -1046,22 +1040,22 @@ gf_cond_neg.exit:                                 ; preds = %26
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 57) #7
   %37 = trunc i64 %36 to i32
-  call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i64 @gf_deserialize(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @gf_deserialize(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @gf_isr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @gf_isr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_x448_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -1074,13 +1068,13 @@ define i32 @ossl_x448_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %10 = alloca [1 x %struct.gf_s], align 16
   %11 = alloca [1 x %struct.gf_s], align 16
   %12 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = call i64 @gf_deserialize(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, i8 noundef zeroext 0) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 64, i1 false)
@@ -1554,15 +1548,15 @@ gf_cond_swap.exit67:                              ; preds = %245
   br i1 %exitcond.not.i69, label %gf_cond_swap.exit70, label %255, !llvm.loop !22
 
 gf_cond_swap.exit70:                              ; preds = %255
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ossl_gf_sqr(ptr noundef nonnull %4, ptr noundef nonnull %8) #7
   %265 = call i64 @gf_isr(ptr noundef nonnull %5, ptr noundef nonnull %4) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %8) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1) #7
   %266 = call i64 @gf_eq(ptr noundef nonnull %6, ptr noundef nonnull @ZERO) #7
@@ -1575,13 +1569,13 @@ gf_cond_swap.exit70:                              ; preds = %255
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef 64) #7
   %267 = trunc i64 %266 to i32
   %268 = xor i32 %267, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %268
 }
 
@@ -1590,25 +1584,25 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_x448(ptr noundef %
   %3 = alloca [1 x %struct.gf_s], align 16
   %4 = alloca [1 x %struct.gf_s], align 16
   %5 = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull readonly align 16 dereferenceable(256) %1, i64 256, i1 false), !tbaa.struct !28
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %5) #7
   %7 = call i64 @gf_isr(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   call void @ossl_gf_mul(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %9) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %9, ptr noundef nonnull %8) #7
   call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 256) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1621,9 +1615,9 @@ define void @ossl_x448_derive_public_key(ptr noundef %0, ptr noundef readonly ca
   %5 = alloca [56 x i8], align 16
   %6 = alloca [1 x %struct.curve448_scalar_s], align 16
   %7 = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 1 dereferenceable(56) %1, i64 56, i1 false)
   %8 = load i8, ptr %5, align 16, !tbaa !16
   %9 = and i8 %8, -4
@@ -1636,33 +1630,33 @@ define void @ossl_x448_derive_public_key(ptr noundef %0, ptr noundef readonly ca
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %6, ptr noundef nonnull %6) #7
   %13 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !42
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false), !tbaa.struct !28
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @ossl_gf_sqr(ptr noundef nonnull %2, ptr noundef nonnull %4) #7
   %15 = call i64 @gf_isr(ptr noundef nonnull %3, ptr noundef nonnull %2) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   call void @ossl_gf_mul(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %17) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %17, ptr noundef nonnull %16) #7
   call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %17, i32 noundef 1) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 256) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 256) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @ossl_curve448_scalar_decode_long(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_decode_long(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -1677,8 +1671,8 @@ define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr 
   %13 = alloca [114 x %struct.smvt_control], align 16
   %14 = alloca [77 x %struct.smvt_control], align 16
   %15 = alloca [8 x [1 x %struct.anon]], align 16
-  call void @llvm.lifetime.start.p0(i64 912, ptr nonnull %13) #7
-  call void @llvm.lifetime.start.p0(i64 616, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = load i64, ptr %1, align 8, !tbaa !3
   %17 = and i64 %16, 65535
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 608
@@ -1877,9 +1871,9 @@ recode_wnaf.exit:                                 ; preds = %.lr.ph65.i, %55
   br i1 %exitcond73.not.i86, label %recode_wnaf.exit87, label %.lr.ph65.i83, !llvm.loop !51
 
 recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %15) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @gf_sub(ptr noundef nonnull %15, ptr noundef nonnull %112, ptr noundef %2) #7
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -1903,11 +1897,11 @@ recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 128
   call void @gf_add(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %123) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %123, ptr noundef nonnull %116) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %123, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !25
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 256
   call void @gf_sub(ptr noundef nonnull %124, ptr noundef nonnull %118, ptr noundef nonnull %11) #7
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 320
@@ -1921,11 +1915,11 @@ recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
 
 128:                                              ; preds = %128, %recode_wnaf.exit87
   %indvars.iv.i88 = phi i64 [ 2, %recode_wnaf.exit87 ], [ %indvars.iv.next.i89, %128 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @ossl_gf_mul(ptr noundef nonnull %9, ptr noundef nonnull %123, ptr noundef nonnull %122) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %123, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false), !tbaa.struct !25
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %129 = getelementptr inbounds nuw [1 x %struct.anon], ptr %15, i64 %indvars.iv.i88
   call void @gf_sub(ptr noundef nonnull %129, ptr noundef nonnull %118, ptr noundef nonnull %11) #7
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
@@ -1942,8 +1936,8 @@ recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
 prepare_wnaf_table.exit:                          ; preds = %128
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 256) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef 256) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %133 = load i32, ptr %13, align 16, !tbaa !45
   %134 = icmp slt i32 %133, 0
   br i1 %134, label %135, label %136
@@ -1963,7 +1957,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %142 = ashr i32 %141, 1
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %15, i64 0, i64 %143
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 64
   call void @gf_add(ptr noundef nonnull %8, ptr noundef nonnull %145, ptr noundef nonnull %144) #7
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1975,7 +1969,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   call void @ossl_gf_mul(ptr noundef nonnull %146, ptr noundef nonnull %148, ptr noundef nonnull %8) #7
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %149, ptr noundef nonnull %148) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %179
 
 150:                                              ; preds = %136
@@ -1989,7 +1983,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %156 = ashr i32 %155, 1
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %15, i64 0, i64 %157
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 64
   call void @gf_add(ptr noundef nonnull %7, ptr noundef nonnull %159, ptr noundef nonnull %158) #7
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2000,7 +1994,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   call void @ossl_gf_mul(ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef nonnull %7) #7
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %162, ptr noundef nonnull %161) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %163 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !53
   %164 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %165 = load i32, ptr %164, align 4, !tbaa !48
@@ -2069,12 +2063,12 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %200 = getelementptr inbounds nuw [8 x [1 x %struct.anon]], ptr %15, i64 0, i64 %199
   %201 = select i1 %190, i1 %189, i1 false
   %202 = zext i1 %201 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %180, ptr noundef nonnull %203) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !25
   call fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef nonnull %200, i32 noundef range(i32 0, 2) %202)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %212
 
 204:                                              ; preds = %193
@@ -2084,12 +2078,12 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %208 = getelementptr inbounds nuw [8 x [1 x %struct.anon]], ptr %15, i64 0, i64 %207
   %209 = select i1 %190, i1 %189, i1 false
   %210 = zext i1 %209 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %180, ptr noundef nonnull %211) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
   call fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef nonnull %208, i32 noundef range(i32 0, 2) %210)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %212
 
 212:                                              ; preds = %204, %197
@@ -2138,9 +2132,9 @@ prepare_wnaf_table.exit:                          ; preds = %128
   br label %233
 
 233:                                              ; preds = %._crit_edge, %135
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 912, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -2149,9 +2143,9 @@ define internal fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef %1, i
   %4 = alloca [1 x %struct.gf_s], align 16
   %5 = alloca [1 x %struct.gf_s], align 16
   %6 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
@@ -2440,9 +2434,9 @@ gf_sub_nr.exit49:                                 ; preds = %150
   br label %162
 
 162:                                              ; preds = %161, %gf_sub_nr.exit49
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2460,23 +2454,29 @@ define void @ossl_x448_public_from_private(ptr noundef %0, ptr noundef readonly 
   ret void
 }
 
-declare void @ossl_gf_mulw_unsigned(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ossl_gf_mulw_unsigned(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind memory(none) }

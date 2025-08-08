@@ -6155,7 +6155,7 @@ _ZN28AbstractClassHierarchyWalker11participantEj.exit: ; preds = %_ZN28AbstractC
   br label %.lr.ph.i79
 
 .lr.ph.i79:                                       ; preds = %58, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %64, align 8
@@ -6223,7 +6223,7 @@ _ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %.loopexit.i, %
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
 _ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %83
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.lcssa.i, null
   br i1 %.not, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread61
 
@@ -6535,7 +6535,7 @@ _ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit: ; pred
   br i1 %20, label %21, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
 21:                                               ; preds = %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
@@ -6557,7 +6557,7 @@ _ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit: ; pred
 
 _ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit: ; preds = %25, %31
   %.0.i9 = phi ptr [ %30, %25 ], [ %34, %31 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = load i32, ptr %5, align 8
   %.not.i10 = icmp eq i32 %35, 0
   br i1 %.not.i10, label %._crit_edge.i, label %.lr.ph.i11
@@ -7012,7 +7012,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %1, %5
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit: ; preds = %15, %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.010.i, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.010.i, ptr %24, align 8
@@ -7101,7 +7101,7 @@ _ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteS
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
 _ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %52
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.lcssa.i, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge: ; preds = %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
@@ -7401,7 +7401,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %32, %41
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit: ; preds = %50, %53
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.010.i, ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.010.i, ptr %59, align 8
@@ -7477,7 +7477,7 @@ _ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteS
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
 _ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not20 = icmp eq ptr %.lcssa.i, null
   br i1 %.not20, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24
 
@@ -7614,7 +7614,7 @@ define hidden noundef ptr @_ZN12Dependencies27find_unique_concrete_methodEP13Ins
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit: ; preds = %39, %42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.010.i, ptr %4, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.010.i, ptr %48, align 8
@@ -7660,7 +7660,7 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
   br label %_ZN20ConcreteMethodFinder21find_witness_anywhereEP13InstanceKlass.exit
 
 _ZN20ConcreteMethodFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %._crit_edge.i, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.lcssa.i, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread36
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %_ZN20ConcreteMethodFinder21find_witness_anywhereEP13InstanceKlass.exit
@@ -8080,7 +8080,7 @@ _ZN26LinkedConcreteMethodFinderC2EP13InstanceKlassP6MethodS3_.exit: ; preds = %4
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit: ; preds = %62, %65
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.010.i, ptr %5, align 8
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.010.i, ptr %71, align 8
@@ -8142,7 +8142,7 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
   br label %_ZN26LinkedConcreteMethodFinder21find_witness_anywhereEP13InstanceKlass.exit
 
 _ZN26LinkedConcreteMethodFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %._crit_edge.i, %92
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.lcssa.i, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread32
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge: ; preds = %_ZN26LinkedConcreteMethodFinder21find_witness_anywhereEP13InstanceKlass.exit
@@ -8249,7 +8249,7 @@ define hidden noundef ptr @_ZN12Dependencies35check_has_no_finalizable_subclasse
 
 7:                                                ; preds = %4, %2
   %.0 = phi ptr [ %6, %4 ], [ %0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0, ptr %8, align 8
@@ -8274,7 +8274,7 @@ define hidden noundef ptr @_ZN12Dependencies35check_has_no_finalizable_subclasse
 
 _ZN12Dependencies25find_finalizable_subclassEP13InstanceKlass.exit: ; preds = %.lr.ph.i, %15, %7
   %.lcssa.i = phi ptr [ null, %7 ], [ null, %15 ], [ %11, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.lcssa.i
 }
 
@@ -8491,7 +8491,7 @@ _ZN12Dependencies9DepStream12context_typeEv.exit: ; preds = %_ZN12Dependencies27
 _ZN12Dependencies9DepStream12context_typeEv.exit14: ; preds = %_ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit
   %35 = tail call noundef ptr @_ZN12Dependencies9DepStream8argumentEi(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef 0)
   %36 = tail call noundef ptr @_ZN12Dependencies9DepStream8argumentEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8575,7 +8575,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit.i:      ; preds = %39, %_ZN12Dependenc
 
 _ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit: ; preds = %44, %48, %59, %70
   %.0.i.i = phi ptr [ %62, %59 ], [ %74, %70 ], [ %35, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12Dependencies17check_evol_methodEP6Method.exit
 
 _ZN12Dependencies9DepStream12context_typeEv.exit18: ; preds = %_ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit
@@ -8612,7 +8612,7 @@ _ZN12Dependencies9DepStream12context_typeEv.exit30: ; preds = %_ZN12Dependencies
 
 91:                                               ; preds = %88, %_ZN12Dependencies9DepStream12context_typeEv.exit30
   %.0.i32 = phi ptr [ %90, %88 ], [ %87, %_ZN12Dependencies9DepStream12context_typeEv.exit30 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.0.i32, ptr %4, align 8
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.i32, ptr %92, align 8
@@ -8637,16 +8637,16 @@ _ZN12Dependencies9DepStream12context_typeEv.exit30: ; preds = %_ZN12Dependencies
 
 _ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit: ; preds = %.lr.ph.i.i, %99, %91
   %.lcssa.i.i = phi ptr [ null, %91 ], [ %95, %.lr.ph.i.i ], [ null, %99 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12Dependencies17check_evol_methodEP6Method.exit
 
 _ZN12Dependencies17check_evol_methodEP6Method.exit.thread: ; preds = %_ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit, %_ZNK6Method21number_of_breakpointsEv.exit.i, %16, %31
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 _ZN12Dependencies17check_evol_methodEP6Method.exit: ; preds = %33, %_ZN12Dependencies9DepStream12context_typeEv.exit, %22, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit, %_ZN12Dependencies9DepStream12context_typeEv.exit26, %_ZN12Dependencies9DepStream12context_typeEv.exit22, %_ZN12Dependencies9DepStream12context_typeEv.exit18, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit
   %.0 = phi ptr [ %.0.i.i, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit ], [ %77, %_ZN12Dependencies9DepStream12context_typeEv.exit18 ], [ %82, %_ZN12Dependencies9DepStream12context_typeEv.exit22 ], [ %..i, %_ZN12Dependencies9DepStream12context_typeEv.exit26 ], [ %.lcssa.i.i, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit ], [ %28, %22 ], [ %34, %33 ], [ %30, %_ZN12Dependencies9DepStream12context_typeEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %101 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %102 = trunc i8 %101 to i1
   %103 = icmp eq ptr %.0, null
@@ -8678,7 +8678,7 @@ _ZN12Dependencies17check_evol_methodEP6Method.exit: ; preds = %33, %_ZN12Depende
 
 _ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit: ; preds = %_ZN12Dependencies17check_evol_methodEP6Method.exit.thread, %_ZN12Dependencies17check_evol_methodEP6Method.exit, %109
   %.036 = phi ptr [ null, %_ZN12Dependencies17check_evol_methodEP6Method.exit.thread ], [ %.0, %_ZN12Dependencies17check_evol_methodEP6Method.exit ], [ %.0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.036
 }
 
@@ -8702,7 +8702,7 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %2
   br i1 %cond, label %9, label %.thread
 
 .thread:                                          ; preds = %_ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 9:                                                ; preds = %_ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit
@@ -8711,7 +8711,7 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %2
   %12 = tail call noundef ptr @_ZN12Dependencies9DepStream8argumentEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 2)
   %13 = tail call noundef ptr @_ZN12Dependencies9DepStream8argumentEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 3)
   %14 = tail call noundef ptr @_ZN12Dependencies28check_unique_concrete_methodEP13InstanceKlassP6MethodP5KlassS3_P14KlassDepChange(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %16 = trunc i8 %15 to i1
   %17 = icmp eq ptr %14, null
@@ -8743,7 +8743,7 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %2
 
 _ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit: ; preds = %.thread, %9, %23
   %.06 = phi ptr [ null, %.thread ], [ %14, %9 ], [ %14, %23 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.06
 }
 
@@ -8989,12 +8989,12 @@ _ZNK17CallSiteDepChange13method_handleEv.exit.i:  ; preds = %98, %90
   br label %_ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit
 
 _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit.thread: ; preds = %_ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit, %_ZNK17CallSiteDepChange9call_siteEv.exit.i, %_ZNK17CallSiteDepChange13method_handleEv.exit.i, %61
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit: ; preds = %115, %105, %80, %70
   %.0 = phi ptr [ %79, %70 ], [ %81, %80 ], [ %114, %105 ], [ %116, %115 ]
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %117 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %118 = trunc i8 %117 to i1
   %119 = icmp eq ptr %.0, null
@@ -9026,7 +9026,7 @@ _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange
 
 _ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit: ; preds = %_ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit.thread, %_ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit, %125
   %.010 = phi ptr [ null, %_ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit.thread ], [ %.0, %_ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit ], [ %.0, %125 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.010
 }
 
@@ -11894,10 +11894,10 @@ declare i32 @llvm.ctpop.i32(i32) #16
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

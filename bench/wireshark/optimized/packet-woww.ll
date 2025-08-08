@@ -7333,7 +7333,7 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
 49:                                               ; preds = %215, %29
   %.052 = phi i32 [ 0, %29 ], [ %217, %215 ]
   %.048 = phi i8 [ 0, %29 ], [ %219, %215 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = zext i8 %.048 to i64
   %51 = shl nuw nsw i64 %50, 32
   %52 = load i32, ptr %40, align 4
@@ -7346,7 +7346,7 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %57, label %handle_packet_header.exit.thread61
 
 handle_packet_header.exit.thread61:               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %176
 
 57:                                               ; preds = %49
@@ -7554,7 +7554,7 @@ handle_packet_header.exit.thread.sink.split:      ; preds = %109, %141
   br label %handle_packet_header.exit.thread
 
 handle_packet_header.exit.thread:                 ; preds = %57, %session_key_is_fully_deduced.exit.i, %handle_packet_header.exit.thread.sink.split
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread.sink.split
 
 handle_packet_header.exit:                        ; preds = %156, %71
@@ -7565,7 +7565,7 @@ handle_packet_header.exit:                        ; preds = %156, %71
   store i64 %173, ptr %172, align 8
   %174 = load ptr, ptr %41, align 8
   %175 = call ptr @wmem_map_insert(ptr noundef %174, ptr noundef %172, ptr noundef %.sink96)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.sink96, null
   br i1 %.not, label %.thread.sink.split, label %176
 
@@ -7679,9 +7679,6 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
@@ -7689,7 +7686,7 @@ declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
@@ -7712,9 +7709,6 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7731,7 +7725,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -7830,153 +7824,153 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
   %78 = alloca i32, align 4
   %79 = alloca i32, align 4
   %80 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 0, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 0, ptr %24, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 0, ptr %26, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 0, ptr %27, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 0, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 0, ptr %31, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 0, ptr %33, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 0, ptr %34, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 0, ptr %35, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 0, ptr %37, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i32 0, ptr %38, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 0, ptr %39, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i32 0, ptr %40, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i32 0, ptr %41, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 0, ptr %42, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i32 0, ptr %43, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 0, ptr %44, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 0, ptr %45, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i32 0, ptr %46, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i32 0, ptr %47, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 0, ptr %48, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i32 0, ptr %49, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i32 0, ptr %50, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i32 0, ptr %51, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i32 0, ptr %52, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i32 0, ptr %53, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i32 0, ptr %54, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i32 0, ptr %55, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i32 0, ptr %56, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i32 0, ptr %57, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store i32 0, ptr %58, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i32 0, ptr %59, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i32 0, ptr %60, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store i32 0, ptr %61, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i32 0, ptr %62, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store i32 0, ptr %63, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i32 0, ptr %64, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i32 0, ptr %65, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %66) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i32 0, ptr %66, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i32 0, ptr %67, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i32 0, ptr %68, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i32 0, ptr %69, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i32 0, ptr %70, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %71) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i32 0, ptr %71, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i32 0, ptr %72, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store i32 0, ptr %73, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %74) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store i32 0, ptr %74, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %75) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i32 0, ptr %75, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %76) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i32 0, ptr %76, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store i32 0, ptr %77, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %78) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i32 0, ptr %78, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %79) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store i32 0, ptr %79, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %80) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i32 0, ptr %80, align 4
   %81 = tail call ptr @wmem_packet_scope()
   %82 = tail call ptr @ptvcursor_new(ptr noundef %81, ptr noundef %1, ptr noundef %2, i32 noundef %3)
@@ -23231,80 +23225,80 @@ add_cstring.exit5367:                             ; preds = %9591, %9592
 
 .loopexit:                                        ; preds = %add_cstring.exit5367, %.loopexit5427, %.preheader5425, %9081, %.lr.ph5452, %.lr.ph5462, %.lr.ph5465, %8738, %.lr.ph5471, %.lr.ph5473, %.lr.ph5476, %.lr.ph5479, %.lr.ph5482, %add_cstring.exit5357, %add_cstring.exit5352, %.lr.ph5504, %.lr.ph5507, %.lr.ph5527, %.lr.ph5530, %.lr.ph5533, %7952, %7671, %add_cstring.exit5342, %.lr.ph5545, %.lr.ph5548, %.lr.ph5551, %.lr.ph5557, %.lr.ph5564, %.lr.ph5567, %.lr.ph5570, %add_cstring.exit5337, %add_cstring.exit5317, %add_cstring.exit5307, %6672, %6643, %add_cstring.exit5297, %.lr.ph5599, %5968, %.lr.ph5624, %.lr.ph5627, %5516, %.preheader5379, %.preheader5377, %.preheader, %._crit_edge5651, %add_cstring.exit5282, %.lr.ph5664, %add_cstring.exit5277, %.lr.ph5678, %.lr.ph5681, %5463, %5423, %2350, %2311, %2221, %9572, %9195, %8957, %8791, %8742, %8693, %8665, %8640, %8612, %8589, %8497, %8313, %._crit_edge5501, %8237, %._crit_edge5524, %8008, %7987, %7932, %7424, %7360, %7330, %7257, %7000, %._crit_edge5561, %6954, %6945, %.preheader5393, %6828, %._crit_edge5587, %6625, %6564, %6512, %5909, %5882, %5776, %.preheader5381, %5332, %2358, %._crit_edge5661, %._crit_edge5668, %122, %95, %5865, %5797, %5762, %5647, %5630, %5398, %6, %9166, %9170, %9055, %9067, %9065, %9058, %8949, %8952, %8890, %8893, %8573, %8570, %8583, %8578, %8076, %7923, %7926, %7811, %7814, %7305, %7314, %7089, %7174, %7042, %7044, %._crit_edge5583, %6815, %6688, %6693, %6663, %6480, %6484, %6106, %._crit_edge5614, %6001, %._crit_edge5617, %5984, %5989, %5859, %5872, %5875, %5869, %5791, %5810, %5813, %5805, %5766, %5773, %5637, %5640, %5634, %5654, %5651, %5471, %5444, %5447, %5433, %5409, %5420, %5416, %5383, %5382, %5389, %5388, %5367, %5361, %5318, %5242, %5248, %5238, %5239, %5108, %5169, %4980, %5041, %4852, %4913, %4724, %4785, %4596, %4657, %4468, %4529, %4340, %4401, %4212, %4273, %4084, %4145, %3956, %4017, %3828, %3889, %3700, %3761, %3572, %3633, %3444, %3505, %3316, %3377, %3188, %3249, %3060, %3121, %2932, %2993, %2804, %2865, %2676, %2737, %2543, %2609, %2481, %2542, %2403, %2410, %2394, %2388, %2319, %2298, %2293, %2287, %2278, %2284, %2267, %2273, %2232, %2229, %2087, %2097, %2060, %2062, %1822, %1830, %1057, %1063, %1019, %1044, %1034, %182, %._crit_edge5675, %9612, %9611, %9563, %9558, %9551, %9192, %9189, %9184, %9178, %9175, %9159, %._crit_edge5448, %9120, %9113, %9044, %9039, %9034, %9027, %9024, %9011, %9008, %9005, %9002, %8999, %8996, %8993, %8990, %8987, %8986, %8985, %8984, %8983, %8982, %8981, %8980, %8979, %8976, %8975, %8974, %8973, %8970, %8814, %8809, %8804, %8782, %8761, %8688, %8681, %8674, %8656, %8653, %8637, %8632, %8625, %8605, %8602, %8586, %8551, %8546, %8531, %8528, %8525, %8522, %8519, %8512, %8492, %8408, %8405, %8402, %8399, %8388, %8383, %8378, %._crit_edge5490, %8310, %8305, %._crit_edge5519, %8181, %8174, %8165, %8162, %8157, %8152, %8149, %8144, %8141, %8138, %8133, %8128, %8123, %8120, %8071, %8060, %8049, %8042, %8037, %8034, %8027, %7956, %7927, %7694, %7689, %7684, %7681, %7648, %7635, %7626, %7623, %7620, %7617, %7614, %7611, %7600, %7597, %7594, %7591, %7586, %7552, %7518, %7493, %7490, %7487, %7411, %7394, %7377, %7347, %7342, %7339, %7319, %7300, %7287, %7282, %7232, %7229, %7224, %7221, %7068, %7065, %7056, %7051, %7031, %7028, %7023, %7020, %7017, %6861, %6857, %6846, %6823, %6822, %6781, %6780, %6779, %6766, %6712, %6709, %6706, %6685, %6682, %6679, %6676, %6660, %6657, %6652, %6647, %6620, %6615, %6610, %6605, %6600, %6595, %6590, %6585, %6580, %6553, %6542, %6537, %6534, %6529, %6526, %6523, %6509, %6506, %6503, %6477, %6472, %5998, %5993, %5992, %5906, %5903, %5900, %5897, %5850, %5843, %5840, %5827, %5824, %5821, %5818, %5759, %5752, %5739, %._crit_edge5631, %._crit_edge5635, %5608, %._crit_edge5639, %5566, %5561, %._crit_edge5643, %5529, %5524, %5519, %5480, %5460, %5370, %5315, %5312, %5311, %2218, %2209, %2194, %2193, %2156, %2155, %2082, %2079, %2076, %2073, %2070, %2065, %2053, %2052, %2049, %2046, %2037, %2032, %2029, %2026, %2021, %2018, %2007, %2004, %2001, %1994, %1991, %1988, %1985, %1980, %1975, %1972, %1969, %1960, %1957, %1954, %1937, %1930, %1925, %1922, %1919, %1914, %1911, %1906, %1903, %1900, %1895, %1892, %1889, %1884, %1879, %1876, %1871, %1864, %1859, %1856, %1853, %1848, %1845, %1842, %1835, %1819, %1814, %1813, %1759, %1752, %1749, %1744, %1741, %1738, %1733, %1698, %1695, %1690, %1685, %1680, %1677, %1674, %1605, %1600, %1529, %1528, %1465, %1398, %1331, %1266, %1205, %1195, %1190, %1185, %1180, %1175, %1170, %1163, %1156, %1153, %1146, %1139, %1136, %1133, %1132, %1129, %1124, %1123, %1116, %1111, %1106, %1103, %1100, %1099, %1098, %1097, %1092, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1081, %1078, %1077, %1076, %1073, %1072, %1069, %1064, %1054, %1051, %1001, %995, %992, %987, %984, %917, %850, %783, %716, %649, %584, %519, %452, %449, %446, %443, %430, %427, %424, %423, %418, %415, %412, %409, %406, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %322, %319, %316, %313, %302, %293, %290, %285, %282, %279, %270, %267, %262, %259, %256, %253, %250, %245, %238, %233, %228, %223, %171, %166, %159, %154, %135, %119, %116, %113, %110, %109, %108, %88, %85
   call void @ptvcursor_free(ptr noundef %82)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %80) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %79) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %78) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %77) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %75) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %71) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -23431,7 +23425,7 @@ define internal fastcc void @add_packed_guid(ptr noundef %0, ptr noundef %1) unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @add_monster_move_spline(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %3 = load i32, ptr @hf_woww_amount_of_splines, align 4
   %4 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %2)
@@ -23454,7 +23448,7 @@ define internal fastcc void @add_monster_move_spline(ptr noundef %0) unnamed_add
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
@@ -23470,7 +23464,7 @@ define internal fastcc void @add_monster_move_spline(ptr noundef %0) unnamed_add
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr @hf_woww_amount_of_masks, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
@@ -23556,7 +23550,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 
 ._crit_edge65:                                    ; preds = %40, %._crit_edge60
   call void @ptvcursor_pop_subtree(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 40:                                               ; preds = %61
@@ -23602,14 +23596,14 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @add_aura_mask(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %3 = load i32, ptr @hf_woww_aura_mask, align 4
   %4 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %2)
   br label %6
 
 5:                                                ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 6:                                                ; preds = %1, %13
@@ -23638,13 +23632,19 @@ declare ptr @ptvcursor_tree(ptr noundef) local_unnamed_addr #1
 declare void @ptvcursor_advance(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { allocsize(1) }
 attributes #6 = { nounwind }
 

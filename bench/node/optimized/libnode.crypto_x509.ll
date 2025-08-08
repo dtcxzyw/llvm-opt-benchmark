@@ -393,7 +393,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv = sext i32 %call2 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -465,7 +465,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %entry, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
@@ -554,7 +554,7 @@ declare void @_ZN4node14SetProtoMethodEPN2v87IsolateENS0_5LocalINS0_16FunctionTe
 define dso_local void @_ZN4node6crypto15X509Certificate7SubjectERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #4 align 2 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.318", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i)
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -657,7 +657,7 @@ if.then.i.i:                                      ; preds = %if.end39.i
   br label %_ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_10GetSubjectEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit
 
 _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_10GetSubjectEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i, %if.end39.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i)
   ret void
 }
 
@@ -665,7 +665,7 @@ _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_10GetSubjectEPNS_11Environm
 define dso_local void @_ZN4node6crypto15X509Certificate14SubjectAltNameERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #4 align 2 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.318", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i)
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -768,7 +768,7 @@ if.then.i.i:                                      ; preds = %if.end39.i
   br label %_ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_23GetSubjectAltNameStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit
 
 _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_23GetSubjectAltNameStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i, %if.end39.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i)
   ret void
 }
 
@@ -776,7 +776,7 @@ _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_23GetSubjectAltNameStringEP
 define dso_local void @_ZN4node6crypto15X509Certificate10InfoAccessERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #4 align 2 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.318", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i)
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -879,7 +879,7 @@ if.then.i.i:                                      ; preds = %if.end39.i
   br label %_ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_19GetInfoAccessStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit
 
 _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_19GetInfoAccessStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i, %if.end39.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i)
   ret void
 }
 
@@ -887,7 +887,7 @@ _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_19GetInfoAccessStringEPNS_1
 define dso_local void @_ZN4node6crypto15X509Certificate6IssuerERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #4 align 2 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.318", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i)
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -990,7 +990,7 @@ if.then.i.i:                                      ; preds = %if.end39.i
   br label %_ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_15GetIssuerStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit
 
 _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_15GetIssuerStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i, %if.end39.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i)
   ret void
 }
 
@@ -998,7 +998,7 @@ _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_15GetIssuerStringEPNS_11Env
 define dso_local void @_ZN4node6crypto15X509Certificate7ValidToERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #4 align 2 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.318", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i)
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -1101,7 +1101,7 @@ if.then.i.i:                                      ; preds = %if.end39.i
   br label %_ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_10GetValidToEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit
 
 _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_10GetValidToEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i, %if.end39.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i)
   ret void
 }
 
@@ -1109,7 +1109,7 @@ _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_10GetValidToEPNS_11Environm
 define dso_local void @_ZN4node6crypto15X509Certificate9ValidFromERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #4 align 2 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.318", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i)
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -1212,7 +1212,7 @@ if.then.i.i:                                      ; preds = %if.end39.i
   br label %_ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_12GetValidFromEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit
 
 _ZN4node6cryptoL24ReturnPropertyThroughBIOIXadL_ZNS0_12GetValidFromEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS7_XadL_Z12BIO_free_allEEEEEEEEEvRKN2v820FunctionCallbackInfoINSD_5ValueEEE.exit: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i, %if.end39.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i)
   ret void
 }
 
@@ -7990,7 +7990,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -8016,7 +8016,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -8762,10 +8762,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

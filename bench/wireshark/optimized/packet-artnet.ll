@@ -5154,7 +5154,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_artnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull @.str.693)
@@ -5293,7 +5293,7 @@ dissect_artnet_poll.exit:                         ; preds = %33, %51, %65
   %75 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %74, ptr noundef %0, i32 noundef %.0557, i32 noundef 0, i32 noundef 0)
   %76 = load i32, ptr @ett_artnet, align 4
   %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %78 = load i32, ptr @hf_artnet_poll_reply_ip_address, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %0, i32 noundef range(i32 10, 13) %.0557, i32 noundef 4, i32 noundef 0)
@@ -5349,7 +5349,7 @@ dissect_artnet_poll.exit:                         ; preds = %33, %51, %65
   br i1 %.not364.i, label %125, label %126
 
 125:                                              ; preds = %123
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.4663, ptr noundef nonnull @.str.4664, i32 noundef 5097, ptr noundef nonnull @.str.4665) #6
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.4663, ptr noundef nonnull @.str.4664, i32 noundef 5097, ptr noundef nonnull @.str.4665) #5
   unreachable
 
 126:                                              ; preds = %123
@@ -5375,7 +5375,7 @@ dissect_artnet_poll.exit:                         ; preds = %33, %51, %65
   %141 = load ptr, ptr %5, align 8
   %142 = call ptr @g_match_info_fetch(ptr noundef %141, i32 noundef 3)
   %143 = load i32, ptr @hf_artnet_poll_reply_node_report_status_code, align 4
-  %144 = call i64 @strtol(ptr noundef captures(none) %138, ptr noundef null, i32 noundef 16) #5
+  %144 = call i64 @strtol(ptr noundef captures(none) %138, ptr noundef null, i32 noundef 16) #6
   %145 = trunc i64 %144 to i32
   %146 = and i32 %145, 65535
   %147 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %143, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %146)
@@ -5397,7 +5397,7 @@ dissect_artnet_poll.exit:                         ; preds = %33, %51, %65
 
 proto_item_set_generated.exit.i:                  ; preds = %151, %148, %136
   %155 = load i32, ptr @hf_artnet_poll_reply_node_report_response_counter, align 4
-  %156 = call i64 @strtoul(ptr noundef captures(none) %140, ptr noundef null, i32 noundef 10) #5
+  %156 = call i64 @strtoul(ptr noundef captures(none) %140, ptr noundef null, i32 noundef 10) #6
   %157 = trunc i64 %156 to i32
   %158 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %155, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %157)
   %.not.i367.i = icmp eq ptr %158, null
@@ -5860,7 +5860,7 @@ proto_item_set_generated.exit396.i:               ; preds = %378, %375, %proto_i
 
 dissect_artnet_poll_reply.exit:                   ; preds = %464, %467
   %.1.i = phi i32 [ %470, %467 ], [ %.0.i558, %464 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %471 = sub i32 %.1.i, %.0557
   call void @proto_item_set_len(ptr noundef %77, i32 noundef %471)
   br label %1425
@@ -7103,7 +7103,7 @@ dissect_artnet_trigger.exit:                      ; preds = %1125, %1140, %1143,
 
 1430:                                             ; preds = %.sink.split, %1425, %1422
   %1431 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %1431
 }
 
@@ -7154,9 +7154,6 @@ define internal noundef zeroext i1 @dissect_artnet_heur(ptr noundef %0, ptr noun
 ; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7193,9 +7190,6 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -7218,7 +7212,7 @@ declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -7236,10 +7230,10 @@ declare i32 @g_match_info_get_match_count(ptr noundef) local_unnamed_addr #1
 declare ptr @g_match_info_fetch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -7292,13 +7286,19 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 ; Function Attrs: null_pointer_is_valid
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

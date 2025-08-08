@@ -60,7 +60,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPP8PJconstsPKS0_dP
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double %0, ptr %8, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %1, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
@@ -70,7 +70,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPP8PJconstsPKS0_dP
   %.sroa.081.0.copyload = load double, ptr %7, align 8, !tbaa !39
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.10.0.copyload = load double, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = call double @llvm.fabs.f64(double %.sroa.10.0.copyload)
   br label %29
 
@@ -214,51 +214,45 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPP8PJconstsPKS0_dP
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare i32 @proj_errno_reset(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
-
-declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8, ptr noundef, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef double @_Z6adjlond(double noundef) local_unnamed_addr #3
-
-declare noundef i32 @_Z8pj_deriv5PJ_LPdPK8PJconstsP6DERIVS(double, double, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #5
+declare i32 @proj_errno_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fabs.f64(double) #3
+
+declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8, ptr noundef, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) local_unnamed_addr #2
+
+declare noundef double @_Z6adjlond(double noundef) local_unnamed_addr #2
+
+declare noundef i32 @_Z8pj_deriv5PJ_LPdPK8PJconstsP6DERIVS(double, double, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #5
+declare double @cos(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
-declare noundef double @_Z5aasinP6pj_ctxd(ptr noundef, double noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @sin(double noundef) local_unnamed_addr #4
 
-declare i32 @proj_errno_restore(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @sqrt(double noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
+
+declare noundef double @_Z5aasinP6pj_ctxd(ptr noundef, double noundef) local_unnamed_addr #2
+
+declare i32 @proj_errno_restore(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%struct.P5_FACTORS) align 8 captures(none) initializes((0, 96)) %0, ptr noundef %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2) local_unnamed_addr #0 {
@@ -267,7 +261,7 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = icmp eq ptr %1, null
   br i1 %8, label %102, label %9
 
@@ -299,7 +293,7 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
   %22 = load ptr, ptr %.1, align 8, !tbaa !53
   %23 = tail call ptr @proj_get_source_crs(ptr noundef %22, ptr noundef nonnull %.1)
   %24 = tail call ptr @proj_get_prime_meridian(ptr noundef %22, ptr noundef %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double 0.000000e+00, ptr %5, align 8, !tbaa !39
   %25 = call i32 @proj_prime_meridian_get_parameters(ptr noundef %22, ptr noundef %24, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
   %26 = call ptr @proj_destroy(ptr noundef %24)
@@ -310,9 +304,9 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
 
 30:                                               ; preds = %21
   %31 = call ptr @proj_get_ellipsoid(ptr noundef %22, ptr noundef %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double 0.000000e+00, ptr %6, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double 0.000000e+00, ptr %7, align 8, !tbaa !39
   %32 = call i32 @proj_ellipsoid_get_parameters(ptr noundef %22, ptr noundef %31, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef nonnull %7)
   %33 = call ptr @proj_get_name(ptr noundef %31)
@@ -320,8 +314,8 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
   %35 = load double, ptr %7, align 8, !tbaa !39
   %36 = call ptr @proj_create_geographic_crs(ptr noundef %22, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %33, double noundef %34, double noundef %35, ptr noundef nonnull @.str.6, double noundef 0.000000e+00, ptr noundef null, double noundef 0.000000e+00, ptr noundef %27)
   %37 = call ptr @proj_destroy(ptr noundef %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
 38:                                               ; preds = %21
@@ -347,7 +341,7 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
   %54 = call ptr @proj_destroy(ptr noundef %.078)
   %55 = call ptr @proj_destroy(ptr noundef %49)
   store ptr %53, ptr %11, align 8, !tbaa !58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 56:                                               ; preds = %19
@@ -433,52 +427,58 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
   br label %102
 
 102:                                              ; preds = %60, %58, %66, %67, %3
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @proj_get_type(ptr noundef) local_unnamed_addr #3
+declare i32 @proj_get_type(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_crs_get_sub_crs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proj_crs_get_sub_crs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proj_get_source_crs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_get_source_crs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_get_prime_meridian(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_get_prime_meridian(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @proj_prime_meridian_get_parameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @proj_prime_meridian_get_parameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_destroy(ptr noundef) local_unnamed_addr #3
+declare ptr @proj_destroy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_create_ellipsoidal_2D_cs(ptr noundef, i32 noundef, ptr noundef, double noundef) local_unnamed_addr #3
+declare ptr @proj_create_ellipsoidal_2D_cs(ptr noundef, i32 noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
-declare ptr @proj_get_ellipsoid(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_get_ellipsoid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @proj_ellipsoid_get_parameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @proj_ellipsoid_get_parameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_create_geographic_crs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, double noundef, ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_create_geographic_crs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, double noundef, ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_get_name(ptr noundef) local_unnamed_addr #3
+declare ptr @proj_get_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_crs_get_datum(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_crs_get_datum(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_crs_get_datum_ensemble(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_crs_get_datum_ensemble(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_create_geographic_crs_from_datum(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_create_geographic_crs_from_datum(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_crs_get_coordoperation(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_crs_get_coordoperation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_create_cartesian_2D_cs(ptr noundef, i32 noundef, ptr noundef, double noundef) local_unnamed_addr #3
+declare ptr @proj_create_cartesian_2D_cs(ptr noundef, i32 noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
-declare ptr @proj_create_projected_crs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_create_projected_crs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proj_create_crs_to_crs_from_pj(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proj_create_crs_to_crs_from_pj(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

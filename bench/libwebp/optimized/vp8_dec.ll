@@ -126,18 +126,12 @@ InitGetCoeffs.exit:                               ; preds = %17, %2, %0
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #5
-
-declare ptr @WebPGetWorkerInterface() local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare ptr @WebPGetWorkerInterface() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @VP8Status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define hidden i32 @VP8Status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -151,7 +145,7 @@ define hidden i32 @VP8Status(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @VP8StatusMessage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define hidden nonnull ptr @VP8StatusMessage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -220,10 +214,10 @@ define hidden void @VP8Clear(ptr noundef %0) local_unnamed_addr #3 {
   ret void
 }
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #5
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @VP8SetError(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden noundef i32 @VP8SetError(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
@@ -241,7 +235,7 @@ define hidden noundef i32 @VP8SetError(ptr noundef captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @VP8CheckSignature(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @VP8CheckSignature(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp ugt i64 %1, 2
   br i1 %3, label %4, label %16
 
@@ -269,7 +263,7 @@ define range(i32 0, 2) i32 @VP8CheckSignature(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @VP8GetInfo(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @VP8GetInfo(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ult i64 %1, 10
   %or.cond = or i1 %6, %7
@@ -661,11 +655,11 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   ret i32 %.0
 }
 
-declare void @VP8ResetProba(ptr noundef) local_unnamed_addr #5
+declare void @VP8ResetProba(ptr noundef) local_unnamed_addr #4
 
-declare void @VP8InitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @VP8InitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #3 {
@@ -922,9 +916,9 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   ret i32 %.040
 }
 
-declare void @VP8ParseQuant(ptr noundef) local_unnamed_addr #5
+declare void @VP8ParseQuant(ptr noundef) local_unnamed_addr #4
 
-declare void @VP8ParseProba(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8ParseProba(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -964,7 +958,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br i1 %.not.i, label %28, label %54
 
 28:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !84
@@ -1006,7 +1000,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br i1 %53, label %51, label %.loopexit.i, !llvm.loop !87
 
 .loopexit.i:                                      ; preds = %51, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 54:                                               ; preds = %.critedge
@@ -1239,7 +1233,7 @@ ParseResiduals.exit:                              ; preds = %145, %151
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8InitScanline(ptr noundef captures(none) initializes((2816, 2820), (2904, 2908)) %0) local_unnamed_addr #8 {
+define hidden void @VP8InitScanline(ptr noundef captures(none) initializes((2816, 2820), (2904, 2908)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds i8, ptr %3, i64 -2
@@ -1449,21 +1443,21 @@ VP8SetError.exit:                                 ; preds = %9, %6, %15, %2, %92
   ret i32 %.022
 }
 
-declare i32 @VP8EnterCritical(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @VP8EnterCritical(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @VP8InitFrame(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @VP8InitFrame(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @VP8ExitCritical(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @VP8ExitCritical(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @WebPDeallocateAlphaMemory(ptr noundef) local_unnamed_addr #5
+declare void @WebPDeallocateAlphaMemory(ptr noundef) local_unnamed_addr #4
 
-declare i32 @VP8GetSignedValue(ptr noundef, i32 noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
+declare i32 @VP8GetSignedValue(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #3 {
@@ -2932,17 +2926,23 @@ VP8GetBit.exit85:                                 ; preds = %417, %423
   ret i32 %.0
 }
 
-declare void @VP8LoadFinalBytes(ptr noundef) local_unnamed_addr #5
+declare void @VP8LoadFinalBytes(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #10
+declare i64 @llvm.bswap.i64(i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
-declare i32 @VP8ParseIntraModeRow(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @VP8ParseIntraModeRow(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @VP8ProcessRow(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @VP8ProcessRow(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #11
@@ -2960,13 +2960,13 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nounwind }

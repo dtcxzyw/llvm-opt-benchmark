@@ -36,7 +36,7 @@ define ptr @lv_binfont_create(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = call i32 @lv_fs_open(ptr noundef nonnull %12, ptr noundef nonnull %0, i32 noundef 2) #3
   %.not10 = icmp eq i32 %14, 0
   br i1 %.not10, label %15, label %218
@@ -55,8 +55,8 @@ define ptr @lv_binfont_create(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %18, ptr %19, align 8, !tbaa !3
   %20 = call i32 @lv_fs_seek(ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %7, i32 noundef 4, ptr noundef null) #3
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %22, label %read_label.exit.thread.i
@@ -73,18 +73,18 @@ define ptr @lv_binfont_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6.i.i, label %read_label.exit.i, label %read_label.exit.thread.i
 
 read_label.exit.thread.i:                         ; preds = %24, %22, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %lvgl_load_font.exit.thread
 
 read_label.exit.i:                                ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %lvgl_load_font.exit.thread, label %28
 
 28:                                               ; preds = %read_label.exit.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %29 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %9, i32 noundef 40, ptr noundef null) #3
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %30, label %lvgl_load_font.exit.thread14
@@ -144,8 +144,8 @@ read_label.exit.i:                                ; preds = %24
   %74 = or disjoint i16 %73, %65
   store i16 %74, ptr %59, align 2
   %75 = call i32 @lv_fs_seek(ptr noundef nonnull %12, i32 noundef range(i32 0, -2147483648) %26, i32 noundef 0) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %4, i32 noundef 4, ptr noundef null) #3
   %.not.i.i.i = icmp eq i32 %76, 0
   br i1 %.not.i.i.i, label %77, label %read_label.exit.thread.i.i
@@ -162,24 +162,24 @@ read_label.exit.i:                                ; preds = %24
   br i1 %.not6.i.i.i, label %read_label.exit.i.i, label %read_label.exit.thread.i.i
 
 read_label.exit.thread.i.i:                       ; preds = %79, %77, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %lvgl_load_font.exit.thread14
 
 read_label.exit.i.i:                              ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %lvgl_load_font.exit.thread14, label %83
 
 83:                                               ; preds = %read_label.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %6, i32 noundef 4, ptr noundef null) #3
   %.not.i69.i = icmp eq i32 %84, 0
   br i1 %.not.i69.i, label %85, label %load_cmaps.exit.thread78.i
 
 load_cmaps.exit.thread78.i:                       ; preds = %83
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %lvgl_load_font.exit.thread14
 
 85:                                               ; preds = %83
@@ -316,16 +316,16 @@ load_cmaps.exit.thread78.i:                       ; preds = %83
 
 load_cmaps.exit.thread81.i:                       ; preds = %154, %140, %130, %115, %.lr.ph.i.i.i, %85
   call void @lv_free(ptr noundef %102) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %lvgl_load_font.exit.thread14
 
 load_cmaps.exit.thread83.i:                       ; preds = %164, %.preheader.i.i.i
   call void @lv_free(ptr noundef %102) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %168 = add nuw i32 %81, %26
   %169 = call i32 @lv_fs_seek(ptr noundef nonnull %12, i32 noundef %168, i32 noundef 0) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %170 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef 4, ptr noundef null) #3
   %.not.i70.i = icmp eq i32 %170, 0
   br i1 %.not.i70.i, label %171, label %read_label.exit75.thread.i
@@ -342,18 +342,18 @@ load_cmaps.exit.thread83.i:                       ; preds = %164, %.preheader.i.
   br i1 %.not6.i73.i, label %read_label.exit75.i, label %read_label.exit75.thread.i
 
 read_label.exit75.thread.i:                       ; preds = %173, %171, %load_cmaps.exit.thread83.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %lvgl_load_font.exit.thread14
 
 read_label.exit75.i:                              ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %lvgl_load_font.exit.thread14, label %177
 
 177:                                              ; preds = %read_label.exit75.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %178 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 4, ptr noundef null) #3
   %.not65.i = icmp eq i32 %178, 0
   br i1 %.not65.i, label %179, label %lvgl_load_font.exit.thread17
@@ -378,13 +378,13 @@ read_label.exit75.i:                              ; preds = %173
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %189
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %189 ], [ 0, %.preheader.i ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %188 = call i32 @lv_fs_read(ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef 2, ptr noundef null) #3
   %.not67.i = icmp eq i32 %188, 0
   br i1 %.not67.i, label %189, label %.thread90.i
 
 .thread90.i:                                      ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge.i
 
 189:                                              ; preds = %.lr.ph.i
@@ -392,7 +392,7 @@ read_label.exit75.i:                              ; preds = %173
   %191 = zext i16 %190 to i32
   %192 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv.i
   store i32 %191, ptr %192, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %193 = load i32, ptr %10, align 4, !tbaa !29
   %194 = zext i32 %193 to i64
@@ -435,17 +435,17 @@ lvgl_load_font.exit.thread19:                     ; preds = %204
   %210 = and i16 %209, -8193
   store i16 %210, ptr %59, align 2
   store i16 0, ptr %68, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %216
 
 lvgl_load_font.exit.thread14:                     ; preds = %28, %read_label.exit75.i, %load_cmaps.exit.thread78.i, %load_cmaps.exit.thread81.i, %read_label.exit75.thread.i, %read_label.exit.i.i, %read_label.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %lvgl_load_font.exit.thread
 
 lvgl_load_font.exit.thread17:                     ; preds = %177, %.critedge.i, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %lvgl_load_font.exit.thread
 
 lvgl_load_font.exit:                              ; preds = %204
@@ -454,8 +454,8 @@ lvgl_load_font.exit:                              ; preds = %204
   %213 = load i8, ptr %212, align 1, !tbaa !54
   %214 = call i32 @load_kern(ptr noundef nonnull %12, ptr noundef %18, i8 noundef zeroext %213, i32 noundef %211)
   %215 = icmp sgt i32 %214, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %215, label %216, label %lvgl_load_font.exit.thread
 
 lvgl_load_font.exit.thread:                       ; preds = %read_label.exit.thread.i, %read_label.exit.i, %lvgl_load_font.exit.thread17, %lvgl_load_font.exit.thread14, %lvgl_load_font.exit
@@ -469,16 +469,13 @@ lvgl_load_font.exit.thread:                       ; preds = %read_label.exit.thr
 
 218:                                              ; preds = %13, %216
   %.07 = phi ptr [ %.0, %216 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.07
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_binfont_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -570,12 +567,9 @@ define void @lv_binfont_destroy(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @load_kern(ptr noundef %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -588,8 +582,8 @@ define range(i32 -1, -2147483648) i32 @load_kern(ptr noundef %0, ptr noundef cap
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = tail call i32 @lv_fs_seek(ptr noundef %0, i32 noundef %3, i32 noundef 0) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = call i32 @lv_fs_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4, ptr noundef null) #3
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %read_label.exit.thread
@@ -606,19 +600,19 @@ define range(i32 -1, -2147483648) i32 @load_kern(ptr noundef %0, ptr noundef cap
   br i1 %.not6.i, label %read_label.exit, label %read_label.exit.thread
 
 read_label.exit.thread:                           ; preds = %4, %15, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 read_label.exit:                                  ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %97, label %21
 
 21:                                               ; preds = %read_label.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = call i32 @lv_fs_read(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null) #3
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %96
@@ -644,7 +638,7 @@ read_label.exit:                                  ; preds = %17
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, -8193
   store i16 %32, ptr %30, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = call i32 @lv_fs_read(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 4, ptr noundef null) #3
   %.not65 = icmp eq i32 %33, 0
   br i1 %.not65, label %34, label %.critedge
@@ -678,7 +672,7 @@ read_label.exit:                                  ; preds = %17
   %52 = load i32, ptr %9, align 4, !tbaa !29
   %53 = call i32 @lv_fs_read(ptr noundef %0, ptr noundef %41, i32 noundef %52, ptr noundef null) #3
   %.not67 = icmp eq i32 %53, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not67, label %95, label %96
 
 54:                                               ; preds = %25
@@ -690,9 +684,9 @@ read_label.exit:                                  ; preds = %17
   %58 = load i16, ptr %57, align 2
   %59 = or i16 %58, 8192
   store i16 %59, ptr %57, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %60 = call i32 @lv_fs_read(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 2, ptr noundef null) #3
   %.not59 = icmp eq i32 %60, 0
   br i1 %.not59, label %61, label %.critedge69
@@ -751,28 +745,28 @@ read_label.exit:                                  ; preds = %17
   br i1 %.not64, label %94, label %.critedge69
 
 94:                                               ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %95
 
 95:                                               ; preds = %94, %51
   br label %96
 
 .critedge:                                        ; preds = %34, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %96
 
 .critedge69:                                      ; preds = %65, %88, %92, %54, %61, %63
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %96
 
 96:                                               ; preds = %25, %.critedge69, %.critedge, %21, %23, %51, %95
   %.1 = phi i32 [ %19, %95 ], [ -1, %51 ], [ -1, %23 ], [ -1, %21 ], [ -1, %.critedge ], [ -1, %.critedge69 ], [ -1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
 97:                                               ; preds = %read_label.exit.thread, %read_label.exit, %96
@@ -780,15 +774,15 @@ read_label.exit:                                  ; preds = %17
   ret i32 %.0
 }
 
-declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+declare zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-declare ptr @lv_font_get_bitmap_fmt_txt(ptr noundef, ptr noundef) #2
+declare ptr @lv_font_get_bitmap_fmt_txt(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @load_glyph(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
@@ -797,8 +791,8 @@ define internal fastcc i32 @load_glyph(ptr noundef nonnull %0, ptr noundef write
   %9 = alloca %struct.bit_iterator_t, align 8
   %10 = alloca %struct.bit_iterator_t, align 8
   %11 = tail call i32 @lv_fs_seek(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = call i32 @lv_fs_read(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 4, ptr noundef null) #3
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %read_label.exit.thread
@@ -815,13 +809,13 @@ define internal fastcc i32 @load_glyph(ptr noundef nonnull %0, ptr noundef write
   br i1 %.not6.i, label %read_label.exit, label %read_label.exit.thread
 
 read_label.exit.thread:                           ; preds = %6, %13, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread274
 
 read_label.exit:                                  ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread274, label %19
 
@@ -864,7 +858,7 @@ read_label.exit:                                  ; preds = %15
   br i1 %.not, label %40, label %.thread274
 
 40:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8
   store i64 255, ptr %25, align 8
   %41 = load i8, ptr %26, align 4, !tbaa !70
@@ -1224,7 +1218,7 @@ read_bits.exit205:                                ; preds = %160
   %203 = or disjoint i32 %201, %202
   store i32 %203, ptr %35, align 4
   %spec.select = add nsw i32 %.not148, %.0127339
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
   br i1 %exitcond.not, label %.thread275, label %34, !llvm.loop !85
@@ -1240,7 +1234,7 @@ read_bits.exit205:                                ; preds = %160
   br label %206
 
 206:                                              ; preds = %.critedge294, %.critedge, %read_bits.exit, %read_bits.exit191, %read_bits.exit205
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread274
 
 .thread275:                                       ; preds = %200
@@ -1271,7 +1265,7 @@ read_bits.exit205:                                ; preds = %160
   br i1 %.not150, label %221, label %.thread274
 
 221:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 8
   store i64 255, ptr %209, align 8
   %222 = load i8, ptr %210, align 4, !tbaa !70
@@ -1484,12 +1478,12 @@ read_bits.exit248:                                ; preds = %301
   br label %320
 
 .thread291:                                       ; preds = %267, %237, %288, %read_bits.exit248
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread274
 
 320:                                              ; preds = %313, %._crit_edge391, %.loopexit
   %.7134 = phi i32 [ %.5132346, %.loopexit ], [ %.pre392, %._crit_edge391 ], [ %314, %313 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %exitcond384.not = icmp eq i64 %indvars.iv.next381, %20
   br i1 %exitcond384.not, label %.thread274, label %216, !llvm.loop !87
@@ -1499,13 +1493,19 @@ read_bits.exit248:                                ; preds = %301
   ret i32 %.0118
 }
 
-declare i32 @lv_fs_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_fs_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lv_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

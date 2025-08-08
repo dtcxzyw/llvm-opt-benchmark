@@ -24,7 +24,7 @@ define void @ff_aac_search_for_is(ptr noundef %0, ptr noundef readonly captures(
   %13 = fdiv nsz float 1.024000e+03, %12
   %14 = fdiv nsz float %9, %13
   %15 = fmul nsz float %14, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load i32, ptr %2, align 16, !tbaa !32
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %177, label %.preheader191
@@ -273,21 +273,21 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   %.0142.lcssa = phi float [ 0.000000e+00, %106 ], [ 0.000000e+00, %.preheader.lr.ph ], [ %122, %._crit_edge.us ]
   %.0140.lcssa = phi float [ 0.000000e+00, %106 ], [ 0.000000e+00, %.preheader.lr.ph ], [ %124, %._crit_edge.us ]
   %.0138.lcssa = phi float [ 0.000000e+00, %106 ], [ 0.000000e+00, %.preheader.lr.ph ], [ %126, %._crit_edge.us ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %127 = trunc nuw nsw i64 %indvars.iv247 to i32
   call fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias writable align 4 %5, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.0218, i32 noundef %.0137227, i32 noundef %127, float noundef %.0144.lcssa, float noundef %.0142.lcssa, float noundef %.0138.lcssa, i32 noundef -1)
   %.sroa.0175.0.copyload = load i32, ptr %5, align 4, !tbaa !38
   %.sroa.5176.0.copyload = load i32, ptr %.sroa.5176.0..sroa_idx, align 4, !tbaa !38
   %.sroa.6177.0.copyload = load float, ptr %.sroa.6177.0..sroa_idx, align 4, !tbaa !68
   %.sroa.7178.0.copyload = load float, ptr %.sroa.7178.0..sroa_idx, align 4, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias writable align 4 %6, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.0218, i32 noundef %.0137227, i32 noundef %127, float noundef %.0144.lcssa, float noundef %.0142.lcssa, float noundef %.0140.lcssa, i32 noundef 1)
   %.sroa.0.0.copyload = load i32, ptr %6, align 4, !tbaa !38
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !38
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !68
   %.sroa.6173.0.copyload = load float, ptr %.sroa.6173.0..sroa_idx, align 4, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not163 = icmp ne i32 %.sroa.0175.0.copyload, 0
   %128 = fcmp nsz olt float %.sroa.6177.0.copyload, %.sroa.5.0.copyload
   %or.cond187 = select i1 %.not163, i1 %128, i1 false
@@ -396,18 +396,12 @@ ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98
   br label %177
 
 177:                                              ; preds = %3, %._crit_edge229
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonnull writable writeonly align 4 captures(none) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef range(i32 -1, 2) %9) unnamed_addr #0 {
@@ -668,24 +662,30 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #2
+declare double @llvm.sqrt.f64(double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #2
+declare float @llvm.sqrt.f32(float) #1
 
-declare float @ff_quantize_and_encode_band_cost(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @ff_quantize_and_encode_band_cost(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

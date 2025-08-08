@@ -232,20 +232,14 @@ Vec_WrdPushUnique.exit.us.us:                     ; preds = %21, %Vec_WrdPush.ex
   ret i64 %.us-phi60
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @Extra_Factorial(i32 noundef) local_unnamed_addr #1
 
-declare i32 @Extra_Factorial(i32 noundef) local_unnamed_addr #2
+declare ptr @Extra_GreyCodeSchedule(i32 noundef) local_unnamed_addr #1
 
-declare ptr @Extra_GreyCodeSchedule(i32 noundef) local_unnamed_addr #2
-
-declare ptr @Extra_PermSchedule(i32 noundef) local_unnamed_addr #2
+declare ptr @Extra_PermSchedule(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Acec_MultFuncTest6() local_unnamed_addr #0 {
@@ -259,10 +253,10 @@ define void @Acec_MultFuncTest6() local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(80000) ptr @malloc(i64 noundef 80000) #13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -81985529216486896, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call i64 @Extra_TruthCanonNPN3(i64 noundef -81985529216486896, i32 noundef 6, ptr noundef nonnull %4)
   store i64 %8, ptr %3, align 8, !tbaa !14
   %9 = load ptr, ptr @stdout, align 8, !tbaa !21
@@ -312,16 +306,16 @@ define void @Acec_MultFuncTest6() local_unnamed_addr #0 {
 
 Vec_WrdFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   call void @free(ptr noundef nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @Extra_TruthCanonNPN2(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
@@ -598,11 +592,11 @@ Vec_IntPushUnique.exit65:                         ; preds = %80, %Vec_IntPush.ex
   ret i32 %.042.lcssa
 }
 
-declare ptr @Extra_Permutations(i32 noundef) local_unnamed_addr #2
+declare ptr @Extra_Permutations(i32 noundef) local_unnamed_addr #1
 
-declare i32 @Extra_TruthPolarize(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Extra_TruthPolarize(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Extra_TruthPermute(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Extra_TruthPermute(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Acec_MultFuncTest5() local_unnamed_addr #0 {
@@ -616,10 +610,10 @@ define void @Acec_MultFuncTest5() local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -214586176, ptr %2, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call i32 @Extra_TruthCanonNPN2(i32 noundef -214586176, i32 noundef 5, ptr noundef nonnull %4)
   store i32 %8, ptr %3, align 4, !tbaa !18
   %9 = load ptr, ptr @stdout, align 8, !tbaa !21
@@ -669,9 +663,9 @@ define void @Acec_MultFuncTest5() local_unnamed_addr #0 {
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   call void @free(ptr noundef nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -687,10 +681,10 @@ define void @Acec_MultFuncTest4() local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 62400, ptr %2, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call i32 @Extra_TruthCanonNPN2(i32 noundef 62400, i32 noundef 4, ptr noundef nonnull %4)
   store i32 %8, ptr %3, align 4, !tbaa !18
   %9 = load ptr, ptr @stdout, align 8, !tbaa !21
@@ -741,9 +735,9 @@ define void @Acec_MultFuncTest4() local_unnamed_addr #0 {
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   call void @free(ptr noundef nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1977,7 +1971,7 @@ Vec_IntStart.exit135:                             ; preds = %Vec_IntAlloc.exit.t
   %.val110 = load ptr, ptr %95, align 8, !tbaa !31
   %99 = getelementptr inbounds nuw i32, ptr %.val110, i64 %indvars.iv171
   %100 = load i32, ptr %99, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %101 = call i64 @Gia_ObjComputeTruth6Cis(ptr noundef nonnull %0, i32 noundef %100, ptr noundef nonnull %9, ptr noundef nonnull %14) #11
   store i64 %101, ptr %4, align 8, !tbaa !14
   %.val104 = load i32, ptr %10, align 4, !tbaa !28
@@ -2083,7 +2077,7 @@ Vec_IntStart.exit135:                             ; preds = %Vec_IntAlloc.exit.t
   br label %146
 
 146:                                              ; preds = %145, %.critedge6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %.val105 = load i32, ptr %93, align 4, !tbaa !28
   %147 = sext i32 %.val105 to i64
@@ -2172,9 +2166,9 @@ Vec_IntFree.exit142:                              ; preds = %Vec_IntFree.exit140
   ret ptr %5
 }
 
-declare void @Gia_ManCreateRefs(ptr noundef) local_unnamed_addr #2
+declare void @Gia_ManCreateRefs(ptr noundef) local_unnamed_addr #1
 
-declare i64 @Gia_ObjComputeTruth6Cis(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @Gia_ObjComputeTruth6Cis(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Acec_MultMarkPPs(ptr noundef %0) local_unnamed_addr #0 {
@@ -2463,7 +2457,7 @@ Vec_WrdFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   ret ptr %8
 }
 
-declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #2
+declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Acec_MultFindPPs_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2918,16 +2912,22 @@ Vec_IntFree.exit:                                 ; preds = %1, %5
   ret void
 }
 
-declare void @Gia_ManShow(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Gia_ManShow(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
@@ -2948,13 +2948,13 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

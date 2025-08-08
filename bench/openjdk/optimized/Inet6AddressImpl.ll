@@ -646,9 +646,9 @@ define zeroext i8 @Java_java_net_Inet6AddressImpl_isReachable0(ptr noundef %0, p
   br i1 %50, label %51, label %105
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %6, ptr %17, align 4
   %52 = call i32 @socket(i32 noundef 10, i32 noundef 1, i32 noundef 0) #12
   %53 = icmp eq i32 %52, -1
@@ -767,20 +767,20 @@ thread-pre-split.i:                               ; preds = %94
 
 tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, %87, %89, %101, %103
   %.0.i = phi i8 [ 0, %54 ], [ 0, %62 ], [ 0, %70 ], [ 1, %85 ], [ 0, %89 ], [ 0, %87 ], [ 1, %101 ], [ 0, %103 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %174
 
 105:                                              ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1500, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 1500, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %6, ptr %9, align 4
   store i32 61440, ptr %10, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -920,14 +920,14 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
 ping6.exit:                                       ; preds = %147, %147, %.thread.i, %166, %168, %109, %117, %124, %150
   %.0.i35 = phi i8 [ 0, %109 ], [ 0, %117 ], [ 0, %124 ], [ 0, %150 ], [ 1, %168 ], [ 1, %166 ], [ 0, %.thread.i ], [ 0, %147 ], [ 0, %147 ]
   %173 = call i32 @close(i32 noundef range(i32 0, -1) %49) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1500, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 1500, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %174
 
 174:                                              ; preds = %8, %ping6.exit, %tcp_ping6.exit, %30
@@ -990,10 +990,10 @@ declare i32 @NET_IsZeroAddr(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

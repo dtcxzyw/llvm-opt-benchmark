@@ -682,7 +682,7 @@ invoke.cont33:                                    ; preds = %_ZN5eastl8any_castI
           to label %invoke.cont36 unwind label %lpad18
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr null, ptr %ref.tmp.i, align 8
   store float 1.000000e+00, ptr %ref.tmp.i, align 8
   %m_handler.i.i136 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
@@ -704,7 +704,7 @@ terminate.lpad.i.i.i139:                          ; preds = %if.then.i.i.i137
   unreachable
 
 invoke.cont39:                                    ; preds = %if.then.i.i.i137, %invoke.cont36
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %57 = load ptr, ptr %m_handler.i61, align 8
   %cmp.i.i141 = icmp eq ptr %57, @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.i141, label %if.then.i.i.i143, label %if.then.i142
@@ -825,7 +825,7 @@ _ZN5eastl8any_castIfEET_RNS_3anyE.exit:           ; preds = %_ZN5eastl8any_castI
           to label %invoke.cont46 unwind label %lpad18
 
 invoke.cont46:                                    ; preds = %_ZN5eastl8any_castIfEET_RNS_3anyE.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i183)
   store ptr null, ptr %ref.tmp.i183, align 8
   store i32 4343, ptr %ref.tmp.i183, align 8
   %m_handler.i.i184 = getelementptr inbounds nuw i8, ptr %ref.tmp.i183, i64 32
@@ -847,7 +847,7 @@ terminate.lpad.i.i.i188:                          ; preds = %if.then.i.i.i186
   unreachable
 
 invoke.cont49:                                    ; preds = %if.then.i.i.i186, %invoke.cont46
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i183)
   %80 = load ptr, ptr %m_handler.i61, align 8
   %cmp.i.i190 = icmp eq ptr %80, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.i190, label %if.then.i.i.i192, label %if.then.i191
@@ -910,7 +910,7 @@ invoke.cont51:                                    ; preds = %_ZN5eastl8any_castI
           to label %invoke.cont54 unwind label %lpad18
 
 invoke.cont54:                                    ; preds = %invoke.cont51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i215)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i215)
   %mRemainingSizeField.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i215, i64 23
   %temp.sroa.0.i.i.i.i.i.i.i.sroa.4.0.ref.tmp.i215.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i215, i64 1
   %temp.sroa.0.i.i.i.i.i.i.i.sroa.5.0.ref.tmp.i215.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i215, i64 11
@@ -937,7 +937,7 @@ terminate.lpad.i.i.i220:                          ; preds = %if.then.i.i.i218
   unreachable
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %invoke.cont54, %if.then.i.i.i218
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i215)
   invoke void @_ZN5eastl8any_castINS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE(ptr nonnull sret(%"class.eastl::basic_string") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(40) %a13)
           to label %invoke.cont64 unwind label %lpad18
 
@@ -1713,7 +1713,7 @@ _ZN5eastl3anyD2Ev.exit.i.i.i:                     ; preds = %if.then.i.i.i.i.i, 
 _ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl3anyD2Ev.exit.i.i.i, %invoke.cont187
   call void @_ZdaPv(ptr noundef nonnull %125) #13
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a190, i64 23
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i.sroa.4.0.a190.sroa_idx = getelementptr inbounds nuw i8, ptr %a190, i64 1
   %temp.sroa.0.i.i.i.i.i.i.sroa.5.0.a190.sroa_idx = getelementptr inbounds nuw i8, ptr %a190, i64 11
   %temp.sroa.0.i.i.i.i.i.i.sroa.6.0.a190.sroa_idx = getelementptr inbounds nuw i8, ptr %a190, i64 12
@@ -1724,7 +1724,7 @@ _ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl3anyD2Ev.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i.sroa.6.0.a190.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp191.sroa.6, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp191.sroa.6, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i.sroa.6, i64 11, i1 false)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.sroa.6)
   %m_handler.i535 = getelementptr inbounds nuw i8, ptr %a190, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i535, align 8
   %call199 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.24)
@@ -1795,7 +1795,7 @@ invoke.cont216:                                   ; preds = %if.then.i.i567, %_Z
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i571, align 8
   %arrayinit.element217 = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 40
   store ptr null, ptr %arrayinit.element217, align 8
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %temp.sroa.0.i.i.i.i.i.i593.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i593.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i593.sroa.4.0.arrayinit.element217.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 41
   %temp.sroa.0.i.i.i.i.i.i593.sroa.5.0.arrayinit.element217.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 43
   %temp.sroa.0.i.i.i.i.i.i593.sroa.6.0.arrayinit.element217.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 44
@@ -1807,7 +1807,7 @@ invoke.cont216:                                   ; preds = %if.then.i.i567, %_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %temp.sroa.0.i.i.i.i.i.i593.sroa.6.0.arrayinit.element217.sroa_idx, ptr noundef nonnull align 4 dereferenceable(19) %ref.tmp218.sroa.6, i64 19, i1 false)
   store i8 20, ptr %temp.sroa.0.i.i.i.i.i.i593.sroa.7.0.arrayinit.element217.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %ref.tmp218.sroa.6, ptr noundef nonnull align 1 dereferenceable(19) %temp.sroa.0.i.i.i.i.i.i593.sroa.6, i64 19, i1 false)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %temp.sroa.0.i.i.i.i.i.i593.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i593.sroa.6)
   %m_handler.i596 = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 72
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i596, align 8
   %arrayinit.element224 = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 80
@@ -2192,7 +2192,7 @@ terminate.lpad.i.i767:                            ; preds = %if.then.i.i765
 _ZN5eastl3anyD2Ev.exit768:                        ; preds = %invoke.cont298, %if.then.i.i765
   store ptr null, ptr %ref.tmp300, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i791 = getelementptr inbounds nuw i8, ptr %ref.tmp300, i64 23
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %temp.sroa.0.i.i.i.i.i.i790.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i790.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i790.sroa.4.0.ref.tmp300.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp300, i64 1
   %temp.sroa.0.i.i.i.i.i.i790.sroa.5.0.ref.tmp300.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp300, i64 3
   %temp.sroa.0.i.i.i.i.i.i790.sroa.6.0.ref.tmp300.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp300, i64 4
@@ -2203,7 +2203,7 @@ _ZN5eastl3anyD2Ev.exit768:                        ; preds = %invoke.cont298, %if
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %temp.sroa.0.i.i.i.i.i.i790.sroa.6.0.ref.tmp300.sroa_idx, ptr noundef nonnull align 4 dereferenceable(19) %ref.tmp301.sroa.6, i64 19, i1 false)
   store i8 20, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i791, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %ref.tmp301.sroa.6, ptr noundef nonnull align 1 dereferenceable(19) %temp.sroa.0.i.i.i.i.i.i790.sroa.6, i64 19, i1 false)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %temp.sroa.0.i.i.i.i.i.i790.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i790.sroa.6)
   %m_handler.i793 = getelementptr inbounds nuw i8, ptr %ref.tmp300, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i793, align 8
   %260 = load ptr, ptr %mpEnd.i756, align 8
@@ -3696,7 +3696,7 @@ _ZN10TestObject7IsClearEv.exit1377:               ; preds = %_ZN5eastl6vectorINS
   %485 = phi i1 [ false, %land.lhs.true.i1373 ], [ false, %_ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev.exit1371 ], [ %cmp2.i1376, %land.rhs.i1375 ]
   %call522 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %485, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.2)
   %mRemainingSizeField.i.i.i.i.i.i.i.i1399 = getelementptr inbounds nuw i8, ptr %a523, i64 23
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1398.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1398.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1398.sroa.4.0.a523.sroa_idx = getelementptr inbounds nuw i8, ptr %a523, i64 1
   %temp.sroa.0.i.i.i.i.i.i1398.sroa.5.0.a523.sroa_idx = getelementptr inbounds nuw i8, ptr %a523, i64 11
   %temp.sroa.0.i.i.i.i.i.i1398.sroa.6.0.a523.sroa_idx = getelementptr inbounds nuw i8, ptr %a523, i64 12
@@ -3707,7 +3707,7 @@ _ZN10TestObject7IsClearEv.exit1377:               ; preds = %_ZN5eastl6vectorINS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1398.sroa.6.0.a523.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp524.sroa.6, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1399, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp524.sroa.6, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1398.sroa.6, i64 11, i1 false)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1398.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1398.sroa.6)
   %m_handler.i1401 = getelementptr inbounds nuw i8, ptr %a523, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1401, align 8
   %call532 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @.str.24)
@@ -3932,7 +3932,7 @@ _ZN5eastl3anyD2Ev.exit1488:                       ; preds = %_ZN5eastl3anyD2Ev.e
 
 invoke.cont561:                                   ; preds = %_ZN5eastl3anyD2Ev.exit1488
   %mRemainingSizeField.i.i.i.i.i.i.i.i1513 = getelementptr inbounds nuw i8, ptr %a2563, i64 23
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1512.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1512.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1512.sroa.4.0.a2563.sroa_idx = getelementptr inbounds nuw i8, ptr %a2563, i64 1
   %temp.sroa.0.i.i.i.i.i.i1512.sroa.5.0.a2563.sroa_idx = getelementptr inbounds nuw i8, ptr %a2563, i64 11
   %temp.sroa.0.i.i.i.i.i.i1512.sroa.6.0.a2563.sroa_idx = getelementptr inbounds nuw i8, ptr %a2563, i64 12
@@ -3943,23 +3943,23 @@ invoke.cont561:                                   ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1512.sroa.6.0.a2563.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp564.sroa.6, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1513, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp564.sroa.6, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1512.sroa.6, i64 11, i1 false)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1512.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1512.sroa.6)
   %m_handler.i1515 = getelementptr inbounds nuw i8, ptr %a2563, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1515, align 8
   invoke void @_ZN5eastl8any_castINS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE(ptr nonnull sret(%"class.eastl::basic_string") align 8 %ref.tmp571, ptr noundef nonnull align 8 dereferenceable(40) %a2563)
           to label %invoke.cont573 unwind label %lpad572
 
 invoke.cont573:                                   ; preds = %invoke.cont561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1524)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1524)
   store ptr null, ptr %ref.tmp.i1524, align 8
   store i8 0, ptr %ref.tmp.i1524, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i.i1525 = getelementptr inbounds nuw i8, ptr %ref.tmp.i1524, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i1525, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i1523)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i1523)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i.i1523, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1524, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1524, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp571, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp571, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i.i1523, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i1523)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i1523)
   store i8 0, ptr %ref.tmp571, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i1526 = getelementptr inbounds nuw i8, ptr %ref.tmp571, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1526, align 1
@@ -3982,7 +3982,7 @@ terminate.lpad.i.i.i1531:                         ; preds = %if.then.i.i.i1529
   unreachable
 
 invoke.cont575:                                   ; preds = %if.then.i.i.i1529, %invoke.cont573
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i1524)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1524)
   %523 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1526, align 1
   %tobool.i.i.i1534 = icmp slt i8 %523, 0
   br i1 %tobool.i.i.i1534, label %if.then.i.i1536, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1539
@@ -4090,7 +4090,7 @@ _ZN5eastl3anyD2Ev.exit1575:                       ; preds = %invoke.cont591, %if
 
 call.i.i1615.noexc:                               ; preds = %_ZN5eastl3anyD2Ev.exit1575
   %mRemainingSizeField.i.i.i.i.i.i.i.i1600 = getelementptr inbounds nuw i8, ptr %a2600, i64 23
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1599.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1599.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1599.sroa.4.0.a2600.sroa_idx = getelementptr inbounds nuw i8, ptr %a2600, i64 1
   %temp.sroa.0.i.i.i.i.i.i1599.sroa.5.0.a2600.sroa_idx = getelementptr inbounds nuw i8, ptr %a2600, i64 11
   %temp.sroa.0.i.i.i.i.i.i1599.sroa.6.0.a2600.sroa_idx = getelementptr inbounds nuw i8, ptr %a2600, i64 12
@@ -4101,10 +4101,10 @@ call.i.i1615.noexc:                               ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1599.sroa.6.0.a2600.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp601.sroa.6, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1600, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp601.sroa.6, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1599.sroa.6, i64 11, i1 false)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1599.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1599.sroa.6)
   %m_handler.i1602 = getelementptr inbounds nuw i8, ptr %a2600, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1602, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1610)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1610)
   %m_handler.i.i1611 = getelementptr inbounds nuw i8, ptr %ref.tmp.i1610, i64 32
   %mRemainingSizeField.i.i.i.i.i.i.i.i3774 = getelementptr inbounds nuw i8, ptr %ref.tmp.i1610, i64 23
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i3774, align 1
@@ -4129,7 +4129,7 @@ terminate.lpad.i.i.i1619:                         ; preds = %if.then.i.i.i1617
   unreachable
 
 invoke.cont609:                                   ; preds = %if.then.i.i.i1617, %call.i.i1615.noexc
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i1610)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1610)
   %542 = load ptr, ptr %m_handler.i1576, align 8
   %cmp.i1622 = icmp ne ptr %542, null
   %call613 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1622, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.32)
@@ -4608,7 +4608,7 @@ terminate.lpad.i.i1820:                           ; preds = %if.then.i.i1818
 _ZN5eastl3anyD2Ev.exit1821:                       ; preds = %_ZN5eastl3anyD2Ev.exit1815, %if.then.i.i1818
   store ptr null, ptr %a1664, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i1843 = getelementptr inbounds nuw i8, ptr %a1664, i64 23
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1842.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1842.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1842.sroa.4.0.a1664.sroa_idx = getelementptr inbounds nuw i8, ptr %a1664, i64 1
   %temp.sroa.0.i.i.i.i.i.i1842.sroa.5.0.a1664.sroa_idx = getelementptr inbounds nuw i8, ptr %a1664, i64 5
   %temp.sroa.0.i.i.i.i.i.i1842.sroa.6.0.a1664.sroa_idx = getelementptr inbounds nuw i8, ptr %a1664, i64 6
@@ -4619,12 +4619,12 @@ _ZN5eastl3anyD2Ev.exit1821:                       ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %temp.sroa.0.i.i.i.i.i.i1842.sroa.6.0.a1664.sroa_idx, ptr noundef nonnull align 2 dereferenceable(17) %ref.tmp665.sroa.6, i64 17, i1 false)
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1843, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %ref.tmp665.sroa.6, ptr noundef nonnull align 1 dereferenceable(17) %temp.sroa.0.i.i.i.i.i.i1842.sroa.6, i64 17, i1 false)
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1842.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1842.sroa.6)
   %m_handler.i1845 = getelementptr inbounds nuw i8, ptr %a1664, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1845, align 8
   store ptr null, ptr %a2670, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i1875 = getelementptr inbounds nuw i8, ptr %a2670, i64 23
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1874.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1874.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1874.sroa.4.0.a2670.sroa_idx = getelementptr inbounds nuw i8, ptr %a2670, i64 1
   %temp.sroa.0.i.i.i.i.i.i1874.sroa.5.0.a2670.sroa_idx = getelementptr inbounds nuw i8, ptr %a2670, i64 5
   %temp.sroa.0.i.i.i.i.i.i1874.sroa.6.0.a2670.sroa_idx = getelementptr inbounds nuw i8, ptr %a2670, i64 6
@@ -4635,7 +4635,7 @@ _ZN5eastl3anyD2Ev.exit1821:                       ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %temp.sroa.0.i.i.i.i.i.i1874.sroa.6.0.a2670.sroa_idx, ptr noundef nonnull align 2 dereferenceable(17) %ref.tmp671.sroa.6, i64 17, i1 false)
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1875, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %ref.tmp671.sroa.6, ptr noundef nonnull align 1 dereferenceable(17) %temp.sroa.0.i.i.i.i.i.i1874.sroa.6, i64 17, i1 false)
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1874.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i1874.sroa.6)
   %m_handler.i1877 = getelementptr inbounds nuw i8, ptr %a2670, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1877, align 8
   invoke void @_ZN5eastl8any_castINS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE(ptr nonnull sret(%"class.eastl::basic_string") align 8 %ref.tmp679, ptr noundef nonnull align 8 dereferenceable(40) %a1664)
@@ -5395,7 +5395,7 @@ _ZN5eastl3anyD2Ev.exit2236:                       ; preds = %invoke.cont839, %if
           to label %invoke.cont851 unwind label %lpad850
 
 invoke.cont851:                                   ; preds = %_ZN5eastl3anyD2Ev.exit2236
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2241)
   store ptr null, ptr %ref.tmp.i2241, align 8
   store i32 42, ptr %ref.tmp.i2241, align 8
   %m_handler.i.i2242 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2241, i64 32
@@ -5417,8 +5417,8 @@ terminate.lpad.i.i.i2246:                         ; preds = %if.then.i.i.i2244
   unreachable
 
 invoke.cont854:                                   ; preds = %if.then.i.i.i2244, %invoke.cont851
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i2241)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2248)
   store ptr null, ptr %ref.tmp.i2248, align 8
   store i32 24, ptr %ref.tmp.i2248, align 8
   %m_handler.i.i2249 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2248, i64 32
@@ -5440,7 +5440,7 @@ terminate.lpad.i.i.i2253:                         ; preds = %if.then.i.i.i2251
   unreachable
 
 invoke.cont857:                                   ; preds = %if.then.i.i.i2251, %invoke.cont854
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i2248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2248)
   %731 = load ptr, ptr %m_handler.i2237, align 8
   %cmp.i.i2256 = icmp eq ptr %731, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.i2256, label %if.then.i.i.i2258, label %if.then.i2257
@@ -5569,7 +5569,7 @@ invoke.cont864:                                   ; preds = %invoke.cont861
           to label %invoke.cont871 unwind label %lpad850
 
 invoke.cont871:                                   ; preds = %invoke.cont864
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2305)
   store ptr null, ptr %ref.tmp.i2305, align 8
   store i32 42, ptr %ref.tmp.i2305, align 8
   %m_handler.i.i2306 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2305, i64 32
@@ -5591,8 +5591,8 @@ terminate.lpad.i.i.i2310:                         ; preds = %if.then.i.i.i2308
   unreachable
 
 invoke.cont874:                                   ; preds = %if.then.i.i.i2308, %invoke.cont871
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i2305)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2312)
   store ptr null, ptr %ref.tmp.i2312, align 8
   store i32 42, ptr %ref.tmp.i2312, align 8
   %m_handler.i.i2313 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2312, i64 32
@@ -5614,7 +5614,7 @@ terminate.lpad.i.i.i2317:                         ; preds = %if.then.i.i.i2315
   unreachable
 
 invoke.cont877:                                   ; preds = %if.then.i.i.i2315, %invoke.cont874
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i2312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2312)
   %760 = load ptr, ptr %m_handler.i2237, align 8
   %cmp.i.i2320 = icmp eq ptr %760, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.i2320, label %if.then.i.i.i2322, label %if.then.i2321
@@ -5776,7 +5776,7 @@ terminate.lpad.i.i2380:                           ; preds = %if.then.i.i2378
 
 _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit2446: ; preds = %_ZN5eastl3anyD2Ev.exit2375, %if.then.i.i2378
   %mRemainingSizeField.i.i.i.i.i.i.i.i2404 = getelementptr inbounds nuw i8, ptr %a895, i64 23
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i2403.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i2403.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i2403.sroa.4.0.a895.sroa_idx = getelementptr inbounds nuw i8, ptr %a895, i64 1
   %temp.sroa.0.i.i.i.i.i.i2403.sroa.5.0.a895.sroa_idx = getelementptr inbounds nuw i8, ptr %a895, i64 11
   %temp.sroa.0.i.i.i.i.i.i2403.sroa.6.0.a895.sroa_idx = getelementptr inbounds nuw i8, ptr %a895, i64 12
@@ -5787,7 +5787,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i2403.sroa.6.0.a895.sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp896.sroa.6, i64 11, i1 false)
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i2404, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp896.sroa.6, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i2403.sroa.6, i64 11, i1 false)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i2403.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i2403.sroa.6)
   %m_handler.i2406 = getelementptr inbounds nuw i8, ptr %a895, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2406, align 8
   %bcmp.i2444 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %a895, ptr noundef nonnull dereferenceable(11) @.str.10, i64 11)
@@ -5851,11 +5851,11 @@ _ZN5eastl8any_castIRNS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE.exit2466: ;
   store i8 0, ptr %s, align 8
   %mRemainingSizeField.i.i.i.i.i.i2468 = getelementptr inbounds nuw i8, ptr %s, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2468, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %s, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, ptr noundef nonnull align 8 dereferenceable(24) %call4.i.i2462, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call4.i.i2462, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i)
   store i8 0, ptr %call4.i.i2462, align 1
   %mRemainingSizeField.i.i.i.i2469 = getelementptr inbounds nuw i8, ptr %call4.i.i2462, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i2469, align 1
@@ -5999,11 +5999,11 @@ if.then.i2508:                                    ; preds = %_ZN5eastl8any_castI
   unreachable
 
 invoke.cont924:                                   ; preds = %_ZN5eastl8any_castINS_12basic_stringIcNS_9allocatorEEEEEPT_PNS_3anyE.exit.i2523
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %call4.i.i2521, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call4.i.i2521, ptr noundef nonnull align 8 dereferenceable(24) %s, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, ptr noundef nonnull align 8 dereferenceable(24) %temp.sroa.0.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i)
   %819 = load ptr, ptr %m_handler.i2406, align 8
   %cmp.i.i2527 = icmp eq ptr %819, @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.i2527, label %if.then.i.i.i2529, label %if.then.i2528
@@ -6675,7 +6675,7 @@ _ZN5eastl8any_castIiEEPT_PNS_3anyE.exit:          ; preds = %invoke.cont1049, %i
           to label %invoke.cont1057 unwind label %lpad1056
 
 invoke.cont1057:                                  ; preds = %_ZN5eastl8any_castIiEEPT_PNS_3anyE.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2944)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2944)
   store ptr null, ptr %ref.tmp.i2944, align 8
   store i32 2, ptr %ref.tmp.i2944, align 8
   %m_handler.i.i2945 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2944, i64 32
@@ -6697,7 +6697,7 @@ terminate.lpad.i.i.i2949:                         ; preds = %if.then.i.i.i2947
   unreachable
 
 invoke.cont1060:                                  ; preds = %if.then.i.i.i2947, %invoke.cont1057
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i2944)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2944)
   %923 = load ptr, ptr %m_handler.i2921, align 8
   %call.i2952 = invoke noundef ptr %923(i32 noundef 0, ptr noundef nonnull %a1052, ptr noundef null)
           to label %_ZN5eastl15unsafe_any_castIvEEPT_PNS_3anyE.exit unwind label %terminate.lpad.i2953
@@ -6770,7 +6770,7 @@ invoke.cont1082:                                  ; preds = %_ZN5eastl3anyD2Ev.e
           to label %invoke.cont1087 unwind label %lpad1081
 
 invoke.cont1087:                                  ; preds = %invoke.cont1082
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2977)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2977)
   store ptr null, ptr %ref.tmp.i2977, align 8
   %m_handler.i.i2978 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2977, i64 32
   store ptr null, ptr %m_handler.i.i2978, align 8
@@ -6805,7 +6805,7 @@ terminate.lpad.i.i.i2987:                         ; preds = %if.then.i.i.i2985
   unreachable
 
 invoke.cont1089:                                  ; preds = %if.then.i.i.i2985, %_ZN5eastl3anyC2ERKS0_.exit.i2983
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i2977)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2977)
   %939 = load ptr, ptr %m_handler.i2973, align 8
   %cmp.i2991.not = icmp eq ptr %939, null
   %call1095 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2991.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @.str.87)
@@ -6866,7 +6866,7 @@ invoke.cont1110:                                  ; preds = %_ZN5eastl3anyD2Ev.e
           to label %invoke.cont1115 unwind label %lpad1109
 
 invoke.cont1115:                                  ; preds = %invoke.cont1110
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i3013)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3013)
   store ptr null, ptr %ref.tmp.i3013, align 8
   %m_handler.i.i3014 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3013, i64 32
   store ptr null, ptr %m_handler.i.i3014, align 8
@@ -6901,7 +6901,7 @@ terminate.lpad.i.i.i3023:                         ; preds = %if.then.i.i.i3021
   unreachable
 
 invoke.cont1117:                                  ; preds = %if.then.i.i.i3021, %_ZN5eastl3anyC2ERKS0_.exit.i3019
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i3013)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3013)
   %953 = load ptr, ptr %m_handler.i3008, align 8
   %cmp.i3027.not = icmp eq ptr %953, null
   %call1123 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i3027.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 451, ptr noundef nonnull @.str.87)
@@ -6962,7 +6962,7 @@ invoke.cont1140:                                  ; preds = %invoke.cont1135
           to label %invoke.cont1145 unwind label %lpad1139
 
 invoke.cont1145:                                  ; preds = %invoke.cont1140
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i3049)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3049)
   store ptr null, ptr %ref.tmp.i3049, align 8
   %m_handler.i.i3050 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3049, i64 32
   store ptr null, ptr %m_handler.i.i3050, align 8
@@ -6997,7 +6997,7 @@ terminate.lpad.i.i.i3059:                         ; preds = %if.then.i.i.i3057
   unreachable
 
 invoke.cont1147:                                  ; preds = %if.then.i.i.i3057, %_ZN5eastl3anyC2ERKS0_.exit.i3055
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i3049)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3049)
   %967 = load ptr, ptr %m_handler.i3045, align 8
   %cmp.i3063 = icmp ne ptr %967, null
   %call1153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i3063, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 462, ptr noundef nonnull @.str.89)
@@ -9340,11 +9340,11 @@ _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7des
   store i8 0, ptr %pOther, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %pOther, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i8, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %pOther, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pOther, ptr noundef nonnull align 8 dereferenceable(24) %pThis, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pThis, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   store i8 0, ptr %pThis, align 1
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pThis, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i, align 1
@@ -9973,10 +9973,10 @@ return:                                           ; preds = %entry, %sw.epilog, 
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

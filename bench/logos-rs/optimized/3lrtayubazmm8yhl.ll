@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h63acabb5468ca6f1E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   br label %4
 
@@ -46,7 +46,7 @@ define i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h63acabb5468ca6
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E.exit: ; preds = %11, %13
   %.sroa.0.0.i = phi i8 [ %12, %11 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %.sroa.0.0.i
 }
 
@@ -693,10 +693,10 @@ declare void @_ZN4core4hash6Hasher8write_u817hdb1bc6b9728db45bE(ptr align 8, i8)
 declare void @"_ZN65_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..hash..Hash$GT$4hash17h79ec2b4850dda206E"(ptr align 4, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9

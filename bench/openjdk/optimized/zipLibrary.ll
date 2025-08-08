@@ -131,8 +131,8 @@ _ZN20ZipLibraryLoaderLockC2Ev.exit:               ; preds = %11, %14, %19, %22
   br i1 %25, label %66, label %26
 
 26:                                               ; preds = %_ZN20ZipLibraryLoaderLockC2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %7, i64 noundef 4097, ptr noundef %28, ptr noundef nonnull @.str.10) #8
@@ -160,7 +160,7 @@ thread-pre-split.i:                               ; preds = %26
   br label %_ZL16load_zip_libraryb.exit
 
 37:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %33, ptr noundef nonnull @.str.12) #8
   %39 = icmp eq ptr %38, null
   %or.cond.i.i.i = and i1 %0, %39
@@ -173,9 +173,9 @@ thread-pre-split.i:                               ; preds = %26
   br label %_ZL10dll_lookupPKcS0_b.exit.i.i
 
 _ZL10dll_lookupPKcS0_b.exit.i.i:                  ; preds = %40, %37
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %38, ptr @_ZL8ZIP_Open, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load ptr, ptr @_ZL11_zip_handle, align 8
   %43 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %42, ptr noundef nonnull @.str.13) #8
   %44 = icmp eq ptr %43, null
@@ -189,9 +189,9 @@ _ZL10dll_lookupPKcS0_b.exit.i.i:                  ; preds = %40, %37
   br label %_ZL10dll_lookupPKcS0_b.exit12.i.i
 
 _ZL10dll_lookupPKcS0_b.exit12.i.i:                ; preds = %45, %_ZL10dll_lookupPKcS0_b.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %43, ptr @_ZL9ZIP_Close, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = load ptr, ptr @_ZL11_zip_handle, align 8
   %48 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %47, ptr noundef nonnull @.str.14) #8
   %49 = icmp eq ptr %48, null
@@ -205,9 +205,9 @@ _ZL10dll_lookupPKcS0_b.exit12.i.i:                ; preds = %45, %_ZL10dll_looku
   br label %_ZL10dll_lookupPKcS0_b.exit14.i.i
 
 _ZL10dll_lookupPKcS0_b.exit14.i.i:                ; preds = %50, %_ZL10dll_lookupPKcS0_b.exit12.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %48, ptr @_ZL13ZIP_FindEntry, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr @_ZL11_zip_handle, align 8
   %53 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %52, ptr noundef nonnull @.str.15) #8
   %54 = icmp eq ptr %53, null
@@ -221,9 +221,9 @@ _ZL10dll_lookupPKcS0_b.exit14.i.i:                ; preds = %50, %_ZL10dll_looku
   br label %_ZL10dll_lookupPKcS0_b.exit16.i.i
 
 _ZL10dll_lookupPKcS0_b.exit16.i.i:                ; preds = %55, %_ZL10dll_lookupPKcS0_b.exit14.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %53, ptr @_ZL13ZIP_ReadEntry, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %57 = load ptr, ptr @_ZL11_zip_handle, align 8
   %58 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %57, ptr noundef nonnull @.str.16) #8
   %59 = icmp eq ptr %58, null
@@ -237,7 +237,7 @@ _ZL10dll_lookupPKcS0_b.exit16.i.i:                ; preds = %55, %_ZL10dll_looku
   br label %_ZL23store_function_pointersPKcb.exit.i
 
 _ZL23store_function_pointersPKcb.exit.i:          ; preds = %60, %_ZL10dll_lookupPKcS0_b.exit16.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %58, ptr @_ZL9ZIP_CRC32, align 8
   %62 = load ptr, ptr @_ZL11_zip_handle, align 8
   %63 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %62, ptr noundef nonnull @.str.17) #8
@@ -250,8 +250,8 @@ _ZL23store_function_pointersPKcb.exit.i:          ; preds = %60, %_ZL10dll_looku
   br label %_ZL16load_zip_libraryb.exit
 
 _ZL16load_zip_libraryb.exit:                      ; preds = %35, %36, %_ZL23store_function_pointersPKcb.exit.i
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %66
 
 66:                                               ; preds = %_ZL16load_zip_libraryb.exit, %_ZN20ZipLibraryLoaderLockC2Ev.exit
@@ -503,10 +503,10 @@ define internal void @_GLOBAL__sub_I_zipLibrary.cpp() #2 section ".text.startup"
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

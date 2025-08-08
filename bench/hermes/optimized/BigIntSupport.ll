@@ -2020,11 +2020,11 @@ entry:
   %agg.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %radix.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sign.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %bigintDigits.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %radix.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sign.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bigintDigits.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias nonnull align 8 %bigintDigits.i, ptr %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %radix.i, ptr noundef nonnull align 4 dereferenceable(4) %sign.i, ptr noundef %outError), !noalias !28
   %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %bigintDigits.i, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8, !noalias !28
@@ -2152,11 +2152,11 @@ if.then.i.i.i.i.i:                                ; preds = %nrvo.skipdtor.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %radix.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sign.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %bigintDigits.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %radix.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sign.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bigintDigits.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
   br i1 %tobool.i.i.i, label %if.then, label %_ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit
 
 if.then:                                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2210,11 +2210,11 @@ entry:
   %agg.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %radix.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sign.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %bigintDigits.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %radix.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sign.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bigintDigits.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias nonnull align 8 %bigintDigits.i, ptr %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %radix.i, ptr noundef nonnull align 4 dereferenceable(4) %sign.i, ptr noundef %outError), !noalias !35
   %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %bigintDigits.i, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8, !noalias !35
@@ -2342,11 +2342,11 @@ if.then.i.i.i.i.i:                                ; preds = %nrvo.skipdtor.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %radix.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sign.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %bigintDigits.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %radix.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sign.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bigintDigits.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
   br i1 %tobool.i.i.i, label %if.then, label %_ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit
 
 if.then:                                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2400,11 +2400,11 @@ entry:
   %agg.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %radix.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sign.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %bigintDigits.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %radix.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sign.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bigintDigits.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSC_(ptr noalias nonnull align 8 %bigintDigits.i, ptr %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %radix.i, ptr noundef nonnull align 4 dereferenceable(4) %sign.i, ptr noundef %outError), !noalias !41
   %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %bigintDigits.i, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8, !noalias !41
@@ -2532,11 +2532,11 @@ if.then.i.i.i.i.i:                                ; preds = %nrvo.skipdtor.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %radix.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sign.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %bigintDigits.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %radix.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sign.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bigintDigits.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
   br i1 %tobool.i.i.i, label %if.then, label %_ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit
 
 if.then:                                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2588,7 +2588,7 @@ entry:
   %tmp = alloca %"class.llvh::APInt", align 8
   %quoc = alloca %"class.llvh::APInt", align 8
   %rem = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i)
   store i64 0, ptr %rhs.addr.i, align 8
   br label %while.body.i.i.i.i
 
@@ -2650,18 +2650,18 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_
   br i1 %or.cond41, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   %mul16872 = shl i32 %src.coerce1, 6
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   %cmp.not.i.i.i50 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i ], [ true, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %src.coerce0, ptr noundef nonnull %rhs.addr.i, i32 noundef %src.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   %cmp = icmp eq i32 %call12.i.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -4326,7 +4326,7 @@ entry:
   %_ZN6hermes6bigint12_GLOBAL__N_127negateAdditiveOpPostProcessERNS0_16MutableBigIntRefE._ZN6hermes6bigint12_GLOBAL__N_125noopAdditiveOpPostProcessERNS0_16MutableBigIntRefE = select i1 %cmp.not, ptr @_ZN6hermes6bigint12_GLOBAL__N_127negateAdditiveOpPostProcessERNS0_16MutableBigIntRefE, ptr @_ZN6hermes6bigint12_GLOBAL__N_125noopAdditiveOpPostProcessERNS0_16MutableBigIntRefE
   %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dst.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dst.i)
   store ptr %dst.coerce0, ptr %dst.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %dst.i, i64 8
   store ptr %dst.coerce1, ptr %0, align 8
@@ -4445,7 +4445,7 @@ _ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.
 
 _ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_16MutableBigIntRefEES9_NS0_18ImmutableBigIntRefESD_.exit: ; preds = %entry, %if.end9.i, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit.i
   %retval.0.i = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit.i ], [ 1, %entry ], [ 1, %if.end9.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dst.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dst.i)
   ret i32 %retval.0.i
 }
 
@@ -4919,7 +4919,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %entry, %if.end
   store i32 %add.i.i, ptr %quoc.coerce1, align 4
   store i32 %add.i.i, ptr %rem.coerce1, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i)
   store i64 0, ptr %rhs.addr.i, align 8
   br label %while.body.i.i.i.i
 
@@ -4982,13 +4982,13 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   %cmp.not.i.i.i55 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i ], [ false, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %if.end13
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   %cmp.not.i.i.i56 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i ], [ true, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %rhs.0.val, ptr noundef nonnull %rhs.addr.i, i32 noundef %rhs.8.val) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   %cmp11 = icmp eq i32 %call12.i.i, 0
   br i1 %cmp11, label %return, label %if.end13
 
@@ -5307,7 +5307,7 @@ entry:
   %rhs.addr.i57 = alloca i64, align 8
   %rhs.addr.i27 = alloca i64, align 8
   %rhs.addr.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i)
   store i64 0, ptr %rhs.addr.i, align 8
   br label %while.body.i.i.i.i
 
@@ -5370,7 +5370,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6b
   br i1 %cmp2.i1522.i.i, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread463
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread463: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %if.end.split
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
@@ -5409,21 +5409,21 @@ if.else19.i.i:                                    ; preds = %if.else.i.i, %if.en
   br i1 %cmp22.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread: ; preds = %if.then.i.i, %if.then14.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %cond.true.split
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %if.else19.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br i1 %cmp.not.i.i.i404, label %if.end.split, label %cond.true.split
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.else19.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %return
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %if.end.i.i, %if.end.thread.i.i
   %cmp.not.i.i.i405 = phi i1 [ false, %if.end.i.i ], [ %cmp.not.i.i.i, %if.end.thread.i.i ], [ true, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %rhs.coerce0, ptr noundef nonnull %rhs.addr.i, i32 noundef %rhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   %cmp = icmp slt i32 %call12.i.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -5431,7 +5431,7 @@ if.end:                                           ; preds = %_ZN6hermes6bigint7c
   br i1 %cmp.not.i.i.i405, label %if.end.split, label %cond.true.split
 
 if.end.split:                                     ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread463, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i27)
   store i64 0, ptr %rhs.addr.i27, align 8
   br label %while.body.i.i.i.i28
 
@@ -5473,12 +5473,12 @@ if.then9.i.i54:                                   ; preds = %while.body.i.i.i.i2
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i45, %if.then9.i.i54
   %retval.0.i.i51 = phi i32 [ %call12.i.i55, %if.then9.i.i54 ], [ %spec.select386, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i27)
   br label %cond.end
 
 cond.true.split:                                  ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %if.end
   %23 = load i64, ptr %rhs.coerce0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i57)
   store i64 0, ptr %rhs.addr.i57, align 8
   br label %while.body.i.i.i.i58
 
@@ -5567,7 +5567,7 @@ if.else19.i.i86:                                  ; preds = %if.else.i.i85, %if.
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit105: ; preds = %if.then.i.i95, %if.then.thread.i.i96, %if.then9.i.i93, %if.then14.i.i90, %if.else19.i.i86
   %retval.0.i.i89 = phi i32 [ %call12.i.i94, %if.then9.i.i93 ], [ %cond18.i.i92, %if.then14.i.i90 ], [ %cond23.i.i88, %if.else19.i.i86 ], [ -1, %if.then.thread.i.i96 ], [ 1, %if.then.i.i95 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i57)
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit105
@@ -5587,7 +5587,7 @@ if.else:                                          ; preds = %if.then4
   br label %if.end89
 
 if.else12:                                        ; preds = %cond.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i106)
   store i64 0, ptr %rhs.addr.i106, align 8
   br label %while.body.i.i.i.i107
 
@@ -5650,13 +5650,13 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130: ; preds =
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit154.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i146
   %cmp.not.i.i.i122429 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130 ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149 ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i146 ], [ false, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i106)
   br label %if.else18
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit154: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i146
   %cmp.not.i.i.i122430 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130 ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149 ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i146 ], [ true, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread ]
   %call12.i.i143 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i106, i32 noundef %lhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i106)
   %cmp15 = icmp eq i32 %call12.i.i143, 0
   br i1 %cmp15, label %if.then16, label %if.else18
 
@@ -5671,7 +5671,7 @@ if.else18:                                        ; preds = %_ZN6hermes6bigint7c
   br i1 %cmp20, label %return, label %if.else22
 
 if.else22:                                        ; preds = %if.else18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i155)
   store i64 1, ptr %rhs.addr.i155, align 8
   br label %while.body.i.i.i.i156
 
@@ -5741,12 +5741,12 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i179: ; preds =
   br i1 %or.cond360, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit203, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit203.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit203.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i179, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i198, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i195
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i155)
   br label %if.else30
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit203: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i165.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i179, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i198, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i195
   %call12.i.i192 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i155, i32 noundef %lhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i155)
   %cmp25 = icmp eq i32 %call12.i.i192, 0
   br i1 %cmp25, label %if.then26, label %if.else30
 
@@ -5756,7 +5756,7 @@ if.then26:                                        ; preds = %_ZN6hermes6bigint7c
   br label %if.end89
 
 if.else30:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit203.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit203
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i204)
   store i64 -1, ptr %rhs.addr.i204, align 8
   br label %while.body.i.i.i.i205
 
@@ -5826,12 +5826,12 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i228: ; preds =
   br i1 %or.cond361, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit252, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit252.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit252.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i214.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i228, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i247, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i204)
   br label %if.else40
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit252: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i228, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i247, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i244
   %call12.i.i241 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %lhs.coerce0, ptr noundef nonnull %rhs.addr.i204, i32 noundef %lhs.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i204)
   %cmp33 = icmp eq i32 %call12.i.i241, 0
   br i1 %cmp33, label %if.then34, label %if.else40
 
@@ -6271,7 +6271,7 @@ if.then38:                                        ; preds = %if.end35
   %29 = getelementptr i8, ptr %result.sroa.0.0211, i64 8
   %result.val30.val39 = load ptr, ptr %29, align 8
   %result.val30.val39.val = load i32, ptr %result.val30.val39, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i)
   store i64 0, ptr %rhs.addr.i, align 8
   br label %while.body.i.i.i.i96
 
@@ -6333,12 +6333,12 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_
   br i1 %or.cond191, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %if.else49
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %result.val30.val, ptr noundef nonnull %rhs.addr.i, i32 noundef %result.val30.val39.val) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   %cmp42 = icmp eq i32 %call12.i.i, 0
   br i1 %cmp42, label %if.then43, label %if.else49
 
@@ -6540,7 +6540,7 @@ land.rhs.i:                                       ; preds = %entry
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry, %land.rhs.i
   %1 = phi i1 [ false, %entry ], [ %cmp2.i, %land.rhs.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i)
   store i64 -65536, ptr %rhs.addr.i, align 8
   br label %while.body.i.i.i.i
 
@@ -6640,21 +6640,21 @@ if.else19.i.i:                                    ; preds = %if.else.i.i, %if.en
   br i1 %cmp22.i.i.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %if.else19.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %lor.lhs.false
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread68: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.then14.i.i, %if.then.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i, %if.else19.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %return
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %if.end.i.i, %if.end.thread.i.i
   %call12.i.i = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %shiftAmnt.coerce0, ptr noundef nonnull %rhs.addr.i, i32 noundef %shiftAmnt.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   %cmp = icmp slt i32 %call12.i.i, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhs.addr.i7)
   store i64 65536, ptr %rhs.addr.i7, align 8
   br label %while.body.i.i.i.i8
 
@@ -6749,16 +6749,16 @@ if.else19.i.i36:                                  ; preds = %if.else.i.i35, %if.
   br i1 %cmp22.i.i37.old, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55.thread83, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55.thread: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i24.thread, %if.else19.i.i36, %if.then.i.i45, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i52, %if.then14.i.i40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i7)
   br label %return
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55.thread83: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i24.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i52, %if.then14.i.i40, %if.then.i.i45, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i47, %if.else19.i.i36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i7)
   br label %if.end
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit55: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i17.thread.thread, %if.end.i.i33, %if.end.thread.i.i48
   %call12.i.i44 = call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %shiftAmnt.coerce0, ptr noundef nonnull %rhs.addr.i7, i32 noundef %shiftAmnt.coerce1) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rhs.addr.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i7)
   %cmp6 = icmp sgt i32 %call12.i.i44, 0
   br i1 %cmp6, label %return, label %if.end
 
@@ -6806,7 +6806,7 @@ entry:
 define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9leftShiftENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.39", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp.i.i, ptr %rhs.coerce0, i32 %rhs.coerce1), !noalias !57
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 4
   %0 = load i8, ptr %ref.tmp.i.i, align 4, !noalias !57
@@ -6817,7 +6817,7 @@ entry:
   %div1.i.i.i.i = lshr i32 %sub1.i.i.i.i.i, 6
   %extraDigits.0.i.i.i = select i1 %cmp3.not.i.not.i, i32 %div1.i.i.i.i, i32 0
   %add.i.i.i = add i32 %extraDigits.0.i.i.i, %lhs.coerce1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj._ZN4llvh5APInt11tcShiftLeftEPmjj.i = select i1 %cmp3.not.i.not.i, ptr @_ZN4llvh5APInt11tcShiftLeftEPmjj, ptr @_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj
   %3 = load i32, ptr %dst.coerce1, align 4
   %cmp5.i = icmp ult i32 %3, %add.i.i.i
@@ -6908,7 +6908,7 @@ _ZN6hermes6bigint12_GLOBAL__N_19shiftImplENS1_9ShiftOpIsENS0_16MutableBigIntRefE
 define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint16signedRightShiftENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.39", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp.i.i, ptr %rhs.coerce0, i32 %rhs.coerce1), !noalias !61
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 4
   %0 = load i8, ptr %ref.tmp.i.i, align 4, !noalias !61
@@ -6919,7 +6919,7 @@ entry:
   %div1.i.i.i.i = lshr i32 %sub1.i.i.i.i.i, 6
   %extraDigits.0.i.i.i = select i1 %cmp3.not.i.not.i.not, i32 0, i32 %div1.i.i.i.i
   %add.i.i.i = add i32 %extraDigits.0.i.i.i, %lhs.coerce1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj._ZN4llvh5APInt11tcShiftLeftEPmjj.i = select i1 %cmp3.not.i.not.i.not, ptr @_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj, ptr @_ZN4llvh5APInt11tcShiftLeftEPmjj
   %3 = load i32, ptr %dst.coerce1, align 4
   %cmp5.i = icmp ult i32 %3, %add.i.i.i
@@ -7602,10 +7602,10 @@ if.end79:                                         ; preds = %if.then.i.i.i.i.i48
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

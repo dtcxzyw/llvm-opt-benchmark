@@ -70,19 +70,19 @@ define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_418aces
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store float 0x3FE782A9A0000000, ptr %1, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 0x3FD0FAACE0000000, ptr %10, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 1.000000e+00, ptr %11, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0x3F1A36E2E0000000, ptr %3, align 4, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0xBFB3B645A0000000, ptr %12, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0x3FD49667C0000000, ptr %4, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0x3FD59C62A0000000, ptr %13, align 4, !tbaa !9
@@ -90,10 +90,10 @@ define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_418aces
           to label %14 unwind label %17
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %15 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %16
@@ -104,10 +104,10 @@ define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_418aces
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   resume { ptr, i32 } %18
 }
@@ -115,15 +115,9 @@ define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_418aces
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @_ZN7Imf_3_414ChromaticitiesC1ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr noundef nonnull align 4 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #0
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #4
@@ -201,7 +195,7 @@ common.resume:                                    ; preds = %.body, %22
   br label %common.resume
 
 _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5, %5, %5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN7Imf_3_46HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %14, ptr noundef nonnull align 8 dereferenceable(49) %2)
   %24 = load atomic i8, ptr @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr acquire, align 8
   %25 = icmp eq i8 %24, 0
@@ -213,19 +207,19 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5
   br i1 %.not.i, label %_ZN7Imf_3_418acesChromaticitiesEv.exit, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0x3FE782A9A0000000, ptr %10, align 4, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0x3FD0FAACE0000000, ptr %29, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float 1.000000e+00, ptr %30, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0x3F1A36E2E0000000, ptr %12, align 4, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0xBFB3B645A0000000, ptr %31, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0x3FD49667C0000000, ptr %13, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0x3FD59C62A0000000, ptr %32, align 4, !tbaa !9
@@ -233,10 +227,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5
           to label %33 unwind label %35
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %34 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -244,10 +238,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -266,19 +260,19 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %33, %26, %_ZN7Imf_3
   br i1 %.not.i10, label %_ZN7Imf_3_418acesChromaticitiesEv.exit13, label %42
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0x3FE782A9A0000000, ptr %6, align 4, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0x3FD0FAACE0000000, ptr %43, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 1.000000e+00, ptr %44, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0x3F1A36E2E0000000, ptr %8, align 4, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0xBFB3B645A0000000, ptr %45, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0x3FD49667C0000000, ptr %9, align 4, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0x3FD59C62A0000000, ptr %46, align 4, !tbaa !9
@@ -286,10 +280,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %33, %26, %_ZN7Imf_3
           to label %47 unwind label %49
 
 47:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit13
@@ -297,10 +291,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %33, %26, %_ZN7Imf_3
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -325,7 +319,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit13:         ; preds = %47, %40, %37
 
 57:                                               ; preds = %55
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
 58:                                               ; preds = %55, %51, %_ZN7Imf_3_418acesChromaticitiesEv.exit13, %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -342,7 +336,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit13:         ; preds = %47, %40, %37
 .body:                                            ; preds = %35, %49, %58, %60
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %36, %35 ], [ %59, %58 ], [ %50, %49 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 }
 
@@ -411,7 +405,7 @@ common.resume:                                    ; preds = %.body, %22
   br label %common.resume
 
 _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5, %5, %5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN7Imf_3_46HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %14, ptr noundef nonnull align 8 dereferenceable(49) %2)
   %24 = load atomic i8, ptr @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr acquire, align 8
   %25 = icmp eq i8 %24, 0
@@ -423,19 +417,19 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5
   br i1 %.not.i, label %_ZN7Imf_3_418acesChromaticitiesEv.exit, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0x3FE782A9A0000000, ptr %10, align 4, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0x3FD0FAACE0000000, ptr %29, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float 1.000000e+00, ptr %30, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0x3F1A36E2E0000000, ptr %12, align 4, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0xBFB3B645A0000000, ptr %31, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0x3FD49667C0000000, ptr %13, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0x3FD59C62A0000000, ptr %32, align 4, !tbaa !9
@@ -443,10 +437,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5
           to label %33 unwind label %35
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %34 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -454,10 +448,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %5
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -476,19 +470,19 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %33, %26, %_ZN7Imf_3
   br i1 %.not.i11, label %_ZN7Imf_3_418acesChromaticitiesEv.exit14, label %42
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0x3FE782A9A0000000, ptr %6, align 4, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0x3FD0FAACE0000000, ptr %43, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 1.000000e+00, ptr %44, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0x3F1A36E2E0000000, ptr %8, align 4, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0xBFB3B645A0000000, ptr %45, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0x3FD49667C0000000, ptr %9, align 4, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0x3FD59C62A0000000, ptr %46, align 4, !tbaa !9
@@ -496,10 +490,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %33, %26, %_ZN7Imf_3
           to label %47 unwind label %49
 
 47:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit14
@@ -507,10 +501,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %33, %26, %_ZN7Imf_3
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -534,7 +528,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit14:         ; preds = %47, %40, %37
 
 56:                                               ; preds = %54
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
 57:                                               ; preds = %54, %51, %_ZN7Imf_3_418acesChromaticitiesEv.exit14, %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -551,7 +545,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit14:         ; preds = %47, %40, %37
 .body:                                            ; preds = %35, %49, %57, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %36, %35 ], [ %58, %57 ], [ %50, %49 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 }
 
@@ -599,7 +593,7 @@ common.resume:                                    ; preds = %.body, %26
   br label %common.resume
 
 _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %11, %11, %11
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = load i32, ptr %3, align 4, !tbaa !30
@@ -622,19 +616,19 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %1
   br i1 %.not.i, label %_ZN7Imf_3_418acesChromaticitiesEv.exit, label %43
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0x3FE782A9A0000000, ptr %16, align 4, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0x3FD0FAACE0000000, ptr %44, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 1.000000e+00, ptr %45, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float 0x3F1A36E2E0000000, ptr %18, align 4, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float 0xBFB3B645A0000000, ptr %46, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float 0x3FD49667C0000000, ptr %19, align 4, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0x3FD59C62A0000000, ptr %47, align 4, !tbaa !9
@@ -642,10 +636,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %1
           to label %48 unwind label %50
 
 48:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %49 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -653,10 +647,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %1
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -675,19 +669,19 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %48, %41, %_ZN7Imf_3
   br i1 %.not.i17, label %_ZN7Imf_3_418acesChromaticitiesEv.exit20, label %57
 
 57:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0x3FE782A9A0000000, ptr %12, align 4, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0x3FD0FAACE0000000, ptr %58, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 1.000000e+00, ptr %59, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0x3F1A36E2E0000000, ptr %14, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0xBFB3B645A0000000, ptr %60, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 0x3FD49667C0000000, ptr %15, align 4, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0x3FD59C62A0000000, ptr %61, align 4, !tbaa !9
@@ -695,10 +689,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %48, %41, %_ZN7Imf_3
           to label %62 unwind label %64
 
 62:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %63 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit20
@@ -706,10 +700,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %48, %41, %_ZN7Imf_3
 64:                                               ; preds = %57
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -734,7 +728,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit20:         ; preds = %62, %55, %52
 
 72:                                               ; preds = %70
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %20) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 
 73:                                               ; preds = %70, %66, %_ZN7Imf_3_418acesChromaticitiesEv.exit20, %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -751,7 +745,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit20:         ; preds = %62, %55, %52
 .body:                                            ; preds = %50, %64, %73, %75
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %51, %50 ], [ %74, %73 ], [ %65, %64 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %20) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 }
 
@@ -799,7 +793,7 @@ common.resume:                                    ; preds = %.body, %26
   br label %common.resume
 
 _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %11, %11, %11
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN7Imf_3_46HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %20, i32 noundef %2, i32 noundef %3, float noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %6, float noundef %7, i32 noundef %8, i32 noundef %9)
   %28 = load atomic i8, ptr @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr acquire, align 8
   %29 = icmp eq i8 %28, 0
@@ -811,19 +805,19 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %1
   br i1 %.not.i, label %_ZN7Imf_3_418acesChromaticitiesEv.exit, label %32
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0x3FE782A9A0000000, ptr %16, align 4, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0x3FD0FAACE0000000, ptr %33, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 1.000000e+00, ptr %34, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float 0x3F1A36E2E0000000, ptr %18, align 4, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float 0xBFB3B645A0000000, ptr %35, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float 0x3FD49667C0000000, ptr %19, align 4, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0x3FD59C62A0000000, ptr %36, align 4, !tbaa !9
@@ -831,10 +825,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %1
           to label %37 unwind label %39
 
 37:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %38 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -842,10 +836,10 @@ _ZN7Imf_3_412_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %1
 39:                                               ; preds = %32
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -864,19 +858,19 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %37, %30, %_ZN7Imf_3
   br i1 %.not.i15, label %_ZN7Imf_3_418acesChromaticitiesEv.exit18, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0x3FE782A9A0000000, ptr %12, align 4, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0x3FD0FAACE0000000, ptr %47, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 1.000000e+00, ptr %48, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0x3F1A36E2E0000000, ptr %14, align 4, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0xBFB3B645A0000000, ptr %49, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 0x3FD49667C0000000, ptr %15, align 4, !tbaa !4
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0x3FD59C62A0000000, ptr %50, align 4, !tbaa !9
@@ -884,10 +878,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %37, %30, %_ZN7Imf_3
           to label %51 unwind label %53
 
 51:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %52 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit18
@@ -895,10 +889,10 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %37, %30, %_ZN7Imf_3
 53:                                               ; preds = %46
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %.body
 
@@ -923,7 +917,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit18:         ; preds = %51, %44, %41
 
 61:                                               ; preds = %59
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %20) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 
 62:                                               ; preds = %59, %55, %_ZN7Imf_3_418acesChromaticitiesEv.exit18, %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -940,7 +934,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit18:         ; preds = %51, %44, %41
 .body:                                            ; preds = %39, %53, %62, %64
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %40, %39 ], [ %63, %62 ], [ %54, %53 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %20) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 }
 
@@ -1177,28 +1171,28 @@ define hidden void @_ZN7Imf_3_413AcesInputFile4Data19initColorConversionEv(ptr n
   %13 = alloca %"class.Imath_3_2::Matrix44", align 4
   %14 = load ptr, ptr %0, align 8, !tbaa !32
   %15 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_413RgbaInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0x3FE47AE140000000, ptr %7, align 4, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 0x3FD51EB860000000, ptr %16, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0x3FD3333340000000, ptr %8, align 4, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0x3FE3333340000000, ptr %17, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0x3FC3333340000000, ptr %9, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0x3FAEB851E0000000, ptr %18, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0x3FD40346E0000000, ptr %10, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0x3FD50E5600000000, ptr %19, align 4, !tbaa !9
   call void @_ZN7Imf_3_414ChromaticitiesC1ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = call noundef zeroext i1 @_ZN7Imf_3_417hasChromaticitiesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %15)
   br i1 %20, label %21, label %._crit_edge
 
@@ -1263,7 +1257,7 @@ define hidden void @_ZN7Imf_3_413AcesInputFile4Data19initColorConversionEv(ptr n
 56:                                               ; preds = %51, %45
   %.sroa.098.0 = phi float [ %53, %51 ], [ %47, %45 ]
   %.sroa.6100.0 = phi float [ %55, %51 ], [ %46, %45 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %57 = load atomic i8, ptr @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr acquire, align 8
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %59, label %_ZN7Imf_3_418acesChromaticitiesEv.exit, !prof !3
@@ -1274,19 +1268,19 @@ define hidden void @_ZN7Imf_3_413AcesInputFile4Data19initColorConversionEv(ptr n
   br i1 %.not.i, label %_ZN7Imf_3_418acesChromaticitiesEv.exit, label %61
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0x3FE782A9A0000000, ptr %2, align 4, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0x3FD0FAACE0000000, ptr %62, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 1.000000e+00, ptr %63, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0x3F1A36E2E0000000, ptr %4, align 4, !tbaa !4
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0xBFB3B645A0000000, ptr %64, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0x3FD49667C0000000, ptr %5, align 4, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0x3FD59C62A0000000, ptr %65, align 4, !tbaa !9
@@ -1294,10 +1288,10 @@ define hidden void @_ZN7Imf_3_413AcesInputFile4Data19initColorConversionEv(ptr n
           to label %66 unwind label %68
 
 66:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %67 = call ptr @llvm.invariant.start.p0(i64 32, ptr nonnull @_ZZN7Imf_3_418acesChromaticitiesEvE7acesChr)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_418acesChromaticitiesEv.exit
@@ -1305,10 +1299,10 @@ define hidden void @_ZN7Imf_3_413AcesInputFile4Data19initColorConversionEv(ptr n
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_418acesChromaticitiesEvE7acesChr) #14
   resume { ptr, i32 } %69
 
@@ -1513,7 +1507,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %56, %59, %66
   %248 = call float @llvm.fmuladd.f32(float %182, float 0.000000e+00, float %247)
   %249 = call float @llvm.fmuladd.f32(float %186, float 0.000000e+00, float %248)
   %250 = fadd float %249, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN7Imf_3_48RGBtoXYZERKNS_14ChromaticitiesEf(ptr dead_on_unwind nonnull writable sret(%"class.Imath_3_2::Matrix44") align 4 %12, ptr noundef nonnull align 4 dereferenceable(32) %6, float noundef 1.000000e+00)
   %251 = load float, ptr %12, align 4, !tbaa !31, !noalias !41
   %252 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1610,7 +1604,7 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %56, %59, %66
   %343 = call float @llvm.fmuladd.f32(float %323, float %202, float %342)
   %344 = call float @llvm.fmuladd.f32(float %327, float %234, float %343)
   %345 = call float @llvm.fmuladd.f32(float %329, float %250, float %344)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN7Imf_3_48XYZtoRGBERKNS_14ChromaticitiesEf(ptr dead_on_unwind nonnull writable sret(%"class.Imath_3_2::Matrix44") align 4 %13, ptr noundef nonnull align 4 dereferenceable(32) %11, float noundef 1.000000e+00)
   %346 = load float, ptr %13, align 4, !tbaa !31, !noalias !44
   %347 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1739,13 +1733,13 @@ _ZN7Imf_3_418acesChromaticitiesEv.exit:           ; preds = %56, %59, %66
   store float %436, ptr %455, align 4, !tbaa !31
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %440, ptr %456, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %457
 
 457:                                              ; preds = %107, %113
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2423,6 +2417,12 @@ define internal void @_GLOBAL__sub_I_ImfAcesFile.cpp() #11 section ".text.startu
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #12

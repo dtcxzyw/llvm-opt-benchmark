@@ -69,7 +69,7 @@ define range(i32 0, 2) i32 @jsimd_can_rgb_ycc() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @init_simd() unnamed_addr #0 {
   %1 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i16 0, ptr %1, align 2
   %2 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @simd_support)
   %3 = load i32, ptr %2, align 4, !tbaa !3
@@ -207,7 +207,7 @@ GETENV_S.exit17:                                  ; preds = %33
   br label %GETENV_S.exit20
 
 GETENV_S.exit20:                                  ; preds = %44, %50, %51, %0
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -311,39 +311,33 @@ switch.lookup:                                    ; preds = %10
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @jsimd_extrgb_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgb_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgb_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgb_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgbx_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgbx_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgbx_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgbx_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgr_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgr_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgr_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgr_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgrx_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgrx_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgrx_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgrx_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxbgr_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxbgr_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxbgr_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxbgr_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxrgb_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxrgb_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxrgb_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxrgb_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_rgb_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_rgb_ycc_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @jsimd_rgb_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @jsimd_rgb_ycc_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_rgb_gray_convert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -385,33 +379,33 @@ switch.lookup:                                    ; preds = %10
   ret void
 }
 
-declare void @jsimd_extrgb_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgb_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgb_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgb_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgbx_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgbx_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extrgbx_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extrgbx_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgr_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgr_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgr_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgr_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgrx_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgrx_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extbgrx_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extbgrx_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxbgr_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxbgr_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxbgr_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxbgr_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxrgb_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxrgb_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_extxrgb_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_extxrgb_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_rgb_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_rgb_gray_convert_avx2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_rgb_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_rgb_gray_convert_sse2(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_ycc_rgb_convert(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -453,33 +447,33 @@ switch.lookup:                                    ; preds = %10
   ret void
 }
 
-declare void @jsimd_ycc_extrgb_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extrgb_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extrgb_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extrgb_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extrgbx_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extrgbx_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extrgbx_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extrgbx_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extbgr_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extbgr_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extbgr_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extbgr_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extbgrx_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extbgrx_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extbgrx_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extbgrx_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extxbgr_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extxbgr_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extxbgr_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extxbgr_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extxrgb_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extxrgb_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_extxrgb_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_extxrgb_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_rgb_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_rgb_convert_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_ycc_rgb_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_ycc_rgb_convert_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @jsimd_ycc_rgb565_convert(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -546,9 +540,9 @@ define void @jsimd_h2v2_downsample(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-declare void @jsimd_h2v2_downsample_avx2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_downsample_avx2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_downsample_sse2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_downsample_sse2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_h2v1_downsample(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -588,9 +582,9 @@ define void @jsimd_h2v1_downsample(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-declare void @jsimd_h2v1_downsample_avx2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_downsample_avx2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_downsample_sse2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_downsample_sse2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_h2v2_upsample() local_unnamed_addr #0 {
@@ -648,9 +642,9 @@ define void @jsimd_h2v2_upsample(ptr noundef readonly captures(none) %0, ptr nou
   ret void
 }
 
-declare void @jsimd_h2v2_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_h2v1_upsample(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -686,9 +680,9 @@ define void @jsimd_h2v1_upsample(ptr noundef readonly captures(none) %0, ptr nou
   ret void
 }
 
-declare void @jsimd_h2v1_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_h2v2_fancy_upsample() local_unnamed_addr #0 {
@@ -776,9 +770,9 @@ define void @jsimd_h2v2_fancy_upsample(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-declare void @jsimd_h2v2_fancy_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_fancy_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_fancy_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_fancy_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_h2v1_fancy_upsample(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -814,9 +808,9 @@ define void @jsimd_h2v1_fancy_upsample(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-declare void @jsimd_h2v1_fancy_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_fancy_upsample_avx2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_fancy_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_fancy_upsample_sse2(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_h2v2_merged_upsample() local_unnamed_addr #0 {
@@ -910,33 +904,33 @@ switch.lookup:                                    ; preds = %9
   ret void
 }
 
-declare void @jsimd_h2v2_extrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extrgbx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extrgbx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extrgbx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extrgbx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extbgrx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extbgrx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extbgrx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extbgrx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extxbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extxbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extxbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extxbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extxrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extxrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_extxrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_extxrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v2_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v2_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_h2v1_merged_upsample(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -978,33 +972,33 @@ switch.lookup:                                    ; preds = %9
   ret void
 }
 
-declare void @jsimd_h2v1_extrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extrgbx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extrgbx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extrgbx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extrgbx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extbgrx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extbgrx_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extbgrx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extbgrx_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extxbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extxbgr_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extxbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extxbgr_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extxrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extxrgb_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_extxrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_extxrgb_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_merged_upsample_avx2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_h2v1_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_h2v1_merged_upsample_sse2(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_convsamp() local_unnamed_addr #0 {
@@ -1057,9 +1051,9 @@ define void @jsimd_convsamp(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   ret void
 }
 
-declare void @jsimd_convsamp_avx2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_convsamp_avx2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_convsamp_sse2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_convsamp_sse2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_convsamp_float(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1067,7 +1061,7 @@ define void @jsimd_convsamp_float(ptr noundef %0, i32 noundef %1, ptr noundef %2
   ret void
 }
 
-declare void @jsimd_convsamp_float_sse2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_convsamp_float_sse2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_fdct_islow() local_unnamed_addr #0 {
@@ -1153,9 +1147,9 @@ define void @jsimd_fdct_islow(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @jsimd_fdct_islow_avx2(ptr noundef) local_unnamed_addr #4
+declare void @jsimd_fdct_islow_avx2(ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_fdct_islow_sse2(ptr noundef) local_unnamed_addr #4
+declare void @jsimd_fdct_islow_sse2(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_fdct_ifast(ptr noundef %0) local_unnamed_addr #0 {
@@ -1163,7 +1157,7 @@ define void @jsimd_fdct_ifast(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @jsimd_fdct_ifast_sse2(ptr noundef) local_unnamed_addr #4
+declare void @jsimd_fdct_ifast_sse2(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_fdct_float(ptr noundef %0) local_unnamed_addr #0 {
@@ -1171,7 +1165,7 @@ define void @jsimd_fdct_float(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @jsimd_fdct_float_sse(ptr noundef) local_unnamed_addr #4
+declare void @jsimd_fdct_float_sse(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_quantize() local_unnamed_addr #0 {
@@ -1224,9 +1218,9 @@ define void @jsimd_quantize(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   ret void
 }
 
-declare void @jsimd_quantize_avx2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_quantize_avx2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @jsimd_quantize_sse2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_quantize_sse2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_quantize_float(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1234,7 +1228,7 @@ define void @jsimd_quantize_float(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ret void
 }
 
-declare void @jsimd_quantize_float_sse2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_quantize_float_sse2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_idct_2x2() local_unnamed_addr #0 {
@@ -1272,7 +1266,7 @@ define void @jsimd_idct_2x2(ptr noundef readnone captures(none) %0, ptr noundef 
   ret void
 }
 
-declare void @jsimd_idct_2x2_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_idct_2x2_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_idct_4x4(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1282,7 +1276,7 @@ define void @jsimd_idct_4x4(ptr noundef readnone captures(none) %0, ptr noundef 
   ret void
 }
 
-declare void @jsimd_idct_4x4_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_idct_4x4_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_idct_islow() local_unnamed_addr #0 {
@@ -1370,9 +1364,9 @@ define void @jsimd_idct_islow(ptr noundef readnone captures(none) %0, ptr nounde
   ret void
 }
 
-declare void @jsimd_idct_islow_avx2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_idct_islow_avx2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @jsimd_idct_islow_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_idct_islow_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_idct_ifast(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1382,7 +1376,7 @@ define void @jsimd_idct_ifast(ptr noundef readnone captures(none) %0, ptr nounde
   ret void
 }
 
-declare void @jsimd_idct_ifast_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_idct_ifast_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @jsimd_idct_float(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1392,7 +1386,7 @@ define void @jsimd_idct_float(ptr noundef readnone captures(none) %0, ptr nounde
   ret void
 }
 
-declare void @jsimd_idct_float_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @jsimd_idct_float_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_huff_encode_one_block() local_unnamed_addr #0 {
@@ -1418,7 +1412,7 @@ define ptr @jsimd_huff_encode_one_block(ptr noundef %0, ptr noundef %1, ptr noun
   ret ptr %7
 }
 
-declare ptr @jsimd_huff_encode_one_block_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @jsimd_huff_encode_one_block_sse2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_encode_mcu_AC_first_prepare() local_unnamed_addr #0 {
@@ -1436,7 +1430,7 @@ define void @jsimd_encode_mcu_AC_first_prepare(ptr noundef %0, ptr noundef %1, i
   ret void
 }
 
-declare void @jsimd_encode_mcu_AC_first_prepare_sse2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @jsimd_encode_mcu_AC_first_prepare_sse2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jsimd_can_encode_mcu_AC_refine_prepare() local_unnamed_addr #0 {
@@ -1454,27 +1448,33 @@ define i32 @jsimd_encode_mcu_AC_refine_prepare(ptr noundef %0, ptr noundef %1, i
   ret i32 %7
 }
 
-declare i32 @jsimd_encode_mcu_AC_refine_prepare_sse2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @jsimd_encode_mcu_AC_refine_prepare_sse2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @jpeg_simd_cpu_support() local_unnamed_addr #4
+declare i32 @jpeg_simd_cpu_support() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

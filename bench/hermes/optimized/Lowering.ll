@@ -642,7 +642,7 @@ entry:
   %0 = load ptr, ptr %Parent.i, align 8
   %1 = ptrtoint ptr %userBasicBlockMap to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %Slabs.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %ref.tmp.i, i8 0, i64 24, i1 false), !noalias !9
@@ -672,7 +672,7 @@ entry:
   %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 148
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !9
   %call.i.i = call noundef ptr @_ZNK4llvh17DominatorTreeBaseIN6hermes10BasicBlockELb0EE7getNodeEPKS2_(ptr noundef nonnull align 8 dereferenceable(72) %DI, ptr noundef %0) #13, !noalias !9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %nodesToProcess.i.i.i), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %nodesToProcess.i.i.i), !noalias !9
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nodesToProcess.i.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %nodesToProcess.i.i.i, align 8, !noalias !9
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nodesToProcess.i.i.i, i64 8
@@ -900,7 +900,7 @@ if.then.i.i29.i.i.i:                              ; preds = %while.end.i.i.i
   br label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i"
 
 "_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContextC2ESM_S7_OSN_.exit.i": ; preds = %if.then.i.i29.i.i.i, %while.end.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %nodesToProcess.i.i.i), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %nodesToProcess.i.i.i), !noalias !9
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %add.ptr.i.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %sortedBlocks, i64 16
   store ptr %add.ptr.i.i.i.i.i.i1.i, ptr %sortedBlocks, align 8, !alias.scope !18
@@ -1026,7 +1026,7 @@ if.then.i.i6.i.i.i.i.i:                           ; preds = %_ZN4llvh11SmallVect
   br label %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit"
 
 "_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit": ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i.i, %if.then.i.i6.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i8, ptr %agg.result, align 8
   %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -3839,7 +3839,7 @@ if.then:                                          ; preds = %for.body12
   br i1 %cmp, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %it.sroa.0.018) #13
   %call.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %it.sroa.0.018, i32 noundef 0) #13
   store ptr %call.i.i, ptr %ref.tmp1.i, align 8
@@ -3851,7 +3851,7 @@ if.then17:                                        ; preds = %if.then
   %spec.select.i9 = select i1 %5, ptr null, ptr %add.ptr4.i
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i.i.i, ptr noundef %spec.select.i9) #13
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.018) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then, %if.then17, %for.body12
@@ -5294,10 +5294,10 @@ return:                                           ; preds = %for.body.i, %if.the
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

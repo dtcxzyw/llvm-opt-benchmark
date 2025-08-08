@@ -541,7 +541,7 @@ define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakI
   call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull %6, i1 noundef zeroext true)
   %17 = load ptr, ptr %15, align 8
   %18 = add i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %._ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit_crit_edge, label %20
@@ -570,7 +570,7 @@ define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakI
 
 _ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit: ; preds = %._ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit_crit_edge, %20
   %.pre-phi = phi i64 [ %.pre, %._ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit_crit_edge ], [ %23, %20 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw [5 x ptr], ptr @_ZL7indents, i64 0, i64 %.pre-phi
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -590,7 +590,7 @@ _ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit: ; preds 
   %35 = load ptr, ptr %26, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.5, ptr noundef %35) #13
   call void @_ZNK15WorkerDataArrayImE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %33, ptr noundef nonnull %6, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i15 = icmp eq ptr %36, null
   br i1 %.not.i15, label %_ZNK18WeakProcessorTimes11log_detailsImEEvP15WorkerDataArrayIT_Ej.exit, label %37
@@ -608,7 +608,7 @@ _ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit: ; preds 
   br label %_ZNK18WeakProcessorTimes11log_detailsImEEvP15WorkerDataArrayIT_Ej.exit
 
 _ZNK18WeakProcessorTimes11log_detailsImEEvP15WorkerDataArrayIT_Ej.exit: ; preds = %34, %37
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %29, %_ZNK18WeakProcessorTimes11log_detailsImEEvP15WorkerDataArrayIT_Ej.exit
@@ -1032,10 +1032,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

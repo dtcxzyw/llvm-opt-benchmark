@@ -49,7 +49,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %9
 _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %13
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4800) %12, ptr noundef nonnull dereferenceable(4800) %5, i64 4800)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %.not7.i.i.i.i.i, label %17, label %15
 
 15:                                               ; preds = %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit
@@ -71,7 +71,7 @@ _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %13
   unreachable
 
 17:                                               ; preds = %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 18:                                               ; preds = %17, %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -235,7 +235,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %.noexc28, %55
   br i1 %70, label %71, label %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread151
 
 _ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread151: ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %72
 
 71:                                               ; preds = %66
@@ -243,13 +243,13 @@ _ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread151: ; preds = %66
   br i1 %.not.i.i.i.i.i29, label %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %74
 
 _ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %71
   %bcmp.i.i.i.i.i30 = tail call i32 @bcmp(ptr %.sroa.071.1, ptr %.sroa.090.1, i64 %48)
   %.not7.i.i.i.i.i31 = icmp eq i32 %bcmp.i.i.i.i.i30, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %.not7.i.i.i.i.i31, label %74, label %72
 
 72:                                               ; preds = %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread151, %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit
@@ -271,7 +271,7 @@ _ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %71
   unreachable
 
 74:                                               ; preds = %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit, %_ZSteqImSaImEEbRKSt6vectorIT_T0_ES6_.exit.thread
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.not.i.i.i = icmp eq ptr %.sroa.071.1, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %75
@@ -425,10 +425,10 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

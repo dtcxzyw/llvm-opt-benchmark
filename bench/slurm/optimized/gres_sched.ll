@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_sched_str(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
@@ -73,25 +73,19 @@ define dso_local ptr @gres_sched_str(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %1, %._crit_edge
   %.015 = phi ptr [ %24, %._crit_edge ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.015
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @slurm_list_iterator_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_iterator_create(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2
+declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @gres_sched_init(ptr noundef %0) local_unnamed_addr #0 {
@@ -178,7 +172,7 @@ define dso_local noundef zeroext i1 @gres_sched_test(ptr noundef %0, i32 noundef
 define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %163, label %15
@@ -339,7 +333,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
 .loopexit:                                        ; preds = %.lr.ph130, %81, %79
   %96 = phi ptr [ %80, %79 ], [ %82, %81 ], [ %91, %.lr.ph130 ]
   %.2 = phi i64 [ %.0108.ph133, %79 ], [ %.0108.ph133, %81 ], [ %95, %.lr.ph130 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %.not.i, label %97, label %_gres_per_job_reduce_res_cores.exit.thread
 
 97:                                               ; preds = %.loopexit
@@ -468,13 +462,13 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   br label %_gres_per_job_reduce_res_cores.exit
 
 _gres_per_job_reduce_res_cores.exit.thread:       ; preds = %97, %100, %109, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %152
 
 _gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink.split.i
   %.5115 = phi i64 [ %.4114, %.critedge.i ], [ %.3113, %.sink.split.i ]
   %.8 = phi i64 [ %.6, %.critedge.i ], [ %.4, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %151 = icmp ult i64 %.5115, %.072
   br i1 %151, label %.sink.split, label %152
 
@@ -519,21 +513,21 @@ _gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink
 
 163:                                              ; preds = %.sink.split, %12, %15
   %.0 = phi i1 [ true, %15 ], [ true, %12 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.0
 }
 
-declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_gres_find_sock_by_job_state(ptr noundef, ptr noundef) #2
+declare i32 @slurm_gres_find_sock_by_job_state(ptr noundef, ptr noundef) #1
 
-declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #2
+declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #1
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_bit_set_count_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_set_count_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_sched_consec(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -607,11 +601,11 @@ define dso_local void @gres_sched_consec(ptr noundef captures(none) %0, ptr noun
   ret void
 }
 
-declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_gres_sock_delete(ptr noundef) #2
+declare void @slurm_gres_sock_delete(ptr noundef) #1
 
-declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -672,17 +666,23 @@ define dso_local noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr n
   ret i1 %.016
 }
 
-declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_and(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_and(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_bit_set_count(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_set_count(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
-declare i64 @slurm_bit_fls_from_bit(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @slurm_bit_fls_from_bit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @slurm_bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #3
@@ -694,8 +694,8 @@ declare i64 @llvm.umin.i64(i64, i64) #3
 declare i16 @llvm.umin.i16(i16, i16) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

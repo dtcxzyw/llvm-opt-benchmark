@@ -16590,7 +16590,7 @@ _ZNK5eastl6bitsetILm129EmE4noneEv.exit784:        ; preds = %for.body.i.i776
   %and2.i927 = and i64 %54, 1
   %cmp.i928 = icmp ne i64 %and2.i927, 0
   %call980 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i928, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 559, ptr noundef nonnull @.str.173)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %b129, i64 24, i1 false), !noalias !129
   br label %for.body.i.i.i
 
@@ -16610,7 +16610,7 @@ _ZNK5eastl6bitsetILm129EmEcoEv.exit:              ; preds = %for.body.i.i.i
   %and.i.i932 = and i64 %56, 1
   store i64 %and.i.i932, ptr %arrayidx.i.i931, align 8, !noalias !129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %b129Not, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %57 = load i64, ptr %b129, align 8
   %and2.i939 = and i64 %57, 1
   %cmp.i940 = icmp ne i64 %and2.i939, 0
@@ -16858,8 +16858,8 @@ for.body.i.i1735:                                 ; preds = %for.body.i.i1735, %
 
 _ZNK5eastl6bitsetILm129EmEeqERKS1_.exit1743:      ; preds = %for.body.i.i1735
   %call1599 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4.not.i.i1739, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 812, ptr noundef nonnull @.str.188)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1744.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1744.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1744.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1744.sroa.6)
   %ref.tmp.i1744.sroa.0.0.copyload = load i64, ptr %b129, align 8, !noalias !135
   store i64 %ref.tmp.i1744.sroa.0.0.copyload, ptr %ref.tmp.i1744.sroa.0, align 8, !noalias !135
   %ref.tmp.i1744.sroa.6.0.copyload = load i64, ptr %i7.016.i.i.sroa.gep6359, align 8, !noalias !135
@@ -16879,8 +16879,8 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
 _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
   %ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.copyload6231 = load i64, ptr %ref.tmp.i1744.sroa.0, align 8
   %ref.tmp.i1744.sroa.6.0.ref.tmp.i1744.sroa.6.0.ref.tmp.i1744.sroa.6.0.ref.tmp.i1744.sroa.6.0.copyload6232 = load i64, ptr %ref.tmp.i1744.sroa.6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1744.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1744.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1744.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1744.sroa.6)
   %ref.tmp1600.sroa.0.sroa.2.0.b129Equal.sroa_idx = getelementptr inbounds nuw i8, ptr %b129Equal, i64 8
   %and2.i1754 = and i64 %ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.copyload6231, 4194304
   %cmp.i1755 = icmp ne i64 %and2.i1754, 0
@@ -16894,7 +16894,7 @@ _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
   store i64 4294967297, ptr %b129, align 8
   store i64 1, ptr %i7.016.i.i.sroa.gep6359, align 8
   store i64 1, ptr %i7.016.i.i.sroa.gep6358, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1800)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1800)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1800, ptr noundef nonnull align 8 dereferenceable(24) %b129, i64 24, i1 false), !noalias !138
   %arrayidx13.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i1800, i64 16
   %.pre.i.i.i1801 = load i64, ptr %arrayidx13.phi.trans.insert.i.i.i, align 8, !noalias !138
@@ -16920,7 +16920,7 @@ _ZNK5eastl6bitsetILm129EmElsEm.exit:              ; preds = %for.body11.i.i.i
   %and.i.i1804 = and i64 %93, 1
   store i64 %and.i.i1804, ptr %arrayidx13.phi.trans.insert.i.i.i, align 8, !noalias !138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %b129Equal, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1800, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i1800)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1800)
   %94 = load i64, ptr %b129Equal, align 8
   %and2.i1811 = and i64 %94, 1024
   %cmp.i1812 = icmp ne i64 %and2.i1811, 0
@@ -19887,10 +19887,10 @@ declare i32 @llvm.fshr.i32(i32, i32, i32) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8

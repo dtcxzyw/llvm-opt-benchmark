@@ -2156,12 +2156,12 @@ entry:
   store ptr %ptr, ptr %ptr.addr, align 8
   store ptr %ptr, ptr %node_owner, align 8
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %call.i.i4 = invoke noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEEE4NodeENSG_9KeyHasherENSG_13KeyValueEqualESaISI_ESt17integral_constantIbLb0EEE18eraseUnderlyingKeyISI_RZNSO_5eraseERKSI_EUlOSI_E_EEmRKT_OT0_(ptr noundef nonnull align 8 dereferenceable(32) %index_, ptr noundef nonnull align 8 dereferenceable(8) %ptr.addr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %lru_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %base_iter, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -2671,7 +2671,7 @@ invoke.cont:                                      ; preds = %if.else
   %appParams4.i.i.i = getelementptr inbounds nuw i8, ptr %value, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %appParams.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %appParams4.i.i.i) #25
   store ptr %call10, ptr %node, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i.i), !noalias !32
   %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %pr.i) #25, !noalias !35
   %call2.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %pr.i) #25, !noalias !35
   %call.i2.i.i.i.i.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i.i.i.i.i.i.i, i64 noundef %call2.i.i.i.i.i.i.i.i.i, i64 noundef 3339675911)
@@ -2689,7 +2689,7 @@ _ZN5folly6detail22callWithConstructedKeyIPNS_16EvictingCacheMapINSt7__cxx1112bas
   %shr.i.i.i.i.i.i = lshr i64 %call.i2.i.i.i.i.i.i.i.i.i, 56
   %or.i.i.i.i.i.i = or i64 %shr.i.i.i.i.i.i, 128
   call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSH_9KeyHasherENSH_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE19tryEmplaceValueImplISJ_JRSJ_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESS_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.43") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(32) %index_, i64 %call.i2.i.i.i.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull align 8 dereferenceable(8) %node), !noalias !44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i), !noalias !32
   %lru_11 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %node, align 8
   %m_header.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -2854,12 +2854,12 @@ for.body:                                         ; preds = %land.rhs
   %dec.i.i = add i64 %6, -1
   store i64 %dec.i.i, ptr %lru_, align 8, !noalias !45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !noalias !45
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %call.i.i9 = invoke noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEEE4NodeENSG_9KeyHasherENSG_13KeyValueEqualESaISI_ESt17integral_constantIbLb0EEE18eraseUnderlyingKeyISI_RZNSO_5eraseERKSI_EUlOSI_E_EEmRKT_OT0_(ptr noundef nonnull align 8 dereferenceable(32) %index_, ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %7 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.not, label %_ZNSt10unique_ptrIN5folly16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS0_23HeterogeneousAccessHashIS7_vEENS0_26HeterogeneousAccessEqualToIS7_vEEE4NodeESt14default_deleteISF_EED2Ev.exit, label %if.then
@@ -4292,10 +4292,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

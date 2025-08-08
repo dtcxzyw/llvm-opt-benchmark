@@ -226,7 +226,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   br i1 %.not27, label %120, label %25
 
 25:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %26 = load ptr, ptr @g_proxy_resolver_get_default, align 8
   %27 = call ptr %26() #10
@@ -404,7 +404,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loopexit.i
   %.0.i = phi ptr [ null, %25 ], [ null, %29 ], [ %.1.i, %.loopexit.i ], [ null, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %241
 
 120:                                              ; preds = %23
@@ -413,7 +413,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br i1 %.not28, label %241, label %122
 
 122:                                              ; preds = %120
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %123 = load ptr, ptr @ptype_httpID, align 8
   %124 = load ptr, ptr @my_get_string_func, align 8
   %125 = load ptr, ptr @gconf_client, align 8
@@ -618,7 +618,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
 
 getProxyByGConf.exit:                             ; preds = %206, %122, %127, %198, %.critedge85.i, %219, %224, %228, %233
   %.049.i = phi ptr [ null, %219 ], [ null, %.critedge85.i ], [ null, %228 ], [ null, %224 ], [ null, %198 ], [ %spec.select86.i, %233 ], [ null, %127 ], [ null, %122 ], [ null, %206 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %241
 
 241:                                              ; preds = %120, %getProxyByGConf.exit, %getProxyByGProxyResolver.exit
@@ -685,10 +685,10 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

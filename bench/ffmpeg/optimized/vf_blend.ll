@@ -346,19 +346,13 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #3
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #4
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #4
-
-declare i32 @ff_framesync_init_dualinput(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ff_framesync_init_dualinput(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @config_params(ptr noundef %0) unnamed_addr #0 {
@@ -565,15 +559,15 @@ ff_blend_init.exit:                               ; preds = %40, %.thread22.sink
   ret i32 %spec.select
 }
 
-declare i32 @ff_framesync_configure(ptr noundef) local_unnamed_addr #4
+declare i32 @ff_framesync_configure(ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @av_expr_free(ptr noundef) local_unnamed_addr #4
+declare void @av_expr_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @av_expr_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @av_expr_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @blend_expr_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr readnone captures(none) %8, ptr noundef readonly captures(none) %9) #0 {
@@ -801,7 +795,7 @@ define internal void @blend_expr_8bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_8_8bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_8_8bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -819,7 +813,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_9_16bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_9_16bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -837,7 +831,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_10_16bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_10_16bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -855,7 +849,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_12_16bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_12_16bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -873,7 +867,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_14_16bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_14_16bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -891,7 +885,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_16_16bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_16_16bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -909,7 +903,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @init_blend_func_32_32bit(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @init_blend_func_32_32bit(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp ult i32 %2, 40
   br i1 %3, label %switch.lookup, label %6
@@ -991,7 +985,7 @@ define internal void @blend_copybottom_8(ptr readnone captures(none) %0, i64 %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1041,7 +1035,7 @@ define internal void @blend_addition_8bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1096,7 +1090,7 @@ define internal void @blend_grainmerge_8bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1145,7 +1139,7 @@ define internal void @blend_and_8bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1195,7 +1189,7 @@ define internal void @blend_average_8bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1259,7 +1253,7 @@ define internal void @blend_burn_8bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1308,7 +1302,7 @@ define internal void @blend_darken_8bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1358,7 +1352,7 @@ define internal void @blend_difference_8bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1413,7 +1407,7 @@ define internal void @blend_grainextract_8bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1475,7 +1469,7 @@ define internal void @blend_divide_8bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1537,7 +1531,7 @@ define internal void @blend_dodge_8bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1588,7 +1582,7 @@ define internal void @blend_exclusion_8bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1640,7 +1634,7 @@ define internal void @blend_extremity_8bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1704,7 +1698,7 @@ define internal void @blend_freeze_8bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1766,7 +1760,7 @@ define internal void @blend_glow_8bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1838,7 +1832,7 @@ define internal void @blend_hardlight_8bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1888,7 +1882,7 @@ define internal void @blend_hardmix_8bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -1952,7 +1946,7 @@ define internal void @blend_heat_8bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2001,7 +1995,7 @@ define internal void @blend_lighten_8bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2061,7 +2055,7 @@ define internal void @blend_linearlight_8bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2113,7 +2107,7 @@ define internal void @blend_multiply_8bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2172,7 +2166,7 @@ define internal void @blend_multiply128_8bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2223,7 +2217,7 @@ define internal void @blend_negation_8bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_normal_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_normal_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2272,7 +2266,7 @@ define internal void @blend_normal_8bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2321,7 +2315,7 @@ define internal void @blend_or_8bit(ptr noundef readonly captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2396,7 +2390,7 @@ define internal void @blend_overlay_8bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2449,7 +2443,7 @@ define internal void @blend_phoenix_8bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2512,7 +2506,7 @@ define internal void @blend_pinlight_8bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2574,7 +2568,7 @@ define internal void @blend_reflect_8bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2628,7 +2622,7 @@ define internal void @blend_screen_8bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2689,7 +2683,7 @@ define internal void @blend_softlight_8bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2739,7 +2733,7 @@ define internal void @blend_subtract_8bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2821,7 +2815,7 @@ define internal void @blend_vividlight_8bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2870,7 +2864,7 @@ define internal void @blend_xor_8bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -2950,7 +2944,7 @@ define internal void @blend_softdifference_8bit(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3003,7 +2997,7 @@ define internal void @blend_geometric_8bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3068,7 +3062,7 @@ define internal void @blend_harmonic_8bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3120,7 +3114,7 @@ define internal void @blend_bleach_8bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3170,7 +3164,7 @@ define internal void @blend_stain_8bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3232,7 +3226,7 @@ define internal void @blend_interpolate_8bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_8bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3303,19 +3297,19 @@ define internal void @blend_hardoverlay_8bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #7
+declare float @llvm.sqrt.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f32(float) #7
+declare i64 @llvm.lrint.i64.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.cos.f32(float) #7
+declare float @llvm.cos.f32(float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3368,7 +3362,7 @@ define internal void @blend_addition_9bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3425,7 +3419,7 @@ define internal void @blend_grainmerge_9bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3477,7 +3471,7 @@ define internal void @blend_and_9bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3530,7 +3524,7 @@ define internal void @blend_average_9bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3595,7 +3589,7 @@ define internal void @blend_burn_9bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3647,7 +3641,7 @@ define internal void @blend_darken_9bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3700,7 +3694,7 @@ define internal void @blend_difference_9bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3755,7 +3749,7 @@ define internal void @blend_grainextract_9bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3822,7 +3816,7 @@ define internal void @blend_divide_9bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3885,7 +3879,7 @@ define internal void @blend_dodge_9bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3939,7 +3933,7 @@ define internal void @blend_exclusion_9bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -3995,7 +3989,7 @@ define internal void @blend_extremity_9bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4063,7 +4057,7 @@ define internal void @blend_freeze_9bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4126,7 +4120,7 @@ define internal void @blend_glow_9bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4197,7 +4191,7 @@ define internal void @blend_hardlight_9bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4251,7 +4245,7 @@ define internal void @blend_hardmix_9bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4314,7 +4308,7 @@ define internal void @blend_heat_9bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4366,7 +4360,7 @@ define internal void @blend_lighten_9bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4426,7 +4420,7 @@ define internal void @blend_linearlight_9bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4479,7 +4473,7 @@ define internal void @blend_multiply_9bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4538,7 +4532,7 @@ define internal void @blend_multiply128_9bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4593,7 +4587,7 @@ define internal void @blend_negation_9bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_normal_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_normal_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4645,7 +4639,7 @@ define internal void @blend_normal_16bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4697,7 +4691,7 @@ define internal void @blend_or_9bit(ptr noundef readonly captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4771,7 +4765,7 @@ define internal void @blend_overlay_9bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4827,7 +4821,7 @@ define internal void @blend_phoenix_9bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4893,7 +4887,7 @@ define internal void @blend_pinlight_9bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -4961,7 +4955,7 @@ define internal void @blend_reflect_9bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5017,7 +5011,7 @@ define internal void @blend_screen_9bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5079,7 +5073,7 @@ define internal void @blend_softlight_9bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5132,7 +5126,7 @@ define internal void @blend_subtract_9bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5213,7 +5207,7 @@ define internal void @blend_vividlight_9bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5265,7 +5259,7 @@ define internal void @blend_xor_9bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5349,7 +5343,7 @@ define internal void @blend_softdifference_9bit(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5405,7 +5399,7 @@ define internal void @blend_geometric_9bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5470,7 +5464,7 @@ define internal void @blend_harmonic_9bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5523,7 +5517,7 @@ define internal void @blend_bleach_9bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5576,7 +5570,7 @@ define internal void @blend_stain_9bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5641,7 +5635,7 @@ define internal void @blend_interpolate_9bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_9bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5712,7 +5706,7 @@ define internal void @blend_hardoverlay_9bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5765,7 +5759,7 @@ define internal void @blend_addition_10bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5822,7 +5816,7 @@ define internal void @blend_grainmerge_10bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5874,7 +5868,7 @@ define internal void @blend_and_10bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5927,7 +5921,7 @@ define internal void @blend_average_10bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -5992,7 +5986,7 @@ define internal void @blend_burn_10bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6044,7 +6038,7 @@ define internal void @blend_darken_10bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6097,7 +6091,7 @@ define internal void @blend_difference_10bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6152,7 +6146,7 @@ define internal void @blend_grainextract_10bit(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6219,7 +6213,7 @@ define internal void @blend_divide_10bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6282,7 +6276,7 @@ define internal void @blend_dodge_10bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6336,7 +6330,7 @@ define internal void @blend_exclusion_10bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6392,7 +6386,7 @@ define internal void @blend_extremity_10bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6460,7 +6454,7 @@ define internal void @blend_freeze_10bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6523,7 +6517,7 @@ define internal void @blend_glow_10bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6594,7 +6588,7 @@ define internal void @blend_hardlight_10bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6648,7 +6642,7 @@ define internal void @blend_hardmix_10bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6711,7 +6705,7 @@ define internal void @blend_heat_10bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6763,7 +6757,7 @@ define internal void @blend_lighten_10bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6823,7 +6817,7 @@ define internal void @blend_linearlight_10bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6876,7 +6870,7 @@ define internal void @blend_multiply_10bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6935,7 +6929,7 @@ define internal void @blend_multiply128_10bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -6990,7 +6984,7 @@ define internal void @blend_negation_10bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7042,7 +7036,7 @@ define internal void @blend_or_10bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7116,7 +7110,7 @@ define internal void @blend_overlay_10bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7172,7 +7166,7 @@ define internal void @blend_phoenix_10bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7238,7 +7232,7 @@ define internal void @blend_pinlight_10bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7306,7 +7300,7 @@ define internal void @blend_reflect_10bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7362,7 +7356,7 @@ define internal void @blend_screen_10bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7424,7 +7418,7 @@ define internal void @blend_softlight_10bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7477,7 +7471,7 @@ define internal void @blend_subtract_10bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7558,7 +7552,7 @@ define internal void @blend_vividlight_10bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7610,7 +7604,7 @@ define internal void @blend_xor_10bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7694,7 +7688,7 @@ define internal void @blend_softdifference_10bit(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7750,7 +7744,7 @@ define internal void @blend_geometric_10bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7815,7 +7809,7 @@ define internal void @blend_harmonic_10bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7868,7 +7862,7 @@ define internal void @blend_bleach_10bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7921,7 +7915,7 @@ define internal void @blend_stain_10bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -7986,7 +7980,7 @@ define internal void @blend_interpolate_10bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_10bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8057,7 +8051,7 @@ define internal void @blend_hardoverlay_10bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8110,7 +8104,7 @@ define internal void @blend_addition_12bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8167,7 +8161,7 @@ define internal void @blend_grainmerge_12bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8219,7 +8213,7 @@ define internal void @blend_and_12bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8272,7 +8266,7 @@ define internal void @blend_average_12bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8337,7 +8331,7 @@ define internal void @blend_burn_12bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8389,7 +8383,7 @@ define internal void @blend_darken_12bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8442,7 +8436,7 @@ define internal void @blend_difference_12bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8497,7 +8491,7 @@ define internal void @blend_grainextract_12bit(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8564,7 +8558,7 @@ define internal void @blend_divide_12bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8627,7 +8621,7 @@ define internal void @blend_dodge_12bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8681,7 +8675,7 @@ define internal void @blend_exclusion_12bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8737,7 +8731,7 @@ define internal void @blend_extremity_12bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8805,7 +8799,7 @@ define internal void @blend_freeze_12bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8868,7 +8862,7 @@ define internal void @blend_glow_12bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8939,7 +8933,7 @@ define internal void @blend_hardlight_12bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -8993,7 +8987,7 @@ define internal void @blend_hardmix_12bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9056,7 +9050,7 @@ define internal void @blend_heat_12bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9108,7 +9102,7 @@ define internal void @blend_lighten_12bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9168,7 +9162,7 @@ define internal void @blend_linearlight_12bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9221,7 +9215,7 @@ define internal void @blend_multiply_12bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9280,7 +9274,7 @@ define internal void @blend_multiply128_12bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9335,7 +9329,7 @@ define internal void @blend_negation_12bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9387,7 +9381,7 @@ define internal void @blend_or_12bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9461,7 +9455,7 @@ define internal void @blend_overlay_12bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9517,7 +9511,7 @@ define internal void @blend_phoenix_12bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9583,7 +9577,7 @@ define internal void @blend_pinlight_12bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9651,7 +9645,7 @@ define internal void @blend_reflect_12bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9707,7 +9701,7 @@ define internal void @blend_screen_12bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9769,7 +9763,7 @@ define internal void @blend_softlight_12bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9822,7 +9816,7 @@ define internal void @blend_subtract_12bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9903,7 +9897,7 @@ define internal void @blend_vividlight_12bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -9955,7 +9949,7 @@ define internal void @blend_xor_12bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10039,7 +10033,7 @@ define internal void @blend_softdifference_12bit(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10095,7 +10089,7 @@ define internal void @blend_geometric_12bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10160,7 +10154,7 @@ define internal void @blend_harmonic_12bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10213,7 +10207,7 @@ define internal void @blend_bleach_12bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10266,7 +10260,7 @@ define internal void @blend_stain_12bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10331,7 +10325,7 @@ define internal void @blend_interpolate_12bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_12bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10402,7 +10396,7 @@ define internal void @blend_hardoverlay_12bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10455,7 +10449,7 @@ define internal void @blend_addition_14bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10512,7 +10506,7 @@ define internal void @blend_grainmerge_14bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10564,7 +10558,7 @@ define internal void @blend_and_14bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10617,7 +10611,7 @@ define internal void @blend_average_14bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10682,7 +10676,7 @@ define internal void @blend_burn_14bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10734,7 +10728,7 @@ define internal void @blend_darken_14bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10787,7 +10781,7 @@ define internal void @blend_difference_14bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10842,7 +10836,7 @@ define internal void @blend_grainextract_14bit(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10909,7 +10903,7 @@ define internal void @blend_divide_14bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -10972,7 +10966,7 @@ define internal void @blend_dodge_14bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11026,7 +11020,7 @@ define internal void @blend_exclusion_14bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11082,7 +11076,7 @@ define internal void @blend_extremity_14bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11150,7 +11144,7 @@ define internal void @blend_freeze_14bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11213,7 +11207,7 @@ define internal void @blend_glow_14bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11284,7 +11278,7 @@ define internal void @blend_hardlight_14bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11338,7 +11332,7 @@ define internal void @blend_hardmix_14bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11401,7 +11395,7 @@ define internal void @blend_heat_14bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11453,7 +11447,7 @@ define internal void @blend_lighten_14bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11513,7 +11507,7 @@ define internal void @blend_linearlight_14bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11566,7 +11560,7 @@ define internal void @blend_multiply_14bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11625,7 +11619,7 @@ define internal void @blend_multiply128_14bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11680,7 +11674,7 @@ define internal void @blend_negation_14bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11732,7 +11726,7 @@ define internal void @blend_or_14bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11806,7 +11800,7 @@ define internal void @blend_overlay_14bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11862,7 +11856,7 @@ define internal void @blend_phoenix_14bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11928,7 +11922,7 @@ define internal void @blend_pinlight_14bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -11996,7 +11990,7 @@ define internal void @blend_reflect_14bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12052,7 +12046,7 @@ define internal void @blend_screen_14bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12114,7 +12108,7 @@ define internal void @blend_softlight_14bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12167,7 +12161,7 @@ define internal void @blend_subtract_14bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12248,7 +12242,7 @@ define internal void @blend_vividlight_14bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12300,7 +12294,7 @@ define internal void @blend_xor_14bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12384,7 +12378,7 @@ define internal void @blend_softdifference_14bit(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12440,7 +12434,7 @@ define internal void @blend_geometric_14bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12505,7 +12499,7 @@ define internal void @blend_harmonic_14bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12558,7 +12552,7 @@ define internal void @blend_bleach_14bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12611,7 +12605,7 @@ define internal void @blend_stain_14bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12676,7 +12670,7 @@ define internal void @blend_interpolate_14bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_14bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12747,7 +12741,7 @@ define internal void @blend_hardoverlay_14bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12800,7 +12794,7 @@ define internal void @blend_addition_16bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12857,7 +12851,7 @@ define internal void @blend_grainmerge_16bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12909,7 +12903,7 @@ define internal void @blend_and_16bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -12962,7 +12956,7 @@ define internal void @blend_average_16bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13027,7 +13021,7 @@ define internal void @blend_burn_16bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13079,7 +13073,7 @@ define internal void @blend_darken_16bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13132,7 +13126,7 @@ define internal void @blend_difference_16bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13187,7 +13181,7 @@ define internal void @blend_grainextract_16bit(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13254,7 +13248,7 @@ define internal void @blend_divide_16bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13318,7 +13312,7 @@ define internal void @blend_dodge_16bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13372,7 +13366,7 @@ define internal void @blend_exclusion_16bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13427,7 +13421,7 @@ define internal void @blend_extremity_16bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13491,7 +13485,7 @@ define internal void @blend_freeze_16bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13555,7 +13549,7 @@ define internal void @blend_glow_16bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13626,7 +13620,7 @@ define internal void @blend_hardlight_16bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13679,7 +13673,7 @@ define internal void @blend_hardmix_16bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13742,7 +13736,7 @@ define internal void @blend_heat_16bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13794,7 +13788,7 @@ define internal void @blend_lighten_16bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13854,7 +13848,7 @@ define internal void @blend_linearlight_16bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13907,7 +13901,7 @@ define internal void @blend_multiply_16bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -13966,7 +13960,7 @@ define internal void @blend_multiply128_16bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14020,7 +14014,7 @@ define internal void @blend_negation_16bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14072,7 +14066,7 @@ define internal void @blend_or_16bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14146,7 +14140,7 @@ define internal void @blend_overlay_16bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14202,7 +14196,7 @@ define internal void @blend_phoenix_16bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14268,7 +14262,7 @@ define internal void @blend_pinlight_16bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14331,7 +14325,7 @@ define internal void @blend_reflect_16bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14387,7 +14381,7 @@ define internal void @blend_screen_16bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14448,7 +14442,7 @@ define internal void @blend_softlight_16bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14501,7 +14495,7 @@ define internal void @blend_subtract_16bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14582,7 +14576,7 @@ define internal void @blend_vividlight_16bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14634,7 +14628,7 @@ define internal void @blend_xor_16bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14714,7 +14708,7 @@ define internal void @blend_softdifference_16bit(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14770,7 +14764,7 @@ define internal void @blend_geometric_16bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14835,7 +14829,7 @@ define internal void @blend_harmonic_16bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14890,7 +14884,7 @@ define internal void @blend_bleach_16bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -14943,7 +14937,7 @@ define internal void @blend_stain_16bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15008,7 +15002,7 @@ define internal void @blend_interpolate_16bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_16bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15079,7 +15073,7 @@ define internal void @blend_hardoverlay_16bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_addition_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_addition_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15128,7 +15122,7 @@ define internal void @blend_addition_32bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainmerge_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainmerge_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15176,7 +15170,7 @@ define internal void @blend_grainmerge_32bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_and_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_and_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15225,7 +15219,7 @@ define internal void @blend_and_32bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_average_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_average_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15273,7 +15267,7 @@ define internal void @blend_average_32bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_burn_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_burn_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -15340,7 +15334,7 @@ define internal void @blend_burn_32bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_darken_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_darken_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15388,7 +15382,7 @@ define internal void @blend_darken_32bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_difference_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_difference_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15436,7 +15430,7 @@ define internal void @blend_difference_32bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_grainextract_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_grainextract_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15484,7 +15478,7 @@ define internal void @blend_grainextract_32bit(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_divide_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_divide_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15533,7 +15527,7 @@ define internal void @blend_divide_32bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_dodge_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_dodge_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -15599,7 +15593,7 @@ define internal void @blend_dodge_32bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_exclusion_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_exclusion_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15649,7 +15643,7 @@ define internal void @blend_exclusion_32bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_extremity_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_extremity_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15698,7 +15692,7 @@ define internal void @blend_extremity_32bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_freeze_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_freeze_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15758,7 +15752,7 @@ define internal void @blend_freeze_32bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_glow_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_glow_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15819,7 +15813,7 @@ define internal void @blend_glow_32bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -15889,7 +15883,7 @@ define internal void @blend_hardlight_32bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardmix_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardmix_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15938,7 +15932,7 @@ define internal void @blend_hardmix_32bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_heat_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_heat_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -15998,7 +15992,7 @@ define internal void @blend_heat_32bit(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_lighten_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_lighten_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16046,7 +16040,7 @@ define internal void @blend_lighten_32bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_linearlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_linearlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16107,7 +16101,7 @@ define internal void @blend_linearlight_32bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -16160,7 +16154,7 @@ define internal void @blend_multiply_32bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_multiply128_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_multiply128_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16210,7 +16204,7 @@ define internal void @blend_multiply128_32bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_negation_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_negation_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16260,7 +16254,7 @@ define internal void @blend_negation_32bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_normal_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_normal_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16309,7 +16303,7 @@ define internal void @blend_normal_32bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_or_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_or_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16358,7 +16352,7 @@ define internal void @blend_or_32bit(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_overlay_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_overlay_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -16430,7 +16424,7 @@ define internal void @blend_overlay_32bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_phoenix_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_phoenix_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16481,7 +16475,7 @@ define internal void @blend_phoenix_32bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_pinlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_pinlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16545,7 +16539,7 @@ define internal void @blend_pinlight_32bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_reflect_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_reflect_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16606,7 +16600,7 @@ define internal void @blend_reflect_32bit(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_screen_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_screen_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -16662,7 +16656,7 @@ define internal void @blend_screen_32bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16713,7 +16707,7 @@ define internal void @blend_softlight_32bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_subtract_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_subtract_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16762,7 +16756,7 @@ define internal void @blend_subtract_32bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_vividlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_vividlight_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = lshr i64 %5, 2
   %12 = lshr i64 %1, 2
   %13 = lshr i64 %3, 2
@@ -16854,7 +16848,7 @@ define internal void @blend_vividlight_32bit(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_xor_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_xor_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16903,7 +16897,7 @@ define internal void @blend_xor_32bit(ptr noundef readonly captures(none) %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_softdifference_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_softdifference_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -16973,7 +16967,7 @@ define internal void @blend_softdifference_32bit(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_geometric_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_geometric_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -17023,7 +17017,7 @@ define internal void @blend_geometric_32bit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_harmonic_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_harmonic_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -17077,7 +17071,7 @@ define internal void @blend_harmonic_32bit(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_bleach_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_bleach_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -17127,7 +17121,7 @@ define internal void @blend_bleach_32bit(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_stain_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_stain_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -17175,7 +17169,7 @@ define internal void @blend_stain_32bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_interpolate_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_interpolate_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -17232,7 +17226,7 @@ define internal void @blend_interpolate_32bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @blend_hardoverlay_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #6 {
+define internal void @blend_hardoverlay_32bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc nsz double %12 to float
@@ -17300,34 +17294,34 @@ define internal void @blend_hardoverlay_32bit(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.maxnum.f32(float, float) #7
+declare float @llvm.maxnum.f32(float, float) #6
 
-declare void @av_image_copy_plane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @av_image_copy_plane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare double @av_expr_eval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare double @av_expr_eval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @av_default_item_name(ptr noundef) #4
+declare ptr @av_default_item_name(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @blend_child_next(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readnone captures(address_is_null) %1) #8 {
+define internal ptr @blend_child_next(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readnone captures(address_is_null) %1) #7 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = select i1 %.not, ptr %3, ptr null
   ret ptr %4
 }
 
-declare ptr @ff_framesync_child_class_iterate(ptr noundef) #4
+declare ptr @ff_framesync_child_class_iterate(ptr noundef) #3
 
-declare void @ff_framesync_preinit(ptr noundef) local_unnamed_addr #4
+declare void @ff_framesync_preinit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #10
+declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @blend_frame_for_dualinput(ptr noundef %0) #0 {
@@ -17335,8 +17329,8 @@ define internal i32 @blend_frame_for_dualinput(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !645
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 @ff_framesync_dualinput_get(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %23, label %8
@@ -17365,14 +17359,14 @@ define internal i32 @blend_frame_for_dualinput(ptr noundef %0) #0 {
 
 23:                                               ; preds = %1, %16, %10
   %.0 = phi i32 [ %22, %16 ], [ %15, %10 ], [ %6, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @ff_framesync_dualinput_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ff_framesync_dualinput_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -17388,7 +17382,7 @@ define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8, !tbaa !647
   %14 = load ptr, ptr %13, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 44
@@ -17450,7 +17444,7 @@ define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %55 = ashr i32 %54, %48
   %56 = sub nsw i32 0, %55
   %57 = getelementptr inbounds nuw [4 x %struct.FilterParams], ptr %28, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !654
   store ptr %2, ptr %29, align 8, !tbaa !657
   store ptr %19, ptr %30, align 8, !tbaa !658
@@ -17464,7 +17458,7 @@ define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %59 = load i32, ptr %37, align 8, !tbaa !32
   %. = call i32 @llvm.smin.i32(i32 %56, i32 %59)
   %60 = call i32 @ff_filter_execute(ptr noundef %0, ptr noundef nonnull @filter_slice, ptr noundef nonnull %6, ptr noundef null, i32 noundef %.) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %23, align 8, !tbaa !66
   %62 = sext i32 %61 to i64
@@ -17486,17 +17480,17 @@ define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noun
 66:                                               ; preds = %.sink.split, %._crit_edge, %3
   %.0.in = phi ptr [ %4, %3 ], [ %5, %._crit_edge ], [ %.0.in.ph, %.sink.split ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !646
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #4
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @filter_slice(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -17522,8 +17516,8 @@ define internal noundef i32 @filter_slice(ptr readnone captures(none) %0, ptr no
   %24 = load ptr, ptr %23, align 8, !tbaa !665
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !659
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !76
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %10, ptr %27, align 8, !tbaa !78
@@ -17623,18 +17617,18 @@ define internal noundef i32 @filter_slice(ptr readnone captures(none) %0, ptr no
   %101 = sext i32 %63 to i64
   %102 = sext i32 %60 to i64
   call void %79(ptr noundef %85, i64 noundef %86, ptr noundef %92, i64 noundef %93, ptr noundef %99, i64 noundef %100, i64 noundef %101, i64 noundef %102, ptr noundef nonnull %31, ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
-declare void @ff_framesync_uninit(ptr noundef) local_unnamed_addr #4
+declare void @ff_framesync_uninit(ptr noundef) local_unnamed_addr #3
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #4
+declare void @av_freep(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ff_filter_process_command(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ff_filter_process_command(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ff_framesync_activate(ptr noundef) local_unnamed_addr #4
+declare i32 @ff_framesync_activate(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @tblend_filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -17680,7 +17674,13 @@ define internal i32 @tblend_filter_frame(ptr noundef readonly captures(none) %0,
   ret i32 %.016
 }
 
-declare ptr @av_frame_clone(ptr noundef) local_unnamed_addr #4
+declare ptr @av_frame_clone(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
@@ -17715,14 +17715,14 @@ declare float @llvm.fabs.f32(float) #11
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress nofree nounwind optsize willreturn memory(readwrite, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

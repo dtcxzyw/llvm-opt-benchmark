@@ -32,8 +32,8 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
   br i1 %15, label %16, label %mi_segment_map_index_of.exit
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #5
-  %17 = call ptr @_mi_os_alloc(i64 noundef 8088, ptr noundef nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %17 = call ptr @_mi_os_alloc(i64 noundef 8088, ptr noundef nonnull %2) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.critedge.i, label %19
 
@@ -47,16 +47,16 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
 23:                                               ; preds = %19
   %24 = extractvalue { i64, i1 } %21, 0
   %25 = inttoptr i64 %24 to ptr
-  call void @_mi_os_free(ptr noundef nonnull %17, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %2) #6
+  call void @_mi_os_free(ptr noundef nonnull %17, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %2) #5
   br label %26
 
 26:                                               ; preds = %23, %19
   %.130.i = phi ptr [ %17, %19 ], [ %25, %23 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mi_segment_map_index_of.exit
 
 .critedge.i:                                      ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mi_segment_map_index_of.exit.thread
 
 mi_segment_map_index_of.exit:                     ; preds = %9, %26
@@ -86,14 +86,8 @@ mi_segment_map_index_of.exit.thread:              ; preds = %36, %.critedge.i, %
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_mi_segment_map_freed_at(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @_mi_segment_map_freed_at(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = icmp eq i32 %3, 6
@@ -138,7 +132,7 @@ mi_segment_map_index_of.exit.thread:              ; preds = %23, %8, %5, %1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @_mi_arena_contains(ptr noundef %0) #6
+  %2 = tail call zeroext i1 @_mi_arena_contains(ptr noundef %0) #5
   br i1 %2, label %mi_is_valid_pointer.exit, label %3
 
 3:                                                ; preds = %1
@@ -200,7 +194,7 @@ define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = inttoptr i64 %4 to ptr
-  tail call void @_mi_os_free(ptr noundef nonnull %6, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %6) #6
+  tail call void @_mi_os_free(ptr noundef nonnull %6, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %6) #5
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -209,22 +203,27 @@ define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !21
 }
 
-declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #3
+declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #2
 
-declare ptr @_mi_os_alloc(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @_mi_os_alloc(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind "no-builtin-malloc" }
+attributes #1 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -30,9 +30,9 @@ define dso_local range(i32 -1, 1) i32 @serialize_p_string_to_data(ptr noundef ca
   %5 = alloca ptr, align 8
   %6 = tail call ptr @data_new() #4
   %7 = tail call ptr @data_set_dict(ptr noundef %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %.critedge.thread, label %.lr.ph.preheader
@@ -280,26 +280,20 @@ _decode_seq.exit:                                 ; preds = %38, %35
   br label %85
 
 85:                                               ; preds = %79, %80, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @data_set_dict(ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_set_dict(ptr noundef) local_unnamed_addr #3
+declare ptr @data_new() local_unnamed_addr #2
 
-declare ptr @data_new() local_unnamed_addr #3
+declare void @slurm_xstrcatchar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
-declare void @slurm_xstrcatchar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare i32 @slurm_get_log_level() local_unnamed_addr #2
 
-declare i32 @slurm_get_log_level() local_unnamed_addr #3
-
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_handle_new_key_char(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #1 {
@@ -344,13 +338,13 @@ define internal fastcc void @_handle_new_key_char(ptr noundef %0, ptr noundef no
   ret void
 }
 
-declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
-declare void @data_free(ptr noundef) local_unnamed_addr #3
+declare void @data_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @slurm_char_to_hex(i32 noundef) local_unnamed_addr #3
+declare i32 @slurm_char_to_hex(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_on_key(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
@@ -389,28 +383,34 @@ define internal fastcc ptr @_on_key(ptr noundef %0, ptr noundef nonnull %1) unna
   ret ptr %.0
 }
 
-declare ptr @data_set_bool(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @data_set_bool(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @data_set_null(ptr noundef) local_unnamed_addr #3
+declare ptr @data_set_null(ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_set_string(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @data_set_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_key_get(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @data_key_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_key_set(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @data_key_set(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @data_get_type(ptr noundef) local_unnamed_addr #3
+declare i32 @data_get_type(ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_move(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @data_move(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_set_list(ptr noundef) local_unnamed_addr #3
+declare ptr @data_set_list(ptr noundef) local_unnamed_addr #2
 
-declare ptr @data_list_append(ptr noundef) local_unnamed_addr #3
+declare ptr @data_list_append(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}

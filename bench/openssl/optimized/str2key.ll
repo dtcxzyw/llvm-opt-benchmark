@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @DES_string_to_key(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %1, align 1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -50,41 +50,35 @@ define void @DES_string_to_key(ptr noundef %0, ptr noundef initializes((0, 8)) %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %15, %2
-  tail call void @DES_set_odd_parity(ptr noundef nonnull %1) #5
-  call void @DES_set_key_unchecked(ptr noundef nonnull %1, ptr noundef nonnull %3) #5
+  tail call void @DES_set_odd_parity(ptr noundef nonnull %1) #6
+  call void @DES_set_key_unchecked(ptr noundef nonnull %1, ptr noundef nonnull %3) #6
   %sext = shl i64 %4, 32
   %19 = ashr exact i64 %sext, 32
-  %20 = call i32 @DES_cbc_cksum(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %19, ptr noundef nonnull %3, ptr noundef nonnull %1) #5
-  call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 128) #5
-  call void @DES_set_odd_parity(ptr noundef nonnull %1) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #5
+  %20 = call i32 @DES_cbc_cksum(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %19, ptr noundef nonnull %3, ptr noundef nonnull %1) #6
+  call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 128) #6
+  call void @DES_set_odd_parity(ptr noundef nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @DES_set_odd_parity(ptr noundef) local_unnamed_addr #2
 
-declare void @DES_set_odd_parity(ptr noundef) local_unnamed_addr #3
+declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @DES_cbc_cksum(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @DES_cbc_cksum(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @DES_string_to_2keys(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %1, align 1
   store i64 0, ptr %2, align 1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -159,31 +153,37 @@ define void @DES_string_to_2keys(ptr noundef %0, ptr noundef initializes((0, 8))
   br label %38
 
 38:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @DES_set_odd_parity(ptr noundef nonnull %1) #5
-  tail call void @DES_set_odd_parity(ptr noundef nonnull %2) #5
-  call void @DES_set_key_unchecked(ptr noundef nonnull %1, ptr noundef nonnull %4) #5
+  tail call void @DES_set_odd_parity(ptr noundef nonnull %1) #6
+  tail call void @DES_set_odd_parity(ptr noundef nonnull %2) #6
+  call void @DES_set_key_unchecked(ptr noundef nonnull %1, ptr noundef nonnull %4) #6
   %sext = shl i64 %5, 32
   %39 = ashr exact i64 %sext, 32
-  %40 = call i32 @DES_cbc_cksum(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %1) #5
-  call void @DES_set_key_unchecked(ptr noundef nonnull %2, ptr noundef nonnull %4) #5
-  %41 = call i32 @DES_cbc_cksum(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %2) #5
-  call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 128) #5
-  call void @DES_set_odd_parity(ptr noundef nonnull %1) #5
-  call void @DES_set_odd_parity(ptr noundef nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
+  %40 = call i32 @DES_cbc_cksum(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %1) #6
+  call void @DES_set_key_unchecked(ptr noundef nonnull %2, ptr noundef nonnull %4) #6
+  %41 = call i32 @DES_cbc_cksum(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %2) #6
+  call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 128) #6
+  call void @DES_set_odd_parity(ptr noundef nonnull %1) #6
+  call void @DES_set_odd_parity(ptr noundef nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.bitreverse.i8(i8) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

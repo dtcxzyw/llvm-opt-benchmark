@@ -19,7 +19,7 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4
   store ptr inttoptr (i64 -1 to ptr), ptr %4, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %5, align 8, !noalias !4
@@ -39,7 +39,7 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
   br i1 %13, label %.thread8, label %thread-pre-split
 
 .thread8:                                         ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   br label %.thread7
 
 14:                                               ; preds = %.noexc
@@ -56,7 +56,7 @@ thread-pre-split:                                 ; preds = %11
   %19 = tail call ptr @mmap(ptr noundef null, i64 noundef %18, i32 noundef 1, i32 noundef 1, i32 noundef %7, i64 noundef 0) #13, !noalias !4
   store ptr %19, ptr %4, align 8, !noalias !4
   %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   br i1 %20, label %.thread7, label %.thread
 
 .thread:                                          ; preds = %thread-pre-split
@@ -64,7 +64,7 @@ thread-pre-split:                                 ; preds = %11
   br label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit
 
 21:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   br label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i
 
 .thread7:                                         ; preds = %thread-pre-split, %.thread8
@@ -194,10 +194,10 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #7
 declare i32 @close(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

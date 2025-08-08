@@ -782,8 +782,8 @@ _ZN6hermes5irgen14SurroundingTryC2EPNS0_15FunctionContextEPNS_6ESTree4NodeEN4llv
   %call7.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %13) #8
   %call9.i = tail call noundef ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call7.i, ptr noundef %call3.i) #8
   tail call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call7.i) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %thisTry.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %thisTry.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %14 = load ptr, ptr %functionContext_.i, align 8
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #9
   store ptr %this, ptr %call.i.i.i.i, align 16
@@ -837,8 +837,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN6hermes5irgen14S
   br label %"_ZZN6hermes5irgen11ESTreeIRGen17genForOfStatementEPNS_6ESTree18ForOfStatementNodeEENK3$_0clEv.exit"
 
 "_ZZN6hermes5irgen11ESTreeIRGen17genForOfStatementEPNS_6ESTree18ForOfStatementNodeEENK3$_0clEv.exit": ; preds = %_ZN6hermes5irgen14SurroundingTryC2EPNS0_15FunctionContextEPNS_6ESTree4NodeEN4llvh5SMLocESt8functionIFvS6_NS0_17ControlFlowChangeEPNS_10BasicBlockEEE.exit.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %thisTry.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %thisTry.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %13) #8
   %call14.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12.i) #8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12.i) #8
@@ -1154,7 +1154,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE.exit
   %__begin2.sroa.0.08 = phi ptr [ %__begin2.sroa.0.06, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE.exit ]
   %0 = load ptr, ptr %_kind, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %lref.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lref.i)
   %debugLoc_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 40
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %debugLoc_.i.i, align 8
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %Location.i.i.i, align 8
@@ -1208,7 +1208,7 @@ if.end20.sink.split.i:                            ; preds = %if.then16.i, %if.en
 
 _ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE.exit: ; preds = %if.else.i, %if.end20.sink.split.i
   store ptr %retval.sroa.0.0.copyload.i.i.i.pre, ptr %Location.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %lref.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lref.i)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_declarations
@@ -1635,7 +1635,7 @@ for.body.lr.ph:                                   ; preds = %if.then10
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
   %__begin4.sroa.0.093 = phi ptr [ %__begin4.sroa.0.091, %for.body.lr.ph ], [ %__begin4.sroa.0.0, %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit ]
   %7 = load ptr, ptr %_kind, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %lref.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lref.i)
   %debugLoc_.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.093, i64 40
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %debugLoc_.i.i, align 8
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %Location.i.i.i, align 8
@@ -1690,7 +1690,7 @@ if.end20.sink.split.i:                            ; preds = %if.then16.i, %if.en
 
 _ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE.exit: ; preds = %if.else.i, %if.end20.sink.split.i
   store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %Location.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %lref.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lref.i)
   %17 = load ptr, ptr %_id.i, align 8
   %_name.i = getelementptr inbounds nuw i8, ptr %17, i64 48
   %18 = load ptr, ptr %_name.i, align 8
@@ -2649,10 +2649,10 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

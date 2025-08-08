@@ -115,14 +115,8 @@ define linkonce_odr dso_local void @_ZN4enki11IPinnedTask22OnDependenciesComplet
 
 declare void @_ZN4enki13TaskScheduler16AddPinnedTaskIntEPNS_11IPinnedTaskE(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4enki12ICompletableD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4enki12ICompletableD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %3, null
@@ -143,10 +137,10 @@ _ZN4enki12ICompletableD2Ev.exit:                  ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiDefaultAllocFunc(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiDefaultAllocFunc(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = tail call noundef ptr @_ZN4enki16DefaultAllocFuncEmmPvPKci(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   ret ptr %6
 }
@@ -154,7 +148,7 @@ define dso_local noundef ptr @enkiDefaultAllocFunc(i64 noundef %0, i64 noundef %
 declare noundef ptr @_ZN4enki16DefaultAllocFuncEmmPvPKci(i64 noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDefaultFreeFunc(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local void @enkiDefaultFreeFunc(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   tail call void @_ZN4enki15DefaultFreeFuncEPvmS0_PKci(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   ret void
 }
@@ -162,14 +156,14 @@ define dso_local void @enkiDefaultFreeFunc(ptr noundef %0, i64 noundef %1, ptr n
 declare void @_ZN4enki15DefaultFreeFuncEPvmS0_PKci(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiNewTaskScheduler() local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiNewTaskScheduler() local_unnamed_addr #4 {
   %1 = tail call noundef ptr @_ZN4enki16DefaultAllocFuncEmmPvPKci(i64 noundef 8, i64 noundef 224, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 0)
   tail call void @_ZN4enki13TaskSchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %1)
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiNewTaskSchedulerWithCustomAllocator(ptr noundef readonly byval(%struct.enkiCustomAllocator) align 8 captures(none) %0) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiNewTaskSchedulerWithCustomAllocator(ptr noundef readonly byval(%struct.enkiCustomAllocator) align 8 captures(none) %0) local_unnamed_addr #4 {
   %2 = alloca %"struct.enki::CustomAllocator", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -178,21 +172,21 @@ define dso_local noundef ptr @enkiNewTaskSchedulerWithCustomAllocator(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   tail call void @_ZN4enki13TaskSchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %5, ptr %.sroa.3.0..sroa_idx, align 8
   tail call void @_ZN4enki13TaskScheduler18SetCustomAllocatorENS_15CustomAllocatorE(ptr noundef nonnull align 8 dereferenceable(220) %6, ptr noundef nonnull byval(%"struct.enki::CustomAllocator") align 8 %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiGetTaskSchedulerConfig(ptr dead_on_unwind noalias writable writeonly sret(%struct.enkiTaskSchedulerConfig) align 8 captures(none) initializes((0, 96)) %0, ptr noundef nonnull %1) local_unnamed_addr #5 {
+define dso_local void @enkiGetTaskSchedulerConfig(ptr dead_on_unwind noalias writable writeonly sret(%struct.enkiTaskSchedulerConfig) align 8 captures(none) initializes((0, 96)) %0, ptr noundef nonnull %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !23
@@ -244,14 +238,14 @@ define dso_local void @enkiGetTaskSchedulerConfig(ptr dead_on_unwind noalias wri
   %39 = load ptr, ptr %38, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %39, ptr %40, align 8, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 declare void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind writable sret(%"struct.enki::TaskSchedulerConfig") align 8, ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @enkiGetIsRunning(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 0, 2) i32 @enkiGetIsRunning(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %3 = load atomic i8, ptr %2 acquire, align 1
   %4 = and i8 %3, 1
@@ -261,7 +255,7 @@ define dso_local range(i32 0, 2) i32 @enkiGetIsRunning(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @enkiGetIsShutdownRequested(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 0, 2) i32 @enkiGetIsShutdownRequested(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %3 = load atomic i8, ptr %2 acquire, align 1
   %4 = and i8 %3, 1
@@ -270,7 +264,7 @@ define dso_local range(i32 0, 2) i32 @enkiGetIsShutdownRequested(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @enkiGetIsWaitforAllCalled(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 0, 2) i32 @enkiGetIsWaitforAllCalled(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load atomic i8, ptr %2 acquire, align 1
   %4 = and i8 %3, 1
@@ -279,7 +273,7 @@ define dso_local range(i32 0, 2) i32 @enkiGetIsWaitforAllCalled(ptr noundef read
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiInitTaskScheduler(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiInitTaskScheduler(ptr noundef nonnull %0) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler10InitializeEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret void
 }
@@ -287,7 +281,7 @@ define dso_local void @enkiInitTaskScheduler(ptr noundef nonnull %0) local_unnam
 declare void @_ZN4enki13TaskScheduler10InitializeEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiInitTaskSchedulerNumThreads(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiInitTaskSchedulerNumThreads(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler10InitializeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1)
   ret void
 }
@@ -295,7 +289,7 @@ define dso_local void @enkiInitTaskSchedulerNumThreads(ptr noundef nonnull %0, i
 declare void @_ZN4enki13TaskScheduler10InitializeEj(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiInitTaskSchedulerWithConfig(ptr noundef %0, ptr noundef readonly byval(%struct.enkiTaskSchedulerConfig) align 8 captures(none) %1) local_unnamed_addr #5 {
+define dso_local void @enkiInitTaskSchedulerWithConfig(ptr noundef %0, ptr noundef readonly byval(%struct.enkiTaskSchedulerConfig) align 8 captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
   %4 = tail call noundef i32 @_ZN4enki21GetNumHardwareThreadsEv()
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -355,7 +349,7 @@ define dso_local void @enkiInitTaskSchedulerWithConfig(ptr noundef %0, ptr nound
 declare void @_ZN4enki13TaskScheduler10InitializeENS_19TaskSchedulerConfigE(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef byval(%"struct.enki::TaskSchedulerConfig") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitforAllAndShutdown(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiWaitforAllAndShutdown(ptr noundef nonnull %0) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler21WaitforAllAndShutdownEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret void
 }
@@ -363,38 +357,38 @@ define dso_local void @enkiWaitforAllAndShutdown(ptr noundef nonnull %0) local_u
 declare void @_ZN4enki13TaskScheduler21WaitforAllAndShutdownEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeleteTaskScheduler(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiDeleteTaskScheduler(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %2, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN4enki13TaskSchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) #14
   call void %.sroa.3.0.copyload(ptr noundef nonnull %0, i64 noundef 224, ptr noundef %.sroa.4.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4enki13TaskSchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #7
+declare void @_ZN4enki13TaskSchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @enkiGetNumFirstExternalTaskThread() local_unnamed_addr #8 {
+define dso_local noundef i32 @enkiGetNumFirstExternalTaskThread() local_unnamed_addr #7 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiCreateTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiCreateTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !55
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = call noundef ptr %.sroa.0.0.copyload(i64 noundef 8, i64 noundef 72, ptr noundef %.sroa.42.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -415,15 +409,15 @@ define dso_local noundef ptr @enkiCreateTaskSet(ptr noundef nonnull %0, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeleteTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiDeleteTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !60
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(72) %1) #14
@@ -432,7 +426,7 @@ define dso_local void @enkiDeleteTaskSet(ptr noundef nonnull %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @enkiGetParamsTaskSet(ptr dead_on_unwind noalias writable writeonly sret(%struct.enkiParamsTaskSet) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define dso_local void @enkiGetParamsTaskSet(ptr dead_on_unwind noalias writable writeonly sret(%struct.enkiParamsTaskSet) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   store ptr %4, ptr %0, align 8, !tbaa !65
@@ -452,7 +446,7 @@ define dso_local void @enkiGetParamsTaskSet(ptr dead_on_unwind noalias writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @enkiSetParamsTaskSet(ptr noundef writeonly captures(none) initializes((8, 12), (40, 48), (64, 72)) %0, ptr noundef readonly byval(%struct.enkiParamsTaskSet) align 8 captures(none) %1) local_unnamed_addr #9 {
+define dso_local void @enkiSetParamsTaskSet(ptr noundef writeonly captures(none) initializes((8, 12), (40, 48), (64, 72)) %0, ptr noundef readonly byval(%struct.enkiParamsTaskSet) align 8 captures(none) %1) local_unnamed_addr #8 {
   %3 = load ptr, ptr %1, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %4, align 8, !tbaa !64
@@ -472,35 +466,35 @@ define dso_local void @enkiSetParamsTaskSet(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetPriorityTaskSet(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @enkiSetPriorityTaskSet(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetArgsTaskSet(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #10 {
+define dso_local void @enkiSetArgsTaskSet(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8, !tbaa !64
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetSetSizeTaskSet(ptr noundef writeonly captures(none) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @enkiSetSetSizeTaskSet(ptr noundef writeonly captures(none) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetMinRangeTaskSet(ptr noundef writeonly captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @enkiSetMinRangeTaskSet(ptr noundef writeonly captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4, !tbaa !58
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiAddTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiAddTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler16AddTaskSetToPipeEPNS_8ITaskSetE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1)
   ret void
 }
@@ -508,7 +502,7 @@ define dso_local void @enkiAddTaskSet(ptr noundef nonnull %0, ptr noundef %1) lo
 declare void @_ZN4enki13TaskScheduler16AddTaskSetToPipeEPNS_8ITaskSetE(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiAddTaskSetArgs(ptr noundef nonnull %0, ptr noundef initializes((40, 44), (64, 72)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local void @enkiAddTaskSetArgs(ptr noundef nonnull %0, ptr noundef initializes((40, 44), (64, 72)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %3, ptr %5, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -518,7 +512,7 @@ define dso_local void @enkiAddTaskSetArgs(ptr noundef nonnull %0, ptr noundef in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiAddTaskSetMinRange(ptr noundef nonnull %0, ptr noundef initializes((40, 48), (64, 72)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local void @enkiAddTaskSetMinRange(ptr noundef nonnull %0, ptr noundef initializes((40, 48), (64, 72)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %3, ptr %6, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -530,7 +524,7 @@ define dso_local void @enkiAddTaskSetMinRange(ptr noundef nonnull %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @enkiIsTaskSetComplete(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @enkiIsTaskSetComplete(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load atomic i32, ptr %3 acquire, align 4
   %5 = icmp eq i32 %4, 0
@@ -539,15 +533,15 @@ define dso_local range(i32 0, 2) i32 @enkiIsTaskSetComplete(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiCreatePinnedTask(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiCreatePinnedTask(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %4, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !55
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %6 = call noundef ptr %.sroa.0.0.copyload(i64 noundef 8, i64 noundef 72, ptr noundef %.sroa.42.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -566,15 +560,15 @@ define dso_local noundef ptr @enkiCreatePinnedTask(ptr noundef nonnull %0, ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeletePinnedTask(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiDeletePinnedTask(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !60
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(72) %1) #14
@@ -583,7 +577,7 @@ define dso_local void @enkiDeletePinnedTask(ptr noundef nonnull %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i32 } @enkiGetParamsPinnedTask(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local { ptr, i32 } @enkiGetParamsPinnedTask(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -594,7 +588,7 @@ define dso_local { ptr, i32 } @enkiGetParamsPinnedTask(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetParamsPinnedTask(ptr noundef writeonly captures(none) initializes((8, 12), (64, 72)) %0, ptr %1, i32 %2) local_unnamed_addr #10 {
+define dso_local void @enkiSetParamsPinnedTask(ptr noundef writeonly captures(none) initializes((8, 12), (64, 72)) %0, ptr %1, i32 %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %4, align 8, !tbaa !79
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -603,21 +597,21 @@ define dso_local void @enkiSetParamsPinnedTask(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetPriorityPinnedTask(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @enkiSetPriorityPinnedTask(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enkiSetArgsPinnedTask(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #10 {
+define dso_local void @enkiSetArgsPinnedTask(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8, !tbaa !79
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiAddPinnedTask(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiAddPinnedTask(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler13AddPinnedTaskEPNS_11IPinnedTaskE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1)
   ret void
 }
@@ -625,7 +619,7 @@ define dso_local void @enkiAddPinnedTask(ptr noundef nonnull %0, ptr noundef %1)
 declare void @_ZN4enki13TaskScheduler13AddPinnedTaskEPNS_11IPinnedTaskE(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiAddPinnedTaskArgs(ptr noundef nonnull %0, ptr noundef initializes((64, 72)) %1, ptr noundef %2) local_unnamed_addr #5 {
+define dso_local void @enkiAddPinnedTaskArgs(ptr noundef nonnull %0, ptr noundef initializes((64, 72)) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %2, ptr %4, align 8, !tbaa !79
   tail call void @_ZN4enki13TaskScheduler13AddPinnedTaskEPNS_11IPinnedTaskE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1)
@@ -633,7 +627,7 @@ define dso_local void @enkiAddPinnedTaskArgs(ptr noundef nonnull %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiRunPinnedTasks(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiRunPinnedTasks(ptr noundef nonnull %0) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler14RunPinnedTasksEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret void
 }
@@ -641,7 +635,7 @@ define dso_local void @enkiRunPinnedTasks(ptr noundef nonnull %0) local_unnamed_
 declare void @_ZN4enki13TaskScheduler14RunPinnedTasksEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @enkiIsPinnedTaskComplete(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @enkiIsPinnedTaskComplete(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load atomic i32, ptr %3 acquire, align 4
   %5 = icmp eq i32 %4, 0
@@ -650,7 +644,7 @@ define dso_local range(i32 0, 2) i32 @enkiIsPinnedTaskComplete(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForTaskSet(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef 2)
   ret void
 }
@@ -658,25 +652,25 @@ define dso_local void @enkiWaitForTaskSet(ptr noundef nonnull %0, ptr noundef %1
 declare void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForTaskSetPriority(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForTaskSetPriority(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForPinnedTask(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForPinnedTask(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForPinnedTaskPriority(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForPinnedTaskPriority(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForNewPinnedTasks(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForNewPinnedTasks(ptr noundef nonnull %0) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler21WaitForNewPinnedTasksEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret void
 }
@@ -684,7 +678,7 @@ define dso_local void @enkiWaitForNewPinnedTasks(ptr noundef nonnull %0) local_u
 declare void @_ZN4enki13TaskScheduler21WaitForNewPinnedTasksEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForAll(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForAll(ptr noundef nonnull %0) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler10WaitforAllEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret void
 }
@@ -692,7 +686,7 @@ define dso_local void @enkiWaitForAll(ptr noundef nonnull %0) local_unnamed_addr
 declare void @_ZN4enki13TaskScheduler10WaitforAllEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @enkiGetNumTaskThreads(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local noundef i32 @enkiGetNumTaskThreads(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = tail call noundef i32 @_ZNK4enki13TaskScheduler17GetNumTaskThreadsEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret i32 %2
 }
@@ -700,7 +694,7 @@ define dso_local noundef i32 @enkiGetNumTaskThreads(ptr noundef nonnull %0) loca
 declare noundef i32 @_ZNK4enki13TaskScheduler17GetNumTaskThreadsEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @enkiGetThreadNum(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local noundef i32 @enkiGetThreadNum(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = tail call noundef i32 @_ZNK4enki13TaskScheduler12GetThreadNumEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret i32 %2
 }
@@ -708,7 +702,7 @@ define dso_local noundef i32 @enkiGetThreadNum(ptr noundef nonnull %0) local_unn
 declare noundef i32 @_ZNK4enki13TaskScheduler12GetThreadNumEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 0, 2) i32 @enkiRegisterExternalTaskThread(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @enkiRegisterExternalTaskThread(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = tail call noundef zeroext i1 @_ZN4enki13TaskScheduler26RegisterExternalTaskThreadEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -717,7 +711,7 @@ define dso_local range(i32 0, 2) i32 @enkiRegisterExternalTaskThread(ptr noundef
 declare noundef zeroext i1 @_ZN4enki13TaskScheduler26RegisterExternalTaskThreadEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 0, 2) i32 @enkiRegisterExternalTaskThreadNum(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @enkiRegisterExternalTaskThreadNum(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call noundef zeroext i1 @_ZN4enki13TaskScheduler26RegisterExternalTaskThreadEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1)
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -726,7 +720,7 @@ define dso_local range(i32 0, 2) i32 @enkiRegisterExternalTaskThreadNum(ptr noun
 declare noundef zeroext i1 @_ZN4enki13TaskScheduler26RegisterExternalTaskThreadEj(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeRegisterExternalTaskThread(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local void @enkiDeRegisterExternalTaskThread(ptr noundef nonnull %0) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler28DeRegisterExternalTaskThreadEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret void
 }
@@ -734,7 +728,7 @@ define dso_local void @enkiDeRegisterExternalTaskThread(ptr noundef nonnull %0) 
 declare void @_ZN4enki13TaskScheduler28DeRegisterExternalTaskThreadEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @enkiGetNumRegisteredExternalTaskThreads(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local noundef i32 @enkiGetNumRegisteredExternalTaskThreads(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = tail call noundef i32 @_ZN4enki13TaskScheduler35GetNumRegisteredExternalTaskThreadsEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
   ret i32 %2
 }
@@ -742,30 +736,30 @@ define dso_local noundef i32 @enkiGetNumRegisteredExternalTaskThreads(ptr nounde
 declare noundef i32 @_ZN4enki13TaskScheduler35GetNumRegisteredExternalTaskThreadsEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @enkiGetCompletableFromTaskSet(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @enkiGetCompletableFromTaskSet(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #7 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @enkiGetCompletableFromPinnedTask(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @enkiGetCompletableFromPinnedTask(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #7 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @enkiGetCompletableFromCompletionAction(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @enkiGetCompletableFromCompletionAction(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #7 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiCreateCompletable(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiCreateCompletable(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %2, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !55
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = call noundef ptr %.sroa.0.0.copyload(i64 noundef 8, i64 noundef 40, ptr noundef %.sroa.42.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -774,18 +768,18 @@ define dso_local noundef ptr @enkiCreateCompletable(ptr noundef nonnull %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeleteCompletable(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiDeleteCompletable(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !60
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(40) %1) #14
@@ -794,66 +788,66 @@ define dso_local void @enkiDeleteCompletable(ptr noundef nonnull %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForCompletable(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForCompletable(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiWaitForCompletablePriority(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @enkiWaitForCompletablePriority(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   tail call void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiCreateDependency(ptr noundef nonnull %0) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiCreateDependency(ptr noundef nonnull %0) local_unnamed_addr #4 {
   %2 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %2, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !55
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = call noundef ptr %.sroa.0.0.copyload(i64 noundef 8, i64 noundef 24, ptr noundef %.sroa.42.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeleteDependency(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiDeleteDependency(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4enki10DependencyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
   call void %.sroa.3.0.copyload(ptr noundef nonnull %1, i64 noundef 24, ptr noundef %.sroa.4.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4enki10DependencyD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN4enki10DependencyD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiSetDependency(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define dso_local void @enkiSetDependency(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   tail call void @_ZN4enki10Dependency13SetDependencyEPKNS_12ICompletableEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @enkiCreateCompletionAction(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define dso_local noundef ptr @enkiCreateCompletionAction(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %4, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !55
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %6 = call noundef ptr %.sroa.0.0.copyload(i64 noundef 8, i64 noundef 96, ptr noundef %.sroa.44.0.copyload, ptr noundef nonnull @.str, i32 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -868,15 +862,15 @@ define dso_local noundef ptr @enkiCreateCompletionAction(ptr noundef nonnull %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiDeleteCompletionAction(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @enkiDeleteCompletionAction(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %"struct.enki::TaskSchedulerConfig", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4enki13TaskScheduler9GetConfigEv(ptr dead_on_unwind nonnull writable sret(%"struct.enki::TaskSchedulerConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(220) %0)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !60
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(96) %1) #14
@@ -885,7 +879,7 @@ define dso_local void @enkiDeleteCompletionAction(ptr noundef nonnull %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @enkiGetParamsCompletionAction(ptr dead_on_unwind noalias writable writeonly sret(%struct.enkiParamsCompletionAction) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define dso_local void @enkiGetParamsCompletionAction(ptr dead_on_unwind noalias writable writeonly sret(%struct.enkiParamsCompletionAction) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !83
   store ptr %4, ptr %0, align 8, !tbaa !84
@@ -901,7 +895,7 @@ define dso_local void @enkiGetParamsCompletionAction(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @enkiSetParamsCompletionAction(ptr noundef initializes((80, 96)) %0, ptr noundef readonly byval(%struct.enkiParamsCompletionAction) align 8 captures(none) %1) local_unnamed_addr #5 {
+define dso_local void @enkiSetParamsCompletionAction(ptr noundef initializes((80, 96)) %0, ptr noundef readonly byval(%struct.enkiParamsCompletionAction) align 8 captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8, !tbaa !84
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %3, ptr %4, align 8, !tbaa !83
@@ -925,7 +919,7 @@ define linkonce_odr dso_local void @_ZN4enki12ICompletable22OnDependenciesComple
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4enki12ICompletableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4enki12ICompletableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4enki12ICompletableE, i64 16), ptr %0, align 8, !tbaa !60
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -954,7 +948,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i32 @_ZN4enki21GetNumHardwareThreadsEv() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11enkiTaskSetD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11enkiTaskSetD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %3, null
@@ -975,7 +969,7 @@ _ZN4enki12ICompletableD2Ev.exit:                  ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11enkiTaskSet12ExecuteRangeEN4enki16TaskSetPartitionEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 %1, i32 noundef %2) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11enkiTaskSet12ExecuteRangeEN4enki16TaskSetPartitionEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 %1, i32 noundef %2) unnamed_addr #4 comdat align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -988,7 +982,7 @@ define linkonce_odr dso_local void @_ZN11enkiTaskSet12ExecuteRangeEN4enki16TaskS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN14enkiPinnedTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN14enkiPinnedTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %3, null
@@ -1009,7 +1003,7 @@ _ZN4enki12ICompletableD2Ev.exit:                  ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN14enkiPinnedTask7ExecuteEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN14enkiPinnedTask7ExecuteEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1019,7 +1013,7 @@ define linkonce_odr dso_local void @_ZN14enkiPinnedTask7ExecuteEv(ptr noundef no
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15enkiCompletableD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN15enkiCompletableD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %3, null
@@ -1042,7 +1036,7 @@ _ZN4enki12ICompletableD2Ev.exit:                  ; preds = %.lr.ph.i, %1
 declare void @_ZN4enki10Dependency13SetDependencyEPKNS_12ICompletableEPS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20enkiCompletionActionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20enkiCompletionActionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV20enkiCompletionAction, i64 16), ptr %0, align 8, !tbaa !60
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN4enki10DependencyD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
@@ -1066,7 +1060,7 @@ _ZN4enki12ICompletableD2Ev.exit:                  ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20enkiCompletionActionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20enkiCompletionActionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV20enkiCompletionAction, i64 16), ptr %0, align 8, !tbaa !60
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN4enki10DependencyD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
@@ -1090,7 +1084,7 @@ _ZN20enkiCompletionActionD2Ev.exit:               ; preds = %.lr.ph.i.i, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20enkiCompletionAction22OnDependenciesCompleteEPN4enki13TaskSchedulerEj(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20enkiCompletionAction22OnDependenciesCompleteEPN4enki13TaskSchedulerEj(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !80
   %.not = icmp eq ptr %5, null
@@ -1122,23 +1116,29 @@ define linkonce_odr dso_local void @_ZN20enkiCompletionAction22OnDependenciesCom
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4enki10DependencyD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN4enki10DependencyD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
 declare void @_ZN4enki13TaskScheduler12TaskCompleteEPNS_12ICompletableEbj(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 attributes #0 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { builtin nounwind }
 attributes #14 = { nounwind }
 

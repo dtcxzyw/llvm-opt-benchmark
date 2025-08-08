@@ -8,12 +8,12 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h160875186a6cd243E(p
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 4
   %5 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
   store ptr %5, ptr %3, align 8, !noalias !13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8, !noalias !13
@@ -48,10 +48,10 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h160875186a6cd243E(p
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17hc313375314e4ec11E.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17h53ecab09cca40532E.exit.i.i.i.i"
   call void @"_ZN4core3ptr288drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$i16$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$i32$GT$..wrap_mut_1$LT$i16$C$$LT$i16$u20$as$u20$wasmi_core..memory..access..ExtendInto$LT$i32$GT$$GT$..extend_into$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcd9f91a56de08bc4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -60,12 +60,12 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h2d6565b8d3bf040aE(p
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 4
   %5 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !18
   store ptr %5, ptr %3, align 8, !noalias !28
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8, !noalias !28
@@ -100,10 +100,10 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h2d6565b8d3bf040aE(p
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17hd8ecb69aaa3a553eE.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hc57f684885de3da0E.exit.i.i.i.i"
   call void @"_ZN4core3ptr288drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$u16$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$u32$GT$..wrap_mut_1$LT$u16$C$$LT$u16$u20$as$u20$wasmi_core..memory..access..ExtendInto$LT$u32$GT$$GT$..extend_into$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0874f22cdb5a82aeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -112,12 +112,12 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h9c77a21333d2df53E(p
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 2
   %5 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !33
   store ptr %5, ptr %3, align 8, !noalias !43
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8, !noalias !43
@@ -152,10 +152,10 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h9c77a21333d2df53E(p
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17h542e68a75496958bE.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hdf14e9b6aa73bd92E.exit.i.i.i.i"
   call void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$u8$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$u16$GT$..wrap_mut_1$LT$u8$C$$LT$u8$u20$as$u20$wasmi_core..memory..access..ExtendInto$LT$u16$GT$$GT$..extend_into$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h385c54279ce9d6feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -165,16 +165,16 @@ define hidden void @_ZN4core5array5drain16drain_array_with17ha302d0c696d6bc59E(p
   %.sroa.0.i.i.i = alloca i64, align 8
   %.sroa.4.i.i.i = alloca i64, align 8
   %4 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !60
   store ptr %4, ptr %3, align 8, !noalias !61
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !noalias !61
@@ -207,15 +207,15 @@ define hidden void @_ZN4core5array5drain16drain_array_with17ha302d0c696d6bc59E(p
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17h88df46a8ef65bf43E.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17ha4297cff49c472c9E.exit.i.i.i.i"
   call void @"_ZN4core3ptr288drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$u32$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$u64$GT$..wrap_mut_1$LT$u32$C$$LT$u32$u20$as$u20$wasmi_core..memory..access..ExtendInto$LT$u64$GT$$GT$..extend_into$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbe4a07f628dc8d96E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !60
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i = load i64, ptr %.sroa.0.i.i.i, align 8, !noalias !60
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.i.i.i, align 8, !noalias !60
   store i64 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i, ptr %0, align 8, !alias.scope !66
   %.sroa.45.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i.i, ptr %.sroa.45.0..sroa_idx.i.i.i, align 8, !alias.scope !66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -224,12 +224,12 @@ define hidden void @_ZN4core5array5drain16drain_array_with17ha730563351f2c925E(p
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 2
   %5 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !70
   store ptr %5, ptr %3, align 8, !noalias !80
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8, !noalias !80
@@ -264,10 +264,10 @@ define hidden void @_ZN4core5array5drain16drain_array_with17ha730563351f2c925E(p
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17h001f6058b9f78d4dE.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17h1259cab9ba22876bE.exit.i.i.i.i"
   call void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$i8$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$i16$GT$..wrap_mut_1$LT$i8$C$$LT$i8$u20$as$u20$wasmi_core..memory..access..ExtendInto$LT$i16$GT$$GT$..extend_into$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7d8c8f79e54cea27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -277,16 +277,16 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hc030524887f3b7e2E(p
   %.sroa.0.i.i.i = alloca i64, align 8
   %.sroa.4.i.i.i = alloca i64, align 8
   %4 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !97
   store ptr %4, ptr %3, align 8, !noalias !98
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !noalias !98
@@ -319,15 +319,15 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hc030524887f3b7e2E(p
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17hd537f0230e48fd36E.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17h0251de38b1a1a39fE.exit.i.i.i.i"
   call void @"_ZN4core3ptr288drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$i32$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$i64$GT$..wrap_mut_1$LT$i32$C$$LT$i32$u20$as$u20$wasmi_core..memory..access..ExtendInto$LT$i64$GT$$GT$..extend_into$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdc67d081cc1d68a2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !97
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i = load i64, ptr %.sroa.0.i.i.i, align 8, !noalias !97
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.i.i.i, align 8, !noalias !97
   store i64 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i, ptr %0, align 8, !alias.scope !103
   %.sroa.45.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i.i, ptr %.sroa.45.0..sroa_idx.i.i.i, align 8, !alias.scope !103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -337,13 +337,13 @@ define hidden i64 @_ZN4core5array5drain16drain_array_with17hc4308f7b898424d2E(i3
   %.sroa.0.i.i.i = alloca i32, align 4
   %.sroa.4.i.i.i = alloca i32, align 4
   %3 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !noalias !107
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !noalias !107
@@ -376,16 +376,16 @@ define hidden i64 @_ZN4core5array5drain16drain_array_with17hc4308f7b898424d2E(i3
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17h865516b2956803e9E.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f996d2a3e979f95E.exit.i.i.i.i"
   call void @"_ZN4core3ptr262drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$i16$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$i32$GT$..wrap_mut_1$LT$i16$C$$LT$i32$u20$as$u20$core..convert..From$LT$i16$GT$$GT$..from$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h69546c49c9016c78E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.03.0.copyload.i.i.i = load i32, ptr %.sroa.0.i.i.i, align 4
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.03.0.copyload.i.i.i = load i32, ptr %.sroa.4.i.i.i, align 4
   %.sroa.4.0.insert.ext.i.i.i = zext i32 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.03.0.copyload.i.i.i to i64
   %.sroa.4.0.insert.shift.i.i.i = shl nuw i64 %.sroa.4.0.insert.ext.i.i.i, 32
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.03.0.copyload.i.i.i to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.4.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.0.0.insert.insert.i.i.i
 }
 
@@ -395,13 +395,13 @@ define hidden i32 @_ZN4core5array5drain16drain_array_with17he2c60981c6e6321cE(i1
   %.sroa.0.i.i.i = alloca i16, align 2
   %.sroa.4.i.i.i = alloca i16, align 2
   %3 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %0, ptr %3, align 2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !noalias !113
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !noalias !113
@@ -434,16 +434,16 @@ define hidden i32 @_ZN4core5array5drain16drain_array_with17he2c60981c6e6321cE(i1
 
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17h1325024a069c8bceE.exit": ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hc083de1e850b8695E.exit.i.i.i.i"
   call void @"_ZN4core3ptr259drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..drain..Drain$LT$i8$GT$$C$core..ops..try_trait..NeverShortCircuit$LT$i16$GT$..wrap_mut_1$LT$i8$C$$LT$i16$u20$as$u20$core..convert..From$LT$i8$GT$$GT$..from$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6a66f484ff9c092cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.03.0.copyload.i.i.i = load i16, ptr %.sroa.0.i.i.i, align 2
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.03.0.copyload.i.i.i = load i16, ptr %.sroa.4.i.i.i, align 2
   %.sroa.4.0.insert.ext.i.i.i = zext i16 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.03.0.copyload.i.i.i to i32
   %.sroa.4.0.insert.shift.i.i.i = shl nuw i32 %.sroa.4.0.insert.ext.i.i.i, 16
   %.sroa.0.0.insert.ext.i.i.i = zext i16 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.03.0.copyload.i.i.i to i32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i32 %.sroa.4.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.4.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.sroa.0.0.insert.insert.i.i.i
 }
 
@@ -505,10 +505,10 @@ declare hidden noundef i32 @"_ZN121_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 declare hidden noundef i16 @"_ZN121_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..unchecked_iterator..UncheckedIterator$GT$14next_unchecked17h589413286f5a7b8bE"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5

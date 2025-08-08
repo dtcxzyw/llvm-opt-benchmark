@@ -1038,8 +1038,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToI
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7JsValue11GetJsObjectB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 3, ptr %12, align 2
@@ -1221,13 +1221,13 @@ _ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit.i: ; p
   br i1 %.not34, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_ToImplObjectValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessISG_ESaISt4pairIKSG_SH_EEERT_.exit, label %24
 
 _ZN32pxrInternal_v0_24__pxrReserved__L18_ToImplObjectValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessISG_ESaISt4pairIKSG_SH_EEERT_.exit: ; preds = %94, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEC2El.exit
 
 104:                                              ; preds = %3
   %105 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7JsValue10GetJsArrayEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 4, ptr %106, align 2
@@ -1299,7 +1299,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_ToImplObjectValueIN3pxr9rapidjson19Memo
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ToImplArrayValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKSt6vectorINS_7JsValueESaISB_EERT_.exit, label %113
 
 _ZN32pxrInternal_v0_24__pxrReserved__L17_ToImplArrayValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKSt6vectorINS_7JsValueESaISB_EERT_.exit: ; preds = %134, %104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEC2El.exit
 
 144:                                              ; preds = %3
@@ -1313,7 +1313,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_ToImplArrayValueIN3pxr9rapidjson19Memor
 148:                                              ; preds = %3
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7JsValue9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %150 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %149) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   store ptr %150, ptr %4, align 8, !alias.scope !12
@@ -1322,7 +1322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_ToImplArrayValueIN3pxr9rapidjson19Memor
   %153 = trunc i64 %152 to i32
   store i32 %153, ptr %151, align 8, !alias.scope !12
   call void @_ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEE12SetStringRawENS0_16GenericStringRefIcEERS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEC2El.exit
 
 154:                                              ; preds = %3
@@ -1625,7 +1625,7 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
 
 147:                                              ; preds = %145
   %148 = load double, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %149 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16TfDoubleToStringEdPcib(double noundef %148, ptr noundef nonnull %4, i32 noundef 32, i1 noundef zeroext true)
   %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #28
   call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 6)
@@ -1662,7 +1662,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br label %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit
 
 _ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit: ; preds = %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE13WriteRawValueEPKcm.exit.i.i, %162
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
 
 166:                                              ; preds = %145
@@ -1673,7 +1673,7 @@ _ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWr
 168:                                              ; preds = %166
   %169 = load i32, ptr %0, align 8
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %170 = icmp slt i32 %169, 0
   br i1 %170, label %171, label %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i
 
@@ -1701,7 +1701,7 @@ _ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i:   ; preds = %171, %168
   br i1 %.not.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i: ; preds = %.lr.ph.i.i, %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2227,12 +2227,12 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
 
 84:                                               ; preds = %82
   %85 = load double, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16TfDoubleToStringEdPcib(double noundef %85, ptr noundef nonnull %3, i32 noundef 32, i1 noundef zeroext true)
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
   call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 6)
   %88 = call noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE13WriteRawValueEPKcm(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %3, i64 noundef %87)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 89:                                               ; preds = %82
@@ -3186,7 +3186,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
 define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson6WriterINS5_19BasicOStreamWrapperISoEENS5_4UTF8IcEESA_NS5_12CrtAllocatorELj0EEEEEE6DoubleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(69) %0, double noundef %1) unnamed_addr #3 align 2 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16TfDoubleToStringEdPcib(double noundef %1, ptr noundef nonnull %3, i32 noundef 32, i1 noundef zeroext true)
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3259,7 +3259,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br label %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson6WriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit
 
 _ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson6WriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit: ; preds = %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE13WriteRawValueEPKcm.exit.i.i, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -3593,7 +3593,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
   br label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit: ; preds = %21, %23
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = icmp slt i32 %1, 0
   br i1 %25, label %26, label %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i
 
@@ -3621,7 +3621,7 @@ _ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i:     ; preds = %26, %_ZN3pxr9rapidj
   br i1 %.not.i2, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit: ; preds = %.lr.ph.i, %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = load ptr, ptr %4, align 8
   %36 = load ptr, ptr %6, align 8
   %37 = icmp eq ptr %35, %36
@@ -3920,7 +3920,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
   br label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit: ; preds = %21, %23
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = call noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 noundef %1, ptr noundef nonnull %3)
   %.not6.i1 = icmp eq ptr %3, %25
   br i1 %.not6.i1, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit, label %.lr.ph.i
@@ -3936,7 +3936,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br i1 %.not.i2, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit: ; preds = %.lr.ph.i, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load ptr, ptr %4, align 8
   %32 = load ptr, ptr %6, align 8
   %33 = icmp eq ptr %31, %32
@@ -3994,7 +3994,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
   br label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit: ; preds = %21, %23
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = icmp slt i64 %1, 0
   br i1 %25, label %26, label %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i
 
@@ -4022,7 +4022,7 @@ _ZN3pxr9rapidjson8internal6i64toaElPc.exit.i:     ; preds = %26, %_ZN3pxr9rapidj
   br i1 %.not.i2, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit: ; preds = %.lr.ph.i, %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = load ptr, ptr %4, align 8
   %36 = load ptr, ptr %6, align 8
   %37 = icmp eq ptr %35, %36
@@ -4611,7 +4611,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
   br label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit: ; preds = %21, %23
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = call noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 noundef %1, ptr noundef nonnull %3)
   %.not6.i1 = icmp eq ptr %3, %25
   br i1 %.not6.i1, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit, label %.lr.ph.i
@@ -4627,7 +4627,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br i1 %.not.i2, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit: ; preds = %.lr.ph.i, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load ptr, ptr %4, align 8
   %32 = load ptr, ptr %6, align 8
   %33 = icmp eq ptr %31, %32
@@ -5031,7 +5031,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %3 = alloca [11 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %6, label %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i
 
@@ -5059,7 +5059,7 @@ _ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i:   ; preds = %6, %2
   br i1 %.not.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i: ; preds = %.lr.ph.i.i, %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5082,7 +5082,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %3 = alloca [10 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 noundef %1, ptr noundef nonnull %3)
   %.not6.i.i = icmp eq ptr %3, %5
   br i1 %.not6.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit.i, label %.lr.ph.i.i
@@ -5098,7 +5098,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   br i1 %.not.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit.i: ; preds = %.lr.ph.i.i, %2
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5121,7 +5121,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %3 = alloca [21 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp slt i64 %1, 0
   br i1 %5, label %6, label %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i.i
 
@@ -5149,7 +5149,7 @@ _ZN3pxr9rapidjson8internal6i64toaElPc.exit.i.i:   ; preds = %6, %2
   br i1 %.not.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit.i: ; preds = %.lr.ph.i.i, %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5172,7 +5172,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %3 = alloca [20 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 noundef %1, ptr noundef nonnull %3)
   %.not6.i.i = icmp eq ptr %3, %5
   br i1 %.not6.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit.i, label %.lr.ph.i.i
@@ -5188,7 +5188,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   br i1 %.not.i.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit.i, label %.lr.ph.i.i, !llvm.loop !22
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit.i: ; preds = %.lr.ph.i.i, %2
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5210,7 +5210,7 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
 define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Js_PolymorphicWriterIN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS5_19BasicOStreamWrapperISoEENS5_4UTF8IcEESA_NS5_12CrtAllocatorELj0EEEEEE6DoubleEd(ptr noundef nonnull align 8 dereferenceable(80) %0, double noundef %1) unnamed_addr #3 align 2 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16TfDoubleToStringEdPcib(double noundef %1, ptr noundef nonnull %3, i32 noundef 32, i1 noundef zeroext true)
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
   call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 6)
@@ -5247,7 +5247,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br label %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit
 
 _ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit: ; preds = %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE13WriteRawValueEPKcm.exit.i.i, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -5496,7 +5496,7 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4UintEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [10 x i8], align 1
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 noundef %1, ptr noundef nonnull %3)
   %.not6.i = icmp eq ptr %3, %4
   br i1 %.not6.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit, label %.lr.ph.i
@@ -5512,7 +5512,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
   br i1 %.not.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit: ; preds = %.lr.ph.i, %2
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5534,7 +5534,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE5Int64El(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [21 x i8], align 16
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %5, label %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i
 
@@ -5562,7 +5562,7 @@ _ZN3pxr9rapidjson8internal6i64toaElPc.exit.i:     ; preds = %5, %2
   br i1 %.not.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit: ; preds = %.lr.ph.i, %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5584,7 +5584,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6Uint64Em(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [20 x i8], align 16
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 noundef %1, ptr noundef nonnull %3)
   %.not6.i = icmp eq ptr %3, %4
   br i1 %.not6.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit, label %.lr.ph.i
@@ -5600,7 +5600,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
   br i1 %.not.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit: ; preds = %.lr.ph.i, %2
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6419,7 +6419,7 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
 .critedge.i17:                                    ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store ptr %55, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %57 = load ptr, ptr %56, align 8
@@ -6441,7 +6441,7 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
   br label %_ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i
 
 _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i:   ; preds = %63, %60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 .critedge23.i16:                                  ; preds = %51, %47, %43
@@ -6488,7 +6488,7 @@ _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i:   ; preds = %63, %60
 .critedge.i19:                                    ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 5
   store ptr %89, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %91 = load ptr, ptr %90, align 8
@@ -6510,7 +6510,7 @@ _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i:   ; preds = %63, %60
   br label %_ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i21
 
 _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i21: ; preds = %97, %94
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 .critedge31.i:                                    ; preds = %85, %81, %77, %73
@@ -8216,7 +8216,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i: ; p
 818:                                              ; preds = %813
   %819 = fneg double %812
   %820 = select i1 %209, double %819, double %812
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double %820, ptr %8, align 8
   %821 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %822 = load ptr, ptr %821, align 8
@@ -8241,7 +8241,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i: ; p
           to label %_ZN12_GLOBAL__N_113_InputHandler6DoubleEd.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN12_GLOBAL__N_113_InputHandler6DoubleEd.exit.i: ; preds = %828, %.noexc437.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 830:                                              ; preds = %801
@@ -8252,7 +8252,7 @@ _ZN12_GLOBAL__N_113_InputHandler6DoubleEd.exit.i: ; preds = %828, %.noexc437.i
 
 832:                                              ; preds = %831
   %833 = sub i64 0, %.7311.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %833, ptr %7, align 8
   %834 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %835 = load ptr, ptr %834, align 8
@@ -8277,11 +8277,11 @@ _ZN12_GLOBAL__N_113_InputHandler6DoubleEd.exit.i: ; preds = %828, %.noexc437.i
           to label %_ZN12_GLOBAL__N_113_InputHandler5Int64El.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN12_GLOBAL__N_113_InputHandler5Int64El.exit.i:  ; preds = %841, %.noexc440.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 843:                                              ; preds = %831
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.7311.i, ptr %6, align 8
   %844 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %845 = load ptr, ptr %844, align 8
@@ -8306,7 +8306,7 @@ _ZN12_GLOBAL__N_113_InputHandler5Int64El.exit.i:  ; preds = %841, %.noexc440.i
           to label %_ZN12_GLOBAL__N_113_InputHandler6Uint64Em.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN12_GLOBAL__N_113_InputHandler6Uint64Em.exit.i: ; preds = %851, %.noexc443.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 853:                                              ; preds = %830
@@ -8316,7 +8316,7 @@ _ZN12_GLOBAL__N_113_InputHandler6Uint64Em.exit.i: ; preds = %851, %.noexc443.i
 
 856:                                              ; preds = %853
   %857 = sub i32 0, %.0312632643.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %857, ptr %5, align 4
   %858 = load ptr, ptr %854, align 8
   %859 = load ptr, ptr %855, align 8
@@ -8339,11 +8339,11 @@ _ZN12_GLOBAL__N_113_InputHandler6Uint64Em.exit.i: ; preds = %851, %.noexc443.i
           to label %_ZN12_GLOBAL__N_113_InputHandler3IntEi.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN12_GLOBAL__N_113_InputHandler3IntEi.exit.i:    ; preds = %863, %.noexc446.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 865:                                              ; preds = %853
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %866 = zext i32 %.0312632643.i to i64
   store i64 %866, ptr %4, align 8
   %867 = load ptr, ptr %854, align 8
@@ -8367,7 +8367,7 @@ _ZN12_GLOBAL__N_113_InputHandler3IntEi.exit.i:    ; preds = %863, %.noexc446.i
           to label %_ZN12_GLOBAL__N_113_InputHandler4UintEj.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN12_GLOBAL__N_113_InputHandler4UintEj.exit.i:   ; preds = %872, %.noexc449.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit: ; preds = %.critedge.i25, %.critedge352.i, %757, %.critedge364.i, %815, %_ZN12_GLOBAL__N_113_InputHandler6DoubleEd.exit.i, %_ZN12_GLOBAL__N_113_InputHandler5Int64El.exit.i, %_ZN12_GLOBAL__N_113_InputHandler6Uint64Em.exit.i, %_ZN12_GLOBAL__N_113_InputHandler3IntEi.exit.i, %_ZN12_GLOBAL__N_113_InputHandler4UintEj.exit.i
@@ -8888,8 +8888,8 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit133: ; pr
   br i1 %3, label %236, label %248
 
 236:                                              ; preds = %227
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %235, ptr %8, align 8
   store i32 %230, ptr %9, align 4
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8900,7 +8900,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit133: ; pr
   br i1 %.not.i.i, label %247, label %241
 
 241:                                              ; preds = %236
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %242 = zext i32 %230 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef %235, i64 noundef %242, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -8914,7 +8914,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit133: ; pr
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcRjEEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %241
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %245 = load ptr, ptr %237, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
   store ptr %246, ptr %237, align 8
@@ -8925,13 +8925,13 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %_ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit unwind label %.loopexit.split-lp
 
 _ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit:  ; preds = %247, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcRjEEEvRS6_PT_DpOT0_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit169.thread
 
 248:                                              ; preds = %227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %249 = zext i32 %230 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %235, i64 noundef %249, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -8979,8 +8979,8 @@ _ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit:  ; preds = %247, %_ZNSt16alloca
 _ZN12_GLOBAL__N_113_InputHandler6StringEPKcjb.exit: ; preds = %.noexc.i, %258
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit169.thread
 
 .loopexit169.thread:                              ; preds = %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit.thread, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit119.thread, %129, %125, %.critedge, %118, %178, %177, %_ZN12_GLOBAL__N_113_InputHandler6StringEPKcjb.exit, %_ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit, %.loopexit169
@@ -10096,7 +10096,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds i8, ptr %24, i64 %20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load ptr, ptr %2, align 8
   %27 = load i32, ptr %3, align 4
   %28 = zext i32 %27 to i64
@@ -10106,7 +10106,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 29:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
 
@@ -12374,7 +12374,7 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   br i1 %58, label %.critedge2.thread68, label %60
 
 60:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 3336, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = zext i32 %.2 to i64
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 3328
   store i64 1, ptr %62, align 8
@@ -12432,7 +12432,7 @@ _ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i: ; preds = %69, %._crit
 
 _ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i, %77, %79, %82
   %.0.i = phi double [ %81, %79 ], [ %84, %82 ], [ %59, %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i ], [ %59, %77 ]
-  call void @llvm.lifetime.end.p0(i64 3336, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge2.thread68
 
 .critedge2.thread68:                              ; preds = %37, %46, %57, %.thread26.i, %25, %55, %.critedge2.thread, %.critedge2, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit
@@ -16840,10 +16840,10 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #20

@@ -2482,7 +2482,7 @@ _ZN15PairSetIterator4nextEv.exit:                 ; preds = %_ZN15PairSetIterato
 define hidden void @_ZN9SuperWord33split_packs_at_use_def_boundariesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SplitStatus, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2672,7 +2672,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.exit"
 
 "_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.exit": ; preds = %._crit_edge.i, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2680,7 +2680,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 define hidden void @_ZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SplitStatus, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2892,7 +2892,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.exit"
 
 "_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.exit": ; preds = %._crit_edge.i, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2900,7 +2900,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 define hidden void @_ZN9SuperWord38split_packs_to_break_mutual_dependenceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SplitStatus, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3121,7 +3121,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.exit"
 
 "_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.exit": ; preds = %._crit_edge.i, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3129,7 +3129,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 define hidden void @_ZN9SuperWord32filter_packs_for_power_of_2_sizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SplitStatus, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3315,7 +3315,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.exit"
 
 "_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3323,7 +3323,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 define hidden void @_ZN9SuperWord36filter_packs_for_mutual_independenceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SplitStatus, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3537,7 +3537,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.exit"
 
 "_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3565,7 +3565,7 @@ define hidden void @_ZN9SuperWord26filter_packs_for_alignmentEv(ptr noundef nonn
   %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #12
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV24TrivialAlignmentSolution, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3615,7 +3615,7 @@ define hidden void @_ZN9SuperWord26filter_packs_for_alignmentEv(ptr noundef nonn
   br i1 %or.cond.i.i.i.i, label %55, label %"_ZZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i"
 
 55:                                               ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 240
   %58 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK14VLoopVPointers8vpointerEPK7MemNode(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull %48) #12
@@ -3725,7 +3725,7 @@ _ZN9SuperWord23pack_alignment_solutionEPK9Node_List.exit.i.i: ; preds = %110, %_
   store i32 %117, ptr %33, align 8
   store i32 %121, ptr %34, align 4
   %129 = call noundef ptr @_ZNK15AlignmentSolver5solveEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %130 = load ptr, ptr %.123, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8
@@ -3900,7 +3900,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 "_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
   %.3 = phi ptr [ %.022, %.critedge.i.i ], [ %.224, %._crit_edge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %207 = load ptr, ptr %.3, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
@@ -4045,7 +4045,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %293, %291, %1
 define hidden void @_ZN9SuperWord28filter_packs_for_implementedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SplitStatus, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4231,7 +4231,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.exit"
 
 "_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -4298,7 +4298,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %13, %_ZNK9Su
 
 ._crit_edge:                                      ; preds = %35, %1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4480,7 +4480,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   br label %"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.exit"
 
 "_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -11355,8 +11355,8 @@ define hidden void @_ZN10VTransform5applyEv(ptr noundef nonnull align 8 captures
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %8, i32 noundef 41, i32 noundef 4, ptr noundef %17) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -11425,8 +11425,8 @@ define hidden void @_ZN10VTransform5applyEv(ptr noundef nonnull align 8 captures
   br label %_ZNK10VTransform19apply_vectorizationEv.exit
 
 _ZNK10VTransform19apply_vectorizationEv.exit:     ; preds = %33, %36, %43, %48, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = load ptr, ptr %4, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
@@ -17381,10 +17381,10 @@ declare i32 @llvm.ctpop.i32(i32) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #9

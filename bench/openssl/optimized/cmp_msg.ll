@@ -96,12 +96,9 @@ ossl_cmp_msg_set0_libctx.exit:                    ; preds = %9, %5, %2, %12
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ASN1_item_new_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_item_new_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @OSSL_CMP_MSG_it() local_unnamed_addr #2
+declare ptr @OSSL_CMP_MSG_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cmp_msg_set0_libctx(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -139,14 +136,11 @@ define void @OSSL_CMP_MSG_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_CMP_MSG_get0_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -168,14 +162,14 @@ define ptr @OSSL_CMP_MSG_get0_header(ptr noundef readonly captures(address_is_nu
   ret ptr %.0
 }
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ossl_cmp_bodytype_to_string(i32 noundef %0) local_unnamed_addr #3 {
+define ptr @ossl_cmp_bodytype_to_string(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ugt i32 %0, 26
   br i1 %or.cond, label %6, label %2
 
@@ -191,7 +185,7 @@ define ptr @ossl_cmp_bodytype_to_string(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_cmp_msg_set_bodytype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_set_bodytype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -211,7 +205,7 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_set_bodytype(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 
@@ -279,11 +273,11 @@ OSSL_CMP_MSG_get_bodytype.exit:                   ; preds = %2
   ret ptr %.0
 }
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_CERTTEMPLATE_get0_publicKey(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_CERTTEMPLATE_get0_publicKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_msg_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -484,25 +478,25 @@ OSSL_CMP_MSG_new.exit.thread:                     ; preds = %3, %16, %88, %83, %
   ret ptr %.0
 }
 
-declare i32 @ossl_cmp_hdr_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_hdr_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_cmp_hdr_generalInfo_push1_items(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_hdr_generalInfo_push1_items(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_MSGS_new() local_unnamed_addr #2
+declare ptr @OSSL_CRMF_MSGS_new() local_unnamed_addr #1
 
-declare ptr @X509_REQ_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_dup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_CERTREPMESSAGE_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_CERTREPMESSAGE_new() local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_REVREPCONTENT_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_REVREPCONTENT_new() local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
-declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
+declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 
-declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_ERRORMSGCONTENT_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_ERRORMSGCONTENT_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_CMP_CTX_setup_CRM(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -609,7 +603,7 @@ determine_subj.exit:                              ; preds = %25, %28, %33, %35, 
   %61 = icmp eq ptr %.0.i, null
   %62 = select i1 %60, i1 true, i1 %61
   %63 = zext i1 %62 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !47
   %64 = icmp ne ptr %20, null
   %or.cond3 = select i1 %64, i1 true, i1 %6
@@ -817,46 +811,46 @@ add1_extension.exit.thread:                       ; preds = %154, %149, %133, %9
 
 159:                                              ; preds = %73, %157, %72, %65
   %.0 = phi ptr [ null, %72 ], [ %.088, %157 ], [ null, %65 ], [ null, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare i32 @OSSL_CMP_CTX_get_option(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OSSL_CMP_CTX_get_option(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_NAME_get_entry(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_NAME_get_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_MSG_new() local_unnamed_addr #2
+declare ptr @OSSL_CRMF_MSG_new() local_unnamed_addr #1
 
-declare i32 @OSSL_CRMF_MSG_set_certReqId(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OSSL_CRMF_MSG_set_certReqId(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_PUBKEY_set0_public_key(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @X509_PUBKEY_set0_public_key(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #6
+declare i64 @time(ptr noundef) local_unnamed_addr #5
 
-declare ptr @ASN1_TIME_adj(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ASN1_TIME_adj(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #2
+declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get_extensions(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get_extensions(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CMP_CTX_reqExtensions_have_SAN(ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CMP_CTX_reqExtensions_have_SAN(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509V3_get_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509V3_get_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get0_extensions(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get0_extensions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @add1_extension(ptr noundef nonnull %0, i32 noundef range(i32 85, 142) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -876,25 +870,25 @@ define internal fastcc range(i32 0, 2) i32 @add1_extension(ptr noundef nonnull %
   ret i32 %.0
 }
 
-declare ptr @X509v3_add_extensions(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509v3_add_extensions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CRMF_MSG_set0_extensions(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CRMF_MSG_set0_extensions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_CERTID_gen(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_CERTID_gen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CRMF_MSG_set1_regCtrl_oldCertID(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CRMF_MSG_set1_regCtrl_oldCertID(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_CRMF_CERTID_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CRMF_CERTID_free(ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_CRMF_MSG_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CRMF_MSG_free(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_EXTENSION_free(ptr noundef) #2
+declare void @X509_EXTENSION_free(ptr noundef) #1
 
-declare void @GENERAL_NAME_free(ptr noundef) #2
+declare void @GENERAL_NAME_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_certreq_new(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1019,17 +1013,17 @@ define ptr @ossl_cmp_certreq_new(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   ret ptr %.0
 }
 
-declare i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_CTX_get0_newPkey(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OSSL_CMP_CTX_get0_newPkey(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CRMF_MSG_create_popo(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CRMF_MSG_create_popo(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_MSG_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_MSG_dup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_cmp_msg_protect(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_msg_protect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_certrep_new(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(address_is_null) %6, ptr noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
@@ -1188,19 +1182,19 @@ define ptr @ossl_cmp_certrep_new(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   ret ptr %.047
 }
 
-declare ptr @OSSL_CMP_CERTRESPONSE_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_CERTRESPONSE_new() local_unnamed_addr #1
 
-declare void @OSSL_CMP_PKISI_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CMP_PKISI_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_PKISI_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CMP_PKISI_dup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_cmp_pkisi_get_status(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_pkisi_get_status(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_CERTIFIEDKEYPAIR_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_CERTIFIEDKEYPAIR_new() local_unnamed_addr #1
 
-declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @enc_privkey(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -1267,11 +1261,11 @@ define internal fastcc ptr @enc_privkey(ptr noundef nonnull %0, ptr noundef nonn
   ret ptr %.0
 }
 
-declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_x509_add_certs_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_x509_add_certs_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @OSSL_CMP_CERTRESPONSE_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CMP_CERTRESPONSE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_rr_new(ptr noundef %0) local_unnamed_addr #0 {
@@ -1421,13 +1415,13 @@ add_crl_reason_extension.exit:                    ; preds = %47
   ret ptr %.0
 }
 
-declare ptr @OSSL_CMP_REVDETAILS_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_REVDETAILS_new() local_unnamed_addr #1
 
-declare ptr @X509_REQ_get0_pubkey(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get0_pubkey(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get_subject_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get_subject_name(ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_CMP_REVDETAILS_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CMP_REVDETAILS_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_rp_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1509,7 +1503,7 @@ define ptr @ossl_cmp_rp_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   ret ptr %.021
 }
 
-declare ptr @OSSL_CRMF_CERTID_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_CERTID_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_pkiconf_new(ptr noundef %0) local_unnamed_addr #0 {
@@ -1574,7 +1568,7 @@ OSSL_CMP_MSG_get_bodytype.exit.thread:            ; preds = %6, %OSSL_CMP_MSG_ge
   ret i32 %.0
 }
 
-declare i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cmp_msg_gen_push1_ITAVs(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1635,9 +1629,9 @@ ossl_cmp_msg_gen_push0_ITAV.exit:                 ; preds = %OSSL_CMP_MSG_get_bo
   ret i32 %.010
 }
 
-declare ptr @OSSL_CMP_ITAV_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CMP_ITAV_dup(ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_CMP_ITAV_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CMP_ITAV_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_genm_new(ptr noundef %0) local_unnamed_addr #0 {
@@ -1821,15 +1815,15 @@ define ptr @ossl_cmp_error_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   ret ptr %.0
 }
 
-declare ptr @ASN1_INTEGER_new() local_unnamed_addr #2
+declare ptr @ASN1_INTEGER_new() local_unnamed_addr #1
 
-declare i32 @ASN1_INTEGER_set_int64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ASN1_INTEGER_set_int64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @ERR_lib_error_string(i64 noundef) local_unnamed_addr #2
+declare ptr @ERR_lib_error_string(i64 noundef) local_unnamed_addr #1
 
-declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #2
+declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cmp_certstatus_set0_certHash(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1847,14 +1841,14 @@ define range(i32 0, 2) i32 @ossl_cmp_certstatus_set0_certHash(ptr noundef captur
   ret i32 %.0
 }
 
-declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
+declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %7
 
@@ -1979,26 +1973,26 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 .critedge:                                        ; preds = %7, %4, %59, %62, %14
   %.0 = phi ptr [ null, %14 ], [ null, %62 ], [ %16, %59 ], [ null, %4 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @OSSL_CMP_CERTSTATUS_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_CERTSTATUS_new() local_unnamed_addr #1
 
-declare void @OSSL_CMP_CERTSTATUS_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CMP_CERTSTATUS_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_digest_sig(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_digest_sig(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_cmp_hdr_set_pvno(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_hdr_set_pvno(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_ALGOR_new() local_unnamed_addr #2
+declare ptr @X509_ALGOR_new() local_unnamed_addr #1
 
-declare void @X509_ALGOR_set_md(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @X509_ALGOR_set_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CMP_STATUSINFO_new(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CMP_STATUSINFO_new(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_pollReq_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2051,9 +2045,9 @@ define ptr @ossl_cmp_pollReq_new(ptr noundef %0, i32 noundef %1) local_unnamed_a
   ret ptr %.011
 }
 
-declare ptr @OSSL_CMP_POLLREQ_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_POLLREQ_new() local_unnamed_addr #1
 
-declare void @OSSL_CMP_POLLREQ_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_CMP_POLLREQ_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_pollRep_new(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -2111,7 +2105,7 @@ define ptr @ossl_cmp_pollRep_new(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   ret ptr %.0
 }
 
-declare ptr @OSSL_CMP_POLLREP_new() local_unnamed_addr #2
+declare ptr @OSSL_CMP_POLLREP_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_revrepcontent_get_pkisi(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2413,15 +2407,15 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
   ret ptr %.0
 }
 
-declare ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_CMP_CTX_set0_newPkey(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_CMP_CTX_set0_newPkey(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_encCert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_encCert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_x509_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_x509_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_transactionID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2460,7 +2454,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_transactionID(ptr noundef %0, pt
   ret i32 %.0
 }
 
-declare i32 @ossl_cmp_hdr_set_transactionID(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_hdr_set_transactionID(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_recipNonce(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2510,12 +2504,12 @@ define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_recipNonce(ptr noundef %0, ptr n
   ret i32 %.0
 }
 
-declare i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_CMP_MSG_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -2590,11 +2584,11 @@ d2i_OSSL_CMP_MSG_bio.exit._crit_edge:             ; preds = %d2i_OSSL_CMP_MSG_bi
 
 34:                                               ; preds = %31, %19, %6
   %.0 = phi ptr [ null, %6 ], [ null, %19 ], [ %33, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @d2i_OSSL_CMP_MSG_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2621,7 +2615,7 @@ define ptr @d2i_OSSL_CMP_MSG_bio(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret ptr %12
 }
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_CMP_MSG_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2682,7 +2676,7 @@ define ptr @d2i_OSSL_CMP_MSG(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   ret ptr %13
 }
 
-declare ptr @ASN1_item_d2i_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_d2i_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @i2d_OSSL_CMP_MSG(ptr noundef %0, ptr noundef %1) #0 {
@@ -2691,11 +2685,11 @@ define i32 @i2d_OSSL_CMP_MSG(ptr noundef %0, ptr noundef %1) #0 {
   ret i32 %4
 }
 
-declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_item_d2i_bio_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_d2i_bio_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cmp_is_error_with_waiting(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -2727,49 +2721,55 @@ OSSL_CMP_MSG_get_bodytype.exit.thread:            ; preds = %2, %OSSL_CMP_MSG_ge
   ret i32 %.0
 }
 
-declare ptr @X509V3_EXT_i2d(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509V3_EXT_i2d(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509v3_add_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509v3_add_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_add_cert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_add_cert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_s_mem() local_unnamed_addr #2
+declare ptr @BIO_s_mem() local_unnamed_addr #1
 
-declare i32 @i2d_PrivateKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2d_PrivateKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_cmp_set_own_chain(ptr noundef) local_unnamed_addr #2
+declare void @ossl_cmp_set_own_chain(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_cms_sign_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_cms_sign_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_CRMF_ENCRYPTEDKEY_init_envdata(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_CRMF_ENCRYPTEDKEY_init_envdata(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_free(ptr noundef) #2
+declare void @X509_free(ptr noundef) #1
 
-declare ptr @CMS_EnvelopedData_it() local_unnamed_addr #2
+declare ptr @CMS_EnvelopedData_it() local_unnamed_addr #1
 
-declare ptr @ASN1_ENUMERATED_new() local_unnamed_addr #2
+declare ptr @ASN1_ENUMERATED_new() local_unnamed_addr #1
 
-declare i32 @ASN1_ENUMERATED_set(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ASN1_ENUMERATED_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #2
+declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_cmp_asn1_get_int(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_cmp_asn1_get_int(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

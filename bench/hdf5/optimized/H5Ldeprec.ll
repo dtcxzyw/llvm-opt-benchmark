@@ -81,11 +81,11 @@ define range(i32 -1, -2147483648) i32 @H5Literate1(i64 noundef %0, i32 noundef %
   %9 = alloca %struct.H5L_shim_data_t, align 8
   %10 = alloca i8, align 1
   %11 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %11, i8 0, i64 480, i1 false)
   %12 = load i8, ptr @H5_libinit_g, align 1, !tbaa !3, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
@@ -263,40 +263,37 @@ define range(i32 -1, -2147483648) i32 @H5Literate1(i64 noundef %0, i32 noundef %
 
 109:                                              ; preds = %106, %.thread50
   %.0364553 = phi i32 [ -1, %.thread50 ], [ %99, %106 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0364553
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare i32 @H5_init_library() local_unnamed_addr #3
+declare i32 @H5_init_library() local_unnamed_addr #2
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @H5L__init_package() local_unnamed_addr #3
+declare i32 @H5L__init_package() local_unnamed_addr #2
 
-declare i32 @H5CX_push(ptr noundef) local_unnamed_addr #3
+declare i32 @H5CX_push(ptr noundef) local_unnamed_addr #2
 
-declare i32 @H5E_clear_stack() local_unnamed_addr #3
+declare i32 @H5E_clear_stack() local_unnamed_addr #2
 
-declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #3
+declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #2
 
-declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #3
+declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #2
 
-declare i32 @H5VL_object_is_native(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @H5VL_object_is_native(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5L__iterate2_shim(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.H5L_info1_t, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i8, ptr @H5L_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -358,18 +355,15 @@ define internal i32 @H5L__iterate2_shim(i64 noundef %0, ptr noundef %1, ptr noun
 
 45:                                               ; preds = %33, %40, %4
   %.0 = phi i32 [ -1, %33 ], [ %44, %40 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @H5VL_link_specific(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @H5VL_link_specific(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @H5E_dump_api_stack() local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5E_dump_api_stack() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5Literate_by_name1(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
@@ -380,11 +374,11 @@ define range(i32 -1, -2147483648) i32 @H5Literate_by_name1(i64 noundef %0, ptr n
   %13 = alloca i8, align 1
   %14 = alloca %struct.H5CX_node_t, align 8
   store i64 %7, ptr %9, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %14, i8 0, i64 480, i1 false)
   %15 = load i8, ptr @H5_libinit_g, align 1, !tbaa !3, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
@@ -587,15 +581,15 @@ define range(i32 -1, -2147483648) i32 @H5Literate_by_name1(i64 noundef %0, ptr n
 
 126:                                              ; preds = %123, %.thread54
   %.0374957 = phi i32 [ -1, %.thread54 ], [ %116, %123 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %14) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0374957
 }
 
-declare i32 @H5CX_set_apl(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @H5CX_set_apl(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5Lget_info1(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -606,11 +600,11 @@ define range(i32 -1, 1) i32 @H5Lget_info1(i64 noundef %0, ptr noundef %1, ptr no
   %9 = alloca i8, align 1
   %10 = alloca %struct.H5CX_node_t, align 8
   store i64 %3, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !3, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
@@ -821,19 +815,19 @@ define range(i32 -1, 1) i32 @H5Lget_info1(i64 noundef %0, ptr noundef %1, ptr no
 
 134:                                              ; preds = %131, %.thread51
   %.032 = phi i32 [ -1, %.thread51 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.032
 }
 
-declare i32 @H5VL_link_get(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @H5VL_link_get(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #3
+declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #2
 
-declare i32 @H5VL_native_token_to_addr(ptr noundef, i32 noundef, i64, i64, ptr noundef) local_unnamed_addr #3
+declare i32 @H5VL_native_token_to_addr(ptr noundef, i32 noundef, i64, i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5Lget_info_by_idx1(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
@@ -844,11 +838,11 @@ define range(i32 -1, 1) i32 @H5Lget_info_by_idx1(i64 noundef %0, ptr noundef %1,
   %12 = alloca i8, align 1
   %13 = alloca %struct.H5CX_node_t, align 8
   store i64 %6, ptr %8, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %13, i8 0, i64 480, i1 false)
   %14 = load i8, ptr @H5_libinit_g, align 1, !tbaa !3, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
@@ -1085,11 +1079,11 @@ define range(i32 -1, 1) i32 @H5Lget_info_by_idx1(i64 noundef %0, ptr noundef %1,
 
 150:                                              ; preds = %147, %.thread65
   %.044 = phi i32 [ -1, %.thread65 ], [ 0, %147 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.044
 }
 
@@ -1100,11 +1094,11 @@ define range(i32 -1, -2147483648) i32 @H5Lvisit1(i64 noundef %0, i32 noundef %1,
   %8 = alloca %struct.H5L_shim_data_t, align 8
   %9 = alloca i8, align 1
   %10 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !3, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
@@ -1282,11 +1276,11 @@ define range(i32 -1, -2147483648) i32 @H5Lvisit1(i64 noundef %0, i32 noundef %1,
 
 108:                                              ; preds = %105, %.thread49
   %.0354452 = phi i32 [ -1, %.thread49 ], [ %98, %105 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0354452
 }
 
@@ -1299,11 +1293,11 @@ define range(i32 -1, -2147483648) i32 @H5Lvisit_by_name1(i64 noundef %0, ptr nou
   %12 = alloca i8, align 1
   %13 = alloca %struct.H5CX_node_t, align 8
   store i64 %6, ptr %8, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %13, i8 0, i64 480, i1 false)
   %14 = load i8, ptr @H5_libinit_g, align 1, !tbaa !3, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
@@ -1506,20 +1500,26 @@ define range(i32 -1, -2147483648) i32 @H5Lvisit_by_name1(i64 noundef %0, ptr nou
 
 125:                                              ; preds = %122, %.thread53
   %.0364856 = phi i32 [ -1, %.thread53 ], [ %115, %122 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0364856
 }
 
-declare i32 @H5VLnative_token_to_addr(i64 noundef, i64, i64, ptr noundef) local_unnamed_addr #3
+declare i32 @H5VLnative_token_to_addr(i64 noundef, i64, i64, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

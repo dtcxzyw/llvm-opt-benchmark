@@ -198,9 +198,6 @@ define void @jinit_c_diff_controller(ptr noundef %0, i32 noundef %1) local_unnam
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal void @start_pass_diff(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -334,13 +331,10 @@ start_iMCU_row.exit:                              ; preds = %16, %28, %31
   ret void
 }
 
-declare i64 @jround_up(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @jround_up(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -653,7 +647,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %2
   %54 = load ptr, ptr %4, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %56 = load i32, ptr %55, align 4, !tbaa !64
   %57 = icmp sgt i32 %56, 0
@@ -693,7 +687,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
 
 compress_output.exit:                             ; preds = %62, %._crit_edge41
   %82 = call range(i32 0, 2) i32 @compress_data(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %82
 }
 
@@ -702,7 +696,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %3 = alloca [4 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load ptr, ptr %4, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %7 = load i32, ptr %6, align 4, !tbaa !64
   %8 = icmp sgt i32 %7, 0
@@ -742,18 +736,24 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
 
 ._crit_edge:                                      ; preds = %13, %2
   %33 = call i32 @compress_data(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

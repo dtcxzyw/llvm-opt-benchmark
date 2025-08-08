@@ -151,22 +151,16 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @tuplesort_begin_common(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tuplesort_begin_common(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @removeabbrev_heap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -183,7 +177,7 @@ define internal void @removeabbrev_heap(ptr noundef readonly captures(none) %0, 
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw %struct.SortTuple, ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
@@ -200,7 +194,7 @@ define internal void @removeabbrev_heap(ptr noundef readonly captures(none) %0, 
   %21 = call fastcc i64 @heap_getattr(ptr noundef nonnull %4, i32 noundef %18, ptr noundef %19, ptr noundef nonnull %20)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %21, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
@@ -281,10 +275,10 @@ define internal i32 @comparetup_heap_tiebreak(ptr noundef readonly captures(none
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load ptr, ptr %0, align 8
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 8
@@ -425,10 +419,10 @@ ApplySortComparator.exit.thread50:                ; preds = %66, %ApplySortCompa
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread50, %83, %ApplySortAbbrevFullComparator.exit.thread44, %72, %67, %51, %40, %35, %ApplySortAbbrevFullComparator.exit
   %.033 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.12.i40, %72 ], [ %..i41, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ %.0.i39, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread50 ], [ 1, %83 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.033
 }
 
@@ -439,7 +433,7 @@ define internal void @writetup_heap(ptr noundef readonly captures(none) %0, ptr 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %7 = load i32, ptr %5, align 4
   %8 = add i32 %7, -10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = zext i32 %8 to i64
   %10 = add i32 %7, -6
   store i32 %10, ptr %4, align 4
@@ -456,7 +450,7 @@ define internal void @writetup_heap(ptr noundef readonly captures(none) %0, ptr 
   br label %15
 
 15:                                               ; preds = %14, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -465,14 +459,14 @@ define internal void @readtup_heap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca i32, align 4
   %6 = alloca %struct.HeapTupleData, align 8
   %7 = add i32 %3, -4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = zext i32 %7 to i64
   %9 = add i32 %3, 6
   store i32 %9, ptr %5, align 4
   %10 = zext i32 %9 to i64
   %11 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %9, ptr %11, align 4
   %13 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %12, i64 noundef %8) #12
   %.not = icmp eq i64 %13, %8
@@ -523,14 +517,14 @@ define internal void @readtup_heap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %39 = call fastcc i64 @heap_getattr(ptr noundef nonnull %6, i32 noundef %35, ptr noundef %37, ptr noundef nonnull %38)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %39, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -799,8 +793,8 @@ define internal i32 @comparetup_cluster_tiebreak(ptr noundef readonly captures(n
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %11, align 8
@@ -962,10 +956,10 @@ ApplySortComparator.exit.thread106:               ; preds = %81, %ApplySortCompa
   br i1 %104, label %.lr.ph128, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !12
 
 105:                                              ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %106 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 264
@@ -1078,23 +1072,23 @@ ApplySortComparator.exit94.thread114:             ; preds = %ApplySortComparator
 
 .thread:                                          ; preds = %ApplySortComparator.exit94, %156, %140, %145
   %.3.ph = phi i32 [ %.12.i92, %145 ], [ %..i93, %140 ], [ 1, %156 ], [ %.0.i91, %ApplySortComparator.exit94 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 ._crit_edge:                                      ; preds = %ApplySortComparator.exit94.thread114, %115
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread106, %98, %.preheader, %87, %82, %52, %41, %36, %._crit_edge, %.thread, %ApplySortAbbrevFullComparator.exit, %ApplySortAbbrevFullComparator.exit.thread98
   %.0 = phi i32 [ 0, %ApplySortAbbrevFullComparator.exit.thread98 ], [ %.077, %ApplySortAbbrevFullComparator.exit ], [ %.3.ph, %.thread ], [ 0, %._crit_edge ], [ %.12.i, %41 ], [ %..i, %36 ], [ 1, %52 ], [ %.12.i89, %87 ], [ %..i90, %82 ], [ 0, %.preheader ], [ %.0.i88, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread106 ], [ 1, %98 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1102,7 +1096,7 @@ ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator
 define internal void @writetup_cluster(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 10
   store i32 %7, ptr %4, align 4
@@ -1125,7 +1119,7 @@ define internal void @writetup_cluster(ptr noundef readonly captures(none) %0, p
   br label %17
 
 17:                                               ; preds = %16, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1249,19 +1243,19 @@ define internal void @freestate_cluster(ptr noundef readonly captures(none) %0) 
   ret void
 }
 
-declare ptr @BuildIndexInfo(ptr noundef) local_unnamed_addr #2
+declare ptr @BuildIndexInfo(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_bt_mkscankey(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_bt_mkscankey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateExecutorState() local_unnamed_addr #2
+declare ptr @CreateExecutorState() local_unnamed_addr #1
 
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #2
+declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1
 
-declare void @PrepareSortSupportFromIndexRel(ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #2
+declare void @PrepareSortSupportFromIndexRel(ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -1382,7 +1376,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   ret ptr %10
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @removeabbrev_index(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
@@ -1489,8 +1483,8 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr noundef readonly captur
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -1781,8 +1775,8 @@ ApplySortComparator.exit.thread104:               ; preds = %132, %ApplySortComp
   br i1 %or.cond, label %182, label %161
 
 161:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @index_deform_tuple(ptr noundef %12, ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %162 = load ptr, ptr %16, align 8
   %163 = call ptr @BuildIndexValueDescription(ptr noundef %162, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
@@ -1845,8 +1839,8 @@ ApplySortComparator.exit.thread104:               ; preds = %132, %ApplySortComp
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %149, %ApplySortComparator.exit, %138, %133, %121, %110, %106, %195, %ApplySortAbbrevFullComparator.exit, %182
   %.0 = phi i32 [ %194, %182 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %spec.select83, %195 ], [ %.12.i, %110 ], [ %..i, %106 ], [ 1, %121 ], [ %.12.i94, %138 ], [ %..i95, %133 ], [ 1, %149 ], [ %.0.i93, %ApplySortComparator.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1854,7 +1848,7 @@ ApplySortAbbrevFullComparator.exit.thread:        ; preds = %149, %ApplySortComp
 define internal void @writetup_index(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr i8, ptr %5, i64 6
   %.val = load i16, ptr %6, align 2
   %7 = and i16 %.val, 8191
@@ -1877,7 +1871,7 @@ define internal void @writetup_index(ptr noundef readonly captures(none) %0, ptr
   br label %15
 
 15:                                               ; preds = %14, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1886,7 +1880,7 @@ define internal void @readtup_index(ptr noundef %0, ptr noundef writeonly captur
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = add i32 %3, -4
   store i32 %8, ptr %5, align 4
   %9 = zext i32 %8 to i64
@@ -1931,7 +1925,7 @@ define internal void @readtup_index(ptr noundef %0, ptr noundef writeonly captur
   %30 = call fastcc i64 @index_getattr(ptr noundef %10, i32 noundef 1, ptr noundef %28, ptr noundef nonnull %29)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %30, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2064,7 +2058,7 @@ define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @comparetup_index_hash_tiebreak(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
+define internal noundef i32 @comparetup_index_hash_tiebreak(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   ret i32 0
 }
 
@@ -2173,7 +2167,7 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   ret ptr %6
 }
 
-declare void @PrepareSortSupportFromGistIndexRel(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PrepareSortSupportFromGistIndexRel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_index_brin(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2212,7 +2206,7 @@ define dso_local ptr @tuplesort_begin_index_brin(i32 noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @removeabbrev_index_brin(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #5 {
+define internal void @removeabbrev_index_brin(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #4 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2238,7 +2232,7 @@ define internal void @removeabbrev_index_brin(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -2253,7 +2247,7 @@ define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr noundef readonly
 define internal void @writetup_index_brin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = add i32 %7, 4
@@ -2273,14 +2267,14 @@ define internal void @writetup_index_brin(ptr noundef readonly captures(none) %0
   br label %15
 
 15:                                               ; preds = %14, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @readtup_index_brin(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = add i32 %3, -4
   store i32 %6, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -2324,7 +2318,7 @@ define internal void @readtup_index_brin(ptr noundef %0, ptr noundef writeonly c
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %26, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2334,8 +2328,8 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %9 = alloca i8, align 1
   %10 = zext i1 %3 to i8
   %11 = tail call ptr @tuplesort_begin_common(i32 noundef %4, ptr noundef %5, i32 noundef %6) #12
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2414,13 +2408,13 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
 
 55:                                               ; preds = %53, %24
   store ptr %14, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @removeabbrev_datum(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #7 {
+define internal void @removeabbrev_datum(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #6 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2627,7 +2621,7 @@ define internal void @writetup_datum(ptr noundef readonly captures(none) %0, ptr
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i8, ptr %7, align 8, !range !4, !noundef !5
   %9 = trunc nuw i8 %8 to i1
@@ -2671,14 +2665,14 @@ define internal void @writetup_datum(ptr noundef readonly captures(none) %0, ptr
   br label %30
 
 30:                                               ; preds = %29, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = add i32 %3, -4
   store i32 %6, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -2755,11 +2749,11 @@ define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 39:                                               ; preds = %34, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_puttupleslot(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2771,8 +2765,8 @@ define dso_local void @tuplesort_puttupleslot(ptr noundef %0, ptr noundef %1) lo
   store ptr %6, ptr @CurrentMemoryContext, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -2823,13 +2817,13 @@ define dso_local void @tuplesort_puttupleslot(ptr noundef %0, ptr noundef %1) lo
   %46 = select i1 %42, i1 %45, i1 false
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %46, i64 noundef %.0) #12
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %71
 
@@ -2952,14 +2946,14 @@ fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, 
   ret i64 %.0
 }
 
-declare i64 @GetMemoryChunkSpace(ptr noundef) local_unnamed_addr #2
+declare i64 @GetMemoryChunkSpace(ptr noundef) local_unnamed_addr #1
 
-declare void @tuplesort_puttuple_common(ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @tuplesort_puttuple_common(ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SortTuple, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -3029,16 +3023,16 @@ define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) lo
   %49 = phi i1 [ false, %38 ], [ false, %35 ], [ %47, %43 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %49, i64 noundef %.0) #12
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #2
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SortTuple, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -3174,17 +3168,17 @@ index_getattr.exit:                               ; preds = %35, %38, %41, %44, 
 80:                                               ; preds = %77, %74
   %81 = phi i1 [ false, %74 ], [ %spec.select, %77 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %81, i64 noundef %.0) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare ptr @index_form_tuple_context(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @index_form_tuple_context(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #8 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #7 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr i8, ptr %0, i64 6
   %.val = load i16, ptr %5, align 2
@@ -3283,7 +3277,7 @@ fetch_att.exit:                                   ; preds = %39, %33, %30, %27, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -3332,7 +3326,7 @@ define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr noundef readon
   %31 = phi i1 [ false, %24 ], [ %.not18, %27 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %31, i64 noundef %.0) #12
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3346,7 +3340,7 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %2, label %15, label %11
 
 11:                                               ; preds = %3
@@ -3396,11 +3390,11 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
   %37 = phi i1 [ false, %26 ], [ %spec.select, %30 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %37, i64 noundef 0) #12
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @tuplesort_gettupleslot(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
@@ -3409,7 +3403,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettupleslot(ptr noundef %0, i1 n
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %6) #12
   br i1 %10, label %11, label %.thread
 
@@ -3463,15 +3457,15 @@ define dso_local noundef zeroext i1 @tuplesort_gettupleslot(ptr noundef %0, i1 n
 
 33:                                               ; preds = %28, %25
   %.not15 = phi i1 [ false, %28 ], [ true, %25 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.not15
 }
 
-declare zeroext i1 @tuplesort_gettuple_common(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @tuplesort_gettuple_common(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare ptr @heap_copy_minimal_tuple(ptr noundef) local_unnamed_addr #2
+declare ptr @heap_copy_minimal_tuple(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_getheaptuple(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -3480,12 +3474,12 @@ define dso_local ptr @tuplesort_getheaptuple(ptr noundef %0, i1 noundef zeroext 
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3) #12
   %.pre = load ptr, ptr %3, align 8
   %8 = select i1 %7, ptr %.pre, ptr null
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %8
 }
 
@@ -3496,12 +3490,12 @@ define dso_local ptr @tuplesort_getindextuple(ptr noundef %0, i1 noundef zeroext
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3) #12
   %.pre = load ptr, ptr %3, align 8
   %8 = select i1 %7, ptr %.pre, ptr null
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %8
 }
 
@@ -3512,7 +3506,7 @@ define dso_local ptr @tuplesort_getbrintuple(ptr noundef %0, ptr noundef writeon
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %4) #12
   br i1 %8, label %9, label %.thread
 
@@ -3534,7 +3528,7 @@ define dso_local ptr @tuplesort_getbrintuple(ptr noundef %0, ptr noundef writeon
 
 13:                                               ; preds = %.thread, %9, %10
   %.0 = phi ptr [ %12, %10 ], [ null, %9 ], [ null, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3547,7 +3541,7 @@ define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 nound
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %7) #12
   store ptr %10, ptr @CurrentMemoryContext, align 8
   br i1 %13, label %14, label %43
@@ -3603,49 +3597,55 @@ define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 nound
   br label %43
 
 43:                                               ; preds = %6, %42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %13
 }
 
-declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @nocache_index_getattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @nocache_index_getattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @LogicalTapeWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @LogicalTapeWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @tuplesort_readtup_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @tuplesort_readtup_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @LogicalTapeRead(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @LogicalTapeRead(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecStoreHeapTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @ExecStoreHeapTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @FormIndexDatum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @FormIndexDatum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #2
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 
-declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #2
+declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 
-declare void @index_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @index_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BuildIndexValueDescription(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BuildIndexValueDescription(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errtableconstraint(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @errtableconstraint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_hash_hashkey2bucket(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_hashkey2bucket(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @datumGetSize(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumGetSize(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -3657,15 +3657,15 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #11
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

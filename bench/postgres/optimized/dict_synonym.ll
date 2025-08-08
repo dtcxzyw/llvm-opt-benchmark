@@ -23,7 +23,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %2 = alloca %struct.tsearch_readline_state, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge.thread, label %.lr.ph
 
@@ -44,7 +44,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str) #9
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str) #8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
@@ -53,16 +53,16 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   br i1 %.not68, label %.critedge.thread, label %37
 
 17:                                               ; preds = %.lr.ph124
-  %18 = tail call ptr @defGetString(ptr noundef nonnull %12) #8
+  %18 = tail call ptr @defGetString(ptr noundef nonnull %12) #9
   br label %30
 
 19:                                               ; preds = %.lr.ph124
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(14) @.str.1) #9
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(14) @.str.1) #8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.split
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %12) #8
+  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %12) #9
   %24 = zext i1 %23 to i8
   br label %30
 
@@ -70,10 +70,10 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %27 = tail call i32 @errcode(i32 noundef 50856066) #9
   %28 = load ptr, ptr %25, align 8
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %28) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 121, ptr noundef nonnull @__func__.dsynonym_init) #8
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %28) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 121, ptr noundef nonnull @__func__.dsynonym_init) #9
   unreachable
 
 30:                                               ; preds = %22, %17
@@ -88,27 +88,27 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
 .critedge.thread:                                 ; preds = %.lr.ph, %1, %.critedge
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 50856066) #8
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 127, ptr noundef nonnull @__func__.dsynonym_init) #8
+  %35 = tail call i32 @errcode(i32 noundef 50856066) #9
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 127, ptr noundef nonnull @__func__.dsynonym_init) #9
   unreachable
 
 37:                                               ; preds = %.critedge
-  %38 = tail call ptr @get_tsearch_config_filename(ptr noundef nonnull %.1, ptr noundef nonnull @.str.5) #8
-  %39 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %2, ptr noundef %38) #8
+  %38 = tail call ptr @get_tsearch_config_filename(ptr noundef nonnull %.1, ptr noundef nonnull @.str.5) #9
+  %39 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %2, ptr noundef %38) #9
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
   %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %41)
-  %42 = call i32 @errcode(i32 noundef 22) #8
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %38) #8
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 135, ptr noundef nonnull @__func__.dsynonym_init) #8
+  %42 = call i32 @errcode(i32 noundef 22) #9
+  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %38) #9
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 135, ptr noundef nonnull @__func__.dsynonym_init) #9
   unreachable
 
 44:                                               ; preds = %37
-  %45 = call ptr @palloc0(i64 noundef 24) #8
-  %46 = call ptr @tsearch_readline(ptr noundef nonnull %2) #8
+  %45 = call ptr @palloc0(i64 noundef 24) #9
+  %46 = call ptr @tsearch_readline(ptr noundef nonnull %2) #9
   %.not69138 = icmp eq ptr %46, null
   br i1 %.not69138, label %._crit_edge, label %.lr.ph140
 
@@ -140,7 +140,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   br i1 %.not32.i, label %.critedge.i, label %60
 
 60:                                               ; preds = %53
-  %61 = call i32 @pg_mblen(ptr noundef nonnull %.02939.i) #8
+  %61 = call i32 @pg_mblen(ptr noundef nonnull %.02939.i) #9
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %.02939.i, i64 %62
   %64 = load i8, ptr %63, align 1
@@ -158,7 +158,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
 
 .critedge.i:                                      ; preds = %53, %.lr.ph43.i
   %.141.i127 = phi ptr [ %72, %.lr.ph43.i ], [ %.02939.i, %53 ]
-  %70 = call i32 @pg_mblen(ptr noundef nonnull %.141.i127) #8
+  %70 = call i32 @pg_mblen(ptr noundef nonnull %.141.i127) #9
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %.141.i127, i64 %71
   %73 = load i8, ptr %72, align 1
@@ -184,7 +184,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   br i1 %.not32.i76, label %.critedge.i87, label %82
 
 82:                                               ; preds = %.lr.ph.i74
-  %83 = call i32 @pg_mblen(ptr noundef nonnull %.02939.i75) #8
+  %83 = call i32 @pg_mblen(ptr noundef nonnull %.02939.i75) #9
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %.02939.i75, i64 %84
   %86 = load i8, ptr %85, align 1
@@ -202,7 +202,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
 
 .critedge.i87:                                    ; preds = %.lr.ph.i74, %.lr.ph43.i80
   %.141.i82133 = phi ptr [ %94, %.lr.ph43.i80 ], [ %.02939.i75, %.lr.ph.i74 ]
-  %92 = call i32 @pg_mblen(ptr noundef nonnull %.141.i82133) #8
+  %92 = call i32 @pg_mblen(ptr noundef nonnull %.141.i82133) #9
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %.141.i82133, i64 %93
   %95 = load i8, ptr %94, align 1
@@ -238,7 +238,7 @@ findwrd.exit89:                                   ; preds = %100, %97
 
 104:                                              ; preds = %102
   store i32 64, ptr %45, align 8
-  %105 = call ptr @palloc(i64 noundef 1536) #8
+  %105 = call ptr @palloc(i64 noundef 1536) #9
   br label %.sink.split
 
 106:                                              ; preds = %102
@@ -247,7 +247,7 @@ findwrd.exit89:                                   ; preds = %100, %97
   %108 = load ptr, ptr %47, align 8
   %109 = sext i32 %107 to i64
   %110 = mul nsw i64 %109, 24
-  %111 = call ptr @repalloc(ptr noundef %108, i64 noundef %110) #8
+  %111 = call ptr @repalloc(ptr noundef %108, i64 noundef %110) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %106, %104
@@ -259,23 +259,23 @@ findwrd.exit89:                                   ; preds = %100, %97
   br i1 %48, label %113, label %119
 
 113:                                              ; preds = %112
-  %114 = call ptr @pstrdup(ptr noundef nonnull %.02939.i) #8
+  %114 = call ptr @pstrdup(ptr noundef nonnull %.02939.i) #9
   %115 = load ptr, ptr %47, align 8
   %116 = sext i32 %.060139 to i64
   %117 = getelementptr inbounds %struct.Syn, ptr %115, i64 %116
   store ptr %114, ptr %117, align 8
-  %118 = call ptr @pstrdup(ptr noundef nonnull %.02939.i75) #8
+  %118 = call ptr @pstrdup(ptr noundef nonnull %.02939.i75) #9
   br label %127
 
 119:                                              ; preds = %112
-  %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i) #9
-  %121 = call ptr @str_tolower(ptr noundef nonnull %.02939.i, i64 noundef %120, i32 noundef 100) #8
+  %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i) #8
+  %121 = call ptr @str_tolower(ptr noundef nonnull %.02939.i, i64 noundef %120, i32 noundef 100) #9
   %122 = load ptr, ptr %47, align 8
   %123 = sext i32 %.060139 to i64
   %124 = getelementptr inbounds %struct.Syn, ptr %122, i64 %123
   store ptr %121, ptr %124, align 8
-  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #9
-  %126 = call ptr @str_tolower(ptr noundef nonnull %.02939.i75, i64 noundef %125, i32 noundef 100) #8
+  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #8
+  %126 = call ptr @str_tolower(ptr noundef nonnull %.02939.i75, i64 noundef %125, i32 noundef 100) #9
   br label %127
 
 127:                                              ; preds = %119, %113
@@ -284,7 +284,7 @@ findwrd.exit89:                                   ; preds = %100, %97
   %128 = load ptr, ptr %47, align 8
   %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink174, i32 1
   store ptr %.sink171, ptr %129, align 8
-  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #9
+  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #8
   %131 = trunc i64 %130 to i32
   %132 = load ptr, ptr %47, align 8
   %133 = getelementptr inbounds %struct.Syn, ptr %132, i64 %.sink174, i32 2
@@ -297,78 +297,72 @@ findwrd.exit89:                                   ; preds = %100, %97
 
 findwrd.exit.thread:                              ; preds = %60, %.critedge.i, %82, %.critedge2.i, %49, %127
   %.161 = phi i32 [ %136, %127 ], [ %.060139, %49 ], [ %.060139, %.critedge2.i ], [ %.060139, %82 ], [ %.060139, %.critedge.i ], [ %.060139, %60 ]
-  call void @pfree(ptr noundef nonnull %50) #8
-  %137 = call ptr @tsearch_readline(ptr noundef nonnull %2) #8
+  call void @pfree(ptr noundef nonnull %50) #9
+  %137 = call ptr @tsearch_readline(ptr noundef nonnull %2) #9
   %.not69 = icmp eq ptr %137, null
   br i1 %.not69, label %._crit_edge, label %49, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %findwrd.exit.thread, %44
   %.060.lcssa = phi i32 [ 0, %44 ], [ %.161, %findwrd.exit.thread ]
-  call void @tsearch_readline_end(ptr noundef nonnull %2) #8
+  call void @tsearch_readline_end(ptr noundef nonnull %2) #9
   store i32 %.060.lcssa, ptr %45, align 8
   %138 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = sext i32 %.060.lcssa to i64
-  call void @pg_qsort(ptr noundef %139, i64 noundef %140, i64 noundef 24, ptr noundef nonnull @compareSyn) #8
+  call void @pg_qsort(ptr noundef %139, i64 noundef %140, i64 noundef 24, ptr noundef nonnull @compareSyn) #9
   %141 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i8 %.159, ptr %141, align 8
   %142 = ptrtoint ptr %45 to i64
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %142
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @defGetString(ptr noundef) local_unnamed_addr #3
+declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @get_tsearch_config_filename(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @get_tsearch_config_filename(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @tsearch_readline_begin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @tsearch_readline_begin(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @tsearch_readline(ptr noundef) local_unnamed_addr #2
 
-declare ptr @tsearch_readline(ptr noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
-
-declare ptr @str_tolower(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @str_tolower(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @tsearch_readline_end(ptr noundef) local_unnamed_addr #3
+declare void @tsearch_readline_end(ptr noundef) local_unnamed_addr #2
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compareSyn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal i32 @compareSyn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #9
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #8
   ret i32 %5
 }
 
@@ -399,11 +393,11 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
   br i1 %18, label %20, label %22
 
 20:                                               ; preds = %15
-  %21 = tail call ptr @pnstrdup(ptr noundef %7, i64 noundef %19) #8
+  %21 = tail call ptr @pnstrdup(ptr noundef %7, i64 noundef %19) #9
   br label %24
 
 22:                                               ; preds = %15
-  %23 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %19, i32 noundef 100) #8
+  %23 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %19, i32 noundef 100) #9
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -426,7 +420,7 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
   %31 = mul i64 %30, 24
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge, ptr noundef nonnull dereferenceable(1) %33) #9
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge, ptr noundef nonnull dereferenceable(1) %33) #8
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %39, label %36
 
@@ -445,19 +439,19 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
   br i1 %40, label %.lr.ph.i, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %39, %24
-  tail call void @pfree(ptr noundef %storemerge) #8
+  tail call void @pfree(ptr noundef %storemerge) #9
   br label %55
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 %31
-  tail call void @pfree(ptr noundef nonnull %storemerge) #8
-  %43 = tail call ptr @palloc0(i64 noundef 32) #8
+  tail call void @pfree(ptr noundef nonnull %storemerge) #9
+  %43 = tail call ptr @palloc0(i64 noundef 32) #9
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
-  %49 = tail call ptr @pnstrdup(ptr noundef %45, i64 noundef %48) #8
+  %49 = tail call ptr @pnstrdup(ptr noundef %45, i64 noundef %48) #9
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 20
@@ -472,26 +466,32 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
   ret i64 %.0
 }
 
-declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #6
+declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
-declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #3
+declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 attributes #11 = { nounwind willreturn memory(none) }
 

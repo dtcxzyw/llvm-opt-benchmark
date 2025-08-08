@@ -75,8 +75,8 @@ DeflateCompressorInit.exit:                       ; preds = %8
 define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @pg_malloc(i64 noundef 112) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -215,8 +215,8 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr noundef readon
   call void @free(ptr noundef %60) #11
   call void @free(ptr noundef %8) #11
   call void @free(ptr noundef nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -423,7 +423,7 @@ define dso_local void @InitCompressFileHandleGzip(ptr noundef writeonly captures
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Gzip_open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, -1
@@ -461,7 +461,7 @@ define internal noundef zeroext i1 @Gzip_open(ptr noundef %0, i32 noundef %1, pt
   br label %23
 
 23:                                               ; preds = %19, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %20
 }
 
@@ -493,7 +493,7 @@ define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, pt
   br i1 %.not, label %13, label %23
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = call ptr @gzerror(ptr noundef %7, ptr noundef nonnull %5) #11
   %15 = load i32, ptr %5, align 4
   %16 = icmp eq i32 %15, -1
@@ -616,7 +616,7 @@ define internal ptr @Gzip_get_error(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call ptr @gzerror(ptr noundef %4, ptr noundef nonnull %2) #11
   %6 = load i32, ptr %2, align 4
   %7 = icmp eq i32 %6, -1
@@ -630,76 +630,76 @@ define internal ptr @Gzip_get_error(ptr noundef readonly captures(none) %0) #0 {
 
 12:                                               ; preds = %8, %1
   %.0 = phi ptr [ %11, %8 ], [ %5, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #3
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #4
+declare i32 @inflateInit_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @inflateInit_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @exit_nicely(i32 noundef) local_unnamed_addr #5
+declare void @exit_nicely(i32 noundef) local_unnamed_addr #4
 
-declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ahwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ahwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #4
+declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #3
 
-declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #4
+declare void @pg_free(ptr noundef) local_unnamed_addr #3
 
-declare void @pg_free(ptr noundef) local_unnamed_addr #4
+declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #3
 
-declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #4
+declare i32 @deflateInit_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @deflateInit_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
-declare ptr @gzdopen(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @gzdopen(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #8
+declare i32 @dup(i32 noundef) local_unnamed_addr #7
 
-declare ptr @gzopen(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @gzopen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #4
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare i32 @gzread(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @gzread(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @gzeof(ptr noundef) local_unnamed_addr #4
+declare i32 @gzeof(ptr noundef) local_unnamed_addr #3
 
-declare ptr @gzerror(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @gzerror(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #3
 
-declare i32 @gzwrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @gzwrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @gzgets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @gzgets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @gzgetc(ptr noundef) local_unnamed_addr #4
+declare i32 @gzgetc(ptr noundef) local_unnamed_addr #3
 
-declare i32 @gzclose(ptr noundef) local_unnamed_addr #4
+declare i32 @gzclose(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -707,13 +707,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

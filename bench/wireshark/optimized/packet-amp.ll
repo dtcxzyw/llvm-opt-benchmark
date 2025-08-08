@@ -173,46 +173,46 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %25 = alloca %struct.cborObj, align 8
   %26 = alloca %struct.cborObj, align 8
   %27 = alloca %struct.cborObj, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %28 = load i32, ptr @ett_amp_proto, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull @.str)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %0, i32 noundef %3)
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.5114.0.copyload = load i32, ptr %.sroa.5114.0..sroa_idx, align 4
   %.sroa.10128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.10128.0.copyload = load i64, ptr %.sroa.10128.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %30 = add i32 %.sroa.5114.0.copyload, %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %0, i32 noundef %30)
   %.sroa.5114.0..sroa_idx115 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.5114.0.copyload116 = load i32, ptr %.sroa.5114.0..sroa_idx115, align 4
   %.sroa.10128.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.10128.0.copyload130 = load i64, ptr %.sroa.10128.0..sroa_idx129, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %sext = shl i64 %.sroa.10128.0.copyload130, 32
   %31 = ashr exact i64 %sext, 32
   %32 = add i32 %.sroa.5114.0.copyload116, -1
   %33 = call i32 @llvm.smin.i32(i32 %32, i32 1)
   %34 = load i32, ptr @hf_amp_primary_timestamp, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = icmp ult i64 %31, 558230400
   %spec.store.select.i = select i1 %35, i64 0, i64 %31
   store i64 %spec.store.select.i, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %36, align 8
   %37 = call ptr @proto_tree_add_time(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef %30, i32 noundef %33, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = icmp ugt i64 %.sroa.10128.0.copyload, 1
   br i1 %38, label %.lr.ph348, label %.critedge
 
@@ -248,10 +248,10 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 41:                                               ; preds = %.lr.ph348, %.loopexit
   %.0346 = phi i32 [ %39, %.lr.ph348 ], [ %.1, %.loopexit ]
   %.0299345 = phi i32 [ 1, %.lr.ph348 ], [ %169, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %0, i32 noundef %.0346)
   %.sroa.5114.0.copyload118 = load i32, ptr %.sroa.5114.0..sroa_idx117, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %42 = add i32 %.sroa.5114.0.copyload118, %.0346
   %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
   %44 = load i32, ptr @ett_amp_message, align 4
@@ -271,11 +271,11 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 51:                                               ; preds = %41
   %52 = load i32, ptr @ett_amp_register, align 4
   %53 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef %52, ptr noundef nonnull %9, ptr noundef nonnull @.str.2)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %0, i32 noundef %49)
   %.sroa.599.0.copyload = load i32, ptr %.sroa.599.0..sroa_idx, align 4
   %.sroa.8106.0.copyload = load i64, ptr %.sroa.8106.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %54 = add i32 %.sroa.599.0.copyload, %49
   %55 = load i32, ptr @hf_amp_agent_name, align 4
   %56 = trunc i64 %.sroa.8106.0.copyload to i32
@@ -288,12 +288,12 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %61 = add i32 %42, -1
   %62 = load i32, ptr @ett_amp_report_set, align 4
   %63 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %61, i32 noundef -1, i32 noundef %62, ptr noundef nonnull %10, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %0, i32 noundef %49)
   %.sroa.097.0.copyload98 = load i32, ptr %16, align 8
   %.sroa.599.0.copyload101 = load i32, ptr %.sroa.599.0..sroa_idx100, align 4
   %.sroa.8106.0.copyload108 = load i64, ptr %.sroa.8106.0..sroa_idx107, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not = icmp eq i32 %.sroa.097.0.copyload98, 4
   br i1 %.not, label %64, label %.critedge
 
@@ -311,11 +311,11 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %64, %66
   %.3332 = phi i32 [ %74, %66 ], [ %65, %64 ]
   %.0301331 = phi i32 [ %67, %66 ], [ 0, %64 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %0, i32 noundef %.3332)
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.592.0.copyload = load i64, ptr %.sroa.592.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %70 = add i32 %.sroa.4.0.copyload, %.3332
   %71 = load i32, ptr @hf_amp_rx_name, align 4
   %72 = trunc i64 %.sroa.592.0.copyload to i32
@@ -326,10 +326,10 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 ._crit_edge:                                      ; preds = %66, %64
   %.3.lcssa = phi i32 [ %65, %64 ], [ %74, %66 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %0, i32 noundef %.3.lcssa)
   %.sroa.592.0.copyload94 = load i64, ptr %.sroa.592.0..sroa_idx93, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %76 = add i32 %.3.lcssa, %.sroa.599.0.copyload101
   %.not351 = icmp eq i64 %.sroa.592.0.copyload94, 0
   br i1 %.not351, label %.loopexit, label %.lr.ph343
@@ -339,18 +339,18 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %.1302340 = phi i32 [ %158, %._crit_edge336 ], [ 0, %._crit_edge ]
   %77 = load i32, ptr @ett_amp_report, align 4
   %78 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.4341, i32 noundef -1, i32 noundef %77, ptr noundef nonnull %11, ptr noundef nonnull @.str.4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %0, i32 noundef %.4341)
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %79 = add i32 %.sroa.10.0.copyload, %.4341
   %.not314 = icmp eq i64 %.sroa.25.0.copyload, 3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %0, i32 noundef %79)
   %.sroa.10.0.copyload30 = load i32, ptr %.sroa.10.0..sroa_idx29, align 4
   %.sroa.25.0.copyload67 = load i64, ptr %.sroa.25.0..sroa_idx66, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %80 = add i32 %.sroa.10.0.copyload30, %79
   %81 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %80)
   %82 = zext i8 %81 to i32
@@ -385,37 +385,37 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not314, label %100, label %107
 
 100:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef %0, i32 noundef %97)
   %.sroa.10.0.copyload32 = load i32, ptr %.sroa.10.0..sroa_idx31, align 4
   %.sroa.25.0.copyload69 = load i64, ptr %.sroa.25.0..sroa_idx68, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %101 = add i32 %97, 1
   %sext315 = shl i64 %.sroa.25.0.copyload69, 32
   %102 = ashr exact i64 %sext315, 32
   %103 = load i32, ptr @hf_amp_primary_timestamp, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %104 = icmp ult i64 %102, 558230400
   %spec.store.select.i319 = select i1 %104, i64 0, i64 %102
   store i64 %spec.store.select.i319, ptr %5, align 8
   store i32 0, ptr %40, align 8
   %105 = call ptr @proto_tree_add_time(ptr noundef %78, i32 noundef %103, ptr noundef %0, i32 noundef %101, i32 noundef 4, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %106 = add i32 %.sroa.10.0.copyload32, %97
   br label %107
 
 107:                                              ; preds = %100, %99
   %.6 = phi i32 [ %106, %100 ], [ %97, %99 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %0, i32 noundef %.6)
   %.sroa.10.0.copyload34 = load i32, ptr %.sroa.10.0..sroa_idx33, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %108 = add i32 %.sroa.10.0.copyload34, %.6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef %0, i32 noundef %108)
   %.sroa.10.0.copyload36 = load i32, ptr %.sroa.10.0..sroa_idx35, align 4
   %.sroa.25.0.copyload73 = load i64, ptr %.sroa.25.0..sroa_idx72, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %109 = add i32 %.sroa.10.0.copyload36, %108
   %110 = load i32, ptr @hf_amp_tnvc_flags, align 4
   %111 = load i32, ptr @ett_amp_tnvc_flags, align 4
@@ -425,11 +425,11 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %115 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %114)
   %116 = load i32, ptr @ett_amp_message, align 4
   %117 = call ptr @proto_tree_add_subtree(ptr noundef %115, ptr noundef %0, i32 noundef %113, i32 noundef -1, i32 noundef %116, ptr noundef nonnull %8, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %0, i32 noundef %113)
   %.sroa.10.0.copyload38 = load i32, ptr %.sroa.10.0..sroa_idx37, align 4
   %.sroa.25.0.copyload75 = load i64, ptr %.sroa.25.0..sroa_idx74, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %118 = add i32 %.sroa.10.0.copyload38, %113
   %119 = trunc i64 %.sroa.25.0.copyload75 to i32
   %120 = add i32 %118, %119
@@ -445,13 +445,13 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph335:                                        ; preds = %.preheader, %154
   %.7334 = phi i32 [ %156, %154 ], [ %120, %.preheader ]
   %.0300333 = phi i32 [ %157, %154 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %0, i32 noundef %.7334)
   %.sroa.022.0.copyload28 = load i32, ptr %25, align 8
   %.sroa.10.0.copyload40 = load i32, ptr %.sroa.10.0..sroa_idx39, align 4
   %.sroa.22.0.copyload63 = load i64, ptr %.sroa.22.0..sroa_idx62, align 8
   %.sroa.25.0.copyload77 = load i64, ptr %.sroa.25.0..sroa_idx76, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %cond2 = icmp eq i32 %.sroa.022.0.copyload28, 2
   br i1 %cond2, label %124, label %145
 
@@ -464,11 +464,11 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 127:                                              ; preds = %124
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %128 = add i32 %.sroa.10.0.copyload40, %.7334
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef %0, i32 noundef %128)
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %129 = load i32, ptr @hf_amp_text_string, align 4
   %130 = add i32 %.sroa.5.0.copyload, %128
   %131 = trunc i64 %.sroa.25.0.copyload77 to i32
@@ -477,12 +477,12 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br label %150
 
 134:                                              ; preds = %124
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %135 = add i32 %.sroa.10.0.copyload40, %.7334
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %0, i32 noundef %135)
   %.sroa.0.0.copyload15 = load i32, ptr %27, align 8
   %.sroa.5.0.copyload17 = load i32, ptr %.sroa.5.0..sroa_idx16, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.not316 = icmp eq i32 %.sroa.0.0.copyload15, 0
   br i1 %.not316, label %136, label %150
 
@@ -518,7 +518,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %152, label %154, label %153
 
 153:                                              ; preds = %151
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 573, ptr noundef nonnull @.str.8) #6
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 573, ptr noundef nonnull @.str.8) #5
   unreachable
 
 154:                                              ; preds = %151
@@ -564,19 +564,16 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %60, %.critedge.sink.split, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cbor_info(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -806,29 +803,26 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias writable write
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_amp() local_unnamed_addr #0 {
@@ -846,22 +840,22 @@ define hidden void @proto_register_amp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_amp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -890,45 +884,50 @@ define hidden void @proto_reg_handoff_amp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

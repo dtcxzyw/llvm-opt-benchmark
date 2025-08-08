@@ -1165,23 +1165,23 @@ define dso_local void @init_asm() local_unnamed_addr #1 {
   ]
 
 48:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %40, i32 noundef 2, i32 noundef -1)
   call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %41, i32 noundef 0, i32 noundef -1)
   call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %42, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef -1)
@@ -1191,7 +1191,7 @@ define dso_local void @init_asm() local_unnamed_addr #1 {
   br i1 %50, label %.critedge.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 64, ptr %26, align 4
   %51 = call ptr @symtab_add(ptr noundef nonnull @.str.4, i32 noundef 3, i32 noundef 876991330, ptr noundef nonnull %26) #11
   %52 = ptrtoint ptr %51 to i64
@@ -1217,8 +1217,8 @@ reg_instr_clob.exit.i:                            ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 80
   store i32 0, ptr %63, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 64, ptr %25, align 4
   %64 = call ptr @symtab_add(ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef 798074659, ptr noundef nonnull %25) #11
   %65 = ptrtoint ptr %64 to i64
@@ -1244,15 +1244,15 @@ reg_instr_clob.exit436.i:                         ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 80
   store i32 0, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   br label %.lr.ph.preheader.i.i452.i
 
 .critedge.i:                                      ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0894.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0894.i)
   call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %.sroa.0894.i, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 12, i32 noundef 4, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 64, ptr %24, align 4
   %77 = call ptr @symtab_add(ptr noundef nonnull @.str.10, i32 noundef 7, i32 noundef -237846118, ptr noundef nonnull %24) #11
   %78 = ptrtoint ptr %77 to i64
@@ -1278,8 +1278,8 @@ reg_instr_clob.exit450.i:                         ; preds = %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0894.i, i64 32, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 80
   store i32 0, ptr %89, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0894.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0894.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
   br label %.lr.ph.preheader.i.i452.i
@@ -1303,7 +1303,7 @@ reg_instr_clob.exit450.i:                         ; preds = %83
   call fastcc void @reg_instr(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.37)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 64, ptr %23, align 4
   %90 = call ptr @symtab_add(ptr noundef nonnull @.str.42, i32 noundef 4, i32 noundef 1667640577, ptr noundef nonnull %23) #11
   %91 = ptrtoint ptr %90 to i64
@@ -1329,8 +1329,8 @@ reg_instr_clob.exit464.i:                         ; preds = %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 80
   store i32 0, ptr %102, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 64, ptr %22, align 4
   %103 = call ptr @symtab_add(ptr noundef nonnull @.str.43, i32 noundef 4, i32 noundef -1144310585, ptr noundef nonnull %22) #11
   %104 = ptrtoint ptr %103 to i64
@@ -1356,8 +1356,8 @@ reg_instr_clob.exit478.i:                         ; preds = %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false)
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 80
   store i32 0, ptr %115, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 64, ptr %21, align 4
   %116 = call ptr @symtab_add(ptr noundef nonnull @.str.44, i32 noundef 4, i32 noundef 1443153857, ptr noundef nonnull %21) #11
   %117 = ptrtoint ptr %116 to i64
@@ -1383,8 +1383,8 @@ reg_instr_clob.exit492.i:                         ; preds = %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 80
   store i32 0, ptr %128, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 64, ptr %20, align 4
   %129 = call ptr @symtab_add(ptr noundef nonnull @.str.45, i32 noundef 3, i32 noundef 328222459, ptr noundef nonnull %20) #11
   %130 = ptrtoint ptr %129 to i64
@@ -1410,8 +1410,8 @@ reg_instr_clob.exit506.i:                         ; preds = %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 80
   store i32 0, ptr %141, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 64, ptr %19, align 4
   %142 = call ptr @symtab_add(ptr noundef nonnull @.str.46, i32 noundef 3, i32 noundef 412110554, ptr noundef nonnull %19) #11
   %143 = ptrtoint ptr %142 to i64
@@ -1437,7 +1437,7 @@ reg_instr_clob.exit520.i:                         ; preds = %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 80
   store i32 0, ptr %154, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52)
@@ -1455,7 +1455,7 @@ reg_instr_clob.exit520.i:                         ; preds = %148
   call fastcc void @reg_instr(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.71)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 64, ptr %18, align 4
   %155 = call ptr @symtab_add(ptr noundef nonnull @.str.75, i32 noundef 3, i32 noundef 632395326, ptr noundef nonnull %18) #11
   %156 = ptrtoint ptr %155 to i64
@@ -1481,8 +1481,8 @@ reg_instr.exit.i:                                 ; preds = %161
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %166, i8 0, i64 32, i1 false)
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 80
   store i32 0, ptr %167, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 64, ptr %17, align 4
   %168 = call ptr @symtab_add(ptr noundef nonnull @.str.76, i32 noundef 4, i32 noundef -1617980181, ptr noundef nonnull %17) #11
   %169 = ptrtoint ptr %168 to i64
@@ -1508,8 +1508,8 @@ reg_instr.exit547.i:                              ; preds = %174
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %179, i8 0, i64 32, i1 false)
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 80
   store i32 0, ptr %180, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 64, ptr %16, align 4
   %181 = call ptr @symtab_add(ptr noundef nonnull @.str.77, i32 noundef 4, i32 noundef -1466981610, ptr noundef nonnull %16) #11
   %182 = ptrtoint ptr %181 to i64
@@ -1535,7 +1535,7 @@ reg_instr.exit561.i:                              ; preds = %187
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %192, i8 0, i64 32, i1 false)
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 80
   store i32 0, ptr %193, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.78, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.16)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.79, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.80)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.81, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.82)
@@ -1560,9 +1560,9 @@ reg_instr.exit561.i:                              ; preds = %187
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.109, ptr noundef nonnull byval(%struct.Clobbers) align 8 %42, ptr noundef nonnull @.str.80)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.110, ptr noundef nonnull byval(%struct.Clobbers) align 8 %42, ptr noundef nonnull @.str.82)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.111, ptr noundef nonnull byval(%struct.Clobbers) align 8 %42, ptr noundef nonnull @.str.84)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0900.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0900.i)
   call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %.sroa.0900.i, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 64, ptr %15, align 4
   %194 = call ptr @symtab_add(ptr noundef nonnull @.str.112, i32 noundef 5, i32 noundef 1385526668, ptr noundef nonnull %15) #11
   %195 = ptrtoint ptr %194 to i64
@@ -1588,9 +1588,9 @@ reg_instr_clob.exit575.i:                         ; preds = %200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0900.i, i64 32, i1 false)
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 80
   store i32 0, ptr %206, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0900.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0900.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 64, ptr %14, align 4
   %207 = call ptr @symtab_add(ptr noundef nonnull @.str.113, i32 noundef 3, i32 noundef -255177329, ptr noundef nonnull %14) #11
   %208 = ptrtoint ptr %207 to i64
@@ -1616,13 +1616,13 @@ reg_instr.exit589.i:                              ; preds = %213
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %218, i8 0, i64 32, i1 false)
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 80
   store i32 0, ptr %219, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.116, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.86)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.117, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.88)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.118, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.90)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.119, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.92)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 64, ptr %13, align 4
   %220 = call ptr @symtab_add(ptr noundef nonnull @.str.120, i32 noundef 4, i32 noundef 748286255, ptr noundef nonnull %13) #11
   %221 = ptrtoint ptr %220 to i64
@@ -1648,8 +1648,8 @@ reg_instr.exit603.i:                              ; preds = %226
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %231, i8 0, i64 32, i1 false)
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 80
   store i32 0, ptr %232, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 64, ptr %12, align 4
   %233 = call ptr @symtab_add(ptr noundef nonnull @.str.121, i32 noundef 4, i32 noundef 395956256, ptr noundef nonnull %12) #11
   %234 = ptrtoint ptr %233 to i64
@@ -1675,8 +1675,8 @@ reg_instr.exit617.i:                              ; preds = %239
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 32, i1 false)
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 80
   store i32 0, ptr %245, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 64, ptr %11, align 4
   %246 = call ptr @symtab_add(ptr noundef nonnull @.str.122, i32 noundef 4, i32 noundef 848951969, ptr noundef nonnull %11) #11
   %247 = ptrtoint ptr %246 to i64
@@ -1702,9 +1702,9 @@ reg_instr.exit631.i:                              ; preds = %252
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %257, i8 0, i64 32, i1 false)
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 80
   store i32 0, ptr %258, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.123, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, ptr noundef nonnull @.str.124)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 64, ptr %10, align 4
   %259 = call ptr @symtab_add(ptr noundef nonnull @.str.125, i32 noundef 4, i32 noundef 1804731799, ptr noundef nonnull %10) #11
   %260 = ptrtoint ptr %259 to i64
@@ -1730,8 +1730,8 @@ reg_instr_clob.exit645.i:                         ; preds = %265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
   %271 = getelementptr inbounds nuw i8, ptr %267, i64 80
   store i32 0, ptr %271, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 64, ptr %9, align 4
   %272 = call ptr @symtab_add(ptr noundef nonnull @.str.126, i32 noundef 4, i32 noundef 1838287037, ptr noundef nonnull %9) #11
   %273 = ptrtoint ptr %272 to i64
@@ -1757,8 +1757,8 @@ reg_instr_clob.exit659.i:                         ; preds = %278
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
   %284 = getelementptr inbounds nuw i8, ptr %280, i64 80
   store i32 0, ptr %284, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 64, ptr %8, align 4
   %285 = call ptr @symtab_add(ptr noundef nonnull @.str.127, i32 noundef 4, i32 noundef 881668564, ptr noundef nonnull %8) #11
   %286 = ptrtoint ptr %285 to i64
@@ -1784,11 +1784,11 @@ reg_instr.exit673.i:                              ; preds = %291
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %296, i8 0, i64 32, i1 false)
   %297 = getelementptr inbounds nuw i8, ptr %293, i64 80
   store i32 0, ptr %297, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 64, ptr %7, align 4
   %298 = call ptr @symtab_add(ptr noundef nonnull @.str.134, i32 noundef 4, i32 noundef 832605955, ptr noundef nonnull %7) #11
   %299 = ptrtoint ptr %298 to i64
@@ -1814,8 +1814,8 @@ reg_instr.exit687.i:                              ; preds = %304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %309, i8 0, i64 32, i1 false)
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 80
   store i32 0, ptr %310, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 64, ptr %6, align 4
   %311 = call ptr @symtab_add(ptr noundef nonnull @.str.135, i32 noundef 5, i32 noundef -1899902019, ptr noundef nonnull %6) #11
   %312 = ptrtoint ptr %311 to i64
@@ -1841,8 +1841,8 @@ reg_instr.exit701.i:                              ; preds = %317
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %322, i8 0, i64 32, i1 false)
   %323 = getelementptr inbounds nuw i8, ptr %319, i64 80
   store i32 0, ptr %323, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 64, ptr %5, align 4
   %324 = call ptr @symtab_add(ptr noundef nonnull @.str.136, i32 noundef 5, i32 noundef -1816013924, ptr noundef nonnull %5) #11
   %325 = ptrtoint ptr %324 to i64
@@ -1868,8 +1868,8 @@ reg_instr.exit715.i:                              ; preds = %330
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %335, i8 0, i64 32, i1 false)
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 80
   store i32 0, ptr %336, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 64, ptr %4, align 4
   %337 = call ptr @symtab_add(ptr noundef nonnull @.str.137, i32 noundef 5, i32 noundef -1849569162, ptr noundef nonnull %4) #11
   %338 = ptrtoint ptr %337 to i64
@@ -1895,8 +1895,8 @@ reg_instr.exit729.i:                              ; preds = %343
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %348, i8 0, i64 32, i1 false)
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 80
   store i32 0, ptr %349, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 64, ptr %3, align 4
   %350 = call ptr @symtab_add(ptr noundef nonnull @.str.138, i32 noundef 5, i32 noundef -42031869, ptr noundef nonnull %3) #11
   %351 = ptrtoint ptr %350 to i64
@@ -1922,8 +1922,8 @@ reg_instr.exit743.i:                              ; preds = %356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %361, i8 0, i64 32, i1 false)
   %362 = getelementptr inbounds nuw i8, ptr %358, i64 80
   store i32 0, ptr %362, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 64, ptr %2, align 4
   %363 = call ptr @symtab_add(ptr noundef nonnull @.str.139, i32 noundef 6, i32 noundef -2124516343, ptr noundef nonnull %2) #11
   %364 = ptrtoint ptr %363 to i64
@@ -1949,8 +1949,8 @@ reg_instr.exit757.i:                              ; preds = %369
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %374, i8 0, i64 32, i1 false)
   %375 = getelementptr inbounds nuw i8, ptr %371, i64 80
   store i32 0, ptr %375, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 64, ptr %1, align 4
   %376 = call ptr @symtab_add(ptr noundef nonnull @.str.140, i32 noundef 3, i32 noundef 821323692, ptr noundef nonnull %1) #11
   %377 = ptrtoint ptr %376 to i64
@@ -1976,7 +1976,7 @@ reg_instr.exit771.i:                              ; preds = %382
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %387, i8 0, i64 32, i1 false)
   %388 = getelementptr inbounds nuw i8, ptr %384, i64 80
   store i32 0, ptr %388, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.124)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143)
   call fastcc void @reg_instr(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.145)
@@ -2806,23 +2806,23 @@ fnv1a.exit892.i:                                  ; preds = %.lr.ph.i886.i, %.pr
   br i1 %exitcond1112.not.i, label %init_asm_x86.exit, label %.preheader907.i, !llvm.loop !21
 
 init_asm_x86.exit:                                ; preds = %711, %511
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %723
 
 716:                                              ; preds = %46, %46
@@ -4939,10 +4939,10 @@ declare ptr @symtab_add(ptr noundef, i32 noundef, i32 noundef, ptr noundef) loca
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

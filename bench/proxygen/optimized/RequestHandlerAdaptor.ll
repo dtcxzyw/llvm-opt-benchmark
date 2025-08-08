@@ -187,7 +187,7 @@ entry:
   %upstream.addr.i = alloca ptr, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %upstream.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %upstream.addr.i)
   store ptr %requestHandler, ptr %upstream.addr.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen15ResponseHandlerE, i64 16), ptr %0, align 8
   %upstream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -196,7 +196,7 @@ entry:
   store ptr %1, ptr %upstream_.i, align 8
   %txn_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %txn_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %upstream.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %upstream.addr.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen21RequestHandlerAdaptorE, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen21RequestHandlerAdaptorE, i64 336), ptr %0, align 8
   %err_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1448,7 +1448,7 @@ terminate.lpad:                                   ; preds = %entry
 define void @_ZThn8_N8proxygen21RequestHandlerAdaptor8sendBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef readonly captures(none) %this, ptr noundef captures(none) %b) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.49", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %txn_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %txn_.i, align 8
   %1 = load i64, ptr %b, align 8
@@ -1478,7 +1478,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN8proxygen21RequestHandlerAdaptor8sendBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE.exit: ; preds = %invoke.cont.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -2388,7 +2388,7 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 
 cleanup.done:                                     ; preds = %entry
   %headers_.i = getelementptr inbounds nuw i8, ptr %0, i64 480
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %value, ptr %ref.tmp.i, align 8
   %e_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #21
@@ -2398,7 +2398,7 @@ cleanup.done:                                     ; preds = %entry
   %idx.ext.i.i.i = zext i8 %code to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i.i.i, i64 %idx.ext.i.i.i
   call void @_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext %code, ptr noundef %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret ptr %this
 }
 
@@ -2513,7 +2513,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %15 = extractvalue { ptr, ptr } %call2.i, 0
   %16 = extractvalue { ptr, ptr } %call2.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -2528,7 +2528,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8proxygen11HTTPHeaders6ensureEm.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
   ret void
 
@@ -2604,7 +2604,7 @@ _ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 .noexc:                                           ; preds = %_ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_.exit.i
   %2 = load i64, ptr %vs, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i)
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %.noexc
@@ -2671,7 +2671,7 @@ lpad:                                             ; preds = %_ZN5folly8toAppendI
   resume { ptr, i32 } %7
 
 nrvo.skipdtor:                                    ; preds = %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i)
   ret void
 }
 
@@ -2809,7 +2809,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %15 = extractvalue { ptr, ptr } %call2.i, 0
   %16 = extractvalue { ptr, ptr } %call2.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -2824,7 +2824,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8proxygen11HTTPHeaders6ensureEm.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
   ret void
 
@@ -2967,10 +2967,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

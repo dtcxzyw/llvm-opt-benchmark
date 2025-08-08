@@ -196,8 +196,8 @@ invoke.cont10:                                    ; preds = %.noexc, %if.else.i
 call2.i7.noexc:                                   ; preds = %invoke.cont10
   %start_count_.i = getelementptr inbounds nuw i8, ptr %output, i64 72
   store i64 %call2.i78, ptr %start_count_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
   %vtable.i.i = load ptr, ptr %8, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i, align 8
@@ -233,8 +233,8 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
 invoke.cont12:                                    ; preds = %call.i.i.noexc.invoke.cont12_crit_edge, %if.then.i.i
   %15 = phi ptr [ %.pre155, %call.i.i.noexc.invoke.cont12_crit_edge ], [ %add.ptr4.sink.i.i.i, %if.then.i.i ]
   %16 = phi ptr [ %.pre, %call.i.i.noexc.invoke.cont12_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
   %cmp.not.i.i = icmp ult ptr %16, %15
   br i1 %cmp.not.i.i, label %invoke.cont14, label %if.then.i.i11
 
@@ -247,7 +247,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12, %if.
   store i32 67324752, ptr %retval.0.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 4
   store ptr %add.ptr.i.i, ptr %cur_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i)
   store i16 10, ptr %p.i, align 2
   %17 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %17 to i64
@@ -268,8 +268,8 @@ if.end.i.i.i:                                     ; preds = %invoke.cont14
 invoke.cont15:                                    ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i16 = phi ptr [ %add.ptr.i.i.i15, %if.end.i.i.i ], [ %call.i.i.i17, %if.then.i.i.i ]
   store ptr %retval.0.i.i.i16, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i18)
   store i16 0, ptr %p.i18, align 2
   %18 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i20 = ptrtoint ptr %18 to i64
@@ -290,8 +290,8 @@ if.end.i.i.i24:                                   ; preds = %invoke.cont15
 invoke.cont16:                                    ; preds = %if.end.i.i.i24, %if.then.i.i.i27
   %retval.0.i.i.i26 = phi ptr [ %add.ptr.i.i.i25, %if.end.i.i.i24 ], [ %call.i.i.i29, %if.then.i.i.i27 ]
   store ptr %retval.0.i.i.i26, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i18)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i31)
   store i16 0, ptr %p.i31, align 2
   %19 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i33 = ptrtoint ptr %19 to i64
@@ -312,8 +312,8 @@ if.end.i.i.i37:                                   ; preds = %invoke.cont16
 invoke.cont17:                                    ; preds = %if.end.i.i.i37, %if.then.i.i.i40
   %retval.0.i.i.i39 = phi ptr [ %add.ptr.i.i.i38, %if.end.i.i.i37 ], [ %call.i.i.i42, %if.then.i.i.i40 ]
   store ptr %retval.0.i.i.i39, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i31)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i44)
   store i16 0, ptr %p.i44, align 2
   %20 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i46 = ptrtoint ptr %20 to i64
@@ -334,8 +334,8 @@ if.end.i.i.i50:                                   ; preds = %invoke.cont17
 invoke.cont18:                                    ; preds = %if.end.i.i.i50, %if.then.i.i.i53
   %retval.0.i.i.i52 = phi ptr [ %add.ptr.i.i.i51, %if.end.i.i.i50 ], [ %call.i.i.i55, %if.then.i.i.i53 ]
   store ptr %retval.0.i.i.i52, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i44)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i57)
   store i16 33, ptr %p.i57, align 2
   %21 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i59 = ptrtoint ptr %21 to i64
@@ -356,7 +356,7 @@ if.end.i.i.i63:                                   ; preds = %invoke.cont18
 invoke.cont19:                                    ; preds = %if.end.i.i.i63, %if.then.i.i.i66
   %retval.0.i.i.i65 = phi ptr [ %add.ptr.i.i.i64, %if.end.i.i.i63 ], [ %call.i.i.i68, %if.then.i.i.i66 ]
   store ptr %retval.0.i.i.i65, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i57)
   %22 = load i32, ptr %crc32, align 8
   %23 = load ptr, ptr %output, align 8
   %cmp.not.i.i71 = icmp ult ptr %retval.0.i.i.i65, %23
@@ -399,7 +399,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23, %if.
   store i32 %26, ptr %retval.0.i.i89, align 1
   %add.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %retval.0.i.i89, i64 4
   store ptr %add.ptr.i.i90, ptr %cur_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i94)
   store i16 %conv, ptr %p.i94, align 2
   %28 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i96 = ptrtoint ptr %28 to i64
@@ -420,8 +420,8 @@ if.end.i.i.i100:                                  ; preds = %invoke.cont25
 invoke.cont26:                                    ; preds = %if.end.i.i.i100, %if.then.i.i.i103
   %retval.0.i.i.i102 = phi ptr [ %add.ptr.i.i.i101, %if.end.i.i.i100 ], [ %call.i.i.i105, %if.then.i.i.i103 ]
   store ptr %retval.0.i.i.i102, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i94)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i107)
   store i16 0, ptr %p.i107, align 2
   %29 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i109 = ptrtoint ptr %29 to i64
@@ -442,7 +442,7 @@ if.end.i.i.i113:                                  ; preds = %invoke.cont26
 invoke.cont27:                                    ; preds = %if.end.i.i.i113, %if.then.i.i.i116
   %retval.0.i.i.i115 = phi ptr [ %add.ptr.i.i.i114, %if.end.i.i.i113 ], [ %call.i.i.i118, %if.then.i.i.i116 ]
   store ptr %retval.0.i.i.i115, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i107)
   %call.i120 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #16
   %call2.i121 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #16
   %30 = load ptr, ptr %cur_.i, align 8
@@ -596,8 +596,8 @@ entry:
   %6 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i64 %call2.i, ptr %start_count_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
   %vtable.i.i = load ptr, ptr %4, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
@@ -623,8 +623,8 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit
 
 _ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
   %conv5306 = and i64 %sub.ptr.div.i, 65535
   %cmp303.not = icmp eq i64 %conv5306, 0
   br i1 %cmp303.not, label %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit.for.end_crit_edge, label %for.body.preheader
@@ -665,7 +665,7 @@ invoke.cont:                                      ; preds = %for.body, %if.then.
   store i32 33639248, ptr %retval.0.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 4
   store ptr %add.ptr.i.i, ptr %cur_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i)
   store i16 10, ptr %p.i, align 2
   %18 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %18 to i64
@@ -686,8 +686,8 @@ if.end.i.i.i:                                     ; preds = %invoke.cont
 invoke.cont23:                                    ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i19 = phi ptr [ %add.ptr.i.i.i18, %if.end.i.i.i ], [ %call.i.i.i20, %if.then.i.i.i ]
   store ptr %retval.0.i.i.i19, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i21)
   store i16 10, ptr %p.i21, align 2
   %19 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i23 = ptrtoint ptr %19 to i64
@@ -708,8 +708,8 @@ if.end.i.i.i27:                                   ; preds = %invoke.cont23
 invoke.cont24:                                    ; preds = %if.end.i.i.i27, %if.then.i.i.i30
   %retval.0.i.i.i29 = phi ptr [ %add.ptr.i.i.i28, %if.end.i.i.i27 ], [ %call.i.i.i32, %if.then.i.i.i30 ]
   store ptr %retval.0.i.i.i29, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i21)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i34)
   store i16 0, ptr %p.i34, align 2
   %20 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i36 = ptrtoint ptr %20 to i64
@@ -730,8 +730,8 @@ if.end.i.i.i40:                                   ; preds = %invoke.cont24
 invoke.cont25:                                    ; preds = %if.end.i.i.i40, %if.then.i.i.i43
   %retval.0.i.i.i42 = phi ptr [ %add.ptr.i.i.i41, %if.end.i.i.i40 ], [ %call.i.i.i45, %if.then.i.i.i43 ]
   store ptr %retval.0.i.i.i42, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i34)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i47)
   store i16 0, ptr %p.i47, align 2
   %21 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i49 = ptrtoint ptr %21 to i64
@@ -752,8 +752,8 @@ if.end.i.i.i53:                                   ; preds = %invoke.cont25
 invoke.cont26:                                    ; preds = %if.end.i.i.i53, %if.then.i.i.i56
   %retval.0.i.i.i55 = phi ptr [ %add.ptr.i.i.i54, %if.end.i.i.i53 ], [ %call.i.i.i58, %if.then.i.i.i56 ]
   store ptr %retval.0.i.i.i55, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i47)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i60)
   store i16 0, ptr %p.i60, align 2
   %22 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i62 = ptrtoint ptr %22 to i64
@@ -774,8 +774,8 @@ if.end.i.i.i66:                                   ; preds = %invoke.cont26
 invoke.cont27:                                    ; preds = %if.end.i.i.i66, %if.then.i.i.i69
   %retval.0.i.i.i68 = phi ptr [ %add.ptr.i.i.i67, %if.end.i.i.i66 ], [ %call.i.i.i71, %if.then.i.i.i69 ]
   store ptr %retval.0.i.i.i68, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i60)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i73)
   store i16 33, ptr %p.i73, align 2
   %23 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i75 = ptrtoint ptr %23 to i64
@@ -796,7 +796,7 @@ if.end.i.i.i79:                                   ; preds = %invoke.cont27
 invoke.cont28:                                    ; preds = %if.end.i.i.i79, %if.then.i.i.i82
   %retval.0.i.i.i81 = phi ptr [ %add.ptr.i.i.i80, %if.end.i.i.i79 ], [ %call.i.i.i84, %if.then.i.i.i82 ]
   store ptr %retval.0.i.i.i81, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i73)
   %24 = load ptr, ptr %output, align 8
   %cmp.not.i.i87 = icmp ult ptr %retval.0.i.i.i81, %24
   br i1 %cmp.not.i.i87, label %invoke.cont29, label %if.then.i.i88
@@ -836,7 +836,7 @@ invoke.cont31:                                    ; preds = %invoke.cont30, %if.
   store i32 %14, ptr %retval.0.i.i106, align 1
   %add.ptr.i.i107 = getelementptr inbounds nuw i8, ptr %retval.0.i.i106, i64 4
   store ptr %add.ptr.i.i107, ptr %cur_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i110)
   store i16 %conv10, ptr %p.i110, align 2
   %27 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i112 = ptrtoint ptr %27 to i64
@@ -857,8 +857,8 @@ if.end.i.i.i116:                                  ; preds = %invoke.cont31
 invoke.cont32:                                    ; preds = %if.end.i.i.i116, %if.then.i.i.i119
   %retval.0.i.i.i118 = phi ptr [ %add.ptr.i.i.i117, %if.end.i.i.i116 ], [ %call.i.i.i121, %if.then.i.i.i119 ]
   store ptr %retval.0.i.i.i118, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i110)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i123)
   store i16 0, ptr %p.i123, align 2
   %28 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i125 = ptrtoint ptr %28 to i64
@@ -879,8 +879,8 @@ if.end.i.i.i129:                                  ; preds = %invoke.cont32
 invoke.cont33:                                    ; preds = %if.end.i.i.i129, %if.then.i.i.i132
   %retval.0.i.i.i131 = phi ptr [ %add.ptr.i.i.i130, %if.end.i.i.i129 ], [ %call.i.i.i134, %if.then.i.i.i132 ]
   store ptr %retval.0.i.i.i131, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i123)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i136)
   store i16 0, ptr %p.i136, align 2
   %29 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i138 = ptrtoint ptr %29 to i64
@@ -901,8 +901,8 @@ if.end.i.i.i142:                                  ; preds = %invoke.cont33
 invoke.cont34:                                    ; preds = %if.end.i.i.i142, %if.then.i.i.i145
   %retval.0.i.i.i144 = phi ptr [ %add.ptr.i.i.i143, %if.end.i.i.i142 ], [ %call.i.i.i147, %if.then.i.i.i145 ]
   store ptr %retval.0.i.i.i144, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i136)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i149)
   store i16 0, ptr %p.i149, align 2
   %30 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i151 = ptrtoint ptr %30 to i64
@@ -923,8 +923,8 @@ if.end.i.i.i155:                                  ; preds = %invoke.cont34
 invoke.cont35:                                    ; preds = %if.end.i.i.i155, %if.then.i.i.i158
   %retval.0.i.i.i157 = phi ptr [ %add.ptr.i.i.i156, %if.end.i.i.i155 ], [ %call.i.i.i160, %if.then.i.i.i158 ]
   store ptr %retval.0.i.i.i157, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i149)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i162)
   store i16 0, ptr %p.i162, align 2
   %31 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i164 = ptrtoint ptr %31 to i64
@@ -945,7 +945,7 @@ if.end.i.i.i168:                                  ; preds = %invoke.cont35
 invoke.cont36:                                    ; preds = %if.end.i.i.i168, %if.then.i.i.i171
   %retval.0.i.i.i170 = phi ptr [ %add.ptr.i.i.i169, %if.end.i.i.i168 ], [ %call.i.i.i173, %if.then.i.i.i171 ]
   store ptr %retval.0.i.i.i170, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i162)
   %32 = load ptr, ptr %output, align 8
   %cmp.not.i.i176 = icmp ult ptr %retval.0.i.i.i170, %32
   br i1 %cmp.not.i.i176, label %invoke.cont37, label %if.then.i.i177
@@ -1040,7 +1040,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40, %if.
   store i32 101010256, ptr %retval.0.i.i212, align 1
   %add.ptr.i.i213 = getelementptr inbounds nuw i8, ptr %retval.0.i.i212, i64 4
   store ptr %add.ptr.i.i213, ptr %cur_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i216)
   store i16 0, ptr %p.i216, align 2
   %40 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i218 = ptrtoint ptr %40 to i64
@@ -1061,8 +1061,8 @@ if.end.i.i.i222:                                  ; preds = %invoke.cont42
 invoke.cont43:                                    ; preds = %if.end.i.i.i222, %if.then.i.i.i225
   %retval.0.i.i.i224 = phi ptr [ %add.ptr.i.i.i223, %if.end.i.i.i222 ], [ %call.i.i.i227, %if.then.i.i.i225 ]
   store ptr %retval.0.i.i.i224, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i216)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i229)
   store i16 0, ptr %p.i229, align 2
   %41 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i231 = ptrtoint ptr %41 to i64
@@ -1083,8 +1083,8 @@ if.end.i.i.i235:                                  ; preds = %invoke.cont43
 invoke.cont44:                                    ; preds = %if.end.i.i.i235, %if.then.i.i.i238
   %retval.0.i.i.i237 = phi ptr [ %add.ptr.i.i.i236, %if.end.i.i.i235 ], [ %call.i.i.i240, %if.then.i.i.i238 ]
   store ptr %retval.0.i.i.i237, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i229)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i242)
   store i16 %conv, ptr %p.i242, align 2
   %42 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i244 = ptrtoint ptr %42 to i64
@@ -1105,8 +1105,8 @@ if.end.i.i.i248:                                  ; preds = %invoke.cont44
 invoke.cont45:                                    ; preds = %if.end.i.i.i248, %if.then.i.i.i251
   %retval.0.i.i.i250 = phi ptr [ %add.ptr.i.i.i249, %if.end.i.i.i248 ], [ %call.i.i.i253, %if.then.i.i.i251 ]
   store ptr %retval.0.i.i.i250, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i242)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i242)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i255)
   store i16 %conv, ptr %p.i255, align 2
   %43 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i257 = ptrtoint ptr %43 to i64
@@ -1127,7 +1127,7 @@ if.end.i.i.i261:                                  ; preds = %invoke.cont45
 invoke.cont46:                                    ; preds = %if.end.i.i.i261, %if.then.i.i.i264
   %retval.0.i.i.i263 = phi ptr [ %add.ptr.i.i.i262, %if.end.i.i.i261 ], [ %call.i.i.i266, %if.then.i.i.i264 ]
   store ptr %retval.0.i.i.i263, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i255)
   %44 = load ptr, ptr %output, align 8
   %cmp.not.i.i269 = icmp ult ptr %retval.0.i.i.i263, %44
   br i1 %cmp.not.i.i269, label %invoke.cont47, label %if.then.i.i270
@@ -1154,7 +1154,7 @@ invoke.cont48:                                    ; preds = %invoke.cont47, %if.
   store i32 %conv3, ptr %retval.0.i.i280, align 1
   %add.ptr.i.i281 = getelementptr inbounds nuw i8, ptr %retval.0.i.i280, i64 4
   store ptr %add.ptr.i.i281, ptr %cur_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i284)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p.i284)
   store i16 0, ptr %p.i284, align 2
   %46 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i286 = ptrtoint ptr %46 to i64
@@ -1175,7 +1175,7 @@ if.end.i.i.i290:                                  ; preds = %invoke.cont48
 invoke.cont49:                                    ; preds = %if.end.i.i.i290, %if.then.i.i.i293
   %retval.0.i.i.i292 = phi ptr [ %add.ptr.i.i.i291, %if.end.i.i.i290 ], [ %call.i.i.i295, %if.then.i.i.i293 ]
   store ptr %retval.0.i.i.i292, ptr %cur_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i284)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p.i284)
   %call.i298300 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %retval.0.i.i.i292)
           to label %invoke.cont50 unwind label %lpad.loopexit.split-lp
 
@@ -1382,10 +1382,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

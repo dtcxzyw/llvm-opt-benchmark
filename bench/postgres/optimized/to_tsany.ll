@@ -400,11 +400,8 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   ret ptr %126
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
@@ -415,12 +412,9 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(none) %0) #0 {
@@ -432,7 +426,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i8 %10, 1
@@ -548,7 +542,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
 77:                                               ; preds = %76, %72
   %78 = call ptr @make_tsvector(ptr noundef nonnull %2)
   %79 = ptrtoint ptr %78 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %79
 }
 
@@ -584,8 +578,8 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr noundef readonly
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4
@@ -594,8 +588,8 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr noundef readonly
   store i32 %6, ptr %12, align 8
   call void @iterate_jsonb_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %13 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = load i64, ptr %7, align 8
   %15 = inttoptr i64 %14 to ptr
   %.not = icmp eq ptr %10, %15
@@ -619,8 +613,8 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr noundef readonly capt
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
   %8 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %9, align 4
@@ -629,8 +623,8 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr noundef readonly capt
   store i32 %8, ptr %10, align 8
   call void @iterate_jsonb_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %11 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %12 = load i64, ptr %4, align 8
   %13 = inttoptr i64 %12 to ptr
   %.not = icmp eq ptr %7, %13
@@ -661,8 +655,8 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captur
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #8
   %15 = tail call i32 @parse_jsonb_index_flags(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %16, align 4
@@ -671,8 +665,8 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captur
   store i32 %6, ptr %17, align 8
   call void @iterate_jsonb_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %18 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load i64, ptr %7, align 8
   %20 = inttoptr i64 %19 to ptr
   %.not = icmp eq ptr %10, %20
@@ -713,8 +707,8 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(no
   %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #8
   %12 = tail call i32 @parse_jsonb_index_flags(ptr noundef %11) #8
   %13 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %14, align 4
@@ -723,8 +717,8 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(no
   store i32 %13, ptr %15, align 8
   call void @iterate_jsonb_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %16 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = load i64, ptr %4, align 8
   %18 = inttoptr i64 %17 to ptr
   %.not = icmp eq ptr %7, %18
@@ -760,8 +754,8 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr noundef readonly 
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4
@@ -770,8 +764,8 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr noundef readonly 
   store i32 %6, ptr %12, align 8
   call void @iterate_json_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %13 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = load i64, ptr %7, align 8
   %15 = inttoptr i64 %14 to ptr
   %.not = icmp eq ptr %10, %15
@@ -797,8 +791,8 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr noundef readonly captu
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
   %8 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %9, align 4
@@ -807,8 +801,8 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr noundef readonly captu
   store i32 %8, ptr %10, align 8
   call void @iterate_json_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %11 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %12 = load i64, ptr %4, align 8
   %13 = inttoptr i64 %12 to ptr
   %.not = icmp eq ptr %7, %13
@@ -839,8 +833,8 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly capture
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #8
   %15 = tail call i32 @parse_jsonb_index_flags(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %16, align 4
@@ -849,8 +843,8 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly capture
   store i32 %6, ptr %17, align 8
   call void @iterate_json_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %18 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load i64, ptr %7, align 8
   %20 = inttoptr i64 %19 to ptr
   %.not = icmp eq ptr %10, %20
@@ -889,8 +883,8 @@ define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(non
   %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #8
   %12 = tail call i32 @parse_jsonb_index_flags(ptr noundef %11) #8
   %13 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %14, align 4
@@ -899,8 +893,8 @@ define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(non
   store i32 %13, ptr %15, align 8
   call void @iterate_json_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %16 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = load i64, ptr %4, align 8
   %18 = inttoptr i64 %17 to ptr
   %.not = icmp eq ptr %7, %18
@@ -933,7 +927,7 @@ define dso_local i64 @to_tsquery_byid(ptr noundef readonly captures(none) %0) #0
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
@@ -943,7 +937,7 @@ define dso_local i64 @to_tsquery_byid(ptr noundef readonly captures(none) %0) #0
   %12 = ptrtoint ptr %2 to i64
   %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 0, ptr noundef null) #8
   %14 = ptrtoint ptr %13 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
 }
 
@@ -954,7 +948,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %struct.ParsedText, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = inttoptr i64 %0 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %9, align 8
@@ -1163,7 +1157,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %112
 
 112:                                              ; preds = %111, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -1188,7 +1182,7 @@ define dso_local i64 @plainto_tsquery_byid(ptr noundef readonly captures(none) %
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
@@ -1198,7 +1192,7 @@ define dso_local i64 @plainto_tsquery_byid(ptr noundef readonly captures(none) %
   %12 = ptrtoint ptr %2 to i64
   %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 1, ptr noundef null) #8
   %14 = ptrtoint ptr %13 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
 }
 
@@ -1223,7 +1217,7 @@ define dso_local i64 @phraseto_tsquery_byid(ptr noundef readonly captures(none) 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
@@ -1233,7 +1227,7 @@ define dso_local i64 @phraseto_tsquery_byid(ptr noundef readonly captures(none) 
   %12 = ptrtoint ptr %2 to i64
   %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 1, ptr noundef null) #8
   %14 = ptrtoint ptr %13 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
 }
 
@@ -1258,7 +1252,7 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr noundef readonly captures(no
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
@@ -1268,7 +1262,7 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr noundef readonly captures(no
   %12 = ptrtoint ptr %2 to i64
   %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 2, ptr noundef null) #8
   %14 = ptrtoint ptr %13 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
 }
 
@@ -1322,7 +1316,7 @@ define internal i32 @compareWORD(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1382,6 +1376,12 @@ declare void @pushOperator(ptr noundef, i8 noundef signext, i16 noundef signext)
 
 declare void @pushValue(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
@@ -1390,10 +1390,10 @@ declare i16 @llvm.umin.i16(i16, i16) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

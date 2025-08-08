@@ -209,7 +209,7 @@ entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
   %sanitizedName = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN8facebook5velox4exec12sanitizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %sanitizedName, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %mutex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !5
   %_M_owns.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -218,8 +218,8 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i)
   %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEESaISS_ENS_10_Select1stESM_IS6_ESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %sanitizedName)
           to label %call.i.i.noexc.i unwind label %lpad.i
 
@@ -357,8 +357,8 @@ if.then.i6.i.i:                                   ; preds = %ehcleanup.i.i
   br label %lpad.body.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
   %20 = load i8, ptr %_M_owns.i2.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %20 to i1
   br i1 %tobool.i.i.i, label %if.else.i.i.i.i, label %invoke.cont
@@ -390,7 +390,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %if.then.i6
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.then3.i.i.i.i, %if.else.i.i.i.i, %invoke.cont2.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sanitizedName) #16
   ret void
 
@@ -418,13 +418,13 @@ entry:
   %sanitizedName.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.folly::LockedPtr.116", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %mutex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !8
   %_M_owns.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !8
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sanitizedName.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sanitizedName.i.i.i)
   invoke void @_ZN8facebook5velox4exec12sanitizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %sanitizedName.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %.noexc.i unwind label %lpad.loopexit.split-lp.i
 
@@ -442,7 +442,7 @@ lpad.body.thread6:                                ; preds = %.noexc.i
 _ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i: ; preds = %.noexc.i
   %cmp.i.not.i.i.i = icmp eq ptr %call.i2.i.i.i, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sanitizedName.i.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sanitizedName.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sanitizedName.i.i.i)
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i6.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i
@@ -605,7 +605,7 @@ _ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit: ; pre
   resume { ptr, i32 } %eh.lpad-body5
 
 nrvo.skipdtor:                                    ; preds = %if.then.i.i6.i, %invoke.cont2.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -618,7 +618,7 @@ entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr.116", align 8
   %selectedCandidateType = alloca %"class.std::shared_ptr.11", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %selectedCandidateType, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %mutex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !11
   %_M_owns.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -627,9 +627,9 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %binder.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sanitizedName.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %binder.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sanitizedName.i.i.i)
   invoke void @_ZN8facebook5velox4exec12sanitizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %sanitizedName.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %.noexc.i unwind label %lpad.i
 
@@ -646,7 +646,7 @@ lpad.i.i.i:                                       ; preds = %.noexc.i
 _ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i: ; preds = %.noexc.i
   %cmp.i.not.i.i.i = icmp eq ptr %call.i2.i.i.i, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sanitizedName.i.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sanitizedName.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sanitizedName.i.i.i)
   br i1 %cmp.i.not.i.i.i, label %invoke.cont2.thread.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i
@@ -934,15 +934,15 @@ _ZN8facebook5velox4exec15SignatureBinderD2Ev.exit.i.i: ; preds = %if.end.i.i.i.i
   br i1 %cmp.i.not.i.i, label %invoke.cont2.i, label %for.body.i.i
 
 invoke.cont2.thread.i:                            ; preds = %if.then.i.i, %_ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %binder.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %binder.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %if.then.i.i.i
 
 invoke.cont2.i:                                   ; preds = %_ZN8facebook5velox4exec15SignatureBinderD2Ev.exit.i.i
   %.pre.i = load i8, ptr %_M_owns.i2.i.i.i, align 8
   %38 = trunc i8 %.pre.i to i1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %binder.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %binder.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br i1 %38, label %invoke.cont2.i.if.then.i.i.i_crit_edge, label %invoke.cont
 
 invoke.cont2.i.if.then.i.i.i_crit_edge:           ; preds = %invoke.cont2.i
@@ -974,7 +974,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i, 
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %invoke.cont2.i
   %selectedCandidate.3 = phi ptr [ %selectedCandidate.2, %if.then.i.i.i ], [ %selectedCandidate.1, %invoke.cont2.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.not = icmp eq ptr %selectedCandidate.3, null
   br i1 %tobool.not.not, label %cleanup.done, label %cond.true
 
@@ -2475,8 +2475,8 @@ entry:
   %variablesHasher.i.i = alloca %"struct.std::hash.110", align 1
   %typeSignatureHasher.i.i = alloca %"struct.std::hash.111", align 1
   %__node5 = alloca %"struct.std::_Hashtable<facebook::velox::exec::FunctionSignature, std::pair<const facebook::velox::exec::FunctionSignature, std::unique_ptr<const facebook::velox::exec::FunctionEntry>>, std::allocator<std::pair<const facebook::velox::exec::FunctionSignature, std::unique_ptr<const facebook::velox::exec::FunctionEntry>>>, std::__detail::_Select1st, std::equal_to<facebook::velox::exec::FunctionSignature>, std::hash<facebook::velox::exec::FunctionSignature>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %variablesHasher.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %variablesHasher.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %typeSignatureHasher.i.i)
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__k, i64 24
   %__begin2.sroa.0.016.i.i = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %cmp.i.not17.i.i = icmp eq ptr %__begin2.sroa.0.016.i.i, null
@@ -2528,8 +2528,8 @@ _ZNKSt8__detail15_Hash_code_baseIN8facebook5velox4exec17FunctionSignatureESt4pai
   %5 = xor i8 %4, 1
   %conv.i.i = zext nneg i8 %5 to i64
   %add40.i.i = add i64 %mul37.i.i, %conv.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %variablesHasher.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %variablesHasher.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %typeSignatureHasher.i.i)
   %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %add40.i.i, %6
@@ -2791,7 +2791,7 @@ if.end3:                                          ; preds = %for.cond
 
 lor.lhs.false:                                    ; preds = %if.end3
   %3 = load i64, ptr %_M_bucket_count.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %typeSignatureHasher.i.i.i.i)
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %__begin2.sroa.0.016.i.i.i.i = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8
   %cmp.i.not17.i.i.i.i = icmp eq ptr %__begin2.sroa.0.016.i.i.i.i, null
@@ -2870,7 +2870,7 @@ _ZNKSt10_HashtableIN8facebook5velox4exec17FunctionSignatureESt4pairIKS3_St10uniq
   %13 = xor i8 %12, 1
   %conv.i.i.i.i = zext nneg i8 %13 to i64
   %add40.i.i.i.i = add i64 %mul37.i.i.i.i, %conv.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %typeSignatureHasher.i.i.i.i)
   %rem.i.i.i = urem i64 %add40.i.i.i.i, %3
   %cmp.not = icmp eq i64 %rem.i.i.i, %__bkt
   br i1 %cmp.not, label %for.cond, label %return, !llvm.loop !25
@@ -3210,7 +3210,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %variables_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__alloc_node_gen.i.i)
   store ptr null, ptr %variables_, align 8
   %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_bucket_count2.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3229,7 +3229,7 @@ entry:
   store ptr null, ptr %_M_single_bucket.i.i, align 8
   store ptr %variables_, ptr %__alloc_node_gen.i.i, align 8
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %variables_, ptr noundef nonnull align 8 dereferenceable(56) %variables_2, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__alloc_node_gen.i.i)
   %returnType_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %returnType_3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @_ZN8facebook5velox4exec13TypeSignatureC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(96) %returnType_, ptr noundef nonnull align 8 dereferenceable(96) %returnType_3)
@@ -3988,8 +3988,8 @@ if.then14:                                        ; preds = %if.else
   %7 = load ptr, ptr %this, align 8
   %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i64, ptr %_M_bucket_count.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %variablesHasher.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %variablesHasher.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %typeSignatureHasher.i.i.i.i)
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %__begin2.sroa.0.016.i.i.i.i = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8
   %cmp.i.not17.i.i.i.i = icmp eq ptr %__begin2.sroa.0.016.i.i.i.i, null
@@ -4041,8 +4041,8 @@ _ZNKSt10_HashtableIN8facebook5velox4exec17FunctionSignatureESt4pairIKS3_St10uniq
   %14 = xor i8 %13, 1
   %conv.i.i.i.i = zext nneg i8 %14 to i64
   %add40.i.i.i.i = add i64 %mul37.i.i.i.i, %conv.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %variablesHasher.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %variablesHasher.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %typeSignatureHasher.i.i.i.i)
   %rem.i.i.i = urem i64 %add40.i.i.i.i, %8
   %arrayidx17 = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i
   store ptr %__node, ptr %arrayidx17, align 8
@@ -4104,7 +4104,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %__p.022 = phi ptr [ %1, %if.end22 ], [ %0, %_ZNSt10_HashtableIN8facebook5velox4exec17FunctionSignatureESt4pairIKS3_St10unique_ptrIKNS2_13FunctionEntryESt14default_deleteIS8_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIN8facebook5velox4exec17FunctionSignatureESt4pairIKS3_St10unique_ptrIKNS2_13FunctionEntryESt14default_deleteIS8_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %typeSignatureHasher.i.i.i)
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__p.022, i64 32
   %__begin2.sroa.0.016.i.i.i = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8
   %cmp.i.not17.i.i.i = icmp eq ptr %__begin2.sroa.0.016.i.i.i, null
@@ -4183,7 +4183,7 @@ _ZNKSt8__detail15_Hash_code_baseIN8facebook5velox4exec17FunctionSignatureESt4pai
   %11 = xor i8 %10, 1
   %conv.i.i.i = zext nneg i8 %11 to i64
   %add40.i.i.i = add i64 %mul37.i.i.i, %conv.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %typeSignatureHasher.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %typeSignatureHasher.i.i.i)
   %rem.i.i = urem i64 %add40.i.i.i, %__bkt_count
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
   %12 = load ptr, ptr %arrayidx, align 8
@@ -4496,10 +4496,10 @@ invoke.cont2:                                     ; preds = %_ZNSt8__detail16_Ha
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

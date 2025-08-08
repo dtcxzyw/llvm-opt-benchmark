@@ -72,12 +72,6 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 -16256, 1) i32 @psa_pk_status_to_mbedtls(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %11 [
@@ -136,7 +130,7 @@ psa_generic_status_to_mbedtls.exit:               ; preds = %1, %psa_generic_sta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden zeroext range(i8 0, 66) i8 @mbedtls_ecc_group_to_psa(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
+define hidden zeroext range(i8 0, 66) i8 @mbedtls_ecc_group_to_psa(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 {
   %switch.tableidx = add i32 %0, -1
   %3 = icmp ult i32 %switch.tableidx, 13
   br i1 %3, label %switch.lookup, label %6
@@ -230,7 +224,7 @@ define hidden range(i32 -60, 1) i32 @mbedtls_psa_get_random(ptr noundef readnone
   ret i32 %.
 }
 
-declare i32 @psa_generate_random(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @psa_generate_random(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 {
@@ -239,11 +233,11 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
   %9 = alloca [66 x i8], align 16
   %10 = alloca [66 x i8], align 16
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = add i64 %0, 7
   %13 = lshr i64 %12, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %15 = shl nuw nsw i64 %13, 1
   %.not = icmp eq i64 %2, %15
@@ -257,7 +251,7 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %1, i64 %13, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %19, i64 %13, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %20
 
 20:                                               ; preds = %23, %18
@@ -314,13 +308,13 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
 
 convert_raw_to_der_single_int.exit.thread:        ; preds = %23, %27, %35, %39, %43
   %.023.i.ph = phi i32 [ %44, %43 ], [ %41, %39 ], [ -108, %35 ], [ -108, %27 ], [ -104, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %102
 
 convert_raw_to_der_single_int.exit:               ; preds = %43
   %46 = add nsw i32 %41, %.0.i
   %47 = add nsw i32 %46, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %102, label %49
 
@@ -328,7 +322,7 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
   %50 = zext nneg i32 %47 to i64
   %51 = sub nsw i64 0, %50
   %52 = getelementptr inbounds i8, ptr %14, i64 %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %56, %49
@@ -388,13 +382,13 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
 
 convert_raw_to_der_single_int.exit52.thread:      ; preds = %56, %60, %69, %76, %80
   %.023.i51.ph = phi i32 [ %81, %80 ], [ %78, %76 ], [ -108, %69 ], [ -108, %60 ], [ -104, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %102
 
 convert_raw_to_der_single_int.exit52:             ; preds = %80
   %83 = add nsw i32 %78, %.0.i50
   %84 = add nsw i32 %83, %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %102, label %86
 
@@ -425,21 +419,21 @@ convert_raw_to_der_single_int.exit52:             ; preds = %80
 
 102:                                              ; preds = %convert_raw_to_der_single_int.exit52.thread, %convert_raw_to_der_single_int.exit.thread, %93, %86, %convert_raw_to_der_single_int.exit52, %convert_raw_to_der_single_int.exit, %16, %6, %96
   %.0 = phi i32 [ 0, %96 ], [ -104, %6 ], [ -108, %16 ], [ %47, %convert_raw_to_der_single_int.exit ], [ %84, %convert_raw_to_der_single_int.exit52 ], [ %91, %86 ], [ %94, %93 ], [ %.023.i.ph, %convert_raw_to_der_single_int.exit.thread ], [ %.023.i51.ph, %convert_raw_to_der_single_int.exit52.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 {
@@ -450,10 +444,10 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   %11 = alloca [132 x i8], align 16
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = add i64 %0, 7
   %15 = lshr i64 %14, 3
   %16 = shl nuw nsw i64 %15, 1
@@ -472,9 +466,9 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %11, i8 0, i64 %16, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !15
   %24 = load i64, ptr %13, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %23, ptr %9, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   %26 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %25, ptr noundef nonnull %10, i32 noundef 2) #7
   %.not.i = icmp eq i32 %26, 0
@@ -528,14 +522,14 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   br label %convert_der_to_raw_single_int.exit
 
 convert_der_to_raw_single_int.exit.thread:        ; preds = %30, %27, %38, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %100
 
 convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   %.0.i = phi i32 [ %53, %.thread.i ], [ %26, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %54 = icmp slt i32 %.0.i, 0
   br i1 %54, label %100, label %55
 
@@ -548,9 +542,9 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   %60 = sub i64 %59, %57
   store i64 %60, ptr %13, align 8, !tbaa !11
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %58, ptr %7, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 %59
   %63 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %7, ptr noundef %62, ptr noundef nonnull %8, i32 noundef 2) #7
   %.not.i33 = icmp eq i32 %63, 0
@@ -604,14 +598,14 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   br label %convert_der_to_raw_single_int.exit38
 
 convert_der_to_raw_single_int.exit38.thread:      ; preds = %67, %64, %75, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %100
 
 convert_der_to_raw_single_int.exit38:             ; preds = %55, %.thread.i36
   %.0.i34 = phi i32 [ %90, %.thread.i36 ], [ %63, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %91 = icmp slt i32 %.0.i34, 0
   br i1 %91, label %100, label %92
 
@@ -632,24 +626,30 @@ convert_der_to_raw_single_int.exit38:             ; preds = %55, %.thread.i36
 
 100:                                              ; preds = %convert_der_to_raw_single_int.exit38.thread, %convert_der_to_raw_single_int.exit.thread, %92, %convert_der_to_raw_single_int.exit38, %convert_der_to_raw_single_int.exit, %19, %6, %99
   %.0 = phi i32 [ 0, %99 ], [ -108, %6 ], [ %21, %19 ], [ %.0.i, %convert_der_to_raw_single_int.exit ], [ %.0.i34, %convert_der_to_raw_single_int.exit38 ], [ -102, %92 ], [ -104, %convert_der_to_raw_single_int.exit.thread ], [ -104, %convert_der_to_raw_single_int.exit38.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

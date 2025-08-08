@@ -355,8 +355,8 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit13.i:  ; preds = %_ZN7VMATree18Positi
   br i1 %.not31.i, label %168, label %134
 
 134:                                              ; preds = %_ZN7VMATree18PositionComparator3cmpEmm.exit13.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %135 = load i64, ptr %10, align 8
   %136 = icmp ult i64 %132, %135
   br i1 %136, label %143, label %137
@@ -425,8 +425,8 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i: ; preds = %_ZN7VMATree14I
 
 "_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i": ; preds = %166, %_ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i, %148, %143
   %.2 = phi i1 [ %.0, %143 ], [ %.0, %148 ], [ false, %_ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i ], [ false, %166 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %168
 
 168:                                              ; preds = %"_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i", %_ZN7VMATree18PositionComparator3cmpEmm.exit13.i
@@ -1007,10 +1007,10 @@ _ZN26GrowableArrayWithAllocatorIN7VMATree12AddressStateE18GrowableArrayCHeapIS1_
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

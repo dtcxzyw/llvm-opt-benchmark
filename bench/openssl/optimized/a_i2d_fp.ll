@@ -25,7 +25,7 @@ define range(i32 0, 2) i32 @ASN1_i2d_fp(ptr noundef readonly captures(none) %0, 
 
 9:                                                ; preds = %3
   %10 = tail call i64 @BIO_ctrl(ptr noundef nonnull %6, i32 noundef 106, i64 noundef 0, ptr noundef %1) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = tail call i32 %0(ptr noundef %2, ptr noundef null) #3
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %ASN1_i2d_bio.exit, label %13
@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @ASN1_i2d_fp(ptr noundef readonly captures(none) %0, 
 
 ASN1_i2d_bio.exit:                                ; preds = %9, %13, %._crit_edge.i
   %.023.i = phi i32 [ %.0.i, %._crit_edge.i ], [ 0, %9 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = call i32 @BIO_free(ptr noundef nonnull %6) #3
   br label %31
 
@@ -75,25 +75,22 @@ ASN1_i2d_bio.exit:                                ; preds = %9, %13, %._crit_edg
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_s_file() local_unnamed_addr #1
 
-declare ptr @BIO_s_file() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_i2d_bio(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 %0(ptr noundef %2, ptr noundef null) #3
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %24, label %7
@@ -134,20 +131,17 @@ define range(i32 0, 2) i32 @ASN1_i2d_bio(ptr noundef readonly captures(none) %0,
 
 24:                                               ; preds = %7, %3, %._crit_edge
   %.023 = phi i32 [ %.0, %._crit_edge ], [ 0, %3 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_item_i2d_fp(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -176,7 +170,7 @@ define range(i32 0, 2) i32 @ASN1_item_i2d_fp(ptr noundef %0, ptr noundef %1, ptr
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_item_i2d_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
   %5 = call i32 @ASN1_item_i2d(ptr noundef %2, ptr noundef nonnull %4, ptr noundef %0) #3
   %6 = icmp slt i32 %5, 0
@@ -221,11 +215,11 @@ define range(i32 0, 2) i32 @ASN1_item_i2d_bio(ptr noundef %0, ptr noundef %1, pt
 
 23:                                               ; preds = %._crit_edge, %11
   %.017 = phi i32 [ 0, %11 ], [ %.0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }
 
-declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_item_i2d_mem_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -260,11 +254,17 @@ define ptr @ASN1_item_i2d_mem_bio(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret ptr %.09
 }
 
-declare ptr @BIO_s_mem() local_unnamed_addr #2
+declare ptr @BIO_s_mem() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

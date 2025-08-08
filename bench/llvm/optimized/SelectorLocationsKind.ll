@@ -44,7 +44,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i: ; preds = %16, %.lr.ph.split.us.i
   %.sroa.02.0.i.i.us.i = phi i32 [ %19, %16 ], [ 0, %.lr.ph.split.us.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %0, ptr %8, align 8
   %20 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
   %21 = icmp eq i32 %20, 0
@@ -72,7 +72,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit.us.i: ; preds = %30, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
   %.sroa.015.0.i.i.us.i = phi i32 [ %31, %30 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = load i32, ptr %11, align 4, !tbaa !18
   %.not39.us.i = icmp eq i32 %32, %.sroa.015.0.i.i.us.i
   br i1 %.not39.us.i, label %13, label %.preheader.i
@@ -98,7 +98,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i: ; preds = %39, %.lr.ph.split.i
   %.sroa.02.0.i.i.i = phi i32 [ %42, %39 ], [ 0, %.lr.ph.split.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %0, ptr %8, align 8
   %43 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
   %44 = icmp eq i32 %43, 0
@@ -145,7 +145,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit.i: ; preds = %64, %55, %52
   %.sroa.015.0.i.i.i = phi i32 [ %54, %52 ], [ %65, %64 ], [ 0, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %66 = load i32, ptr %37, align 4, !tbaa !18
   %.not39.i = icmp eq i32 %66, %.sroa.015.0.i.i.i
   br i1 %.not39.i, label %33, label %.preheader.i
@@ -174,7 +174,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i: ; preds = %73, %.preheader.split45.us.i
   %.sroa.02.0.i.i27.us.i = phi i32 [ %76, %73 ], [ 0, %.preheader.split45.us.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8
   %77 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   %78 = icmp eq i32 %77, 0
@@ -203,7 +203,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i: ; preds = %87, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
   %.sroa.015.0.i.i31.us.i = phi i32 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %89 = load i32, ptr %68, align 4, !tbaa !18
   %.not40.us.i = icmp eq i32 %89, %.sroa.015.0.i.i31.us.i
   br i1 %.not40.us.i, label %70, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
@@ -229,7 +229,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i: ; preds = %96, %.preheader.split45.i
   %.sroa.02.0.i.i27.i = phi i32 [ %99, %96 ], [ 0, %.preheader.split45.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8
   %100 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   %101 = icmp eq i32 %100, 0
@@ -277,7 +277,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i: ; preds = %121, %112, %109
   %.sroa.015.0.i.i31.i = phi i32 [ %111, %109 ], [ %122, %121 ], [ 0, %112 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %123 = load i32, ptr %94, align 4, !tbaa !18
   %.not40.i = icmp eq i32 %123, %.sroa.015.0.i.i31.i
   br i1 %.not40.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
@@ -302,7 +302,7 @@ define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8Ar
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit: ; preds = %6, %10
   %.sroa.02.0.i = phi i32 [ %13, %10 ], [ 0, %6 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %1, ptr %7, align 8
   %14 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   %15 = icmp eq i32 %14, 0
@@ -355,7 +355,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 _ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit: ; preds = %16, %25, %28, %37
   %.sroa.015.0.i = phi i32 [ %27, %25 ], [ %38, %37 ], [ 0, %16 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.sroa.015.0.i
 }
 
@@ -393,7 +393,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i: ; preds = %16, %.lr.ph.split.us.i
   %.sroa.02.0.i.i.us.i = phi i32 [ %spec.select.i.i.i.us.i, %16 ], [ 0, %.lr.ph.split.us.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %0, ptr %8, align 8
   %20 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
   %21 = icmp eq i32 %20, 0
@@ -421,7 +421,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit.us.i: ; preds = %30, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
   %.sroa.015.0.i.i.us.i = phi i32 [ %31, %30 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = load i32, ptr %11, align 4, !tbaa !18
   %.not40.us.i = icmp eq i32 %32, %.sroa.015.0.i.i.us.i
   br i1 %.not40.us.i, label %13, label %.preheader.i
@@ -448,7 +448,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i: ; preds = %39, %.lr.ph.split.i
   %.sroa.02.0.i.i.i = phi i32 [ %spec.select.i.i.i.i, %39 ], [ 0, %.lr.ph.split.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %0, ptr %8, align 8
   %43 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
   %44 = icmp eq i32 %43, 0
@@ -495,7 +495,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit.i: ; preds = %64, %55, %52
   %.sroa.015.0.i.i.i = phi i32 [ %54, %52 ], [ %65, %64 ], [ 0, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %66 = load i32, ptr %37, align 4, !tbaa !18
   %.not40.i = icmp eq i32 %66, %.sroa.015.0.i.i.i
   br i1 %.not40.i, label %33, label %.preheader.i
@@ -525,7 +525,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i: ; preds = %73, %.preheader.split46.us.i
   %.sroa.02.0.i.i27.us.i = phi i32 [ %spec.select.i.i.i33.us.i, %73 ], [ 0, %.preheader.split46.us.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8
   %77 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   %78 = icmp eq i32 %77, 0
@@ -554,7 +554,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i: ; preds = %87, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
   %.sroa.015.0.i.i31.us.i = phi i32 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %89 = load i32, ptr %68, align 4, !tbaa !18
   %.not41.us.i = icmp eq i32 %89, %.sroa.015.0.i.i31.us.i
   br i1 %.not41.us.i, label %70, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
@@ -581,7 +581,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i: ; preds = %96, %.preheader.split46.i
   %.sroa.02.0.i.i27.i = phi i32 [ %spec.select.i.i.i33.i, %96 ], [ 0, %.preheader.split46.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8
   %100 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   %101 = icmp eq i32 %100, 0
@@ -629,7 +629,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i: ; preds = %121, %112, %109
   %.sroa.015.0.i.i31.i = phi i32 [ %111, %109 ], [ %122, %121 ], [ 0, %112 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %123 = load i32, ptr %94, align 4, !tbaa !18
   %.not41.i = icmp eq i32 %123, %.sroa.015.0.i.i31.i
   br i1 %.not41.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
@@ -655,7 +655,7 @@ define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8Ar
 
 _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit: ; preds = %6, %10
   %.sroa.02.0.i = phi i32 [ %spec.select.i.i, %10 ], [ 0, %6 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %1, ptr %7, align 8
   %14 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   %15 = icmp eq i32 %14, 0
@@ -708,32 +708,32 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 _ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit: ; preds = %16, %25, %28, %37
   %.sroa.015.0.i = phi i32 [ %27, %25 ], [ %38, %37 ], [ 0, %16 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.sroa.015.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
-
-declare noundef ptr @_ZNK5clang8Selector24getIdentifierInfoForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef ptr @_ZNK5clang8Selector24getIdentifierInfoForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
-declare i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #2
+declare i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind willreturn memory(read) }
 attributes #6 = { nounwind }

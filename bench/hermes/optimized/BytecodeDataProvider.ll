@@ -1609,7 +1609,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call2 = call { ptr, i64 } @_ZN6hermes3hbc18getStringFromEntryERKNS_16StringTableEntryEN4llvh8ArrayRefIhEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i, ptr %1, i64 %sub.ptr.sub.i.i, ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #19
   %3 = extractvalue { ptr, i64 } %call2, 0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -1625,7 +1625,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #19
   ret void
 }
@@ -1708,7 +1708,7 @@ if.then10:                                        ; preds = %if.end
   %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %data_.i, align 8
   %warmupAbortFlag_ = getelementptr inbounds nuw i8, ptr %this, i64 352
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPKhjPSt6atomicIbEES4_jS7_EEEEEE, i64 16), ptr %call.i, align 8
@@ -1734,7 +1734,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %if.then10
   br label %_ZNSt6threadC2IRFvPKhjPSt6atomicIbEEJS2_RjS5_EvEEOT_DpOT0_.exit
 
 _ZNSt6threadC2IRFvPKhjPSt6atomicIbEEJS2_RjS5_EvEEOT_DpOT0_.exit: ; preds = %if.then10, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %9 = load i8, ptr %hasVal.i, align 8
   %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1950,12 +1950,12 @@ entry:
   %4 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %5 = load i64, ptr %size_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %populator.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %populator.i)
   %call.i = tail call fastcc noundef zeroext i1 @_ZN6hermes3hbc12_GLOBAL__N_111sanityCheckEN4llvh8ArrayRefIhEENS0_12BytecodeFormEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %2, i64 %5, i32 noundef %form, ptr noundef nonnull %errstr_.i)
   br i1 %call.i, label %if.end, label %_ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormE.exit
 
 _ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormE.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %populator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %populator.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1973,7 +1973,7 @@ if.end:                                           ; preds = %entry
   %h.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 16
   store ptr %2, ptr %h.i.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %populator.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %populator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %populator.i)
   %6 = load ptr, ptr %fields, align 8
   %options = getelementptr inbounds nuw i8, ptr %6, i64 108
   %7 = load i8, ptr %options, align 1
@@ -2424,12 +2424,12 @@ entry:
   %errstr = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %fields, i8 0, i64 264, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %populator.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %populator.i)
   %call.i = call fastcc noundef zeroext i1 @_ZN6hermes3hbc12_GLOBAL__N_111sanityCheckEN4llvh8ArrayRefIhEENS0_12BytecodeFormEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %aref.coerce0, i64 %aref.coerce1, i32 noundef 0, ptr noundef nonnull %errstr)
   br i1 %call.i, label %if.end, label %_ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormE.exit
 
 _ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormE.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %populator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %populator.i)
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -2444,7 +2444,7 @@ if.end:                                           ; preds = %entry
   %h.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 16
   store ptr %aref.coerce0, ptr %h.i.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %populator.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %populator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %populator.i)
   %0 = load ptr, ptr %fields, align 8
   %stringCount1 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = load i32, ptr %stringCount1, align 1
@@ -2542,7 +2542,7 @@ entry:
 define hidden noundef zeroext i1 @_ZN6hermes3hbc20BCProviderFromBuffer19bytecodeHashIsValidEN4llvh8ArrayRefIhEE(ptr %aref.coerce0, i64 %aref.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %actual.i = alloca %"struct.std::array", align 1
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %actual.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %actual.i)
   %fileLength.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 32
   %0 = load i32, ptr %fileLength.i, align 1
   %idx.ext.i = zext i32 %0 to i64
@@ -2552,7 +2552,7 @@ entry:
   call void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr nonnull sret(%"struct.std::array") align 1 %actual.i, ptr %aref.coerce0, i64 %sub.ptr.sub.i.i) #19
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %actual.i, ptr noundef nonnull dereferenceable(20) %add.ptr2.i, i64 20)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %actual.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %actual.i)
   ret i1 %tobool1.not.i.i.i.i.i
 }
 
@@ -2560,7 +2560,7 @@ entry:
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %aref.coerce0, i64 %aref.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %actual.i = alloca %"struct.std::array", align 1
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %actual.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %actual.i)
   %fileLength.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 32
   %0 = load i32, ptr %fileLength.i, align 1
   %idx.ext.i = zext i32 %0 to i64
@@ -2569,7 +2569,7 @@ entry:
   %sub.ptr.sub.i.i = add nsw i64 %idx.ext.i, -20
   call void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr nonnull sret(%"struct.std::array") align 1 %actual.i, ptr %aref.coerce0, i64 %sub.ptr.sub.i.i) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %add.ptr2.i, ptr noundef nonnull align 1 dereferenceable(20) %actual.i, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %actual.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %actual.i)
   ret void
 }
 
@@ -3221,10 +3221,10 @@ entry:
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18

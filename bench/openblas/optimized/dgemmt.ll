@@ -15,7 +15,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %19 = load i32, ptr %3, align 4, !tbaa !3
   %20 = load i32, ptr %4, align 4, !tbaa !3
   %21 = load double, ptr %5, align 8, !tbaa !7
@@ -194,7 +194,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %106 = shl i32 %.tr, 1
   %107 = add i32 %106, 19
   %108 = and i32 %107, -4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store volatile i32 %108, ptr %15, align 4, !tbaa !3
   %.0..0..0..0.14 = load volatile i32, ptr %15, align 4, !tbaa !3
   %109 = icmp ugt i32 %.0..0..0..0.14, 256
@@ -205,7 +205,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %111
 
 111:                                              ; preds = %110, %104
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store volatile i32 2143294004, ptr %16, align 4, !tbaa !3
   %.0..0..0..0.15 = load volatile i32, ptr %15, align 4, !tbaa !3
   %.not251 = icmp eq i32 %.0..0..0..0.15, 0
@@ -274,8 +274,8 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 140:                                              ; preds = %139, %138
   call void @llvm.stackrestore.p0(ptr %116)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count272
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
@@ -299,7 +299,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %147 = shl i32 %.tr286, 1
   %148 = add i32 %147, 19
   %149 = and i32 %148, -4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store volatile i32 %149, ptr %17, align 4, !tbaa !3
   %.0..0..0..0.8 = load volatile i32, ptr %17, align 4, !tbaa !3
   %150 = icmp ugt i32 %.0..0..0..0.8, 256
@@ -310,7 +310,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %152
 
 152:                                              ; preds = %151, %145
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store volatile i32 2143294004, ptr %18, align 4, !tbaa !3
   %.0..0..0..0.9 = load volatile i32, ptr %17, align 4, !tbaa !3
   %.not246 = icmp eq i32 %.0..0..0..0.9, 0
@@ -379,51 +379,51 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 181:                                              ; preds = %180, %179
   call void @llvm.stackrestore.p0(ptr %157)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count282
   br i1 %exitcond278.not, label %.loopexit, label %.lr.ph262.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %140, %82, %181, %97, %.preheader258, %.preheader, %59, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @xerbla_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @xerbla_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dgemv_thread_n(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
-declare i32 @dgemv_thread_n(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgemv_thread_t(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
-declare i32 @dgemv_thread_t(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgemv_n(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
-declare i32 @dgemv_n(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dgemv_t(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
-declare i32 @dgemv_t(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
-
-declare i32 @dscal_k(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @dscal_k(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #3
+declare ptr @llvm.stacksave.p0() #2
 
-declare ptr @blas_memory_alloc(i32 noundef) local_unnamed_addr #2
+declare ptr @blas_memory_alloc(i32 noundef) local_unnamed_addr #1
 
-declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
+declare void @blas_memory_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #3
+declare void @llvm.stackrestore.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

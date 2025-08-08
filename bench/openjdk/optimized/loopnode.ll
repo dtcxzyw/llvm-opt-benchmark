@@ -21753,7 +21753,7 @@ _ZN16LoopTreeIterator4nextEv.exit:                ; preds = %_ZN16LoopTreeIterat
   br i1 %11, label %12, label %34
 
 12:                                               ; preds = %_ZN16LoopTreeIterator4nextEv.exit
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.2.07, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -21791,7 +21791,7 @@ _ZN16LoopTreeIterator4nextEv.exit:                ; preds = %_ZN16LoopTreeIterat
   br label %_ZN14PhaseIdealLoop53collect_useful_template_assertion_predicates_for_loopEP13IdealLoopTreeR16Unique_Node_List.exit
 
 _ZN14PhaseIdealLoop53collect_useful_template_assertion_predicates_for_loopEP13IdealLoopTreeR16Unique_Node_List.exit: ; preds = %28, %32
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %_ZN16LoopTreeIterator4nextEv.exit, %_ZN14PhaseIdealLoop53collect_useful_template_assertion_predicates_for_loopEP13IdealLoopTreeR16Unique_Node_List.exit
@@ -31564,10 +31564,10 @@ declare i32 @llvm.umax.i32(i32, i32) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

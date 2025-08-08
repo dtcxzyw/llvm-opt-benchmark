@@ -157,7 +157,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_10CODE_PAGESE(i32 noundef %0) loca
   %2 = alloca i32, align 4
   %3 = alloca %"class.frozen::map", align 8
   store i32 %0, ptr %2, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 2248, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2248) %3, ptr noundef nonnull align 8 dereferenceable(2248) @__const._ZN4LIEF2PE9to_stringENS0_10CODE_PAGESE.enums2str, i64 2248, i1 false)
   %4 = call noundef ptr @_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_(ptr noundef nonnull align 8 dereferenceable(2248) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2248
@@ -171,15 +171,12 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_10CODE_PAGESE(i32 noundef %0) loca
 
 9:                                                ; preds = %1, %6
   %spec.select = phi ptr [ %8, %6 ], [ @.str.140, %1 ]
-  call void @llvm.lifetime.end.p0(i64 2248, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
@@ -304,12 +301,14 @@ _ZN6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE9find_implIRKS8_S3_EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

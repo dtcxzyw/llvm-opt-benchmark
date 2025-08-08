@@ -61,13 +61,7 @@ define dso_local void @clear_core_array(ptr noundef readonly captures(address_is
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @bit_clear_all(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @copy_core_array(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -388,7 +382,7 @@ declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_core_array(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -424,7 +418,7 @@ define dso_local void @free_core_array(ptr noundef captures(none) %0) local_unna
   br label %13
 
 13:                                               ; preds = %._crit_edge, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -435,7 +429,7 @@ define dso_local void @core_array_log(ptr noundef %0, ptr noundef %1, ptr nounde
   %4 = alloca [100 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -455,7 +449,7 @@ define dso_local void @core_array_log(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not17, label %20, label %14
 
 14:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = tail call ptr @bitmap2node_name(ptr noundef nonnull %1) #3
   store ptr %15, ptr %5, align 8
   %16 = tail call i32 @get_log_level() #3
@@ -468,7 +462,7 @@ define dso_local void @core_array_log(ptr noundef %0, ptr noundef %1, ptr nounde
 
 19:                                               ; preds = %18, %14
   call void @slurm_xfree(ptr noundef nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %19, %13
@@ -476,7 +470,7 @@ define dso_local void @core_array_log(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not18, label %42, label %21
 
 21:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %22 = load i32, ptr @node_record_count, align 4
   %23 = icmp sgt i32 %22, 0
@@ -522,11 +516,11 @@ define dso_local void @core_array_log(ptr noundef %0, ptr noundef %1, ptr nounde
 
 41:                                               ; preds = %39, %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 42:                                               ; preds = %20, %41, %3
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -625,8 +619,8 @@ declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit45, label %4
 
@@ -756,8 +750,8 @@ define dso_local ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0
 
 .loopexit45:                                      ; preds = %33, %64, %8, %30, %4, %1
   %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %11, %30 ], [ %11, %8 ], [ %11, %64 ], [ %11, %33 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -766,6 +760,12 @@ declare i64 @bit_fls(ptr noundef) local_unnamed_addr #1
 declare ptr @next_node(ptr noundef) local_unnamed_addr #1
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

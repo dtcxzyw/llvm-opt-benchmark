@@ -336,7 +336,7 @@ _globals_fini.exit:                               ; preds = %12, %15
 define internal ptr @channelsmod_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.17, ptr noundef nonnull @channelsmod_create.kwlist, ptr noundef nonnull %4) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %90, label %7
@@ -508,7 +508,7 @@ _channelqueue_free.exit.i.i:                      ; preds = %_channelitem_free.e
   br i1 %78, label %90, label %79
 
 79:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !12
   %82 = call fastcc i32 @newchannelid(ptr noundef %81, i64 noundef %60, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %5)
@@ -527,19 +527,19 @@ _channelqueue_free.exit.i.i:                      ; preds = %_channelitem_free.e
 
 89:                                               ; preds = %87, %84
   %.3 = phi ptr [ null, %84 ], [ %88, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %90
 
 90:                                               ; preds = %68, %70, %89, %3, %10
   %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %68 ], [ %.3, %89 ], [ null, %70 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @channelsmod_destroy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.channel_id_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -557,7 +557,7 @@ define internal ptr @channelsmod_destroy(ptr noundef %0, ptr noundef %1, ptr nou
 
 11:                                               ; preds = %3, %7
   %.0 = phi ptr [ %_Py_NoneStruct., %7 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -647,7 +647,7 @@ define internal ptr @channelsmod_list_all(ptr noundef %0, ptr readnone captures(
 39:                                               ; preds = %.lr.ph, %65
   %.02559 = phi ptr [ %10, %.lr.ph ], [ %67, %65 ]
   %.02658 = phi i64 [ 0, %.lr.ph ], [ %68, %65 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = load ptr, ptr %31, align 8, !tbaa !12
   %41 = load i64, ptr %.02559, align 8, !tbaa !69
   %42 = call fastcc i32 @newchannelid(ptr noundef %40, i64 noundef %41, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %3)
@@ -706,14 +706,14 @@ Py_DECREF.exit40.thread.sink.split:               ; preds = %62, %47
   br label %Py_DECREF.exit40.thread
 
 Py_DECREF.exit40.thread:                          ; preds = %Py_DECREF.exit40.thread.sink.split, %45, %47, %60, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %Py_DECREF.exit
 
 65:                                               ; preds = %Py_DECREF.exit42
   %.133.val = load ptr, ptr %32, align 8, !tbaa !72
   %66 = getelementptr ptr, ptr %.133.val, i64 %.02658
   store ptr %54, ptr %66, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr i8, ptr %.02559, i64 16
   %68 = add nuw nsw i64 %.02658, 1
   %exitcond.not = icmp eq i64 %68, %23
@@ -733,11 +733,11 @@ Py_DECREF.exit:                                   ; preds = %65, %.preheader, %P
 define internal ptr @channelsmod_list_interpreters(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.channel_id_converter_data, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !26
   %7 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef nonnull @channelsmod_list_interpreters.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %7, 0
@@ -885,8 +885,8 @@ Py_DECREF.exit:                                   ; preds = %51, %54, %57
 
 Py_DECREF.exit40:                                 ; preds = %.thread, %11, %64, %61, %.thread51, %8, %3
   %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %.thread51 ], [ null, %61 ], [ null, %64 ], [ %10, %11 ], [ %10, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -898,16 +898,16 @@ define internal ptr @channelsmod_send(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 3, ptr %6, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !27
   %11 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.38, ptr noundef nonnull @channelsmod_send.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %.not = icmp eq i32 %11, 0
@@ -926,7 +926,7 @@ define internal ptr @channelsmod_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 18:                                               ; preds = %12
   %19 = load i64, ptr %10, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = load ptr, ptr %8, align 8, !tbaa !27
   %21 = load i32, ptr %7, align 4, !tbaa !26
   %22 = call i32 @PyThread_ParseTimeoutArg(ptr noundef %20, i32 noundef %21, ptr noundef nonnull %9) #7
@@ -958,16 +958,16 @@ define internal ptr @channelsmod_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 35:                                               ; preds = %18, %33
   %.1 = phi ptr [ %_Py_NoneStruct., %33 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %36
 
 36:                                               ; preds = %3, %35, %15
   %.08 = phi ptr [ %.1, %35 ], [ null, %15 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.08
 }
 
@@ -979,16 +979,16 @@ define internal ptr @channelsmod_send_buffer(ptr noundef %0, ptr noundef %1, ptr
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 3, ptr %6, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !27
   %11 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef nonnull @channelsmod_send_buffer.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %.not = icmp eq i32 %11, 0
@@ -1007,7 +1007,7 @@ define internal ptr @channelsmod_send_buffer(ptr noundef %0, ptr noundef %1, ptr
 
 18:                                               ; preds = %12
   %19 = load i64, ptr %10, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = load ptr, ptr %8, align 8, !tbaa !27
   %21 = load i32, ptr %7, align 4, !tbaa !26
   %22 = call i32 @PyThread_ParseTimeoutArg(ptr noundef %20, i32 noundef %21, ptr noundef nonnull %9) #7
@@ -1059,16 +1059,16 @@ Py_DECREF.exit:                                   ; preds = %36, %38, %41
 
 43:                                               ; preds = %Py_DECREF.exit, %24, %18
   %.1 = phi ptr [ null, %18 ], [ %_Py_NoneStruct., %Py_DECREF.exit ], [ null, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %44
 
 44:                                               ; preds = %3, %43, %15
   %.012 = phi ptr [ %.1, %43 ], [ null, %15 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.012
 }
 
@@ -1076,11 +1076,11 @@ Py_DECREF.exit:                                   ; preds = %36, %38, %41
 define internal ptr @channelsmod_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.channel_id_converter_data, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !27
   %7 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef nonnull @channelsmod_recv.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %7, 0
@@ -1461,8 +1461,8 @@ _Py_NewRef.exit:                                  ; preds = %143, %140, %146
 
 Py_DECREF.exit:                                   ; preds = %148, %channel_recv.exit.thread, %_Py_NewRef.exit, %152, %155, %3
   %.0 = phi ptr [ null, %3 ], [ %149, %148 ], [ null, %channel_recv.exit.thread ], [ %150, %_Py_NewRef.exit ], [ %150, %152 ], [ %150, %155 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1472,15 +1472,15 @@ define internal ptr @channelsmod_close(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !26
   %9 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.45, ptr noundef nonnull @channelsmod_close.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %.not = icmp eq i32 %9, 0
@@ -1716,10 +1716,10 @@ channel_close.exit:                               ; preds = %21, %10, %_channelr
 
 96:                                               ; preds = %3, %channel_close.exit
   %.0 = phi ptr [ %_Py_NoneStruct., %channel_close.exit ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1729,15 +1729,15 @@ define internal ptr @channelsmod_release(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !26
   %9 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef nonnull @channelsmod_release.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %.not = icmp eq i32 %9, 0
@@ -2005,17 +2005,17 @@ channel_release.exit:                             ; preds = %17, %.sink.split.i
 
 110:                                              ; preds = %3, %channel_release.exit
   %.0 = phi ptr [ %_Py_NoneStruct., %channel_release.exit ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @channelsmod_get_count(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.channel_id_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2090,14 +2090,14 @@ _channel_get_count.exit:                          ; preds = %_channels_lookup.ex
 
 32:                                               ; preds = %30, %_channel_get_count.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %31, %30 ], [ null, %_channel_get_count.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @channelsmod_get_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.channel_id_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2624,14 +2624,14 @@ _Py_NewRef.exit209.i:                             ; preds = %208, %_Py_NewRef.ex
 
 new_channel_info.exit:                            ; preds = %_channel_get_info.exit, %87, %90, %115, %117, %120, %123, %125, %128, %131, %133, %136, %139, %141, %144, %147, %149, %152, %155, %157, %160, %163, %165, %168, %171, %173, %176, %179, %181, %184, %_Py_NewRef.exit209.i, %3
   %.0 = phi ptr [ null, %3 ], [ null, %_channel_get_info.exit ], [ null, %87 ], [ null, %90 ], [ %93, %_Py_NewRef.exit209.i ], [ null, %120 ], [ null, %117 ], [ null, %115 ], [ null, %128 ], [ null, %125 ], [ null, %123 ], [ null, %136 ], [ null, %133 ], [ null, %131 ], [ null, %144 ], [ null, %141 ], [ null, %139 ], [ null, %152 ], [ null, %149 ], [ null, %147 ], [ null, %160 ], [ null, %157 ], [ null, %155 ], [ null, %168 ], [ null, %165 ], [ null, %163 ], [ null, %176 ], [ null, %173 ], [ null, %171 ], [ null, %184 ], [ null, %181 ], [ null, %179 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @channelsmod_get_channel_defaults(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.channel_id_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2700,7 +2700,7 @@ _channels_lookup.exit:                            ; preds = %_channelref_find.ex
 
 31:                                               ; preds = %27, %_channels_lookup.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %30, %27 ], [ null, %_channels_lookup.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2753,17 +2753,17 @@ get_module_from_owned_type.exit:                  ; preds = %12, %19, %22
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %get_module_from_owned_type.exit, %24, %27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !26
   %29 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53, ptr noundef nonnull @_channelid_new.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %.not.i11 = icmp eq i32 %29, 0
@@ -2802,7 +2802,7 @@ Py_DECREF.exit:                                   ; preds = %get_module_from_own
 
 46:                                               ; preds = %44, %42
   %.012.i = phi i32 [ %..i, %42 ], [ %spec.select.i, %44 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = load i32, ptr %7, align 4, !tbaa !26
   %48 = load i32, ptr %8, align 4, !tbaa !26
   %49 = call fastcc i32 @newchannelid(ptr noundef %14, i64 noundef %32, i32 noundef %.012.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef %47, i32 noundef %48, ptr noundef %9)
@@ -2810,16 +2810,16 @@ Py_DECREF.exit:                                   ; preds = %get_module_from_own
   %.not13.i = icmp eq i32 %50, 0
   %51 = load ptr, ptr %9, align 8
   %.1.i = select i1 %.not13.i, ptr %51, ptr null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_channelid_new.exit
 
 _channelid_new.exit:                              ; preds = %Py_DECREF.exit, %38, %46
   %.0.i = phi ptr [ null, %38 ], [ %.1.i, %46 ], [ null, %Py_DECREF.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %3, %_channelid_new.exit
@@ -2836,8 +2836,8 @@ define internal noundef ptr @channelsmod__register_end_types(ptr noundef %0, ptr
   %8 = alloca %struct._PyXIData_lookup_context_t, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.55, ptr noundef nonnull @channelsmod__register_end_types.kwlist, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %set_channelend_types.exit, label %12
@@ -2884,7 +2884,7 @@ define internal noundef ptr @channelsmod__register_end_types(ptr noundef %0, ptr
 
 31:                                               ; preds = %29
   %32 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %33 = call i32 @_PyXIData_GetLookupContext(ptr noundef %32, ptr noundef nonnull %8) #7
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %clear_xid_class.exit.i, label %35
@@ -2894,7 +2894,7 @@ define internal noundef ptr @channelsmod__register_end_types(ptr noundef %0, ptr
   br label %clear_xid_class.exit.i
 
 clear_xid_class.exit.i:                           ; preds = %35, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %37 = load ptr, ptr %27, align 8, !tbaa !112
   %.not52.i = icmp eq ptr %37, null
   br i1 %.not52.i, label %Py_DECREF.exit68.i, label %38
@@ -2923,7 +2923,7 @@ Py_DECREF.exit68.i:                               ; preds = %43, %40, %38, %clea
 
 46:                                               ; preds = %Py_DECREF.exit68.i
   %47 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = call i32 @_PyXIData_GetLookupContext(ptr noundef %47, ptr noundef nonnull %7) #7
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %clear_xid_class.exit75.i, label %50
@@ -2933,7 +2933,7 @@ Py_DECREF.exit68.i:                               ; preds = %43, %40, %38, %clea
   br label %clear_xid_class.exit75.i
 
 clear_xid_class.exit75.i:                         ; preds = %50, %46
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %52 = load ptr, ptr %44, align 8, !tbaa !112
   %.not54.i = icmp eq ptr %52, null
   br i1 %.not54.i, label %Py_DECREF.exit66.i, label %53
@@ -2978,18 +2978,18 @@ _Py_NewRef.exit.i:                                ; preds = %61, %Py_DECREF.exit
 _Py_NewRef.exit76.i:                              ; preds = %65, %_Py_NewRef.exit.i
   store ptr %20, ptr %44, align 8, !tbaa !10
   %67 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %68 = call i32 @_PyXIData_GetLookupContext(ptr noundef %67, ptr noundef nonnull %6) #7
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %ensure_xid_class.exit.thread.i, label %ensure_xid_class.exit.i
 
 ensure_xid_class.exit.thread.i:                   ; preds = %_Py_NewRef.exit76.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 ensure_xid_class.exit.i:                          ; preds = %_Py_NewRef.exit76.i
   %70 = call i32 @_PyXIData_RegisterClass(ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull @_channelend_shared) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %86
 
@@ -3033,25 +3033,25 @@ Py_DECREF.exit64.i:                               ; preds = %79, %76, %74, %72
 
 86:                                               ; preds = %ensure_xid_class.exit.i
   %87 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %88 = call i32 @_PyXIData_GetLookupContext(ptr noundef %87, ptr noundef nonnull %5) #7
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %ensure_xid_class.exit79.thread.i, label %ensure_xid_class.exit79.i
 
 ensure_xid_class.exit79.thread.i:                 ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %92
 
 ensure_xid_class.exit79.i:                        ; preds = %86
   %90 = call i32 @_PyXIData_RegisterClass(ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef nonnull @_channelend_shared) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %set_channelend_types.exit
 
 92:                                               ; preds = %ensure_xid_class.exit79.i, %ensure_xid_class.exit79.thread.i
   %93 = load ptr, ptr %27, align 8, !tbaa !3
   %94 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %95 = call i32 @_PyXIData_GetLookupContext(ptr noundef %94, ptr noundef nonnull %4) #7
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %clear_xid_class.exit81.i, label %97
@@ -3061,7 +3061,7 @@ ensure_xid_class.exit79.i:                        ; preds = %86
   br label %clear_xid_class.exit81.i
 
 clear_xid_class.exit81.i:                         ; preds = %97, %92
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %99 = load ptr, ptr %27, align 8, !tbaa !112
   %.not55.i = icmp eq ptr %99, null
   br i1 %.not55.i, label %Py_DECREF.exit60.i, label %100
@@ -3106,13 +3106,10 @@ Py_DECREF.exit62.sink.split.i:                    ; preds = %109, %83
 
 set_channelend_types.exit:                        ; preds = %ensure_xid_class.exit79.i, %26, %Py_DECREF.exit64.i, %Py_DECREF.exit60.i, %81, %83, %107, %109, %Py_DECREF.exit62.sink.split.i, %3, %24, %17
   %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %3 ], [ @_Py_NoneStruct, %ensure_xid_class.exit79.i ], [ null, %26 ], [ null, %Py_DECREF.exit64.i ], [ null, %Py_DECREF.exit60.i ], [ null, %81 ], [ null, %83 ], [ null, %107 ], [ null, %109 ], [ null, %Py_DECREF.exit62.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3365,9 +3362,6 @@ _channels_remove.exit.thread:                     ; preds = %.lr.ph.i, %1
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
@@ -3525,7 +3519,7 @@ declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @channel_id_converter(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -3627,7 +3621,7 @@ declare i32 @PyThread_ParseTimeoutArg(ptr noundef, i32 noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10, 1) i32 @channel_send_wait(i64 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.wait_info, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @PyThread_allocate_lock() #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_waiting_init.exit.thread, label %9
@@ -3896,7 +3890,7 @@ _waiting_finish_releasing.exit14:                 ; preds = %.lr.ph.i13, %102
 
 _waiting_clear.exit:                              ; preds = %113, %111, %_waiting_init.exit.thread
   %.09 = phi i32 [ -1, %_waiting_init.exit.thread ], [ %.0, %111 ], [ %.0, %113 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.09
 }
 
@@ -3909,7 +3903,7 @@ define internal fastcc range(i32 -4, 1) i32 @channel_send(i64 noundef %0, ptr no
 
 8:                                                ; preds = %4
   %9 = tail call i64 @PyInterpreterState_GetID(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @_PyXIData_GetLookupContext(ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %44, label %12
@@ -4002,7 +3996,7 @@ _channels_lookup.exit.thread:                     ; preds = %_channelref_find.ex
 
 44:                                               ; preds = %32, %42, %40, %39, %36, %_channels_lookup.exit, %8
   %.1 = phi i32 [ -1, %8 ], [ -3, %32 ], [ %.014.i.ph, %_channels_lookup.exit ], [ -1, %36 ], [ -1, %39 ], [ %41, %42 ], [ 0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %4, %44
@@ -4013,7 +4007,7 @@ _channels_lookup.exit.thread:                     ; preds = %_channelref_find.ex
 declare i32 @PyThread_acquire_lock_timed_with_retries(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #4
+declare i32 @sched_yield() local_unnamed_addr #3
 
 declare i32 @_PyXIData_GetLookupContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4338,7 +4332,7 @@ define internal ptr @_channelid_from_xid(ptr noundef readonly captures(none) %0)
   br i1 %8, label %50, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = load i64, ptr %3, align 8, !tbaa !143
@@ -4430,7 +4424,7 @@ Py_DECREF.exit24:                                 ; preds = %37, %39, %42
 
 Py_DECREF.exit:                                   ; preds = %43, %45, %48
   %49 = load ptr, ptr %2, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
 50:                                               ; preds = %Py_DECREF.exit, %6, %1
@@ -4804,18 +4798,18 @@ exceptions_init.exit.thread27:                    ; preds = %84, %92, %94, %97
 
 119:                                              ; preds = %110
   %120 = tail call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %121 = call i32 @_PyXIData_GetLookupContext(ptr noundef %120, ptr noundef nonnull %2) #7
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %ensure_xid_class.exit.thread.i, label %ensure_xid_class.exit.i
 
 ensure_xid_class.exit.thread.i:                   ; preds = %119
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %125
 
 ensure_xid_class.exit.i:                          ; preds = %119
   %123 = call i32 @_PyXIData_RegisterClass(ptr noundef nonnull %2, ptr noundef nonnull %108, ptr noundef nonnull @_channelid_shared) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %125, label %132
 
@@ -5124,7 +5118,7 @@ define internal fastcc void @clear_xid_types(ptr noundef captures(none) %0) unna
 
 6:                                                ; preds = %1
   %7 = tail call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call i32 @_PyXIData_GetLookupContext(ptr noundef %7, ptr noundef nonnull %4) #7
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %clear_xid_class.exit, label %10
@@ -5134,7 +5128,7 @@ define internal fastcc void @clear_xid_types(ptr noundef captures(none) %0) unna
   br label %clear_xid_class.exit
 
 clear_xid_class.exit:                             ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load ptr, ptr %0, align 8, !tbaa !112
   %.not26 = icmp eq ptr %12, null
   br i1 %.not26, label %Py_DECREF.exit34, label %13
@@ -5163,7 +5157,7 @@ Py_DECREF.exit34:                                 ; preds = %18, %15, %13, %clea
 
 21:                                               ; preds = %Py_DECREF.exit34
   %22 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call i32 @_PyXIData_GetLookupContext(ptr noundef %22, ptr noundef nonnull %3) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %clear_xid_class.exit38, label %25
@@ -5173,7 +5167,7 @@ Py_DECREF.exit34:                                 ; preds = %18, %15, %13, %clea
   br label %clear_xid_class.exit38
 
 clear_xid_class.exit38:                           ; preds = %21, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = load ptr, ptr %19, align 8, !tbaa !112
   %.not28 = icmp eq ptr %27, null
   br i1 %.not28, label %Py_DECREF.exit32, label %28
@@ -5202,7 +5196,7 @@ Py_DECREF.exit32:                                 ; preds = %33, %30, %28, %clea
 
 36:                                               ; preds = %Py_DECREF.exit32
   %37 = call ptr @PyInterpreterState_Get() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %38 = call i32 @_PyXIData_GetLookupContext(ptr noundef %37, ptr noundef nonnull %2) #7
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %clear_xid_class.exit40, label %40
@@ -5212,7 +5206,7 @@ Py_DECREF.exit32:                                 ; preds = %33, %30, %28, %clea
   br label %clear_xid_class.exit40
 
 clear_xid_class.exit40:                           ; preds = %36, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load ptr, ptr %34, align 8, !tbaa !112
   %.not30 = icmp eq ptr %42, null
   br i1 %.not30, label %Py_DECREF.exit, label %43
@@ -5516,7 +5510,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not55, label %62, label %48
 
 48:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %1, ptr noundef nonnull %4) #7
   %50 = icmp eq i64 %49, -1
   br i1 %50, label %51, label %53
@@ -5541,11 +5535,11 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
 
 .thread77:                                        ; preds = %57, %53, %51
   %.149.ph = phi i1 [ %60, %57 ], [ false, %53 ], [ false, %51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
 61:                                               ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_Py_NewRef.exit
 
 62:                                               ; preds = %45
@@ -5787,7 +5781,7 @@ Py_DECREF.exit:                                   ; preds = %newchannelid.exit, 
 declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @clear_module_state(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -5927,15 +5921,21 @@ Py_DECREF.exit:                                   ; preds = %49, %46, %44, %Py_D
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

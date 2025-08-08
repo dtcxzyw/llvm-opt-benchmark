@@ -48,7 +48,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 1) i32 @dbgsysFinishConnect(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.pollfd], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 4, ptr %4, align 4
@@ -69,7 +69,7 @@ define hidden range(i32 -2147483648, 1) i32 @dbgsysFinishConnect(i32 noundef %0,
 
 dbgsysPoll.exit:                                  ; preds = %2, %8
   %.0.i = phi i32 [ %6, %2 ], [ %spec.select13.i, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = icmp eq i32 %.0.i, 0
   %. = call i32 @llvm.smin.i32(i32 %.0.i, i32 0)
   %.0 = select i1 %13, i32 -200, i32 %.
@@ -496,10 +496,10 @@ define hidden i64 @dbgsysCurrentTimeMillis() local_unnamed_addr #9 {
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

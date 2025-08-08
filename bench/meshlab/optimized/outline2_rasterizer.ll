@@ -359,13 +359,13 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161: ; 
           to label %139 unwind label %264
 
 139:                                              ; preds = %138
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %9, i32 noundef 12) #22
   invoke void @_ZN6QBrush8setColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(14) %9)
           to label %140 unwind label %264
 
 140:                                              ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %141 unwind label %264
 
@@ -996,13 +996,13 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit237: ; preds = %325, %344, %_Z
           to label %348 unwind label %386
 
 348:                                              ; preds = %347
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %8, i32 noundef 12) #22
   invoke void @_ZN6QBrush8setColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(14) %8)
           to label %349 unwind label %386
 
 349:                                              ; preds = %348
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %350 unwind label %386
 
@@ -1245,7 +1245,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit237: ; preds = %325, %344, %_Z
           to label %431 unwind label %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 431:                                              ; preds = %429
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !noalias !34
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %432, align 4, !noalias !34
@@ -1259,8 +1259,8 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit237: ; preds = %325, %344, %_Z
           to label %437 unwind label %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 437:                                              ; preds = %431
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.0126.lcssa, ptr %6, align 4, !noalias !37
   %438 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.1131, ptr %438, align 4, !noalias !37
@@ -1272,7 +1272,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit237: ; preds = %325, %344, %_Z
           to label %441 unwind label %522
 
 441:                                              ; preds = %437
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %442 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %443 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %444 = load ptr, ptr %442, align 8
@@ -3776,10 +3776,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

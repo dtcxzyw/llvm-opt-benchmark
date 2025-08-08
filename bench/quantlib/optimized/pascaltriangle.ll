@@ -97,9 +97,9 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   store i32 1, ptr %ref.tmp, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1)
   store i32 1, ptr %ref.tmp1, align 4, !tbaa !16
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 16), align 8, !tbaa !14
   %cmp.not.i = icmp eq ptr %0, %2
@@ -107,7 +107,7 @@ if.then:                                          ; preds = %entry
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i1.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
+  %call5.i.i.i.i2.i.i1.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr %call5.i.i.i.i2.i.i1.i.i.i, ptr %1, align 8, !tbaa !9
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i, i64 8
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -127,11 +127,11 @@ if.else.i:                                        ; preds = %if.then
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %if.else.i
   %4 = phi ptr [ %incdec.ptr.i, %if.end.i.i.i.i.i.i.i.i.i.i ], [ %.pre, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp1) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3)
   store i32 2, ptr %ref.tmp3, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4)
   store i32 1, ptr %ref.tmp4, align 4, !tbaa !16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 16), align 8, !tbaa !14
   %cmp.not.i2 = icmp eq ptr %4, %5
@@ -139,7 +139,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit: ; preds = %i
 
 if.end.i.i.i.i.i.i.i.i.i.i9:                      ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i1.i.i.i11 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
+  %call5.i.i.i.i2.i.i1.i.i.i11 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
   store ptr %call5.i.i.i.i2.i.i1.i.i.i11, ptr %4, align 8, !tbaa !9
   %add.ptr.i.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i11, i64 16
   %_M_end_of_storage.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -169,11 +169,11 @@ if.else.i25:                                      ; preds = %_ZNSt6vectorIS_ImSa
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit27: ; preds = %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i19, %if.else.i25
   %7 = phi ptr [ %incdec.ptr.i22, %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i19 ], [ %.pre92, %if.else.i25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp3) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6)
   store i32 3, ptr %ref.tmp6, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7)
   store i32 1, ptr %ref.tmp7, align 4, !tbaa !16
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 16), align 8, !tbaa !14
   %cmp.not.i28 = icmp eq ptr %7, %8
@@ -181,7 +181,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit27: ; preds = 
 
 if.end.i.i.i.i.i.i.i.i.i.i35:                     ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i1.i.i.i37 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+  %call5.i.i.i.i2.i.i1.i.i.i37 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   store ptr %call5.i.i.i.i2.i.i1.i.i.i37, ptr %7, align 8, !tbaa !9
   %add.ptr.i.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i37, i64 24
   %_M_end_of_storage.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -211,16 +211,16 @@ if.else.i51:                                      ; preds = %_ZNSt6vectorIS_ImSa
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit53: ; preds = %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i45, %if.else.i51
   %10 = phi ptr [ %incdec.ptr.i48, %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i45 ], [ %.pre93, %if.else.i51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6)
   %11 = load ptr, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 48
   %12 = load ptr, ptr %add.ptr.i, align 8, !tbaa !9
   %add.ptr.i54 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 2, ptr %add.ptr.i54, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11)
   store i32 4, ptr %ref.tmp11, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12)
   store i32 1, ptr %ref.tmp12, align 4, !tbaa !16
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 16), align 8, !tbaa !14
   %cmp.not.i55 = icmp eq ptr %10, %13
@@ -228,7 +228,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit53: ; preds = 
 
 if.end.i.i.i.i.i.i.i.i.i.i62:                     ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i1.i.i.i64 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
+  %call5.i.i.i.i2.i.i1.i.i.i64 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   store ptr %call5.i.i.i.i2.i.i1.i.i.i64, ptr %10, align 8, !tbaa !9
   %add.ptr.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i64, i64 32
   %_M_end_of_storage.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -258,8 +258,8 @@ if.else.i78:                                      ; preds = %_ZNSt6vectorIS_ImSa
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit80: ; preds = %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i72, %if.else.i78
   %.pre94 = phi ptr [ %incdec.ptr.i75, %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i72 ], [ %.pre94.pre, %if.else.i78 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp12) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11)
   %15 = load ptr, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, align 8, !tbaa !3
   %add.ptr.i81 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %16 = load ptr, ptr %add.ptr.i81, align 8, !tbaa !9
@@ -296,12 +296,6 @@ while.end:                                        ; preds = %while.body, %if.end
   ret ptr %add.ptr.i85
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib14PascalTriangle9nextOrderEv() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -312,7 +306,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %add = add nsw i64 %sub.ptr.div.i, 1
   store i64 %add, ptr %ref.tmp, align 8, !tbaa !18
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 16), align 8, !tbaa !14
@@ -324,7 +318,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %if.then.i
@@ -334,7 +328,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %if.then.
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %add, 3
-  %call5.i.i.i.i2.i.i1.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i.i) #15
+  %call5.i.i.i.i2.i.i1.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i.i) #14
   store ptr %call5.i.i.i.i2.i.i1.i.i.i, ptr %0, align 8, !tbaa !9
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i1.i.i.i, i64 %add
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -365,7 +359,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJmEEERS1_DpOT_.exit
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJmEEERS1_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JmEEEvRS3_PT_DpOT0_.exit.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %5 = load ptr, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, align 8, !tbaa !3
   %add.ptr.i = getelementptr i8, ptr %5, i64 %sub.ptr.sub.i
   %6 = load ptr, ptr %add.ptr.i, align 8, !tbaa !9
@@ -404,8 +398,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #17
   unreachable
 }
@@ -413,10 +407,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -431,7 +425,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #15
   unreachable
 
 _ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -448,7 +442,7 @@ _ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #14
   br label %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
@@ -462,7 +456,7 @@ _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i.i
@@ -475,7 +469,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %_ZNSt12_Ve
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i, 3
-  %call5.i.i.i.i2.i.i1.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #15
+  %call5.i.i.i.i2.i.i1.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #14
           to label %call5.i.i.i.i2.i.i1.i.i.noexc unwind label %if.end
 
 call5.i.i.i.i2.i.i1.i.i.noexc:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i
@@ -572,7 +566,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #14
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #16
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.then, label %if.then.i38
 
@@ -600,7 +594,7 @@ if.end:                                           ; preds = %if.end.i.i.i.i.i.i.
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #14
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #16
   br label %if.then.i38
 
 if.then.i38:                                      ; preds = %lpad, %if.end
@@ -609,7 +603,7 @@ if.then.i38:                                      ; preds = %lpad, %if.end
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %if.then.i.i.i.i.i, %if.then, %if.then.i38
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad19
 
 invoke.cont22:                                    ; preds = %lpad19
@@ -627,10 +621,10 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -649,7 +643,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #15
   unreachable
 
 _ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -666,7 +660,7 @@ _ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #14
   br label %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
@@ -677,7 +671,7 @@ _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i.i
@@ -690,7 +684,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %_ZNSt12_Ve
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %3, 3
-  %call5.i.i.i.i2.i.i1.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #15
+  %call5.i.i.i.i2.i.i1.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #14
           to label %call5.i.i.i.i2.i.i1.i.i.noexc unwind label %if.end
 
 call5.i.i.i.i2.i.i1.i.i.noexc:                    ; preds = %if.then.i.i.i.i.i.i.i
@@ -790,7 +784,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #14
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #16
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.then, label %if.then.i39
 
@@ -818,7 +812,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #14
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #16
   br label %if.then.i39
 
 if.then.i39:                                      ; preds = %lpad, %if.end
@@ -827,7 +821,7 @@ if.then.i39:                                      ; preds = %lpad, %if.end
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.then.i.i.i.i.i, %if.then, %if.then.i39
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -845,12 +839,18 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__sub_I_pascaltriangle.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_pascaltriangle.cpp() #8 section ".text.startup" {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8QuantLib14PascalTriangle13coefficients_E, i8 0, i64 24, i1 false)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev, ptr nonnull @_ZN8QuantLib14PascalTriangle13coefficients_E, ptr nonnull @__dso_handle) #14
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev, ptr nonnull @_ZN8QuantLib14PascalTriangle13coefficients_E, ptr nonnull @__dso_handle) #16
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -867,20 +867,20 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { builtin nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { noreturn }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

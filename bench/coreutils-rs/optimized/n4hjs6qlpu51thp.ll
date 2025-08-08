@@ -311,7 +311,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.0.i = phi i64 [ 0, %11 ], [ %25, %22 ]
   %17 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, i8, [7 x i8] }, ptr %3, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.02.i.i), !noalias !124
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i), !noalias !124
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load i8, ptr %18, align 8, !range !130, !alias.scope !131, !noalias !132, !noundef !18
@@ -327,7 +327,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 96
   store i8 %19, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !137
   %24 = add i64 %.val18.i, 1
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.02.i.i), !noalias !124
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02.i.i), !noalias !124
   %25 = add nuw i64 %.0.i, 1
   %26 = icmp eq i64 %25, %15
   br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc3c2ae170ced77a7E.llvm.4857444666590044963.exit", label %16
@@ -967,7 +967,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, i8, [7 x i8] }, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.02.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load i8, ptr %20, align 8, !range !130, !alias.scope !454, !noalias !455, !noundef !18
@@ -986,7 +986,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store i8 %21, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !464
   %26 = add i64 %.val18, 1
   store i64 %26, ptr %15, align 8, !alias.scope !464, !noalias !465
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.02.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02.i)
   %27 = add nuw i64 %.0, 1
   %28 = icmp eq i64 %27, %10
   br i1 %28, label %29, label %18
@@ -1228,10 +1228,10 @@ declare hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbb901f86ca1b4c0cE"(i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

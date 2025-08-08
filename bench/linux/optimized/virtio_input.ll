@@ -101,9 +101,9 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   store ptr %0, ptr %34, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 736
   store i32 0, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr @virtinput_recv_events, ptr %23, align 16
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @virtinput_recv_status, ptr %39, align 8
@@ -116,8 +116,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %407
 
 47:                                               ; preds = %36
@@ -128,8 +128,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 216
   store ptr %51, ptr %52, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %53 = call ptr @input_allocate_device() #10
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %53, ptr %54, align 8
@@ -139,7 +139,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
 56:                                               ; preds = %47
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 664
   store ptr %34, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 1, ptr %19, align 1
   %58 = call i32 @__SCT__might_resched() #10
   %59 = load ptr, ptr %34, align 8
@@ -148,8 +148,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef %59, i32 noundef 0, ptr noundef nonnull %19, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 0, ptr %20, align 1
   %64 = call i32 @__SCT__might_resched() #10
   %65 = load ptr, ptr %34, align 8
@@ -158,8 +158,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef %65, i32 noundef 1, ptr noundef nonnull %20, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 0, ptr %21, align 1, !annotation !5
   %70 = call i32 @__SCT__might_resched() #10
   %71 = load ptr, ptr %34, align 8
@@ -168,7 +168,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef %71, i32 noundef 2, ptr noundef nonnull %21, i32 noundef 1) #10
   %75 = load i8, ptr %21, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %76 = load ptr, ptr %34, align 8
   %77 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %78 = call i8 @llvm.umin.i8(i8 %75, i8 64)
@@ -240,7 +240,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   br i1 %119, label %.split19.us, label %.preheader16, !llvm.loop !11
 
 .split19.us:                                      ; preds = %117, %98
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 2, ptr %16, align 1
   %120 = call i32 @__SCT__might_resched() #10
   %121 = load ptr, ptr %34, align 8
@@ -249,8 +249,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef %121, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 0, ptr %17, align 1
   %126 = call i32 @__SCT__might_resched() #10
   %127 = load ptr, ptr %34, align 8
@@ -259,8 +259,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   call void %131(ptr noundef %127, i32 noundef 1, ptr noundef nonnull %17, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1, !annotation !5
   %132 = call i32 @__SCT__might_resched() #10
   %133 = load ptr, ptr %34, align 8
@@ -269,7 +269,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %136 = load ptr, ptr %135, align 8
   call void %136(ptr noundef %133, i32 noundef 2, ptr noundef nonnull %18, i32 noundef 1) #10
   %137 = load i8, ptr %18, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %138 = load ptr, ptr %34, align 8
   %139 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %140 = call i8 @llvm.umin.i8(i8 %137, i8 64)
@@ -352,7 +352,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %188 = load ptr, ptr %54, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr %139, ptr %189, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 3, ptr %13, align 1
   %190 = call i32 @__SCT__might_resched() #10
   %191 = load ptr, ptr %34, align 8
@@ -361,8 +361,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
   call void %195(ptr noundef %191, i32 noundef 0, ptr noundef nonnull %13, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %14, align 1
   %196 = call i32 @__SCT__might_resched() #10
   %197 = load ptr, ptr %34, align 8
@@ -371,8 +371,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load ptr, ptr %200, align 8
   call void %201(ptr noundef %197, i32 noundef 1, ptr noundef nonnull %14, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1, !annotation !5
   %202 = call i32 @__SCT__might_resched() #10
   %203 = load ptr, ptr %34, align 8
@@ -381,12 +381,12 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %206 = load ptr, ptr %205, align 8
   call void %206(ptr noundef %203, i32 noundef 2, ptr noundef nonnull %15, i32 noundef 1) #10
   %207 = load i8, ptr %15, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %208 = icmp ugt i8 %207, 7
   br i1 %208, label %209, label %242
 
 209:                                              ; preds = %.split22.us
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i16 0, ptr %24, align 2, !annotation !5
   %210 = call i32 @__SCT__might_resched() #10
   %211 = load ptr, ptr %34, align 8
@@ -398,8 +398,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %216 = load ptr, ptr %54, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   store i16 %215, ptr %217, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i16 0, ptr %25, align 2, !annotation !5
   %218 = call i32 @__SCT__might_resched() #10
   %219 = load ptr, ptr %34, align 8
@@ -411,8 +411,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %224 = load ptr, ptr %54, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 26
   store i16 %223, ptr %225, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i16 0, ptr %26, align 2, !annotation !5
   %226 = call i32 @__SCT__might_resched() #10
   %227 = load ptr, ptr %34, align 8
@@ -424,8 +424,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %232 = load ptr, ptr %54, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 28
   store i16 %231, ptr %233, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %27) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i16 0, ptr %27, align 2, !annotation !5
   %234 = call i32 @__SCT__might_resched() #10
   %235 = load ptr, ptr %34, align 8
@@ -437,7 +437,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %240 = load ptr, ptr %54, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 30
   store i16 %239, ptr %241, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %27) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %245
 
 242:                                              ; preds = %.split22.us
@@ -450,7 +450,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %246 = load ptr, ptr %54, align 8
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 32
   call fastcc void @virtinput_cfg_bits(ptr noundef %34, i32 noundef 16, i32 noundef 0, ptr noundef nonnull %247, i32 noundef 32)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 17, ptr %10, align 1
   %248 = call i32 @__SCT__might_resched() #10
   %249 = load ptr, ptr %34, align 8
@@ -459,8 +459,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load ptr, ptr %252, align 8
   call void %253(ptr noundef %249, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 20, ptr %11, align 1
   %254 = call i32 @__SCT__might_resched() #10
   %255 = load ptr, ptr %34, align 8
@@ -469,8 +469,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8
   call void %259(ptr noundef %255, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1, !annotation !5
   %260 = call i32 @__SCT__might_resched() #10
   %261 = load ptr, ptr %34, align 8
@@ -479,7 +479,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %264 = load ptr, ptr %263, align 8
   call void %264(ptr noundef %261, i32 noundef 2, ptr noundef nonnull %12, i32 noundef 1) #10
   %265 = load i8, ptr %12, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %266 = icmp eq i8 %265, 0
   br i1 %266, label %270, label %267
 
@@ -537,7 +537,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
 
 301:                                              ; preds = %.preheader
   %302 = trunc i64 %295 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 18, ptr %2, align 1
   %303 = call i32 @__SCT__might_resched() #10
   %304 = load ptr, ptr %34, align 8
@@ -546,8 +546,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load ptr, ptr %307, align 8
   call void %308(ptr noundef %304, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %302, ptr %3, align 1
   %309 = call i32 @__SCT__might_resched() #10
   %310 = load ptr, ptr %34, align 8
@@ -556,8 +556,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load ptr, ptr %313, align 8
   call void %314(ptr noundef %310, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !annotation !5
   %315 = call i32 @__SCT__might_resched() #10
   %316 = load ptr, ptr %34, align 8
@@ -565,8 +565,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %318 = load ptr, ptr %317, align 8
   %319 = load ptr, ptr %318, align 8
   call void %319(ptr noundef %316, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !5
   %320 = call i32 @__SCT__might_resched() #10
   %321 = load ptr, ptr %34, align 8
@@ -575,8 +575,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %324 = load ptr, ptr %323, align 8
   call void %324(ptr noundef %321, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 4) #10
   %325 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !5
   %326 = call i32 @__SCT__might_resched() #10
   %327 = load ptr, ptr %34, align 8
@@ -585,8 +585,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %330 = load ptr, ptr %329, align 8
   call void %330(ptr noundef %327, i32 noundef 12, ptr noundef nonnull %6, i32 noundef 4) #10
   %331 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
   %332 = call i32 @__SCT__might_resched() #10
   %333 = load ptr, ptr %34, align 8
@@ -595,8 +595,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %336 = load ptr, ptr %335, align 8
   call void %336(ptr noundef %333, i32 noundef 24, ptr noundef nonnull %7, i32 noundef 4) #10
   %337 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !5
   %338 = call i32 @__SCT__might_resched() #10
   %339 = load ptr, ptr %34, align 8
@@ -605,8 +605,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %342 = load ptr, ptr %341, align 8
   call void %342(ptr noundef %339, i32 noundef 16, ptr noundef nonnull %8, i32 noundef 4) #10
   %343 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !5
   %344 = call i32 @__SCT__might_resched() #10
   %345 = load ptr, ptr %34, align 8
@@ -615,7 +615,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %348 = load ptr, ptr %347, align 8
   call void %348(ptr noundef %345, i32 noundef 20, ptr noundef nonnull %9, i32 noundef 4) #10
   %349 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %350 = load ptr, ptr %54, align 8
   %351 = trunc i64 %295 to i32
   call void @input_set_abs_params(ptr noundef %350, i32 noundef %351, i32 noundef %325, i32 noundef %331, i32 noundef %343, i32 noundef %349) #10
@@ -784,9 +784,9 @@ define internal i32 @virtinput_restore(ptr noundef %0) #2 align 16 {
   %3 = alloca [2 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @virtinput_recv_events, ptr %3, align 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @virtinput_recv_status, ptr %6, align 8
@@ -800,8 +800,8 @@ define internal i32 @virtinput_restore(ptr noundef %0) #2 align 16 {
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %35
 
 15:                                               ; preds = %1
@@ -812,8 +812,8 @@ define internal i32 @virtinput_restore(ptr noundef %0) #2 align 16 {
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -844,17 +844,11 @@ define internal i32 @virtinput_restore(ptr noundef %0) #2 align 16 {
   ret i32 %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @input_allocate_device() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 16, 18) %1, i32 noundef range(i32 0, 19) %2, ptr noundef %3, i32 noundef range(i32 8, 769) %4) unnamed_addr #2 align 16 {
@@ -863,7 +857,7 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %8 = alloca i8, align 1
   %9 = trunc nuw nsw i32 %1 to i8
   %10 = trunc nuw nsw i32 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %9, ptr %6, align 1
   %11 = tail call i32 @__SCT__might_resched() #10
   %12 = load ptr, ptr %0, align 8
@@ -872,8 +866,8 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef %12, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %10, ptr %7, align 1
   %17 = call i32 @__SCT__might_resched() #10
   %18 = load ptr, ptr %0, align 8
@@ -882,8 +876,8 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr noundef %18, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !annotation !5
   %23 = call i32 @__SCT__might_resched() #10
   %24 = load ptr, ptr %0, align 8
@@ -892,7 +886,7 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef %24, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 1) #10
   %28 = load i8, ptr %8, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %92, label %30
 
@@ -1006,7 +1000,7 @@ define internal i32 @virtinput_status(ptr noundef readonly captures(none) %0, i3
   %7 = load ptr, ptr %6, align 8
   %8 = trunc i32 %1 to i16
   %9 = trunc i32 %2 to i16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1060,7 +1054,7 @@ define internal i32 @virtinput_status(ptr noundef readonly captures(none) %0, i3
 
 40:                                               ; preds = %38, %31, %19, %4
   %41 = phi i32 [ 0, %4 ], [ -12, %19 ], [ %39, %38 ], [ 0, %31 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %41
 }
 
@@ -1090,12 +1084,12 @@ define internal fastcc void @virtinput_fill_evt(ptr noundef %0) unnamed_addr #2 
 13:                                               ; preds = %13, %9
   %14 = phi i64 [ 0, %9 ], [ %18, %13 ]
   %15 = getelementptr [64 x %struct.virtio_input_event], ptr %11, i64 0, i64 %14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %15, i32 noundef 8) #10
   %16 = load ptr, ptr %5, align 8
   %17 = call i32 @virtqueue_add_inbuf(ptr noundef %16, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %15, i32 noundef 2080) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = add nuw nsw i64 %14, 1
   %19 = icmp eq i64 %18, %12
   br i1 %19, label %.loopexit, label %13, !llvm.loop !24
@@ -1117,13 +1111,13 @@ declare dso_local void @input_free_device(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtinput_recv_events(ptr noundef %0) #2 align 16 {
@@ -1133,7 +1127,7 @@ define internal void @virtinput_recv_events(ptr noundef %0) #2 align 16 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 792
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #10
@@ -1167,12 +1161,12 @@ define internal void @virtinput_recv_events(ptr noundef %0) #2 align 16 {
   %30 = load i32, ptr %29, align 4
   call void @input_event(ptr noundef %23, i32 noundef %25, i32 noundef %28, i32 noundef %30) #10
   %31 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   call void @sg_init_one(ptr noundef nonnull %2, ptr noundef nonnull %21, i32 noundef 8) #10
   %32 = load ptr, ptr %14, align 8
   %33 = call i32 @virtqueue_add_inbuf(ptr noundef %32, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %21, i32 noundef 2080) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = load ptr, ptr %14, align 8
   %35 = call ptr @virtqueue_get_buf(ptr noundef %34, ptr noundef nonnull %3) #10
   %36 = icmp eq ptr %35, null
@@ -1186,7 +1180,7 @@ define internal void @virtinput_recv_events(ptr noundef %0) #2 align 16 {
 39:                                               ; preds = %.loopexit, %1
   %40 = phi i64 [ %37, %.loopexit ], [ %9, %1 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %40) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1197,7 +1191,7 @@ define internal void @virtinput_recv_status(ptr noundef readonly captures(none) 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 736
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #10
@@ -1217,7 +1211,7 @@ define internal void @virtinput_recv_status(ptr noundef readonly captures(none) 
 
 .loopexit:                                        ; preds = %.preheader, %1
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1243,7 +1237,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 declare dso_local i32 @virtqueue_add_outbuf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @input_set_abs_params(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -1267,21 +1261,27 @@ declare dso_local void @virtio_reset_device(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @virtqueue_detach_unused_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #9
+declare i8 @llvm.umin.i8(i8, i8) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(2) }
 attributes #12 = { nounwind allocsize(0) }

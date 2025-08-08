@@ -235,7 +235,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %operationStats_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__alloc_node_gen.i.i)
   store ptr null, ptr %agg.result, align 8
   %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_bucket_count2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -257,7 +257,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__alloc_node_gen.i.i)
   %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %operationStatsMutex_) #16
   ret void
 
@@ -613,7 +613,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %entry
   %operationStats_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %__alloc_node_gen.i.i.i), !noalias !4
   store ptr null, ptr %snapshot, align 8, !alias.scope !4
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %snapshot, i64 8
   %_M_bucket_count2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -645,7 +645,7 @@ lpad.i:                                           ; preds = %_ZNSt10lock_guardIS
   br label %common.resume
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %__alloc_node_gen.i.i.i), !noalias !4
   %call1.i.i.i1.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %operationStatsMutex_.i) #16
   store i32 5, ptr %agg.result, align 8
   %u_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1467,10 +1467,10 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

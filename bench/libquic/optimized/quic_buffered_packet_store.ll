@@ -697,7 +697,7 @@ _ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit: ; preds
   br i1 %.not, label %.critedge, label %50
 
 50:                                               ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %8, ptr noundef nonnull @.str, i32 noundef 88, i32 noundef 2)
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.1, i64 noundef 47)
@@ -709,7 +709,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %50
 
 _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %8) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %22, %..loopexit_crit_edge21.i.i.i.i.i.i, %27, %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit, %6, %_ZNSolsEm.exit
@@ -808,7 +808,7 @@ _ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb.exit: ; preds = %86
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %8) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %309
 
 102:                                              ; preds = %91, %_ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb.exit, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit
@@ -876,8 +876,8 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18Buffere
   br i1 %.not139, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit75.thread, label %140
 
 _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit75.thread: ; preds = %.lr.ph.i.i.i.i.i.i63, %106, %111, %..loopexit_crit_edge21.i.i.i.i.i.i67, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit75
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
   store i64 %1, ptr %9, align 8, !tbaa !94, !alias.scope !101
   %132 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -891,8 +891,8 @@ _ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt
 134:                                              ; preds = %_ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit
   call void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #18
   call void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i64, ptr %54, align 8, !tbaa !83
   br label %140
 
@@ -910,8 +910,8 @@ _ZSt9make_pairIRmN3net23QuicBufferedPacketStore18BufferedPacketListEESt4pairINSt
 139:                                              ; preds = %137, %135
   %.pn = phi { ptr, i32 } [ %138, %137 ], [ %136, %135 ]
   call void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %309
 
 140:                                              ; preds = %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit75, %134
@@ -980,10 +980,10 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18Buffere
   br i1 %.not140, label %.critedge45, label %.critedge46
 
 .critedge45:                                      ; preds = %.lr.ph.i.i.i.i.i.i78, %144, %149, %..loopexit_crit_edge21.i.i.i.i.i.i82, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit90
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %11, ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.2)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre202 = load i64, ptr %54, align 8, !tbaa !83
   br label %.critedge46
 
@@ -1157,7 +1157,7 @@ _ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit105.threa
   br label %252
 
 252:                                              ; preds = %244, %241
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %253 = call noundef ptr @_ZNK3net18QuicReceivedPacket5CloneEv(ptr noundef nonnull align 8 dereferenceable(45) %2)
   store ptr %253, ptr %13, align 8, !tbaa !3
   invoke void @_ZN3net10IPEndPointC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(26) %14, ptr noundef nonnull align 8 dereferenceable(26) %3)
@@ -1212,7 +1212,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffere
   %269 = add i64 %268, 1
   store i64 %269, ptr %267, align 8, !tbaa !106
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %1, ptr %7, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %.sroa.24.0..sroa_idx.i, align 8
@@ -1222,7 +1222,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffere
 272:                                              ; preds = %266
   %.fca.0.extract.i = extractvalue { ptr, i8 } %271, 0
   %273 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i8 0, ptr %273, align 1, !tbaa !90
   br label %295
 
@@ -1322,12 +1322,12 @@ _ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9push_
 
 _ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit: ; preds = %.noexc114, %.noexc115
   call void @_ZN3net23QuicBufferedPacketStore14BufferedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %308
 
 _ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit109: ; preds = %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i108, %281, %.body
   %.pn41 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn38.pn, %281 ], [ %.pn38.pn, %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i108 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %309
 
 308:                                              ; preds = %91, %_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit, %238, %_ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb.exit
@@ -1341,19 +1341,13 @@ _ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit109
 
 declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
 declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3net23QuicBufferedPacketStore18ShouldBufferPacketEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8, !tbaa !88
   %5 = icmp ugt i64 %4, 99
@@ -1379,7 +1373,7 @@ define noundef zeroext i1 @_ZN3net23QuicBufferedPacketStore18ShouldBufferPacketE
 define linkonce_odr { ptr, i8 } @_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE7emplaceIJSt4pairImS2_EEEES7_ISt14_List_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::list.10", align 8
   %4 = alloca %"struct.std::pair.55", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !19
   store ptr %3, ptr %3, align 8, !tbaa !22
@@ -1408,7 +1402,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore
   %14 = load i64, ptr %6, align 8, !tbaa !88
   %15 = add i64 %14, 1
   store i64 %15, ptr %6, align 8, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load i64, ptr %8, align 8, !tbaa !26
   store i64 %16, ptr %4, align 8, !tbaa !107
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1420,7 +1414,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE6insertEOSC_.exit: ; preds = %13
   %.fca.0.extract = extractvalue { ptr, i8 } %19, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %19, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %20, label %25, label %_ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EE6spliceESt20_List_const_iteratorIS5_ERS7_S9_.exit
 
@@ -1432,7 +1426,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore
 23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
 
 25:                                               ; preds = %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE6insertEOSC_.exit
@@ -1473,7 +1467,7 @@ _ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEE
 
 _ZNSt7__cxx1110_List_baseISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EED2Ev.exit: ; preds = %.lr.ph.i.i, %_ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EE6spliceESt20_List_const_iteratorIS5_ERS7_S9_.exit
   %.sroa.021.0 = inttoptr i64 %.sroa.021.0.in to ptr
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1494,7 +1488,7 @@ _ZNSt7__cxx1110_List_baseISt4pairImN3net23QuicBufferedPacketStore18BufferedPacke
   br i1 %.not.i.i10, label %_ZNSt7__cxx1110_List_baseISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EED2Ev.exit11, label %.lr.ph.i.i8, !llvm.loop !70
 
 _ZNSt7__cxx1110_List_baseISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EED2Ev.exit11: ; preds = %.lr.ph.i.i8, %.body
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -1528,7 +1522,7 @@ define void @_ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3net23QuicBufferedPacketStore18HasBufferedPacketsEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK3net23QuicBufferedPacketStore18HasBufferedPacketsEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !83
   %.not.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1605,7 +1599,7 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18Buffere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3net23QuicBufferedPacketStore16HasChlosBufferedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK3net23QuicBufferedPacketStore16HasChlosBufferedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = icmp ne ptr %3, %2
@@ -1925,7 +1919,7 @@ define void @_ZN3net23QuicBufferedPacketStore19OnExpirationTimeoutEv(ptr noundef
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = load i64, ptr %21, align 8, !tbaa !94
   store i64 %23, ptr %2, align 8, !tbaa !26
   %24 = load ptr, ptr %14, align 8, !tbaa !38
@@ -1941,7 +1935,7 @@ define void @_ZN3net23QuicBufferedPacketStore19OnExpirationTimeoutEv(ptr noundef
   %29 = load ptr, ptr %11, align 8, !tbaa !22
   %30 = call ptr @_ZN15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEE5eraseESt14_List_iteratorISt4pairImS2_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %29)
   %31 = call noundef i64 @_ZN15linked_hash_mapImbSt4hashImEE5eraseERKm(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %32 = load ptr, ptr %11, align 8, !tbaa !22
   %33 = icmp eq ptr %32, %11
   br i1 %33, label %.thread.thread, label %16
@@ -1950,7 +1944,7 @@ define void @_ZN3net23QuicBufferedPacketStore19OnExpirationTimeoutEv(ptr noundef
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %35
 
 .thread:                                          ; preds = %16
@@ -2031,7 +2025,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore
   br i1 %35, label %.critedge9, label %36
 
 36:                                               ; preds = %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE4findERSB_.exit
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @.str.6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.7, i64 noundef 66)
@@ -2039,7 +2033,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore
 
 .critedge:                                        ; preds = %36
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i64, ptr %32, align 8, !tbaa !26
   br label %.critedge9
 
@@ -2130,7 +2124,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %77
 }
 
@@ -2319,7 +2313,7 @@ define void @_ZN3net23QuicBufferedPacketStore31DeliverPacketsForNextConnectionB5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN15linked_hash_mapImbSt4hashImEE5eraseESt14_List_iteratorISt4pairImbEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2378,7 +2372,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   br i1 %35, label %.critedge9, label %36
 
 36:                                               ; preds = %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @.str.6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.7, i64 noundef 66)
@@ -2386,7 +2380,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
 
 .critedge:                                        ; preds = %36
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i64, ptr %32, align 8, !tbaa !26
   br label %.critedge9
 
@@ -2475,12 +2469,12 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3net23QuicBufferedPacketStore20HasChloForConnectionEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3net23QuicBufferedPacketStore20HasChloForConnectionEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8, !tbaa !77
   %.not.not.i.i.i.i = icmp eq i64 %4, 0
@@ -2558,7 +2552,7 @@ _ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit: ; preds
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #21
   unreachable
@@ -2567,7 +2561,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #15
+declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2684,10 +2678,10 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #16
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
@@ -3095,7 +3089,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   store i64 %43, ptr %41, align 8, !tbaa !89
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = load i64, ptr %1, align 8, !tbaa !26
   store i64 %46, ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3106,7 +3100,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   br i1 %49, label %.critedge21, label %50
 
 50:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %4, ptr noundef nonnull @.str.3, i32 noundef 217, ptr noundef nonnull @.str.4)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.5, i64 noundef 29)
@@ -3114,19 +3108,19 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
 
 .critedge:                                        ; preds = %50
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge21
 
 .critedge21:                                      ; preds = %.loopexit, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
 55:                                               ; preds = %.critedge21, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaIS1_IKmS3_EEE4findERS8_.exit
@@ -3430,6 +3424,12 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_S
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
 
@@ -3443,13 +3443,13 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold nofree noreturn }
-attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold nofree noreturn }
+attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nounwind }
 attributes #19 = { builtin nounwind }

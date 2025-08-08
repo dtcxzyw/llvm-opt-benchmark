@@ -138,8 +138,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::StringToDoubleConverter", align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -150,8 +150,8 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleEP
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i16 0, ptr %8, align 8
   %9 = call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %9
 }
 
@@ -161,8 +161,8 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleEP
   %3 = alloca i32, align 4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %5 = trunc i64 %4 to i32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -173,8 +173,8 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleEP
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i16 0, ptr %9, align 8
   %10 = call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull %0, i32 noundef %5, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %10
 }
 
@@ -188,8 +188,8 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleER
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #24
   %6 = trunc i64 %5 to i32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -200,8 +200,8 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleER
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i16 0, ptr %10, align 8
   %11 = call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %11
 }
 
@@ -5440,10 +5440,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20

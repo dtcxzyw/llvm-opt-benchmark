@@ -198,11 +198,11 @@ define void @createQureg(ptr dead_on_unwind noalias writable sret(%struct.Qureg)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %8, align 8, !tbaa !18
   tail call void @qasm_setup(ptr noundef nonnull %0) #17
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   tail call void @statevec_initZeroState(ptr noundef nonnull byval(%struct.Qureg) align 8 %0) #17
   tail call void @qasm_recordInitZero(ptr noundef nonnull byval(%struct.Qureg) align 8 %4) #17
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -233,11 +233,11 @@ define void @createDensityQureg(ptr dead_on_unwind noalias writable sret(%struct
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %9, align 8, !tbaa !18
   tail call void @qasm_setup(ptr noundef nonnull %0) #17
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   tail call void @statevec_initZeroState(ptr noundef nonnull byval(%struct.Qureg) align 8 %0) #17
   tail call void @qasm_recordInitZero(ptr noundef nonnull byval(%struct.Qureg) align 8 %4) #17
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -311,15 +311,9 @@ define void @writeRecordedQASMToFile(ptr noundef readonly byval(%struct.Qureg) a
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @qasm_writeRecordedToFile(ptr noundef byval(%struct.Qureg) align 8, ptr noundef) local_unnamed_addr #1
 
 declare void @validateFileOpened(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @statevec_initZeroState(ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
@@ -1830,7 +1824,7 @@ declare void @agnostic_applyQFT(ptr noundef byval(%struct.Qureg) align 8, ptr no
 define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [100 x i32], align 16
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.12) #17
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = icmp sgt i32 %4, 0
@@ -1843,7 +1837,7 @@ define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 capt
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @agnostic_applyQFT(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %2, i32 noundef %4) #17
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.13) #17
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1913,7 +1907,7 @@ declare void @validateUnitarySubDiagOp(ptr noundef byval(%struct.SubDiagonalOp) 
 declare void @statevec_applySubDiagonalOp(ptr noundef byval(%struct.Qureg) align 8, ptr noundef, ptr noundef byval(%struct.SubDiagonalOp) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @getNumQubits(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #3 {
+define i32 @getNumQubits(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !17
   ret i32 %3
@@ -2052,7 +2046,7 @@ declare i32 @statevec_measureWithStats(ptr noundef byval(%struct.Qureg) align 8,
 define i32 @measure(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.measure) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -2068,7 +2062,7 @@ define i32 @measure(ptr noundef readonly byval(%struct.Qureg) align 8 captures(n
 9:                                                ; preds = %7, %5
   %.0 = phi i32 [ %6, %5 ], [ %8, %7 ]
   call void @qasm_recordMeasurement(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2771,13 +2765,13 @@ define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%stru
 declare void @validateNumQubitsInMatrix(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare void @validateMatrixInit(ptr noundef byval(%struct.ComplexMatrixN) align 8, ptr noundef) local_unnamed_addr #1
 
@@ -2825,7 +2819,7 @@ define void @destroyComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMat
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -2911,7 +2905,7 @@ define void @createPauliHamil(ptr dead_on_unwind noalias writable writeonly sret
 declare void @validateHamilParams(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroyPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #8 {
+define void @destroyPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @free(ptr noundef %3) #17
@@ -3010,7 +3004,7 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
   br label %createPauliHamil.exit
 
 createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.ph.preheader.i
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 6712357, ptr %3, align 16
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3)
   %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
@@ -3040,7 +3034,7 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 
 46:                                               ; preds = %.lr.ph80.us, %46
   %indvars.iv88 = phi i64 [ 0, %.lr.ph80.us ], [ %indvars.iv.next89, %46 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #17
   %48 = icmp eq i32 %47, 1
   %49 = zext i1 %48 to i32
@@ -3050,7 +3044,7 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
   call void @validateHamilFilePauliParsed(i32 noundef %49, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %51 = load i32, ptr %gep, align 4, !tbaa !20
   call void @validateHamilFilePauliCode(i32 noundef %51, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %40
   br i1 %exitcond92.not, label %._crit_edge81.us, label %46
@@ -3062,7 +3056,7 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 
 ._crit_edge84:                                    ; preds = %.lr.ph83.split, %._crit_edge81.us, %createPauliHamil.exit
   %52 = call i32 @fclose(ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %.lr.ph83.split
@@ -3078,13 +3072,13 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #9
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @validateHamilFileParams(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3097,7 +3091,7 @@ declare void @validateHamilFilePauliParsed(i32 noundef, ptr noundef byval(%struc
 declare void @validateHamilFilePauliCode(i32 noundef, ptr noundef byval(%struct.PauliHamil) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3235,7 +3229,7 @@ declare void @agnostic_initDiagonalOpFromPauliHamil(ptr noundef byval(%struct.Di
 ; Function Attrs: nounwind uwtable
 define void @createDiagonalOpFromPauliHamilFile(ptr dead_on_unwind noalias writable sret(%struct.DiagonalOp) align 8 %0, ptr noundef %1, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PauliHamil, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @createPauliHamilFromFile(ptr dead_on_unwind nonnull writable sret(%struct.PauliHamil) align 8 %4, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !4
@@ -3249,7 +3243,7 @@ define void @createDiagonalOpFromPauliHamilFile(ptr dead_on_unwind noalias writa
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   tail call void @free(ptr noundef %.sroa.4.0.copyload) #17
   tail call void @free(ptr noundef %.sroa.0.0.copyload) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3275,7 +3269,7 @@ define void @createSubDiagonalOp(ptr dead_on_unwind noalias writable writeonly s
 declare void @validateNumQubitsInSubDiagOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroySubDiagonalOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0) local_unnamed_addr #8 {
+define void @destroySubDiagonalOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   tail call void @free(ptr noundef %3) #17
@@ -3369,20 +3363,20 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @getQuEST_PREC() local_unnamed_addr #10 {
+define noundef i32 @getQuEST_PREC() local_unnamed_addr #9 {
   ret i32 2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @seedQuESTDefault(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @getQuESTDefaultSeedKey(ptr noundef nonnull %2) #17
   call void @seedQuEST(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3391,7 +3385,7 @@ declare void @getQuESTDefaultSeedKey(ptr noundef) local_unnamed_addr #1
 declare void @seedQuEST(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @getQuESTSeeds(ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #11 {
+define void @getQuESTSeeds(ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   store ptr %5, ptr %1, align 8, !tbaa !50
@@ -3419,6 +3413,12 @@ define void @copySubstateFromGPU(ptr noundef readonly byval(%struct.Qureg) align
 
 declare void @statevec_copySubstateFromGPU(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
@@ -3436,16 +3436,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nofree nounwind }

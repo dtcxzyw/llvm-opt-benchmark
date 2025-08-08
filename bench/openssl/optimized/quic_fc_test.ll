@@ -84,8 +84,8 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_txfc(i32 noundef %0) #0 {
   %2 = alloca %struct.quic_txfc_st, align 8
   %3 = alloca %struct.quic_txfc_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ossl_quic_txfc_init(ptr noundef nonnull %2, ptr noundef null) #7
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -498,8 +498,8 @@ define internal range(i32 0, 2) i32 @test_txfc(i32 noundef %0) #0 {
 
 234:                                              ; preds = %228, %223, %218, %213, %208, %.critedge, %199, %194, %189, %184, %181, %176, %171, %167, %163, %160, %157, %152, %146, %141, %138, %135, %130, %125, %120, %115, %110, %105, %102, %99, %95, %90, %85, %82, %78, %75, %70, %67, %62, %59, %55, %50, %45, %42, %39, %35, %32, %29, %26, %21, %14, %9, %1, %233
   %.0 = phi i32 [ 1, %233 ], [ 0, %199 ], [ 0, %194 ], [ 0, %189 ], [ 0, %184 ], [ 0, %181 ], [ 0, %176 ], [ 0, %171 ], [ 0, %167 ], [ 0, %228 ], [ 0, %223 ], [ 0, %218 ], [ 0, %213 ], [ 0, %208 ], [ 0, %.critedge ], [ 0, %163 ], [ 0, %160 ], [ 0, %157 ], [ 0, %152 ], [ 0, %146 ], [ 0, %141 ], [ 0, %138 ], [ 0, %135 ], [ 0, %130 ], [ 0, %125 ], [ 0, %120 ], [ 0, %115 ], [ 0, %110 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %95 ], [ 0, %90 ], [ 0, %85 ], [ 0, %82 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %67 ], [ 0, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %50 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %21 ], [ 0, %14 ], [ 0, %9 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -511,11 +511,11 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr @rx_scripts, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %3, i8 0, i64 288, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   store i64 0, ptr @cur_time.0, align 8, !tbaa !9
   br label %8
@@ -930,14 +930,11 @@ run_rxfc_script.exit.loopexit:                    ; preds = %8
 
 run_rxfc_script.exit:                             ; preds = %8, %10, %19, %23, %27, %51, %54, %77, %80, %93, %97, %111, %114, %121, %125, %139, %142, %149, %153, %167, %170, %177, %181, %199, %202, %213, %217, %235, %238, %run_rxfc_script.exit.loopexit
   %.0.i = phi i32 [ 1, %run_rxfc_script.exit.loopexit ], [ 0, %238 ], [ 0, %235 ], [ 0, %217 ], [ 0, %213 ], [ 0, %202 ], [ 0, %199 ], [ 0, %181 ], [ 0, %177 ], [ 0, %170 ], [ 0, %167 ], [ 0, %153 ], [ 0, %149 ], [ 0, %142 ], [ 0, %139 ], [ 0, %125 ], [ 0, %121 ], [ 0, %114 ], [ 0, %111 ], [ 0, %97 ], [ 0, %93 ], [ 0, %80 ], [ 0, %77 ], [ 0, %54 ], [ 0, %51 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %10 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -961,16 +958,13 @@ declare i32 @ossl_quic_txfc_has_become_blocked(ptr noundef, i32 noundef) local_u
 
 declare i32 @ossl_quic_txfc_consume_credit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ossl_quic_rxfc_init(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @fake_now(ptr readnone captures(none) %0) #4 {
+define internal i64 @fake_now(ptr readnone captures(none) %0) #3 {
   %.sroa.0.0.copyload = load i64, ptr @cur_time.0, align 8, !tbaa !9
   ret i64 %.sroa.0.0.copyload
 }
@@ -994,17 +988,23 @@ declare i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef, i32 noundef) local_unna
 declare i32 @ossl_quic_rxfc_get_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }

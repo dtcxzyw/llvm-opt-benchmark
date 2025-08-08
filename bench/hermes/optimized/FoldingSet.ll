@@ -960,7 +960,7 @@ while.body:                                       ; preds = %for.body, %_ZN4llvh
   %and.i10 = and i32 %sub.i, %call7
   %idx.ext.i = zext i32 %and.i10 to i64
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idx.ext.i
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TempID.i)
   %9 = load i32, ptr %NumNodes, align 4
   %add.i11 = add i32 %9, 1
   %mul.i26 = shl i32 %8, 1
@@ -1003,7 +1003,7 @@ _ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit: ; preds = %if.then.i.i.
   %Next.0.i = select i1 %tobool.not.i12, ptr %17, ptr %15
   store ptr %Next.0.i, ptr %Probe.030, align 8
   store ptr %Probe.030, ptr %InsertPos.addr.0.i, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %TempID.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TempID.i)
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %18 = ptrtoint ptr %5 to i64
   %and.i = and i64 %18, 1
@@ -1256,7 +1256,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TempID.i)
   %1 = load ptr, ptr %ID, align 8
   %2 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
@@ -1286,7 +1286,7 @@ entry:
   br i1 %tobool.not14.i, label %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, label %while.body.i
 
 _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %TempID.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TempID.i)
   br label %if.end
 
 while.body.i:                                     ; preds = %entry, %if.end.i
@@ -1319,13 +1319,13 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.i
   br label %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit
 
 _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit: ; preds = %cleanup.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %TempID.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TempID.i)
   %tobool.not = icmp eq ptr %retval.0.i.ph, null
   br i1 %tobool.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit
   %IP.02227 = phi ptr [ %add.ptr.i.i, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread ], [ %IP.0.ph, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TempID.i4)
   %NumNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %10 = load i32, ptr %NumNodes.i, align 4
   %add.i = add i32 %10, 1
@@ -1373,7 +1373,7 @@ _ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit: ; preds = %if.end, %if.
   %Next.0.i = select i1 %tobool.not.i6, ptr %19, ptr %17
   store ptr %Next.0.i, ptr %N, align 8
   store ptr %N, ptr %InsertPos.addr.0.i, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %TempID.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TempID.i4)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit, %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit
@@ -2141,10 +2141,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #19
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

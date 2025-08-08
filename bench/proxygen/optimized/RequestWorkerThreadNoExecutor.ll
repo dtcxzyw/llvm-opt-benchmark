@@ -225,7 +225,7 @@ define noundef i64 @_ZN8proxygen29RequestWorkerThreadNoExecutor13nextRequestIdEv
 entry:
   %self.i3 = alloca ptr, align 8
   %self.i = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %self.i)
   %.not.i.i.i = icmp eq ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, null
   br i1 %.not.i.i.i, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i, label %0
 
@@ -248,10 +248,10 @@ _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.
   store ptr %5, ptr %self.i, align 8
   %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i)
   %6 = load ptr, ptr %self.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %self.i)
   %nextRequestId_ = getelementptr inbounds nuw i8, ptr %6, i64 80
   %7 = load i64, ptr %nextRequestId_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %self.i3)
   br i1 %.not.i.i.i, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5, label %8
 
 8:                                                ; preds = %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit
@@ -276,7 +276,7 @@ _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.
   store ptr %12, ptr %self.i3, align 8
   %call1.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i3)
   %13 = load ptr, ptr %self.i3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %self.i3)
   %nextRequestId_3 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i64 %or, ptr %nextRequestId_3, align 8
   ret i64 %7
@@ -652,10 +652,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

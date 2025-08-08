@@ -75,17 +75,11 @@ define void @ff_sws_matrix3x3_mul(ptr noundef captures(none) %0, ptr noundef rea
   br i1 %exitcond.not, label %22, label %23, !llvm.loop !8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_sws_matrix3x3_invert(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define void @ff_sws_matrix3x3_invert(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load float, ptr %0, align 4, !tbaa !4
   %3 = fpext nsz float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -173,7 +167,7 @@ define void @ff_sws_matrix3x3_invert(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_sws_matrix3x3_apply(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -206,18 +200,18 @@ define void @ff_sws_matrix3x3_apply(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca [3 x float], align 4
   %4 = alloca [3 x float], align 4
   %5 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 4
-  %10 = tail call i64 @av_div_q(i64 %7, i64 %9) #11
+  %10 = tail call i64 @av_div_q(i64 %7, i64 %9) #10
   %.sroa.0.0.extract.trunc.i = trunc i64 %10 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %10, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
@@ -230,7 +224,7 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   %16 = load i64, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i64, ptr %17, align 4
-  %19 = tail call i64 @av_div_q(i64 %16, i64 %18) #11
+  %19 = tail call i64 @av_div_q(i64 %16, i64 %18) #10
   %.sroa.0.0.extract.trunc.i41 = trunc i64 %19 to i32
   %.sroa.2.0.extract.shift.i42 = lshr i64 %19, 32
   %.sroa.2.0.extract.trunc.i43 = trunc nuw i64 %.sroa.2.0.extract.shift.i42 to i32
@@ -244,7 +238,7 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   %26 = load i64, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load i64, ptr %27, align 4
-  %29 = tail call i64 @av_div_q(i64 %26, i64 %28) #11
+  %29 = tail call i64 @av_div_q(i64 %26, i64 %28) #10
   %.sroa.0.0.extract.trunc.i44 = trunc i64 %29 to i32
   %.sroa.2.0.extract.shift.i45 = lshr i64 %29, 32
   %.sroa.2.0.extract.trunc.i46 = trunc nuw i64 %.sroa.2.0.extract.shift.i45 to i32
@@ -254,9 +248,9 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   %33 = fptrunc nsz double %32 to float
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %33, ptr %34, align 4, !tbaa !4
-  %35 = tail call i64 @av_sub_q(i64 4294967297, i64 %7) #11
-  %36 = tail call i64 @av_sub_q(i64 %35, i64 %9) #11
-  %37 = tail call i64 @av_div_q(i64 %36, i64 %9) #11
+  %35 = tail call i64 @av_sub_q(i64 4294967297, i64 %7) #10
+  %36 = tail call i64 @av_sub_q(i64 %35, i64 %9) #10
+  %37 = tail call i64 @av_div_q(i64 %36, i64 %9) #10
   %.sroa.0.0.extract.trunc.i47 = trunc i64 %37 to i32
   %.sroa.2.0.extract.shift.i48 = lshr i64 %37, 32
   %.sroa.2.0.extract.trunc.i49 = trunc nuw i64 %.sroa.2.0.extract.shift.i48 to i32
@@ -265,9 +259,9 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   %40 = fdiv nsz double %38, %39
   %41 = fptrunc nsz double %40 to float
   store float %41, ptr %5, align 4, !tbaa !4
-  %42 = tail call i64 @av_sub_q(i64 4294967297, i64 %16) #11
-  %43 = tail call i64 @av_sub_q(i64 %42, i64 %18) #11
-  %44 = tail call i64 @av_div_q(i64 %43, i64 %18) #11
+  %42 = tail call i64 @av_sub_q(i64 4294967297, i64 %16) #10
+  %43 = tail call i64 @av_sub_q(i64 %42, i64 %18) #10
+  %44 = tail call i64 @av_div_q(i64 %43, i64 %18) #10
   %.sroa.0.0.extract.trunc.i50 = trunc i64 %44 to i32
   %.sroa.2.0.extract.shift.i51 = lshr i64 %44, 32
   %.sroa.2.0.extract.trunc.i52 = trunc nuw i64 %.sroa.2.0.extract.shift.i51 to i32
@@ -277,9 +271,9 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   %48 = fptrunc nsz double %47 to float
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %48, ptr %49, align 4, !tbaa !4
-  %50 = tail call i64 @av_sub_q(i64 4294967297, i64 %26) #11
-  %51 = tail call i64 @av_sub_q(i64 %50, i64 %28) #11
-  %52 = tail call i64 @av_div_q(i64 %51, i64 %28) #11
+  %50 = tail call i64 @av_sub_q(i64 4294967297, i64 %26) #10
+  %51 = tail call i64 @av_sub_q(i64 %50, i64 %28) #10
+  %52 = tail call i64 @av_div_q(i64 %51, i64 %28) #10
   %.sroa.0.0.extract.trunc.i53 = trunc i64 %52 to i32
   %.sroa.2.0.extract.shift.i54 = lshr i64 %52, 32
   %.sroa.2.0.extract.trunc.i55 = trunc nuw i64 %.sroa.2.0.extract.shift.i54 to i32
@@ -300,7 +294,7 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   br label %149
 
 64:                                               ; preds = %149
-  %65 = tail call i64 @av_div_q(i64 %58, i64 %60) #11
+  %65 = tail call i64 @av_div_q(i64 %58, i64 %60) #10
   %.sroa.0.0.extract.trunc.i56 = trunc i64 %65 to i32
   %.sroa.2.0.extract.shift.i57 = lshr i64 %65, 32
   %.sroa.2.0.extract.trunc.i58 = trunc nuw i64 %.sroa.2.0.extract.shift.i57 to i32
@@ -308,9 +302,9 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   %67 = sitofp i32 %.sroa.2.0.extract.trunc.i58 to double
   %68 = fdiv nsz double %66, %67
   %69 = fptrunc nsz double %68 to float
-  %70 = tail call i64 @av_sub_q(i64 4294967297, i64 %58) #11
-  %71 = tail call i64 @av_sub_q(i64 %70, i64 %60) #11
-  %72 = tail call i64 @av_div_q(i64 %71, i64 %60) #11
+  %70 = tail call i64 @av_sub_q(i64 4294967297, i64 %58) #10
+  %71 = tail call i64 @av_sub_q(i64 %70, i64 %60) #10
+  %72 = tail call i64 @av_div_q(i64 %71, i64 %60) #10
   %.sroa.0.0.extract.trunc.i59 = trunc i64 %72 to i32
   %.sroa.2.0.extract.shift.i60 = lshr i64 %72, 32
   %.sroa.2.0.extract.trunc.i61 = trunc nuw i64 %.sroa.2.0.extract.shift.i60 to i32
@@ -430,9 +424,9 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   br i1 %exitcond69.not, label %.preheader, label %154, !llvm.loop !12
 
 164:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .preheader:                                       ; preds = %154, %.preheader
@@ -457,10 +451,10 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_sws_xyz2rgb(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define void @ff_sws_xyz2rgb(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   tail call void @ff_sws_rgb2xyz(ptr dead_on_unwind writable sret(%struct.SwsMatrix3x3) align 4 %0, ptr noundef %1)
   %3 = load float, ptr %0, align 4, !tbaa !4
   %4 = fpext nsz float %3 to double
@@ -549,11 +543,11 @@ define void @ff_sws_xyz2rgb(ptr dead_on_unwind noalias writable sret(%struct.Sws
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_sws_get_adaptation(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1, i64 %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #4 {
+define void @ff_sws_get_adaptation(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1, i64 %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #3 {
   %7 = alloca %struct.SwsMatrix3x3, align 4
   %8 = alloca %struct.AVColorPrimariesDesc, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %2, ptr %8, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8
@@ -611,22 +605,22 @@ define void @ff_sws_get_adaptation(ptr dead_on_unwind noalias writable sret(%str
   br i1 %exitcond.not.i, label %ff_sws_matrix3x3_mul.exit, label %29, !llvm.loop !8
 
 ff_sws_matrix3x3_mul.exit:                        ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @apply_chromatic_adaptation(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef captures(none) %4) unnamed_addr #4 {
+define internal fastcc void @apply_chromatic_adaptation(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef captures(none) %4) unnamed_addr #3 {
   %6 = alloca %struct.SwsMatrix3x3, align 4
   %7 = alloca [3 x [2 x float]], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
-  %8 = tail call i64 @av_div_q(i64 %0, i64 %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %8 = tail call i64 @av_div_q(i64 %0, i64 %1) #10
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
@@ -634,9 +628,9 @@ define internal fastcc void @apply_chromatic_adaptation(i64 %0, i64 %1, i64 %2, 
   %10 = sitofp i32 %.sroa.2.0.extract.trunc.i to double
   %11 = fdiv nsz double %9, %10
   %12 = fptrunc nsz double %11 to float
-  %13 = tail call i64 @av_sub_q(i64 4294967297, i64 %0) #11
-  %14 = tail call i64 @av_sub_q(i64 %13, i64 %1) #11
-  %15 = tail call i64 @av_div_q(i64 %14, i64 %1) #11
+  %13 = tail call i64 @av_sub_q(i64 4294967297, i64 %0) #10
+  %14 = tail call i64 @av_sub_q(i64 %13, i64 %1) #10
+  %15 = tail call i64 @av_div_q(i64 %14, i64 %1) #10
   %.sroa.0.0.extract.trunc.i36 = trunc i64 %15 to i32
   %.sroa.2.0.extract.shift.i37 = lshr i64 %15, 32
   %.sroa.2.0.extract.trunc.i38 = trunc nuw i64 %.sroa.2.0.extract.shift.i37 to i32
@@ -644,7 +638,7 @@ define internal fastcc void @apply_chromatic_adaptation(i64 %0, i64 %1, i64 %2, 
   %17 = sitofp i32 %.sroa.2.0.extract.trunc.i38 to double
   %18 = fdiv nsz double %16, %17
   %19 = fptrunc nsz double %18 to float
-  %20 = tail call i64 @av_div_q(i64 %2, i64 %3) #11
+  %20 = tail call i64 @av_div_q(i64 %2, i64 %3) #10
   %.sroa.0.0.extract.trunc.i39 = trunc i64 %20 to i32
   %.sroa.2.0.extract.shift.i40 = lshr i64 %20, 32
   %.sroa.2.0.extract.trunc.i41 = trunc nuw i64 %.sroa.2.0.extract.shift.i40 to i32
@@ -652,9 +646,9 @@ define internal fastcc void @apply_chromatic_adaptation(i64 %0, i64 %1, i64 %2, 
   %22 = sitofp i32 %.sroa.2.0.extract.trunc.i41 to double
   %23 = fdiv nsz double %21, %22
   %24 = fptrunc nsz double %23 to float
-  %25 = tail call i64 @av_sub_q(i64 4294967297, i64 %2) #11
-  %26 = tail call i64 @av_sub_q(i64 %25, i64 %3) #11
-  %27 = tail call i64 @av_div_q(i64 %26, i64 %3) #11
+  %25 = tail call i64 @av_sub_q(i64 4294967297, i64 %2) #10
+  %26 = tail call i64 @av_sub_q(i64 %25, i64 %3) #10
+  %27 = tail call i64 @av_div_q(i64 %26, i64 %3) #10
   %.sroa.0.0.extract.trunc.i42 = trunc i64 %27 to i32
   %.sroa.2.0.extract.shift.i43 = lshr i64 %27, 32
   %.sroa.2.0.extract.trunc.i44 = trunc nuw i64 %.sroa.2.0.extract.shift.i43 to i32
@@ -891,15 +885,15 @@ ff_sws_matrix3x3_mul.exit48:                      ; preds = %115
   br i1 %exitcond63.not, label %72, label %.preheader, !llvm.loop !18
 
 ff_sws_matrix3x3_mul.exit52:                      ; preds = %143, %56, %53, %ff_q_equal.exit.thread17.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_sws_ipt_rgb2lms(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define void @ff_sws_ipt_rgb2lms(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.SwsMatrix3x3, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) @__const.ff_sws_ipt_rgb2lms.m, i64 36, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -984,12 +978,12 @@ ff_sws_matrix3x3_mul.exit:                        ; preds = %12
   br i1 %exitcond.not.i4, label %ff_sws_matrix3x3_mul.exit5, label %44, !llvm.loop !8
 
 ff_sws_matrix3x3_mul.exit5:                       ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_sws_ipt_lms2rgb(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define void @ff_sws_ipt_lms2rgb(ptr dead_on_unwind noalias writable sret(%struct.SwsMatrix3x3) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   tail call void @ff_sws_ipt_rgb2lms(ptr dead_on_unwind writable sret(%struct.SwsMatrix3x3) align 4 %0, ptr noundef %1)
   %3 = load float, ptr %0, align 4, !tbaa !4
   %4 = fpext nsz float %3 to double
@@ -1078,7 +1072,7 @@ define void @ff_sws_ipt_lms2rgb(ptr dead_on_unwind noalias writable sret(%struct
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ff_prim_superset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define zeroext i1 @ff_prim_superset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 4
@@ -1157,19 +1151,19 @@ define zeroext i1 @ff_prim_superset(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_div_q(i64, i64) local_unnamed_addr #8
+declare i64 @av_div_q(i64, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_sub_q(i64, i64) local_unnamed_addr #8
+declare i64 @av_sub_q(i64, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @test_point_line(i64 %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #9 {
-  %7 = tail call i64 @av_sub_q(i64 %0, i64 %4) #11
-  %8 = tail call i64 @av_sub_q(i64 %3, i64 %5) #11
-  %9 = tail call i64 @av_mul_q(i64 %7, i64 %8) #11
-  %10 = tail call i64 @av_sub_q(i64 %2, i64 %4) #11
-  %11 = tail call i64 @av_sub_q(i64 %1, i64 %5) #11
-  %12 = tail call i64 @av_mul_q(i64 %10, i64 %11) #11
+define internal fastcc i32 @test_point_line(i64 %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #8 {
+  %7 = tail call i64 @av_sub_q(i64 %0, i64 %4) #10
+  %8 = tail call i64 @av_sub_q(i64 %3, i64 %5) #10
+  %9 = tail call i64 @av_mul_q(i64 %7, i64 %8) #10
+  %10 = tail call i64 @av_sub_q(i64 %2, i64 %4) #10
+  %11 = tail call i64 @av_sub_q(i64 %1, i64 %5) #10
+  %12 = tail call i64 @av_mul_q(i64 %10, i64 %11) #10
   %.sroa.011.0.extract.trunc.i = trunc i64 %9 to i32
   %.sroa.0.0.extract.trunc.i = trunc i64 %12 to i32
   %sext.i = shl i64 %9, 32
@@ -1216,20 +1210,25 @@ av_cmp_q.exit:                                    ; preds = %19, %26, %29, %32
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_mul_q(i64, i64) local_unnamed_addr #8
+declare i64 @av_mul_q(i64, i64) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

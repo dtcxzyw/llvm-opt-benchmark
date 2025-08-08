@@ -736,20 +736,17 @@ default.unreachable:                              ; preds = %14
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_epan_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_epan_scope() local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @oca_handle_hash(ptr noundef readonly captures(none) %0) #3 {
+define internal i32 @oca_handle_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -758,7 +755,7 @@ define internal i32 @oca_handle_hash(ptr noundef readonly captures(none) %0) #3 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @oca_handle_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 0, 2) i32 @oca_handle_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -781,22 +778,22 @@ define internal range(i32 0, 2) i32 @oca_handle_equal(ptr noundef readonly captu
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ocp1_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -865,7 +862,7 @@ define internal i32 @dissect_ocp1(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %34 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %33, i32 noundef 0)
   %35 = add i32 %.023, 7
   %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   switch i8 %36, label %47 [
     i8 0, label %37
     i8 1, label %39
@@ -956,8 +953,8 @@ define internal i32 @dissect_ocp1(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 75:                                               ; preds = %.lr.ph160.i
   %76 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0135158.i, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %77 = load i32, ptr @ett_ocp1_keepalive, align 4
   %78 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %.0135158.i, i32 noundef %76, i32 noundef %77, ptr noundef nonnull %10, ptr noundef nonnull @.str.356, i32 noundef %.0159.i)
   %79 = load i32, ptr @hf_ocp1_message_size, align 4
@@ -1027,11 +1024,11 @@ proto_item_set_generated.exit.i.i:                ; preds = %90, %87, %75
 
 125:                                              ; preds = %118
   %126 = call ptr @wmem_file_scope()
-  %127 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %126, i64 noundef 8) #7
+  %127 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %126, i64 noundef 8) #6
   %128 = load i64, ptr %11, align 8
   store i64 %128, ptr %127, align 4
   %129 = call ptr @wmem_file_scope()
-  %130 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %129, i64 noundef 16) #7
+  %130 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %129, i64 noundef 16) #6
   %131 = load i32, ptr %21, align 4
   store i32 %131, ptr %130, align 4
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
@@ -1075,8 +1072,8 @@ proto_item_set_generated.exit.i.i:                ; preds = %90, %87, %75
   br label %dissect_ocp1_msg_command.exit.i
 
 dissect_ocp1_msg_command.exit.i:                  ; preds = %150, %147, %144, %141, %125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %154 = add i32 %71, %.0135158.i
   %155 = add i32 %.0159.i, 1
   %156 = icmp ult i32 %154, %69
@@ -1095,8 +1092,8 @@ dissect_ocp1_msg_command.exit.i:                  ; preds = %150, %147, %144, %1
 
 161:                                              ; preds = %.lr.ph157.i
   %162 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.1136155.i, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %163 = load i32, ptr @ett_ocp1_keepalive, align 4
   %164 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %.1136155.i, i32 noundef %162, i32 noundef %163, ptr noundef nonnull %8, ptr noundef nonnull @.str.470, i32 noundef %.1156.i)
   %165 = load i32, ptr @hf_ocp1_message_size, align 4
@@ -1189,8 +1186,8 @@ proto_item_set_generated.exit.i144.i:             ; preds = %173, %170, %161
   br label %dissect_ocp1_msg_notification.exit.i
 
 dissect_ocp1_msg_notification.exit.i:             ; preds = %231, %proto_item_set_generated.exit.i144.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %237 = add i32 %157, %.1136155.i
   %238 = add i32 %.1156.i, 1
   %239 = icmp ult i32 %237, %67
@@ -1209,8 +1206,8 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %231, %proto_item_se
 
 244:                                              ; preds = %.lr.ph.i
   %245 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.2137153.i, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %246 = load i32, ptr @ett_ocp1_keepalive, align 4
   %247 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %.2137153.i, i32 noundef %245, i32 noundef %246, ptr noundef nonnull %6, ptr noundef nonnull @.str.472, i32 noundef %.2154.i)
   %248 = load i32, ptr @hf_ocp1_message_size, align 4
@@ -1304,8 +1301,8 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %231, %proto_item_se
   br label %dissect_ocp1_msg_response.exit.i
 
 dissect_ocp1_msg_response.exit.i:                 ; preds = %.cont75.thread.i.i, %286, %283, %.cont73.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %292 = add i32 %240, %.2137153.i
   %293 = add i32 %.2154.i, 1
   %294 = icmp ult i32 %292, %65
@@ -1324,7 +1321,7 @@ dissect_ocp1_msg_response.exit.i:                 ; preds = %.cont75.thread.i.i,
 
 298:                                              ; preds = %297, %297
   %299 = add nsw i32 %34, -9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %300 = load i32, ptr @ett_ocp1_keepalive, align 4
   %301 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %0, i32 noundef %29, i32 noundef %299, i32 noundef %300, ptr noundef nonnull %5, ptr noundef nonnull @.str.473)
   switch i32 %34, label %dissect_ocp1_msg_keepalive.exit [
@@ -1342,7 +1339,7 @@ dissect_ocp1_msg_response.exit.i:                 ; preds = %.cont75.thread.i.i,
   br label %dissect_ocp1_msg_keepalive.exit
 
 dissect_ocp1_msg_keepalive.exit:                  ; preds = %298, %303
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
 306:                                              ; preds = %49
@@ -1353,7 +1350,7 @@ dissect_ocp1_msg_keepalive.exit:                  ; preds = %298, %303
 
 .loopexit.i:                                      ; preds = %dissect_ocp1_msg_response.exit.i, %dissect_ocp1_msg_notification.exit.i, %dissect_ocp1_msg_command.exit.i, %.preheader151.i, %.preheader149.i, %.preheader.i, %dissect_ocp1_msg_keepalive.exit, %306, %297, %295, %242, %159, %73
   %.2134.i = phi i32 [ 0, %73 ], [ 0, %159 ], [ 0, %242 ], [ 0, %295 ], [ 0, %297 ], [ %50, %306 ], [ %50, %dissect_ocp1_msg_keepalive.exit ], [ %50, %.preheader.i ], [ %50, %.preheader149.i ], [ %50, %.preheader151.i ], [ %50, %dissect_ocp1_msg_command.exit.i ], [ %50, %dissect_ocp1_msg_notification.exit.i ], [ %50, %dissect_ocp1_msg_response.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_ocp1_pdu.exit
 
 dissect_ocp1_pdu.exit:                            ; preds = %26, %28, %.loopexit.i
@@ -1431,9 +1428,6 @@ dissect_ocp1_pdu.exit:                            ; preds = %26, %28, %.loopexit
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ocp1() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_ocp1, align 4
@@ -1444,7 +1438,7 @@ define hidden void @proto_reg_handoff_ocp1() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_ocp1_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1478,16 +1472,16 @@ define internal noundef zeroext i1 @dissect_ocp1_heur_udp(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_ocp1_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1512,52 +1506,52 @@ define internal i32 @get_ocp1_message_len(ptr readnone captures(none) %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr noundef %0, i32 noundef %1, i32 noundef returned range(i32 1, -2147483648) %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
@@ -1670,7 +1664,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %116 = alloca ptr, align 8
   %117 = alloca ptr, align 8
   %118 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %119 = load i32, ptr @ett_ocp1_params, align 4
   %120 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %119, ptr noundef nonnull %118, ptr noundef nonnull @.str.357)
   switch i16 %4, label %1463 [
@@ -1687,7 +1681,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i, label %124, label %135
 
 124:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %125 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %126 = zext i16 %125 to i32
   %127 = shl nuw nsw i32 %126, 1
@@ -1698,7 +1692,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %132 = add i32 %131, %1
   %133 = load i32, ptr @hf_ocp1_params_class_version, align 4
   %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %133, ptr noundef %0, i32 noundef %132, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %decode_params_OcaRoot.exit
 
 135:                                              ; preds = %121
@@ -1709,12 +1703,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i, label %137, label %142
 
 137:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   %138 = load i32, ptr @ett_ocp1_params, align 4
   %139 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %138, ptr noundef nonnull %116, ptr noundef nonnull @.str.359)
   %140 = load i32, ptr @hf_ocp1_params_bool, align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %decode_params_OcaRoot.exit
 
 142:                                              ; preds = %135
@@ -1725,14 +1719,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i, label %144, label %151
 
 144:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %145 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %146 = zext i16 %145 to i32
   %147 = add nuw nsw i32 %146, 2
   %148 = load i32, ptr @ett_ocp1_params, align 4
   %149 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %147, i32 noundef %148, ptr noundef nonnull %117, ptr noundef nonnull @.str.360)
   %150 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %149, ptr noundef nonnull @.str.361)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %decode_params_OcaRoot.exit
 
 151:                                              ; preds = %142
@@ -1766,12 +1760,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i112, label %158, label %163
 
 158:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %159 = load i32, ptr @ett_ocp1_params, align 4
   %160 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %159, ptr noundef nonnull %95, ptr noundef nonnull @.str.365)
   %161 = load i32, ptr @hf_ocp1_params_oca_version, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %161, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %decode_params_OcaRoot.exit
 
 163:                                              ; preds = %155
@@ -1782,7 +1776,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i115, label %165, label %176
 
 165:                                              ; preds = %163
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %166 = load i32, ptr @ett_ocp1_params, align 4
   %167 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %166, ptr noundef nonnull %96, ptr noundef nonnull @.str.366)
   %168 = load i32, ptr @hf_ocp1_params_blob_data, align 4
@@ -1796,7 +1790,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %174 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %175, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.389)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %decode_params_OcaRoot.exit
 
 176:                                              ; preds = %163
@@ -1807,14 +1801,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i118, label %178, label %185
 
 178:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %179 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %180 = zext i16 %179 to i32
   %181 = add nuw nsw i32 %180, 2
   %182 = load i32, ptr @ett_ocp1_params, align 4
   %183 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %181, i32 noundef %182, ptr noundef nonnull %97, ptr noundef nonnull @.str.367)
   %184 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %183, ptr noundef nonnull @.str.368)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %decode_params_OcaRoot.exit
 
 185:                                              ; preds = %176
@@ -1825,14 +1819,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i, label %187, label %194
 
 187:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %188 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %189 = zext i16 %188 to i32
   %190 = add nuw nsw i32 %189, 2
   %191 = load i32, ptr @ett_ocp1_params, align 4
   %192 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %190, i32 noundef %191, ptr noundef nonnull %98, ptr noundef nonnull @.str.369)
   %193 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %192, ptr noundef nonnull @.str.370)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %decode_params_OcaRoot.exit
 
 194:                                              ; preds = %185
@@ -1842,14 +1836,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond24.i, label %196, label %203
 
 196:                                              ; preds = %194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %197 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %198 = zext i16 %197 to i32
   %199 = add nuw nsw i32 %198, 2
   %200 = load i32, ptr @ett_ocp1_params, align 4
   %201 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %199, i32 noundef %200, ptr noundef nonnull %99, ptr noundef nonnull @.str.369)
   %202 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %201, ptr noundef nonnull @.str.370)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %decode_params_OcaRoot.exit
 
 203:                                              ; preds = %194
@@ -1860,14 +1854,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond29.i, label %205, label %211
 
 205:                                              ; preds = %203
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %206 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %207 = zext i16 %206 to i32
   %208 = add nuw nsw i32 %207, 2
   %209 = load i32, ptr @ett_ocp1_params, align 4
   %210 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %208, i32 noundef %209, ptr noundef nonnull %100, ptr noundef nonnull @.str.371)
   call fastcc void @decode_params_OcaModelDescription(ptr noundef %0, i32 noundef %1, ptr noundef %210)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %decode_params_OcaRoot.exit
 
 211:                                              ; preds = %203
@@ -1878,14 +1872,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond34.i, label %213, label %220
 
 213:                                              ; preds = %211
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %214 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %215 = zext i16 %214 to i32
   %216 = add nuw nsw i32 %215, 2
   %217 = load i32, ptr @ett_ocp1_params, align 4
   %218 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %216, i32 noundef %217, ptr noundef nonnull %101, ptr noundef nonnull @.str.360)
   %219 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %218, ptr noundef nonnull @.str.361)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %decode_params_OcaRoot.exit
 
 220:                                              ; preds = %211
@@ -1895,14 +1889,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond39.i, label %222, label %229
 
 222:                                              ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %223 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %224 = zext i16 %223 to i32
   %225 = add nuw nsw i32 %224, 2
   %226 = load i32, ptr @ett_ocp1_params, align 4
   %227 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %225, i32 noundef %226, ptr noundef nonnull %102, ptr noundef nonnull @.str.360)
   %228 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %227, ptr noundef nonnull @.str.361)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %decode_params_OcaRoot.exit
 
 229:                                              ; preds = %220
@@ -1913,14 +1907,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond44.i, label %231, label %238
 
 231:                                              ; preds = %229
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %232 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %233 = zext i16 %232 to i32
   %234 = add nuw nsw i32 %233, 2
   %235 = load i32, ptr @ett_ocp1_params, align 4
   %236 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %234, i32 noundef %235, ptr noundef nonnull %103, ptr noundef nonnull @.str.372)
   %237 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %236, ptr noundef nonnull @.str.373)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %decode_params_OcaRoot.exit
 
 238:                                              ; preds = %229
@@ -1930,14 +1924,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond49.i, label %240, label %247
 
 240:                                              ; preds = %238
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %241 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %242 = zext i16 %241 to i32
   %243 = add nuw nsw i32 %242, 2
   %244 = load i32, ptr @ett_ocp1_params, align 4
   %245 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %243, i32 noundef %244, ptr noundef nonnull %104, ptr noundef nonnull @.str.372)
   %246 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %245, ptr noundef nonnull @.str.373)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %decode_params_OcaRoot.exit
 
 247:                                              ; preds = %238
@@ -1948,12 +1942,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond54.i, label %249, label %254
 
 249:                                              ; preds = %247
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   %250 = load i32, ptr @ett_ocp1_params, align 4
   %251 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %250, ptr noundef nonnull %105, ptr noundef nonnull @.str.374)
   %252 = load i32, ptr @hf_ocp1_params_bool, align 4
   %253 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %decode_params_OcaRoot.exit
 
 254:                                              ; preds = %247
@@ -1963,12 +1957,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond59.i, label %256, label %261
 
 256:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %257 = load i32, ptr @ett_ocp1_params, align 4
   %258 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %257, ptr noundef nonnull %106, ptr noundef nonnull @.str.374)
   %259 = load i32, ptr @hf_ocp1_params_bool, align 4
   %260 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %decode_params_OcaRoot.exit
 
 261:                                              ; preds = %254
@@ -1979,13 +1973,13 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond64.i, label %263, label %269
 
 263:                                              ; preds = %261
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %264 = load i32, ptr @ett_ocp1_params, align 4
   %265 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %264, ptr noundef nonnull %107, ptr noundef nonnull @.str.375)
   %266 = load i32, ptr @hf_ocp1_params_devicestate, align 4
   %267 = load i32, ptr @ett_ocp1_params_devicestate, align 4
   %268 = call ptr @proto_tree_add_bitmask(ptr noundef %265, ptr noundef %0, i32 noundef %1, i32 noundef %266, i32 noundef %267, ptr noundef nonnull @decode_params_OcaDeviceState.state_bits, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %decode_params_OcaRoot.exit
 
 269:                                              ; preds = %261
@@ -1996,8 +1990,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond69.i, label %273, label %283
 
 273:                                              ; preds = %269
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %274 = load i32, ptr @ett_ocp1_params, align 4
   %275 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef %274, ptr noundef nonnull %108, ptr noundef nonnull @.str.376)
   %276 = call fastcc i32 @decode_params_OcaBlobFixedLen(ptr noundef %0, i32 noundef %1, i32 noundef 16, ptr noundef %275, ptr noundef nonnull @.str.377)
@@ -2008,8 +2002,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %281 = load i32, ptr @ett_ocp1_params, align 4
   %282 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %277, i32 noundef %280, i32 noundef %281, ptr noundef nonnull %109, ptr noundef nonnull @.str.378)
   call fastcc void @decode_params_OcaBlob(ptr noundef %0, i32 noundef %277, ptr noundef %282, ptr noundef nonnull @.str.379)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %decode_params_OcaRoot.exit
 
 283:                                              ; preds = %269
@@ -2020,12 +2014,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond74.i, label %285, label %290
 
 285:                                              ; preds = %283
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %286 = load i32, ptr @ett_ocp1_params, align 4
   %287 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %286, ptr noundef nonnull %110, ptr noundef nonnull @.str.380)
   %288 = load i32, ptr @hf_ocp1_params_reset_cause, align 4
   %289 = call ptr @proto_tree_add_item(ptr noundef %287, i32 noundef %288, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %decode_params_OcaRoot.exit
 
 290:                                              ; preds = %283
@@ -2036,14 +2030,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond79.i, label %292, label %299
 
 292:                                              ; preds = %290
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %293 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %294 = zext i16 %293 to i32
   %295 = add nuw nsw i32 %294, 2
   %296 = load i32, ptr @ett_ocp1_params, align 4
   %297 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %295, i32 noundef %296, ptr noundef nonnull %111, ptr noundef nonnull @.str.381)
   %298 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %297, ptr noundef nonnull @.str.382)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %decode_params_OcaRoot.exit
 
 299:                                              ; preds = %290
@@ -2053,14 +2047,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond84.i, label %301, label %308
 
 301:                                              ; preds = %299
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %302 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %303 = zext i16 %302 to i32
   %304 = add nuw nsw i32 %303, 2
   %305 = load i32, ptr @ett_ocp1_params, align 4
   %306 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %304, i32 noundef %305, ptr noundef nonnull %112, ptr noundef nonnull @.str.381)
   %307 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %306, ptr noundef nonnull @.str.382)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %decode_params_OcaRoot.exit
 
 308:                                              ; preds = %299
@@ -2071,7 +2065,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond89.i, label %310, label %346
 
 310:                                              ; preds = %308
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %311 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %312 = zext i16 %311 to i32
   %invariant.op.i = add i32 %1, 4
@@ -2112,7 +2106,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %._crit_edge374.i
 
 ._crit_edge374.i:                                 ; preds = %.lr.ph373.i, %._crit_edge374.i.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph373.i:                                      ; preds = %._crit_edge.i, %.lr.ph373.i
@@ -2144,14 +2138,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond94.i, label %348, label %355
 
 348:                                              ; preds = %346
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   %349 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %350 = zext i16 %349 to i32
   %351 = add nuw nsw i32 %350, 2
   %352 = load i32, ptr @ett_ocp1_params, align 4
   %353 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %351, i32 noundef %352, ptr noundef nonnull %114, ptr noundef nonnull @.str.385)
   %354 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %353, ptr noundef nonnull @.str.386)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %decode_params_OcaRoot.exit
 
 355:                                              ; preds = %346
@@ -2167,8 +2161,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i120, label %361, label %386
 
 361:                                              ; preds = %358
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %362 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %363 = zext i16 %362 to i32
   %364 = add nuw nsw i32 %363, 2
@@ -2194,8 +2188,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %383 = add i32 %368, 2
   %384 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %385 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %384, ptr noundef %0, i32 noundef %383, i32 noundef %376, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %decode_params_OcaRoot.exit
 
 386:                                              ; preds = %358
@@ -2205,8 +2199,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i122, label %388, label %413
 
 388:                                              ; preds = %386
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %389 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %390 = zext i16 %389 to i32
   %391 = add nuw nsw i32 %390, 2
@@ -2232,8 +2226,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %410 = add i32 %395, 2
   %411 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %412 = call ptr @proto_tree_add_item(ptr noundef %407, i32 noundef %411, ptr noundef %0, i32 noundef %410, i32 noundef %403, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %decode_params_OcaRoot.exit
 
 413:                                              ; preds = %386
@@ -2244,14 +2238,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i123, label %417, label %424
 
 417:                                              ; preds = %413
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %418 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %419 = zext i16 %418 to i32
   %420 = add nuw nsw i32 %419, 2
   %421 = load i32, ptr @ett_ocp1_params, align 4
   %422 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %420, i32 noundef %421, ptr noundef nonnull %94, ptr noundef nonnull @.str.393)
   %423 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %422, ptr noundef nonnull @.str.394)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %decode_params_OcaRoot.exit
 
 424:                                              ; preds = %413
@@ -2268,7 +2262,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i127, label %430, label %462
 
 430:                                              ; preds = %427
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %431 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %432 = zext i16 %431 to i32
   %433 = mul nuw nsw i32 %432, 14
@@ -2285,7 +2279,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph.i136
 
 ._crit_edge.i138:                                 ; preds = %.lr.ph.i136, %430
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i136:                                      ; preds = %.lr.ph.i136.preheader, %.lr.ph.i136
@@ -2294,7 +2288,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %440 = load i32, ptr @ett_ocp1_params_compversion, align 4
   %441 = add nuw nsw i32 %.0128129.i, 1
   %442 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %436, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 14, i32 noundef %440, ptr noundef null, ptr noundef nonnull @.str.398, i32 noundef %441)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %443 = load i32, ptr @ett_ocp1_params_ocaver, align 4
   %444 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 0)
   %445 = add i32 %.0127130.i, 4
@@ -2313,7 +2307,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %458 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %457, ptr noundef %0, i32 noundef %447, i32 noundef 4, i32 noundef 0)
   %459 = load i32, ptr @hf_ocp1_params_ocaver_comp, align 4
   %460 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %459, ptr noundef %0, i32 noundef %449, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %461 = add i32 %.0127130.i, 14
   %exitcond.not.i137 = icmp eq i32 %441, %432
   br i1 %exitcond.not.i137, label %._crit_edge.i138, label %.lr.ph.i136, !llvm.loop !14
@@ -2325,12 +2319,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i129, label %464, label %469
 
 464:                                              ; preds = %462
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %465 = load i32, ptr @ett_ocp1_params, align 4
   %466 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %465, ptr noundef nonnull %83, ptr noundef nonnull @.str.399)
   %467 = load i32, ptr @hf_ocp1_params_component, align 4
   %468 = call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %467, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %decode_params_OcaRoot.exit
 
 469:                                              ; preds = %462
@@ -2341,8 +2335,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i130, label %473, label %495
 
 473:                                              ; preds = %469
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %474 = load i32, ptr @ett_ocp1_params, align 4
   %475 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %474, ptr noundef nonnull %84, ptr noundef nonnull @.str.385)
   %476 = load i32, ptr @hf_ocp1_params_imageid, align 4
@@ -2365,8 +2359,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %492 = add i32 %1, 2
   %493 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %494 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %493, ptr noundef %0, i32 noundef %492, i32 noundef %485, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %decode_params_OcaRoot.exit
 
 495:                                              ; preds = %469
@@ -2376,7 +2370,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i132, label %497, label %515
 
 497:                                              ; preds = %495
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %498 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %499 = zext i16 %498 to i32
   %500 = add nuw nsw i32 %499, 2
@@ -2395,7 +2389,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %512 = add i32 %1, 2
   %513 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %514 = call ptr @proto_tree_add_item(ptr noundef %509, i32 noundef %513, ptr noundef %0, i32 noundef %512, i32 noundef %505, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %decode_params_OcaRoot.exit
 
 515:                                              ; preds = %495
@@ -2406,9 +2400,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond24.i133, label %519, label %549
 
 519:                                              ; preds = %515
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %520 = load i32, ptr @ett_ocp1_params, align 4
   %521 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %520, ptr noundef nonnull %87, ptr noundef nonnull @.str.399)
   %522 = load i32, ptr @hf_ocp1_params_component, align 4
@@ -2439,9 +2433,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %546 = load i32, ptr @ett_ocp1_params, align 4
   %547 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %542, i32 noundef %545, i32 noundef %546, ptr noundef nonnull %89, ptr noundef nonnull @.str.405)
   %548 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %542, ptr noundef %547, ptr noundef nonnull @.str.406)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %decode_params_OcaRoot.exit
 
 549:                                              ; preds = %515
@@ -2457,11 +2451,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i139, label %556, label %627
 
 556:                                              ; preds = %552
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %557 = load i32, ptr @ett_ocp1_params, align 4
   %558 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %557, ptr noundef nonnull %64, ptr noundef nonnull @.str.408)
   %559 = load i32, ptr @hf_ocp1_params_ono, align 4
@@ -2534,11 +2528,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %624 = add i32 %604, 3
   %625 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %626 = call ptr @proto_tree_add_item(ptr noundef %621, i32 noundef %625, ptr noundef %0, i32 noundef %624, i32 noundef %617, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %decode_params_OcaRoot.exit
 
 627:                                              ; preds = %552
@@ -2549,8 +2543,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i140, label %631, label %661
 
 631:                                              ; preds = %627
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %632 = load i32, ptr @ett_ocp1_params, align 4
   %633 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %632, ptr noundef nonnull %69, ptr noundef nonnull @.str.408)
   %634 = load i32, ptr @hf_ocp1_params_ono, align 4
@@ -2580,8 +2574,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %658 = add i32 %1, 14
   %659 = load i32, ptr @hf_ocp1_params_method_index, align 4
   %660 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %659, ptr noundef %0, i32 noundef %658, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %decode_params_OcaRoot.exit
 
 661:                                              ; preds = %627
@@ -2592,12 +2586,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i141, label %665, label %737
 
 665:                                              ; preds = %661
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %666 = load i32, ptr @ett_ocp1_params, align 4
   %667 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %666, ptr noundef nonnull %71, ptr noundef nonnull @.str.415)
   %668 = load i32, ptr @hf_ocp1_params_ono, align 4
@@ -2671,12 +2665,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %734 = add i32 %1, 19
   %735 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %736 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %735, ptr noundef %0, i32 noundef %734, i32 noundef %727, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %decode_params_OcaRoot.exit
 
 737:                                              ; preds = %661
@@ -2687,9 +2681,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i142, label %741, label %773
 
 741:                                              ; preds = %737
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %742 = load i32, ptr @ett_ocp1_params, align 4
   %743 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %742, ptr noundef nonnull %77, ptr noundef nonnull @.str.415)
   %744 = load i32, ptr @hf_ocp1_params_ono, align 4
@@ -2721,9 +2715,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %770 = add i32 %1, 14
   %771 = load i32, ptr @hf_ocp1_params_method_index, align 4
   %772 = call ptr @proto_tree_add_item(ptr noundef %767, i32 noundef %771, ptr noundef %0, i32 noundef %770, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %decode_params_OcaRoot.exit
 
 773:                                              ; preds = %737
@@ -2734,12 +2728,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond24.not.i, label %782, label %777
 
 777:                                              ; preds = %773
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %778 = load i32, ptr @ett_ocp1_params, align 4
   %779 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %778, ptr noundef nonnull %80, ptr noundef nonnull @.str.421)
   %780 = load i32, ptr @hf_ocp1_params_subscriber_ctx_len, align 4
   %781 = call ptr @proto_tree_add_item(ptr noundef %779, i32 noundef %780, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %decode_params_OcaRoot.exit
 
 782:                                              ; preds = %773
@@ -2756,12 +2750,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i146, label %788, label %793
 
 788:                                              ; preds = %785
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %789 = load i32, ptr @ett_ocp1_params, align 4
   %790 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %789, ptr noundef nonnull %56, ptr noundef nonnull @.str.375)
   %791 = load i32, ptr @hf_ocp1_params_power_state, align 4
   %792 = call ptr @proto_tree_add_item(ptr noundef %790, i32 noundef %791, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %decode_params_OcaRoot.exit
 
 793:                                              ; preds = %785
@@ -2771,12 +2765,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i148, label %795, label %800
 
 795:                                              ; preds = %793
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %796 = load i32, ptr @ett_ocp1_params, align 4
   %797 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %796, ptr noundef nonnull %57, ptr noundef nonnull @.str.375)
   %798 = load i32, ptr @hf_ocp1_params_power_state, align 4
   %799 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %798, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %decode_params_OcaRoot.exit
 
 800:                                              ; preds = %793
@@ -2787,7 +2781,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i151, label %802, label %818
 
 802:                                              ; preds = %800
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %803 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %804 = zext i16 %803 to i32
   %805 = shl nuw nsw i32 %804, 2
@@ -2804,7 +2798,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph150.i
 
 ._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %802
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph150.i:                                      ; preds = %.lr.ph150.i.preheader, %.lr.ph150.i
@@ -2827,7 +2821,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i154, label %820, label %836
 
 820:                                              ; preds = %818
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %821 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %822 = zext i16 %821 to i32
   %823 = shl nuw nsw i32 %822, 2
@@ -2844,7 +2838,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph.i161
 
 ._crit_edge.i163:                                 ; preds = %.lr.ph.i161, %820
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i161:                                      ; preds = %.lr.ph.i161.preheader, %.lr.ph.i161
@@ -2867,9 +2861,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond24.i155, label %840, label %855
 
 840:                                              ; preds = %836
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %841 = load i32, ptr @ett_ocp1_params, align 4
   %842 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %841, ptr noundef nonnull %60, ptr noundef nonnull @.str.424)
   %843 = load i32, ptr @hf_ocp1_params_ono, align 4
@@ -2884,9 +2878,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %852 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef %851, ptr noundef nonnull %62, ptr noundef nonnull @.str.426)
   %853 = load i32, ptr @hf_ocp1_params_bool, align 4
   %854 = call ptr @proto_tree_add_item(ptr noundef %852, i32 noundef %853, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %decode_params_OcaRoot.exit
 
 855:                                              ; preds = %836
@@ -2897,12 +2891,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond29.i158, label %857, label %862
 
 857:                                              ; preds = %855
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %858 = load i32, ptr @ett_ocp1_params, align 4
   %859 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %858, ptr noundef nonnull %63, ptr noundef nonnull @.str.375)
   %860 = load i32, ptr @hf_ocp1_params_bool, align 4
   %861 = call ptr @proto_tree_add_item(ptr noundef %859, i32 noundef %860, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %decode_params_OcaRoot.exit
 
 862:                                              ; preds = %855
@@ -2919,7 +2913,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i167, label %868, label %884
 
 868:                                              ; preds = %865
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %869 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %870 = zext i16 %869 to i32
   %871 = shl nuw nsw i32 %870, 2
@@ -2936,7 +2930,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph152.i
 
 ._crit_edge153.i:                                 ; preds = %.lr.ph152.i, %868
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph152.i:                                      ; preds = %.lr.ph152.i.preheader, %.lr.ph152.i
@@ -2959,7 +2953,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i170, label %886, label %902
 
 886:                                              ; preds = %884
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %887 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %888 = zext i16 %887 to i32
   %889 = shl nuw nsw i32 %888, 2
@@ -2976,7 +2970,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph146.i
 
 ._crit_edge147.i:                                 ; preds = %.lr.ph146.i, %886
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph146.i:                                      ; preds = %.lr.ph146.i.preheader, %.lr.ph146.i
@@ -2999,7 +2993,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i173, label %904, label %920
 
 904:                                              ; preds = %902
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %905 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %906 = zext i16 %905 to i32
   %907 = shl nuw nsw i32 %906, 2
@@ -3016,7 +3010,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph140.i
 
 ._crit_edge141.i:                                 ; preds = %.lr.ph140.i, %904
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph140.i:                                      ; preds = %.lr.ph140.i.preheader, %.lr.ph140.i
@@ -3039,7 +3033,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i176, label %922, label %938
 
 922:                                              ; preds = %920
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %923 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %924 = zext i16 %923 to i32
   %925 = shl nuw nsw i32 %924, 2
@@ -3056,7 +3050,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph.i179
 
 ._crit_edge.i181:                                 ; preds = %.lr.ph.i179, %922
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i179:                                      ; preds = %.lr.ph.i179.preheader, %.lr.ph.i179
@@ -3085,7 +3079,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i185, label %944, label %960
 
 944:                                              ; preds = %941
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %945 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %946 = zext i16 %945 to i32
   %947 = shl nuw nsw i32 %946, 2
@@ -3102,7 +3096,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph114.i
 
 ._crit_edge115.i:                                 ; preds = %.lr.ph114.i, %944
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph114.i:                                      ; preds = %.lr.ph114.i.preheader, %.lr.ph114.i
@@ -3125,7 +3119,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i188, label %962, label %977
 
 962:                                              ; preds = %960
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %963 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %964 = zext i16 %963 to i32
   %965 = add nuw nsw i32 %964, 2
@@ -3141,7 +3135,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph108.i
 
 ._crit_edge109.i:                                 ; preds = %.lr.ph108.i, %962
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph108.i:                                      ; preds = %.lr.ph108.i.preheader, %.lr.ph108.i
@@ -3164,7 +3158,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i191, label %979, label %995
 
 979:                                              ; preds = %977
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %980 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %981 = zext i16 %980 to i32
   %982 = shl nuw nsw i32 %981, 2
@@ -3181,7 +3175,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph.i194
 
 ._crit_edge.i196:                                 ; preds = %.lr.ph.i194, %979
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i194:                                      ; preds = %.lr.ph.i194.preheader, %.lr.ph.i194
@@ -3209,7 +3203,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i201, label %1001, label %1008
 
 1001:                                             ; preds = %998
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1002 = load i32, ptr @ett_ocp1_params, align 4
   %1003 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1002, ptr noundef nonnull %40, ptr noundef nonnull @.str.436)
   %1004 = load i32, ptr @hf_ocp1_params_blob_data, align 4
@@ -3217,7 +3211,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1005, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
   %1006 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
   %1007 = call ptr @proto_tree_add_item(ptr noundef %1003, i32 noundef %1006, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %decode_params_OcaRoot.exit
 
 1008:                                             ; preds = %998
@@ -3228,7 +3222,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i204, label %1010, label %1020
 
 1010:                                             ; preds = %1008
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1011 = load i32, ptr @ett_ocp1_params, align 4
   %1012 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1011, ptr noundef nonnull %41, ptr noundef nonnull @.str.437)
   %1013 = load i32, ptr @hf_ocp1_params_blob_data, align 4
@@ -3239,7 +3233,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1017 = add i32 %1, 7
   %1018 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1019 = call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1018, ptr noundef %0, i32 noundef %1017, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %decode_params_OcaRoot.exit
 
 1020:                                             ; preds = %1008
@@ -3249,12 +3243,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i206, label %1022, label %1027
 
 1022:                                             ; preds = %1020
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %1023 = load i32, ptr @ett_ocp1_params, align 4
   %1024 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1023, ptr noundef nonnull %42, ptr noundef nonnull @.str.385)
   %1025 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1026 = call ptr @proto_tree_add_item(ptr noundef %1024, i32 noundef %1025, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %decode_params_OcaRoot.exit
 
 1027:                                             ; preds = %1020
@@ -3264,7 +3258,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i208, label %1029, label %1036
 
 1029:                                             ; preds = %1027
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1030 = load i32, ptr @ett_ocp1_params, align 4
   %1031 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1030, ptr noundef nonnull %43, ptr noundef nonnull @.str.438)
   %1032 = load i32, ptr @hf_ocp1_params_blob_data, align 4
@@ -3272,7 +3266,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1033, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
   %1034 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
   %1035 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1034, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %decode_params_OcaRoot.exit
 
 1036:                                             ; preds = %1027
@@ -3283,12 +3277,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond24.i210, label %1038, label %1043
 
 1038:                                             ; preds = %1036
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1039 = load i32, ptr @ett_ocp1_params, align 4
   %1040 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1039, ptr noundef nonnull %44, ptr noundef nonnull @.str.439)
   %1041 = load i32, ptr @hf_ocp1_params_library_count, align 4
   %1042 = call ptr @proto_tree_add_item(ptr noundef %1040, i32 noundef %1041, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %decode_params_OcaRoot.exit
 
 1043:                                             ; preds = %1036
@@ -3298,11 +3292,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond29.i212, label %1045, label %1048
 
 1045:                                             ; preds = %1043
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1046 = load i32, ptr @ett_ocp1_params, align 4
   %1047 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1046, ptr noundef nonnull %45, ptr noundef nonnull @.str.436)
   call fastcc void @decode_params_OcaLibVolType(ptr noundef %0, i32 noundef %1, ptr noundef %1047)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %decode_params_OcaRoot.exit
 
 1048:                                             ; preds = %1043
@@ -3313,7 +3307,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond34.i215, label %1050, label %1071
 
 1050:                                             ; preds = %1048
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1051 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %1052 = zext i16 %1051 to i32
   %1053 = mul nuw nsw i32 %1052, 11
@@ -3330,7 +3324,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph.i222
 
 ._crit_edge.i224:                                 ; preds = %.lr.ph.i222, %1050
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i222:                                      ; preds = %.lr.ph.i222.preheader, %.lr.ph.i222
@@ -3359,11 +3353,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond39.i217, label %1073, label %1076
 
 1073:                                             ; preds = %1071
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1074 = load i32, ptr @ett_ocp1_params, align 4
   %1075 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1074, ptr noundef nonnull %47, ptr noundef nonnull @.str.385)
   call fastcc void @decode_params_OcaLibVolIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %1075)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %decode_params_OcaRoot.exit
 
 1076:                                             ; preds = %1071
@@ -3373,11 +3367,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond44.i219, label %1078, label %1081
 
 1078:                                             ; preds = %1076
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1079 = load i32, ptr @ett_ocp1_params, align 4
   %1080 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1079, ptr noundef nonnull %48, ptr noundef nonnull @.str.385)
   call fastcc void @decode_params_OcaLibVolIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %1080)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %decode_params_OcaRoot.exit
 
 1081:                                             ; preds = %1076
@@ -3399,12 +3393,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i228, label %1090, label %1095
 
 1090:                                             ; preds = %1087
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %1091 = load i32, ptr @ett_ocp1_params, align 4
   %1092 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1091, ptr noundef nonnull %33, ptr noundef nonnull @.str.443)
   %1093 = load i32, ptr @hf_ocp1_params_time_ntp, align 4
   %1094 = call ptr @proto_tree_add_item(ptr noundef %1092, i32 noundef %1093, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %decode_params_OcaRoot.exit
 
 1095:                                             ; preds = %1087
@@ -3414,12 +3408,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i230, label %1097, label %1102
 
 1097:                                             ; preds = %1095
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1098 = load i32, ptr @ett_ocp1_params, align 4
   %1099 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1098, ptr noundef nonnull %34, ptr noundef nonnull @.str.443)
   %1100 = load i32, ptr @hf_ocp1_params_time_ntp, align 4
   %1101 = call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1100, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %decode_params_OcaRoot.exit
 
 1102:                                             ; preds = %1095
@@ -3430,7 +3424,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond14.i233, label %1104, label %1120
 
 1104:                                             ; preds = %1102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1105 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %1106 = zext i16 %1105 to i32
   %1107 = shl nuw nsw i32 %1106, 2
@@ -3447,7 +3441,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %.lr.ph.i246
 
 ._crit_edge.i249:                                 ; preds = %.lr.ph.i246, %1104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i246:                                      ; preds = %.lr.ph.i246.preheader, %.lr.ph.i246
@@ -3470,12 +3464,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond19.i236, label %1122, label %1127
 
 1122:                                             ; preds = %1120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1123 = load i32, ptr @ett_ocp1_params, align 4
   %1124 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1123, ptr noundef nonnull %36, ptr noundef nonnull @.str.446)
   %1125 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1126 = call ptr @proto_tree_add_item(ptr noundef %1124, i32 noundef %1125, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %decode_params_OcaRoot.exit
 
 1127:                                             ; preds = %1120
@@ -3485,12 +3479,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond24.i238, label %1129, label %1134
 
 1129:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1130 = load i32, ptr @ett_ocp1_params, align 4
   %1131 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1130, ptr noundef nonnull %37, ptr noundef nonnull @.str.446)
   %1132 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1133 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %1132, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %decode_params_OcaRoot.exit
 
 1134:                                             ; preds = %1127
@@ -3501,11 +3495,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond29.i241, label %1136, label %1139
 
 1136:                                             ; preds = %1134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1137 = load i32, ptr @ett_ocp1_params, align 4
   %1138 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 13, i32 noundef %1137, ptr noundef nonnull %38, ptr noundef nonnull @.str.443)
   call fastcc void @decode_params_OcaTimePTP(ptr noundef %0, i32 noundef %1, ptr noundef %1138)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %decode_params_OcaRoot.exit
 
 1139:                                             ; preds = %1134
@@ -3515,11 +3509,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond34.i243, label %1141, label %1144
 
 1141:                                             ; preds = %1139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1142 = load i32, ptr @ett_ocp1_params, align 4
   %1143 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 13, i32 noundef %1142, ptr noundef nonnull %39, ptr noundef nonnull @.str.443)
   call fastcc void @decode_params_OcaTimePTP(ptr noundef %0, i32 noundef %1, ptr noundef %1143)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %decode_params_OcaRoot.exit
 
 1144:                                             ; preds = %1139
@@ -3535,12 +3529,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond10.i, label %1150, label %1155
 
 1150:                                             ; preds = %1147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1151 = load i32, ptr @ett_ocp1_params, align 4
   %1152 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1151, ptr noundef nonnull %13, ptr noundef nonnull @.str.447)
   %1153 = load i32, ptr @hf_ocp1_params_bool, align 4
   %1154 = call ptr @proto_tree_add_item(ptr noundef %1152, i32 noundef %1153, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %decode_params_OcaRoot.exit
 
 1155:                                             ; preds = %1147
@@ -3551,8 +3545,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond15.i, label %1158, label %1181
 
 1158:                                             ; preds = %1155
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1159 = load i32, ptr @ett_ocp1_params, align 4
   %1160 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1159, ptr noundef nonnull %14, ptr noundef nonnull @.str.448)
   %1161 = load i32, ptr @hf_ocp1_params_task_command, align 4
@@ -3576,8 +3570,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1178 = add i32 %1, 3
   %1179 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %1180 = call ptr @proto_tree_add_item(ptr noundef %1175, i32 noundef %1179, ptr noundef %0, i32 noundef %1178, i32 noundef %1171, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %decode_params_OcaRoot.exit
 
 1181:                                             ; preds = %1155
@@ -3588,9 +3582,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond20.i, label %1184, label %1212
 
 1184:                                             ; preds = %1181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1185 = load i32, ptr @ett_ocp1_params, align 4
   %1186 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %1185, ptr noundef nonnull %16, ptr noundef nonnull @.str.451)
   %1187 = load i32, ptr @hf_ocp1_params_task_group_id, align 4
@@ -3619,9 +3613,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1209 = add i32 %1, 5
   %1210 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %1211 = call ptr @proto_tree_add_item(ptr noundef %1206, i32 noundef %1210, ptr noundef %0, i32 noundef %1209, i32 noundef %1202, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %decode_params_OcaRoot.exit
 
 1212:                                             ; preds = %1181
@@ -3631,9 +3625,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond25.i, label %1214, label %1242
 
 1214:                                             ; preds = %1212
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1215 = load i32, ptr @ett_ocp1_params, align 4
   %1216 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1215, ptr noundef nonnull %19, ptr noundef nonnull @.str.454)
   %1217 = load i32, ptr @hf_ocp1_params_task_id, align 4
@@ -3662,9 +3656,9 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1239 = add i32 %1, 7
   %1240 = load i32, ptr @hf_ocp1_params_blob_data, align 4
   %1241 = call ptr @proto_tree_add_item(ptr noundef %1236, i32 noundef %1240, ptr noundef %0, i32 noundef %1239, i32 noundef %1232, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %decode_params_OcaRoot.exit
 
 1242:                                             ; preds = %1212
@@ -3675,12 +3669,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond30.i, label %1244, label %1249
 
 1244:                                             ; preds = %1242
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1245 = load i32, ptr @ett_ocp1_params, align 4
   %1246 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1245, ptr noundef nonnull %22, ptr noundef nonnull @.str.375)
   %1247 = load i32, ptr @hf_ocp1_params_task_manager_state, align 4
   %1248 = call ptr @proto_tree_add_item(ptr noundef %1246, i32 noundef %1247, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %decode_params_OcaRoot.exit
 
 1249:                                             ; preds = %1242
@@ -3690,11 +3684,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond35.i, label %1251, label %1254
 
 1251:                                             ; preds = %1249
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1252 = load i32, ptr @ett_ocp1_params, align 4
   %1253 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 7, i32 noundef %1252, ptr noundef nonnull %23, ptr noundef nonnull @.str.456)
   call fastcc void @decode_params_OcaTaskStatus(ptr noundef %0, i32 noundef %1, ptr noundef %1253)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %decode_params_OcaRoot.exit
 
 1254:                                             ; preds = %1249
@@ -3704,12 +3698,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond40.i, label %1256, label %1261
 
 1256:                                             ; preds = %1254
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1257 = load i32, ptr @ett_ocp1_params, align 4
   %1258 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1257, ptr noundef nonnull %24, ptr noundef nonnull @.str.454)
   %1259 = load i32, ptr @hf_ocp1_params_task_id, align 4
   %1260 = call ptr @proto_tree_add_item(ptr noundef %1258, i32 noundef %1259, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %decode_params_OcaRoot.exit
 
 1261:                                             ; preds = %1254
@@ -3720,11 +3714,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond45.i, label %1263, label %1266
 
 1263:                                             ; preds = %1261
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1264 = load i32, ptr @ett_ocp1_params, align 4
   %1265 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 7, i32 noundef %1264, ptr noundef nonnull %25, ptr noundef nonnull @.str.457)
   call fastcc void @decode_params_OcaTaskStatus(ptr noundef %0, i32 noundef %1, ptr noundef %1265)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %decode_params_OcaRoot.exit
 
 1266:                                             ; preds = %1261
@@ -3733,7 +3727,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond48.i, label %1268, label %1290
 
 1268:                                             ; preds = %1266
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1269 = add i32 %1, 4
   %1270 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1269, i32 noundef 0)
   %1271 = zext i16 %1270 to i32
@@ -3758,11 +3752,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1286 = load i32, ptr @ett_ocp1_params, align 4
   %1287 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1285, i32 noundef %1286, ptr noundef nonnull %26, ptr noundef nonnull @.str.458)
   %1288 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1, ptr noundef %1287)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %decode_params_OcaRoot.exit
 
 1289:                                             ; preds = %1268
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %decode_params_OcaRoot.exit
 
 1290:                                             ; preds = %1266
@@ -3773,7 +3767,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond53.i, label %1292, label %1340
 
 1292:                                             ; preds = %1290
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1293 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %1294 = zext i16 %1293 to i32
   %invariant.op.i253 = add i32 %1, 8
@@ -3852,7 +3846,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %exitcond454.not.i, label %._crit_edge450.i, label %.lr.ph449.i, !llvm.loop !27
 
 .thread423.i:                                     ; preds = %.lr.ph.i254, %.lr.ph449.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %decode_params_OcaRoot.exit
 
 ._crit_edge450.i.critedge:                        ; preds = %1292
@@ -3863,7 +3857,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %._crit_edge450.i
 
 ._crit_edge450.i:                                 ; preds = %1324, %._crit_edge450.i.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %decode_params_OcaRoot.exit
 
 1340:                                             ; preds = %1290
@@ -3873,12 +3867,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond58.i, label %1342, label %1347
 
 1342:                                             ; preds = %1340
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1343 = load i32, ptr @ett_ocp1_params, align 4
   %1344 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1343, ptr noundef nonnull %28, ptr noundef nonnull @.str.385)
   %1345 = load i32, ptr @hf_ocp1_params_task_id, align 4
   %1346 = call ptr @proto_tree_add_item(ptr noundef %1344, i32 noundef %1345, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %decode_params_OcaRoot.exit
 
 1347:                                             ; preds = %1340
@@ -3889,7 +3883,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond63.i, label %1349, label %1371
 
 1349:                                             ; preds = %1347
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1350 = add i32 %1, 4
   %1351 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1350, i32 noundef 0)
   %1352 = zext i16 %1351 to i32
@@ -3914,11 +3908,11 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1367 = load i32, ptr @ett_ocp1_params, align 4
   %1368 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1366, i32 noundef %1367, ptr noundef nonnull %29, ptr noundef nonnull @.str.458)
   %1369 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1, ptr noundef %1368)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %decode_params_OcaRoot.exit
 
 1370:                                             ; preds = %1349
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %decode_params_OcaRoot.exit
 
 1371:                                             ; preds = %1347
@@ -3928,8 +3922,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond68.i, label %1373, label %1399
 
 1373:                                             ; preds = %1371
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %1374 = load i32, ptr @ett_ocp1_params, align 4
   %1375 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1374, ptr noundef nonnull %30, ptr noundef nonnull @.str.454)
   %1376 = load i32, ptr @hf_ocp1_params_task_id, align 4
@@ -3958,13 +3952,13 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %1395 = load i32, ptr @ett_ocp1_params, align 4
   %1396 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1378, i32 noundef %1394, i32 noundef %1395, ptr noundef nonnull %31, ptr noundef nonnull @.str.461)
   %1397 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1378, ptr noundef %1396)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %decode_params_OcaRoot.exit
 
 1398:                                             ; preds = %1373
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %decode_params_OcaRoot.exit
 
 1399:                                             ; preds = %1371
@@ -3974,12 +3968,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond73.i, label %1401, label %1406
 
 1401:                                             ; preds = %1399
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1402 = load i32, ptr @ett_ocp1_params, align 4
   %1403 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1402, ptr noundef nonnull %32, ptr noundef nonnull @.str.454)
   %1404 = load i32, ptr @hf_ocp1_params_task_id, align 4
   %1405 = call ptr @proto_tree_add_item(ptr noundef %1403, i32 noundef %1404, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %decode_params_OcaRoot.exit
 
 1406:                                             ; preds = %1399
@@ -3996,7 +3990,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond7.not.i, label %1437, label %1413
 
 1413:                                             ; preds = %1409
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1414 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %1415 = zext i16 %1414 to i32
   %invariant.op.i260 = add i32 %1, 4
@@ -4031,7 +4025,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %._crit_edge64.i
 
 ._crit_edge64.i:                                  ; preds = %.lr.ph63.i, %._crit_edge64.i.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %decode_params_OcaRoot.exit
 
 .lr.ph63.i:                                       ; preds = %._crit_edge.i265, %.lr.ph63.i
@@ -4061,12 +4055,12 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond4.i269, label %1443, label %1448
 
 1443:                                             ; preds = %1440
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1444 = load i32, ptr @ett_ocp1_params, align 4
   %1445 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1444, ptr noundef nonnull %10, ptr noundef nonnull @.str.467)
   %1446 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1447 = call ptr @proto_tree_add_item(ptr noundef %1445, i32 noundef %1446, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %decode_params_OcaRoot.exit
 
 1448:                                             ; preds = %1440
@@ -4077,14 +4071,14 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %or.cond9.i272, label %1450, label %1457
 
 1450:                                             ; preds = %1448
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1451 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   %1452 = zext i16 %1451 to i32
   %1453 = add nuw nsw i32 %1452, 2
   %1454 = load i32, ptr @ett_ocp1_params, align 4
   %1455 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1453, i32 noundef %1454, ptr noundef nonnull %11, ptr noundef nonnull @.str.468)
   %1456 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %1455, ptr noundef nonnull @.str.469)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %decode_params_OcaRoot.exit
 
 1457:                                             ; preds = %1448
@@ -4103,24 +4097,24 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %decode_params_OcaRoot.exit
 
 decode_params_OcaRoot.exit:                       ; preds = %1150, %1158, %1184, %1214, %1244, %1251, %1256, %1263, %.thread.i, %._crit_edge450.i, %1342, %.thread427.i, %.thread429.i, %1401, %1406, %1457, %1450, %1443, %1437, %._crit_edge64.i, %1398, %1370, %.thread423.i, %1289, %1144, %1141, %1136, %1129, %1122, %._crit_edge.i249, %1097, %1090, %1081, %1078, %1073, %._crit_edge.i224, %1045, %1038, %1029, %1022, %1010, %1001, %995, %._crit_edge.i196, %._crit_edge109.i, %._crit_edge115.i, %938, %._crit_edge.i181, %._crit_edge141.i, %._crit_edge147.i, %._crit_edge153.i, %862, %857, %840, %._crit_edge.i163, %._crit_edge151.i, %795, %788, %782, %777, %741, %665, %631, %556, %549, %519, %497, %473, %464, %._crit_edge.i138, %424, %417, %388, %361, %355, %348, %._crit_edge374.i, %301, %292, %285, %273, %263, %256, %249, %240, %231, %222, %213, %205, %196, %187, %178, %165, %158, %151, %144, %137, %124, %1463, %1460, %1084
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   ret i32 %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 2, 65538) i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -4179,16 +4173,16 @@ define internal fastcc noundef i32 @decode_params_OcaClassID(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_packet_scope() local_unnamed_addr #2
+declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @decode_params_OcaModelDescription(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -4243,10 +4237,10 @@ define internal fastcc noundef i32 @decode_params_OcaManagerDescriptor(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @decode_params_OcaLibVolType(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -4428,14 +4422,19 @@ define internal fastcc noundef zeroext i1 @test_ocp1(ptr noundef %0) unnamed_add
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

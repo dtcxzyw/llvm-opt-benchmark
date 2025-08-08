@@ -1614,9 +1614,6 @@ declare void @ipmi_fmt_channel(ptr noundef, i32 noundef) #1
 ; Function Attrs: null_pointer_is_valid
 declare void @ipmi_fmt_version(ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1631,9 +1628,6 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 
 ; Function Attrs: null_pointer_is_valid
 declare void @ipmi_register_netfn_cmdtab(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @rq00(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
@@ -1782,7 +1776,7 @@ define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_ipmi_se_13_rev, align 4
   %6 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.1161, ptr noundef null, i32 noundef %5, ptr noundef nonnull @rs13.byte1, i32 noundef -2147483648, i32 noundef 0)
   %7 = call zeroext i1 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
@@ -1892,7 +1886,7 @@ proto_item_set_generated.exit:                    ; preds = %37, %40, %43
   br label %61
 
 61:                                               ; preds = %proto_item_set_generated.exit, %58, %52, %8, %11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1952,7 +1946,7 @@ define internal void @rq16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @rs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call zeroext i1 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = icmp eq i32 %6, 1
@@ -1965,7 +1959,7 @@ define internal void @rs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %11
 
 11:                                               ; preds = %8, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2012,7 +2006,7 @@ define internal void @rq20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @rs20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call zeroext i1 @ipmi_get_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = icmp ne i32 %6, 0
@@ -2033,7 +2027,7 @@ define internal void @rs20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %16
 
 16:                                               ; preds = %13, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2912,7 +2906,7 @@ define internal noundef zeroext i1 @ssi_1d_2(ptr noundef %0, ptr noundef %1, ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @ssi_1d_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca [240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @ipmi_fmt_channel(ptr noundef nonnull %7, i32 noundef %5)
   %8 = icmp eq i32 %3, 3
   %9 = icmp eq i32 %4, 7
@@ -2925,7 +2919,7 @@ define internal noundef zeroext i1 @ssi_1d_3(ptr noundef %0, ptr noundef %1, ptr
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %or.cond
 }
 
@@ -3636,6 +3630,12 @@ declare ptr @proto_tree_add_boolean_format_value(ptr noundef, i32 noundef, ptr n
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tfs_get_string(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
 
@@ -3643,7 +3643,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -128,18 +128,12 @@ define i64 @ossl_pkcs7_new(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @PKCS7_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ossl_pkcs7() local_unnamed_addr #0 {
@@ -270,16 +264,16 @@ define void @Init_ossl_pkcs7() local_unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkcs7_s_read_smime(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr @cPKCS7, align 8, !tbaa !6
   %6 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %5, ptr noundef null, ptr noundef nonnull @ossl_pkcs7_type) #5
   %7 = call ptr @ossl_obj2bio(ptr noundef nonnull %3) #5
@@ -322,7 +316,7 @@ define internal i64 @ossl_pkcs7_s_read_smime(i64 %0, i64 noundef %1) #0 {
   store ptr %8, ptr %24, align 8, !tbaa !10
   %25 = call i64 @rb_iv_set(i64 noundef %6, ptr noundef nonnull @.str.56, i64 noundef %22) #5
   %26 = call i64 @rb_iv_set(i64 noundef %6, ptr noundef nonnull @.str.57, i64 noundef 4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %6
 }
 
@@ -331,8 +325,8 @@ define internal i64 @ossl_pkcs7_s_write_smime(i32 noundef %0, ptr noundef readon
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -490,8 +484,8 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
 75:                                               ; preds = %69
   %76 = call i32 @BIO_free(ptr noundef %63) #5
   %77 = call i64 @ossl_membio2str(ptr noundef nonnull %65) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %77
 }
 
@@ -504,12 +498,12 @@ define internal i64 @ossl_pkcs7_s_sign(i32 noundef %0, ptr noundef readonly capt
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca [5 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !29
   store ptr %4, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -655,12 +649,12 @@ rb_num2int_inline.exit:                           ; preds = %47, %49
   %75 = call i64 @rb_iv_set(i64 noundef %55, ptr noundef nonnull @.str.57, i64 noundef 4) #5
   %76 = call i32 @BIO_free(ptr noundef %56) #5
   call void @OPENSSL_sk_pop_free(ptr noundef %.0, ptr noundef nonnull @X509_free) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %55
 }
 
@@ -672,11 +666,11 @@ define internal i64 @ossl_pkcs7_s_encrypt(i32 noundef %0, ptr noundef readonly c
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca [4 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !29
   store ptr %4, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -820,19 +814,19 @@ rb_num2int_inline.exit:                           ; preds = %47, %49
   %71 = load i64, ptr %5, align 8, !tbaa !6
   %72 = call i64 @rb_iv_set(i64 noundef %55, ptr noundef nonnull @.str.56, i64 noundef %71) #5
   call void @OPENSSL_sk_pop_free(ptr noundef %58, ptr noundef nonnull @X509_free) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %55
 }
 
-declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkcs7_alloc(i64 noundef %0) #0 {
@@ -853,7 +847,7 @@ define internal i64 @ossl_pkcs7_alloc(i64 noundef %0) #0 {
   ret i64 %2
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, -7) i64 @ossl_pkcs7_copy(i64 noundef returned %0, i64 noundef %1) #0 {
@@ -938,7 +932,7 @@ define internal noundef i64 @ossl_pkcs7_initialize(i32 noundef %0, ptr noundef r
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = icmp slt i32 %0, 0
   br i1 %8, label %9, label %.preheader.split.split
 
@@ -999,7 +993,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   br label %rb_scan_args_set.exit.thread
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -1016,7 +1010,7 @@ define internal noundef i64 @ossl_pkcs7_set_type(i64 noundef %0, i64 noundef ret
   unreachable
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !6
   %8 = and i64 %1, 255
   %9 = icmp eq i64 %8, 12
@@ -1090,7 +1084,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %27, %21
 ossl_pkcs7_sym2typeid.exit:                       ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = call i32 @PKCS7_set_type(ptr noundef nonnull %4, i32 noundef %39) #5
   %.not4 = icmp eq i32 %40, 0
   br i1 %.not4, label %41, label %43
@@ -1834,7 +1828,7 @@ define internal i64 @ossl_pkcs7_add_data(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca [4096 x i8], align 16
   store i64 %1, ptr %3, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_pkcs7_type) #5
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -1900,11 +1894,11 @@ define internal i64 @ossl_pkcs7_add_data(i64 noundef %0, i64 noundef %1) #0 {
 
 32:                                               ; preds = %.loopexit
   %33 = load i64, ptr %3, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %33
 }
 
-declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
@@ -1914,11 +1908,11 @@ define internal range(i64 0, 21) i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noun
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca [4 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !29
   %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_pkcs7_type) #5
   %.not = icmp eq ptr %10, null
@@ -2105,11 +2099,11 @@ rb_num2int_inline.exit:                           ; preds = %47, %49
   %91 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.56, i64 noundef %90) #5
   %92 = icmp eq i32 %77, 1
   %93 = select i1 %92, i64 20, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %93
 }
 
@@ -2118,8 +2112,8 @@ define internal i64 @ossl_pkcs7_decrypt(i32 noundef %0, ptr noundef readonly cap
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2244,8 +2238,8 @@ rb_num2int_inline.exit:                           ; preds = %40, %42
 
 60:                                               ; preds = %55
   %61 = call i64 @ossl_membio2str(ptr noundef nonnull %52) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %61
 }
 
@@ -2290,7 +2284,7 @@ define internal i64 @ossl_pkcs7_to_pem(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkcs7_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_pkcs7_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2353,7 +2347,7 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -2395,7 +2389,7 @@ define internal i64 @ossl_pkcs7_to_text(i64 noundef %0) #0 {
   ret i64 %16
 }
 
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_pkcs7si_alloc(i64 noundef %0) #0 {
@@ -2628,101 +2622,101 @@ define internal void @ossl_pkcs7_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @PKCS7_free(ptr noundef) local_unnamed_addr #2
+declare void @PKCS7_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SMIME_read_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SMIME_read_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_iv_set(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_iv_set(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_iv_get(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_iv_get(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
-declare i64 @PKCS7_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @PKCS7_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_s_mem() local_unnamed_addr #2
+declare ptr @BIO_s_mem() local_unnamed_addr #1
 
-declare i32 @SMIME_write_PKCS7(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SMIME_write_PKCS7(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_new() local_unnamed_addr #2
-
-; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
-
-declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
-
-declare ptr @GetX509CertPtr(i64 noundef) local_unnamed_addr #2
-
-declare ptr @GetPrivPKeyPtr(i64 noundef) local_unnamed_addr #2
-
-declare ptr @ossl_protect_x509_ary2sk(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_ary_new() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #3
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @PKCS7_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 
-declare void @X509_free(ptr noundef) #2
+declare ptr @GetX509CertPtr(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @GetPrivPKeyPtr(i64 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_evp_get_cipherbyname(i64 noundef) local_unnamed_addr #2
-
-declare ptr @PKCS7_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @PKCS7_new() local_unnamed_addr #2
+declare ptr @ossl_protect_x509_ary2sk(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #3
+declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
 
-declare void @rb_str_modify(i64 noundef) local_unnamed_addr #2
+declare ptr @PKCS7_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @d2i_PKCS7_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @X509_free(ptr noundef) #1
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: noreturn
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ossl_clear_error() local_unnamed_addr #2
+declare ptr @ossl_evp_get_cipherbyname(i64 noundef) local_unnamed_addr #1
 
-declare ptr @PEM_read_bio_PKCS7(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_set_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PKCS7_new() local_unnamed_addr #1
 
-declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #2
+; Function Attrs: noreturn
+declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
+declare void @rb_str_modify(i64 noundef) local_unnamed_addr #1
+
+declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #1
+
+declare ptr @d2i_PKCS7_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ossl_clear_error() local_unnamed_addr #1
+
+declare ptr @PEM_read_bio_PKCS7(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PKCS7_set_type(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
+
+declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_set_cipher(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_set_cipher(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_add_signer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_add_signer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PKCS7_SIGNER_INFO_free(ptr noundef) local_unnamed_addr #2
+declare void @PKCS7_SIGNER_INFO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_pkcs7_signer_info_free(ptr noundef %0) #0 {
@@ -2730,29 +2724,29 @@ define internal void @ossl_pkcs7_signer_info_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @ASN1_dup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_dup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2d_PKCS7_SIGNER_INFO(ptr noundef, ptr noundef) #2
+declare i32 @i2d_PKCS7_SIGNER_INFO(ptr noundef, ptr noundef) #1
 
-declare ptr @d2i_PKCS7_SIGNER_INFO(ptr noundef, ptr noundef, i64 noundef) #2
+declare ptr @d2i_PKCS7_SIGNER_INFO(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_get_signer_info(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_get_signer_info(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_SIGNER_INFO_new() local_unnamed_addr #2
+declare ptr @PKCS7_SIGNER_INFO_new() local_unnamed_addr #1
 
-declare i32 @PKCS7_add_recipient_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_add_recipient_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PKCS7_RECIP_INFO_free(ptr noundef) local_unnamed_addr #2
+declare void @PKCS7_RECIP_INFO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_pkcs7_recip_info_free(ptr noundef %0) #0 {
@@ -2760,17 +2754,17 @@ define internal void @ossl_pkcs7_recip_info_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @i2d_PKCS7_RECIP_INFO(ptr noundef, ptr noundef) #2
+declare i32 @i2d_PKCS7_RECIP_INFO(ptr noundef, ptr noundef) #1
 
-declare ptr @d2i_PKCS7_RECIP_INFO(ptr noundef, ptr noundef, i64 noundef) #2
+declare ptr @d2i_PKCS7_RECIP_INFO(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare ptr @PKCS7_RECIP_INFO_new() local_unnamed_addr #2
+declare ptr @PKCS7_RECIP_INFO_new() local_unnamed_addr #1
 
-declare i32 @PKCS7_add_certificate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_add_certificate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_pkcs7_set_certs_i(i64 noundef %0, i64 noundef returned %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
@@ -2798,13 +2792,13 @@ ossl_pkcs7_add_certificate.exit:                  ; preds = %9
   ret i64 %1
 }
 
-declare i64 @ossl_x509_sk2ary(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_x509_sk2ary(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetX509CRLPtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509CRLPtr(i64 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_add_crl(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_add_crl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_pkcs7_set_crls_i(i64 noundef %0, i64 noundef returned %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
@@ -2832,63 +2826,69 @@ ossl_pkcs7_add_crl.exit:                          ; preds = %9
   ret i64 %1
 }
 
-declare i64 @ossl_x509crl_sk2ary(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_x509crl_sk2ary(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_content_new(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PKCS7_content_new(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_dataFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_dataFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
-declare i64 @ERR_peek_error() local_unnamed_addr #2
+declare i64 @ERR_peek_error() local_unnamed_addr #1
 
-declare ptr @GetX509StorePtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509StorePtr(i64 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PKCS7_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #2
+declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PKCS7_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PEM_write_bio_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PEM_write_bio_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2d_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2d_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_print_ctx(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_print_ctx(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_evp_get_digestbyname(i64 noundef) local_unnamed_addr #2
+declare ptr @ossl_evp_get_digestbyname(i64 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_SIGNER_INFO_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_SIGNER_INFO_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_x509name_new(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_x509name_new(ptr noundef) local_unnamed_addr #1
 
-declare i64 @asn1integer_to_num(ptr noundef) local_unnamed_addr #2
+declare i64 @asn1integer_to_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_get_signed_attribute(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PKCS7_get_signed_attribute(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @asn1time_to_time(ptr noundef) local_unnamed_addr #2
+declare i64 @asn1time_to_time(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_RECIP_INFO_set(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_RECIP_INFO_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @asn1str_to_str(ptr noundef) local_unnamed_addr #2
+declare i64 @asn1str_to_str(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

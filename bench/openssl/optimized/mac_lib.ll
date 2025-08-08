@@ -56,25 +56,19 @@ define ptr @EVP_MAC_CTX_new(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_MAC_up_ref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_MAC_up_ref(ptr noundef) local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @EVP_MAC_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -98,7 +92,7 @@ define void @EVP_MAC_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_CTX_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -156,13 +150,13 @@ EVP_MAC_CTX_free.exit:                            ; preds = %12
   ret ptr %.0
 }
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MAC_CTX_get0_mac(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EVP_MAC_CTX_get0_mac(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   ret ptr %2
 }
@@ -171,7 +165,7 @@ define ptr @EVP_MAC_CTX_get0_mac(ptr noundef readonly captures(none) %0) local_u
 define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [2 x %struct.ossl_param_st], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
@@ -179,7 +173,7 @@ define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %0) loc
   br i1 %.not.i, label %21, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
@@ -194,7 +188,7 @@ define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %0) loc
   %13 = call i32 %10(ptr noundef %12, ptr noundef nonnull %3) #6
   %.not14.i = icmp eq i32 %13, 0
   %14 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not14.i, label %21, label %get_size_t_ctx_param.exit
 
 15:                                               ; preds = %6
@@ -204,14 +198,14 @@ define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %0) loc
   br i1 %.not12.i, label %.thread.i, label %18
 
 .thread.i:                                        ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 18:                                               ; preds = %15
   %19 = call i32 %17(ptr noundef nonnull %3) #6
   %.not13.i = icmp eq i32 %19, 0
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not13.i, label %21, label %get_size_t_ctx_param.exit
 
 21:                                               ; preds = %18, %.thread.i, %11, %1
@@ -219,7 +213,7 @@ define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %0) loc
 
 get_size_t_ctx_param.exit:                        ; preds = %11, %18, %21
   %.1.i = phi i64 [ 0, %21 ], [ %20, %18 ], [ %14, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.1.i
 }
 
@@ -227,7 +221,7 @@ get_size_t_ctx_param.exit:                        ; preds = %11, %18, %21
 define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [2 x %struct.ossl_param_st], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
@@ -235,7 +229,7 @@ define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %0) l
   br i1 %.not.i, label %21, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
@@ -250,7 +244,7 @@ define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %0) l
   %13 = call i32 %10(ptr noundef %12, ptr noundef nonnull %3) #6
   %.not14.i = icmp eq i32 %13, 0
   %14 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not14.i, label %21, label %get_size_t_ctx_param.exit
 
 15:                                               ; preds = %6
@@ -260,14 +254,14 @@ define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %0) l
   br i1 %.not12.i, label %.thread.i, label %18
 
 .thread.i:                                        ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 18:                                               ; preds = %15
   %19 = call i32 %17(ptr noundef nonnull %3) #6
   %.not13.i = icmp eq i32 %19, 0
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not13.i, label %21, label %get_size_t_ctx_param.exit
 
 21:                                               ; preds = %18, %.thread.i, %11, %1
@@ -275,7 +269,7 @@ define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %0) l
 
 get_size_t_ctx_param.exit:                        ; preds = %11, %18, %21
   %.1.i = phi i64 [ 0, %21 ], [ %20, %18 ], [ %14, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.1.i
 }
 
@@ -366,8 +360,8 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
   %10 = alloca [2 x %struct.ossl_param_st], align 16
   %11 = alloca %struct.ossl_param_st, align 8
   store i32 %1, ptr %8, align 4, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = icmp eq ptr %0, null
   br i1 %12, label %16, label %13
 
@@ -395,7 +389,7 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
   br label %66
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !16
@@ -403,7 +397,7 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
   br i1 %.not.i.i, label %40, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.1, ptr noundef nonnull %6) #6
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false)
@@ -418,7 +412,7 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
   %32 = call i32 %29(ptr noundef %31, ptr noundef nonnull %7) #6
   %.not14.i.i = icmp eq i32 %32, 0
   %33 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not14.i.i, label %40, label %EVP_MAC_CTX_get_mac_size.exit
 
 34:                                               ; preds = %25
@@ -428,14 +422,14 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
   br i1 %.not12.i.i, label %.thread.i.i, label %37
 
 .thread.i.i:                                      ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %40
 
 37:                                               ; preds = %34
   %38 = call i32 %36(ptr noundef nonnull %7) #6
   %.not13.i.i = icmp eq i32 %38, 0
   %39 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not13.i.i, label %40, label %EVP_MAC_CTX_get_mac_size.exit
 
 40:                                               ; preds = %37, %.thread.i.i, %30, %22
@@ -443,7 +437,7 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
 
 EVP_MAC_CTX_get_mac_size.exit:                    ; preds = %30, %37, %40
   %.1.i.i = phi i64 [ 0, %40 ], [ %39, %37 ], [ %33, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %41 = icmp eq ptr %2, null
   br i1 %41, label %42, label %46
 
@@ -478,10 +472,10 @@ EVP_MAC_CTX_get_mac_size.exit:                    ; preds = %30, %37, %40
 50:                                               ; preds = %49
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #6
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !37
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %52 = load ptr, ptr %0, align 8, !tbaa !3
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
   %54 = load ptr, ptr %53, align 8, !tbaa !39
@@ -516,8 +510,8 @@ EVP_MAC_CTX_set_params.exit.thread:               ; preds = %50, %EVP_MAC_CTX_se
 
 66:                                               ; preds = %EVP_MAC_CTX_set_params.exit.thread, %64, %58, %48, %45, %44, %21, %16
   %.0 = phi i32 [ 0, %16 ], [ 0, %21 ], [ 0, %44 ], [ 1, %45 ], [ 0, %48 ], [ 0, %58 ], [ %63, %64 ], [ %63, %EVP_MAC_CTX_set_params.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -582,21 +576,21 @@ define i32 @EVP_MAC_CTX_set_params(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_mac_get_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @evp_mac_get_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !40
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MAC_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EVP_MAC_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MAC_get0_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EVP_MAC_get0_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   ret ptr %3
@@ -621,7 +615,7 @@ define range(i32 0, 2) i32 @EVP_MAC_is_a(ptr noundef readonly captures(address_i
   ret i32 %11
 }
 
-declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_MAC_names_do_all(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -640,16 +634,16 @@ define i32 @EVP_MAC_names_do_all(ptr noundef readonly captures(none) %0, ptr nou
   ret i32 %.0
 }
 
-declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_Q_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #0 {
   %13 = alloca [2 x %struct.ossl_param_st], align 16
   %14 = alloca i64, align 8
   %15 = tail call ptr @EVP_MAC_fetch(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %13, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !tbaa !22
   %.not92 = icmp eq ptr %11, null
   br i1 %.not92, label %17, label %16
@@ -812,34 +806,40 @@ EVP_MAC_CTX_free.exit:                            ; preds = %28, %27, %.thread82
 
 74:                                               ; preds = %17, %EVP_MAC_CTX_free.exit
   %.047 = phi ptr [ %.04991, %EVP_MAC_CTX_free.exit ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.047
 }
 
-declare ptr @EVP_MAC_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MAC_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @EVP_MAC_settable_ctx_params(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MAC_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #2
+declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

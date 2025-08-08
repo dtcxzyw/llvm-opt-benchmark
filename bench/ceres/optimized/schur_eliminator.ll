@@ -673,13 +673,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond120, label %61, label %63
 
 61:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.43") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %62 = load ptr, ptr %6, align 8, !tbaa !41
   store ptr null, ptr %6, align 8, !tbaa !41
   store ptr %62, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %130
 
 63:                                               ; preds = %60
@@ -688,13 +688,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond126, label %65, label %67
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.51") align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %66 = load ptr, ptr %7, align 8, !tbaa !43
   store ptr null, ptr %7, align 8, !tbaa !43
   store ptr %66, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %130
 
 67:                                               ; preds = %63
@@ -703,26 +703,26 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond132, label %69, label %71
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.59") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %70 = load ptr, ptr %8, align 8, !tbaa !45
   store ptr null, ptr %8, align 8, !tbaa !45
   store ptr %70, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %130
 
 71:                                               ; preds = %67
   br i1 %or.cond111, label %72, label %74
 
 72:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.67") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %73 = load ptr, ptr %9, align 8, !tbaa !47
   store ptr null, ptr %9, align 8, !tbaa !47
   store ptr %73, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %130
 
 74:                                               ; preds = %71
@@ -732,13 +732,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond141, label %76, label %78
 
 76:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.75") align 8 %10, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %77 = load ptr, ptr %10, align 8, !tbaa !49
   store ptr null, ptr %10, align 8, !tbaa !49
   store ptr %77, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %130
 
 78:                                               ; preds = %74
@@ -746,13 +746,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond147, label %79, label %81
 
 79:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.83") align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %80 = load ptr, ptr %11, align 8, !tbaa !51
   store ptr null, ptr %11, align 8, !tbaa !51
   store ptr %80, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %130
 
 81:                                               ; preds = %78
@@ -760,13 +760,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond153, label %82, label %84
 
 82:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.91") align 8 %12, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %83 = load ptr, ptr %12, align 8, !tbaa !53
   store ptr null, ptr %12, align 8, !tbaa !53
   store ptr %83, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %130
 
 84:                                               ; preds = %81
@@ -775,13 +775,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond159, label %86, label %88
 
 86:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.99") align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %87 = load ptr, ptr %13, align 8, !tbaa !55
   store ptr null, ptr %13, align 8, !tbaa !55
   store ptr %87, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %130
 
 88:                                               ; preds = %84
@@ -789,26 +789,26 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond165, label %89, label %91
 
 89:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.107") align 8 %14, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %90 = load ptr, ptr %14, align 8, !tbaa !57
   store ptr null, ptr %14, align 8, !tbaa !57
   store ptr %90, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %130
 
 91:                                               ; preds = %88
   br i1 %or.cond138, label %92, label %94
 
 92:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.115") align 8 %15, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %93 = load ptr, ptr %15, align 8, !tbaa !59
   store ptr null, ptr %15, align 8, !tbaa !59
   store ptr %93, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %130
 
 94:                                               ; preds = %91
@@ -818,13 +818,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   ]
 
 95:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.123") align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %96 = load ptr, ptr %16, align 8, !tbaa !61
   store ptr null, ptr %16, align 8, !tbaa !61
   store ptr %96, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %130
 
 97:                                               ; preds = %94
@@ -832,13 +832,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond171, label %98, label %.thread225
 
 98:                                               ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.131") align 8 %17, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %99 = load ptr, ptr %17, align 8, !tbaa !63
   store ptr null, ptr %17, align 8, !tbaa !63
   store ptr %99, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %130
 
 100:                                              ; preds = %94
@@ -848,13 +848,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond177, label %102, label %.thread
 
 102:                                              ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.139") align 8 %18, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %103 = load ptr, ptr %18, align 8, !tbaa !65
   store ptr null, ptr %18, align 8, !tbaa !65
   store ptr %103, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %130
 
 .thread:                                          ; preds = %100
@@ -862,13 +862,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond183, label %104, label %106
 
 104:                                              ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.147") align 8 %19, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %105 = load ptr, ptr %19, align 8, !tbaa !67
   store ptr null, ptr %19, align 8, !tbaa !67
   store ptr %105, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %130
 
 106:                                              ; preds = %.thread
@@ -876,26 +876,26 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   br i1 %or.cond189, label %107, label %109
 
 107:                                              ; preds = %106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.155") align 8 %20, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %108 = load ptr, ptr %20, align 8, !tbaa !69
   store ptr null, ptr %20, align 8, !tbaa !69
   store ptr %108, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %130
 
 109:                                              ; preds = %106
   br i1 %or.cond174, label %110, label %.thread225
 
 110:                                              ; preds = %109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.163") align 8 %21, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %111 = load ptr, ptr %21, align 8, !tbaa !71
   store ptr null, ptr %21, align 8, !tbaa !71
   store ptr %111, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %130
 
 .thread225:                                       ; preds = %97, %109
@@ -908,7 +908,7 @@ _ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit: ; preds = %.thre
   br i1 %114, label %115, label %.critedge193
 
 115:                                              ; preds = %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN4absl12lts_2024011612log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str, i32 noundef 138) #23
   %116 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 1)
           to label %117 unwind label %128
@@ -919,71 +919,65 @@ _ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit: ; preds = %.thre
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; preds = %117
   %118 = load i32, ptr %24, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %118, ptr %5, align 4, !tbaa !74
   %119 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %120 unwind label %128
 
 120:                                              ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN4absl12lts_2024011612log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %119, i64 1, ptr nonnull @.str.5)
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit unwind label %128
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; preds = %120
   %121 = load i32, ptr %27, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %121, ptr %4, align 4, !tbaa !74
   %122 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %123 unwind label %128
 
 123:                                              ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN4absl12lts_2024011612log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %122, i64 1, ptr nonnull @.str.5)
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit200 unwind label %128
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit200: ; preds = %123
   %124 = load i32, ptr %30, align 4, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %124, ptr %3, align 4, !tbaa !74
   %125 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %126 unwind label %128
 
 126:                                              ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit200
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %125, i64 1, ptr nonnull @.str.6)
           to label %.critedge unwind label %128
 
 .critedge:                                        ; preds = %126
   call void @_ZN4absl12lts_2024011612log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge193
 
 .critedge193:                                     ; preds = %.thread225, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit, %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.181") align 8 %23, ptr noundef nonnull align 8 dereferenceable(128) %1)
   %127 = load ptr, ptr %23, align 8, !tbaa !77
   store ptr null, ptr %23, align 8, !tbaa !77
   store ptr %127, ptr %0, align 8, !tbaa !26
   call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %130
 
 128:                                              ; preds = %126, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit200, %123, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %120, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit, %117, %115
   %129 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024011612log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %common.resume
 
 130:                                              ; preds = %.critedge193, %110, %107, %104, %102, %98, %95, %92, %89, %86, %82, %79, %76, %72, %69, %65, %61, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEESt14default_deleteIS3_EED2Ev.exit
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.43") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
@@ -1600,7 +1594,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -1611,7 +1605,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -1894,7 +1888,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -1905,7 +1899,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -2056,7 +2050,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -2067,7 +2061,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -2218,7 +2212,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -2229,7 +2223,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -2380,7 +2374,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -2391,7 +2385,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -2542,7 +2536,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -2553,7 +2547,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -2704,7 +2698,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -2715,7 +2709,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -2866,7 +2860,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -2877,7 +2871,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -3028,7 +3022,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -3039,7 +3033,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -3190,7 +3184,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -3201,7 +3195,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -3352,7 +3346,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -3363,7 +3357,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -3514,7 +3508,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -3525,7 +3519,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -3676,7 +3670,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -3687,7 +3681,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -3838,7 +3832,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -3849,7 +3843,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4000,7 +3994,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4011,7 +4005,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4162,7 +4156,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELi
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4173,7 +4167,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELi
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4324,7 +4318,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4335,7 +4329,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4486,7 +4480,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4497,7 +4491,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4648,7 +4642,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4659,7 +4653,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4810,7 +4804,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4821,7 +4815,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -4972,7 +4966,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -4983,7 +4977,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -5136,7 +5130,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1EL
   br i1 %.not, label %15, label %.critedge, !prof !104
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i32 noundef 232, i64 19, ptr nonnull @.str.9) #23
           to label %16 unwind label %17
 
@@ -5147,7 +5141,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1EL
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %14, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %20
@@ -5284,6 +5278,12 @@ define internal void @_GLOBAL__sub_I_schur_eliminator.cc() #18 section ".text.st
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

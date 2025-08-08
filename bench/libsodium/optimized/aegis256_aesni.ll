@@ -11,8 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) #0 {
   %10 = alloca [16 x i8], align 16
   %.sroa.0 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %.val = load <2 x i64>, ptr %8, align 1
   %11 = getelementptr i8, ptr %8, i64 16
   %.val44 = load <2 x i64>, ptr %11, align 1
@@ -297,8 +297,8 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
 
 aegis256_mac.exit:                                ; preds = %147, %153, %159
   %.032.i = phi i32 [ -1, %159 ], [ 0, %153 ], [ 0, %147 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.032.i
 }
 
@@ -309,9 +309,9 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   %12 = alloca [16 x i8], align 16
   %13 = alloca [16 x i8], align 16
   %14 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.val = load <2 x i64>, ptr %8, align 1
   %15 = getelementptr i8, ptr %8, i64 16
   %.val69 = load <2 x i64>, ptr %15, align 1
@@ -561,7 +561,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
 132:                                              ; preds = %.loopexit
   %133 = getelementptr i8, ptr %0, i64 %.3
   %134 = getelementptr i8, ptr %1, i64 %.3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   %135 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %134, i64 noundef range(i64 1, 16) %130, i64 noundef 16) #8, !alias.scope !26
   %136 = load <2 x i64>, ptr %11, align 16
@@ -583,12 +583,12 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %149 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.0.4, <2 x i64> %.sroa.19.4)
   %150 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.105.4, <2 x i64> %.sroa.0.4)
   %151 = xor <2 x i64> %150, %144
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %171
 
 .thread:                                          ; preds = %.loopexit.thread
   %152 = getelementptr i8, ptr %1, i64 %.4.lcssa
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   %153 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %152, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !30
   %154 = load <2 x i64>, ptr %10, align 16
@@ -610,7 +610,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %168 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.0.5.lcssa, <2 x i64> %.sroa.19.5.lcssa)
   %169 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.105.5.lcssa, <2 x i64> %.sroa.0.5.lcssa)
   %170 = xor <2 x i64> %169, %163
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %171
 
 171:                                              ; preds = %.loopexit.thread, %132, %.thread, %.loopexit
@@ -688,30 +688,30 @@ aegis256_mac.exit:                                ; preds = %190
   br label %209
 
 209:                                              ; preds = %208, %206
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #3
+declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #2
 
 ; Function Attrs: nocallback nofree nounwind memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @crypto_verify_32(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @crypto_verify_32(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
@@ -721,10 +721,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 attributes #0 = { nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

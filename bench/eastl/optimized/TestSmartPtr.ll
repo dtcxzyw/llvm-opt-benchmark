@@ -821,18 +821,18 @@ entry:
   %pT9616.i = alloca %"class.eastl::unique_ptr.26", align 8
   %nErrorCount = alloca i32, align 4
   store i32 0, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uptr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uptr262.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT2291.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT3389.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pRelease457.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT4487.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT5536.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT6544.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT7574.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT8606.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT9616.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uptr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uptr262.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2291.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3389.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pRelease457.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT4487.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT5536.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT6544.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT7574.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT8606.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT9616.i)
   store i32 0, ptr %nErrorCount.i, align 4
   %0 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -2333,22 +2333,22 @@ common.resume:                                    ; preds = %for.cond.i.i.i233.i
 _ZL15Test_unique_ptrv.exit:                       ; preds = %invoke.cont775.i
   call void @_ZdaPv(ptr noundef nonnull %ptr713.sroa.0.2.i) #17
   %137 = load i32, ptr %nErrorCount.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %uptr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %uptr262.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT2291.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT3389.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pRelease457.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT4487.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT5536.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT6544.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT7574.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT8606.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT9616.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uptr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uptr262.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2291.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3389.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pRelease457.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT4487.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT5536.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT6544.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT7574.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT8606.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT9616.i)
   %138 = load i32, ptr %nErrorCount, align 4
   %add = add nsw i32 %138, %137
   store i32 %add, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i1)
   store i32 0, ptr %nErrorCount.i1, align 4
   %139 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %cmp.i2 = icmp eq i32 %139, 0
@@ -2535,12 +2535,12 @@ _ZL15Test_scoped_ptrv.exit:                       ; preds = %if.end161.i
   %cmp178.i = icmp eq i32 %160, 0
   %call179.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp178.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i1, ptr noundef nonnull @.str, i32 noundef 933, ptr noundef nonnull @.str.3)
   %161 = load i32, ptr %nErrorCount.i1, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i1)
   %add2 = add nsw i32 %add, %161
   store i32 %add2, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i27)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pT3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3.i)
   store i32 0, ptr %nErrorCount.i27, align 4
   %call.i28 = call noalias noundef nonnull dereferenceable(20) ptr @_Znam(i64 noundef 20) #15
   store i32 5, ptr %call.i28, align 4
@@ -2851,14 +2851,14 @@ _ZL17Test_scoped_arrayv.exit:                     ; preds = %delete.notnull.i, %
   %cmp165.i = icmp eq i32 %184, 0
   %call166.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp165.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i27, ptr noundef nonnull @.str, i32 noundef 995, ptr noundef nonnull @.str.3)
   %185 = load i32, ptr %nErrorCount.i27, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pT3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3.i)
   %186 = load i32, ptr %nErrorCount, align 4
   %add4 = add nsw i32 %186, %185
   %call5 = call fastcc noundef i32 @_ZL15Test_shared_ptrv()
   %add6 = add nsw i32 %add4, %call5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i51)
   store i32 0, ptr %nErrorCount.i51, align 4
   %187 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %cmp.i52 = icmp eq i32 %187, 0
@@ -2874,25 +2874,25 @@ _ZL17Test_scoped_arrayv.exit:                     ; preds = %delete.notnull.i, %
   store i64 0, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   %188 = load i32, ptr %nErrorCount.i51, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i51)
   %add8 = add nsw i32 %add6, %188
   store i32 %add8, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i54)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pS0.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pS1.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pShared2.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pShared3.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pFoo.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qFoo.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pFoo195.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp209.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp212.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pFoo226.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp235.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp241.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp244.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pS0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pS1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pShared2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pShared3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pFoo.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %qFoo.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pFoo195.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp209.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp212.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pFoo226.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp235.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp241.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp244.i)
   store i32 0, ptr %nErrorCount.i54, align 4
   %call.i55 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #15
   store i32 0, ptr %call.i55, align 4
@@ -5025,32 +5025,32 @@ _ZN5eastl8weak_ptrIN12SmartPtrTest3fooEED2Ev.exit938.i: ; preds = %if.then.i.i93
 
 _ZL13Test_weak_ptrv.exit:                         ; preds = %_ZN5eastl8weak_ptrIN12SmartPtrTest3fooEED2Ev.exit.i, %if.end.i.i858.i, %if.then.i.i.i862.i
   %468 = load i32, ptr %nErrorCount.i54, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i54)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pS0.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pS1.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pShared2.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pShared3.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pFoo.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qFoo.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pFoo195.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp209.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp212.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pFoo226.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp235.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp241.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp244.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pS0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pS1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pShared2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pShared3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pFoo.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %qFoo.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pFoo195.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp209.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp212.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pFoo226.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp235.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp241.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp244.i)
   %469 = load i32, ptr %nErrorCount, align 4
   %add10 = add nsw i32 %469, %468
   store i32 %add10, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i94)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT1.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2.i95)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2105.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT3.i96)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT4.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2.i95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2105.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3.i96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT5.i)
   store i32 0, ptr %nErrorCount.i94, align 4
   %call.i97 = call noalias noundef nonnull dereferenceable(20) ptr @_Znam(i64 noundef 20) #15
   store ptr %call.i97, ptr %pT1.i, align 8
@@ -5940,35 +5940,35 @@ _ZL17Test_shared_arrayv.exit:                     ; preds = %_ZN5eastl12shared_a
   %cmp358.i160 = icmp eq i32 %557, 0
   %call359.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp358.i160, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i94, ptr noundef nonnull @.str, i32 noundef 1740, ptr noundef nonnull @.str.3)
   %558 = load i32, ptr %nErrorCount.i94, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i94)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2.i95)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2105.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT3.i96)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT4.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2.i95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2105.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3.i96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT5.i)
   %559 = load i32, ptr %nErrorCount, align 4
   %add12 = add nsw i32 %559, %558
   store i32 %add12, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i171)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT1.i172)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2.i173)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2102.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT3.i174)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT4.i175)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT5.i176)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i177)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2279.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT3284.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pDMO.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %a1.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %a2.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2308.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT3309.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT4319.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT5321.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT6.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT1.i172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2.i173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2102.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3.i174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT4.i175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT5.i176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2279.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3284.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pDMO.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2308.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3309.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT4319.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT5321.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT7.i)
   store i32 0, ptr %nErrorCount.i171, align 4
   %call.i178 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #15
   store i32 5, ptr %call.i178, align 4
@@ -7615,31 +7615,31 @@ if.else.i.i.i760.i:                               ; preds = %if.then.i.i.i757.i
 
 _ZL15Test_linked_ptrv.exit:                       ; preds = %_ZN5eastl10linked_ptrIN12SmartPtrTest1AENS_17smart_ptr_deleterIS2_EEED2Ev.exit592.i, %delete.notnull.i.i.i.i601.i, %if.else.i.i.i598.i
   %783 = load i32, ptr %nErrorCount.i171, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i171)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT1.i172)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2.i173)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2102.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT3.i174)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT4.i175)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT5.i176)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i177)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2279.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT3284.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pDMO.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %a1.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %a2.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2308.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT3309.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT4319.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT5321.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT6.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT1.i172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2.i173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2102.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3.i174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT4.i175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT5.i176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2279.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3284.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pDMO.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2308.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3309.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT4319.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT5321.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT7.i)
   %784 = load i32, ptr %nErrorCount, align 4
   %add14 = add nsw i32 %784, %783
   store i32 %add14, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i270)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT2.i271)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pT3.i272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT2.i271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pT3.i272)
   store i32 0, ptr %nErrorCount.i270, align 4
   %call.i273 = call noalias noundef nonnull dereferenceable(40) ptr @_Znam(i64 noundef 40) #15
   store i64 2, ptr %call.i273, align 16
@@ -7869,13 +7869,13 @@ _ZL17Test_linked_arrayv.exit:                     ; preds = %_ZN5eastl12linked_a
   %cmp.i306 = icmp eq i32 %804, 0
   %call7.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i306, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i270, ptr noundef nonnull @.str, i32 noundef 1895, ptr noundef nonnull @.str.3)
   %805 = load i32, ptr %nErrorCount.i270, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i270)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT2.i271)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pT3.i272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT2.i271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pT3.i272)
   %add16 = add nsw i32 %add14, %805
   store i32 %add16, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i322)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %boolArray.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i322)
+  call void @llvm.lifetime.start.p0(ptr nonnull %boolArray.i)
   store i32 0, ptr %nErrorCount.i322, align 4
   %call.i323 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i64 16), ptr %call.i323, align 8
@@ -8822,18 +8822,18 @@ _ZL18Test_intrusive_ptrv.exit:                    ; preds = %land.end656.i
   %934 = select i1 %cmp681.i, i1 %cmp683.i, i1 false
   %call685.i408 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %934, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i322, ptr noundef nonnull @.str, i32 noundef 2118, ptr noundef nonnull @.str.229)
   %935 = load i32, ptr %nErrorCount.i322, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i322)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %boolArray.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i322)
+  call void @llvm.lifetime.end.p0(ptr nonnull %boolArray.i)
   %936 = load i32, ptr %nErrorCount, align 4
   %add18 = add nsw i32 %936, %935
   store i32 %add18, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i411)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSafePtr.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSafePtrCopy1.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSafePtrCopy2.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSafePtr51.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSafePtrCopy152.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pSafePtrCopy255.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i411)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pSafePtr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pSafePtrCopy1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pSafePtrCopy2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pSafePtr51.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pSafePtrCopy152.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pSafePtrCopy255.i)
   store i32 0, ptr %nErrorCount.i411, align 4
   %call.i412 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr %call.i412, ptr %pSafePtr.i, align 8
@@ -9530,13 +9530,13 @@ if.then8.i.i.i288.i:                              ; preds = %for.body.i.i.i286.i
 
 _ZL13Test_safe_ptrv.exit:                         ; preds = %for.cond.i.i.i185.i, %_ZN5eastl8safe_ptrIK20RandomLifetimeObjectED2Ev.exit181.i, %if.then.i.i.i195.i, %if.then8.i.i.i192.i
   %1015 = load i32, ptr %nErrorCount.i411, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i411)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pSafePtr.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pSafePtrCopy1.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pSafePtrCopy2.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pSafePtr51.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pSafePtrCopy152.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pSafePtrCopy255.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i411)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pSafePtr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pSafePtrCopy1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pSafePtrCopy2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pSafePtr51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pSafePtrCopy152.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pSafePtrCopy255.i)
   %add20 = add nsw i32 %add18, %1015
   store i32 %add20, ptr %nErrorCount, align 4
   %1016 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
@@ -15054,10 +15054,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

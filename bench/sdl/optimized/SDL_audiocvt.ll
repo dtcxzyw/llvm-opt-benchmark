@@ -61,12 +61,6 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsBogus(ptr noundef readonly cap
   ret i1 %.3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @SDL_ChannelMapIsDefault(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
@@ -95,7 +89,7 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsDefault(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, float noundef %10) local_unnamed_addr #2 {
+define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, float noundef %10) local_unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %73, label %12
 
@@ -276,10 +270,10 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   ret void
 }
 
-declare zeroext i1 @SDL_AudioChannelMapsEqual(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_AudioChannelMapsEqual(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -921,14 +915,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @ConvertAudioSwapEndian(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ConvertAudioSwapEndian(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ConvertAudioToFloat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ConvertAudioToFloat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -953,7 +947,7 @@ define internal void @SDL_ConvertStereoToMono(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not15 = icmp eq i32 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
 
@@ -984,10 +978,10 @@ define internal void @SDL_ConvertMonoToStereo(ptr noundef writeonly captures(non
   ret void
 }
 
-declare void @ConvertAudioFromFloat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ConvertAudioFromFloat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @SDL_CreateAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
+define hidden noundef ptr @SDL_CreateAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 {
   tail call void @SDL_ChooseAudioConverters() #11
   tail call void @SDL_SetupAudioResampler() #11
   %3 = tail call noalias dereferenceable_or_null(232) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 232) #12
@@ -1035,23 +1029,23 @@ define hidden noundef ptr @SDL_CreateAudioStream_REAL(ptr noundef readonly captu
   ret ptr %.0
 }
 
-declare void @SDL_ChooseAudioConverters() local_unnamed_addr #3
+declare void @SDL_ChooseAudioConverters() local_unnamed_addr #2
 
-declare void @SDL_SetupAudioResampler() local_unnamed_addr #3
+declare void @SDL_SetupAudioResampler() local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @SDL_CreateAudioQueue(i64 noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateAudioQueue(i64 noundef) local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #3
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
 
-declare void @OnAudioStreamCreated(ptr noundef) local_unnamed_addr #3
+declare void @OnAudioStreamCreated(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamFormat_REAL(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamFormat_REAL(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1219,7 +1213,7 @@ SDL_IsSupportedAudioFormat.exit43:                ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SDL_DestroyAudioStream_REAL(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @SDL_DestroyAudioStream_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -1265,7 +1259,7 @@ define hidden void @SDL_DestroyAudioStream_REAL(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetAudioStreamProperties_REAL(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden i32 @SDL_GetAudioStreamProperties_REAL(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -1297,16 +1291,16 @@ define hidden i32 @SDL_GetAudioStreamProperties_REAL(ptr noundef captures(addres
   ret i32 %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #3
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1331,7 +1325,7 @@ define hidden zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1356,7 +1350,7 @@ define hidden zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_LockAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_LockAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -1375,7 +1369,7 @@ define hidden zeroext i1 @SDL_LockAudioStream_REAL(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_UnlockAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_UnlockAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -1394,7 +1388,7 @@ define hidden zeroext i1 @SDL_UnlockAudioStream_REAL(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_GetAudioStreamFormat_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_GetAudioStreamFormat_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1454,7 +1448,7 @@ define hidden zeroext i1 @SDL_GetAudioStreamFormat_REAL(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SetAudioStreamChannelMap(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) local_unnamed_addr #2 {
+define hidden zeroext i1 @SetAudioStreamChannelMap(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %9
 
@@ -1564,12 +1558,12 @@ SDL_ChannelMapIsDefault.exit:                     ; preds = %.lr.ph.i
   ret i1 %.0
 }
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @SDL_ChannelMapDup(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_ChannelMapDup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamInputChannelMap_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamInputChannelMap_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = tail call zeroext i1 @SetAudioStreamChannelMap(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2, i32 poison)
@@ -1577,7 +1571,7 @@ define hidden zeroext i1 @SDL_SetAudioStreamInputChannelMap_REAL(ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamOutputChannelMap_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamOutputChannelMap_REAL(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = tail call zeroext i1 @SetAudioStreamChannelMap(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2, i32 poison)
@@ -1585,7 +1579,7 @@ define hidden zeroext i1 @SDL_SetAudioStreamOutputChannelMap_REAL(ptr noundef ca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SDL_GetAudioStreamInputChannelMap_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden ptr @SDL_GetAudioStreamInputChannelMap_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -1616,7 +1610,7 @@ define hidden ptr @SDL_GetAudioStreamInputChannelMap_REAL(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SDL_GetAudioStreamOutputChannelMap_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden ptr @SDL_GetAudioStreamOutputChannelMap_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -1647,7 +1641,7 @@ define hidden ptr @SDL_GetAudioStreamOutputChannelMap_REAL(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @SDL_GetAudioStreamFrequencyRatio_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden float @SDL_GetAudioStreamFrequencyRatio_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -1670,7 +1664,7 @@ define hidden float @SDL_GetAudioStreamFrequencyRatio_REAL(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamFrequencyRatio_REAL(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamFrequencyRatio_REAL(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %5
 
@@ -1709,7 +1703,7 @@ define hidden zeroext i1 @SDL_SetAudioStreamFrequencyRatio_REAL(ptr noundef capt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @SDL_GetAudioStreamGain_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden float @SDL_GetAudioStreamGain_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -1732,7 +1726,7 @@ define hidden float @SDL_GetAudioStreamGain_REAL(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SetAudioStreamGain_REAL(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_SetAudioStreamGain_REAL(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %5
 
@@ -1763,7 +1757,7 @@ define hidden zeroext i1 @SDL_SetAudioStreamGain_REAL(ptr noundef captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1819,10 +1813,10 @@ define hidden zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef %0, ptr nounde
   ret i1 %.0
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @PutAudioStreamBuffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc zeroext i1 @PutAudioStreamBuffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1881,13 +1875,13 @@ CheckAudioStreamIsFullySetup.exit.thread:         ; preds = %CheckAudioStreamIsF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @FreeAllocatedAudioBuffer(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #2 {
+define internal void @FreeAllocatedAudioBuffer(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #1 {
   tail call void @SDL_free_REAL(ptr noundef %1) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [16 x ptr], align 16
   %6 = alloca %struct.SDL_AudioSpec, align 4
   %7 = alloca [8 x i32], align 16
@@ -1920,8 +1914,8 @@ define hidden zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef %0, ptr 
   br i1 %19, label %134, label %20
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %21) #11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1982,7 +1976,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   %49 = and i32 %48, 31
   %50 = mul i32 %.pre, %3
   %51 = mul i32 %50, %49
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %52 = icmp sgt i32 %51, 1024
   br i1 %52, label %53, label %56
 
@@ -1995,7 +1989,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 56:                                               ; preds = %53, %46
   %.031 = phi ptr [ %8, %46 ], [ %55, %53 ]
   %.0 = phi ptr [ null, %46 ], [ @FreeAllocatedAudioBuffer, %53 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = icmp sgt i32 %2, -1
   %58 = icmp slt i32 %2, %.pre
   %or.cond.i = select i1 %57, i1 %58, i1 false
@@ -2277,7 +2271,7 @@ InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i: ; preds = %._crit_ed
   br label %InterleaveAudioChannels.exit
 
 InterleaveAudioChannels.exit:                     ; preds = %._crit_edge.us.i115.i, %._crit_edge.us.i102.i, %._crit_edge.us.i91.i, %._crit_edge.us.i82.i, %._crit_edge.us.i68.i, %._crit_edge.us.i.i, %71, %83, %95, %107, %114, %121, %InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %129) #11
   %130 = call fastcc zeroext i1 @PutAudioStreamBufferInternal(ptr noundef %0, ptr noundef %6, ptr noundef %.033, ptr noundef %.031, i32 noundef %51, ptr noundef %.0)
@@ -2287,13 +2281,13 @@ InterleaveAudioChannels.exit:                     ; preds = %._crit_edge.us.i115
 
 132:                                              ; preds = %53, %InterleaveAudioChannels.exit
   %.2 = phi i1 [ %130, %InterleaveAudioChannels.exit ], [ false, %53 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %133
 
 133:                                              ; preds = %132, %39, %30
   %.1 = phi i1 [ %45, %39 ], [ %.2, %132 ], [ false, %30 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %134
 
 134:                                              ; preds = %18, %133, %16, %12, %9
@@ -2302,7 +2296,7 @@ InterleaveAudioChannels.exit:                     ; preds = %._crit_edge.us.i115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @PutAudioStreamBufferInternal(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @PutAudioStreamBufferInternal(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %7
 
@@ -2361,7 +2355,7 @@ define internal fastcc noundef zeroext i1 @PutAudioStreamBufferInternal(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_FlushAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_FlushAudioStream_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -2384,10 +2378,10 @@ define hidden zeroext i1 @SDL_FlushAudioStream_REAL(ptr noundef readonly capture
   ret i1 %.0
 }
 
-declare void @SDL_FlushAudioQueue(ptr noundef) local_unnamed_addr #3
+declare void @SDL_FlushAudioQueue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetAudioStreamDataAdjustGain(ptr noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden i32 @SDL_GetAudioStreamDataAdjustGain(ptr noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -2472,12 +2466,12 @@ CheckAudioStreamIsFullySetup.exit.thread:         ; preds = %CheckAudioStreamIsF
 
 50:                                               ; preds = %CheckAudioStreamIsFullySetup.exit.thread
   %51 = sext i32 %46 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @SDL_BeginAudioQueueIter(ptr noundef %53) #11
   store ptr %54, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %8, align 8
@@ -2502,8 +2496,8 @@ thread-pre-split.i:                               ; preds = %.lr.ph.i
 GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i, %50, %._crit_edge.i
   %.1.i = phi i64 [ 2147483647, %._crit_edge.i ], [ 0, %50 ], [ %58, %thread-pre-split.i ]
   %60 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %61 = call i64 @llvm.smin.i64(i64 %.1.i, i64 %51)
   %62 = sub nsw i64 %51, %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2573,10 +2567,10 @@ GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i,
 
 109:                                              ; preds = %.lr.ph, %235
   %.078149 = phi i32 [ 0, %.lr.ph ], [ %.2, %235 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %110 = load ptr, ptr %95, align 8
   %111 = call ptr @SDL_BeginAudioQueueIter(ptr noundef %110) #11
   store ptr %111, ptr %5, align 8
@@ -2584,16 +2578,16 @@ GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i,
   br i1 %.not.i95, label %.thread157, label %GetAudioStreamHead.exit
 
 .thread157:                                       ; preds = %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread123
 
 GetAudioStreamHead.exit:                          ; preds = %109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %112 = load i64, ptr %96, align 8
   store i64 %112, ptr %6, align 8
   %113 = call fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly %0, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %115, label %119
 
@@ -2838,16 +2832,16 @@ GetAudioStreamDataInternal.exit:                  ; preds = %214
 
 .thread123:                                       ; preds = %115, %.thread157, %.thread123.loopexit.split.loop.exit141, %.thread123.loopexit.split.loop.exit143, %UpdateAudioStreamInputSpec.exit, %.thread
   %.2.ph = phi i32 [ %227, %.thread ], [ %134, %UpdateAudioStreamInputSpec.exit ], [ %233, %.thread123.loopexit.split.loop.exit141 ], [ %234, %.thread123.loopexit.split.loop.exit143 ], [ %.078149, %.thread157 ], [ %.078149, %115 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 235:                                              ; preds = %231, %.thread128, %117
   %.2 = phi i32 [ %.078149, %117 ], [ %229, %.thread128 ], [ %232, %231 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %236 = icmp slt i32 %.2, %47
   br i1 %236, label %109, label %.loopexit
 
@@ -2862,21 +2856,21 @@ GetAudioStreamDataInternal.exit:                  ; preds = %214
   ret i32 %.0
 }
 
-declare i64 @SDL_GetResamplerInputFrames(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SDL_GetResamplerInputFrames(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @SDL_PopAudioQueueHead(ptr noundef) local_unnamed_addr #3
+declare void @SDL_PopAudioQueueHead(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetAudioStreamData_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @SDL_GetAudioStreamData_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @SDL_GetAudioStreamDataAdjustGain(ptr noundef %0, ptr noundef %1, i32 noundef %2, float noundef 1.000000e+00)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetAudioStreamAvailable_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden i32 @SDL_GetAudioStreamAvailable_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -2911,12 +2905,12 @@ CheckAudioStreamIsFullySetup.exit:                ; preds = %6, %11
   br label %38
 
 CheckAudioStreamIsFullySetup.exit.thread:         ; preds = %11, %CheckAudioStreamIsFullySetup.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @SDL_BeginAudioQueueIter(ptr noundef %19) #11
   store ptr %20, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %3, align 8
@@ -2940,8 +2934,8 @@ thread-pre-split.i:                               ; preds = %.lr.ph.i
 
 GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i, %CheckAudioStreamIsFullySetup.exit.thread, %._crit_edge.i
   %.1.i = phi i64 [ 2147483647, %._crit_edge.i ], [ 0, %CheckAudioStreamIsFullySetup.exit.thread ], [ %24, %thread-pre-split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %27, 3
@@ -2963,7 +2957,7 @@ GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @SDL_GetAudioStreamQueued_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, -2147483648) i32 @SDL_GetAudioStreamQueued_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -2988,10 +2982,10 @@ define hidden range(i32 -1, -2147483648) i32 @SDL_GetAudioStreamQueued_REAL(ptr 
   ret i32 %.0
 }
 
-declare i64 @SDL_GetAudioQueueQueued(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_GetAudioQueueQueued(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_ClearAudioStream_REAL(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_ClearAudioStream_REAL(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -3020,24 +3014,24 @@ define hidden zeroext i1 @SDL_ClearAudioStream_REAL(ptr noundef captures(address
   ret i1 %.0
 }
 
-declare void @SDL_ClearAudioQueue(ptr noundef) local_unnamed_addr #3
+declare void @SDL_ClearAudioQueue(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #3
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
 
-declare void @OnAudioStreamDestroy(ptr noundef) local_unnamed_addr #3
+declare void @OnAudioStreamDestroy(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_CloseAudioDevice_REAL(i32 noundef) local_unnamed_addr #3
+declare void @SDL_CloseAudioDevice_REAL(i32 noundef) local_unnamed_addr #2
 
-declare void @SDL_UnbindAudioStream_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnbindAudioStream_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DestroyAudioQueue(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyAudioQueue(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_ConvertAudioSamples_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 {
+define hidden zeroext i1 @SDL_ConvertAudioSamples_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
 
@@ -3136,14 +3130,14 @@ define hidden zeroext i1 @SDL_ConvertAudioSamples_REAL(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @DontFreeThisAudioBuffer(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #8 {
+define internal void @DontFreeThisAudioBuffer(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #7 {
   ret void
 }
 
-declare i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoTo21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoTo21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not16 = icmp eq i32 %2, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3177,7 +3171,7 @@ define internal void @SDL_ConvertMonoTo21(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not17 = icmp eq i32 %2, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3213,7 +3207,7 @@ define internal void @SDL_ConvertMonoToQuad(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoTo41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoTo41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3251,7 +3245,7 @@ define internal void @SDL_ConvertMonoTo41(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoTo51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoTo51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3285,7 +3279,7 @@ define internal void @SDL_ConvertMonoTo51(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoTo61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoTo61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not20 = icmp eq i32 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3319,7 +3313,7 @@ define internal void @SDL_ConvertMonoTo61(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertMonoTo71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertMonoTo71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3353,7 +3347,7 @@ define internal void @SDL_ConvertMonoTo71(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoTo21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoTo21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not15 = icmp eq i32 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3390,7 +3384,7 @@ define internal void @SDL_ConvertStereoTo21(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not16 = icmp eq i32 %2, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3429,7 +3423,7 @@ define internal void @SDL_ConvertStereoToQuad(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoTo41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoTo41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not17 = icmp eq i32 %2, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3470,7 +3464,7 @@ define internal void @SDL_ConvertStereoTo41(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoTo51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoTo51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3507,7 +3501,7 @@ define internal void @SDL_ConvertStereoTo51(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoTo61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoTo61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3544,7 +3538,7 @@ define internal void @SDL_ConvertStereoTo61(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertStereoTo71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertStereoTo71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not20 = icmp eq i32 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3581,7 +3575,7 @@ define internal void @SDL_ConvertStereoTo71(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not10 = icmp eq i32 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -3609,7 +3603,7 @@ define internal void @SDL_Convert21ToMono(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not13 = icmp eq i32 %2, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -3639,7 +3633,7 @@ define internal void @SDL_Convert21ToStereo(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3685,7 +3679,7 @@ define internal void @SDL_Convert21ToQuad(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3728,7 +3722,7 @@ define internal void @SDL_Convert21To41(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3773,7 +3767,7 @@ define internal void @SDL_Convert21To51(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not20 = icmp eq i32 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3820,7 +3814,7 @@ define internal void @SDL_Convert21To61(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert21To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert21To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3863,7 +3857,7 @@ define internal void @SDL_Convert21To71(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not11 = icmp eq i32 %2, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -3894,7 +3888,7 @@ define internal void @SDL_ConvertQuadToMono(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not16 = icmp eq i32 %2, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -3929,7 +3923,7 @@ define internal void @SDL_ConvertQuadToStereo(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadTo21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadTo21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not17 = icmp eq i32 %2, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -3966,7 +3960,7 @@ define internal void @SDL_ConvertQuadTo21(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadTo41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadTo41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4011,7 +4005,7 @@ define internal void @SDL_ConvertQuadTo41(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadTo51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadTo51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not20 = icmp eq i32 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4058,7 +4052,7 @@ define internal void @SDL_ConvertQuadTo51(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadTo61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadTo61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not25 = icmp eq i32 %2, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4113,7 +4107,7 @@ define internal void @SDL_ConvertQuadTo61(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_ConvertQuadTo71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_ConvertQuadTo71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not22 = icmp eq i32 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4164,7 +4158,7 @@ define internal void @SDL_ConvertQuadTo71(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not12 = icmp eq i32 %2, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -4198,7 +4192,7 @@ define internal void @SDL_Convert41ToMono(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -4236,7 +4230,7 @@ define internal void @SDL_Convert41ToStereo(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -4275,7 +4269,7 @@ define internal void @SDL_Convert41To21(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -4317,7 +4311,7 @@ define internal void @SDL_Convert41ToQuad(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4366,7 +4360,7 @@ define internal void @SDL_Convert41To51(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not26 = icmp eq i32 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4423,7 +4417,7 @@ define internal void @SDL_Convert41To61(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert41To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert41To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not23 = icmp eq i32 %2, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4476,7 +4470,7 @@ define internal void @SDL_Convert41To71(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not13 = icmp eq i32 %2, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -4513,7 +4507,7 @@ define internal void @SDL_Convert51ToMono(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not22 = icmp eq i32 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -4555,7 +4549,7 @@ define internal void @SDL_Convert51ToStereo(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not21 = icmp eq i32 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -4597,7 +4591,7 @@ define internal void @SDL_Convert51To21(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not22 = icmp eq i32 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -4643,7 +4637,7 @@ define internal void @SDL_Convert51ToQuad(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -4687,7 +4681,7 @@ define internal void @SDL_Convert51To41(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4747,7 +4741,7 @@ define internal void @SDL_Convert51To61(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert51To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert51To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not24 = icmp eq i32 %2, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4802,7 +4796,7 @@ define internal void @SDL_Convert51To71(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not14 = icmp eq i32 %2, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -4842,7 +4836,7 @@ define internal void @SDL_Convert61ToMono(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not25 = icmp eq i32 %2, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -4888,7 +4882,7 @@ define internal void @SDL_Convert61ToStereo(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not24 = icmp eq i32 %2, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -4934,7 +4928,7 @@ define internal void @SDL_Convert61To21(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not29 = icmp eq i32 %2, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -4984,7 +4978,7 @@ define internal void @SDL_Convert61ToQuad(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not26 = icmp eq i32 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -5034,7 +5028,7 @@ define internal void @SDL_Convert61To41(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not25 = icmp eq i32 %2, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -5086,7 +5080,7 @@ define internal void @SDL_Convert61To51(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert61To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert61To71(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5144,7 +5138,7 @@ define internal void @SDL_Convert61To71(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71ToMono(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not15 = icmp eq i32 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -5187,7 +5181,7 @@ define internal void @SDL_Convert71ToMono(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71ToStereo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not28 = icmp eq i32 %2, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -5237,7 +5231,7 @@ define internal void @SDL_Convert71ToStereo(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71To21(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -5287,7 +5281,7 @@ define internal void @SDL_Convert71To21(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71ToQuad(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not28 = icmp eq i32 %2, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -5341,7 +5335,7 @@ define internal void @SDL_Convert71ToQuad(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71To41(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not25 = icmp eq i32 %2, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -5393,7 +5387,7 @@ define internal void @SDL_Convert71To41(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71To51(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not24 = icmp eq i32 %2, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -5447,7 +5441,7 @@ define internal void @SDL_Convert71To51(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SDL_Convert71To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 {
+define internal void @SDL_Convert71To61(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
   %.not25 = icmp eq i32 %2, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -5503,25 +5497,25 @@ define internal void @SDL_Convert71To61(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
-declare ptr @SDL_CreateAudioTrack(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateAudioTrack(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_AddTrackToAudioQueue(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_AddTrackToAudioQueue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_WriteToAudioQueue(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_WriteToAudioQueue(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @SDL_BeginAudioQueueIter(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_BeginAudioQueueIter(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #2 {
+define internal fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
   %7 = alloca %struct.SDL_AudioSpec, align 4
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   %13 = call i64 @SDL_NextAudioQueueIter(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
@@ -5555,7 +5549,7 @@ define internal fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly cap
   br label %57
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %23 = load i64, ptr %2, align 8
   store i64 %23, ptr %10, align 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5614,38 +5608,44 @@ define internal fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly cap
   br label %56
 
 56:                                               ; preds = %55, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %57
 
 57:                                               ; preds = %20, %21, %56
   %.022 = phi i64 [ %.0, %56 ], [ 2147483647, %21 ], [ 2147483647, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.022
 }
 
-declare i64 @SDL_NextAudioQueueIter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_NextAudioQueueIter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetResamplerPaddingFrames(i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_GetResamplerPaddingFrames(i64 noundef) local_unnamed_addr #2
 
-declare i64 @SDL_GetResamplerOutputFrames(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_GetResamplerOutputFrames(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @SDL_GetResampleRate(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @SDL_GetResampleRate(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_AudioSpecsEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_AudioSpecsEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ResetAudioQueueHistory(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ResetAudioQueueHistory(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetResamplerHistoryFrames() local_unnamed_addr #3
+declare i32 @SDL_GetResamplerHistoryFrames() local_unnamed_addr #2
 
-declare ptr @SDL_ReadFromAudioQueue(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #3
+declare ptr @SDL_ReadFromAudioQueue(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
 
-declare i64 @SDL_GetSIMDAlignment_REAL() local_unnamed_addr #3
+declare i64 @SDL_GetSIMDAlignment_REAL() local_unnamed_addr #2
 
-declare void @SDL_ResampleAudio(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_ResampleAudio(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10
@@ -5663,15 +5663,15 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0,1) }

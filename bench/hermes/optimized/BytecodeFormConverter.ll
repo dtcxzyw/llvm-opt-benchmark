@@ -100,8 +100,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %res.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %res.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store ptr %buffer.coerce0, ptr %conv, align 8
   %bytes.sroa.3.0.this.sroa_idx.i = getelementptr inbounds nuw i8, ptr %conv, i64 8
   store i64 %buffer.coerce1, ptr %bytes.sroa.3.0.this.sroa_idx.i, align 8
@@ -154,9 +154,9 @@ _ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i: ;
   br label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EEC2EN4llvh15MutableArrayRefIhEERNS2_18BytecodeFileFieldsILb1EEES3_.exit
 
 _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EEC2EN4llvh15MutableArrayRefIhEERNS2_18BytecodeFileFieldsILb1EEES3_.exit: ; preds = %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %res.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %steps.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %res.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %steps.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %steps.i, i8 0, i64 96, i1 false)
   store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processMagicNumberEv to i64), ptr %steps.i, align 16
   %4 = getelementptr inbounds nuw i8, ptr %steps.i, i64 16
@@ -204,14 +204,14 @@ _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7perform
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %conv, align 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %bytes.sroa.3.0.this.sroa_idx.i, align 8
   call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #14
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %steps.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %steps.i)
   %14 = load ptr, ptr %bcProvider_.i, align 8
   %cmp.not.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i7, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %res.i8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %res.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i9)
   store ptr %buffer.coerce0, ptr %conv4, align 8
   %bytes.sroa.3.0.this.sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %conv4, i64 8
   store i64 %buffer.coerce1, ptr %bytes.sroa.3.0.this.sroa_idx.i10, align 8
@@ -264,9 +264,9 @@ _ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i28:
   br label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EEC2EN4llvh15MutableArrayRefIhEERNS2_18BytecodeFileFieldsILb1EEES3_.exit
 
 _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EEC2EN4llvh15MutableArrayRefIhEERNS2_18BytecodeFileFieldsILb1EEES3_.exit: ; preds = %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EEaSEOS5_.exit.i25, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %res.i8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i9)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %steps.i32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %res.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %steps.i32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %steps.i32, i8 0, i64 96, i1 false)
   store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processMagicNumberEv to i64), ptr %steps.i32, align 16
   %19 = getelementptr inbounds nuw i8, ptr %steps.i32, i64 16
@@ -334,7 +334,7 @@ _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7perform
   %agg.tmp.sroa.0.0.copyload.i46 = load ptr, ptr %conv4, align 8
   %agg.tmp.sroa.2.0.copyload.i48 = load i64, ptr %bytes.sroa.3.0.this.sroa_idx.i10, align 8
   call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %agg.tmp.sroa.0.0.copyload.i46, i64 %agg.tmp.sroa.2.0.copyload.i48) #14
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %steps.i32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %steps.i32)
   %29 = load ptr, ptr %bcProvider_.i12, align 8
   %cmp.not.i.i52 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i52, label %return, label %return.sink.split
@@ -1229,10 +1229,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

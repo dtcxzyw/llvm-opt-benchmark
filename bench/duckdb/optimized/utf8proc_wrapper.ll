@@ -353,12 +353,6 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thre
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6duckdb8Utf8Proc9MakeValidEPcmc(ptr noundef captures(none) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 align 2 {
   %.not73 = icmp eq i64 %1, 0
@@ -511,22 +505,22 @@ _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20Unico
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6duckdb8Utf8Proc9NormalizeEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN6duckdb8Utf8Proc9NormalizeEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN6duckdb12utf8proc_NFCEPKhl(ptr noundef %0, i64 noundef %1)
   ret ptr %3
 }
 
-declare noundef ptr @_ZN6duckdb12utf8proc_NFCEPKhl(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN6duckdb12utf8proc_NFCEPKhl(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6duckdb8Utf8Proc7IsValidEPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6duckdb8Utf8Proc7IsValidEPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZN6duckdb8Utf8Proc7AnalyzeEPKcmPNS_20UnicodeInvalidReasonEPm(ptr noundef %0, i64 noundef %1, ptr noundef null, ptr noundef null)
   %4 = icmp ne i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   %6 = load i8, ptr %5, align 1, !tbaa !3
@@ -595,7 +589,7 @@ define noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef r
 _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %3, %13, %18, %26, %34, %36
   %.126 = phi i32 [ 2, %13 ], [ undef, %18 ], [ 3, %26 ], [ 4, %36 ], [ undef, %34 ], [ 1, %3 ]
   %.0.i = phi i32 [ %17, %13 ], [ -1, %18 ], [ %33, %26 ], [ %48, %36 ], [ -1, %34 ], [ %7, %3 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !15
   br label %49
 
@@ -680,12 +674,12 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24: ; preds = %52, %61, %66, %74,
   br i1 %97, label %98, label %49, !llvm.loop !17
 
 98:                                               ; preds = %49, %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %0, align 1, !tbaa !3
   %4 = zext i8 %3 to i32
   %5 = icmp sgt i8 %3, -1
@@ -761,22 +755,22 @@ define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCod
   ret i32 %.0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb8Utf8Proc13GraphemeCountEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6duckdb8Utf8Proc13GraphemeCountEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.duckdb::GraphemeIterator", align 8
   %4 = alloca %"class.duckdb::GraphemeIterator::GraphemeClusterIterator", align 8
   %5 = alloca %"class.duckdb::GraphemeIterator::GraphemeClusterIterator", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6duckdb16GraphemeIteratorC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %0, i64 noundef %1)
   %.fca.0.load.i = load ptr, ptr %3, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC1EPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.fca.0.load.i, i64 noundef %.fca.1.load.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC1EPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -810,8 +804,8 @@ _ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit: ; preds = %
   br i1 %.not, label %23, label %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread
 
 23:                                               ; preds = %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 
 _ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit.thread: ; preds = %_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit, %17, %_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_.exit
@@ -855,7 +849,7 @@ _ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv.exit.backedge: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN6duckdb8Utf8Proc16GraphemeClustersEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define { ptr, i64 } @_ZN6duckdb8Utf8Proc16GraphemeClustersEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.duckdb::GraphemeIterator", align 8
   call void @_ZN6duckdb16GraphemeIteratorC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %0, i64 noundef %1)
   %.fca.0.load = load ptr, ptr %3, align 8
@@ -867,7 +861,7 @@ define { ptr, i64 } @_ZN6duckdb8Utf8Proc16GraphemeClustersEPKcm(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratorneERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -903,7 +897,7 @@ define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIterato
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %8
@@ -934,7 +928,7 @@ define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %8
@@ -979,23 +973,23 @@ _ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv.exit: ; preds = %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb8Utf8Proc16CodepointToUpperEi(i32 noundef %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6duckdb8Utf8Proc16CodepointToUpperEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZN6duckdb16utf8proc_toupperEi(i32 noundef %0)
   ret i32 %2
 }
 
-declare noundef i32 @_ZN6duckdb16utf8proc_toupperEi(i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_ZN6duckdb16utf8proc_toupperEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb8Utf8Proc16CodepointToLowerEi(i32 noundef %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6duckdb8Utf8Proc16CodepointToLowerEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZN6duckdb16utf8proc_tolowerEi(i32 noundef %0)
   ret i32 %2
 }
 
-declare noundef i32 @_ZN6duckdb16utf8proc_tolowerEi(i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_ZN6duckdb16utf8proc_tolowerEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb16GraphemeIteratorC2EPKcm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
+define void @_ZN6duckdb16GraphemeIteratorC2EPKcm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8, !tbaa !28
@@ -1003,7 +997,7 @@ define void @_ZN6duckdb16GraphemeIteratorC2EPKcm(ptr noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC2EPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC2EPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8, !tbaa !18
@@ -1037,7 +1031,7 @@ _ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv.exit: ; preds = %8,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %8
@@ -1082,13 +1076,13 @@ define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator4NextEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator10SetInvalidEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN6duckdb16GraphemeIterator23GraphemeClusterIterator10SetInvalidEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIterator9IsInvalidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIterator9IsInvalidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %2, null
   ret i1 %.not
@@ -1096,20 +1090,20 @@ define noundef zeroext i1 @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIterato
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb8Utf8Proc23PreviousGraphemeClusterEPKcmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef i64 @_ZN6duckdb8Utf8Proc23PreviousGraphemeClusterEPKcmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @_ZN6duckdb8Utf8Proc7AnalyzeEPKcmPNS_20UnicodeInvalidReasonEPm(ptr noundef readonly %0, i64 noundef %1, ptr noundef null, ptr noundef null)
   %.not18 = icmp eq i32 %4, 0
   br i1 %.not18, label %5, label %.preheader
@@ -1132,7 +1126,7 @@ define noundef i64 @_ZN6duckdb8Utf8Proc23PreviousGraphemeClusterEPKcmm(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = icmp slt i32 %0, 128
   br i1 %4, label %5, label %7
 
@@ -1230,7 +1224,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 5) i32 @_ZN6duckdb8Utf8Proc15CodepointLengthEi(i32 noundef %0) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -1, 5) i32 @_ZN6duckdb8Utf8Proc15CodepointLengthEi(i32 noundef %0) local_unnamed_addr #9 align 2 {
   %2 = icmp slt i32 %0, 128
   br i1 %2, label %11, label %3
 
@@ -1258,7 +1252,7 @@ define noundef range(i32 -1, 5) i32 @_ZN6duckdb8Utf8Proc15CodepointLengthEi(i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4) i64 @_ZN6duckdb8Utf8Proc11RenderWidthEPKcmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef range(i64 0, 4) i64 @_ZN6duckdb8Utf8Proc11RenderWidthEPKcmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i32
@@ -1334,10 +1328,10 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %3, %12, %17, %25, %
   ret i64 %53
 }
 
-declare noundef ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb8Utf8Proc11RenderWidthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6duckdb8Utf8Proc11RenderWidthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !30
   %.not = icmp eq i64 %3, 0
@@ -1433,6 +1427,12 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %.lr.ph, %13, %18, %
   ret i64 %.0.lcssa
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
 
@@ -1440,16 +1440,16 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }

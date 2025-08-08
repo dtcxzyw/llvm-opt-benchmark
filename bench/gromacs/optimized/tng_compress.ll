@@ -38,10 +38,10 @@ define noundef ptr @tng_compress_pos_int(ptr noundef %0, i32 noundef %1, i32 nou
   %20 = shl nsw i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #12
   %22 = tail call noalias ptr @malloc(i64 noundef %20) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %23 = icmp eq i32 %5, 0
   %24 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 6)
@@ -285,18 +285,15 @@ quant_intra_differences.exit:                     ; preds = %.preheader36.i, %._
   br label %119
 
 119:                                              ; preds = %118, %115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %17
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
@@ -312,7 +309,7 @@ define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, p
   br i1 %15, label %16, label %58
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %17 = tail call ptr @Ptngc_coder_init() #13
   %18 = mul nsw i32 %2, 3
   store i32 %18, ptr %13, align 4, !tbaa !3
@@ -320,9 +317,9 @@ define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, p
   call void @Ptngc_coder_deinit(ptr noundef %17) #13
   call void @free(ptr noundef %19) #13
   %20 = load i32, ptr %13, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %21 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %22
 
 22:                                               ; preds = %28, %16
@@ -354,7 +351,7 @@ define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, p
 determine_best_coding_triple.exit:                ; preds = %28
   %30 = add nsw i32 %20, 40
   %31 = icmp ne i32 %.2.i, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %32 = icmp slt i32 %.219.i, %30
   %or.cond = select i1 %31, i1 %32, i1 false
   %.069 = select i1 %or.cond, i32 %.219.i, i32 %30
@@ -362,7 +359,7 @@ determine_best_coding_triple.exit:                ; preds = %28
   %.0 = select i1 %or.cond, i32 3, i32 5
   call void @Ptngc_coder_deinit(ptr noundef %21) #13
   %33 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %34
 
 34:                                               ; preds = %40, %determine_best_coding_triple.exit
@@ -393,7 +390,7 @@ determine_best_coding_triple.exit:                ; preds = %28
 
 determine_best_coding_triple.exit92:              ; preds = %40
   %42 = icmp ne i32 %.2.i89, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %43 = icmp slt i32 %.219.i88, %.069
   %or.cond149 = select i1 %42, i1 %43, i1 false
   %.170 = select i1 %or.cond149, i32 %.219.i88, i32 %.069
@@ -404,7 +401,7 @@ determine_best_coding_triple.exit92:              ; preds = %40
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %determine_best_coding_triple.exit92
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = call ptr @Ptngc_coder_init() #13
   store i32 %18, ptr %10, align 4, !tbaa !3
   %47 = call ptr @Ptngc_pack_array(ptr noundef %46, ptr noundef %0, ptr noundef nonnull %10, i32 noundef 10, i32 noundef 0, i32 noundef %2, i32 noundef %3) #13
@@ -412,7 +409,7 @@ determine_best_coding_triple.exit92:              ; preds = %40
   call void @free(ptr noundef %47) #13
   %48 = load i32, ptr %10, align 4, !tbaa !3
   %49 = add nsw i32 %48, 40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %50 = icmp slt i32 %49, %.170
   %.267 = select i1 %50, i32 0, i32 %.166
   %.2 = select i1 %50, i32 10, i32 %.1
@@ -421,7 +418,7 @@ determine_best_coding_triple.exit92:              ; preds = %40
 
 52:                                               ; preds = %45
   %.271 = call i32 @llvm.smin.i32(i32 %49, i32 %.170)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = call ptr @Ptngc_coder_init() #13
   store i32 %18, ptr %9, align 4, !tbaa !3
   %54 = call ptr @Ptngc_pack_array(ptr noundef %53, ptr noundef %1, ptr noundef nonnull %9, i32 noundef 9, i32 noundef 0, i32 noundef %2, i32 noundef %3) #13
@@ -429,7 +426,7 @@ determine_best_coding_triple.exit92:              ; preds = %40
   call void @free(ptr noundef %54) #13
   %55 = load i32, ptr %9, align 4, !tbaa !3
   %56 = add nsw i32 %55, 40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %57 = icmp slt i32 %56, %.271
   %spec.select = select i1 %57, i32 0, i32 %.267
   %spec.select80 = select i1 %57, i32 9, i32 %.2
@@ -463,7 +460,7 @@ determine_best_coding_triple.exit92:              ; preds = %40
 63:                                               ; preds = %61
   %64 = tail call ptr @Ptngc_coder_init() #13
   %65 = mul nsw i32 %2, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %66
 
 66:                                               ; preds = %72, %63
@@ -501,14 +498,14 @@ determine_best_coding_triple.exit92:              ; preds = %40
   br label %determine_best_coding_triple.exit104
 
 determine_best_coding_triple.exit104:             ; preds = %74, %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @Ptngc_coder_deinit(ptr noundef %64) #13
   br label %91
 
 77:                                               ; preds = %61
   %78 = tail call ptr @Ptngc_coder_init() #13
   %79 = mul nsw i32 %2, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %80
 
 80:                                               ; preds = %86, %77
@@ -546,7 +543,7 @@ determine_best_coding_triple.exit104:             ; preds = %74, %76
   br label %determine_best_coding_triple.exit116
 
 determine_best_coding_triple.exit116:             ; preds = %88, %90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @Ptngc_coder_deinit(ptr noundef %78) #13
   br label %91
 
@@ -571,8 +568,8 @@ define internal fastcc void @determine_best_pos_coding(ptr noundef %0, ptr nound
   br i1 %22, label %23, label %99
 
 23:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %24 = tail call ptr @Ptngc_coder_init() #13
   %25 = mul nsw i32 %3, 3
   store i32 %25, ptr %19, align 4, !tbaa !3
@@ -580,7 +577,7 @@ define internal fastcc void @determine_best_pos_coding(ptr noundef %0, ptr nound
   call void @Ptngc_coder_deinit(ptr noundef %24) #13
   call void @free(ptr noundef %26) #13
   %27 = load i32, ptr %19, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 0, i32 noundef 5, i32 noundef 0, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %20, ptr noundef null)
   %28 = load i32, ptr %20, align 4, !tbaa !3
   %29 = call ptr @Ptngc_coder_init() #13
@@ -589,7 +586,7 @@ define internal fastcc void @determine_best_pos_coding(ptr noundef %0, ptr nound
   store i32 %31, ptr %20, align 4, !tbaa !3
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds i32, ptr %1, i64 %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %34
 
 34:                                               ; preds = %40, %23
@@ -622,7 +619,7 @@ determine_best_coding_stop_bits.exit:             ; preds = %40
   %42 = add nsw i32 %27, 40
   %43 = sub nsw i32 %28, %42
   %44 = icmp ne i32 %.2.i, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %45 = icmp slt i32 %.219.i, %43
   %or.cond = select i1 %44, i1 %45, i1 false
   %.0129 = select i1 %or.cond, i32 %.219.i, i32 %43
@@ -630,7 +627,7 @@ determine_best_coding_stop_bits.exit:             ; preds = %40
   %.0 = select i1 %or.cond, i32 1, i32 5
   call void @Ptngc_coder_deinit(ptr noundef %29) #13
   %46 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %47
 
 47:                                               ; preds = %53, %determine_best_coding_stop_bits.exit
@@ -664,12 +661,12 @@ determine_best_coding_stop_bits.exit:             ; preds = %40
   br i1 %56, label %determine_best_coding_triple.exit, label %57
 
 determine_best_coding_triple.exit:                ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %60
 
 57:                                               ; preds = %55
   store i32 %.219.i154, ptr %20, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = icmp slt i32 %.219.i154, %.0129
   br i1 %58, label %59, label %60
 
@@ -683,7 +680,7 @@ determine_best_coding_triple.exit:                ; preds = %55
   call void @Ptngc_coder_deinit(ptr noundef %46) #13
   %61 = call ptr @Ptngc_coder_init() #13
   %62 = getelementptr inbounds i32, ptr %2, i64 %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %63
 
 63:                                               ; preds = %69, %60
@@ -714,7 +711,7 @@ determine_best_coding_triple.exit:                ; preds = %55
 
 determine_best_coding_triple.exit169:             ; preds = %69
   %71 = icmp ne i32 %.2.i166, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %72 = icmp slt i32 %.219.i165, %.1130
   %or.cond266 = select i1 %71, i1 %72, i1 false
   %.2131 = select i1 %or.cond266, i32 %.219.i165, i32 %.1130
@@ -724,7 +721,7 @@ determine_best_coding_triple.exit169:             ; preds = %69
   %73 = call ptr @Ptngc_coder_init() #13
   store i32 %31, ptr %20, align 4, !tbaa !3
   %74 = getelementptr inbounds i32, ptr %0, i64 %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %75
 
 75:                                               ; preds = %81, %determine_best_coding_triple.exit169
@@ -758,12 +755,12 @@ determine_best_coding_triple.exit169:             ; preds = %69
   br i1 %84, label %determine_best_coding_triple.exit181, label %85
 
 determine_best_coding_triple.exit181:             ; preds = %83
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %88
 
 85:                                               ; preds = %83
   store i32 %.219.i177, ptr %20, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %86 = icmp slt i32 %.219.i177, %.2131
   br i1 %86, label %87, label %88
 
@@ -804,7 +801,7 @@ determine_best_coding_triple.exit181:             ; preds = %83
   %.5 = phi i32 [ %.4, %90 ], [ %spec.select146, %95 ], [ %.3, %88 ]
   store i32 %.5, ptr %8, align 4, !tbaa !3
   store i32 %.5128, ptr %9, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %176
 
 99:                                               ; preds = %10
@@ -835,7 +832,7 @@ determine_best_coding_triple.exit181:             ; preds = %83
   %108 = mul nsw i32 %107, %106
   %109 = sext i32 %106 to i64
   %110 = getelementptr inbounds i32, ptr %1, i64 %109
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %111
 
 111:                                              ; preds = %117, %104
@@ -873,7 +870,7 @@ determine_best_coding_triple.exit181:             ; preds = %83
   br label %determine_best_coding_stop_bits.exit193
 
 determine_best_coding_stop_bits.exit193:          ; preds = %119, %121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @Ptngc_coder_deinit(ptr noundef %105) #13
   br label %176
 
@@ -884,7 +881,7 @@ determine_best_coding_stop_bits.exit193:          ; preds = %119, %121
   %126 = mul nsw i32 %125, %124
   %127 = sext i32 %124 to i64
   %128 = getelementptr inbounds i32, ptr %1, i64 %127
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %129
 
 129:                                              ; preds = %135, %122
@@ -922,7 +919,7 @@ determine_best_coding_stop_bits.exit193:          ; preds = %119, %121
   br label %determine_best_coding_triple.exit205
 
 determine_best_coding_triple.exit205:             ; preds = %137, %139
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @Ptngc_coder_deinit(ptr noundef %123) #13
   br label %176
 
@@ -933,7 +930,7 @@ determine_best_coding_triple.exit205:             ; preds = %137, %139
   %144 = mul nsw i32 %143, %142
   %145 = sext i32 %142 to i64
   %146 = getelementptr inbounds i32, ptr %2, i64 %145
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %147
 
 147:                                              ; preds = %153, %140
@@ -971,7 +968,7 @@ determine_best_coding_triple.exit205:             ; preds = %137, %139
   br label %determine_best_coding_triple.exit217
 
 determine_best_coding_triple.exit217:             ; preds = %155, %157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @Ptngc_coder_deinit(ptr noundef %141) #13
   br label %176
 
@@ -982,7 +979,7 @@ determine_best_coding_triple.exit217:             ; preds = %155, %157
   %162 = mul nsw i32 %161, %160
   %163 = sext i32 %160 to i64
   %164 = getelementptr inbounds i32, ptr %0, i64 %163
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %165
 
 165:                                              ; preds = %171, %158
@@ -1020,7 +1017,7 @@ determine_best_coding_triple.exit217:             ; preds = %155, %157
   br label %determine_best_coding_triple.exit229
 
 determine_best_coding_triple.exit229:             ; preds = %173, %175
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @Ptngc_coder_deinit(ptr noundef %159) #13
   br label %176
 
@@ -1031,7 +1028,7 @@ determine_best_coding_triple.exit229:             ; preds = %173, %175
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef writeonly captures(none) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #0 {
   %15 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !3
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge154, label %.critedge
@@ -1330,15 +1327,12 @@ bufferfix.exit216.thread:                         ; preds = %99
 114:                                              ; preds = %110, %.critedge156
   %.0 = phi i32 [ %113, %110 ], [ %80, %.critedge156 ]
   store i32 %.0, ptr %12, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @tng_compress_pos(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
@@ -1349,8 +1343,8 @@ define noundef ptr @tng_compress_pos(ptr noundef readonly captures(none) %0, i32
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @Ptngc_d_to_i32x2(double noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
   %15 = load i64, ptr %8, align 8, !tbaa !20
   %16 = load i64, ptr %9, align 8, !tbaa !20
@@ -1449,14 +1443,14 @@ define noundef ptr @tng_compress_pos(ptr noundef readonly captures(none) %0, i32
 quantize.exit:                                    ; preds = %37, %.loopexit
   %.0 = phi ptr [ %47, %.loopexit ], [ null, %37 ]
   call void @free(ptr noundef %14) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
-declare void @Ptngc_d_to_i32x2(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @Ptngc_d_to_i32x2(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare double @Ptngc_i32x2_to_d(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare double @Ptngc_i32x2_to_d(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @tng_compress_pos_float(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
@@ -1467,8 +1461,8 @@ define noundef ptr @tng_compress_pos_float(ptr noundef readonly captures(none) %
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = fpext float %3 to double
   call void @Ptngc_d_to_i32x2(double noundef %15, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
   %16 = load i64, ptr %8, align 8, !tbaa !20
@@ -1571,8 +1565,8 @@ define noundef ptr @tng_compress_pos_float(ptr noundef readonly captures(none) %
 quantize_float.exit:                              ; preds = %40, %.loopexit
   %.0 = phi ptr [ %51, %.loopexit ], [ null, %40 ]
   call void @free(ptr noundef %14) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -1598,7 +1592,7 @@ define noundef ptr @tng_compress_pos_int_find_algo(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @tng_compress_nalgo() local_unnamed_addr #5 {
+define noundef i32 @tng_compress_nalgo() local_unnamed_addr #4 {
   ret i32 4
 }
 
@@ -1617,10 +1611,10 @@ define noundef ptr @tng_compress_vel_int(ptr noundef %0, i32 noundef %1, i32 nou
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %22 = icmp eq i32 %5, 0
   %23 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 6)
@@ -1783,10 +1777,10 @@ quant_inter_differences.exit:                     ; preds = %._crit_edge.us.i, %
   br label %87
 
 87:                                               ; preds = %86, %83
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %17
 }
 
@@ -1804,7 +1798,7 @@ define internal fastcc void @determine_best_vel_initial_coding(ptr noundef %0, i
 13:                                               ; preds = %5
   %14 = mul nsw i32 %1, 3
   %15 = tail call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %16
 
 16:                                               ; preds = %22, %13
@@ -1834,10 +1828,10 @@ define internal fastcc void @determine_best_vel_initial_coding(ptr noundef %0, i
   br i1 %exitcond.not.i, label %determine_best_coding_stop_bits.exit, label %16, !llvm.loop !17
 
 determine_best_coding_stop_bits.exit:             ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @Ptngc_coder_deinit(ptr noundef %15) #13
   %24 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %25
 
 25:                                               ; preds = %31, %determine_best_coding_stop_bits.exit
@@ -1871,7 +1865,7 @@ determine_best_coding_triple.exit:                ; preds = %31
   %.048 = select i1 %.not, i32 -1, i32 %.219.i
   %.0 = select i1 %.not, i32 -1, i32 1
   %33 = icmp ne i32 %.2.i65, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = icmp slt i32 %.219.i64, %.048
   %or.cond = select i1 %.not, i1 true, i1 %34
   %or.cond113 = select i1 %33, i1 %or.cond, i1 false
@@ -1883,12 +1877,12 @@ determine_best_coding_triple.exit:                ; preds = %31
 
 36:                                               ; preds = %determine_best_coding_triple.exit
   %.149 = select i1 %or.cond113, i32 %.219.i64, i32 %.048
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %14, ptr %8, align 4, !tbaa !3
   %37 = call ptr @Ptngc_coder_init() #13
   %38 = call ptr @Ptngc_pack_array(ptr noundef %37, ptr noundef %0, ptr noundef nonnull %8, i32 noundef 9, i32 noundef 0, i32 noundef %1, i32 noundef %2) #13
   call void @Ptngc_coder_deinit(ptr noundef %37) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %not.or.cond113 = xor i1 %or.cond113, true
   %39 = select i1 %not.or.cond113, i1 %.not, i1 false
   %40 = icmp sgt i32 %.149, 40
@@ -1923,7 +1917,7 @@ determine_best_coding_triple.exit:                ; preds = %31
 47:                                               ; preds = %45
   %48 = tail call ptr @Ptngc_coder_init() #13
   %49 = mul nsw i32 %1, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %50
 
 50:                                               ; preds = %56, %47
@@ -1961,14 +1955,14 @@ determine_best_coding_triple.exit:                ; preds = %31
   br label %determine_best_coding_stop_bits.exit80
 
 determine_best_coding_stop_bits.exit80:           ; preds = %58, %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @Ptngc_coder_deinit(ptr noundef %48) #13
   br label %75
 
 61:                                               ; preds = %45
   %62 = tail call ptr @Ptngc_coder_init() #13
   %63 = mul nsw i32 %1, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %64
 
 64:                                               ; preds = %70, %61
@@ -2006,7 +2000,7 @@ determine_best_coding_stop_bits.exit80:           ; preds = %58, %60
   br label %determine_best_coding_triple.exit92
 
 determine_best_coding_triple.exit92:              ; preds = %72, %74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @Ptngc_coder_deinit(ptr noundef %62) #13
   br label %75
 
@@ -2031,21 +2025,21 @@ define internal fastcc void @determine_best_vel_coding(ptr noundef %0, ptr nound
   br i1 %21, label %22, label %92
 
 22:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %23 = mul nsw i32 %2, 3
   store i32 %23, ptr %18, align 4, !tbaa !3
   %24 = tail call ptr @Ptngc_coder_init() #13
   %25 = call ptr @Ptngc_pack_array(ptr noundef %24, ptr noundef %0, ptr noundef nonnull %18, i32 noundef 1, i32 noundef 5, i32 noundef %2, i32 noundef %4) #13
   call void @Ptngc_coder_deinit(ptr noundef %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %26 = add nsw i32 %3, -1
   %27 = mul nsw i32 %26, %23
   store i32 %27, ptr %19, align 4, !tbaa !3
   %28 = call ptr @Ptngc_coder_init() #13
   %29 = sext i32 %23 to i64
   %30 = getelementptr inbounds i32, ptr %0, i64 %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %31
 
 31:                                               ; preds = %37, %22
@@ -2078,11 +2072,11 @@ determine_best_coding_stop_bits.exit:             ; preds = %37
   %39 = icmp eq i32 %.2.i, -1
   %spec.select237 = select i1 %39, i32 %27, i32 %.219.i
   %spec.select238 = select i1 %39, i32 0, i32 %.2.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @Ptngc_coder_deinit(ptr noundef %28) #13
   %40 = call ptr @Ptngc_coder_init() #13
   %41 = getelementptr inbounds i32, ptr %1, i64 %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %42
 
 42:                                               ; preds = %48, %determine_best_coding_stop_bits.exit
@@ -2116,12 +2110,12 @@ determine_best_coding_stop_bits.exit:             ; preds = %37
   br i1 %51, label %determine_best_coding_triple.exit, label %52
 
 determine_best_coding_triple.exit:                ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %55
 
 52:                                               ; preds = %50
   store i32 %.219.i134, ptr %19, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %53 = icmp slt i32 %.219.i134, %spec.select237
   br i1 %53, label %54, label %55
 
@@ -2134,7 +2128,7 @@ determine_best_coding_triple.exit:                ; preds = %50
   %.0 = phi i32 [ 1, %determine_best_coding_triple.exit ], [ 2, %54 ], [ 1, %52 ]
   call void @Ptngc_coder_deinit(ptr noundef %40) #13
   %56 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %57
 
 57:                                               ; preds = %63, %55
@@ -2165,7 +2159,7 @@ determine_best_coding_triple.exit:                ; preds = %50
 
 determine_best_coding_triple.exit149:             ; preds = %63
   %65 = icmp ne i32 %.2.i146, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = icmp slt i32 %.219.i145, %.0113
   %or.cond = select i1 %65, i1 %66, i1 false
   %.1114 = select i1 %or.cond, i32 %.219.i145, i32 %.0113
@@ -2174,7 +2168,7 @@ determine_best_coding_triple.exit149:             ; preds = %63
   call void @Ptngc_coder_deinit(ptr noundef %56) #13
   store i32 %27, ptr %19, align 4, !tbaa !3
   %67 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %68
 
 68:                                               ; preds = %74, %determine_best_coding_triple.exit149
@@ -2208,12 +2202,12 @@ determine_best_coding_triple.exit149:             ; preds = %63
   br i1 %77, label %determine_best_coding_stop_bits.exit161, label %78
 
 determine_best_coding_stop_bits.exit161:          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %81
 
 78:                                               ; preds = %76
   store i32 %.219.i157, ptr %19, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %79 = icmp slt i32 %.219.i157, %.1114
   br i1 %79, label %80, label %81
 
@@ -2250,7 +2244,7 @@ determine_best_coding_stop_bits.exit161:          ; preds = %76
   %.3 = phi i32 [ %.2, %81 ], [ %spec.select126, %83 ]
   store i32 %.3, ptr %7, align 4, !tbaa !3
   store i32 %.3111, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %169
 
 92:                                               ; preds = %9
@@ -2279,7 +2273,7 @@ determine_best_coding_stop_bits.exit161:          ; preds = %76
   %101 = mul nsw i32 %100, %99
   %102 = sext i32 %99 to i64
   %103 = getelementptr inbounds i32, ptr %0, i64 %102
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %104
 
 104:                                              ; preds = %110, %97
@@ -2317,7 +2311,7 @@ determine_best_coding_stop_bits.exit161:          ; preds = %76
   br label %determine_best_coding_stop_bits.exit173
 
 determine_best_coding_stop_bits.exit173:          ; preds = %112, %114
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @Ptngc_coder_deinit(ptr noundef %98) #13
   br label %169
 
@@ -2328,7 +2322,7 @@ determine_best_coding_stop_bits.exit173:          ; preds = %112, %114
   %119 = mul nsw i32 %118, %117
   %120 = sext i32 %117 to i64
   %121 = getelementptr inbounds i32, ptr %1, i64 %120
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %122
 
 122:                                              ; preds = %128, %115
@@ -2366,7 +2360,7 @@ determine_best_coding_stop_bits.exit173:          ; preds = %112, %114
   br label %determine_best_coding_triple.exit185
 
 determine_best_coding_triple.exit185:             ; preds = %130, %132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @Ptngc_coder_deinit(ptr noundef %116) #13
   br label %169
 
@@ -2377,7 +2371,7 @@ determine_best_coding_triple.exit185:             ; preds = %130, %132
   %137 = mul nsw i32 %136, %135
   %138 = sext i32 %135 to i64
   %139 = getelementptr inbounds i32, ptr %0, i64 %138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %140
 
 140:                                              ; preds = %146, %133
@@ -2415,7 +2409,7 @@ determine_best_coding_triple.exit185:             ; preds = %130, %132
   br label %determine_best_coding_triple.exit197
 
 determine_best_coding_triple.exit197:             ; preds = %148, %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @Ptngc_coder_deinit(ptr noundef %134) #13
   br label %169
 
@@ -2426,7 +2420,7 @@ determine_best_coding_triple.exit197:             ; preds = %148, %150
   %155 = mul nsw i32 %154, %153
   %156 = sext i32 %153 to i64
   %157 = getelementptr inbounds i32, ptr %1, i64 %156
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %158
 
 158:                                              ; preds = %164, %151
@@ -2464,7 +2458,7 @@ determine_best_coding_triple.exit197:             ; preds = %148, %150
   br label %determine_best_coding_stop_bits.exit209
 
 determine_best_coding_stop_bits.exit209:          ; preds = %166, %168
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @Ptngc_coder_deinit(ptr noundef %152) #13
   br label %169
 
@@ -2475,7 +2469,7 @@ determine_best_coding_stop_bits.exit209:          ; preds = %166, %168
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @compress_quantized_vel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef writeonly captures(none) %11, ptr noundef writeonly captures(address_is_null) %12) unnamed_addr #0 {
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge129, label %.critedge
 
@@ -2748,7 +2742,7 @@ bufferfix.exit189:                                ; preds = %90
 109:                                              ; preds = %105, %bufferfix.exit183.thread
   %.1 = phi i32 [ %108, %105 ], [ %.0, %bufferfix.exit183.thread ]
   store i32 %.1, ptr %11, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
@@ -2761,8 +2755,8 @@ define noundef ptr @tng_compress_vel(ptr noundef readonly captures(none) %0, i32
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @Ptngc_d_to_i32x2(double noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
   %15 = load i64, ptr %8, align 8, !tbaa !20
   %16 = load i64, ptr %9, align 8, !tbaa !20
@@ -2861,8 +2855,8 @@ define noundef ptr @tng_compress_vel(ptr noundef readonly captures(none) %0, i32
 quantize.exit:                                    ; preds = %37, %.loopexit
   %.0 = phi ptr [ %47, %.loopexit ], [ null, %37 ]
   call void @free(ptr noundef %14) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -2875,8 +2869,8 @@ define noundef ptr @tng_compress_vel_float(ptr noundef readonly captures(none) %
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = fpext float %3 to double
   call void @Ptngc_d_to_i32x2(double noundef %15, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
   %16 = load i64, ptr %8, align 8, !tbaa !20
@@ -2979,8 +2973,8 @@ define noundef ptr @tng_compress_vel_float(ptr noundef readonly captures(none) %
 quantize_float.exit:                              ; preds = %40, %.loopexit
   %.0 = phi ptr [ %51, %.loopexit ], [ null, %40 ]
   call void @free(ptr noundef %14) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -3254,19 +3248,19 @@ readbufferfix.exit:                               ; preds = %7
   ]
 
 15:                                               ; preds = %readbufferfix.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19
 
 17:                                               ; preds = %readbufferfix.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = call fastcc i32 @tng_compress_uncompress_vel_gen(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %readbufferfix.exit, %17, %15
@@ -3306,19 +3300,19 @@ readbufferfix.exit:                               ; preds = %7
   ]
 
 15:                                               ; preds = %readbufferfix.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19
 
 17:                                               ; preds = %readbufferfix.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = call fastcc i32 @tng_compress_uncompress_vel_gen(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %readbufferfix.exit, %17, %15
@@ -3419,7 +3413,7 @@ unquantize.exit:                                  ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 {
+define internal fastcc void @unquantize(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7
@@ -3523,7 +3517,7 @@ unquantize_float.exit:                            ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_float(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 {
+define internal fastcc void @unquantize_float(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7
@@ -3574,7 +3568,7 @@ define internal fastcc void @unquantize_float(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_initial_pos_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define ptr @tng_compress_initial_pos_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %3 = icmp sgt i32 %2, 10
@@ -3586,7 +3580,7 @@ define ptr @tng_compress_initial_pos_algo(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_pos_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define ptr @tng_compress_pos_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4, !tbaa !3
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -3599,7 +3593,7 @@ define ptr @tng_compress_pos_algo(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_initial_vel_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define ptr @tng_compress_initial_vel_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %3 = icmp sgt i32 %2, 10
@@ -3611,7 +3605,7 @@ define ptr @tng_compress_initial_vel_algo(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_vel_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define ptr @tng_compress_vel_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4, !tbaa !3
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -3623,20 +3617,20 @@ define ptr @tng_compress_vel_algo(ptr noundef readonly captures(none) %0) local_
   ret ptr %7
 }
 
-declare ptr @Ptngc_coder_init() local_unnamed_addr #4
+declare ptr @Ptngc_coder_init() local_unnamed_addr #3
 
-declare void @Ptngc_coder_deinit(ptr noundef) local_unnamed_addr #4
+declare void @Ptngc_coder_deinit(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Ptngc_pack_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @Ptngc_pack_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #9
+declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
@@ -4211,10 +4205,10 @@ unquantize.exit:                                  ; preds = %.preheader.i.prehea
   ret i32 %.0
 }
 
-declare i32 @Ptngc_unpack_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @Ptngc_unpack_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_intra_differences(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 {
+define internal fastcc void @unquantize_intra_differences(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %invariant.op = mul i32 %1, 3
   %6 = icmp sgt i32 %1, 1
   %wide.trip.count58 = zext nneg i32 %2 to i64
@@ -4303,7 +4297,7 @@ define internal fastcc void @unquantize_intra_differences(ptr noundef nonnull wr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_intra_differences_float(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 {
+define internal fastcc void @unquantize_intra_differences_float(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %invariant.op = mul i32 %1, 3
   %6 = icmp sgt i32 %1, 1
   %wide.trip.count58 = zext nneg i32 %2 to i64
@@ -4392,7 +4386,7 @@ define internal fastcc void @unquantize_intra_differences_float(ptr noundef nonn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_intra_differences_int(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, ptr noundef readonly captures(none) %3) unnamed_addr #6 {
+define internal fastcc void @unquantize_intra_differences_int(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
   %invariant.op = mul i32 %1, 3
   %5 = icmp sgt i32 %1, 1
   %wide.trip.count57 = zext nneg i32 %2 to i64
@@ -4475,7 +4469,7 @@ define internal fastcc void @unquantize_intra_differences_int(ptr noundef nonnul
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_inter_differences(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 {
+define internal fastcc void @unquantize_inter_differences(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.preheader, label %._crit_edge
 
@@ -4537,7 +4531,7 @@ define internal fastcc void @unquantize_inter_differences(ptr noundef nonnull wr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_inter_differences_float(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 {
+define internal fastcc void @unquantize_inter_differences_float(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.preheader, label %._crit_edge
 
@@ -4599,7 +4593,7 @@ define internal fastcc void @unquantize_inter_differences_float(ptr noundef nonn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_inter_differences_int(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, ptr noundef readonly captures(none) %3) unnamed_addr #6 {
+define internal fastcc void @unquantize_inter_differences_int(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.preheader.preheader, label %._crit_edge
 
@@ -5081,6 +5075,12 @@ unquantize.exit:                                  ; preds = %109, %126, %119, %1
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
@@ -5094,15 +5094,15 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind allocsize(0) }

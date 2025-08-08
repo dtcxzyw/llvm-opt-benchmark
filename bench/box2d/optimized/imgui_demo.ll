@@ -3253,7 +3253,7 @@ _ZN19ExampleAppDocuments32NotifyOfDocumentsClosedElsewhereEv.exit.i: ; preds = %
   br i1 %332, label %333, label %377
 
 333:                                              ; preds = %.lr.ph23.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %183) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %334 = getelementptr inbounds nuw i8, ptr %.08621.i, i64 32
   %335 = load i32, ptr %334, align 4, !tbaa !36
   %336 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %183, i64 noundef 64, ptr noundef nonnull @.str.2145, ptr noundef nonnull %.08621.i, i32 noundef %335) #33
@@ -3338,7 +3338,7 @@ _ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit108.i: ; preds = %366, %._ZN8ImV
   br label %376
 
 376:                                              ; preds = %375, %374
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %183) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %377
 
 377:                                              ; preds = %376, %.lr.ph23.i
@@ -3468,13 +3468,13 @@ _ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit108.i: ; preds = %366, %._ZN8ImV
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2136)
   %422 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %423 = call noundef i32 @_ZN5ImGui5GetIDEPKc(ptr noundef nonnull @.str.2137)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   %424 = fmul float %422, 6.250000e+00
   store float 0xB810000000000000, ptr %184, align 4, !tbaa !42
   %425 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store float %424, ptr %425, align 4, !tbaa !44
   %426 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %423, ptr noundef nonnull align 4 dereferenceable(8) %184, i32 noundef 128, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br i1 %426, label %427, label %.loopexit.i
 
 427:                                              ; preds = %421
@@ -3505,7 +3505,7 @@ _ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit108.i: ; preds = %366, %._ZN8ImV
 
 .loopexit.i:                                      ; preds = %437, %427, %421
   call void @_ZN5ImGui8EndChildEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %185) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   %439 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %440 = fmul float %439, 7.000000e+00
   store float %440, ptr %185, align 4, !tbaa !42
@@ -3621,7 +3621,7 @@ _ZN8ImVectorIP10MyDocumentE5clearEv.exit115.i:    ; preds = %473, %471
 
 474:                                              ; preds = %_ZN8ImVectorIP10MyDocumentE5clearEv.exit115.i, %469
   call void @_ZN5ImGui8EndPopupEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %185) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %_ZN8ImVectorIP10MyDocumentE5clearEv.exit.i
 
 _ZN8ImVectorIP10MyDocumentE5clearEv.exit.i:       ; preds = %474, %419, %._crit_edge46.thread.i, %._crit_edge46.i, %400
@@ -3739,16 +3739,16 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   call void @_ZN5ImGui13PushItemWidthEf(float noundef %519)
   %520 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2100)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   %521 = call noundef float @_ZN5ImGui13CalcItemWidthEv()
   %522 = call noundef float @_ZN5ImGui14GetFrameHeightEv()
   store float %521, ptr %105, align 4, !tbaa !42
   %523 = getelementptr inbounds nuw i8, ptr %105, i64 4
   store float %522, ptr %523, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %524 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %524, ptr %106, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %525 = extractelement <2 x float> %524, i64 0
   %526 = fadd float %521, %525
   %527 = extractelement <2 x float> %524, i64 1
@@ -3760,12 +3760,12 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   %531 = call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef -1, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %106, ptr noundef nonnull align 4 dereferenceable(8) %107, i32 noundef %530, i32 noundef %531, i32 noundef %531, i32 noundef %530)
   %532 = call noundef zeroext i1 @_ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i(ptr noundef nonnull @.str.2101, ptr noundef nonnull align 4 dereferenceable(8) %105, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %533 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %533, ptr %108, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %534 = extractelement <2 x float> %533, i64 0
   %535 = load float, ptr %105, align 4, !tbaa !42
   %536 = fadd float %534, %535
@@ -3779,8 +3779,8 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   %542 = call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef -16776961, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %108, ptr noundef nonnull align 4 dereferenceable(8) %109, i32 noundef %541, i32 noundef %542, i32 noundef %542, i32 noundef %541)
   %543 = call noundef zeroext i1 @_ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i(ptr noundef nonnull @.str.2102, ptr noundef nonnull align 4 dereferenceable(8) %105, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2103)
   %544 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1623, ptr noundef nonnull @_ZZL29ShowExampleAppCustomRenderingPbE2sz, float noundef 0x3FC99999A0000000, float noundef 2.000000e+00, float noundef 1.000000e+02, ptr noundef nonnull @.str.164, i32 noundef 0)
   %545 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.2104, ptr noundef nonnull @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, float noundef 0x3FA99999A0000000, float noundef 1.000000e+00, float noundef 8.000000e+00, ptr noundef nonnull @.str.2105, i32 noundef 0)
@@ -3807,10 +3807,10 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   store i8 %562, ptr @_ZZL29ShowExampleAppCustomRenderingPbE23curve_segments_override, align 1, !tbaa !29
   %563 = call noundef zeroext i1 @_ZN5ImGui10ColorEdit4EPKcPfi(ptr noundef nonnull @.str.1419, ptr noundef nonnull @_ZZL29ShowExampleAppCustomRenderingPbE4colf, i32 noundef 0)
   %564 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) @_ZZL29ShowExampleAppCustomRenderingPbE4colf, i64 16, i1 false), !tbaa.struct !52
   %565 = call noundef i32 @_ZN5ImGui23ColorConvertFloat4ToU32ERK6ImVec4(ptr noundef nonnull align 4 dereferenceable(16) %110)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   %566 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %567 = fdiv float %566, 5.000000e+00
   %568 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE24circle_segments_override, align 1, !tbaa !29, !range !11, !noundef !12
@@ -3865,7 +3865,7 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   br label %781
 
 614:                                              ; preds = %_ZL16PathConcaveShapeP10ImDrawListfff.exit334.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %615 = fmul float %906, 5.000000e-01
   %616 = fadd float %583, %615
   %617 = fadd float %615, %908
@@ -3874,11 +3874,11 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   store float %617, ptr %618, align 4, !tbaa !44
   %619 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE10ngon_sides, align 4, !tbaa !54
   call void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %138, float noundef %615, i32 noundef %565, i32 noundef %619)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %138) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   %620 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %621 = fadd float %620, 1.000000e+01
   %622 = fadd float %583, %621
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %623 = fmul float %620, 5.000000e-01
   %624 = fadd float %623, %622
   %625 = fadd float %908, %623
@@ -3886,97 +3886,97 @@ _ZL21ShowExampleAppConsolePb.exit:                ; preds = %494, %497, %500
   %626 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store float %625, ptr %626, align 4, !tbaa !44
   call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %139, float noundef %623, i32 noundef %565, i32 noundef %571)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   %627 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %628 = fadd float %627, 1.000000e+01
   %629 = fadd float %622, %628
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %630 = fmul float %627, 5.000000e-01
   %631 = fadd float %630, %629
   %632 = fadd float %908, %630
   store float %631, ptr %140, align 4, !tbaa !42
   %633 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store float %632, ptr %633, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %634 = fmul float %627, 0x3FD3333340000000
   store float %630, ptr %141, align 4, !tbaa !42
   %635 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store float %634, ptr %635, align 4, !tbaa !44
   call void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %140, ptr noundef nonnull align 4 dereferenceable(8) %141, i32 noundef %565, float noundef 0xBFD3333340000000, i32 noundef %571)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %636 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %637 = fadd float %636, 1.000000e+01
   %638 = fadd float %629, %637
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store float %638, ptr %142, align 4, !tbaa !42
   %639 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store float %908, ptr %639, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %640 = fadd float %636, %638
   %641 = fadd float %908, %636
   store float %640, ptr %143, align 4, !tbaa !42
   %642 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store float %641, ptr %642, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %142, ptr noundef nonnull align 4 dereferenceable(8) %143, i32 noundef %565, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   %643 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %644 = fadd float %643, 1.000000e+01
   %645 = fadd float %638, %644
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %144) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store float %645, ptr %144, align 4, !tbaa !42
   %646 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store float %908, ptr %646, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %145) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   %647 = fadd float %643, %645
   %648 = fadd float %908, %643
   store float %647, ptr %145, align 4, !tbaa !42
   %649 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store float %648, ptr %649, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %144, ptr noundef nonnull align 4 dereferenceable(8) %145, i32 noundef %565, float noundef 1.000000e+01, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %144) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %650 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %651 = fadd float %650, 1.000000e+01
   %652 = fadd float %645, %651
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %146) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store float %652, ptr %146, align 4, !tbaa !42
   %653 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store float %908, ptr %653, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   %654 = fadd float %650, %652
   %655 = fadd float %908, %650
   store float %654, ptr %147, align 4, !tbaa !42
   %656 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store float %655, ptr %656, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %146, ptr noundef nonnull align 4 dereferenceable(8) %147, i32 noundef %565, float noundef 1.000000e+01, i32 noundef 144)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   %657 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %658 = fadd float %657, 1.000000e+01
   %659 = fadd float %652, %658
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %660 = fmul float %657, 5.000000e-01
   %661 = fadd float %660, %659
   store float %661, ptr %148, align 4, !tbaa !42
   %662 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store float %908, ptr %662, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   %663 = fadd float %657, %659
   %664 = fadd float %908, %657
   %665 = fadd float %664, -5.000000e-01
   store float %663, ptr %149, align 4, !tbaa !42
   %666 = getelementptr inbounds nuw i8, ptr %149, i64 4
   store float %665, ptr %666, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store float %659, ptr %150, align 4, !tbaa !42
   %667 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store float %665, ptr %667, align 4, !tbaa !44
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %148, ptr noundef nonnull align 4 dereferenceable(8) %149, ptr noundef nonnull align 4 dereferenceable(8) %150, i32 noundef %565)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %668 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %669 = fadd float %668, 1.000000e+01
   %670 = fadd float %659, %669
@@ -4065,11 +4065,11 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit.i:     ; preds = %_ZN10ImDrawList10Pa
   %712 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %713 = fadd float %712, 1.000000e+01
   %714 = fadd float %670, %713
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store float %714, ptr %151, align 4, !tbaa !42
   %715 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store float %908, ptr %715, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   %716 = fadd float %712, %714
   %717 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4, !tbaa !53
   %718 = fadd float %908, %717
@@ -4077,16 +4077,16 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit.i:     ; preds = %_ZN10ImDrawList10Pa
   %719 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store float %718, ptr %719, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %151, ptr noundef nonnull align 4 dereferenceable(8) %152, i32 noundef %565, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   %720 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %721 = fadd float %720, 1.000000e+01
   %722 = fadd float %714, %721
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %153) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   store float %722, ptr %153, align 4, !tbaa !42
   %723 = getelementptr inbounds nuw i8, ptr %153, i64 4
   store float %908, ptr %723, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %724 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4, !tbaa !53
   %725 = fadd float %722, %724
   %726 = fadd float %908, %720
@@ -4094,25 +4094,25 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit.i:     ; preds = %_ZN10ImDrawList10Pa
   %727 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store float %726, ptr %727, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %153, ptr noundef nonnull align 4 dereferenceable(8) %154, i32 noundef %565, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   %728 = fadd float %722, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   store float %728, ptr %155, align 4, !tbaa !42
   %729 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store float %908, ptr %729, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %156) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   %730 = fadd float %728, 1.000000e+00
   %731 = fadd float %908, 1.000000e+00
   store float %730, ptr %156, align 4, !tbaa !42
   %732 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store float %731, ptr %732, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %155, ptr noundef nonnull align 4 dereferenceable(8) %156, i32 noundef %565, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %156) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %733 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %734 = fadd float %728, %733
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %735 = fmul float %733, 5.000000e-01
   %736 = fadd float %734, %735
   %737 = fadd float %908, %735
@@ -4120,7 +4120,7 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit.i:     ; preds = %_ZN10ImDrawList10Pa
   %738 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store float %737, ptr %738, align 4, !tbaa !44
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %157, float noundef %735, float noundef 0xBFF921FB00000000, float noundef 0x400921FB00000000, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %739 = load ptr, ptr %.phi.trans.insert.i.i.i320.i, align 8, !tbaa !60
   %740 = load i32, ptr %598, align 8, !tbaa !77
   call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef %739, i32 noundef %740, i32 noundef %565)
@@ -4169,21 +4169,21 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %754, %._ZN8ImVector
   %759 = load i32, ptr %598, align 8, !tbaa !55
   %760 = add nsw i32 %759, 1
   store i32 %760, ptr %598, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %158) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   %761 = fadd float %577, %743
   %762 = fadd float %578, %908
   store float %761, ptr %158, align 4, !tbaa !42
   %763 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store float %762, ptr %763, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %159) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %764 = fadd float %566, %743
   %765 = fadd float %566, %908
   store float %764, ptr %159, align 4, !tbaa !42
   %766 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store float %765, ptr %766, align 4, !tbaa !44
   call void @_ZN10ImDrawList26PathBezierQuadraticCurveToERK6ImVec2S2_i(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %158, ptr noundef nonnull align 4 dereferenceable(8) %159, i32 noundef %575)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %159) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %158) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   %767 = load ptr, ptr %.phi.trans.insert.i.i.i320.i, align 8, !tbaa !60
   %768 = load i32, ptr %598, align 8, !tbaa !77
   call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef %767, i32 noundef %768, i32 noundef %565)
@@ -4191,20 +4191,20 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %754, %._ZN8ImVector
   %769 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %770 = fadd float %769, 1.000000e+01
   %771 = fadd float %743, %770
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %160) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   store float %771, ptr %160, align 4, !tbaa !42
   %772 = getelementptr inbounds nuw i8, ptr %160, i64 4
   store float %908, ptr %772, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %161) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   %773 = fadd float %769, %771
   %774 = fadd float %908, %769
   store float %773, ptr %161, align 4, !tbaa !42
   %775 = getelementptr inbounds nuw i8, ptr %161, i64 4
   store float %774, ptr %775, align 4, !tbaa !44
   call void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %160, ptr noundef nonnull align 4 dereferenceable(8) %161, i32 noundef -16777216, i32 noundef -16776961, i32 noundef -16711681, i32 noundef -16711936)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %160) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %162) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   %776 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %777 = fadd float %776, 1.000000e+01
   %778 = fmul float %777, 0x402A666660000000
@@ -4213,10 +4213,10 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %754, %._ZN8ImVector
   %780 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store float %779, ptr %780, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %162)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   call void @_ZN5ImGui12PopItemWidthEv()
   call void @_ZN5ImGui10EndTabItemEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %909
 
 781:                                              ; preds = %_ZL16PathConcaveShapeP10ImDrawListfff.exit334.i, %517
@@ -4225,7 +4225,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %754, %._ZN8ImVector
   %783 = phi i1 [ true, %517 ], [ false, %_ZL16PathConcaveShapeP10ImDrawListfff.exit334.i ]
   %784 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4
   %785 = select i1 %783, float 1.000000e+00, float %784
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %786 = fmul float %782, 5.000000e-01
   %787 = fadd float %583, %786
   %788 = fadd float %.030733.i, %786
@@ -4233,97 +4233,97 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %754, %._ZN8ImVector
   store float %788, ptr %585, align 4, !tbaa !44
   %789 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE10ngon_sides, align 4, !tbaa !54
   call void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %111, float noundef %786, i32 noundef %565, i32 noundef %789, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   %790 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %791 = fadd float %790, 1.000000e+01
   %792 = fadd float %583, %791
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %793 = fmul float %790, 5.000000e-01
   %794 = fadd float %793, %792
   %795 = fadd float %.030733.i, %793
   store float %794, ptr %112, align 4, !tbaa !42
   store float %795, ptr %586, align 4, !tbaa !44
   call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %112, float noundef %793, i32 noundef %565, i32 noundef %571, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %796 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %797 = fadd float %796, 1.000000e+01
   %798 = fadd float %792, %797
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %799 = fmul float %796, 5.000000e-01
   %800 = fadd float %799, %798
   %801 = fadd float %.030733.i, %799
   store float %800, ptr %113, align 4, !tbaa !42
   store float %801, ptr %587, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   %802 = fmul float %796, 0x3FD3333340000000
   store float %799, ptr %114, align 4, !tbaa !42
   store float %802, ptr %588, align 4, !tbaa !44
   call void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %113, ptr noundef nonnull align 4 dereferenceable(8) %114, i32 noundef %565, float noundef 0xBFD3333340000000, i32 noundef %571, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   %803 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %804 = fadd float %803, 1.000000e+01
   %805 = fadd float %798, %804
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   store float %805, ptr %115, align 4, !tbaa !42
   store float %.030733.i, ptr %589, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   %806 = fadd float %803, %805
   %807 = fadd float %.030733.i, %803
   store float %806, ptr %116, align 4, !tbaa !42
   store float %807, ptr %590, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %115, ptr noundef nonnull align 4 dereferenceable(8) %116, i32 noundef %565, float noundef 0.000000e+00, i32 noundef 0, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   %808 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %809 = fadd float %808, 1.000000e+01
   %810 = fadd float %805, %809
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store float %810, ptr %117, align 4, !tbaa !42
   store float %.030733.i, ptr %591, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %811 = fadd float %808, %810
   %812 = fadd float %.030733.i, %808
   store float %811, ptr %118, align 4, !tbaa !42
   store float %812, ptr %592, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %117, ptr noundef nonnull align 4 dereferenceable(8) %118, i32 noundef %565, float noundef %567, i32 noundef 0, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   %813 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %814 = fadd float %813, 1.000000e+01
   %815 = fadd float %810, %814
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store float %815, ptr %119, align 4, !tbaa !42
   store float %.030733.i, ptr %593, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %816 = fadd float %813, %815
   %817 = fadd float %.030733.i, %813
   store float %816, ptr %120, align 4, !tbaa !42
   store float %817, ptr %594, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %119, ptr noundef nonnull align 4 dereferenceable(8) %120, i32 noundef %565, float noundef %567, i32 noundef 144, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   %818 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %819 = fadd float %818, 1.000000e+01
   %820 = fadd float %815, %819
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %821 = fmul float %818, 5.000000e-01
   %822 = fadd float %821, %820
   store float %822, ptr %121, align 4, !tbaa !42
   store float %.030733.i, ptr %595, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %823 = fadd float %818, %820
   %824 = fadd float %.030733.i, %818
   %825 = fadd float %824, -5.000000e-01
   store float %823, ptr %122, align 4, !tbaa !42
   store float %825, ptr %596, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store float %820, ptr %123, align 4, !tbaa !42
   store float %825, ptr %597, align 4, !tbaa !44
   call void @_ZN10ImDrawList11AddTriangleERK6ImVec2S2_S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %121, ptr noundef nonnull align 4 dereferenceable(8) %122, ptr noundef nonnull align 4 dereferenceable(8) %123, i32 noundef %565, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   %826 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %827 = fadd float %826, 1.000000e+01
   %828 = fadd float %820, %827
@@ -4412,53 +4412,53 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit334.i:  ; preds = %_ZN10ImDrawList10Pa
   %870 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %871 = fadd float %870, 1.000000e+01
   %872 = fadd float %828, %871
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   store float %872, ptr %124, align 4, !tbaa !42
   store float %.030733.i, ptr %600, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   %873 = fadd float %870, %872
   store float %873, ptr %125, align 4, !tbaa !42
   store float %.030733.i, ptr %601, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %124, ptr noundef nonnull align 4 dereferenceable(8) %125, i32 noundef %565, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   %874 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %875 = fadd float %874, 1.000000e+01
   %876 = fadd float %872, %875
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store float %876, ptr %126, align 4, !tbaa !42
   store float %.030733.i, ptr %602, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %877 = fadd float %.030733.i, %874
   store float %876, ptr %127, align 4, !tbaa !42
   store float %877, ptr %603, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %126, ptr noundef nonnull align 4 dereferenceable(8) %127, i32 noundef %565, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %126) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   %878 = fadd float %876, 1.000000e+01
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store float %878, ptr %128, align 4, !tbaa !42
   store float %.030733.i, ptr %604, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %879 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %880 = fadd float %878, %879
   %881 = fadd float %.030733.i, %879
   store float %880, ptr %129, align 4, !tbaa !42
   store float %881, ptr %605, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %128, ptr noundef nonnull align 4 dereferenceable(8) %129, i32 noundef %565, float noundef %785)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %882 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %883 = fadd float %882, 1.000000e+01
   %884 = fadd float %878, %883
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %130) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %885 = fmul float %882, 5.000000e-01
   %886 = fadd float %885, %884
   %887 = fadd float %.030733.i, %885
   store float %886, ptr %130, align 4, !tbaa !42
   store float %887, ptr %606, align 4, !tbaa !44
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %130, float noundef %885, float noundef 0x400921FB00000000, float noundef 0xBFF921FB00000000, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %130) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   %888 = load ptr, ptr %.phi.trans.insert.i.i.i320.i, align 8, !tbaa !60
   %889 = load i32, ptr %598, align 8, !tbaa !77
   call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef %888, i32 noundef %889, i32 noundef %565, i32 noundef 0, float noundef %785)
@@ -4466,49 +4466,49 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit334.i:  ; preds = %_ZN10ImDrawList10Pa
   %890 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %891 = fadd float %890, 1.000000e+01
   %892 = fadd float %884, %891
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %893 = fadd float %576, %.030733.i
   store float %892, ptr %131, align 4, !tbaa !42
   store float %893, ptr %607, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %894 = fadd float %577, %892
   %895 = fadd float %578, %.030733.i
   store float %894, ptr %132, align 4, !tbaa !42
   store float %895, ptr %608, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %896 = fadd float %566, %892
   %897 = fadd float %566, %.030733.i
   store float %896, ptr %133, align 4, !tbaa !42
   store float %897, ptr %609, align 4, !tbaa !44
   call void @_ZN10ImDrawList18AddBezierQuadraticERK6ImVec2S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %131, ptr noundef nonnull align 4 dereferenceable(8) %132, ptr noundef nonnull align 4 dereferenceable(8) %133, i32 noundef %565, float noundef %785, i32 noundef %575)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   %898 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %899 = fadd float %898, 1.000000e+01
   %900 = fadd float %892, %899
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store float %900, ptr %134, align 4, !tbaa !42
   store float %.030733.i, ptr %610, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %901 = fadd float %579, %900
   %902 = fadd float %580, %.030733.i
   store float %901, ptr %135, align 4, !tbaa !42
   store float %902, ptr %611, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %903 = fadd float %581, %900
   %904 = fadd float %582, %.030733.i
   store float %903, ptr %136, align 4, !tbaa !42
   store float %904, ptr %612, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   %905 = fadd float %566, %900
   store float %905, ptr %137, align 4, !tbaa !42
   store float %897, ptr %613, align 4, !tbaa !44
   call void @_ZN10ImDrawList14AddBezierCubicERK6ImVec2S2_S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %520, ptr noundef nonnull align 4 dereferenceable(8) %134, ptr noundef nonnull align 4 dereferenceable(8) %135, ptr noundef nonnull align 4 dereferenceable(8) %136, ptr noundef nonnull align 4 dereferenceable(8) %137, i32 noundef %565, float noundef %785, i32 noundef %575)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   %906 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4, !tbaa !53
   %907 = fadd float %906, 1.000000e+01
   %908 = fadd float %.030733.i, %907
@@ -4538,10 +4538,10 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit334.i:  ; preds = %_ZN10ImDrawList10Pa
   %919 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.2112, ptr noundef nonnull @_ZZL29ShowExampleAppCustomRenderingPbE15opt_enable_grid)
   %920 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.2113, ptr noundef nonnull @_ZZL29ShowExampleAppCustomRenderingPbE23opt_enable_context_menu)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %163) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %921 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %921, ptr %163, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %164) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %922 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
   store <2 x float> %922, ptr %164, align 8
   %923 = extractelement <2 x float> %922, i64 0
@@ -4565,7 +4565,7 @@ _ZL16PathConcaveShapeP10ImDrawListfff.exit334.i:  ; preds = %_ZN10ImDrawList10Pa
 
 932:                                              ; preds = %931, %927
   %933 = phi float [ 5.000000e+01, %931 ], [ %925, %927 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %165) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   %934 = load float, ptr %163, align 8, !tbaa !42
   %935 = fadd float %928, %934
   %936 = getelementptr inbounds nuw i8, ptr %163, i64 4
@@ -4934,19 +4934,19 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit.i:             ; preds = %1095, %1093, %1089
 
 1112:                                             ; preds = %1112, %.lr.ph.i73
   %.030934.i = phi float [ %1101, %.lr.ph.i73 ], [ %1117, %1112 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   %1113 = load float, ptr %163, align 8, !tbaa !42
   %1114 = fadd float %.030934.i, %1113
   %1115 = load float, ptr %936, align 4, !tbaa !44
   store float %1114, ptr %166, align 4, !tbaa !42
   store float %1115, ptr %1104, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %167) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   %1116 = load float, ptr %939, align 4, !tbaa !44
   store float %1114, ptr %167, align 4, !tbaa !42
   store float %1116, ptr %1105, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %941, ptr noundef nonnull align 4 dereferenceable(8) %166, ptr noundef nonnull align 4 dereferenceable(8) %167, i32 noundef 684247240, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %167) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %1117 = fadd float %.030934.i, 6.400000e+01
   %1118 = load float, ptr %164, align 8, !tbaa !42
   %1119 = fcmp olt float %1117, %1118
@@ -4954,19 +4954,19 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit.i:             ; preds = %1095, %1093, %1089
 
 1120:                                             ; preds = %1120, %.lr.ph37.i72
   %.031035.i = phi float [ %1107, %.lr.ph37.i72 ], [ %1125, %1120 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %168) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %1121 = load float, ptr %163, align 8, !tbaa !42
   %1122 = load float, ptr %936, align 4, !tbaa !44
   %1123 = fadd float %.031035.i, %1122
   store float %1121, ptr %168, align 4, !tbaa !42
   store float %1123, ptr %1110, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %1124 = load float, ptr %165, align 4, !tbaa !42
   store float %1124, ptr %169, align 4, !tbaa !42
   store float %1123, ptr %1111, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %941, ptr noundef nonnull align 4 dereferenceable(8) %168, ptr noundef nonnull align 4 dereferenceable(8) %169, i32 noundef 684247240, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   %1125 = fadd float %.031035.i, 6.400000e+01
   %1126 = load float, ptr %929, align 4, !tbaa !44
   %1127 = fcmp olt float %1125, %1126
@@ -4985,14 +4985,14 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit.i:             ; preds = %1095, %1093, %1089
 ._crit_edge41.i:                                  ; preds = %1132, %.loopexit.i68
   call void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 dereferenceable(200) %941)
   call void @_ZN5ImGui10EndTabItemEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %1149
 
 1132:                                             ; preds = %1132, %.lr.ph40.i
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph40.i ], [ %indvars.iv.next.i70, %1132 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %170) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   %1133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 8), align 8, !tbaa !59
   %1134 = getelementptr inbounds nuw %struct.ImVec2, ptr %1133, i64 %indvars.iv.i69
   %1135 = load float, ptr %1134, align 4, !tbaa !42
@@ -5002,7 +5002,7 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit.i:             ; preds = %1095, %1093, %1089
   %1139 = fadd float %950, %1138
   store float %1136, ptr %170, align 4, !tbaa !42
   store float %1139, ptr %1130, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %171) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   %1140 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   %1141 = load float, ptr %1140, align 4, !tbaa !42
   %1142 = fadd float %947, %1141
@@ -5012,8 +5012,8 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit.i:             ; preds = %1095, %1093, %1089
   store float %1142, ptr %171, align 4, !tbaa !42
   store float %1145, ptr %1131, align 4, !tbaa !44
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(200) %941, ptr noundef nonnull align 4 dereferenceable(8) %170, ptr noundef nonnull align 4 dereferenceable(8) %171, i32 noundef -16711681, float noundef 2.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %171) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 2
   %1146 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8, !tbaa !55
   %1147 = trunc nuw i64 %indvars.iv.next.i70 to i32
@@ -5059,7 +5059,7 @@ _ZL10HelpMarkerPKc.exit.i:                        ; preds = %1154, %1151
 _ZL10HelpMarkerPKc.exit351.i:                     ; preds = %1159, %_ZL10HelpMarkerPKc.exit.i
   %1162 = call <2 x float> @_ZN5ImGui12GetWindowPosEv()
   %1163 = call <2 x float> @_ZN5ImGui13GetWindowSizeEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %172) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %.sroa.045.0.vec.extract.i = extractelement <2 x float> %1162, i64 0
   %.sroa.040.0.vec.extract.i = extractelement <2 x float> %1163, i64 0
   %1164 = fmul float %.sroa.040.0.vec.extract.i, 5.000000e-01
@@ -5094,7 +5094,7 @@ _ZL10HelpMarkerPKc.exit351.i:                     ; preds = %1159, %_ZL10HelpMar
 
 1180:                                             ; preds = %1177, %1174
   call void @_ZN5ImGui10EndTabItemEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %1181
 
 1181:                                             ; preds = %1180, %1149
@@ -5106,42 +5106,42 @@ _ZL10HelpMarkerPKc.exit351.i:                     ; preds = %1159, %_ZL10HelpMar
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2125)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2126)
   %1185 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %173) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %.sroa.020.0.vec.extract.i = extractelement <2 x float> %1185, i64 0
   %.sroa.020.4.vec.extract.i = extractelement <2 x float> %1185, i64 1
   store float %.sroa.020.0.vec.extract.i, ptr %173, align 4, !tbaa !42
   %1186 = getelementptr inbounds nuw i8, ptr %173, i64 4
   store float %.sroa.020.4.vec.extract.i, ptr %1186, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %1187 = fadd float %.sroa.020.0.vec.extract.i, 5.000000e+01
   %1188 = fadd float %.sroa.020.4.vec.extract.i, 5.000000e+01
   store float %1187, ptr %174, align 4, !tbaa !42
   %1189 = getelementptr inbounds nuw i8, ptr %174, i64 4
   store float %1188, ptr %1189, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %1184, ptr noundef nonnull align 4 dereferenceable(8) %173, ptr noundef nonnull align 4 dereferenceable(8) %174, i32 noundef -65536, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %173) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %175) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   %1190 = fadd float %.sroa.020.0.vec.extract.i, 2.500000e+01
   %1191 = fadd float %.sroa.020.4.vec.extract.i, 2.500000e+01
   store float %1190, ptr %175, align 4, !tbaa !42
   %1192 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store float %1191, ptr %1192, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %176) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %1193 = fadd float %.sroa.020.0.vec.extract.i, 7.500000e+01
   %1194 = fadd float %.sroa.020.4.vec.extract.i, 7.500000e+01
   store float %1193, ptr %176, align 4, !tbaa !42
   %1195 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store float %1194, ptr %1195, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %1184, ptr noundef nonnull align 4 dereferenceable(8) %175, ptr noundef nonnull align 4 dereferenceable(8) %176, i32 noundef -16776961, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %177) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   store float 7.500000e+01, ptr %177, align 4, !tbaa !42
   %1196 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store float 7.500000e+01, ptr %1196, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %177)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %177) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   call void @_ZN5ImGui9SeparatorEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2127)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2128)
@@ -5149,44 +5149,44 @@ _ZL10HelpMarkerPKc.exit351.i:                     ; preds = %1159, %_ZL10HelpMar
   %1198 = getelementptr inbounds nuw i8, ptr %1184, i64 128
   call void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %1198, ptr noundef nonnull align 8 dereferenceable(200) %1184, i32 noundef 2)
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %1198, ptr noundef nonnull align 8 dereferenceable(200) %1184, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %178) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %1197, i64 0
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %1197, i64 1
   store float %.sroa.0.0.vec.extract.i, ptr %178, align 4, !tbaa !42
   %1199 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store float %.sroa.0.4.vec.extract.i, ptr %1199, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %179) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   %1200 = fadd float %.sroa.0.0.vec.extract.i, 5.000000e+01
   %1201 = fadd float %.sroa.0.4.vec.extract.i, 5.000000e+01
   store float %1200, ptr %179, align 4, !tbaa !42
   %1202 = getelementptr inbounds nuw i8, ptr %179, i64 4
   store float %1201, ptr %1202, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %1184, ptr noundef nonnull align 4 dereferenceable(8) %178, ptr noundef nonnull align 4 dereferenceable(8) %179, i32 noundef -65536, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %179) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %1198, ptr noundef nonnull align 8 dereferenceable(200) %1184, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   %1203 = fadd float %.sroa.0.0.vec.extract.i, 2.500000e+01
   %1204 = fadd float %.sroa.0.4.vec.extract.i, 2.500000e+01
   store float %1203, ptr %180, align 4, !tbaa !42
   %1205 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store float %1204, ptr %1205, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %181) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %1206 = fadd float %.sroa.0.0.vec.extract.i, 7.500000e+01
   %1207 = fadd float %.sroa.0.4.vec.extract.i, 7.500000e+01
   store float %1206, ptr %181, align 4, !tbaa !42
   %1208 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store float %1207, ptr %1208, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %1184, ptr noundef nonnull align 4 dereferenceable(8) %180, ptr noundef nonnull align 4 dereferenceable(8) %181, i32 noundef -16776961, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %1198, ptr noundef nonnull align 8 dereferenceable(200) %1184)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %182) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   store float 7.500000e+01, ptr %182, align 4, !tbaa !42
   %1209 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store float 7.500000e+01, ptr %1209, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %182)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %182) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2129)
   call void @_ZN5ImGui10EndTabItemEv()
   br label %1210
@@ -5224,12 +5224,12 @@ _ZL29ShowExampleAppCustomRenderingPb.exit:        ; preds = %_ZL29ShowExampleApp
   br label %1221
 
 1221:                                             ; preds = %1219, %1216, %1213
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store float 5.000000e+02, ptr %104, align 4, !tbaa !42
   %1222 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store float 4.000000e+02, ptr %1222, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %104, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   %1223 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1997, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE9demo_data, i64 5), i32 noundef 0)
   %1224 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
   %.not8.i = icmp eq ptr %1224, null
@@ -5286,12 +5286,12 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %.preheader.i, %1229
   br i1 %1247, label %1248, label %1295
 
 1248:                                             ; preds = %1245
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store float 5.000000e+02, ptr %97, align 4, !tbaa !42
   %1249 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store float 4.400000e+02, ptr %1249, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %97, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   %1250 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.2012, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE9demo_data, i64 6), i32 noundef 1024)
   br i1 %1250, label %1251, label %_ZL20ShowExampleAppLayoutPb.exit
 
@@ -5330,12 +5330,12 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %.preheader.i, %1229
   br label %1264
 
 1264:                                             ; preds = %1263, %1255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store float 1.500000e+02, ptr %98, align 4, !tbaa !42
   %1265 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store float 0.000000e+00, ptr %1265, align 4, !tbaa !44
   %1266 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.2015, ptr noundef nonnull align 4 dereferenceable(8) %98, i32 noundef 5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   %1267 = getelementptr inbounds nuw i8, ptr %100, i64 4
   br label %1275
 
@@ -5343,14 +5343,14 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %.preheader.i, %1229
   call void @_ZN5ImGui8EndChildEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui10BeginGroupEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %1269 = call noundef float @_ZN5ImGui25GetFrameHeightWithSpacingEv()
   %1270 = fneg float %1269
   store float 0.000000e+00, ptr %101, align 4, !tbaa !42
   %1271 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store float %1270, ptr %1271, align 4, !tbaa !44
   %1272 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.2017, ptr noundef nonnull align 4 dereferenceable(8) %101, i32 noundef 0, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %1273 = load i32, ptr @_ZZL20ShowExampleAppLayoutPbE8selected, align 4, !tbaa !54
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2018, i32 noundef %1273)
   call void @_ZN5ImGui9SeparatorEv()
@@ -5359,15 +5359,15 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %.preheader.i, %1229
 
 1275:                                             ; preds = %1281, %1264
   %.01.i85 = phi i32 [ 0, %1264 ], [ %1282, %1281 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %99) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %1276 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.2016, i32 noundef %.01.i85) #33
   %1277 = load i32, ptr @_ZZL20ShowExampleAppLayoutPbE8selected, align 4, !tbaa !54
   %1278 = icmp eq i32 %1277, %.01.i85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store float 0.000000e+00, ptr %100, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1267, align 4, !tbaa !44
   %1279 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %99, i1 noundef zeroext %1278, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %100)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br i1 %1279, label %1280, label %1281
 
 1280:                                             ; preds = %1275
@@ -5375,7 +5375,7 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %.preheader.i, %1229
   br label %1281
 
 1281:                                             ; preds = %1280, %1275
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %99) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   %1282 = add nuw nsw i32 %.01.i85, 1
   %exitcond.not.i86 = icmp eq i32 %1282, 100
   br i1 %exitcond.not.i86, label %1268, label %1275, !llvm.loop !96
@@ -5404,19 +5404,19 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %.preheader.i, %1229
 
 1290:                                             ; preds = %1289, %1268
   call void @_ZN5ImGui8EndChildEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store float 0.000000e+00, ptr %102, align 4, !tbaa !42
   %1291 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store float 0.000000e+00, ptr %1291, align 4, !tbaa !44
   %1292 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.248, ptr noundef nonnull align 4 dereferenceable(8) %102)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store float 0.000000e+00, ptr %103, align 4, !tbaa !42
   %1293 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store float 0.000000e+00, ptr %1293, align 4, !tbaa !44
   %1294 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.247, ptr noundef nonnull align 4 dereferenceable(8) %103)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @_ZN5ImGui8EndGroupEv()
   br label %_ZL20ShowExampleAppLayoutPb.exit
 
@@ -5430,12 +5430,12 @@ _ZL20ShowExampleAppLayoutPb.exit:                 ; preds = %1248, %1290
   br i1 %1297, label %1298, label %1322
 
 1298:                                             ; preds = %1295
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store float 4.300000e+02, ptr %96, align 4, !tbaa !42
   %1299 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store float 4.500000e+02, ptr %1299, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %96, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %1300 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.2023, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE9demo_data, i64 7), i32 noundef 0)
   br i1 %1300, label %1301, label %_ZL28ShowExampleAppPropertyEditorPbP19ImGuiDemoWindowData.exit
 
@@ -5515,9 +5515,9 @@ _ZL28ShowExampleAppPropertyEditorPbP19ImGuiDemoWindowData.exit: ; preds = %1298,
   %.sroa.0.0.copyload.i = load float, ptr %1332, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1330, i64 36
   %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %1333 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %1334 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %1335 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4, !tbaa !54
   %1336 = and i32 %1335, 1
@@ -5539,8 +5539,8 @@ _ZL28ShowExampleAppPropertyEditorPbP19ImGuiDemoWindowData.exit: ; preds = %1298,
   %1347 = select i1 %.not15.i, float 0.000000e+00, float 1.000000e+00
   store float %1347, ptr %1334, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %92, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %93)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %1365
 
 1348:                                             ; preds = %1325
@@ -5548,7 +5548,7 @@ _ZL28ShowExampleAppPropertyEditorPbP19ImGuiDemoWindowData.exit: ; preds = %1298,
   br i1 %1349, label %1350, label %1365
 
 1350:                                             ; preds = %1348
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %1351 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 8
   %1353 = load float, ptr %1352, align 8, !tbaa !105
@@ -5565,13 +5565,13 @@ _ZL28ShowExampleAppPropertyEditorPbP19ImGuiDemoWindowData.exit: ; preds = %1298,
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %1357, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %1363, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %94, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store float 5.000000e-01, ptr %95, align 4, !tbaa !42
   %1364 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store float 5.000000e-01, ptr %1364, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %94, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %95)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %1365
 
 1365:                                             ; preds = %1350, %1348, %1329
@@ -5755,28 +5755,28 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1436, label %1437, label %1559
 
 1437:                                             ; preds = %1434
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %61) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %61, ptr noundef nonnull align 16 dereferenceable(72) @__const._ZL31ShowExampleAppConstrainedResizePb.test_desc, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store float 0x3FFC71C720000000, ptr %62, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store float 1.000000e+02, ptr %63, align 4, !tbaa !53
   %1438 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   %1439 = icmp eq i32 %1438, 0
   br i1 %1439, label %1440, label %1443
 
 1440:                                             ; preds = %1437
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store float 1.000000e+02, ptr %64, align 4, !tbaa !42
   %1441 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store float 1.000000e+02, ptr %1441, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store float 5.000000e+02, ptr %65, align 4, !tbaa !42
   %1442 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store float 5.000000e+02, ptr %1442, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %64, ptr noundef nonnull align 4 dereferenceable(8) %65, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %.pr.i = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1443
 
@@ -5786,17 +5786,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1445, label %1446, label %1449
 
 1446:                                             ; preds = %1443
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store float 1.000000e+02, ptr %66, align 4, !tbaa !42
   %1447 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store float 1.000000e+02, ptr %1447, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store float 0x47EFFFFFE0000000, ptr %67, align 4, !tbaa !42
   %1448 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store float 0x47EFFFFFE0000000, ptr %1448, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %66, ptr noundef nonnull align 4 dereferenceable(8) %67, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %.pre.i101 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1449
 
@@ -5806,17 +5806,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1451, label %1452, label %1455
 
 1452:                                             ; preds = %1449
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store float -1.000000e+00, ptr %68, align 4, !tbaa !42
   %1453 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store float 0.000000e+00, ptr %1453, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store float -1.000000e+00, ptr %69, align 4, !tbaa !42
   %1454 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store float 0x47EFFFFFE0000000, ptr %1454, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(8) %69, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %.pr1.i = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1455
 
@@ -5826,17 +5826,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1457, label %1458, label %1461
 
 1458:                                             ; preds = %1455
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store float 0.000000e+00, ptr %70, align 4, !tbaa !42
   %1459 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store float -1.000000e+00, ptr %1459, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store float 0x47EFFFFFE0000000, ptr %71, align 4, !tbaa !42
   %1460 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store float -1.000000e+00, ptr %1460, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %70, ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %.pre5.i = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1461
 
@@ -5846,17 +5846,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1463, label %1464, label %1467
 
 1464:                                             ; preds = %1461
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store float 4.000000e+02, ptr %72, align 4, !tbaa !42
   %1465 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store float -1.000000e+00, ptr %1465, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store float 5.000000e+02, ptr %73, align 4, !tbaa !42
   %1466 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store float -1.000000e+00, ptr %1466, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %72, ptr noundef nonnull align 4 dereferenceable(8) %73, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %.pr2.i = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1467
 
@@ -5866,17 +5866,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1469, label %1470, label %1473
 
 1470:                                             ; preds = %1467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store float -1.000000e+00, ptr %74, align 4, !tbaa !42
   %1471 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store float 4.000000e+02, ptr %1471, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store float -1.000000e+00, ptr %75, align 4, !tbaa !42
   %1472 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store float 0x47EFFFFFE0000000, ptr %1472, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %74, ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %.pre6.i100 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1473
 
@@ -5886,17 +5886,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1475, label %1476, label %1479
 
 1476:                                             ; preds = %1473
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store float 0.000000e+00, ptr %76, align 4, !tbaa !42
   %1477 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store float 0.000000e+00, ptr %1477, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store float 0x47EFFFFFE0000000, ptr %77, align 4, !tbaa !42
   %1478 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store float 0x47EFFFFFE0000000, ptr %1478, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %76, ptr noundef nonnull align 4 dereferenceable(8) %77, ptr noundef nonnull @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints11AspectRatioEP21ImGuiSizeCallbackData, ptr noundef nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %.pr3.i = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1479
 
@@ -5906,17 +5906,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1481, label %1482, label %1485
 
 1482:                                             ; preds = %1479
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store float 0.000000e+00, ptr %78, align 4, !tbaa !42
   %1483 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store float 0.000000e+00, ptr %1483, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store float 0x47EFFFFFE0000000, ptr %79, align 4, !tbaa !42
   %1484 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store float 0x47EFFFFFE0000000, ptr %1484, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, ptr noundef nonnull @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints6SquareEP21ImGuiSizeCallbackData, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %.pre7.i = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4, !tbaa !54
   br label %1485
 
@@ -5926,17 +5926,17 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1487, label %1488, label %1491
 
 1488:                                             ; preds = %1485
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store float 0.000000e+00, ptr %80, align 4, !tbaa !42
   %1489 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store float 0.000000e+00, ptr %1489, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store float 0x47EFFFFFE0000000, ptr %81, align 4, !tbaa !42
   %1490 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store float 0x47EFFFFFE0000000, ptr %1490, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %80, ptr noundef nonnull align 4 dereferenceable(8) %81, ptr noundef nonnull @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints4StepEP21ImGuiSizeCallbackData, ptr noundef nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %1491
 
 1491:                                             ; preds = %1488, %1485
@@ -5945,12 +5945,12 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1493, label %1496, label %1494
 
 1494:                                             ; preds = %1491
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store float 0.000000e+00, ptr %82, align 4, !tbaa !42
   %1495 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store float 0.000000e+00, ptr %1495, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %1496
 
 1496:                                             ; preds = %1494, %1491
@@ -5987,11 +5987,11 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   br i1 %1513, label %1514, label %1529
 
 1514:                                             ; preds = %1509
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %1515 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
   store <2 x float> %1515, ptr %83, align 8
   %1516 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store float 5.000000e-01, ptr %84, align 4, !tbaa !114
   %1517 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store float 0x3FC99999A0000000, ptr %1517, align 4, !tbaa !115
@@ -6000,8 +6000,8 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   %1519 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store float 1.000000e+00, ptr %1519, align 4, !tbaa !117
   %1520 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.2060, ptr noundef nonnull align 4 dereferenceable(16) %84, i32 noundef 576, ptr noundef nonnull align 4 dereferenceable(8) %83)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %.sroa.0.0.vec.extract.i98 = extractelement <2 x float> %1516, i64 0
   %1521 = fadd float %.sroa.0.0.vec.extract.i98, 1.000000e+01
   %.sroa.0.4.vec.extract.i99 = extractelement <2 x float> %1516, i64 1
@@ -6010,71 +6010,71 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
   %1523 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store float %1522, ptr %1523, align 4, !tbaa !44
   call void @_ZN5ImGui18SetCursorScreenPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %1524 = load float, ptr %83, align 8, !tbaa !42
   %1525 = fpext float %1524 to double
   %1526 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %1527 = load float, ptr %1526, align 4, !tbaa !44
   %1528 = fpext float %1527 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2061, double noundef %1525, double noundef %1528)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %_ZL31ShowExampleAppConstrainedResizePb.exit
 
 1529:                                             ; preds = %1509
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store float 0.000000e+00, ptr %86, align 4, !tbaa !42
   %1530 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store float 0.000000e+00, ptr %1530, align 4, !tbaa !44
   %1531 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2063, ptr noundef nonnull align 4 dereferenceable(8) %86)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br i1 %1531, label %1532, label %1534
 
 1532:                                             ; preds = %1529
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store float 2.000000e+02, ptr %87, align 4, !tbaa !42
   %1533 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store float 2.000000e+02, ptr %1533, align 4, !tbaa !44
   call void @_ZN5ImGui13SetWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %87, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %1534
 
 1534:                                             ; preds = %1532, %1529
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store float 0.000000e+00, ptr %88, align 4, !tbaa !42
   %1535 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store float 0.000000e+00, ptr %1535, align 4, !tbaa !44
   %1536 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2064, ptr noundef nonnull align 4 dereferenceable(8) %88)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br i1 %1536, label %1537, label %1539
 
 1537:                                             ; preds = %1534
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store float 5.000000e+02, ptr %89, align 4, !tbaa !42
   %1538 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store float 5.000000e+02, ptr %1538, align 4, !tbaa !44
   call void @_ZN5ImGui13SetWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %89, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %1539
 
 1539:                                             ; preds = %1537, %1534
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store float 0.000000e+00, ptr %90, align 4, !tbaa !42
   %1540 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store float 0.000000e+00, ptr %1540, align 4, !tbaa !44
   %1541 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2065, ptr noundef nonnull align 4 dereferenceable(8) %90)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br i1 %1541, label %1542, label %1544
 
 1542:                                             ; preds = %1539
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store float 8.000000e+02, ptr %91, align 4, !tbaa !42
   %1543 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store float 2.000000e+02, ptr %1543, align 4, !tbaa !44
   call void @_ZN5ImGui13SetWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %91, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %1544
 
 1544:                                             ; preds = %1542, %1539
@@ -6103,9 +6103,9 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %.lr.ph.i93, %1420, 
 
 _ZL31ShowExampleAppConstrainedResizePb.exit:      ; preds = %.lr.ph.i97, %1504, %1514, %1544
   call void @_ZN5ImGui3EndEv()
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #33
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %61) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %1559
 
 1559:                                             ; preds = %_ZL31ShowExampleAppConstrainedResizePb.exit, %1434
@@ -6119,12 +6119,12 @@ _ZL31ShowExampleAppConstrainedResizePb.exit:      ; preds = %.lr.ph.i97, %1504, 
   %1565 = trunc nuw i8 %1564 to i1
   %.v.i = select i1 %1565, i64 24, i64 8
   %1566 = getelementptr inbounds nuw i8, ptr %1563, i64 %.v.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store float 0.000000e+00, ptr %59, align 4, !tbaa !42
   %1567 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store float 0.000000e+00, ptr %1567, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %1566, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %1568 = load i8, ptr @_ZZL24ShowExampleAppFullscreenPbE13use_work_area, align 1, !tbaa !29, !range !11, !noundef !12
   %1569 = trunc nuw i8 %1568 to i1
   %.v7.i = select i1 %1569, i64 32, i64 16
@@ -6158,12 +6158,12 @@ _ZL10HelpMarkerPKc.exit.i102:                     ; preds = %1576, %1573
   %1582 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.2085, ptr noundef nonnull @_ZZL24ShowExampleAppFullscreenPbE5flags, i32 noundef 32)
   %1583 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.2086, ptr noundef nonnull @_ZZL24ShowExampleAppFullscreenPbE5flags, i32 noundef 8)
   call void @_ZN5ImGui8UnindentEf(float noundef 0.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store float 0.000000e+00, ptr %60, align 4, !tbaa !42
   %1584 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float 0.000000e+00, ptr %1584, align 4, !tbaa !44
   %1585 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2087, ptr noundef nonnull align 4 dereferenceable(8) %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br i1 %1585, label %1586, label %_ZL24ShowExampleAppFullscreenPb.exit
 
 1586:                                             ; preds = %_ZL10HelpMarkerPKc.exit.i102
@@ -6180,12 +6180,12 @@ _ZL24ShowExampleAppFullscreenPb.exit:             ; preds = %1562, %_ZL10HelpMar
   br i1 %1589, label %1590, label %1662
 
 1590:                                             ; preds = %1587
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store float 5.200000e+02, ptr %52, align 4, !tbaa !42
   %1591 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store float 6.000000e+02, ptr %1591, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %52, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %1592 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.2035, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE9demo_data, i64 12), i32 noundef 0)
   br i1 %1592, label %1593, label %_ZL22ShowExampleAppLongTextPb.exit
 
@@ -6222,12 +6222,12 @@ _ZL24ShowExampleAppFullscreenPb.exit:             ; preds = %1562, %_ZL10HelpMar
   %1607 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8, !tbaa !121
   %spec.select.i.i = call noundef i32 @llvm.usub.sat.i32(i32 %1607, i32 1)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2040, i32 noundef %1606, i32 noundef %spec.select.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store float 0.000000e+00, ptr %53, align 4, !tbaa !42
   %1608 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store float 0.000000e+00, ptr %1608, align 4, !tbaa !44
   %1609 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1982, ptr noundef nonnull align 4 dereferenceable(8) %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br i1 %1609, label %1610, label %1613
 
 1610:                                             ; preds = %1604
@@ -6248,12 +6248,12 @@ _ZN15ImGuiTextBuffer5clearEv.exit.i:              ; preds = %1612, %1610
 
 1613:                                             ; preds = %_ZN15ImGuiTextBuffer5clearEv.exit.i, %1604
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store float 0.000000e+00, ptr %54, align 4, !tbaa !42
   %1614 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store float 0.000000e+00, ptr %1614, align 4, !tbaa !44
   %1615 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2041, ptr noundef nonnull align 4 dereferenceable(8) %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br i1 %1615, label %.preheader2.i110, label %1622
 
 1616:                                             ; preds = %.preheader2.i110
@@ -6272,12 +6272,12 @@ _ZN15ImGuiTextBuffer5clearEv.exit.i:              ; preds = %1612, %1610
   br i1 %exitcond.not.i111, label %1616, label %.preheader2.i110, !llvm.loop !127
 
 1622:                                             ; preds = %1616, %1613
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store float 0.000000e+00, ptr %55, align 4, !tbaa !42
   %1623 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store float 0.000000e+00, ptr %1623, align 4, !tbaa !44
   %1624 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.298, ptr noundef nonnull align 4 dereferenceable(8) %55, i32 noundef 0, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %1625 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE9test_type, align 4, !tbaa !54
   switch i32 %1625, label %1661 [
     i32 0, label %1626
@@ -6298,13 +6298,13 @@ _ZN15ImGuiTextBuffer5clearEv.exit.i:              ; preds = %1612, %1610
   br label %1661
 
 1633:                                             ; preds = %1622
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store float 0.000000e+00, ptr %56, align 4, !tbaa !42
   %1634 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float 0.000000e+00, ptr %1634, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #33
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %57)
   %1635 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4, !tbaa !54
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %57, i32 noundef %1635, float noundef -1.000000e+00)
@@ -6363,22 +6363,22 @@ _ZN15ImGuiTextBuffer5clearEv.exit.i:              ; preds = %1612, %1610
 
 1652:                                             ; preds = %1651
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %57) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %1661
 
 1653:                                             ; preds = %1649, %.loopexit.split-lp.i, %.loopexit1.i
   %.pn.i = phi { ptr, i32 } [ %1650, %1649 ], [ %lpad.loopexit.i, %.loopexit1.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %57) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %common.resume
 
 1654:                                             ; preds = %1622
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store float 0.000000e+00, ptr %58, align 4, !tbaa !42
   %1655 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float 0.000000e+00, ptr %1655, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %1656 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4, !tbaa !54
   %1657 = icmp sgt i32 %1656, 0
   br i1 %1657, label %.lr.ph.i105, label %._crit_edge.i104
@@ -6414,19 +6414,19 @@ _ZL22ShowExampleAppLongTextPb.exit:               ; preds = %1590, %1661
   %.sroa.0.0.copyload.i113 = load float, ptr %1667, align 8, !tbaa !53
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1666, i64 12
   %.sroa.6.0.copyload.i = load float, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1668 = fadd float %.sroa.0.0.copyload.i113, 1.000000e+02
   %1669 = fadd float %.sroa.6.0.copyload.i, 1.000000e+02
   store float %1668, ptr %45, align 4, !tbaa !42
   %1670 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store float %1669, ptr %1670, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float 0.000000e+00, ptr %46, align 4, !tbaa !42
   %1671 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store float 0.000000e+00, ptr %1671, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %45, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1672 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.2088, ptr noundef null, i32 noundef 0)
   %1673 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
   %.not.i114 = icmp eq ptr %1673, null
@@ -6440,22 +6440,22 @@ _ZL22ShowExampleAppLongTextPb.exit:               ; preds = %1590, %1661
 _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %1665, %1674
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2090)
   call void @_ZN5ImGui3EndEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1676 = fadd float %.sroa.6.0.copyload.i, 2.000000e+02
   store float %1668, ptr %47, align 4, !tbaa !42
   %1677 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store float %1676, ptr %1677, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store float 0.000000e+00, ptr %48, align 4, !tbaa !42
   %1678 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store float 0.000000e+00, ptr %1678, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %47, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1679 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.2091, ptr noundef null, i32 noundef 0)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2092)
   call void @_ZN5ImGui3EndEv()
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %49) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1680 = call noundef double @_ZN5ImGui7GetTimeEv()
   %1681 = fmul double %1680, 4.000000e+00
   %1682 = fptosi double %1681 to i32
@@ -6466,22 +6466,22 @@ _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %1665, %1674
   %1687 = sext i8 %1686 to i32
   %1688 = call noundef i32 @_ZN5ImGui13GetFrameCountEv()
   %1689 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) @.str.2093, i32 noundef %1687, i32 noundef %1688) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %1690 = fadd float %.sroa.6.0.copyload.i, 3.000000e+02
   store float %1668, ptr %50, align 4, !tbaa !42
   %1691 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store float %1690, ptr %1691, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store float 0.000000e+00, ptr %51, align 4, !tbaa !42
   %1692 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store float 0.000000e+00, ptr %1692, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %50, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %1693 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull %49, ptr noundef null, i32 noundef 0)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.2095)
   call void @_ZN5ImGui3EndEv()
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %49) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %1694
 
 1694:                                             ; preds = %_ZL26ShowExampleAppWindowTitlesPb.exit, %1662
@@ -6573,7 +6573,7 @@ _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %1665, %1674
   %1744 = trunc nuw i8 %1743 to i1
   %.0 = select i1 %1744, ptr null, ptr %0
   %1745 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %186) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %1746 = getelementptr inbounds nuw i8, ptr %1745, i64 24
   %1747 = load float, ptr %1746, align 8, !tbaa !143
   %1748 = fadd float %1747, 6.500000e+02
@@ -6583,19 +6583,19 @@ _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %1665, %1674
   store float %1748, ptr %186, align 4, !tbaa !42
   %1752 = getelementptr inbounds nuw i8, ptr %186, i64 4
   store float %1751, ptr %1752, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %187) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   store float 0.000000e+00, ptr %187, align 4, !tbaa !42
   %1753 = getelementptr inbounds nuw i8, ptr %187, i64 4
   store float 0.000000e+00, ptr %1753, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %186, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %187)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %187) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %186) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %188) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   store float 5.500000e+02, ptr %188, align 4, !tbaa !42
   %1754 = getelementptr inbounds nuw i8, ptr %188, i64 4
   store float 6.800000e+02, ptr %1754, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %188, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   %1755 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.2, ptr noundef %.0, i32 noundef %.9)
   br i1 %1755, label %1756, label %2649
 
@@ -7313,12 +7313,12 @@ _ZL10HelpMarkerPKc.exit138:                       ; preds = %2018, %2020
   br label %_ZL10HelpMarkerPKc.exit139
 
 _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.exit138, %2024
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %189) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   store float 0.000000e+00, ptr %189, align 4, !tbaa !42
   %2027 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store float 0.000000e+00, ptr %2027, align 4, !tbaa !44
   %2028 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.88, ptr noundef nonnull align 4 dereferenceable(8) %189)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %189) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   br i1 %2028, label %2029, label %2030
 
 2029:                                             ; preds = %_ZL10HelpMarkerPKc.exit139
@@ -7346,12 +7346,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %2036, label %2037, label %2063
 
 2037:                                             ; preds = %2035
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %190) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   store float 0.000000e+00, ptr %190, align 4, !tbaa !42
   %2038 = getelementptr inbounds nuw i8, ptr %190, i64 4
   store float 0.000000e+00, ptr %2038, align 4, !tbaa !44
   %2039 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.91, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %190, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br i1 %2039, label %2040, label %2063
 
 2040:                                             ; preds = %2037
@@ -7412,12 +7412,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
 
 2075:                                             ; preds = %2073
   call void (ptr, ...) @_ZN5ImGui11TextWrappedEPKcz(ptr noundef nonnull @.str.1357)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float 0.000000e+00, ptr %19, align 4, !tbaa !42
   %2076 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %2076, align 4, !tbaa !44
   %2077 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1363, ptr noundef nonnull align 4 dereferenceable(8) %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %2077, label %2078, label %2079
 
 2078:                                             ; preds = %2075
@@ -7455,11 +7455,11 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
   %indvars.iv.i145 = phi i64 [ 0, %2089 ], [ %indvars.iv.next.i146, %2098 ]
   %2093 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %indvars.iv.i145
   %2094 = load ptr, ptr %2093, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 0.000000e+00, ptr %20, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2090, align 4, !tbaa !44
   %2095 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %2094, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %2095, label %2096, label %2098
 
 2096:                                             ; preds = %2092
@@ -7473,12 +7473,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %exitcond.not.i147, label %2091, label %2092, !llvm.loop !150
 
 2099:                                             ; preds = %2091, %2086
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float 0.000000e+00, ptr %21, align 4, !tbaa !42
   %2100 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float 0.000000e+00, ptr %2100, align 4, !tbaa !44
   %2101 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1367, ptr noundef nonnull align 4 dereferenceable(8) %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %2101, label %2102, label %2103
 
 2102:                                             ; preds = %2099
@@ -7512,12 +7512,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui9SeparatorEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1371)
   call void (ptr, ...) @_ZN5ImGui14SetItemTooltipEPKcz(ptr noundef nonnull @.str.1372)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store float 0.000000e+00, ptr %22, align 4, !tbaa !42
   %2114 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 0.000000e+00, ptr %2114, align 4, !tbaa !44
   %2115 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1373, ptr noundef nonnull align 4 dereferenceable(8) %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %2115, label %2116, label %2117
 
 2116:                                             ; preds = %2113
@@ -7544,12 +7544,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
 
 2125:                                             ; preds = %2119
   %2126 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1370, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store float 0.000000e+00, ptr %23, align 4, !tbaa !42
   %2127 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %2127, align 4, !tbaa !44
   %2128 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1373, ptr noundef nonnull align 4 dereferenceable(8) %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %2128, label %2129, label %2130
 
 2129:                                             ; preds = %2125
@@ -7578,12 +7578,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %2136
 
 2136:                                             ; preds = %2135, %2103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0.000000e+00, ptr %24, align 4, !tbaa !42
   %2137 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 0.000000e+00, ptr %2137, align 4, !tbaa !44
   %2138 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1376, ptr noundef nonnull align 4 dereferenceable(8) %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %2138, label %2139, label %2140
 
 2139:                                             ; preds = %2136
@@ -7622,12 +7622,12 @@ _ZL10HelpMarkerPKc.exit139:                       ; preds = %_ZL10HelpMarkerPKc.
 
 2152:                                             ; preds = %2151, %2142
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1380)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float 0.000000e+00, ptr %25, align 4, !tbaa !42
   %2153 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store float 0.000000e+00, ptr %2153, align 4, !tbaa !44
   %2154 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1381, ptr noundef nonnull align 4 dereferenceable(8) %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN5ImGui8EndPopupEv()
   br label %2155
 
@@ -7696,11 +7696,11 @@ _ZL10HelpMarkerPKc.exit32.i:                      ; preds = %2171, %2169
   %2180 = load i32, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4, !tbaa !54
   %2181 = zext i32 %2180 to i64
   %2182 = icmp eq i64 %indvars.iv48.i, %2181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float 0.000000e+00, ptr %26, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2167, align 4, !tbaa !44
   %2183 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %2179, i1 noundef zeroext %2182, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %2183, label %2184, label %2186
 
 2184:                                             ; preds = %2177
@@ -7716,11 +7716,11 @@ _ZL10HelpMarkerPKc.exit32.i:                      ; preds = %2171, %2169
   %2189 = trunc nuw nsw i64 %indvars.iv48.i to i32
   store i32 %2189, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4, !tbaa !54
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1391, ptr noundef %2179)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store float 0.000000e+00, ptr %27, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2168, align 4, !tbaa !44
   %2190 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %2190, label %2191, label %2192
 
 2191:                                             ; preds = %2188
@@ -7738,12 +7738,12 @@ _ZL10HelpMarkerPKc.exit32.i:                      ; preds = %2171, %2169
   br i1 %exitcond51.not.i, label %2169, label %2177, !llvm.loop !153
 
 2194:                                             ; preds = %_ZL10HelpMarkerPKc.exit32.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store float 0.000000e+00, ptr %28, align 4, !tbaa !42
   %2195 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store float 0.000000e+00, ptr %2195, align 4, !tbaa !44
   %2196 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1396, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %2196, label %2197, label %2198
 
 2197:                                             ; preds = %2194
@@ -7751,12 +7751,12 @@ _ZL10HelpMarkerPKc.exit32.i:                      ; preds = %2171, %2169
   br label %2198
 
 2198:                                             ; preds = %2197, %2194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float 0.000000e+00, ptr %29, align 4, !tbaa !42
   %2199 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store float 0.000000e+00, ptr %2199, align 4, !tbaa !44
   %2200 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1397, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %2200, label %2201, label %2202
 
 2201:                                             ; preds = %2198
@@ -7772,12 +7772,12 @@ _ZL10HelpMarkerPKc.exit32.i:                      ; preds = %2171, %2169
 2204:                                             ; preds = %2202, %_ZL10HelpMarkerPKc.exit32.i
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1399)
   call void @_ZN5ImGui20OpenPopupOnItemClickEPKci(ptr noundef nonnull @.str.1395, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !42
   %2205 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float 0.000000e+00, ptr %2205, align 4, !tbaa !44
   %2206 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1400, ptr noundef nonnull align 4 dereferenceable(8) %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %2206, label %2207, label %2208
 
 2207:                                             ; preds = %2204
@@ -7799,26 +7799,26 @@ _ZL10HelpMarkerPKc.exit32.i:                      ; preds = %2171, %2169
   br label %_ZL10HelpMarkerPKc.exit33.i
 
 _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %2213 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) @.str.1402, ptr noundef nonnull @_ZZL20ShowDemoWindowPopupsvE4name) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store float 0.000000e+00, ptr %32, align 4, !tbaa !42
   %2214 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float 0.000000e+00, ptr %2214, align 4, !tbaa !44
   %2215 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %31, ptr noundef nonnull align 4 dereferenceable(8) %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %2216 = call noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr noundef null, i32 noundef 1)
   br i1 %2216, label %2217, label %2223
 
 2217:                                             ; preds = %_ZL10HelpMarkerPKc.exit33.i
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1403)
   %2218 = call noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.1404, ptr noundef nonnull @_ZZL20ShowDemoWindowPopupsvE4name, i64 noundef 32, i32 noundef 0, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store float 0.000000e+00, ptr %33, align 4, !tbaa !42
   %2219 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float 0.000000e+00, ptr %2219, align 4, !tbaa !44
   %2220 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br i1 %2220, label %2221, label %2222
 
 2221:                                             ; preds = %2217
@@ -7832,7 +7832,7 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
 2223:                                             ; preds = %2222, %_ZL10HelpMarkerPKc.exit33.i
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1405)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN5ImGui7TreePopEv()
   br label %2224
 
@@ -7852,12 +7852,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
 
 2230:                                             ; preds = %2228
   call void (ptr, ...) @_ZN5ImGui11TextWrappedEPKcz(ptr noundef nonnull @.str.1408)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float 0.000000e+00, ptr %34, align 4, !tbaa !42
   %2231 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float 0.000000e+00, ptr %2231, align 4, !tbaa !44
   %2232 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1409, ptr noundef nonnull align 4 dereferenceable(8) %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br i1 %2232, label %2233, label %2234
 
 2233:                                             ; preds = %2230
@@ -7865,7 +7865,7 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
   br label %2234
 
 2234:                                             ; preds = %2233, %2230
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %2235 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %2236 = getelementptr inbounds nuw i8, ptr %2235, i64 8
   %2237 = load float, ptr %2236, align 8, !tbaa !105
@@ -7882,32 +7882,32 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
   %.sroa.0.0.vec.insert.i.i141 = insertelement <2 x float> poison, float %2241, i64 0
   %.sroa.0.4.vec.insert.i.i142 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i141, float %2247, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i142, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float 5.000000e-01, ptr %36, align 4, !tbaa !42
   %2248 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store float 5.000000e-01, ptr %2248, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %35, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %2249 = call noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr noundef nonnull @.str.1410, ptr noundef null, i32 noundef 64)
   br i1 %2249, label %2250, label %2261
 
 2250:                                             ; preds = %2234
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1411)
   call void @_ZN5ImGui9SeparatorEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store float 0.000000e+00, ptr %37, align 4, !tbaa !42
   %2251 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store float 0.000000e+00, ptr %2251, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %2252 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1412, ptr noundef nonnull @_ZZL20ShowDemoWindowPopupsvE21dont_ask_me_next_time)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store float 1.200000e+02, ptr %38, align 4, !tbaa !42
   %2253 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store float 0.000000e+00, ptr %2253, align 4, !tbaa !44
   %2254 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1413, ptr noundef nonnull align 4 dereferenceable(8) %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br i1 %2254, label %2255, label %2256
 
 2255:                                             ; preds = %2250
@@ -7917,12 +7917,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
 2256:                                             ; preds = %2255, %2250
   call void @_ZN5ImGui19SetItemDefaultFocusEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float 1.200000e+02, ptr %39, align 4, !tbaa !42
   %2257 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store float 0.000000e+00, ptr %2257, align 4, !tbaa !44
   %2258 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1414, ptr noundef nonnull align 4 dereferenceable(8) %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br i1 %2258, label %2259, label %2260
 
 2259:                                             ; preds = %2256
@@ -7934,12 +7934,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
   br label %2261
 
 2261:                                             ; preds = %2260, %2234
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float 0.000000e+00, ptr %40, align 4, !tbaa !42
   %2262 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store float 0.000000e+00, ptr %2262, align 4, !tbaa !44
   %2263 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1415, ptr noundef nonnull align 4 dereferenceable(8) %40)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br i1 %2263, label %2264, label %2265
 
 2264:                                             ; preds = %2261
@@ -7971,12 +7971,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1418)
   %2275 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiS1_i(ptr noundef nonnull @.str.340, ptr noundef nonnull @_ZZL20ShowDemoWindowPopupsvE4item, ptr noundef nonnull @.str.565, i32 noundef -1)
   %2276 = call noundef zeroext i1 @_ZN5ImGui10ColorEdit4EPKcPfi(ptr noundef nonnull @.str.1419, ptr noundef nonnull @_ZZL20ShowDemoWindowPopupsvE5color, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float 0.000000e+00, ptr %41, align 4, !tbaa !42
   %2277 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store float 0.000000e+00, ptr %2277, align 4, !tbaa !44
   %2278 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1420, ptr noundef nonnull align 4 dereferenceable(8) %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br i1 %2278, label %2279, label %2280
 
 2279:                                             ; preds = %2274
@@ -7984,7 +7984,7 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
   br label %2280
 
 2280:                                             ; preds = %2279, %2274
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i8 1, ptr %42, align 1, !tbaa !29
   %2281 = call noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr noundef nonnull @.str.1421, ptr noundef nonnull %42, i32 noundef 0)
   br i1 %2281, label %2282, label %2288
@@ -7992,12 +7992,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
 2282:                                             ; preds = %2280
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1422)
   %2283 = call noundef zeroext i1 @_ZN5ImGui10ColorEdit4EPKcPfi(ptr noundef nonnull @.str.1419, ptr noundef nonnull @_ZZL20ShowDemoWindowPopupsvE5color, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store float 0.000000e+00, ptr %43, align 4, !tbaa !42
   %2284 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store float 0.000000e+00, ptr %2284, align 4, !tbaa !44
   %2285 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br i1 %2285, label %2286, label %2287
 
 2286:                                             ; preds = %2282
@@ -8009,12 +8009,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
   br label %2288
 
 2288:                                             ; preds = %2287, %2280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float 0.000000e+00, ptr %44, align 4, !tbaa !42
   %2289 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float 0.000000e+00, ptr %2289, align 4, !tbaa !44
   %2290 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br i1 %2290, label %2291, label %2292
 
 2291:                                             ; preds = %2288
@@ -8023,12 +8023,12 @@ _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %2210, %2208
 
 2292:                                             ; preds = %2291, %2288
   call void @_ZN5ImGui8EndPopupEv()
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %2293
 
 2293:                                             ; preds = %2292, %2265
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %2294
 
 2294:                                             ; preds = %2293, %2228
@@ -8336,7 +8336,7 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   %2444 = getelementptr inbounds [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %2443
   %2445 = load ptr, ptr %2444, align 8, !tbaa !93
   %2446 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1876, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, i32 noundef -1, i32 noundef 1, ptr noundef %2445, i32 noundef 1536)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0x3FE6666660000000, ptr %2, align 4, !tbaa !114
   %2447 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0x3FB99999A0000000, ptr %2447, align 4, !tbaa !115
@@ -8344,13 +8344,13 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   store float 0x3FE6666660000000, ptr %2448, align 4, !tbaa !116
   %2449 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float 1.000000e+00, ptr %2449, align 4, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 1.280000e+02, ptr %3, align 4, !tbaa !42
   %2450 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 9.600000e+01, ptr %2450, align 4, !tbaa !44
   %2451 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1877, ptr noundef nonnull align 4 dereferenceable(16) %2, i32 noundef 576, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %2452 = call noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef 0)
   %2453 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, align 4
   %2454 = icmp ne i32 %2453, -1
@@ -8421,12 +8421,12 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.330)
   %2486 = or i32 %spec.select.i153, 262144
   call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 4660, i32 noundef %2486)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   %2487 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %2487, align 4, !tbaa !44
   %2488 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.247, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1889)
   call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 16935, i32 noundef %2486)
   %2489 = call noundef zeroext i1 @_ZN5ImGui11SliderFloatEPKcPfffS1_i(ptr noundef nonnull @.str.1890, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE1f, float noundef 0.000000e+00, float noundef 1.000000e+00, ptr noundef nonnull @.str.338, i32 noundef 0)
@@ -8438,7 +8438,7 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   %2493 = call noundef zeroext i1 @_ZN5ImGui8ShortcutEii(i32 noundef 4642, i32 noundef %spec.select.i153)
   %2494 = select i1 %2493, ptr @.str.1894, ptr @.str.1895
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1893, i32 noundef %2492, ptr noundef nonnull %2494)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 1.000000e+00, ptr %5, align 4, !tbaa !114
   %2495 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %2495, align 4, !tbaa !115
@@ -8447,14 +8447,14 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   %2497 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float 0x3FB99999A0000000, ptr %2497, align 4, !tbaa !117
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %2498 = fmul float %2490, 1.400000e+01
   store float 0xB810000000000000, ptr %6, align 4, !tbaa !42
   %2499 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %2498, ptr %2499, align 4, !tbaa !44
   %2500 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1896, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1897)
   call void @_ZN5ImGui9SeparatorEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1898)
@@ -8463,24 +8463,24 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   %2503 = call noundef zeroext i1 @_ZN5ImGui8ShortcutEii(i32 noundef 4642, i32 noundef %spec.select.i153)
   %2504 = select i1 %2503, ptr @.str.1894, ptr @.str.1895
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1893, i32 noundef %2502, ptr noundef nonnull %2504)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %2505 = fmul float %2490, 4.000000e+00
   store float 0xB810000000000000, ptr %7, align 4, !tbaa !42
   %2506 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %2505, ptr %2506, align 4, !tbaa !44
   %2507 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1899, ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1900)
   %2508 = call noundef zeroext i1 @_ZN5ImGui15IsWindowFocusedEi(i32 noundef 0)
   %2509 = zext i1 %2508 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1901, i32 noundef %2509)
   call void @_ZN5ImGui8EndChildEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0xB810000000000000, ptr %8, align 4, !tbaa !42
   %2510 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %2505, ptr %2510, align 4, !tbaa !44
   %2511 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1902, ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1903)
   %2512 = call noundef zeroext i1 @_ZN5ImGui15IsWindowFocusedEi(i32 noundef 0)
   %2513 = zext i1 %2512 to i32
@@ -8488,12 +8488,12 @@ _ZL10HelpMarkerPKc.exit124.i:                     ; preds = %2428, %2426
   %2515 = select i1 %2514, ptr @.str.1894, ptr @.str.1895
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1893, i32 noundef %2513, ptr noundef nonnull %2515)
   call void @_ZN5ImGui8EndChildEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !42
   %2516 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0.000000e+00, ptr %2516, align 4, !tbaa !44
   %2517 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1904, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %2517, label %2518, label %2519
 
 2518:                                             ; preds = %2471
@@ -8577,17 +8577,17 @@ _ZL10HelpMarkerPKc.exit125.i:                     ; preds = %2544, %2539
 
 2549:                                             ; preds = %2557, %_ZL10HelpMarkerPKc.exit125.i
   %indvars.iv138.i = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit125.i ], [ %indvars.iv.next139.i, %2557 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %2550 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.mouse_cursors_names, i64 0, i64 %indvars.iv138.i
   %2551 = load ptr, ptr %2550, align 8, !tbaa !93
   %2552 = trunc nuw nsw i64 %indvars.iv138.i to i32
   %2553 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.1922, i32 noundef %2552, ptr noundef %2551) #33
   call void @_ZN5ImGui6BulletEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2547, align 4, !tbaa !44
   %2554 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %10, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %2555 = call noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef 0)
   br i1 %2555, label %2556, label %2557
 
@@ -8596,7 +8596,7 @@ _ZL10HelpMarkerPKc.exit125.i:                     ; preds = %2544, %2539
   br label %2557
 
 2557:                                             ; preds = %2556, %2549
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %exitcond141.not.i = icmp eq i64 %indvars.iv.next139.i, 9
   br i1 %exitcond141.not.i, label %2548, label %2549, !llvm.loop !171
@@ -8657,26 +8657,26 @@ _ZL10HelpMarkerPKc.exit126.i:                     ; preds = %2570, %2564
   br i1 %2579, label %2580, label %2615
 
 2580:                                             ; preds = %2578
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0.000000e+00, ptr %12, align 4, !tbaa !42
   %2581 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0.000000e+00, ptr %2581, align 4, !tbaa !44
   %2582 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1933, ptr noundef nonnull align 4 dereferenceable(8) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !42
   %2583 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0.000000e+00, ptr %2583, align 4, !tbaa !44
   %2584 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1934, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0.000000e+00, ptr %14, align 4, !tbaa !42
   %2585 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0.000000e+00, ptr %2585, align 4, !tbaa !44
   %2586 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1935, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %2582, label %2587, label %2588
 
 2587:                                             ; preds = %2580
@@ -8736,29 +8736,29 @@ _ZL10HelpMarkerPKc.exit127.i:                     ; preds = %2600, %2596
   br label %2605
 
 2605:                                             ; preds = %2604, %2603
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 0.000000e+00, ptr %15, align 4, !tbaa !42
   %2606 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0.000000e+00, ptr %2606, align 4, !tbaa !44
   %2607 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1939, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %not..i = xor i1 %2607, true
   %spec.select122.i = sext i1 %not..i to i32
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0.000000e+00, ptr %16, align 4, !tbaa !42
   %2608 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0.000000e+00, ptr %2608, align 4, !tbaa !44
   %2609 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1940, ptr noundef nonnull align 4 dereferenceable(8) %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.1.i = select i1 %2609, i32 1, i32 %spec.select122.i
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !42
   %2610 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 0.000000e+00, ptr %2610, align 4, !tbaa !44
   %2611 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1941, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.2.i = select i1 %2611, i32 2, i32 %.1.i
   %.not117.i = icmp eq i32 %.2.i, -1
   br i1 %.not117.i, label %2613, label %2612
@@ -8792,12 +8792,12 @@ _ZL10HelpMarkerPKc.exit127.i:                     ; preds = %2600, %2596
   br label %2626
 
 2622:                                             ; preds = %2626
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float 0.000000e+00, ptr %18, align 4, !tbaa !42
   %2623 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float 0.000000e+00, ptr %2623, align 4, !tbaa !44
   %2624 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1951, ptr noundef nonnull align 4 dereferenceable(8) %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %2625 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
   br i1 %2625, label %2634, label %2639
 
@@ -8910,13 +8910,13 @@ define dso_local void @_ZN5ImGui15ShowAboutWindowEPb(ptr noundef %0) local_unnam
 14:                                               ; preds = %10
   %15 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %16 = tail call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0.000000e+00, ptr %17, align 4, !tbaa !44
   %18 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.120, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %20 = fmul float %19, 1.800000e+01
   store float 0.000000e+00, ptr %3, align 4, !tbaa !42
@@ -9201,7 +9201,7 @@ define dso_local void @_ZN5ImGui15ShowAboutWindowEPb(ptr noundef %0) local_unnam
 
 160:                                              ; preds = %159, %104
   call void @_ZN5ImGui8EndChildEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %161
 
 161:                                              ; preds = %160, %10
@@ -9323,7 +9323,7 @@ _ZN5ImGui17ShowStyleSelectorEPKc.exit:            ; preds = %35, %44
   br label %50
 
 50:                                               ; preds = %47, %_ZN5ImGui17ShowStyleSelectorEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %51 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %52 = load float, ptr %51, align 4, !tbaa !202
   %53 = fcmp ogt float %52, 0.000000e+00
@@ -9340,9 +9340,9 @@ _ZN5ImGui17ShowStyleSelectorEPKc.exit:            ; preds = %35, %44
   br label %60
 
 60:                                               ; preds = %56, %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %62 = load float, ptr %61, align 4, !tbaa !206
   %63 = fcmp ogt float %62, 0.000000e+00
@@ -9359,9 +9359,9 @@ _ZN5ImGui17ShowStyleSelectorEPKc.exit:            ; preds = %35, %44
   br label %70
 
 70:                                               ; preds = %66, %60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %72 = load float, ptr %71, align 4, !tbaa !213
   %73 = fcmp ogt float %72, 0.000000e+00
@@ -9378,13 +9378,13 @@ _ZN5ImGui17ShowStyleSelectorEPKc.exit:            ; preds = %35, %44
   br label %80
 
 80:                                               ; preds = %76, %70
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !42
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %81, align 4, !tbaa !44
   %82 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.168, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %80
@@ -9394,12 +9394,12 @@ _ZN5ImGui17ShowStyleSelectorEPKc.exit:            ; preds = %35, %44
 
 84:                                               ; preds = %83, %80
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !42
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %85, align 4, !tbaa !44
   %86 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.169, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
@@ -9499,7 +9499,7 @@ _ZL10HelpMarkerPKc.exit149:                       ; preds = %96, %125
   call void @_ZN5ImGui13SeparatorTextEPKc(ptr noundef nonnull @.str.39)
   %147 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %148 = call noundef zeroext i1 @_ZN5ImGui12SliderFloat2EPKcPfffS1_i(ptr noundef nonnull @.str.204, ptr noundef nonnull %147, float noundef 0.000000e+00, float noundef 1.000000e+00, ptr noundef nonnull @.str.203, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %149 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %150 = load i32, ptr %149, align 4, !tbaa !214
   %151 = add nsw i32 %150, 1
@@ -9598,7 +9598,7 @@ _ZL10HelpMarkerPKc.exit152:                       ; preds = %179, %183
 
 _ZL10HelpMarkerPKc.exit153:                       ; preds = %_ZL10HelpMarkerPKc.exit152, %189
   call void @_ZN5ImGui10EndTabItemEv()
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %204
 
 192:                                              ; preds = %_ZL10HelpMarkerPKc.exit151, %203
@@ -9626,12 +9626,12 @@ _ZL10HelpMarkerPKc.exit153:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %205, label %206, label %316
 
 206:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !42
   %207 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0.000000e+00, ptr %207, align 4, !tbaa !44
   %208 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.231, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %208, label %209, label %242
 
 209:                                              ; preds = %206
@@ -9776,25 +9776,25 @@ _ZL10HelpMarkerPKc.exit153:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %_ZL10HelpMarkerPKc.exit154
 
 _ZL10HelpMarkerPKc.exit154:                       ; preds = %272, %274
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %277 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %278 = fmul float %277, 1.000000e+01
   store float 0.000000e+00, ptr %9, align 4, !tbaa !42
   %279 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float %278, ptr %279, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0x47EFFFFFE0000000, ptr %10, align 4, !tbaa !42
   %280 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0x47EFFFFFE0000000, ptr %280, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !42
   %281 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float 0.000000e+00, ptr %281, align 4, !tbaa !44
   %282 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.243, ptr noundef nonnull align 4 dereferenceable(8) %11, i32 noundef 257, i32 noundef 49152)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %283 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %284 = fmul float %283, -1.200000e+01
   call void @_ZN5ImGui13PushItemWidthEf(float noundef %284)
@@ -9821,11 +9821,11 @@ _ZL10HelpMarkerPKc.exit154:                       ; preds = %272, %274
 
 296:                                              ; preds = %292
   call void @_ZN5ImGui6PushIDEi(i32 noundef %293)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0.000000e+00, ptr %12, align 4, !tbaa !42
   store float 0.000000e+00, ptr %285, align 4, !tbaa !44
   %297 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.244, ptr noundef nonnull align 4 dereferenceable(8) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %297, label %298, label %299
 
 298:                                              ; preds = %296
@@ -9847,11 +9847,11 @@ _ZL10HelpMarkerPKc.exit154:                       ; preds = %272, %274
 305:                                              ; preds = %299
   %306 = load float, ptr %288, align 4, !tbaa !49
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %306)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !42
   store float 0.000000e+00, ptr %289, align 4, !tbaa !44
   %307 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.247, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %307, label %308, label %309
 
 308:                                              ; preds = %305
@@ -9861,11 +9861,11 @@ _ZL10HelpMarkerPKc.exit154:                       ; preds = %272, %274
 309:                                              ; preds = %308, %305
   %310 = load float, ptr %288, align 4, !tbaa !49
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %310)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0.000000e+00, ptr %14, align 4, !tbaa !42
   store float 0.000000e+00, ptr %290, align 4, !tbaa !44
   %311 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.248, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %311, label %312, label %313
 
 312:                                              ; preds = %309
@@ -10000,16 +10000,16 @@ _ZL10HelpMarkerPKc.exit158:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %365, label %366, label %.critedge
 
 366:                                              ; preds = %362
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %367 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %367, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0.000000e+00, ptr %16, align 4, !tbaa !42
   %368 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0.000000e+00, ptr %368, align 4, !tbaa !44
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %369 = call noundef zeroext i1 @_ZN5ImGui12BeginTooltipEv()
   br i1 %369, label %370, label %.critedge
 
@@ -10043,7 +10043,7 @@ _ZL10HelpMarkerPKc.exit158:                       ; preds = %_ZL10HelpMarkerPKc.
   %386 = fmul float %385, 5.000000e-01
   %387 = call float @llvm.floor.f32(float %386)
   %388 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %388, i64 0
   %389 = fadd float %387, %.sroa.0.0.vec.extract
   %.sroa.0.4.vec.extract = extractelement <2 x float> %388, i64 1
@@ -10052,12 +10052,12 @@ _ZL10HelpMarkerPKc.exit158:                       ; preds = %_ZL10HelpMarkerPKc.
   store float %390, ptr %373, align 4, !tbaa !44
   %391 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(200) %371, ptr noundef nonnull align 4 dereferenceable(8) %17, float noundef %380, i32 noundef %391, i32 noundef 0, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float %385, ptr %18, align 4, !tbaa !42
   store float 1.400000e+02, ptr %374, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN5ImGui8EndGroupEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %392 = add nuw nsw i32 %.0140164, 1
@@ -10117,15 +10117,9 @@ _ZL10HelpMarkerPKc.exit160:                       ; preds = %_ZL10HelpMarkerPKc.
 
 declare void @_ZN5ImGui3EndEv() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare noundef ptr @_ZN5ImGui15GetMainViewportEv() local_unnamed_addr #1
 
 declare void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
@@ -10191,7 +10185,7 @@ declare noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef) local_unnamed_ad
 declare noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #4
+declare float @fmodf(float noundef, float noundef) local_unnamed_addr #3
 
 declare noundef double @_ZN5ImGui7GetTimeEv() local_unnamed_addr #1
 
@@ -10445,12 +10439,12 @@ define internal fastcc void @_ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData() 
   br label %194
 
 194:                                              ; preds = %190, %192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store float 0.000000e+00, ptr %22, align 4, !tbaa !42
   %195 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 0.000000e+00, ptr %195, align 4, !tbaa !44
   %196 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.352, ptr noundef nonnull align 4 dereferenceable(8) %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.pre = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE7clicked, align 4, !tbaa !54
   br i1 %196, label %197, label %199
 
@@ -10532,12 +10526,12 @@ define internal fastcc void @_ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData() 
 
 228:                                              ; preds = %227, %226
   call void @_ZN5ImGui6PushIDEi(i32 noundef %.032755)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %229 = uitofp nneg i32 %.032755 to float
   %230 = fdiv float %229, 7.000000e+00
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %230, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
   %231 = load float, ptr %19, align 4, !tbaa !53
   %232 = load float, ptr %20, align 4, !tbaa !53
@@ -10545,17 +10539,17 @@ define internal fastcc void @_ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData() 
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %231, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %232, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %233, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %23, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %220, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(16) %23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %230, float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   %234 = load float, ptr %16, align 4, !tbaa !53
   %235 = load float, ptr %17, align 4, !tbaa !53
@@ -10563,17 +10557,17 @@ define internal fastcc void @_ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData() 
   %.sroa.0.0.vec.insert.i570 = insertelement <2 x float> poison, float %234, i64 0
   %.sroa.0.4.vec.insert.i571 = insertelement <2 x float> %.sroa.0.0.vec.insert.i570, float %235, i64 1
   %.sroa.3.12.vec.insert.i573 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %236, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store <2 x float> %.sroa.0.4.vec.insert.i571, ptr %24, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i573, ptr %221, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 22, ptr noundef nonnull align 4 dereferenceable(16) %24)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %230, float noundef 0x3FE99999A0000000, float noundef 0x3FE99999A0000000, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
   %237 = load float, ptr %13, align 4, !tbaa !53
   %238 = load float, ptr %14, align 4, !tbaa !53
@@ -10581,18 +10575,18 @@ define internal fastcc void @_ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData() 
   %.sroa.0.0.vec.insert.i581 = insertelement <2 x float> poison, float %237, i64 0
   %.sroa.0.4.vec.insert.i582 = insertelement <2 x float> %.sroa.0.0.vec.insert.i581, float %238, i64 1
   %.sroa.3.12.vec.insert.i584 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %239, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store <2 x float> %.sroa.0.4.vec.insert.i582, ptr %25, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i584, ptr %222, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 23, ptr noundef nonnull align 4 dereferenceable(16) %25)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float 0.000000e+00, ptr %26, align 4, !tbaa !42
   store float 0.000000e+00, ptr %223, align 4, !tbaa !44
   %240 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.361, ptr noundef nonnull align 4 dereferenceable(8) %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 3)
   call void @_ZN5ImGui5PopIDEv()
   %241 = add nuw nsw i32 %.032755, 1
@@ -10634,12 +10628,12 @@ define internal fastcc void @_ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData() 
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %258 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE7counter, align 4, !tbaa !54
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.366, i32 noundef %258)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store float 0.000000e+00, ptr %27, align 4, !tbaa !42
   %259 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store float 0.000000e+00, ptr %259, align 4, !tbaa !44
   %260 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.367, ptr noundef nonnull align 4 dereferenceable(8) %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void (ptr, ...) @_ZN5ImGui14SetItemTooltipEPKcz(ptr noundef nonnull @.str.368)
   call void (ptr, ptr, ...) @_ZN5ImGui9LabelTextEPKcS1_z(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.337)
   call void @_ZN5ImGui13SeparatorTextEPKc(ptr noundef nonnull @.str.370)
@@ -10847,7 +10841,7 @@ _ZL10HelpMarkerPKc.exit596:                       ; preds = %332, %335
   br label %342
 
 342:                                              ; preds = %340, %_ZL10HelpMarkerPKc.exit596
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %28, ptr noundef nonnull align 16 dereferenceable(88) @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items, i64 88, i1 false)
   %343 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.430, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE12item_current, ptr noundef nonnull %28, i32 noundef 11, i32 noundef -1)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -10865,7 +10859,7 @@ _ZL10HelpMarkerPKc.exit596:                       ; preds = %332, %335
   br label %_ZL10HelpMarkerPKc.exit597
 
 _ZL10HelpMarkerPKc.exit597:                       ; preds = %342, %345
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %28) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %348 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
   %.not481 = icmp eq ptr %348, null
   br i1 %.not481, label %351, label %349
@@ -10876,7 +10870,7 @@ _ZL10HelpMarkerPKc.exit597:                       ; preds = %342, %345
   br label %351
 
 351:                                              ; preds = %349, %_ZL10HelpMarkerPKc.exit597
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %29, ptr noundef nonnull align 16 dereferenceable(72) @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items.442, i64 72, i1 false)
   %352 = call noundef zeroext i1 @_ZN5ImGui7ListBoxEPKcPiPKS1_ii(ptr noundef nonnull @.str.443, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE12item_current_0, ptr noundef nonnull %29, i32 noundef 9, i32 noundef 4)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -10894,7 +10888,7 @@ _ZL10HelpMarkerPKc.exit597:                       ; preds = %342, %345
   br label %_ZL10HelpMarkerPKc.exit598
 
 _ZL10HelpMarkerPKc.exit598:                       ; preds = %351, %354
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZN5ImGui7TreePopEv()
   br label %357
 
@@ -10928,7 +10922,7 @@ _ZL10HelpMarkerPKc.exit598:                       ; preds = %351, %354
   br label %_ZL10HelpMarkerPKc.exit599
 
 _ZL10HelpMarkerPKc.exit599:                       ; preds = %363, %365
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0xB810000000000000, ptr %30, align 4, !tbaa !42
   %368 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float 0.000000e+00, ptr %368, align 4, !tbaa !44
@@ -10976,14 +10970,14 @@ _ZL10HelpMarkerPKc.exit599:                       ; preds = %363, %365
   %388 = call float @sinf(float noundef %387) #33, !tbaa !54
   %389 = fmul float %388, 5.000000e-01
   %390 = fadd float %389, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %391 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %392 = fmul float %391, 2.500000e+01
   store float %392, ptr %31, align 4, !tbaa !42
   %393 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store float 0.000000e+00, ptr %393, align 4, !tbaa !44
   call void @_ZN5ImGui11ProgressBarEfRK6ImVec2PKc(float noundef %390, ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN5ImGui10EndTooltipEv()
   br label %394
 
@@ -11068,7 +11062,7 @@ _ZL10HelpMarkerPKc.exit600:                       ; preds = %394, %396
 430:                                              ; preds = %429, %426
   call void @_ZN5ImGui11EndDisabledEv()
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %431
 
 431:                                              ; preds = %361, %430
@@ -11490,7 +11484,7 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %596, label %597, label %608
 
 597:                                              ; preds = %595
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store float 1.000000e+00, ptr %32, align 4, !tbaa !114
   %598 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float 0.000000e+00, ptr %598, align 4, !tbaa !115
@@ -11499,8 +11493,8 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %_ZL10HelpMarkerPKc.
   %600 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store float 1.000000e+00, ptr %600, align 4, !tbaa !117
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull @.str.520)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store float 1.000000e+00, ptr %33, align 4, !tbaa !114
   %601 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float 1.000000e+00, ptr %601, align 4, !tbaa !115
@@ -11509,7 +11503,7 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %_ZL10HelpMarkerPKc.
   %603 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store float 1.000000e+00, ptr %603, align 4, !tbaa !117
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull @.str.521)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.345)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.287)
@@ -11561,14 +11555,14 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   %.033462 = phi i32 [ 0, %614 ], [ 1, %635 ]
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.527, i32 noundef %.033462)
   %622 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %.sroa.0275.0.vec.extract = extractelement <2 x float> %622, i64 0
   %623 = load float, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE10wrap_width, align 4, !tbaa !53
   %624 = fadd float %.sroa.0275.0.vec.extract, %623
   %.sroa.0275.4.vec.extract = extractelement <2 x float> %622, i64 1
   store float %624, ptr %34, align 4, !tbaa !42
   store float %.sroa.0275.4.vec.extract, ptr %617, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %625 = fadd float %624, 1.000000e+01
   %626 = call noundef float @_ZN5ImGui17GetTextLineHeightEv()
   %627 = fadd float %.sroa.0275.4.vec.extract, %626
@@ -11592,19 +11586,19 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   br label %635
 
 635:                                              ; preds = %634, %631
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %636 = call <2 x float> @_ZN5ImGui14GetItemRectMinEv()
   store <2 x float> %636, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %637 = call <2 x float> @_ZN5ImGui14GetItemRectMaxEv()
   store <2 x float> %637, ptr %37, align 8
   call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(200) %616, ptr noundef nonnull align 4 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(8) %37, i32 noundef -16711681, float noundef 0.000000e+00, i32 noundef 0, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %616, ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, i32 noundef -65281, float noundef 0.000000e+00, i32 noundef 0)
   call void @_ZN5ImGui14PopTextWrapPosEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br i1 %621, label %620, label %619, !llvm.loop !228
 
 638:                                              ; preds = %612, %619
@@ -11665,15 +11659,15 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   %667 = fpext float %664 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.540, double noundef %666, double noundef %667)
   %668 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store float 0.000000e+00, ptr %38, align 4, !tbaa !42
   %669 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store float 0.000000e+00, ptr %669, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float 1.000000e+00, ptr %39, align 4, !tbaa !42
   %670 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store float 1.000000e+00, ptr %670, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %671 = load i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE23use_text_color_for_tint, align 1, !tbaa !29, !range !11, !noundef !12
   %672 = trunc nuw i8 %671 to i1
   br i1 %672, label %673, label %675
@@ -11694,15 +11688,15 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   br label %679
 
 679:                                              ; preds = %675, %673
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %680 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN5ImGui17GetStyleColorVec4Ei(i32 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %680, i64 16, i1 false), !tbaa.struct !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store float %661, ptr %42, align 4, !tbaa !42
   %681 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store float %664, ptr %681, align 4, !tbaa !44
   call void @_ZN5ImGui5ImageEPvRK6ImVec2S3_S3_RK6ImVec4S6_(ptr noundef %658, ptr noundef nonnull align 4 dereferenceable(8) %42, ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %682 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
   br i1 %682, label %683, label %717
 
@@ -11751,34 +11745,34 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   %708 = fadd float %.0336, 3.200000e+01
   %709 = fpext float %708 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.542, double noundef %707, double noundef %709)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %710 = fdiv float %.0335, %661
   %711 = fdiv float %.0336, %664
   store float %710, ptr %43, align 4, !tbaa !42
   %712 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store float %711, ptr %712, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %713 = fdiv float %706, %661
   %714 = fdiv float %708, %664
   store float %713, ptr %44, align 4, !tbaa !42
   %715 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float %714, ptr %715, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float 1.280000e+02, ptr %45, align 4, !tbaa !42
   %716 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store float 1.280000e+02, ptr %716, align 4, !tbaa !44
   call void @_ZN5ImGui5ImageEPvRK6ImVec2S3_S3_RK6ImVec4S6_(ptr noundef %658, ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(8) %43, ptr noundef nonnull align 4 dereferenceable(8) %44, ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN5ImGui10EndTooltipEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %717
 
 717:                                              ; preds = %703, %679
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %718 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
   %.not494 = icmp eq ptr %718, null
   br i1 %.not494, label %721, label %719
@@ -11818,31 +11812,31 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   br i1 %.not560, label %740, label %737
 
 737:                                              ; preds = %736
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %738 = add nsw i32 %.033763, -1
   %739 = sitofp i32 %738 to float
   store float %739, ptr %46, align 4, !tbaa !42
   store float %739, ptr %722, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %740
 
 740:                                              ; preds = %737, %736
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store float 3.200000e+01, ptr %47, align 4, !tbaa !42
   store float 3.200000e+01, ptr %723, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store float 0.000000e+00, ptr %48, align 4, !tbaa !42
   store float 0.000000e+00, ptr %724, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store float %725, ptr %49, align 4, !tbaa !42
   store float %726, ptr %727, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store float 0.000000e+00, ptr %50, align 4, !tbaa !114
   store float 0.000000e+00, ptr %728, align 4, !tbaa !115
   store float 0.000000e+00, ptr %729, align 4, !tbaa !116
   store float 1.000000e+00, ptr %730, align 4, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store float 1.000000e+00, ptr %51, align 4, !tbaa !114
   store float 1.000000e+00, ptr %731, align 4, !tbaa !115
   store float 1.000000e+00, ptr %732, align 4, !tbaa !116
@@ -11866,11 +11860,11 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
 747:                                              ; preds = %746, %745
   call void @_ZN5ImGui5PopIDEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %748 = add nuw nsw i32 %.033763, 1
   %exitcond99.not = icmp eq i32 %748, 8
   br i1 %exitcond99.not, label %734, label %736, !llvm.loop !230
@@ -11967,7 +11961,7 @@ _ZL10HelpMarkerPKc.exit607:                       ; preds = %755, %758
 
 789:                                              ; preds = %787, %785
   %790 = phi i32 [ %788, %787 ], [ %.pre182, %785 ]
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %52) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %52, ptr noundef nonnull align 16 dereferenceable(112) @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items.570, i64 112, i1 false)
   %791 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE17item_selected_idx, align 4, !tbaa !54
   %792 = sext i32 %791 to i64
@@ -11991,11 +11985,11 @@ _ZL10HelpMarkerPKc.exit607:                       ; preds = %755, %758
   %801 = icmp eq i64 %indvars.iv100, %800
   %802 = getelementptr inbounds nuw [14 x ptr], ptr %52, i64 0, i64 %indvars.iv100
   %803 = load ptr, ptr %802, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store float 0.000000e+00, ptr %53, align 4, !tbaa !42
   store float 0.000000e+00, ptr %796, align 4, !tbaa !44
   %804 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %803, i1 noundef zeroext %801, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br i1 %804, label %805, label %807
 
 805:                                              ; preds = %798
@@ -12036,7 +12030,7 @@ _ZL10HelpMarkerPKc.exit608:                       ; preds = %810, %812
   %816 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.566, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE14item_current_3, ptr noundef nonnull %52, i32 noundef 14, i32 noundef -1)
   %817 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPFS1_PviES3_ii(ptr noundef nonnull @.str.567, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE14item_current_4, ptr noundef nonnull @"_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN3$_08__invokeEPvi", ptr noundef nonnull %52, i32 noundef 14, i32 noundef -1)
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %52) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %818
 
 818:                                              ; preds = %753, %_ZL10HelpMarkerPKc.exit608
@@ -12055,12 +12049,12 @@ _ZL10HelpMarkerPKc.exit608:                       ; preds = %810, %812
 
 824:                                              ; preds = %822
   %825 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.571, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE14item_highlight)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store float 0.000000e+00, ptr %54, align 4, !tbaa !42
   %826 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store float 0.000000e+00, ptr %826, align 4, !tbaa !44
   %827 = call noundef zeroext i1 @_ZN5ImGui12BeginListBoxEPKcRK6ImVec2(ptr noundef nonnull @.str.572, ptr noundef nonnull align 4 dereferenceable(8) %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br i1 %827, label %.preheader50, label %849
 
 .preheader50:                                     ; preds = %824
@@ -12080,11 +12074,11 @@ _ZL10HelpMarkerPKc.exit608:                       ; preds = %810, %812
   %834 = icmp eq i64 %indvars.iv104, %833
   %835 = getelementptr inbounds nuw [14 x ptr], ptr @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items.570, i64 0, i64 %indvars.iv104
   %836 = load ptr, ptr %835, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store float 0.000000e+00, ptr %55, align 4, !tbaa !42
   store float 0.000000e+00, ptr %828, align 4, !tbaa !44
   %837 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %836, i1 noundef zeroext %834, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br i1 %837, label %838, label %840
 
 838:                                              ; preds = %831
@@ -12134,14 +12128,14 @@ _ZL10HelpMarkerPKc.exit608:                       ; preds = %810, %812
 
 _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.574)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %854 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %855 = fmul float %854, 5.000000e+00
   store float 0xB810000000000000, ptr %56, align 4, !tbaa !42
   %856 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float %855, ptr %856, align 4, !tbaa !44
   %857 = call noundef zeroext i1 @_ZN5ImGui12BeginListBoxEPKcRK6ImVec2(ptr noundef nonnull @.str.575, ptr noundef nonnull align 4 dereferenceable(8) %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br i1 %857, label %.preheader49, label %874
 
 .preheader49:                                     ; preds = %_ZL10HelpMarkerPKc.exit609
@@ -12161,11 +12155,11 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   %865 = select i1 %864, i32 32, i32 0
   %866 = getelementptr inbounds nuw [14 x ptr], ptr @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items.570, i64 0, i64 %indvars.iv108
   %867 = load ptr, ptr %866, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store float 0.000000e+00, ptr %57, align 4, !tbaa !42
   store float 0.000000e+00, ptr %858, align 4, !tbaa !44
   %868 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %867, i1 noundef zeroext %863, i32 noundef %865, ptr noundef nonnull align 4 dereferenceable(8) %57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br i1 %868, label %869, label %871
 
 869:                                              ; preds = %860
@@ -12218,32 +12212,32 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   br i1 %886, label %887, label %904
 
 887:                                              ; preds = %885
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store float 0.000000e+00, ptr %58, align 4, !tbaa !42
   %888 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float 0.000000e+00, ptr %888, align 4, !tbaa !44
   %889 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.579, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9selection, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store float 0.000000e+00, ptr %59, align 4, !tbaa !42
   %890 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store float 0.000000e+00, ptr %890, align 4, !tbaa !44
   %891 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.580, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9selection, i64 1), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store float 0.000000e+00, ptr %60, align 4, !tbaa !42
   %892 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float 0.000000e+00, ptr %892, align 4, !tbaa !44
   %893 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.581, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9selection, i64 2), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %894 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9selection, i64 3), align 1, !tbaa !29, !range !11, !noundef !12
   %895 = trunc nuw i8 %894 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store float 0.000000e+00, ptr %61, align 4, !tbaa !42
   %896 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store float 0.000000e+00, ptr %896, align 4, !tbaa !44
   %897 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.582, i1 noundef zeroext %895, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br i1 %897, label %898, label %903
 
 898:                                              ; preds = %887
@@ -12276,30 +12270,30 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
 
 910:                                              ; preds = %908
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store float 0.000000e+00, ptr %62, align 4, !tbaa !42
   %911 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store float 0.000000e+00, ptr %911, align 4, !tbaa !44
   %912 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.585, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %913 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.586)
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store float 0.000000e+00, ptr %63, align 4, !tbaa !42
   %914 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store float 0.000000e+00, ptr %914, align 4, !tbaa !44
   %915 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.587, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected, i64 1), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %63)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %916 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.588)
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store float 0.000000e+00, ptr %64, align 4, !tbaa !42
   %917 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store float 0.000000e+00, ptr %917, align 4, !tbaa !44
   %918 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull @.str.589, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected, i64 2), i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %919 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.590)
   call void @_ZN5ImGui7TreePopEv()
@@ -12320,12 +12314,12 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   br i1 %925, label %926, label %951
 
 926:                                              ; preds = %924
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store float 0.000000e+00, ptr %65, align 4, !tbaa !42
   %927 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store float 0.000000e+00, ptr %927, align 4, !tbaa !44
   %928 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.593, i32 noundef 3, i32 noundef 1937, ptr noundef nonnull align 4 dereferenceable(8) %65, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br i1 %928, label %.preheader48, label %937
 
 .preheader48:                                     ; preds = %926
@@ -12338,29 +12332,29 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
 
 931:                                              ; preds = %.preheader48, %931
   %indvars.iv112 = phi i64 [ 0, %.preheader48 ], [ %indvars.iv.next113, %931 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %932 = trunc nuw nsw i64 %indvars.iv112 to i32
   %933 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) @.str.594, i32 noundef %932) #33
   %934 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   %935 = getelementptr inbounds nuw [10 x i8], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected_0, i64 0, i64 %indvars.iv112
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store float 0.000000e+00, ptr %67, align 4, !tbaa !42
   store float 0.000000e+00, ptr %929, align 4, !tbaa !44
   %936 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull %66, ptr noundef nonnull %935, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 10
   br i1 %exitcond115.not, label %930, label %931, !llvm.loop !234
 
 937:                                              ; preds = %930, %926
   call void @_ZN5ImGui7SpacingEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store float 0.000000e+00, ptr %68, align 4, !tbaa !42
   %938 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store float 0.000000e+00, ptr %938, align 4, !tbaa !44
   %939 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.595, i32 noundef 3, i32 noundef 1937, ptr noundef nonnull align 4 dereferenceable(8) %68, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br i1 %939, label %.preheader47, label %950
 
 .preheader47:                                     ; preds = %937
@@ -12373,22 +12367,22 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
 
 942:                                              ; preds = %.preheader47, %942
   %indvars.iv116 = phi i64 [ 0, %.preheader47 ], [ %indvars.iv.next117, %942 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %943 = trunc nuw nsw i64 %indvars.iv116 to i32
   %944 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) @.str.594, i32 noundef %943) #33
   call void @_ZN5ImGui12TableNextRowEif(i32 noundef 0, float noundef 0.000000e+00)
   %945 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   %946 = getelementptr inbounds nuw [10 x i8], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected_0, i64 0, i64 %indvars.iv116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store float 0.000000e+00, ptr %70, align 4, !tbaa !42
   store float 0.000000e+00, ptr %940, align 4, !tbaa !44
   %947 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull %69, ptr noundef nonnull %946, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %70)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %948 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.596)
   %949 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.597)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 10
   br i1 %exitcond119.not, label %941, label %942, !llvm.loop !235
@@ -12419,7 +12413,7 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
 
 961:                                              ; preds = %957
   %962 = fptrunc double %958 to float
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %963 = fmul float %962, 2.000000e+00
   %964 = call float @cosf(float noundef %963) #33, !tbaa !54
   %965 = fmul float %964, 5.000000e-01
@@ -12432,7 +12426,7 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   %971 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store float %970, ptr %971, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 29, ptr noundef nonnull align 4 dereferenceable(8) %71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %972
 
 972:                                              ; preds = %961, %957
@@ -12466,11 +12460,11 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   %982 = getelementptr inbounds nuw [4 x i8], ptr %975, i64 0, i64 %indvars.iv124
   %983 = load i8, ptr %982, align 1, !tbaa !137
   %984 = icmp ne i8 %983, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store float 5.000000e+01, ptr %72, align 4, !tbaa !42
   store float 5.000000e+01, ptr %973, align 4, !tbaa !44
   %985 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.328, i1 noundef zeroext %984, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %72)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br i1 %985, label %986, label %1002
 
 986:                                              ; preds = %980
@@ -12532,11 +12526,11 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %849, %851
   %1008 = getelementptr inbounds nuw [4 x i8], ptr %975, i64 0, i64 %indvars.iv120
   %1009 = load i8, ptr %1008, align 1, !tbaa !137
   %1010 = icmp ne i8 %1009, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store float 5.000000e+01, ptr %72, align 4, !tbaa !42
   store float 5.000000e+01, ptr %973, align 4, !tbaa !44
   %1011 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.328, i1 noundef zeroext %1010, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %72)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br i1 %1011, label %1012, label %1032
 
 1012:                                             ; preds = %1005
@@ -12643,13 +12637,13 @@ _ZL10HelpMarkerPKc.exit610:                       ; preds = %1041, %1043
 
 1055:                                             ; preds = %.preheader45, %1062
   %indvars.iv132 = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next133, %1062 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %1056 = trunc nuw nsw i64 %indvars.iv132 to i32
   %1057 = uitofp nneg i32 %1056 to float
   %1058 = fmul float %1057, 5.000000e-01
   store float %1058, ptr %73, align 4, !tbaa !42
   store float %1050, ptr %1046, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %1059 = fpext float %1058 to double
   %1060 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) @.str.603, double noundef %1059, double noundef %1051) #33
   %.not555 = icmp eq i64 %indvars.iv132, 0
@@ -12663,14 +12657,14 @@ _ZL10HelpMarkerPKc.exit610:                       ; preds = %1041, %1043
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 29, ptr noundef nonnull align 4 dereferenceable(8) %73)
   %1063 = add nuw nsw i64 %indvars.iv132, %1052
   %1064 = getelementptr inbounds nuw [9 x i8], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected_2, i64 0, i64 %1063
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store float 8.000000e+01, ptr %75, align 4, !tbaa !42
   store float 8.000000e+01, ptr %1047, align 4, !tbaa !44
   %1065 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcPbiRK6ImVec2(ptr noundef nonnull %74, ptr noundef nonnull %1064, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 3
   br i1 %exitcond135.not, label %1054, label %1055, !llvm.loop !241
@@ -12741,7 +12735,7 @@ _ZL10HelpMarkerPKc.exit611:                       ; preds = %1079, %1081
 
 _ZL10HelpMarkerPKc.exit612:                       ; preds = %_ZL10HelpMarkerPKc.exit611, %1087
   %1090 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.612, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5flags_0, i32 noundef 256)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %1091 = call noundef float @_ZN5ImGui17GetTextLineHeightEv()
   %1092 = fmul float %1091, 1.600000e+01
   store float 0xB810000000000000, ptr %76, align 4, !tbaa !42
@@ -12749,7 +12743,7 @@ _ZL10HelpMarkerPKc.exit612:                       ; preds = %_ZL10HelpMarkerPKc.
   store float %1092, ptr %1093, align 4, !tbaa !44
   %1094 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5flags_0, align 4, !tbaa !54
   %1095 = call noundef zeroext i1 @_ZN5ImGui18InputTextMultilineEPKcPcmRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.613, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE4text, i64 noundef 16384, ptr noundef nonnull align 4 dereferenceable(8) %76, i32 noundef %1094, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @_ZN5ImGui7TreePopEv()
   br label %1096
 
@@ -12973,7 +12967,7 @@ _ZN8ImVectorIcE9push_backERKc.exit:               ; preds = %._ZN8ImVectorIcE7re
   br label %1183
 
 1183:                                             ; preds = %_ZN8ImVectorIcE9push_backERKc.exit, %1164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %1184 = call noundef float @_ZN5ImGui17GetTextLineHeightEv()
   %1185 = fmul float %1184, 1.600000e+01
   store float 0xB810000000000000, ptr %77, align 4, !tbaa !42
@@ -12983,7 +12977,7 @@ _ZN8ImVectorIcE9push_backERKc.exit:               ; preds = %._ZN8ImVectorIcE7re
   %1188 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6my_str, align 8, !tbaa !126
   %1189 = sext i32 %1188 to i64
   %1190 = call noundef zeroext i1 @_ZN5ImGui18InputTextMultilineEPKcPcmRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.642, ptr noundef %1187, i64 noundef %1189, ptr noundef nonnull align 4 dereferenceable(8) %77, i32 noundef 2097152, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN5Funcs16MyResizeCallbackE_0P26ImGuiInputTextCallbackData, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6my_str)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %1191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6my_str, i64 8), align 8, !tbaa !124
   %1192 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6my_str, align 8, !tbaa !126
   %1193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6my_str, i64 4), align 4, !tbaa !125
@@ -13345,12 +13339,12 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
   br i1 %1348, label %1349, label %1352
 
 1349:                                             ; preds = %1347
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store float 0.000000e+00, ptr %78, align 4, !tbaa !42
   %1350 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store float 0.000000e+00, ptr %1350, align 4, !tbaa !44
   %1351 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.495, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @_ZN5ImGui8EndPopupEv()
   br label %1352
 
@@ -13364,13 +13358,13 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
   br i1 %1356, label %1357, label %1360
 
 1357:                                             ; preds = %1355
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %79) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %1358 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE11next_tab_id, align 4, !tbaa !54
   %1359 = add nsw i32 %1358, 1
   store i32 %1359, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE11next_tab_id, align 4, !tbaa !54
   store i32 %1358, ptr %79, align 4, !tbaa !54
   call void @_ZN8ImVectorIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(16) @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE11active_tabs, ptr noundef nonnull align 4 dereferenceable(4) %79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %79) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %1360
 
 1360:                                             ; preds = %1355, %1357, %1352
@@ -13384,9 +13378,9 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
 
 .lr.ph:                                           ; preds = %1360, %1386
   %.037378 = phi i32 [ %.1374, %1386 ], [ 0, %1360 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %80) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i8 1, ptr %80, align 1, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %1363 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE11active_tabs, i64 8), align 8, !tbaa !247
   %1364 = sext i32 %.037378 to i64
   %1365 = getelementptr inbounds i32, ptr %1363, i64 %1364
@@ -13428,8 +13422,8 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
 1386:                                             ; preds = %1384, %1373
   %1387 = phi i32 [ %.pre185, %1384 ], [ %1383, %1373 ]
   %.1374 = phi i32 [ %1385, %1384 ], [ %.037378, %1373 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %80) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %1388 = icmp slt i32 %.1374, %1387
   br i1 %1388, label %.lr.ph, label %._crit_edge, !llvm.loop !249
 
@@ -13504,12 +13498,12 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
 
 1423:                                             ; preds = %.preheader42
   %1424 = fdiv float %1439, 9.000000e+01
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %1425 = fpext float %1424 to double
   %1426 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) @.str.686, double noundef %1425) #33
   %1427 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE13values_offset, align 4, !tbaa !54
   call void @_ZN5ImGui9PlotLinesEPKcPKfiiS1_ff6ImVec2i(ptr noundef nonnull @.str.687, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6values, i32 noundef 90, i32 noundef %1427, ptr noundef nonnull %82, float noundef -1.000000e+00, float noundef 1.000000e+00, <2 x float> <float 0.000000e+00, float 8.000000e+01>, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @_ZN5ImGui13SeparatorTextEPKc(ptr noundef nonnull @.str.688)
   %1428 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %1429 = fmul float %1428, 8.000000e+00
@@ -13582,12 +13576,12 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
 
 1460:                                             ; preds = %.sink.split197, %1456
   %1461 = phi float [ %1454, %1456 ], [ %.sink200, %.sink.split197 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store float 0.000000e+00, ptr %83, align 4, !tbaa !42
   %1462 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store float 0.000000e+00, ptr %1462, align 4, !tbaa !44
   call void @_ZN5ImGui11ProgressBarEfRK6ImVec2PKc(float noundef %1461, ptr noundef nonnull align 4 dereferenceable(8) %83, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %1463 = call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
   %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 84
   %1465 = load float, ptr %1464, align 4, !tbaa !49
@@ -13606,31 +13600,31 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %._ZN8ImVectorIiE7re
 
 1473:                                             ; preds = %1460, %1468
   %1474 = phi i32 [ %1472, %1468 ], [ 0, %1460 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %1475 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) @.str.699, i32 noundef %1474, i32 noundef 1753) #33
   %1476 = load float, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8progress, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store float 0.000000e+00, ptr %85, align 4, !tbaa !42
   %1477 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store float 0.000000e+00, ptr %1477, align 4, !tbaa !44
   call void @_ZN5ImGui11ProgressBarEfRK6ImVec2PKc(float noundef %1476, ptr noundef nonnull align 4 dereferenceable(8) %85, ptr noundef nonnull %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %1478 = call noundef double @_ZN5ImGui7GetTimeEv()
   %1479 = fptrunc double %1478 to float
   %1480 = fneg float %1479
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store float 0.000000e+00, ptr %86, align 4, !tbaa !42
   %1481 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store float 0.000000e+00, ptr %1481, align 4, !tbaa !44
   call void @_ZN5ImGui11ProgressBarEfRK6ImVec2PKc(float noundef %1480, ptr noundef nonnull align 4 dereferenceable(8) %86, ptr noundef nonnull @.str.700)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   %1482 = call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
   %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 84
   %1484 = load float, ptr %1483, align 4, !tbaa !49
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %1484)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.701)
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %1485
 
 1485:                                             ; preds = %1444, %1473
@@ -13818,23 +13812,23 @@ _ZL10HelpMarkerPKc.exit625:                       ; preds = %1547, %1549
   br i1 %exitcond156.not, label %1558, label %.preheader41, !llvm.loop !254
 
 1566:                                             ; preds = %1558, %1557
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store float 0.000000e+00, ptr %87, align 4, !tbaa !42
   %1567 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store float 0.000000e+00, ptr %1567, align 4, !tbaa !44
   %1568 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.728, ptr noundef nonnull align 4 dereferenceable(16) @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5color, i32 noundef %1522, ptr noundef nonnull align 4 dereferenceable(8) %87)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %1569 = call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
   %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 84
   %1571 = load float, ptr %1570, align 4, !tbaa !49
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %1571)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store float 0.000000e+00, ptr %88, align 4, !tbaa !42
   %1572 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store float 0.000000e+00, ptr %1572, align 4, !tbaa !44
   %1573 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.729, ptr noundef nonnull align 4 dereferenceable(8) %88)
   %1574 = or i1 %1568, %1573
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br i1 %1574, label %1575, label %1576
 
 1575:                                             ; preds = %1566
@@ -13854,19 +13848,19 @@ _ZL10HelpMarkerPKc.exit625:                       ; preds = %1547, %1549
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui10BeginGroupEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.733)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store float 6.000000e+01, ptr %89, align 4, !tbaa !42
   %1581 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store float 4.000000e+01, ptr %1581, align 4, !tbaa !44
   %1582 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.734, ptr noundef nonnull align 4 dereferenceable(16) @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5color, i32 noundef 262148, ptr noundef nonnull align 4 dereferenceable(8) %89)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.735)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store float 6.000000e+01, ptr %90, align 4, !tbaa !42
   %1583 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store float 4.000000e+01, ptr %1583, align 4, !tbaa !44
   %1584 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.736, ptr noundef nonnull align 4 dereferenceable(16) @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE12backup_color, i32 noundef 262148, ptr noundef nonnull align 4 dereferenceable(8) %90)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br i1 %1584, label %1585, label %1586
 
 1585:                                             ; preds = %1578
@@ -13901,11 +13895,11 @@ _ZL10HelpMarkerPKc.exit625:                       ; preds = %1547, %1549
 
 1596:                                             ; preds = %1592, %1589
   %1597 = getelementptr inbounds nuw [32 x %struct.ImVec4], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE13saved_palette, i64 0, i64 %indvars.iv157
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store float 2.000000e+01, ptr %91, align 4, !tbaa !42
   store float 2.000000e+01, ptr %1587, align 4, !tbaa !44
   %1598 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.737, ptr noundef nonnull align 4 dereferenceable(16) %1597, i32 noundef 70, ptr noundef nonnull align 4 dereferenceable(8) %91)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br i1 %1598, label %1599, label %1606
 
 1599:                                             ; preds = %1596
@@ -13972,12 +13966,12 @@ _ZL10HelpMarkerPKc.exit625:                       ; preds = %1547, %1549
   %1625 = zext nneg i8 %1624 to i32
   %1626 = shl nuw nsw i32 %1625, 10
   %1627 = or disjoint i32 %1626, %1522
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store float 8.000000e+01, ptr %92, align 4, !tbaa !42
   %1628 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store float 8.000000e+01, ptr %1628, align 4, !tbaa !44
   %1629 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.743, ptr noundef nonnull align 4 dereferenceable(16) @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5color, i32 noundef %1627, ptr noundef nonnull align 4 dereferenceable(8) %92)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %1630 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
   %.not525 = icmp eq ptr %1630, null
   br i1 %.not525, label %1633, label %1631
@@ -14086,12 +14080,12 @@ _ZL10HelpMarkerPKc.exit627:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %_ZL10HelpMarkerPKc.exit628
 
 _ZL10HelpMarkerPKc.exit628:                       ; preds = %_ZL10HelpMarkerPKc.exit627, %1679
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   store float 0.000000e+00, ptr %93, align 4, !tbaa !42
   %1682 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store float 0.000000e+00, ptr %1682, align 4, !tbaa !44
   %1683 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.758, ptr noundef nonnull align 4 dereferenceable(8) %93)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br i1 %1683, label %1684, label %1685
 
 1684:                                             ; preds = %_ZL10HelpMarkerPKc.exit628
@@ -14099,12 +14093,12 @@ _ZL10HelpMarkerPKc.exit628:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %1685
 
 1685:                                             ; preds = %1684, %_ZL10HelpMarkerPKc.exit628
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store float 0.000000e+00, ptr %94, align 4, !tbaa !42
   %1686 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store float 0.000000e+00, ptr %1686, align 4, !tbaa !44
   %1687 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.759, ptr noundef nonnull align 4 dereferenceable(8) %94)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br i1 %1687, label %1688, label %1689
 
 1688:                                             ; preds = %1685
@@ -14320,117 +14314,117 @@ _ZL10HelpMarkerPKc.exit635:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %1776, label %1777, label %1935
 
 1777:                                             ; preds = %1775
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %95) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store i8 0, ptr %95, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %96) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store i8 1, ptr %96, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %97) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store i8 50, ptr %97, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %98) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i8 -128, ptr %98, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %99) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store i8 127, ptr %99, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %100) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store i8 0, ptr %100, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %101) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store i8 1, ptr %101, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %102) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store i8 50, ptr %102, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %103) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store i8 0, ptr %103, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %104) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i8 -1, ptr %104, align 1, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %105) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   store i16 0, ptr %105, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %106) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   store i16 1, ptr %106, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %107) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store i16 50, ptr %107, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %108) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store i16 -32768, ptr %108, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %109) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store i16 32767, ptr %109, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %110) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store i16 0, ptr %110, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %111) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store i16 1, ptr %111, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %112) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store i16 50, ptr %112, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %113) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store i16 0, ptr %113, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %114) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   store i16 -1, ptr %114, align 2, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %115) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   store i32 0, ptr %115, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %116) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i32 1, ptr %116, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %117) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store i32 50, ptr %117, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %118) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store i32 -1073741824, ptr %118, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %119) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store i32 1073741823, ptr %119, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %120) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store i32 1073741723, ptr %120, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %121) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store i32 1073741823, ptr %121, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %122) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   store i32 0, ptr %122, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %123) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store i32 1, ptr %123, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %124) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   store i32 50, ptr %124, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %125) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store i32 0, ptr %125, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %126) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store i32 2147483647, ptr %126, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %127) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store i32 2147483547, ptr %127, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %128) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store i32 2147483647, ptr %128, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store i64 0, ptr %129, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %130) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   store i64 1, ptr %130, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store i64 50, ptr %131, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   store i64 -4611686018427387904, ptr %132, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   store i64 4611686018427387903, ptr %133, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store i64 4611686018427387803, ptr %134, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   store i64 4611686018427387903, ptr %135, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   store i64 0, ptr %136, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   store i64 1, ptr %137, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   store i64 50, ptr %138, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store i64 0, ptr %139, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store i64 9223372036854775807, ptr %140, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store i64 9223372036854775707, ptr %141, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store i64 9223372036854775807, ptr %142, align 8, !tbaa !258
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %143) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store float 0.000000e+00, ptr %143, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %144) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store float 1.000000e+00, ptr %144, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %145) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store float -1.000000e+10, ptr %145, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %146) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store float 1.000000e+10, ptr %146, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   store double 0.000000e+00, ptr %147, align 8, !tbaa !250
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store double 1.000000e+00, ptr %148, align 8, !tbaa !250
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store double -1.000000e+15, ptr %149, align 8, !tbaa !250
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store double 1.000000e+15, ptr %150, align 8, !tbaa !250
   %1778 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
   %.not529 = icmp eq ptr %1778, null
@@ -14625,62 +14619,62 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   %1933 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5flags_3, align 4, !tbaa !54
   %1934 = call noundef zeroext i1 @_ZN5ImGui11InputScalarEPKciPvPKvS4_S1_i(ptr noundef nonnull @.str.379, i32 noundef 9, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5f64_v, ptr noundef %1932, ptr noundef null, ptr noundef null, i32 noundef %1933)
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %146) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %145) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %144) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %143) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %138) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %130) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %128) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %127) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %126) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %125) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %124) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %123) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %122) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %121) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %120) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %119) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %118) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %117) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %116) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %115) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %114) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %113) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %112) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %111) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %110) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %109) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %108) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %107) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %106) #33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %105) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %104) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %103) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %102) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %101) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %100) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %99) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %98) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %97) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %96) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %95) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %1935
 
 1935:                                             ; preds = %1775, %1871
@@ -14737,18 +14731,18 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   br i1 %1965, label %1966, label %2031
 
 1966:                                             ; preds = %1964
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store float 4.000000e+00, ptr %151, align 4, !tbaa !42
   %1967 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store float 4.000000e+00, ptr %1967, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %151)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store float 1.800000e+01, ptr %152, align 4, !tbaa !42
   %1968 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store float 1.600000e+02, ptr %1968, align 4, !tbaa !44
   %1969 = call noundef zeroext i1 @_ZN5ImGui10VSliderIntEPKcRK6ImVec2PiiiS1_i(ptr noundef nonnull @.str.900, ptr noundef nonnull align 4 dereferenceable(8) %152, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9int_value, i32 noundef 0, i32 noundef 5, ptr noundef nonnull @.str.366, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui6PushIDEPKc(ptr noundef nonnull @.str.901)
   %1970 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -14762,7 +14756,7 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   call void @_ZN5ImGui5PopIDEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui6PushIDEPKc(ptr noundef nonnull @.str.903)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %158) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   store float 1.800000e+01, ptr %158, align 4, !tbaa !42
   %1976 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store float 5.000000e+01, ptr %1976, align 4, !tbaa !44
@@ -14780,12 +14774,12 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
 1979:                                             ; preds = %1978, %1977
   %1980 = trunc nuw nsw i64 %indvars.iv161 to i32
   call void @_ZN5ImGui6PushIDEi(i32 noundef %1980)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %153) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   %1981 = uitofp nneg i32 %1980 to float
   %1982 = fdiv float %1981, 7.000000e+00
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %1982, float noundef 5.000000e-01, float noundef 5.000000e-01, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   %1983 = load float, ptr %10, align 4, !tbaa !53
   %1984 = load float, ptr %11, align 4, !tbaa !53
@@ -14793,17 +14787,17 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   %.sroa.0.0.vec.insert.i637 = insertelement <2 x float> poison, float %1983, i64 0
   %.sroa.0.4.vec.insert.i638 = insertelement <2 x float> %.sroa.0.0.vec.insert.i637, float %1984, i64 1
   %.sroa.3.12.vec.insert.i640 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %1985, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store <2 x float> %.sroa.0.4.vec.insert.i638, ptr %153, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i640, ptr %1970, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(16) %153)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %154) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %1982, float noundef 0x3FE3333340000000, float noundef 5.000000e-01, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %1986 = load float, ptr %7, align 4, !tbaa !53
   %1987 = load float, ptr %8, align 4, !tbaa !53
@@ -14811,17 +14805,17 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   %.sroa.0.0.vec.insert.i648 = insertelement <2 x float> poison, float %1986, i64 0
   %.sroa.0.4.vec.insert.i649 = insertelement <2 x float> %.sroa.0.0.vec.insert.i648, float %1987, i64 1
   %.sroa.3.12.vec.insert.i651 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %1988, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <2 x float> %.sroa.0.4.vec.insert.i649, ptr %154, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i651, ptr %1971, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(16) %154)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %155) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %1982, float noundef 0x3FE6666660000000, float noundef 5.000000e-01, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %1989 = load float, ptr %4, align 4, !tbaa !53
   %1990 = load float, ptr %5, align 4, !tbaa !53
@@ -14829,17 +14823,17 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   %.sroa.0.0.vec.insert.i659 = insertelement <2 x float> poison, float %1989, i64 0
   %.sroa.0.4.vec.insert.i660 = insertelement <2 x float> %.sroa.0.0.vec.insert.i659, float %1990, i64 1
   %.sroa.3.12.vec.insert.i662 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %1991, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <2 x float> %.sroa.0.4.vec.insert.i660, ptr %155, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i662, ptr %1972, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(16) %155)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %156) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %1982, float noundef 0x3FECCCCCC0000000, float noundef 0x3FECCCCCC0000000, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %1992 = load float, ptr %1, align 4, !tbaa !53
   %1993 = load float, ptr %2, align 4, !tbaa !53
@@ -14847,19 +14841,19 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   %.sroa.0.0.vec.insert.i670 = insertelement <2 x float> poison, float %1992, i64 0
   %.sroa.0.4.vec.insert.i671 = insertelement <2 x float> %.sroa.0.0.vec.insert.i670, float %1993, i64 1
   %.sroa.3.12.vec.insert.i673 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %1994, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store <2 x float> %.sroa.0.4.vec.insert.i671, ptr %156, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i673, ptr %1973, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(16) %156)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %156) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   store float 1.800000e+01, ptr %157, align 4, !tbaa !42
   store float 1.600000e+02, ptr %1974, align 4, !tbaa !44
   %1995 = getelementptr inbounds nuw [7 x float], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6values_0, i64 0, i64 %indvars.iv161
   %1996 = call noundef zeroext i1 @_ZN5ImGui12VSliderFloatEPKcRK6ImVec2PfffS1_i(ptr noundef nonnull @.str.902, ptr noundef nonnull align 4 dereferenceable(8) %157, ptr noundef nonnull %1995, float noundef 0.000000e+00, float noundef 1.000000e+00, ptr noundef nonnull @.str.234, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %1997 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
   br i1 %1997, label %2000, label %1998
 
@@ -14937,7 +14931,7 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   call void @_ZN5ImGui5PopIDEv()
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %158) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %2031
 
 2025:                                             ; preds = %2004, %2027
@@ -14953,12 +14947,12 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1781, %1784
   %2028 = trunc nuw nsw i64 %indvars.iv170 to i32
   call void @_ZN5ImGui6PushIDEi(i32 noundef %2028)
   call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 20, float noundef 4.000000e+01)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %159) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   store float 4.000000e+01, ptr %159, align 4, !tbaa !42
   store float 1.600000e+02, ptr %2005, align 4, !tbaa !44
   %2029 = getelementptr inbounds nuw [7 x float], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE6values_0, i64 0, i64 %indvars.iv170
   %2030 = call noundef zeroext i1 @_ZN5ImGui12VSliderFloatEPKcRK6ImVec2PfffS1_i(ptr noundef nonnull @.str.902, ptr noundef nonnull align 4 dereferenceable(8) %159, ptr noundef nonnull %2029, float noundef 0.000000e+00, float noundef 1.000000e+00, ptr noundef nonnull @.str.905, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %159) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
   call void @_ZN5ImGui5PopIDEv()
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
@@ -15060,13 +15054,13 @@ _ZL10HelpMarkerPKc.exit681:                       ; preds = %2043, %2045
   br label %2071
 
 2071:                                             ; preds = %2070, %2066
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %160) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   store i32 0, ptr %160, align 4, !tbaa !54
   %2072 = getelementptr inbounds nuw i8, ptr %161, i64 4
   br label %2074
 
 2073:                                             ; preds = %2140
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %160) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   call void @_ZN5ImGui7TreePopEv()
   br label %2144
 
@@ -15088,11 +15082,11 @@ _ZL10HelpMarkerPKc.exit681:                       ; preds = %2043, %2045
   %2080 = sext i32 %2079 to i64
   %2081 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE5names, i64 0, i64 %2080
   %2082 = load ptr, ptr %2081, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %161) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   store float 6.000000e+01, ptr %161, align 4, !tbaa !42
   store float 6.000000e+01, ptr %2072, align 4, !tbaa !44
   %2083 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef %2082, ptr noundef nonnull align 4 dereferenceable(8) %161)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   %2084 = call noundef zeroext i1 @_ZN5ImGui19BeginDragDropSourceEi(i32 noundef 0)
   br i1 %2084, label %2085, label %2111
 
@@ -15248,11 +15242,11 @@ _ZL10HelpMarkerPKc.exit682:                       ; preds = %2150, %2152
   %indvars.iv174 = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit682 ], [ %indvars.iv.next175, %2174 ]
   %2158 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE10item_names, i64 0, i64 %indvars.iv174
   %2159 = load ptr, ptr %2158, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %162) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   store float 0.000000e+00, ptr %162, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2155, align 4, !tbaa !44
   %2160 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %2159, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %162)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   %2161 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
   br i1 %2161, label %2162, label %2174
 
@@ -15310,11 +15304,11 @@ _ZL10HelpMarkerPKc.exit682:                       ; preds = %2150, %2152
 2184:                                             ; preds = %2192, %.preheader
   %.not544 = phi i1 [ true, %.preheader ], [ false, %2192 ]
   %.str.939..str.940 = select i1 %.not544, ptr @.str.940, ptr @.str.939
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %163) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   store float 0.000000e+00, ptr %163, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2181, align 4, !tbaa !44
   %2185 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %.str.939..str.940, ptr noundef nonnull align 4 dereferenceable(8) %163)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   %2186 = call noundef zeroext i1 @_ZN5ImGui19BeginDragDropTargetEv()
   br i1 %2186, label %2187, label %2191
 
@@ -15336,11 +15330,11 @@ _ZL10HelpMarkerPKc.exit682:                       ; preds = %2150, %2152
   br i1 %.not544, label %2192, label %2183
 
 2192:                                             ; preds = %2191
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %164) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   store float 0.000000e+00, ptr %164, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2182, align 4, !tbaa !44
   %2193 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.942, ptr noundef nonnull align 4 dereferenceable(16) @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE4col4, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %164)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %2184, !llvm.loop !266
 
 2194:                                             ; preds = %2183, %2179
@@ -15362,7 +15356,7 @@ _ZL10HelpMarkerPKc.exit682:                       ; preds = %2150, %2152
   br i1 %2200, label %2201, label %2360
 
 2201:                                             ; preds = %2199
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %165) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %165, ptr noundef nonnull align 16 dereferenceable(128) @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.item_names, i64 128, i1 false)
   %2202 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.958, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9item_type, ptr noundef nonnull %165, i32 noundef 16, i32 noundef 16)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -15405,12 +15399,12 @@ _ZL10HelpMarkerPKc.exit683:                       ; preds = %2201, %2204
   br i1 %2217, label %2218, label %2221
 
 2218:                                             ; preds = %2215
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   store float 0.000000e+00, ptr %166, align 4, !tbaa !42
   %2219 = getelementptr inbounds nuw i8, ptr %166, i64 4
   store float 0.000000e+00, ptr %2219, align 4, !tbaa !44
   %2220 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.962, ptr noundef nonnull align 4 dereferenceable(8) %166)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %.pre188 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9item_type, align 4, !tbaa !54
   br label %2221
 
@@ -15422,12 +15416,12 @@ _ZL10HelpMarkerPKc.exit683:                       ; preds = %2201, %2204
 
 2224:                                             ; preds = %2221
   call void @_ZN5ImGui12PushItemFlagEib(i32 noundef 8, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %167) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   store float 0.000000e+00, ptr %167, align 4, !tbaa !42
   %2225 = getelementptr inbounds nuw i8, ptr %167, i64 4
   store float 0.000000e+00, ptr %2225, align 4, !tbaa !44
   %2226 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.962, ptr noundef nonnull align 4 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %167) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   call void @_ZN5ImGui11PopItemFlagEv()
   %.pr34 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9item_type, align 4, !tbaa !54
   br label %2227
@@ -15472,12 +15466,12 @@ _ZL10HelpMarkerPKc.exit683:                       ; preds = %2201, %2204
   br i1 %2244, label %2245, label %2248
 
 2245:                                             ; preds = %2242
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %168) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   store float 0.000000e+00, ptr %168, align 4, !tbaa !42
   %2246 = getelementptr inbounds nuw i8, ptr %168, i64 4
   store float 0.000000e+00, ptr %2246, align 4, !tbaa !44
   %2247 = call noundef zeroext i1 @_ZN5ImGui18InputTextMultilineEPKcPcmRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.966, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE3str, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(8) %168, i32 noundef 0, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   %.pr36 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9item_type, align 4, !tbaa !54
   br label %2248
 
@@ -15521,12 +15515,12 @@ _ZL10HelpMarkerPKc.exit683:                       ; preds = %2201, %2204
   br i1 %2265, label %2266, label %2269
 
 2266:                                             ; preds = %2263
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   store float 0.000000e+00, ptr %169, align 4, !tbaa !42
   %2267 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store float 0.000000e+00, ptr %2267, align 4, !tbaa !44
   %2268 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.970, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %169)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   %.pr38 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9item_type, align 4, !tbaa !54
   br label %2269
 
@@ -15577,10 +15571,10 @@ thread-pre-split:                                 ; preds = %2279, %2277
   br i1 %2287, label %2288, label %2290
 
 2288:                                             ; preds = %2285
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %170, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items.976, i64 32, i1 false)
   %2289 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.975, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE7current, ptr noundef nonnull %170, i32 noundef 4, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %170) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %.pr40 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE9item_type, align 4, !tbaa !54
   br label %2290
 
@@ -15591,10 +15585,10 @@ thread-pre-split:                                 ; preds = %2279, %2277
   br i1 %2292, label %2293, label %2295
 
 2293:                                             ; preds = %2290
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %171) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %171, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData.items.976, i64 32, i1 false)
   %2294 = call noundef zeroext i1 @_ZN5ImGui7ListBoxEPKcPiPKS1_ii(ptr noundef nonnull @.str.977, ptr noundef nonnull @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE7current_0, ptr noundef nonnull %171, i32 noundef 4, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %171) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %2295
 
 2295:                                             ; preds = %2293, %2290
@@ -15671,7 +15665,7 @@ thread-pre-split:                                 ; preds = %2279, %2277
   br label %2354
 
 2354:                                             ; preds = %2353, %2295
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %172) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   store i8 0, ptr %172, align 1
   %2355 = call noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.980, ptr noundef nonnull %172, i64 noundef 1, i32 noundef 512, ptr noundef null, ptr noundef null)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -15690,8 +15684,8 @@ thread-pre-split:                                 ; preds = %2279, %2277
 
 _ZL10HelpMarkerPKc.exit684:                       ; preds = %2354, %2357
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %172) #33
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %165) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %2360
 
 2360:                                             ; preds = %2199, %_ZL10HelpMarkerPKc.exit684
@@ -15715,14 +15709,14 @@ _ZL10HelpMarkerPKc.exit684:                       ; preds = %2354, %2357
   br i1 %2369, label %2370, label %2375
 
 2370:                                             ; preds = %2366
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %173) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %2371 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %2372 = fmul float %2371, 2.000000e+01
   store float 0.000000e+00, ptr %173, align 4, !tbaa !42
   %2373 = getelementptr inbounds nuw i8, ptr %173, i64 4
   store float %2372, ptr %2373, align 4, !tbaa !44
   %2374 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.985, ptr noundef nonnull align 4 dereferenceable(8) %173, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %173) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %2375
 
 2375:                                             ; preds = %2370, %2366
@@ -15768,12 +15762,12 @@ _ZL10HelpMarkerPKc.exit684:                       ; preds = %2354, %2357
   %2414 = call noundef zeroext i1 @_ZN5ImGui15IsWindowHoveredEi(i32 noundef 8192)
   %2415 = zext i1 %2414 to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.987, i32 noundef %2393, i32 noundef %2395, i32 noundef %2397, i32 noundef %2399, i32 noundef %2401, i32 noundef %2403, i32 noundef %2405, i32 noundef %2407, i32 noundef %2409, i32 noundef %2411, i32 noundef %2413, i32 noundef %2415)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   store float 0.000000e+00, ptr %174, align 4, !tbaa !42
   %2416 = getelementptr inbounds nuw i8, ptr %174, i64 4
   store float 5.000000e+01, ptr %2416, align 4, !tbaa !44
   %2417 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.335, ptr noundef nonnull align 4 dereferenceable(8) %174, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.988)
   call void @_ZN5ImGui8EndChildEv()
   %2418 = load i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE31embed_all_inside_a_child_window, align 1, !tbaa !29, !range !11, !noundef !12
@@ -16080,7 +16074,7 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %97, %99
   %104 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE19disable_mouse_wheel, align 1, !tbaa !29, !range !11, !noundef !12
   %105 = trunc nuw i8 %104 to i1
   %spec.select = select i1 %105, i32 2064, i32 2048
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %106 = tail call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
   %.sroa.0151.0.vec.extract = extractelement <2 x float> %106, i64 0
   %107 = fmul float %.sroa.0151.0.vec.extract, 5.000000e-01
@@ -16088,7 +16082,7 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %97, %99
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 2.600000e+02, ptr %108, align 4, !tbaa !44
   %109 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1146, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef 0, i32 noundef %spec.select)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %120
 
 110:                                              ; preds = %120
@@ -16102,12 +16096,12 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %97, %99
   %115 = or disjoint i32 %spec.select223, 1024
   %.1 = select i1 %114, i32 %spec.select223, i32 %115
   call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 7, float noundef 5.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !42
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float 2.600000e+02, ptr %116, align 4, !tbaa !44
   %117 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1148, ptr noundef nonnull align 4 dereferenceable(8) %11, i32 noundef 1, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %118 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12disable_menu, align 1, !tbaa !29, !range !11, !noundef !12
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %128, label %122
@@ -16137,12 +16131,12 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %97, %99
   br label %128
 
 128:                                              ; preds = %127, %122, %110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 0.000000e+00, ptr %12, align 4, !tbaa !42
   %129 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0.000000e+00, ptr %129, align 4, !tbaa !44
   %130 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.91, i32 noundef 2, i32 noundef 17, ptr noundef nonnull align 4 dereferenceable(8) %12, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %130, label %.preheader282, label %138
 
 .preheader282:                                    ; preds = %128
@@ -16155,15 +16149,15 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %97, %99
 
 133:                                              ; preds = %.preheader282, %133
   %.0158284 = phi i32 [ 0, %.preheader282 ], [ %137, %133 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %134 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.1149, i32 noundef %.0158284) #33
   %135 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0xB810000000000000, ptr %14, align 4, !tbaa !42
   store float 0.000000e+00, ptr %131, align 4, !tbaa !44
   %136 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %137 = add nuw nsw i32 %.0158284, 1
   %exitcond304.not = icmp eq i32 %137, 100
   br i1 %exitcond304.not, label %132, label %133, !llvm.loop !269
@@ -16188,14 +16182,14 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %97, %99
 _ZL10HelpMarkerPKc.exit228:                       ; preds = %138, %140
   %143 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN5ImGui17GetStyleColorVec4Ei(i32 noundef 7)
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(16) %143)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %144 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %145 = fmul float %144, 8.000000e+00
   store float 0xB810000000000000, ptr %15, align 4, !tbaa !42
   %146 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %145, ptr %146, align 4, !tbaa !44
   %147 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1152, ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef 9, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %147, label %.preheader280, label %.loopexit281
 
 .preheader280:                                    ; preds = %_ZL10HelpMarkerPKc.exit228, %.preheader280
@@ -16217,12 +16211,12 @@ _ZL10HelpMarkerPKc.exit228:                       ; preds = %138, %140
   %153 = fmul float %152, 8.000000e+00
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef %153)
   %154 = call noundef zeroext i1 @_ZN5ImGui7DragIntEPKcPifiiS1_i(ptr noundef nonnull @.str.1156, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE19max_height_in_lines, float noundef 0x3FC99999A0000000, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.366, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %155 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   store float 0.000000e+00, ptr %16, align 4, !tbaa !42
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float %155, ptr %156, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %157 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %158 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE19max_height_in_lines, align 4, !tbaa !54
   %159 = sitofp i32 %158 to float
@@ -16231,14 +16225,14 @@ _ZL10HelpMarkerPKc.exit228:                       ; preds = %138, %140
   %161 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float %160, ptr %161, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float 0xB810000000000000, ptr %18, align 4, !tbaa !42
   %162 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float 0.000000e+00, ptr %162, align 4, !tbaa !44
   %163 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1157, ptr noundef nonnull align 4 dereferenceable(8) %18, i32 noundef 33, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %164 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE10draw_lines, align 4
   %165 = icmp sgt i32 %164, 0
   %or.cond303 = select i1 %163, i1 %165, i1 false
@@ -16304,13 +16298,13 @@ _ZL10HelpMarkerPKc.exit229:                       ; preds = %.loopexit279, %179
   br label %193
 
 193:                                              ; preds = %192, %185
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float 2.000000e+02, ptr %19, align 4, !tbaa !42
   %194 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 1.000000e+02, ptr %194, align 4, !tbaa !44
   %195 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE11child_flags, align 4, !tbaa !54
   %196 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1167, ptr noundef nonnull align 4 dereferenceable(8) %19, i32 noundef %195, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %197 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE17override_bg_color, align 1, !tbaa !29, !range !11, !noundef !12
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %.preheader328
@@ -16551,7 +16545,7 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
 283:                                              ; preds = %279, %281
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1198)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 1.000000e+00, ptr %20, align 4, !tbaa !114
   %284 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float 1.000000e+00, ptr %284, align 4, !tbaa !115
@@ -16560,10 +16554,10 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
   %286 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store float 1.000000e+00, ptr %286, align 4, !tbaa !117
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull @.str.328)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1199)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef 2.000000e+01)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float 1.000000e+00, ptr %21, align 4, !tbaa !114
   %287 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float 1.000000e+00, ptr %287, align 4, !tbaa !115
@@ -16572,30 +16566,30 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
   %289 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float 1.000000e+00, ptr %289, align 4, !tbaa !117
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull @.str.328)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1200)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store float 0.000000e+00, ptr %22, align 4, !tbaa !42
   %290 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 0.000000e+00, ptr %290, align 4, !tbaa !44
   %291 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.434, ptr noundef nonnull align 4 dereferenceable(8) %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store float 0.000000e+00, ptr %23, align 4, !tbaa !42
   %292 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %292, align 4, !tbaa !44
   %293 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.433, ptr noundef nonnull align 4 dereferenceable(8) %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0.000000e+00, ptr %24, align 4, !tbaa !42
   %294 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 0.000000e+00, ptr %294, align 4, !tbaa !44
   %295 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1201, ptr noundef nonnull align 4 dereferenceable(8) %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1202)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %296 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1203)
@@ -16639,7 +16633,7 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %310 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1213, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE2c4)
   call void @_ZN5ImGui13PushItemWidthEf(float noundef 8.000000e+01)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %25, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZL20ShowDemoWindowLayoutv.items, i64 32, i1 false)
   %311 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.340, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE4item, ptr noundef nonnull %25, i32 noundef 4, i32 noundef -1)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -16684,7 +16678,7 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
   br label %325
 
 325:                                              ; preds = %323, %315
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float 4.000000e+01, ptr %26, align 4, !tbaa !42
   %326 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float 4.000000e+01, ptr %326, align 4, !tbaa !44
@@ -16714,8 +16708,8 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
 
 .loopexit327:                                     ; preds = %350, %.thread
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %351
 
 339:                                              ; preds = %332, %350
@@ -16780,50 +16774,50 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
 _ZL10HelpMarkerPKc.exit235:                       ; preds = %357, %359
   call void @_ZN5ImGui10BeginGroupEv()
   call void @_ZN5ImGui10BeginGroupEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store float 0.000000e+00, ptr %27, align 4, !tbaa !42
   %362 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store float 0.000000e+00, ptr %362, align 4, !tbaa !44
   %363 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1227, ptr noundef nonnull align 4 dereferenceable(8) %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store float 0.000000e+00, ptr %28, align 4, !tbaa !42
   %364 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store float 0.000000e+00, ptr %364, align 4, !tbaa !44
   %365 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1228, ptr noundef nonnull align 4 dereferenceable(8) %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui10BeginGroupEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float 0.000000e+00, ptr %29, align 4, !tbaa !42
   %366 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store float 0.000000e+00, ptr %366, align 4, !tbaa !44
   %367 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1229, ptr noundef nonnull align 4 dereferenceable(8) %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !42
   %368 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float 0.000000e+00, ptr %368, align 4, !tbaa !44
   %369 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1230, ptr noundef nonnull align 4 dereferenceable(8) %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN5ImGui8EndGroupEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float 0.000000e+00, ptr %31, align 4, !tbaa !42
   %370 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store float 0.000000e+00, ptr %370, align 4, !tbaa !44
   %371 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1231, ptr noundef nonnull align 4 dereferenceable(8) %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN5ImGui8EndGroupEv()
   call void (ptr, ...) @_ZN5ImGui14SetItemTooltipEPKcz(ptr noundef nonnull @.str.1232)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %372 = call <2 x float> @_ZN5ImGui15GetItemRectSizeEv()
   store <2 x float> %372, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %33) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %33, ptr noundef nonnull align 16 dereferenceable(20) @__const._ZL20ShowDemoWindowLayoutv.values, i64 20, i1 false)
   call void @_ZN5ImGui13PlotHistogramEPKcPKfiiS1_ff6ImVec2i(ptr noundef nonnull @.str.1233, ptr noundef nonnull %33, i32 noundef 5, i32 noundef 0, ptr noundef null, float noundef 0.000000e+00, float noundef 1.000000e+00, <2 x float> %372, i32 noundef 4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %373 = load float, ptr %32, align 8, !tbaa !42
   %374 = call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 76
@@ -16836,9 +16830,9 @@ _ZL10HelpMarkerPKc.exit235:                       ; preds = %357, %359
   %381 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %380, ptr %381, align 4, !tbaa !44
   %382 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1234, ptr noundef nonnull align 4 dereferenceable(8) %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %383 = load float, ptr %32, align 8, !tbaa !42
   %384 = call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 76
@@ -16850,7 +16844,7 @@ _ZL10HelpMarkerPKc.exit235:                       ; preds = %357, %359
   %390 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store float %389, ptr %390, align 4, !tbaa !44
   %391 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1235, ptr noundef nonnull align 4 dereferenceable(8) %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @_ZN5ImGui8EndGroupEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %392 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1236, ptr noundef nonnull align 4 dereferenceable(8) %32)
@@ -16859,25 +16853,25 @@ _ZL10HelpMarkerPKc.exit235:                       ; preds = %357, %359
   br i1 %393, label %394, label %399
 
 394:                                              ; preds = %_ZL10HelpMarkerPKc.exit235
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float 0.000000e+00, ptr %36, align 4, !tbaa !42
   %395 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store float 0.000000e+00, ptr %395, align 4, !tbaa !44
   %396 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1238, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store float 0.000000e+00, ptr %37, align 4, !tbaa !42
   %397 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store float 0.000000e+00, ptr %397, align 4, !tbaa !44
   %398 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1239, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZN5ImGui10EndListBoxEv()
   br label %399
 
 399:                                              ; preds = %394, %_ZL10HelpMarkerPKc.exit235
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %33) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %400
 
 400:                                              ; preds = %355, %399
@@ -16914,12 +16908,12 @@ _ZL10HelpMarkerPKc.exit236:                       ; preds = %406, %408
   call void @_ZN5ImGui6IndentEf(float noundef 0.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1244)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store float 0.000000e+00, ptr %38, align 4, !tbaa !42
   %411 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store float 0.000000e+00, ptr %411, align 4, !tbaa !44
   %412 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1245, ptr noundef nonnull align 4 dereferenceable(8) %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.287)
   %413 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
@@ -16938,12 +16932,12 @@ _ZL10HelpMarkerPKc.exit237:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1247)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float 0.000000e+00, ptr %39, align 4, !tbaa !42
   %417 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store float 0.000000e+00, ptr %417, align 4, !tbaa !44
   %418 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1248, ptr noundef nonnull align 4 dereferenceable(8) %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.287)
   %419 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
@@ -16959,12 +16953,12 @@ _ZL10HelpMarkerPKc.exit237:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %_ZL10HelpMarkerPKc.exit238
 
 _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.exit237, %420
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float 0.000000e+00, ptr %40, align 4, !tbaa !42
   %423 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store float 0.000000e+00, ptr %423, align 4, !tbaa !44
   %424 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1250, ptr noundef nonnull align 4 dereferenceable(8) %40)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1251)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -16972,23 +16966,23 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1253)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float 0.000000e+00, ptr %41, align 4, !tbaa !42
   %426 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store float 0.000000e+00, ptr %426, align 4, !tbaa !44
   %427 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1254, ptr noundef nonnull align 4 dereferenceable(8) %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1255)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %428 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1256)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store float 0.000000e+00, ptr %42, align 4, !tbaa !42
   %429 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store float 0.000000e+00, ptr %429, align 4, !tbaa !44
   %430 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1257, ptr noundef nonnull align 4 dereferenceable(8) %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN5ImGui8UnindentEf(float noundef 0.000000e+00)
   call void @_ZN5ImGui7SpacingEv()
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1258)
@@ -17003,24 +16997,24 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1260)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1259)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store float 0.000000e+00, ptr %43, align 4, !tbaa !42
   %431 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store float 0.000000e+00, ptr %431, align 4, !tbaa !44
   %432 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1261, ptr noundef nonnull align 4 dereferenceable(8) %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.434)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1260)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.434)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float 0.000000e+00, ptr %44, align 4, !tbaa !42
   %433 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float 0.000000e+00, ptr %433, align 4, !tbaa !44
   %434 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1262, ptr noundef nonnull align 4 dereferenceable(8) %44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1260)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -17029,37 +17023,37 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui7SpacingEv()
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1263)
   call void @_ZN5ImGui6IndentEf(float noundef 0.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float 8.000000e+01, ptr %45, align 4, !tbaa !42
   %435 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store float 8.000000e+01, ptr %435, align 4, !tbaa !44
   %436 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1264, ptr noundef nonnull align 4 dereferenceable(8) %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float 5.000000e+01, ptr %46, align 4, !tbaa !42
   %437 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store float 5.000000e+01, ptr %437, align 4, !tbaa !44
   %438 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1265, ptr noundef nonnull align 4 dereferenceable(8) %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store float 0.000000e+00, ptr %47, align 4, !tbaa !42
   %439 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store float 0.000000e+00, ptr %439, align 4, !tbaa !44
   %440 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1266, ptr noundef nonnull align 4 dereferenceable(8) %47)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %441 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1267)
   %442 = call noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv()
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 84
   %444 = load float, ptr %443, align 4, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store float 0.000000e+00, ptr %48, align 4, !tbaa !42
   %445 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store float 0.000000e+00, ptr %445, align 4, !tbaa !44
   %446 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1268, ptr noundef nonnull align 4 dereferenceable(8) %48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
   %447 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1269)
   br i1 %447, label %.preheader277, label %450
@@ -17079,12 +17073,12 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   %451 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1271)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store float 0.000000e+00, ptr %49, align 4, !tbaa !42
   %452 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store float 0.000000e+00, ptr %452, align 4, !tbaa !44
   %453 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1272, ptr noundef nonnull align 4 dereferenceable(8) %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br i1 %451, label %.preheader276, label %456
 
 454:                                              ; preds = %.preheader276
@@ -17099,23 +17093,23 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %exitcond311.not, label %454, label %.preheader276, !llvm.loop !276
 
 456:                                              ; preds = %454, %450
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store float 0.000000e+00, ptr %50, align 4, !tbaa !42
   %457 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store float 0.000000e+00, ptr %457, align 4, !tbaa !44
   %458 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1273, ptr noundef nonnull align 4 dereferenceable(8) %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1274)
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1275)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store float 0.000000e+00, ptr %51, align 4, !tbaa !42
   %459 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store float 0.000000e+00, ptr %459, align 4, !tbaa !44
   %460 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1276, ptr noundef nonnull align 4 dereferenceable(8) %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @_ZN5ImGui8UnindentEf(float noundef 0.000000e+00)
   call void @_ZN5ImGui7TreePopEv()
   br label %461
@@ -17168,21 +17162,21 @@ _ZL10HelpMarkerPKc.exit239:                       ; preds = %471, %473
   %480 = zext i1 %478 to i8
   %481 = or i8 %479, %480
   store i8 %481, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store float 0.000000e+00, ptr %52, align 4, !tbaa !42
   %482 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store float 0.000000e+00, ptr %482, align 4, !tbaa !44
   %483 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1285, ptr noundef nonnull align 4 dereferenceable(8) %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @_ZN5ImGui8SameLineEff(float noundef 1.400000e+02, float noundef -1.000000e+00)
   %484 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1286, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0x47EFFFFFE0000000, ptr noundef nonnull @.str.1287, i32 noundef 0)
   %485 = or i1 %483, %484
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store float 0.000000e+00, ptr %53, align 4, !tbaa !42
   %486 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store float 0.000000e+00, ptr %486, align 4, !tbaa !44
   %487 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1288, ptr noundef nonnull align 4 dereferenceable(8) %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @_ZN5ImGui8SameLineEff(float noundef 1.400000e+02, float noundef -1.000000e+00)
   %488 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1289, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, float noundef 1.000000e+00, float noundef -1.000000e+01, float noundef 0x47EFFFFFE0000000, ptr noundef nonnull @.str.1290, i32 noundef 0)
   %489 = or i1 %487, %488
@@ -17237,11 +17231,11 @@ _ZL10HelpMarkerPKc.exit239:                       ; preds = %471, %473
   %513 = shl nuw nsw i32 %512, 10
   %514 = inttoptr i64 %indvars.iv313 to ptr
   %515 = call noundef i32 @_ZN5ImGui5GetIDEPKv(ptr noundef %514)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store float %.0172, ptr %54, align 4, !tbaa !42
   store float 2.000000e+02, ptr %500, align 4, !tbaa !44
   %516 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %515, ptr noundef nonnull align 4 dereferenceable(8) %54, i32 noundef 1, i32 noundef %513)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %517 = call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
   br i1 %517, label %518, label %519
 
@@ -17291,13 +17285,13 @@ _ZL10HelpMarkerPKc.exit239:                       ; preds = %471, %473
   br i1 %or.cond225, label %539, label %540
 
 539:                                              ; preds = %534
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store float 1.000000e+00, ptr %55, align 4, !tbaa !114
   store float 1.000000e+00, ptr %501, align 4, !tbaa !115
   store float 0.000000e+00, ptr %502, align 4, !tbaa !116
   store float 1.000000e+00, ptr %503, align 4, !tbaa !117
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull @.str.594, i32 noundef %.0175292)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @_ZN5ImGui14SetScrollHereYEf(float noundef %533)
   br label %541
 
@@ -17372,11 +17366,11 @@ _ZL10HelpMarkerPKc.exit240:                       ; preds = %549, %551
   %572 = or disjoint i32 %571, 2048
   %573 = inttoptr i64 %indvars.iv318 to ptr
   %574 = call noundef i32 @_ZN5ImGui5GetIDEPKv(ptr noundef %573)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store float -1.000000e+02, ptr %56, align 4, !tbaa !42
   store float %568, ptr %556, align 4, !tbaa !44
   %575 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %574, ptr noundef nonnull align 4 dereferenceable(8) %56, i32 noundef 1, i32 noundef %572)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br i1 %485, label %576, label %578
 
 576:                                              ; preds = %562
@@ -17425,13 +17419,13 @@ _ZL10HelpMarkerPKc.exit240:                       ; preds = %549, %551
   br i1 %or.cond227, label %597, label %598
 
 597:                                              ; preds = %592
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store float 1.000000e+00, ptr %57, align 4, !tbaa !114
   store float 1.000000e+00, ptr %557, align 4, !tbaa !115
   store float 0.000000e+00, ptr %558, align 4, !tbaa !116
   store float 1.000000e+00, ptr %559, align 4, !tbaa !117
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull @.str.594, i32 noundef %.0171294)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @_ZN5ImGui14SetScrollHereXEf(float noundef %589)
   br label %599
 
@@ -17481,13 +17475,13 @@ _ZL10HelpMarkerPKc.exit240:                       ; preds = %549, %551
 _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   %614 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.687, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE5lines, i32 noundef 1, i32 noundef 15, ptr noundef nonnull @.str.366, i32 noundef 0)
   call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 12, float noundef 3.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store float 2.000000e+00, ptr %58, align 4, !tbaa !42
   %615 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float 1.000000e+00, ptr %615, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %616 = call noundef float @_ZN5ImGui25GetFrameHeightWithSpacingEv()
   %617 = fmul float %616, 7.000000e+00
   %618 = fadd float %617, 3.000000e+01
@@ -17544,7 +17538,7 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
 642:                                              ; preds = %641, %640
   %643 = add nuw nsw i32 %.0166296, %633
   call void @_ZN5ImGui6PushIDEi(i32 noundef %643)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %644 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) @.str.366, i32 noundef %.0166296) #33
   %645 = urem i32 %.0166296, 15
   %.not216 = icmp eq i32 %645, 0
@@ -17565,10 +17559,10 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   %652 = phi ptr [ @.str.1309, %642 ], [ %650, %648 ], [ @.str.1310, %646 ]
   %653 = uitofp nneg i32 %.0166296 to float
   %654 = fmul float %653, 0x3FA99999A0000000
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %654, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %655 = load float, ptr %7, align 4, !tbaa !53
   %656 = load float, ptr %8, align 4, !tbaa !53
@@ -17576,17 +17570,17 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %655, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %656, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %657, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %61, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %623, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(16) %61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %654, float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %658 = load float, ptr %4, align 4, !tbaa !53
   %659 = load float, ptr %5, align 4, !tbaa !53
@@ -17594,17 +17588,17 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   %.sroa.0.0.vec.insert.i244 = insertelement <2 x float> poison, float %658, i64 0
   %.sroa.0.4.vec.insert.i245 = insertelement <2 x float> %.sroa.0.0.vec.insert.i244, float %659, i64 1
   %.sroa.3.12.vec.insert.i247 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %660, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <2 x float> %.sroa.0.4.vec.insert.i245, ptr %62, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i247, ptr %624, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 22, ptr noundef nonnull align 4 dereferenceable(16) %62)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %654, float noundef 0x3FE99999A0000000, float noundef 0x3FE99999A0000000, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %661 = load float, ptr %1, align 4, !tbaa !53
   %662 = load float, ptr %2, align 4, !tbaa !53
@@ -17612,14 +17606,14 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   %.sroa.0.0.vec.insert.i255 = insertelement <2 x float> poison, float %661, i64 0
   %.sroa.0.4.vec.insert.i256 = insertelement <2 x float> %.sroa.0.0.vec.insert.i255, float %662, i64 1
   %.sroa.3.12.vec.insert.i258 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %663, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store <2 x float> %.sroa.0.4.vec.insert.i256, ptr %63, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i258, ptr %625, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 23, ptr noundef nonnull align 4 dereferenceable(16) %63)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %664 = add nuw nsw i32 %.0166296, %.0168297
   %665 = uitofp nneg i32 %664 to float
   %666 = call float @sinf(float noundef %665) #33, !tbaa !54
@@ -17628,10 +17622,10 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   store float %668, ptr %64, align 4, !tbaa !42
   store float 0.000000e+00, ptr %626, align 4, !tbaa !44
   %669 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef %652, ptr noundef nonnull align 4 dereferenceable(8) %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 3)
   call void @_ZN5ImGui5PopIDEv()
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %670 = add nuw i32 %.0166296, 1
   %exitcond322.not = icmp eq i32 %670, %umax
   br i1 %exitcond322.not, label %636, label %640, !llvm.loop !283
@@ -17669,12 +17663,12 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   br i1 %687, label %688, label %693
 
 688:                                              ; preds = %684
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store float 0.000000e+00, ptr %65, align 4, !tbaa !42
   %689 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store float 0.000000e+00, ptr %689, align 4, !tbaa !44
   %690 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1308, ptr noundef nonnull align 4 dereferenceable(8) %65, i32 noundef 0, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %691 = call noundef float @_ZN5ImGui10GetScrollXEv()
   %692 = fadd float %.1161, %691
   call void @_ZN5ImGui10SetScrollXEf(float noundef %692)
@@ -17694,13 +17688,13 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   br i1 %699, label %700, label %703
 
 700:                                              ; preds = %697
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %701 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, align 4, !tbaa !53
   store float %701, ptr %66, align 4, !tbaa !42
   %702 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store float 0.000000e+00, ptr %702, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %66)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %703
 
 703:                                              ; preds = %700, %697
@@ -17718,18 +17712,18 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %609, %611
   br label %711
 
 711:                                              ; preds = %709, %703
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store float 2.000000e+00, ptr %67, align 4, !tbaa !42
   %712 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store float 0.000000e+00, ptr %712, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store float 2.000000e+00, ptr %68, align 4, !tbaa !42
   %713 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store float 0.000000e+00, ptr %713, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.287)
   %714 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
   br i1 %714, label %715, label %_ZL10HelpMarkerPKc.exit266
@@ -17769,11 +17763,11 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef 1.000000e+02)
   %737 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1324, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.338, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %738 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %738, ptr %69, align 8
   %739 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %740 = load float, ptr %69, align 8, !tbaa !42
   %741 = fadd float %740, 1.000000e+01
   %742 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -17783,9 +17777,9 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
   %745 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store float %744, ptr %745, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %739, ptr noundef nonnull align 4 dereferenceable(8) %69, ptr noundef nonnull align 4 dereferenceable(8) %70, i32 noundef -1, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %746 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %747 = load float, ptr %69, align 8, !tbaa !42
   %748 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, align 4, !tbaa !53
   %749 = fadd float %747, %748
@@ -17794,21 +17788,21 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
   store float %750, ptr %71, align 4, !tbaa !42
   %752 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store float %751, ptr %752, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %753 = fadd float %751, 1.000000e+01
   store float %749, ptr %72, align 4, !tbaa !42
   %754 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store float %753, ptr %754, align 4, !tbaa !44
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %746, ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 4 dereferenceable(8) %72, i32 noundef -1, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store float 0.000000e+00, ptr %73, align 4, !tbaa !42
   %755 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store float 1.000000e+01, ptr %755, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %73)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %756
 
 756:                                              ; preds = %736, %_ZL10HelpMarkerPKc.exit266
@@ -17819,12 +17813,12 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
   br i1 %758, label %759, label %762
 
 759:                                              ; preds = %756
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store float 3.000000e+02, ptr %74, align 4, !tbaa !42
   %760 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store float 0.000000e+00, ptr %760, align 4, !tbaa !44
   %761 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1325, ptr noundef nonnull align 4 dereferenceable(8) %74)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %762
 
 762:                                              ; preds = %759, %756
@@ -17833,7 +17827,7 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
   br i1 %764, label %765, label %773
 
 765:                                              ; preds = %762
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %75) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i8 1, ptr %75, align 1, !tbaa !29
   %766 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1326)
   br i1 %766, label %767, label %771
@@ -17853,7 +17847,7 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
 
 771:                                              ; preds = %770, %765
   %772 = call noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKcPbi(ptr noundef nonnull @.str.1329, ptr noundef nonnull %75, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %75) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %773
 
 773:                                              ; preds = %771, %762
@@ -17872,12 +17866,12 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
 
 780:                                              ; preds = %777
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1331)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store float 0.000000e+00, ptr %76, align 4, !tbaa !42
   %781 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store float 0.000000e+00, ptr %781, align 4, !tbaa !44
   %782 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1332, i32 noundef 4, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %76, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br i1 %782, label %.preheader, label %788
 
 783:                                              ; preds = %.preheader
@@ -17965,12 +17959,12 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
   br i1 %814, label %815, label %818
 
 815:                                              ; preds = %812
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store float 0.000000e+00, ptr %77, align 4, !tbaa !42
   %816 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store float 0.000000e+00, ptr %816, align 4, !tbaa !44
   %817 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.335, ptr noundef nonnull align 4 dereferenceable(8) %77, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @_ZN5ImGui8EndChildEv()
   br label %818
 
@@ -17980,7 +17974,7 @@ _ZL10HelpMarkerPKc.exit266:                       ; preds = %711, %715
 
 819:                                              ; preds = %818, %693
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %820
 
 820:                                              ; preds = %465, %819
@@ -18066,13 +18060,13 @@ _ZL10HelpMarkerPKc.exit267:                       ; preds = %826, %829
   br i1 %858, label %859, label %879
 
 859:                                              ; preds = %857
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %860 = call <2 x float> @_ZN5ImGui14GetItemRectMinEv()
   store <2 x float> %860, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %861 = call <2 x float> @_ZN5ImGui14GetItemRectMaxEv()
   store <2 x float> %861, ptr %79, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %862 = load float, ptr %78, align 8, !tbaa !42
   %863 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
   %864 = fadd float %862, %863
@@ -18103,7 +18097,7 @@ _ZL10HelpMarkerPKc.exit267:                       ; preds = %826, %829
   br label %878
 
 871:                                              ; preds = %859
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %872 = load float, ptr %78, align 8, !tbaa !42
   %873 = load float, ptr %832, align 4, !tbaa !44
   %874 = load float, ptr %79, align 8, !tbaa !42
@@ -18116,16 +18110,16 @@ _ZL10HelpMarkerPKc.exit267:                       ; preds = %826, %829
   %876 = call noundef ptr @_ZN5ImGui7GetFontEv()
   %877 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(200) %868, ptr noundef %876, float noundef %877, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1345, ptr noundef null, float noundef 0.000000e+00, ptr noundef nonnull %81)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %878
 
 default.unreachable:                              ; preds = %859
   unreachable
 
 878:                                              ; preds = %871, %870, %869
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %879
 
 879:                                              ; preds = %857, %878
@@ -18164,7 +18158,7 @@ default.unreachable:                              ; preds = %859
 _ZL10HelpMarkerPKc.exit268:                       ; preds = %887, %889
   %892 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1349, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap)
   %893 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %893, i64 0
   %894 = fadd float %.sroa.0.0.vec.extract, 5.000000e+01
   %.sroa.0.4.vec.extract = extractelement <2 x float> %893, i64 1
@@ -18181,19 +18175,19 @@ _ZL10HelpMarkerPKc.exit268:                       ; preds = %887, %889
   br label %900
 
 900:                                              ; preds = %899, %_ZL10HelpMarkerPKc.exit268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store float 8.000000e+01, ptr %83, align 4, !tbaa !42
   %901 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store float 8.000000e+01, ptr %901, align 4, !tbaa !44
   %902 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1350, ptr noundef nonnull align 4 dereferenceable(8) %83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @_ZN5ImGui18SetCursorScreenPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %82)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store float 8.000000e+01, ptr %84, align 4, !tbaa !42
   %903 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store float 8.000000e+01, ptr %903, align 4, !tbaa !44
   %904 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1351, ptr noundef nonnull align 4 dereferenceable(8) %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %905 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap, align 1, !tbaa !29, !range !11, !noundef !12
   %906 = trunc nuw i8 %905 to i1
   br i1 %906, label %907, label %908
@@ -18203,16 +18197,16 @@ _ZL10HelpMarkerPKc.exit268:                       ; preds = %887, %889
   br label %908
 
 908:                                              ; preds = %907, %900
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store float 0.000000e+00, ptr %85, align 4, !tbaa !42
   %909 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store float 0.000000e+00, ptr %909, align 4, !tbaa !44
   %910 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1352, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %911 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1353)
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %912
 
 912:                                              ; preds = %89, %908, %885
@@ -18319,19 +18313,19 @@ define internal fastcc void @_ZL20ShowDemoWindowTablesv() unnamed_addr #0 person
   %.sroa.0417.0.vec.extract = extractelement <2 x float> %87, i64 0
   %88 = tail call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   tail call void @_ZN5ImGui6PushIDEPKc(ptr noundef nonnull @.str.198)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !42
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0.000000e+00, ptr %89, align 4, !tbaa !44
   %90 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1430, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0.000000e+00, ptr %14, align 4, !tbaa !42
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0.000000e+00, ptr %91, align 4, !tbaa !44
   %92 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1431, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %93 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1432, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE14disable_indent)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
@@ -18396,12 +18390,12 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %86, %95
   br label %_ZL10HelpMarkerPKc.exit602
 
 _ZL10HelpMarkerPKc.exit602:                       ; preds = %109, %111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 0.000000e+00, ptr %15, align 4, !tbaa !42
   %114 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0.000000e+00, ptr %114, align 4, !tbaa !44
   %115 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %15, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %115, label %.preheader754, label %122
 
 116:                                              ; preds = %117
@@ -18441,12 +18435,12 @@ _ZL10HelpMarkerPKc.exit602:                       ; preds = %109, %111
   br label %_ZL10HelpMarkerPKc.exit603
 
 _ZL10HelpMarkerPKc.exit603:                       ; preds = %122, %124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0.000000e+00, ptr %16, align 4, !tbaa !42
   %127 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0.000000e+00, ptr %127, align 4, !tbaa !44
   %128 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %16, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %128, label %.preheader753, label %134
 
 129:                                              ; preds = %.preheader753
@@ -18481,12 +18475,12 @@ _ZL10HelpMarkerPKc.exit603:                       ; preds = %122, %124
   br label %_ZL10HelpMarkerPKc.exit604
 
 _ZL10HelpMarkerPKc.exit604:                       ; preds = %134, %136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !42
   %139 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 0.000000e+00, ptr %139, align 4, !tbaa !44
   %140 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1444, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %17, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %140, label %.preheader752, label %144
 
 141:                                              ; preds = %.preheader752
@@ -18597,12 +18591,12 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %153, %168
 _ZL10HelpMarkerPKc.exit606:                       ; preds = %_ZL10HelpMarkerPKc.exit605, %184
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %187 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float 0.000000e+00, ptr %18, align 4, !tbaa !42
   %188 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float 0.000000e+00, ptr %188, align 4, !tbaa !44
   %189 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef %187, ptr noundef nonnull align 4 dereferenceable(8) %18, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %189, label %190, label %209
 
 190:                                              ; preds = %_ZL10HelpMarkerPKc.exit606
@@ -18638,7 +18632,7 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %_ZL10HelpMarkerPKc.
 200:                                              ; preds = %197, %207
   %.0438759 = phi i32 [ 0, %197 ], [ %208, %207 ]
   %201 = call noundef zeroext i1 @_ZN5ImGui19TableSetColumnIndexEi(i32 noundef %.0438759)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %202 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.1466, i32 noundef %.0438759, i32 noundef %.0436760) #33
   %203 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE13contents_type, align 4, !tbaa !54
   switch i32 %203, label %207 [
@@ -18651,15 +18645,15 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %207
 
 205:                                              ; preds = %200
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 0xB810000000000000, ptr %20, align 4, !tbaa !42
   store float 0.000000e+00, ptr %195, align 4, !tbaa !44
   %206 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %19, ptr noundef nonnull align 4 dereferenceable(8) %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %207
 
 207:                                              ; preds = %200, %205, %204
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %208 = add nuw nsw i32 %.0438759, 1
   %exitcond853.not = icmp eq i32 %208, 3
   br i1 %exitcond853.not, label %198, label %200, !llvm.loop !292
@@ -18723,12 +18717,12 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %_ZL10HelpMarkerPKc.
 _ZL10HelpMarkerPKc.exit607:                       ; preds = %218, %233
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %236 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags_0, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float 0.000000e+00, ptr %21, align 4, !tbaa !42
   %237 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float 0.000000e+00, ptr %237, align 4, !tbaa !44
   %238 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef %236, ptr noundef nonnull align 4 dereferenceable(8) %21, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %238, label %.preheader751, label %245
 
 239:                                              ; preds = %240
@@ -18810,12 +18804,12 @@ _ZL10HelpMarkerPKc.exit608:                       ; preds = %254, %256
   %270 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1474, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE5flags_1, i32 noundef 65536)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %271 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags_1, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store float 0.000000e+00, ptr %22, align 4, !tbaa !42
   %272 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 0.000000e+00, ptr %272, align 4, !tbaa !44
   %273 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef %271, ptr noundef nonnull align 4 dereferenceable(8) %22, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %273, label %.preheader750, label %280
 
 274:                                              ; preds = %275
@@ -18881,12 +18875,12 @@ _ZL10HelpMarkerPKc.exit608:                       ; preds = %254, %256
   br label %_ZL10HelpMarkerPKc.exit609
 
 _ZL10HelpMarkerPKc.exit609:                       ; preds = %289, %291
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store float 0.000000e+00, ptr %23, align 4, !tbaa !42
   %294 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %294, align 4, !tbaa !44
   %295 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef 10183, ptr noundef nonnull align 4 dereferenceable(8) %23, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %295, label %296, label %306
 
 296:                                              ; preds = %_ZL10HelpMarkerPKc.exit609
@@ -18921,12 +18915,12 @@ _ZL10HelpMarkerPKc.exit609:                       ; preds = %289, %291
   br i1 %exitcond859.not, label %299, label %301, !llvm.loop !298
 
 306:                                              ; preds = %297, %_ZL10HelpMarkerPKc.exit609
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0.000000e+00, ptr %24, align 4, !tbaa !42
   %307 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 0.000000e+00, ptr %307, align 4, !tbaa !44
   %308 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef 6, i32 noundef 10183, ptr noundef nonnull align 4 dereferenceable(8) %24, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %308, label %309, label %319
 
 309:                                              ; preds = %306
@@ -19040,12 +19034,12 @@ _ZL10HelpMarkerPKc.exit611:                       ; preds = %_ZL10HelpMarkerPKc.
   %353 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1489, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE5flags_3, i32 noundef 268435456)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %354 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags_3, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float 0.000000e+00, ptr %25, align 4, !tbaa !42
   %355 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store float 0.000000e+00, ptr %355, align 4, !tbaa !44
   %356 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef %354, ptr noundef nonnull align 4 dereferenceable(8) %25, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %356, label %357, label %365
 
 357:                                              ; preds = %_ZL10HelpMarkerPKc.exit611
@@ -19080,12 +19074,12 @@ _ZL10HelpMarkerPKc.exit611:                       ; preds = %_ZL10HelpMarkerPKc.
 365:                                              ; preds = %358, %_ZL10HelpMarkerPKc.exit611
   %366 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags_3, align 4, !tbaa !54
   %367 = or i32 %366, 8192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float 0.000000e+00, ptr %26, align 4, !tbaa !42
   %368 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float 0.000000e+00, ptr %368, align 4, !tbaa !44
   %369 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef 3, i32 noundef %367, ptr noundef nonnull align 4 dereferenceable(8) %26, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %369, label %370, label %378
 
 370:                                              ; preds = %365
@@ -19224,12 +19218,12 @@ _ZL10HelpMarkerPKc.exit615:                       ; preds = %_ZL10HelpMarkerPKc.
   %420 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1500, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE12show_headers)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %421 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags1, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store float 0.000000e+00, ptr %27, align 4, !tbaa !42
   %422 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store float 0.000000e+00, ptr %422, align 4, !tbaa !44
   %423 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1501, i32 noundef 3, i32 noundef %421, ptr noundef nonnull align 4 dereferenceable(8) %27, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %423, label %424, label %442
 
 424:                                              ; preds = %_ZL10HelpMarkerPKc.exit615
@@ -19277,14 +19271,14 @@ _ZL10HelpMarkerPKc.exit615:                       ; preds = %_ZL10HelpMarkerPKc.
 .split:                                           ; preds = %431, %.split
   %.0469773 = phi i32 [ %441, %.split ], [ 0, %431 ]
   %438 = call noundef zeroext i1 @_ZN5ImGui19TableSetColumnIndexEi(i32 noundef %.0469773)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %439 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.1466, i32 noundef %.0469773, i32 noundef %.0466776) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float 0xB810000000000000, ptr %29, align 4, !tbaa !42
   store float 0.000000e+00, ptr %429, align 4, !tbaa !44
   %440 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %28, ptr noundef nonnull align 4 dereferenceable(8) %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %441 = add nuw nsw i32 %.0469773, 1
   %exitcond867.not = icmp eq i32 %441, 3
   br i1 %exitcond867.not, label %.split775.us, label %.split, !llvm.loop !307
@@ -19329,12 +19323,12 @@ _ZL10HelpMarkerPKc.exit616:                       ; preds = %442, %444
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 17, ptr noundef nonnull align 4 dereferenceable(8) @_ZZL20ShowDemoWindowTablesvE12cell_padding)
   %467 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags2, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !42
   %468 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float 0.000000e+00, ptr %468, align 4, !tbaa !44
   %469 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1505, i32 noundef 3, i32 noundef %467, ptr noundef nonnull align 4 dereferenceable(8) %30, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %469, label %470, label %487
 
 470:                                              ; preds = %_ZL10HelpMarkerPKc.exit616
@@ -19483,11 +19477,11 @@ _ZL10HelpMarkerPKc.exit617:                       ; preds = %513, %515
   %535 = load i32, ptr %534, align 4, !tbaa !54
   %536 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags1_0, align 4, !tbaa !54
   %537 = or i32 %536, %535
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float 0.000000e+00, ptr %31, align 4, !tbaa !42
   store float 0.000000e+00, ptr %511, align 4, !tbaa !44
   %538 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef %537, ptr noundef nonnull align 4 dereferenceable(8) %31, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %538, label %.preheader749, label %544
 
 539:                                              ; preds = %.preheader749
@@ -19511,11 +19505,11 @@ _ZL10HelpMarkerPKc.exit617:                       ; preds = %513, %515
   %545 = load i32, ptr %534, align 4, !tbaa !54
   %546 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags1_0, align 4, !tbaa !54
   %547 = or i32 %546, %545
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store float 0.000000e+00, ptr %32, align 4, !tbaa !42
   store float 0.000000e+00, ptr %512, align 4, !tbaa !44
   %548 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef 3, i32 noundef %547, ptr noundef nonnull align 4 dereferenceable(8) %32, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %548, label %.preheader748, label %554
 
 549:                                              ; preds = %.preheader748
@@ -19583,13 +19577,13 @@ _ZL10HelpMarkerPKc.exit619:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %570 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE12column_count, align 4, !tbaa !54
   %571 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags_4, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %572 = fmul float %88, 7.000000e+00
   store float 0.000000e+00, ptr %33, align 4, !tbaa !42
   %573 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float %572, ptr %573, align 4, !tbaa !44
   %574 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef %570, i32 noundef %571, ptr noundef nonnull align 4 dereferenceable(8) %33, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br i1 %574, label %.preheader747, label %603
 
 .preheader747:                                    ; preds = %_ZL10HelpMarkerPKc.exit619
@@ -19612,7 +19606,7 @@ _ZL10HelpMarkerPKc.exit619:                       ; preds = %_ZL10HelpMarkerPKc.
   %581 = call noundef i32 @_ZN5ImGui19TableGetColumnIndexEv()
   %582 = call noundef i32 @_ZN5ImGui16TableGetRowIndexEv()
   call void @_ZN5ImGui6PushIDEi(i32 noundef %.0485781)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %583 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) @.str.1466, i32 noundef %581, i32 noundef %582) #33
   %584 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE13contents_type_0, align 4, !tbaa !54
   switch i32 %584, label %598 [
@@ -19642,19 +19636,19 @@ _ZL10HelpMarkerPKc.exit619:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %598
 
 592:                                              ; preds = %579
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float 0.000000e+00, ptr %35, align 4, !tbaa !42
   store float 0.000000e+00, ptr %578, align 4, !tbaa !44
   %593 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %34, ptr noundef nonnull align 4 dereferenceable(8) %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %598
 
 594:                                              ; preds = %579
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float 0xB810000000000000, ptr %36, align 4, !tbaa !42
   store float 0.000000e+00, ptr %577, align 4, !tbaa !44
   %595 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %34, ptr noundef nonnull align 4 dereferenceable(8) %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %598
 
 596:                                              ; preds = %579
@@ -19664,7 +19658,7 @@ _ZL10HelpMarkerPKc.exit619:                       ; preds = %_ZL10HelpMarkerPKc.
 
 598:                                              ; preds = %596, %594, %592, %589, %586, %585, %579
   call void @_ZN5ImGui5PopIDEv()
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %599 = add nuw nsw i32 %.0485781, 1
   %600 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE12column_count, align 4, !tbaa !54
   %601 = mul nsw i32 %600, 10
@@ -19727,7 +19721,7 @@ _ZL10HelpMarkerPKc.exit620:                       ; preds = %612, %614
   call void @_ZN5ImGui13PushStyleVarYEif(i32 noundef 14, float noundef %627)
   %628 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1521, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE5flags_5, i32 noundef 33554432)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %629 = fmul float %88, 8.000000e+00
   store float 0.000000e+00, ptr %37, align 4, !tbaa !42
   %630 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -19742,7 +19736,7 @@ _ZL10HelpMarkerPKc.exit620:                       ; preds = %612, %614
   call void @_ZN5ImGui16TableSetupColumnEPKcifj(ptr noundef nonnull @.str.1464, i32 noundef 0, float noundef 0.000000e+00, i32 noundef 0)
   call void @_ZN5ImGui16TableSetupColumnEPKcifj(ptr noundef nonnull @.str.1465, i32 noundef 0, float noundef 0.000000e+00, i32 noundef 0)
   call void @_ZN5ImGui15TableHeadersRowEv()
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %38)
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %38, i32 noundef 1000, float noundef -1.000000e+00)
           to label %.preheader741 unwind label %.loopexit.split-lp743
@@ -19819,19 +19813,19 @@ _ZL10HelpMarkerPKc.exit620:                       ; preds = %612, %614
 
 656:                                              ; preds = %655
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %658
 
 657:                                              ; preds = %.loopexit742, %.loopexit.split-lp743, %647, %653
   %.pn593.pn = phi { ptr, i32 } [ %654, %653 ], [ %648, %647 ], [ %lpad.loopexit744, %.loopexit742 ], [ %lpad.loopexit.split-lp745, %.loopexit.split-lp743 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %common.resume
 
 658:                                              ; preds = %656, %_ZL10HelpMarkerPKc.exit620
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %659
 
 659:                                              ; preds = %658, %610
@@ -19894,7 +19888,7 @@ _ZL10HelpMarkerPKc.exit621:                       ; preds = %667, %669
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef %688)
   %689 = call noundef zeroext i1 @_ZN5ImGui7DragIntEPKcPifiiS1_i(ptr noundef nonnull @.str.1535, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE11freeze_rows, float noundef 0x3FC99999A0000000, i32 noundef 0, i32 noundef 9, ptr noundef null, i32 noundef 128)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %690 = fmul float %88, 8.000000e+00
   store float 0.000000e+00, ptr %39, align 4, !tbaa !42
   %691 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -20014,7 +20008,7 @@ _ZL10HelpMarkerPKc.exit622:                       ; preds = %709, %711
 
 736:                                              ; preds = %731, %_ZL10HelpMarkerPKc.exit622
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %737
 
 737:                                              ; preds = %736, %665
@@ -20040,12 +20034,12 @@ _ZL10HelpMarkerPKc.exit622:                       ; preds = %709, %711
   br i1 %744, label %745, label %847
 
 745:                                              ; preds = %743
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float 0.000000e+00, ptr %40, align 4, !tbaa !42
   %746 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store float 0.000000e+00, ptr %746, align 4, !tbaa !44
   %747 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1550, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %40, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br i1 %747, label %748, label %812
 
 748:                                              ; preds = %745
@@ -20168,13 +20162,13 @@ _ZL21EditTableColumnsFlagsPi.exit:                ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui13BeginDisabledEb(i1 noundef zeroext true)
   %806 = getelementptr inbounds nuw [3 x i32], ptr @_ZZL20ShowDemoWindowTablesvE16column_flags_out, i64 0, i64 %indvars.iv882
   %807 = load i32, ptr %806, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %807, ptr %12, align 4, !tbaa !54
   %808 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1786, ptr noundef nonnull %12, i32 noundef 16777216)
   %809 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1787, ptr noundef nonnull %12, i32 noundef 33554432)
   %810 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1788, ptr noundef nonnull %12, i32 noundef 67108864)
   %811 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1789, ptr noundef nonnull %12, i32 noundef 134217728)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5ImGui11EndDisabledEv()
   call void @_ZN5ImGui5PopIDEv()
   %indvars.iv.next883 = add nuw nsw i64 %indvars.iv882, 1
@@ -20182,7 +20176,7 @@ _ZL21EditTableColumnsFlagsPi.exit:                ; preds = %_ZL10HelpMarkerPKc.
   br i1 %exitcond885.not, label %760, label %761, !llvm.loop !319
 
 812:                                              ; preds = %760, %745
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %813 = fmul float %88, 9.000000e+00
   store float 0.000000e+00, ptr %41, align 4, !tbaa !42
   %814 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -20264,7 +20258,7 @@ _ZL21EditTableColumnsFlagsPi.exit:                ; preds = %_ZL10HelpMarkerPKc.
 
 846:                                              ; preds = %835, %812
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %847
 
 847:                                              ; preds = %846, %743
@@ -20321,12 +20315,12 @@ _ZL10HelpMarkerPKc.exit623:                       ; preds = %855, %857
   %872 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1487, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE6flags1_1, i32 noundef 4096)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %873 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags1_1, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store float 0.000000e+00, ptr %42, align 4, !tbaa !42
   %874 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store float 0.000000e+00, ptr %874, align 4, !tbaa !44
   %875 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 3, i32 noundef %873, ptr noundef nonnull align 4 dereferenceable(8) %42, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br i1 %875, label %876, label %887
 
 876:                                              ; preds = %_ZL10HelpMarkerPKc.exit623
@@ -20403,12 +20397,12 @@ _ZL10HelpMarkerPKc.exit624:                       ; preds = %887, %889
   %905 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1454, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE6flags2_1, i32 noundef 1024)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %906 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags2_1, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store float 0.000000e+00, ptr %43, align 4, !tbaa !42
   %907 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store float 0.000000e+00, ptr %907, align 4, !tbaa !44
   %908 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef 4, i32 noundef %906, ptr noundef nonnull align 4 dereferenceable(8) %43, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br i1 %908, label %909, label %922
 
 909:                                              ; preds = %_ZL10HelpMarkerPKc.exit624
@@ -20495,12 +20489,12 @@ _ZL10HelpMarkerPKc.exit624:                       ; preds = %887, %889
   br label %_ZL10HelpMarkerPKc.exit625
 
 _ZL10HelpMarkerPKc.exit625:                       ; preds = %931, %933
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float 0.000000e+00, ptr %44, align 4, !tbaa !42
   %936 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float 0.000000e+00, ptr %936, align 4, !tbaa !44
   %937 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1569, i32 noundef 2, i32 noundef 1927, ptr noundef nonnull align 4 dereferenceable(8) %44, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br i1 %937, label %938, label %952
 
 938:                                              ; preds = %_ZL10HelpMarkerPKc.exit625
@@ -20509,12 +20503,12 @@ _ZL10HelpMarkerPKc.exit625:                       ; preds = %931, %933
   call void @_ZN5ImGui15TableHeadersRowEv()
   %939 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1572)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float 0.000000e+00, ptr %45, align 4, !tbaa !42
   %940 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store float 0.000000e+00, ptr %940, align 4, !tbaa !44
   %941 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1573, i32 noundef 2, i32 noundef 1927, ptr noundef nonnull align 4 dereferenceable(8) %45, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br i1 %941, label %942, label %948
 
 942:                                              ; preds = %938
@@ -20586,12 +20580,12 @@ _ZL10HelpMarkerPKc.exit625:                       ; preds = %931, %933
   br label %_ZL10HelpMarkerPKc.exit626
 
 _ZL10HelpMarkerPKc.exit626:                       ; preds = %961, %963
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float 0.000000e+00, ptr %46, align 4, !tbaa !42
   %966 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store float 0.000000e+00, ptr %966, align 4, !tbaa !44
   %967 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1586, i32 noundef 1, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %46, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br i1 %967, label %.preheader736, label %978
 
 .preheader736:                                    ; preds = %_ZL10HelpMarkerPKc.exit626
@@ -20631,18 +20625,18 @@ _ZL10HelpMarkerPKc.exit626:                       ; preds = %961, %963
   br label %_ZL10HelpMarkerPKc.exit627
 
 _ZL10HelpMarkerPKc.exit627:                       ; preds = %978, %980
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store float 0.000000e+00, ptr %47, align 4, !tbaa !42
   %983 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store float 0.000000e+00, ptr %983, align 4, !tbaa !44
   %984 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1589, i32 noundef 2, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %47, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %984, label %985, label %1000
 
 985:                                              ; preds = %_ZL10HelpMarkerPKc.exit627
   call void @_ZN5ImGui12TableNextRowEif(i32 noundef 0, float noundef 0.000000e+00)
   %986 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store float 0x3FC0A3D700000000, ptr %48, align 4, !tbaa !114
   %987 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store float 0x3FD0A3D700000000, ptr %987, align 4, !tbaa !115
@@ -20650,19 +20644,19 @@ _ZL10HelpMarkerPKc.exit627:                       ; preds = %978, %980
   store float 0x3FD99999A0000000, ptr %988, align 4, !tbaa !116
   %989 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store float 1.000000e+00, ptr %989, align 4, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store float 4.000000e+01, ptr %49, align 4, !tbaa !42
   %990 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store float 4.000000e+01, ptr %990, align 4, !tbaa !44
   %991 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1590, ptr noundef nonnull align 4 dereferenceable(16) %48, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %992 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1591)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1592)
   call void @_ZN5ImGui12TableNextRowEif(i32 noundef 0, float noundef 0.000000e+00)
   %993 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store float 0x3FC0A3D700000000, ptr %50, align 4, !tbaa !114
   %994 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store float 0x3FD0A3D700000000, ptr %994, align 4, !tbaa !115
@@ -20670,13 +20664,13 @@ _ZL10HelpMarkerPKc.exit627:                       ; preds = %978, %980
   store float 0x3FD99999A0000000, ptr %995, align 4, !tbaa !116
   %996 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store float 1.000000e+00, ptr %996, align 4, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store float 4.000000e+01, ptr %51, align 4, !tbaa !42
   %997 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store float 4.000000e+01, ptr %997, align 4, !tbaa !44
   %998 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1593, ptr noundef nonnull align 4 dereferenceable(16) %50, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %999 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef 0.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1594)
@@ -20699,12 +20693,12 @@ _ZL10HelpMarkerPKc.exit627:                       ; preds = %978, %980
   br label %_ZL10HelpMarkerPKc.exit628
 
 _ZL10HelpMarkerPKc.exit628:                       ; preds = %1000, %1002
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store float 0.000000e+00, ptr %52, align 4, !tbaa !42
   %1005 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store float 0.000000e+00, ptr %1005, align 4, !tbaa !44
   %1006 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1596, i32 noundef 1, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %52, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br i1 %1006, label %1007, label %1023
 
 1007:                                             ; preds = %_ZL10HelpMarkerPKc.exit628
@@ -20820,7 +20814,7 @@ _ZL10HelpMarkerPKc.exit629:                       ; preds = %1032, %1046
 
 _ZL10HelpMarkerPKc.exit630:                       ; preds = %_ZL10HelpMarkerPKc.exit629, %1051
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %1054 = fmul float %88, 5.500000e+00
   store float 0.000000e+00, ptr %53, align 4, !tbaa !42
   %1055 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -20856,13 +20850,13 @@ _ZL10HelpMarkerPKc.exit630:                       ; preds = %_ZL10HelpMarkerPKc.
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.495)
   call void @_ZN5ImGui7SpacingEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1605)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %1065 = fmul float %.sroa.0417.0.vec.extract, 3.000000e+01
   store float %1065, ptr %54, align 4, !tbaa !42
   %1066 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store float 0.000000e+00, ptr %1066, align 4, !tbaa !44
   %1067 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1439, i32 noundef 3, i32 noundef 1984, ptr noundef nonnull align 4 dereferenceable(8) %54, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br i1 %1067, label %.preheader734, label %1074
 
 1068:                                             ; preds = %1069
@@ -20889,12 +20883,12 @@ _ZL10HelpMarkerPKc.exit630:                       ; preds = %_ZL10HelpMarkerPKc.
 
 1074:                                             ; preds = %1068, %1064
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store float %1065, ptr %55, align 4, !tbaa !42
   %1075 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store float 0.000000e+00, ptr %1075, align 4, !tbaa !44
   %1076 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1444, i32 noundef 3, i32 noundef 1984, ptr noundef nonnull align 4 dereferenceable(8) %55, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br i1 %1076, label %.preheader733, label %1085
 
 .preheader733:                                    ; preds = %1074
@@ -20925,7 +20919,7 @@ _ZL10HelpMarkerPKc.exit630:                       ; preds = %_ZL10HelpMarkerPKc.
 
 1085:                                             ; preds = %1078, %1074
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %1086
 
 1086:                                             ; preds = %1085, %1030
@@ -21016,12 +21010,12 @@ _ZL10HelpMarkerPKc.exit632:                       ; preds = %_ZL10HelpMarkerPKc.
 _ZL10HelpMarkerPKc.exit633:                       ; preds = %_ZL10HelpMarkerPKc.exit632, %1120
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %1123 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags_8, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store float 0.000000e+00, ptr %56, align 4, !tbaa !42
   %1124 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float 0.000000e+00, ptr %1124, align 4, !tbaa !44
   %1125 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1436, i32 noundef 5, i32 noundef %1123, ptr noundef nonnull align 4 dereferenceable(8) %56, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br i1 %1125, label %.preheader732, label %1159
 
 .preheader732:                                    ; preds = %_ZL10HelpMarkerPKc.exit633
@@ -21045,7 +21039,7 @@ _ZL10HelpMarkerPKc.exit633:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %.not591, label %1143, label %1135
 
 1135:                                             ; preds = %1133
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %1136 = icmp eq i32 %1134, 1
   %1137 = uitofp nneg i32 %.0477819 to float
   %1138 = fmul float %1137, 0x3FB99999A0000000
@@ -21057,7 +21051,7 @@ _ZL10HelpMarkerPKc.exit633:                       ; preds = %_ZL10HelpMarkerPKc.
   store float %storemerge, ptr %1127, align 4, !tbaa !116
   store float 0x3FE4CCCCC0000000, ptr %1128, align 4, !tbaa !117
   %1140 = call noundef i32 @_ZN5ImGui11GetColorU32ERK6ImVec4(ptr noundef nonnull align 4 dereferenceable(16) %57)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %1141 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE13row_bg_target, align 4, !tbaa !54
   %1142 = add nsw i32 %1141, 1
   call void @_ZN5ImGui15TableSetBgColorEiji(i32 noundef %1142, i32 noundef %1140, i32 noundef -1)
@@ -21096,13 +21090,13 @@ _ZL10HelpMarkerPKc.exit633:                       ; preds = %_ZL10HelpMarkerPKc.
   br i1 %or.cond9, label %1155, label %1157
 
 1155:                                             ; preds = %.split816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store float 0x3FD3333340000000, ptr %58, align 4, !tbaa !114
   store float 0x3FD3333340000000, ptr %1129, align 4, !tbaa !115
   store float 0x3FE6666660000000, ptr %1130, align 4, !tbaa !116
   store float 0x3FE4CCCCC0000000, ptr %1131, align 4, !tbaa !117
   %1156 = call noundef i32 @_ZN5ImGui11GetColorU32ERK6ImVec4(ptr noundef nonnull align 4 dereferenceable(16) %58)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @_ZN5ImGui15TableSetBgColorEiji(i32 noundef 3, i32 noundef %1156, i32 noundef -1)
   br label %1157
 
@@ -21155,12 +21149,12 @@ _ZL10HelpMarkerPKc.exit633:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %_ZL10HelpMarkerPKc.exit634
 
 _ZL10HelpMarkerPKc.exit634:                       ; preds = %1168, %1173
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store float 0.000000e+00, ptr %59, align 4, !tbaa !42
   %1176 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store float 0.000000e+00, ptr %1176, align 4, !tbaa !44
   %1177 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1621, i32 noundef 3, i32 noundef 3905, ptr noundef nonnull align 4 dereferenceable(8) %59, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br i1 %1177, label %1178, label %1181
 
 1178:                                             ; preds = %_ZL10HelpMarkerPKc.exit634
@@ -21215,12 +21209,12 @@ _ZL10HelpMarkerPKc.exit634:                       ; preds = %1168, %1173
   br label %_ZL10HelpMarkerPKc.exit635
 
 _ZL10HelpMarkerPKc.exit635:                       ; preds = %1190, %1192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store float 0.000000e+00, ptr %60, align 4, !tbaa !42
   %1195 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float 0.000000e+00, ptr %1195, align 4, !tbaa !44
   %1196 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1641, i32 noundef 3, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %60, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br i1 %1196, label %1197, label %1216
 
 1197:                                             ; preds = %_ZL10HelpMarkerPKc.exit635
@@ -21293,12 +21287,12 @@ _ZL10HelpMarkerPKc.exit635:                       ; preds = %1190, %1192
   br i1 %1224, label %1225, label %1253
 
 1225:                                             ; preds = %1223
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store float 0.000000e+00, ptr %61, align 4, !tbaa !42
   %1226 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store float 0.000000e+00, ptr %1226, align 4, !tbaa !44
   %1227 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1650, i32 noundef 3, i32 noundef 1926, ptr noundef nonnull align 4 dereferenceable(8) %61, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br i1 %1227, label %1228, label %1252
 
 1228:                                             ; preds = %1225
@@ -21319,11 +21313,11 @@ _ZL10HelpMarkerPKc.exit635:                       ; preds = %1190, %1192
   %1233 = call noundef zeroext i1 @_ZN5ImGui19TableSetColumnIndexEi(i32 noundef %1232)
   %1234 = call noundef ptr @_ZN5ImGui18TableGetColumnNameEi(i32 noundef %1232)
   call void @_ZN5ImGui6PushIDEi(i32 noundef %1232)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store float 0.000000e+00, ptr %62, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1229, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %1235 = getelementptr inbounds nuw [3 x i8], ptr @_ZZL20ShowDemoWindowTablesvE15column_selected, i64 0, i64 %indvars.iv913
   %1236 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1652, ptr noundef nonnull %1235)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
@@ -21353,19 +21347,19 @@ _ZL10HelpMarkerPKc.exit635:                       ; preds = %1190, %1192
 
 1244:                                             ; preds = %1241, %1244
   %indvars.iv917 = phi i64 [ 0, %1241 ], [ %indvars.iv.next918, %1244 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %1245 = trunc nuw nsw i64 %indvars.iv917 to i32
   %1246 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) @.str.1604, i32 noundef %1245, i32 noundef %.0468823) #33
   %1247 = call noundef zeroext i1 @_ZN5ImGui19TableSetColumnIndexEi(i32 noundef %1245)
   %1248 = getelementptr inbounds nuw [3 x i8], ptr @_ZZL20ShowDemoWindowTablesvE15column_selected, i64 0, i64 %indvars.iv917
   %1249 = load i8, ptr %1248, align 1, !tbaa !29, !range !11, !noundef !12
   %1250 = trunc nuw i8 %1249 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store float 0.000000e+00, ptr %64, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1230, align 4, !tbaa !44
   %1251 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %63, i1 noundef zeroext %1250, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
   %exitcond920.not = icmp eq i64 %indvars.iv.next918, 3
   br i1 %exitcond920.not, label %1242, label %1244, !llvm.loop !345
@@ -21448,13 +21442,13 @@ _ZL10HelpMarkerPKc.exit636:                       ; preds = %1276, %1278
 
 1291:                                             ; preds = %_ZL10HelpMarkerPKc.exit636, %1261
   %1292 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE11table_flags, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %1293 = fmul float %88, 1.200000e+01
   store float 0.000000e+00, ptr %65, align 4, !tbaa !42
   %1294 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store float %1293, ptr %1294, align 4, !tbaa !44
   %1295 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1682, i32 noundef 14, i32 noundef %1292, ptr noundef nonnull align 4 dereferenceable(8) %65, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br i1 %1295, label %1296, label %1318
 
 1296:                                             ; preds = %1291
@@ -21576,12 +21570,12 @@ _ZL10HelpMarkerPKc.exit637:                       ; preds = %1327, %1329
   %1343 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1686, ptr noundef nonnull @_ZZL20ShowDemoWindowTablesvE6flags1_2, i32 noundef 32)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %1344 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE6flags1_2, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store float 0.000000e+00, ptr %66, align 4, !tbaa !42
   %1345 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store float 0.000000e+00, ptr %1345, align 4, !tbaa !44
   %1346 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1687, i32 noundef 3, i32 noundef %1344, ptr noundef nonnull align 4 dereferenceable(8) %66, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br i1 %1346, label %1347, label %1355
 
 1347:                                             ; preds = %_ZL10HelpMarkerPKc.exit637
@@ -21628,12 +21622,12 @@ _ZL10HelpMarkerPKc.exit637:                       ; preds = %1327, %1329
   br label %_ZL10HelpMarkerPKc.exit638
 
 _ZL10HelpMarkerPKc.exit638:                       ; preds = %1355, %1357
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store float 0.000000e+00, ptr %67, align 4, !tbaa !42
   %1360 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store float 0.000000e+00, ptr %1360, align 4, !tbaa !44
   %1361 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1689, i32 noundef 3, i32 noundef 10119, ptr noundef nonnull align 4 dereferenceable(8) %67, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br i1 %1361, label %1362, label %1402
 
 1362:                                             ; preds = %_ZL10HelpMarkerPKc.exit638
@@ -21672,11 +21666,11 @@ _ZL10HelpMarkerPKc.exit638:                       ; preds = %1355, %1357
 
 1374:                                             ; preds = %1369
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1690, i32 noundef %.0456829, i32 noundef %.0457830)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store float 0.000000e+00, ptr %68, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1363, align 4, !tbaa !44
   %1375 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br i1 %1375, label %1376, label %1377
 
 1376:                                             ; preds = %1374
@@ -21738,11 +21732,11 @@ _ZL10HelpMarkerPKc.exit638:                       ; preds = %1355, %1357
   br label %1396
 
 1396:                                             ; preds = %1395, %1394
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store float 0.000000e+00, ptr %69, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1364, align 4, !tbaa !44
   %1397 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %69)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br i1 %1397, label %1398, label %1399
 
 1398:                                             ; preds = %1396
@@ -21813,10 +21807,10 @@ _ZL10HelpMarkerPKc.exit639:                       ; preds = %1411, %1413
 
 1422:                                             ; preds = %_ZL10HelpMarkerPKc.exit639, %1437
   %.0452835 = phi i32 [ 0, %_ZL10HelpMarkerPKc.exit639 ], [ %1438, %1437 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %1423 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.1699, i32 noundef %.0452835) #33
   %1424 = call noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKci(ptr noundef nonnull %70, i32 noundef 32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   br i1 %1424, label %1425, label %.critedge
 
 1425:                                             ; preds = %1422
@@ -21826,7 +21820,7 @@ _ZL10HelpMarkerPKc.exit639:                       ; preds = %1411, %1413
   store float 0.000000e+00, ptr %71, align 4, !tbaa !42
   store float %1428, ptr %1420, align 4, !tbaa !44
   %1429 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1700, i32 noundef 3, i32 noundef %1426, ptr noundef nonnull align 4 dereferenceable(8) %71, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br i1 %1429, label %1430, label %1437
 
 1430:                                             ; preds = %1425
@@ -21851,11 +21845,11 @@ _ZL10HelpMarkerPKc.exit639:                       ; preds = %1411, %1413
   br i1 %exitcond939.not, label %1433, label %1434, !llvm.loop !354
 
 .critedge:                                        ; preds = %1422
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %1437
 
 1437:                                             ; preds = %.critedge, %1433, %1425
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %1438 = add nuw nsw i32 %.0452835, 1
   %exitcond940.not = icmp eq i32 %1438, 3
   br i1 %exitcond940.not, label %1421, label %1422, !llvm.loop !355
@@ -22035,13 +22029,13 @@ _ZL10HelpMarkerPKc.exit640:                       ; preds = %.loopexit729, %1504
 _ZL10HelpMarkerPKc.exit641:                       ; preds = %_ZL10HelpMarkerPKc.exit640, %1509
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   %1512 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5flags__11_, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %1513 = fmul float %88, 1.500000e+01
   store float 0.000000e+00, ptr %72, align 4, !tbaa !42
   %1514 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store float %1513, ptr %1514, align 4, !tbaa !44
   %1515 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1712, i32 noundef 4, i32 noundef %1512, ptr noundef nonnull align 4 dereferenceable(8) %72, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br i1 %1515, label %1516, label %1571
 
 1516:                                             ; preds = %_ZL10HelpMarkerPKc.exit641
@@ -22079,7 +22073,7 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit: ; 
   br label %1528
 
 1528:                                             ; preds = %1518, %_ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit, %1516
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %73) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %73)
   %1529 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5items, align 8, !tbaa !356
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %73, i32 noundef %1529, float noundef -1.000000e+00)
@@ -22191,13 +22185,13 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit: ; 
 
 1569:                                             ; preds = %1568
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %73) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %73) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %1571
 
 1570:                                             ; preds = %.loopexit724, %.loopexit.split-lp725, %1566
   %.pn587 = phi { ptr, i32 } [ %1567, %1566 ], [ %lpad.loopexit726, %.loopexit724 ], [ %lpad.loopexit.split-lp727, %.loopexit.split-lp725 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %73) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %73) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %common.resume
 
 1571:                                             ; preds = %1569, %_ZL10HelpMarkerPKc.exit641
@@ -22227,7 +22221,7 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit: ; 
   br i1 %1579, label %1580, label %2074
 
 1580:                                             ; preds = %1578
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %74) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %74, ptr noundef nonnull align 16 dereferenceable(48) @__const._ZL20ShowDemoWindowTablesv.contents_type_names, i64 48, i1 false)
   %1581 = load atomic i8, ptr @_ZGVZL20ShowDemoWindowTablesvE16outer_size_value acquire, align 8
   %1582 = icmp eq i8 %1581, 0
@@ -22717,7 +22711,7 @@ _ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit663: ; preds = %1762, %_
   %.not577 = icmp eq i32 %1785, 0
   %1786 = load float, ptr @_ZZL20ShowDemoWindowTablesvE23inner_width_with_scroll, align 4
   %1787 = select i1 %.not577, float 0.000000e+00, float %1786
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %1788 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE18outer_size_enabled, align 1, !tbaa !29, !range !11, !noundef !12
   %1789 = trunc nuw i8 %1788 to i1
   br i1 %1789, label %1790, label %1792
@@ -22735,7 +22729,7 @@ _ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit663: ; preds = %1762, %_
 
 1794:                                             ; preds = %1792, %1790
   %1795 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1743, i32 noundef 6, i32 noundef %1784, ptr noundef nonnull align 4 dereferenceable(8) %75, float noundef %1787)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br i1 %1795, label %1796, label %2061
 
 1796:                                             ; preds = %1794
@@ -22824,7 +22818,7 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit664:
   br label %.thread967
 
 .thread967:                                       ; preds = %.thread, %.thread966, %1833
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %76) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %76)
   %1835 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, align 8, !tbaa !356
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %76, i32 noundef %1835, float noundef -1.000000e+00)
@@ -22904,7 +22898,7 @@ _ZNK8ImVectorIiE8containsERKi.exit:               ; preds = %1855, %1857
           to label %1865 unwind label %1870
 
 1865:                                             ; preds = %1863
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %1866 = load i32, ptr %1849, align 8, !tbaa !362
   %1867 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) @.str.680, i32 noundef %1866) #33
   %1868 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE13contents_type_1, align 4, !tbaa !54
@@ -22930,20 +22924,20 @@ _ZNK8ImVectorIiE8containsERKi.exit:               ; preds = %1855, %1857
   br label %2039
 
 1874:                                             ; preds = %1865
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store float 0.000000e+00, ptr %78, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1839, align 4, !tbaa !44
   %1875 = invoke noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %77, ptr noundef nonnull align 4 dereferenceable(8) %78)
           to label %1876 unwind label %1877
 
 1876:                                             ; preds = %1874
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %_ZN8ImVectorIiE19find_erase_unsortedERKi.exit
 
 1877:                                             ; preds = %1874
   %1878 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %2039
 
 1879:                                             ; preds = %1865
@@ -22951,20 +22945,20 @@ _ZNK8ImVectorIiE8containsERKi.exit:               ; preds = %1855, %1857
           to label %_ZN8ImVectorIiE19find_erase_unsortedERKi.exit unwind label %1872
 
 1881:                                             ; preds = %1865
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store float 0xB810000000000000, ptr %79, align 4, !tbaa !42
   store float 0.000000e+00, ptr %1838, align 4, !tbaa !44
   %1882 = invoke noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull %77, ptr noundef nonnull align 4 dereferenceable(8) %79)
           to label %1883 unwind label %1884
 
 1883:                                             ; preds = %1881
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %_ZN8ImVectorIiE19find_erase_unsortedERKi.exit
 
 1884:                                             ; preds = %1881
   %1885 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %2039
 
 1886:                                             ; preds = %1865
@@ -22975,7 +22969,7 @@ _ZNK8ImVectorIiE8containsERKi.exit:               ; preds = %1855, %1857
 1888:                                             ; preds = %1886
   %1889 = icmp eq i32 %1868, 5
   %1890 = select i1 %1889, i32 18, i32 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %1891 = load float, ptr @_ZZL20ShowDemoWindowTablesvE14row_min_height, align 4, !tbaa !53
   store float 0.000000e+00, ptr %80, align 4, !tbaa !42
   store float %1891, ptr %1840, align 4, !tbaa !44
@@ -22983,7 +22977,7 @@ _ZNK8ImVectorIiE8containsERKi.exit:               ; preds = %1855, %1857
           to label %1893 unwind label %1927
 
 1893:                                             ; preds = %1888
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br i1 %1892, label %1894, label %_ZN8ImVectorIiE19find_erase_unsortedERKi.exit
 
 1894:                                             ; preds = %1893
@@ -23053,7 +23047,7 @@ _ZN8ImVectorIiE14erase_unsortedEPKi.exit.i:       ; preds = %1919, %1916
 1927:                                             ; preds = %1888
   %1928 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %2039
 
 1929:                                             ; preds = %1974, %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i672, %1960, %1946, %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i, %1894
@@ -23311,7 +23305,7 @@ _ZN8ImVectorIiE19find_erase_unsortedERKi.exit:    ; preds = %_ZN8ImVectorIiE14er
           to label %2035 unwind label %1872
 
 2035:                                             ; preds = %2034
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %indvars.iv.next953 = add nsw i64 %indvars.iv952, 1
   %2036 = load i32, ptr %1837, align 4, !tbaa !133
   %2037 = sext i32 %2036 to i64
@@ -23320,7 +23314,7 @@ _ZN8ImVectorIiE19find_erase_unsortedERKi.exit:    ; preds = %_ZN8ImVectorIiE14er
 
 2039:                                             ; preds = %1927, %1929, %1884, %1877, %1872
   %.pn583 = phi { ptr, i32 } [ %1873, %1872 ], [ %1878, %1877 ], [ %1885, %1884 ], [ %1930, %1929 ], [ %1928, %1927 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %2060
 
 2040:                                             ; preds = %1843
@@ -23349,7 +23343,7 @@ _ZN8ImVectorIiE19find_erase_unsortedERKi.exit:    ; preds = %_ZN8ImVectorIiE14er
 
 2051:                                             ; preds = %2050
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %76) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %76) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %2052 = fpext float %2041 to double
   %2053 = fpext float %2045 to double
   %2054 = fpext float %2043 to double
@@ -23369,8 +23363,8 @@ _ZN8ImVectorIiE19find_erase_unsortedERKi.exit:    ; preds = %_ZN8ImVectorIiE14er
 2060:                                             ; preds = %.loopexit720, %.loopexit.split-lp, %1870, %2039, %2058, %2056
   %.pn583.pn.pn = phi { ptr, i32 } [ %2059, %2058 ], [ %2057, %2056 ], [ %.pn583, %2039 ], [ %1871, %1870 ], [ %lpad.loopexit, %.loopexit720 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %76) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %76) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %74) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %common.resume
 
 2061:                                             ; preds = %2051, %1794
@@ -23404,7 +23398,7 @@ _ZN8ImVectorIiE19find_erase_unsortedERKi.exit:    ; preds = %_ZN8ImVectorIiE14er
 
 2073:                                             ; preds = %2069, %2071, %2061
   call void @_ZN5ImGui7TreePopEv()
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %74) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %2074
 
 2074:                                             ; preds = %2073, %1578
@@ -23478,15 +23472,15 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
 
 2094:                                             ; preds = %2094, %2090
   %.03863.i = phi i32 [ 0, %2090 ], [ %2097, %2094 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2095 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.594, i32 noundef %.03863.i) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2091, align 4, !tbaa !44
   %2096 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN5ImGui10NextColumnEv()
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %2097 = add nuw nsw i32 %.03863.i, 1
   %exitcond.not.i681 = icmp eq i32 %2097, 14
   br i1 %exitcond.not.i681, label %2092, label %2094, !llvm.loop !380
@@ -23499,17 +23493,17 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
 
 2099:                                             ; preds = %2107, %2092
   %indvars.iv.i682 = phi i64 [ 0, %2092 ], [ %indvars.iv.next.i683, %2107 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %2100 = trunc nuw nsw i64 %indvars.iv.i682 to i32
   %2101 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.680, i32 noundef %2100) #33
   %2102 = load i32, ptr @_ZZL21ShowDemoWindowColumnsvE8selected, align 4, !tbaa !54
   %2103 = zext i32 %2102 to i64
   %2104 = icmp eq i64 %indvars.iv.i682, %2103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2093, align 4, !tbaa !44
   %2105 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %3, i1 noundef zeroext %2104, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %2105, label %2106, label %2107
 
 2106:                                             ; preds = %2099
@@ -23530,7 +23524,7 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
   %2113 = zext i1 %2108 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.366, i32 noundef %2113)
   call void @_ZN5ImGui10NextColumnEv()
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i683 = add nuw nsw i64 %indvars.iv.i682, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next.i683, 3
   br i1 %exitcond71.not.i, label %2098, label %2099, !llvm.loop !381
@@ -23615,11 +23609,11 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
   %2152 = fpext float %2151 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1810, double noundef %2152)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1811)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0xB810000000000000, ptr %5, align 4, !tbaa !42
   store float 0.000000e+00, ptr %2135, align 4, !tbaa !44
   %2153 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.352, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5ImGui5PopIDEv()
   call void @_ZN5ImGui10NextColumnEv()
   %2154 = add nuw nsw i32 %.04565.i, 1
@@ -23654,30 +23648,30 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
   call void @_ZN5ImGui7ColumnsEiPKcb(i32 noundef 3, ptr noundef nonnull @.str.1814, i1 noundef zeroext true)
   call void @_ZN5ImGui9SeparatorEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.327)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !42
   %2167 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %2167, align 4, !tbaa !44
   %2168 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.434, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5ImGui10NextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1815)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !42
   %2169 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 0.000000e+00, ptr %2169, align 4, !tbaa !44
   %2170 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.433, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2171 = call noundef zeroext i1 @_ZN5ImGui10InputFloatEPKcPfffS1_i(ptr noundef nonnull @.str.1816, ptr noundef nonnull @_ZZL21ShowDemoWindowColumnsvE3foo, float noundef 0x3FA99999A0000000, float noundef 0.000000e+00, ptr noundef nonnull @.str.338, i32 noundef 0)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1817)
   call void @_ZN5ImGui10NextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.328)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !42
   %2172 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0.000000e+00, ptr %2172, align 4, !tbaa !44
   %2173 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1201, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %2174 = call noundef zeroext i1 @_ZN5ImGui10InputFloatEPKcPfffS1_i(ptr noundef nonnull @.str.1818, ptr noundef nonnull @_ZZL21ShowDemoWindowColumnsvE3bar, float noundef 0x3FA99999A0000000, float noundef 0.000000e+00, ptr noundef nonnull @.str.338, i32 noundef 0)
   call void @_ZN5ImGui10NextColumnEv()
   %2175 = call noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKci(ptr noundef nonnull @.str.1819, i32 noundef 0)
@@ -23754,13 +23748,13 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
   br i1 %2196, label %2197, label %2227
 
 2197:                                             ; preds = %2195
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 1.500000e+03, ptr %9, align 4, !tbaa !42
   %2198 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0.000000e+00, ptr %2198, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %2199 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %2200 = fmul float %2199, 2.000000e+01
   store float 0.000000e+00, ptr %10, align 4, !tbaa !42
@@ -23768,7 +23762,7 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
   store float %2200, ptr %2201, align 4, !tbaa !44
   %2202 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1831, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef 0, i32 noundef 2048)
   call void @_ZN5ImGui7ColumnsEiPKcb(i32 noundef 10, ptr noundef null, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %11, i32 noundef 2000, float noundef -1.000000e+00)
           to label %.preheader61.i unwind label %.loopexit.split-lp.i
@@ -23847,8 +23841,8 @@ _ZL10HelpMarkerPKc.exit.i679:                     ; preds = %2081, %2078
 
 2225:                                             ; preds = %2224
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2227
 
 common.resume:                                    ; preds = %657, %1570, %2060, %2226
@@ -23858,8 +23852,8 @@ common.resume:                                    ; preds = %657, %1570, %2060, 
 2226:                                             ; preds = %2220, %.loopexit.split-lp.i, %.loopexit62.i
   %.pn.i = phi { ptr, i32 } [ %2221, %2220 ], [ %lpad.loopexit.i, %.loopexit62.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 2227:                                             ; preds = %2225, %2195
@@ -24013,11 +24007,11 @@ define dso_local void @_ZN5ImGui16ShowFontSelectorEPKc(ptr noundef %0) local_unn
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 90
   %spec.select.i16 = select i1 %.not.i15, ptr @.str.1956, ptr %24
   %25 = icmp eq ptr %21, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !42
   store float 0.000000e+00, ptr %18, align 4, !tbaa !44
   %26 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %spec.select.i16, i1 noundef zeroext %25, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %20
@@ -24099,20 +24093,20 @@ declare void @_ZN5ImGui16StyleColorsLightEP10ImGuiStyle(ptr noundef) local_unnam
 declare void @_ZN5ImGui18StyleColorsClassicEP10ImGuiStyle(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #5
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 declare void @_ZN10ImGuiStyleC1Ev(ptr noundef nonnull align 4 dereferenceable(1156)) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #5
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef float @_ZN5ImGui14GetWindowWidthEv() local_unnamed_addr #1
 
@@ -24135,14 +24129,14 @@ declare void @_ZN5ImGui8LogToTTYEi(i32 noundef) local_unnamed_addr #1
 declare noundef ptr @_ZN5ImGui17GetStyleColorNameEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN5ImGui16SetNextItemWidthEf(float noundef) local_unnamed_addr #1
 
 declare void @_ZN15ImGuiTextFilterC1EPKc(ptr noundef nonnull align 8 dereferenceable(276), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15ImGuiTextFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN15ImGuiTextFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8, !tbaa !398
   %.not.i = icmp eq ptr %3, null
@@ -24164,7 +24158,7 @@ _ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEED2Ev.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 declare noundef zeroext i1 @_ZN15ImGuiTextFilter4DrawEPKcf(ptr noundef nonnull align 8 dereferenceable(276), ptr noundef, float noundef) local_unnamed_addr #1
 
@@ -24207,7 +24201,7 @@ declare void @_ZN5ImGui10BeginGroupEv() local_unnamed_addr #1
 declare noundef i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf(ptr noundef nonnull align 8 dereferenceable(200), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #9
+declare float @llvm.floor.f32(float) #8
 
 declare void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(8), float noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
@@ -24304,12 +24298,12 @@ define internal fastcc void @_ZL19ShowExampleMenuFilev() unnamed_addr #0 {
 
 33:                                               ; preds = %31
   %34 = tail call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_Pbb(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.234, ptr noundef nonnull @_ZZL19ShowExampleMenuFilevE7enabled, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store float 0.000000e+00, ptr %1, align 4, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 6.000000e+01, ptr %35, align 4, !tbaa !44
   %36 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.335, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %41
 
 37:                                               ; preds = %41
@@ -24355,11 +24349,11 @@ define internal fastcc void @_ZL19ShowExampleMenuFilev() unnamed_addr #0 {
 55:                                               ; preds = %49, %55
   %.01120 = phi i32 [ 0, %49 ], [ %65, %55 ]
   %56 = call noundef ptr @_ZN5ImGui17GetStyleColorNameEi(i32 noundef %.01120)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %57 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %57, ptr %2, align 8
   %58 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = load float, ptr %2, align 8, !tbaa !42
   %60 = fadd float %50, %59
   %61 = load float, ptr %51, align 4, !tbaa !44
@@ -24368,15 +24362,15 @@ define internal fastcc void @_ZL19ShowExampleMenuFilev() unnamed_addr #0 {
   store float %62, ptr %52, align 4, !tbaa !44
   %63 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %.01120, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %58, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %63, float noundef 0.000000e+00, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float %50, ptr %4, align 4, !tbaa !42
   store float %50, ptr %53, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %64 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef %56, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %65 = add nuw nsw i32 %.01120, 1
   %exitcond21.not = icmp eq i32 %65, 56
   br i1 %exitcond21.not, label %54, label %55, !llvm.loop !400
@@ -24463,7 +24457,7 @@ declare noundef zeroext i1 @_ZN5ImGui7ListBoxEPKcPiPKS1_ii(ptr noundef, ptr noun
 declare void @_ZN5ImGui9PlotLinesEPKcPKfiiS1_ff6ImVec2i(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, float noundef, float noundef, <2 x float>, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #4
+declare float @sinf(float noundef) local_unnamed_addr #3
 
 declare void @_ZN5ImGui10SetTooltipEPKcz(ptr noundef, ...) local_unnamed_addr #1
 
@@ -24534,15 +24528,15 @@ declare noundef zeroext i1 @_ZN5ImGui20IsMouseDoubleClickedEi(i32 noundef) local
 declare void @_ZN5ImGui23SetNextItemAllowOverlapEv() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @_ZN5ImGui12TableNextRowEif(i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #4
+declare float @cosf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowData() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -24637,15 +24631,15 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %46, %48
 
 58:                                               ; preds = %.preheader44, %64
   %.049 = phi i32 [ 0, %.preheader44 ], [ %65, %64 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1016, i32 noundef %.049) #33
   %60 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE8selected, align 4, !tbaa !54
   %61 = icmp eq i32 %60, %.049
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !42
   store float 0.000000e+00, ptr %56, align 4, !tbaa !44
   %62 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %1, i1 noundef zeroext %61, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %58
@@ -24653,7 +24647,7 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %46, %48
   br label %64
 
 64:                                               ; preds = %63, %58
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %65 = add nuw nsw i32 %.049, 1
   %exitcond.not = icmp eq i32 %65, 5
   br i1 %exitcond.not, label %57, label %58, !llvm.loop !401
@@ -24696,17 +24690,17 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
 
 79:                                               ; preds = %_ZL10HelpMarkerPKc.exit279, %95
   %indvars.iv = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit279 ], [ %indvars.iv.next, %95 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %80 = trunc nuw nsw i64 %indvars.iv to i32
   %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.1016, i32 noundef %80) #33
   %82 = getelementptr inbounds nuw [5 x i8], ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection, i64 0, i64 %indvars.iv
   %83 = load i8, ptr %82, align 1, !tbaa !29, !range !11, !noundef !12
   %84 = trunc nuw i8 %83 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   store float 0.000000e+00, ptr %77, align 4, !tbaa !44
   %85 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %3, i1 noundef zeroext %84, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %85, label %86, label %95
 
 86:                                               ; preds = %79
@@ -24727,7 +24721,7 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
   br label %95
 
 95:                                               ; preds = %92, %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond84.not, label %78, label %79, !llvm.loop !402
@@ -24776,14 +24770,14 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
 110:                                              ; preds = %108, %105, %102
   %111 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_0, align 8, !tbaa !403
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1030, i32 noundef %111, i32 noundef 50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %112 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %113 = fmul float %112, 2.000000e+01
   store float 0xB810000000000000, ptr %5, align 4, !tbaa !42
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %113, ptr %114, align 4, !tbaa !44
   %115 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1031, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef 136, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %115, label %116, label %132
 
 116:                                              ; preds = %110
@@ -24807,7 +24801,7 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
 124:                                              ; preds = %116, %124
   %indvars.iv85 = phi i64 [ 0, %116 ], [ %indvars.iv.next86, %124 ]
   %indvars88 = trunc i64 %indvars.iv85 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.urem = add nuw i64 %indvars.iv85, 4294967268
   %.cmp = icmp samesign ult i64 %indvars.iv85, 28
   %125 = select i1 %.cmp, i64 %indvars.iv85, i64 %.urem
@@ -24817,12 +24811,12 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
   %129 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.1032, i32 noundef %indvars88, ptr noundef %128) #33
   %130 = call noundef zeroext i1 @_ZNK26ImGuiSelectionBasicStorage8ContainsEj(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_0, i32 noundef %indvars88)
   call void @_ZN5ImGui28SetNextItemSelectionUserDataEx(i64 noundef %indvars.iv85)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !42
   store float 0.000000e+00, ptr %119, align 4, !tbaa !44
   %131 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %6, i1 noundef zeroext %130, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, 50
   br i1 %exitcond89.not, label %120, label %124, !llvm.loop !408
@@ -24870,21 +24864,21 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1036)
   %148 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_1, align 8, !tbaa !403
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1030, i32 noundef %148, i32 noundef 10000)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %149 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %150 = fmul float %149, 2.000000e+01
   store float 0xB810000000000000, ptr %8, align 4, !tbaa !42
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %150, ptr %151, align 4, !tbaa !44
   %152 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1031, ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef 136, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %152, label %153, label %199
 
 153:                                              ; preds = %147
   %154 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_1, align 8, !tbaa !403
   %155 = call noundef ptr @_ZN5ImGui16BeginMultiSelectEiii(i32 noundef 576, i32 noundef %154, i32 noundef 10000)
   call void @_ZN26ImGuiSelectionBasicStorage13ApplyRequestsEP18ImGuiMultiSelectIO(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_1, ptr noundef %155)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9)
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef 10000, float noundef -1.000000e+00)
           to label %156 unwind label %.loopexit.split-lp40
@@ -24945,7 +24939,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %159, %156
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %185
   %indvars.iv90 = phi i64 [ %174, %.lr.ph.preheader ], [ %indvars.iv.next91, %185 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %175 = trunc nsw i64 %indvars.iv90 to i32
   %176 = srem i32 %175, 28
   %177 = sext i32 %176 to i64
@@ -24960,15 +24954,15 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %159, %156
           to label %183 unwind label %189
 
 183:                                              ; preds = %182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !42
   store float 0.000000e+00, ptr %166, align 4, !tbaa !44
   %184 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %10, i1 noundef zeroext %181, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %11)
           to label %185 unwind label %191
 
 185:                                              ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
   %186 = load i32, ptr %165, align 4, !tbaa !133
   %187 = sext i32 %186 to i64
@@ -24983,12 +24977,12 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %159, %156
 191:                                              ; preds = %183
   %192 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %193
 
 193:                                              ; preds = %191, %189
   %.pn271 = phi { ptr, i32 } [ %192, %191 ], [ %190, %189 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %198
 
 194:                                              ; preds = %169
@@ -25001,13 +24995,13 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %159, %156
 
 197:                                              ; preds = %196
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %199
 
 198:                                              ; preds = %.loopexit39, %.loopexit.split-lp40, %193
   %.pn271.pn = phi { ptr, i32 } [ %.pn271, %193 ], [ %lpad.loopexit41, %.loopexit39 ], [ %lpad.loopexit.split-lp42, %.loopexit.split-lp40 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1025
 
 199:                                              ; preds = %197, %147
@@ -25250,7 +25244,7 @@ _ZN8ImVectorIjE9push_backERKj.exit286:            ; preds = %._ZN8ImVectorIjE7re
 
 .loopexit33:                                      ; preds = %.lr.ph56, %287, %.loopexit35
   %301 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %302 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items, align 8, !tbaa !417
   %303 = sitofp i32 %302 to float
   %304 = fmul float %301, %303
@@ -25258,15 +25252,15 @@ _ZN8ImVectorIjE9push_backERKj.exit286:            ; preds = %._ZN8ImVectorIjE7re
   %305 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %304, ptr %305, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %306 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %307 = fmul float %306, 2.000000e+01
   store float 0xB810000000000000, ptr %13, align 4, !tbaa !42
   %308 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float %307, ptr %308, align 4, !tbaa !44
   %309 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1031, ptr noundef nonnull align 4 dereferenceable(8) %13, i32 noundef 136, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %309, label %310, label %363
 
 310:                                              ; preds = %.loopexit33
@@ -25344,7 +25338,7 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items, i64 8), align 8, !tbaa !420
   %347 = getelementptr inbounds nuw i32, ptr %346, i64 %indvars.iv95
   %348 = load i32, ptr %347, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %349 = urem i32 %348, 28
   %350 = zext nneg i32 %349 to i64
   %351 = getelementptr inbounds nuw [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %350
@@ -25352,11 +25346,11 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   %353 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.1043, i32 noundef %348, ptr noundef %352) #33
   %354 = call noundef zeroext i1 @_ZNK26ImGuiSelectionBasicStorage8ContainsEj(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_2, i32 noundef %348)
   call void @_ZN5ImGui28SetNextItemSelectionUserDataEx(i64 noundef %indvars.iv95)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 0.000000e+00, ptr %15, align 4, !tbaa !42
   store float 0.000000e+00, ptr %342, align 4, !tbaa !44
   %355 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %14, i1 noundef zeroext %354, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %356 = icmp eq i64 %indvars.iv95, %343
   br i1 %356, label %357, label %358
 
@@ -25365,7 +25359,7 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   br label %358
 
 358:                                              ; preds = %357, %345
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %359 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items, align 8, !tbaa !417
   %360 = sext i32 %359 to i64
@@ -25528,12 +25522,12 @@ _ZN8ImVectorIjE9push_backERKj.exit293:            ; preds = %._ZN8ImVectorIjE7re
 426:                                              ; preds = %424, %421, %418
   %427 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_3, align 8, !tbaa !403
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1030, i32 noundef %427, i32 noundef 10000)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0.000000e+00, ptr %16, align 4, !tbaa !42
   %428 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0.000000e+00, ptr %428, align 4, !tbaa !44
   %429 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1031, i32 noundef 2, i32 noundef 33555776, ptr noundef nonnull align 4 dereferenceable(8) %16, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %429, label %430, label %486
 
 430:                                              ; preds = %426
@@ -25544,7 +25538,7 @@ _ZN8ImVectorIjE9push_backERKj.exit293:            ; preds = %._ZN8ImVectorIjE7re
   %431 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_3, align 8, !tbaa !403
   %432 = call noundef ptr @_ZN5ImGui16BeginMultiSelectEiii(i32 noundef 576, i32 noundef %431, i32 noundef 10000)
   call void @_ZN26ImGuiSelectionBasicStorage13ApplyRequestsEP18ImGuiMultiSelectIO(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_3, ptr noundef %432)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17)
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef 10000, float noundef -1.000000e+00)
           to label %433 unwind label %.loopexit.split-lp25
@@ -25613,7 +25607,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
           to label %454 unwind label %473
 
 454:                                              ; preds = %452
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %455 = trunc nsw i64 %indvars.iv99 to i32
   %456 = srem i32 %455, 28
   %457 = sext i32 %456 to i64
@@ -25628,14 +25622,14 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
           to label %463 unwind label %475
 
 463:                                              ; preds = %462
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float 0.000000e+00, ptr %19, align 4, !tbaa !42
   store float 0.000000e+00, ptr %443, align 4, !tbaa !44
   %464 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %18, i1 noundef zeroext %461, i32 noundef 18, ptr noundef nonnull align 4 dereferenceable(8) %19)
           to label %465 unwind label %477
 
 465:                                              ; preds = %463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %466 = invoke noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
           to label %467 unwind label %475
 
@@ -25644,7 +25638,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
           to label %469 unwind label %475
 
 469:                                              ; preds = %467
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %470 = load i32, ptr %442, align 4, !tbaa !133
   %471 = sext i32 %470 to i64
@@ -25664,12 +25658,12 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
 477:                                              ; preds = %463
   %478 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %479
 
 479:                                              ; preds = %477, %475
   %.pn267 = phi { ptr, i32 } [ %476, %475 ], [ %478, %477 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %485
 
 480:                                              ; preds = %446
@@ -25686,13 +25680,13 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
 
 484:                                              ; preds = %483
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %486
 
 485:                                              ; preds = %.loopexit24, %.loopexit.split-lp25, %473, %479
   %.pn267.pn.pn = phi { ptr, i32 } [ %.pn267, %479 ], [ %474, %473 ], [ %lpad.loopexit26, %.loopexit24 ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp25 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1025
 
 486:                                              ; preds = %484, %426
@@ -25721,20 +25715,20 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
   %494 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1057, ptr noundef nonnull @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5flags, i32 noundef 8)
   %495 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1058, ptr noundef nonnull @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5flags, i32 noundef 16)
   %496 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1059, ptr noundef nonnull @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5flags, i32 noundef 128)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %497 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %498 = fmul float %497, 2.000000e+01
   store float 0xB810000000000000, ptr %20, align 4, !tbaa !42
   %499 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float %498, ptr %499, align 4, !tbaa !44
   %500 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1031, ptr noundef nonnull align 4 dereferenceable(8) %20, i32 noundef 9, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %500, label %501, label %512
 
 501:                                              ; preds = %493
   %502 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5flags, align 4, !tbaa !54
   %503 = call noundef ptr @_ZN5ImGui16BeginMultiSelectEiii(i32 noundef %502, i32 noundef -1, i32 noundef 20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN29ImGuiSelectionExternalStorageC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
   store ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_0, ptr %21, align 8, !tbaa !433
   %504 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -25745,18 +25739,18 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
 505:                                              ; preds = %507
   %506 = call noundef ptr @_ZN5ImGui14EndMultiSelectEv()
   call void @_ZN29ImGuiSelectionExternalStorage13ApplyRequestsEP18ImGuiMultiSelectIO(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %506)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %512
 
 507:                                              ; preds = %501, %507
   %indvars.iv102 = phi i64 [ 0, %501 ], [ %indvars.iv.next103, %507 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %508 = trunc nuw nsw i64 %indvars.iv102 to i32
   %509 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.594, i32 noundef %508) #33
   call void @_ZN5ImGui28SetNextItemSelectionUserDataEx(i64 noundef %indvars.iv102)
   %510 = getelementptr inbounds nuw [20 x i8], ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_0, i64 0, i64 %indvars.iv102
   %511 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull %22, ptr noundef nonnull %510)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 20
   br i1 %exitcond105.not, label %505, label %507, !llvm.loop !436
@@ -25887,19 +25881,19 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
 
 562:                                              ; preds = %553, %562
   %indvars.iv106 = phi i64 [ 0, %553 ], [ %indvars.iv.next107, %562 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %563 = getelementptr inbounds nuw [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %indvars.iv106
   %564 = load ptr, ptr %563, align 8, !tbaa !93
   %565 = trunc nuw nsw i64 %indvars.iv106 to i32
   %566 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) @.str.1032, i32 noundef %565, ptr noundef %564) #33
   %567 = call noundef zeroext i1 @_ZNK26ImGuiSelectionBasicStorage8ContainsEj(ptr noundef nonnull align 8 dereferenceable(48) %555, i32 noundef %565)
   call void @_ZN5ImGui28SetNextItemSelectionUserDataEx(i64 noundef %indvars.iv106)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0.000000e+00, ptr %24, align 4, !tbaa !42
   store float 0.000000e+00, ptr %551, align 4, !tbaa !44
   %568 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %23, i1 noundef zeroext %567, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #33
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, 8
   br i1 %exitcond109.not, label %560, label %562, !llvm.loop !438
@@ -25980,14 +25974,14 @@ _ZL10HelpMarkerPKc.exit295:                       ; preds = %579, %581
 598:                                              ; preds = %594, %591
   %599 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_4, align 8, !tbaa !403
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1072, i32 noundef %599)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %600 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %601 = fmul float %600, 2.000000e+01
   store float 0xB810000000000000, ptr %25, align 4, !tbaa !42
   %602 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store float %601, ptr %602, align 4, !tbaa !44
   %603 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1073, ptr noundef nonnull align 4 dereferenceable(8) %25, i32 noundef 136, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %603, label %604, label %619
 
 604:                                              ; preds = %598
@@ -26300,7 +26294,7 @@ _ZN28ExampleSelectionWithDeletionC2Ev.exit302:    ; preds = %731
 
 740:                                              ; preds = %738, %736
   %741 = phi float [ %737, %736 ], [ %739, %738 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %742 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, align 8, !tbaa !244
   %743 = sitofp i32 %742 to float
   %744 = fmul float %741, %743
@@ -26308,19 +26302,19 @@ _ZN28ExampleSelectionWithDeletionC2Ev.exit302:    ; preds = %731
   %745 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float %744, ptr %745, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %746 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %747 = fmul float %746, 2.000000e+01
   store float 0xB810000000000000, ptr %27, align 4, !tbaa !42
   %748 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store float %747, ptr %748, align 4, !tbaa !44
   %749 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1031, ptr noundef nonnull align 4 dereferenceable(8) %27, i32 noundef 136, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %749, label %750, label %1022
 
 750:                                              ; preds = %740
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %751 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %752 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   store float %751, ptr %28, align 4, !tbaa !42
@@ -26412,27 +26406,27 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   br i1 %.b217, label %792, label %794
 
 792:                                              ; preds = %791
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float 0.000000e+00, ptr %29, align 4, !tbaa !42
   %793 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store float 0.000000e+00, ptr %793, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 17, ptr noundef nonnull align 4 dereferenceable(8) %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %794
 
 794:                                              ; preds = %792, %791
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !42
   %795 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float 0.000000e+00, ptr %795, align 4, !tbaa !44
   %796 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1092, i32 noundef 2, i32 noundef 4194321, ptr noundef nonnull align 4 dereferenceable(8) %30, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN5ImGui16TableSetupColumnEPKcifj(ptr noundef nonnull @.str.234, i32 noundef 8, float noundef 0x3FE6666660000000, i32 noundef 0)
   call void @_ZN5ImGui16TableSetupColumnEPKcifj(ptr noundef nonnull @.str.234, i32 noundef 8, float noundef 0x3FD3333340000000, i32 noundef 0)
   br label %797
 
 797:                                              ; preds = %794, %_ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit311
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
   %798 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11, !noundef !12
   %799 = trunc nuw i8 %798 to i1
@@ -26554,7 +26548,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   %844 = sext i32 %843 to i64
   %845 = getelementptr inbounds [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %844
   %846 = load ptr, ptr %845, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %847 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.1032, i32 noundef %842, ptr noundef %846) #33
   invoke void @_ZN5ImGui6PushIDEi(i32 noundef %842)
           to label %848 unwind label %867
@@ -26567,7 +26561,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
 
 852:                                              ; preds = %848
   %853 = mul i32 %851, 5289803
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %854 = and i32 %853, 255
   %855 = uitofp nneg i32 %854 to float
   %856 = fmul float %855, 0x3F70101020000000
@@ -26588,7 +26582,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
           to label %866 unwind label %869
 
 866:                                              ; preds = %852
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   invoke void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
           to label %._crit_edge128 unwind label %871
 
@@ -26600,7 +26594,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
 869:                                              ; preds = %852
   %870 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %1006
 
 871:                                              ; preds = %866
@@ -26621,14 +26615,14 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   br i1 %.b216, label %885, label %876
 
 876:                                              ; preds = %875
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float 0.000000e+00, ptr %34, align 4, !tbaa !42
   store float 0.000000e+00, ptr %813, align 4, !tbaa !44
   %877 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %32, i1 noundef zeroext %873, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %34)
           to label %878 unwind label %883
 
 878:                                              ; preds = %876
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %889
 
 879:                                              ; preds = %._crit_edge128
@@ -26644,7 +26638,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
 883:                                              ; preds = %876
   %884 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1006
 
 885:                                              ; preds = %875
@@ -26687,11 +26681,11 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   br i1 %901, label %902, label %945
 
 902:                                              ; preds = %900
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr null, ptr %36, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 0, ptr %37, align 4, !tbaa !54
   br i1 %873, label %.preheader, label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317
 
@@ -26799,8 +26793,8 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit.i326:     ; preds = %914, %912
           to label %938 unwind label %.loopexit.split-lp
 
 938:                                              ; preds = %.loopexit11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %939 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !247
   %.not.i332 = icmp eq ptr %939, null
   br i1 %.not.i332, label %_ZN8ImVectorIiED2Ev.exit, label %940
@@ -26817,15 +26811,15 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit.i326:     ; preds = %914, %912
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %945
 
 944:                                              ; preds = %.loopexit, %.loopexit.split-lp, %931
   %.pn260 = phi { ptr, i32 } [ %932, %931 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1006
 
 945:                                              ; preds = %_ZN8ImVectorIiED2Ev.exit, %900
@@ -26897,14 +26891,14 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
 977:                                              ; preds = %971
   %978 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, align 8, !tbaa !403
   %979 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.1096, i32 noundef %978) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store float 0.000000e+00, ptr %38, align 4, !tbaa !42
   store float 0.000000e+00, ptr %815, align 4, !tbaa !44
   %980 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %32, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %38)
           to label %981 unwind label %983
 
 981:                                              ; preds = %977
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br i1 %980, label %982, label %985
 
 982:                                              ; preds = %981
@@ -26914,7 +26908,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
 983:                                              ; preds = %977
   %984 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %1006
 
 985:                                              ; preds = %982, %981
@@ -26922,21 +26916,21 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
           to label %986 unwind label %881
 
 986:                                              ; preds = %985
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float 0.000000e+00, ptr %39, align 4, !tbaa !42
   store float 0.000000e+00, ptr %816, align 4, !tbaa !44
   %987 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.991, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %39)
           to label %988 unwind label %989
 
 988:                                              ; preds = %986
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   invoke void @_ZN5ImGui8EndPopupEv()
           to label %991 unwind label %881
 
 989:                                              ; preds = %986
   %990 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %1006
 
 991:                                              ; preds = %988, %970
@@ -26953,14 +26947,14 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
           to label %997 unwind label %881
 
 997:                                              ; preds = %996
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float 0.000000e+00, ptr %40, align 4, !tbaa !42
   store float 0.000000e+00, ptr %817, align 4, !tbaa !44
   invoke void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %40)
           to label %998 unwind label %1002
 
 998:                                              ; preds = %997
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %999 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %846) #34
   %1000 = invoke noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.1097, ptr noundef nonnull %846, i64 noundef %999, i32 noundef 512, ptr noundef null, ptr noundef null)
           to label %1001 unwind label %881
@@ -26972,7 +26966,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
 1002:                                             ; preds = %997
   %1003 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %1006
 
 1004:                                             ; preds = %1001, %991
@@ -26980,7 +26974,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
           to label %1005 unwind label %881
 
 1005:                                             ; preds = %1004
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next116 to i32
   %exitcond118.not = icmp eq i32 %830, %lftr.wideiv
@@ -26988,7 +26982,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
 
 1006:                                             ; preds = %879, %959, %961, %1002, %989, %983, %944, %887, %883, %881, %869, %871, %867
   %.pn260.pn.pn.pn = phi { ptr, i32 } [ %868, %867 ], [ %872, %871 ], [ %870, %869 ], [ %880, %879 ], [ %.pn260, %944 ], [ %882, %881 ], [ %1003, %1002 ], [ %990, %989 ], [ %984, %983 ], [ %884, %883 ], [ %888, %887 ], [ %962, %961 ], [ %960, %959 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1021
 
 1007:                                             ; preds = %._crit_edge74.loopexit, %._crit_edge74, %821
@@ -27033,15 +27027,15 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
 
 1020:                                             ; preds = %1019, %1018
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1022
 
 1021:                                             ; preds = %.loopexit12, %.loopexit.split-lp13, %837, %1006
   %.pn260.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn260.pn.pn.pn, %1006 ], [ %838, %837 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1025
 
 1022:                                             ; preds = %1020, %740
@@ -27064,7 +27058,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
 declare noundef zeroext i1 @_ZN5ImGui18InputTextMultilineEPKcPcmRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef, ptr noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN11TextFilters16FilterCasingSwapEP26ImGuiInputTextCallbackData(ptr noundef captures(none) %0) #11 align 2 {
+define internal noundef i32 @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN11TextFilters16FilterCasingSwapEP26ImGuiInputTextCallbackData(ptr noundef captures(none) %0) #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8, !tbaa !450
   %4 = add i16 %3, -97
@@ -27094,7 +27088,7 @@ define internal noundef i32 @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 0, 2) i32 @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN11TextFilters18FilterImGuiLettersEP26ImGuiInputTextCallbackData(ptr noundef readonly captures(none) %0) #12 align 2 {
+define internal noundef range(i32 0, 2) i32 @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN11TextFilters18FilterImGuiLettersEP26ImGuiInputTextCallbackData(ptr noundef readonly captures(none) %0) #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8, !tbaa !450
   %4 = icmp ult i16 %3, 256
@@ -27193,7 +27187,7 @@ define internal noundef i32 @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %.not = icmp eq ptr %3, null
@@ -27215,7 +27209,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !247
   %.not = icmp eq ptr %3, null
@@ -27237,7 +27231,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN8ImVectorIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #12 comdat align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !244
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !246
@@ -27307,12 +27301,12 @@ declare noundef zeroext i1 @_ZN5ImGui10BeginPopupEPKci(ptr noundef, i32 noundef)
 declare void @_ZN5ImGui8EndPopupEv() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @_ZN5ImGui13PlotHistogramEPKcPKfiiS1_ff6ImVec2i(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, float noundef, float noundef, <2 x float>, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define internal noundef float @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN5Funcs3SinE_1Pvi(ptr readnone captures(none) %0, i32 noundef %1) #14 align 2 {
+define internal noundef float @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN5Funcs3SinE_1Pvi(ptr readnone captures(none) %0, i32 noundef %1) #13 align 2 {
   %3 = sitofp i32 %1 to float
   %4 = fmul float %3, 0x3FB99999A0000000
   %5 = tail call float @sinf(float noundef %4) #33, !tbaa !54
@@ -27320,7 +27314,7 @@ define internal noundef float @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef float @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN5Funcs3SawE_1Pvi(ptr readnone captures(none) %0, i32 noundef %1) #15 align 2 {
+define internal noundef float @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN5Funcs3SawE_1Pvi(ptr readnone captures(none) %0, i32 noundef %1) #14 align 2 {
   %3 = and i32 %1, 1
   %.not = icmp eq i32 %3, 0
   %4 = select i1 %.not, float -1.000000e+00, float 1.000000e+00
@@ -27420,7 +27414,7 @@ declare noundef zeroext i1 @_ZN5ImGui13IsItemVisibleEv() local_unnamed_addr #1
 declare <2 x float> @_ZN5ImGui15GetItemRectSizeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare noundef zeroext i1 @_ZN5ImGui15IsWindowFocusedEi(i32 noundef) local_unnamed_addr #1
 
@@ -27429,7 +27423,7 @@ declare noundef zeroext i1 @_ZN5ImGui15IsWindowHoveredEi(i32 noundef) local_unna
 declare noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @"_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN3$_08__invokeEPvi"(ptr noundef readonly captures(none) %0, i32 noundef %1) #17 align 2 {
+define internal noundef ptr @"_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN3$_08__invokeEPvi"(ptr noundef readonly captures(none) %0, i32 noundef %1) #16 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds ptr, ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !93
@@ -27455,10 +27449,10 @@ declare void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 derefer
 declare noundef zeroext i1 @_ZN16ImGuiListClipper4StepEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #18
+declare void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #17
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !420
   %.not = icmp eq ptr %3, null
@@ -27480,7 +27474,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN26ImGuiSelectionBasicStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN26ImGuiSelectionBasicStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !462
   %.not.i.i = icmp eq ptr %3, null
@@ -27512,7 +27506,7 @@ declare void @_ZN5ImGui20SetKeyboardFocusHereEi(i32 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN28ExampleSelectionWithDeletion21ApplyDeletionPostLoopIjEEvP18ImGuiMultiSelectIOR8ImVectorIT_Ei(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.ImVector.16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %2, align 8, !tbaa !417
   %7 = load i32, ptr %0, align 8, !tbaa !403
@@ -27712,18 +27706,18 @@ _ZN26ImGuiSelectionBasicStorage21GetStorageIdFromIndexEi.exit27: ; preds = %79
   unreachable
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %85, %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 90:                                               ; preds = %64, %83, %29
   %.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %65, %64 ], [ %84, %83 ]
   call void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18ExampleDualListBoxC2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN18ExampleDualListBoxC2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 .preheader14.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %.ptr9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -27774,7 +27768,7 @@ define linkonce_odr dso_local void @_ZN18ExampleDualListBoxC2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18ExampleDualListBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN18ExampleDualListBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %3
 
@@ -27839,12 +27833,12 @@ define linkonce_odr dso_local void @_ZN18ExampleDualListBox4ShowEv(ptr noundef n
   %7 = alloca %struct.ImVec2, align 4
   %8 = alloca %struct.ImVec2, align 4
   %9 = alloca %struct.ImVec2, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0.000000e+00, ptr %10, align 4, !tbaa !44
   %11 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.91, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %11, label %12, label %91
 
 12:                                               ; preds = %1
@@ -27865,7 +27859,7 @@ define linkonce_odr dso_local void @_ZN18ExampleDualListBox4ShowEv(ptr noundef n
   %.162 = phi i32 [ %.054, %.thread ], [ %.1, %84 ]
   %20 = call noundef zeroext i1 @_ZN5ImGui19TableSetColumnIndexEi(i32 noundef 1)
   call void @_ZN5ImGui7NewLineEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = call noundef float @_ZN5ImGui14GetFrameHeightEv()
   %22 = call noundef float @_ZN5ImGui14GetFrameHeightEv()
   store float %21, ptr %9, align 4, !tbaa !42
@@ -27893,45 +27887,45 @@ define linkonce_odr dso_local void @_ZN18ExampleDualListBox4ShowEv(ptr noundef n
   %35 = load i32, ptr %30, align 8, !tbaa !417
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1121, ptr noundef nonnull %34, i32 noundef %35)
   %36 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = load i32, ptr %30, align 8, !tbaa !417
   %38 = sitofp i32 %37 to float
   %39 = fmul float %36, %38
   store float 0.000000e+00, ptr %3, align 4, !tbaa !42
   store float %39, ptr %14, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %29, label %40, label %47
 
 40:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = call noundef float @_ZN5ImGui25GetFrameHeightWithSpacingEv()
   %42 = fmul float %41, 4.000000e+00
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   store float %42, ptr %16, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0x47EFFFFFE0000000, ptr %5, align 4, !tbaa !42
   store float 0x47EFFFFFE0000000, ptr %17, align 4, !tbaa !44
   call void @_ZN5ImGui28SetNextWindowSizeConstraintsERK6ImVec2S2_PFvP21ImGuiSizeCallbackDataEPv(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %44 = fmul float %43, 2.000000e+01
   store float 0xB810000000000000, ptr %6, align 4, !tbaa !42
   store float %44, ptr %18, align 4, !tbaa !44
   %45 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1124, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 136, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = call <2 x float> @_ZN5ImGui13GetWindowSizeEv()
   %.sroa.0.4.vec.extract = extractelement <2 x float> %46, i64 1
   br i1 %45, label %49, label %84
 
 47:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0xB810000000000000, ptr %7, align 4, !tbaa !42
   store float %.04053, ptr %15, align 4, !tbaa !44
   %48 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1125, ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef 128, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %48, label %49, label %.thread
 
 .thread:                                          ; preds = %47
@@ -27979,11 +27973,11 @@ define linkonce_odr dso_local void @_ZN18ExampleDualListBox4ShowEv(ptr noundef n
   %68 = zext i32 %66 to i64
   %69 = getelementptr inbounds nuw [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !42
   store float 0.000000e+00, ptr %19, align 4, !tbaa !44
   %71 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %70, i1 noundef zeroext %67, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %72 = call noundef zeroext i1 @_ZN5ImGui13IsItemFocusedEv()
   br i1 %72, label %73, label %80
 
@@ -28037,7 +28031,7 @@ define linkonce_odr dso_local void @_ZN18ExampleDualListBox4ShowEv(ptr noundef n
 
 90:                                               ; preds = %88, %87
   call void @_ZN5ImGui8EndTableEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %91
 
 91:                                               ; preds = %90, %1
@@ -28055,7 +28049,7 @@ declare void @_ZN29ImGuiSelectionExternalStorageC1Ev(ptr noundef nonnull align 8
 declare void @_ZN29ImGuiSelectionExternalStorage13ApplyRequestsEP18ImGuiMultiSelectIO(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZN26ImGuiSelectionBasicStorageD2Ev.exit, %1
@@ -28088,7 +28082,7 @@ _ZN26ImGuiSelectionBasicStorageD2Ev.exit:         ; preds = %2, %7
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL26ExampleTree_CreateDemoTreev() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %1) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 72)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 59
   store i8 1, ptr %3, align 1, !tbaa !468
@@ -28108,7 +28102,7 @@ define internal fastcc noundef ptr @_ZL26ExampleTree_CreateDemoTreev() unnamed_a
   br label %11
 
 10:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %1) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 
 11:                                               ; preds = %0, %._crit_edge
@@ -28485,7 +28479,7 @@ declare noundef zeroext i1 @_ZN26ImGuiSelectionBasicStorage19GetNextSelectedItem
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN28ExampleSelectionWithDeletion21ApplyDeletionPostLoopIiEEvP18ImGuiMultiSelectIOR8ImVectorIT_Ei(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.ImVector.13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %2, align 8, !tbaa !244
   %7 = load i32, ptr %0, align 8, !tbaa !403
@@ -28685,20 +28679,20 @@ _ZN26ImGuiSelectionBasicStorage21GetStorageIdFromIndexEi.exit27: ; preds = %79
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %85, %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 90:                                               ; preds = %64, %83, %29
   %.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %65, %64 ], [ %84, %83 ]
   call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #33
   tail call void @_ZSt9terminatev() #35
   unreachable
@@ -28707,14 +28701,14 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #21
+declare void @_ZSt9terminatev() local_unnamed_addr #20
 
 declare void @_ZN16ImGuiListClipper19IncludeItemsByIndexEii(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @_ZN26ImGuiSelectionBasicStorageC2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @"_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN3$_08__invokeEP26ImGuiSelectionBasicStoragei"(ptr noundef readonly captures(none) %0, i32 noundef %1) #22 align 2 {
+define internal noundef i32 @"_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN3$_08__invokeEP26ImGuiSelectionBasicStoragei"(ptr noundef readonly captures(none) %0, i32 noundef %1) #21 align 2 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !415
   %4 = getelementptr i8, ptr %.val, i64 8
@@ -28982,7 +28976,7 @@ _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %._ZN8ImVectorIjE7re
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZZN18ExampleDualListBox22ApplySelectionRequestsEP18ImGuiMultiSelectIOiENUlP26ImGuiSelectionBasicStorageiE_8__invokeES3_i(ptr noundef %0, i32 noundef %1) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZZN18ExampleDualListBox22ApplySelectionRequestsEP18ImGuiMultiSelectIOiENUlP26ImGuiSelectionBasicStorageiE_8__invokeES3_i(ptr noundef %0, i32 noundef %1) #12 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !415
   %5 = sext i32 %1 to i64
@@ -28994,10 +28988,10 @@ define linkonce_odr dso_local noundef i32 @_ZZN18ExampleDualListBox22ApplySelect
 declare void @_ZN26ImGuiSelectionBasicStorage4SwapERS_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN18ExampleDualListBox19CompareItemsByValueEPKvS1_(ptr noundef %0, ptr noundef %1) #24 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN18ExampleDualListBox19CompareItemsByValueEPKvS1_(ptr noundef %0, ptr noundef %1) #23 comdat align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !54
   %4 = load i32, ptr %1, align 4, !tbaa !54
   %5 = icmp sgt i32 %3, %4
@@ -29006,10 +29000,10 @@ define linkonce_odr dso_local noundef i32 @_ZN18ExampleDualListBox19CompareItems
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN3$_18__invokeEP29ImGuiSelectionExternalStorageib"(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) #25 align 2 {
+define internal void @"_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN3$_18__invokeEP29ImGuiSelectionExternalStorageib"(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) #24 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !433
   %4 = zext i1 %2 to i8
   %5 = sext i32 %1 to i64
@@ -29396,11 +29390,11 @@ define internal fastcc void @_ZL20EditTableSizingFlagsPi(ptr noundef captures(no
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !493
   %24 = icmp eq i64 %.02022, %indvars.iv30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !42
   store float 0.000000e+00, ptr %18, align 4, !tbaa !44
   %25 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %23, i1 noundef zeroext %24, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %20
@@ -29543,7 +29537,7 @@ declare noundef zeroext i1 @_ZN5ImGui16IsAnyItemHoveredEv() local_unnamed_addr #
 declare noundef zeroext i1 @_ZN5ImGui15IsMouseReleasedEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8ImVectorIN12_GLOBAL__N_16MyItemEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8ImVectorIN12_GLOBAL__N_16MyItemEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !360
   %.not = icmp eq ptr %3, null
@@ -29567,7 +29561,7 @@ define internal void @_ZN8ImVectorIN12_GLOBAL__N_16MyItemEED2Ev(ptr noundef nonn
 declare noundef ptr @_ZN5ImGui17TableGetSortSpecsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_16MyItem20CompareWithSortSpecsEPKvS2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 align 2 {
+define internal noundef i32 @_ZN12_GLOBAL__N_16MyItem20CompareWithSortSpecsEPKvS2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #25 align 2 {
   %3 = load ptr, ptr @_ZN12_GLOBAL__N_16MyItem20s_current_sort_specsE, align 8, !tbaa !370
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !505
@@ -29658,7 +29652,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_16MyItem20CompareWithSortSpecsEPKvS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef i32 @_ZN5ImGui14GetColumnIndexEv() local_unnamed_addr #1
 
@@ -30044,7 +30038,7 @@ _ZNK8ImVectorIPKcE14_grow_capacityEi.exit.i35:    ; preds = %111, %109
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17ExampleAppConsoleD2Ev(ptr noundef nonnull align 8 dereferenceable(594) %0) unnamed_addr #24 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN17ExampleAppConsoleD2Ev(ptr noundef nonnull align 8 dereferenceable(594) %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 8, !tbaa !512
   %4 = icmp sgt i32 %3, 0
@@ -30211,12 +30205,12 @@ define linkonce_odr dso_local void @_ZN17ExampleAppConsole4DrawEPKcPb(ptr nounde
   %7 = alloca %struct.ImVec2, align 4
   %8 = alloca %struct.ImVec2, align 4
   %9 = alloca %struct.ImVec4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 5.200000e+02, ptr %4, align 4, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 6.000000e+02, ptr %10, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %1, ptr noundef %2, i32 noundef 0)
   br i1 %11, label %12, label %137
 
@@ -30315,12 +30309,12 @@ _ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %35, %._crit_edge.i,
 
 49:                                               ; preds = %46, %_ZN17ExampleAppConsole8ClearLogEv.exit
   call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 4656, i32 noundef 262144)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !42
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %50, align 4, !tbaa !44
   %51 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.333, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %49
@@ -30337,13 +30331,13 @@ _ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %35, %._crit_edge.i,
   %58 = load float, ptr %57, align 4, !tbaa !208
   %59 = call noundef float @_ZN5ImGui25GetFrameHeightWithSpacingEv()
   %60 = fadd float %58, %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = fneg float %60
   store float 0.000000e+00, ptr %6, align 4, !tbaa !42
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %61, ptr %62, align 4, !tbaa !44
   %63 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1985, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 256, i32 noundef 2048)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %63, label %64, label %123
 
 64:                                               ; preds = %53
@@ -30351,12 +30345,12 @@ _ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %35, %._crit_edge.i,
   br i1 %65, label %66, label %85
 
 66:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !42
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 0.000000e+00, ptr %67, align 4, !tbaa !44
   %68 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1982, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %68, label %69, label %_ZN17ExampleAppConsole8ClearLogEv.exit36
 
 69:                                               ; preds = %66
@@ -30400,12 +30394,12 @@ _ZN17ExampleAppConsole8ClearLogEv.exit36:         ; preds = %76, %._crit_edge.i3
   br label %85
 
 85:                                               ; preds = %_ZN17ExampleAppConsole8ClearLogEv.exit36, %64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 4.000000e+00, ptr %8, align 4, !tbaa !42
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 1.000000e+00, ptr %86, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %44, label %87, label %88
 
 87:                                               ; preds = %85
@@ -30439,7 +30433,7 @@ _ZN17ExampleAppConsole8ClearLogEv.exit36:         ; preds = %76, %._crit_edge.i3
   br i1 %97, label %98, label %106
 
 98:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %99 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.1986) #34
   %.not27 = icmp eq ptr %99, null
@@ -30473,7 +30467,7 @@ sub_0:                                            ; preds = %98
   br label %105
 
 105:                                              ; preds = %.critedge, %104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %106
 
 106:                                              ; preds = %95, %105
@@ -30563,8 +30557,8 @@ _ZN17ExampleAppConsole7StrtrimEPc.exit:           ; preds = %128, %130
 define linkonce_odr dso_local void @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %0, ptr noundef %1, ...) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #33
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %4) #33
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1023
@@ -30632,13 +30626,13 @@ _ZN8ImVectorIPcE9push_backERKS0_.exit:            ; preds = %._ZN8ImVectorIPcE7r
   %38 = load i32, ptr %7, align 8, !tbaa !519
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %7, align 8, !tbaa !519
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #33
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !517
   %.not = icmp eq ptr %3, null
@@ -30660,7 +30654,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIPcED2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !524
   %.not = icmp eq ptr %3, null
@@ -30682,18 +30676,18 @@ define linkonce_odr dso_local void @_ZN8ImVectorIPKcED2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #27
+declare void @llvm.va_start.p0(ptr) #26
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #27
+declare void @llvm.va_end.p0(ptr) #26
 
 declare noundef zeroext i1 @_ZN5ImGui23BeginPopupContextWindowEPKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN17ExampleAppConsole20TextEditCallbackStubEP26ImGuiInputTextCallbackData(ptr noundef %0) #2 comdat align 2 {
@@ -31063,7 +31057,7 @@ define linkonce_odr dso_local noundef i32 @_ZN17ExampleAppConsole16TextEditCallb
   ]
 
 .thread:                                          ; preds = %15, %15, %15, %15, %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load i32, ptr %18, align 8, !tbaa !533
@@ -31363,13 +31357,13 @@ toupper.exit.us:                                  ; preds = %124, %toupper.exit1
   unreachable
 
 _ZN8ImVectorIPKcED2Ev.exit:                       ; preds = %.loopexit, %.loopexit.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread112
 
 158:                                              ; preds = %145, %152, %84, %73
   %.pn100 = phi { ptr, i32 } [ %74, %73 ], [ %85, %84 ], [ %153, %152 ], [ %146, %145 ]
   call void @_ZN8ImVectorIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn100
 
 159:                                              ; preds = %2
@@ -31445,7 +31439,7 @@ thread-pre-split:                                 ; preds = %174, %166
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_toupper_loc() local_unnamed_addr #28
+declare ptr @__ctype_toupper_loc() local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13ExampleAppLogC2Ev(ptr noundef nonnull align 8 dereferenceable(313) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -31484,7 +31478,7 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLogC2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13ExampleAppLogD2Ev(ptr noundef nonnull align 8 dereferenceable(313) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN13ExampleAppLogD2Ev(ptr noundef nonnull align 8 dereferenceable(313) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8, !tbaa !247
   %.not.i = icmp eq ptr %3, null
@@ -31544,7 +31538,7 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog6AddLogEPKcz(ptr noundef n
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr %0, align 8, !tbaa !121
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %4, i32 1)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -31563,7 +31557,7 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog6AddLogEPKcz(ptr noundef n
   br label %12
 
 ._crit_edge:                                      ; preds = %._crit_edge9, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 12:                                               ; preds = %.lr.ph, %._crit_edge9
@@ -31665,12 +31659,12 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog4DrawEPKcPb(ptr noundef no
   br label %17
 
 17:                                               ; preds = %14, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %18, align 4, !tbaa !44
   %19 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.333, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
@@ -31679,29 +31673,29 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog4DrawEPKcPb(ptr noundef no
 
 21:                                               ; preds = %20, %17
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %22, align 4, !tbaa !44
   %23 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1982, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !42
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %24, align 4, !tbaa !44
   %25 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.913, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = call noundef zeroext i1 @_ZN15ImGuiTextFilter4DrawEPKcf(ptr noundef nonnull align 8 dereferenceable(276) %26, ptr noundef nonnull @.str.2011, float noundef -1.000000e+02)
   call void @_ZN5ImGui9SeparatorEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 0.000000e+00, ptr %28, align 4, !tbaa !44
   %29 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1308, ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef 0, i32 noundef 2048)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %29, label %30, label %117
 
 30:                                               ; preds = %21
@@ -31719,12 +31713,12 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog4DrawEPKcPb(ptr noundef no
   br label %34
 
 34:                                               ; preds = %33, %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0.000000e+00, ptr %35, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !128
   %.not.i = icmp eq ptr %37, null
@@ -31786,7 +31780,7 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog4DrawEPKcPb(ptr noundef no
   br i1 %71, label %49, label %.loopexit37, !llvm.loop !545
 
 72:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %74 = load i32, ptr %73, align 8, !tbaa !544
@@ -31864,13 +31858,13 @@ define linkonce_odr dso_local void @_ZN13ExampleAppLog4DrawEPKcPb(ptr noundef no
 
 107:                                              ; preds = %106
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit37
 
 108:                                              ; preds = %.loopexit35, %.loopexit.split-lp, %104
   %.pn = phi { ptr, i32 } [ %105, %104 ], [ %lpad.loopexit, %.loopexit35 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn
 
 .loopexit37:                                      ; preds = %68, %.preheader36, %107
@@ -31977,7 +31971,7 @@ _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %25, %_ZNK8ImVectorI
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %.not.i = icmp eq ptr %3, null
@@ -32003,7 +31997,7 @@ declare void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonn
 declare void @_ZN16ImGuiListClipper3EndEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN24ExampleAppPropertyEditorD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN24ExampleAppPropertyEditorD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8, !tbaa !398
   %.not.i.i = icmp eq ptr %3, null
@@ -32033,12 +32027,12 @@ define linkonce_odr dso_local void @_ZN24ExampleAppPropertyEditor4DrawEP15Exampl
   %7 = alloca i32, align 4
   %8 = alloca float, align 4
   %9 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 3.000000e+02, ptr %3, align 4, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %10, align 4, !tbaa !44
   %11 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.2025, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef 261, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %2
@@ -32054,12 +32048,12 @@ define linkonce_odr dso_local void @_ZN24ExampleAppPropertyEditor4DrawEP15Exampl
 
 15:                                               ; preds = %14, %12
   call void @_ZN5ImGui11PopItemFlagEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %16, align 4, !tbaa !44
   %17 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.2028, i32 noundef 1, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %4, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %15
@@ -32107,12 +32101,12 @@ define linkonce_odr dso_local void @_ZN24ExampleAppPropertyEditor4DrawEP15Exampl
   %35 = load i32, ptr %34, align 4, !tbaa !471
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.2029, i32 noundef %35)
   call void @_ZN5ImGui9SeparatorEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !42
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %36, align 4, !tbaa !44
   %37 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.2030, i32 noundef 2, i32 noundef 33554433, ptr noundef nonnull align 4 dereferenceable(8) %5, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %37, label %38, label %62
 
 38:                                               ; preds = %33
@@ -32150,29 +32144,29 @@ define linkonce_odr dso_local void @_ZN24ExampleAppPropertyEditor4DrawEP15Exampl
   br label %61
 
 53:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -2147483648, ptr %6, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 2147483647, ptr %7, align 4, !tbaa !54
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef 0xB810000000000000)
   %54 = getelementptr inbounds nuw i8, ptr %.030.ptr37, i64 12
   %55 = load i32, ptr %54, align 4, !tbaa !552
   %56 = call noundef zeroext i1 @_ZN5ImGui11DragScalarNEPKciPvifPKvS4_S1_i(ptr noundef nonnull @.str.2031, i32 noundef 4, ptr noundef nonnull %48, i32 noundef %55, float noundef 1.000000e+00, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 57:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 1.000000e+00, ptr %9, align 4, !tbaa !53
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef 0xB810000000000000)
   %58 = getelementptr inbounds nuw i8, ptr %.030.ptr37, i64 12
   %59 = load i32, ptr %58, align 4, !tbaa !552
   %60 = call noundef zeroext i1 @_ZN5ImGui13SliderScalarNEPKciPviPKvS4_S1_i(ptr noundef nonnull @.str.2031, i32 noundef 8, ptr noundef nonnull %48, i32 noundef %59, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 
 61:                                               ; preds = %57, %53, %51, %.preheader
@@ -32276,7 +32270,7 @@ declare noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKciS1_z(ptr noundef, i32 noun
 declare void @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints11AspectRatioEP21ImGuiSizeCallbackData(ptr noundef captures(none) initializes((28, 32)) %0) #29 align 2 {
+define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints11AspectRatioEP21ImGuiSizeCallbackData(ptr noundef captures(none) initializes((28, 32)) %0) #28 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !553
   %3 = load float, ptr %2, align 4, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -32290,7 +32284,7 @@ define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstrain
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints6SquareEP21ImGuiSizeCallbackData(ptr noundef captures(none) %0) #11 align 2 {
+define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints6SquareEP21ImGuiSizeCallbackData(ptr noundef captures(none) %0) #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load float, ptr %2, align 8, !tbaa !555
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -32303,7 +32297,7 @@ define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstrain
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints4StepEP21ImGuiSizeCallbackData(ptr noundef captures(none) %0) #29 align 2 {
+define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints4StepEP21ImGuiSizeCallbackData(ptr noundef captures(none) %0) #28 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !553
   %3 = load float, ptr %2, align 4, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -32358,7 +32352,7 @@ declare void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef no
 declare void @_ZN10ImDrawList26PathBezierQuadraticCurveToERK6ImVec2S2_i(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI6ImVec2ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !59
   %.not = icmp eq ptr %3, null
@@ -32854,7 +32848,7 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i49: ; preds = %123, %121
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN19ExampleAppDocumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN19ExampleAppDocumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not.i = icmp eq ptr %3, null
@@ -32899,7 +32893,7 @@ define linkonce_odr dso_local void @_ZN19ExampleAppDocuments21DisplayDocContextM
   br i1 %4, label %5, label %55
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.2146, ptr noundef %1) #33
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = load i8, ptr %7, align 4, !tbaa !20, !range !11, !noundef !12
@@ -32992,7 +32986,7 @@ _ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit: ; preds = %._ZN8ImVectorIP10My
 
 54:                                               ; preds = %_ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit, %19
   call void @_ZN5ImGui8EndPopupEv()
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 55:                                               ; preds = %2, %54
@@ -33012,12 +33006,12 @@ define linkonce_odr dso_local void @_ZN19ExampleAppDocuments18DisplayDocContents
   tail call void (ptr, ...) @_ZN5ImGui11TextWrappedEPKcz(ptr noundef nonnull @.str.2150)
   tail call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 1)
   tail call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 4659, i32 noundef 262144)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %8, align 4, !tbaa !44
   %9 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2151, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
@@ -33030,12 +33024,12 @@ define linkonce_odr dso_local void @_ZN19ExampleAppDocuments18DisplayDocContents
 13:                                               ; preds = %10, %2
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 4654, i32 noundef 262144)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %14, align 4, !tbaa !44
   %15 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.2152, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
@@ -33046,12 +33040,12 @@ define linkonce_odr dso_local void @_ZN19ExampleAppDocuments18DisplayDocContents
 18:                                               ; preds = %16, %13
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 4660, i32 noundef 262144)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %19, align 4, !tbaa !44
   %20 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.247, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
@@ -33062,12 +33056,12 @@ define linkonce_odr dso_local void @_ZN19ExampleAppDocuments18DisplayDocContents
 23:                                               ; preds = %21, %18
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui19SetNextItemShortcutEii(i32 noundef 4664, i32 noundef 262144)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !42
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %24, align 4, !tbaa !44
   %25 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.991, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %25, label %26, label %57
 
 26:                                               ; preds = %23
@@ -33140,7 +33134,7 @@ _ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit: ; preds = %._ZN8ImVectorIP10My
 declare noundef zeroext i1 @_ZN5ImGui11IsPopupOpenEPKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIP10MyDocumentED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIP10MyDocumentED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not = icmp eq ptr %3, null
@@ -33162,7 +33156,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP10MyDocumentED2Ev(ptr noundef 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI10MyDocumentED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI10MyDocumentED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not = icmp eq ptr %3, null
@@ -33241,7 +33235,7 @@ _ZN28ExampleSelectionWithDeletionC2Ev.exit:       ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20ExampleAssetsBrowserD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20ExampleAssetsBrowserD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !462
   %.not.i.i.i = icmp eq ptr %3, null
@@ -33298,7 +33292,7 @@ define linkonce_odr dso_local void @_ZN20ExampleAssetsBrowser4DrawEPKcPb(ptr nou
   %18 = alloca %struct.ImVec2, align 4
   %19 = alloca [32 x i8], align 16
   %20 = alloca %struct.ImVec2, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !566
   %23 = fmul float %22, 2.500000e+01
@@ -33307,7 +33301,7 @@ define linkonce_odr dso_local void @_ZN20ExampleAssetsBrowser4DrawEPKcPb(ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %24, ptr %25, align 4, !tbaa !44
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %1, ptr noundef %2, i32 noundef 1024)
   br i1 %26, label %27, label %533
 
@@ -33440,19 +33434,19 @@ _ZL10HelpMarkerPKc.exit:                          ; preds = %60, %72
   br i1 %85, label %86, label %110
 
 86:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !42
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %87, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %88 = call noundef float @_ZN5ImGui14GetFrameHeightEv()
   store float 0.000000e+00, ptr %6, align 4, !tbaa !42
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %88, ptr %89, align 4, !tbaa !44
   %90 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.2170, i32 noundef 2, i32 noundef 67118984, ptr noundef nonnull align 4 dereferenceable(8) %6, float noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %90, label %91, label %109
 
 91:                                               ; preds = %86
@@ -33503,7 +33497,7 @@ _ZN12ExampleAsset17SortWithSortSpecsEP19ImGuiTableSortSpecsPS_i.exit: ; preds = 
 
 110:                                              ; preds = %109, %82
   %111 = call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %113 = load float, ptr %112, align 4, !tbaa !578
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -33520,15 +33514,15 @@ _ZN12ExampleAsset17SortWithSortSpecsEP19ImGuiTableSortSpecsPS_i.exit: ; preds = 
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %123, ptr %124, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %126 = fneg float %125
   store float 0.000000e+00, ptr %8, align 4, !tbaa !42
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %126, ptr %127, align 4, !tbaa !44
   %128 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.2172, ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef 1, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %128, label %129, label %528
 
 129:                                              ; preds = %110
@@ -33603,7 +33597,7 @@ _ZN20ExampleAssetsBrowser17UpdateLayoutSizesEf.exit: ; preds = %142, %156
   %171 = fmul float %162, 5.000000e-01
   %172 = call float @llvm.floor.f32(float %171)
   store float %172, ptr %112, align 4, !tbaa !578
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %173 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   %174 = extractelement <2 x float> %173, i64 0
   %175 = load float, ptr %112, align 4, !tbaa !578
@@ -33697,20 +33691,20 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   %224 = phi i32 [ -1, %197 ], [ -1, %201 ], [ %206, %210 ], [ %.0.i128, %219 ], [ -1, %217 ], [ %.022.i, %212 ]
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 0, ptr %225, align 4, !tbaa !571
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %226 = load float, ptr %170, align 8, !tbaa !583
   store float %226, ptr %10, align 4, !tbaa !42
   %227 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %226, ptr %227, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %228 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 13, float noundef 1.000000e+00)
   %229 = load float, ptr %117, align 4, !tbaa !580
   %230 = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef nonnull @.str.2173, ptr noundef null, i1 noundef zeroext false, float noundef -1.000000e+00)
   %.sroa.043.0.vec.extract = extractelement <2 x float> %230, i64 0
   %231 = fcmp ult float %229, %.sroa.043.0.vec.extract
   %232 = load i32, ptr %148, align 8, !tbaa !582
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
   %233 = load i32, ptr %114, align 4, !tbaa !579
   %234 = load float, ptr %.sroa_idx8.i, align 8, !tbaa !584
@@ -33820,7 +33814,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit129: ; preds = %241, %_ZN16ImGui
           to label %277 unwind label %301
 
 277:                                              ; preds = %273
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %278 = load float, ptr %9, align 4, !tbaa !42
   %279 = trunc nsw i64 %indvars.iv208 to i32
   %280 = srem i32 %279, %232
@@ -33903,9 +33897,9 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit129: ; preds = %241, %_ZN16ImGui
   br i1 %316, label %317, label %_ZN8ImVectorIjED2Ev.exit145
 
 317:                                              ; preds = %315
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !54
   br i1 %spec.select127, label %.preheader, label %_ZNK8ImVectorIjE14_grow_capacityEi.exit.i
 
@@ -33916,8 +33910,8 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit.i:        ; preds = %317
 .thread173:                                       ; preds = %_ZNK8ImVectorIjE14_grow_capacityEi.exit.i
   %319 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN8ImVectorIjED2Ev.exit
 
 _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %_ZNK8ImVectorIjE14_grow_capacityEi.exit.i
@@ -33938,8 +33932,8 @@ _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %_ZNK8ImVectorIjE14_
 321:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %.sroa.19.5 = phi ptr [ %.sroa.19.7, %.loopexit ], [ %.sroa.19.6, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i133 = icmp eq ptr %.sroa.19.5, null
   br i1 %.not.i133, label %_ZN8ImVectorIjED2Ev.exit, label %322
 
@@ -33998,8 +33992,8 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit.i138:     ; preds = %329
 .thread176:                                       ; preds = %342
   %344 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %322
 
 _ZN8ImVectorIjE9push_backERKj.exit143:            ; preds = %329, %.noexc141, %342
@@ -34022,8 +34016,8 @@ _ZN8ImVectorIjE9push_backERKj.exit143:            ; preds = %329, %.noexc141, %3
           to label %350 unwind label %.loopexit.split-lp
 
 350:                                              ; preds = %.loopexit180
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i144 = icmp eq ptr %.sroa.19.6, null
   br i1 %.not.i144, label %_ZN8ImVectorIjED2Ev.exit145, label %351
 
@@ -34067,14 +34061,14 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
   br i1 %294, label %366, label %418
 
 366:                                              ; preds = %365
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %367 = load float, ptr %12, align 4, !tbaa !42
   %368 = fadd float %367, -1.000000e+00
   %369 = load float, ptr %248, align 4, !tbaa !44
   %370 = fadd float %369, -1.000000e+00
   store float %368, ptr %15, align 4, !tbaa !42
   store float %370, ptr %249, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %371 = load float, ptr %117, align 4, !tbaa !580
   %372 = fadd float %368, %371
   %373 = fadd float %372, 2.000000e+00
@@ -34102,7 +34096,7 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
   %385 = sext i32 %384 to i64
   %386 = getelementptr inbounds [3 x i32], ptr @__const._ZN20ExampleAssetsBrowser4DrawEPKcPb.icon_type_overlay_colors, i64 0, i64 %385
   %387 = load i32, ptr %386, align 4, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %388 = load float, ptr %16, align 4, !tbaa !42
   %389 = fadd float %388, -2.000000e+00
   %390 = fadd float %389, -4.000000e+00
@@ -34110,7 +34104,7 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
   %392 = fadd float %391, 2.000000e+00
   store float %390, ptr %17, align 4, !tbaa !42
   store float %392, ptr %251, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %393 = fadd float %392, 4.000000e+00
   store float %389, ptr %18, align 4, !tbaa !42
   store float %393, ptr %252, align 4, !tbaa !44
@@ -34118,8 +34112,8 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
           to label %394 unwind label %397
 
 394:                                              ; preds = %383
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %399
 
 395:                                              ; preds = %366
@@ -34130,8 +34124,8 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
 397:                                              ; preds = %383
   %398 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %417
 
 399:                                              ; preds = %394, %380, %377
@@ -34144,10 +34138,10 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
           to label %403 unwind label %412
 
 403:                                              ; preds = %400
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %404 = load i32, ptr %275, align 4, !tbaa !587
   %405 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.366, i32 noundef %404) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %406 = load float, ptr %15, align 4, !tbaa !42
   %407 = load float, ptr %250, align 4, !tbaa !44
   %408 = invoke noundef float @_ZN5ImGui11GetFontSizeEv()
@@ -34161,8 +34155,8 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
           to label %411 unwind label %414
 
 411:                                              ; preds = %409
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %416
 
 412:                                              ; preds = %400
@@ -34173,19 +34167,19 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
 414:                                              ; preds = %409, %403
   %415 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %417
 
 416:                                              ; preds = %411, %399
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %418
 
 417:                                              ; preds = %412, %414, %397, %395
   %.pn114.pn = phi { ptr, i32 } [ %398, %397 ], [ %396, %395 ], [ %415, %414 ], [ %413, %412 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN8ImVectorIjED2Ev.exit
 
 418:                                              ; preds = %416, %365
@@ -34193,14 +34187,14 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
           to label %419 unwind label %307
 
 419:                                              ; preds = %418
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, 1
   %420 = icmp slt i64 %indvars.iv.next209, %272
   br i1 %420, label %273, label %.loopexit181.loopexit, !llvm.loop !592
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %322, %321, %.thread173, %305, %361, %363, %417, %307, %303
   %.pn117.pn.pn = phi { ptr, i32 } [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %.pn114.pn, %417 ], [ %364, %363 ], [ %362, %361 ], [ %319, %.thread173 ], [ %lpad.phi, %321 ], [ %323, %322 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %527
 
 421:                                              ; preds = %256
@@ -34402,15 +34396,15 @@ _ZN8ImVectorIjED2Ev.exit:                         ; preds = %322, %321, %.thread
 
 526:                                              ; preds = %510, %459, %458, %455, %449, %448
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %528
 
 527:                                              ; preds = %.loopexit183, %.loopexit.split-lp184, %518, %522, %524, %520, %301, %_ZN8ImVectorIjED2Ev.exit
   %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn117.pn.pn, %_ZN8ImVectorIjED2Ev.exit ], [ %302, %301 ], [ %519, %518 ], [ %521, %520 ], [ %525, %524 ], [ %523, %522 ], [ %lpad.loopexit185, %.loopexit183 ], [ %lpad.loopexit.split-lp186, %.loopexit.split-lp184 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn117.pn.pn.pn.pn
 
 528:                                              ; preds = %526, %110
@@ -34557,7 +34551,7 @@ _ZN8ImVectorI12ExampleAssetE9push_backERKS0_.exit: ; preds = %._ZN8ImVectorI12Ex
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI12ExampleAssetED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI12ExampleAssetED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !573
   %.not = icmp eq ptr %3, null
@@ -34663,7 +34657,7 @@ declare noundef zeroext i1 @_ZN5ImGui22IsItemToggledSelectionEv() local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN28ExampleSelectionWithDeletion21ApplyDeletionPostLoopI12ExampleAssetEEvP18ImGuiMultiSelectIOR8ImVectorIT_Ei(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.ImVector.29, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %2, align 8, !tbaa !575
   %7 = load i32, ptr %0, align 8, !tbaa !403
@@ -34863,13 +34857,13 @@ _ZN26ImGuiSelectionBasicStorage21GetStorageIdFromIndexEi.exit27: ; preds = %79
   unreachable
 
 _ZN8ImVectorI12ExampleAssetED2Ev.exit:            ; preds = %85, %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 90:                                               ; preds = %64, %83, %29
   %.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %65, %64 ], [ %84, %83 ]
   call void @_ZN8ImVectorI12ExampleAssetED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -34878,13 +34872,13 @@ declare noundef zeroext i1 @_ZN5ImGui17IsWindowAppearingEv() local_unnamed_addr 
 declare noundef zeroext i1 @_ZN5ImGui15IsAnyItemActiveEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #4
+declare float @powf(float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN12ExampleAsset20CompareWithSortSpecsEPKvS1_(ptr noundef %0, ptr noundef %1) #24 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN12ExampleAsset20CompareWithSortSpecsEPKvS1_(ptr noundef %0, ptr noundef %1) #23 comdat align 2 {
   %3 = load ptr, ptr @_ZN12ExampleAsset20s_current_sort_specsE, align 8, !tbaa !370
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !505
@@ -34960,7 +34954,7 @@ define linkonce_odr dso_local noundef i32 @_ZN12ExampleAsset20CompareWithSortSpe
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZZN20ExampleAssetsBrowser4DrawEPKcPbENUlP26ImGuiSelectionBasicStorageiE_8__invokeES4_i(ptr noundef %0, i32 noundef %1) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZZN20ExampleAssetsBrowser4DrawEPKcPbENUlP26ImGuiSelectionBasicStorageiE_8__invokeES4_i(ptr noundef %0, i32 noundef %1) #12 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !415
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -34970,6 +34964,12 @@ define linkonce_odr dso_local noundef i32 @_ZZN20ExampleAssetsBrowser4DrawEPKcPb
   %9 = load i32, ptr %8, align 4, !tbaa !587
   ret i32 %9
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
@@ -34995,33 +34995,33 @@ declare i32 @llvm.umax.i32(i32, i32) #31
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { cold nofree noreturn }
-attributes #22 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #28 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { cold nofree noreturn }
+attributes #21 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #27 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

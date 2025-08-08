@@ -66,7 +66,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pe.i)
   %1 = getelementptr inbounds nuw i8, ptr %pe.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1, i8 0, i64 112, i1 false)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -84,7 +84,7 @@ land.lhs.true:                                    ; preds = %entry
   %conv.i = trunc i64 %call.i to i32
   store i32 %conv.i, ptr %this, align 8
   %cmp.i.not = icmp eq i32 %conv.i, -1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %pe.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pe.i)
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -277,7 +277,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc
 
 land.lhs.true.i:                                  ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pe.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %type_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr, i64 16
   %2 = load i32, ptr %type_.i.i, align 16
@@ -291,7 +291,7 @@ land.lhs.true.i:                                  ; preds = %for.body
   %conv.i.i = trunc i64 %call.i.i to i32
   store i32 %conv.i.i, ptr %__begin2.0.ptr, align 16
   %cmp.i.not.i = icmp eq i32 %conv.i.i, -1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %pe.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pe.i.i)
   br i1 %cmp.i.not.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true.i
@@ -337,10 +337,10 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @_ZN4llvh11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

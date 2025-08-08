@@ -716,7 +716,7 @@ lpad:                                             ; preds = %invoke.cont8, %if.t
   br label %ehcleanup
 
 invoke.cont8:                                     ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %sep.011, ptr %ref.tmp.i, align 8, !noalias !8
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !8
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %2 to i64
@@ -727,7 +727,7 @@ invoke.cont8:                                     ; preds = %for.body
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -890,7 +890,7 @@ lpad10.body:                                      ; preds = %lpad.i20, %lpad10
 
 if.end12:                                         ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %state, ptr %ref.tmp.i, align 8, !noalias !12
   %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchINS1_7VoidPtrEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !12
@@ -898,7 +898,7 @@ if.end12:                                         ; preds = %entry
           to label %invoke.cont17 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont17:                                    ; preds = %if.end12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -951,7 +951,7 @@ lpad18:                                           ; preds = %invoke.cont17
   br label %ehcleanup
 
 invoke.cont35:                                    ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i31)
   store ptr %sep.053, ptr %ref.tmp.i31, align 8, !noalias !15
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i35, align 8, !noalias !15
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %arrayidx, align 4, !noalias !15
@@ -963,7 +963,7 @@ invoke.cont35:                                    ; preds = %for.body
           to label %invoke.cont39 unwind label %lpad15.loopexit
 
 invoke.cont39:                                    ; preds = %invoke.cont35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i31)
   %call42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33)
           to label %invoke.cont41 unwind label %lpad40
 
@@ -987,7 +987,7 @@ for.inc:                                          ; preds = %if.then22.invoke, %
 
 invoke.cont47:                                    ; preds = %for.inc, %invoke.cont19
   %flag_ = getelementptr inbounds nuw i8, ptr %state, i64 12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i41)
   %retval.sroa.0.0.copyload.i.i.i.i45 = load i32, ptr %flag_, align 4, !noalias !19
   %retval.sroa.0.0.insert.ext.i.i.i.i46 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i45 to i64
   %16 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i46 to ptr
@@ -998,7 +998,7 @@ invoke.cont47:                                    ; preds = %for.inc, %invoke.co
           to label %invoke.cont48 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont48:                                    ; preds = %invoke.cont47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i41)
   %call51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45)
           to label %invoke.cont50 unwind label %lpad49
 
@@ -2046,7 +2046,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %s.i)
   %str_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i.i, ptr noundef nonnull @.str.20)
           to label %call2.i.noexc unwind label %terminate.lpad
@@ -2062,7 +2062,7 @@ _ZN10LogMessage5FlushEv.exit:                     ; preds = %call2.i.noexc
   %call5.i = call i64 @fwrite(ptr noundef %call4.i, i64 noundef 1, i64 noundef %call3.i, ptr noundef %1) #26
   store i8 1, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10LogMessage5FlushEv.exit, %entry
@@ -3253,7 +3253,7 @@ if.end37:                                         ; preds = %land.lhs.true31, %i
 
 invoke.cont:                                      ; preds = %if.end37
   %30 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %31 to i1
@@ -3297,7 +3297,7 @@ invoke.cont39:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %36 = load i64, ptr %state_budget_.i, align 8
   store i64 %36, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call41 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont40 unwind label %lpad38
 
@@ -3595,7 +3595,7 @@ if.then121:                                       ; preds = %_ZN3re23DFA22RunSta
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s122, ptr noundef nonnull %this, ptr noundef nonnull %s.0.lcssa)
   %cache_lock123 = getelementptr inbounds nuw i8, ptr %params, i64 48
   %72 = load ptr, ptr %cache_lock123, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i141)
   %writing_.i.i142 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %73 = load i8, ptr %writing_.i.i142, align 8
   %tobool.i.i143 = trunc i8 %73 to i1
@@ -3647,7 +3647,7 @@ invoke.cont125:                                   ; preds = %for.body.i151
   %78 = load i64, ptr %state_budget_.i147, align 8
   %mem_budget_.i156 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %78, ptr %mem_budget_.i156, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i141)
   %call127 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s122)
           to label %invoke.cont126 unwind label %lpad124
 
@@ -4045,7 +4045,7 @@ if.end37:                                         ; preds = %land.lhs.true31, %i
 
 invoke.cont:                                      ; preds = %if.end37
   %30 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %31 to i1
@@ -4089,7 +4089,7 @@ invoke.cont39:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %36 = load i64, ptr %state_budget_.i, align 8
   store i64 %36, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call41 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont40 unwind label %lpad38
 
@@ -4391,7 +4391,7 @@ if.then121:                                       ; preds = %_ZN3re23DFA22RunSta
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s122, ptr noundef nonnull %this, ptr noundef nonnull %s.0.lcssa)
   %cache_lock123 = getelementptr inbounds nuw i8, ptr %params, i64 48
   %72 = load ptr, ptr %cache_lock123, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i150)
   %writing_.i.i151 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %73 = load i8, ptr %writing_.i.i151, align 8
   %tobool.i.i152 = trunc i8 %73 to i1
@@ -4443,7 +4443,7 @@ invoke.cont125:                                   ; preds = %for.body.i160
   %78 = load i64, ptr %state_budget_.i156, align 8
   %mem_budget_.i165 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %78, ptr %mem_budget_.i165, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i150)
   %call127 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s122)
           to label %invoke.cont126 unwind label %lpad124
 
@@ -4840,7 +4840,7 @@ if.end38:                                         ; preds = %land.lhs.true32, %i
 
 invoke.cont:                                      ; preds = %if.end38
   %30 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %31 to i1
@@ -4884,7 +4884,7 @@ invoke.cont40:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %36 = load i64, ptr %state_budget_.i, align 8
   store i64 %36, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call42 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont41 unwind label %lpad39.loopexit
 
@@ -5175,7 +5175,7 @@ _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit144: ; preds = %invoke.con
 if.then123:                                       ; preds = %_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit144
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s124, ptr noundef nonnull %this, ptr noundef nonnull %s.0)
   %71 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i145)
   %writing_.i.i146 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %72 = load i8, ptr %writing_.i.i146, align 8
   %tobool.i.i147 = trunc i8 %72 to i1
@@ -5220,7 +5220,7 @@ invoke.cont127:                                   ; preds = %for.body.i155
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %77 = load i64, ptr %state_budget_.i, align 8
   store i64 %77, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i145)
   %call129 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s124)
           to label %invoke.cont128 unwind label %lpad126
 
@@ -5593,7 +5593,7 @@ if.end38:                                         ; preds = %land.lhs.true32, %i
 
 invoke.cont:                                      ; preds = %if.end38
   %30 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %31 to i1
@@ -5637,7 +5637,7 @@ invoke.cont40:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %36 = load i64, ptr %state_budget_.i, align 8
   store i64 %36, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call42 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont41 unwind label %lpad39.loopexit
 
@@ -5932,7 +5932,7 @@ _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit153: ; preds = %invoke.con
 if.then123:                                       ; preds = %_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit153
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s124, ptr noundef nonnull %this, ptr noundef nonnull %s.0)
   %71 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i154)
   %writing_.i.i155 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %72 = load i8, ptr %writing_.i.i155, align 8
   %tobool.i.i156 = trunc i8 %72 to i1
@@ -5977,7 +5977,7 @@ invoke.cont127:                                   ; preds = %for.body.i164
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %77 = load i64, ptr %state_budget_.i, align 8
   store i64 %77, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i154)
   %call129 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s124)
           to label %invoke.cont128 unwind label %lpad126
 
@@ -6391,7 +6391,7 @@ if.end49:                                         ; preds = %land.lhs.true40, %i
 
 invoke.cont:                                      ; preds = %if.end49
   %35 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %36 to i1
@@ -6435,7 +6435,7 @@ invoke.cont51:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %41 = load i64, ptr %state_budget_.i, align 8
   store i64 %41, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call53 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont52 unwind label %lpad50
 
@@ -6733,7 +6733,7 @@ if.then133:                                       ; preds = %_ZN3re23DFA22RunSta
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s134, ptr noundef nonnull %this, ptr noundef nonnull %s.0.lcssa)
   %cache_lock135 = getelementptr inbounds nuw i8, ptr %params, i64 48
   %77 = load ptr, ptr %cache_lock135, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i149)
   %writing_.i.i150 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %78 = load i8, ptr %writing_.i.i150, align 8
   %tobool.i.i151 = trunc i8 %78 to i1
@@ -6785,7 +6785,7 @@ invoke.cont137:                                   ; preds = %for.body.i159
   %83 = load i64, ptr %state_budget_.i155, align 8
   %mem_budget_.i164 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %83, ptr %mem_budget_.i164, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i149)
   %call139 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s134)
           to label %invoke.cont138 unwind label %lpad136
 
@@ -7223,7 +7223,7 @@ if.end49:                                         ; preds = %land.lhs.true40, %i
 
 invoke.cont:                                      ; preds = %if.end49
   %35 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %36 to i1
@@ -7267,7 +7267,7 @@ invoke.cont51:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %41 = load i64, ptr %state_budget_.i, align 8
   store i64 %41, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call53 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont52 unwind label %lpad50
 
@@ -7569,7 +7569,7 @@ if.then133:                                       ; preds = %_ZN3re23DFA22RunSta
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s134, ptr noundef nonnull %this, ptr noundef nonnull %s.0.lcssa)
   %cache_lock135 = getelementptr inbounds nuw i8, ptr %params, i64 48
   %77 = load ptr, ptr %cache_lock135, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i162)
   %writing_.i.i163 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %78 = load i8, ptr %writing_.i.i163, align 8
   %tobool.i.i164 = trunc i8 %78 to i1
@@ -7621,7 +7621,7 @@ invoke.cont137:                                   ; preds = %for.body.i172
   %83 = load i64, ptr %state_budget_.i168, align 8
   %mem_budget_.i177 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %83, ptr %mem_budget_.i177, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i162)
   %call139 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s134)
           to label %invoke.cont138 unwind label %lpad136
 
@@ -8058,7 +8058,7 @@ if.end50:                                         ; preds = %land.lhs.true41, %i
 
 invoke.cont:                                      ; preds = %if.end50
   %35 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %36 to i1
@@ -8102,7 +8102,7 @@ invoke.cont52:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %41 = load i64, ptr %state_budget_.i, align 8
   store i64 %41, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call54 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont53 unwind label %lpad51.loopexit
 
@@ -8394,7 +8394,7 @@ _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit152: ; preds = %invoke.con
 if.then135:                                       ; preds = %_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit152
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s136, ptr noundef nonnull %this, ptr noundef nonnull %s.0)
   %76 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i153)
   %writing_.i.i154 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %77 = load i8, ptr %writing_.i.i154, align 8
   %tobool.i.i155 = trunc i8 %77 to i1
@@ -8439,7 +8439,7 @@ invoke.cont139:                                   ; preds = %for.body.i163
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %82 = load i64, ptr %state_budget_.i, align 8
   store i64 %82, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i153)
   %call141 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s136)
           to label %invoke.cont140 unwind label %lpad138
 
@@ -8852,7 +8852,7 @@ if.end50:                                         ; preds = %land.lhs.true41, %i
 
 invoke.cont:                                      ; preds = %if.end50
   %35 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %36 to i1
@@ -8896,7 +8896,7 @@ invoke.cont52:                                    ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %41 = load i64, ptr %state_budget_.i, align 8
   store i64 %41, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call54 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_start)
           to label %invoke.cont53 unwind label %lpad51.loopexit
 
@@ -9192,7 +9192,7 @@ _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit165: ; preds = %invoke.con
 if.then135:                                       ; preds = %_ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit165
   call void @_ZN3re23DFA10StateSaverC1EPS0_PNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %save_s136, ptr noundef nonnull %this, ptr noundef nonnull %s.0)
   %76 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i166)
   %writing_.i.i167 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %77 = load i8, ptr %writing_.i.i167, align 8
   %tobool.i.i168 = trunc i8 %77 to i1
@@ -9237,7 +9237,7 @@ invoke.cont139:                                   ; preds = %for.body.i176
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %82 = load i64, ptr %state_budget_.i, align 8
   store i64 %82, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i166)
   %call141 = invoke noundef ptr @_ZN3re23DFA10StateSaver7RestoreEv(ptr noundef nonnull align 8 dereferenceable(40) %save_s136)
           to label %invoke.cont140 unwind label %lpad138
 
@@ -9572,7 +9572,7 @@ if.end65:                                         ; preds = %if.else52, %if.else
 if.then71:                                        ; preds = %if.end65
   %cache_lock = getelementptr inbounds nuw i8, ptr %params, i64 48
   %14 = load ptr, ptr %cache_lock, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %writing_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load i8, ptr %writing_.i.i, align 8
   %tobool.i.i = trunc i8 %15 to i1
@@ -9611,7 +9611,7 @@ _ZN3re23DFA10ResetCacheEPNS0_8RWLockerE.exit:     ; preds = %for.body.i
   %20 = load i64, ptr %state_budget_.i, align 8
   %mem_budget_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %20, ptr %mem_budget_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call72 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params, ptr noundef nonnull %arrayidx69, i32 noundef %flags.0)
   br i1 %call72, label %if.end81, label %if.then73
 
@@ -10840,8 +10840,8 @@ lor.rhs:                                          ; preds = %if.then105
 
 if.end.i103:                                      ; preds = %if.then105, %lor.rhs
   %frombool.i = phi i8 [ 1, %if.then105 ], [ %83, %lor.rhs ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store ptr %spec.select, ptr %__args.addr.i, align 8
   store i8 %frombool.i, ptr %__args.addr2.i, align 1
   %84 = load ptr, ptr %_M_invoker.i, align 8
@@ -10849,8 +10849,8 @@ if.end.i103:                                      ; preds = %if.then105, %lor.rh
           to label %_ZNKSt8functionIFvPKibEEclES1_b.exit unwind label %lpad65.loopexit.split-lp
 
 _ZNKSt8functionIFvPKibEEclES1_b.exit:             ; preds = %if.end.i103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   br label %if.end111
 
 if.end111:                                        ; preds = %_ZNKSt8functionIFvPKibEEclES1_b.exit, %for.end103
@@ -11900,9 +11900,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   call void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_RT0_(ptr noundef %__first, ptr noundef %__last.addr.025, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i
@@ -13632,10 +13632,10 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19

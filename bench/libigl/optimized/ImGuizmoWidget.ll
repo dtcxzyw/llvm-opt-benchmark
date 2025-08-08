@@ -93,8 +93,8 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   tail call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 4, float noundef 0.000000e+00)
   tail call void @_ZN8ImGuizmo10BeginFrameEv()
   tail call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0222)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = tail call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %11, i32 noundef 0)
@@ -127,8 +127,8 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   %31 = load <4 x float>, ptr %30, align 16, !tbaa !37
   %32 = fdiv <4 x float> %31, %19
   store <4 x float> %32, ptr %29, align 16, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0222)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = load ptr, ptr %10, align 8, !tbaa !4
   %34 = tail call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %33, i32 noundef 0)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 288
@@ -155,7 +155,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   %.sroa.0233.12.vec.insert = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %49, i64 0
   %.sroa.8236.28.vec.insert = insertelement <4 x float> <float 0.000000e+00, float poison, float 0.000000e+00, float 0.000000e+00>, float %49, i64 1
   %.sroa.14239.44.vec.insert = insertelement <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float 0.000000e+00>, float %49, i64 2
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #14, !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !54
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %51 = shufflevector <4 x float> %.sroa.0233.12.vec.insert, <4 x float> %.sroa.8236.28.vec.insert, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %52 = shufflevector <4 x float> <float poison, float poison, float 0.000000e+00, float 1.000000e+00>, <4 x float> %.sroa.14239.44.vec.insert, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
@@ -304,7 +304,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   %189 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> zeroinitializer
   %190 = fmul <4 x float> %135, %189
   %191 = fadd <4 x float> %186, %190
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #14, !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !54
   store <4 x float> %140, ptr %4, align 16, !tbaa !37
   store <4 x float> %157, ptr %21, align 16, !tbaa !37
   store <4 x float> %174, ptr %25, align 16, !tbaa !37
@@ -457,14 +457,14 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   %320 = call noundef <4 x float> @llvm.fabs.v4f32(<4 x float> %319)
   %321 = fsub <4 x float> %291, %.sroa.4.0.copyload
   %322 = call noundef <4 x float> @llvm.fabs.v4f32(<4 x float> %321)
-  %323 = call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %320, <4 x float> %322) #15, !srcloc !76
+  %323 = call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %320, <4 x float> %322) #14, !srcloc !76
   %324 = fsub <4 x float> %306, %.sroa.5.0.copyload
   %325 = call noundef <4 x float> @llvm.fabs.v4f32(<4 x float> %324)
   %326 = fsub <4 x float> %318, %.sroa.6.0.copyload
   %327 = call noundef <4 x float> @llvm.fabs.v4f32(<4 x float> %326)
-  %328 = call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %325, <4 x float> %327) #15, !srcloc !76
-  %329 = call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %323, <4 x float> %328) #15, !srcloc !76
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  %328 = call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %325, <4 x float> %327) #14, !srcloc !76
+  %329 = call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %323, <4 x float> %328) #14, !srcloc !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store <4 x float> %329, ptr %2, align 16, !tbaa !37
   br label %.preheader.i.i.i.i.i.i.i
 
@@ -493,7 +493,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit: ; preds = %330
   %341 = load float, ptr %2, align 16, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %342 = fpext float %341 to double
   %343 = fcmp ogt double %342, 0x3E7AD7F29ABCAF48
   br i1 %343, label %344, label %351
@@ -505,7 +505,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12Arra
   br i1 %.not.i.i, label %347, label %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit
 
 347:                                              ; preds = %344
-  call void @_ZSt25__throw_bad_function_callv() #16
+  call void @_ZSt25__throw_bad_function_callv() #15
   unreachable
 
 _ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit: ; preds = %344
@@ -516,8 +516,8 @@ _ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit: ; preds
   br label %351
 
 351:                                              ; preds = %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %352
 
 352:                                              ; preds = %1, %351
@@ -530,13 +530,7 @@ declare void @_ZN8ImGuizmo10BeginFrameEv() local_unnamed_addr #3
 
 declare void @_ZN5ImGui11PopStyleVarEi(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616), i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -547,7 +541,7 @@ declare void @_ZN8ImGuizmo7SetRectEffff(float noundef, float noundef, float noun
 declare void @_ZN8ImGuizmo10ManipulateEPKfS1_NS_9OPERATIONENS_4MODEEPfS4_S4_S4_S4_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(160) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui14ImGuizmoWidgetE, i64 16), ptr %0, align 16, !tbaa !82
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !80
@@ -563,7 +557,7 @@ define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD2E
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %1, %4
@@ -584,7 +578,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %17 = load i64, ptr %12, align 8, !tbaa !37
   %18 = add i64 %17, 1
-  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #18
+  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #17
   br label %_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit
 
 _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -592,7 +586,7 @@ _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD0Ev(ptr noundef nonnull align 16 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD0Ev(ptr noundef nonnull align 16 dereferenceable(160) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui14ImGuizmoWidgetE, i64 16), ptr %0, align 16, !tbaa !82
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !80
@@ -608,7 +602,7 @@ define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD0E
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %4, %1
@@ -629,11 +623,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
   %17 = load i64, ptr %12, align 8, !tbaa !37
   %18 = add i64 %17, 1
-  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #18
+  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #17
   br label %_ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD2Ev.exit
 
 _ZN3igl6opengl4glfw5imgui14ImGuizmoWidgetD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #17
   ret void
 }
 
@@ -673,16 +667,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImG
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #17
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -703,7 +697,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !37
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #18
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -729,11 +723,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !37
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #18
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #17
   br label %_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit
 
 _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #17
   ret void
 }
 
@@ -743,13 +737,19 @@ define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget4drawE
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #10
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -764,21 +764,21 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { noreturn }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin nounwind }
+attributes #14 = { nounwind memory(none) }
+attributes #15 = { noreturn }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

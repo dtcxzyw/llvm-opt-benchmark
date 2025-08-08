@@ -69,7 +69,7 @@ define noundef i64 @Java_sun_font_FreetypeFontScaler_initNativeScaler(ptr nounde
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #19
   store i32 35, ptr %8, align 4
   %.not.i = icmp eq ptr %21, null
@@ -105,7 +105,7 @@ define noundef i64 @Java_sun_font_FreetypeFontScaler_initNativeScaler(ptr nounde
   br label %setInterpreterVersion.exit
 
 setInterpreterVersion.exit:                       ; preds = %22, %27, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = icmp eq i32 %3, 2
   br i1 %36, label %37, label %60
 
@@ -1528,7 +1528,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %
   %9 = alloca %struct.GPData, align 8
   %10 = inttoptr i64 %3 to ptr
   %11 = inttoptr i64 %4 to ptr
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = tail call fastcc ptr @getFTOutline(ptr noundef %0, ptr noundef %2, ptr noundef %10, ptr noundef %11, i32 noundef %5, float noundef %6, float noundef %7)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %getGlyphGeneralPath.exit.thread, label %14
@@ -1644,11 +1644,11 @@ addToGP.exit.i:                                   ; preds = %39, %35
   br label %getGlyphGeneralPath.exit
 
 getGlyphGeneralPath.exit.thread:                  ; preds = %14, %8, %18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %82
 
 getGlyphGeneralPath.exit:                         ; preds = %78, %80
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %81 = icmp eq ptr %.032.i, null
   br i1 %81, label %82, label %89
 
@@ -2797,10 +2797,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #17

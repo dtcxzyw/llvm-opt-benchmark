@@ -988,8 +988,8 @@ define linkonce_odr void @_ZN3vcg4ViewIfE7GetViewEv(ptr noundef nonnull align 4 
   %5 = alloca %"class.vcg::Matrix44", align 4
   %6 = alloca %"class.vcg::Matrix44", align 4
   %7 = alloca %"class.vcg::Matrix44", align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @glGetFloatv(i32 noundef 2983, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %.preheader.i.i.i
@@ -1021,10 +1021,10 @@ define linkonce_odr void @_ZN3vcg4ViewIfE7GetViewEv(ptr noundef nonnull align 4 
 
 _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit:           ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @glGetFloatv(i32 noundef 2982, ptr noundef nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
   br label %.preheader.i.i.i1
@@ -1057,8 +1057,8 @@ _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit:           ; preds = %17
 _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8:          ; preds = %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %28, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @glGetIntegerv(i32 noundef 2978, ptr noundef nonnull %29)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1376,7 +1376,7 @@ define void @_ZN3vcg9Trackball5ApplyEv(ptr noundef nonnull align 8 dereferenceab
   %9 = load float, ptr %8, align 8
   tail call void @glTranslatef(float noundef %5, float noundef %7, float noundef %9)
   call void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE6MatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 4 dereferenceable(32) %0)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
   br label %.preheader.i.i.i
 
@@ -1407,7 +1407,7 @@ define void @_ZN3vcg9Trackball5ApplyEv(ptr noundef nonnull align 8 dereferenceab
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %19
   call void @glMultMatrixf(ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = load float, ptr %4, align 8
   %21 = fneg float %20
   %22 = load float, ptr %6, align 4
@@ -1624,11 +1624,11 @@ define void @_ZN3vcg9Trackball12ApplyInverseEv(ptr noundef nonnull align 8 deref
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load float, ptr %9, align 8
   tail call void @glTranslatef(float noundef %6, float noundef %8, float noundef %10)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE6MatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 4 dereferenceable(32) %0), !noalias !42
   call void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %4, ptr noundef nonnull align 4 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %.preheader.i.i.i
 
@@ -1659,7 +1659,7 @@ define void @_ZN3vcg9Trackball12ApplyInverseEv(ptr noundef nonnull align 8 deref
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %20
   call void @glMultMatrixf(ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = load float, ptr %5, align 8
   %22 = fneg float %21
   %23 = load float, ptr %7, align 4
@@ -2171,7 +2171,7 @@ define void @_ZN3vcg9Trackball9MouseDownEi(ptr noundef nonnull align 8 dereferen
   %6 = load i32, ptr %5, align 4
   %7 = or i32 %6, %1
   store i32 %7, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %9 = and i32 %7, 255
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -2233,7 +2233,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -2327,7 +2327,7 @@ define void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 derefer
   %8 = load i32, ptr %7, align 4
   %9 = or i32 %8, %3
   store i32 %9, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %11 = and i32 %9, 255
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -2386,7 +2386,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 504
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = sitofp i32 %1 to float
   %33 = sitofp i32 %2 to float
   store float %32, ptr %30, align 8
@@ -2705,7 +2705,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27: ; 
   br i1 %or.cond, label %74, label %53
 
 53:                                               ; preds = %.critedge2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = load i32, ptr %8, align 4
   %55 = and i32 %54, 255
   %56 = load ptr, ptr %12, align 8
@@ -2765,7 +2765,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %74
 
 74:                                               ; preds = %_ZN3vcg9Trackball16SetCurrentActionEv.exit, %.critedge2
@@ -2783,7 +2783,7 @@ define void @_ZN3vcg9Trackball10MouseWheelEf(ptr noundef nonnull align 8 derefer
   %8 = and i32 %7, 112
   %9 = or disjoint i32 %8, 8
   store i32 %9, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %12 = load ptr, ptr %11, align 8
@@ -2837,7 +2837,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit.thread: ; preds = %_ZNKSt3mapIiPN3vcg
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i21, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
@@ -2854,7 +2854,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = icmp eq ptr %.pre, null
   br i1 %32, label %37, label %33
 
@@ -2872,7 +2872,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
   %39 = phi ptr [ %25, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %30, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ], [ %30, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %7, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = and i32 %7, 255
   %42 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i3 = icmp eq ptr %42, null
@@ -2925,7 +2925,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit19:     ; preds = %_ZNKSt3mapIiPN3vcg9
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i22, align 4
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2940,7 +2940,7 @@ define void @_ZN3vcg9Trackball10MouseWheelEfi(ptr noundef nonnull align 8 derefe
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, %2
   store i32 %10, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %12 = and i32 %10, 255
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -2995,7 +2995,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit.thread: ; preds = %_ZNKSt3mapIiPN3vcg
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i24, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %37
 
@@ -3013,7 +3013,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %36 = icmp eq ptr %.pre, null
   br i1 %36, label %37, label %41
@@ -3045,7 +3045,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
   %50 = load i32, ptr %8, align 4
   %51 = and i32 %50, %49
   store i32 %51, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = and i32 %51, 255
   %53 = load ptr, ptr %13, align 8
   %.not10.i.i.i.i6 = icmp eq ptr %53, null
@@ -3098,7 +3098,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit22:     ; preds = %_ZNKSt3mapIiPN3vcg9
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i25, align 4
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3257,7 +3257,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28: ; 
   br i1 %or.cond, label %93, label %72
 
 72:                                               ; preds = %.critedge2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %73 = load i32, ptr %29, align 4
   %74 = and i32 %73, 255
   %75 = load ptr, ptr %33, align 8
@@ -3317,7 +3317,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
 
 93:                                               ; preds = %_ZN3vcg9Trackball16SetCurrentActionEv.exit, %.critedge2
@@ -3406,10 +3406,10 @@ define internal void @_GLOBAL__sub_I_trackball.cpp() #23 section ".text.startup"
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

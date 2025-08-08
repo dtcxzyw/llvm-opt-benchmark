@@ -57,7 +57,7 @@ $_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size = comdat any
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZN3tbb6detail2r114__TBB_InitOnceD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !3
-  %3 = tail call noundef ptr @pthread_getspecific(i32 noundef %2) #8
+  %3 = tail call noundef ptr @pthread_getspecific(i32 noundef %2) #7
   invoke void @_ZN3tbb6detail2r18governor14auto_terminateEPv(ptr noundef %3)
           to label %_ZN3tbb6detail2r18governor25terminate_external_threadEv.exit unwind label %13
 
@@ -149,28 +149,22 @@ define void @_ZN3tbb6detail2r114__TBB_InitOnce10remove_refEv() local_unnamed_add
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @_ZN3tbb6detail2r18governor17release_resourcesEv() local_unnamed_addr #3
 
 declare void @__itt_fini_ittlib() local_unnamed_addr #3
 
 declare void @__itt_release_resources() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r123DoOneTimeInitializationEv() local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %3 = icmp ne i8 %2, 0
   store i1 %3, ptr %1, align 1
   %.0..0..0..0..0..0..i2.i = load i8, ptr %1, align 1, !tbaa !8, !range !10, !noundef !11
   %4 = trunc nuw i8 %.0..0..0..0..0..0..i2.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %4, label %.lr.ph.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit
 
 .lr.ph.i:                                         ; preds = %0, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
@@ -194,18 +188,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %6
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call noundef i32 @sched_yield() #8
+  %12 = tail call noundef i32 @sched_yield() #7
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %11, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i
   %.sroa.0.1.i = phi i32 [ %10, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.03.i, %11 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %14 = icmp ne i8 %13, 0
   store i1 %14, ptr %1, align 1
   %.0..0..0..0..0..0..i.i = load i8, ptr %1, align 1, !tbaa !8, !range !10, !noundef !11
   %15 = trunc nuw i8 %.0..0..0..0..0..0..i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %15, label %.lr.ph.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit, !llvm.loop !14
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit:    ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %0
@@ -224,7 +218,7 @@ _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit:    ; preds = %_ZN3tbb6detail2d014
   br label %_ZN3tbb6detail2r114__TBB_InitOnce7add_refEv.exit
 
 _ZN3tbb6detail2r114__TBB_InitOnce7add_refEv.exit: ; preds = %18, %21
-  %22 = tail call ptr @getenv(ptr noundef nonnull @.str) #8
+  %22 = tail call ptr @getenv(ptr noundef nonnull @.str) #7
   %.not.not.not.i = icmp eq ptr %22, null
   br i1 %.not.not.not.i, label %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread, label %23
 
@@ -259,7 +253,7 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread: ; preds = %_ZN3t
   br i1 %35, label %36, label %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit, !prof !16
 
 36:                                               ; preds = %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread
-  %37 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads) #8
+  %37 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads) #7
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit, label %38
 
@@ -269,13 +263,13 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread: ; preds = %_ZN3t
 
 40:                                               ; preds = %38
   store i32 %39, ptr @_ZZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads, align 4, !tbaa !17
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads) #7
   br label %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit
 
 common.resume:                                    ; preds = %50, %41
   %_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size.sink = phi ptr [ @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size, %50 ], [ @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads, %41 ]
   %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
-  tail call void @__cxa_guard_abort(ptr nonnull %_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size.sink) #8
+  tail call void @__cxa_guard_abort(ptr nonnull %_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size.sink) #7
   resume { ptr, i32 } %common.resume.op
 
 41:                                               ; preds = %38
@@ -289,7 +283,7 @@ _ZN3tbb6detail2r18governor19default_num_threadsEv.exit: ; preds = %_ZN3tbb6detai
   br i1 %44, label %45, label %_ZN3tbb6detail2r18governor17default_page_sizeEv.exit, !prof !16
 
 45:                                               ; preds = %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit
-  %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size) #8
+  %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size) #7
   %.not.i1 = icmp eq i32 %46, 0
   br i1 %.not.i1, label %_ZN3tbb6detail2r18governor17default_page_sizeEv.exit, label %47
 
@@ -299,7 +293,7 @@ _ZN3tbb6detail2r18governor19default_num_threadsEv.exit: ; preds = %_ZN3tbb6detai
 
 49:                                               ; preds = %47
   store i64 %48, ptr @_ZZN3tbb6detail2r18governor17default_page_sizeEvE9page_size, align 8, !tbaa !18
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size) #7
   br label %_ZN3tbb6detail2r18governor17default_page_sizeEv.exit
 
 50:                                               ; preds = %47
@@ -333,8 +327,8 @@ declare void @_ZN3tbb6detail2r121PrintExtraVersionInfoEPKcS3_z(ptr noundef, ptr 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
   tail call void @_ZSt9terminatev() #12
   unreachable
 }
@@ -342,24 +336,24 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 declare void @_ZN3tbb6detail2r18governor14auto_terminateEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #7
+declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #8
+declare void @llvm.x86.sse2.pause() #7
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #7
+declare i32 @sched_yield() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
@@ -375,7 +369,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 declare noundef i64 @_ZN3tbb6detail2r121DefaultSystemPageSizeEv() local_unnamed_addr #3
 
 ; Function Attrs: sspstrong uwtable
-define internal void @_GLOBAL__sub_I_main.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_main.cpp() #10 section ".text.startup" {
   store i8 0, ptr @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE, align 1, !tbaa !20
   store i8 0, ptr @_ZN3tbb6detail2r135the_context_state_propagation_mutexE, align 1, !tbaa !20
   %1 = atomicrmw add ptr @_ZN3tbb6detail2r114__TBB_InitOnce5countE, i32 1 seq_cst, align 4
@@ -388,22 +382,28 @@ define internal void @_GLOBAL__sub_I_main.cpp() #11 section ".text.startup" {
   br label %__cxx_global_var_init.2.exit
 
 __cxx_global_var_init.2.exit:                     ; preds = %0, %3
-  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tbb6detail2r114__TBB_InitOnceD2Ev, ptr nonnull @_ZN3tbb6detail2r1L28__TBB_InitOnceHiddenInstanceE, ptr nonnull @__dso_handle) #8
+  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tbb6detail2r114__TBB_InitOnceD2Ev, ptr nonnull @_ZN3tbb6detail2r1L28__TBB_InitOnceHiddenInstanceE, ptr nonnull @__dso_handle) #7
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #11 = { sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #10 = { sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 

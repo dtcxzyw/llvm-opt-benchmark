@@ -60,7 +60,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca i32, align 4
   %4 = alloca %struct.UParseError, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   store ptr %6, ptr @_ZL8progName, align 8, !tbaa !4
   %7 = tail call i32 @u_parseArgs(i32 noundef %0, ptr noundef nonnull %1, i32 noundef 10, ptr noundef nonnull @_ZL7options)
@@ -73,12 +73,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !4
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.2, ptr noundef %14) #11
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.2, ptr noundef %14) #10
   %16 = load ptr, ptr @_ZL8progName, align 8, !tbaa !4
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %16)
   %18 = tail call ptr @u_getDataDirectory_77()
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %18)
-  tail call void @exit(i32 noundef 1) #12
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 20:                                               ; preds = %2
@@ -107,12 +107,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 56, i64 1, ptr %36) #13
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 56, i64 1, ptr %36) #12
   %38 = load ptr, ptr @_ZL8progName, align 8, !tbaa !4
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %38)
   %40 = tail call ptr @u_getDataDirectory_77()
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %40)
-  tail call void @exit(i32 noundef 1) #12
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 42:                                               ; preds = %30
@@ -147,8 +147,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %56 = load ptr, ptr @stderr, align 8, !tbaa !9
   %57 = load ptr, ptr %1, align 8, !tbaa !4
   %58 = call ptr @u_errorName_77(i32 noundef %53)
-  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.5, ptr noundef %57, ptr noundef %58) #11
-  call void @exit(i32 noundef 1) #12
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.5, ptr noundef %57, ptr noundef %58) #10
+  call void @exit(i32 noundef 1) #11
   unreachable
 
 60:                                               ; preds = %48
@@ -162,19 +162,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %65 = call i64 @ftell(ptr noundef nonnull %61)
   %66 = call i32 @fseek(ptr noundef nonnull %61, i64 noundef 0, i32 noundef 0)
   %67 = add nsw i64 %65, 10
-  %68 = call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #14
+  %68 = call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #13
   %69 = call i64 @fread(ptr noundef nonnull %68, i64 noundef 1, i64 noundef %65, ptr noundef nonnull %61)
   %.not.i = icmp eq i64 %69, %65
   br i1 %.not.i, label %72, label %_ZL8readFilePKcPi.exit.thread52
 
 _ZL8readFilePKcPi.exit.thread52:                  ; preds = %63
-  call void @_ZdaPv(ptr noundef nonnull %68) #15
+  call void @_ZdaPv(ptr noundef nonnull %68) #14
   %70 = call i32 @fclose(ptr noundef nonnull %61)
   br label %_ZL8readFilePKcPi.exit.thread
 
 _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePKcPi.exit.thread52
   %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %43)
-  call void @exit(i32 noundef -1) #12
+  call void @exit(i32 noundef -1) #11
   unreachable
 
 72:                                               ; preds = %63
@@ -182,11 +182,11 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
   store i8 0, ptr %73, align 1, !tbaa !16
   %74 = trunc i64 %65 to i32
   %75 = call i32 @fclose(ptr noundef nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !17
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %76, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %77 = call ptr @uspoof_openFromSource_77(ptr noundef nonnull %68, i32 noundef %74, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %78 = load i32, ptr %3, align 4, !tbaa !14
   %79 = icmp slt i32 %78, 1
@@ -197,7 +197,7 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
   %82 = call ptr @u_errorName_77(i32 noundef %78)
   %83 = load i32, ptr %4, align 4, !tbaa !17
   %84 = load i32, ptr %76, align 4, !tbaa !20
-  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.7, ptr noundef %82, ptr noundef %43, i32 noundef %83, i32 noundef %84) #11
+  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.7, ptr noundef %82, ptr noundef %43, i32 noundef %83, i32 noundef %84) #10
   %86 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %86) #9
   unreachable
@@ -211,7 +211,7 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
 90:                                               ; preds = %87
   %91 = load ptr, ptr @stderr, align 8, !tbaa !9
   %92 = call ptr @u_errorName_77(i32 noundef %89)
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.8, ptr noundef %92) #11
+  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.8, ptr noundef %92) #10
   %94 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %94) #9
   unreachable
@@ -219,7 +219,7 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
 95:                                               ; preds = %87
   store i32 0, ptr %3, align 4, !tbaa !14
   %96 = zext i32 %88 to i64
-  %97 = call noalias noundef nonnull ptr @_Znam(i64 noundef %96) #14
+  %97 = call noalias noundef nonnull ptr @_Znam(i64 noundef %96) #13
   %98 = call i32 @uspoof_serialize_77(ptr noundef %77, ptr noundef nonnull %97, i32 noundef %88, ptr noundef nonnull %3)
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %100 = load i32, ptr %99, align 4
@@ -232,7 +232,7 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
 104:                                              ; preds = %95
   %105 = load ptr, ptr @stderr, align 8, !tbaa !9
   %106 = call ptr @u_errorName_77(i32 noundef %102)
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.9, ptr noundef %44, ptr noundef %106) #11
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.9, ptr noundef %44, ptr noundef %106) #10
   %108 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %108) #9
   unreachable
@@ -246,7 +246,7 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
 
 113:                                              ; preds = %109
   %114 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.10, i32 noundef %111) #11
+  %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.10, i32 noundef %111) #10
   %116 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %116) #9
   unreachable
@@ -257,14 +257,14 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
 
 118:                                              ; preds = %117
   %119 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.11, ptr noundef %44) #11
-  call void @exit(i32 noundef -1) #12
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.11, ptr noundef %44) #10
+  call void @exit(i32 noundef -1) #11
   unreachable
 
 121:                                              ; preds = %117
   call void @uspoof_close_77(ptr noundef %77)
-  call void @_ZdaPv(ptr noundef nonnull %97) #15
-  call void @_ZdaPv(ptr noundef nonnull %68) #15
+  call void @_ZdaPv(ptr noundef nonnull %97) #14
+  call void @_ZdaPv(ptr noundef nonnull %68) #14
   call void @u_cleanup_77()
   br i1 %.not41, label %122, label %123
 
@@ -273,14 +273,11 @@ _ZL8readFilePKcPi.exit.thread:                    ; preds = %60, %_ZL8readFilePK
   br label %123
 
 123:                                              ; preds = %122, %121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -298,7 +295,7 @@ declare ptr @uspoof_openFromSource_77(ptr noundef, i32 noundef, ptr noundef, i32
 declare i32 @uspoof_serialize_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -309,12 +306,9 @@ declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @uspoof_close_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 declare void @u_cleanup_77() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
@@ -331,6 +325,12 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
@@ -342,17 +342,16 @@ attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold noreturn nounwind }
-attributes #13 = { cold }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { cold noreturn nounwind }
+attributes #12 = { cold }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

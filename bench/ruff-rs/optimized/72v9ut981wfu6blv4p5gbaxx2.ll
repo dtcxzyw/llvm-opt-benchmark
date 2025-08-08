@@ -27,7 +27,6 @@ define void @"_ZN69_$LT$str$u20$as$u20$ruff_source_file..newlines..UniversalNewl
   br i1 %5, label %.split.i.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator4from17hb52569a6342e1a98E.exit
 
 .split.i.i:                                       ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10
   unreachable
 
@@ -64,7 +63,6 @@ define void @_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offs
   ret void
 
 .split:                                           ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10
   unreachable
 }
@@ -76,7 +74,6 @@ define void @_ZN16ruff_source_file8newlines24UniversalNewlineIterator4from17hb52
   br i1 %5, label %.split.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17h4185e8bdce69daa7E.exit
 
 .split.i:                                         ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10
   unreachable
 
@@ -100,7 +97,7 @@ define hidden { i64, i8 } @_ZN16ruff_source_file8newlines12find_newline17ha156db
   %5 = alloca [1 x i8], align 1
   store i8 10, ptr %5, align 1
   store i8 13, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %6, align 8
@@ -111,13 +108,13 @@ define hidden { i64, i8 } @_ZN16ruff_source_file8newlines12find_newline17ha156db
   br i1 %10, label %11, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 11:                                               ; preds = %2
   %12 = extractvalue { i64, ptr } %8, 1
   %13 = call i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf3b4155f07bfebbfE"(ptr %12, ptr align 1 %0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = icmp ult i64 %13, %1
   br i1 %14, label %15, label %18
 
@@ -165,9 +162,9 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   %6 = alloca [1 x i8], align 1
   %7 = alloca [1 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !3
   %10 = icmp eq i64 %9, 0
@@ -223,7 +220,7 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   %.sroa.02.0.i = phi ptr [ %28, %29 ], [ %20, %38 ], [ %13, %12 ]
   store i8 10, ptr %7, align 1, !noalias !3
   store i8 13, ptr %6, align 1, !noalias !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   store ptr %7, ptr %4, align 8, !noalias !3
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %33, align 8, !noalias !3
@@ -244,7 +241,7 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
 41:                                               ; preds = %32
   %42 = extractvalue { i64, ptr } %35, 1
   %43 = call i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf3b4155f07bfebbfE"(ptr %42, ptr nonnull align 1 %.sroa.02.0.i), !noalias !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
   %44 = load ptr, ptr %1, align 8, !noalias !3
   %45 = load i64, ptr %8, align 8, !noalias !3
   %46 = add i64 %43, 1
@@ -254,7 +251,7 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   br i1 %.not27.i, label %59, label %51
 
 48:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
   %49 = load i64, ptr %8, align 8, !noalias !3
   %50 = icmp ugt i64 %49, 4294967295
   br i1 %50, label %.split16.i, label %.split18.i
@@ -285,7 +282,6 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   br label %65
 
 .split.i:                                         ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10, !noalias !3
   unreachable
 
@@ -313,14 +309,13 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   br label %65
 
 .split16.i:                                       ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10, !noalias !3
   unreachable
 
 "_ZN126_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0f1d6a9318379fbE.exit": ; preds = %11, %65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -331,7 +326,6 @@ define void @_ZN16ruff_source_file8newlines26NewlineWithTrailingNewline4from17h4
   br i1 %5, label %.split.i.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17h4185e8bdce69daa7E.exit.i
 
 .split.i.i:                                       ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10
   unreachable
 
@@ -371,7 +365,6 @@ define void @_ZN16ruff_source_file8newlines26NewlineWithTrailingNewline11with_of
   br i1 %6, label %.split.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17h4185e8bdce69daa7E.exit
 
 .split.i:                                         ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.d0a1e5df44548aba7e6932dde9a25779.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.0, ptr nonnull align 8 @anon.d0a1e5df44548aba7e6932dde9a25779.5) #10
   unreachable
 
@@ -422,7 +415,7 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   %.val.i = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val2.i
   store ptr %.val.i, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -455,7 +448,7 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
 
 _ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i: ; preds = %12, %11, %9, %7, %1
   %.sroa.0.0.i.i = phi i8 [ 1, %11 ], [ 3, %1 ], [ 3, %7 ], [ 0, %9 ], [ %spec.select.i.i, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8 %.sroa.0.0.i.i, i64 0)
   %16 = load ptr, ptr %0, align 8
   %17 = load i64, ptr %3, align 8
@@ -479,7 +472,7 @@ define zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..
   %.val.i = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load i64, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val2.i
   store ptr %.val.i, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -512,7 +505,7 @@ define zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..
 
 _ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i: ; preds = %13, %12, %10, %8, %2
   %.sroa.0.0.i.i = phi i8 [ 1, %12 ], [ 3, %2 ], [ 3, %8 ], [ 0, %10 ], [ %spec.select.i.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8 %.sroa.0.0.i.i, i64 0)
   %17 = load ptr, ptr %0, align 8
   %18 = load i64, ptr %4, align 8
@@ -541,7 +534,7 @@ define zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..cmp..Par
   %.val.i = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %.val2.i = load i64, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val2.i
   store ptr %.val.i, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -574,7 +567,7 @@ define zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..cmp..Par
 
 _ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i: ; preds = %13, %12, %10, %8, %2
   %.sroa.0.0.i.i = phi i8 [ 1, %12 ], [ 3, %2 ], [ 3, %8 ], [ 0, %10 ], [ %spec.select.i.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8 %.sroa.0.0.i.i, i64 0)
   %17 = load ptr, ptr %1, align 8
   %18 = load i64, ptr %4, align 8
@@ -695,10 +688,10 @@ declare i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8, i
 declare zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h59d5c10624273c74E"(ptr align 1, i64, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

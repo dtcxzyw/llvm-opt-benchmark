@@ -233,7 +233,7 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %68, %70, %81
   %.sroa.2.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload63 = load i64, ptr %.sroa.2.0..sroa_idx62, align 8
   %.sroa.3.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx64, i64 16, i1 false)
   br label %101
 
@@ -241,7 +241,7 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %68, %70, %81
   %.sroa.2.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload72 = load i64, ptr %.sroa.2.0..sroa_idx71, align 8
   %.sroa.3.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx73, i64 16, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre68 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
@@ -253,7 +253,7 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %68, %70, %81
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %99 = load ptr, ptr %0, align 8, !tbaa !25
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -300,7 +300,7 @@ grpc_slice_buffer_add_indexed.exit:               ; preds = %96, %101, %113
   store i64 %123, ptr %121, align 8, !tbaa !20
   %124 = add i64 %4, 1
   store i64 %124, ptr %3, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %36, %33, %25, %grpc_slice_buffer_add_indexed.exit, %92
@@ -352,11 +352,8 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZNK9grpc_core11Sli
   resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9grpc_core11SliceBuffer8RefSliceEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZNK9grpc_core11SliceBuffer8RefSliceEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw %struct.grpc_slice, ptr %5, i64 %2
@@ -376,7 +373,7 @@ _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %3, %9
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -403,9 +400,6 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %4,
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN9grpc_core11SliceBuffer13AppendIndexedENS_5SliceE(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %.sroa.6 = alloca [16 x i8], align 8
@@ -413,7 +407,7 @@ define noundef i64 @_ZN9grpc_core11SliceBuffer13AppendIndexedENS_5SliceE(ptr nou
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -463,7 +457,7 @@ grpc_slice_buffer_add_indexed.exit:               ; preds = %6, %9, %21
   store i64 %28, ptr %26, align 8, !tbaa !20
   %29 = add i64 %4, 1
   store i64 %29, ptr %3, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret i64 %4
 }
 
@@ -528,7 +522,7 @@ define void @_ZN9grpc_core11SliceBuffer9TakeFirstEv(ptr dead_on_unwind noalias w
 
 6:                                                ; preds = %2
   %7 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.3), !noalias !43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22, !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !43
   %8 = load ptr, ptr %7, align 8, !tbaa !46, !noalias !43
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !50, !noalias !43
@@ -592,7 +586,7 @@ define void @grpc_slice_buffer_take_first(ptr dead_on_unwind noalias writable sr
 
 19:                                               ; preds = %2
   %20 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !50
@@ -602,13 +596,13 @@ define void @grpc_slice_buffer_take_first(ptr dead_on_unwind noalias writable sr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core11SliceBuffer7PrependENS_5SliceE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN9grpc_core11SliceBuffer7PrependENS_5SliceE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 {
   %.sroa.6 = alloca [16 x i8], align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !51
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -631,12 +625,12 @@ define void @_ZN9grpc_core11SliceBuffer7PrependENS_5SliceE(ptr noundef nonnull a
   %12 = load i64, ptr %11, align 8, !tbaa !20
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @grpc_slice_buffer_undo_take_first(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %1) local_unnamed_addr #7 {
+define void @grpc_slice_buffer_undo_take_first(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
@@ -801,7 +795,7 @@ _ZNK9grpc_core11SliceBuffer8RefSliceEm.exit:      ; preds = %8, %13
   br label %60
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !55
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %3, i64 noundef %17)
@@ -879,14 +873,14 @@ _ZNK9grpc_core11SliceBuffer8RefSliceEm.exit:      ; preds = %8, %13
   br i1 %58, label %23, label %._crit_edge, !llvm.loop !61
 
 59:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 82, i64 27, ptr nonnull @.str.1) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
 
 .critedge:                                        ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 60:                                               ; preds = %.critedge, %_ZNK9grpc_core11SliceBuffer8RefSliceEm.exit, %7
@@ -894,21 +888,21 @@ _ZNK9grpc_core11SliceBuffer8RefSliceEm.exit:      ; preds = %8, %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @grpc_slice_malloc(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: cold
-declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #10
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_slice_buffer_init(ptr noundef initializes((16, 40)) %0) local_unnamed_addr #12 {
+define void @grpc_slice_buffer_init(ptr noundef initializes((16, 40)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1116,7 +1110,7 @@ define void @grpc_slice_buffer_addn(ptr noundef captures(address) %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @grpc_slice_buffer_pop(ptr noundef captures(none) %0) local_unnamed_addr #13 {
+define void @grpc_slice_buffer_pop(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !13
   %.not = icmp eq i64 %3, 0
@@ -1155,7 +1149,7 @@ define void @grpc_slice_buffer_pop(ptr noundef captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @grpc_slice_buffer_swap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @grpc_slice_buffer_swap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = alloca [6 x %struct.grpc_slice], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !17
@@ -1187,14 +1181,14 @@ define void @grpc_slice_buffer_swap(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %27, label %29, label %33
 
 29:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = shl i64 %20, 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 8 %6, i64 %30, i1 false)
   %31 = shl i64 %23, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %13, i64 %31, i1 false)
   %32 = load ptr, ptr %1, align 8, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr nonnull align 16 %3, i64 %30, i1 false)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 33:                                               ; preds = %28
@@ -1284,13 +1278,13 @@ define void @grpc_slice_buffer_move_into(ptr noundef %0, ptr noundef %1) local_u
   br i1 %29, label %31, label %34
 
 31:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = shl i64 %25, 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 8 %14, i64 %32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %21, i64 %24, i1 false)
   %33 = load ptr, ptr %1, align 8, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 16 %3, i64 %32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %grpc_slice_buffer_swap.exit
 
 34:                                               ; preds = %30
@@ -1367,7 +1361,7 @@ define void @_Z38grpc_slice_buffer_move_first_no_inlineP17grpc_slice_buffermS0_(
   %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %10 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp eq i64 %1, 0
   br i1 %11, label %_ZL33slice_buffer_move_first_maybe_refILb1ELb0EEvP17grpc_slice_buffermS1_.exit, label %12
 
@@ -1378,7 +1372,7 @@ define void @_Z38grpc_slice_buffer_move_first_no_inlineP17grpc_slice_buffermS0_(
   br i1 %.not.i, label %15, label %.critedge.i, !prof !27
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 332, i64 16, ptr nonnull @.str.2) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
@@ -1409,7 +1403,7 @@ grpc_slice_buffer_take_first.exit.lr.ph.i:        ; preds = %18
 grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buffer_take_first.exit.lr.ph.i
   %27 = phi i64 [ %24, %grpc_slice_buffer_take_first.exit.lr.ph.i ], [ %57, %55 ]
   %.096.i = phi i64 [ %1, %grpc_slice_buffer_take_first.exit.lr.ph.i ], [ %56, %55 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %28 = load ptr, ptr %25, align 8, !tbaa !17, !noalias !66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !3
@@ -1438,7 +1432,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
 
 41:                                               ; preds = %38
   call void @_Z41grpc_slice_split_tail_maybe_ref_no_inlineP10grpc_slicem19grpc_slice_ref_whom(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %6, ptr noundef nonnull %5, i64 noundef %.096.i, i32 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %.sroa.080.0.copyload81.i = load ptr, ptr %6, align 8
   %.sroa.5.0..sroa_idx82.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.0.copyload83.i = load i64, ptr %.sroa.5.0..sroa_idx82.i, align 8
@@ -1461,7 +1455,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   %48 = load i64, ptr %13, align 8, !tbaa !20
   %49 = add i64 %48, %47
   store i64 %49, ptr %13, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   %50 = load ptr, ptr %5, align 8, !tbaa !18
   %.not56.i = icmp eq ptr %50, null
   %51 = load i64, ptr %26, align 8
@@ -1471,7 +1465,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br i1 %.not57.not.i, label %.critedge62.i, label %54, !prof !60
 
 54:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 360, i64 29, ptr nonnull @.str.5) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   unreachable
@@ -1481,13 +1475,13 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.critedge62.i, %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
 55:                                               ; preds = %grpc_slice_buffer_take_first.exit.i
   tail call void @grpc_slice_buffer_add(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %5)
   %56 = sub nuw i64 %.096.i, %34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = load i64, ptr %23, align 8, !tbaa !13
   %.not54.i = icmp eq i64 %57, 0
   br i1 %.not54.i, label %.loopexit.i, label %grpc_slice_buffer_take_first.exit.i
@@ -1498,7 +1492,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br i1 %.not58.not.i, label %.critedge64.i, label %59, !prof !60
 
 59:                                               ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 378, i64 25, ptr nonnull @.str.6) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   unreachable
@@ -1509,7 +1503,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br i1 %.not59.not.i, label %.critedge66.i, label %61, !prof !60
 
 61:                                               ; preds = %.critedge64.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef 379, i64 28, ptr nonnull @.str.7) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
   unreachable
@@ -1521,7 +1515,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
 
 63:                                               ; preds = %.critedge66.i
   %64 = call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %65 = load ptr, ptr %64, align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !50
@@ -1530,7 +1524,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   unreachable
 
 _ZL33slice_buffer_move_first_maybe_refILb1ELb0EEvP17grpc_slice_buffermS1_.exit: ; preds = %3, %17, %.critedge66.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1544,7 +1538,7 @@ define void @grpc_slice_buffer_move_first(ptr noundef %0, i64 noundef %1, ptr no
   %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %10 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp eq i64 %1, 0
   br i1 %11, label %_ZL33slice_buffer_move_first_maybe_refILb1ELb1EEvP17grpc_slice_buffermS1_.exit, label %12
 
@@ -1555,7 +1549,7 @@ define void @grpc_slice_buffer_move_first(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %.not.i, label %15, label %.critedge.i, !prof !27
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 332, i64 16, ptr nonnull @.str.2) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
@@ -1586,7 +1580,7 @@ grpc_slice_buffer_take_first.exit.lr.ph.i:        ; preds = %18
 grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buffer_take_first.exit.lr.ph.i
   %27 = phi i64 [ %24, %grpc_slice_buffer_take_first.exit.lr.ph.i ], [ %57, %55 ]
   %.096.i = phi i64 [ %1, %grpc_slice_buffer_take_first.exit.lr.ph.i ], [ %56, %55 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %28 = load ptr, ptr %25, align 8, !tbaa !17, !noalias !69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !3
@@ -1615,7 +1609,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
 
 41:                                               ; preds = %38
   call void @grpc_slice_split_tail_maybe_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %6, ptr noundef nonnull %5, i64 noundef %.096.i, i32 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %.sroa.080.0.copyload81.i = load ptr, ptr %6, align 8
   %.sroa.5.0..sroa_idx82.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.0.copyload83.i = load i64, ptr %.sroa.5.0..sroa_idx82.i, align 8
@@ -1638,7 +1632,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   %48 = load i64, ptr %13, align 8, !tbaa !20
   %49 = add i64 %48, %47
   store i64 %49, ptr %13, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   %50 = load ptr, ptr %5, align 8, !tbaa !18
   %.not56.i = icmp eq ptr %50, null
   %51 = load i64, ptr %26, align 8
@@ -1648,7 +1642,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br i1 %.not57.not.i, label %.critedge62.i, label %54, !prof !60
 
 54:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 360, i64 29, ptr nonnull @.str.5) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   unreachable
@@ -1658,13 +1652,13 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.critedge62.i, %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
 55:                                               ; preds = %grpc_slice_buffer_take_first.exit.i
   tail call void @grpc_slice_buffer_add(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %5)
   %56 = sub nuw i64 %.096.i, %34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = load i64, ptr %23, align 8, !tbaa !13
   %.not54.i = icmp eq i64 %57, 0
   br i1 %.not54.i, label %.loopexit.i, label %grpc_slice_buffer_take_first.exit.i
@@ -1675,7 +1669,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br i1 %.not58.not.i, label %.critedge64.i, label %59, !prof !60
 
 59:                                               ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 378, i64 25, ptr nonnull @.str.6) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   unreachable
@@ -1686,7 +1680,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   br i1 %.not59.not.i, label %.critedge66.i, label %61, !prof !60
 
 61:                                               ; preds = %.critedge64.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef 379, i64 28, ptr nonnull @.str.7) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
   unreachable
@@ -1698,7 +1692,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
 
 63:                                               ; preds = %.critedge66.i
   %64 = call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %65 = load ptr, ptr %64, align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !50
@@ -1707,7 +1701,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %55, %grpc_slice_buf
   unreachable
 
 _ZL33slice_buffer_move_first_maybe_refILb1ELb1EEvP17grpc_slice_buffermS1_.exit: ; preds = %3, %17, %.critedge66.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1722,7 +1716,7 @@ define void @grpc_slice_buffer_move_first_no_ref(ptr noundef %0, i64 noundef %1,
   %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %10 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp eq i64 %1, 0
   br i1 %11, label %_ZL33slice_buffer_move_first_maybe_refILb0ELb1EEvP17grpc_slice_buffermS1_.exit, label %12
 
@@ -1733,7 +1727,7 @@ define void @grpc_slice_buffer_move_first_no_ref(ptr noundef %0, i64 noundef %1,
   br i1 %.not.i, label %15, label %.critedge.i, !prof !27
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 332, i64 16, ptr nonnull @.str.2) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
@@ -1764,7 +1758,7 @@ grpc_slice_buffer_take_first.exit.lr.ph.i:        ; preds = %18
 grpc_slice_buffer_take_first.exit.i:              ; preds = %79, %grpc_slice_buffer_take_first.exit.lr.ph.i
   %27 = phi i64 [ %24, %grpc_slice_buffer_take_first.exit.lr.ph.i ], [ %81, %79 ]
   %.0106.i = phi i64 [ %1, %grpc_slice_buffer_take_first.exit.lr.ph.i ], [ %80, %79 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %28 = load ptr, ptr %25, align 8, !tbaa !17, !noalias !72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !3
@@ -1793,7 +1787,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %79, %grpc_slice_buf
 
 41:                                               ; preds = %38
   call void @grpc_slice_split_tail_maybe_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %6, ptr noundef nonnull %5, i64 noundef %.0106.i, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %.sroa.081.0.copyload82.i = load ptr, ptr %6, align 8
   %.sroa.5.0..sroa_idx83.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.0.copyload84.i = load i64, ptr %.sroa.5.0..sroa_idx83.i, align 8
@@ -1816,7 +1810,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %79, %grpc_slice_buf
   %48 = load i64, ptr %13, align 8, !tbaa !20
   %49 = add i64 %48, %47
   store i64 %49, ptr %13, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   %50 = load ptr, ptr %5, align 8, !tbaa !18
   %.not56.i = icmp eq ptr %50, null
   %51 = load i64, ptr %26, align 8
@@ -1826,14 +1820,14 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %79, %grpc_slice_buf
   br i1 %.not57.not.i, label %.critedge62.i, label %54, !prof !60
 
 54:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 373, i64 29, ptr nonnull @.str.5) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   unreachable
 
 .critedge62.i:                                    ; preds = %41
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.691.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.691.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.691.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !13
@@ -1878,17 +1872,17 @@ grpc_slice_buffer_add_indexed.exit.i:             ; preds = %73, %61, %58
   store i64 %77, ptr %19, align 8, !tbaa !20
   %78 = add i64 %56, 1
   store i64 %78, ptr %55, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.691.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.691.i)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %grpc_slice_buffer_add_indexed.exit.i, %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
 79:                                               ; preds = %grpc_slice_buffer_take_first.exit.i
   tail call void @grpc_slice_buffer_add(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %5)
   %80 = sub nuw i64 %.0106.i, %34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %81 = load i64, ptr %23, align 8, !tbaa !13
   %.not54.i = icmp eq i64 %81, 0
   br i1 %.not54.i, label %.loopexit.i, label %grpc_slice_buffer_take_first.exit.i
@@ -1899,7 +1893,7 @@ grpc_slice_buffer_add_indexed.exit.i:             ; preds = %73, %61, %58
   br i1 %.not58.not.i, label %.critedge64.i, label %83, !prof !60
 
 83:                                               ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 378, i64 25, ptr nonnull @.str.6) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   unreachable
@@ -1910,7 +1904,7 @@ grpc_slice_buffer_add_indexed.exit.i:             ; preds = %73, %61, %58
   br i1 %.not59.not.i, label %.critedge66.i, label %85, !prof !60
 
 85:                                               ; preds = %.critedge64.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef 379, i64 28, ptr nonnull @.str.7) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
   unreachable
@@ -1922,7 +1916,7 @@ grpc_slice_buffer_add_indexed.exit.i:             ; preds = %73, %61, %58
 
 87:                                               ; preds = %.critedge66.i
   %88 = call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %89 = load ptr, ptr %88, align 8, !tbaa !46
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !50
@@ -1931,7 +1925,7 @@ grpc_slice_buffer_add_indexed.exit.i:             ; preds = %73, %61, %58
   unreachable
 
 _ZL33slice_buffer_move_first_maybe_refILb0ELb1EEvP17grpc_slice_buffermS1_.exit: ; preds = %3, %17, %.critedge66.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1964,14 +1958,14 @@ define void @grpc_slice_buffer_move_first_into_buffer(ptr noundef captures(none)
   br i1 %.not.i61, label %._crit_edge, label %grpc_slice_buffer_take_first.exit, !prof !78
 
 16:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 401, i64 16, ptr nonnull @.str.2) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %.lr.ph
   %17 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.3), !noalias !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22, !noalias !75
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !75
   %18 = load ptr, ptr %17, align 8, !tbaa !46, !noalias !75
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !50, !noalias !75
@@ -2007,7 +2001,7 @@ grpc_slice_buffer_take_first.exit:                ; preds = %.lr.ph, %_ZN9grpc_c
   %36 = select i1 %.not7.i, ptr %14, ptr %35
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0254063, ptr align 1 %36, i64 %.04162, i1 false)
   call void @grpc_slice_sub_no_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %7, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6, i64 noundef %.04162, i64 noundef %32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %.sroa.034.0.copyload35 = load ptr, ptr %7, align 8
   %.sroa.5.0.copyload37 = load i64, ptr %.sroa.5.0..sroa_idx36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx38, i64 16, i1 false)
@@ -2028,7 +2022,7 @@ grpc_slice_buffer_take_first.exit:                ; preds = %.lr.ph, %_ZN9grpc_c
   %43 = load i64, ptr %8, align 8, !tbaa !20
   %44 = add i64 %43, %42
   store i64 %44, ptr %8, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %.critedge._crit_edge
 
 45:                                               ; preds = %grpc_slice_buffer_take_first.exit
@@ -2107,7 +2101,7 @@ define void @_Z40grpc_slice_buffer_copy_first_into_bufferPK17grpc_slice_buffermP
   br label %15
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 427, i64 16, ptr nonnull @.str.2) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
@@ -2116,7 +2110,7 @@ define void @_Z40grpc_slice_buffer_copy_first_into_bufferPK17grpc_slice_buffermP
   %.041 = phi i64 [ %1, %.lr.ph ], [ %26, %.critedge ]
   %.02440 = phi i64 [ 0, %.lr.ph ], [ %27, %.critedge ]
   %.02739 = phi ptr [ %2, %.lr.ph ], [ %25, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %10, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw %struct.grpc_slice, ptr %16, i64 %.02440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !tbaa.struct !3
@@ -2132,14 +2126,14 @@ define void @_Z40grpc_slice_buffer_copy_first_into_bufferPK17grpc_slice_buffermP
 
 24:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02739, ptr align 1 %23, i64 %.041, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .critedge:                                        ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02739, ptr align 1 %23, i64 %21, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.02739, i64 %21
   %26 = sub nuw i64 %.041, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = add nuw i64 %.02440, 1
   %28 = load i64, ptr %8, align 8, !tbaa !13
   %29 = icmp ult i64 %27, %28
@@ -2171,7 +2165,7 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb0EEvP17grpc_slic
   br i1 %.not, label %11, label %.critedge, !prof !27
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 445, i64 15, ptr nonnull @.str.9) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
@@ -2184,7 +2178,7 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb0EEvP17grpc_slic
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %13, align 8, !tbaa !13
   %17 = add i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %14, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw %struct.grpc_slice, ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !3
@@ -2235,9 +2229,9 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb0EEvP17grpc_slic
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = %39, %36, %.lr.ph109
   %42 = sub i64 %.03095.us108, %34
   store i64 %32, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = add i64 %32, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = load ptr, ptr %14, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw %struct.grpc_slice, ptr %44, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false), !tbaa.struct !3
@@ -2253,13 +2247,13 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = 
   %.030.lcssa = phi i64 [ %1, %.critedge ], [ %42, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %148, %grpc_slice_buffer_add_indexed.exit48 ]
   %.lcssa89 = phi i64 [ %17, %.critedge ], [ %43, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %149, %grpc_slice_buffer_add_indexed.exit48 ]
   %.lcssa = phi i64 [ %23, %.critedge ], [ %49, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %155, %grpc_slice_buffer_add_indexed.exit48 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = sub nuw i64 %.lcssa, %.030.lcssa
   call void @_Z31grpc_slice_split_head_no_inlineP10grpc_slicem(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %6, ptr noundef nonnull %5, i64 noundef %51)
   %52 = load ptr, ptr %14, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw %struct.grpc_slice, ptr %52, i64 %.lcssa89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not41 = icmp eq ptr %2, null
   %54 = load ptr, ptr %5, align 8, !tbaa !4
   br i1 %.not41, label %83, label %55
@@ -2267,7 +2261,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = 
 55:                                               ; preds = %._crit_edge
   %.sroa.257.0.copyload = load i64, ptr %15, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !13
@@ -2316,7 +2310,7 @@ grpc_slice_buffer_add_indexed.exit:               ; preds = %59, %62, %74
   store i64 %81, ptr %79, align 8, !tbaa !20
   %82 = add i64 %57, 1
   store i64 %82, ptr %56, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread
 
 83:                                               ; preds = %._crit_edge
@@ -2461,9 +2455,9 @@ grpc_slice_buffer_add_indexed.exit48:             ; preds = %128, %130, %140
   store i64 %147, ptr %25, align 8, !tbaa !13
   %148 = sub i64 %.03095, %91
   store i64 %93, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %149 = add i64 %93, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %150 = load ptr, ptr %14, align 8, !tbaa !17
   %151 = getelementptr inbounds nuw %struct.grpc_slice, ptr %150, i64 %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %151, i64 32, i1 false), !tbaa.struct !3
@@ -2476,7 +2470,7 @@ grpc_slice_buffer_add_indexed.exit48:             ; preds = %128, %130, %140
   br i1 %156, label %._crit_edge, label %.lr.ph.split
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread: ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45, %grpc_slice_buffer_add_indexed.exit, %83, %85, %88
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %157
 
 157:                                              ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread, %3
@@ -2505,7 +2499,7 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb1EEvP17grpc_slic
   br i1 %.not, label %11, label %.critedge, !prof !27
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 445, i64 15, ptr nonnull @.str.9) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   unreachable
@@ -2518,7 +2512,7 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb1EEvP17grpc_slic
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %13, align 8, !tbaa !13
   %17 = add i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %14, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw %struct.grpc_slice, ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !3
@@ -2569,9 +2563,9 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb1EEvP17grpc_slic
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = %39, %36, %.lr.ph109
   %42 = sub i64 %.03095.us108, %34
   store i64 %32, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = add i64 %32, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = load ptr, ptr %14, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw %struct.grpc_slice, ptr %44, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false), !tbaa.struct !3
@@ -2587,13 +2581,13 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = 
   %.030.lcssa = phi i64 [ %1, %.critedge ], [ %42, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %148, %grpc_slice_buffer_add_indexed.exit48 ]
   %.lcssa89 = phi i64 [ %17, %.critedge ], [ %43, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %149, %grpc_slice_buffer_add_indexed.exit48 ]
   %.lcssa = phi i64 [ %23, %.critedge ], [ %49, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %155, %grpc_slice_buffer_add_indexed.exit48 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = sub nuw i64 %.lcssa, %.030.lcssa
   call void @grpc_slice_split_head(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %6, ptr noundef nonnull %5, i64 noundef %51)
   %52 = load ptr, ptr %14, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw %struct.grpc_slice, ptr %52, i64 %.lcssa89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not41 = icmp eq ptr %2, null
   %54 = load ptr, ptr %5, align 8, !tbaa !4
   br i1 %.not41, label %83, label %55
@@ -2601,7 +2595,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = 
 55:                                               ; preds = %._crit_edge
   %.sroa.257.0.copyload = load i64, ptr %15, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !13
@@ -2650,7 +2644,7 @@ grpc_slice_buffer_add_indexed.exit:               ; preds = %59, %62, %74
   store i64 %81, ptr %79, align 8, !tbaa !20
   %82 = add i64 %57, 1
   store i64 %82, ptr %56, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread
 
 83:                                               ; preds = %._crit_edge
@@ -2795,9 +2789,9 @@ grpc_slice_buffer_add_indexed.exit48:             ; preds = %128, %130, %140
   store i64 %147, ptr %25, align 8, !tbaa !13
   %148 = sub i64 %.03095, %91
   store i64 %93, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %149 = add i64 %93, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %150 = load ptr, ptr %14, align 8, !tbaa !17
   %151 = getelementptr inbounds nuw %struct.grpc_slice, ptr %150, i64 %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %151, i64 32, i1 false), !tbaa.struct !3
@@ -2810,7 +2804,7 @@ grpc_slice_buffer_add_indexed.exit48:             ; preds = %128, %130, %140
   br i1 %156, label %._crit_edge, label %.lr.ph.split
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread: ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit45, %grpc_slice_buffer_add_indexed.exit, %83, %85, %88
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %157
 
 157:                                              ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.thread, %3
@@ -2900,11 +2894,11 @@ define void @_Z27grpc_slice_buffer_sub_firstP17grpc_slice_buffermm(ptr noundef c
   %17 = load i64, ptr %16, align 8, !tbaa !20
   %18 = sub i64 %17, %15
   store i64 %18, ptr %16, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @grpc_slice_sub_no_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %4, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6, i64 noundef %1, i64 noundef %2)
   %19 = load ptr, ptr %5, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = sub i64 %2, %1
   %21 = load i64, ptr %16, align 8, !tbaa !20
   %22 = add i64 %20, %21
@@ -2913,7 +2907,7 @@ define void @_Z27grpc_slice_buffer_sub_firstP17grpc_slice_buffermm(ptr noundef c
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
   tail call void @_ZSt9terminatev() #23
   unreachable
@@ -2922,10 +2916,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #15
+declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL11do_embiggenP17grpc_slice_buffermm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2) unnamed_addr #16 {
+define internal fastcc void @_ZL11do_embiggenP17grpc_slice_buffermm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2) unnamed_addr #15 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %12, label %4
 
@@ -2977,16 +2971,16 @@ define internal fastcc void @_ZL11do_embiggenP17grpc_slice_buffermm(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0
 
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::lts_20240722::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %0)
           to label %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringImEEvRSoRKT_.exit unwind label %28
@@ -3038,14 +3032,14 @@ _ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = 
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %27) #22
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %9
 
 28:                                               ; preds = %7, %3, %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit, %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringImEEvRSoRKT_.exit
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #22
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 }
 
@@ -3056,7 +3050,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212
 declare noundef ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %2, ptr %0, align 8, !tbaa !85
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -3105,12 +3099,12 @@ declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 declare void @_Z41grpc_slice_split_tail_maybe_ref_no_inlineP10grpc_slicem19grpc_slice_ref_whom(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -3121,11 +3115,17 @@ declare void @_Z31grpc_slice_split_head_no_inlineP10grpc_slicem(ptr dead_on_unwi
 declare void @grpc_slice_split_head(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_slice_buffer.cc() #19 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_slice_buffer.cc() #18 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
@@ -3137,22 +3137,22 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold nofree noreturn }
-attributes #16 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold nofree noreturn }
+attributes #15 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nounwind }

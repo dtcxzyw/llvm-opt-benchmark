@@ -11,7 +11,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %4 = alloca [8 x i64], align 8
   %5 = alloca [8 x i64], align 8
   %6 = alloca [8 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %0, align 8, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
@@ -184,7 +184,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %91 = sext i8 %.1 to i32
   %92 = shl nsw i32 %91, 2
   %93 = add nsw i32 %92, %.163
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %94 = add nsw i32 %.163, %92
   %95 = sub nsw i32 272, %94
@@ -230,7 +230,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   br label %119
 
 "_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread": ; preds = %119, %.lr.ph, %124, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   br label %139
 
@@ -325,12 +325,12 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds =
   store i64 %.sroa.9169.0, ptr %16, align 8
   store i64 %.sroa.10171.0, ptr %18, align 8
   store i64 %.sroa.11173.0, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %148
 
 148:                                              ; preds = %38, %39, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 149:                                              ; preds = %139
@@ -381,7 +381,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %3 = alloca [8 x i64], align 8
   %4 = alloca [8 x i64], align 8
   %5 = alloca [8 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i64, ptr %0, align 8, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
@@ -484,7 +484,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %61 = shl nsw i32 %60, 2
   %62 = or disjoint i32 %61, %55
   %.neg66 = add nsw i32 %62, 49
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %63 = or disjoint i32 %55, %61
   %64 = sub nsw i32 272, %63
@@ -528,7 +528,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   br label %86
 
 "_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread": ; preds = %86, %.lr.ph, %91, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   br label %106
 
@@ -623,12 +623,12 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread: ; preds = 
   store i64 %.sroa.9142.0, ptr %15, align 8
   store i64 %.sroa.10144.0, ptr %17, align 8
   store i64 %.sroa.11146.0, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
 115:                                              ; preds = %38, %36, %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 116:                                              ; preds = %106
@@ -683,10 +683,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5

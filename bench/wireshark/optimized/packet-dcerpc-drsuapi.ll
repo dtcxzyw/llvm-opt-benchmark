@@ -2842,7 +2842,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_security_GroupAttrs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -2858,26 +2858,20 @@ define hidden i32 @drsuapi_dissect_bitmap_security_GroupAttrs(ptr noundef %0, i3
   %19 = shl nuw i32 %18, 27
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %19)
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -2903,20 +2897,20 @@ define hidden i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef
   br label %25
 
 25:                                               ; preds = %24, %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -2954,14 +2948,14 @@ define hidden i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DrsUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -2999,14 +2993,14 @@ define hidden i32 @drsuapi_dissect_bitmap_DrsUpdate(ptr noundef %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -3032,14 +3026,14 @@ define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i3
   br label %25
 
 25:                                               ; preds = %24, %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -3077,7 +3071,7 @@ define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -3109,7 +3103,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 nound
   %.036 = phi ptr [ %17, %16 ], [ null, %8 ]
   %.035 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo24_supported_extensions, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = and i32 %.0, 3
   %.not.i.i = icmp eq i32 %22, 0
   %or.cond.i.i = or i1 %.not.i.i, %.pre-phi
@@ -3132,7 +3126,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 nound
   br label %drsuapi_dissect_element_DsBindInfo24_supported_extensions.exit
 
 drsuapi_dissect_element_DsBindInfo24_supported_extensions.exit: ; preds = %20, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo24_site_guid, align 4
   %35 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.035, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo24_pid, align 4
@@ -3166,10 +3160,10 @@ drsuapi_dissect_element_DsBindInfo24_supported_extensions.exit: ; preds = %20, %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -3199,7 +3193,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 nound
   %.042 = phi ptr [ %17, %16 ], [ null, %8 ]
   %.041 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_supported_extensions, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = and i32 %.0, 3
   %.not.i.i = icmp eq i32 %22, 0
   %or.cond.i.i = or i1 %.not.i.i, %.pre-phi
@@ -3222,7 +3216,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 nound
   br label %drsuapi_dissect_element_DsBindInfo28_supported_extensions.exit
 
 drsuapi_dissect_element_DsBindInfo28_supported_extensions.exit: ; preds = %20, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_site_guid, align 4
   %35 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.041, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_pid, align 4
@@ -3285,7 +3279,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 nound
   %.048 = phi ptr [ %17, %16 ], [ null, %8 ]
   %.047 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_supported_extensions, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = and i32 %.0, 3
   %.not.i.i = icmp eq i32 %22, 0
   %or.cond.i.i = or i1 %.not.i.i, %.pre-phi
@@ -3308,7 +3302,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 nound
   br label %drsuapi_dissect_element_DsBindInfo32_supported_extensions.exit
 
 drsuapi_dissect_element_DsBindInfo32_supported_extensions.exit: ; preds = %20, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_site_guid, align 4
   %35 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_pid, align 4
@@ -3373,7 +3367,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 nound
   %.054 = phi ptr [ %17, %16 ], [ null, %8 ]
   %.053 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_supported_extensions, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = and i32 %.0, 3
   %.not.i.i = icmp eq i32 %22, 0
   %or.cond.i.i = or i1 %.not.i.i, %.pre-phi
@@ -3396,7 +3390,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 nound
   br label %drsuapi_dissect_element_DsBindInfo48_supported_extensions.exit
 
 drsuapi_dissect_element_DsBindInfo48_supported_extensions.exit: ; preds = %20, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_site_guid, align 4
   %35 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_pid, align 4
@@ -3463,7 +3457,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 nound
   %.060 = phi ptr [ %17, %16 ], [ null, %8 ]
   %.059 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_supported_extensions, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = and i32 %.0, 3
   %.not.i.i = icmp eq i32 %22, 0
   %or.cond.i.i = or i1 %.not.i.i, %.pre-phi
@@ -3486,7 +3480,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 nound
   br label %drsuapi_dissect_element_DsBindInfo52_supported_extensions.exit
 
 drsuapi_dissect_element_DsBindInfo52_supported_extensions.exit: ; preds = %20, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_site_guid, align 4
   %35 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.059, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_pid, align 4
@@ -3608,9 +3602,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
 
 23:                                               ; preds = %17
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfoCtr_info, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %28, label %25
 
@@ -3676,8 +3670,8 @@ drsuapi_dissect_DsBindInfo.exit.i:                ; preds = %53, %50, %47, %44, 
   %56 = load ptr, ptr %9, align 8
   %57 = sub i32 %.1.i.i, %19
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %drsuapi_dissect_element_DsBindInfoCtr_info.exit
 
 drsuapi_dissect_element_DsBindInfoCtr_info.exit:  ; preds = %17, %drsuapi_dissect_DsBindInfo.exit.i
@@ -3807,7 +3801,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, 
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_source_dsa_dns, align 4
   %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaSyncRequest1_source_dsa_dns_, i32 noundef 2, ptr noundef nonnull @.str.1415, i32 noundef %38)
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %42 = load i8, ptr %41, align 1, !range !6, !noundef !7
   %43 = trunc nuw i8 %42 to i1
@@ -3833,7 +3827,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, 
   br label %drsuapi_dissect_element_DsReplicaSyncRequest1_options.exit
 
 drsuapi_dissect_element_DsReplicaSyncRequest1_options.exit: ; preds = %33, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %56 = sub i32 %53, %.0
   call void @proto_item_set_len(ptr noundef %.050, i32 noundef %56)
   %57 = load ptr, ptr %10, align 8
@@ -4036,7 +4030,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtrEx(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsExtendedOperation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4055,14 +4049,14 @@ define hidden i32 @drsuapi_dissect_enum_DsExtendedOperation(ptr noundef %0, i32 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsExtendedError(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4081,7 +4075,7 @@ define hidden i32 @drsuapi_dissect_enum_DsExtendedError(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -4121,7 +4115,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0,
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_uptodateness_vector, align 4
   %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.077, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest5_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1417, i32 noundef %30)
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_replica_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   %35 = and i32 %31, 3
@@ -4146,16 +4140,16 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0,
   br label %drsuapi_dissect_element_DsGetNCChangesRequest5_replica_flags.exit
 
 drsuapi_dissect_element_DsGetNCChangesRequest5_replica_flags.exit: ; preds = %21, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_max_object_count, align 4
   %48 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.077, ptr noundef %4, ptr noundef %5, i32 noundef %47, i32 noundef 0)
   %49 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_max_ndr_size, align 4
   %50 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.077, ptr noundef %4, ptr noundef %5, i32 noundef %49, i32 noundef 0)
   %51 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_extended_op, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.077, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %53 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_fsmo_info, align 4
   %54 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.077, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef null)
   %55 = sub i32 %54, %.0
@@ -4432,7 +4426,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsObjectClassId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4451,14 +4445,14 @@ define hidden i32 @drsuapi_dissect_enum_DsObjectClassId(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsAttributeId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4477,7 +4471,7 @@ define hidden i32 @drsuapi_dissect_enum_DsAttributeId(ptr noundef %0, i32 nounde
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -4575,7 +4569,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0,
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_uptodateness_vector, align 4
   %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.095, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1417, i32 noundef %30)
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_replica_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   %35 = and i32 %31, 3
@@ -4600,16 +4594,16 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0,
   br label %drsuapi_dissect_element_DsGetNCChangesRequest8_replica_flags.exit
 
 drsuapi_dissect_element_DsGetNCChangesRequest8_replica_flags.exit: ; preds = %21, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_max_object_count, align 4
   %48 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.095, ptr noundef %4, ptr noundef %5, i32 noundef %47, i32 noundef 0)
   %49 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_max_ndr_size, align 4
   %50 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.095, ptr noundef %4, ptr noundef %5, i32 noundef %49, i32 noundef 0)
   %51 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_extended_op, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.095, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %53 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_fsmo_info, align 4
   %54 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.095, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef null)
   %55 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_partial_attribute_set, align 4
@@ -4682,7 +4676,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_uptodateness_vector, align 4
   %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0101, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1417, i32 noundef %30)
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_replica_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   %35 = and i32 %31, 3
@@ -4707,16 +4701,16 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0
   br label %drsuapi_dissect_element_DsGetNCChangesRequest10_replica_flags.exit
 
 drsuapi_dissect_element_DsGetNCChangesRequest10_replica_flags.exit: ; preds = %21, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_max_object_count, align 4
   %48 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0101, ptr noundef %4, ptr noundef %5, i32 noundef %47, i32 noundef 0)
   %49 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_max_ndr_size, align 4
   %50 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0101, ptr noundef %4, ptr noundef %5, i32 noundef %49, i32 noundef 0)
   %51 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_extended_op, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0101, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %53 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_fsmo_info, align 4
   %54 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0101, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef null)
   %55 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_partial_attribute_set, align 4
@@ -5267,10 +5261,10 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttribute(ptr noundef %0, i32
   %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
   %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttribute_attid, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttribute_value_ctr, align 4
   %37 = call i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.037, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = sub i32 %37, %.0
@@ -5385,7 +5379,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsReplicaObjectFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -5423,7 +5417,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DsReplicaObjectFlags(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -5749,10 +5743,10 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_mapping_ctr, align 4
   %34 = tail call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.089, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_extended_ret, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.089, ptr noundef %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_object_count, align 4
   %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.089, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1___ndr_size, align 4
@@ -5792,7 +5786,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsLinkedAttributeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -5830,7 +5824,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DsLinkedAttributeFlags(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -5861,10 +5855,10 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaLinkedAttribute(ptr noundef %
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_identifier, align 4
   %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaLinkedAttribute_identifier_, i32 noundef 2, ptr noundef nonnull @.str.1426, i32 noundef %21)
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_attid, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_value, align 4
   %26 = call i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 poison)
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_flags, align 4
@@ -5940,10 +5934,10 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_mapping_ctr, align 4
   %34 = tail call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_extended_ret, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_object_count, align 4
   %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6___ndr_size, align 4
@@ -6431,7 +6425,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsGetNCChangesCompressionType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -6450,12 +6444,12 @@ define hidden i32 @drsuapi_dissect_enum_DsGetNCChangesCompressionType(ptr nounde
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -6590,11 +6584,11 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr7_level, align 4
   %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0)
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr7_type, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %38 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.043, null
   br i1 %.not.i.i, label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit, label %39
@@ -6608,7 +6602,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32
 drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %34, %39
   %42 = phi ptr [ null, %34 ], [ %.pre.i.i, %39 ]
   call void @proto_item_set_len(ptr noundef %42, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = sub i32 %38, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %43)
   %44 = load ptr, ptr %11, align 8
@@ -6694,7 +6688,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr nounde
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_dest_dsa_guid, align 4
   %39 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef %4, ptr noundef %5, i32 noundef %38, ptr noundef null)
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %42 = load i8, ptr %41, align 1, !range !6, !noundef !7
   %43 = trunc nuw i8 %42 to i1
@@ -6720,7 +6714,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr nounde
   br label %drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_options.exit
 
 drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_options.exit: ; preds = %33, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %56 = sub i32 %53, %.0
   call void @proto_item_set_len(ptr noundef %.050, i32 noundef %56)
   %57 = load ptr, ptr %10, align 8
@@ -6815,7 +6809,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest1(ptr noundef %0, i
 
 drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit: ; preds = %38
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest1_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %44 = load i8, ptr %43, align 1, !range !6, !noundef !7
   %45 = trunc nuw i8 %44 to i1
@@ -6841,7 +6835,7 @@ drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit: ; preds = %38
   br label %drsuapi_dissect_element_DsReplicaAddRequest1_options.exit
 
 drsuapi_dissect_element_DsReplicaAddRequest1_options.exit: ; preds = %drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %58 = sub i32 %55, %.0
   call void @proto_item_set_len(ptr noundef %.050, i32 noundef %58)
   %59 = load ptr, ptr %10, align 8
@@ -6940,7 +6934,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i
 
 drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit: ; preds = %42
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %48 = load i8, ptr %47, align 1, !range !6, !noundef !7
   %49 = trunc nuw i8 %48 to i1
@@ -6966,7 +6960,7 @@ drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit: ; preds = %42
   br label %drsuapi_dissect_element_DsReplicaAddRequest2_options.exit
 
 drsuapi_dissect_element_DsReplicaAddRequest2_options.exit: ; preds = %drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %62 = sub i32 %59, %.0
   call void @proto_item_set_len(ptr noundef %.062, i32 noundef %62)
   %63 = load ptr, ptr %10, align 8
@@ -7049,7 +7043,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest1_source_dsa_address, align 4
   %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaDelRequest1_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1440, i32 noundef %36)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest1_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %40 = load i8, ptr %39, align 1, !range !6, !noundef !7
   %41 = trunc nuw i8 %40 to i1
@@ -7075,7 +7069,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i
   br label %drsuapi_dissect_element_DsReplicaDelRequest1_options.exit
 
 drsuapi_dissect_element_DsReplicaDelRequest1_options.exit: ; preds = %33, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %54 = sub i32 %51, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %54)
   %55 = load ptr, ptr %10, align 8
@@ -7173,7 +7167,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i
 
 drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit: ; preds = %41
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_replica_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %47 = load i8, ptr %46, align 1, !range !6, !noundef !7
   %48 = trunc nuw i8 %47 to i1
@@ -7199,11 +7193,11 @@ drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit: ; preds = %41
   br label %drsuapi_dissect_element_DsReplicaModRequest1_replica_flags.exit
 
 drsuapi_dissect_element_DsReplicaModRequest1_replica_flags.exit: ; preds = %drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit, %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %61 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_modify_fields, align 4
   %62 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %58, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %61, i32 noundef 0)
   %63 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %64 = load i8, ptr %46, align 1, !range !6, !noundef !7
   %65 = trunc nuw i8 %64 to i1
   %66 = and i32 %62, 3
@@ -7228,7 +7222,7 @@ drsuapi_dissect_element_DsReplicaModRequest1_replica_flags.exit: ; preds = %drsu
   br label %drsuapi_dissect_element_DsReplicaModRequest1_options.exit
 
 drsuapi_dissect_element_DsReplicaModRequest1_options.exit: ; preds = %drsuapi_dissect_element_DsReplicaModRequest1_replica_flags.exit, %77
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %78 = sub i32 %75, %.0
   call void @proto_item_set_len(ptr noundef %.068, i32 noundef %78)
   %79 = load ptr, ptr %11, align 8
@@ -7259,7 +7253,7 @@ drsuapi_dissect_element_DsReplicaModRequest1_options.exit: ; preds = %drsuapi_di
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsMembershipType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -7278,7 +7272,7 @@ define hidden i32 @drsuapi_dissect_enum_DsMembershipType(ptr noundef %0, i32 nou
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -7428,10 +7422,10 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_flags, align 4
   %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0)
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_domain, align 4
   %43 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsRequest1_domain_, i32 noundef 2, ptr noundef nonnull @.str.1445, i32 noundef %42)
   %44 = sub i32 %43, %.0
@@ -7465,7 +7459,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsGetNT4ChangeLogFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -7503,7 +7497,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DsGetNT4ChangeLogFlags(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -7668,7 +7662,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogInfo1(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsNameStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -7687,14 +7681,14 @@ define hidden i32 @drsuapi_dissect_enum_DsNameStatus(ptr noundef %0, i32 noundef
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsNameFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -7713,14 +7707,14 @@ define hidden i32 @drsuapi_dissect_enum_DsNameFlags(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsNameFormat(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -7739,7 +7733,7 @@ define hidden i32 @drsuapi_dissect_enum_DsNameFormat(ptr noundef %0, i32 noundef
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -7879,20 +7873,20 @@ define hidden i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 nou
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_language, align 4
   %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0)
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_format_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_format_offered, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_format_desired, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %44, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_count, align 4
   %47 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0)
   %48 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_names, align 4
@@ -7976,10 +7970,10 @@ define hidden i32 @drsuapi_dissect_struct_DsNameInfo1(ptr noundef %0, i32 nounde
   %.044 = phi ptr [ %30, %29 ], [ null, %28 ]
   %.043 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_status, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_dns_domain_name, align 4
   %37 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameInfo1_dns_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1450, i32 noundef %36)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_result_name, align 4
@@ -8096,7 +8090,7 @@ define hidden i32 @drsuapi_dissect_struct_DsNameCtr1(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsSpnOperation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -8115,7 +8109,7 @@ define hidden i32 @drsuapi_dissect_enum_DsSpnOperation(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -8170,10 +8164,10 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef 
   %.056 = phi ptr [ %30, %29 ], [ null, %28 ]
   %.055 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_operation, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_unknown1, align 4
   %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_object_dn, align 4
@@ -8402,7 +8396,7 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerResult1(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsGetDCInfoCtrLevels(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -8421,7 +8415,7 @@ define hidden i32 @drsuapi_dissect_enum_DsGetDCInfoCtrLevels(ptr noundef %0, i32
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -8478,10 +8472,10 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i3
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoRequest1_domain_name, align 4
   %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoRequest1_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1457, i32 noundef %34)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoRequest1_level, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.037, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = sub i32 %37, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %38)
   %39 = load ptr, ptr %10, align 8
@@ -9313,7 +9307,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsAddEntry_DirErr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -9332,7 +9326,7 @@ define hidden i32 @drsuapi_dissect_enum_DsAddEntry_DirErr(ptr noundef %0, i32 no
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -9418,7 +9412,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_SecBufferType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -9437,7 +9431,7 @@ define hidden i32 @drsuapi_dissect_enum_SecBufferType(ptr noundef %0, i32 nounde
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -9494,10 +9488,10 @@ define hidden i32 @drsuapi_dissect_struct_SecBuffer(ptr noundef %0, i32 noundef 
   %34 = load i32, ptr @hf_drsuapi_drsuapi_SecBuffer_buf_size, align 4
   %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 noundef 0)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_SecBuffer_buf_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_SecBuffer_buffer, align 4
   %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_SecBuffer_buffer_, i32 noundef 2, ptr noundef nonnull @.str.1470, i32 noundef %38)
   %40 = sub i32 %39, %.0
@@ -9810,10 +9804,10 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, 
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_problem, align 4
   %41 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %40, i32 noundef 0)
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_attid, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_is_val_returned, align 4
   %45 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 noundef 0)
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_attr_val, align 4
@@ -10157,7 +10151,7 @@ define hidden i32 @drsuapi_dissect_struct_NameResOp_V1(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsAddEntry_RefType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10176,14 +10170,14 @@ define hidden i32 @drsuapi_dissect_enum_DsAddEntry_RefType(ptr noundef %0, i32 n
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsAddEntry_ChoiceType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10202,12 +10196,12 @@ define hidden i32 @drsuapi_dissect_enum_DsAddEntry_ChoiceType(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_struct_DsaAddressListItem_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -10350,10 +10344,10 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr nound
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_rdn_internal, align 4
   %42 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %41, i32 noundef 0)
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_ref_type, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %44 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_addr_list_count, align 4
   %46 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %45, i32 noundef 0)
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_addr_list, align 4
@@ -10363,10 +10357,10 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr nound
   %51 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_is_choice_set, align 4
   %52 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %51, i32 noundef 0)
   %53 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_choice, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %54 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %55 = sub i32 %54, %.0
   call void @proto_item_set_len(ptr noundef %.086, i32 noundef %55)
   %56 = load ptr, ptr %11, align 8
@@ -10535,14 +10529,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_V1_status, align 4
   %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_V1_dir_err, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_V1_info, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i.i = icmp eq ptr %.043, null
   br i1 %.not.i.i, label %44, label %41
 
@@ -10639,8 +10633,8 @@ drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %63, %65, %68
   %86 = load ptr, ptr %9, align 8
   %87 = sub i32 %.1.i.i, %39
   call void @proto_item_set_len(ptr noundef %86, i32 noundef %87)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %88 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %88)
   %89 = load ptr, ptr %12, align 8
@@ -10776,10 +10770,10 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 nou
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_id, align 4
   %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr2_id_, i32 noundef 2, ptr noundef nonnull @.str.1474, i32 noundef %34)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_dir_err, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.073, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_dsid, align 4
   %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.073, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0)
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_extended_err, align 4
@@ -10876,9 +10870,9 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_err_ver, align 4
   %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_err_data, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i.i = icmp eq ptr %.055, null
   br i1 %.not.i.i, label %43, label %40
 
@@ -10938,8 +10932,8 @@ drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %62, %64
   %67 = load ptr, ptr %9, align 8
   %68 = sub i32 %.1.i.i, %38
   call void @proto_item_set_len(ptr noundef %67, i32 noundef %68)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %69 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_count, align 4
   %70 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.055, ptr noundef %4, ptr noundef %5, i32 noundef %69, i32 noundef 0)
   %71 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_objects, align 4
@@ -10974,7 +10968,7 @@ drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %62, %64
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -11012,7 +11006,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -11074,7 +11068,7 @@ define hidden i32 @drsuapi_dissect_struct_DsExecuteKCC1(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsReplicaGetInfoLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -11093,14 +11087,14 @@ define hidden i32 @drsuapi_dissect_enum_DsReplicaGetInfoLevel(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsReplicaInfoType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -11119,7 +11113,7 @@ define hidden i32 @drsuapi_dissect_enum_DsReplicaInfoType(ptr noundef %0, i32 no
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -11174,10 +11168,10 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %
   %.044 = phi ptr [ %30, %29 ], [ null, %28 ]
   %.043 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_info_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_object_dn, align 4
   %37 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest1_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1453, i32 noundef %36)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_source_dsa_guid, align 4
@@ -11261,10 +11255,10 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %
   %.068 = phi ptr [ %30, %29 ], [ null, %28 ]
   %.067 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_info_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_object_dn, align 4
   %37 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1453, i32 noundef %36)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_source_dsa_guid, align 4
@@ -11338,7 +11332,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbour(ptr noundef %0, i32
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_transport_obj_dn, align 4
   %28 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0113, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_transport_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1488, i32 noundef %27)
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_replica_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %30 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   %32 = and i32 %28, 3
@@ -11363,7 +11357,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbour(ptr noundef %0, i32
   br label %drsuapi_dissect_element_DsReplicaNeighbour_replica_flags.exit
 
 drsuapi_dissect_element_DsReplicaNeighbour_replica_flags.exit: ; preds = %20, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_reserved, align 4
   %45 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0113, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 noundef 0)
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_naming_context_obj_guid, align 4
@@ -11817,7 +11811,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailuresCtr(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_enum_DsReplicaOpType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -11836,12 +11830,12 @@ define hidden i32 @drsuapi_dissect_enum_DsReplicaOpType(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -11901,12 +11895,12 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 nounde
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_priority, align 4
   %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef 0)
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_operation_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %42 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_options, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
@@ -11932,7 +11926,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 nounde
   br label %drsuapi_dissect_element_DsReplicaOp_options.exit
 
 drsuapi_dissect_element_DsReplicaOp_options.exit: ; preds = %34, %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %59 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_nc_dn, align 4
   %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %.085, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_nc_dn_, i32 noundef 2, ptr noundef nonnull @.str.1490, i32 noundef %59)
   %61 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_remote_dsa_obj_dn, align 4
@@ -13406,13 +13400,13 @@ define hidden void @proto_register_dcerpc_drsuapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_drsuapi() local_unnamed_addr #0 {
@@ -13424,28 +13418,28 @@ define hidden void @proto_reg_handoff_dcerpc_drsuapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_datablob(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_datablob(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_nt_SID28(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_nt_SID28(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaObjectIdentifier_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13455,10 +13449,10 @@ define internal i32 @drsuapi_dissect_element_DsReplicaObjectIdentifier_dn_(ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaSyncRequest1_naming_context_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13470,20 +13464,20 @@ define internal i32 @drsuapi_dissect_element_DsReplicaSyncRequest1_naming_contex
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaSyncRequest1_source_dsa_dns_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_source_dsa_dns, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaCursorCtrEx_cursors_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13520,7 +13514,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaOID_binary_oid__(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaOIDMapping_Ctr_mappings_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13539,10 +13533,10 @@ define internal i32 @drsuapi_dissect_element_DsReplicaOIDMapping_Ctr_mappings__(
 define internal i32 @drsuapi_dissect_element_DsPartialAttributeSet_attids_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsPartialAttributeSet_attids, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13603,7 +13597,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesRequest10_partial_att
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaCursor2CtrEx_cursors_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13639,7 +13633,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaObjectIdentifier3_dn_(ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaObjectIdentifier3_dn__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13682,7 +13676,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaObject_identifier_(ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_nt_NTTIME_1sec(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_nt_NTTIME_1sec(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaMetaDataCtr_meta_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13777,7 +13771,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesCtr6_linked_attribute
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -13824,17 +13818,17 @@ drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts__.exit: ; preds = %25, %11
 
 37:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts__.exit, %6
   %.0 = phi i32 [ %1, %6 ], [ %36, %drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts__.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -13881,14 +13875,14 @@ drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit: ; preds = %25, %11
 
 37:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit, %6
   %.0 = phi i32 [ %1, %6 ], [ %36, %drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -13935,14 +13929,14 @@ drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit: ; preds
 
 37:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit, %6
   %.0 = phi i32 [ %1, %6 ], [ %36, %drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -13989,7 +13983,7 @@ drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts__.exit: ; preds
 
 37:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts__.exit, %6
   %.0 = phi i32 [ %1, %6 ], [ %36, %drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts__.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -14003,12 +13997,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_naming_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_dest_dsa_dns_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_dest_dsa_dns_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14022,12 +14016,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaAddRequest1_naming_context
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAddRequest1_source_dsa_address_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest1_source_dsa_address, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14055,12 +14049,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaAddRequest2_transport_dn_(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAddRequest2_source_dsa_address_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_source_dsa_address, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14074,12 +14068,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaDelRequest1_naming_context
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaDelRequest1_source_dsa_address_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest1_source_dsa_address, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14093,12 +14087,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaModRequest1_naming_context
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaModRequest1_source_dra_address_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_source_dra_address, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14132,7 +14126,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMembershipsCtr1_group_attrs_(p
 define internal i32 @drsuapi_dissect_element_DsGetMembershipsCtr1_group_attrs__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_group_attrs, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
@@ -14148,7 +14142,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMembershipsCtr1_group_attrs__(
   %18 = shl nuw i32 %17, 27
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef %18)
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %20
 }
 
@@ -14241,12 +14235,12 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLogInfo1_log_data__(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsNameString_str_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsNameString_str, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14266,24 +14260,24 @@ define internal i32 @drsuapi_dissect_element_DsNameRequest1_names__(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsNameInfo1_dns_domain_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_dns_domain_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsNameInfo1_result_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_result_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14303,12 +14297,12 @@ define internal i32 @drsuapi_dissect_element_DsNameCtr1_array__(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsWriteAccountSpnRequest1_object_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_object_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14328,96 +14322,96 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpnRequest1_spn_names
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsRemoveDSServerRequest1_server_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerRequest1_server_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsRemoveDSServerRequest1_domain_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerRequest1_domain_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfoRequest1_domain_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoRequest1_domain_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo1_netbios_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_netbios_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo1_dns_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_dns_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo1_site_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_site_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo1_computer_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_computer_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo1_server_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_server_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14437,84 +14431,84 @@ define internal i32 @drsuapi_dissect_element_DsGetDCInfoCtr1_array__(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_netbios_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_netbios_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_dns_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_dns_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_site_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_site_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_site_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_site_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_computer_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_computer_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_server_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_server_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo2_ntds_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_ntds_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14534,84 +14528,84 @@ define internal i32 @drsuapi_dissect_element_DsGetDCInfoCtr2_array__(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_netbios_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_netbios_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_dns_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_dns_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_site_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_site_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_site_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_site_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_computer_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_computer_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_server_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_server_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCInfo3_ntds_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_ntds_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14631,12 +14625,12 @@ define internal i32 @drsuapi_dissect_element_DsGetDCInfoCtr3_array__(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsGetDCConnection01_client_account_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_client_account, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14729,7 +14723,7 @@ define internal i32 @drsuapi_dissect_element_DsaAddressListItem_V1_address_(ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_counted_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_counted_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_id_target_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -14795,96 +14789,96 @@ define internal i32 @drsuapi_dissect_element_DsAddEntryCtr3_objects__(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaGetInfoRequest1_object_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_object_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaGetInfoRequest2_object_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_object_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaGetInfoRequest2_attribute_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_attribute_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaGetInfoRequest2_value_dn_str_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_value_dn_str, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaNeighbour_naming_context_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_naming_context_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaNeighbour_source_dsa_obj_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_source_dsa_obj_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaNeighbour_source_dsa_address_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_source_dsa_address, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaNeighbour_transport_obj_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_transport_obj_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14905,12 +14899,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaCursorCtr_array_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaObjMetaData_attribute_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_attribute_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14924,12 +14918,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaObjMetaDataCtr_array_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaKccDsaFailure_dsa_obj_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailure_dsa_obj_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14943,36 +14937,36 @@ define internal i32 @drsuapi_dissect_element_DsReplicaKccDsaFailuresCtr_array_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaOp_nc_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_nc_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaOp_remote_dsa_obj_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_remote_dsa_obj_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaOp_remote_dsa_address_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_remote_dsa_address, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14986,24 +14980,24 @@ define internal i32 @drsuapi_dissect_element_DsReplicaOpCtr_array_(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAttrValMetaData_attribute_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_attribute_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAttrValMetaData_object_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_object_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15031,12 +15025,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaCursor2Ctr_array_(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaCursor3_source_dsa_obj_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3_source_dsa_obj_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15050,24 +15044,24 @@ define internal i32 @drsuapi_dissect_element_DsReplicaCursor3Ctr_array_(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaObjMetaData2_attribute_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_attribute_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaObjMetaData2_originating_dsa_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_originating_dsa_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15081,24 +15075,24 @@ define internal i32 @drsuapi_dissect_element_DsReplicaObjMetaData2Ctr_array_(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAttrValMetaData2_attribute_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_attribute_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAttrValMetaData2_object_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_object_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15112,12 +15106,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaAttrValMetaData2_binary_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplicaAttrValMetaData2_originating_dsa_dn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_originating_dsa_dn, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15138,12 +15132,12 @@ define internal i32 @drsuapi_dissect_element_DsReplicaConnection04Ctr_array_(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsReplica06_str1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_str1, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15210,12 +15204,12 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCostCtr1_info__(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_QuerySitesByCostRequest1_site_from_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest1_site_from, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15235,36 +15229,36 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCostRequest1_site_to__(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_QuerySitesByCostRequest1_site_to___(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest1_site_to, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_ReadNgcKeyReqV1_pwszAccount_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReqV1_pwszAccount, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_ReadNgcKeyReplyV1_pNgcKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReplyV1_pNgcKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1416, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15284,7 +15278,7 @@ define internal i32 @drsuapi_dissect_DsBind_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1661, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsBind_bind_info, align 4
@@ -15307,7 +15301,7 @@ define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -15324,7 +15318,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1662, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsUnbind_bind_handle, align 4
@@ -15344,7 +15338,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 nound
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -15367,7 +15361,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1663, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15384,7 +15378,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -15407,7 +15401,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1664, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChanges_level_out, align 4
@@ -15430,7 +15424,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -15447,9 +15441,9 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0,
   %14 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefs_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %20, label %17
 
@@ -15510,8 +15504,8 @@ drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit: ; preds = %40, %42
   %45 = load ptr, ptr %7, align 8
   %46 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %45, i32 noundef %46)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %4, ptr noundef %5)
   ret i32 %47
 }
@@ -15519,7 +15513,7 @@ drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit: ; preds = %40, %42
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1665, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15536,7 +15530,7 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -15553,9 +15547,9 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
   %14 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAdd_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %20, label %17
 
@@ -15623,8 +15617,8 @@ drsuapi_dissect_element_DsReplicaAdd_req.exit:    ; preds = %40, %42, %45
   %48 = load ptr, ptr %7, align 8
   %49 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %48, i32 noundef %49)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %4, ptr noundef %5)
   ret i32 %50
 }
@@ -15632,7 +15626,7 @@ drsuapi_dissect_element_DsReplicaAdd_req.exit:    ; preds = %40, %42, %45
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1666, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15649,7 +15643,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -15666,9 +15660,9 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 no
   %14 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDel_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %20, label %17
 
@@ -15729,8 +15723,8 @@ drsuapi_dissect_element_DsReplicaDel_req.exit:    ; preds = %40, %42
   %45 = load ptr, ptr %7, align 8
   %46 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %45, i32 noundef %46)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %4, ptr noundef %5)
   ret i32 %47
 }
@@ -15738,7 +15732,7 @@ drsuapi_dissect_element_DsReplicaDel_req.exit:    ; preds = %40, %42
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1667, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15755,7 +15749,7 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -15772,9 +15766,9 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 no
   %14 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMod_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %20, label %17
 
@@ -15835,8 +15829,8 @@ drsuapi_dissect_element_DsReplicaMod_req.exit:    ; preds = %40, %42
   %45 = load ptr, ptr %7, align 8
   %46 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %45, i32 noundef %46)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %4, ptr noundef %5)
   ret i32 %47
 }
@@ -15844,7 +15838,7 @@ drsuapi_dissect_element_DsReplicaMod_req.exit:    ; preds = %40, %42
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1668, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15861,12 +15855,12 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1669, ptr %7, align 8
   ret i32 %1
@@ -15875,7 +15869,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr re
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1669, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15892,7 +15886,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -15915,7 +15909,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1670, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships_level_out, align 4
@@ -15938,12 +15932,12 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1671, ptr %7, align 8
   ret i32 %1
@@ -15952,7 +15946,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1671, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -15969,7 +15963,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noun
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -15992,7 +15986,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1672, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLog_level_out, align 4
@@ -16015,7 +16009,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -16038,7 +16032,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1673, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_level_out, align 4
@@ -16061,7 +16055,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 n
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -16084,7 +16078,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1674, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpn_level_out, align 4
@@ -16107,7 +16101,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -16130,7 +16124,7 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1675, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServer_level_out, align 4
@@ -16153,12 +16147,12 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1676, ptr %7, align 8
   ret i32 %1
@@ -16167,7 +16161,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1676, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16184,7 +16178,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -16207,7 +16201,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_request(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1677, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_level_out, align 4
@@ -16230,7 +16224,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noun
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -16253,7 +16247,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1678, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_level_out, align 4
@@ -16276,7 +16270,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -16299,7 +16293,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1679, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16316,7 +16310,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -16329,10 +16323,10 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i3
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfo_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1697, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_level, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_req, align 4
   %16 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfo_req_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %15)
@@ -16343,7 +16337,7 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1680, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_info_type, align 4
@@ -16366,12 +16360,12 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1681, ptr %7, align 8
   ret i32 %1
@@ -16380,7 +16374,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1681, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16397,7 +16391,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -16420,7 +16414,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1682, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2_level_out, align 4
@@ -16443,12 +16437,12 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1683, ptr %7, align 8
   ret i32 %1
@@ -16457,7 +16451,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_requ
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1683, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16474,12 +16468,12 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1684, ptr %7, align 8
   ret i32 %1
@@ -16488,7 +16482,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_reques
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1684, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16505,7 +16499,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -16528,7 +16522,7 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1685, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCost_level_out, align 4
@@ -16551,12 +16545,12 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1686, ptr %7, align 8
   ret i32 %1
@@ -16565,7 +16559,7 @@ define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr readnone c
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1686, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16582,12 +16576,12 @@ define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1687, ptr %7, align 8
   ret i32 %1
@@ -16596,7 +16590,7 @@ define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr readnon
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1687, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16613,12 +16607,12 @@ define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i3
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1688, ptr %7, align 8
   ret i32 %1
@@ -16627,7 +16621,7 @@ define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr readnone
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1688, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16644,12 +16638,12 @@ define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1689, ptr %7, align 8
   ret i32 %1
@@ -16658,7 +16652,7 @@ define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr readnone cap
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1689, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16675,12 +16669,12 @@ define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 nou
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1690, ptr %7, align 8
   ret i32 %1
@@ -16689,7 +16683,7 @@ define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr readnone ca
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1690, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
@@ -16706,7 +16700,7 @@ define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 no
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -16729,7 +16723,7 @@ define internal i32 @drsuapi_dissect_ReadNgcKey_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_ReadNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1691, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKey_pOutVersion, align 4
@@ -16752,15 +16746,15 @@ define internal i32 @drsuapi_dissect_ReadNgcKey_response(ptr noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsBind_bind_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -16777,10 +16771,10 @@ define internal i32 @drsuapi_dissect_element_DsBind_bind_info_(ptr noundef %0, i
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsBind_bind_handle_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -16790,7 +16784,7 @@ define internal i32 @drsuapi_dissect_element_DsBind_bind_handle_(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @drsuapi_dissect_element_DsUnbind_bind_handle_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -16811,9 +16805,9 @@ define internal i32 @drsuapi_dissect_element_DsReplicaSync_req_(ptr noundef %0, 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSync_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -16874,8 +16868,8 @@ drsuapi_dissect_DsReplicaSyncRequest.exit:        ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -16891,9 +16885,9 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_req_(ptr noundef %0,
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChanges_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -16941,8 +16935,8 @@ drsuapi_dissect_DsGetNCChangesRequest.exit:       ; preds = %13, %22, %25, %28
   %31 = load ptr, ptr %7, align 8
   %32 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %31, i32 noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -16958,9 +16952,9 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_ctr_(ptr noundef %0,
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChanges_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17014,8 +17008,8 @@ drsuapi_dissect_DsGetNCChangesCtr.exit:           ; preds = %13, %22, %25, %28, 
   %34 = load ptr, ptr %7, align 8
   %35 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17059,9 +17053,9 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_req_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17122,8 +17116,8 @@ drsuapi_dissect_DsGetMembershipsRequest.exit:     ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17139,9 +17133,9 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_ctr_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17202,8 +17196,8 @@ drsuapi_dissect_DsGetMembershipsCtr.exit:         ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17219,9 +17213,9 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_req_(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLog_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17282,8 +17276,8 @@ drsuapi_dissect_DsGetNT4ChangeLogRequest.exit:    ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17299,9 +17293,9 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_info_(ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLog_info, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17336,8 +17330,8 @@ drsuapi_dissect_DsGetNT4ChangeLogInfo.exit:       ; preds = %13, %22
   %25 = load ptr, ptr %7, align 8
   %26 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17353,9 +17347,9 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_req_(ptr noundef %0, i
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17416,8 +17410,8 @@ drsuapi_dissect_DsNameRequest.exit:               ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17468,9 +17462,9 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i
 27:                                               ; preds = %22, %24, %17, %19
   %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %32, label %29
 
@@ -17530,8 +17524,8 @@ drsuapi_dissect_DsNameCtr.exit:                   ; preds = %51, %53
   %56 = load ptr, ptr %7, align 8
   %57 = sub i32 %.1.i, %.0
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17554,9 +17548,9 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_req_(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpn_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17617,8 +17611,8 @@ drsuapi_dissect_DsWriteAccountSpnRequest.exit:    ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17634,9 +17628,9 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_res_(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpn_res, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17671,8 +17665,8 @@ drsuapi_dissect_DsWriteAccountSpnResult.exit:     ; preds = %13, %22
   %25 = load ptr, ptr %7, align 8
   %26 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17688,9 +17682,9 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_req_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServer_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17751,8 +17745,8 @@ drsuapi_dissect_DsRemoveDSServerRequest.exit:     ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17768,9 +17762,9 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_res_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServer_res, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17805,8 +17799,8 @@ drsuapi_dissect_DsRemoveDSServerResult.exit:      ; preds = %13, %22
   %25 = load ptr, ptr %7, align 8
   %26 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17822,9 +17816,9 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_req_(ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17885,8 +17879,8 @@ drsuapi_dissect_DsGetDCInfoRequest.exit:          ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -17894,10 +17888,10 @@ drsuapi_dissect_DsGetDCInfoRequest.exit:          ; preds = %33, %35
 define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_level_out_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_level_out, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17906,9 +17900,9 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -17988,8 +17982,8 @@ drsuapi_dissect_DsGetDCInfoCtr.exit:              ; preds = %33, %35, %38, %41, 
   %47 = load ptr, ptr %7, align 8
   %48 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %47, i32 noundef %48)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18005,9 +17999,9 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18075,8 +18069,8 @@ drsuapi_dissect_DsAddEntryRequest.exit:           ; preds = %33, %35, %38
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18092,9 +18086,9 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18162,8 +18156,8 @@ drsuapi_dissect_DsAddEntryCtr.exit:               ; preds = %33, %35, %38
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18179,9 +18173,9 @@ define internal i32 @drsuapi_dissect_element_DsExecuteKCC_req_(ptr noundef %0, i
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsExecuteKCC_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18216,8 +18210,8 @@ drsuapi_dissect_DsExecuteKCCRequest.exit:         ; preds = %13, %22
   %25 = load ptr, ptr %7, align 8
   %26 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18233,9 +18227,9 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18303,8 +18297,8 @@ drsuapi_dissect_DsReplicaGetInfoRequest.exit:     ; preds = %33, %35, %38
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18312,10 +18306,10 @@ drsuapi_dissect_DsReplicaGetInfoRequest.exit:     ; preds = %33, %35, %38
 define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_type_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_info_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -18324,9 +18318,9 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_info, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18472,8 +18466,8 @@ drsuapi_dissect_DsReplicaInfo.exit:               ; preds = %33, %35, %38, %41, 
   %80 = load ptr, ptr %7, align 8
   %81 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18594,9 +18588,9 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_req_(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18657,8 +18651,8 @@ drsuapi_dissect_DsGetMemberships2Request.exit:    ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18674,9 +18668,9 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_ctr_(ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18737,8 +18731,8 @@ drsuapi_dissect_DsGetMemberships2Ctr.exit:        ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18754,9 +18748,9 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_req_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCost_req, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18817,8 +18811,8 @@ drsuapi_dissect_QuerySitesByCostRequest.exit:     ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18834,9 +18828,9 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_ctr_(ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCost_ctr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18897,8 +18891,8 @@ drsuapi_dissect_QuerySitesByCostCtr.exit:         ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18914,9 +18908,9 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReq_(ptr noundef %0, 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKey_ngcReq, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -18977,8 +18971,8 @@ drsuapi_dissect_ReadNgcKeyReq.exit:               ; preds = %33, %35
   %38 = load ptr, ptr %7, align 8
   %39 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -18994,9 +18988,9 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKey_ngcReply, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -19090,20 +19084,25 @@ drsuapi_dissect_ReadNgcKeyReply.exit:             ; preds = %50, %52
   %55 = load ptr, ptr %7, align 8
   %56 = sub i32 %.2.i, %.0.i
   call void @proto_item_set_len(ptr noundef %55, i32 noundef %56)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

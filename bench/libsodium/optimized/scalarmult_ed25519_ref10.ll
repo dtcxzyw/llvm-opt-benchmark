@@ -15,8 +15,8 @@ define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519(ptr noundef non
 define internal fastcc range(i32 -1, 1) i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.ge25519_p3, align 8
   %6 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @_sodium_ge25519_is_canonical(ptr noundef nonnull %2) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %44, label %9
@@ -103,8 +103,8 @@ _crypto_scalarmult_ed25519_is_inf.exit:           ; preds = %32
 
 44:                                               ; preds = %42, %_crypto_scalarmult_ed25519_is_inf.exit, %4, %9, %11, %13
   %.016 = phi i32 [ -1, %13 ], [ -1, %11 ], [ -1, %9 ], [ -1, %4 ], [ -1, %_crypto_scalarmult_ed25519_is_inf.exit ], [ %spec.select, %42 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.016
 }
 
@@ -117,7 +117,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_noclamp(ptr nou
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -173,14 +173,14 @@ _crypto_scalarmult_ed25519_is_inf.exit.i:         ; preds = %17
 
 _crypto_scalarmult_ed25519_base.exit:             ; preds = %_crypto_scalarmult_ed25519_is_inf.exit.i, %27
   %.014.i = phi i32 [ -1, %_crypto_scalarmult_ed25519_is_inf.exit.i ], [ %spec.select.i, %27 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.014.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base_noclamp(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -232,7 +232,7 @@ _crypto_scalarmult_ed25519_is_inf.exit.i:         ; preds = %12
 
 _crypto_scalarmult_ed25519_base.exit:             ; preds = %_crypto_scalarmult_ed25519_is_inf.exit.i, %22
   %.014.i = phi i32 [ -1, %_crypto_scalarmult_ed25519_is_inf.exit.i ], [ %spec.select.i, %22 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.014.i
 }
 
@@ -246,32 +246,32 @@ define dso_local noundef i64 @crypto_scalarmult_ed25519_scalarbytes() local_unna
   ret i64 32
 }
 
+declare i32 @_sodium_ge25519_is_canonical(ptr noundef) local_unnamed_addr #2
+
+declare i32 @_sodium_ge25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #2
+
+declare i32 @_sodium_ge25519_is_on_main_subgroup(ptr noundef) local_unnamed_addr #2
+
+declare void @_sodium_ge25519_scalarmult(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @_sodium_ge25519_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @_sodium_ge25519_scalarmult_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @_sodium_ge25519_is_canonical(ptr noundef) local_unnamed_addr #3
-
-declare i32 @_sodium_ge25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #3
-
-declare i32 @_sodium_ge25519_is_on_main_subgroup(ptr noundef) local_unnamed_addr #3
-
-declare void @_sodium_ge25519_scalarmult(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @_sodium_ge25519_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @_sodium_ge25519_scalarmult_base(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

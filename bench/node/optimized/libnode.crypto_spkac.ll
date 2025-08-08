@@ -666,7 +666,7 @@ if.then13:                                        ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %data_.i.i = getelementptr inbounds nuw i8, ptr %input, i64 24
   %25 = load ptr, ptr %data_.i.i, align 8, !noalias !5
   %offset_.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8
@@ -698,13 +698,13 @@ cond.false.i:                                     ; preds = %if.end.i18
 
 _ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread: ; preds = %if.end14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cert, i8 0, i64 24, i1 false), !alias.scope !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.then16
 
 _ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit: ; preds = %cond.true.i, %cond.false.i
   call void @NETSCAPE_SPKI_free(ptr noundef nonnull %call2.i) #16
   %.pr = load ptr, ptr %cert, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp.i20.not = icmp eq ptr %.pr, null
   br i1 %cmp.i20.not, label %if.then16, label %if.end20
 
@@ -1253,10 +1253,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

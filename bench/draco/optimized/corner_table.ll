@@ -84,8 +84,8 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco11CornerTable6CreateERKNS_15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS2_IjNS_21VertexIndex_tag_type_EEELm3EEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   invoke void @_ZN5draco11CornerTableC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %5 unwind label %9
 
@@ -101,13 +101,13 @@ define void @_ZN5draco11CornerTable6CreateERKNS_15IndexTypeVectorINS_9IndexTypeI
 9:                                                ; preds = %2
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #19
   br label %13
 
 11:                                               ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   br label %13
 
 .thread:                                          ; preds = %8
@@ -116,28 +116,25 @@ define void @_ZN5draco11CornerTable6CreateERKNS_15IndexTypeVectorINS_9IndexTypeI
 
 _ZNKSt14default_deleteIN5draco11CornerTableEEclEPS1_.exit.i: ; preds = %8
   store ptr null, ptr %0, align 8, !tbaa !8
-  tail call void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #20
+  tail call void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #19
   br label %_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN5draco11CornerTableEEclEPS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco11CornerTable4InitERKNS_15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS2_IjNS_21VertexIndex_tag_type_EEELm3EEEE(ptr noundef nonnull align 8 dereferenceable(168) initializes((128, 136), (152, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -154,7 +151,7 @@ define noundef zeroext i1 @_ZN5draco11CornerTable4InitERKNS_15IndexTypeVectorINS
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #19
   br label %_ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit
 
 _ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit: ; preds = %2, %8
@@ -170,7 +167,7 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit: ; preds =
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #19
   br label %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit
 
 _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit: ; preds = %_ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit, %16
@@ -204,7 +201,7 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit:
   br label %39
 
 ._crit_edge:                                      ; preds = %38, %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !25
   %37 = call noundef zeroext i1 @_ZN5draco11CornerTable22ComputeOppositeCornersEPi(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull %3)
   br i1 %37, label %45, label %49
@@ -233,28 +230,25 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit:
   br label %49
 
 49:                                               ; preds = %._crit_edge, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5draco11CornerTableEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN5draco11CornerTableEEclEPS1_.exit: ; preds = %1
-  tail call void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %2) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 168) #20
+  tail call void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 168) #19
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5draco11CornerTableEEclEPS1_.exit, %1
   store ptr null, ptr %0, align 8, !tbaa !3
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco11CornerTable22ComputeOppositeCornersEPi(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -314,7 +308,7 @@ define noundef zeroext i1 @_ZN5draco11CornerTable22ComputeOppositeCornersEPi(ptr
   %.pre-phi266 = phi i64 [ %13, %29 ], [ %13, %27 ], [ %13, %25 ], [ %.pre265, %23 ]
   %31 = phi ptr [ %10, %29 ], [ %10, %27 ], [ %10, %25 ], [ %.pre249, %23 ]
   %32 = phi ptr [ %9, %29 ], [ %9, %27 ], [ %9, %25 ], [ %.pre, %23 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %33 = icmp ugt i64 %.pre-phi269, 2305843009213693951
   br i1 %33, label %34, label %35
@@ -333,7 +327,7 @@ define noundef zeroext i1 @_ZN5draco11CornerTable22ComputeOppositeCornersEPi(ptr
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %35
   %37 = shl nuw nsw i64 %.pre-phi269, 2
-  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #19
+  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #18
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %44
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
@@ -381,7 +375,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 57:                                               ; preds = %46
   %58 = add i32 %.sroa.0.0.copyload.i.i, 1
   %59 = zext i32 %58 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !25
   %60 = icmp ult i64 %55, %59
   br i1 %60, label %61, label %63
@@ -414,13 +408,13 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %._ZNSt6vectorIiSaIi
   %.pre252 = phi ptr [ %.pre252.pre, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge ], [ %.pre252259, %67 ], [ %.pre252259, %65 ], [ %.pre252259, %63 ]
   %.pre251 = phi ptr [ %.pre251.pre, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge ], [ %.pre251256, %67 ], [ %.pre251256, %65 ], [ %.pre251256, %63 ]
   %.pre250 = phi ptr [ %.pre250.pre, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge ], [ %.pre250253, %67 ], [ %.pre250253, %65 ], [ %.pre250253, %63 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %70
 
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit133
 
 70:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %46
@@ -469,7 +463,7 @@ _ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSa
 
 _ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %88 = shl nuw nsw i64 %.pre-phi272281, 3
-  %89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #19
+  %89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #18
           to label %.noexc103 unwind label %109
 
 .noexc103:                                        ; preds = %_ZNSt12_Vector_baseIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EEC2EmRKS4_.exit.i
@@ -502,7 +496,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIZ
   br i1 %.not.i.i.i.i104, label %.preheader199, label %100
 
 100:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %101 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %96) #19
+  %101 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %96) #18
           to label %.noexc106 unwind label %111
 
 .noexc106:                                        ; preds = %100
@@ -568,7 +562,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc106
 119:                                              ; preds = %._crit_edge226
   %120 = ptrtoint ptr %.sroa.0169.0290 to i64
   %121 = sub i64 %.sroa.12.0288, %120
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0169.0290, i64 noundef %121) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0169.0290, i64 noundef %121) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge226, %119
@@ -578,7 +572,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge226, %11
 122:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %123 = ptrtoint ptr %.sroa.0180.0 to i64
   %124 = sub i64 %.sroa.19.0, %123
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0180.0, i64 noundef %124) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0180.0, i64 noundef %124) #19
   br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit
 
 _ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %122
@@ -591,11 +585,11 @@ _ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSa
   %128 = ptrtoint ptr %127 to i64
   %129 = ptrtoint ptr %125 to i64
   %130 = sub i64 %128, %129
-  call void @_ZdlPvm(ptr noundef nonnull %125, i64 noundef %130) #20
+  call void @_ZdlPvm(ptr noundef nonnull %125, i64 noundef %130) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit110
 
 _ZNSt6vectorIiSaIiEED2Ev.exit110:                 ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit, %126
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %218
 
 131:                                              ; preds = %.lr.ph225, %.loopexit
@@ -785,7 +779,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 208:                                              ; preds = %111
   %209 = ptrtoint ptr %.sroa.0180.0 to i64
   %210 = sub i64 %.sroa.19.0, %209
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0180.0, i64 noundef %210) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0180.0, i64 noundef %210) #19
   br label %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit133
 
 _ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit133: ; preds = %109, %111, %208, %68, %44
@@ -800,11 +794,11 @@ _ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSa
   %215 = ptrtoint ptr %214 to i64
   %216 = ptrtoint ptr %211 to i64
   %217 = sub i64 %215, %216
-  call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %217) #20
+  call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %217) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit135
 
 _ZNSt6vectorIiSaIiEED2Ev.exit135:                 ; preds = %_ZNSt6vectorIZN5draco11CornerTable22ComputeOppositeCornersEPiE14VertexEdgePairSaIS3_EED2Ev.exit133, %212
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn80.pn.pn
 
 218:                                              ; preds = %2, %_ZNSt6vectorIiSaIiEED2Ev.exit110
@@ -828,7 +822,7 @@ define noundef zeroext i1 @_ZN5draco11CornerTable21BreakNonManifoldEdgesEv(ptr n
   %10 = add nsw i64 %9, 63
   %11 = lshr i64 %10, 3
   %12 = and i64 %11, 2305843009213693944
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #19
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #18
   %14 = lshr i64 %10, 6
   %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
   %.idx.i = shl nuw nsw i64 %14, 3
@@ -1077,7 +1071,7 @@ _ZNKSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1
   %.not.i.i.i = icmp ne i64 %114, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %115 = shl nuw nsw i64 %114, 3
-  %116 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %115) #19
+  %116 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %115) #18
           to label %.noexc80 unwind label %.loopexit
 
 .noexc80:                                         ; preds = %_ZNKSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EE12_M_check_lenEmPKc.exit.i.i
@@ -1107,7 +1101,7 @@ _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %121
 
 121:                                              ; preds = %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0149.3, i64 noundef %107) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0149.3, i64 noundef %107) #19
   br label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %121, %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
@@ -1184,7 +1178,7 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %.not.i.i.i85, label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit, label %145
 
 145:                                              ; preds = %144
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0149.3, i64 noundef %107) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0149.3, i64 noundef %107) #19
   br label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit: ; preds = %144, %145
@@ -1198,7 +1192,7 @@ _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_
   %150 = ashr exact i64 %149, 3
   %151 = sub nsw i64 0, %150
   %152 = getelementptr inbounds i64, ptr %.sroa.29168.0, i64 %151
-  tail call void @_ZdlPvm(ptr noundef %152, i64 noundef %149) #20
+  tail call void @_ZdlPvm(ptr noundef %152, i64 noundef %149) #19
   br label %.body
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
@@ -1211,7 +1205,7 @@ _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_
   %154 = ptrtoint ptr %.sroa.17.1.lcssa266 to i64
   %155 = ptrtoint ptr %.sroa.0149.1.lcssa267 to i64
   %156 = sub i64 %154, %155
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0149.1.lcssa267, i64 noundef %156) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0149.1.lcssa267, i64 noundef %156) #19
   br label %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit88
 
 _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit88: ; preds = %._crit_edge.thread, %153
@@ -1225,7 +1219,7 @@ _ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_
   %161 = ashr exact i64 %160, 3
   %162 = sub nsw i64 0, %161
   %163 = getelementptr inbounds i64, ptr %.sroa.29168.0, i64 %162
-  tail call void @_ZdlPvm(ptr noundef %163, i64 noundef %160) #20
+  tail call void @_ZdlPvm(ptr noundef %163, i64 noundef %160) #19
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit93
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit93:           ; preds = %_ZNSt6vectorISt4pairIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEENS2_IjNS1_21CornerIndex_tag_type_EEEESaIS7_EED2Ev.exit88, %157
@@ -1271,7 +1265,7 @@ define noundef zeroext i1 @_ZN5draco11CornerTable20ComputeVertexCornersEi(ptr no
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEE6resizeEmRKS5_.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEE6resizeEmRKS5_.exit: ; preds = %15, %17, %19, %21
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !82
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %22, align 8, !tbaa !85
@@ -1288,7 +1282,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_
   %27 = add nsw i64 %6, 63
   %28 = lshr i64 %27, 3
   %29 = and i64 %28, 2305843009213693944
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #19
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #18
   %31 = lshr i64 %27, 6
   %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
   store ptr %32, ptr %25, align 8, !tbaa !86
@@ -1327,7 +1321,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_
   %48 = add nsw i64 %47, 63
   %49 = lshr i64 %48, 3
   %50 = and i64 %49, 2305843009213693944
-  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #19
+  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #18
           to label %52 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit134
 
 52:                                               ; preds = %46
@@ -1499,7 +1493,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE12_M_chec
   %.not.i.i.i.i = icmp ne i64 %133, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %134 = shl nuw nsw i64 %133, 2
-  %135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #19
+  %135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #18
           to label %.noexc65 unwind label %.thread202.loopexit
 
 .noexc65:                                         ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1527,7 +1521,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %141
 
 141:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %127) #20
+  call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %127) #19
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %141, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
@@ -1574,7 +1568,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE12_M_chec
   %.not.i.i.i.i68 = icmp ne i64 %157, 0
   call void @llvm.assume(i1 %.not.i.i.i.i68)
   %158 = shl nuw nsw i64 %157, 2
-  %159 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #19
+  %159 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #18
           to label %.noexc77 unwind label %.thread202.loopexit
 
 .noexc77:                                         ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1602,7 +1596,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i75, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %165
 
 165:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef %151) #20
+  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef %151) #19
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %165, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
@@ -1669,7 +1663,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iterato
   %184 = ashr exact i64 %183, 3
   %185 = sub nsw i64 0, %184
   %186 = getelementptr inbounds i64, ptr %.sroa.29195.0, i64 %185
-  call void @_ZdlPvm(ptr noundef %186, i64 noundef %183) #20
+  call void @_ZdlPvm(ptr noundef %186, i64 noundef %183) #19
   %.pre = load ptr, ptr %3, align 8, !tbaa !82
   br label %.body51
 
@@ -1878,7 +1872,7 @@ _ZNK5draco11CornerTable13IsDegeneratedENS_9IndexTypeIjNS_19FaceIndex_tag_type_EE
   %275 = ashr exact i64 %274, 3
   %276 = sub nsw i64 0, %275
   %277 = getelementptr inbounds i64, ptr %.sroa.29195.0, i64 %276
-  call void @_ZdlPvm(ptr noundef %277, i64 noundef %274) #20
+  call void @_ZdlPvm(ptr noundef %277, i64 noundef %274) #19
   %.pre253 = load ptr, ptr %3, align 8, !tbaa !82
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1895,11 +1889,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %._crit_edge239, %27
   %284 = ashr exact i64 %283, 3
   %285 = sub nsw i64 0, %284
   %286 = getelementptr inbounds i64, ptr %280, i64 %285
-  call void @_ZdlPvm(ptr noundef %286, i64 noundef %283) #20
+  call void @_ZdlPvm(ptr noundef %286, i64 noundef %283) #19
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit112
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit112:          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %279
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 
 .lr.ph238:                                        ; preds = %._crit_edge, %_ZNSt13_Bit_iteratorppEv.exit
@@ -1944,11 +1938,11 @@ _ZNSt13_Bit_iteratorppEv.exit:                    ; preds = %292, %.lr.ph238
   %305 = ashr exact i64 %304, 3
   %306 = sub nsw i64 0, %305
   %307 = getelementptr inbounds i64, ptr %301, i64 %306
-  call void @_ZdlPvm(ptr noundef %307, i64 noundef %304) #20
+  call void @_ZdlPvm(ptr noundef %307, i64 noundef %304) #19
   br label %.body
 
 .body:                                            ; preds = %300, %.body51
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn39.pn.pn.pn.pn.pn
 }
 
@@ -1991,7 +1985,7 @@ _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %16
   %24 = shl nuw nsw i64 %11, 2
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #19
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
   %.not10.i.i.i.i.i = icmp eq ptr %14, %21
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -2012,7 +2006,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_reloc
   br i1 %.not.i8.i.i, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %17) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %17) #19
   br label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
 
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %29, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
@@ -2036,7 +2030,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_
   %37 = ptrtoint ptr %35 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #19
   br label %_ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit
 
 _ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEE7reserveEm.exit, %36
@@ -2052,7 +2046,7 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit: ; preds =
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %41 to i64
   %47 = sub i64 %45, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %47) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %47) #19
   br label %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit
 
 _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit: ; preds = %44, %_ZNK5draco12ValenceCacheINS_11CornerTableEE17ClearValenceCacheEv.exit, %3
@@ -2060,7 +2054,7 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5draco11CornerTable13IsDegeneratedENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK5draco11CornerTable13IsDegeneratedENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit19.thread, label %4
 
@@ -2125,7 +2119,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5draco11CornerTable7ValenceENS_9IndexTypeIjNS_21VertexIndex_tag_type_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 %1) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK5draco11CornerTable7ValenceENS_9IndexTypeIjNS_21VertexIndex_tag_type_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %_ZNK5draco11CornerTable16ConfidentValenceENS_9IndexTypeIjNS_21VertexIndex_tag_type_EEE.exit, label %4
 
@@ -2226,7 +2220,7 @@ _ZNK5draco11CornerTable16ConfidentValenceENS_9IndexTypeIjNS_21VertexIndex_tag_ty
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5draco11CornerTable16ConfidentValenceENS_9IndexTypeIjNS_21VertexIndex_tag_type_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 %1) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK5draco11CornerTable16ConfidentValenceENS_9IndexTypeIjNS_21VertexIndex_tag_type_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !36
@@ -2325,7 +2319,7 @@ _ZN5draco18VertexRingIteratorINS_11CornerTableEE4NextEv.exit: ; preds = %23, %35
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco11CornerTable21UpdateFaceToVertexMapENS_9IndexTypeIjNS_21VertexIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.draco::VertexCornersIterator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !114
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2353,15 +2347,15 @@ define void @_ZN5draco11CornerTable21UpdateFaceToVertexMapENS_9IndexTypeIjNS_21V
   br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2509,7 +2503,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE12_M_chec
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit
   %62 = shl nuw nsw i64 %58, 2
-  %63 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #19
+  %63 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #18
   br label %.lr.ph.preheader.i.i.i.i84
 
 .lr.ph.preheader.i.i.i.i84:                       ; preds = %61, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit
@@ -2564,7 +2558,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_21CornerIndex_t
 
 75:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104
   %76 = sub i64 %10, %49
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %76) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %76) #19
   br label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, %75
@@ -2579,7 +2573,7 @@ _ZSt4fillIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES3_EvT_S5_RKT0_.exit
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -2591,7 +2585,7 @@ define linkonce_odr void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #19
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i: ; preds = %4, %1
@@ -2606,7 +2600,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.ex
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #19
   br label %_ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit
 
 _ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i, %12
@@ -2621,7 +2615,7 @@ _ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit: ; preds = %_ZN5draco15Index
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #19
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %_ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit, %20
@@ -2636,7 +2630,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #19
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit, %28
@@ -2651,7 +2645,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
   %41 = sub i64 %39, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #19
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEES3_ED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEED2Ev.exit, %36
@@ -2665,7 +2659,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEES3_ED2Ev.
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %42 to i64
   %48 = sub i64 %46, %47
-  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %48) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %48) #19
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEENS1_IjNS_21VertexIndex_tag_type_EEEED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEENS1_IjNS_21VertexIndex_tag_type_EEEED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEES3_ED2Ev.exit, %43
@@ -2719,7 +2713,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE12_M_chec
   %25 = add nuw nsw i64 %.sroa.speculated.i.i, %9
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 2305843009213693951)
   %27 = shl nuw nsw i64 %26, 2
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #19
+  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %8
   %30 = shl nuw nsw i64 %12, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %30, i1 false), !tbaa !29
@@ -2744,7 +2738,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE11_S_reloc
 
 34:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   %35 = sub i64 %15, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %35) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %35) #19
   br label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i
 
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i: ; preds = %34, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
@@ -2794,7 +2788,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %12
   %15 = shl nuw nsw i64 %1, 2
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #18
   %.pre.i.i.i.i.i.i = load i32, ptr %2, align 4, !tbaa !25
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -2817,7 +2811,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EEC2EmRKS3_R
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EED2Ev.exit, label %21
 
 21:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EEC2EmRKS3_RKS4_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #19
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EED2Ev.exit
 
 22:                                               ; preds = %3
@@ -2919,7 +2913,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %12
   %15 = shl nuw nsw i64 %1, 2
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #18
   %.pre.i.i.i.i.i.i = load i32, ptr %2, align 4, !tbaa !25
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -2942,7 +2936,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2EmRKS3_R
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev.exit, label %21
 
 21:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2EmRKS3_RKS4_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #19
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev.exit
 
 22:                                               ; preds = %3
@@ -3023,7 +3017,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3158,7 +3152,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
 
 58:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %59 = shl nuw nsw i64 %55, 2
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #19
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #18
   br label %61
 
 61:                                               ; preds = %58, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -3201,7 +3195,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 
 73:                                               ; preds = %71
   %74 = sub i64 %10, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #19
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
@@ -3341,7 +3335,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %57
   %70 = select i1 %67, i64 9223372036854775807, i64 %69
   %71 = lshr i64 %70, 3
   %72 = and i64 %71, 1152921504606846968
-  %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %72) #19
+  %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %72) #18
   %74 = ptrtoint ptr %1 to i64
   %75 = sub i64 %74, %59
   %.not.i.i.i.i.i.i47 = icmp eq ptr %1, %58
@@ -3496,7 +3490,7 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
   %139 = getelementptr inbounds i64, ptr %8, i64 %138
-  tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #20
+  tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #19
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
@@ -3669,11 +3663,17 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_corner_table.cc() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_corner_table.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -3692,22 +3692,22 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { builtin nounwind }
+attributes #20 = { nounwind }
 attributes #21 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}

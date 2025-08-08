@@ -144,13 +144,13 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %6 = alloca ptr, align 8
   %7 = alloca %struct.H5CX_node_t, align 8
   %8 = alloca [33 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %7, i8 0, i64 480, i1 false)
   %9 = icmp eq i32 %0, 1
   br i1 %9, label %10, label %14
@@ -158,11 +158,11 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @stderr, align 8, !tbaa !8
   %12 = load ptr, ptr %1, align 8, !tbaa !10
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %12) #11
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %12) #10
   br label %.thread473
 
 14:                                               ; preds = %2
-  %15 = tail call i32 @H5open() #10
+  %15 = tail call i32 @H5open() #11
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %20
 
@@ -172,10 +172,10 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread473
 
 20:                                               ; preds = %14
-  %21 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  %22 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #10
+  %21 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %22 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #11
   %23 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !12
-  %24 = call i64 @H5Pcreate(i64 noundef %23) #10
+  %24 = call i64 @H5Pcreate(i64 noundef %23) #11
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %26, label %29
 
@@ -192,7 +192,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br i1 %.not, label %39, label %33
 
 33:                                               ; preds = %29
-  %34 = call i32 @H5Pset_fapl_family(i64 noundef %24, i64 noundef 0, i64 noundef 0) #10
+  %34 = call i32 @H5Pset_fapl_family(i64 noundef %24, i64 noundef 0, i64 noundef 0) #11
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %._crit_edge493
 
@@ -207,7 +207,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 39:                                               ; preds = %._crit_edge493, %29
   %40 = phi ptr [ %.pre, %._crit_edge493 ], [ %31, %29 ]
-  %41 = call i64 @H5Fopen(ptr noundef %40, i32 noundef 0, i64 noundef %24) #10
+  %41 = call i64 @H5Fopen(ptr noundef %40, i32 noundef 0, i64 noundef %24) #11
   %42 = icmp slt i64 %41, 0
   br i1 %42, label %43, label %46
 
@@ -217,7 +217,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread418
 
 46:                                               ; preds = %39
-  %47 = call i32 @H5CX_push(ptr noundef nonnull %7) #10
+  %47 = call i32 @H5CX_push(ptr noundef nonnull %7) #11
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %52
 
@@ -227,7 +227,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread418
 
 52:                                               ; preds = %46
-  %53 = call ptr @H5VL_vol_object(i64 noundef %41) #10
+  %53 = call ptr @H5VL_vol_object(i64 noundef %41) #11
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %58
 
@@ -237,7 +237,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread418
 
 58:                                               ; preds = %52
-  %59 = call ptr @H5VL_object_data(ptr noundef nonnull %53) #10
+  %59 = call ptr @H5VL_object_data(ptr noundef nonnull %53) #11
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %64
 
@@ -247,7 +247,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread418
 
 64:                                               ; preds = %58
-  %65 = call i32 @H5AC_ignore_tags(ptr noundef nonnull %59) #10
+  %65 = call i32 @H5AC_ignore_tags(ptr noundef nonnull %59) #11
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %70
 
@@ -267,7 +267,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !10
-  %75 = call i64 @strtoll(ptr noundef captures(none) %74, ptr noundef null, i32 noundef 0) #10
+  %75 = call i64 @strtoll(ptr noundef captures(none) %74, ptr noundef null, i32 noundef 0) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %.not478 = icmp eq i32 %0, 3
   br i1 %.not478, label %.loopexit, label %76
@@ -279,7 +279,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.9, i32 noundef 10) #11
+  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.9, i32 noundef 10) #10
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %76, %79
@@ -292,7 +292,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %83 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0256481
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !10
-  %86 = call i64 @strtoll(ptr noundef captures(none) %85, ptr noundef null, i32 noundef 0) #10
+  %86 = call i64 @strtoll(ptr noundef captures(none) %85, ptr noundef null, i32 noundef 0) #11
   %87 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %.0256481
   store i64 %86, ptr %87, align 8, !tbaa !12
   %88 = add nuw nsw i64 %.0256481, 1
@@ -303,8 +303,8 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.0254406 = phi i64 [ %75, %72 ], [ 0, %.thread ], [ %75, %.lr.ph ]
   %.0255 = phi i1 [ true, %72 ], [ true, %.thread ], [ false, %.lr.ph ]
   %89 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.10, i64 noundef %.0254406) #10
-  %91 = call i32 @H5F_block_read(ptr noundef nonnull %59, i32 noundef 1, i64 noundef %.0254406, i64 noundef 8, ptr noundef nonnull %4) #10
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.10, i64 noundef %.0254406) #11
+  %91 = call i32 @H5F_block_read(ptr noundef nonnull %59, i32 noundef 1, i64 noundef %.0254406, i64 noundef 8, ptr noundef nonnull %4) #11
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %96
 
@@ -320,7 +320,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %99 = call i32 @H5F_debug(ptr noundef nonnull %59, ptr noundef %98, i32 noundef 0, i32 noundef 50) #10
+  %99 = call i32 @H5F_debug(ptr noundef nonnull %59, ptr noundef %98, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 100:                                              ; preds = %96
@@ -330,7 +330,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %103 = call i32 @H5HL_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %102, i32 noundef 0, i32 noundef 50) #10
+  %103 = call i32 @H5HL_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %102, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 104:                                              ; preds = %100
@@ -340,7 +340,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 105:                                              ; preds = %104
   %106 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %107 = call i32 @H5HG_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %106, i32 noundef 0, i32 noundef 50) #10
+  %107 = call i32 @H5HG_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %106, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 108:                                              ; preds = %104
@@ -365,7 +365,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 119:                                              ; preds = %109, %112
   %120 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %121 = call i32 @H5G_node_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %120, i32 noundef 0, i32 noundef 50, i64 noundef %110) #10
+  %121 = call i32 @H5G_node_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %120, i32 noundef 0, i32 noundef 50, i64 noundef %110) #11
   br label %509
 
 122:                                              ; preds = %108
@@ -376,7 +376,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 123:                                              ; preds = %122
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %125 = load i8, ptr %124, align 1, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i8 %125, label %180 [
     i8 0, label %126
     i8 1, label %139
@@ -399,7 +399,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 136:                                              ; preds = %126
   %137 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %138 = call i32 @H5G_node_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %137, i32 noundef 0, i32 noundef 50, i64 noundef %127) #10
+  %138 = call i32 @H5G_node_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %137, i32 noundef 0, i32 noundef 50, i64 noundef %127) #11
   br label %184
 
 139:                                              ; preds = %123
@@ -472,22 +472,22 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %177 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %152
   store i32 0, ptr %177, align 4, !tbaa !17
   %178 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %179 = call i32 @H5D_btree_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %178, i32 noundef 0, i32 noundef 50, i32 noundef %150, ptr noundef nonnull %8) #10
+  %179 = call i32 @H5D_btree_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %178, i32 noundef 0, i32 noundef 50, i32 noundef %150, ptr noundef nonnull %8) #11
   br label %184
 
 180:                                              ; preds = %123
   %181 = zext i8 %125 to i32
   %182 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.27, i32 noundef %181) #11
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.27, i32 noundef %181) #10
   br label %.thread407
 
 .thread407:                                       ; preds = %180, %129, %142, %153, %170
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread418
 
 184:                                              ; preds = %136, %._crit_edge
   %.1260 = phi i32 [ %138, %136 ], [ %179, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %509
 
 185:                                              ; preds = %122
@@ -510,7 +510,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .thread412:                                       ; preds = %186
   %192 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %193 = call i32 @H5B2__hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %192, i32 noundef 0, i32 noundef 50, ptr noundef %188, i64 noundef %.pre503) #10
+  %193 = call i32 @H5B2__hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %192, i32 noundef 0, i32 noundef 50, ptr noundef %188, i64 noundef %.pre503) #11
   br label %509
 
 194:                                              ; preds = %186
@@ -600,7 +600,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %245 = trunc i64 %228 to i32
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %247 = load i64, ptr %246, align 8, !tbaa !12
-  %248 = call i32 @H5B2__int_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %243, i32 noundef 0, i32 noundef 50, ptr noundef %204, i64 noundef %.pre497, i32 noundef %244, i32 noundef %245, i64 noundef %247) #10
+  %248 = call i32 @H5B2__int_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %243, i32 noundef 0, i32 noundef 50, ptr noundef %204, i64 noundef %.pre497, i32 noundef %244, i32 noundef %245, i64 noundef %247) #11
   br label %509
 
 249:                                              ; preds = %201
@@ -667,7 +667,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %283 = trunc i64 %271 to i32
   %284 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %285 = load i64, ptr %284, align 16, !tbaa !12
-  %286 = call i32 @H5B2__leaf_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %282, i32 noundef 0, i32 noundef 50, ptr noundef %252, i64 noundef %.pre494, i32 noundef %283, i64 noundef %285) #10
+  %286 = call i32 @H5B2__leaf_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %282, i32 noundef 0, i32 noundef 50, ptr noundef %252, i64 noundef %.pre494, i32 noundef %283, i64 noundef %285) #11
   br label %509
 
 287:                                              ; preds = %249
@@ -677,7 +677,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 288:                                              ; preds = %287
   %289 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %290 = call i32 @H5HF_hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %289, i32 noundef 0, i32 noundef 50) #10
+  %290 = call i32 @H5HF_hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %289, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 291:                                              ; preds = %287
@@ -706,7 +706,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 305:                                              ; preds = %292
   %306 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %307 = call i32 @H5HF_dblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %306, i32 noundef 0, i32 noundef 50, i64 noundef %293, i64 noundef %296) #10
+  %307 = call i32 @H5HF_dblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %306, i32 noundef 0, i32 noundef 50, i64 noundef %293, i64 noundef %296) #11
   br label %509
 
 308:                                              ; preds = %291
@@ -736,7 +736,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 322:                                              ; preds = %309
   %323 = load ptr, ptr @stdout, align 8, !tbaa !8
   %324 = trunc i64 %313 to i32
-  %325 = call i32 @H5HF_iblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %323, i32 noundef 0, i32 noundef 50, i64 noundef %310, i32 noundef %324) #10
+  %325 = call i32 @H5HF_iblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %323, i32 noundef 0, i32 noundef 50, i64 noundef %310, i32 noundef %324) #11
   br label %509
 
 326:                                              ; preds = %308
@@ -746,7 +746,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 327:                                              ; preds = %326
   %328 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %329 = call i32 @H5FS_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %328, i32 noundef 0, i32 noundef 50) #10
+  %329 = call i32 @H5FS_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %328, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 330:                                              ; preds = %326
@@ -775,7 +775,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 344:                                              ; preds = %331
   %345 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %346 = call i32 @H5FS_sects_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %345, i32 noundef 0, i32 noundef 50, i64 noundef %332, i64 noundef %335) #10
+  %346 = call i32 @H5FS_sects_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %345, i32 noundef 0, i32 noundef 50, i64 noundef %332, i64 noundef %335) #11
   br label %509
 
 347:                                              ; preds = %330
@@ -785,7 +785,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 348:                                              ; preds = %347
   %349 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %350 = call i32 @H5SM_table_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %349, i32 noundef 0, i32 noundef 50, i32 noundef -1, i32 noundef -1) #10
+  %350 = call i32 @H5SM_table_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %349, i32 noundef 0, i32 noundef 50, i32 noundef -1, i32 noundef -1) #11
   br label %509
 
 351:                                              ; preds = %347
@@ -810,7 +810,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 362:                                              ; preds = %352
   %363 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %364 = call i32 @H5SM_list_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %363, i32 noundef 0, i32 noundef 50, i64 noundef %353) #10
+  %364 = call i32 @H5SM_list_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %363, i32 noundef 0, i32 noundef 50, i64 noundef %353) #11
   br label %509
 
 365:                                              ; preds = %351
@@ -829,7 +829,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .thread429:                                       ; preds = %366
   %371 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %372 = call i32 @H5EA__hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %371, i32 noundef 0, i32 noundef 50, ptr noundef %368, i64 noundef %369) #10
+  %372 = call i32 @H5EA__hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %371, i32 noundef 0, i32 noundef 50, ptr noundef %368, i64 noundef %369) #11
   br label %509
 
 373:                                              ; preds = %366
@@ -861,7 +861,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .thread434:                                       ; preds = %381
   %389 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %390 = call i32 @H5EA__iblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %389, i32 noundef 0, i32 noundef 50, ptr noundef %383, i64 noundef %384, i64 noundef %387) #10
+  %390 = call i32 @H5EA__iblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %389, i32 noundef 0, i32 noundef 50, ptr noundef %383, i64 noundef %384, i64 noundef %387) #11
   br label %509
 
 391:                                              ; preds = %381
@@ -898,7 +898,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 .thread439:                                       ; preds = %399
   %410 = load ptr, ptr @stdout, align 8, !tbaa !8
   %411 = trunc i64 %405 to i32
-  %412 = call i32 @H5EA__sblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %410, i32 noundef 0, i32 noundef 50, ptr noundef %401, i64 noundef %402, i32 noundef %411, i64 noundef %408) #10
+  %412 = call i32 @H5EA__sblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %410, i32 noundef 0, i32 noundef 50, ptr noundef %401, i64 noundef %402, i32 noundef %411, i64 noundef %408) #11
   br label %509
 
 413:                                              ; preds = %399
@@ -934,7 +934,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .thread444:                                       ; preds = %421
   %432 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %433 = call i32 @H5EA__dblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %432, i32 noundef 0, i32 noundef 50, ptr noundef %423, i64 noundef %424, i64 noundef %427, i64 noundef %430) #10
+  %433 = call i32 @H5EA__dblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %432, i32 noundef 0, i32 noundef 50, ptr noundef %423, i64 noundef %424, i64 noundef %427, i64 noundef %430) #11
   br label %509
 
 434:                                              ; preds = %421
@@ -962,7 +962,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .thread449:                                       ; preds = %442
   %447 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %448 = call i32 @H5FA__hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %447, i32 noundef 0, i32 noundef 50, ptr noundef %444, i64 noundef %445) #10
+  %448 = call i32 @H5FA__hdr_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %447, i32 noundef 0, i32 noundef 50, ptr noundef %444, i64 noundef %445) #11
   br label %509
 
 449:                                              ; preds = %442
@@ -994,7 +994,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .thread454:                                       ; preds = %457
   %465 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %466 = call i32 @H5FA__dblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %465, i32 noundef 0, i32 noundef 50, ptr noundef %459, i64 noundef %460, i64 noundef %463) #10
+  %466 = call i32 @H5FA__dblock_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %465, i32 noundef 0, i32 noundef 50, ptr noundef %459, i64 noundef %460, i64 noundef %463) #11
   br label %509
 
 467:                                              ; preds = %457
@@ -1013,7 +1013,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 475:                                              ; preds = %474
   %476 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %477 = call i32 @H5O_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %476, i32 noundef 0, i32 noundef 50) #10
+  %477 = call i32 @H5O_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %476, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 478:                                              ; preds = %474
@@ -1023,7 +1023,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 481:                                              ; preds = %478
   %482 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %483 = call i32 @H5O_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %482, i32 noundef 0, i32 noundef 50) #10
+  %483 = call i32 @H5O_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %482, i32 noundef 0, i32 noundef 50) #11
   br label %509
 
 484:                                              ; preds = %478
@@ -1081,7 +1081,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %512 = load ptr, ptr @stderr, align 8, !tbaa !8
   %513 = call i64 @fwrite(ptr nonnull @.str.92, i64 19, i64 1, ptr %512) #12
   %514 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %515 = call i32 @H5Eprint2(i64 noundef 0, ptr noundef %514) #10
+  %515 = call i32 @H5Eprint2(i64 noundef 0, ptr noundef %514) #11
   br label %.thread418
 
 .thread418:                                       ; preds = %274, %263, %233, %218, %467, %449, %434, %413, %391, %373, %194, %.thread407, %509, %511, %504, %355, %337, %315, %298, %93, %67, %61, %55, %49, %43, %36
@@ -1092,7 +1092,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br i1 %.not479, label %518, label %516
 
 516:                                              ; preds = %.thread418
-  %517 = call i32 @H5Pclose(i64 noundef %24) #10
+  %517 = call i32 @H5Pclose(i64 noundef %24) #11
   br label %518
 
 518:                                              ; preds = %516, %.thread418
@@ -1100,7 +1100,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br i1 %519, label %520, label %526
 
 520:                                              ; preds = %518
-  %521 = call i32 @H5Fclose(i64 noundef %.0252) #10
+  %521 = call i32 @H5Fclose(i64 noundef %.0252) #11
   %522 = icmp slt i32 %521, 0
   br i1 %522, label %523, label %526
 
@@ -1114,81 +1114,75 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 527:                                              ; preds = %523, %526
   %.12477 = phi i32 [ 1, %523 ], [ %.0263, %526 ]
-  %528 = call i32 @H5CX_pop(i1 noundef zeroext false) #10
+  %528 = call i32 @H5CX_pop(i1 noundef zeroext false) #11
   br label %.thread473
 
 .thread473:                                       ; preds = %26, %17, %10, %523, %527, %526
   %.12476 = phi i32 [ %.12477, %527 ], [ %.0263, %526 ], [ 1, %523 ], [ 1, %10 ], [ 1, %17 ], [ 1, %26 ]
   %529 = load ptr, ptr %5, align 8, !tbaa !4
   %530 = load ptr, ptr %6, align 8, !tbaa !4
-  %531 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %529, ptr noundef %530) #10
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #10
+  %531 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %529, ptr noundef %530) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.12476
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @H5open() local_unnamed_addr #4
+declare i32 @H5open() local_unnamed_addr #3
 
-declare i32 @H5Eget_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5Eget_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5Eset_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5Eset_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @H5Pcreate(i64 noundef) local_unnamed_addr #4
+declare i64 @H5Pcreate(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @H5Pset_fapl_family(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5Pset_fapl_family(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @H5Fopen(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @H5Fopen(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5CX_push(ptr noundef) local_unnamed_addr #4
+declare i32 @H5CX_push(ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #4
+declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #3
 
-declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #4
+declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5AC_ignore_tags(ptr noundef) local_unnamed_addr #4
+declare i32 @H5AC_ignore_tags(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-declare i32 @H5F_block_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5F_block_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5F_debug(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5F_debug(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5HL_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5HL_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5HG_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5HG_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5G_node_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5G_node_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5D_btree_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5D_btree_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #7 {
+define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #6 {
   %1 = icmp ult i8 %.5.val, 13
   br i1 %1, label %switch.lookup, label %2
 
 2:                                                ; preds = %0
   %3 = zext i8 %.5.val to i32
   %4 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.94, i32 noundef %3) #11
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.94, i32 noundef %3) #10
   br label %7
 
 switch.lookup:                                    ; preds = %0
@@ -1202,35 +1196,35 @@ switch.lookup:                                    ; preds = %0
   ret ptr %.0
 }
 
-declare i32 @H5B2__hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5B2__hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5B2__int_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5B2__int_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5B2__leaf_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5B2__leaf_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5HF_hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5HF_hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5HF_dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5HF_dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5HF_iblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5HF_iblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5FS_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5FS_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5FS_sects_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5FS_sects_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5SM_table_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @H5SM_table_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @H5SM_list_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5SM_list_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #7 {
+define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #6 {
   %1 = icmp ult i8 %.5.val, 3
   br i1 %1, label %switch.lookup, label %2
 
 2:                                                ; preds = %0
   %3 = zext i8 %.5.val to i32
   %4 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.95, i32 noundef %3) #11
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.95, i32 noundef %3) #10
   br label %7
 
 switch.lookup:                                    ; preds = %0
@@ -1244,23 +1238,23 @@ switch.lookup:                                    ; preds = %0
   ret ptr %.0
 }
 
-declare i32 @H5EA__hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5EA__hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5EA__iblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5EA__iblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5EA__sblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5EA__sblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5EA__dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5EA__dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #7 {
+define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #6 {
   %1 = icmp ult i8 %.5.val, 3
   br i1 %1, label %switch.lookup, label %2
 
 2:                                                ; preds = %0
   %3 = zext i8 %.5.val to i32
   %4 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.96, i32 noundef %3) #11
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.96, i32 noundef %3) #10
   br label %7
 
 switch.lookup:                                    ; preds = %0
@@ -1274,25 +1268,31 @@ switch.lookup:                                    ; preds = %0
   ret ptr %.0
 }
 
-declare i32 @H5FA__hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5FA__hdr_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5FA__dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5FA__dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5O_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
-
-declare i32 @H5Eprint2(i64 noundef, ptr noundef) local_unnamed_addr #4
-
-declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #4
-
-declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #4
-
-declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #4
+declare i32 @H5O_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+
+declare i32 @H5Eprint2(i64 noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #3
+
+declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #3
+
+declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -1301,17 +1301,17 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nofree nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind }
 attributes #12 = { cold }
 attributes #13 = { nounwind willreturn memory(read) }
 

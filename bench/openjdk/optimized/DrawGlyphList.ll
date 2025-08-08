@@ -465,7 +465,7 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 34:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = load i32, ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 2147483647, ptr %36, align 4
@@ -548,14 +548,14 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %66, label %RefineBounds.exit, label %RefineBounds.exit.thread
 
 RefineBounds.exit.thread:                         ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %69
 
 RefineBounds.exit:                                ; preds = %._crit_edge.i
   %67 = load i32, ptr %23, align 4
   %68 = load i32, ptr %21, align 4
   %.not2 = icmp slt i32 %67, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not2, label %72, label %69
 
 69:                                               ; preds = %RefineBounds.exit.thread, %RefineBounds.exit
@@ -667,8 +667,8 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %24 = tail call zeroext i8 %22(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %23) #10
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %27 = tail call ptr @SurfaceData_GetOps(ptr noundef nonnull %0, ptr noundef %3) #10
   %28 = icmp eq ptr %27, null
   br i1 %28, label %drawGlyphListLCD.exit, label %29
@@ -712,7 +712,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   ]
 
 49:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %50 = load i32, ptr %14, align 8
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2147483647, ptr %51, align 4
@@ -795,14 +795,14 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   br i1 %81, label %RefineBounds.exit.i, label %RefineBounds.exit.thread.i
 
 RefineBounds.exit.thread.i:                       ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %84
 
 RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %82 = load i32, ptr %38, align 4
   %83 = load i32, ptr %36, align 4
   %.not2.i = icmp slt i32 %82, %83
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not2.i, label %87, label %84
 
 84:                                               ; preds = %RefineBounds.exit.i, %RefineBounds.exit.thread.i
@@ -990,8 +990,8 @@ getInvLCDGammaLUT.exit.i:                         ; preds = %160, %.preheader.i.
   br label %drawGlyphListLCD.exit
 
 drawGlyphListLCD.exit:                            ; preds = %16, %35, %40, %44, %84, %92, %178, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @free(ptr noundef %14) #10
   br label %181
 
@@ -1513,10 +1513,10 @@ declare void @GrPrim_Sg2dGetClip(ptr noundef, ptr noundef, ptr noundef) local_un
 declare float @llvm.floor.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

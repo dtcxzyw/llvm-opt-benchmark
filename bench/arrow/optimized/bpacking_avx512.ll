@@ -440,8 +440,8 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal15unpac
   %.0.copyload.i.i.i = load i32, ptr %.1915.i, align 1
   %167 = insertelement <16 x i32> poison, i32 %.0.copyload.i.i.i, i64 0
   %168 = shufflevector <16 x i32> %167, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %125) #5, !noalias !3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %126) #5, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %125), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %126), !noalias !3
   store <16 x i32> %168, ptr %125, align 64, !tbaa !8, !noalias !3
   store <8 x i64> <i64 4294967296, i64 12884901890, i64 21474836484, i64 30064771078, i64 38654705672, i64 47244640266, i64 55834574860, i64 64424509454>, ptr %126, align 64, !tbaa !8, !noalias !3
   br label %169
@@ -462,15 +462,15 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1141.i = shl nsw i64 %indvars.iv1103.i, 7
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1141.i
   %177 = load <8 x i64>, ptr %125, align 64, !tbaa !8, !noalias !15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %126) #5, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %125) #5, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %126), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %125), !noalias !3
   %178 = and <8 x i64> %177, splat (i64 4294967297)
   store <8 x i64> %178, ptr %176, align 1, !tbaa !8
   %.0.copyload.i55.i.i = load i32, ptr %.1915.i, align 1
   %179 = insertelement <16 x i32> poison, i32 %.0.copyload.i55.i.i, i64 0
   %180 = shufflevector <16 x i32> %179, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %127) #5, !noalias !18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %128) #5, !noalias !18
+  call void @llvm.lifetime.start.p0(ptr nonnull %127), !noalias !18
+  call void @llvm.lifetime.start.p0(ptr nonnull %128), !noalias !18
   store <16 x i32> %180, ptr %127, align 64, !tbaa !8, !noalias !18
   store <8 x i64> <i64 73014444048, i64 81604378642, i64 90194313236, i64 98784247830, i64 107374182424, i64 115964117018, i64 124554051612, i64 133143986206>, ptr %128, align 64, !tbaa !8, !noalias !18
   br label %181
@@ -490,8 +490,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack1_32EPKjPj.exit.i: ; preds = %181
   %188 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %189 = load <8 x i64>, ptr %127, align 64, !tbaa !8, !noalias !23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %128) #5, !noalias !18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %127) #5, !noalias !18
+  call void @llvm.lifetime.end.p0(ptr nonnull %128), !noalias !18
+  call void @llvm.lifetime.end.p0(ptr nonnull %127), !noalias !18
   %190 = and <8 x i64> %189, splat (i64 4294967297)
   store <8 x i64> %190, ptr %188, align 1, !tbaa !8
   %191 = getelementptr inbounds nuw i8, ptr %.1915.i, i64 4
@@ -505,8 +505,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %.0.copyload.i.i234.i = load i32, ptr %.2912.i, align 1
   %192 = insertelement <16 x i32> poison, i32 %.0.copyload.i.i234.i, i64 0
   %193 = shufflevector <16 x i32> %192, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %121) #5, !noalias !27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %122) #5, !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %121), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !27
   store <16 x i32> %193, ptr %121, align 64, !tbaa !8, !noalias !27
   store <8 x i64> <i64 8589934592, i64 25769803780, i64 42949672968, i64 60129542156, i64 77309411344, i64 94489280532, i64 111669149720, i64 128849018908>, ptr %122, align 64, !tbaa !8, !noalias !27
   br label %194
@@ -527,16 +527,16 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1140.i = shl nsw i64 %indvars.iv1098.i, 7
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1140.i
   %202 = load <8 x i64>, ptr %121, align 64, !tbaa !8, !noalias !32
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %122) #5, !noalias !27
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %121) #5, !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %122), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %121), !noalias !27
   %203 = and <8 x i64> %202, splat (i64 12884901891)
   store <8 x i64> %203, ptr %201, align 1, !tbaa !8
   %204 = getelementptr inbounds nuw i8, ptr %.2912.i, i64 4
   %.0.copyload.i55.i238.i = load i32, ptr %204, align 1
   %205 = insertelement <16 x i32> poison, i32 %.0.copyload.i55.i238.i, i64 0
   %206 = shufflevector <16 x i32> %205, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %123) #5, !noalias !35
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %124) #5, !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %123), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %124), !noalias !35
   store <16 x i32> %206, ptr %123, align 64, !tbaa !8, !noalias !35
   store <8 x i64> <i64 8589934592, i64 25769803780, i64 42949672968, i64 60129542156, i64 77309411344, i64 94489280532, i64 111669149720, i64 128849018908>, ptr %124, align 64, !tbaa !8, !noalias !35
   br label %207
@@ -556,8 +556,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack2_32EPKjPj.exit.i: ; preds = %207
   %214 = getelementptr inbounds nuw i8, ptr %201, i64 64
   %215 = load <8 x i64>, ptr %123, align 64, !tbaa !8, !noalias !40
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %124) #5, !noalias !35
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %123) #5, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %124), !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %123), !noalias !35
   %216 = and <8 x i64> %215, splat (i64 12884901891)
   store <8 x i64> %216, ptr %214, align 1, !tbaa !8
   %217 = getelementptr inbounds nuw i8, ptr %.2912.i, i64 8
@@ -588,8 +588,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %233 = insertelement <16 x i32> %232, i32 %.0.copyload.i52.i.i, i64 13
   %234 = insertelement <16 x i32> %233, i32 %.0.copyload.i52.i.i, i64 14
   %235 = insertelement <16 x i32> %234, i32 %.0.copyload.i52.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %117) #5, !noalias !44
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %118) #5, !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %117), !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %118), !noalias !44
   store <16 x i32> %235, ptr %117, align 64, !tbaa !8, !noalias !44
   store <8 x i64> <i64 12884901888, i64 38654705670, i64 64424509452, i64 90194313234, i64 115964117016, i64 4294967296, i64 30064771076, i64 55834574858>, ptr %118, align 64, !tbaa !8, !noalias !44
   br label %236
@@ -610,8 +610,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1139.i = shl nsw i64 %indvars.iv1093.i, 7
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1139.i
   %244 = load <8 x i64>, ptr %117, align 64, !tbaa !8, !noalias !49
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %118) #5, !noalias !44
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %117) #5, !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !44
   %245 = and <8 x i64> %244, splat (i64 30064771079)
   store <8 x i64> %245, ptr %243, align 1, !tbaa !8
   %.0.copyload.i58.i.i = load i32, ptr %218, align 1
@@ -634,8 +634,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %261 = insertelement <16 x i32> %260, i32 %.0.copyload.i64.i.i, i64 13
   %262 = insertelement <16 x i32> %261, i32 %.0.copyload.i64.i.i, i64 14
   %263 = insertelement <16 x i32> %262, i32 %.0.copyload.i64.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %119) #5, !noalias !52
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %120) #5, !noalias !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %119), !noalias !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %120), !noalias !52
   store <16 x i32> %263, ptr %119, align 64, !tbaa !8, !noalias !52
   store <8 x i64> <i64 81604378640, i64 107374182422, i64 28, i64 21474836482, i64 47244640264, i64 73014444046, i64 98784247828, i64 124554051610>, ptr %120, align 64, !tbaa !8, !noalias !52
   br label %264
@@ -655,8 +655,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack3_32EPKjPj.exit.i: ; preds = %264
   %271 = getelementptr inbounds nuw i8, ptr %243, i64 64
   %272 = load <8 x i64>, ptr %119, align 64, !tbaa !8, !noalias !57
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %120) #5, !noalias !52
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %119) #5, !noalias !52
+  call void @llvm.lifetime.end.p0(ptr nonnull %120), !noalias !52
+  call void @llvm.lifetime.end.p0(ptr nonnull %119), !noalias !52
   %273 = and <8 x i64> %272, splat (i64 30064771079)
   store <8 x i64> %273, ptr %271, align 1, !tbaa !8
   %274 = getelementptr inbounds nuw i8, ptr %.3909.i, i64 12
@@ -686,8 +686,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %289 = insertelement <16 x i32> %288, i32 %.0.copyload.i47.i.i, i64 13
   %290 = insertelement <16 x i32> %289, i32 %.0.copyload.i47.i.i, i64 14
   %291 = insertelement <16 x i32> %290, i32 %.0.copyload.i47.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %113) #5, !noalias !61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %114) #5, !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %113), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %114), !noalias !61
   store <16 x i32> %291, ptr %113, align 64, !tbaa !8, !noalias !61
   store <8 x i64> <i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312, i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312>, ptr %114, align 64, !tbaa !8, !noalias !61
   br label %292
@@ -708,8 +708,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1138.i = shl nsw i64 %indvars.iv1088.i, 7
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1138.i
   %300 = load <8 x i64>, ptr %113, align 64, !tbaa !8, !noalias !66
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %114) #5, !noalias !61
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %113) #5, !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %113), !noalias !61
   %301 = and <8 x i64> %300, splat (i64 64424509455)
   store <8 x i64> %301, ptr %299, align 1, !tbaa !8
   %302 = getelementptr inbounds nuw i8, ptr %.4906.i, i64 8
@@ -732,8 +732,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %317 = insertelement <16 x i32> %316, i32 %.0.copyload.i63.i.i, i64 13
   %318 = insertelement <16 x i32> %317, i32 %.0.copyload.i63.i.i, i64 14
   %319 = insertelement <16 x i32> %318, i32 %.0.copyload.i63.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %115) #5, !noalias !69
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %116) #5, !noalias !69
+  call void @llvm.lifetime.start.p0(ptr nonnull %115), !noalias !69
+  call void @llvm.lifetime.start.p0(ptr nonnull %116), !noalias !69
   store <16 x i32> %319, ptr %115, align 64, !tbaa !8, !noalias !69
   store <8 x i64> <i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312, i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312>, ptr %116, align 64, !tbaa !8, !noalias !69
   br label %320
@@ -753,8 +753,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack4_32EPKjPj.exit.i: ; preds = %320
   %327 = getelementptr inbounds nuw i8, ptr %299, i64 64
   %328 = load <8 x i64>, ptr %115, align 64, !tbaa !8, !noalias !74
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %116) #5, !noalias !69
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %115) #5, !noalias !69
+  call void @llvm.lifetime.end.p0(ptr nonnull %116), !noalias !69
+  call void @llvm.lifetime.end.p0(ptr nonnull %115), !noalias !69
   %329 = and <8 x i64> %328, splat (i64 64424509455)
   store <8 x i64> %329, ptr %327, align 1, !tbaa !8
   %330 = getelementptr inbounds nuw i8, ptr %.4906.i, i64 16
@@ -788,8 +788,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %348 = insertelement <16 x i32> %347, i32 %.0.copyload.i57.i.i, i64 13
   %349 = insertelement <16 x i32> %348, i32 %.0.copyload.i57.i.i, i64 14
   %350 = insertelement <16 x i32> %349, i32 %.0.copyload.i57.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %109) #5, !noalias !78
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %110) #5, !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %109), !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %110), !noalias !78
   store <16 x i32> %350, ptr %109, align 64, !tbaa !8, !noalias !78
   store <8 x i64> <i64 21474836480, i64 64424509450, i64 107374182420, i64 12884901888, i64 55834574856, i64 98784247826, i64 4294967296, i64 47244640262>, ptr %110, align 64, !tbaa !8, !noalias !78
   br label %351
@@ -810,8 +810,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1137.i = shl nsw i64 %indvars.iv1083.i, 7
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1137.i
   %359 = load <8 x i64>, ptr %109, align 64, !tbaa !8, !noalias !83
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %110) #5, !noalias !78
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %109) #5, !noalias !78
+  call void @llvm.lifetime.end.p0(ptr nonnull %110), !noalias !78
+  call void @llvm.lifetime.end.p0(ptr nonnull %109), !noalias !78
   %360 = and <8 x i64> %359, splat (i64 133143986207)
   store <8 x i64> %360, ptr %358, align 1, !tbaa !8
   %.0.copyload.i61.i.i = load i32, ptr %333, align 1
@@ -837,8 +837,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %378 = insertelement <16 x i32> %377, i32 %.0.copyload.i72.i.i, i64 13
   %379 = insertelement <16 x i32> %378, i32 %.0.copyload.i72.i.i, i64 14
   %380 = insertelement <16 x i32> %379, i32 %.0.copyload.i72.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %111) #5, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %112) #5, !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %111), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %112), !noalias !86
   store <16 x i32> %380, ptr %111, align 64, !tbaa !8, !noalias !86
   store <8 x i64> <i64 90194313232, i64 26, i64 38654705668, i64 81604378638, i64 24, i64 30064771074, i64 73014444044, i64 115964117014>, ptr %112, align 64, !tbaa !8, !noalias !86
   br label %381
@@ -858,8 +858,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack5_32EPKjPj.exit.i: ; preds = %381
   %388 = getelementptr inbounds nuw i8, ptr %358, i64 64
   %389 = load <8 x i64>, ptr %111, align 64, !tbaa !8, !noalias !91
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %112) #5, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %111) #5, !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %112), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %111), !noalias !86
   %390 = and <8 x i64> %389, splat (i64 133143986207)
   store <8 x i64> %390, ptr %388, align 1, !tbaa !8
   %391 = getelementptr inbounds nuw i8, ptr %.5903.i, i64 20
@@ -893,8 +893,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %409 = insertelement <16 x i32> %408, i32 %.0.copyload.i55.i253.i, i64 13
   %410 = insertelement <16 x i32> %409, i32 %.0.copyload.i55.i253.i, i64 14
   %411 = insertelement <16 x i32> %410, i32 %.0.copyload.i55.i253.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %105) #5, !noalias !95
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %106) #5, !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %106), !noalias !95
   store <16 x i32> %411, ptr %105, align 64, !tbaa !8, !noalias !95
   store <8 x i64> <i64 25769803776, i64 77309411340, i64 24, i64 42949672964, i64 94489280528, i64 8589934592, i64 60129542152, i64 111669149716>, ptr %106, align 64, !tbaa !8, !noalias !95
   br label %412
@@ -915,8 +915,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1136.i = shl nsw i64 %indvars.iv1078.i, 7
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1136.i
   %420 = load <8 x i64>, ptr %105, align 64, !tbaa !8, !noalias !100
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %106) #5, !noalias !95
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %105) #5, !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %106), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %105), !noalias !95
   %421 = and <8 x i64> %420, splat (i64 270582939711)
   store <8 x i64> %421, ptr %419, align 1, !tbaa !8
   %422 = getelementptr inbounds nuw i8, ptr %.6900.i, i64 12
@@ -943,8 +943,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %440 = insertelement <16 x i32> %439, i32 %.0.copyload.i73.i.i, i64 13
   %441 = insertelement <16 x i32> %440, i32 %.0.copyload.i73.i.i, i64 14
   %442 = insertelement <16 x i32> %441, i32 %.0.copyload.i73.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %107) #5, !noalias !103
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %108) #5, !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %107), !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %108), !noalias !103
   store <16 x i32> %442, ptr %107, align 64, !tbaa !8, !noalias !103
   store <8 x i64> <i64 25769803776, i64 77309411340, i64 24, i64 42949672964, i64 94489280528, i64 8589934592, i64 60129542152, i64 111669149716>, ptr %108, align 64, !tbaa !8, !noalias !103
   br label %443
@@ -964,8 +964,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack6_32EPKjPj.exit.i: ; preds = %443
   %450 = getelementptr inbounds nuw i8, ptr %419, i64 64
   %451 = load <8 x i64>, ptr %107, align 64, !tbaa !8, !noalias !108
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %108) #5, !noalias !103
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %107) #5, !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %108), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !103
   %452 = and <8 x i64> %451, splat (i64 270582939711)
   store <8 x i64> %452, ptr %450, align 1, !tbaa !8
   %453 = getelementptr inbounds nuw i8, ptr %.6900.i, i64 24
@@ -1002,8 +1002,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %473 = insertelement <16 x i32> %472, i32 %459, i64 13
   %474 = insertelement <16 x i32> %473, i32 %.0.copyload.i61.i262.i, i64 14
   %475 = insertelement <16 x i32> %474, i32 %.0.copyload.i61.i262.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %101) #5, !noalias !112
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %102) #5, !noalias !112
+  call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !112
+  call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !112
   store <16 x i32> %475, ptr %101, align 64, !tbaa !8, !noalias !112
   store <8 x i64> <i64 30064771072, i64 90194313230, i64 12884901888, i64 73014444042, i64 24, i64 55834574854, i64 20, i64 38654705666>, ptr %102, align 64, !tbaa !8, !noalias !112
   br label %476
@@ -1024,8 +1024,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1135.i = shl nsw i64 %indvars.iv1073.i, 7
   %483 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1135.i
   %484 = load <8 x i64>, ptr %101, align 64, !tbaa !8, !noalias !117
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %102) #5, !noalias !112
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %101) #5, !noalias !112
+  call void @llvm.lifetime.end.p0(ptr nonnull %102), !noalias !112
+  call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !112
   %485 = and <8 x i64> %484, splat (i64 545460846719)
   store <8 x i64> %485, ptr %483, align 1, !tbaa !8
   %.0.copyload.i64.i264.i = load i32, ptr %458, align 1
@@ -1054,8 +1054,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %505 = insertelement <16 x i32> %504, i32 %.0.copyload.i78.i.i, i64 13
   %506 = insertelement <16 x i32> %505, i32 %.0.copyload.i78.i.i, i64 14
   %507 = insertelement <16 x i32> %506, i32 %.0.copyload.i78.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %103) #5, !noalias !120
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %104) #5, !noalias !120
+  call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !120
+  call void @llvm.lifetime.start.p0(ptr nonnull %104), !noalias !120
   store <16 x i32> %507, ptr %103, align 64, !tbaa !8, !noalias !120
   store <8 x i64> <i64 98784247824, i64 21474836480, i64 81604378636, i64 4294967296, i64 64424509448, i64 22, i64 47244640260, i64 107374182418>, ptr %104, align 64, !tbaa !8, !noalias !120
   br label %508
@@ -1075,8 +1075,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack7_32EPKjPj.exit.i: ; preds = %508
   %515 = getelementptr inbounds nuw i8, ptr %483, i64 64
   %516 = load <8 x i64>, ptr %103, align 64, !tbaa !8, !noalias !125
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %104) #5, !noalias !120
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %103) #5, !noalias !120
+  call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !120
+  call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !120
   %517 = and <8 x i64> %516, splat (i64 545460846719)
   store <8 x i64> %517, ptr %515, align 1, !tbaa !8
   %518 = getelementptr inbounds nuw i8, ptr %.7897.i, i64 28
@@ -1110,8 +1110,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %535 = insertelement <16 x i32> %534, i32 %.0.copyload.i51.i.i, i64 13
   %536 = insertelement <16 x i32> %535, i32 %.0.copyload.i51.i.i, i64 14
   %537 = insertelement <16 x i32> %536, i32 %.0.copyload.i51.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %97) #5, !noalias !129
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %98) #5, !noalias !129
+  call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !129
+  call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !129
   store <16 x i32> %537, ptr %97, align 64, !tbaa !8, !noalias !129
   store <8 x i64> <i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120>, ptr %98, align 64, !tbaa !8, !noalias !129
   br label %538
@@ -1132,8 +1132,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1134.i = shl nsw i64 %indvars.iv1068.i, 7
   %545 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1134.i
   %546 = load <8 x i64>, ptr %97, align 64, !tbaa !8, !noalias !134
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %98) #5, !noalias !129
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %97) #5, !noalias !129
+  call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !129
+  call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !129
   %547 = and <8 x i64> %546, splat (i64 1095216660735)
   store <8 x i64> %547, ptr %545, align 1, !tbaa !8
   %548 = getelementptr inbounds nuw i8, ptr %.8894.i, i64 16
@@ -1160,8 +1160,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %565 = insertelement <16 x i32> %564, i32 %.0.copyload.i67.i274.i, i64 13
   %566 = insertelement <16 x i32> %565, i32 %.0.copyload.i67.i274.i, i64 14
   %567 = insertelement <16 x i32> %566, i32 %.0.copyload.i67.i274.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %99) #5, !noalias !137
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %100) #5, !noalias !137
+  call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !137
+  call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !137
   store <16 x i32> %567, ptr %99, align 64, !tbaa !8, !noalias !137
   store <8 x i64> <i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120>, ptr %100, align 64, !tbaa !8, !noalias !137
   br label %568
@@ -1181,8 +1181,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack8_32EPKjPj.exit.i: ; preds = %568
   %575 = getelementptr inbounds nuw i8, ptr %545, i64 64
   %576 = load <8 x i64>, ptr %99, align 64, !tbaa !8, !noalias !142
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %100) #5, !noalias !137
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %99) #5, !noalias !137
+  call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !137
+  call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !137
   %577 = and <8 x i64> %576, splat (i64 1095216660735)
   store <8 x i64> %577, ptr %575, align 1, !tbaa !8
   %578 = getelementptr inbounds nuw i8, ptr %.8894.i, i64 32
@@ -1222,8 +1222,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %600 = insertelement <16 x i32> %599, i32 %.0.copyload.i60.i.i, i64 13
   %601 = insertelement <16 x i32> %600, i32 %586, i64 14
   %602 = insertelement <16 x i32> %601, i32 %.0.copyload.i65.i280.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %93) #5, !noalias !146
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %94) #5, !noalias !146
+  call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !146
+  call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !146
   store <16 x i32> %602, ptr %93, align 64, !tbaa !8, !noalias !146
   store <8 x i64> <i64 38654705664, i64 18, i64 55834574852, i64 22, i64 73014444040, i64 12884901888, i64 90194313228, i64 30064771072>, ptr %94, align 64, !tbaa !8, !noalias !146
   br label %603
@@ -1244,8 +1244,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1133.i = shl nsw i64 %indvars.iv1063.i, 7
   %610 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1133.i
   %611 = load <8 x i64>, ptr %93, align 64, !tbaa !8, !noalias !151
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %94) #5, !noalias !146
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %93) #5, !noalias !146
+  call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !146
+  call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !146
   %612 = and <8 x i64> %611, splat (i64 2194728288767)
   store <8 x i64> %612, ptr %610, align 1, !tbaa !8
   %.0.copyload.i67.i282.i = load i32, ptr %585, align 1
@@ -1277,8 +1277,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %634 = insertelement <16 x i32> %633, i32 %.0.copyload.i83.i.i, i64 13
   %635 = insertelement <16 x i32> %634, i32 %.0.copyload.i83.i.i, i64 14
   %636 = insertelement <16 x i32> %635, i32 %.0.copyload.i83.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %95) #5, !noalias !154
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %96) #5, !noalias !154
+  call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !154
+  call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !154
   store <16 x i32> %636, ptr %95, align 64, !tbaa !8, !noalias !154
   store <8 x i64> <i64 16, i64 47244640258, i64 20, i64 64424509446, i64 4294967296, i64 81604378634, i64 21474836480, i64 98784247822>, ptr %96, align 64, !tbaa !8, !noalias !154
   br label %637
@@ -1298,8 +1298,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack9_32EPKjPj.exit.i: ; preds = %637
   %644 = getelementptr inbounds nuw i8, ptr %610, i64 64
   %645 = load <8 x i64>, ptr %95, align 64, !tbaa !8, !noalias !159
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %96) #5, !noalias !154
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %95) #5, !noalias !154
+  call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !154
+  call void @llvm.lifetime.end.p0(ptr nonnull %95), !noalias !154
   %646 = and <8 x i64> %645, splat (i64 2194728288767)
   store <8 x i64> %646, ptr %644, align 1, !tbaa !8
   %647 = getelementptr inbounds nuw i8, ptr %.9891.i, i64 36
@@ -1339,8 +1339,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %669 = insertelement <16 x i32> %668, i32 %.0.copyload.i63.i288.i, i64 13
   %670 = insertelement <16 x i32> %669, i32 %.0.copyload.i63.i288.i, i64 14
   %671 = insertelement <16 x i32> %670, i32 %.0.copyload.i63.i288.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %89) #5, !noalias !163
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %90) #5, !noalias !163
+  call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !163
+  call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !163
   store <16 x i32> %671, ptr %89, align 64, !tbaa !8, !noalias !163
   store <8 x i64> <i64 42949672960, i64 20, i64 77309411336, i64 25769803776, i64 16, i64 60129542148, i64 8589934592, i64 94489280524>, ptr %90, align 64, !tbaa !8, !noalias !163
   br label %672
@@ -1361,8 +1361,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1132.i = shl nsw i64 %indvars.iv1058.i, 7
   %679 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1132.i
   %680 = load <8 x i64>, ptr %89, align 64, !tbaa !8, !noalias !168
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %90) #5, !noalias !163
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %89) #5, !noalias !163
+  call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !163
+  call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !163
   %681 = and <8 x i64> %680, splat (i64 4393751544831)
   store <8 x i64> %681, ptr %679, align 1, !tbaa !8
   %682 = getelementptr inbounds nuw i8, ptr %.10888.i, i64 20
@@ -1395,8 +1395,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %704 = insertelement <16 x i32> %703, i32 %.0.copyload.i83.i293.i, i64 13
   %705 = insertelement <16 x i32> %704, i32 %.0.copyload.i83.i293.i, i64 14
   %706 = insertelement <16 x i32> %705, i32 %.0.copyload.i83.i293.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %91) #5, !noalias !171
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %92) #5, !noalias !171
+  call void @llvm.lifetime.start.p0(ptr nonnull %91), !noalias !171
+  call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !171
   store <16 x i32> %706, ptr %91, align 64, !tbaa !8, !noalias !171
   store <8 x i64> <i64 42949672960, i64 20, i64 77309411336, i64 25769803776, i64 16, i64 60129542148, i64 8589934592, i64 94489280524>, ptr %92, align 64, !tbaa !8, !noalias !171
   br label %707
@@ -1416,8 +1416,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack10_32EPKjPj.exit.i: ; preds = %707
   %714 = getelementptr inbounds nuw i8, ptr %679, i64 64
   %715 = load <8 x i64>, ptr %91, align 64, !tbaa !8, !noalias !176
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %92) #5, !noalias !171
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91) #5, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !171
   %716 = and <8 x i64> %715, splat (i64 4393751544831)
   store <8 x i64> %716, ptr %714, align 1, !tbaa !8
   %717 = getelementptr inbounds nuw i8, ptr %.10888.i, i64 40
@@ -1460,8 +1460,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %741 = insertelement <16 x i32> %740, i32 %.0.copyload.i64.i300.i, i64 13
   %742 = insertelement <16 x i32> %741, i32 %727, i64 14
   %743 = insertelement <16 x i32> %742, i32 %.0.copyload.i68.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %85) #5, !noalias !180
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %86) #5, !noalias !180
+  call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !180
+  call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !180
   store <16 x i32> %743, ptr %85, align 64, !tbaa !8, !noalias !180
   store <8 x i64> <i64 47244640256, i64 4294967296, i64 12, i64 55834574850, i64 12884901888, i64 14, i64 64424509444, i64 21474836480>, ptr %86, align 64, !tbaa !8, !noalias !180
   br label %744
@@ -1482,8 +1482,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1131.i = shl nsw i64 %indvars.iv1053.i, 7
   %751 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1131.i
   %752 = load <8 x i64>, ptr %85, align 64, !tbaa !8, !noalias !185
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %86) #5, !noalias !180
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %85) #5, !noalias !180
+  call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !180
+  call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !180
   %753 = and <8 x i64> %752, splat (i64 8791798056959)
   store <8 x i64> %753, ptr %751, align 1, !tbaa !8
   %.0.copyload.i70.i.i = load i32, ptr %726, align 1
@@ -1518,8 +1518,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %777 = insertelement <16 x i32> %776, i32 %763, i64 13
   %778 = insertelement <16 x i32> %777, i32 %.0.copyload.i88.i.i, i64 14
   %779 = insertelement <16 x i32> %778, i32 %.0.copyload.i88.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %87) #5, !noalias !188
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %88) #5, !noalias !188
+  call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !188
+  call void @llvm.lifetime.start.p0(ptr nonnull %88), !noalias !188
   store <16 x i32> %779, ptr %87, align 64, !tbaa !8, !noalias !188
   store <8 x i64> <i64 16, i64 73014444038, i64 30064771072, i64 18, i64 81604378632, i64 38654705664, i64 20, i64 90194313226>, ptr %88, align 64, !tbaa !8, !noalias !188
   br label %780
@@ -1539,8 +1539,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack11_32EPKjPj.exit.i: ; preds = %780
   %787 = getelementptr inbounds nuw i8, ptr %751, i64 64
   %788 = load <8 x i64>, ptr %87, align 64, !tbaa !8, !noalias !193
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %88) #5, !noalias !188
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %87) #5, !noalias !188
+  call void @llvm.lifetime.end.p0(ptr nonnull %88), !noalias !188
+  call void @llvm.lifetime.end.p0(ptr nonnull %87), !noalias !188
   %789 = and <8 x i64> %788, splat (i64 8791798056959)
   store <8 x i64> %789, ptr %787, align 1, !tbaa !8
   %790 = getelementptr inbounds nuw i8, ptr %.11885.i, i64 44
@@ -1582,8 +1582,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %813 = insertelement <16 x i32> %812, i32 %799, i64 13
   %814 = insertelement <16 x i32> %813, i32 %.0.copyload.i64.i307.i, i64 14
   %815 = insertelement <16 x i32> %814, i32 %.0.copyload.i64.i307.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %81) #5, !noalias !197
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %82) #5, !noalias !197
+  call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !197
+  call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !197
   store <16 x i32> %815, ptr %81, align 64, !tbaa !8, !noalias !197
   store <8 x i64> <i64 51539607552, i64 17179869184, i64 16, i64 85899345928, i64 51539607552, i64 17179869184, i64 16, i64 85899345928>, ptr %82, align 64, !tbaa !8, !noalias !197
   br label %816
@@ -1604,8 +1604,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1130.i = shl nsw i64 %indvars.iv1048.i, 7
   %823 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1130.i
   %824 = load <8 x i64>, ptr %81, align 64, !tbaa !8, !noalias !202
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %82) #5, !noalias !197
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81) #5, !noalias !197
+  call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !197
+  call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !197
   %825 = and <8 x i64> %824, splat (i64 17587891081215)
   store <8 x i64> %825, ptr %823, align 1, !tbaa !8
   %826 = getelementptr inbounds nuw i8, ptr %.12882.i, i64 24
@@ -1640,8 +1640,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %849 = insertelement <16 x i32> %848, i32 %835, i64 13
   %850 = insertelement <16 x i32> %849, i32 %.0.copyload.i84.i315.i, i64 14
   %851 = insertelement <16 x i32> %850, i32 %.0.copyload.i84.i315.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %83) #5, !noalias !205
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %84) #5, !noalias !205
+  call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !205
+  call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !205
   store <16 x i32> %851, ptr %83, align 64, !tbaa !8, !noalias !205
   store <8 x i64> <i64 51539607552, i64 17179869184, i64 16, i64 85899345928, i64 51539607552, i64 17179869184, i64 16, i64 85899345928>, ptr %84, align 64, !tbaa !8, !noalias !205
   br label %852
@@ -1661,8 +1661,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack12_32EPKjPj.exit.i: ; preds = %852
   %859 = getelementptr inbounds nuw i8, ptr %823, i64 64
   %860 = load <8 x i64>, ptr %83, align 64, !tbaa !8, !noalias !210
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %84) #5, !noalias !205
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %83) #5, !noalias !205
+  call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !205
+  call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !205
   %861 = and <8 x i64> %860, splat (i64 17587891081215)
   store <8 x i64> %861, ptr %859, align 1, !tbaa !8
   %862 = getelementptr inbounds nuw i8, ptr %.12882.i, i64 48
@@ -1708,8 +1708,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %888 = insertelement <16 x i32> %887, i32 %.0.copyload.i68.i323.i, i64 13
   %889 = insertelement <16 x i32> %888, i32 %874, i64 14
   %890 = insertelement <16 x i32> %889, i32 %.0.copyload.i71.i324.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %77) #5, !noalias !214
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %78) #5, !noalias !214
+  call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !214
+  call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !214
   store <16 x i32> %890, ptr %77, align 64, !tbaa !8, !noalias !214
   store <8 x i64> <i64 55834574848, i64 30064771072, i64 4294967296, i64 14, i64 8, i64 64424509442, i64 38654705664, i64 12884901888>, ptr %78, align 64, !tbaa !8, !noalias !214
   br label %891
@@ -1730,8 +1730,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1129.i = shl nsw i64 %indvars.iv1043.i, 7
   %898 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1129.i
   %899 = load <8 x i64>, ptr %77, align 64, !tbaa !8, !noalias !219
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %78) #5, !noalias !214
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %77) #5, !noalias !214
+  call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !214
+  call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !214
   %900 = and <8 x i64> %899, splat (i64 35180077129727)
   store <8 x i64> %900, ptr %898, align 1, !tbaa !8
   %.0.copyload.i73.i326.i = load i32, ptr %873, align 1
@@ -1769,8 +1769,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %926 = insertelement <16 x i32> %925, i32 %912, i64 13
   %927 = insertelement <16 x i32> %926, i32 %.0.copyload.i92.i.i, i64 14
   %928 = insertelement <16 x i32> %927, i32 %.0.copyload.i92.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %79) #5, !noalias !222
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %80) #5, !noalias !222
+  call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !222
+  call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !222
   store <16 x i32> %928, ptr %79, align 64, !tbaa !8, !noalias !222
   store <8 x i64> <i64 16, i64 10, i64 73014444036, i64 47244640256, i64 21474836480, i64 18, i64 12, i64 81604378630>, ptr %80, align 64, !tbaa !8, !noalias !222
   br label %929
@@ -1790,8 +1790,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack13_32EPKjPj.exit.i: ; preds = %929
   %936 = getelementptr inbounds nuw i8, ptr %898, i64 64
   %937 = load <8 x i64>, ptr %79, align 64, !tbaa !8, !noalias !227
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %80) #5, !noalias !222
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %79) #5, !noalias !222
+  call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !222
+  call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !222
   %938 = and <8 x i64> %937, splat (i64 35180077129727)
   store <8 x i64> %938, ptr %936, align 1, !tbaa !8
   %939 = getelementptr inbounds nuw i8, ptr %.13879.i, i64 52
@@ -1837,8 +1837,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %965 = insertelement <16 x i32> %964, i32 %951, i64 13
   %966 = insertelement <16 x i32> %965, i32 %.0.copyload.i70.i335.i, i64 14
   %967 = insertelement <16 x i32> %966, i32 %.0.copyload.i70.i335.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %73) #5, !noalias !231
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %74) #5, !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !231
   store <16 x i32> %967, ptr %73, align 64, !tbaa !8, !noalias !231
   store <8 x i64> <i64 60129542144, i64 42949672960, i64 25769803776, i64 8589934592, i64 16, i64 12, i64 8, i64 77309411332>, ptr %74, align 64, !tbaa !8, !noalias !231
   br label %968
@@ -1859,8 +1859,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1128.i = shl nsw i64 %indvars.iv1038.i, 7
   %975 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1128.i
   %976 = load <8 x i64>, ptr %73, align 64, !tbaa !8, !noalias !236
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %74) #5, !noalias !231
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %73) #5, !noalias !231
+  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !231
+  call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !231
   %977 = and <8 x i64> %976, splat (i64 70364449226751)
   store <8 x i64> %977, ptr %975, align 1, !tbaa !8
   %978 = getelementptr inbounds nuw i8, ptr %.14876.i, i64 28
@@ -1899,8 +1899,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1004 = insertelement <16 x i32> %1003, i32 %990, i64 13
   %1005 = insertelement <16 x i32> %1004, i32 %.0.copyload.i92.i344.i, i64 14
   %1006 = insertelement <16 x i32> %1005, i32 %.0.copyload.i92.i344.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %75) #5, !noalias !239
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %76) #5, !noalias !239
+  call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !239
+  call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !239
   store <16 x i32> %1006, ptr %75, align 64, !tbaa !8, !noalias !239
   store <8 x i64> <i64 60129542144, i64 42949672960, i64 25769803776, i64 8589934592, i64 16, i64 12, i64 8, i64 77309411332>, ptr %76, align 64, !tbaa !8, !noalias !239
   br label %1007
@@ -1920,8 +1920,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack14_32EPKjPj.exit.i: ; preds = %1007
   %1014 = getelementptr inbounds nuw i8, ptr %975, i64 64
   %1015 = load <8 x i64>, ptr %75, align 64, !tbaa !8, !noalias !244
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %76) #5, !noalias !239
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %75) #5, !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !239
   %1016 = and <8 x i64> %1015, splat (i64 70364449226751)
   store <8 x i64> %1016, ptr %1014, align 1, !tbaa !8
   %1017 = getelementptr inbounds nuw i8, ptr %.14876.i, i64 56
@@ -1970,8 +1970,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1045 = insertelement <16 x i32> %1044, i32 %.0.copyload.i71.i352.i, i64 13
   %1046 = insertelement <16 x i32> %1045, i32 %1031, i64 14
   %1047 = insertelement <16 x i32> %1046, i32 %.0.copyload.i74.i353.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %69) #5, !noalias !248
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %70) #5, !noalias !248
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !248
+  call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !248
   store <16 x i32> %1047, ptr %69, align 64, !tbaa !8, !noalias !248
   store <8 x i64> <i64 64424509440, i64 55834574848, i64 47244640256, i64 38654705664, i64 30064771072, i64 21474836480, i64 12884901888, i64 4294967296>, ptr %70, align 64, !tbaa !8, !noalias !248
   br label %1048
@@ -1992,8 +1992,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1127.i = shl nsw i64 %indvars.iv1033.i, 7
   %1055 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1127.i
   %1056 = load <8 x i64>, ptr %69, align 64, !tbaa !8, !noalias !253
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70) #5, !noalias !248
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69) #5, !noalias !248
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !248
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !248
   %1057 = and <8 x i64> %1056, splat (i64 140733193420799)
   store <8 x i64> %1057, ptr %1055, align 1, !tbaa !8
   %.0.copyload.i76.i355.i = load i32, ptr %1030, align 1
@@ -2034,8 +2034,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1085 = insertelement <16 x i32> %1084, i32 %1071, i64 13
   %1086 = insertelement <16 x i32> %1085, i32 %.0.copyload.i96.i.i, i64 14
   %1087 = insertelement <16 x i32> %1086, i32 %.0.copyload.i96.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %71) #5, !noalias !256
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %72) #5, !noalias !256
+  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !256
+  call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !256
   store <16 x i32> %1087, ptr %71, align 64, !tbaa !8, !noalias !256
   store <8 x i64> <i64 16, i64 14, i64 12, i64 10, i64 8, i64 6, i64 4, i64 73014444034>, ptr %72, align 64, !tbaa !8, !noalias !256
   br label %1088
@@ -2055,8 +2055,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack15_32EPKjPj.exit.i: ; preds = %1088
   %1095 = getelementptr inbounds nuw i8, ptr %1055, i64 64
   %1096 = load <8 x i64>, ptr %71, align 64, !tbaa !8, !noalias !261
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %72) #5, !noalias !256
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71) #5, !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !256
   %1097 = and <8 x i64> %1096, splat (i64 140733193420799)
   store <8 x i64> %1097, ptr %1095, align 1, !tbaa !8
   %1098 = getelementptr inbounds nuw i8, ptr %.15873.i, i64 60
@@ -2098,8 +2098,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1119 = insertelement <16 x i32> %1118, i32 %.0.copyload.i51.i362.i, i64 13
   %1120 = insertelement <16 x i32> %1119, i32 %.0.copyload.i53.i.i, i64 14
   %1121 = insertelement <16 x i32> %1120, i32 %.0.copyload.i53.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %65) #5, !noalias !265
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %66) #5, !noalias !265
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !265
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !265
   store <16 x i32> %1121, ptr %65, align 64, !tbaa !8, !noalias !265
   store <8 x i64> splat (i64 68719476736), ptr %66, align 64, !tbaa !8, !noalias !265
   br label %1122
@@ -2120,8 +2120,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1126.i = shl nsw i64 %indvars.iv1028.i, 7
   %1129 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1126.i
   %1130 = load <8 x i64>, ptr %65, align 64, !tbaa !8, !noalias !270
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %66) #5, !noalias !265
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %65) #5, !noalias !265
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !265
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !265
   %1131 = and <8 x i64> %1130, splat (i64 281470681808895)
   store <8 x i64> %1131, ptr %1129, align 1, !tbaa !8
   %1132 = getelementptr inbounds nuw i8, ptr %.16870.i, i64 32
@@ -2156,8 +2156,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1153 = insertelement <16 x i32> %1152, i32 %.0.copyload.i67.i372.i, i64 13
   %1154 = insertelement <16 x i32> %1153, i32 %.0.copyload.i69.i373.i, i64 14
   %1155 = insertelement <16 x i32> %1154, i32 %.0.copyload.i69.i373.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %67) #5, !noalias !273
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %68) #5, !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !273
   store <16 x i32> %1155, ptr %67, align 64, !tbaa !8, !noalias !273
   store <8 x i64> splat (i64 68719476736), ptr %68, align 64, !tbaa !8, !noalias !273
   br label %1156
@@ -2177,8 +2177,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack16_32EPKjPj.exit.i: ; preds = %1156
   %1163 = getelementptr inbounds nuw i8, ptr %1129, i64 64
   %1164 = load <8 x i64>, ptr %67, align 64, !tbaa !8, !noalias !278
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68) #5, !noalias !273
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %67) #5, !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !273
   %1165 = and <8 x i64> %1164, splat (i64 281470681808895)
   store <8 x i64> %1165, ptr %1163, align 1, !tbaa !8
   %1166 = getelementptr inbounds nuw i8, ptr %.16870.i, i64 64
@@ -2230,8 +2230,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1196 = insertelement <16 x i32> %1195, i32 %1180, i64 13
   %1197 = insertelement <16 x i32> %1196, i32 %.0.copyload.i75.i382.i, i64 14
   %1198 = insertelement <16 x i32> %1197, i32 %1182, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %61) #5, !noalias !282
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %62) #5, !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !282
   store <16 x i32> %1198, ptr %61, align 64, !tbaa !8, !noalias !282
   store <8 x i64> <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, ptr %62, align 64, !tbaa !8, !noalias !282
   br label %1199
@@ -2252,8 +2252,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1125.i = shl nsw i64 %indvars.iv1023.i, 7
   %1206 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1125.i
   %1207 = load <8 x i64>, ptr %61, align 64, !tbaa !8, !noalias !287
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %62) #5, !noalias !282
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %61) #5, !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !282
   %1208 = and <8 x i64> %1207, splat (i64 562945658585087)
   store <8 x i64> %1208, ptr %1206, align 1, !tbaa !8
   %.0.copyload.i79.i385.i = load i32, ptr %1181, align 1
@@ -2297,8 +2297,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1238 = insertelement <16 x i32> %1237, i32 %.0.copyload.i98.i.i, i64 13
   %1239 = insertelement <16 x i32> %1238, i32 %1224, i64 14
   %1240 = insertelement <16 x i32> %1239, i32 %.0.copyload.i101.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %63) #5, !noalias !290
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %64) #5, !noalias !290
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !290
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !290
   store <16 x i32> %1240, ptr %63, align 64, !tbaa !8, !noalias !290
   store <8 x i64> <i64 4294967296, i64 12884901888, i64 21474836480, i64 30064771072, i64 38654705664, i64 47244640256, i64 55834574848, i64 64424509440>, ptr %64, align 64, !tbaa !8, !noalias !290
   br label %1241
@@ -2318,8 +2318,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack17_32EPKjPj.exit.i: ; preds = %1241
   %1248 = getelementptr inbounds nuw i8, ptr %1206, i64 64
   %1249 = load <8 x i64>, ptr %63, align 64, !tbaa !8, !noalias !295
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %64) #5, !noalias !290
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %63) #5, !noalias !290
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !290
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !290
   %1250 = and <8 x i64> %1249, splat (i64 562945658585087)
   store <8 x i64> %1250, ptr %1248, align 1, !tbaa !8
   %1251 = getelementptr inbounds nuw i8, ptr %.17867.i, i64 68
@@ -2371,8 +2371,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1281 = insertelement <16 x i32> %1280, i32 %.0.copyload.i74.i398.i, i64 13
   %1282 = insertelement <16 x i32> %1281, i32 %1267, i64 14
   %1283 = insertelement <16 x i32> %1282, i32 %.0.copyload.i77.i399.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %57) #5, !noalias !299
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %58) #5, !noalias !299
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !299
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !299
   store <16 x i32> %1283, ptr %57, align 64, !tbaa !8, !noalias !299
   store <8 x i64> <i64 0, i64 4, i64 8, i64 12, i64 8589934592, i64 25769803776, i64 42949672960, i64 60129542144>, ptr %58, align 64, !tbaa !8, !noalias !299
   br label %1284
@@ -2393,8 +2393,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1124.i = shl nsw i64 %indvars.iv1018.i, 7
   %1291 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1124.i
   %1292 = load <8 x i64>, ptr %57, align 64, !tbaa !8, !noalias !304
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %58) #5, !noalias !299
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %57) #5, !noalias !299
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !299
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !299
   %1293 = and <8 x i64> %1292, splat (i64 1125895612137471)
   store <8 x i64> %1293, ptr %1291, align 1, !tbaa !8
   %1294 = getelementptr inbounds nuw i8, ptr %.18864.i, i64 36
@@ -2439,8 +2439,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1324 = insertelement <16 x i32> %1323, i32 %.0.copyload.i98.i410.i, i64 13
   %1325 = insertelement <16 x i32> %1324, i32 %1310, i64 14
   %1326 = insertelement <16 x i32> %1325, i32 %.0.copyload.i101.i411.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %59) #5, !noalias !307
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %60) #5, !noalias !307
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !307
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !307
   store <16 x i32> %1326, ptr %59, align 64, !tbaa !8, !noalias !307
   store <8 x i64> <i64 0, i64 4, i64 8, i64 12, i64 8589934592, i64 25769803776, i64 42949672960, i64 60129542144>, ptr %60, align 64, !tbaa !8, !noalias !307
   br label %1327
@@ -2460,8 +2460,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack18_32EPKjPj.exit.i: ; preds = %1327
   %1334 = getelementptr inbounds nuw i8, ptr %1291, i64 64
   %1335 = load <8 x i64>, ptr %59, align 64, !tbaa !8, !noalias !312
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %60) #5, !noalias !307
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %59) #5, !noalias !307
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !307
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !307
   %1336 = and <8 x i64> %1335, splat (i64 1125895612137471)
   store <8 x i64> %1336, ptr %1334, align 1, !tbaa !8
   %1337 = getelementptr inbounds nuw i8, ptr %.18864.i, i64 72
@@ -2516,8 +2516,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1369 = insertelement <16 x i32> %1368, i32 %1353, i64 13
   %1370 = insertelement <16 x i32> %1369, i32 %.0.copyload.i78.i422.i, i64 14
   %1371 = insertelement <16 x i32> %1370, i32 %1355, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %53) #5, !noalias !316
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %54) #5, !noalias !316
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !316
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !316
   store <16 x i32> %1371, ptr %53, align 64, !tbaa !8, !noalias !316
   store <8 x i64> <i64 0, i64 6, i64 12, i64 21474836480, i64 47244640256, i64 0, i64 4, i64 10>, ptr %54, align 64, !tbaa !8, !noalias !316
   br label %1372
@@ -2538,8 +2538,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1123.i = shl nsw i64 %indvars.iv1013.i, 7
   %1379 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1123.i
   %1380 = load <8 x i64>, ptr %53, align 64, !tbaa !8, !noalias !321
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54) #5, !noalias !316
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %53) #5, !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !316
   %1381 = and <8 x i64> %1380, splat (i64 2251795519242239)
   store <8 x i64> %1381, ptr %1379, align 1, !tbaa !8
   %.0.copyload.i82.i425.i = load i32, ptr %1354, align 1
@@ -2586,8 +2586,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1413 = insertelement <16 x i32> %1412, i32 %.0.copyload.i102.i.i, i64 13
   %1414 = insertelement <16 x i32> %1413, i32 %1399, i64 14
   %1415 = insertelement <16 x i32> %1414, i32 %.0.copyload.i105.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %55) #5, !noalias !324
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %56) #5, !noalias !324
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !324
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !324
   store <16 x i32> %1415, ptr %55, align 64, !tbaa !8, !noalias !324
   store <8 x i64> <i64 12884901888, i64 38654705664, i64 0, i64 2, i64 8, i64 4294967296, i64 30064771072, i64 55834574848>, ptr %56, align 64, !tbaa !8, !noalias !324
   br label %1416
@@ -2607,8 +2607,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack19_32EPKjPj.exit.i: ; preds = %1416
   %1423 = getelementptr inbounds nuw i8, ptr %1379, i64 64
   %1424 = load <8 x i64>, ptr %55, align 64, !tbaa !8, !noalias !329
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %56) #5, !noalias !324
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %55) #5, !noalias !324
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !324
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !324
   %1425 = and <8 x i64> %1424, splat (i64 2251795519242239)
   store <8 x i64> %1425, ptr %1423, align 1, !tbaa !8
   %1426 = getelementptr inbounds nuw i8, ptr %.19861.i, i64 76
@@ -2662,8 +2662,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1457 = insertelement <16 x i32> %1456, i32 %.0.copyload.i74.i437.i, i64 13
   %1458 = insertelement <16 x i32> %1457, i32 %1443, i64 14
   %1459 = insertelement <16 x i32> %1458, i32 %.0.copyload.i77.i438.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %49) #5, !noalias !333
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %50) #5, !noalias !333
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !333
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !333
   store <16 x i32> %1459, ptr %49, align 64, !tbaa !8, !noalias !333
   store <8 x i64> <i64 0, i64 8, i64 17179869184, i64 51539607552, i64 0, i64 8, i64 17179869184, i64 51539607552>, ptr %50, align 64, !tbaa !8, !noalias !333
   br label %1460
@@ -2684,8 +2684,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1122.i = shl nsw i64 %indvars.iv1008.i, 7
   %1467 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1122.i
   %1468 = load <8 x i64>, ptr %49, align 64, !tbaa !8, !noalias !338
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %50) #5, !noalias !333
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %49) #5, !noalias !333
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !333
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !333
   %1469 = and <8 x i64> %1468, splat (i64 4503595333451775)
   store <8 x i64> %1469, ptr %1467, align 1, !tbaa !8
   %1470 = getelementptr inbounds nuw i8, ptr %.20858.i, i64 40
@@ -2732,8 +2732,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1501 = insertelement <16 x i32> %1500, i32 %.0.copyload.i98.i450.i, i64 13
   %1502 = insertelement <16 x i32> %1501, i32 %1487, i64 14
   %1503 = insertelement <16 x i32> %1502, i32 %.0.copyload.i101.i451.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51) #5, !noalias !341
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %52) #5, !noalias !341
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !341
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !341
   store <16 x i32> %1503, ptr %51, align 64, !tbaa !8, !noalias !341
   store <8 x i64> <i64 0, i64 8, i64 17179869184, i64 51539607552, i64 0, i64 8, i64 17179869184, i64 51539607552>, ptr %52, align 64, !tbaa !8, !noalias !341
   br label %1504
@@ -2753,8 +2753,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack20_32EPKjPj.exit.i: ; preds = %1504
   %1511 = getelementptr inbounds nuw i8, ptr %1467, i64 64
   %1512 = load <8 x i64>, ptr %51, align 64, !tbaa !8, !noalias !346
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %52) #5, !noalias !341
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %51) #5, !noalias !341
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !341
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !341
   %1513 = and <8 x i64> %1512, splat (i64 4503595333451775)
   store <8 x i64> %1513, ptr %1511, align 1, !tbaa !8
   %1514 = getelementptr inbounds nuw i8, ptr %.20858.i, i64 80
@@ -2812,8 +2812,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1548 = insertelement <16 x i32> %1547, i32 %1532, i64 13
   %1549 = insertelement <16 x i32> %1548, i32 %.0.copyload.i81.i463.i, i64 14
   %1550 = insertelement <16 x i32> %1549, i32 %1534, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %45) #5, !noalias !350
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %46) #5, !noalias !350
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !350
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !350
   store <16 x i32> %1550, ptr %45, align 64, !tbaa !8, !noalias !350
   store <8 x i64> <i64 0, i64 10, i64 38654705664, i64 0, i64 8, i64 30064771072, i64 0, i64 6>, ptr %46, align 64, !tbaa !8, !noalias !350
   br label %1551
@@ -2834,8 +2834,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1121.i = shl nsw i64 %indvars.iv1003.i, 7
   %1558 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1121.i
   %1559 = load <8 x i64>, ptr %45, align 64, !tbaa !8, !noalias !355
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %46) #5, !noalias !350
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45) #5, !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !350
   %1560 = and <8 x i64> %1559, splat (i64 9007194961870847)
   store <8 x i64> %1560, ptr %1558, align 1, !tbaa !8
   %.0.copyload.i85.i466.i = load i32, ptr %1533, align 1
@@ -2885,8 +2885,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1594 = insertelement <16 x i32> %1593, i32 %.0.copyload.i106.i.i, i64 13
   %1595 = insertelement <16 x i32> %1594, i32 %1580, i64 14
   %1596 = insertelement <16 x i32> %1595, i32 %.0.copyload.i109.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %47) #5, !noalias !358
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48) #5, !noalias !358
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !358
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !358
   store <16 x i32> %1596, ptr %47, align 64, !tbaa !8, !noalias !358
   store <8 x i64> <i64 21474836480, i64 0, i64 4, i64 12884901888, i64 0, i64 2, i64 4294967296, i64 47244640256>, ptr %48, align 64, !tbaa !8, !noalias !358
   br label %1597
@@ -2906,8 +2906,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack21_32EPKjPj.exit.i: ; preds = %1597
   %1604 = getelementptr inbounds nuw i8, ptr %1558, i64 64
   %1605 = load <8 x i64>, ptr %47, align 64, !tbaa !8, !noalias !363
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48) #5, !noalias !358
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47) #5, !noalias !358
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !358
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !358
   %1606 = and <8 x i64> %1605, splat (i64 9007194961870847)
   store <8 x i64> %1606, ptr %1604, align 1, !tbaa !8
   %1607 = getelementptr inbounds nuw i8, ptr %.21855.i, i64 84
@@ -2965,8 +2965,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1641 = insertelement <16 x i32> %1640, i32 %1625, i64 13
   %1642 = insertelement <16 x i32> %1641, i32 %1627, i64 14
   %1643 = insertelement <16 x i32> %1642, i32 %.0.copyload.i83.i484.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %41) #5, !noalias !367
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #5, !noalias !367
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !367
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !367
   store <16 x i32> %1643, ptr %41, align 64, !tbaa !8, !noalias !367
   store <8 x i64> <i64 0, i64 8589934592, i64 0, i64 4, i64 25769803776, i64 0, i64 8, i64 42949672960>, ptr %42, align 64, !tbaa !8, !noalias !367
   br label %1644
@@ -2987,8 +2987,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1120.i = shl nsw i64 %indvars.iv998.i, 7
   %1651 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1120.i
   %1652 = load <8 x i64>, ptr %41, align 64, !tbaa !8, !noalias !372
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #5, !noalias !367
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %41) #5, !noalias !367
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !367
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !367
   %1653 = and <8 x i64> %1652, splat (i64 18014394218708991)
   store <8 x i64> %1653, ptr %1651, align 1, !tbaa !8
   %1654 = getelementptr inbounds nuw i8, ptr %.22852.i, i64 44
@@ -3039,8 +3039,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1688 = insertelement <16 x i32> %1687, i32 %1672, i64 13
   %1689 = insertelement <16 x i32> %1688, i32 %1674, i64 14
   %1690 = insertelement <16 x i32> %1689, i32 %.0.copyload.i109.i497.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %43) #5, !noalias !375
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %44) #5, !noalias !375
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !375
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !375
   store <16 x i32> %1690, ptr %43, align 64, !tbaa !8, !noalias !375
   store <8 x i64> <i64 0, i64 8589934592, i64 0, i64 4, i64 25769803776, i64 0, i64 8, i64 42949672960>, ptr %44, align 64, !tbaa !8, !noalias !375
   br label %1691
@@ -3060,8 +3060,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack22_32EPKjPj.exit.i: ; preds = %1691
   %1698 = getelementptr inbounds nuw i8, ptr %1651, i64 64
   %1699 = load <8 x i64>, ptr %43, align 64, !tbaa !8, !noalias !380
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %44) #5, !noalias !375
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %43) #5, !noalias !375
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !375
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !375
   %1700 = and <8 x i64> %1699, splat (i64 18014394218708991)
   store <8 x i64> %1700, ptr %1698, align 1, !tbaa !8
   %1701 = getelementptr inbounds nuw i8, ptr %.22852.i, i64 88
@@ -3122,8 +3122,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1737 = insertelement <16 x i32> %1736, i32 %1721, i64 13
   %1738 = insertelement <16 x i32> %1737, i32 %.0.copyload.i84.i510.i, i64 14
   %1739 = insertelement <16 x i32> %1738, i32 %1723, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #5, !noalias !384
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38) #5, !noalias !384
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !384
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !384
   store <16 x i32> %1739, ptr %37, align 64, !tbaa !8, !noalias !384
   store <8 x i64> <i64 0, i64 21474836480, i64 0, i64 4294967296, i64 0, i64 6, i64 0, i64 2>, ptr %38, align 64, !tbaa !8, !noalias !384
   br label %1740
@@ -3144,8 +3144,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1119.i = shl nsw i64 %indvars.iv993.i, 7
   %1747 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1119.i
   %1748 = load <8 x i64>, ptr %37, align 64, !tbaa !8, !noalias !389
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38) #5, !noalias !384
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #5, !noalias !384
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !384
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !384
   %1749 = and <8 x i64> %1748, splat (i64 36028792732385279)
   store <8 x i64> %1749, ptr %1747, align 1, !tbaa !8
   %.0.copyload.i88.i513.i = load i32, ptr %1722, align 1
@@ -3198,8 +3198,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1785 = insertelement <16 x i32> %1784, i32 %1769, i64 13
   %1786 = insertelement <16 x i32> %1785, i32 %1771, i64 14
   %1787 = insertelement <16 x i32> %1786, i32 %.0.copyload.i113.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %39) #5, !noalias !392
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %40) #5, !noalias !392
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !392
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !392
   store <16 x i32> %1787, ptr %39, align 64, !tbaa !8, !noalias !392
   store <8 x i64> <i64 30064771072, i64 0, i64 12884901888, i64 0, i64 8, i64 0, i64 4, i64 38654705664>, ptr %40, align 64, !tbaa !8, !noalias !392
   br label %1788
@@ -3219,8 +3219,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack23_32EPKjPj.exit.i: ; preds = %1788
   %1795 = getelementptr inbounds nuw i8, ptr %1747, i64 64
   %1796 = load <8 x i64>, ptr %39, align 64, !tbaa !8, !noalias !397
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %40) #5, !noalias !392
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39) #5, !noalias !392
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !392
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !392
   %1797 = and <8 x i64> %1796, splat (i64 36028792732385279)
   store <8 x i64> %1797, ptr %1795, align 1, !tbaa !8
   %1798 = getelementptr inbounds nuw i8, ptr %.23849.i, i64 92
@@ -3278,8 +3278,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1831 = insertelement <16 x i32> %1830, i32 %1815, i64 13
   %1832 = insertelement <16 x i32> %1831, i32 %1817, i64 14
   %1833 = insertelement <16 x i32> %1832, i32 %.0.copyload.i77.i533.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33) #5, !noalias !401
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34) #5, !noalias !401
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !401
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !401
   store <16 x i32> %1833, ptr %33, align 64, !tbaa !8, !noalias !401
   store <8 x i64> <i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368>, ptr %34, align 64, !tbaa !8, !noalias !401
   br label %1834
@@ -3300,8 +3300,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1118.i = shl nsw i64 %indvars.iv988.i, 7
   %1841 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1118.i
   %1842 = load <8 x i64>, ptr %33, align 64, !tbaa !8, !noalias !406
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34) #5, !noalias !401
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33) #5, !noalias !401
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !401
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !401
   %1843 = and <8 x i64> %1842, splat (i64 72057589759737855)
   store <8 x i64> %1843, ptr %1841, align 1, !tbaa !8
   %1844 = getelementptr inbounds nuw i8, ptr %.24846.i, i64 48
@@ -3352,8 +3352,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1877 = insertelement <16 x i32> %1876, i32 %1861, i64 13
   %1878 = insertelement <16 x i32> %1877, i32 %1863, i64 14
   %1879 = insertelement <16 x i32> %1878, i32 %.0.copyload.i101.i548.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35) #5, !noalias !409
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %36) #5, !noalias !409
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !409
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !409
   store <16 x i32> %1879, ptr %35, align 64, !tbaa !8, !noalias !409
   store <8 x i64> <i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368>, ptr %36, align 64, !tbaa !8, !noalias !409
   br label %1880
@@ -3373,8 +3373,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack24_32EPKjPj.exit.i: ; preds = %1880
   %1887 = getelementptr inbounds nuw i8, ptr %1841, i64 64
   %1888 = load <8 x i64>, ptr %35, align 64, !tbaa !8, !noalias !414
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36) #5, !noalias !409
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35) #5, !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !409
   %1889 = and <8 x i64> %1888, splat (i64 72057589759737855)
   store <8 x i64> %1889, ptr %1887, align 1, !tbaa !8
   %1890 = getelementptr inbounds nuw i8, ptr %.24846.i, i64 96
@@ -3438,8 +3438,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %1928 = insertelement <16 x i32> %1927, i32 %.0.copyload.i85.i561.i, i64 13
   %1929 = insertelement <16 x i32> %1928, i32 %1912, i64 14
   %1930 = insertelement <16 x i32> %1929, i32 %1914, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29) #5, !noalias !418
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #5, !noalias !418
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !418
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !418
   store <16 x i32> %1930, ptr %29, align 64, !tbaa !8, !noalias !418
   store <8 x i64> <i64 0, i64 0, i64 4, i64 0, i64 4294967296, i64 0, i64 21474836480, i64 0>, ptr %30, align 64, !tbaa !8, !noalias !418
   br label %1931
@@ -3460,8 +3460,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1117.i = shl nsw i64 %indvars.iv983.i, 7
   %1938 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1117.i
   %1939 = load <8 x i64>, ptr %29, align 64, !tbaa !8, !noalias !423
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30) #5, !noalias !418
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29) #5, !noalias !418
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !418
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !418
   %1940 = and <8 x i64> %1939, splat (i64 144115183814443007)
   store <8 x i64> %1940, ptr %1938, align 1, !tbaa !8
   %.0.copyload.i91.i565.i = load i32, ptr %1913, align 1
@@ -3517,8 +3517,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %1978 = insertelement <16 x i32> %1977, i32 %1962, i64 13
   %1979 = insertelement <16 x i32> %1978, i32 %1964, i64 14
   %1980 = insertelement <16 x i32> %1979, i32 %.0.copyload.i117.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31) #5, !noalias !426
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #5, !noalias !426
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !426
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !426
   store <16 x i32> %1980, ptr %31, align 64, !tbaa !8, !noalias !426
   store <8 x i64> <i64 0, i64 2, i64 0, i64 6, i64 0, i64 12884901888, i64 0, i64 30064771072>, ptr %32, align 64, !tbaa !8, !noalias !426
   br label %1981
@@ -3538,8 +3538,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack25_32EPKjPj.exit.i: ; preds = %1981
   %1988 = getelementptr inbounds nuw i8, ptr %1938, i64 64
   %1989 = load <8 x i64>, ptr %31, align 64, !tbaa !8, !noalias !431
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #5, !noalias !426
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #5, !noalias !426
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !426
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !426
   %1990 = and <8 x i64> %1989, splat (i64 144115183814443007)
   store <8 x i64> %1990, ptr %1988, align 1, !tbaa !8
   %1991 = getelementptr inbounds nuw i8, ptr %.25843.i, i64 100
@@ -3603,8 +3603,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %2029 = insertelement <16 x i32> %2028, i32 %2013, i64 13
   %2030 = insertelement <16 x i32> %2029, i32 %2015, i64 14
   %2031 = insertelement <16 x i32> %2030, i32 %.0.copyload.i89.i587.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25) #5, !noalias !435
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #5, !noalias !435
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !435
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !435
   store <16 x i32> %2031, ptr %25, align 64, !tbaa !8, !noalias !435
   store <8 x i64> <i64 0, i64 0, i64 8589934592, i64 0, i64 0, i64 4, i64 0, i64 25769803776>, ptr %26, align 64, !tbaa !8, !noalias !435
   br label %2032
@@ -3625,8 +3625,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1116.i = shl nsw i64 %indvars.iv978.i, 7
   %2039 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1116.i
   %2040 = load <8 x i64>, ptr %25, align 64, !tbaa !8, !noalias !440
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #5, !noalias !435
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25) #5, !noalias !435
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !435
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !435
   %2041 = and <8 x i64> %2040, splat (i64 288230371923853311)
   store <8 x i64> %2041, ptr %2039, align 1, !tbaa !8
   %2042 = getelementptr inbounds nuw i8, ptr %.26840.i, i64 52
@@ -3683,8 +3683,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %2080 = insertelement <16 x i32> %2079, i32 %2064, i64 13
   %2081 = insertelement <16 x i32> %2080, i32 %2066, i64 14
   %2082 = insertelement <16 x i32> %2081, i32 %.0.copyload.i117.i603.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #5, !noalias !443
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #5, !noalias !443
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !443
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !443
   store <16 x i32> %2082, ptr %27, align 64, !tbaa !8, !noalias !443
   store <8 x i64> <i64 0, i64 0, i64 8589934592, i64 0, i64 0, i64 4, i64 0, i64 25769803776>, ptr %28, align 64, !tbaa !8, !noalias !443
   br label %2083
@@ -3704,8 +3704,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack26_32EPKjPj.exit.i: ; preds = %2083
   %2090 = getelementptr inbounds nuw i8, ptr %2039, i64 64
   %2091 = load <8 x i64>, ptr %27, align 64, !tbaa !8, !noalias !448
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #5, !noalias !443
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #5, !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !443
   %2092 = and <8 x i64> %2091, splat (i64 288230371923853311)
   store <8 x i64> %2092, ptr %2090, align 1, !tbaa !8
   %2093 = getelementptr inbounds nuw i8, ptr %.26840.i, i64 104
@@ -3772,8 +3772,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %2133 = insertelement <16 x i32> %2132, i32 %2115, i64 13
   %2134 = insertelement <16 x i32> %2133, i32 %2117, i64 14
   %2135 = insertelement <16 x i32> %2134, i32 %2119, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #5, !noalias !452
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #5, !noalias !452
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !452
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !452
   store <16 x i32> %2135, ptr %21, align 64, !tbaa !8, !noalias !452
   store <8 x i64> <i64 0, i64 0, i64 0, i64 2, i64 0, i64 0, i64 4, i64 0>, ptr %22, align 64, !tbaa !8, !noalias !452
   br label %2136
@@ -3794,8 +3794,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1115.i = shl nsw i64 %indvars.iv973.i, 7
   %2143 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1115.i
   %2144 = load <8 x i64>, ptr %21, align 64, !tbaa !8, !noalias !457
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #5, !noalias !452
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #5, !noalias !452
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !452
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !452
   %2145 = and <8 x i64> %2144, splat (i64 576460748142673919)
   store <8 x i64> %2145, ptr %2143, align 1, !tbaa !8
   %.0.copyload.i94.i621.i = load i32, ptr %2118, align 1
@@ -3854,8 +3854,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %2185 = insertelement <16 x i32> %2184, i32 %2169, i64 13
   %2186 = insertelement <16 x i32> %2185, i32 %2171, i64 14
   %2187 = insertelement <16 x i32> %2186, i32 %.0.copyload.i121.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #5, !noalias !460
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24) #5, !noalias !460
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !460
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !460
   store <16 x i32> %2187, ptr %23, align 64, !tbaa !8, !noalias !460
   store <8 x i64> <i64 0, i64 4294967296, i64 0, i64 0, i64 12884901888, i64 0, i64 0, i64 21474836480>, ptr %24, align 64, !tbaa !8, !noalias !460
   br label %2188
@@ -3875,8 +3875,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack27_32EPKjPj.exit.i: ; preds = %2188
   %2195 = getelementptr inbounds nuw i8, ptr %2143, i64 64
   %2196 = load <8 x i64>, ptr %23, align 64, !tbaa !8, !noalias !465
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #5, !noalias !460
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #5, !noalias !460
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !460
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !460
   %2197 = and <8 x i64> %2196, splat (i64 576460748142673919)
   store <8 x i64> %2197, ptr %2195, align 1, !tbaa !8
   %2198 = getelementptr inbounds nuw i8, ptr %.27837.i, i64 108
@@ -3942,8 +3942,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %2237 = insertelement <16 x i32> %2236, i32 %2221, i64 13
   %2238 = insertelement <16 x i32> %2237, i32 %2223, i64 14
   %2239 = insertelement <16 x i32> %2238, i32 %.0.copyload.i89.i646.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #5, !noalias !469
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #5, !noalias !469
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !469
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !469
   store <16 x i32> %2239, ptr %17, align 64, !tbaa !8, !noalias !469
   store <8 x i64> <i64 0, i64 0, i64 0, i64 17179869184, i64 0, i64 0, i64 0, i64 17179869184>, ptr %18, align 64, !tbaa !8, !noalias !469
   br label %2240
@@ -3964,8 +3964,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1114.i = shl nsw i64 %indvars.iv968.i, 7
   %2247 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1114.i
   %2248 = load <8 x i64>, ptr %17, align 64, !tbaa !8, !noalias !474
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #5, !noalias !469
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #5, !noalias !469
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !469
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !469
   %2249 = and <8 x i64> %2248, splat (i64 1152921500580315135)
   store <8 x i64> %2249, ptr %2247, align 1, !tbaa !8
   %2250 = getelementptr inbounds nuw i8, ptr %.28834.i, i64 56
@@ -4024,8 +4024,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %2289 = insertelement <16 x i32> %2288, i32 %2273, i64 13
   %2290 = insertelement <16 x i32> %2289, i32 %2275, i64 14
   %2291 = insertelement <16 x i32> %2290, i32 %.0.copyload.i117.i662.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #5, !noalias !477
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #5, !noalias !477
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !477
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !477
   store <16 x i32> %2291, ptr %19, align 64, !tbaa !8, !noalias !477
   store <8 x i64> <i64 0, i64 0, i64 0, i64 17179869184, i64 0, i64 0, i64 0, i64 17179869184>, ptr %20, align 64, !tbaa !8, !noalias !477
   br label %2292
@@ -4045,8 +4045,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack28_32EPKjPj.exit.i: ; preds = %2292
   %2299 = getelementptr inbounds nuw i8, ptr %2247, i64 64
   %2300 = load <8 x i64>, ptr %19, align 64, !tbaa !8, !noalias !482
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #5, !noalias !477
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #5, !noalias !477
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !477
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !477
   %2301 = and <8 x i64> %2300, splat (i64 1152921500580315135)
   store <8 x i64> %2301, ptr %2299, align 1, !tbaa !8
   %2302 = getelementptr inbounds nuw i8, ptr %.28834.i, i64 112
@@ -4116,8 +4116,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %2344 = insertelement <16 x i32> %2343, i32 %2326, i64 13
   %2345 = insertelement <16 x i32> %2344, i32 %2328, i64 14
   %2346 = insertelement <16 x i32> %2345, i32 %2330, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #5, !noalias !486
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #5, !noalias !486
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !486
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !486
   store <16 x i32> %2346, ptr %13, align 64, !tbaa !8, !noalias !486
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 2, i64 0, i64 0>, ptr %14, align 64, !tbaa !8, !noalias !486
   br label %2347
@@ -4138,8 +4138,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1113.i = shl nsw i64 %indvars.iv963.i, 7
   %2354 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1113.i
   %2355 = load <8 x i64>, ptr %13, align 64, !tbaa !8, !noalias !491
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #5, !noalias !486
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #5, !noalias !486
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !486
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !486
   %2356 = and <8 x i64> %2355, splat (i64 2305843005455597567)
   store <8 x i64> %2356, ptr %2354, align 1, !tbaa !8
   %.0.copyload.i97.i681.i = load i32, ptr %2329, align 1
@@ -4201,8 +4201,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %2398 = insertelement <16 x i32> %2397, i32 %2382, i64 13
   %2399 = insertelement <16 x i32> %2398, i32 %2384, i64 14
   %2400 = insertelement <16 x i32> %2399, i32 %.0.copyload.i125.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #5, !noalias !494
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #5, !noalias !494
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !494
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !494
   store <16 x i32> %2400, ptr %15, align 64, !tbaa !8, !noalias !494
   store <8 x i64> <i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 12884901888>, ptr %16, align 64, !tbaa !8, !noalias !494
   br label %2401
@@ -4222,8 +4222,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack29_32EPKjPj.exit.i: ; preds = %2401
   %2408 = getelementptr inbounds nuw i8, ptr %2354, i64 64
   %2409 = load <8 x i64>, ptr %15, align 64, !tbaa !8, !noalias !499
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #5, !noalias !494
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #5, !noalias !494
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !494
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !494
   %2410 = and <8 x i64> %2409, splat (i64 2305843005455597567)
   store <8 x i64> %2410, ptr %2408, align 1, !tbaa !8
   %2411 = getelementptr inbounds nuw i8, ptr %.29831.i, i64 116
@@ -4293,8 +4293,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %2453 = insertelement <16 x i32> %2452, i32 %2437, i64 13
   %2454 = insertelement <16 x i32> %2453, i32 %2439, i64 14
   %2455 = insertelement <16 x i32> %2454, i32 %.0.copyload.i95.i707.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5, !noalias !503
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5, !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !503
   store <16 x i32> %2455, ptr %9, align 64, !tbaa !8, !noalias !503
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 8589934592>, ptr %10, align 64, !tbaa !8, !noalias !503
   br label %2456
@@ -4315,8 +4315,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1112.i = shl nsw i64 %indvars.iv958.i, 7
   %2463 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1112.i
   %2464 = load <8 x i64>, ptr %9, align 64, !tbaa !8, !noalias !508
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5, !noalias !503
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5, !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !503
   %2465 = and <8 x i64> %2464, splat (i64 4611686015206162431)
   store <8 x i64> %2465, ptr %2463, align 1, !tbaa !8
   %2466 = getelementptr inbounds nuw i8, ptr %.30828.i, i64 60
@@ -4379,8 +4379,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %2508 = insertelement <16 x i32> %2507, i32 %2492, i64 13
   %2509 = insertelement <16 x i32> %2508, i32 %2494, i64 14
   %2510 = insertelement <16 x i32> %2509, i32 %.0.copyload.i125.i725.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #5, !noalias !511
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #5, !noalias !511
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !511
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !511
   store <16 x i32> %2510, ptr %11, align 64, !tbaa !8, !noalias !511
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 8589934592>, ptr %12, align 64, !tbaa !8, !noalias !511
   br label %2511
@@ -4400,8 +4400,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack30_32EPKjPj.exit.i: ; preds = %2511
   %2518 = getelementptr inbounds nuw i8, ptr %2463, i64 64
   %2519 = load <8 x i64>, ptr %11, align 64, !tbaa !8, !noalias !516
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #5, !noalias !511
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #5, !noalias !511
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !511
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !511
   %2520 = and <8 x i64> %2519, splat (i64 4611686015206162431)
   store <8 x i64> %2520, ptr %2518, align 1, !tbaa !8
   %2521 = getelementptr inbounds nuw i8, ptr %.30828.i, i64 120
@@ -4474,8 +4474,8 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %2565 = insertelement <16 x i32> %2564, i32 %2547, i64 13
   %2566 = insertelement <16 x i32> %2565, i32 %2549, i64 14
   %2567 = insertelement <16 x i32> %2566, i32 %2551, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5, !noalias !520
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5, !noalias !520
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !520
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !520
   store <16 x i32> %2567, ptr %5, align 64, !tbaa !8, !noalias !520
   store <8 x i64> zeroinitializer, ptr %6, align 64, !tbaa !8, !noalias !520
   br label %2568
@@ -4496,8 +4496,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %.idx1111.i = shl nsw i64 %indvars.iv953.i, 7
   %2575 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1111.i
   %2576 = load <8 x i64>, ptr %5, align 64, !tbaa !8, !noalias !525
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5, !noalias !520
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5, !noalias !520
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !520
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !520
   %2577 = and <8 x i64> %2576, splat (i64 9223372034707292159)
   store <8 x i64> %2577, ptr %2575, align 1, !tbaa !8
   %.0.copyload.i100.i745.i = load i32, ptr %2550, align 1
@@ -4562,8 +4562,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
   %2621 = insertelement <16 x i32> %2620, i32 %2605, i64 13
   %2622 = insertelement <16 x i32> %2621, i32 %2607, i64 14
   %2623 = insertelement <16 x i32> %2622, i32 %.0.copyload.i129.i.i, i64 15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5, !noalias !528
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #5, !noalias !528
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !528
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !528
   store <16 x i32> %2623, ptr %7, align 64, !tbaa !8, !noalias !528
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296>, ptr %8, align 64, !tbaa !8, !noalias !528
   br label %2624
@@ -4583,8 +4583,8 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack31_32EPKjPj.exit.i: ; preds = %2624
   %2631 = getelementptr inbounds nuw i8, ptr %2575, i64 64
   %2632 = load <8 x i64>, ptr %7, align 64, !tbaa !8, !noalias !533
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #5, !noalias !528
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5, !noalias !528
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !528
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !528
   %2633 = and <8 x i64> %2632, splat (i64 9223372034707292159)
   store <8 x i64> %2633, ptr %2631, align 1, !tbaa !8
   %2634 = getelementptr inbounds nuw i8, ptr %.31825.i, i64 124
@@ -4608,29 +4608,28 @@ _ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits512ILNS0
   ret i32 %2637
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

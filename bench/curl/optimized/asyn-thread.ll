@@ -170,12 +170,6 @@ define hidden void @Curl_resolver_kill(ptr noundef captures(none) %0) local_unna
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_resolver_wait_resolv(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3448
@@ -338,18 +332,18 @@ thread-pre-split:                                 ; preds = %27
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
-declare i32 @Curl_resolver_error(ptr noundef) local_unnamed_addr #4
+declare i32 @Curl_resolver_error(ptr noundef) local_unnamed_addr #3
 
-declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #4
+declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #3
 
-declare { i64, i32 } @Curl_now() local_unnamed_addr #4
+declare { i64, i32 } @Curl_now() local_unnamed_addr #3
 
-declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
@@ -593,12 +587,12 @@ init_thread_sync_data.exit.i:                     ; preds = %51
   ret ptr null
 }
 
-declare zeroext i1 @Curl_ipv6works(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @Curl_ipv6works(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @Curl_set_dns_servers(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -620,24 +614,24 @@ define hidden noundef i32 @Curl_set_dns_local_ip6(ptr noundef readnone captures(
   ret i32 4
 }
 
-declare void @Curl_thread_destroy(ptr noundef) local_unnamed_addr #4
+declare void @Curl_thread_destroy(ptr noundef) local_unnamed_addr #3
 
-declare i32 @Curl_thread_join(ptr noundef) local_unnamed_addr #4
+declare i32 @Curl_thread_join(ptr noundef) local_unnamed_addr #3
 
-declare void @Curl_multi_closed(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @Curl_multi_closed(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @Curl_freeaddrinfo(ptr noundef) local_unnamed_addr #4
+declare void @Curl_freeaddrinfo(ptr noundef) local_unnamed_addr #3
 
-declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @Curl_addrinfo_callback(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @Curl_addrinfo_callback(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @Curl_thread_create(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @Curl_thread_create(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @getaddrinfo_thread(ptr noundef %0) #1 {
@@ -645,8 +639,8 @@ define internal noundef i32 @getaddrinfo_thread(ptr noundef %0) #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 8, !tbaa !114
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !119
@@ -733,25 +727,31 @@ destroy_thread_sync_data.exit:                    ; preds = %32, %36
   br label %51
 
 51:                                               ; preds = %48, %destroy_thread_sync_data.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @Curl_eventfd(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare i32 @Curl_eventfd(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @Curl_getaddrinfo_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @Curl_getaddrinfo_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8
@@ -761,12 +761,12 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(none) }

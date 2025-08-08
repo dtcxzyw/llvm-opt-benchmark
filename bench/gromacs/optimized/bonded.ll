@@ -67,16 +67,10 @@ $_Z10do_dih_fupIL18BondedKernelFlavor3EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA
 @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE = internal unnamed_addr constant %"struct.std::array.43" { [95 x %"struct.(anonymous namespace)::BondedInteractions"] [%"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 60 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 60 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 82 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 83 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 60 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 62 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 63 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 63 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 64 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 66 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 66 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 66 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 66 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 114 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 115 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 113 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 68 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 69 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 70 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 72 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 70 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 72 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 73 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 71 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 71 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 74 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 112 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 46 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 46 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 46 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 85 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 87 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 88 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 86 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 75 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 76 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 80 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 81 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 77 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" { ptr @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi, i32 -1 }, %"struct.(anonymous namespace)::BondedInteractions" zeroinitializer, %"struct.(anonymous namespace)::BondedInteractions" zeroinitializer] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_bonded.cpp, ptr null }]
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx16EnumerationArrayI18BondedKernelFlavorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_4EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx16EnumerationArrayI18BondedKernelFlavorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_4EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %3
 
@@ -110,21 +104,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z10bond_anglePKfS0_S0_PK5t_pbcPfS4_S4_PiS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #7 {
+define noundef float @_Z10bond_anglePKfS0_S0_PK5t_pbcPfS4_S4_PiS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -218,19 +212,19 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %52, %55
   ret float %62
 }
 
-declare noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #9
+declare double @sqrt(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @acosf(float noundef) local_unnamed_addr #9
+declare float @acosf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(none) initializes((0, 12)) %8, ptr noundef writeonly captures(none) initializes((0, 12)) %9, ptr noundef writeonly captures(none) initializes((0, 4)) %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12) local_unnamed_addr #7 {
+define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(none) initializes((0, 12)) %8, ptr noundef writeonly captures(none) initializes((0, 12)) %9, ptr noundef writeonly captures(none) initializes((0, 4)) %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %18, label %14
 
@@ -391,16 +385,16 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit34: ; preds = %14, %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #9
+declare float @sqrtf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #9
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, float noundef %8, ptr noundef readnone captures(none) %9, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, ptr noundef readnone captures(none) %11, ptr noundef readnone captures(none) %12, ptr noundef readnone captures(none) %13, ptr noundef readnone captures(none) %14) local_unnamed_addr #10 {
+define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, float noundef %8, ptr noundef readnone captures(none) %9, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, ptr noundef readnone captures(none) %11, ptr noundef readnone captures(none) %12, ptr noundef readnone captures(none) %13, ptr noundef readnone captures(none) %14) local_unnamed_addr #9 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -424,26 +418,26 @@ define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_f
   %36 = alloca %"class.gmx::BasicVector", align 8
   %37 = alloca %"class.gmx::BasicVector", align 8
   %38 = alloca %"struct.std::array", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %34) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %35) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %39 = icmp sgt i32 %0, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
@@ -482,26 +476,26 @@ define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_f
 
 ._crit_edge:                                      ; preds = %437, %15
   %.0.lcssa = phi float [ 0.000000e+00, %15 ], [ %443, %437 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %35) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret float %.0.lcssa
 
 66:                                               ; preds = %.lr.ph, %437
@@ -537,7 +531,7 @@ define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_f
   %93 = getelementptr inbounds [3 x float], ptr %4, i64 %92
   %94 = call noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %87, ptr noundef %89, ptr noundef %91, ptr noundef %93, ptr noundef %7, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %95 = call noundef float @cosf(float noundef %94) #25, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %36) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %96 = load float, ptr %41, align 4, !tbaa !16
   %97 = load float, ptr %42, align 4, !tbaa !16
   %98 = load float, ptr %43, align 4, !tbaa !16
@@ -667,7 +661,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %120, %122
   %185 = getelementptr inbounds [3 x float], ptr %4, i64 %184
   %186 = call noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %89, ptr noundef %91, ptr noundef %93, ptr noundef %185, ptr noundef %7, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
   %187 = call noundef float @cosf(float noundef %186) #25, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %37) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %188 = load float, ptr %49, align 4, !tbaa !16
   %189 = load float, ptr %50, align 4, !tbaa !16
   %190 = load float, ptr %51, align 4, !tbaa !16
@@ -980,7 +974,7 @@ _ZN12_GLOBAL__N_121cmap_setup_grid_indexEiiPiS0_S0_.exit285: ; preds = %333, %33
   br label %391
 
 390:                                              ; preds = %391
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   br label %.preheader
 
@@ -1098,9 +1092,9 @@ _ZN12_GLOBAL__N_121cmap_setup_grid_indexEiiPiS0_S0_.exit285: ; preds = %333, %33
   %464 = load i32, ptr %19, align 4, !tbaa !14
   %465 = load i32, ptr %20, align 4, !tbaa !14
   call fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, <2 x float> %.sroa.0291.4.vec.insert, float %457, <2 x float> %.sroa.0288.4.vec.insert, float %460, <2 x float> %.sroa.0286.4.vec.insert, float %463, <2 x float> %.sroa.0314.4.vec.insert, float %202, <2 x float> %.sroa.0305.4.vec.insert, float %211, ptr noundef nonnull byval(%"class.gmx::BasicVector") align 8 %37, float noundef %244, float noundef %245, float noundef %243, float noundef %sqrt370, i32 noundef %72, i32 noundef %74, i32 noundef %76, i32 noundef %78, float noundef %442, i32 noundef %464, i32 noundef %465)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %37) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %36) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %466 = trunc nuw i64 %indvars.iv.next397 to i32
   %467 = icmp sgt i32 %0, %466
   br i1 %467, label %66, label %._crit_edge, !llvm.loop !34
@@ -1171,10 +1165,10 @@ _ZN12_GLOBAL__N_121cmap_setup_grid_indexEiiPiS0_S0_.exit285: ; preds = %333, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9, <2 x float> %10, float %11, <2 x float> %.0.val, float %.8.val, ptr noundef byval(%"class.gmx::BasicVector") align 8 %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, float noundef %21, i32 noundef %22, i32 noundef %23) unnamed_addr #10 {
+define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9, <2 x float> %10, float %11, <2 x float> %.0.val, float %.8.val, ptr noundef byval(%"class.gmx::BasicVector") align 8 %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, float noundef %21, i32 noundef %22, i32 noundef %23) unnamed_addr #9 {
   %25 = alloca %"class.gmx::BasicVector", align 8
   %26 = alloca %"class.gmx::BasicVector", align 8
   %27 = alloca %"class.gmx::BasicVector", align 4
@@ -1199,10 +1193,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_f
   %43 = fneg float %13
   %44 = fmul float %16, %43
   %45 = fmul float %14, %16
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %107
@@ -1285,8 +1279,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_f
 
 107:                                              ; preds = %24, %107
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %107 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store <2 x float> %10, ptr %25, align 8
   store float %11, ptr %.sroa.212.0..sroa_idx.i, align 8
   store <2 x float> %.0.val, ptr %26, align 8
@@ -1303,8 +1297,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_f
   %117 = fmul float %21, %110
   %118 = fmul float %21, %115
   %119 = fmul float %21, %116
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %120 = fneg float %117
   %121 = fsub float %120, %118
   %122 = fadd float %119, %118
@@ -1387,21 +1381,21 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %128
   br label %173
 
 173:                                              ; preds = %133, %46
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #9
+declare float @cosf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @asinf(float noundef) local_unnamed_addr #9
+declare float @asinf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef %9, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #7 {
+define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef %9, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #6 {
   %17 = alloca %"class.gmx::ArrayRef", align 8
   %18 = sext i32 %15 to i64
   %19 = getelementptr inbounds nuw [4 x %"struct.std::array.43"], ptr @_ZN12_GLOBAL__N_137c_bondedInteractionFunctionsPerFlavorE, i64 0, i64 %18
@@ -1423,15 +1417,15 @@ define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #11 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [16 x float], align 32
   %18 = alloca [72 x float], align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %6, ptr noundef nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.preheader.lr.ph, label %._crit_edge
@@ -1478,10 +1472,10 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
   br label %285
 
 ._crit_edge:                                      ; preds = %45, %14
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float 0.000000e+00
 
 45:                                               ; preds = %313
@@ -1796,9 +1790,9 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -1918,14 +1912,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %95, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -2082,14 +2076,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit, %79, %14
   %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %79 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2283,20 +2277,20 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %86, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us, %37, %.split60.us
   %.us-phi = phi float [ 0.000000e+00, %.split60.us ], [ %.0.ph.us92, %37 ], [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %86 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #13 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #12 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %14 = alloca i64, align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %17, ptr %15, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 44, ptr %14, align 8, !tbaa !51
   %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0)
   store ptr %18, ptr %15, align 8, !tbaa !4
@@ -2307,8 +2301,8 @@ define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparams
   store i64 %19, ptr %20, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   store i8 0, ptr %21, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
           to label %22 unwind label %24
 
@@ -2358,7 +2352,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %24
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %39 = load ptr, ptr %15, align 8, !tbaa !4
   %40 = icmp eq ptr %39, %17
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -2376,15 +2370,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2544,7 +2538,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %84
   %.us-phi76 = phi i32 [ %50, %.split61.us.us ], [ %89, %.split61 ]
   %.us-phi77 = phi i32 [ %52, %.split61.us.us ], [ %91, %.split61 ]
   %111 = fpext float %.us-phi74 to double
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   %112 = fpext float %.us-phi75 to double
   %113 = invoke noundef i32 @_Z6glatnrPKii(ptr noundef %13, i32 noundef %.us-phi76)
@@ -2565,8 +2559,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %84
   %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %119
 
 120:                                              ; preds = %.split61
@@ -2605,18 +2599,18 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
   %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us105, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not.i = icmp eq ptr %6, null
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2733,16 +2727,16 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !60
 
 90:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2958,22 +2952,22 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !61
 
 167:                                              ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0131.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #11 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
   %18 = alloca [16 x float], align 32
   %19 = alloca [72 x float], align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %6, ptr noundef nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.preheader.lr.ph, label %._crit_edge
@@ -3590,24 +3584,24 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EE
   br i1 %565, label %.preheader, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %85, %14
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float 0.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -3731,15 +3725,15 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.065.lcssa = phi float [ 0.000000e+00, %14 ], [ %27, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.065.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -3750,16 +3744,16 @@ define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFla
   %22 = alloca [3 x float], align 4
   %23 = alloca [3 x float], align 4
   %24 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -3917,27 +3911,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit61: ; preds = %48, %54
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %32, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = fsub float 1.000000e+00, %7
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -4112,22 +4106,22 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %53, %58
 
 ._crit_edge:                                      ; preds = %117, %14
   %.085.lcssa = phi float [ 0.000000e+00, %14 ], [ %144, %117 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.085.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -4287,27 +4281,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit62: ; preds = %53, %58
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.059.lcssa = phi float [ 0.000000e+00, %14 ], [ %30, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.059.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp sgt i32 %0, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -4504,27 +4498,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %55, %61
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.085.lcssa = phi float [ 0.000000e+00, %14 ], [ %30, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.085.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #11 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
   %18 = alloca [32 x float], align 32
   %19 = alloca [72 x float], align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %6, ptr noundef nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.preheader.lr.ph, label %._crit_edge
@@ -4580,11 +4574,11 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
   br label %572
 
 ._crit_edge:                                      ; preds = %55, %14
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float 0.000000e+00
 
 55:                                               ; preds = %615
@@ -5206,17 +5200,17 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -5348,16 +5342,16 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.080.lcssa = phi float [ 0.000000e+00, %14 ], [ %62, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.080.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -5365,13 +5359,13 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %19 = alloca float, align 4
   %20 = alloca float, align 4
   %21 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %22 = icmp sgt i32 %0, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -5489,18 +5483,18 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.067.lcssa = phi float [ 0.000000e+00, %14 ], [ %58, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.067.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #11 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5518,23 +5512,23 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
   %29 = alloca %"class.gmx::SimdFloat", align 32
   %30 = alloca %"class.gmx::SimdFloat", align 32
   %31 = alloca [72 x float], align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %31) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 64
   call void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %6, ptr noundef nonnull %31)
@@ -5670,28 +5664,28 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
   br i1 %108, label %.preheader, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %71, %14
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float 0.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #11 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5709,23 +5703,23 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   %29 = alloca %"class.gmx::SimdFloat", align 32
   %30 = alloca %"class.gmx::SimdFloat", align 32
   %31 = alloca [72 x float], align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %31) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %6, ptr noundef nonnull %31)
   %32 = icmp sgt i32 %0, 0
   br i1 %32, label %.preheader120.preheader, label %._crit_edge
@@ -5890,28 +5884,28 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   br i1 %116, label %.preheader120, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %101, %14
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float 0.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -5934,28 +5928,28 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %34 = alloca float, align 4
   %35 = alloca float, align 4
   %36 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %37 = icmp sgt i32 %0, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -6186,33 +6180,33 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79: ; preds = %69, %79
 
 ._crit_edge:                                      ; preds = %158, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %160, %158 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -6232,25 +6226,25 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0E
   %31 = alloca [3 x float], align 4
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %33) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %34 = icmp sgt i32 %0, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -6473,30 +6467,30 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit85: ; preds = %66, %77
 
 ._crit_edge:                                      ; preds = %147, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %149, %147 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -6505,14 +6499,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -6612,19 +6606,19 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %66, %68, %70
   %96 = load float, ptr %8, align 4, !tbaa !16
   %97 = fadd float %.0.lcssa, %96
   store float %97, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.069.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -6635,16 +6629,16 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -6706,23 +6700,23 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0
 
 ._crit_edge:                                      ; preds = %27, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %64, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -6853,12 +6847,12 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !98
 
 103:                                              ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.030.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -6867,13 +6861,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %24, label %.loopexit
 
@@ -6934,7 +6928,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   br i1 %.not, label %76, label %72
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 844, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 844) #26
           to label %73 unwind label %74
@@ -6946,14 +6940,14 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %69
@@ -7212,18 +7206,18 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %91, %103
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
   %.091 = phi float [ 0.000000e+00, %14 ], [ %256, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.091
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -7294,9 +7288,9 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -7448,28 +7442,28 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !104
 
 118:                                              ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.047.ph
 }
 
-declare noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -7478,14 +7472,14 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -7634,21 +7628,21 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %69, %71, %73
 
 ._crit_edge:                                      ; preds = %.thread, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %.1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7776,14 +7770,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !106
 
 100:                                              ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -7903,14 +7897,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %95, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -8067,14 +8061,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit, %79, %14
   %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %79 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -8268,15 +8262,15 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %86, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us, %37, %.split60.us
   %.us-phi = phi float [ 0.000000e+00, %.split60.us ], [ %.0.ph.us92, %37 ], [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %86 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -8436,7 +8430,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %84
   %.us-phi76 = phi i32 [ %50, %.split61.us.us ], [ %89, %.split61 ]
   %.us-phi77 = phi i32 [ %52, %.split61.us.us ], [ %91, %.split61 ]
   %111 = fpext float %.us-phi74 to double
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   %112 = fpext float %.us-phi75 to double
   %113 = invoke noundef i32 @_Z6glatnrPKii(ptr noundef %13, i32 noundef %.us-phi76)
@@ -8457,8 +8451,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %84
   %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %119
 
 120:                                              ; preds = %.split61
@@ -8497,18 +8491,18 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
   %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us105, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not.i = icmp eq ptr %6, null
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -8625,16 +8619,16 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !116
 
 90:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -8850,22 +8844,22 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !117
 
 167:                                              ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0131.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -9005,24 +8999,24 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EE
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.070.lcssa = phi float [ 0.000000e+00, %14 ], [ %73, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.070.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -9146,15 +9140,15 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.065.lcssa = phi float [ 0.000000e+00, %14 ], [ %27, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.065.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -9165,16 +9159,16 @@ define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFla
   %22 = alloca [3 x float], align 4
   %23 = alloca [3 x float], align 4
   %24 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -9332,27 +9326,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit61: ; preds = %48, %54
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %32, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = fsub float 1.000000e+00, %7
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -9527,22 +9521,22 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %53, %58
 
 ._crit_edge:                                      ; preds = %117, %14
   %.085.lcssa = phi float [ 0.000000e+00, %14 ], [ %144, %117 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.085.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -9702,27 +9696,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit62: ; preds = %53, %58
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.059.lcssa = phi float [ 0.000000e+00, %14 ], [ %30, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.059.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp sgt i32 %0, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -9919,29 +9913,29 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %55, %61
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.085.lcssa = phi float [ 0.000000e+00, %14 ], [ %30, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.085.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp sgt i32 %0, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -10178,27 +10172,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
 
 ._crit_edge:                                      ; preds = %.backedge, %14
   %.0107.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0107.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0107.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -10330,16 +10324,16 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.080.lcssa = phi float [ 0.000000e+00, %14 ], [ %62, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.080.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -10347,13 +10341,13 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %19 = alloca float, align 4
   %20 = alloca float, align 4
   %21 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %22 = icmp sgt i32 %0, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -10471,18 +10465,18 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.067.lcssa = phi float [ 0.000000e+00, %14 ], [ %58, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.067.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -10491,14 +10485,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -10508,14 +10502,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEE
   br label %26
 
 ._crit_edge:                                      ; preds = %.critedge, %14
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float 0.000000e+00
 
 26:                                               ; preds = %.lr.ph, %.critedge
@@ -10612,7 +10606,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -10622,15 +10616,15 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = alloca [6 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %24 = fsub float 1.000000e+00, %7
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
@@ -10769,20 +10763,20 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EE
   %111 = load float, ptr %8, align 4, !tbaa !16
   %112 = fadd float %.0.lcssa, %111
   store float %112, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0114.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -10805,28 +10799,28 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %34 = alloca float, align 4
   %35 = alloca float, align 4
   %36 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %37 = icmp sgt i32 %0, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -11057,33 +11051,33 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79: ; preds = %69, %79
 
 ._crit_edge:                                      ; preds = %158, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %160, %158 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -11103,25 +11097,25 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1E
   %31 = alloca [3 x float], align 4
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %33) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %34 = icmp sgt i32 %0, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -11344,30 +11338,30 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit85: ; preds = %66, %77
 
 ._crit_edge:                                      ; preds = %147, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %149, %147 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -11376,14 +11370,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -11483,19 +11477,19 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %66, %68, %70
   %96 = load float, ptr %8, align 4, !tbaa !16
   %97 = fadd float %.0.lcssa, %96
   store float %97, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.069.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -11506,16 +11500,16 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -11577,23 +11571,23 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1
 
 ._crit_edge:                                      ; preds = %27, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %64, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -11724,12 +11718,12 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !150
 
 103:                                              ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.030.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -11738,13 +11732,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %24, label %.loopexit
 
@@ -11805,7 +11799,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   br i1 %.not, label %76, label %72
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 844, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 844) #26
           to label %73 unwind label %74
@@ -11817,14 +11811,14 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %69
@@ -12083,18 +12077,18 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %91, %103
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
   %.091 = phi float [ 0.000000e+00, %14 ], [ %256, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.091
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -12165,9 +12159,9 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -12319,24 +12313,24 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !156
 
 118:                                              ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.047.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -12345,14 +12339,14 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -12501,21 +12495,21 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %69, %71, %73
 
 ._crit_edge:                                      ; preds = %.thread, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %.1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -12655,14 +12649,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !158
 
 109:                                              ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -12794,14 +12788,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %104, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -12970,14 +12964,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit, %81, %14
   %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %81 ], [ %131, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -13187,15 +13181,15 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %91, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us, %42, %.split62.us
   %.us-phi = phi float [ 0.000000e+00, %.split62.us ], [ %.0.ph.us94, %42 ], [ %39, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %91 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -13361,7 +13355,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %89
   %.us-phi78 = phi i32 [ %55, %.split61.us.us ], [ %94, %.split61 ]
   %.us-phi79 = phi i32 [ %57, %.split61.us.us ], [ %96, %.split61 ]
   %116 = fpext float %.us-phi76 to double
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   %117 = fpext float %.us-phi77 to double
   %118 = invoke noundef i32 @_Z6glatnrPKii(ptr noundef %13, i32 noundef %.us-phi78)
@@ -13382,8 +13376,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %89
   %124 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %124
 
 125:                                              ; preds = %.split61
@@ -13432,18 +13426,18 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %89, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us, %51, %.split73.us
   %.us-phi = phi float [ 0.000000e+00, %.split73.us ], [ %.0.ph.us107, %51 ], [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %89 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not.i = icmp eq ptr %6, null
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -13572,16 +13566,16 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !168
 
 99:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -13809,12 +13803,12 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !169
 
 176:                                              ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0131.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -13823,11 +13817,11 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -13908,9 +13902,9 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EE
 89:                                               ; preds = %38
   %90 = fneg float %70
   %91 = fmul float %73, %90
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %92 = fsub float 1.000000e+00, %87
   %93 = call noundef float @sqrtf(float noundef %92) #25, !tbaa !14
   %94 = fdiv float 1.000000e+00, %93
@@ -14027,9 +14021,9 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EE
   store float %175, ptr %172, align 4, !tbaa !16
   store float %179, ptr %176, align 4, !tbaa !16
   store float %183, ptr %180, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %184
 
 184:                                              ; preds = %146, %38
@@ -14039,16 +14033,16 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EE
 
 ._crit_edge:                                      ; preds = %184, %14
   %.073.lcssa = phi float [ 0.000000e+00, %14 ], [ %85, %184 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.073.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -14056,13 +14050,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
   %19 = alloca [3 x float], align 4
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %22 = icmp sgt i32 %0, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -14247,18 +14241,18 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 
 ._crit_edge:                                      ; preds = %126, %14
   %.068.lcssa = phi float [ 0.000000e+00, %14 ], [ %129, %126 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.068.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -14269,16 +14263,16 @@ define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFla
   %22 = alloca [3 x float], align 4
   %23 = alloca [3 x float], align 4
   %24 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -14491,33 +14485,33 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit66: ; preds = %54, %62
 
 ._crit_edge:                                      ; preds = %139, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %140, %139 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = fsub float 1.000000e+00, %7
   %22 = icmp sgt i32 %0, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
@@ -14754,27 +14748,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit93: ; preds = %65, %72
 
 ._crit_edge:                                      ; preds = %135, %14
   %.090.lcssa = phi float [ 0.000000e+00, %14 ], [ %162, %135 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.090.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -14981,28 +14975,28 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit67: ; preds = %54, %61
 
 ._crit_edge:                                      ; preds = %131, %14
   %.064.lcssa = phi float [ 0.000000e+00, %14 ], [ %134, %131 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.064.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp sgt i32 %0, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -15254,17 +15248,17 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit96: ; preds = %59, %67
 
 ._crit_edge:                                      ; preds = %160, %14
   %.090.lcssa = phi float [ 0.000000e+00, %14 ], [ %163, %160 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.090.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -15274,12 +15268,12 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -15431,9 +15425,9 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %99, %102
   br i1 %144, label %145, label %236
 
 145:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %146 = fsub float 1.000000e+00, %143
   %147 = call noundef float @sqrtf(float noundef %146) #25, !tbaa !14
   %148 = fdiv float 1.000000e+00, %147
@@ -15546,9 +15540,9 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %99, %102
   store float %227, ptr %224, align 4, !tbaa !16
   store float %231, ptr %228, align 4, !tbaa !16
   store float %235, ptr %232, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %236
 
 236:                                              ; preds = %198, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
@@ -15599,17 +15593,17 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %99, %102
 
 ._crit_edge:                                      ; preds = %.backedge, %14
   %.0117.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0117.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0117.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -15618,11 +15612,11 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -15699,9 +15693,9 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   br i1 %77, label %78, label %169
 
 78:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %79 = fsub float 1.000000e+00, %76
   %80 = call noundef float @sqrtf(float noundef %79) #25, !tbaa !14
   %81 = fdiv float 1.000000e+00, %80
@@ -15814,9 +15808,9 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   store float %160, ptr %157, align 4, !tbaa !16
   store float %164, ptr %161, align 4, !tbaa !16
   store float %168, ptr %165, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %169
 
 169:                                              ; preds = %131, %73
@@ -15826,16 +15820,16 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 ._crit_edge:                                      ; preds = %169, %14
   %.083.lcssa = phi float [ 0.000000e+00, %14 ], [ %74, %169 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.083.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -15846,13 +15840,13 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %22 = alloca [3 x float], align 4
   %23 = alloca [3 x float], align 4
   %24 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -15914,9 +15908,9 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   br i1 %73, label %74, label %166
 
 74:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %75 = load float, ptr %20, align 4, !tbaa !16
   %76 = fsub float 1.000000e+00, %72
   %77 = call noundef float @sqrtf(float noundef %76) #25, !tbaa !14
@@ -16030,9 +16024,9 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   store float %157, ptr %154, align 4, !tbaa !16
   store float %161, ptr %158, align 4, !tbaa !16
   store float %165, ptr %162, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %166
 
 166:                                              ; preds = %128, %40
@@ -16042,18 +16036,18 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 
 ._crit_edge:                                      ; preds = %166, %14
   %.070.lcssa = phi float [ 0.000000e+00, %14 ], [ %70, %166 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.070.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -16062,14 +16056,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -16080,14 +16074,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEE
 
 ._crit_edge:                                      ; preds = %.critedge, %14
   %.062.lcssa = phi float [ 0.000000e+00, %14 ], [ %81, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.062.lcssa
 
 26:                                               ; preds = %.lr.ph, %.critedge
@@ -16201,7 +16195,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -16211,15 +16205,15 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = alloca [6 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %24 = fsub float 1.000000e+00, %7
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
@@ -16358,20 +16352,20 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EE
   %111 = load float, ptr %8, align 4, !tbaa !16
   %112 = fadd float %.0.lcssa, %111
   store float %112, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0114.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -16395,29 +16389,29 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %35 = alloca float, align 4
   %36 = alloca float, align 4
   %37 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %38 = icmp sgt i32 %0, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -16710,34 +16704,34 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit97: ; preds = %165
 
 ._crit_edge:                                      ; preds = %218, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %167, %218 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -16758,26 +16752,26 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2E
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
   %34 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %34) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %35 = icmp sgt i32 %0, 0
   br i1 %35, label %.lr.ph, label %._crit_edge
 
@@ -17062,31 +17056,31 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit103: ; preds = %154
 
 ._crit_edge:                                      ; preds = %207, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %156, %207 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -17095,14 +17089,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -17202,19 +17196,19 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %66, %68, %70
   %96 = load float, ptr %8, align 4, !tbaa !16
   %97 = fadd float %.0.lcssa, %96
   store float %97, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.069.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -17225,16 +17219,16 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -17296,23 +17290,23 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2
 
 ._crit_edge:                                      ; preds = %27, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %64, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -17455,12 +17449,12 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !202
 
 112:                                              ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.030.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -17469,13 +17463,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %24, label %.loopexit
 
@@ -17537,7 +17531,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   br i1 %.not, label %77, label %73
 
 73:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 844, ptr noundef nonnull @.str.13, i32 noundef %72, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 844) #26
           to label %74 unwind label %75
@@ -17549,14 +17543,14 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %76
 
 77:                                               ; preds = %70
@@ -17826,18 +17820,18 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114: ; preds = %92, %105
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
   %.098 = phi float [ 0.000000e+00, %14 ], [ %265, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.098
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -17908,9 +17902,9 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -18074,24 +18068,24 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !208
 
 127:                                              ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.047.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -18100,14 +18094,14 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -18256,21 +18250,21 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %69, %71, %73
 
 ._crit_edge:                                      ; preds = %.thread, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %.1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -18398,14 +18392,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !210
 
 100:                                              ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -18525,14 +18519,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %95, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -18689,14 +18683,14 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit, %79, %14
   %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %79 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -18890,15 +18884,15 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %86, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us, %37, %.split60.us
   %.us-phi = phi float [ 0.000000e+00, %.split60.us ], [ %.0.ph.us92, %37 ], [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %86 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -19058,7 +19052,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %84
   %.us-phi76 = phi i32 [ %50, %.split61.us.us ], [ %89, %.split61 ]
   %.us-phi77 = phi i32 [ %52, %.split61.us.us ], [ %91, %.split61 ]
   %111 = fpext float %.us-phi74 to double
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   %112 = fpext float %.us-phi75 to double
   %113 = invoke noundef i32 @_Z6glatnrPKii(ptr noundef %13, i32 noundef %.us-phi76)
@@ -19079,8 +19073,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %84
   %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %119
 
 120:                                              ; preds = %.split61
@@ -19119,18 +19113,18 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
   %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us105, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not.i = icmp eq ptr %6, null
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -19247,16 +19241,16 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !220
 
 90:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -19472,22 +19466,22 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !221
 
 167:                                              ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0131.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -19627,24 +19621,24 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EE
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.070.lcssa = phi float [ 0.000000e+00, %14 ], [ %73, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.070.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -19768,15 +19762,15 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.065.lcssa = phi float [ 0.000000e+00, %14 ], [ %27, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.065.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -19787,16 +19781,16 @@ define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFla
   %22 = alloca [3 x float], align 4
   %23 = alloca [3 x float], align 4
   %24 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -19954,27 +19948,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit61: ; preds = %48, %54
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %32, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = fsub float 1.000000e+00, %7
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -20149,22 +20143,22 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %53, %58
 
 ._crit_edge:                                      ; preds = %117, %14
   %.085.lcssa = phi float [ 0.000000e+00, %14 ], [ %144, %117 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.085.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -20324,27 +20318,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit62: ; preds = %53, %58
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.059.lcssa = phi float [ 0.000000e+00, %14 ], [ %30, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.059.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp sgt i32 %0, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -20541,29 +20535,29 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %55, %61
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.085.lcssa = phi float [ 0.000000e+00, %14 ], [ %30, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.085.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca [3 x float], align 4
   %20 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp sgt i32 %0, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -20800,27 +20794,27 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
 
 ._crit_edge:                                      ; preds = %.backedge, %14
   %.0107.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0107.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0107.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca [3 x float], align 4
   %19 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp sgt i32 %0, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -20952,16 +20946,16 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.080.lcssa = phi float [ 0.000000e+00, %14 ], [ %62, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.080.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -20969,13 +20963,13 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %19 = alloca float, align 4
   %20 = alloca float, align 4
   %21 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %22 = icmp sgt i32 %0, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -21093,18 +21087,18 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %.067.lcssa = phi float [ 0.000000e+00, %14 ], [ %58, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.067.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -21113,14 +21107,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -21131,14 +21125,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEE
 
 ._crit_edge:                                      ; preds = %.critedge, %14
   %.062.lcssa = phi float [ 0.000000e+00, %14 ], [ %81, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.062.lcssa
 
 26:                                               ; preds = %.lr.ph, %.critedge
@@ -21252,7 +21246,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -21262,15 +21256,15 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = alloca [6 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %24 = fsub float 1.000000e+00, %7
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
@@ -21409,20 +21403,20 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EE
   %111 = load float, ptr %8, align 4, !tbaa !16
   %112 = fadd float %.0.lcssa, %111
   store float %112, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0114.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -21445,28 +21439,28 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %34 = alloca float, align 4
   %35 = alloca float, align 4
   %36 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %37 = icmp sgt i32 %0, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -21697,33 +21691,33 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79: ; preds = %69, %79
 
 ._crit_edge:                                      ; preds = %158, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %160, %158 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -21743,25 +21737,25 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3E
   %31 = alloca [3 x float], align 4
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %33) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %34 = icmp sgt i32 %0, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -21984,30 +21978,30 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit85: ; preds = %66, %77
 
 ._crit_edge:                                      ; preds = %147, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %149, %147 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %33) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %28) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -22016,14 +22010,14 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -22123,19 +22117,19 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %66, %68, %70
   %96 = load float, ptr %8, align 4, !tbaa !16
   %97 = fadd float %.0.lcssa, %96
   store float %97, ptr %8, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.069.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -22146,16 +22140,16 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -22217,23 +22211,23 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3
 
 ._crit_edge:                                      ; preds = %27, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %64, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -22364,12 +22358,12 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !254
 
 103:                                              ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.030.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -22378,13 +22372,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %23 = icmp sgt i32 %0, 0
   br i1 %23, label %24, label %.loopexit
 
@@ -22445,7 +22439,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   br i1 %.not, label %76, label %72
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 844, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 844) #26
           to label %73 unwind label %74
@@ -22457,14 +22451,14 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %69
@@ -22723,18 +22717,18 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %91, %103
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
   %.091 = phi float [ 0.000000e+00, %14 ], [ %256, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.091
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -22805,9 +22799,9 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
   %.not.i = icmp eq ptr %6, null
@@ -22959,24 +22953,24 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !260
 
 118:                                              ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.047.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #7 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #6 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -22985,14 +22979,14 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EE
   %20 = alloca [3 x float], align 4
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = fsub float 1.000000e+00, %7
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -23141,44 +23135,44 @@ _ZN3gmx12makePeriodicIfEET_S1_S1_.exit:           ; preds = %69, %71, %73
 
 ._crit_edge:                                      ; preds = %.thread, %14
   %.0.lcssa = phi float [ 0.000000e+00, %14 ], [ %.1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.lcssa
 }
 
-declare void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #14
+declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #14
+declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #8
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #14
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @expf(float noundef) local_unnamed_addr #9
+declare float @expf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
-declare void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #15
+declare void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(130) %1, i8 noundef zeroext %2) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(130) %1, i8 noundef zeroext %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(130) %1) #25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %5, ptr %4, align 8, !tbaa !51
   %7 = icmp ugt i64 %5, 15
   br i1 %7, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -23213,7 +23207,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6f
   %17 = load ptr, ptr %0, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
   store i8 0, ptr %18, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %20 unwind label %22
@@ -23268,7 +23262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !52
   %.not.i.i = icmp eq ptr %3, null
@@ -23302,23 +23296,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 }
 
-declare void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
-declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #17
+declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #15
+declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #14
 
-declare noundef i32 @_Z6glatnrPKii(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_Z6glatnrPKii(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @logf(float noundef) local_unnamed_addr #9
+declare float @logf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !262
@@ -23329,7 +23323,7 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bond
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
   %17 = fpext float %5 to double
   %18 = add nsw i32 %14, 1
@@ -23344,7 +23338,7 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bond
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %9
@@ -23392,13 +23386,13 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #14
+declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #14
+declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #6 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %9
 
@@ -23490,10 +23484,10 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %51, %54
   ret float %.0.i16
 }
 
-declare void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull captures(none) initializes((0, 32)) %6, ptr noundef nonnull captures(none) initializes((0, 32)) %7, ptr noundef nonnull captures(none) initializes((0, 32)) %8, ptr noundef nonnull captures(none) initializes((0, 32)) %9, ptr noundef nonnull captures(none) initializes((0, 32)) %10, ptr noundef nonnull captures(none) initializes((0, 32)) %11, ptr noundef nonnull captures(none) initializes((0, 32)) %12, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %13, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %14, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %15, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %16) unnamed_addr #18 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull captures(none) initializes((0, 32)) %6, ptr noundef nonnull captures(none) initializes((0, 32)) %7, ptr noundef nonnull captures(none) initializes((0, 32)) %8, ptr noundef nonnull captures(none) initializes((0, 32)) %9, ptr noundef nonnull captures(none) initializes((0, 32)) %10, ptr noundef nonnull captures(none) initializes((0, 32)) %11, ptr noundef nonnull captures(none) initializes((0, 32)) %12, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %13, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %14, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %15, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %16) unnamed_addr #17 {
   %18 = load i32, ptr %1, align 4, !tbaa !14
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
@@ -23973,7 +23967,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr noundef captures(none) %12) unnamed_addr #18 {
+define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr noundef captures(none) %12) unnamed_addr #17 {
   %14 = fmul <8 x float> %4, %6
   %15 = fmul <8 x float> %5, %9
   %16 = fadd <8 x float> %14, %15
@@ -24309,14 +24303,14 @@ define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_si
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #14
+declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #13
 
-declare void @_Z25compute_factors_restrdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_Z25compute_factors_restrdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor0EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #7 comdat {
+define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor0EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #6 comdat {
   %18 = load float, ptr %8, align 4, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !16
@@ -24455,9 +24449,9 @@ define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor0EEviiiifPfS1_S1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor0EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor0EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #6 {
   %8 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %11, label %9
 
@@ -24549,19 +24543,19 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 
 72:                                               ; preds = %62
   %73 = fmul float %39, %47
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret float %73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare float @cbrtf(float noundef) local_unnamed_addr #19
+declare float @cbrtf(float noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #6 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp sgt i32 %0, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -24843,16 +24837,16 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 
 ._crit_edge:                                      ; preds = %.loopexit, %9
   %.084.lcssa = phi float [ 0.000000e+00, %9 ], [ %138, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret float %.084.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #9
+declare float @sinf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor1EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #16 comdat {
+define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor1EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #15 comdat {
   %18 = load float, ptr %8, align 4, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !16
@@ -24991,9 +24985,9 @@ define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor1EEviiiifPfS1_S1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor1EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor1EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #6 {
   %8 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %11, label %9
 
@@ -25085,16 +25079,16 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 
 72:                                               ; preds = %62
   %73 = fmul float %39, %47
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret float %73
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #6 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp sgt i32 %0, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -25376,15 +25370,15 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 
 ._crit_edge:                                      ; preds = %.loopexit, %9
   %.084.lcssa = phi float [ 0.000000e+00, %9 ], [ %138, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret float %.084.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor2EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #7 comdat {
+define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor2EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #6 comdat {
   %18 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = load float, ptr %8, align 4, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %21 = load float, ptr %20, align 4, !tbaa !16
@@ -25581,14 +25575,14 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %46
   br label %177
 
 177:                                              ; preds = %138, %17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor2EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, ptr noundef captures(none) %6, float noundef %7) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor2EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, ptr noundef captures(none) %6, float noundef %7) unnamed_addr #6 {
   %9 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %13, label %10
 
@@ -25692,20 +25686,20 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %10, %13
 
 82:                                               ; preds = %66
   %83 = fmul float %41, %49
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret float %83
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, i1 noundef zeroext %9) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, i1 noundef zeroext %9) unnamed_addr #6 {
   %11 = alloca [3 x float], align 4
   %12 = alloca [3 x float], align 4
   %13 = alloca [3 x float], align 4
   %14 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
@@ -26061,15 +26055,15 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %102, %105
 
 ._crit_edge:                                      ; preds = %261, %10
   %.093.lcssa = phi float [ 0.000000e+00, %10 ], [ %148, %261 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret float %.093.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor3EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #16 comdat {
+define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor3EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #15 comdat {
   %18 = load float, ptr %8, align 4, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !16
@@ -26208,9 +26202,9 @@ define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor3EEviiiifPfS1_S1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor3EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor3EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #6 {
   %8 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %11, label %9
 
@@ -26302,16 +26296,16 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 
 72:                                               ; preds = %62
   %73 = fmul float %39, %47
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret float %73
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #7 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #6 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp sgt i32 %0, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -26593,13 +26587,13 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 
 ._crit_edge:                                      ; preds = %.loopexit, %9
   %.084.lcssa = phi float [ 0.000000e+00, %9 ], [ %138, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret float %.084.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #20 {
+define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #19 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds nuw [95 x %"struct.(anonymous namespace)::BondedInteractions"], ptr @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE, i64 0, i64 %2, i32 1
   %4 = load i32, ptr %3, align 8, !tbaa !284
@@ -26607,13 +26601,13 @@ define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #20 {
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_bonded.cpp() #21 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_bonded.cpp() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 16), ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 33, ptr %4, align 8, !tbaa !51
   %5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_Z27c_bondedKernelFlavorStringsB5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %5, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, align 8, !tbaa !4
@@ -26624,9 +26618,9 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #21 section ".text.startup" pe
   %7 = load ptr, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %6
   store i8 0, ptr %8, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 22, ptr %3, align 8, !tbaa !51
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
           to label %.noexc15.i unwind label %18
@@ -26640,9 +26634,9 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #21 section ".text.startup" pe
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %10
   store i8 0, ptr %12, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 80), ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 47, ptr %2, align 8, !tbaa !51
   %13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
           to label %.noexc19.i unwind label %20
@@ -26656,9 +26650,9 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #21 section ".text.startup" pe
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   store i8 0, ptr %16, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 112), ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 38, ptr %1, align 8, !tbaa !51
   %17 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
           to label %__cxx_global_var_init.exit unwind label %22
@@ -26720,10 +26714,16 @@ __cxx_global_var_init.exit:                       ; preds = %.noexc19.i
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   store i8 0, ptr %40, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %41 = call i32 @__cxa_atexit(ptr nonnull @_ZN3gmx16EnumerationArrayI18BondedKernelFlavorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_4EED2Ev, ptr nonnull @_Z27c_bondedKernelFlavorStringsB5cxx11, ptr nonnull @__dso_handle) #25
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
@@ -26740,28 +26740,28 @@ declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #23
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x float> @llvm.copysign.v8f32(<8 x float>, <8 x float>) #23
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { builtin nounwind }

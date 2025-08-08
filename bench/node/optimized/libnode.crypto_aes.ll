@@ -535,7 +535,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -607,7 +607,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %if.then, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
@@ -617,7 +617,7 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %if.then, %_
   br i1 %cmp.not.i5, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i4)
   %call.i.i7 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i7, align 8
   %retainer_.i.i.i8 = getelementptr inbounds nuw i8, ptr %call.i.i7, i64 8
@@ -689,7 +689,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i31: ; preds = %_ZNK4node13Memo
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i34
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i34: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i31, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i28, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i35, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i4)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40: ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i34
@@ -699,7 +699,7 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40: ; preds = %_ZN4node1
   br i1 %cmp.not.i43, label %if.end, label %if.then.i44
 
 if.then.i44:                                      ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i42)
   %call.i.i45 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i45, align 8
   %retainer_.i.i.i46 = getelementptr inbounds nuw i8, ptr %call.i.i45, i64 8
@@ -771,7 +771,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i69: ; preds = %_ZNK4node13Memo
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i72
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i72: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i69, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i66, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i73, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i42)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i72, %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40, %entry
@@ -1232,30 +1232,30 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426: ; preds = %if.end.i418, %
   br i1 %call133, label %sw.epilog, label %return
 
 sw.bb137:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp.i, ptr noundef nonnull @.str.49, i64 noundef 8) #17
   %iv.i = getelementptr inbounds nuw i8, ptr %params, i64 32
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %iv.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i) #17
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %sw.epilog
 
 sw.bb138:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i213)
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp.i213, ptr noundef nonnull @.str.49, i64 noundef 8) #17
   %iv.i214 = getelementptr inbounds nuw i8, ptr %params, i64 32
   %call.i215 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %iv.i214, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i213) #17
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i213) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i213)
   br label %sw.epilog
 
 sw.bb139:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i216)
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp.i216, ptr noundef nonnull @.str.49, i64 noundef 8) #17
   %iv.i217 = getelementptr inbounds nuw i8, ptr %params, i64 32
   %call.i218 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %iv.i217, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i216) #17
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i216) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i216)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i216)
   br label %sw.epilog
 
 sw.bb140:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit588
@@ -4160,7 +4160,7 @@ if.end:                                           ; preds = %_ZN4node7tracing16T
 if.then4:                                         ; preds = %if.end
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %8 = load ptr, ptr %type_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i, i64 16
   %call.i.i = tail call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #17
@@ -4198,7 +4198,7 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, label %arraydestroy.body.i.i
 
 _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i)
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit
@@ -4280,7 +4280,7 @@ if.end:                                           ; preds = %_ZN4node7tracing16T
 if.then6:                                         ; preds = %if.end
   %type_ = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load ptr, ptr %type_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i, i64 16
   %call.i.i = tail call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #17
@@ -4317,7 +4317,7 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, label %arraydestroy.body.i.i
 
 _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i)
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit
@@ -4358,7 +4358,7 @@ if.end14:                                         ; preds = %_ZN4node7tracing16T
 if.then18:                                        ; preds = %if.end14
   %type_19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %19 = load ptr, ptr %type_19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i26, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i27 = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i26, i64 16
   %call.i.i28 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #17
@@ -4395,7 +4395,7 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i44, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit45, label %arraydestroy.body.i.i36
 
 _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit45: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i26)
   br label %do.end22
 
 do.end22:                                         ; preds = %if.end14, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit45
@@ -4468,14 +4468,14 @@ if.end:                                           ; preds = %_ZN4node7tracing16T
 if.then6:                                         ; preds = %if.end
   %type_ = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load ptr, ptr %type_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg1_name.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %arg_type.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_value.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg1_name.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_type.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_value.i)
   store ptr @.str.79, ptr %arg1_name.addr.i, align 8
   store i8 3, ptr %arg_type.i, align 1
   %conv.i.i = sext i32 %status to i64
   store i64 %conv.i.i, ptr %arg_value.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i, i64 16
   %call.i.i = tail call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #17
@@ -4512,10 +4512,10 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, label %arraydestroy.body.i.i
 
 _ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg1_name.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_type.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_value.i)
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit
@@ -4839,7 +4839,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -4911,7 +4911,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, %if.then, %entry
@@ -4921,7 +4921,7 @@ if.end:                                           ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.not.i5, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i4)
   %call.i.i7 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i7, align 8
   %retainer_.i.i.i8 = getelementptr inbounds nuw i8, ptr %call.i.i7, i64 8
@@ -4993,7 +4993,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i31: ; preds = %_ZNK4node13Memo
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i34
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i34: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i31, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i28, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i35, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i4)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit40: ; preds = %if.end, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i34
@@ -5489,7 +5489,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %switch, label %sw.bb8, label %sw.bb7
 
 sw.bb7:                                           ; preds = %if.then6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.130)
   %17 = load ptr, ptr %_M_finish.i.i8, align 8
   %18 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
@@ -5510,11 +5510,11 @@ if.else.i.i:                                      ; preds = %sw.bb7
 
 _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit: ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end9
 
 sw.bb8:                                           ; preds = %if.then6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i7)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i7, ptr noundef nonnull @.str.127)
   %20 = load ptr, ptr %_M_finish.i.i8, align 8
   %21 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
@@ -5535,7 +5535,7 @@ if.else.i.i13:                                    ; preds = %sw.bb8
 
 _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15: ; preds = %if.then.i.i11, %if.else.i.i13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i7)
   br label %if.end9
 
 if.end9:                                          ; preds = %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit, %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit, %if.end
@@ -6127,7 +6127,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -6153,7 +6153,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -7139,10 +7139,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

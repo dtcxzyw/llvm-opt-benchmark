@@ -189,7 +189,7 @@ define linkonce_odr void @_ZN5faiss10IndexIVFPQD2Ev(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 304), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8, !tbaa !7
-  tail call void @free(ptr noundef %4) #17
+  tail call void @free(ptr noundef %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5faiss16ProductQuantizerE, i64 16), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -252,7 +252,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit4.i:                 ; preds = %24, %_ZNSt6vectorIf
   br label %_ZN5faiss16ProductQuantizerD2Ev.exit
 
 _ZN5faiss16ProductQuantizerD2Ev.exit:             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit4.i, %32
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #17
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #16
   ret void
 }
 
@@ -263,7 +263,7 @@ define linkonce_odr void @_ZN5faiss10IndexIVFPQD0Ev(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 304), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8, !tbaa !7
-  tail call void @free(ptr noundef %4) #17
+  tail call void @free(ptr noundef %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5faiss16ProductQuantizerE, i64 16), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -326,7 +326,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit4.i.i:               ; preds = %24, %_ZNSt6vectorIf
   br label %_ZN5faiss10IndexIVFPQD2Ev.exit
 
 _ZN5faiss10IndexIVFPQD2Ev.exit:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit4.i.i, %32
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #17
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #33
   ret void
 }
@@ -374,12 +374,12 @@ define void @_ZNK5faiss10IndexIVFPQ9sa_decodeElPKhPf(ptr noundef nonnull align 8
   store i64 %1, ptr %5, align 8, !tbaa !16
   store ptr %2, ptr %6, align 8, !tbaa !17
   store ptr %3, ptr %7, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = tail call noundef i64 @_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %9)
   store i64 %10, ptr %8, align 8, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @_ZNK5faiss10IndexIVFPQ9sa_decodeElPKhPf.omp_outlined, ptr nonnull %0, ptr nonnull %5, ptr nonnull %6, ptr nonnull %8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -531,7 +531,7 @@ define void @_ZN5faiss10IndexIVFPQ13train_encoderElPKfPKl(ptr noundef nonnull al
   br label %15
 
 15:                                               ; preds = %14, %10
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5faiss18PolysemousTrainingC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %17 = load ptr, ptr %16, align 8, !tbaa !67
@@ -561,7 +561,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5faiss18PolysemousTrainingD2Ev.exit
 
 _ZN5faiss18PolysemousTrainingD2Ev.exit:           ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 28:                                               ; preds = %15
@@ -587,7 +587,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5faiss18PolysemousTrainingD2Ev.exit9
 
 _ZN5faiss18PolysemousTrainingD2Ev.exit9:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %29
 
 39:                                               ; preds = %_ZN5faiss18PolysemousTrainingD2Ev.exit, %4
@@ -1156,7 +1156,7 @@ define linkonce_odr void @_ZThn40_N5faiss10IndexIVFPQD1Ev(ptr noundef %0) unname
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss10IndexIVFPQE, i64 304), ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8, !tbaa !7
-  tail call void @free(ptr noundef %4) #17
+  tail call void @free(ptr noundef %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5faiss16ProductQuantizerE, i64 16), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -1219,14 +1219,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit4.i.i:               ; preds = %24, %_ZNSt6vectorIf
   br label %_ZN5faiss10IndexIVFPQD2Ev.exit
 
 _ZN5faiss10IndexIVFPQD2Ev.exit:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit4.i.i, %32
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %2) #17
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %2) #16
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn40_N5faiss10IndexIVFPQD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN5faiss10IndexIVFPQD0Ev(ptr noundef nonnull align 8 dereferenceable(544) %2) #17
+  tail call void @_ZN5faiss10IndexIVFPQD0Ev(ptr noundef nonnull align 8 dereferenceable(544) %2) #16
   ret void
 }
 
@@ -1264,7 +1264,7 @@ define void @_ZN5faiss10IndexIVFPQC2EPNS_5IndexEmmmmNS_10MetricTypeE(ptr noundef
 22:                                               ; preds = %7
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #17
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #16
   resume { ptr, i32 } %23
 }
 
@@ -1279,7 +1279,7 @@ declare void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #36
   unreachable
 }
@@ -1297,15 +1297,9 @@ declare void @_ZN5faiss16ProductQuantizer5trainEmPKf(ptr noundef nonnull align 8
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
 declare void @_ZN5faiss18PolysemousTrainingC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 declare void @_ZNK5faiss18PolysemousTraining23optimize_pq_for_hammingERNS_16ProductQuantizerEmPKf(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(216), i64 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss10IndexIVFPQ16precompute_tableEv(ptr noundef nonnull align 8 dereferenceable(544) %0) local_unnamed_addr #2 align 2 {
@@ -1415,10 +1409,10 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %27, %26, %37
 declare void @_ZNK5faiss16ProductQuantizer12compute_codeEPKfPh(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss10IndexIVFPQ15encode_multipleEmPlPKfPhb(ptr noundef nonnull align 8 dereferenceable(544) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 2 {
@@ -1617,13 +1611,13 @@ define void @_ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv(ptr noundef nonnul
   br i1 %38, label %61, label %39
 
 39:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %40, ptr %8, align 8, !tbaa !148
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %41, align 8, !tbaa !71
   store i8 0, ptr %40, align 8, !tbaa !72
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #17
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #16
   %43 = add nsw i32 %42, 1
   %44 = sext i32 %43 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %44, i8 noundef signext 0)
@@ -1632,8 +1626,8 @@ define void @_ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv(ptr noundef nonnul
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %39
   %45 = load ptr, ptr %8, align 8, !tbaa !68
   %46 = load i64, ptr %41, align 8, !tbaa !71
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #17
-  %48 = call ptr @__cxa_allocate_exception(i64 40) #17
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #16
+  %48 = call ptr @__cxa_allocate_exception(i64 40) #16
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv, ptr noundef nonnull @.str.5, i32 noundef 243)
           to label %49 unwind label %52
 
@@ -1649,7 +1643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %48) #17
+  call void @__cxa_free_exception(ptr nonnull %48) #16
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -1671,7 +1665,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit135
 
 61:                                               ; preds = %34
@@ -1995,13 +1989,13 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %112, %.noexc,
   br i1 %207, label %208, label %218
 
 208:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %9, i8 0, i64 100, i1 false)
   %.not105 = icmp eq i64 %.094.lcssa, 0
   br i1 %.not105, label %213, label %209
 
 209:                                              ; preds = %208
-  %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.6, i64 noundef %.094.lcssa) #17
+  %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.6, i64 noundef %.094.lcssa) #16
   br label %213
 
 211:                                              ; preds = %._crit_edge
@@ -2014,7 +2008,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %112, %.noexc,
   %215 = fsub double %122, %76
   %216 = fsub double %154, %122
   %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %214, double noundef %215, double noundef %216, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %218
 
 218:                                              ; preds = %213, %204
@@ -2078,21 +2072,21 @@ declare void @_ZNK5faiss16ProductQuantizer13compute_codesEPKfPhm(ptr noundef non
 declare noundef i64 @_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(80), i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss10IndexIVFPQ9sa_decodeElPKhPf.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss10IndexIVFPQ9sa_decodeElPKhPf.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #15 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -2141,13 +2135,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 26:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %27 = add nsw i64 %24, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %27, ptr %9, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1, ptr %10, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !146
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %.pre, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i64 1, i64 1)
   %28 = load i64, ptr %9, align 8, !tbaa !16
@@ -2225,10 +2219,10 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 ._crit_edge:                                      ; preds = %.loopexit, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %69
 
 69:                                               ; preds = %._crit_edge, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
@@ -2264,20 +2258,20 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %69, %70
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #17
+declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #16
 
 declare noundef i64 @_ZNK5faiss15Level1Quantizer13decode_listnoEPKh(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #1
 
 declare void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #17
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #16
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #18
+declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare !callback !158 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #17
+declare !callback !158 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #16
 
 declare void @_ZN5faiss17InterruptCallback5checkEv() local_unnamed_addr #1
 
@@ -2315,12 +2309,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #19
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
 
 declare noundef double @_ZN5faiss12getmillisecsEv() local_unnamed_addr #1
 
@@ -2347,13 +2341,13 @@ define void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16
   br i1 %17, label %40, label %18
 
 18:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %19, ptr %7, align 8, !tbaa !148
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %20, align 8, !tbaa !71
   store i8 0, ptr %19, align 8, !tbaa !72
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8) #17
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8) #16
   %22 = add nsw i32 %21, 1
   %23 = sext i32 %22 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %23, i8 noundef signext 0)
@@ -2362,8 +2356,8 @@ define void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %18
   %24 = load ptr, ptr %7, align 8, !tbaa !68
   %25 = load i64, ptr %20, align 8, !tbaa !71
-  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %24, i64 noundef %25, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8) #17
-  %27 = call ptr @__cxa_allocate_exception(i64 40) #17
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %24, i64 noundef %25, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8) #16
+  %27 = call ptr @__cxa_allocate_exception(i64 40) #16
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb, ptr noundef nonnull @.str.5, i32 noundef 373)
           to label %28 unwind label %31
 
@@ -2379,7 +2373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %27) #17
+  call void @__cxa_free_exception(ptr nonnull %27) #16
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -2401,7 +2395,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit198
 
 40:                                               ; preds = %6
@@ -2420,7 +2414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 46:                                               ; preds = %42
   store i64 0, ptr %43, align 8, !tbaa !161
   %47 = load ptr, ptr %3, align 8, !tbaa !7
-  tail call void @free(ptr noundef %47) #17
+  tail call void @free(ptr noundef %47) #16
   store ptr null, ptr %3, align 8, !tbaa !7
   br label %_ZN5faiss12AlignedTableIfLi32EE6resizeEm.exit
 
@@ -2452,7 +2446,7 @@ _ZN5faiss12AlignedTableIfLi32EE6resizeEm.exit:    ; preds = %42, %46
 59:                                               ; preds = %55
   store i64 0, ptr %56, align 8, !tbaa !161
   %60 = load ptr, ptr %3, align 8, !tbaa !7
-  tail call void @free(ptr noundef %60) #17
+  tail call void @free(ptr noundef %60) #16
   store ptr null, ptr %3, align 8, !tbaa !7
   br label %_ZN5faiss12AlignedTableIfLi32EE6resizeEm.exit162
 
@@ -2462,7 +2456,7 @@ _ZN5faiss12AlignedTableIfLi32EE6resizeEm.exit162: ; preds = %55, %59
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit196
 
 62:                                               ; preds = %49
-  %63 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #17
+  %63 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #16
   %.not = icmp eq ptr %63, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !163
@@ -2728,18 +2722,18 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %166, label %.thread232, label %167
 
 167:                                              ; preds = %165
-  %168 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #17
+  %168 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #16
   %.not145 = icmp eq ptr %168, null
   br i1 %.not145, label %.thread232, label %190
 
 .thread232:                                       ; preds = %165, %167
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %169, ptr %8, align 8, !tbaa !148
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %170, align 8, !tbaa !71
   store i8 0, ptr %169, align 8, !tbaa !72
-  %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #17
+  %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #16
   %172 = add nsw i32 %171, 1
   %173 = sext i32 %172 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %173, i8 noundef signext 0)
@@ -2748,8 +2742,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit172: ; preds = %.thread232
   %174 = load ptr, ptr %8, align 8, !tbaa !68
   %175 = load i64, ptr %170, align 8, !tbaa !71
-  %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %174, i64 noundef %175, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #17
-  %177 = call ptr @__cxa_allocate_exception(i64 40) #17
+  %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %174, i64 noundef %175, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #16
+  %177 = call ptr @__cxa_allocate_exception(i64 40) #16
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %177, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb, ptr noundef nonnull @.str.5, i32 noundef 434)
           to label %178 unwind label %181
 
@@ -2765,7 +2759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit172: ; preds 
 181:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit172
   %182 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %177) #17
+  call void @__cxa_free_exception(ptr nonnull %177) #16
   br label %183
 
 183:                                              ; preds = %181, %179
@@ -2787,7 +2781,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i174, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i173
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit170
 
 190:                                              ; preds = %167
@@ -2798,13 +2792,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
   br i1 %194, label %217, label %195
 
 195:                                              ; preds = %190
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %196 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %196, ptr %9, align 8, !tbaa !148
   %197 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %197, align 8, !tbaa !71
   store i8 0, ptr %196, align 8, !tbaa !72
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.13) #17
+  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.13) #16
   %199 = add nsw i32 %198, 1
   %200 = sext i32 %199 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %200, i8 noundef signext 0)
@@ -2813,8 +2807,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit177: ; preds = %195
   %201 = load ptr, ptr %9, align 8, !tbaa !68
   %202 = load i64, ptr %197, align 8, !tbaa !71
-  %203 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %201, i64 noundef %202, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.13) #17
-  %204 = call ptr @__cxa_allocate_exception(i64 40) #17
+  %203 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %201, i64 noundef %202, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.13) #16
+  %204 = call ptr @__cxa_allocate_exception(i64 40) #16
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %204, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb, ptr noundef nonnull @.str.5, i32 noundef 436)
           to label %205 unwind label %208
 
@@ -2830,7 +2824,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit177: ; preds 
 208:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit177
   %209 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %204) #17
+  call void @__cxa_free_exception(ptr nonnull %204) #16
   br label %210
 
 210:                                              ; preds = %208, %206
@@ -2852,7 +2846,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i178
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit170
 
 217:                                              ; preds = %190
@@ -3086,14 +3080,14 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
 .thread:                                          ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread
   %.07.i36 = phi i64 [ 256, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread ], [ %.0.i, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit ]
   %18 = phi ptr [ %15, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread ], [ %9, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = shl i64 %.07.i36, 2
-  %20 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 32, i64 noundef %19) #17
+  %20 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 32, i64 noundef %19) #16
   %.not1.i = icmp eq i32 %20, 0
   br i1 %.not1.i, label %23, label %21
 
 21:                                               ; preds = %.thread
-  %22 = call ptr @__cxa_allocate_exception(i64 8) #17
+  %22 = call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8, !tbaa !4
   call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
   unreachable
@@ -3112,7 +3106,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   br label %30
 
 29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !19
   br label %30
 
@@ -3121,10 +3115,10 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   %31 = phi ptr [ %12, %29 ], [ %18, %25 ], [ %18, %23 ]
   store i64 %.07.i37, ptr %31, align 8, !tbaa !161
   %32 = load ptr, ptr %0, align 8, !tbaa !7
-  call void @free(ptr noundef %32) #17
+  call void @free(ptr noundef %32) #16
   %33 = load ptr, ptr %3, align 8, !tbaa !19
   store ptr %33, ptr %0, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit
 
 _ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
@@ -3134,7 +3128,7 @@ _ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12A
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #20
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #19
 
 declare noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3143,7 +3137,7 @@ declare void @_ZNK5faiss16ProductQuantizer24compute_inner_prod_tableEPKfPf(ptr n
 declare void @_ZN5faiss9fvec_maddEmPKffS1_Pf(i64 noundef, ptr noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZNK5faiss16ProductQuantizer25compute_inner_prod_tablesEmPKfPf(ptr noundef nonnull align 8 dereferenceable(216), i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3154,7 +3148,7 @@ declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
@@ -3198,7 +3192,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE9ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !180
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3245,7 +3239,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -4526,9 +4520,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45: ; 
   br i1 %exitcond.not.i46, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %624, !llvm.loop !234
 
 687:                                              ; preds = %35
-  %688 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %688 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %689 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -4543,8 +4537,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %687
   %691 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %702
 
 692:                                              ; preds = %690, %689
@@ -4561,31 +4555,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %698 = load i64, ptr %697, align 8, !tbaa !71
   %699 = icmp ult i64 %698, 16
   call void @llvm.assume(i1 %699)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %702, label %703
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %692
   %700 = load i64, ptr %695, align 8, !tbaa !72
   %701 = add i64 %700, 1
   call void @_ZdlPvm(ptr noundef %694, i64 noundef %701) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %702, label %703
 
 702:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn67 = phi { ptr, i32 } [ %691, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %693, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %688) #17
+  call void @__cxa_free_exception(ptr %688) #16
   br label %703
 
 703:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %702, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %.pn67, %702 ], [ %693, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn66
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i22, %616, %513, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit170.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit161.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit135.i, %._crit_edge.i, %38, %29
   %704 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %305, %._crit_edge.i ], [ %378, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit135.i ], [ %445, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit161.i ], [ %445, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit170.i ], [ %512, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i ], [ 0, %513 ], [ 0, %616 ], [ %591, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i22 ], [ %681, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %704
 
 705:                                              ; preds = %690
@@ -4643,7 +4637,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   ]
 
 42:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %44 = load ptr, ptr %43, align 8, !tbaa !236
   %45 = load i32, ptr %44, align 4, !tbaa !146
@@ -5077,11 +5071,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %293 = add i64 %292, %.3.lcssa.i.i.i.i
   store i64 %293, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 294:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %296 = load ptr, ptr %295, align 8, !tbaa !236
   %297 = load i64, ptr %296, align 8, !tbaa !16
@@ -5520,11 +5514,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %550 = add i64 %549, %.3.lcssa.i.i68.i.i
   store i64 %550, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 551:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %553 = load ptr, ptr %552, align 8, !tbaa !236
   %554 = load i64, ptr %553, align 8, !tbaa !16
@@ -5995,11 +5989,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %839 = add i64 %838, %.3.lcssa.i.i134.i.i
   store i64 %839, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 840:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %842 = load ptr, ptr %841, align 8, !tbaa !236
   %843 = load i64, ptr %842, align 8, !tbaa !16
@@ -6497,11 +6491,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1155 = add i64 %1154, %.3.lcssa.i.i194.i.i
   store i64 %1155, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1156:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1158 = load ptr, ptr %1157, align 8, !tbaa !236
   %1159 = load i64, ptr %1158, align 8, !tbaa !16
@@ -7036,11 +7030,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1508 = add i64 %1507, %.3.lcssa.i.i254.i.i
   store i64 %1508, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1509:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1510 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1511 = load ptr, ptr %1510, align 8, !tbaa !236
   %1512 = load i64, ptr %1511, align 8, !tbaa !16
@@ -7703,13 +7697,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1989 = add i64 %1988, %.3.lcssa.i.i314.i.i
   store i64 %1989, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1990:                                             ; preds = %29
   %1991 = trunc i64 %41 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1992 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1993 = load ptr, ptr %1992, align 8, !tbaa !236
   store ptr %1993, ptr %8, align 8, !tbaa !419
@@ -8138,8 +8132,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2234 = add i64 %2233, %.3.lcssa.i.i370.i.i
   store i64 %2234, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 2235:                                             ; preds = %6
@@ -8690,9 +8684,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29: 
   br i1 %exitcond.not.i30, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %2505, !llvm.loop !483
 
 2528:                                             ; preds = %2235
-  %2529 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2529 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2530 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -8707,8 +8701,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2528
   %2532 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2543
 
 2533:                                             ; preds = %2531, %2530
@@ -8725,21 +8719,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2539 = load i64, ptr %2538, align 8, !tbaa !71
   %2540 = icmp ult i64 %2539, 16
   call void @llvm.assume(i1 %2540)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2543, label %2544
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2533
   %2541 = load i64, ptr %2536, align 8, !tbaa !72
   %2542 = add i64 %2541, 1
   call void @_ZdlPvm(ptr noundef %2535, i64 noundef %2542) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2543, label %2544
 
 2543:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2532, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2534, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2534, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2529) #17
+  call void @__cxa_free_exception(ptr %2529) #16
   br label %2544
 
 2544:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2543, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -9586,18 +9580,18 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22prec
   br i1 %122, label %.thread.i, label %123
 
 123:                                              ; preds = %116
-  %124 = tail call ptr @__dynamic_cast(ptr nonnull %121, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #17
+  %124 = tail call ptr @__dynamic_cast(ptr nonnull %121, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #16
   %.not.i2 = icmp eq ptr %124, null
   br i1 %.not.i2, label %.thread.i, label %.lr.ph66.i
 
 .thread.i:                                        ; preds = %123, %116
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %125, ptr %2, align 8, !tbaa !148
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %126, align 8, !tbaa !71
   store i8 0, ptr %125, align 8, !tbaa !72
-  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #17
+  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #16
   %128 = add nsw i32 %127, 1
   %129 = sext i32 %128 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %129, i8 noundef signext 0)
@@ -9606,8 +9600,8 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22prec
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds = %.thread.i
   %130 = load ptr, ptr %2, align 8, !tbaa !68
   %131 = load i64, ptr %126, align 8, !tbaa !71
-  %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %130, i64 noundef %131, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #17
-  %133 = call ptr @__cxa_allocate_exception(i64 40) #17
+  %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %130, i64 noundef %131, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #16
+  %133 = call ptr @__cxa_allocate_exception(i64 40) #16
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_111QueryTables25precompute_list_tables_L2Ev, ptr noundef nonnull @.str.5, i32 noundef 665)
           to label %134 unwind label %137
 
@@ -9623,7 +9617,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
 137:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i
   %138 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %133) #17
+  call void @__cxa_free_exception(ptr nonnull %133) #16
   br label %139
 
 139:                                              ; preds = %137, %135
@@ -9645,7 +9639,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.i
 
 .lr.ph66.i:                                       ; preds = %123
@@ -9843,9 +9837,9 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #17
+  %18 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %19 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -9860,8 +9854,8 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %32
 
 22:                                               ; preds = %20, %19
@@ -9878,21 +9872,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %28 = load i64, ptr %27, align 8, !tbaa !71
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.0, label %32, label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %22
   %30 = load i64, ptr %25, align 8, !tbaa !72
   %31 = add i64 %30, 1
   call void @_ZdlPvm(ptr noundef %24, i64 noundef %31) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.0, label %32, label %common.resume
 
 32:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn12 = phi { ptr, i32 } [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %18) #17
+  call void @__cxa_free_exception(ptr %18) #16
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i, %133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i, %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9952,18 +9946,18 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %64, label %.thread.i, label %65
 
 65:                                               ; preds = %58
-  %66 = tail call ptr @__dynamic_cast(ptr nonnull %63, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #17
+  %66 = tail call ptr @__dynamic_cast(ptr nonnull %63, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #16
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %.thread.i, label %88
 
 .thread.i:                                        ; preds = %65, %58
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %67, ptr %2, align 8, !tbaa !148
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %68, align 8, !tbaa !71
   store i8 0, ptr %67, align 8, !tbaa !72
-  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #17
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #16
   %70 = add nsw i32 %69, 1
   %71 = sext i32 %70 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %71, i8 noundef signext 0)
@@ -9972,8 +9966,8 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds = %.thread.i
   %72 = load ptr, ptr %2, align 8, !tbaa !68
   %73 = load i64, ptr %68, align 8, !tbaa !71
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %72, i64 noundef %73, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #17
-  %75 = call ptr @__cxa_allocate_exception(i64 40) #17
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %72, i64 noundef %73, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12) #16
+  %75 = call ptr @__cxa_allocate_exception(i64 40) #16
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_111QueryTables33precompute_list_table_pointers_L2Ev, ptr noundef nonnull @.str.5, i32 noundef 719)
           to label %76 unwind label %79
 
@@ -9989,7 +9983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
 79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %75) #17
+  call void @__cxa_free_exception(ptr nonnull %75) #16
   br label %81
 
 81:                                               ; preds = %79, %77
@@ -10011,7 +10005,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 88:                                               ; preds = %65
@@ -10076,9 +10070,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %exitcond.not.i.us, label %.loopexit.i, label %.lr.ph.preheader.i.us, !llvm.loop !501
 
 118:                                              ; preds = %33
-  %119 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
+  %119 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %120 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.thread.i
 
@@ -10093,8 +10087,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.thread.i: ; preds = %118
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %133
 
 123:                                              ; preds = %121, %120
@@ -10111,21 +10105,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %129 = load i64, ptr %128, align 8, !tbaa !71
   %130 = icmp ult i64 %129, 16
   call void @llvm.assume(i1 %130)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.034.i, label %133, label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i: ; preds = %123
   %131 = load i64, ptr %126, align 8, !tbaa !72
   %132 = add i64 %131, 1
   call void @_ZdlPvm(ptr noundef %125, i64 noundef %132) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.034.i, label %133, label %common.resume
 
 133:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.thread.i
   %.pn71.i = phi { ptr, i32 } [ %122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.thread.i ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i ], [ %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63.i ]
-  call void @__cxa_free_exception(ptr %119) #17
+  call void @__cxa_free_exception(ptr %119) #16
   br label %common.resume
 
 .loopexit.i:                                      ; preds = %._crit_edge.i.loopexit.us, %55, %88, %36
@@ -10136,9 +10130,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i: ; preds = %1
   br i1 %.not58.i, label %_ZN5faiss12_GLOBAL__N_111QueryTables33precompute_list_table_pointers_L2Ev.exit, label %136
 
 136:                                              ; preds = %.loopexit.i
-  %137 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #17
+  %137 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %138 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.thread.i
 
@@ -10153,8 +10147,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i: ; preds = %1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.thread.i: ; preds = %136
   %140 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %151
 
 141:                                              ; preds = %139, %138
@@ -10171,21 +10165,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %147 = load i64, ptr %146, align 8, !tbaa !71
   %148 = icmp ult i64 %147, 16
   call void @llvm.assume(i1 %148)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i, label %151, label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %141
   %149 = load i64, ptr %144, align 8, !tbaa !72
   %150 = add i64 %149, 1
   call void @_ZdlPvm(ptr noundef %143, i64 noundef %150) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i, label %151, label %common.resume
 
 151:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.thread.i
   %.pn5974.i = phi { ptr, i32 } [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.thread.i ], [ %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i ], [ %142, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i ]
-  call void @__cxa_free_exception(ptr %137) #17
+  call void @__cxa_free_exception(ptr %137) #16
   br label %common.resume
 
 152:                                              ; preds = %139, %121, %76
@@ -10224,8 +10218,8 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   unreachable
 
 8:                                                ; preds = %3
-  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !16
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc, label %._crit_edge.i
@@ -10260,15 +10254,15 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   %20 = load ptr, ptr %0, align 8, !tbaa !68
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
@@ -10312,7 +10306,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -11309,11 +11303,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %551 = add i64 %550, %.3.lcssa.i.i
   store i64 %551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %4161
 
 552:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %554 = load ptr, ptr %553, align 8, !tbaa !236
   %555 = load i64, ptr %554, align 8, !tbaa !16
@@ -12315,11 +12309,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1086 = add i64 %1085, %.3.lcssa.i.i77
   store i64 %1086, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4161
 
 1087:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1088 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1089 = load ptr, ptr %1088, align 8, !tbaa !236
   %1090 = load i64, ptr %1089, align 8, !tbaa !16
@@ -13353,11 +13347,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1653 = add i64 %1652, %.3.lcssa.i.i248
   store i64 %1653, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %4161
 
 1654:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1655 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1656 = load ptr, ptr %1655, align 8, !tbaa !236
   %1657 = load i64, ptr %1656, align 8, !tbaa !16
@@ -14418,11 +14412,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2247 = add i64 %2246, %.3.lcssa.i.i409
   store i64 %2247, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %4161
 
 2248:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2249 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2250 = load ptr, ptr %2249, align 8, !tbaa !236
   %2251 = load i64, ptr %2250, align 8, !tbaa !16
@@ -15520,11 +15514,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2878 = add i64 %2877, %.3.lcssa.i.i570
   store i64 %2878, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %4161
 
 2879:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2880 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2881 = load ptr, ptr %2880, align 8, !tbaa !236
   %2882 = load i64, ptr %2881, align 8, !tbaa !16
@@ -16750,13 +16744,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %3637 = add i64 %3636, %.3.lcssa.i.i731
   store i64 %3637, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4161
 
 3638:                                             ; preds = %5
   %3639 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3640 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3641 = load ptr, ptr %3640, align 8, !tbaa !236
   store ptr %3641, ptr %7, align 8, !tbaa !419
@@ -17748,8 +17742,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %4160 = add i64 %4159, %.3.lcssa.i.i887
   store i64 %4160, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4161
 
 4161:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -17757,19 +17751,19 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 }
 
 ; Function Attrs: nounwind
-declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #17
+declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #16
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_critical(ptr, i32, ptr) local_unnamed_addr #18
+declare void @__kmpc_critical(ptr, i32, ptr) local_unnamed_addr #17
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_end_critical(ptr, i32, ptr) local_unnamed_addr #18
+declare void @__kmpc_end_critical(ptr, i32, ptr) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #24
+declare i64 @llvm.ctpop.i64(i64) #23
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #25 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #24 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !419
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !421
@@ -18043,7 +18037,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #24
+declare float @llvm.fmuladd.f32(float, float, float) #23
 
 declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #1
 
@@ -18089,7 +18083,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE9ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !722
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -18136,7 +18130,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.59", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -19414,9 +19408,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45: ; 
   br i1 %exitcond.not.i46, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %620, !llvm.loop !762
 
 681:                                              ; preds = %35
-  %682 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %682 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %683 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -19431,8 +19425,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %681
   %685 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %696
 
 686:                                              ; preds = %684, %683
@@ -19449,31 +19443,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %692 = load i64, ptr %691, align 8, !tbaa !71
   %693 = icmp ult i64 %692, 16
   call void @llvm.assume(i1 %693)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %696, label %697
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %686
   %694 = load i64, ptr %689, align 8, !tbaa !72
   %695 = add i64 %694, 1
   call void @_ZdlPvm(ptr noundef %688, i64 noundef %695) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %696, label %697
 
 696:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn67 = phi { ptr, i32 } [ %685, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %687, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %687, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %682) #17
+  call void @__cxa_free_exception(ptr %682) #16
   br label %697
 
 697:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %696, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %.pn67, %696 ], [ %687, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %687, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn66
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i22, %613, %513, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit170.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit161.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit135.i, %._crit_edge.i, %38, %29
   %698 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %305, %._crit_edge.i ], [ %378, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit135.i ], [ %445, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit161.i ], [ %445, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit170.i ], [ %512, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i ], [ 0, %513 ], [ 0, %613 ], [ %591, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i22 ], [ %675, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %698
 
 699:                                              ; preds = %684
@@ -19529,7 +19523,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   ]
 
 42:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %44 = load ptr, ptr %43, align 8, !tbaa !236
   %45 = load i32, ptr %44, align 4, !tbaa !146
@@ -19963,11 +19957,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %293 = add i64 %292, %.3.lcssa.i.i.i.i
   store i64 %293, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 294:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %296 = load ptr, ptr %295, align 8, !tbaa !236
   %297 = load i64, ptr %296, align 8, !tbaa !16
@@ -20406,11 +20400,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %550 = add i64 %549, %.3.lcssa.i.i68.i.i
   store i64 %550, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 551:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %553 = load ptr, ptr %552, align 8, !tbaa !236
   %554 = load i64, ptr %553, align 8, !tbaa !16
@@ -20881,11 +20875,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %839 = add i64 %838, %.3.lcssa.i.i134.i.i
   store i64 %839, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 840:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %842 = load ptr, ptr %841, align 8, !tbaa !236
   %843 = load i64, ptr %842, align 8, !tbaa !16
@@ -21383,11 +21377,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1155 = add i64 %1154, %.3.lcssa.i.i194.i.i
   store i64 %1155, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1156:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1158 = load ptr, ptr %1157, align 8, !tbaa !236
   %1159 = load i64, ptr %1158, align 8, !tbaa !16
@@ -21922,11 +21916,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1508 = add i64 %1507, %.3.lcssa.i.i254.i.i
   store i64 %1508, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1509:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1510 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1511 = load ptr, ptr %1510, align 8, !tbaa !236
   %1512 = load i64, ptr %1511, align 8, !tbaa !16
@@ -22589,13 +22583,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1989 = add i64 %1988, %.3.lcssa.i.i314.i.i
   store i64 %1989, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1990:                                             ; preds = %29
   %1991 = trunc i64 %41 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1992 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1993 = load ptr, ptr %1992, align 8, !tbaa !236
   store ptr %1993, ptr %8, align 8, !tbaa !419
@@ -23024,8 +23018,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2234 = add i64 %2233, %.3.lcssa.i.i370.i.i
   store i64 %2234, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 2235:                                             ; preds = %6
@@ -23573,9 +23567,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29: 
   br i1 %exitcond.not.i30, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %2501, !llvm.loop !1003
 
 2522:                                             ; preds = %2235
-  %2523 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2523 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2524 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -23590,8 +23584,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2522
   %2526 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2537
 
 2527:                                             ; preds = %2525, %2524
@@ -23608,21 +23602,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2533 = load i64, ptr %2532, align 8, !tbaa !71
   %2534 = icmp ult i64 %2533, 16
   call void @llvm.assume(i1 %2534)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2537, label %2538
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2527
   %2535 = load i64, ptr %2530, align 8, !tbaa !72
   %2536 = add i64 %2535, 1
   call void @_ZdlPvm(ptr noundef %2529, i64 noundef %2536) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2537, label %2538
 
 2537:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2526, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2528, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2528, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2523) #17
+  call void @__cxa_free_exception(ptr %2523) #16
   br label %2538
 
 2538:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2537, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -23777,7 +23771,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -24774,11 +24768,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %551 = add i64 %550, %.3.lcssa.i.i
   store i64 %551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %4161
 
 552:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %554 = load ptr, ptr %553, align 8, !tbaa !236
   %555 = load i64, ptr %554, align 8, !tbaa !16
@@ -25780,11 +25774,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1086 = add i64 %1085, %.3.lcssa.i.i77
   store i64 %1086, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4161
 
 1087:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1088 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1089 = load ptr, ptr %1088, align 8, !tbaa !236
   %1090 = load i64, ptr %1089, align 8, !tbaa !16
@@ -26818,11 +26812,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1653 = add i64 %1652, %.3.lcssa.i.i248
   store i64 %1653, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %4161
 
 1654:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1655 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1656 = load ptr, ptr %1655, align 8, !tbaa !236
   %1657 = load i64, ptr %1656, align 8, !tbaa !16
@@ -27883,11 +27877,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2247 = add i64 %2246, %.3.lcssa.i.i409
   store i64 %2247, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %4161
 
 2248:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2249 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2250 = load ptr, ptr %2249, align 8, !tbaa !236
   %2251 = load i64, ptr %2250, align 8, !tbaa !16
@@ -28985,11 +28979,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2878 = add i64 %2877, %.3.lcssa.i.i570
   store i64 %2878, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %4161
 
 2879:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2880 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2881 = load ptr, ptr %2880, align 8, !tbaa !236
   %2882 = load i64, ptr %2881, align 8, !tbaa !16
@@ -30215,13 +30209,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %3637 = add i64 %3636, %.3.lcssa.i.i731
   store i64 %3637, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4161
 
 3638:                                             ; preds = %5
   %3639 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3640 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3641 = load ptr, ptr %3640, align 8, !tbaa !236
   store ptr %3641, ptr %7, align 8, !tbaa !419
@@ -31213,8 +31207,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %4160 = add i64 %4159, %.3.lcssa.i.i887
   store i64 %4160, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4161
 
 4161:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -31265,7 +31259,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE9in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !1221
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -31312,7 +31306,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -32593,9 +32587,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45: ; 
   br i1 %exitcond.not.i46, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %624, !llvm.loop !1256
 
 687:                                              ; preds = %35
-  %688 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %688 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %689 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -32610,8 +32604,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %687
   %691 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %702
 
 692:                                              ; preds = %690, %689
@@ -32628,31 +32622,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %698 = load i64, ptr %697, align 8, !tbaa !71
   %699 = icmp ult i64 %698, 16
   call void @llvm.assume(i1 %699)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %702, label %703
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %692
   %700 = load i64, ptr %695, align 8, !tbaa !72
   %701 = add i64 %700, 1
   call void @_ZdlPvm(ptr noundef %694, i64 noundef %701) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %702, label %703
 
 702:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn67 = phi { ptr, i32 } [ %691, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %693, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %688) #17
+  call void @__cxa_free_exception(ptr %688) #16
   br label %703
 
 703:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %702, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %.pn67, %702 ], [ %693, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn66
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i22, %616, %513, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit170.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit161.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit135.i, %._crit_edge.i, %38, %29
   %704 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %305, %._crit_edge.i ], [ %378, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit135.i ], [ %445, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit161.i ], [ %445, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit170.i ], [ %512, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i ], [ 0, %513 ], [ 0, %616 ], [ %591, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i22 ], [ %681, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i45 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %704
 
 705:                                              ; preds = %690
@@ -32708,7 +32702,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   ]
 
 42:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %44 = load ptr, ptr %43, align 8, !tbaa !236
   %45 = load i32, ptr %44, align 4, !tbaa !146
@@ -33142,11 +33136,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %293 = add i64 %292, %.3.lcssa.i.i.i.i
   store i64 %293, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 294:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %296 = load ptr, ptr %295, align 8, !tbaa !236
   %297 = load i64, ptr %296, align 8, !tbaa !16
@@ -33585,11 +33579,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %550 = add i64 %549, %.3.lcssa.i.i69.i.i
   store i64 %550, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 551:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %553 = load ptr, ptr %552, align 8, !tbaa !236
   %554 = load i64, ptr %553, align 8, !tbaa !16
@@ -34060,11 +34054,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %839 = add i64 %838, %.3.lcssa.i.i135.i.i
   store i64 %839, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 840:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %842 = load ptr, ptr %841, align 8, !tbaa !236
   %843 = load i64, ptr %842, align 8, !tbaa !16
@@ -34562,11 +34556,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1155 = add i64 %1154, %.3.lcssa.i.i195.i.i
   store i64 %1155, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1156:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1158 = load ptr, ptr %1157, align 8, !tbaa !236
   %1159 = load i64, ptr %1158, align 8, !tbaa !16
@@ -35101,11 +35095,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1508 = add i64 %1507, %.3.lcssa.i.i255.i.i
   store i64 %1508, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1509:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1510 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1511 = load ptr, ptr %1510, align 8, !tbaa !236
   %1512 = load i64, ptr %1511, align 8, !tbaa !16
@@ -35768,13 +35762,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1989 = add i64 %1988, %.3.lcssa.i.i315.i.i
   store i64 %1989, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1990:                                             ; preds = %29
   %1991 = trunc i64 %41 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1992 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1993 = load ptr, ptr %1992, align 8, !tbaa !236
   store ptr %1993, ptr %8, align 8, !tbaa !419
@@ -36203,8 +36197,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2234 = add i64 %2233, %.3.lcssa.i.i371.i.i
   store i64 %2234, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 2235:                                             ; preds = %6
@@ -36755,9 +36749,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29: 
   br i1 %exitcond.not.i30, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %2505, !llvm.loop !1497
 
 2528:                                             ; preds = %2235
-  %2529 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2529 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2530 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -36772,8 +36766,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i29: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2528
   %2532 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2543
 
 2533:                                             ; preds = %2531, %2530
@@ -36790,21 +36784,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2539 = load i64, ptr %2538, align 8, !tbaa !71
   %2540 = icmp ult i64 %2539, 16
   call void @llvm.assume(i1 %2540)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2543, label %2544
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2533
   %2541 = load i64, ptr %2536, align 8, !tbaa !72
   %2542 = add i64 %2541, 1
   call void @_ZdlPvm(ptr noundef %2535, i64 noundef %2542) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2543, label %2544
 
 2543:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2532, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2534, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2534, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2529) #17
+  call void @__cxa_free_exception(ptr %2529) #16
   br label %2544
 
 2544:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2543, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -36959,7 +36953,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -37956,11 +37950,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %551 = add i64 %550, %.3.lcssa.i.i
   store i64 %551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %4161
 
 552:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %554 = load ptr, ptr %553, align 8, !tbaa !236
   %555 = load i64, ptr %554, align 8, !tbaa !16
@@ -38962,11 +38956,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1086 = add i64 %1085, %.3.lcssa.i.i77
   store i64 %1086, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4161
 
 1087:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1088 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1089 = load ptr, ptr %1088, align 8, !tbaa !236
   %1090 = load i64, ptr %1089, align 8, !tbaa !16
@@ -40000,11 +39994,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1653 = add i64 %1652, %.3.lcssa.i.i248
   store i64 %1653, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %4161
 
 1654:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1655 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1656 = load ptr, ptr %1655, align 8, !tbaa !236
   %1657 = load i64, ptr %1656, align 8, !tbaa !16
@@ -41065,11 +41059,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2247 = add i64 %2246, %.3.lcssa.i.i409
   store i64 %2247, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %4161
 
 2248:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2249 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2250 = load ptr, ptr %2249, align 8, !tbaa !236
   %2251 = load i64, ptr %2250, align 8, !tbaa !16
@@ -42167,11 +42161,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2878 = add i64 %2877, %.3.lcssa.i.i570
   store i64 %2878, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %4161
 
 2879:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2880 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2881 = load ptr, ptr %2880, align 8, !tbaa !236
   %2882 = load i64, ptr %2881, align 8, !tbaa !16
@@ -43397,13 +43391,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %3637 = add i64 %3636, %.3.lcssa.i.i731
   store i64 %3637, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4161
 
 3638:                                             ; preds = %5
   %3639 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3640 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3641 = load ptr, ptr %3640, align 8, !tbaa !236
   store ptr %3641, ptr %7, align 8, !tbaa !419
@@ -44395,8 +44389,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %4160 = add i64 %4159, %.3.lcssa.i.i887
   store i64 %4160, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4161
 
 4161:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -44445,7 +44439,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE9in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !1715
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -44492,7 +44486,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.59", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -45770,9 +45764,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45: ; 
   br i1 %exitcond.not.i46, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %620, !llvm.loop !1746
 
 681:                                              ; preds = %35
-  %682 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %682 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %683 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -45787,8 +45781,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %681
   %685 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %696
 
 686:                                              ; preds = %684, %683
@@ -45805,31 +45799,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %692 = load i64, ptr %691, align 8, !tbaa !71
   %693 = icmp ult i64 %692, 16
   call void @llvm.assume(i1 %693)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %696, label %697
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %686
   %694 = load i64, ptr %689, align 8, !tbaa !72
   %695 = add i64 %694, 1
   call void @_ZdlPvm(ptr noundef %688, i64 noundef %695) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %696, label %697
 
 696:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn67 = phi { ptr, i32 } [ %685, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %687, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %687, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %682) #17
+  call void @__cxa_free_exception(ptr %682) #16
   br label %697
 
 697:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %696, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %.pn67, %696 ], [ %687, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %687, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn66
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i22, %613, %513, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit170.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit161.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit135.i, %._crit_edge.i, %38, %29
   %698 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %305, %._crit_edge.i ], [ %378, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit135.i ], [ %445, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit161.i ], [ %445, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit170.i ], [ %512, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i ], [ 0, %513 ], [ 0, %613 ], [ %591, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i22 ], [ %675, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i45 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %698
 
 699:                                              ; preds = %684
@@ -45885,7 +45879,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   ]
 
 42:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %44 = load ptr, ptr %43, align 8, !tbaa !236
   %45 = load i32, ptr %44, align 4, !tbaa !146
@@ -46319,11 +46313,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %293 = add i64 %292, %.3.lcssa.i.i.i.i
   store i64 %293, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 294:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %296 = load ptr, ptr %295, align 8, !tbaa !236
   %297 = load i64, ptr %296, align 8, !tbaa !16
@@ -46762,11 +46756,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %550 = add i64 %549, %.3.lcssa.i.i69.i.i
   store i64 %550, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 551:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %553 = load ptr, ptr %552, align 8, !tbaa !236
   %554 = load i64, ptr %553, align 8, !tbaa !16
@@ -47237,11 +47231,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %839 = add i64 %838, %.3.lcssa.i.i135.i.i
   store i64 %839, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 840:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %842 = load ptr, ptr %841, align 8, !tbaa !236
   %843 = load i64, ptr %842, align 8, !tbaa !16
@@ -47739,11 +47733,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1155 = add i64 %1154, %.3.lcssa.i.i195.i.i
   store i64 %1155, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1156:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1158 = load ptr, ptr %1157, align 8, !tbaa !236
   %1159 = load i64, ptr %1158, align 8, !tbaa !16
@@ -48278,11 +48272,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1508 = add i64 %1507, %.3.lcssa.i.i255.i.i
   store i64 %1508, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1509:                                             ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1510 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1511 = load ptr, ptr %1510, align 8, !tbaa !236
   %1512 = load i64, ptr %1511, align 8, !tbaa !16
@@ -48945,13 +48939,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1989 = add i64 %1988, %.3.lcssa.i.i315.i.i
   store i64 %1989, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1990:                                             ; preds = %29
   %1991 = trunc i64 %41 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1992 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1993 = load ptr, ptr %1992, align 8, !tbaa !236
   store ptr %1993, ptr %8, align 8, !tbaa !419
@@ -49380,8 +49374,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2234 = add i64 %2233, %.3.lcssa.i.i371.i.i
   store i64 %2234, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %35, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 2235:                                             ; preds = %6
@@ -49929,9 +49923,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29: 
   br i1 %exitcond.not.i30, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %2501, !llvm.loop !1987
 
 2522:                                             ; preds = %2235
-  %2523 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2523 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2524 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -49946,8 +49940,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i29: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2522
   %2526 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2537
 
 2527:                                             ; preds = %2525, %2524
@@ -49964,21 +49958,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2533 = load i64, ptr %2532, align 8, !tbaa !71
   %2534 = icmp ult i64 %2533, 16
   call void @llvm.assume(i1 %2534)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2537, label %2538
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2527
   %2535 = load i64, ptr %2530, align 8, !tbaa !72
   %2536 = add i64 %2535, 1
   call void @_ZdlPvm(ptr noundef %2529, i64 noundef %2536) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2537, label %2538
 
 2537:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2526, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2528, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2528, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2523) #17
+  call void @__cxa_free_exception(ptr %2523) #16
   br label %2538
 
 2538:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2537, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -50133,7 +50127,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -51130,11 +51124,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %551 = add i64 %550, %.3.lcssa.i.i
   store i64 %551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %4161
 
 552:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %554 = load ptr, ptr %553, align 8, !tbaa !236
   %555 = load i64, ptr %554, align 8, !tbaa !16
@@ -52136,11 +52130,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1086 = add i64 %1085, %.3.lcssa.i.i77
   store i64 %1086, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4161
 
 1087:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1088 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1089 = load ptr, ptr %1088, align 8, !tbaa !236
   %1090 = load i64, ptr %1089, align 8, !tbaa !16
@@ -53174,11 +53168,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1653 = add i64 %1652, %.3.lcssa.i.i248
   store i64 %1653, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %4161
 
 1654:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1655 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1656 = load ptr, ptr %1655, align 8, !tbaa !236
   %1657 = load i64, ptr %1656, align 8, !tbaa !16
@@ -54239,11 +54233,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2247 = add i64 %2246, %.3.lcssa.i.i409
   store i64 %2247, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %4161
 
 2248:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2249 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2250 = load ptr, ptr %2249, align 8, !tbaa !236
   %2251 = load i64, ptr %2250, align 8, !tbaa !16
@@ -55341,11 +55335,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2878 = add i64 %2877, %.3.lcssa.i.i570
   store i64 %2878, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %4161
 
 2879:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2880 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2881 = load ptr, ptr %2880, align 8, !tbaa !236
   %2882 = load i64, ptr %2881, align 8, !tbaa !16
@@ -56571,13 +56565,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %3637 = add i64 %3636, %.3.lcssa.i.i731
   store i64 %3637, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4161
 
 3638:                                             ; preds = %5
   %3639 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3640 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3641 = load ptr, ptr %3640, align 8, !tbaa !236
   store ptr %3641, ptr %7, align 8, !tbaa !419
@@ -57569,8 +57563,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %4160 = add i64 %4159, %.3.lcssa.i.i887
   store i64 %4160, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4161
 
 4161:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -57619,7 +57613,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !2205
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -57747,7 +57741,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %12 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load i64, ptr %16, align 8, !tbaa !178
@@ -57852,13 +57846,13 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   br i1 %68, label %69, label %287
 
 69:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !138
   %70 = load ptr, ptr %43, align 8, !tbaa !181
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -58282,10 +58276,10 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i:
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit97.i, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i
   %289 = phi i64 [ %286, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i ], [ %235, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit97.i ]
   %290 = phi i64 [ %286, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i ], [ %236, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit97.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %291 = add nuw i64 %.061241.i, 1
   %exitcond.not.i71 = icmp eq i64 %291, %1
   br i1 %exitcond.not.i71, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %.outer, !llvm.loop !2208
@@ -59335,9 +59329,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i47: ; 
   br i1 %exitcond.not.i48, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %770, !llvm.loop !2211
 
 833:                                              ; preds = %39
-  %834 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #17
+  %834 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %835 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -59352,8 +59346,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i47: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %833
   %837 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %848
 
 838:                                              ; preds = %836, %835
@@ -59370,31 +59364,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %844 = load i64, ptr %843, align 8, !tbaa !71
   %845 = icmp ult i64 %844, 16
   call void @llvm.assume(i1 %845)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %848, label %849
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %838
   %846 = load i64, ptr %841, align 8, !tbaa !72
   %847 = add i64 %846, 1
   call void @_ZdlPvm(ptr noundef %840, i64 noundef %847) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %848, label %849
 
 848:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn83 = phi { ptr, i32 } [ %837, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %839, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %839, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %834) #17
+  call void @__cxa_free_exception(ptr %834) #16
   br label %849
 
 849:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %848, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn82 = phi { ptr, i32 } [ %.pn83, %848 ], [ %839, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %839, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn82
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i47, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i22, %.thread, %762, %613, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i224.i, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit213.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit181.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit132.i, %._crit_edge.i, %42, %33
   %850 = phi i64 [ 0, %33 ], [ 0, %42 ], [ %.ph, %._crit_edge.i ], [ %400, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit132.i ], [ %506, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit181.i ], [ %506, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit213.i ], [ %612, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i224.i ], [ 0, %613 ], [ 0, %762 ], [ %290, %.thread ], [ %737, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i22 ], [ %827, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i47 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %850
 
 851:                                              ; preds = %836
@@ -59482,7 +59476,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   ]
 
 74:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %76 = load ptr, ptr %75, align 8, !tbaa !236
   %77 = load i32, ptr %76, align 4, !tbaa !146
@@ -59615,14 +59609,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
 
 168:                                              ; preds = %145
   %169 = add i64 %.0161.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %170 = load float, ptr %84, align 8, !tbaa !2205
   store float %170, ptr %43, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float %170, ptr %44, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float %170, ptr %45, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float %170, ptr %46, align 4, !tbaa !138
   %171 = load ptr, ptr %62, align 8, !tbaa !181
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
@@ -59709,10 +59703,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %222, ptr %87, align 16, !tbaa !16
   %223 = load i64, ptr %92, align 8, !tbaa !16
   store i64 %223, ptr %88, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %224
 
 224:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i.i.i, %145
@@ -60039,11 +60033,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %381 = add i64 %380, %.3.lcssa.i.i.i.i
   store i64 %381, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 382:                                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %384 = load ptr, ptr %383, align 8, !tbaa !236
   %385 = load i64, ptr %384, align 8, !tbaa !16
@@ -60180,14 +60174,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 480:                                              ; preds = %457
   %481 = add i64 %.0161.i.i34.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %482 = load float, ptr %392, align 8, !tbaa !2205
   store float %482, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %482, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %482, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %482, ptr %41, align 4, !tbaa !138
   %483 = load ptr, ptr %62, align 8, !tbaa !181
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 24
@@ -60274,10 +60268,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %534, ptr %395, align 16, !tbaa !16
   %535 = load i64, ptr %400, align 8, !tbaa !16
   store i64 %535, ptr %396, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %536
 
 536:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i127.i.i, %457
@@ -60605,11 +60599,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %694 = add i64 %693, %.3.lcssa.i.i78.i.i
   store i64 %694, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 695:                                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %697 = load ptr, ptr %696, align 8, !tbaa !236
   %698 = load i64, ptr %697, align 8, !tbaa !16
@@ -60772,14 +60766,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 819:                                              ; preds = %796
   %820 = add i64 %.0165.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %821 = load float, ptr %707, align 8, !tbaa !2205
   store float %821, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %821, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %821, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %821, ptr %36, align 4, !tbaa !138
   %822 = load ptr, ptr %62, align 8, !tbaa !181
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 24
@@ -60866,10 +60860,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %873, ptr %710, align 16, !tbaa !16
   %874 = load i64, ptr %715, align 8, !tbaa !16
   store i64 %874, ptr %711, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %875
 
 875:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i218.i.i, %796
@@ -61203,11 +61197,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1039 = add i64 %1038, %.3.lcssa.i.i169.i.i
   store i64 %1039, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1040:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1041 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1042 = load ptr, ptr %1041, align 8, !tbaa !236
   %1043 = load i64, ptr %1042, align 8, !tbaa !16
@@ -61392,14 +61386,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1186:                                             ; preds = %1163
   %1187 = add i64 %.0169.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1188 = load float, ptr %1054, align 8, !tbaa !2205
   store float %1188, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1188, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1188, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1188, ptr %31, align 4, !tbaa !138
   %1189 = load ptr, ptr %62, align 8, !tbaa !181
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 24
@@ -61486,10 +61480,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %1240, ptr %1057, align 16, !tbaa !16
   %1241 = load i64, ptr %1062, align 8, !tbaa !16
   store i64 %1241, ptr %1058, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1242
 
 1242:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i307.i.i, %1163
@@ -61828,11 +61822,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1411 = add i64 %1410, %.3.lcssa.i.i258.i.i
   store i64 %1411, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1412:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1413 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1414 = load ptr, ptr %1413, align 8, !tbaa !236
   %1415 = load i64, ptr %1414, align 8, !tbaa !16
@@ -62047,14 +62041,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1588:                                             ; preds = %1565
   %1589 = add i64 %.0173.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1590 = load float, ptr %1428, align 8, !tbaa !2205
   store float %1590, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1590, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1590, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1590, ptr %26, align 4, !tbaa !138
   %1591 = load ptr, ptr %62, align 8, !tbaa !181
   %1592 = getelementptr inbounds nuw i8, ptr %1591, i64 24
@@ -62141,10 +62135,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %1642, ptr %1431, align 16, !tbaa !16
   %1643 = load i64, ptr %1436, align 8, !tbaa !16
   store i64 %1643, ptr %1432, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1644
 
 1644:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i396.i.i, %1565
@@ -62490,11 +62484,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1820 = add i64 %1819, %.3.lcssa.i.i347.i.i
   store i64 %1820, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 1821:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1822 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1823 = load ptr, ptr %1822, align 8, !tbaa !236
   %1824 = load i64, ptr %1823, align 8, !tbaa !16
@@ -62813,14 +62807,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 2101:                                             ; preds = %2078
   %2102 = add i64 %.0189.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2103 = load float, ptr %1845, align 8, !tbaa !2205
   store float %2103, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2103, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2103, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2103, ptr %21, align 4, !tbaa !138
   %2104 = load ptr, ptr %62, align 8, !tbaa !181
   %2105 = getelementptr inbounds nuw i8, ptr %2104, i64 24
@@ -62907,10 +62901,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %2155, ptr %1848, align 16, !tbaa !16
   %2156 = load i64, ptr %1853, align 8, !tbaa !16
   store i64 %2156, ptr %1849, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2157
 
 2157:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i485.i.i, %2078
@@ -63280,13 +63274,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2357 = add i64 %2356, %.3.lcssa.i.i436.i.i
   store i64 %2357, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 2358:                                             ; preds = %61
   %2359 = trunc i64 %73 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2360 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2361 = load ptr, ptr %2360, align 8, !tbaa !236
   store ptr %2361, ptr %12, align 8, !tbaa !419
@@ -63416,14 +63410,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 2447:                                             ; preds = %2424
   %2448 = add i64 %.0157.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2449 = load float, ptr %2371, align 8, !tbaa !2205
   store float %2449, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %2449, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %2449, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %2449, ptr %16, align 4, !tbaa !138
   %2450 = load ptr, ptr %62, align 8, !tbaa !181
   %2451 = getelementptr inbounds nuw i8, ptr %2450, i64 24
@@ -63510,10 +63504,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   store i64 %2501, ptr %2374, align 16, !tbaa !16
   %2502 = load i64, ptr %2379, align 8, !tbaa !16
   store i64 %2502, ptr %2375, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2503
 
 2503:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.i574.i.i, %2424
@@ -63838,8 +63832,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2658 = add i64 %2657, %.3.lcssa.i.i525.i.i
   store i64 %2658, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 2659:                                             ; preds = %6
@@ -63892,13 +63886,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br i1 %2681, label %2682, label %2726
 
 2682:                                             ; preds = %2673
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
   %2683 = load ptr, ptr %2663, align 8, !tbaa !181
   %2684 = getelementptr inbounds nuw i8, ptr %2683, i64 24
@@ -63988,10 +63982,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit67.i: 
   br label %.backedge, !llvm.loop !2233
 
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit67.i, %2724
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2728 = add nuw i64 %.061150.i, 1
   %exitcond.not.i73 = icmp eq i64 %2728, %1
   br i1 %exitcond.not.i73, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %.backedge.backedge
@@ -64662,9 +64656,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i34: 
   br i1 %exitcond.not.i35, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit, label %3052, !llvm.loop !2236
 
 3075:                                             ; preds = %2659
-  %3076 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #17
+  %3076 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %48)
           to label %3077 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -64679,8 +64673,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit.i34: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %3075
   %3079 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %3090
 
 3080:                                             ; preds = %3078, %3077
@@ -64697,21 +64691,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %3086 = load i64, ptr %3085, align 8, !tbaa !71
   %3087 = icmp ult i64 %3086, 16
   call void @llvm.assume(i1 %3087)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3090, label %3091
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3080
   %3088 = load i64, ptr %3083, align 8, !tbaa !72
   %3089 = add i64 %3088, 1
   call void @_ZdlPvm(ptr noundef %3082, i64 noundef %3089) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3090, label %3091
 
 3090:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn85 = phi { ptr, i32 } [ %3079, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %3081, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %3081, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %3076) #17
+  call void @__cxa_free_exception(ptr %3076) #16
   br label %3091
 
 3091:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %3090, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -64893,7 +64887,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %52 = load ptr, ptr %51, align 8, !tbaa !236
   %53 = load i32, ptr %52, align 4, !tbaa !146
@@ -65040,14 +65034,14 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 
 153:                                              ; preds = %130
   %154 = add i64 %.0237.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %155 = load float, ptr %60, align 8, !tbaa !2205
   store float %155, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %155, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %155, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %155, ptr %41, align 4, !tbaa !138
   %156 = load ptr, ptr %46, align 8, !tbaa !181
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
@@ -65462,10 +65456,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i:
   store i64 %370, ptr %63, align 16, !tbaa !16
   %371 = load i64, ptr %68, align 8, !tbaa !16
   store i64 %371, ptr %64, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %372
 
 372:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i, %130
@@ -65948,11 +65942,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %607 = add i64 %606, %.3.lcssa.i.i
   store i64 %607, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %4385
 
 608:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %609 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %610 = load ptr, ptr %609, align 8, !tbaa !236
   %611 = load i64, ptr %610, align 8, !tbaa !16
@@ -66103,14 +66097,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 715:                                              ; preds = %692
   %716 = add i64 %.0237.i.i37, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %717 = load float, ptr %618, align 8, !tbaa !2205
   store float %717, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %717, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %717, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %717, ptr %36, align 4, !tbaa !138
   %718 = load ptr, ptr %46, align 8, !tbaa !181
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 24
@@ -66525,10 +66519,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1
   store i64 %932, ptr %621, align 16, !tbaa !16
   %933 = load i64, ptr %626, align 8, !tbaa !16
   store i64 %933, ptr %622, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %934
 
 934:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i158, %692
@@ -67012,11 +67006,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1170 = add i64 %1169, %.3.lcssa.i.i83
   store i64 %1170, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %4385
 
 1171:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1172 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1173 = load ptr, ptr %1172, align 8, !tbaa !236
   %1174 = load i64, ptr %1173, align 8, !tbaa !16
@@ -67193,14 +67187,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1304:                                             ; preds = %1281
   %1305 = add i64 %.0241.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1306 = load float, ptr %1183, align 8, !tbaa !2205
   store float %1306, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1306, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1306, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1306, ptr %31, align 4, !tbaa !138
   %1307 = load ptr, ptr %46, align 8, !tbaa !181
   %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 24
@@ -67615,10 +67609,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i3
   store i64 %1521, ptr %1186, align 16, !tbaa !16
   %1522 = load i64, ptr %1191, align 8, !tbaa !16
   store i64 %1522, ptr %1187, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1523
 
 1523:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i336, %1281
@@ -68108,11 +68102,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1765 = add i64 %1764, %.3.lcssa.i.i261
   store i64 %1765, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %4385
 
 1766:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1767 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1768 = load ptr, ptr %1767, align 8, !tbaa !236
   %1769 = load i64, ptr %1768, align 8, !tbaa !16
@@ -68311,14 +68305,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1921:                                             ; preds = %1898
   %1922 = add i64 %.0245.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1923 = load float, ptr %1780, align 8, !tbaa !2205
   store float %1923, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1923, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1923, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1923, ptr %26, align 4, !tbaa !138
   %1924 = load ptr, ptr %46, align 8, !tbaa !181
   %1925 = getelementptr inbounds nuw i8, ptr %1924, i64 24
@@ -68733,10 +68727,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i5
   store i64 %2138, ptr %1783, align 16, !tbaa !16
   %2139 = load i64, ptr %1788, align 8, !tbaa !16
   store i64 %2139, ptr %1784, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2140
 
 2140:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i510, %1898
@@ -69231,11 +69225,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2387 = add i64 %2386, %.3.lcssa.i.i435
   store i64 %2387, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %4385
 
 2388:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %2389 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2390 = load ptr, ptr %2389, align 8, !tbaa !236
   %2391 = load i64, ptr %2390, align 8, !tbaa !16
@@ -69464,14 +69458,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 2573:                                             ; preds = %2550
   %2574 = add i64 %.0249.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2575 = load float, ptr %2404, align 8, !tbaa !2205
   store float %2575, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2575, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2575, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2575, ptr %21, align 4, !tbaa !138
   %2576 = load ptr, ptr %46, align 8, !tbaa !181
   %2577 = getelementptr inbounds nuw i8, ptr %2576, i64 24
@@ -69886,10 +69880,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i6
   store i64 %2790, ptr %2407, align 16, !tbaa !16
   %2791 = load i64, ptr %2412, align 8, !tbaa !16
   store i64 %2791, ptr %2408, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2792
 
 2792:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i684, %2550
@@ -70391,11 +70385,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %3046 = add i64 %3045, %.3.lcssa.i.i609
   store i64 %3046, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %4385
 
 3047:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %3048 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3049 = load ptr, ptr %3048, align 8, !tbaa !236
   %3050 = load i64, ptr %3049, align 8, !tbaa !16
@@ -70728,14 +70722,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 3336:                                             ; preds = %3313
   %3337 = add i64 %.0265.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %3338 = load float, ptr %3071, align 8, !tbaa !2205
   store float %3338, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %3338, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %3338, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %3338, ptr %16, align 4, !tbaa !138
   %3339 = load ptr, ptr %46, align 8, !tbaa !181
   %3340 = getelementptr inbounds nuw i8, ptr %3339, i64 24
@@ -71150,10 +71144,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i8
   store i64 %3553, ptr %3074, align 16, !tbaa !16
   %3554 = load i64, ptr %3079, align 8, !tbaa !16
   store i64 %3554, ptr %3075, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3555
 
 3555:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i858, %3313
@@ -71679,13 +71673,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %3833 = add i64 %3832, %.3.lcssa.i.i783
   store i64 %3833, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4385
 
 3834:                                             ; preds = %5
   %3835 = trunc i64 %49 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3836 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3837 = load ptr, ptr %3836, align 8, !tbaa !236
   store ptr %3837, ptr %7, align 8, !tbaa !419
@@ -71829,14 +71823,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 3932:                                             ; preds = %3909
   %3933 = add i64 %.0233.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3934 = load float, ptr %3847, align 8, !tbaa !2205
   store float %3934, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float %3934, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float %3934, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %3934, ptr %11, align 4, !tbaa !138
   %3935 = load ptr, ptr %46, align 8, !tbaa !181
   %3936 = getelementptr inbounds nuw i8, ptr %3935, i64 24
@@ -72251,10 +72245,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1
   store i64 %4149, ptr %3850, align 16, !tbaa !16
   %4150 = load i64, ptr %3855, align 8, !tbaa !16
   store i64 %4150, ptr %3851, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4151
 
 4151:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1031, %3909
@@ -72735,8 +72729,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %4384 = add i64 %4383, %.3.lcssa.i.i956
   store i64 %4384, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4385
 
 4385:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -72744,7 +72738,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27distance_four_codes_genericINS_16PQDecoderGenericEEEvmmPKfPKhS5_S5_S5_RfS6_S6_S6_(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) local_unnamed_addr #26 comdat {
+define linkonce_odr void @_ZN5faiss27distance_four_codes_genericINS_16PQDecoderGenericEEEvmmPKfPKhS5_S5_S5_RfS6_S6_S6_(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) local_unnamed_addr #25 comdat {
   %12 = trunc i64 %1 to i32
   %13 = and i64 %1, 4294967295
   %notmask.i = shl nsw i64 -1, %13
@@ -73144,7 +73138,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !2259
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -73272,7 +73266,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %12 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.59", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load i64, ptr %16, align 8, !tbaa !178
@@ -73377,13 +73371,13 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   br i1 %68, label %69, label %287
 
 69:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !138
   %70 = load ptr, ptr %43, align 8, !tbaa !181
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -73807,10 +73801,10 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i:
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit97.i, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i
   %289 = phi i64 [ %286, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i ], [ %235, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit97.i ]
   %290 = phi i64 [ %286, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i ], [ %236, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit97.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %291 = add nuw i64 %.061241.i, 1
   %exitcond.not.i71 = icmp eq i64 %291, %1
   br i1 %exitcond.not.i71, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %.outer, !llvm.loop !2260
@@ -74857,9 +74851,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i47: ; 
   br i1 %exitcond.not.i48, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %766, !llvm.loop !2263
 
 827:                                              ; preds = %39
-  %828 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #17
+  %828 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %829 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -74874,8 +74868,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i47: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %827
   %831 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %842
 
 832:                                              ; preds = %830, %829
@@ -74892,31 +74886,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %838 = load i64, ptr %837, align 8, !tbaa !71
   %839 = icmp ult i64 %838, 16
   call void @llvm.assume(i1 %839)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %842, label %843
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %832
   %840 = load i64, ptr %835, align 8, !tbaa !72
   %841 = add i64 %840, 1
   call void @_ZdlPvm(ptr noundef %834, i64 noundef %841) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %842, label %843
 
 842:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn83 = phi { ptr, i32 } [ %831, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %833, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %833, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %828) #17
+  call void @__cxa_free_exception(ptr %828) #16
   br label %843
 
 843:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %842, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn82 = phi { ptr, i32 } [ %.pn83, %842 ], [ %833, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %833, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn82
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i47, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i22, %.thread, %759, %613, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i224.i, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit213.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit181.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit132.i, %._crit_edge.i, %42, %33
   %844 = phi i64 [ 0, %33 ], [ 0, %42 ], [ %.ph, %._crit_edge.i ], [ %400, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit132.i ], [ %506, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit181.i ], [ %506, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit213.i ], [ %612, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i224.i ], [ 0, %613 ], [ 0, %759 ], [ %290, %.thread ], [ %737, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i22 ], [ %821, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i47 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %844
 
 845:                                              ; preds = %830
@@ -75004,7 +74998,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   ]
 
 74:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %76 = load ptr, ptr %75, align 8, !tbaa !236
   %77 = load i32, ptr %76, align 4, !tbaa !146
@@ -75137,14 +75131,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
 
 168:                                              ; preds = %145
   %169 = add i64 %.0161.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %170 = load float, ptr %84, align 8, !tbaa !2259
   store float %170, ptr %43, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float %170, ptr %44, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float %170, ptr %45, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float %170, ptr %46, align 4, !tbaa !138
   %171 = load ptr, ptr %62, align 8, !tbaa !181
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
@@ -75231,10 +75225,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %222, ptr %87, align 16, !tbaa !16
   %223 = load i64, ptr %92, align 8, !tbaa !16
   store i64 %223, ptr %88, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %224
 
 224:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i.i.i, %145
@@ -75561,11 +75555,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %381 = add i64 %380, %.3.lcssa.i.i.i.i
   store i64 %381, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 382:                                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %384 = load ptr, ptr %383, align 8, !tbaa !236
   %385 = load i64, ptr %384, align 8, !tbaa !16
@@ -75702,14 +75696,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 480:                                              ; preds = %457
   %481 = add i64 %.0161.i.i34.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %482 = load float, ptr %392, align 8, !tbaa !2259
   store float %482, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %482, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %482, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %482, ptr %41, align 4, !tbaa !138
   %483 = load ptr, ptr %62, align 8, !tbaa !181
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 24
@@ -75796,10 +75790,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %534, ptr %395, align 16, !tbaa !16
   %535 = load i64, ptr %400, align 8, !tbaa !16
   store i64 %535, ptr %396, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %536
 
 536:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i127.i.i, %457
@@ -76127,11 +76121,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %694 = add i64 %693, %.3.lcssa.i.i78.i.i
   store i64 %694, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 695:                                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %697 = load ptr, ptr %696, align 8, !tbaa !236
   %698 = load i64, ptr %697, align 8, !tbaa !16
@@ -76294,14 +76288,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 819:                                              ; preds = %796
   %820 = add i64 %.0165.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %821 = load float, ptr %707, align 8, !tbaa !2259
   store float %821, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %821, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %821, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %821, ptr %36, align 4, !tbaa !138
   %822 = load ptr, ptr %62, align 8, !tbaa !181
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 24
@@ -76388,10 +76382,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %873, ptr %710, align 16, !tbaa !16
   %874 = load i64, ptr %715, align 8, !tbaa !16
   store i64 %874, ptr %711, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %875
 
 875:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i218.i.i, %796
@@ -76725,11 +76719,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1039 = add i64 %1038, %.3.lcssa.i.i169.i.i
   store i64 %1039, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1040:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1041 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1042 = load ptr, ptr %1041, align 8, !tbaa !236
   %1043 = load i64, ptr %1042, align 8, !tbaa !16
@@ -76914,14 +76908,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1186:                                             ; preds = %1163
   %1187 = add i64 %.0169.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1188 = load float, ptr %1054, align 8, !tbaa !2259
   store float %1188, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1188, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1188, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1188, ptr %31, align 4, !tbaa !138
   %1189 = load ptr, ptr %62, align 8, !tbaa !181
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 24
@@ -77008,10 +77002,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %1240, ptr %1057, align 16, !tbaa !16
   %1241 = load i64, ptr %1062, align 8, !tbaa !16
   store i64 %1241, ptr %1058, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1242
 
 1242:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i307.i.i, %1163
@@ -77350,11 +77344,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1411 = add i64 %1410, %.3.lcssa.i.i258.i.i
   store i64 %1411, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1412:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1413 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1414 = load ptr, ptr %1413, align 8, !tbaa !236
   %1415 = load i64, ptr %1414, align 8, !tbaa !16
@@ -77569,14 +77563,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1588:                                             ; preds = %1565
   %1589 = add i64 %.0173.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1590 = load float, ptr %1428, align 8, !tbaa !2259
   store float %1590, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1590, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1590, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1590, ptr %26, align 4, !tbaa !138
   %1591 = load ptr, ptr %62, align 8, !tbaa !181
   %1592 = getelementptr inbounds nuw i8, ptr %1591, i64 24
@@ -77663,10 +77657,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %1642, ptr %1431, align 16, !tbaa !16
   %1643 = load i64, ptr %1436, align 8, !tbaa !16
   store i64 %1643, ptr %1432, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1644
 
 1644:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i396.i.i, %1565
@@ -78012,11 +78006,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1820 = add i64 %1819, %.3.lcssa.i.i347.i.i
   store i64 %1820, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 1821:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1822 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1823 = load ptr, ptr %1822, align 8, !tbaa !236
   %1824 = load i64, ptr %1823, align 8, !tbaa !16
@@ -78335,14 +78329,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 2101:                                             ; preds = %2078
   %2102 = add i64 %.0189.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2103 = load float, ptr %1845, align 8, !tbaa !2259
   store float %2103, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2103, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2103, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2103, ptr %21, align 4, !tbaa !138
   %2104 = load ptr, ptr %62, align 8, !tbaa !181
   %2105 = getelementptr inbounds nuw i8, ptr %2104, i64 24
@@ -78429,10 +78423,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %2155, ptr %1848, align 16, !tbaa !16
   %2156 = load i64, ptr %1853, align 8, !tbaa !16
   store i64 %2156, ptr %1849, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2157
 
 2157:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i485.i.i, %2078
@@ -78802,13 +78796,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2357 = add i64 %2356, %.3.lcssa.i.i436.i.i
   store i64 %2357, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 2358:                                             ; preds = %61
   %2359 = trunc i64 %73 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2360 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2361 = load ptr, ptr %2360, align 8, !tbaa !236
   store ptr %2361, ptr %12, align 8, !tbaa !419
@@ -78938,14 +78932,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 2447:                                             ; preds = %2424
   %2448 = add i64 %.0157.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2449 = load float, ptr %2371, align 8, !tbaa !2259
   store float %2449, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %2449, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %2449, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %2449, ptr %16, align 4, !tbaa !138
   %2450 = load ptr, ptr %62, align 8, !tbaa !181
   %2451 = getelementptr inbounds nuw i8, ptr %2450, i64 24
@@ -79032,10 +79026,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   store i64 %2501, ptr %2374, align 16, !tbaa !16
   %2502 = load i64, ptr %2379, align 8, !tbaa !16
   store i64 %2502, ptr %2375, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2503
 
 2503:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.i574.i.i, %2424
@@ -79360,8 +79354,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2658 = add i64 %2657, %.3.lcssa.i.i525.i.i
   store i64 %2658, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %67, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 2659:                                             ; preds = %6
@@ -79414,13 +79408,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br i1 %2681, label %2682, label %2726
 
 2682:                                             ; preds = %2673
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
   %2683 = load ptr, ptr %2663, align 8, !tbaa !181
   %2684 = getelementptr inbounds nuw i8, ptr %2683, i64 24
@@ -79510,10 +79504,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit67.i: 
   br label %.backedge, !llvm.loop !2285
 
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit67.i, %2724
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2728 = add nuw i64 %.061150.i, 1
   %exitcond.not.i73 = icmp eq i64 %2728, %1
   br i1 %exitcond.not.i73, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %.backedge.backedge
@@ -80181,9 +80175,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i34: 
   br i1 %exitcond.not.i35, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit, label %3048, !llvm.loop !2288
 
 3069:                                             ; preds = %2659
-  %3070 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #17
+  %3070 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %48)
           to label %3071 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -80198,8 +80192,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit.i34: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %3069
   %3073 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %3084
 
 3074:                                             ; preds = %3072, %3071
@@ -80216,21 +80210,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %3080 = load i64, ptr %3079, align 8, !tbaa !71
   %3081 = icmp ult i64 %3080, 16
   call void @llvm.assume(i1 %3081)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3084, label %3085
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3074
   %3082 = load i64, ptr %3077, align 8, !tbaa !72
   %3083 = add i64 %3082, 1
   call void @_ZdlPvm(ptr noundef %3076, i64 noundef %3083) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3084, label %3085
 
 3084:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn85 = phi { ptr, i32 } [ %3073, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %3075, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %3075, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %3070) #17
+  call void @__cxa_free_exception(ptr %3070) #16
   br label %3085
 
 3085:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %3084, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -80412,7 +80406,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %52 = load ptr, ptr %51, align 8, !tbaa !236
   %53 = load i32, ptr %52, align 4, !tbaa !146
@@ -80559,14 +80553,14 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 
 153:                                              ; preds = %130
   %154 = add i64 %.0237.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %155 = load float, ptr %60, align 8, !tbaa !2259
   store float %155, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %155, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %155, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %155, ptr %41, align 4, !tbaa !138
   %156 = load ptr, ptr %46, align 8, !tbaa !181
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
@@ -80981,10 +80975,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i:
   store i64 %370, ptr %63, align 16, !tbaa !16
   %371 = load i64, ptr %68, align 8, !tbaa !16
   store i64 %371, ptr %64, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %372
 
 372:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i, %130
@@ -81467,11 +81461,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %607 = add i64 %606, %.3.lcssa.i.i
   store i64 %607, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %4385
 
 608:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %609 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %610 = load ptr, ptr %609, align 8, !tbaa !236
   %611 = load i64, ptr %610, align 8, !tbaa !16
@@ -81622,14 +81616,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 715:                                              ; preds = %692
   %716 = add i64 %.0237.i.i37, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %717 = load float, ptr %618, align 8, !tbaa !2259
   store float %717, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %717, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %717, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %717, ptr %36, align 4, !tbaa !138
   %718 = load ptr, ptr %46, align 8, !tbaa !181
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 24
@@ -82044,10 +82038,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1
   store i64 %932, ptr %621, align 16, !tbaa !16
   %933 = load i64, ptr %626, align 8, !tbaa !16
   store i64 %933, ptr %622, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %934
 
 934:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i158, %692
@@ -82531,11 +82525,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1170 = add i64 %1169, %.3.lcssa.i.i83
   store i64 %1170, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %4385
 
 1171:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1172 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1173 = load ptr, ptr %1172, align 8, !tbaa !236
   %1174 = load i64, ptr %1173, align 8, !tbaa !16
@@ -82712,14 +82706,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1304:                                             ; preds = %1281
   %1305 = add i64 %.0241.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1306 = load float, ptr %1183, align 8, !tbaa !2259
   store float %1306, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1306, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1306, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1306, ptr %31, align 4, !tbaa !138
   %1307 = load ptr, ptr %46, align 8, !tbaa !181
   %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 24
@@ -83134,10 +83128,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i3
   store i64 %1521, ptr %1186, align 16, !tbaa !16
   %1522 = load i64, ptr %1191, align 8, !tbaa !16
   store i64 %1522, ptr %1187, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1523
 
 1523:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i336, %1281
@@ -83627,11 +83621,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1765 = add i64 %1764, %.3.lcssa.i.i261
   store i64 %1765, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %4385
 
 1766:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1767 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1768 = load ptr, ptr %1767, align 8, !tbaa !236
   %1769 = load i64, ptr %1768, align 8, !tbaa !16
@@ -83830,14 +83824,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1921:                                             ; preds = %1898
   %1922 = add i64 %.0245.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1923 = load float, ptr %1780, align 8, !tbaa !2259
   store float %1923, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1923, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1923, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1923, ptr %26, align 4, !tbaa !138
   %1924 = load ptr, ptr %46, align 8, !tbaa !181
   %1925 = getelementptr inbounds nuw i8, ptr %1924, i64 24
@@ -84252,10 +84246,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i5
   store i64 %2138, ptr %1783, align 16, !tbaa !16
   %2139 = load i64, ptr %1788, align 8, !tbaa !16
   store i64 %2139, ptr %1784, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2140
 
 2140:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i510, %1898
@@ -84750,11 +84744,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2387 = add i64 %2386, %.3.lcssa.i.i435
   store i64 %2387, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %4385
 
 2388:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %2389 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2390 = load ptr, ptr %2389, align 8, !tbaa !236
   %2391 = load i64, ptr %2390, align 8, !tbaa !16
@@ -84983,14 +84977,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 2573:                                             ; preds = %2550
   %2574 = add i64 %.0249.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2575 = load float, ptr %2404, align 8, !tbaa !2259
   store float %2575, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2575, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2575, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2575, ptr %21, align 4, !tbaa !138
   %2576 = load ptr, ptr %46, align 8, !tbaa !181
   %2577 = getelementptr inbounds nuw i8, ptr %2576, i64 24
@@ -85405,10 +85399,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i6
   store i64 %2790, ptr %2407, align 16, !tbaa !16
   %2791 = load i64, ptr %2412, align 8, !tbaa !16
   store i64 %2791, ptr %2408, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2792
 
 2792:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i684, %2550
@@ -85910,11 +85904,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %3046 = add i64 %3045, %.3.lcssa.i.i609
   store i64 %3046, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %4385
 
 3047:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %3048 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3049 = load ptr, ptr %3048, align 8, !tbaa !236
   %3050 = load i64, ptr %3049, align 8, !tbaa !16
@@ -86247,14 +86241,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 3336:                                             ; preds = %3313
   %3337 = add i64 %.0265.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %3338 = load float, ptr %3071, align 8, !tbaa !2259
   store float %3338, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %3338, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %3338, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %3338, ptr %16, align 4, !tbaa !138
   %3339 = load ptr, ptr %46, align 8, !tbaa !181
   %3340 = getelementptr inbounds nuw i8, ptr %3339, i64 24
@@ -86669,10 +86663,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i8
   store i64 %3553, ptr %3074, align 16, !tbaa !16
   %3554 = load i64, ptr %3079, align 8, !tbaa !16
   store i64 %3554, ptr %3075, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3555
 
 3555:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i858, %3313
@@ -87198,13 +87192,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %3833 = add i64 %3832, %.3.lcssa.i.i783
   store i64 %3833, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4385
 
 3834:                                             ; preds = %5
   %3835 = trunc i64 %49 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3836 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3837 = load ptr, ptr %3836, align 8, !tbaa !236
   store ptr %3837, ptr %7, align 8, !tbaa !419
@@ -87348,14 +87342,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 3932:                                             ; preds = %3909
   %3933 = add i64 %.0233.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3934 = load float, ptr %3847, align 8, !tbaa !2259
   store float %3934, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float %3934, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float %3934, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %3934, ptr %11, align 4, !tbaa !138
   %3935 = load ptr, ptr %46, align 8, !tbaa !181
   %3936 = getelementptr inbounds nuw i8, ptr %3935, i64 24
@@ -87770,10 +87764,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1
   store i64 %4149, ptr %3850, align 16, !tbaa !16
   %4150 = load i64, ptr %3855, align 8, !tbaa !16
   store i64 %4150, ptr %3851, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4151
 
 4151:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1031, %3909
@@ -88254,8 +88248,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %4384 = add i64 %4383, %.3.lcssa.i.i956
   store i64 %4384, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4385
 
 4385:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -88304,7 +88298,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE9ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !180
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -88351,7 +88345,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.80", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -89639,9 +89633,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43: ; 
   br i1 %exitcond.not.i44, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %621, !llvm.loop !2348
 
 684:                                              ; preds = %35
-  %685 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %685 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %686 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -89656,8 +89650,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %684
   %688 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %699
 
 689:                                              ; preds = %687, %686
@@ -89674,31 +89668,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %695 = load i64, ptr %694, align 8, !tbaa !71
   %696 = icmp ult i64 %695, 16
   call void @llvm.assume(i1 %696)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %699, label %700
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %689
   %697 = load i64, ptr %692, align 8, !tbaa !72
   %698 = add i64 %697, 1
   call void @_ZdlPvm(ptr noundef %691, i64 noundef %698) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %699, label %700
 
 699:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn65 = phi { ptr, i32 } [ %688, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %690, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %690, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %685) #17
+  call void @__cxa_free_exception(ptr %685) #16
   br label %700
 
 700:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %699, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn64 = phi { ptr, i32 } [ %.pn65, %699 ], [ %690, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %690, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn64
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i24, %612, %507, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit169.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit160.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit134.i, %._crit_edge.i, %38, %29
   %701 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %304, %._crit_edge.i ], [ %372, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit134.i ], [ %439, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit160.i ], [ %439, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit169.i ], [ %506, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i ], [ 0, %507 ], [ 0, %612 ], [ %574, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i24 ], [ %678, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %701
 
 702:                                              ; preds = %687
@@ -89752,7 +89746,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   ]
 
 40:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %42 = load ptr, ptr %41, align 8, !tbaa !236
   %43 = load i32, ptr %42, align 4, !tbaa !146
@@ -90249,11 +90243,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %310 = add i64 %309, %.3.lcssa.i.i.i.i
   store i64 %310, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 311:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %313 = load ptr, ptr %312, align 8, !tbaa !236
   %314 = load i64, ptr %313, align 8, !tbaa !16
@@ -90755,11 +90749,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %586 = add i64 %585, %.3.lcssa.i.i68.i.i
   store i64 %586, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 587:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %589 = load ptr, ptr %588, align 8, !tbaa !236
   %590 = load i64, ptr %589, align 8, !tbaa !16
@@ -91293,11 +91287,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %894 = add i64 %893, %.3.lcssa.i.i147.i.i
   store i64 %894, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 895:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %897 = load ptr, ptr %896, align 8, !tbaa !236
   %898 = load i64, ptr %897, align 8, !tbaa !16
@@ -91858,11 +91852,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1229 = add i64 %1228, %.3.lcssa.i.i218.i.i
   store i64 %1229, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1230:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1231 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1232 = load ptr, ptr %1231, align 8, !tbaa !236
   %1233 = load i64, ptr %1232, align 8, !tbaa !16
@@ -92460,11 +92454,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1601 = add i64 %1600, %.3.lcssa.i.i289.i.i
   store i64 %1601, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1602:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1604 = load ptr, ptr %1603, align 8, !tbaa !236
   %1605 = load i64, ptr %1604, align 8, !tbaa !16
@@ -93190,13 +93184,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2101 = add i64 %2100, %.3.lcssa.i.i360.i.i
   store i64 %2101, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 2102:                                             ; preds = %27
   %2103 = trunc i64 %39 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2104 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2105 = load ptr, ptr %2104, align 8, !tbaa !236
   store ptr %2105, ptr %8, align 8, !tbaa !419
@@ -93688,8 +93682,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2365 = add i64 %2364, %.3.lcssa.i.i427.i.i
   store i64 %2365, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 2366:                                             ; preds = %6
@@ -94266,9 +94260,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28: 
   br i1 %exitcond.not.i29, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %2644, !llvm.loop !2596
 
 2667:                                             ; preds = %2366
-  %2668 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2668 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2669 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -94283,8 +94277,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2667
   %2671 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2682
 
 2672:                                             ; preds = %2670, %2669
@@ -94301,21 +94295,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2678 = load i64, ptr %2677, align 8, !tbaa !71
   %2679 = icmp ult i64 %2678, 16
   call void @llvm.assume(i1 %2679)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2682, label %2683
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2672
   %2680 = load i64, ptr %2675, align 8, !tbaa !72
   %2681 = add i64 %2680, 1
   call void @_ZdlPvm(ptr noundef %2674, i64 noundef %2681) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2682, label %2683
 
 2682:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2671, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2673, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2673, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2668) #17
+  call void @__cxa_free_exception(ptr %2668) #16
   br label %2683
 
 2683:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -94431,7 +94425,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 captures(none) %4) unnamed_addr #25 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 captures(none) %4) unnamed_addr #24 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -94468,7 +94462,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -95423,11 +95417,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %517 = add i64 %516, %.3.lcssa.i.i
   store i64 %517, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3931
 
 518:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %520 = load ptr, ptr %519, align 8, !tbaa !236
   %521 = load i64, ptr %520, align 8, !tbaa !16
@@ -96387,11 +96381,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1018 = add i64 %1017, %.3.lcssa.i.i74
   store i64 %1018, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3931
 
 1019:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1021 = load ptr, ptr %1020, align 8, !tbaa !236
   %1022 = load i64, ptr %1021, align 8, !tbaa !16
@@ -97383,11 +97377,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1551 = add i64 %1550, %.3.lcssa.i.i241
   store i64 %1551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %3931
 
 1552:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1554 = load ptr, ptr %1553, align 8, !tbaa !236
   %1555 = load i64, ptr %1554, align 8, !tbaa !16
@@ -98406,11 +98400,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2111 = add i64 %2110, %.3.lcssa.i.i398
   store i64 %2111, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %3931
 
 2112:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2113 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2114 = load ptr, ptr %2113, align 8, !tbaa !236
   %2115 = load i64, ptr %2114, align 8, !tbaa !16
@@ -99466,11 +99460,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2708 = add i64 %2707, %.3.lcssa.i.i555
   store i64 %2708, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %3931
 
 2709:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2710 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2711 = load ptr, ptr %2710, align 8, !tbaa !236
   %2712 = load i64, ptr %2711, align 8, !tbaa !16
@@ -100654,13 +100648,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %3433 = add i64 %3432, %.3.lcssa.i.i712
   store i64 %3433, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3931
 
 3434:                                             ; preds = %5
   %3435 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3436 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3437 = load ptr, ptr %3436, align 8, !tbaa !236
   store ptr %3437, ptr %7, align 8, !tbaa !419
@@ -101621,8 +101615,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %3930 = add i64 %3929, %.3.lcssa.i.i864
   store i64 %3930, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3931
 
 3931:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -101671,7 +101665,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE9ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !722
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -101718,7 +101712,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.84", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -103003,9 +102997,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43: ; 
   br i1 %exitcond.not.i44, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %617, !llvm.loop !2852
 
 678:                                              ; preds = %35
-  %679 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %679 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %680 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -103020,8 +103014,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %678
   %682 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %693
 
 683:                                              ; preds = %681, %680
@@ -103038,31 +103032,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %689 = load i64, ptr %688, align 8, !tbaa !71
   %690 = icmp ult i64 %689, 16
   call void @llvm.assume(i1 %690)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %693, label %694
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %683
   %691 = load i64, ptr %686, align 8, !tbaa !72
   %692 = add i64 %691, 1
   call void @_ZdlPvm(ptr noundef %685, i64 noundef %692) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %693, label %694
 
 693:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn65 = phi { ptr, i32 } [ %682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %684, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %679) #17
+  call void @__cxa_free_exception(ptr %679) #16
   br label %694
 
 694:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %693, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn64 = phi { ptr, i32 } [ %.pn65, %693 ], [ %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %684, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn64
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i24, %609, %507, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit169.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit160.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit134.i, %._crit_edge.i, %38, %29
   %695 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %304, %._crit_edge.i ], [ %372, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit134.i ], [ %439, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit160.i ], [ %439, %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit169.i ], [ %506, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i ], [ 0, %507 ], [ 0, %609 ], [ %574, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i24 ], [ %672, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %695
 
 696:                                              ; preds = %681
@@ -103116,7 +103110,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   ]
 
 40:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %42 = load ptr, ptr %41, align 8, !tbaa !236
   %43 = load i32, ptr %42, align 4, !tbaa !146
@@ -103613,11 +103607,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %310 = add i64 %309, %.3.lcssa.i.i.i.i
   store i64 %310, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 311:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %313 = load ptr, ptr %312, align 8, !tbaa !236
   %314 = load i64, ptr %313, align 8, !tbaa !16
@@ -104119,11 +104113,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %586 = add i64 %585, %.3.lcssa.i.i68.i.i
   store i64 %586, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 587:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %589 = load ptr, ptr %588, align 8, !tbaa !236
   %590 = load i64, ptr %589, align 8, !tbaa !16
@@ -104657,11 +104651,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %894 = add i64 %893, %.3.lcssa.i.i147.i.i
   store i64 %894, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 895:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %897 = load ptr, ptr %896, align 8, !tbaa !236
   %898 = load i64, ptr %897, align 8, !tbaa !16
@@ -105222,11 +105216,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1229 = add i64 %1228, %.3.lcssa.i.i218.i.i
   store i64 %1229, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1230:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1231 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1232 = load ptr, ptr %1231, align 8, !tbaa !236
   %1233 = load i64, ptr %1232, align 8, !tbaa !16
@@ -105824,11 +105818,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1601 = add i64 %1600, %.3.lcssa.i.i289.i.i
   store i64 %1601, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1602:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1604 = load ptr, ptr %1603, align 8, !tbaa !236
   %1605 = load i64, ptr %1604, align 8, !tbaa !16
@@ -106554,13 +106548,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2101 = add i64 %2100, %.3.lcssa.i.i360.i.i
   store i64 %2101, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 2102:                                             ; preds = %27
   %2103 = trunc i64 %39 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2104 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2105 = load ptr, ptr %2104, align 8, !tbaa !236
   store ptr %2105, ptr %8, align 8, !tbaa !419
@@ -107052,8 +107046,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2365 = add i64 %2364, %.3.lcssa.i.i427.i.i
   store i64 %2365, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 2366:                                             ; preds = %6
@@ -107627,9 +107621,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28: 
   br i1 %exitcond.not.i29, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %2640, !llvm.loop !3100
 
 2661:                                             ; preds = %2366
-  %2662 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2662 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2663 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -107644,8 +107638,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2661
   %2665 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2676
 
 2666:                                             ; preds = %2664, %2663
@@ -107662,21 +107656,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2672 = load i64, ptr %2671, align 8, !tbaa !71
   %2673 = icmp ult i64 %2672, 16
   call void @llvm.assume(i1 %2673)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2676, label %2677
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2666
   %2674 = load i64, ptr %2669, align 8, !tbaa !72
   %2675 = add i64 %2674, 1
   call void @_ZdlPvm(ptr noundef %2668, i64 noundef %2675) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2676, label %2677
 
 2676:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2665, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2667, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2662) #17
+  call void @__cxa_free_exception(ptr %2662) #16
   br label %2677
 
 2677:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2676, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -107792,7 +107786,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 captures(none) %4) unnamed_addr #25 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 captures(none) %4) unnamed_addr #24 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -107829,7 +107823,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -108784,11 +108778,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %517 = add i64 %516, %.3.lcssa.i.i
   store i64 %517, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3931
 
 518:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %520 = load ptr, ptr %519, align 8, !tbaa !236
   %521 = load i64, ptr %520, align 8, !tbaa !16
@@ -109748,11 +109742,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1018 = add i64 %1017, %.3.lcssa.i.i74
   store i64 %1018, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3931
 
 1019:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1021 = load ptr, ptr %1020, align 8, !tbaa !236
   %1022 = load i64, ptr %1021, align 8, !tbaa !16
@@ -110744,11 +110738,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1551 = add i64 %1550, %.3.lcssa.i.i241
   store i64 %1551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %3931
 
 1552:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1554 = load ptr, ptr %1553, align 8, !tbaa !236
   %1555 = load i64, ptr %1554, align 8, !tbaa !16
@@ -111767,11 +111761,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2111 = add i64 %2110, %.3.lcssa.i.i398
   store i64 %2111, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %3931
 
 2112:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2113 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2114 = load ptr, ptr %2113, align 8, !tbaa !236
   %2115 = load i64, ptr %2114, align 8, !tbaa !16
@@ -112827,11 +112821,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2708 = add i64 %2707, %.3.lcssa.i.i555
   store i64 %2708, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %3931
 
 2709:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2710 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2711 = load ptr, ptr %2710, align 8, !tbaa !236
   %2712 = load i64, ptr %2711, align 8, !tbaa !16
@@ -114015,13 +114009,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %3433 = add i64 %3432, %.3.lcssa.i.i712
   store i64 %3433, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3931
 
 3434:                                             ; preds = %5
   %3435 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3436 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3437 = load ptr, ptr %3436, align 8, !tbaa !236
   store ptr %3437, ptr %7, align 8, !tbaa !419
@@ -114982,8 +114976,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %3930 = add i64 %3929, %.3.lcssa.i.i864
   store i64 %3930, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3931
 
 3931:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -115032,7 +115026,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE9in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !1221
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -115079,7 +115073,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.80", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -116367,9 +116361,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43: ; 
   br i1 %exitcond.not.i44, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %621, !llvm.loop !3348
 
 684:                                              ; preds = %35
-  %685 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %685 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %686 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -116384,8 +116378,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %684
   %688 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %699
 
 689:                                              ; preds = %687, %686
@@ -116402,31 +116396,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %695 = load i64, ptr %694, align 8, !tbaa !71
   %696 = icmp ult i64 %695, 16
   call void @llvm.assume(i1 %696)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %699, label %700
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %689
   %697 = load i64, ptr %692, align 8, !tbaa !72
   %698 = add i64 %697, 1
   call void @_ZdlPvm(ptr noundef %691, i64 noundef %698) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %699, label %700
 
 699:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn65 = phi { ptr, i32 } [ %688, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %690, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %690, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %685) #17
+  call void @__cxa_free_exception(ptr %685) #16
   br label %700
 
 700:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %699, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn64 = phi { ptr, i32 } [ %.pn65, %699 ], [ %690, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %690, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn64
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i24, %612, %507, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit169.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit160.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit134.i, %._crit_edge.i, %38, %29
   %701 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %304, %._crit_edge.i ], [ %372, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit134.i ], [ %439, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit160.i ], [ %439, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit169.i ], [ %506, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i ], [ 0, %507 ], [ 0, %612 ], [ %574, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i24 ], [ %678, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %701
 
 702:                                              ; preds = %687
@@ -116480,7 +116474,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   ]
 
 40:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %42 = load ptr, ptr %41, align 8, !tbaa !236
   %43 = load i32, ptr %42, align 4, !tbaa !146
@@ -116977,11 +116971,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %310 = add i64 %309, %.3.lcssa.i.i.i.i
   store i64 %310, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 311:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %313 = load ptr, ptr %312, align 8, !tbaa !236
   %314 = load i64, ptr %313, align 8, !tbaa !16
@@ -117483,11 +117477,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %586 = add i64 %585, %.3.lcssa.i.i68.i.i
   store i64 %586, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 587:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %589 = load ptr, ptr %588, align 8, !tbaa !236
   %590 = load i64, ptr %589, align 8, !tbaa !16
@@ -118021,11 +118015,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %894 = add i64 %893, %.3.lcssa.i.i147.i.i
   store i64 %894, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 895:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %897 = load ptr, ptr %896, align 8, !tbaa !236
   %898 = load i64, ptr %897, align 8, !tbaa !16
@@ -118586,11 +118580,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1229 = add i64 %1228, %.3.lcssa.i.i218.i.i
   store i64 %1229, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1230:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1231 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1232 = load ptr, ptr %1231, align 8, !tbaa !236
   %1233 = load i64, ptr %1232, align 8, !tbaa !16
@@ -119188,11 +119182,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1601 = add i64 %1600, %.3.lcssa.i.i289.i.i
   store i64 %1601, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1602:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1604 = load ptr, ptr %1603, align 8, !tbaa !236
   %1605 = load i64, ptr %1604, align 8, !tbaa !16
@@ -119918,13 +119912,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2101 = add i64 %2100, %.3.lcssa.i.i360.i.i
   store i64 %2101, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 2102:                                             ; preds = %27
   %2103 = trunc i64 %39 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2104 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2105 = load ptr, ptr %2104, align 8, !tbaa !236
   store ptr %2105, ptr %8, align 8, !tbaa !419
@@ -120416,8 +120410,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2365 = add i64 %2364, %.3.lcssa.i.i427.i.i
   store i64 %2365, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 2366:                                             ; preds = %6
@@ -120994,9 +120988,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28: 
   br i1 %exitcond.not.i29, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %2644, !llvm.loop !3596
 
 2667:                                             ; preds = %2366
-  %2668 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2668 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2669 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -121011,8 +121005,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i28: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2667
   %2671 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2682
 
 2672:                                             ; preds = %2670, %2669
@@ -121029,21 +121023,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2678 = load i64, ptr %2677, align 8, !tbaa !71
   %2679 = icmp ult i64 %2678, 16
   call void @llvm.assume(i1 %2679)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2682, label %2683
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2672
   %2680 = load i64, ptr %2675, align 8, !tbaa !72
   %2681 = add i64 %2680, 1
   call void @_ZdlPvm(ptr noundef %2674, i64 noundef %2681) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2682, label %2683
 
 2682:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2671, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2673, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2673, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2668) #17
+  call void @__cxa_free_exception(ptr %2668) #16
   br label %2683
 
 2683:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -121159,7 +121153,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 captures(none) %4) unnamed_addr #25 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 captures(none) %4) unnamed_addr #24 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -121196,7 +121190,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -122151,11 +122145,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %517 = add i64 %516, %.3.lcssa.i.i
   store i64 %517, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3931
 
 518:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %520 = load ptr, ptr %519, align 8, !tbaa !236
   %521 = load i64, ptr %520, align 8, !tbaa !16
@@ -123115,11 +123109,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1018 = add i64 %1017, %.3.lcssa.i.i74
   store i64 %1018, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3931
 
 1019:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1021 = load ptr, ptr %1020, align 8, !tbaa !236
   %1022 = load i64, ptr %1021, align 8, !tbaa !16
@@ -124111,11 +124105,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1551 = add i64 %1550, %.3.lcssa.i.i241
   store i64 %1551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %3931
 
 1552:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1554 = load ptr, ptr %1553, align 8, !tbaa !236
   %1555 = load i64, ptr %1554, align 8, !tbaa !16
@@ -125134,11 +125128,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2111 = add i64 %2110, %.3.lcssa.i.i398
   store i64 %2111, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %3931
 
 2112:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2113 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2114 = load ptr, ptr %2113, align 8, !tbaa !236
   %2115 = load i64, ptr %2114, align 8, !tbaa !16
@@ -126194,11 +126188,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2708 = add i64 %2707, %.3.lcssa.i.i555
   store i64 %2708, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %3931
 
 2709:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2710 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2711 = load ptr, ptr %2710, align 8, !tbaa !236
   %2712 = load i64, ptr %2711, align 8, !tbaa !16
@@ -127382,13 +127376,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %3433 = add i64 %3432, %.3.lcssa.i.i712
   store i64 %3433, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3931
 
 3434:                                             ; preds = %5
   %3435 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3436 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3437 = load ptr, ptr %3436, align 8, !tbaa !236
   store ptr %3437, ptr %7, align 8, !tbaa !419
@@ -128349,8 +128343,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %3930 = add i64 %3929, %.3.lcssa.i.i864
   store i64 %3930, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3931
 
 3931:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -128399,7 +128393,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE9in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !1715
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -128446,7 +128440,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %8 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.84", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !178
@@ -129731,9 +129725,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43: ; 
   br i1 %exitcond.not.i44, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %617, !llvm.loop !3844
 
 678:                                              ; preds = %35
-  %679 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
+  %679 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %680 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -129748,8 +129742,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %678
   %682 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %693
 
 683:                                              ; preds = %681, %680
@@ -129766,31 +129760,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %689 = load i64, ptr %688, align 8, !tbaa !71
   %690 = icmp ult i64 %689, 16
   call void @llvm.assume(i1 %690)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %693, label %694
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %683
   %691 = load i64, ptr %686, align 8, !tbaa !72
   %692 = add i64 %691, 1
   call void @_ZdlPvm(ptr noundef %685, i64 noundef %692) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %693, label %694
 
 693:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn65 = phi { ptr, i32 } [ %682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %684, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %679) #17
+  call void @__cxa_free_exception(ptr %679) #16
   br label %694
 
 694:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %693, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn64 = phi { ptr, i32 } [ %.pn65, %693 ], [ %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %684, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn64
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i24, %609, %507, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit169.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit160.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit134.i, %._crit_edge.i, %38, %29
   %695 = phi i64 [ 0, %29 ], [ 0, %38 ], [ %304, %._crit_edge.i ], [ %372, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit134.i ], [ %439, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit160.i ], [ %439, %_ZN5faiss20distance_single_codeINS_11PQDecoder16EEEfmmPKfPKh.exit169.i ], [ %506, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i ], [ 0, %507 ], [ 0, %609 ], [ %574, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i24 ], [ %672, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %695
 
 696:                                              ; preds = %681
@@ -129844,7 +129838,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   ]
 
 40:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %42 = load ptr, ptr %41, align 8, !tbaa !236
   %43 = load i32, ptr %42, align 4, !tbaa !146
@@ -130341,11 +130335,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %310 = add i64 %309, %.3.lcssa.i.i.i.i
   store i64 %310, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 311:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %313 = load ptr, ptr %312, align 8, !tbaa !236
   %314 = load i64, ptr %313, align 8, !tbaa !16
@@ -130847,11 +130841,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %586 = add i64 %585, %.3.lcssa.i.i68.i.i
   store i64 %586, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 587:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %589 = load ptr, ptr %588, align 8, !tbaa !236
   %590 = load i64, ptr %589, align 8, !tbaa !16
@@ -131385,11 +131379,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %894 = add i64 %893, %.3.lcssa.i.i147.i.i
   store i64 %894, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 895:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %897 = load ptr, ptr %896, align 8, !tbaa !236
   %898 = load i64, ptr %897, align 8, !tbaa !16
@@ -131950,11 +131944,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1229 = add i64 %1228, %.3.lcssa.i.i218.i.i
   store i64 %1229, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1230:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1231 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1232 = load ptr, ptr %1231, align 8, !tbaa !236
   %1233 = load i64, ptr %1232, align 8, !tbaa !16
@@ -132552,11 +132546,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1601 = add i64 %1600, %.3.lcssa.i.i289.i.i
   store i64 %1601, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1602:                                             ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1604 = load ptr, ptr %1603, align 8, !tbaa !236
   %1605 = load i64, ptr %1604, align 8, !tbaa !16
@@ -133282,13 +133276,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2101 = add i64 %2100, %.3.lcssa.i.i360.i.i
   store i64 %2101, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 2102:                                             ; preds = %27
   %2103 = trunc i64 %39 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2104 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2105 = load ptr, ptr %2104, align 8, !tbaa !236
   store ptr %2105, ptr %8, align 8, !tbaa !419
@@ -133780,8 +133774,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2365 = add i64 %2364, %.3.lcssa.i.i427.i.i
   store i64 %2365, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %33, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 2366:                                             ; preds = %6
@@ -134355,9 +134349,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28: 
   br i1 %exitcond.not.i29, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %2640, !llvm.loop !4092
 
 2661:                                             ; preds = %2366
-  %2662 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #17
+  %2662 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %2663 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -134372,8 +134366,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i28: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %2661
   %2665 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2676
 
 2666:                                             ; preds = %2664, %2663
@@ -134390,21 +134384,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %2672 = load i64, ptr %2671, align 8, !tbaa !71
   %2673 = icmp ult i64 %2672, 16
   call void @llvm.assume(i1 %2673)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2676, label %2677
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2666
   %2674 = load i64, ptr %2669, align 8, !tbaa !72
   %2675 = add i64 %2674, 1
   call void @_ZdlPvm(ptr noundef %2668, i64 noundef %2675) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %2676, label %2677
 
 2676:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %2665, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %2667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2667, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %2662) #17
+  call void @__cxa_free_exception(ptr %2662) #16
   br label %2677
 
 2677:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %2676, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -134520,7 +134514,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 captures(none) %4) unnamed_addr #25 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 captures(none) %4) unnamed_addr #24 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %8 = alloca [8 x i64], align 16
@@ -134557,7 +134551,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !236
   %25 = load i32, ptr %24, align 4, !tbaa !146
@@ -135512,11 +135506,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %517 = add i64 %516, %.3.lcssa.i.i
   store i64 %517, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3931
 
 518:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %520 = load ptr, ptr %519, align 8, !tbaa !236
   %521 = load i64, ptr %520, align 8, !tbaa !16
@@ -136476,11 +136470,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1018 = add i64 %1017, %.3.lcssa.i.i74
   store i64 %1018, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3931
 
 1019:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1021 = load ptr, ptr %1020, align 8, !tbaa !236
   %1022 = load i64, ptr %1021, align 8, !tbaa !16
@@ -137472,11 +137466,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1551 = add i64 %1550, %.3.lcssa.i.i241
   store i64 %1551, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %3931
 
 1552:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1553 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1554 = load ptr, ptr %1553, align 8, !tbaa !236
   %1555 = load i64, ptr %1554, align 8, !tbaa !16
@@ -138495,11 +138489,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2111 = add i64 %2110, %.3.lcssa.i.i398
   store i64 %2111, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %3931
 
 2112:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2113 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2114 = load ptr, ptr %2113, align 8, !tbaa !236
   %2115 = load i64, ptr %2114, align 8, !tbaa !16
@@ -139555,11 +139549,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2708 = add i64 %2707, %.3.lcssa.i.i555
   store i64 %2708, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %3931
 
 2709:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2710 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2711 = load ptr, ptr %2710, align 8, !tbaa !236
   %2712 = load i64, ptr %2711, align 8, !tbaa !16
@@ -140743,13 +140737,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %3433 = add i64 %3432, %.3.lcssa.i.i712
   store i64 %3433, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   tail call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3931
 
 3434:                                             ; preds = %5
   %3435 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3436 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3437 = load ptr, ptr %3436, align 8, !tbaa !236
   store ptr %3437, ptr %7, align 8, !tbaa !419
@@ -141710,8 +141704,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %3930 = add i64 %3929, %.3.lcssa.i.i864
   store i64 %3930, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %14, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3931
 
 3931:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -141760,7 +141754,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !2205
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -141888,7 +141882,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %12 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.80", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load i64, ptr %16, align 8, !tbaa !178
@@ -141980,13 +141974,13 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   br i1 %61, label %62, label %285
 
 62:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !138
   %63 = load ptr, ptr %43, align 8, !tbaa !181
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -142416,10 +142410,10 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i:
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit96.i, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i
   %287 = phi i64 [ %284, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i ], [ %233, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit96.i ]
   %288 = phi i64 [ %284, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i ], [ %234, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit96.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %289 = add nuw i64 %.061240.i, 1
   %exitcond.not.i63 = icmp eq i64 %289, %1
   br i1 %exitcond.not.i63, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %.outer, !llvm.loop !4310
@@ -143468,9 +143462,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43: ; 
   br i1 %exitcond.not.i44, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %764, !llvm.loop !4313
 
 827:                                              ; preds = %39
-  %828 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #17
+  %828 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %829 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -143485,8 +143479,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %827
   %831 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %842
 
 832:                                              ; preds = %830, %829
@@ -143503,31 +143497,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %838 = load i64, ptr %837, align 8, !tbaa !71
   %839 = icmp ult i64 %838, 16
   call void @llvm.assume(i1 %839)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %842, label %843
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %832
   %840 = load i64, ptr %835, align 8, !tbaa !72
   %841 = add i64 %840, 1
   call void @_ZdlPvm(ptr noundef %834, i64 noundef %841) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %842, label %843
 
 842:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn69 = phi { ptr, i32 } [ %831, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %833, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %833, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %828) #17
+  call void @__cxa_free_exception(ptr %828) #16
   br label %843
 
 843:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %842, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn68 = phi { ptr, i32 } [ %.pn69, %842 ], [ %833, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %833, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn68
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i24, %.thread, %755, %610, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit212.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit180.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit131.i, %42, %33
   %844 = phi i64 [ 0, %33 ], [ 0, %42 ], [ %398, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit131.i ], [ %504, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit180.i ], [ %504, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit212.i ], [ %609, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i ], [ 0, %610 ], [ 0, %755 ], [ %288, %.thread ], [ %683, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i24 ], [ %821, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i43 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %844
 
 845:                                              ; preds = %830
@@ -143613,7 +143607,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   ]
 
 72:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %74 = load ptr, ptr %73, align 8, !tbaa !236
   %75 = load i32, ptr %74, align 4, !tbaa !146
@@ -143700,14 +143694,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
 
 135:                                              ; preds = %93
   %136 = add i64 %.0152.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %137 = load float, ptr %82, align 8, !tbaa !2205
   store float %137, ptr %43, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float %137, ptr %44, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float %137, ptr %45, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float %137, ptr %46, align 4, !tbaa !138
   %138 = load ptr, ptr %60, align 8, !tbaa !181
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
@@ -143838,10 +143832,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %209, ptr %85, align 16, !tbaa !16
   %210 = load i64, ptr %90, align 8, !tbaa !16
   store i64 %210, ptr %86, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %211
 
 211:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i.i.i, %93
@@ -144172,11 +144166,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %368 = add i64 %367, %.3.lcssa.i.i.i.i
   store i64 %368, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 369:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %371 = load ptr, ptr %370, align 8, !tbaa !236
   %372 = load i64, ptr %371, align 8, !tbaa !16
@@ -144267,14 +144261,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 436:                                              ; preds = %390
   %437 = add i64 %.0152.i.i33.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %438 = load float, ptr %379, align 8, !tbaa !2205
   store float %438, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %438, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %438, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %438, ptr %41, align 4, !tbaa !138
   %439 = load ptr, ptr %60, align 8, !tbaa !181
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
@@ -144405,10 +144399,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %510, ptr %382, align 16, !tbaa !16
   %511 = load i64, ptr %387, align 8, !tbaa !16
   store i64 %511, ptr %383, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %512
 
 512:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i123.i.i, %390
@@ -144740,11 +144734,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %670 = add i64 %669, %.3.lcssa.i.i74.i.i
   store i64 %670, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 671:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %673 = load ptr, ptr %672, align 8, !tbaa !236
   %674 = load i64, ptr %673, align 8, !tbaa !16
@@ -144861,14 +144855,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 764:                                              ; preds = %694
   %765 = add i64 %.0156.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %766 = load float, ptr %683, align 8, !tbaa !2205
   store float %766, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %766, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %766, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %766, ptr %36, align 4, !tbaa !138
   %767 = load ptr, ptr %60, align 8, !tbaa !181
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 24
@@ -144999,10 +144993,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %838, ptr %686, align 16, !tbaa !16
   %839 = load i64, ptr %691, align 8, !tbaa !16
   store i64 %839, ptr %687, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %840
 
 840:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i211.i.i, %694
@@ -145340,11 +145334,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1004 = add i64 %1003, %.3.lcssa.i.i162.i.i
   store i64 %1004, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1005:                                             ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1007 = load ptr, ptr %1006, align 8, !tbaa !236
   %1008 = load i64, ptr %1007, align 8, !tbaa !16
@@ -145483,14 +145477,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1120:                                             ; preds = %1030
   %1121 = add i64 %.0160.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1122 = load float, ptr %1019, align 8, !tbaa !2205
   store float %1122, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1122, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1122, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1122, ptr %31, align 4, !tbaa !138
   %1123 = load ptr, ptr %60, align 8, !tbaa !181
   %1124 = getelementptr inbounds nuw i8, ptr %1123, i64 24
@@ -145621,10 +145615,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %1194, ptr %1022, align 16, !tbaa !16
   %1195 = load i64, ptr %1027, align 8, !tbaa !16
   store i64 %1195, ptr %1023, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1196
 
 1196:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i297.i.i, %1030
@@ -145967,11 +145961,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1365 = add i64 %1364, %.3.lcssa.i.i248.i.i
   store i64 %1365, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1366:                                             ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1367 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1368 = load ptr, ptr %1367, align 8, !tbaa !236
   %1369 = load i64, ptr %1368, align 8, !tbaa !16
@@ -146140,14 +146134,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1511:                                             ; preds = %1393
   %1512 = add i64 %.0164.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1513 = load float, ptr %1382, align 8, !tbaa !2205
   store float %1513, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1513, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1513, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1513, ptr %26, align 4, !tbaa !138
   %1514 = load ptr, ptr %60, align 8, !tbaa !181
   %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 24
@@ -146278,10 +146272,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %1585, ptr %1385, align 16, !tbaa !16
   %1586 = load i64, ptr %1390, align 8, !tbaa !16
   store i64 %1586, ptr %1386, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1587
 
 1587:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i383.i.i, %1393
@@ -146631,11 +146625,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1763 = add i64 %1762, %.3.lcssa.i.i334.i.i
   store i64 %1763, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 1764:                                             ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1765 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1766 = load ptr, ptr %1765, align 8, !tbaa !236
   %1767 = load i64, ptr %1766, align 8, !tbaa !16
@@ -146908,14 +146902,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 2013:                                             ; preds = %1799
   %2014 = add i64 %.0180.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2015 = load float, ptr %1788, align 8, !tbaa !2205
   store float %2015, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2015, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2015, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2015, ptr %21, align 4, !tbaa !138
   %2016 = load ptr, ptr %60, align 8, !tbaa !181
   %2017 = getelementptr inbounds nuw i8, ptr %2016, i64 24
@@ -147046,10 +147040,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %2087, ptr %1791, align 16, !tbaa !16
   %2088 = load i64, ptr %1796, align 8, !tbaa !16
   store i64 %2088, ptr %1792, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2089
 
 2089:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i470.i.i, %1799
@@ -147423,13 +147417,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2289 = add i64 %2288, %.3.lcssa.i.i421.i.i
   store i64 %2289, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 2290:                                             ; preds = %59
   %2291 = trunc i64 %71 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2292 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2293 = load ptr, ptr %2292, align 8, !tbaa !236
   store ptr %2293, ptr %12, align 8, !tbaa !419
@@ -147513,14 +147507,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 2348:                                             ; preds = %2314
   %2349 = add i64 %.0148.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2350 = load float, ptr %2303, align 8, !tbaa !2205
   store float %2350, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %2350, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %2350, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %2350, ptr %16, align 4, !tbaa !138
   %2351 = load ptr, ptr %60, align 8, !tbaa !181
   %2352 = getelementptr inbounds nuw i8, ptr %2351, i64 24
@@ -147651,10 +147645,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   store i64 %2422, ptr %2306, align 16, !tbaa !16
   %2423 = load i64, ptr %2311, align 8, !tbaa !16
   store i64 %2423, ptr %2307, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2424
 
 2424:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.i556.i.i, %2314
@@ -147983,8 +147977,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2579 = add i64 %2578, %.3.lcssa.i.i507.i.i
   store i64 %2579, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 2580:                                             ; preds = %6
@@ -148029,13 +148023,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br i1 %2596, label %2597, label %2662
 
 2597:                                             ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
   %2598 = load ptr, ptr %2584, align 8, !tbaa !181
   %2599 = getelementptr inbounds nuw i8, ptr %2598, i64 24
@@ -148163,10 +148157,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit66.i: 
   br label %.backedge, !llvm.loop !4335
 
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit66.i, %2660
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2664 = add nuw i64 %.061149.i, 1
   %exitcond.not.i67 = icmp eq i64 %2664, %1
   br i1 %exitcond.not.i67, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %.backedge.backedge
@@ -148837,9 +148831,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i31: 
   br i1 %exitcond.not.i32, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit, label %2985, !llvm.loop !4338
 
 3008:                                             ; preds = %2580
-  %3009 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #17
+  %3009 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %48)
           to label %3010 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -148854,8 +148848,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit.i31: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %3008
   %3012 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %3023
 
 3013:                                             ; preds = %3011, %3010
@@ -148872,21 +148866,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %3019 = load i64, ptr %3018, align 8, !tbaa !71
   %3020 = icmp ult i64 %3019, 16
   call void @llvm.assume(i1 %3020)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3023, label %3024
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3013
   %3021 = load i64, ptr %3016, align 8, !tbaa !72
   %3022 = add i64 %3021, 1
   call void @_ZdlPvm(ptr noundef %3015, i64 noundef %3022) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3023, label %3024
 
 3023:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn73 = phi { ptr, i32 } [ %3012, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %3014, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %3014, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %3009) #17
+  call void @__cxa_free_exception(ptr %3009) #16
   br label %3024
 
 3024:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %3023, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -149066,7 +149060,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %52 = load ptr, ptr %51, align 8, !tbaa !236
   %53 = load i32, ptr %52, align 4, !tbaa !146
@@ -149165,14 +149159,14 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 
 121:                                              ; preds = %79
   %122 = add i64 %.0228.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %123 = load float, ptr %60, align 8, !tbaa !2205
   store float %123, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %123, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %123, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %123, ptr %41, align 4, !tbaa !138
   %124 = load ptr, ptr %46, align 8, !tbaa !181
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
@@ -149598,10 +149592,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i:
   store i64 %343, ptr %63, align 16, !tbaa !16
   %344 = load i64, ptr %68, align 8, !tbaa !16
   store i64 %344, ptr %64, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %345
 
 345:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i, %79
@@ -150077,11 +150071,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %575 = add i64 %574, %.3.lcssa.i.i
   store i64 %575, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %4161
 
 576:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %577 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %578 = load ptr, ptr %577, align 8, !tbaa !236
   %579 = load i64, ptr %578, align 8, !tbaa !16
@@ -150184,14 +150178,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 651:                                              ; preds = %605
   %652 = add i64 %.0228.i.i35, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %653 = load float, ptr %586, align 8, !tbaa !2205
   store float %653, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %653, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %653, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %653, ptr %36, align 4, !tbaa !138
   %654 = load ptr, ptr %46, align 8, !tbaa !181
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 24
@@ -150617,10 +150611,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1
   store i64 %873, ptr %589, align 16, !tbaa !16
   %874 = load i64, ptr %594, align 8, !tbaa !16
   store i64 %874, ptr %590, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %875
 
 875:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i154, %605
@@ -151097,11 +151091,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1106 = add i64 %1105, %.3.lcssa.i.i79
   store i64 %1106, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %4161
 
 1107:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1108 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1109 = load ptr, ptr %1108, align 8, !tbaa !236
   %1110 = load i64, ptr %1109, align 8, !tbaa !16
@@ -151230,14 +151224,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1208:                                             ; preds = %1138
   %1209 = add i64 %.0232.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1210 = load float, ptr %1119, align 8, !tbaa !2205
   store float %1210, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1210, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1210, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1210, ptr %31, align 4, !tbaa !138
   %1211 = load ptr, ptr %46, align 8, !tbaa !181
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 24
@@ -151663,10 +151657,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i3
   store i64 %1430, ptr %1122, align 16, !tbaa !16
   %1431 = load i64, ptr %1127, align 8, !tbaa !16
   store i64 %1431, ptr %1123, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1432
 
 1432:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i328, %1138
@@ -152149,11 +152143,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1669 = add i64 %1668, %.3.lcssa.i.i253
   store i64 %1669, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %4161
 
 1670:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1671 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1672 = load ptr, ptr %1671, align 8, !tbaa !236
   %1673 = load i64, ptr %1672, align 8, !tbaa !16
@@ -152304,14 +152298,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 1793:                                             ; preds = %1703
   %1794 = add i64 %.0236.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1795 = load float, ptr %1684, align 8, !tbaa !2205
   store float %1795, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1795, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1795, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1795, ptr %26, align 4, !tbaa !138
   %1796 = load ptr, ptr %46, align 8, !tbaa !181
   %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 24
@@ -152737,10 +152731,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i4
   store i64 %2015, ptr %1687, align 16, !tbaa !16
   %2016 = load i64, ptr %1692, align 8, !tbaa !16
   store i64 %2016, ptr %1688, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2017
 
 2017:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i498, %1703
@@ -153228,11 +153222,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2259 = add i64 %2258, %.3.lcssa.i.i423
   store i64 %2259, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %4161
 
 2260:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %2261 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2262 = load ptr, ptr %2261, align 8, !tbaa !236
   %2263 = load i64, ptr %2262, align 8, !tbaa !16
@@ -153413,14 +153407,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 2413:                                             ; preds = %2295
   %2414 = add i64 %.0240.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2415 = load float, ptr %2276, align 8, !tbaa !2205
   store float %2415, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2415, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2415, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2415, ptr %21, align 4, !tbaa !138
   %2416 = load ptr, ptr %46, align 8, !tbaa !181
   %2417 = getelementptr inbounds nuw i8, ptr %2416, i64 24
@@ -153846,10 +153840,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i6
   store i64 %2635, ptr %2279, align 16, !tbaa !16
   %2636 = load i64, ptr %2284, align 8, !tbaa !16
   store i64 %2636, ptr %2280, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2637
 
 2637:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i668, %2295
@@ -154344,11 +154338,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2886 = add i64 %2885, %.3.lcssa.i.i593
   store i64 %2886, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %4161
 
 2887:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2888 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2889 = load ptr, ptr %2888, align 8, !tbaa !236
   %2890 = load i64, ptr %2889, align 8, !tbaa !16
@@ -154633,14 +154627,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 3144:                                             ; preds = %2930
   %3145 = add i64 %.0256.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %3146 = load float, ptr %2911, align 8, !tbaa !2205
   store float %3146, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %3146, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %3146, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %3146, ptr %16, align 4, !tbaa !138
   %3147 = load ptr, ptr %46, align 8, !tbaa !181
   %3148 = getelementptr inbounds nuw i8, ptr %3147, i64 24
@@ -155066,10 +155060,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i8
   store i64 %3366, ptr %2914, align 16, !tbaa !16
   %3367 = load i64, ptr %2919, align 8, !tbaa !16
   store i64 %3367, ptr %2915, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3368
 
 3368:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i840, %2930
@@ -155588,13 +155582,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %3641 = add i64 %3640, %.3.lcssa.i.i765
   store i64 %3641, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4161
 
 3642:                                             ; preds = %5
   %3643 = trunc i64 %49 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3644 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3645 = load ptr, ptr %3644, align 8, !tbaa !236
   store ptr %3645, ptr %7, align 8, !tbaa !419
@@ -155690,14 +155684,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 
 3708:                                             ; preds = %3674
   %3709 = add i64 %.0224.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3710 = load float, ptr %3655, align 8, !tbaa !2205
   store float %3710, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float %3710, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float %3710, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %3710, ptr %11, align 4, !tbaa !138
   %3711 = load ptr, ptr %46, align 8, !tbaa !181
   %3712 = getelementptr inbounds nuw i8, ptr %3711, i64 24
@@ -156123,10 +156117,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1
   store i64 %3930, ptr %3658, align 16, !tbaa !16
   %3931 = load i64, ptr %3663, align 8, !tbaa !16
   store i64 %3931, ptr %3659, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3932
 
 3932:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1009, %3674
@@ -156600,8 +156594,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %4160 = add i64 %4159, %.3.lcssa.i.i934
   store i64 %4160, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4161
 
 4161:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -156650,7 +156644,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load float, ptr %3, align 8, !tbaa !2259
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -156778,7 +156772,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %12 = alloca %"struct.faiss::(anonymous namespace)::KnnSearchResults.84", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.10", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load i64, ptr %16, align 8, !tbaa !178
@@ -156870,13 +156864,13 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   br i1 %61, label %62, label %285
 
 62:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4, !tbaa !138
   %63 = load ptr, ptr %43, align 8, !tbaa !181
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -157306,10 +157300,10 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i:
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit96.i, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i
   %287 = phi i64 [ %284, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i ], [ %233, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit96.i ]
   %288 = phi i64 [ %284, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i ], [ %234, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit96.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %289 = add nuw i64 %.061240.i, 1
   %exitcond.not.i63 = icmp eq i64 %289, %1
   br i1 %exitcond.not.i63, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %.outer, !llvm.loop !4360
@@ -158355,9 +158349,9 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43: ; 
   br i1 %exitcond.not.i44, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %760, !llvm.loop !4363
 
 821:                                              ; preds = %39
-  %822 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #17
+  %822 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %823 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -158372,8 +158366,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %821
   %825 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %836
 
 826:                                              ; preds = %824, %823
@@ -158390,31 +158384,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %832 = load i64, ptr %831, align 8, !tbaa !71
   %833 = icmp ult i64 %832, 16
   call void @llvm.assume(i1 %833)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %836, label %837
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %826
   %834 = load i64, ptr %829, align 8, !tbaa !72
   %835 = add i64 %834, 1
   call void @_ZdlPvm(ptr noundef %828, i64 noundef %835) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %836, label %837
 
 836:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn69 = phi { ptr, i32 } [ %825, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %827, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %827, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %822) #17
+  call void @__cxa_free_exception(ptr %822) #16
   br label %837
 
 837:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %836, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn68 = phi { ptr, i32 } [ %.pn69, %836 ], [ %827, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %827, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn68
 
 _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i24, %.thread, %752, %610, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit212.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit180.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit131.i, %42, %33
   %838 = phi i64 [ 0, %33 ], [ 0, %42 ], [ %398, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit131.i ], [ %504, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit180.i ], [ %504, %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit212.i ], [ %609, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i ], [ 0, %610 ], [ 0, %752 ], [ %288, %.thread ], [ %683, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i24 ], [ %815, %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i43 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %838
 
 839:                                              ; preds = %824
@@ -158500,7 +158494,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   ]
 
 72:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %74 = load ptr, ptr %73, align 8, !tbaa !236
   %75 = load i32, ptr %74, align 4, !tbaa !146
@@ -158587,14 +158581,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
 
 135:                                              ; preds = %93
   %136 = add i64 %.0152.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %137 = load float, ptr %82, align 8, !tbaa !2259
   store float %137, ptr %43, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float %137, ptr %44, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float %137, ptr %45, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float %137, ptr %46, align 4, !tbaa !138
   %138 = load ptr, ptr %60, align 8, !tbaa !181
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
@@ -158725,10 +158719,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %209, ptr %85, align 16, !tbaa !16
   %210 = load i64, ptr %90, align 8, !tbaa !16
   store i64 %210, ptr %86, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %211
 
 211:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i.i.i, %93
@@ -159059,11 +159053,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %368 = add i64 %367, %.3.lcssa.i.i.i.i
   store i64 %368, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 369:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %371 = load ptr, ptr %370, align 8, !tbaa !236
   %372 = load i64, ptr %371, align 8, !tbaa !16
@@ -159154,14 +159148,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 436:                                              ; preds = %390
   %437 = add i64 %.0152.i.i33.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %438 = load float, ptr %379, align 8, !tbaa !2259
   store float %438, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %438, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %438, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %438, ptr %41, align 4, !tbaa !138
   %439 = load ptr, ptr %60, align 8, !tbaa !181
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
@@ -159292,10 +159286,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %510, ptr %382, align 16, !tbaa !16
   %511 = load i64, ptr %387, align 8, !tbaa !16
   store i64 %511, ptr %383, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %512
 
 512:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i123.i.i, %390
@@ -159627,11 +159621,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %670 = add i64 %669, %.3.lcssa.i.i74.i.i
   store i64 %670, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 671:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %673 = load ptr, ptr %672, align 8, !tbaa !236
   %674 = load i64, ptr %673, align 8, !tbaa !16
@@ -159748,14 +159742,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 764:                                              ; preds = %694
   %765 = add i64 %.0156.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %766 = load float, ptr %683, align 8, !tbaa !2259
   store float %766, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %766, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %766, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %766, ptr %36, align 4, !tbaa !138
   %767 = load ptr, ptr %60, align 8, !tbaa !181
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 24
@@ -159886,10 +159880,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %838, ptr %686, align 16, !tbaa !16
   %839 = load i64, ptr %691, align 8, !tbaa !16
   store i64 %839, ptr %687, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %840
 
 840:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i211.i.i, %694
@@ -160227,11 +160221,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1004 = add i64 %1003, %.3.lcssa.i.i162.i.i
   store i64 %1004, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1005:                                             ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1007 = load ptr, ptr %1006, align 8, !tbaa !236
   %1008 = load i64, ptr %1007, align 8, !tbaa !16
@@ -160370,14 +160364,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1120:                                             ; preds = %1030
   %1121 = add i64 %.0160.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1122 = load float, ptr %1019, align 8, !tbaa !2259
   store float %1122, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1122, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1122, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1122, ptr %31, align 4, !tbaa !138
   %1123 = load ptr, ptr %60, align 8, !tbaa !181
   %1124 = getelementptr inbounds nuw i8, ptr %1123, i64 24
@@ -160508,10 +160502,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %1194, ptr %1022, align 16, !tbaa !16
   %1195 = load i64, ptr %1027, align 8, !tbaa !16
   store i64 %1195, ptr %1023, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1196
 
 1196:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i297.i.i, %1030
@@ -160854,11 +160848,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1365 = add i64 %1364, %.3.lcssa.i.i248.i.i
   store i64 %1365, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1366:                                             ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1367 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1368 = load ptr, ptr %1367, align 8, !tbaa !236
   %1369 = load i64, ptr %1368, align 8, !tbaa !16
@@ -161027,14 +161021,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1511:                                             ; preds = %1393
   %1512 = add i64 %.0164.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1513 = load float, ptr %1382, align 8, !tbaa !2259
   store float %1513, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1513, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1513, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1513, ptr %26, align 4, !tbaa !138
   %1514 = load ptr, ptr %60, align 8, !tbaa !181
   %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 24
@@ -161165,10 +161159,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %1585, ptr %1385, align 16, !tbaa !16
   %1586 = load i64, ptr %1390, align 8, !tbaa !16
   store i64 %1586, ptr %1386, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1587
 
 1587:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i383.i.i, %1393
@@ -161518,11 +161512,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1763 = add i64 %1762, %.3.lcssa.i.i334.i.i
   store i64 %1763, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 1764:                                             ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1765 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1766 = load ptr, ptr %1765, align 8, !tbaa !236
   %1767 = load i64, ptr %1766, align 8, !tbaa !16
@@ -161795,14 +161789,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 2013:                                             ; preds = %1799
   %2014 = add i64 %.0180.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2015 = load float, ptr %1788, align 8, !tbaa !2259
   store float %2015, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2015, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2015, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2015, ptr %21, align 4, !tbaa !138
   %2016 = load ptr, ptr %60, align 8, !tbaa !181
   %2017 = getelementptr inbounds nuw i8, ptr %2016, i64 24
@@ -161933,10 +161927,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %2087, ptr %1791, align 16, !tbaa !16
   %2088 = load i64, ptr %1796, align 8, !tbaa !16
   store i64 %2088, ptr %1792, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2089
 
 2089:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i470.i.i, %1799
@@ -162310,13 +162304,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2289 = add i64 %2288, %.3.lcssa.i.i421.i.i
   store i64 %2289, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 2290:                                             ; preds = %59
   %2291 = trunc i64 %71 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2292 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2293 = load ptr, ptr %2292, align 8, !tbaa !236
   store ptr %2293, ptr %12, align 8, !tbaa !419
@@ -162400,14 +162394,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 2348:                                             ; preds = %2314
   %2349 = add i64 %.0148.i.i.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2350 = load float, ptr %2303, align 8, !tbaa !2259
   store float %2350, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %2350, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %2350, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %2350, ptr %16, align 4, !tbaa !138
   %2351 = load ptr, ptr %60, align 8, !tbaa !181
   %2352 = getelementptr inbounds nuw i8, ptr %2351, i64 24
@@ -162538,10 +162532,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   store i64 %2422, ptr %2306, align 16, !tbaa !16
   %2423 = load i64, ptr %2311, align 8, !tbaa !16
   store i64 %2423, ptr %2307, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2424
 
 2424:                                             ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.i556.i.i, %2314
@@ -162870,8 +162864,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2579 = add i64 %2578, %.3.lcssa.i.i507.i.i
   store i64 %2579, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %65, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 2580:                                             ; preds = %6
@@ -162916,13 +162910,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br i1 %2596, label %2597, label %2662
 
 2597:                                             ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !138
   %2598 = load ptr, ptr %2584, align 8, !tbaa !181
   %2599 = getelementptr inbounds nuw i8, ptr %2598, i64 24
@@ -163050,10 +163044,10 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit66.i: 
   br label %.backedge, !llvm.loop !4385
 
 .thread:                                          ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit66.i, %2660
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2664 = add nuw i64 %.061149.i, 1
   %exitcond.not.i67 = icmp eq i64 %2664, %1
   br i1 %exitcond.not.i67, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %.backedge.backedge
@@ -163721,9 +163715,9 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i31: 
   br i1 %exitcond.not.i32, label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE20scan_list_polysemousINS0_18RangeSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit, label %2981, !llvm.loop !4388
 
 3002:                                             ; preds = %2580
-  %3003 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #17
+  %3003 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %48)
           to label %3004 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -163738,8 +163732,8 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit.i31: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %3002
   %3006 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %3017
 
 3007:                                             ; preds = %3005, %3004
@@ -163756,21 +163750,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %3013 = load i64, ptr %3012, align 8, !tbaa !71
   %3014 = icmp ult i64 %3013, 16
   call void @llvm.assume(i1 %3014)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3017, label %3018
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3007
   %3015 = load i64, ptr %3010, align 8, !tbaa !72
   %3016 = add i64 %3015, 1
   call void @_ZdlPvm(ptr noundef %3009, i64 noundef %3016) #33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.0, label %3017, label %3018
 
 3017:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn73 = phi { ptr, i32 } [ %3006, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %3008, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %3008, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %3003) #17
+  call void @__cxa_free_exception(ptr %3003) #16
   br label %3018
 
 3018:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %3017, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -163950,7 +163944,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   ]
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %52 = load ptr, ptr %51, align 8, !tbaa !236
   %53 = load i32, ptr %52, align 4, !tbaa !146
@@ -164049,14 +164043,14 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 
 121:                                              ; preds = %79
   %122 = add i64 %.0228.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %123 = load float, ptr %60, align 8, !tbaa !2259
   store float %123, ptr %38, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float %123, ptr %39, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %123, ptr %40, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float %123, ptr %41, align 4, !tbaa !138
   %124 = load ptr, ptr %46, align 8, !tbaa !181
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
@@ -164482,10 +164476,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i:
   store i64 %343, ptr %63, align 16, !tbaa !16
   %344 = load i64, ptr %68, align 8, !tbaa !16
   store i64 %344, ptr %64, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %345
 
 345:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i, %79
@@ -164961,11 +164955,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %575 = add i64 %574, %.3.lcssa.i.i
   store i64 %575, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %4161
 
 576:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %577 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %578 = load ptr, ptr %577, align 8, !tbaa !236
   %579 = load i64, ptr %578, align 8, !tbaa !16
@@ -165068,14 +165062,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 651:                                              ; preds = %605
   %652 = add i64 %.0228.i.i35, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %653 = load float, ptr %586, align 8, !tbaa !2259
   store float %653, ptr %33, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float %653, ptr %34, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store float %653, ptr %35, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float %653, ptr %36, align 4, !tbaa !138
   %654 = load ptr, ptr %46, align 8, !tbaa !181
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 24
@@ -165501,10 +165495,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1
   store i64 %873, ptr %589, align 16, !tbaa !16
   %874 = load i64, ptr %594, align 8, !tbaa !16
   store i64 %874, ptr %590, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %875
 
 875:                                              ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i154, %605
@@ -165981,11 +165975,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1106 = add i64 %1105, %.3.lcssa.i.i79
   store i64 %1106, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %4161
 
 1107:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1108 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1109 = load ptr, ptr %1108, align 8, !tbaa !236
   %1110 = load i64, ptr %1109, align 8, !tbaa !16
@@ -166114,14 +166108,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1208:                                             ; preds = %1138
   %1209 = add i64 %.0232.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1210 = load float, ptr %1119, align 8, !tbaa !2259
   store float %1210, ptr %28, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %1210, ptr %29, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %1210, ptr %30, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float %1210, ptr %31, align 4, !tbaa !138
   %1211 = load ptr, ptr %46, align 8, !tbaa !181
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 24
@@ -166547,10 +166541,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i3
   store i64 %1430, ptr %1122, align 16, !tbaa !16
   %1431 = load i64, ptr %1127, align 8, !tbaa !16
   store i64 %1431, ptr %1123, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1432
 
 1432:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i328, %1138
@@ -167033,11 +167027,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1669 = add i64 %1668, %.3.lcssa.i.i253
   store i64 %1669, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %4161
 
 1670:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1671 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1672 = load ptr, ptr %1671, align 8, !tbaa !236
   %1673 = load i64, ptr %1672, align 8, !tbaa !16
@@ -167188,14 +167182,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 1793:                                             ; preds = %1703
   %1794 = add i64 %.0236.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1795 = load float, ptr %1684, align 8, !tbaa !2259
   store float %1795, ptr %23, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float %1795, ptr %24, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float %1795, ptr %25, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %1795, ptr %26, align 4, !tbaa !138
   %1796 = load ptr, ptr %46, align 8, !tbaa !181
   %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 24
@@ -167621,10 +167615,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i4
   store i64 %2015, ptr %1687, align 16, !tbaa !16
   %2016 = load i64, ptr %1692, align 8, !tbaa !16
   store i64 %2016, ptr %1688, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2017
 
 2017:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i498, %1703
@@ -168112,11 +168106,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2259 = add i64 %2258, %.3.lcssa.i.i423
   store i64 %2259, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %4161
 
 2260:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %2261 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2262 = load ptr, ptr %2261, align 8, !tbaa !236
   %2263 = load i64, ptr %2262, align 8, !tbaa !16
@@ -168297,14 +168291,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 2413:                                             ; preds = %2295
   %2414 = add i64 %.0240.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2415 = load float, ptr %2276, align 8, !tbaa !2259
   store float %2415, ptr %18, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %2415, ptr %19, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %2415, ptr %20, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store float %2415, ptr %21, align 4, !tbaa !138
   %2416 = load ptr, ptr %46, align 8, !tbaa !181
   %2417 = getelementptr inbounds nuw i8, ptr %2416, i64 24
@@ -168730,10 +168724,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i6
   store i64 %2635, ptr %2279, align 16, !tbaa !16
   %2636 = load i64, ptr %2284, align 8, !tbaa !16
   store i64 %2636, ptr %2280, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2637
 
 2637:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i668, %2295
@@ -169228,11 +169222,11 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2886 = add i64 %2885, %.3.lcssa.i.i593
   store i64 %2886, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %4161
 
 2887:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %2888 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2889 = load ptr, ptr %2888, align 8, !tbaa !236
   %2890 = load i64, ptr %2889, align 8, !tbaa !16
@@ -169517,14 +169511,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 3144:                                             ; preds = %2930
   %3145 = add i64 %.0256.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %3146 = load float, ptr %2911, align 8, !tbaa !2259
   store float %3146, ptr %13, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %3146, ptr %14, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %3146, ptr %15, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %3146, ptr %16, align 4, !tbaa !138
   %3147 = load ptr, ptr %46, align 8, !tbaa !181
   %3148 = getelementptr inbounds nuw i8, ptr %3147, i64 24
@@ -169950,10 +169944,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i8
   store i64 %3366, ptr %2914, align 16, !tbaa !16
   %3367 = load i64, ptr %2919, align 8, !tbaa !16
   store i64 %3367, ptr %2915, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3368
 
 3368:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i840, %2930
@@ -170472,13 +170466,13 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %3641 = add i64 %3640, %.3.lcssa.i.i765
   store i64 %3641, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4161
 
 3642:                                             ; preds = %5
   %3643 = trunc i64 %49 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3644 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3645 = load ptr, ptr %3644, align 8, !tbaa !236
   store ptr %3645, ptr %7, align 8, !tbaa !419
@@ -170574,14 +170568,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 
 3708:                                             ; preds = %3674
   %3709 = add i64 %.0224.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3710 = load float, ptr %3655, align 8, !tbaa !2259
   store float %3710, ptr %8, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float %3710, ptr %9, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float %3710, ptr %10, align 4, !tbaa !138
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %3710, ptr %11, align 4, !tbaa !138
   %3711 = load ptr, ptr %46, align 8, !tbaa !181
   %3712 = getelementptr inbounds nuw i8, ptr %3711, i64 24
@@ -171007,10 +171001,10 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1
   store i64 %3930, ptr %3658, align 16, !tbaa !16
   %3931 = load i64, ptr %3663, align 8, !tbaa !16
   store i64 %3931, ptr %3659, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3932
 
 3932:                                             ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1009, %3674
@@ -171484,8 +171478,8 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %4160 = add i64 %4159, %.3.lcssa.i.i934
   store i64 %4160, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss16indexIVFPQ_statsE, i64 8), align 8, !tbaa !267
   call void @__kmpc_end_critical(ptr nonnull @3, i32 %42, ptr nonnull @.gomp_critical_user_.var)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %4161
 
 4161:                                             ; preds = %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_22HammingComputerDefaultEJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer64EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer32EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer20EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_17HammingComputer16EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer8EJmPKhS9_EEEvPKS4_DpT0_.exit, %_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEE1fINS_16HammingComputer4EJmPKhS9_EEEvPKS4_DpT0_.exit
@@ -171493,7 +171487,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15IndexIVFPQStats5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #27 align 2 {
+define void @_ZN5faiss15IndexIVFPQStats5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #26 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -171518,7 +171512,7 @@ define void @_ZN5faiss10IndexIVFPQC2Ev(ptr noundef nonnull align 8 dereferenceab
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #17
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #16
   resume { ptr, i32 } %8
 }
 
@@ -171814,18 +171808,18 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %19, align 8
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_RT0_(ptr %0, ptr %storemerge22, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_RT0_(ptr %0, ptr %storemerge22, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 20:                                               ; preds = %14
@@ -172359,10 +172353,16 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #24
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #23
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #28
@@ -172399,23 +172399,23 @@ attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind }
-attributes #18 = { convergent nounwind }
-attributes #19 = { cold noreturn }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind }
+attributes #17 = { convergent nounwind }
+attributes #18 = { cold noreturn }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #29 = { nofree nounwind }
 attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

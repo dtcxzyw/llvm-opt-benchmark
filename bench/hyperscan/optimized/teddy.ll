@@ -68,7 +68,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1(ptr noundef readonly %0,
 56:                                               ; preds = %3
   %57 = getelementptr inbounds i8, ptr %54, i64 -32
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %.not.i = icmp ult ptr %57, %30
   %59 = ptrtoint ptr %33 to i64
@@ -211,7 +211,7 @@ vectoredLoad256.exit:                             ; preds = %121, %119, %112, %1
   %.2 = phi <4 x i64> [ %76, %71 ], [ %.1, %89 ], [ %.1, %92 ], [ %.1, %94 ], [ %.1, %96 ], [ %.1, %101 ], [ %.1, %103 ], [ %.1, %110 ], [ %.1, %112 ], [ %.1, %119 ], [ %.1, %121 ]
   %.1.i.in = phi ptr [ %57, %71 ], [ %29, %89 ], [ %29, %92 ], [ %29, %94 ], [ %29, %96 ], [ %29, %101 ], [ %29, %103 ], [ %29, %110 ], [ %29, %112 ], [ %29, %119 ], [ %29, %121 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %128 = lshr <4 x i64> %.1.i, splat (i64 4)
   %129 = bitcast <4 x i64> %42 to <32 x i8>
   %130 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -250,7 +250,7 @@ vectoredLoad256.exit:                             ; preds = %121, %119, %112, %1
   %.32995 = phi i32 [ -1, %148 ], [ %.33996, %254 ]
   %.33 = phi i64 [ %2, %148 ], [ %.34, %254 ]
   %.0947 = phi i64 [ %149, %148 ], [ %157, %254 ]
-  %155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #7, !srcloc !6
+  %155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #6, !srcloc !6
   %156 = extractvalue { i64, i64 } %155, 0
   %157 = extractvalue { i64, i64 } %155, 1
   %158 = lshr i64 %156, 3
@@ -270,7 +270,7 @@ vectoredLoad256.exit:                             ; preds = %121, %119, %112, %1
   br i1 %.not25.i, label %254, label %168
 
 168:                                              ; preds = %162
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %169 = load ptr, ptr %1, align 8
   %170 = and i64 %158, 536870911
@@ -404,7 +404,7 @@ getConfVal.exit426:                               ; preds = %173, %lv_u64a_ce.ex
 
 246:                                              ; preds = %242
   %247 = load ptr, ptr %153, align 8
-  %248 = call i64 %247(i64 noundef %197, i32 noundef %225, ptr noundef %215) #6
+  %248 = call i64 %247(i64 noundef %197, i32 noundef %225, ptr noundef %215) #7
   br label %249
 
 249:                                              ; preds = %246, %242, %237, %227, %218
@@ -423,7 +423,7 @@ getConfVal.exit426:                               ; preds = %173, %lv_u64a_ce.ex
 confWithBit.exit588:                              ; preds = %getConfVal.exit426, %253
   %.1511114 = phi i32 [ %.32995, %getConfVal.exit426 ], [ %.1501113, %253 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit426 ], [ %.187, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %254
 
 254:                                              ; preds = %confWithBit.exit588, %162, %154
@@ -454,7 +454,7 @@ do_confWithBit_teddy.exit:                        ; preds = %254
   %.34997 = phi i32 [ %.1964, %257 ], [ %.35998, %365 ]
   %.35 = phi i64 [ %.1952, %257 ], [ %.36, %365 ]
   %.0946 = phi i64 [ %258, %257 ], [ %266, %365 ]
-  %264 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #7, !srcloc !6
+  %264 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #6, !srcloc !6
   %265 = extractvalue { i64, i64 } %264, 0
   %266 = extractvalue { i64, i64 } %264, 1
   %267 = trunc i64 %265 to i32
@@ -476,7 +476,7 @@ do_confWithBit_teddy.exit:                        ; preds = %254
   br i1 %.not25.i250, label %365, label %279
 
 279:                                              ; preds = %273
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %280 = load ptr, ptr %1, align 8
   %281 = zext nneg i32 %269 to i64
@@ -610,7 +610,7 @@ getConfVal.exit422:                               ; preds = %284, %lv_u64a_ce.ex
 
 357:                                              ; preds = %353
   %358 = load ptr, ptr %262, align 8
-  %359 = call i64 %358(i64 noundef %308, i32 noundef %336, ptr noundef %326) #6
+  %359 = call i64 %358(i64 noundef %308, i32 noundef %336, ptr noundef %326) #7
   br label %360
 
 360:                                              ; preds = %357, %353, %348, %338, %329
@@ -629,7 +629,7 @@ getConfVal.exit422:                               ; preds = %284, %lv_u64a_ce.ex
 confWithBit.exit581:                              ; preds = %getConfVal.exit422, %364
   %.1481111 = phi i32 [ %.34997, %getConfVal.exit422 ], [ %.1471110, %364 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit422 ], [ %.184, %364 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %365
 
 365:                                              ; preds = %confWithBit.exit581, %273, %263
@@ -660,7 +660,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %365
   %.36999 = phi i32 [ %.2965, %368 ], [ %.371000, %476 ]
   %.37 = phi i64 [ %.2953, %368 ], [ %.38, %476 ]
   %.0945 = phi i64 [ %369, %368 ], [ %377, %476 ]
-  %375 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0945) #7, !srcloc !6
+  %375 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0945) #6, !srcloc !6
   %376 = extractvalue { i64, i64 } %375, 0
   %377 = extractvalue { i64, i64 } %375, 1
   %378 = trunc i64 %376 to i32
@@ -682,7 +682,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %365
   br i1 %.not25.i254, label %476, label %390
 
 390:                                              ; preds = %384
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %391 = load ptr, ptr %1, align 8
   %392 = zext nneg i32 %380 to i64
@@ -816,7 +816,7 @@ getConfVal.exit418:                               ; preds = %395, %lv_u64a_ce.ex
 
 468:                                              ; preds = %464
   %469 = load ptr, ptr %373, align 8
-  %470 = call i64 %469(i64 noundef %419, i32 noundef %447, ptr noundef %437) #6
+  %470 = call i64 %469(i64 noundef %419, i32 noundef %447, ptr noundef %437) #7
   br label %471
 
 471:                                              ; preds = %468, %464, %459, %449, %440
@@ -835,7 +835,7 @@ getConfVal.exit418:                               ; preds = %395, %lv_u64a_ce.ex
 confWithBit.exit574:                              ; preds = %getConfVal.exit418, %475
   %.1451108 = phi i32 [ %.36999, %getConfVal.exit418 ], [ %.1441107, %475 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit418 ], [ %.181, %475 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %476
 
 476:                                              ; preds = %confWithBit.exit574, %384, %374
@@ -866,7 +866,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %476
   %.381001 = phi i32 [ %.3966, %479 ], [ %.391002, %587 ]
   %.39 = phi i64 [ %.3, %479 ], [ %.40, %587 ]
   %.0944 = phi i64 [ %480, %479 ], [ %488, %587 ]
-  %486 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #7, !srcloc !6
+  %486 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #6, !srcloc !6
   %487 = extractvalue { i64, i64 } %486, 0
   %488 = extractvalue { i64, i64 } %486, 1
   %489 = trunc i64 %487 to i32
@@ -888,7 +888,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %476
   br i1 %.not25.i258, label %587, label %501
 
 501:                                              ; preds = %495
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %502 = load ptr, ptr %1, align 8
   %503 = zext nneg i32 %491 to i64
@@ -1022,7 +1022,7 @@ getConfVal.exit414:                               ; preds = %506, %lv_u64a_ce.ex
 
 579:                                              ; preds = %575
   %580 = load ptr, ptr %484, align 8
-  %581 = call i64 %580(i64 noundef %530, i32 noundef %558, ptr noundef %548) #6
+  %581 = call i64 %580(i64 noundef %530, i32 noundef %558, ptr noundef %548) #7
   br label %582
 
 582:                                              ; preds = %579, %575, %570, %560, %551
@@ -1041,7 +1041,7 @@ getConfVal.exit414:                               ; preds = %506, %lv_u64a_ce.ex
 confWithBit.exit567:                              ; preds = %getConfVal.exit414, %586
   %.1421105 = phi i32 [ %.381001, %getConfVal.exit414 ], [ %.1411104, %586 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit414 ], [ %.178, %586 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %587
 
 587:                                              ; preds = %confWithBit.exit567, %495, %485
@@ -1115,7 +1115,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %587
   %.401003 = phi i32 [ %.0963, %622 ], [ %.411004, %729 ]
   %.41 = phi i64 [ %.0951, %622 ], [ %.42, %729 ]
   %.0943 = phi i64 [ %623, %622 ], [ %632, %729 ]
-  %630 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #7, !srcloc !6
+  %630 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #6, !srcloc !6
   %631 = extractvalue { i64, i64 } %630, 0
   %632 = extractvalue { i64, i64 } %630, 1
   %633 = lshr i64 %631, 3
@@ -1135,7 +1135,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %587
   br i1 %.not25.i262, label %729, label %643
 
 643:                                              ; preds = %637
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %644 = load ptr, ptr %1, align 8
   %645 = and i64 %633, 536870911
@@ -1269,7 +1269,7 @@ getConfVal.exit410:                               ; preds = %648, %lv_u64a_ce.ex
 
 721:                                              ; preds = %717
   %722 = load ptr, ptr %628, align 8
-  %723 = call i64 %722(i64 noundef %672, i32 noundef %700, ptr noundef %690) #6
+  %723 = call i64 %722(i64 noundef %672, i32 noundef %700, ptr noundef %690) #7
   br label %724
 
 724:                                              ; preds = %721, %717, %712, %702, %693
@@ -1288,7 +1288,7 @@ getConfVal.exit410:                               ; preds = %648, %lv_u64a_ce.ex
 confWithBit.exit560:                              ; preds = %getConfVal.exit410, %728
   %.1391102 = phi i32 [ %.401003, %getConfVal.exit410 ], [ %.1381101, %728 ]
   %.176 = phi i64 [ %.41, %getConfVal.exit410 ], [ %.175, %728 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %729
 
 729:                                              ; preds = %confWithBit.exit560, %637, %629
@@ -1320,7 +1320,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %729
   %.421005 = phi i32 [ %.7970, %732 ], [ %.431006, %841 ]
   %.43 = phi i64 [ %.7, %732 ], [ %.44, %841 ]
   %.0942 = phi i64 [ %733, %732 ], [ %742, %841 ]
-  %740 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #7, !srcloc !6
+  %740 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #6, !srcloc !6
   %741 = extractvalue { i64, i64 } %740, 0
   %742 = extractvalue { i64, i64 } %740, 1
   %743 = trunc i64 %741 to i32
@@ -1342,7 +1342,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %729
   br i1 %.not25.i266, label %841, label %755
 
 755:                                              ; preds = %749
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %756 = load ptr, ptr %1, align 8
   %757 = zext nneg i32 %745 to i64
@@ -1476,7 +1476,7 @@ getConfVal.exit406:                               ; preds = %760, %lv_u64a_ce.ex
 
 833:                                              ; preds = %829
   %834 = load ptr, ptr %738, align 8
-  %835 = call i64 %834(i64 noundef %784, i32 noundef %812, ptr noundef %802) #6
+  %835 = call i64 %834(i64 noundef %784, i32 noundef %812, ptr noundef %802) #7
   br label %836
 
 836:                                              ; preds = %833, %829, %824, %814, %805
@@ -1495,7 +1495,7 @@ getConfVal.exit406:                               ; preds = %760, %lv_u64a_ce.ex
 confWithBit.exit553:                              ; preds = %getConfVal.exit406, %840
   %.1361099 = phi i32 [ %.421005, %getConfVal.exit406 ], [ %.1351098, %840 ]
   %.173 = phi i64 [ %.43, %getConfVal.exit406 ], [ %.172, %840 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %841
 
 841:                                              ; preds = %confWithBit.exit553, %749, %739
@@ -1527,7 +1527,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %841
   %.441007 = phi i32 [ %.8971, %844 ], [ %.451008, %953 ]
   %.45 = phi i64 [ %.8, %844 ], [ %.46, %953 ]
   %.0941 = phi i64 [ %845, %844 ], [ %854, %953 ]
-  %852 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #7, !srcloc !6
+  %852 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #6, !srcloc !6
   %853 = extractvalue { i64, i64 } %852, 0
   %854 = extractvalue { i64, i64 } %852, 1
   %855 = trunc i64 %853 to i32
@@ -1549,7 +1549,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %841
   br i1 %.not25.i270, label %953, label %867
 
 867:                                              ; preds = %861
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %868 = load ptr, ptr %1, align 8
   %869 = zext nneg i32 %857 to i64
@@ -1683,7 +1683,7 @@ getConfVal.exit402:                               ; preds = %872, %lv_u64a_ce.ex
 
 945:                                              ; preds = %941
   %946 = load ptr, ptr %850, align 8
-  %947 = call i64 %946(i64 noundef %896, i32 noundef %924, ptr noundef %914) #6
+  %947 = call i64 %946(i64 noundef %896, i32 noundef %924, ptr noundef %914) #7
   br label %948
 
 948:                                              ; preds = %945, %941, %936, %926, %917
@@ -1702,7 +1702,7 @@ getConfVal.exit402:                               ; preds = %872, %lv_u64a_ce.ex
 confWithBit.exit546:                              ; preds = %getConfVal.exit402, %952
   %.1331096 = phi i32 [ %.441007, %getConfVal.exit402 ], [ %.1321095, %952 ]
   %.170 = phi i64 [ %.45, %getConfVal.exit402 ], [ %.169, %952 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %953
 
 953:                                              ; preds = %confWithBit.exit546, %861, %851
@@ -1734,7 +1734,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %953
   %.461009 = phi i32 [ %.9972, %956 ], [ %.471010, %1065 ]
   %.47 = phi i64 [ %.9, %956 ], [ %.48, %1065 ]
   %.0940 = phi i64 [ %957, %956 ], [ %966, %1065 ]
-  %964 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #7, !srcloc !6
+  %964 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #6, !srcloc !6
   %965 = extractvalue { i64, i64 } %964, 0
   %966 = extractvalue { i64, i64 } %964, 1
   %967 = trunc i64 %965 to i32
@@ -1756,7 +1756,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %953
   br i1 %.not25.i274, label %1065, label %979
 
 979:                                              ; preds = %973
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %980 = load ptr, ptr %1, align 8
   %981 = zext nneg i32 %969 to i64
@@ -1890,7 +1890,7 @@ getConfVal.exit398:                               ; preds = %984, %lv_u64a_ce.ex
 
 1057:                                             ; preds = %1053
   %1058 = load ptr, ptr %962, align 8
-  %1059 = call i64 %1058(i64 noundef %1008, i32 noundef %1036, ptr noundef %1026) #6
+  %1059 = call i64 %1058(i64 noundef %1008, i32 noundef %1036, ptr noundef %1026) #7
   br label %1060
 
 1060:                                             ; preds = %1057, %1053, %1048, %1038, %1029
@@ -1909,7 +1909,7 @@ getConfVal.exit398:                               ; preds = %984, %lv_u64a_ce.ex
 confWithBit.exit539:                              ; preds = %getConfVal.exit398, %1064
   %.1301093 = phi i32 [ %.461009, %getConfVal.exit398 ], [ %.1291092, %1064 ]
   %.167 = phi i64 [ %.47, %getConfVal.exit398 ], [ %.166, %1064 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1065
 
 1065:                                             ; preds = %confWithBit.exit539, %973, %963
@@ -2180,7 +2180,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1207 = add i64 %indvars.iv1254, %1085
   %1208 = and i64 %1207, 4294967295
   %1209 = load i32, ptr %1185, align 8
-  %1210 = call i64 %1080(i64 noundef %1208, i32 noundef %1209, ptr noundef %1081) #6
+  %1210 = call i64 %1080(i64 noundef %1208, i32 noundef %1209, ptr noundef %1081) #7
   %.pre = load i64, ptr %1184, align 8
   %.pre1281 = and i64 %.pre, %1210
   %1211 = icmp eq i64 %.pre1281, 0
@@ -2190,7 +2190,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1213 = add i64 %1186, %indvars.iv1254
   %1214 = and i64 %1213, 4294967295
   %1215 = load i32, ptr %1185, align 8
-  %1216 = call i64 %1080(i64 noundef %1214, i32 noundef %1215, ptr noundef %1081) #6
+  %1216 = call i64 %1080(i64 noundef %1214, i32 noundef %1215, ptr noundef %1081) #7
   %.pre1270 = load i64, ptr %1184, align 8
   %.pre1283 = and i64 %.pre1270, %1216
   %1217 = icmp eq i64 %.pre1283, 0
@@ -2200,7 +2200,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1219 = add i64 %1187, %indvars.iv1254
   %1220 = and i64 %1219, 4294967295
   %1221 = load i32, ptr %1185, align 8
-  %1222 = call i64 %1080(i64 noundef %1220, i32 noundef %1221, ptr noundef %1081) #6
+  %1222 = call i64 %1080(i64 noundef %1220, i32 noundef %1221, ptr noundef %1081) #7
   %.pre1271 = load i64, ptr %1184, align 8
   %.pre1285 = and i64 %.pre1271, %1222
   %1223 = icmp eq i64 %.pre1285, 0
@@ -2210,7 +2210,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1225 = add i64 %1188, %indvars.iv1254
   %1226 = and i64 %1225, 4294967295
   %1227 = load i32, ptr %1185, align 8
-  %1228 = call i64 %1080(i64 noundef %1226, i32 noundef %1227, ptr noundef %1081) #6
+  %1228 = call i64 %1080(i64 noundef %1226, i32 noundef %1227, ptr noundef %1081) #7
   br label %.thread1318
 
 .thread1318:                                      ; preds = %1203, %1206, %1212, %1224, %1218
@@ -2237,7 +2237,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1237 = add i64 %indvars.iv1251, %1085
   %1238 = and i64 %1237, 4294967295
   %1239 = load i32, ptr %1177, align 8
-  %1240 = call i64 %1080(i64 noundef %1238, i32 noundef %1239, ptr noundef %1081) #6
+  %1240 = call i64 %1080(i64 noundef %1238, i32 noundef %1239, ptr noundef %1081) #7
   br label %1241
 
 1241:                                             ; preds = %1236, %1233
@@ -2251,7 +2251,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1245 = add i64 %indvars.iv1251, %1085
   %1246 = and i64 %1245, 4294967295
   %1247 = load i32, ptr %1179, align 4
-  %1248 = call i64 %1080(i64 noundef %1246, i32 noundef %1247, ptr noundef %1081) #6
+  %1248 = call i64 %1080(i64 noundef %1246, i32 noundef %1247, ptr noundef %1081) #7
   br label %1249
 
 1249:                                             ; preds = %1244, %1241
@@ -2266,7 +2266,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1254 = add i32 %1180, %1253
   %1255 = zext i32 %1254 to i64
   %1256 = load i32, ptr %1177, align 8
-  %1257 = call i64 %1080(i64 noundef %1255, i32 noundef %1256, ptr noundef %1081) #6
+  %1257 = call i64 %1080(i64 noundef %1255, i32 noundef %1256, ptr noundef %1081) #7
   br label %1258
 
 1258:                                             ; preds = %1252, %1249
@@ -2281,7 +2281,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1263 = add i32 %1180, %1262
   %1264 = zext i32 %1263 to i64
   %1265 = load i32, ptr %1179, align 4
-  %1266 = call i64 %1080(i64 noundef %1264, i32 noundef %1265, ptr noundef %1081) #6
+  %1266 = call i64 %1080(i64 noundef %1264, i32 noundef %1265, ptr noundef %1081) #7
   br label %1267
 
 1267:                                             ; preds = %1261, %1258
@@ -2296,7 +2296,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1272 = add i32 %1181, %1271
   %1273 = zext i32 %1272 to i64
   %1274 = load i32, ptr %1177, align 8
-  %1275 = call i64 %1080(i64 noundef %1273, i32 noundef %1274, ptr noundef %1081) #6
+  %1275 = call i64 %1080(i64 noundef %1273, i32 noundef %1274, ptr noundef %1081) #7
   br label %1276
 
 1276:                                             ; preds = %1270, %1267
@@ -2311,7 +2311,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1281 = add i32 %1181, %1280
   %1282 = zext i32 %1281 to i64
   %1283 = load i32, ptr %1179, align 4
-  %1284 = call i64 %1080(i64 noundef %1282, i32 noundef %1283, ptr noundef %1081) #6
+  %1284 = call i64 %1080(i64 noundef %1282, i32 noundef %1283, ptr noundef %1081) #7
   br label %1285
 
 1285:                                             ; preds = %1279, %1276
@@ -2326,7 +2326,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1290 = add i32 %1182, %1289
   %1291 = zext i32 %1290 to i64
   %1292 = load i32, ptr %1177, align 8
-  %1293 = call i64 %1080(i64 noundef %1291, i32 noundef %1292, ptr noundef %1081) #6
+  %1293 = call i64 %1080(i64 noundef %1291, i32 noundef %1292, ptr noundef %1081) #7
   br label %1294
 
 1294:                                             ; preds = %1288, %1285
@@ -2341,7 +2341,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1299 = add i32 %1182, %1298
   %1300 = zext i32 %1299 to i64
   %1301 = load i32, ptr %1179, align 4
-  %1302 = call i64 %1080(i64 noundef %1300, i32 noundef %1301, ptr noundef %1081) #6
+  %1302 = call i64 %1080(i64 noundef %1300, i32 noundef %1301, ptr noundef %1081) #7
   br label %1303
 
 1303:                                             ; preds = %1297, %1294
@@ -2368,7 +2368,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1312 = add i64 %indvars.iv, %1085
   %1313 = and i64 %1312, 4294967295
   %1314 = load i32, ptr %1169, align 8
-  %1315 = call i64 %1080(i64 noundef %1313, i32 noundef %1314, ptr noundef %1081) #6
+  %1315 = call i64 %1080(i64 noundef %1313, i32 noundef %1314, ptr noundef %1081) #7
   br label %1316
 
 1316:                                             ; preds = %1311, %1308
@@ -2382,7 +2382,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1320 = add i64 %indvars.iv, %1085
   %1321 = and i64 %1320, 4294967295
   %1322 = load i32, ptr %1171, align 4
-  %1323 = call i64 %1080(i64 noundef %1321, i32 noundef %1322, ptr noundef %1081) #6
+  %1323 = call i64 %1080(i64 noundef %1321, i32 noundef %1322, ptr noundef %1081) #7
   br label %1324
 
 1324:                                             ; preds = %1319, %1316
@@ -2396,7 +2396,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1328 = add i64 %indvars.iv, %1085
   %1329 = and i64 %1328, 4294967295
   %1330 = load i32, ptr %1173, align 8
-  %1331 = call i64 %1080(i64 noundef %1329, i32 noundef %1330, ptr noundef %1081) #6
+  %1331 = call i64 %1080(i64 noundef %1329, i32 noundef %1330, ptr noundef %1081) #7
   br label %1332
 
 1332:                                             ; preds = %1327, %1324
@@ -2411,7 +2411,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1337 = add i32 %1174, %1336
   %1338 = zext i32 %1337 to i64
   %1339 = load i32, ptr %1169, align 8
-  %1340 = call i64 %1080(i64 noundef %1338, i32 noundef %1339, ptr noundef %1081) #6
+  %1340 = call i64 %1080(i64 noundef %1338, i32 noundef %1339, ptr noundef %1081) #7
   br label %1341
 
 1341:                                             ; preds = %1335, %1332
@@ -2426,7 +2426,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1346 = add i32 %1174, %1345
   %1347 = zext i32 %1346 to i64
   %1348 = load i32, ptr %1171, align 4
-  %1349 = call i64 %1080(i64 noundef %1347, i32 noundef %1348, ptr noundef %1081) #6
+  %1349 = call i64 %1080(i64 noundef %1347, i32 noundef %1348, ptr noundef %1081) #7
   br label %1350
 
 1350:                                             ; preds = %1344, %1341
@@ -2441,7 +2441,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1355 = add i32 %1174, %1354
   %1356 = zext i32 %1355 to i64
   %1357 = load i32, ptr %1173, align 8
-  %1358 = call i64 %1080(i64 noundef %1356, i32 noundef %1357, ptr noundef %1081) #6
+  %1358 = call i64 %1080(i64 noundef %1356, i32 noundef %1357, ptr noundef %1081) #7
   br label %1359
 
 1359:                                             ; preds = %1353, %1350
@@ -2468,7 +2468,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1368 = add i64 %indvars.iv1263, %1085
   %1369 = and i64 %1368, 4294967295
   %1370 = load i32, ptr %1191, align 8
-  %1371 = call i64 %1080(i64 noundef %1369, i32 noundef %1370, ptr noundef %1081) #6
+  %1371 = call i64 %1080(i64 noundef %1369, i32 noundef %1370, ptr noundef %1081) #7
   br label %1372
 
 1372:                                             ; preds = %1367, %1364
@@ -2482,7 +2482,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1376 = add i64 %indvars.iv1263, %1085
   %1377 = and i64 %1376, 4294967295
   %1378 = load i32, ptr %1193, align 4
-  %1379 = call i64 %1080(i64 noundef %1377, i32 noundef %1378, ptr noundef %1081) #6
+  %1379 = call i64 %1080(i64 noundef %1377, i32 noundef %1378, ptr noundef %1081) #7
   br label %1380
 
 1380:                                             ; preds = %1375, %1372
@@ -2496,7 +2496,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1384 = add i64 %indvars.iv1263, %1085
   %1385 = and i64 %1384, 4294967295
   %1386 = load i32, ptr %1195, align 8
-  %1387 = call i64 %1080(i64 noundef %1385, i32 noundef %1386, ptr noundef %1081) #6
+  %1387 = call i64 %1080(i64 noundef %1385, i32 noundef %1386, ptr noundef %1081) #7
   br label %1388
 
 1388:                                             ; preds = %1383, %1380
@@ -2510,7 +2510,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1392 = add i64 %indvars.iv1263, %1085
   %1393 = and i64 %1392, 4294967295
   %1394 = load i32, ptr %1197, align 4
-  %1395 = call i64 %1080(i64 noundef %1393, i32 noundef %1394, ptr noundef %1081) #6
+  %1395 = call i64 %1080(i64 noundef %1393, i32 noundef %1394, ptr noundef %1081) #7
   br label %1396
 
 1396:                                             ; preds = %1391, %1388
@@ -2544,7 +2544,7 @@ split:                                            ; preds = %1148, %.thread1117
 1408:                                             ; preds = %1403
   %1409 = getelementptr inbounds nuw [16 x i32], ptr %1191, i64 0, i64 %indvars.iv1257
   %1410 = load i32, ptr %1409, align 4
-  %1411 = call i64 %1080(i64 noundef %1400, i32 noundef %1410, ptr noundef %1081) #6
+  %1411 = call i64 %1080(i64 noundef %1400, i32 noundef %1410, ptr noundef %1081) #7
   %.pre1272 = load i16, ptr %1111, align 4
   br label %1412
 
@@ -2561,7 +2561,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1418 = add i32 %1198, %1417
   %1419 = zext i32 %1418 to i64
   %1420 = load i32, ptr %1191, align 8
-  %1421 = call i64 %1080(i64 noundef %1419, i32 noundef %1420, ptr noundef %1081) #6
+  %1421 = call i64 %1080(i64 noundef %1419, i32 noundef %1420, ptr noundef %1081) #7
   br label %1422
 
 1422:                                             ; preds = %1416, %._crit_edge1197
@@ -2576,7 +2576,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1427 = add i32 %1198, %1426
   %1428 = zext i32 %1427 to i64
   %1429 = load i32, ptr %1193, align 4
-  %1430 = call i64 %1080(i64 noundef %1428, i32 noundef %1429, ptr noundef %1081) #6
+  %1430 = call i64 %1080(i64 noundef %1428, i32 noundef %1429, ptr noundef %1081) #7
   br label %1431
 
 1431:                                             ; preds = %1425, %1422
@@ -2591,7 +2591,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1436 = add i32 %1198, %1435
   %1437 = zext i32 %1436 to i64
   %1438 = load i32, ptr %1195, align 8
-  %1439 = call i64 %1080(i64 noundef %1437, i32 noundef %1438, ptr noundef %1081) #6
+  %1439 = call i64 %1080(i64 noundef %1437, i32 noundef %1438, ptr noundef %1081) #7
   br label %1440
 
 1440:                                             ; preds = %1434, %1431
@@ -2606,7 +2606,7 @@ split:                                            ; preds = %1148, %.thread1117
   %1445 = add i32 %1198, %1444
   %1446 = zext i32 %1445 to i64
   %1447 = load i32, ptr %1197, align 4
-  %1448 = call i64 %1080(i64 noundef %1446, i32 noundef %1447, ptr noundef %1081) #6
+  %1448 = call i64 %1080(i64 noundef %1446, i32 noundef %1447, ptr noundef %1081) #7
   br label %1449
 
 1449:                                             ; preds = %1443, %1440
@@ -2640,7 +2640,7 @@ split:                                            ; preds = %1148, %.thread1117
 1461:                                             ; preds = %1456
   %1462 = getelementptr inbounds nuw [16 x i32], ptr %1191, i64 0, i64 %indvars.iv1260
   %1463 = load i32, ptr %1462, align 4
-  %1464 = call i64 %1080(i64 noundef %1454, i32 noundef %1463, ptr noundef %1081) #6
+  %1464 = call i64 %1080(i64 noundef %1454, i32 noundef %1463, ptr noundef %1081) #7
   %.pre1273 = load i16, ptr %1111, align 4
   br label %1465
 
@@ -2732,7 +2732,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
   %.481011 = phi i32 [ %.129751212, %1514 ], [ %.491012, %1596 ]
   %.49 = phi i64 [ %.13, %1514 ], [ %.50, %1596 ]
   %.0939 = phi i64 [ %1515, %1514 ], [ %1520, %1596 ]
-  %1518 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #7, !srcloc !6
+  %1518 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #6, !srcloc !6
   %1519 = extractvalue { i64, i64 } %1518, 0
   %1520 = extractvalue { i64, i64 } %1518, 1
   %1521 = lshr i64 %1519, 3
@@ -2752,7 +2752,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
   br i1 %.not25.i278, label %1596, label %1531
 
 1531:                                             ; preds = %1525
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %1532 = load ptr, ptr %1, align 8
   %1533 = and i64 %1521, 536870911
@@ -2837,7 +2837,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
 
 1588:                                             ; preds = %1584
   %1589 = load ptr, ptr %1068, align 8
-  %1590 = call i64 %1589(i64 noundef %1539, i32 noundef %1567, ptr noundef %1557) #6
+  %1590 = call i64 %1589(i64 noundef %1539, i32 noundef %1567, ptr noundef %1557) #7
   br label %1591
 
 1591:                                             ; preds = %1588, %1584, %1579, %1569, %1560
@@ -2856,7 +2856,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
 confWithBit.exit532:                              ; preds = %1531, %1595
   %.1271090 = phi i32 [ %.481011, %1531 ], [ %.1261089, %1595 ]
   %.164 = phi i64 [ %.49, %1531 ], [ %.163, %1595 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %1596
 
 1596:                                             ; preds = %confWithBit.exit532, %1525, %1517
@@ -2884,7 +2884,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %1596
   %.501013 = phi i32 [ %.13976, %1599 ], [ %.511014, %1683 ]
   %.51 = phi i64 [ %.14, %1599 ], [ %.52, %1683 ]
   %.0938 = phi i64 [ %1600, %1599 ], [ %1605, %1683 ]
-  %1603 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #7, !srcloc !6
+  %1603 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #6, !srcloc !6
   %1604 = extractvalue { i64, i64 } %1603, 0
   %1605 = extractvalue { i64, i64 } %1603, 1
   %1606 = trunc i64 %1604 to i32
@@ -2906,7 +2906,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %1596
   br i1 %.not25.i282, label %1683, label %1618
 
 1618:                                             ; preds = %1612
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %1619 = load ptr, ptr %1, align 8
   %1620 = zext nneg i32 %1608 to i64
@@ -2991,7 +2991,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %1596
 
 1675:                                             ; preds = %1671
   %1676 = load ptr, ptr %1068, align 8
-  %1677 = call i64 %1676(i64 noundef %1626, i32 noundef %1654, ptr noundef %1644) #6
+  %1677 = call i64 %1676(i64 noundef %1626, i32 noundef %1654, ptr noundef %1644) #7
   br label %1678
 
 1678:                                             ; preds = %1675, %1671, %1666, %1656, %1647
@@ -3010,7 +3010,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %1596
 confWithBit.exit525:                              ; preds = %1618, %1682
   %.1241087 = phi i32 [ %.501013, %1618 ], [ %.1231086, %1682 ]
   %.161 = phi i64 [ %.51, %1618 ], [ %.160, %1682 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %1683
 
 1683:                                             ; preds = %confWithBit.exit525, %1612, %1602
@@ -3038,7 +3038,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %1683
   %.521015 = phi i32 [ %.14977, %1686 ], [ %.531016, %1770 ]
   %.53 = phi i64 [ %.15, %1686 ], [ %.54, %1770 ]
   %.0937 = phi i64 [ %1687, %1686 ], [ %1692, %1770 ]
-  %1690 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #7, !srcloc !6
+  %1690 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #6, !srcloc !6
   %1691 = extractvalue { i64, i64 } %1690, 0
   %1692 = extractvalue { i64, i64 } %1690, 1
   %1693 = trunc i64 %1691 to i32
@@ -3060,7 +3060,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %1683
   br i1 %.not25.i286, label %1770, label %1705
 
 1705:                                             ; preds = %1699
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %1706 = load ptr, ptr %1, align 8
   %1707 = zext nneg i32 %1695 to i64
@@ -3145,7 +3145,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %1683
 
 1762:                                             ; preds = %1758
   %1763 = load ptr, ptr %1068, align 8
-  %1764 = call i64 %1763(i64 noundef %1713, i32 noundef %1741, ptr noundef %1731) #6
+  %1764 = call i64 %1763(i64 noundef %1713, i32 noundef %1741, ptr noundef %1731) #7
   br label %1765
 
 1765:                                             ; preds = %1762, %1758, %1753, %1743, %1734
@@ -3164,7 +3164,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %1683
 confWithBit.exit518:                              ; preds = %1705, %1769
   %.1211084 = phi i32 [ %.521015, %1705 ], [ %.1201083, %1769 ]
   %.158 = phi i64 [ %.53, %1705 ], [ %.157, %1769 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1770
 
 1770:                                             ; preds = %confWithBit.exit518, %1699, %1689
@@ -3192,7 +3192,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1770
   %.541017 = phi i32 [ %.15978, %1773 ], [ %.551018, %1857 ]
   %.55 = phi i64 [ %.16, %1773 ], [ %.56, %1857 ]
   %.0936 = phi i64 [ %1774, %1773 ], [ %1779, %1857 ]
-  %1777 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #7, !srcloc !6
+  %1777 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #6, !srcloc !6
   %1778 = extractvalue { i64, i64 } %1777, 0
   %1779 = extractvalue { i64, i64 } %1777, 1
   %1780 = trunc i64 %1778 to i32
@@ -3214,7 +3214,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1770
   br i1 %.not25.i290, label %1857, label %1792
 
 1792:                                             ; preds = %1786
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %1793 = load ptr, ptr %1, align 8
   %1794 = zext nneg i32 %1782 to i64
@@ -3299,7 +3299,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1770
 
 1849:                                             ; preds = %1845
   %1850 = load ptr, ptr %1068, align 8
-  %1851 = call i64 %1850(i64 noundef %1800, i32 noundef %1828, ptr noundef %1818) #6
+  %1851 = call i64 %1850(i64 noundef %1800, i32 noundef %1828, ptr noundef %1818) #7
   br label %1852
 
 1852:                                             ; preds = %1849, %1845, %1840, %1830, %1821
@@ -3318,7 +3318,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %1770
 confWithBit.exit511:                              ; preds = %1792, %1856
   %.1181081 = phi i32 [ %.541017, %1792 ], [ %.1171080, %1856 ]
   %.155 = phi i64 [ %.55, %1792 ], [ %.154, %1856 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1857
 
 1857:                                             ; preds = %confWithBit.exit511, %1786, %1776
@@ -3382,7 +3382,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1857
   %.561019 = phi i32 [ %.17980, %1890 ], [ %.571020, %1974 ]
   %.57 = phi i64 [ %.18, %1890 ], [ %.58, %1974 ]
   %.0935 = phi i64 [ %1891, %1890 ], [ %1896, %1974 ]
-  %1894 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #7, !srcloc !6
+  %1894 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #6, !srcloc !6
   %1895 = extractvalue { i64, i64 } %1894, 0
   %1896 = extractvalue { i64, i64 } %1894, 1
   %1897 = trunc i64 %1895 to i32
@@ -3404,7 +3404,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1857
   br i1 %.not25.i294, label %1974, label %1909
 
 1909:                                             ; preds = %1903
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1910 = load ptr, ptr %1, align 8
   %1911 = zext nneg i32 %1899 to i64
@@ -3489,7 +3489,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1857
 
 1966:                                             ; preds = %1962
   %1967 = load ptr, ptr %1068, align 8
-  %1968 = call i64 %1967(i64 noundef %1917, i32 noundef %1945, ptr noundef %1935) #6
+  %1968 = call i64 %1967(i64 noundef %1917, i32 noundef %1945, ptr noundef %1935) #7
   br label %1969
 
 1969:                                             ; preds = %1966, %1962, %1957, %1947, %1938
@@ -3508,7 +3508,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1857
 confWithBit.exit504:                              ; preds = %1909, %1973
   %.1151078 = phi i32 [ %.561019, %1909 ], [ %.1141077, %1973 ]
   %.152 = phi i64 [ %.57, %1909 ], [ %.151, %1973 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1974
 
 1974:                                             ; preds = %confWithBit.exit504, %1903, %1893
@@ -3536,7 +3536,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1974
   %.581021 = phi i32 [ %.18981, %1977 ], [ %.591022, %2061 ]
   %.59 = phi i64 [ %.19, %1977 ], [ %.60, %2061 ]
   %.0934 = phi i64 [ %1978, %1977 ], [ %1983, %2061 ]
-  %1981 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #7, !srcloc !6
+  %1981 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #6, !srcloc !6
   %1982 = extractvalue { i64, i64 } %1981, 0
   %1983 = extractvalue { i64, i64 } %1981, 1
   %1984 = trunc i64 %1982 to i32
@@ -3558,7 +3558,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1974
   br i1 %.not25.i298, label %2061, label %1996
 
 1996:                                             ; preds = %1990
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1997 = load ptr, ptr %1, align 8
   %1998 = zext nneg i32 %1986 to i64
@@ -3643,7 +3643,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1974
 
 2053:                                             ; preds = %2049
   %2054 = load ptr, ptr %1068, align 8
-  %2055 = call i64 %2054(i64 noundef %2004, i32 noundef %2032, ptr noundef %2022) #6
+  %2055 = call i64 %2054(i64 noundef %2004, i32 noundef %2032, ptr noundef %2022) #7
   br label %2056
 
 2056:                                             ; preds = %2053, %2049, %2044, %2034, %2025
@@ -3662,7 +3662,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1974
 confWithBit.exit497:                              ; preds = %1996, %2060
   %.1121075 = phi i32 [ %.581021, %1996 ], [ %.1111074, %2060 ]
   %.149 = phi i64 [ %.59, %1996 ], [ %.148, %2060 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %2061
 
 2061:                                             ; preds = %confWithBit.exit497, %1990, %1980
@@ -3690,7 +3690,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %2061
   %.601023 = phi i32 [ %.19982, %2064 ], [ %.611024, %2148 ]
   %.61 = phi i64 [ %.20, %2064 ], [ %.62, %2148 ]
   %.0933 = phi i64 [ %2065, %2064 ], [ %2070, %2148 ]
-  %2068 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0933) #7, !srcloc !6
+  %2068 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0933) #6, !srcloc !6
   %2069 = extractvalue { i64, i64 } %2068, 0
   %2070 = extractvalue { i64, i64 } %2068, 1
   %2071 = trunc i64 %2069 to i32
@@ -3712,7 +3712,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %2061
   br i1 %.not25.i302, label %2148, label %2083
 
 2083:                                             ; preds = %2077
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %2084 = load ptr, ptr %1, align 8
   %2085 = zext nneg i32 %2073 to i64
@@ -3797,7 +3797,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %2061
 
 2140:                                             ; preds = %2136
   %2141 = load ptr, ptr %1068, align 8
-  %2142 = call i64 %2141(i64 noundef %2091, i32 noundef %2119, ptr noundef %2109) #6
+  %2142 = call i64 %2141(i64 noundef %2091, i32 noundef %2119, ptr noundef %2109) #7
   br label %2143
 
 2143:                                             ; preds = %2140, %2136, %2131, %2121, %2112
@@ -3816,7 +3816,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %2061
 confWithBit.exit490:                              ; preds = %2083, %2147
   %.1091072 = phi i32 [ %.601023, %2083 ], [ %.1081071, %2147 ]
   %.146 = phi i64 [ %.61, %2083 ], [ %.145, %2147 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2148
 
 2148:                                             ; preds = %confWithBit.exit490, %2077, %2067
@@ -3844,7 +3844,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %2148
   %.621025 = phi i32 [ %.20983, %2151 ], [ %.631026, %2235 ]
   %.63 = phi i64 [ %.21, %2151 ], [ %.64, %2235 ]
   %.0932 = phi i64 [ %2152, %2151 ], [ %2157, %2235 ]
-  %2155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #7, !srcloc !6
+  %2155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #6, !srcloc !6
   %2156 = extractvalue { i64, i64 } %2155, 0
   %2157 = extractvalue { i64, i64 } %2155, 1
   %2158 = trunc i64 %2156 to i32
@@ -3866,7 +3866,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %2148
   br i1 %.not25.i306, label %2235, label %2170
 
 2170:                                             ; preds = %2164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %2171 = load ptr, ptr %1, align 8
   %2172 = zext nneg i32 %2160 to i64
@@ -3951,7 +3951,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %2148
 
 2227:                                             ; preds = %2223
   %2228 = load ptr, ptr %1068, align 8
-  %2229 = call i64 %2228(i64 noundef %2178, i32 noundef %2206, ptr noundef %2196) #6
+  %2229 = call i64 %2228(i64 noundef %2178, i32 noundef %2206, ptr noundef %2196) #7
   br label %2230
 
 2230:                                             ; preds = %2227, %2223, %2218, %2208, %2199
@@ -3970,7 +3970,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %2148
 confWithBit.exit483:                              ; preds = %2170, %2234
   %.1061069 = phi i32 [ %.621025, %2170 ], [ %.1051068, %2234 ]
   %.143 = phi i64 [ %.63, %2170 ], [ %.142, %2234 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %2235
 
 2235:                                             ; preds = %confWithBit.exit483, %2164, %2154
@@ -4050,7 +4050,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %2235
   %.641027 = phi i32 [ %.12975.lcssa, %2271 ], [ %.651028, %2356 ]
   %.65 = phi i64 [ %.12.lcssa, %2271 ], [ %.66, %2356 ]
   %.0931 = phi i64 [ %2272, %2271 ], [ %2280, %2356 ]
-  %2278 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #7, !srcloc !6
+  %2278 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #6, !srcloc !6
   %2279 = extractvalue { i64, i64 } %2278, 0
   %2280 = extractvalue { i64, i64 } %2278, 1
   %2281 = lshr i64 %2279, 3
@@ -4070,7 +4070,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %2235
   br i1 %.not25.i310, label %2356, label %2291
 
 2291:                                             ; preds = %2285
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %2292 = load ptr, ptr %1, align 8
   %2293 = and i64 %2281, 536870911
@@ -4155,7 +4155,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %2235
 
 2348:                                             ; preds = %2344
   %2349 = load ptr, ptr %2276, align 8
-  %2350 = call i64 %2349(i64 noundef %2299, i32 noundef %2327, ptr noundef %2317) #6
+  %2350 = call i64 %2349(i64 noundef %2299, i32 noundef %2327, ptr noundef %2317) #7
   br label %2351
 
 2351:                                             ; preds = %2348, %2344, %2339, %2329, %2320
@@ -4174,7 +4174,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %2235
 confWithBit.exit476:                              ; preds = %2291, %2355
   %.1031066 = phi i32 [ %.641027, %2291 ], [ %.1021065, %2355 ]
   %.140 = phi i64 [ %.65, %2291 ], [ %.139, %2355 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %2356
 
 2356:                                             ; preds = %confWithBit.exit476, %2285, %2277
@@ -4205,7 +4205,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %2356
   %.661029 = phi i32 [ %.24987, %2359 ], [ %.671030, %2446 ]
   %.67 = phi i64 [ %.25, %2359 ], [ %.68, %2446 ]
   %.0930 = phi i64 [ %2360, %2359 ], [ %2368, %2446 ]
-  %2366 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #7, !srcloc !6
+  %2366 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #6, !srcloc !6
   %2367 = extractvalue { i64, i64 } %2366, 0
   %2368 = extractvalue { i64, i64 } %2366, 1
   %2369 = trunc i64 %2367 to i32
@@ -4227,7 +4227,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %2356
   br i1 %.not25.i314, label %2446, label %2381
 
 2381:                                             ; preds = %2375
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %2382 = load ptr, ptr %1, align 8
   %2383 = zext nneg i32 %2371 to i64
@@ -4312,7 +4312,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %2356
 
 2438:                                             ; preds = %2434
   %2439 = load ptr, ptr %2364, align 8
-  %2440 = call i64 %2439(i64 noundef %2389, i32 noundef %2417, ptr noundef %2407) #6
+  %2440 = call i64 %2439(i64 noundef %2389, i32 noundef %2417, ptr noundef %2407) #7
   br label %2441
 
 2441:                                             ; preds = %2438, %2434, %2429, %2419, %2410
@@ -4331,7 +4331,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %2356
 confWithBit.exit469:                              ; preds = %2381, %2445
   %.1001063 = phi i32 [ %.661029, %2381 ], [ %.991062, %2445 ]
   %.137 = phi i64 [ %.67, %2381 ], [ %.136, %2445 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2446
 
 2446:                                             ; preds = %confWithBit.exit469, %2375, %2365
@@ -4362,7 +4362,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %2446
   %.681031 = phi i32 [ %.25988, %2449 ], [ %.691032, %2536 ]
   %.69 = phi i64 [ %.26, %2449 ], [ %.70, %2536 ]
   %.0929 = phi i64 [ %2450, %2449 ], [ %2458, %2536 ]
-  %2456 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0929) #7, !srcloc !6
+  %2456 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0929) #6, !srcloc !6
   %2457 = extractvalue { i64, i64 } %2456, 0
   %2458 = extractvalue { i64, i64 } %2456, 1
   %2459 = trunc i64 %2457 to i32
@@ -4384,7 +4384,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %2446
   br i1 %.not25.i318, label %2536, label %2471
 
 2471:                                             ; preds = %2465
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %2472 = load ptr, ptr %1, align 8
   %2473 = zext nneg i32 %2461 to i64
@@ -4469,7 +4469,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %2446
 
 2528:                                             ; preds = %2524
   %2529 = load ptr, ptr %2454, align 8
-  %2530 = call i64 %2529(i64 noundef %2479, i32 noundef %2507, ptr noundef %2497) #6
+  %2530 = call i64 %2529(i64 noundef %2479, i32 noundef %2507, ptr noundef %2497) #7
   br label %2531
 
 2531:                                             ; preds = %2528, %2524, %2519, %2509, %2500
@@ -4488,7 +4488,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %2446
 confWithBit.exit462:                              ; preds = %2471, %2535
   %.971060 = phi i32 [ %.681031, %2471 ], [ %.961059, %2535 ]
   %.134 = phi i64 [ %.69, %2471 ], [ %.133, %2535 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %2536
 
 2536:                                             ; preds = %confWithBit.exit462, %2465, %2455
@@ -4519,7 +4519,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %2536
   %.701033 = phi i32 [ %.26989, %2539 ], [ %.711034, %2626 ]
   %.71 = phi i64 [ %.27, %2539 ], [ %.72, %2626 ]
   %.0928 = phi i64 [ %2540, %2539 ], [ %2548, %2626 ]
-  %2546 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0928) #7, !srcloc !6
+  %2546 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0928) #6, !srcloc !6
   %2547 = extractvalue { i64, i64 } %2546, 0
   %2548 = extractvalue { i64, i64 } %2546, 1
   %2549 = trunc i64 %2547 to i32
@@ -4541,7 +4541,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %2536
   br i1 %.not25.i322, label %2626, label %2561
 
 2561:                                             ; preds = %2555
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %2562 = load ptr, ptr %1, align 8
   %2563 = zext nneg i32 %2551 to i64
@@ -4626,7 +4626,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %2536
 
 2618:                                             ; preds = %2614
   %2619 = load ptr, ptr %2544, align 8
-  %2620 = call i64 %2619(i64 noundef %2569, i32 noundef %2597, ptr noundef %2587) #6
+  %2620 = call i64 %2619(i64 noundef %2569, i32 noundef %2597, ptr noundef %2587) #7
   br label %2621
 
 2621:                                             ; preds = %2618, %2614, %2609, %2599, %2590
@@ -4645,7 +4645,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %2536
 confWithBit.exit455:                              ; preds = %2561, %2625
   %.941057 = phi i32 [ %.701033, %2561 ], [ %.931056, %2625 ]
   %.131 = phi i64 [ %.71, %2561 ], [ %.130, %2625 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %2626
 
 2626:                                             ; preds = %confWithBit.exit455, %2555, %2545
@@ -4667,7 +4667,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %2626
 
 2629:                                             ; preds = %.critedge234
   %2630 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %2631 = ptrtoint ptr %.4959 to i64
   %2632 = ptrtoint ptr %33 to i64
@@ -4773,7 +4773,7 @@ vectoredLoad256.exit247:                          ; preds = %2669, %2667, %2660,
   %.09271123 = phi <4 x i64> [ %2636, %2635 ], [ %2639, %2637 ], [ %2639, %2640 ], [ %2639, %2642 ], [ %2639, %2644 ], [ %2639, %2649 ], [ %2639, %2651 ], [ %2639, %2658 ], [ %2639, %2660 ], [ %2639, %2667 ], [ %2639, %2669 ]
   %.1.i242.in = phi ptr [ %.4959, %2635 ], [ %28, %2637 ], [ %28, %2640 ], [ %28, %2642 ], [ %28, %2644 ], [ %28, %2649 ], [ %28, %2651 ], [ %28, %2658 ], [ %28, %2660 ], [ %28, %2667 ], [ %28, %2669 ]
   %.1.i242 = load <4 x i64>, ptr %.1.i242.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %2676 = lshr <4 x i64> %.1.i242, splat (i64 4)
   %2677 = bitcast <4 x i64> %42 to <32 x i8>
   %2678 = bitcast <4 x i64> %.1.i242 to <32 x i8>
@@ -4811,7 +4811,7 @@ vectoredLoad256.exit247:                          ; preds = %2669, %2667, %2660,
   %.721035 = phi i32 [ %.23986, %2696 ], [ %.731036, %2801 ]
   %.73 = phi i64 [ %.24, %2696 ], [ %.74, %2801 ]
   %.0926 = phi i64 [ %2697, %2696 ], [ %2704, %2801 ]
-  %2702 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0926) #7, !srcloc !6
+  %2702 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0926) #6, !srcloc !6
   %2703 = extractvalue { i64, i64 } %2702, 0
   %2704 = extractvalue { i64, i64 } %2702, 1
   %2705 = lshr i64 %2703, 3
@@ -4831,7 +4831,7 @@ vectoredLoad256.exit247:                          ; preds = %2669, %2667, %2660,
   br i1 %.not25.i326, label %2801, label %2715
 
 2715:                                             ; preds = %2709
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %2716 = load ptr, ptr %1, align 8
   %2717 = and i64 %2705, 536870911
@@ -4965,7 +4965,7 @@ getConfVal.exit358:                               ; preds = %2720, %lv_u64a_ce.e
 
 2793:                                             ; preds = %2789
   %2794 = load ptr, ptr %2700, align 8
-  %2795 = call i64 %2794(i64 noundef %2744, i32 noundef %2772, ptr noundef %2762) #6
+  %2795 = call i64 %2794(i64 noundef %2744, i32 noundef %2772, ptr noundef %2762) #7
   br label %2796
 
 2796:                                             ; preds = %2793, %2789, %2784, %2774, %2765
@@ -4984,7 +4984,7 @@ getConfVal.exit358:                               ; preds = %2720, %lv_u64a_ce.e
 confWithBit.exit448:                              ; preds = %getConfVal.exit358, %2800
   %.911054 = phi i32 [ %.721035, %getConfVal.exit358 ], [ %.901053, %2800 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit358 ], [ %.127, %2800 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2801
 
 2801:                                             ; preds = %confWithBit.exit448, %2709, %2701
@@ -5014,7 +5014,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %2801
   %.741037 = phi i32 [ %.29992, %2804 ], [ %.751038, %2911 ]
   %.75 = phi i64 [ %.30, %2804 ], [ %.76, %2911 ]
   %.0925 = phi i64 [ %2805, %2804 ], [ %2812, %2911 ]
-  %2810 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0925) #7, !srcloc !6
+  %2810 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0925) #6, !srcloc !6
   %2811 = extractvalue { i64, i64 } %2810, 0
   %2812 = extractvalue { i64, i64 } %2810, 1
   %2813 = trunc i64 %2811 to i32
@@ -5036,7 +5036,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %2801
   br i1 %.not25.i330, label %2911, label %2825
 
 2825:                                             ; preds = %2819
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %2826 = load ptr, ptr %1, align 8
   %2827 = zext nneg i32 %2815 to i64
@@ -5170,7 +5170,7 @@ getConfVal.exit354:                               ; preds = %2830, %lv_u64a_ce.e
 
 2903:                                             ; preds = %2899
   %2904 = load ptr, ptr %2808, align 8
-  %2905 = call i64 %2904(i64 noundef %2854, i32 noundef %2882, ptr noundef %2872) #6
+  %2905 = call i64 %2904(i64 noundef %2854, i32 noundef %2882, ptr noundef %2872) #7
   br label %2906
 
 2906:                                             ; preds = %2903, %2899, %2894, %2884, %2875
@@ -5189,7 +5189,7 @@ getConfVal.exit354:                               ; preds = %2830, %lv_u64a_ce.e
 confWithBit.exit441:                              ; preds = %getConfVal.exit354, %2910
   %.881051 = phi i32 [ %.741037, %getConfVal.exit354 ], [ %.871050, %2910 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit354 ], [ %.124, %2910 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %2911
 
 2911:                                             ; preds = %confWithBit.exit441, %2819, %2809
@@ -5219,7 +5219,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %2911
   %.761039 = phi i32 [ %.30993, %2914 ], [ %.771040, %3021 ]
   %.77 = phi i64 [ %.31, %2914 ], [ %.78, %3021 ]
   %.0924 = phi i64 [ %2915, %2914 ], [ %2922, %3021 ]
-  %2920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0924) #7, !srcloc !6
+  %2920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0924) #6, !srcloc !6
   %2921 = extractvalue { i64, i64 } %2920, 0
   %2922 = extractvalue { i64, i64 } %2920, 1
   %2923 = trunc i64 %2921 to i32
@@ -5241,7 +5241,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %2911
   br i1 %.not25.i334, label %3021, label %2935
 
 2935:                                             ; preds = %2929
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %2936 = load ptr, ptr %1, align 8
   %2937 = zext nneg i32 %2925 to i64
@@ -5375,7 +5375,7 @@ getConfVal.exit350:                               ; preds = %2940, %lv_u64a_ce.e
 
 3013:                                             ; preds = %3009
   %3014 = load ptr, ptr %2918, align 8
-  %3015 = call i64 %3014(i64 noundef %2964, i32 noundef %2992, ptr noundef %2982) #6
+  %3015 = call i64 %3014(i64 noundef %2964, i32 noundef %2992, ptr noundef %2982) #7
   br label %3016
 
 3016:                                             ; preds = %3013, %3009, %3004, %2994, %2985
@@ -5394,7 +5394,7 @@ getConfVal.exit350:                               ; preds = %2940, %lv_u64a_ce.e
 confWithBit.exit434:                              ; preds = %getConfVal.exit350, %3020
   %.851048 = phi i32 [ %.761039, %getConfVal.exit350 ], [ %.841047, %3020 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit350 ], [ %.121, %3020 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %3021
 
 3021:                                             ; preds = %confWithBit.exit434, %2929, %2919
@@ -5424,7 +5424,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %3021
   %.781041 = phi i32 [ %.31994, %3024 ], [ %.791042, %3131 ]
   %.79 = phi i64 [ %.32, %3024 ], [ %.80, %3131 ]
   %.0 = phi i64 [ %3025, %3024 ], [ %3032, %3131 ]
-  %3030 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3030 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3031 = extractvalue { i64, i64 } %3030, 0
   %3032 = extractvalue { i64, i64 } %3030, 1
   %3033 = trunc i64 %3031 to i32
@@ -5446,7 +5446,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %3021
   br i1 %.not25.i338, label %3131, label %3045
 
 3045:                                             ; preds = %3039
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %3046 = load ptr, ptr %1, align 8
   %3047 = zext nneg i32 %3035 to i64
@@ -5580,7 +5580,7 @@ getConfVal.exit:                                  ; preds = %3050, %lv_u64a_ce.e
 
 3123:                                             ; preds = %3119
   %3124 = load ptr, ptr %3028, align 8
-  %3125 = call i64 %3124(i64 noundef %3074, i32 noundef %3102, ptr noundef %3092) #6
+  %3125 = call i64 %3124(i64 noundef %3074, i32 noundef %3102, ptr noundef %3092) #7
   br label %3126
 
 3126:                                             ; preds = %3123, %3119, %3114, %3104, %3095
@@ -5599,7 +5599,7 @@ getConfVal.exit:                                  ; preds = %3050, %lv_u64a_ce.e
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %3130
   %.821045 = phi i32 [ %.781041, %getConfVal.exit ], [ %.811044, %3130 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %3130 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %3131
 
 3131:                                             ; preds = %confWithBit.exit, %3039, %3029
@@ -5620,14 +5620,8 @@ do_confWithBit_teddy.exit340:                     ; preds = %3131
   ret i32 %.4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #2
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -5688,7 +5682,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly
 56:                                               ; preds = %3
   %57 = getelementptr inbounds i8, ptr %54, i64 -32
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %57, %30
   %59 = ptrtoint ptr %33 to i64
@@ -5831,7 +5825,7 @@ vectoredLoad256.exit241:                          ; preds = %121, %119, %112, %1
   %.2 = phi <4 x i64> [ %76, %71 ], [ %.1, %89 ], [ %.1, %92 ], [ %.1, %94 ], [ %.1, %96 ], [ %.1, %101 ], [ %.1, %103 ], [ %.1, %110 ], [ %.1, %112 ], [ %.1, %119 ], [ %.1, %121 ]
   %.1.i240.in = phi ptr [ %57, %71 ], [ %28, %89 ], [ %28, %92 ], [ %28, %94 ], [ %28, %96 ], [ %28, %101 ], [ %28, %103 ], [ %28, %110 ], [ %28, %112 ], [ %28, %119 ], [ %28, %121 ]
   %.1.i240 = load <4 x i64>, ptr %.1.i240.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %128 = lshr <4 x i64> %.1.i240, splat (i64 4)
   %129 = bitcast <4 x i64> %42 to <32 x i8>
   %130 = bitcast <4 x i64> %.1.i240 to <32 x i8>
@@ -5870,7 +5864,7 @@ vectoredLoad256.exit241:                          ; preds = %121, %119, %112, %1
   %.781035 = phi i32 [ -1, %148 ], [ %.791036, %254 ]
   %.79 = phi i64 [ %2, %148 ], [ %.80, %254 ]
   %.0941 = phi i64 [ %149, %148 ], [ %157, %254 ]
-  %155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #7, !srcloc !6
+  %155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #6, !srcloc !6
   %156 = extractvalue { i64, i64 } %155, 0
   %157 = extractvalue { i64, i64 } %155, 1
   %158 = lshr i64 %156, 3
@@ -5890,7 +5884,7 @@ vectoredLoad256.exit241:                          ; preds = %121, %119, %112, %1
   br i1 %.not25.i332, label %254, label %168
 
 168:                                              ; preds = %162
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %169 = load ptr, ptr %1, align 8
   %170 = and i64 %158, 536870911
@@ -6024,7 +6018,7 @@ getConfVal.exit:                                  ; preds = %173, %lv_u64a_ce.ex
 
 246:                                              ; preds = %242
   %247 = load ptr, ptr %153, align 8
-  %248 = call i64 %247(i64 noundef %197, i32 noundef %225, ptr noundef %215) #6
+  %248 = call i64 %247(i64 noundef %197, i32 noundef %225, ptr noundef %215) #7
   br label %249
 
 249:                                              ; preds = %246, %242, %237, %227, %218
@@ -6043,7 +6037,7 @@ getConfVal.exit:                                  ; preds = %173, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %253
   %.821039 = phi i32 [ %.781035, %getConfVal.exit ], [ %.811038, %253 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %254
 
 254:                                              ; preds = %confWithBit.exit, %162, %154
@@ -6074,7 +6068,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %254
   %.761033 = phi i32 [ %.1958, %257 ], [ %.771034, %365 ]
   %.77 = phi i64 [ %.1946, %257 ], [ %.78, %365 ]
   %.0940 = phi i64 [ %258, %257 ], [ %266, %365 ]
-  %264 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #7, !srcloc !6
+  %264 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #6, !srcloc !6
   %265 = extractvalue { i64, i64 } %264, 0
   %266 = extractvalue { i64, i64 } %264, 1
   %267 = trunc i64 %265 to i32
@@ -6096,7 +6090,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %254
   br i1 %.not25.i328, label %365, label %279
 
 279:                                              ; preds = %273
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %280 = load ptr, ptr %1, align 8
   %281 = zext nneg i32 %269 to i64
@@ -6230,7 +6224,7 @@ getConfVal.exit344:                               ; preds = %284, %lv_u64a_ce.ex
 
 357:                                              ; preds = %353
   %358 = load ptr, ptr %262, align 8
-  %359 = call i64 %358(i64 noundef %308, i32 noundef %336, ptr noundef %326) #6
+  %359 = call i64 %358(i64 noundef %308, i32 noundef %336, ptr noundef %326) #7
   br label %360
 
 360:                                              ; preds = %357, %353, %348, %338, %329
@@ -6249,7 +6243,7 @@ getConfVal.exit344:                               ; preds = %284, %lv_u64a_ce.ex
 confWithBit.exit428:                              ; preds = %getConfVal.exit344, %364
   %.851042 = phi i32 [ %.761033, %getConfVal.exit344 ], [ %.841041, %364 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit344 ], [ %.121, %364 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %365
 
 365:                                              ; preds = %confWithBit.exit428, %273, %263
@@ -6280,7 +6274,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %365
   %.741031 = phi i32 [ %.2959, %368 ], [ %.751032, %476 ]
   %.75 = phi i64 [ %.2947, %368 ], [ %.76, %476 ]
   %.0939 = phi i64 [ %369, %368 ], [ %377, %476 ]
-  %375 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #7, !srcloc !6
+  %375 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #6, !srcloc !6
   %376 = extractvalue { i64, i64 } %375, 0
   %377 = extractvalue { i64, i64 } %375, 1
   %378 = trunc i64 %376 to i32
@@ -6302,7 +6296,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %365
   br i1 %.not25.i324, label %476, label %390
 
 390:                                              ; preds = %384
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %391 = load ptr, ptr %1, align 8
   %392 = zext nneg i32 %380 to i64
@@ -6436,7 +6430,7 @@ getConfVal.exit348:                               ; preds = %395, %lv_u64a_ce.ex
 
 468:                                              ; preds = %464
   %469 = load ptr, ptr %373, align 8
-  %470 = call i64 %469(i64 noundef %419, i32 noundef %447, ptr noundef %437) #6
+  %470 = call i64 %469(i64 noundef %419, i32 noundef %447, ptr noundef %437) #7
   br label %471
 
 471:                                              ; preds = %468, %464, %459, %449, %440
@@ -6455,7 +6449,7 @@ getConfVal.exit348:                               ; preds = %395, %lv_u64a_ce.ex
 confWithBit.exit435:                              ; preds = %getConfVal.exit348, %475
   %.881045 = phi i32 [ %.741031, %getConfVal.exit348 ], [ %.871044, %475 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit348 ], [ %.124, %475 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %476
 
 476:                                              ; preds = %confWithBit.exit435, %384, %374
@@ -6486,7 +6480,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %476
   %.721029 = phi i32 [ %.3960, %479 ], [ %.731030, %587 ]
   %.73 = phi i64 [ %.3, %479 ], [ %.74, %587 ]
   %.0938 = phi i64 [ %480, %479 ], [ %488, %587 ]
-  %486 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #7, !srcloc !6
+  %486 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #6, !srcloc !6
   %487 = extractvalue { i64, i64 } %486, 0
   %488 = extractvalue { i64, i64 } %486, 1
   %489 = trunc i64 %487 to i32
@@ -6508,7 +6502,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %476
   br i1 %.not25.i320, label %587, label %501
 
 501:                                              ; preds = %495
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %502 = load ptr, ptr %1, align 8
   %503 = zext nneg i32 %491 to i64
@@ -6642,7 +6636,7 @@ getConfVal.exit352:                               ; preds = %506, %lv_u64a_ce.ex
 
 579:                                              ; preds = %575
   %580 = load ptr, ptr %484, align 8
-  %581 = call i64 %580(i64 noundef %530, i32 noundef %558, ptr noundef %548) #6
+  %581 = call i64 %580(i64 noundef %530, i32 noundef %558, ptr noundef %548) #7
   br label %582
 
 582:                                              ; preds = %579, %575, %570, %560, %551
@@ -6661,7 +6655,7 @@ getConfVal.exit352:                               ; preds = %506, %lv_u64a_ce.ex
 confWithBit.exit442:                              ; preds = %getConfVal.exit352, %586
   %.911048 = phi i32 [ %.721029, %getConfVal.exit352 ], [ %.901047, %586 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit352 ], [ %.127, %586 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %587
 
 587:                                              ; preds = %confWithBit.exit442, %495, %485
@@ -6735,7 +6729,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %587
   %.701027 = phi i32 [ %.0957, %622 ], [ %.711028, %729 ]
   %.71 = phi i64 [ %.0945, %622 ], [ %.72, %729 ]
   %.0937 = phi i64 [ %623, %622 ], [ %632, %729 ]
-  %630 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #7, !srcloc !6
+  %630 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #6, !srcloc !6
   %631 = extractvalue { i64, i64 } %630, 0
   %632 = extractvalue { i64, i64 } %630, 1
   %633 = lshr i64 %631, 3
@@ -6755,7 +6749,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %587
   br i1 %.not25.i316, label %729, label %643
 
 643:                                              ; preds = %637
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %644 = load ptr, ptr %1, align 8
   %645 = and i64 %633, 536870911
@@ -6889,7 +6883,7 @@ getConfVal.exit356:                               ; preds = %648, %lv_u64a_ce.ex
 
 721:                                              ; preds = %717
   %722 = load ptr, ptr %628, align 8
-  %723 = call i64 %722(i64 noundef %672, i32 noundef %700, ptr noundef %690) #6
+  %723 = call i64 %722(i64 noundef %672, i32 noundef %700, ptr noundef %690) #7
   br label %724
 
 724:                                              ; preds = %721, %717, %712, %702, %693
@@ -6908,7 +6902,7 @@ getConfVal.exit356:                               ; preds = %648, %lv_u64a_ce.ex
 confWithBit.exit449:                              ; preds = %getConfVal.exit356, %728
   %.941051 = phi i32 [ %.701027, %getConfVal.exit356 ], [ %.931050, %728 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit356 ], [ %.130, %728 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %729
 
 729:                                              ; preds = %confWithBit.exit449, %637, %629
@@ -6940,7 +6934,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %729
   %.681025 = phi i32 [ %.7964, %732 ], [ %.691026, %841 ]
   %.69 = phi i64 [ %.7, %732 ], [ %.70, %841 ]
   %.0936 = phi i64 [ %733, %732 ], [ %742, %841 ]
-  %740 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #7, !srcloc !6
+  %740 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #6, !srcloc !6
   %741 = extractvalue { i64, i64 } %740, 0
   %742 = extractvalue { i64, i64 } %740, 1
   %743 = trunc i64 %741 to i32
@@ -6962,7 +6956,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %729
   br i1 %.not25.i312, label %841, label %755
 
 755:                                              ; preds = %749
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %756 = load ptr, ptr %1, align 8
   %757 = zext nneg i32 %745 to i64
@@ -7096,7 +7090,7 @@ getConfVal.exit360:                               ; preds = %760, %lv_u64a_ce.ex
 
 833:                                              ; preds = %829
   %834 = load ptr, ptr %738, align 8
-  %835 = call i64 %834(i64 noundef %784, i32 noundef %812, ptr noundef %802) #6
+  %835 = call i64 %834(i64 noundef %784, i32 noundef %812, ptr noundef %802) #7
   br label %836
 
 836:                                              ; preds = %833, %829, %824, %814, %805
@@ -7115,7 +7109,7 @@ getConfVal.exit360:                               ; preds = %760, %lv_u64a_ce.ex
 confWithBit.exit456:                              ; preds = %getConfVal.exit360, %840
   %.971054 = phi i32 [ %.681025, %getConfVal.exit360 ], [ %.961053, %840 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit360 ], [ %.133, %840 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %841
 
 841:                                              ; preds = %confWithBit.exit456, %749, %739
@@ -7147,7 +7141,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %841
   %.661023 = phi i32 [ %.8965, %844 ], [ %.671024, %953 ]
   %.67 = phi i64 [ %.8, %844 ], [ %.68, %953 ]
   %.0935 = phi i64 [ %845, %844 ], [ %854, %953 ]
-  %852 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #7, !srcloc !6
+  %852 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #6, !srcloc !6
   %853 = extractvalue { i64, i64 } %852, 0
   %854 = extractvalue { i64, i64 } %852, 1
   %855 = trunc i64 %853 to i32
@@ -7169,7 +7163,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %841
   br i1 %.not25.i308, label %953, label %867
 
 867:                                              ; preds = %861
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %868 = load ptr, ptr %1, align 8
   %869 = zext nneg i32 %857 to i64
@@ -7303,7 +7297,7 @@ getConfVal.exit364:                               ; preds = %872, %lv_u64a_ce.ex
 
 945:                                              ; preds = %941
   %946 = load ptr, ptr %850, align 8
-  %947 = call i64 %946(i64 noundef %896, i32 noundef %924, ptr noundef %914) #6
+  %947 = call i64 %946(i64 noundef %896, i32 noundef %924, ptr noundef %914) #7
   br label %948
 
 948:                                              ; preds = %945, %941, %936, %926, %917
@@ -7322,7 +7316,7 @@ getConfVal.exit364:                               ; preds = %872, %lv_u64a_ce.ex
 confWithBit.exit463:                              ; preds = %getConfVal.exit364, %952
   %.1001057 = phi i32 [ %.661023, %getConfVal.exit364 ], [ %.991056, %952 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit364 ], [ %.136, %952 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %953
 
 953:                                              ; preds = %confWithBit.exit463, %861, %851
@@ -7354,7 +7348,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %953
   %.641021 = phi i32 [ %.9966, %956 ], [ %.651022, %1065 ]
   %.65 = phi i64 [ %.9, %956 ], [ %.66, %1065 ]
   %.0934 = phi i64 [ %957, %956 ], [ %966, %1065 ]
-  %964 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #7, !srcloc !6
+  %964 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #6, !srcloc !6
   %965 = extractvalue { i64, i64 } %964, 0
   %966 = extractvalue { i64, i64 } %964, 1
   %967 = trunc i64 %965 to i32
@@ -7376,7 +7370,7 @@ do_confWithBit_teddy.exit310:                     ; preds = %953
   br i1 %.not25.i304, label %1065, label %979
 
 979:                                              ; preds = %973
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %980 = load ptr, ptr %1, align 8
   %981 = zext nneg i32 %969 to i64
@@ -7510,7 +7504,7 @@ getConfVal.exit368:                               ; preds = %984, %lv_u64a_ce.ex
 
 1057:                                             ; preds = %1053
   %1058 = load ptr, ptr %962, align 8
-  %1059 = call i64 %1058(i64 noundef %1008, i32 noundef %1036, ptr noundef %1026) #6
+  %1059 = call i64 %1058(i64 noundef %1008, i32 noundef %1036, ptr noundef %1026) #7
   br label %1060
 
 1060:                                             ; preds = %1057, %1053, %1048, %1038, %1029
@@ -7529,7 +7523,7 @@ getConfVal.exit368:                               ; preds = %984, %lv_u64a_ce.ex
 confWithBit.exit470:                              ; preds = %getConfVal.exit368, %1064
   %.1031060 = phi i32 [ %.641021, %getConfVal.exit368 ], [ %.1021059, %1064 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit368 ], [ %.139, %1064 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1065
 
 1065:                                             ; preds = %confWithBit.exit470, %973, %963
@@ -7800,7 +7794,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1207 = add i64 %indvars.iv1248, %1085
   %1208 = and i64 %1207, 4294967295
   %1209 = load i32, ptr %1185, align 8
-  %1210 = call i64 %1080(i64 noundef %1208, i32 noundef %1209, ptr noundef %1081) #6
+  %1210 = call i64 %1080(i64 noundef %1208, i32 noundef %1209, ptr noundef %1081) #7
   %.pre = load i64, ptr %1184, align 8
   %.pre1275 = and i64 %.pre, %1210
   %1211 = icmp eq i64 %.pre1275, 0
@@ -7810,7 +7804,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1213 = add i64 %1186, %indvars.iv1248
   %1214 = and i64 %1213, 4294967295
   %1215 = load i32, ptr %1185, align 8
-  %1216 = call i64 %1080(i64 noundef %1214, i32 noundef %1215, ptr noundef %1081) #6
+  %1216 = call i64 %1080(i64 noundef %1214, i32 noundef %1215, ptr noundef %1081) #7
   %.pre1264 = load i64, ptr %1184, align 8
   %.pre1277 = and i64 %.pre1264, %1216
   %1217 = icmp eq i64 %.pre1277, 0
@@ -7820,7 +7814,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1219 = add i64 %1187, %indvars.iv1248
   %1220 = and i64 %1219, 4294967295
   %1221 = load i32, ptr %1185, align 8
-  %1222 = call i64 %1080(i64 noundef %1220, i32 noundef %1221, ptr noundef %1081) #6
+  %1222 = call i64 %1080(i64 noundef %1220, i32 noundef %1221, ptr noundef %1081) #7
   %.pre1265 = load i64, ptr %1184, align 8
   %.pre1279 = and i64 %.pre1265, %1222
   %1223 = icmp eq i64 %.pre1279, 0
@@ -7830,7 +7824,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1225 = add i64 %1188, %indvars.iv1248
   %1226 = and i64 %1225, 4294967295
   %1227 = load i32, ptr %1185, align 8
-  %1228 = call i64 %1080(i64 noundef %1226, i32 noundef %1227, ptr noundef %1081) #6
+  %1228 = call i64 %1080(i64 noundef %1226, i32 noundef %1227, ptr noundef %1081) #7
   br label %.thread1312
 
 .thread1312:                                      ; preds = %1203, %1206, %1212, %1224, %1218
@@ -7857,7 +7851,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1237 = add i64 %indvars.iv1245, %1085
   %1238 = and i64 %1237, 4294967295
   %1239 = load i32, ptr %1177, align 8
-  %1240 = call i64 %1080(i64 noundef %1238, i32 noundef %1239, ptr noundef %1081) #6
+  %1240 = call i64 %1080(i64 noundef %1238, i32 noundef %1239, ptr noundef %1081) #7
   br label %1241
 
 1241:                                             ; preds = %1236, %1233
@@ -7871,7 +7865,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1245 = add i64 %indvars.iv1245, %1085
   %1246 = and i64 %1245, 4294967295
   %1247 = load i32, ptr %1179, align 4
-  %1248 = call i64 %1080(i64 noundef %1246, i32 noundef %1247, ptr noundef %1081) #6
+  %1248 = call i64 %1080(i64 noundef %1246, i32 noundef %1247, ptr noundef %1081) #7
   br label %1249
 
 1249:                                             ; preds = %1244, %1241
@@ -7886,7 +7880,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1254 = add i32 %1180, %1253
   %1255 = zext i32 %1254 to i64
   %1256 = load i32, ptr %1177, align 8
-  %1257 = call i64 %1080(i64 noundef %1255, i32 noundef %1256, ptr noundef %1081) #6
+  %1257 = call i64 %1080(i64 noundef %1255, i32 noundef %1256, ptr noundef %1081) #7
   br label %1258
 
 1258:                                             ; preds = %1252, %1249
@@ -7901,7 +7895,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1263 = add i32 %1180, %1262
   %1264 = zext i32 %1263 to i64
   %1265 = load i32, ptr %1179, align 4
-  %1266 = call i64 %1080(i64 noundef %1264, i32 noundef %1265, ptr noundef %1081) #6
+  %1266 = call i64 %1080(i64 noundef %1264, i32 noundef %1265, ptr noundef %1081) #7
   br label %1267
 
 1267:                                             ; preds = %1261, %1258
@@ -7916,7 +7910,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1272 = add i32 %1181, %1271
   %1273 = zext i32 %1272 to i64
   %1274 = load i32, ptr %1177, align 8
-  %1275 = call i64 %1080(i64 noundef %1273, i32 noundef %1274, ptr noundef %1081) #6
+  %1275 = call i64 %1080(i64 noundef %1273, i32 noundef %1274, ptr noundef %1081) #7
   br label %1276
 
 1276:                                             ; preds = %1270, %1267
@@ -7931,7 +7925,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1281 = add i32 %1181, %1280
   %1282 = zext i32 %1281 to i64
   %1283 = load i32, ptr %1179, align 4
-  %1284 = call i64 %1080(i64 noundef %1282, i32 noundef %1283, ptr noundef %1081) #6
+  %1284 = call i64 %1080(i64 noundef %1282, i32 noundef %1283, ptr noundef %1081) #7
   br label %1285
 
 1285:                                             ; preds = %1279, %1276
@@ -7946,7 +7940,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1290 = add i32 %1182, %1289
   %1291 = zext i32 %1290 to i64
   %1292 = load i32, ptr %1177, align 8
-  %1293 = call i64 %1080(i64 noundef %1291, i32 noundef %1292, ptr noundef %1081) #6
+  %1293 = call i64 %1080(i64 noundef %1291, i32 noundef %1292, ptr noundef %1081) #7
   br label %1294
 
 1294:                                             ; preds = %1288, %1285
@@ -7961,7 +7955,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1299 = add i32 %1182, %1298
   %1300 = zext i32 %1299 to i64
   %1301 = load i32, ptr %1179, align 4
-  %1302 = call i64 %1080(i64 noundef %1300, i32 noundef %1301, ptr noundef %1081) #6
+  %1302 = call i64 %1080(i64 noundef %1300, i32 noundef %1301, ptr noundef %1081) #7
   br label %1303
 
 1303:                                             ; preds = %1297, %1294
@@ -7988,7 +7982,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1312 = add i64 %indvars.iv, %1085
   %1313 = and i64 %1312, 4294967295
   %1314 = load i32, ptr %1169, align 8
-  %1315 = call i64 %1080(i64 noundef %1313, i32 noundef %1314, ptr noundef %1081) #6
+  %1315 = call i64 %1080(i64 noundef %1313, i32 noundef %1314, ptr noundef %1081) #7
   br label %1316
 
 1316:                                             ; preds = %1311, %1308
@@ -8002,7 +7996,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1320 = add i64 %indvars.iv, %1085
   %1321 = and i64 %1320, 4294967295
   %1322 = load i32, ptr %1171, align 4
-  %1323 = call i64 %1080(i64 noundef %1321, i32 noundef %1322, ptr noundef %1081) #6
+  %1323 = call i64 %1080(i64 noundef %1321, i32 noundef %1322, ptr noundef %1081) #7
   br label %1324
 
 1324:                                             ; preds = %1319, %1316
@@ -8016,7 +8010,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1328 = add i64 %indvars.iv, %1085
   %1329 = and i64 %1328, 4294967295
   %1330 = load i32, ptr %1173, align 8
-  %1331 = call i64 %1080(i64 noundef %1329, i32 noundef %1330, ptr noundef %1081) #6
+  %1331 = call i64 %1080(i64 noundef %1329, i32 noundef %1330, ptr noundef %1081) #7
   br label %1332
 
 1332:                                             ; preds = %1327, %1324
@@ -8031,7 +8025,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1337 = add i32 %1174, %1336
   %1338 = zext i32 %1337 to i64
   %1339 = load i32, ptr %1169, align 8
-  %1340 = call i64 %1080(i64 noundef %1338, i32 noundef %1339, ptr noundef %1081) #6
+  %1340 = call i64 %1080(i64 noundef %1338, i32 noundef %1339, ptr noundef %1081) #7
   br label %1341
 
 1341:                                             ; preds = %1335, %1332
@@ -8046,7 +8040,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1346 = add i32 %1174, %1345
   %1347 = zext i32 %1346 to i64
   %1348 = load i32, ptr %1171, align 4
-  %1349 = call i64 %1080(i64 noundef %1347, i32 noundef %1348, ptr noundef %1081) #6
+  %1349 = call i64 %1080(i64 noundef %1347, i32 noundef %1348, ptr noundef %1081) #7
   br label %1350
 
 1350:                                             ; preds = %1344, %1341
@@ -8061,7 +8055,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1355 = add i32 %1174, %1354
   %1356 = zext i32 %1355 to i64
   %1357 = load i32, ptr %1173, align 8
-  %1358 = call i64 %1080(i64 noundef %1356, i32 noundef %1357, ptr noundef %1081) #6
+  %1358 = call i64 %1080(i64 noundef %1356, i32 noundef %1357, ptr noundef %1081) #7
   br label %1359
 
 1359:                                             ; preds = %1353, %1350
@@ -8088,7 +8082,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1368 = add i64 %indvars.iv1257, %1085
   %1369 = and i64 %1368, 4294967295
   %1370 = load i32, ptr %1191, align 8
-  %1371 = call i64 %1080(i64 noundef %1369, i32 noundef %1370, ptr noundef %1081) #6
+  %1371 = call i64 %1080(i64 noundef %1369, i32 noundef %1370, ptr noundef %1081) #7
   br label %1372
 
 1372:                                             ; preds = %1367, %1364
@@ -8102,7 +8096,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1376 = add i64 %indvars.iv1257, %1085
   %1377 = and i64 %1376, 4294967295
   %1378 = load i32, ptr %1193, align 4
-  %1379 = call i64 %1080(i64 noundef %1377, i32 noundef %1378, ptr noundef %1081) #6
+  %1379 = call i64 %1080(i64 noundef %1377, i32 noundef %1378, ptr noundef %1081) #7
   br label %1380
 
 1380:                                             ; preds = %1375, %1372
@@ -8116,7 +8110,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1384 = add i64 %indvars.iv1257, %1085
   %1385 = and i64 %1384, 4294967295
   %1386 = load i32, ptr %1195, align 8
-  %1387 = call i64 %1080(i64 noundef %1385, i32 noundef %1386, ptr noundef %1081) #6
+  %1387 = call i64 %1080(i64 noundef %1385, i32 noundef %1386, ptr noundef %1081) #7
   br label %1388
 
 1388:                                             ; preds = %1383, %1380
@@ -8130,7 +8124,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1392 = add i64 %indvars.iv1257, %1085
   %1393 = and i64 %1392, 4294967295
   %1394 = load i32, ptr %1197, align 4
-  %1395 = call i64 %1080(i64 noundef %1393, i32 noundef %1394, ptr noundef %1081) #6
+  %1395 = call i64 %1080(i64 noundef %1393, i32 noundef %1394, ptr noundef %1081) #7
   br label %1396
 
 1396:                                             ; preds = %1391, %1388
@@ -8164,7 +8158,7 @@ split:                                            ; preds = %1148, %.thread1111
 1408:                                             ; preds = %1403
   %1409 = getelementptr inbounds nuw [16 x i32], ptr %1191, i64 0, i64 %indvars.iv1251
   %1410 = load i32, ptr %1409, align 4
-  %1411 = call i64 %1080(i64 noundef %1400, i32 noundef %1410, ptr noundef %1081) #6
+  %1411 = call i64 %1080(i64 noundef %1400, i32 noundef %1410, ptr noundef %1081) #7
   %.pre1266 = load i16, ptr %1111, align 4
   br label %1412
 
@@ -8181,7 +8175,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1418 = add i32 %1198, %1417
   %1419 = zext i32 %1418 to i64
   %1420 = load i32, ptr %1191, align 8
-  %1421 = call i64 %1080(i64 noundef %1419, i32 noundef %1420, ptr noundef %1081) #6
+  %1421 = call i64 %1080(i64 noundef %1419, i32 noundef %1420, ptr noundef %1081) #7
   br label %1422
 
 1422:                                             ; preds = %1416, %._crit_edge1191
@@ -8196,7 +8190,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1427 = add i32 %1198, %1426
   %1428 = zext i32 %1427 to i64
   %1429 = load i32, ptr %1193, align 4
-  %1430 = call i64 %1080(i64 noundef %1428, i32 noundef %1429, ptr noundef %1081) #6
+  %1430 = call i64 %1080(i64 noundef %1428, i32 noundef %1429, ptr noundef %1081) #7
   br label %1431
 
 1431:                                             ; preds = %1425, %1422
@@ -8211,7 +8205,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1436 = add i32 %1198, %1435
   %1437 = zext i32 %1436 to i64
   %1438 = load i32, ptr %1195, align 8
-  %1439 = call i64 %1080(i64 noundef %1437, i32 noundef %1438, ptr noundef %1081) #6
+  %1439 = call i64 %1080(i64 noundef %1437, i32 noundef %1438, ptr noundef %1081) #7
   br label %1440
 
 1440:                                             ; preds = %1434, %1431
@@ -8226,7 +8220,7 @@ split:                                            ; preds = %1148, %.thread1111
   %1445 = add i32 %1198, %1444
   %1446 = zext i32 %1445 to i64
   %1447 = load i32, ptr %1197, align 4
-  %1448 = call i64 %1080(i64 noundef %1446, i32 noundef %1447, ptr noundef %1081) #6
+  %1448 = call i64 %1080(i64 noundef %1446, i32 noundef %1447, ptr noundef %1081) #7
   br label %1449
 
 1449:                                             ; preds = %1443, %1440
@@ -8260,7 +8254,7 @@ split:                                            ; preds = %1148, %.thread1111
 1461:                                             ; preds = %1456
   %1462 = getelementptr inbounds nuw [16 x i32], ptr %1191, i64 0, i64 %indvars.iv1254
   %1463 = load i32, ptr %1462, align 4
-  %1464 = call i64 %1080(i64 noundef %1454, i32 noundef %1463, ptr noundef %1081) #6
+  %1464 = call i64 %1080(i64 noundef %1454, i32 noundef %1463, ptr noundef %1081) #7
   %.pre1267 = load i16, ptr %1111, align 4
   br label %1465
 
@@ -8352,7 +8346,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
   %.621019 = phi i32 [ %.129691206, %1514 ], [ %.631020, %1596 ]
   %.63 = phi i64 [ %.13, %1514 ], [ %.64, %1596 ]
   %.0933 = phi i64 [ %1515, %1514 ], [ %1520, %1596 ]
-  %1518 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0933) #7, !srcloc !6
+  %1518 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0933) #6, !srcloc !6
   %1519 = extractvalue { i64, i64 } %1518, 0
   %1520 = extractvalue { i64, i64 } %1518, 1
   %1521 = lshr i64 %1519, 3
@@ -8372,7 +8366,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
   br i1 %.not25.i300, label %1596, label %1531
 
 1531:                                             ; preds = %1525
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1532 = load ptr, ptr %1, align 8
   %1533 = and i64 %1521, 536870911
@@ -8457,7 +8451,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
 
 1588:                                             ; preds = %1584
   %1589 = load ptr, ptr %1068, align 8
-  %1590 = call i64 %1589(i64 noundef %1539, i32 noundef %1567, ptr noundef %1557) #6
+  %1590 = call i64 %1589(i64 noundef %1539, i32 noundef %1567, ptr noundef %1557) #7
   br label %1591
 
 1591:                                             ; preds = %1588, %1584, %1579, %1569, %1560
@@ -8476,7 +8470,7 @@ floodDetect.exit:                                 ; preds = %1114, %1121, %.crit
 confWithBit.exit477:                              ; preds = %1531, %1595
   %.1061063 = phi i32 [ %.621019, %1531 ], [ %.1051062, %1595 ]
   %.143 = phi i64 [ %.63, %1531 ], [ %.142, %1595 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1596
 
 1596:                                             ; preds = %confWithBit.exit477, %1525, %1517
@@ -8504,7 +8498,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1596
   %.601017 = phi i32 [ %.13970, %1599 ], [ %.611018, %1683 ]
   %.61 = phi i64 [ %.14, %1599 ], [ %.62, %1683 ]
   %.0932 = phi i64 [ %1600, %1599 ], [ %1605, %1683 ]
-  %1603 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #7, !srcloc !6
+  %1603 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #6, !srcloc !6
   %1604 = extractvalue { i64, i64 } %1603, 0
   %1605 = extractvalue { i64, i64 } %1603, 1
   %1606 = trunc i64 %1604 to i32
@@ -8526,7 +8520,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1596
   br i1 %.not25.i296, label %1683, label %1618
 
 1618:                                             ; preds = %1612
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1619 = load ptr, ptr %1, align 8
   %1620 = zext nneg i32 %1608 to i64
@@ -8611,7 +8605,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1596
 
 1675:                                             ; preds = %1671
   %1676 = load ptr, ptr %1068, align 8
-  %1677 = call i64 %1676(i64 noundef %1626, i32 noundef %1654, ptr noundef %1644) #6
+  %1677 = call i64 %1676(i64 noundef %1626, i32 noundef %1654, ptr noundef %1644) #7
   br label %1678
 
 1678:                                             ; preds = %1675, %1671, %1666, %1656, %1647
@@ -8630,7 +8624,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1596
 confWithBit.exit484:                              ; preds = %1618, %1682
   %.1091066 = phi i32 [ %.601017, %1618 ], [ %.1081065, %1682 ]
   %.146 = phi i64 [ %.61, %1618 ], [ %.145, %1682 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1683
 
 1683:                                             ; preds = %confWithBit.exit484, %1612, %1602
@@ -8658,7 +8652,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1683
   %.581015 = phi i32 [ %.14971, %1686 ], [ %.591016, %1770 ]
   %.59 = phi i64 [ %.15, %1686 ], [ %.60, %1770 ]
   %.0931 = phi i64 [ %1687, %1686 ], [ %1692, %1770 ]
-  %1690 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #7, !srcloc !6
+  %1690 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #6, !srcloc !6
   %1691 = extractvalue { i64, i64 } %1690, 0
   %1692 = extractvalue { i64, i64 } %1690, 1
   %1693 = trunc i64 %1691 to i32
@@ -8680,7 +8674,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1683
   br i1 %.not25.i292, label %1770, label %1705
 
 1705:                                             ; preds = %1699
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1706 = load ptr, ptr %1, align 8
   %1707 = zext nneg i32 %1695 to i64
@@ -8765,7 +8759,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1683
 
 1762:                                             ; preds = %1758
   %1763 = load ptr, ptr %1068, align 8
-  %1764 = call i64 %1763(i64 noundef %1713, i32 noundef %1741, ptr noundef %1731) #6
+  %1764 = call i64 %1763(i64 noundef %1713, i32 noundef %1741, ptr noundef %1731) #7
   br label %1765
 
 1765:                                             ; preds = %1762, %1758, %1753, %1743, %1734
@@ -8784,7 +8778,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1683
 confWithBit.exit491:                              ; preds = %1705, %1769
   %.1121069 = phi i32 [ %.581015, %1705 ], [ %.1111068, %1769 ]
   %.149 = phi i64 [ %.59, %1705 ], [ %.148, %1769 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1770
 
 1770:                                             ; preds = %confWithBit.exit491, %1699, %1689
@@ -8812,7 +8806,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1770
   %.561013 = phi i32 [ %.15972, %1773 ], [ %.571014, %1857 ]
   %.57 = phi i64 [ %.16, %1773 ], [ %.58, %1857 ]
   %.0930 = phi i64 [ %1774, %1773 ], [ %1779, %1857 ]
-  %1777 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #7, !srcloc !6
+  %1777 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #6, !srcloc !6
   %1778 = extractvalue { i64, i64 } %1777, 0
   %1779 = extractvalue { i64, i64 } %1777, 1
   %1780 = trunc i64 %1778 to i32
@@ -8834,7 +8828,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1770
   br i1 %.not25.i288, label %1857, label %1792
 
 1792:                                             ; preds = %1786
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1793 = load ptr, ptr %1, align 8
   %1794 = zext nneg i32 %1782 to i64
@@ -8919,7 +8913,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1770
 
 1849:                                             ; preds = %1845
   %1850 = load ptr, ptr %1068, align 8
-  %1851 = call i64 %1850(i64 noundef %1800, i32 noundef %1828, ptr noundef %1818) #6
+  %1851 = call i64 %1850(i64 noundef %1800, i32 noundef %1828, ptr noundef %1818) #7
   br label %1852
 
 1852:                                             ; preds = %1849, %1845, %1840, %1830, %1821
@@ -8938,7 +8932,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1770
 confWithBit.exit498:                              ; preds = %1792, %1856
   %.1151072 = phi i32 [ %.561013, %1792 ], [ %.1141071, %1856 ]
   %.152 = phi i64 [ %.57, %1792 ], [ %.151, %1856 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1857
 
 1857:                                             ; preds = %confWithBit.exit498, %1786, %1776
@@ -9002,7 +8996,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %1857
   %.541011 = phi i32 [ %.17974, %1890 ], [ %.551012, %1974 ]
   %.55 = phi i64 [ %.18, %1890 ], [ %.56, %1974 ]
   %.0929 = phi i64 [ %1891, %1890 ], [ %1896, %1974 ]
-  %1894 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0929) #7, !srcloc !6
+  %1894 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0929) #6, !srcloc !6
   %1895 = extractvalue { i64, i64 } %1894, 0
   %1896 = extractvalue { i64, i64 } %1894, 1
   %1897 = trunc i64 %1895 to i32
@@ -9024,7 +9018,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %1857
   br i1 %.not25.i284, label %1974, label %1909
 
 1909:                                             ; preds = %1903
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %1910 = load ptr, ptr %1, align 8
   %1911 = zext nneg i32 %1899 to i64
@@ -9109,7 +9103,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %1857
 
 1966:                                             ; preds = %1962
   %1967 = load ptr, ptr %1068, align 8
-  %1968 = call i64 %1967(i64 noundef %1917, i32 noundef %1945, ptr noundef %1935) #6
+  %1968 = call i64 %1967(i64 noundef %1917, i32 noundef %1945, ptr noundef %1935) #7
   br label %1969
 
 1969:                                             ; preds = %1966, %1962, %1957, %1947, %1938
@@ -9128,7 +9122,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %1857
 confWithBit.exit505:                              ; preds = %1909, %1973
   %.1181075 = phi i32 [ %.541011, %1909 ], [ %.1171074, %1973 ]
   %.155 = phi i64 [ %.55, %1909 ], [ %.154, %1973 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1974
 
 1974:                                             ; preds = %confWithBit.exit505, %1903, %1893
@@ -9156,7 +9150,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %1974
   %.521009 = phi i32 [ %.18975, %1977 ], [ %.531010, %2061 ]
   %.53 = phi i64 [ %.19, %1977 ], [ %.54, %2061 ]
   %.0928 = phi i64 [ %1978, %1977 ], [ %1983, %2061 ]
-  %1981 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0928) #7, !srcloc !6
+  %1981 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0928) #6, !srcloc !6
   %1982 = extractvalue { i64, i64 } %1981, 0
   %1983 = extractvalue { i64, i64 } %1981, 1
   %1984 = trunc i64 %1982 to i32
@@ -9178,7 +9172,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %1974
   br i1 %.not25.i280, label %2061, label %1996
 
 1996:                                             ; preds = %1990
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %1997 = load ptr, ptr %1, align 8
   %1998 = zext nneg i32 %1986 to i64
@@ -9263,7 +9257,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %1974
 
 2053:                                             ; preds = %2049
   %2054 = load ptr, ptr %1068, align 8
-  %2055 = call i64 %2054(i64 noundef %2004, i32 noundef %2032, ptr noundef %2022) #6
+  %2055 = call i64 %2054(i64 noundef %2004, i32 noundef %2032, ptr noundef %2022) #7
   br label %2056
 
 2056:                                             ; preds = %2053, %2049, %2044, %2034, %2025
@@ -9282,7 +9276,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %1974
 confWithBit.exit512:                              ; preds = %1996, %2060
   %.1211078 = phi i32 [ %.521009, %1996 ], [ %.1201077, %2060 ]
   %.158 = phi i64 [ %.53, %1996 ], [ %.157, %2060 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2061
 
 2061:                                             ; preds = %confWithBit.exit512, %1990, %1980
@@ -9310,7 +9304,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2061
   %.501007 = phi i32 [ %.19976, %2064 ], [ %.511008, %2148 ]
   %.51 = phi i64 [ %.20, %2064 ], [ %.52, %2148 ]
   %.0927 = phi i64 [ %2065, %2064 ], [ %2070, %2148 ]
-  %2068 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0927) #7, !srcloc !6
+  %2068 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0927) #6, !srcloc !6
   %2069 = extractvalue { i64, i64 } %2068, 0
   %2070 = extractvalue { i64, i64 } %2068, 1
   %2071 = trunc i64 %2069 to i32
@@ -9332,7 +9326,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2061
   br i1 %.not25.i276, label %2148, label %2083
 
 2083:                                             ; preds = %2077
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2084 = load ptr, ptr %1, align 8
   %2085 = zext nneg i32 %2073 to i64
@@ -9417,7 +9411,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2061
 
 2140:                                             ; preds = %2136
   %2141 = load ptr, ptr %1068, align 8
-  %2142 = call i64 %2141(i64 noundef %2091, i32 noundef %2119, ptr noundef %2109) #6
+  %2142 = call i64 %2141(i64 noundef %2091, i32 noundef %2119, ptr noundef %2109) #7
   br label %2143
 
 2143:                                             ; preds = %2140, %2136, %2131, %2121, %2112
@@ -9436,7 +9430,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2061
 confWithBit.exit519:                              ; preds = %2083, %2147
   %.1241081 = phi i32 [ %.501007, %2083 ], [ %.1231080, %2147 ]
   %.161 = phi i64 [ %.51, %2083 ], [ %.160, %2147 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2148
 
 2148:                                             ; preds = %confWithBit.exit519, %2077, %2067
@@ -9464,7 +9458,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2148
   %.481005 = phi i32 [ %.20977, %2151 ], [ %.491006, %2235 ]
   %.49 = phi i64 [ %.21, %2151 ], [ %.50, %2235 ]
   %.0926 = phi i64 [ %2152, %2151 ], [ %2157, %2235 ]
-  %2155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0926) #7, !srcloc !6
+  %2155 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0926) #6, !srcloc !6
   %2156 = extractvalue { i64, i64 } %2155, 0
   %2157 = extractvalue { i64, i64 } %2155, 1
   %2158 = trunc i64 %2156 to i32
@@ -9486,7 +9480,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2148
   br i1 %.not25.i272, label %2235, label %2170
 
 2170:                                             ; preds = %2164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2171 = load ptr, ptr %1, align 8
   %2172 = zext nneg i32 %2160 to i64
@@ -9571,7 +9565,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2148
 
 2227:                                             ; preds = %2223
   %2228 = load ptr, ptr %1068, align 8
-  %2229 = call i64 %2228(i64 noundef %2178, i32 noundef %2206, ptr noundef %2196) #6
+  %2229 = call i64 %2228(i64 noundef %2178, i32 noundef %2206, ptr noundef %2196) #7
   br label %2230
 
 2230:                                             ; preds = %2227, %2223, %2218, %2208, %2199
@@ -9590,7 +9584,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2148
 confWithBit.exit526:                              ; preds = %2170, %2234
   %.1271084 = phi i32 [ %.481005, %2170 ], [ %.1261083, %2234 ]
   %.164 = phi i64 [ %.49, %2170 ], [ %.163, %2234 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2235
 
 2235:                                             ; preds = %confWithBit.exit526, %2164, %2154
@@ -9670,7 +9664,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2235
   %.461003 = phi i32 [ %.12969.lcssa, %2271 ], [ %.471004, %2356 ]
   %.47 = phi i64 [ %.12.lcssa, %2271 ], [ %.48, %2356 ]
   %.0925 = phi i64 [ %2272, %2271 ], [ %2280, %2356 ]
-  %2278 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0925) #7, !srcloc !6
+  %2278 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0925) #6, !srcloc !6
   %2279 = extractvalue { i64, i64 } %2278, 0
   %2280 = extractvalue { i64, i64 } %2278, 1
   %2281 = lshr i64 %2279, 3
@@ -9690,7 +9684,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2235
   br i1 %.not25.i268, label %2356, label %2291
 
 2291:                                             ; preds = %2285
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2292 = load ptr, ptr %1, align 8
   %2293 = and i64 %2281, 536870911
@@ -9775,7 +9769,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2235
 
 2348:                                             ; preds = %2344
   %2349 = load ptr, ptr %2276, align 8
-  %2350 = call i64 %2349(i64 noundef %2299, i32 noundef %2327, ptr noundef %2317) #6
+  %2350 = call i64 %2349(i64 noundef %2299, i32 noundef %2327, ptr noundef %2317) #7
   br label %2351
 
 2351:                                             ; preds = %2348, %2344, %2339, %2329, %2320
@@ -9794,7 +9788,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2235
 confWithBit.exit533:                              ; preds = %2291, %2355
   %.1301087 = phi i32 [ %.461003, %2291 ], [ %.1291086, %2355 ]
   %.167 = phi i64 [ %.47, %2291 ], [ %.166, %2355 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2356
 
 2356:                                             ; preds = %confWithBit.exit533, %2285, %2277
@@ -9825,7 +9819,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2356
   %.441001 = phi i32 [ %.24981, %2359 ], [ %.451002, %2446 ]
   %.45 = phi i64 [ %.25, %2359 ], [ %.46, %2446 ]
   %.0924 = phi i64 [ %2360, %2359 ], [ %2368, %2446 ]
-  %2366 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0924) #7, !srcloc !6
+  %2366 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0924) #6, !srcloc !6
   %2367 = extractvalue { i64, i64 } %2366, 0
   %2368 = extractvalue { i64, i64 } %2366, 1
   %2369 = trunc i64 %2367 to i32
@@ -9847,7 +9841,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2356
   br i1 %.not25.i264, label %2446, label %2381
 
 2381:                                             ; preds = %2375
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2382 = load ptr, ptr %1, align 8
   %2383 = zext nneg i32 %2371 to i64
@@ -9932,7 +9926,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2356
 
 2438:                                             ; preds = %2434
   %2439 = load ptr, ptr %2364, align 8
-  %2440 = call i64 %2439(i64 noundef %2389, i32 noundef %2417, ptr noundef %2407) #6
+  %2440 = call i64 %2439(i64 noundef %2389, i32 noundef %2417, ptr noundef %2407) #7
   br label %2441
 
 2441:                                             ; preds = %2438, %2434, %2429, %2419, %2410
@@ -9951,7 +9945,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2356
 confWithBit.exit540:                              ; preds = %2381, %2445
   %.1331090 = phi i32 [ %.441001, %2381 ], [ %.1321089, %2445 ]
   %.170 = phi i64 [ %.45, %2381 ], [ %.169, %2445 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2446
 
 2446:                                             ; preds = %confWithBit.exit540, %2375, %2365
@@ -9982,7 +9976,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2446
   %.42999 = phi i32 [ %.25982, %2449 ], [ %.431000, %2536 ]
   %.43 = phi i64 [ %.26, %2449 ], [ %.44, %2536 ]
   %.0923 = phi i64 [ %2450, %2449 ], [ %2458, %2536 ]
-  %2456 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0923) #7, !srcloc !6
+  %2456 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0923) #6, !srcloc !6
   %2457 = extractvalue { i64, i64 } %2456, 0
   %2458 = extractvalue { i64, i64 } %2456, 1
   %2459 = trunc i64 %2457 to i32
@@ -10004,7 +9998,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2446
   br i1 %.not25.i260, label %2536, label %2471
 
 2471:                                             ; preds = %2465
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2472 = load ptr, ptr %1, align 8
   %2473 = zext nneg i32 %2461 to i64
@@ -10089,7 +10083,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2446
 
 2528:                                             ; preds = %2524
   %2529 = load ptr, ptr %2454, align 8
-  %2530 = call i64 %2529(i64 noundef %2479, i32 noundef %2507, ptr noundef %2497) #6
+  %2530 = call i64 %2529(i64 noundef %2479, i32 noundef %2507, ptr noundef %2497) #7
   br label %2531
 
 2531:                                             ; preds = %2528, %2524, %2519, %2509, %2500
@@ -10108,7 +10102,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2446
 confWithBit.exit547:                              ; preds = %2471, %2535
   %.1361093 = phi i32 [ %.42999, %2471 ], [ %.1351092, %2535 ]
   %.173 = phi i64 [ %.43, %2471 ], [ %.172, %2535 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2536
 
 2536:                                             ; preds = %confWithBit.exit547, %2465, %2455
@@ -10139,7 +10133,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2536
   %.40997 = phi i32 [ %.26983, %2539 ], [ %.41998, %2626 ]
   %.41 = phi i64 [ %.27, %2539 ], [ %.42, %2626 ]
   %.0922 = phi i64 [ %2540, %2539 ], [ %2548, %2626 ]
-  %2546 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0922) #7, !srcloc !6
+  %2546 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0922) #6, !srcloc !6
   %2547 = extractvalue { i64, i64 } %2546, 0
   %2548 = extractvalue { i64, i64 } %2546, 1
   %2549 = trunc i64 %2547 to i32
@@ -10161,7 +10155,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2536
   br i1 %.not25.i256, label %2626, label %2561
 
 2561:                                             ; preds = %2555
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2562 = load ptr, ptr %1, align 8
   %2563 = zext nneg i32 %2551 to i64
@@ -10246,7 +10240,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2536
 
 2618:                                             ; preds = %2614
   %2619 = load ptr, ptr %2544, align 8
-  %2620 = call i64 %2619(i64 noundef %2569, i32 noundef %2597, ptr noundef %2587) #6
+  %2620 = call i64 %2619(i64 noundef %2569, i32 noundef %2597, ptr noundef %2587) #7
   br label %2621
 
 2621:                                             ; preds = %2618, %2614, %2609, %2599, %2590
@@ -10265,7 +10259,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2536
 confWithBit.exit554:                              ; preds = %2561, %2625
   %.1391096 = phi i32 [ %.40997, %2561 ], [ %.1381095, %2625 ]
   %.176 = phi i64 [ %.41, %2561 ], [ %.175, %2625 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2626
 
 2626:                                             ; preds = %confWithBit.exit554, %2555, %2545
@@ -10287,7 +10281,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2626
 
 2629:                                             ; preds = %.critedge234
   %2630 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2631 = ptrtoint ptr %.4953 to i64
   %2632 = ptrtoint ptr %33 to i64
@@ -10393,7 +10387,7 @@ vectoredLoad256.exit:                             ; preds = %2669, %2667, %2660,
   %.09211117 = phi <4 x i64> [ %2636, %2635 ], [ %2639, %2637 ], [ %2639, %2640 ], [ %2639, %2642 ], [ %2639, %2644 ], [ %2639, %2649 ], [ %2639, %2651 ], [ %2639, %2658 ], [ %2639, %2660 ], [ %2639, %2667 ], [ %2639, %2669 ]
   %.1.i.in = phi ptr [ %.4953, %2635 ], [ %29, %2637 ], [ %29, %2640 ], [ %29, %2642 ], [ %29, %2644 ], [ %29, %2649 ], [ %29, %2651 ], [ %29, %2658 ], [ %29, %2660 ], [ %29, %2667 ], [ %29, %2669 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2676 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2677 = bitcast <4 x i64> %42 to <32 x i8>
   %2678 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -10431,7 +10425,7 @@ vectoredLoad256.exit:                             ; preds = %2669, %2667, %2660,
   %.38995 = phi i32 [ %.23980, %2696 ], [ %.39996, %2801 ]
   %.39 = phi i64 [ %.24, %2696 ], [ %.40, %2801 ]
   %.0920 = phi i64 [ %2697, %2696 ], [ %2704, %2801 ]
-  %2702 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0920) #7, !srcloc !6
+  %2702 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0920) #6, !srcloc !6
   %2703 = extractvalue { i64, i64 } %2702, 0
   %2704 = extractvalue { i64, i64 } %2702, 1
   %2705 = lshr i64 %2703, 3
@@ -10451,7 +10445,7 @@ vectoredLoad256.exit:                             ; preds = %2669, %2667, %2660,
   br i1 %.not25.i252, label %2801, label %2715
 
 2715:                                             ; preds = %2709
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2716 = load ptr, ptr %1, align 8
   %2717 = and i64 %2705, 536870911
@@ -10585,7 +10579,7 @@ getConfVal.exit408:                               ; preds = %2720, %lv_u64a_ce.e
 
 2793:                                             ; preds = %2789
   %2794 = load ptr, ptr %2700, align 8
-  %2795 = call i64 %2794(i64 noundef %2744, i32 noundef %2772, ptr noundef %2762) #6
+  %2795 = call i64 %2794(i64 noundef %2744, i32 noundef %2772, ptr noundef %2762) #7
   br label %2796
 
 2796:                                             ; preds = %2793, %2789, %2784, %2774, %2765
@@ -10604,7 +10598,7 @@ getConfVal.exit408:                               ; preds = %2720, %lv_u64a_ce.e
 confWithBit.exit561:                              ; preds = %getConfVal.exit408, %2800
   %.1421099 = phi i32 [ %.38995, %getConfVal.exit408 ], [ %.1411098, %2800 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit408 ], [ %.178, %2800 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2801
 
 2801:                                             ; preds = %confWithBit.exit561, %2709, %2701
@@ -10634,7 +10628,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %2801
   %.36993 = phi i32 [ %.29986, %2804 ], [ %.37994, %2911 ]
   %.37 = phi i64 [ %.30, %2804 ], [ %.38, %2911 ]
   %.0919 = phi i64 [ %2805, %2804 ], [ %2812, %2911 ]
-  %2810 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0919) #7, !srcloc !6
+  %2810 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0919) #6, !srcloc !6
   %2811 = extractvalue { i64, i64 } %2810, 0
   %2812 = extractvalue { i64, i64 } %2810, 1
   %2813 = trunc i64 %2811 to i32
@@ -10656,7 +10650,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %2801
   br i1 %.not25.i248, label %2911, label %2825
 
 2825:                                             ; preds = %2819
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2826 = load ptr, ptr %1, align 8
   %2827 = zext nneg i32 %2815 to i64
@@ -10790,7 +10784,7 @@ getConfVal.exit412:                               ; preds = %2830, %lv_u64a_ce.e
 
 2903:                                             ; preds = %2899
   %2904 = load ptr, ptr %2808, align 8
-  %2905 = call i64 %2904(i64 noundef %2854, i32 noundef %2882, ptr noundef %2872) #6
+  %2905 = call i64 %2904(i64 noundef %2854, i32 noundef %2882, ptr noundef %2872) #7
   br label %2906
 
 2906:                                             ; preds = %2903, %2899, %2894, %2884, %2875
@@ -10809,7 +10803,7 @@ getConfVal.exit412:                               ; preds = %2830, %lv_u64a_ce.e
 confWithBit.exit568:                              ; preds = %getConfVal.exit412, %2910
   %.1451102 = phi i32 [ %.36993, %getConfVal.exit412 ], [ %.1441101, %2910 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit412 ], [ %.181, %2910 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2911
 
 2911:                                             ; preds = %confWithBit.exit568, %2819, %2809
@@ -10839,7 +10833,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %2911
   %.34991 = phi i32 [ %.30987, %2914 ], [ %.35992, %3021 ]
   %.35 = phi i64 [ %.31, %2914 ], [ %.36, %3021 ]
   %.0918 = phi i64 [ %2915, %2914 ], [ %2922, %3021 ]
-  %2920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0918) #7, !srcloc !6
+  %2920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0918) #6, !srcloc !6
   %2921 = extractvalue { i64, i64 } %2920, 0
   %2922 = extractvalue { i64, i64 } %2920, 1
   %2923 = trunc i64 %2921 to i32
@@ -10861,7 +10855,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %2911
   br i1 %.not25.i244, label %3021, label %2935
 
 2935:                                             ; preds = %2929
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %2936 = load ptr, ptr %1, align 8
   %2937 = zext nneg i32 %2925 to i64
@@ -10995,7 +10989,7 @@ getConfVal.exit416:                               ; preds = %2940, %lv_u64a_ce.e
 
 3013:                                             ; preds = %3009
   %3014 = load ptr, ptr %2918, align 8
-  %3015 = call i64 %3014(i64 noundef %2964, i32 noundef %2992, ptr noundef %2982) #6
+  %3015 = call i64 %3014(i64 noundef %2964, i32 noundef %2992, ptr noundef %2982) #7
   br label %3016
 
 3016:                                             ; preds = %3013, %3009, %3004, %2994, %2985
@@ -11014,7 +11008,7 @@ getConfVal.exit416:                               ; preds = %2940, %lv_u64a_ce.e
 confWithBit.exit575:                              ; preds = %getConfVal.exit416, %3020
   %.1481105 = phi i32 [ %.34991, %getConfVal.exit416 ], [ %.1471104, %3020 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit416 ], [ %.184, %3020 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3021
 
 3021:                                             ; preds = %confWithBit.exit575, %2929, %2919
@@ -11044,7 +11038,7 @@ do_confWithBit_teddy.exit246:                     ; preds = %3021
   %.32989 = phi i32 [ %.31988, %3024 ], [ %.33990, %3131 ]
   %.33 = phi i64 [ %.32, %3024 ], [ %.34, %3131 ]
   %.0 = phi i64 [ %3025, %3024 ], [ %3032, %3131 ]
-  %3030 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3030 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3031 = extractvalue { i64, i64 } %3030, 0
   %3032 = extractvalue { i64, i64 } %3030, 1
   %3033 = trunc i64 %3031 to i32
@@ -11066,7 +11060,7 @@ do_confWithBit_teddy.exit246:                     ; preds = %3021
   br i1 %.not25.i, label %3131, label %3045
 
 3045:                                             ; preds = %3039
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3046 = load ptr, ptr %1, align 8
   %3047 = zext nneg i32 %3035 to i64
@@ -11200,7 +11194,7 @@ getConfVal.exit420:                               ; preds = %3050, %lv_u64a_ce.e
 
 3123:                                             ; preds = %3119
   %3124 = load ptr, ptr %3028, align 8
-  %3125 = call i64 %3124(i64 noundef %3074, i32 noundef %3102, ptr noundef %3092) #6
+  %3125 = call i64 %3124(i64 noundef %3074, i32 noundef %3102, ptr noundef %3092) #7
   br label %3126
 
 3126:                                             ; preds = %3123, %3119, %3114, %3104, %3095
@@ -11219,7 +11213,7 @@ getConfVal.exit420:                               ; preds = %3050, %lv_u64a_ce.e
 confWithBit.exit582:                              ; preds = %getConfVal.exit420, %3130
   %.1511108 = phi i32 [ %.32989, %getConfVal.exit420 ], [ %.1501107, %3130 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit420 ], [ %.187, %3130 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3131
 
 3131:                                             ; preds = %confWithBit.exit582, %3039, %3029
@@ -11308,7 +11302,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks2(ptr noundef readonly %0,
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load i64, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %63, %30
   br i1 %.not.i, label %86, label %68
@@ -11466,7 +11460,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   %.2 = phi <4 x i64> [ %85, %80 ], [ %.1, %104 ], [ %.1, %107 ], [ %.1, %109 ], [ %.1, %111 ], [ %.1, %116 ], [ %.1, %118 ], [ %.1, %125 ], [ %.1, %127 ], [ %.1, %134 ], [ %.1, %136 ]
   %.1.i242.in = phi ptr [ %63, %80 ], [ %28, %104 ], [ %28, %107 ], [ %28, %109 ], [ %28, %111 ], [ %28, %116 ], [ %28, %118 ], [ %28, %125 ], [ %28, %127 ], [ %28, %134 ], [ %28, %136 ]
   %.1.i242 = load <4 x i64>, ptr %.1.i242.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %143 = lshr <4 x i64> %.1.i242, splat (i64 4)
   %144 = bitcast <4 x i64> %48 to <32 x i8>
   %145 = bitcast <4 x i64> %.1.i242 to <32 x i8>
@@ -11512,7 +11506,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   %.781047 = phi i32 [ -1, %170 ], [ %.791048, %276 ]
   %.79 = phi i64 [ %2, %170 ], [ %.80, %276 ]
   %.0953 = phi i64 [ %171, %170 ], [ %179, %276 ]
-  %177 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #7, !srcloc !6
+  %177 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #6, !srcloc !6
   %178 = extractvalue { i64, i64 } %177, 0
   %179 = extractvalue { i64, i64 } %177, 1
   %180 = lshr i64 %178, 3
@@ -11532,7 +11526,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   br i1 %.not25.i334, label %276, label %190
 
 190:                                              ; preds = %184
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %191 = load ptr, ptr %1, align 8
   %192 = and i64 %180, 536870911
@@ -11666,7 +11660,7 @@ getConfVal.exit:                                  ; preds = %195, %lv_u64a_ce.ex
 
 268:                                              ; preds = %264
   %269 = load ptr, ptr %175, align 8
-  %270 = call i64 %269(i64 noundef %219, i32 noundef %247, ptr noundef %237) #6
+  %270 = call i64 %269(i64 noundef %219, i32 noundef %247, ptr noundef %237) #7
   br label %271
 
 271:                                              ; preds = %268, %264, %259, %249, %240
@@ -11685,7 +11679,7 @@ getConfVal.exit:                                  ; preds = %195, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %275
   %.821051 = phi i32 [ %.781047, %getConfVal.exit ], [ %.811050, %275 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %275 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %276
 
 276:                                              ; preds = %confWithBit.exit, %184, %176
@@ -11716,7 +11710,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %276
   %.761045 = phi i32 [ %.1970, %279 ], [ %.771046, %387 ]
   %.77 = phi i64 [ %.1958, %279 ], [ %.78, %387 ]
   %.0952 = phi i64 [ %280, %279 ], [ %288, %387 ]
-  %286 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #7, !srcloc !6
+  %286 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #6, !srcloc !6
   %287 = extractvalue { i64, i64 } %286, 0
   %288 = extractvalue { i64, i64 } %286, 1
   %289 = trunc i64 %287 to i32
@@ -11738,7 +11732,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %276
   br i1 %.not25.i330, label %387, label %301
 
 301:                                              ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %302 = load ptr, ptr %1, align 8
   %303 = zext nneg i32 %291 to i64
@@ -11872,7 +11866,7 @@ getConfVal.exit346:                               ; preds = %306, %lv_u64a_ce.ex
 
 379:                                              ; preds = %375
   %380 = load ptr, ptr %284, align 8
-  %381 = call i64 %380(i64 noundef %330, i32 noundef %358, ptr noundef %348) #6
+  %381 = call i64 %380(i64 noundef %330, i32 noundef %358, ptr noundef %348) #7
   br label %382
 
 382:                                              ; preds = %379, %375, %370, %360, %351
@@ -11891,7 +11885,7 @@ getConfVal.exit346:                               ; preds = %306, %lv_u64a_ce.ex
 confWithBit.exit430:                              ; preds = %getConfVal.exit346, %386
   %.851054 = phi i32 [ %.761045, %getConfVal.exit346 ], [ %.841053, %386 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit346 ], [ %.121, %386 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %387
 
 387:                                              ; preds = %confWithBit.exit430, %295, %285
@@ -11922,7 +11916,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %387
   %.741043 = phi i32 [ %.2971, %390 ], [ %.751044, %498 ]
   %.75 = phi i64 [ %.2959, %390 ], [ %.76, %498 ]
   %.0951 = phi i64 [ %391, %390 ], [ %399, %498 ]
-  %397 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #7, !srcloc !6
+  %397 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #6, !srcloc !6
   %398 = extractvalue { i64, i64 } %397, 0
   %399 = extractvalue { i64, i64 } %397, 1
   %400 = trunc i64 %398 to i32
@@ -11944,7 +11938,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %387
   br i1 %.not25.i326, label %498, label %412
 
 412:                                              ; preds = %406
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %413 = load ptr, ptr %1, align 8
   %414 = zext nneg i32 %402 to i64
@@ -12078,7 +12072,7 @@ getConfVal.exit350:                               ; preds = %417, %lv_u64a_ce.ex
 
 490:                                              ; preds = %486
   %491 = load ptr, ptr %395, align 8
-  %492 = call i64 %491(i64 noundef %441, i32 noundef %469, ptr noundef %459) #6
+  %492 = call i64 %491(i64 noundef %441, i32 noundef %469, ptr noundef %459) #7
   br label %493
 
 493:                                              ; preds = %490, %486, %481, %471, %462
@@ -12097,7 +12091,7 @@ getConfVal.exit350:                               ; preds = %417, %lv_u64a_ce.ex
 confWithBit.exit437:                              ; preds = %getConfVal.exit350, %497
   %.881057 = phi i32 [ %.741043, %getConfVal.exit350 ], [ %.871056, %497 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit350 ], [ %.124, %497 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %498
 
 498:                                              ; preds = %confWithBit.exit437, %406, %396
@@ -12128,7 +12122,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %498
   %.721041 = phi i32 [ %.3972, %501 ], [ %.731042, %609 ]
   %.73 = phi i64 [ %.3, %501 ], [ %.74, %609 ]
   %.0950 = phi i64 [ %502, %501 ], [ %510, %609 ]
-  %508 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #7, !srcloc !6
+  %508 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #6, !srcloc !6
   %509 = extractvalue { i64, i64 } %508, 0
   %510 = extractvalue { i64, i64 } %508, 1
   %511 = trunc i64 %509 to i32
@@ -12150,7 +12144,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %498
   br i1 %.not25.i322, label %609, label %523
 
 523:                                              ; preds = %517
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %524 = load ptr, ptr %1, align 8
   %525 = zext nneg i32 %513 to i64
@@ -12284,7 +12278,7 @@ getConfVal.exit354:                               ; preds = %528, %lv_u64a_ce.ex
 
 601:                                              ; preds = %597
   %602 = load ptr, ptr %506, align 8
-  %603 = call i64 %602(i64 noundef %552, i32 noundef %580, ptr noundef %570) #6
+  %603 = call i64 %602(i64 noundef %552, i32 noundef %580, ptr noundef %570) #7
   br label %604
 
 604:                                              ; preds = %601, %597, %592, %582, %573
@@ -12303,7 +12297,7 @@ getConfVal.exit354:                               ; preds = %528, %lv_u64a_ce.ex
 confWithBit.exit444:                              ; preds = %getConfVal.exit354, %608
   %.911060 = phi i32 [ %.721041, %getConfVal.exit354 ], [ %.901059, %608 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit354 ], [ %.127, %608 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %609
 
 609:                                              ; preds = %confWithBit.exit444, %517, %507
@@ -12384,7 +12378,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %609
   %.701039 = phi i32 [ %.0969, %651 ], [ %.711040, %758 ]
   %.71 = phi i64 [ %.0957, %651 ], [ %.72, %758 ]
   %.0949 = phi i64 [ %652, %651 ], [ %661, %758 ]
-  %659 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #7, !srcloc !6
+  %659 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #6, !srcloc !6
   %660 = extractvalue { i64, i64 } %659, 0
   %661 = extractvalue { i64, i64 } %659, 1
   %662 = lshr i64 %660, 3
@@ -12404,7 +12398,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %609
   br i1 %.not25.i318, label %758, label %672
 
 672:                                              ; preds = %666
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %673 = load ptr, ptr %1, align 8
   %674 = and i64 %662, 536870911
@@ -12538,7 +12532,7 @@ getConfVal.exit358:                               ; preds = %677, %lv_u64a_ce.ex
 
 750:                                              ; preds = %746
   %751 = load ptr, ptr %657, align 8
-  %752 = call i64 %751(i64 noundef %701, i32 noundef %729, ptr noundef %719) #6
+  %752 = call i64 %751(i64 noundef %701, i32 noundef %729, ptr noundef %719) #7
   br label %753
 
 753:                                              ; preds = %750, %746, %741, %731, %722
@@ -12557,7 +12551,7 @@ getConfVal.exit358:                               ; preds = %677, %lv_u64a_ce.ex
 confWithBit.exit451:                              ; preds = %getConfVal.exit358, %757
   %.941063 = phi i32 [ %.701039, %getConfVal.exit358 ], [ %.931062, %757 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit358 ], [ %.130, %757 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %758
 
 758:                                              ; preds = %confWithBit.exit451, %666, %658
@@ -12589,7 +12583,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %758
   %.681037 = phi i32 [ %.7976, %761 ], [ %.691038, %870 ]
   %.69 = phi i64 [ %.7, %761 ], [ %.70, %870 ]
   %.0948 = phi i64 [ %762, %761 ], [ %771, %870 ]
-  %769 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #7, !srcloc !6
+  %769 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #6, !srcloc !6
   %770 = extractvalue { i64, i64 } %769, 0
   %771 = extractvalue { i64, i64 } %769, 1
   %772 = trunc i64 %770 to i32
@@ -12611,7 +12605,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %758
   br i1 %.not25.i314, label %870, label %784
 
 784:                                              ; preds = %778
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %785 = load ptr, ptr %1, align 8
   %786 = zext nneg i32 %774 to i64
@@ -12745,7 +12739,7 @@ getConfVal.exit362:                               ; preds = %789, %lv_u64a_ce.ex
 
 862:                                              ; preds = %858
   %863 = load ptr, ptr %767, align 8
-  %864 = call i64 %863(i64 noundef %813, i32 noundef %841, ptr noundef %831) #6
+  %864 = call i64 %863(i64 noundef %813, i32 noundef %841, ptr noundef %831) #7
   br label %865
 
 865:                                              ; preds = %862, %858, %853, %843, %834
@@ -12764,7 +12758,7 @@ getConfVal.exit362:                               ; preds = %789, %lv_u64a_ce.ex
 confWithBit.exit458:                              ; preds = %getConfVal.exit362, %869
   %.971066 = phi i32 [ %.681037, %getConfVal.exit362 ], [ %.961065, %869 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit362 ], [ %.133, %869 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %870
 
 870:                                              ; preds = %confWithBit.exit458, %778, %768
@@ -12796,7 +12790,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %870
   %.661035 = phi i32 [ %.8977, %873 ], [ %.671036, %982 ]
   %.67 = phi i64 [ %.8, %873 ], [ %.68, %982 ]
   %.0947 = phi i64 [ %874, %873 ], [ %883, %982 ]
-  %881 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #7, !srcloc !6
+  %881 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #6, !srcloc !6
   %882 = extractvalue { i64, i64 } %881, 0
   %883 = extractvalue { i64, i64 } %881, 1
   %884 = trunc i64 %882 to i32
@@ -12818,7 +12812,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %870
   br i1 %.not25.i310, label %982, label %896
 
 896:                                              ; preds = %890
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %897 = load ptr, ptr %1, align 8
   %898 = zext nneg i32 %886 to i64
@@ -12952,7 +12946,7 @@ getConfVal.exit366:                               ; preds = %901, %lv_u64a_ce.ex
 
 974:                                              ; preds = %970
   %975 = load ptr, ptr %879, align 8
-  %976 = call i64 %975(i64 noundef %925, i32 noundef %953, ptr noundef %943) #6
+  %976 = call i64 %975(i64 noundef %925, i32 noundef %953, ptr noundef %943) #7
   br label %977
 
 977:                                              ; preds = %974, %970, %965, %955, %946
@@ -12971,7 +12965,7 @@ getConfVal.exit366:                               ; preds = %901, %lv_u64a_ce.ex
 confWithBit.exit465:                              ; preds = %getConfVal.exit366, %981
   %.1001069 = phi i32 [ %.661035, %getConfVal.exit366 ], [ %.991068, %981 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit366 ], [ %.136, %981 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %982
 
 982:                                              ; preds = %confWithBit.exit465, %890, %880
@@ -13003,7 +12997,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %982
   %.641033 = phi i32 [ %.9978, %985 ], [ %.651034, %1094 ]
   %.65 = phi i64 [ %.9, %985 ], [ %.66, %1094 ]
   %.0946 = phi i64 [ %986, %985 ], [ %995, %1094 ]
-  %993 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #7, !srcloc !6
+  %993 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #6, !srcloc !6
   %994 = extractvalue { i64, i64 } %993, 0
   %995 = extractvalue { i64, i64 } %993, 1
   %996 = trunc i64 %994 to i32
@@ -13025,7 +13019,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %982
   br i1 %.not25.i306, label %1094, label %1008
 
 1008:                                             ; preds = %1002
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %1009 = load ptr, ptr %1, align 8
   %1010 = zext nneg i32 %998 to i64
@@ -13159,7 +13153,7 @@ getConfVal.exit370:                               ; preds = %1013, %lv_u64a_ce.e
 
 1086:                                             ; preds = %1082
   %1087 = load ptr, ptr %991, align 8
-  %1088 = call i64 %1087(i64 noundef %1037, i32 noundef %1065, ptr noundef %1055) #6
+  %1088 = call i64 %1087(i64 noundef %1037, i32 noundef %1065, ptr noundef %1055) #7
   br label %1089
 
 1089:                                             ; preds = %1086, %1082, %1077, %1067, %1058
@@ -13178,7 +13172,7 @@ getConfVal.exit370:                               ; preds = %1013, %lv_u64a_ce.e
 confWithBit.exit472:                              ; preds = %getConfVal.exit370, %1093
   %.1031072 = phi i32 [ %.641033, %getConfVal.exit370 ], [ %.1021071, %1093 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit370 ], [ %.139, %1093 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1094
 
 1094:                                             ; preds = %confWithBit.exit472, %1002, %992
@@ -13451,7 +13445,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1238 = add i64 %indvars.iv1261, %1116
   %1239 = and i64 %1238, 4294967295
   %1240 = load i32, ptr %1216, align 8
-  %1241 = call i64 %1111(i64 noundef %1239, i32 noundef %1240, ptr noundef %1112) #6
+  %1241 = call i64 %1111(i64 noundef %1239, i32 noundef %1240, ptr noundef %1112) #7
   %.pre = load i64, ptr %1215, align 8
   %.pre1288 = and i64 %.pre, %1241
   %1242 = icmp eq i64 %.pre1288, 0
@@ -13461,7 +13455,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1244 = add i64 %1217, %indvars.iv1261
   %1245 = and i64 %1244, 4294967295
   %1246 = load i32, ptr %1216, align 8
-  %1247 = call i64 %1111(i64 noundef %1245, i32 noundef %1246, ptr noundef %1112) #6
+  %1247 = call i64 %1111(i64 noundef %1245, i32 noundef %1246, ptr noundef %1112) #7
   %.pre1277 = load i64, ptr %1215, align 8
   %.pre1290 = and i64 %.pre1277, %1247
   %1248 = icmp eq i64 %.pre1290, 0
@@ -13471,7 +13465,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1250 = add i64 %1218, %indvars.iv1261
   %1251 = and i64 %1250, 4294967295
   %1252 = load i32, ptr %1216, align 8
-  %1253 = call i64 %1111(i64 noundef %1251, i32 noundef %1252, ptr noundef %1112) #6
+  %1253 = call i64 %1111(i64 noundef %1251, i32 noundef %1252, ptr noundef %1112) #7
   %.pre1278 = load i64, ptr %1215, align 8
   %.pre1292 = and i64 %.pre1278, %1253
   %1254 = icmp eq i64 %.pre1292, 0
@@ -13481,7 +13475,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1256 = add i64 %1219, %indvars.iv1261
   %1257 = and i64 %1256, 4294967295
   %1258 = load i32, ptr %1216, align 8
-  %1259 = call i64 %1111(i64 noundef %1257, i32 noundef %1258, ptr noundef %1112) #6
+  %1259 = call i64 %1111(i64 noundef %1257, i32 noundef %1258, ptr noundef %1112) #7
   br label %.thread1326
 
 .thread1326:                                      ; preds = %1234, %1237, %1243, %1255, %1249
@@ -13508,7 +13502,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1268 = add i64 %indvars.iv1258, %1116
   %1269 = and i64 %1268, 4294967295
   %1270 = load i32, ptr %1208, align 8
-  %1271 = call i64 %1111(i64 noundef %1269, i32 noundef %1270, ptr noundef %1112) #6
+  %1271 = call i64 %1111(i64 noundef %1269, i32 noundef %1270, ptr noundef %1112) #7
   br label %1272
 
 1272:                                             ; preds = %1267, %1264
@@ -13522,7 +13516,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1276 = add i64 %indvars.iv1258, %1116
   %1277 = and i64 %1276, 4294967295
   %1278 = load i32, ptr %1210, align 4
-  %1279 = call i64 %1111(i64 noundef %1277, i32 noundef %1278, ptr noundef %1112) #6
+  %1279 = call i64 %1111(i64 noundef %1277, i32 noundef %1278, ptr noundef %1112) #7
   br label %1280
 
 1280:                                             ; preds = %1275, %1272
@@ -13537,7 +13531,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1285 = add i32 %1211, %1284
   %1286 = zext i32 %1285 to i64
   %1287 = load i32, ptr %1208, align 8
-  %1288 = call i64 %1111(i64 noundef %1286, i32 noundef %1287, ptr noundef %1112) #6
+  %1288 = call i64 %1111(i64 noundef %1286, i32 noundef %1287, ptr noundef %1112) #7
   br label %1289
 
 1289:                                             ; preds = %1283, %1280
@@ -13552,7 +13546,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1294 = add i32 %1211, %1293
   %1295 = zext i32 %1294 to i64
   %1296 = load i32, ptr %1210, align 4
-  %1297 = call i64 %1111(i64 noundef %1295, i32 noundef %1296, ptr noundef %1112) #6
+  %1297 = call i64 %1111(i64 noundef %1295, i32 noundef %1296, ptr noundef %1112) #7
   br label %1298
 
 1298:                                             ; preds = %1292, %1289
@@ -13567,7 +13561,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1303 = add i32 %1212, %1302
   %1304 = zext i32 %1303 to i64
   %1305 = load i32, ptr %1208, align 8
-  %1306 = call i64 %1111(i64 noundef %1304, i32 noundef %1305, ptr noundef %1112) #6
+  %1306 = call i64 %1111(i64 noundef %1304, i32 noundef %1305, ptr noundef %1112) #7
   br label %1307
 
 1307:                                             ; preds = %1301, %1298
@@ -13582,7 +13576,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1312 = add i32 %1212, %1311
   %1313 = zext i32 %1312 to i64
   %1314 = load i32, ptr %1210, align 4
-  %1315 = call i64 %1111(i64 noundef %1313, i32 noundef %1314, ptr noundef %1112) #6
+  %1315 = call i64 %1111(i64 noundef %1313, i32 noundef %1314, ptr noundef %1112) #7
   br label %1316
 
 1316:                                             ; preds = %1310, %1307
@@ -13597,7 +13591,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1321 = add i32 %1213, %1320
   %1322 = zext i32 %1321 to i64
   %1323 = load i32, ptr %1208, align 8
-  %1324 = call i64 %1111(i64 noundef %1322, i32 noundef %1323, ptr noundef %1112) #6
+  %1324 = call i64 %1111(i64 noundef %1322, i32 noundef %1323, ptr noundef %1112) #7
   br label %1325
 
 1325:                                             ; preds = %1319, %1316
@@ -13612,7 +13606,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1330 = add i32 %1213, %1329
   %1331 = zext i32 %1330 to i64
   %1332 = load i32, ptr %1210, align 4
-  %1333 = call i64 %1111(i64 noundef %1331, i32 noundef %1332, ptr noundef %1112) #6
+  %1333 = call i64 %1111(i64 noundef %1331, i32 noundef %1332, ptr noundef %1112) #7
   br label %1334
 
 1334:                                             ; preds = %1328, %1325
@@ -13639,7 +13633,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1343 = add i64 %indvars.iv, %1116
   %1344 = and i64 %1343, 4294967295
   %1345 = load i32, ptr %1200, align 8
-  %1346 = call i64 %1111(i64 noundef %1344, i32 noundef %1345, ptr noundef %1112) #6
+  %1346 = call i64 %1111(i64 noundef %1344, i32 noundef %1345, ptr noundef %1112) #7
   br label %1347
 
 1347:                                             ; preds = %1342, %1339
@@ -13653,7 +13647,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1351 = add i64 %indvars.iv, %1116
   %1352 = and i64 %1351, 4294967295
   %1353 = load i32, ptr %1202, align 4
-  %1354 = call i64 %1111(i64 noundef %1352, i32 noundef %1353, ptr noundef %1112) #6
+  %1354 = call i64 %1111(i64 noundef %1352, i32 noundef %1353, ptr noundef %1112) #7
   br label %1355
 
 1355:                                             ; preds = %1350, %1347
@@ -13667,7 +13661,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1359 = add i64 %indvars.iv, %1116
   %1360 = and i64 %1359, 4294967295
   %1361 = load i32, ptr %1204, align 8
-  %1362 = call i64 %1111(i64 noundef %1360, i32 noundef %1361, ptr noundef %1112) #6
+  %1362 = call i64 %1111(i64 noundef %1360, i32 noundef %1361, ptr noundef %1112) #7
   br label %1363
 
 1363:                                             ; preds = %1358, %1355
@@ -13682,7 +13676,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1368 = add i32 %1205, %1367
   %1369 = zext i32 %1368 to i64
   %1370 = load i32, ptr %1200, align 8
-  %1371 = call i64 %1111(i64 noundef %1369, i32 noundef %1370, ptr noundef %1112) #6
+  %1371 = call i64 %1111(i64 noundef %1369, i32 noundef %1370, ptr noundef %1112) #7
   br label %1372
 
 1372:                                             ; preds = %1366, %1363
@@ -13697,7 +13691,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1377 = add i32 %1205, %1376
   %1378 = zext i32 %1377 to i64
   %1379 = load i32, ptr %1202, align 4
-  %1380 = call i64 %1111(i64 noundef %1378, i32 noundef %1379, ptr noundef %1112) #6
+  %1380 = call i64 %1111(i64 noundef %1378, i32 noundef %1379, ptr noundef %1112) #7
   br label %1381
 
 1381:                                             ; preds = %1375, %1372
@@ -13712,7 +13706,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1386 = add i32 %1205, %1385
   %1387 = zext i32 %1386 to i64
   %1388 = load i32, ptr %1204, align 8
-  %1389 = call i64 %1111(i64 noundef %1387, i32 noundef %1388, ptr noundef %1112) #6
+  %1389 = call i64 %1111(i64 noundef %1387, i32 noundef %1388, ptr noundef %1112) #7
   br label %1390
 
 1390:                                             ; preds = %1384, %1381
@@ -13739,7 +13733,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1399 = add i64 %indvars.iv1270, %1116
   %1400 = and i64 %1399, 4294967295
   %1401 = load i32, ptr %1222, align 8
-  %1402 = call i64 %1111(i64 noundef %1400, i32 noundef %1401, ptr noundef %1112) #6
+  %1402 = call i64 %1111(i64 noundef %1400, i32 noundef %1401, ptr noundef %1112) #7
   br label %1403
 
 1403:                                             ; preds = %1398, %1395
@@ -13753,7 +13747,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1407 = add i64 %indvars.iv1270, %1116
   %1408 = and i64 %1407, 4294967295
   %1409 = load i32, ptr %1224, align 4
-  %1410 = call i64 %1111(i64 noundef %1408, i32 noundef %1409, ptr noundef %1112) #6
+  %1410 = call i64 %1111(i64 noundef %1408, i32 noundef %1409, ptr noundef %1112) #7
   br label %1411
 
 1411:                                             ; preds = %1406, %1403
@@ -13767,7 +13761,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1415 = add i64 %indvars.iv1270, %1116
   %1416 = and i64 %1415, 4294967295
   %1417 = load i32, ptr %1226, align 8
-  %1418 = call i64 %1111(i64 noundef %1416, i32 noundef %1417, ptr noundef %1112) #6
+  %1418 = call i64 %1111(i64 noundef %1416, i32 noundef %1417, ptr noundef %1112) #7
   br label %1419
 
 1419:                                             ; preds = %1414, %1411
@@ -13781,7 +13775,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1423 = add i64 %indvars.iv1270, %1116
   %1424 = and i64 %1423, 4294967295
   %1425 = load i32, ptr %1228, align 4
-  %1426 = call i64 %1111(i64 noundef %1424, i32 noundef %1425, ptr noundef %1112) #6
+  %1426 = call i64 %1111(i64 noundef %1424, i32 noundef %1425, ptr noundef %1112) #7
   br label %1427
 
 1427:                                             ; preds = %1422, %1419
@@ -13815,7 +13809,7 @@ split:                                            ; preds = %1179, %.thread1123
 1439:                                             ; preds = %1434
   %1440 = getelementptr inbounds nuw [16 x i32], ptr %1222, i64 0, i64 %indvars.iv1264
   %1441 = load i32, ptr %1440, align 4
-  %1442 = call i64 %1111(i64 noundef %1431, i32 noundef %1441, ptr noundef %1112) #6
+  %1442 = call i64 %1111(i64 noundef %1431, i32 noundef %1441, ptr noundef %1112) #7
   %.pre1279 = load i16, ptr %1142, align 4
   br label %1443
 
@@ -13832,7 +13826,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1449 = add i32 %1229, %1448
   %1450 = zext i32 %1449 to i64
   %1451 = load i32, ptr %1222, align 8
-  %1452 = call i64 %1111(i64 noundef %1450, i32 noundef %1451, ptr noundef %1112) #6
+  %1452 = call i64 %1111(i64 noundef %1450, i32 noundef %1451, ptr noundef %1112) #7
   br label %1453
 
 1453:                                             ; preds = %1447, %._crit_edge1203
@@ -13847,7 +13841,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1458 = add i32 %1229, %1457
   %1459 = zext i32 %1458 to i64
   %1460 = load i32, ptr %1224, align 4
-  %1461 = call i64 %1111(i64 noundef %1459, i32 noundef %1460, ptr noundef %1112) #6
+  %1461 = call i64 %1111(i64 noundef %1459, i32 noundef %1460, ptr noundef %1112) #7
   br label %1462
 
 1462:                                             ; preds = %1456, %1453
@@ -13862,7 +13856,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1467 = add i32 %1229, %1466
   %1468 = zext i32 %1467 to i64
   %1469 = load i32, ptr %1226, align 8
-  %1470 = call i64 %1111(i64 noundef %1468, i32 noundef %1469, ptr noundef %1112) #6
+  %1470 = call i64 %1111(i64 noundef %1468, i32 noundef %1469, ptr noundef %1112) #7
   br label %1471
 
 1471:                                             ; preds = %1465, %1462
@@ -13877,7 +13871,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1476 = add i32 %1229, %1475
   %1477 = zext i32 %1476 to i64
   %1478 = load i32, ptr %1228, align 4
-  %1479 = call i64 %1111(i64 noundef %1477, i32 noundef %1478, ptr noundef %1112) #6
+  %1479 = call i64 %1111(i64 noundef %1477, i32 noundef %1478, ptr noundef %1112) #7
   br label %1480
 
 1480:                                             ; preds = %1474, %1471
@@ -13911,7 +13905,7 @@ split:                                            ; preds = %1179, %.thread1123
 1492:                                             ; preds = %1487
   %1493 = getelementptr inbounds nuw [16 x i32], ptr %1222, i64 0, i64 %indvars.iv1267
   %1494 = load i32, ptr %1493, align 4
-  %1495 = call i64 %1111(i64 noundef %1485, i32 noundef %1494, ptr noundef %1112) #6
+  %1495 = call i64 %1111(i64 noundef %1485, i32 noundef %1494, ptr noundef %1112) #7
   %.pre1280 = load i16, ptr %1142, align 4
   br label %1496
 
@@ -14008,7 +14002,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
   %.621031 = phi i32 [ %.129811218, %1550 ], [ %.631032, %1632 ]
   %.63 = phi i64 [ %.13, %1550 ], [ %.64, %1632 ]
   %.0945 = phi i64 [ %1551, %1550 ], [ %1556, %1632 ]
-  %1554 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0945) #7, !srcloc !6
+  %1554 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0945) #6, !srcloc !6
   %1555 = extractvalue { i64, i64 } %1554, 0
   %1556 = extractvalue { i64, i64 } %1554, 1
   %1557 = lshr i64 %1555, 3
@@ -14028,7 +14022,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
   br i1 %.not25.i302, label %1632, label %1567
 
 1567:                                             ; preds = %1561
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1568 = load ptr, ptr %1, align 8
   %1569 = and i64 %1557, 536870911
@@ -14113,7 +14107,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
 
 1624:                                             ; preds = %1620
   %1625 = load ptr, ptr %1097, align 8
-  %1626 = call i64 %1625(i64 noundef %1575, i32 noundef %1603, ptr noundef %1593) #6
+  %1626 = call i64 %1625(i64 noundef %1575, i32 noundef %1603, ptr noundef %1593) #7
   br label %1627
 
 1627:                                             ; preds = %1624, %1620, %1615, %1605, %1596
@@ -14132,7 +14126,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
 confWithBit.exit479:                              ; preds = %1567, %1631
   %.1061075 = phi i32 [ %.621031, %1567 ], [ %.1051074, %1631 ]
   %.143 = phi i64 [ %.63, %1567 ], [ %.142, %1631 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1632
 
 1632:                                             ; preds = %confWithBit.exit479, %1561, %1553
@@ -14160,7 +14154,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
   %.601029 = phi i32 [ %.13982, %1635 ], [ %.611030, %1719 ]
   %.61 = phi i64 [ %.14, %1635 ], [ %.62, %1719 ]
   %.0944 = phi i64 [ %1636, %1635 ], [ %1641, %1719 ]
-  %1639 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #7, !srcloc !6
+  %1639 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #6, !srcloc !6
   %1640 = extractvalue { i64, i64 } %1639, 0
   %1641 = extractvalue { i64, i64 } %1639, 1
   %1642 = trunc i64 %1640 to i32
@@ -14182,7 +14176,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
   br i1 %.not25.i298, label %1719, label %1654
 
 1654:                                             ; preds = %1648
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1655 = load ptr, ptr %1, align 8
   %1656 = zext nneg i32 %1644 to i64
@@ -14267,7 +14261,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
 
 1711:                                             ; preds = %1707
   %1712 = load ptr, ptr %1097, align 8
-  %1713 = call i64 %1712(i64 noundef %1662, i32 noundef %1690, ptr noundef %1680) #6
+  %1713 = call i64 %1712(i64 noundef %1662, i32 noundef %1690, ptr noundef %1680) #7
   br label %1714
 
 1714:                                             ; preds = %1711, %1707, %1702, %1692, %1683
@@ -14286,7 +14280,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
 confWithBit.exit486:                              ; preds = %1654, %1718
   %.1091078 = phi i32 [ %.601029, %1654 ], [ %.1081077, %1718 ]
   %.146 = phi i64 [ %.61, %1654 ], [ %.145, %1718 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1719
 
 1719:                                             ; preds = %confWithBit.exit486, %1648, %1638
@@ -14314,7 +14308,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
   %.581027 = phi i32 [ %.14983, %1722 ], [ %.591028, %1806 ]
   %.59 = phi i64 [ %.15, %1722 ], [ %.60, %1806 ]
   %.0943 = phi i64 [ %1723, %1722 ], [ %1728, %1806 ]
-  %1726 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #7, !srcloc !6
+  %1726 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #6, !srcloc !6
   %1727 = extractvalue { i64, i64 } %1726, 0
   %1728 = extractvalue { i64, i64 } %1726, 1
   %1729 = trunc i64 %1727 to i32
@@ -14336,7 +14330,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
   br i1 %.not25.i294, label %1806, label %1741
 
 1741:                                             ; preds = %1735
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1742 = load ptr, ptr %1, align 8
   %1743 = zext nneg i32 %1731 to i64
@@ -14421,7 +14415,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
 
 1798:                                             ; preds = %1794
   %1799 = load ptr, ptr %1097, align 8
-  %1800 = call i64 %1799(i64 noundef %1749, i32 noundef %1777, ptr noundef %1767) #6
+  %1800 = call i64 %1799(i64 noundef %1749, i32 noundef %1777, ptr noundef %1767) #7
   br label %1801
 
 1801:                                             ; preds = %1798, %1794, %1789, %1779, %1770
@@ -14440,7 +14434,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
 confWithBit.exit493:                              ; preds = %1741, %1805
   %.1121081 = phi i32 [ %.581027, %1741 ], [ %.1111080, %1805 ]
   %.149 = phi i64 [ %.59, %1741 ], [ %.148, %1805 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1806
 
 1806:                                             ; preds = %confWithBit.exit493, %1735, %1725
@@ -14468,7 +14462,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
   %.561025 = phi i32 [ %.15984, %1809 ], [ %.571026, %1893 ]
   %.57 = phi i64 [ %.16, %1809 ], [ %.58, %1893 ]
   %.0942 = phi i64 [ %1810, %1809 ], [ %1815, %1893 ]
-  %1813 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #7, !srcloc !6
+  %1813 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #6, !srcloc !6
   %1814 = extractvalue { i64, i64 } %1813, 0
   %1815 = extractvalue { i64, i64 } %1813, 1
   %1816 = trunc i64 %1814 to i32
@@ -14490,7 +14484,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
   br i1 %.not25.i290, label %1893, label %1828
 
 1828:                                             ; preds = %1822
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1829 = load ptr, ptr %1, align 8
   %1830 = zext nneg i32 %1818 to i64
@@ -14575,7 +14569,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
 
 1885:                                             ; preds = %1881
   %1886 = load ptr, ptr %1097, align 8
-  %1887 = call i64 %1886(i64 noundef %1836, i32 noundef %1864, ptr noundef %1854) #6
+  %1887 = call i64 %1886(i64 noundef %1836, i32 noundef %1864, ptr noundef %1854) #7
   br label %1888
 
 1888:                                             ; preds = %1885, %1881, %1876, %1866, %1857
@@ -14594,7 +14588,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
 confWithBit.exit500:                              ; preds = %1828, %1892
   %.1151084 = phi i32 [ %.561025, %1828 ], [ %.1141083, %1892 ]
   %.152 = phi i64 [ %.57, %1828 ], [ %.151, %1892 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1893
 
 1893:                                             ; preds = %confWithBit.exit500, %1822, %1812
@@ -14663,7 +14657,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
   %.541023 = phi i32 [ %.17986, %1931 ], [ %.551024, %2015 ]
   %.55 = phi i64 [ %.18, %1931 ], [ %.56, %2015 ]
   %.0941 = phi i64 [ %1932, %1931 ], [ %1937, %2015 ]
-  %1935 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #7, !srcloc !6
+  %1935 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #6, !srcloc !6
   %1936 = extractvalue { i64, i64 } %1935, 0
   %1937 = extractvalue { i64, i64 } %1935, 1
   %1938 = trunc i64 %1936 to i32
@@ -14685,7 +14679,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
   br i1 %.not25.i286, label %2015, label %1950
 
 1950:                                             ; preds = %1944
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %1951 = load ptr, ptr %1, align 8
   %1952 = zext nneg i32 %1940 to i64
@@ -14770,7 +14764,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
 
 2007:                                             ; preds = %2003
   %2008 = load ptr, ptr %1097, align 8
-  %2009 = call i64 %2008(i64 noundef %1958, i32 noundef %1986, ptr noundef %1976) #6
+  %2009 = call i64 %2008(i64 noundef %1958, i32 noundef %1986, ptr noundef %1976) #7
   br label %2010
 
 2010:                                             ; preds = %2007, %2003, %1998, %1988, %1979
@@ -14789,7 +14783,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
 confWithBit.exit507:                              ; preds = %1950, %2014
   %.1181087 = phi i32 [ %.541023, %1950 ], [ %.1171086, %2014 ]
   %.155 = phi i64 [ %.55, %1950 ], [ %.154, %2014 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2015
 
 2015:                                             ; preds = %confWithBit.exit507, %1944, %1934
@@ -14817,7 +14811,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
   %.521021 = phi i32 [ %.18987, %2018 ], [ %.531022, %2102 ]
   %.53 = phi i64 [ %.19, %2018 ], [ %.54, %2102 ]
   %.0940 = phi i64 [ %2019, %2018 ], [ %2024, %2102 ]
-  %2022 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #7, !srcloc !6
+  %2022 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #6, !srcloc !6
   %2023 = extractvalue { i64, i64 } %2022, 0
   %2024 = extractvalue { i64, i64 } %2022, 1
   %2025 = trunc i64 %2023 to i32
@@ -14839,7 +14833,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
   br i1 %.not25.i282, label %2102, label %2037
 
 2037:                                             ; preds = %2031
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %2038 = load ptr, ptr %1, align 8
   %2039 = zext nneg i32 %2027 to i64
@@ -14924,7 +14918,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
 
 2094:                                             ; preds = %2090
   %2095 = load ptr, ptr %1097, align 8
-  %2096 = call i64 %2095(i64 noundef %2045, i32 noundef %2073, ptr noundef %2063) #6
+  %2096 = call i64 %2095(i64 noundef %2045, i32 noundef %2073, ptr noundef %2063) #7
   br label %2097
 
 2097:                                             ; preds = %2094, %2090, %2085, %2075, %2066
@@ -14943,7 +14937,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
 confWithBit.exit514:                              ; preds = %2037, %2101
   %.1211090 = phi i32 [ %.521021, %2037 ], [ %.1201089, %2101 ]
   %.158 = phi i64 [ %.53, %2037 ], [ %.157, %2101 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2102
 
 2102:                                             ; preds = %confWithBit.exit514, %2031, %2021
@@ -14971,7 +14965,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
   %.501019 = phi i32 [ %.19988, %2105 ], [ %.511020, %2189 ]
   %.51 = phi i64 [ %.20, %2105 ], [ %.52, %2189 ]
   %.0939 = phi i64 [ %2106, %2105 ], [ %2111, %2189 ]
-  %2109 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #7, !srcloc !6
+  %2109 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #6, !srcloc !6
   %2110 = extractvalue { i64, i64 } %2109, 0
   %2111 = extractvalue { i64, i64 } %2109, 1
   %2112 = trunc i64 %2110 to i32
@@ -14993,7 +14987,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
   br i1 %.not25.i278, label %2189, label %2124
 
 2124:                                             ; preds = %2118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2125 = load ptr, ptr %1, align 8
   %2126 = zext nneg i32 %2114 to i64
@@ -15078,7 +15072,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
 
 2181:                                             ; preds = %2177
   %2182 = load ptr, ptr %1097, align 8
-  %2183 = call i64 %2182(i64 noundef %2132, i32 noundef %2160, ptr noundef %2150) #6
+  %2183 = call i64 %2182(i64 noundef %2132, i32 noundef %2160, ptr noundef %2150) #7
   br label %2184
 
 2184:                                             ; preds = %2181, %2177, %2172, %2162, %2153
@@ -15097,7 +15091,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
 confWithBit.exit521:                              ; preds = %2124, %2188
   %.1241093 = phi i32 [ %.501019, %2124 ], [ %.1231092, %2188 ]
   %.161 = phi i64 [ %.51, %2124 ], [ %.160, %2188 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2189
 
 2189:                                             ; preds = %confWithBit.exit521, %2118, %2108
@@ -15125,7 +15119,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
   %.481017 = phi i32 [ %.20989, %2192 ], [ %.491018, %2276 ]
   %.49 = phi i64 [ %.21, %2192 ], [ %.50, %2276 ]
   %.0938 = phi i64 [ %2193, %2192 ], [ %2198, %2276 ]
-  %2196 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #7, !srcloc !6
+  %2196 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #6, !srcloc !6
   %2197 = extractvalue { i64, i64 } %2196, 0
   %2198 = extractvalue { i64, i64 } %2196, 1
   %2199 = trunc i64 %2197 to i32
@@ -15147,7 +15141,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
   br i1 %.not25.i274, label %2276, label %2211
 
 2211:                                             ; preds = %2205
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2212 = load ptr, ptr %1, align 8
   %2213 = zext nneg i32 %2201 to i64
@@ -15232,7 +15226,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
 
 2268:                                             ; preds = %2264
   %2269 = load ptr, ptr %1097, align 8
-  %2270 = call i64 %2269(i64 noundef %2219, i32 noundef %2247, ptr noundef %2237) #6
+  %2270 = call i64 %2269(i64 noundef %2219, i32 noundef %2247, ptr noundef %2237) #7
   br label %2271
 
 2271:                                             ; preds = %2268, %2264, %2259, %2249, %2240
@@ -15251,7 +15245,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
 confWithBit.exit528:                              ; preds = %2211, %2275
   %.1271096 = phi i32 [ %.481017, %2211 ], [ %.1261095, %2275 ]
   %.164 = phi i64 [ %.49, %2211 ], [ %.163, %2275 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2276
 
 2276:                                             ; preds = %confWithBit.exit528, %2205, %2195
@@ -15338,7 +15332,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
   %.461015 = phi i32 [ %.12981.lcssa, %2319 ], [ %.471016, %2404 ]
   %.47 = phi i64 [ %.12.lcssa, %2319 ], [ %.48, %2404 ]
   %.0937 = phi i64 [ %2320, %2319 ], [ %2328, %2404 ]
-  %2326 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #7, !srcloc !6
+  %2326 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #6, !srcloc !6
   %2327 = extractvalue { i64, i64 } %2326, 0
   %2328 = extractvalue { i64, i64 } %2326, 1
   %2329 = lshr i64 %2327, 3
@@ -15358,7 +15352,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
   br i1 %.not25.i270, label %2404, label %2339
 
 2339:                                             ; preds = %2333
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2340 = load ptr, ptr %1, align 8
   %2341 = and i64 %2329, 536870911
@@ -15443,7 +15437,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
 
 2396:                                             ; preds = %2392
   %2397 = load ptr, ptr %2324, align 8
-  %2398 = call i64 %2397(i64 noundef %2347, i32 noundef %2375, ptr noundef %2365) #6
+  %2398 = call i64 %2397(i64 noundef %2347, i32 noundef %2375, ptr noundef %2365) #7
   br label %2399
 
 2399:                                             ; preds = %2396, %2392, %2387, %2377, %2368
@@ -15462,7 +15456,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
 confWithBit.exit535:                              ; preds = %2339, %2403
   %.1301099 = phi i32 [ %.461015, %2339 ], [ %.1291098, %2403 ]
   %.167 = phi i64 [ %.47, %2339 ], [ %.166, %2403 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2404
 
 2404:                                             ; preds = %confWithBit.exit535, %2333, %2325
@@ -15493,7 +15487,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
   %.441013 = phi i32 [ %.24993, %2407 ], [ %.451014, %2494 ]
   %.45 = phi i64 [ %.25, %2407 ], [ %.46, %2494 ]
   %.0936 = phi i64 [ %2408, %2407 ], [ %2416, %2494 ]
-  %2414 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #7, !srcloc !6
+  %2414 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #6, !srcloc !6
   %2415 = extractvalue { i64, i64 } %2414, 0
   %2416 = extractvalue { i64, i64 } %2414, 1
   %2417 = trunc i64 %2415 to i32
@@ -15515,7 +15509,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
   br i1 %.not25.i266, label %2494, label %2429
 
 2429:                                             ; preds = %2423
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2430 = load ptr, ptr %1, align 8
   %2431 = zext nneg i32 %2419 to i64
@@ -15600,7 +15594,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
 
 2486:                                             ; preds = %2482
   %2487 = load ptr, ptr %2412, align 8
-  %2488 = call i64 %2487(i64 noundef %2437, i32 noundef %2465, ptr noundef %2455) #6
+  %2488 = call i64 %2487(i64 noundef %2437, i32 noundef %2465, ptr noundef %2455) #7
   br label %2489
 
 2489:                                             ; preds = %2486, %2482, %2477, %2467, %2458
@@ -15619,7 +15613,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
 confWithBit.exit542:                              ; preds = %2429, %2493
   %.1331102 = phi i32 [ %.441013, %2429 ], [ %.1321101, %2493 ]
   %.170 = phi i64 [ %.45, %2429 ], [ %.169, %2493 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2494
 
 2494:                                             ; preds = %confWithBit.exit542, %2423, %2413
@@ -15650,7 +15644,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
   %.421011 = phi i32 [ %.25994, %2497 ], [ %.431012, %2584 ]
   %.43 = phi i64 [ %.26, %2497 ], [ %.44, %2584 ]
   %.0935 = phi i64 [ %2498, %2497 ], [ %2506, %2584 ]
-  %2504 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #7, !srcloc !6
+  %2504 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #6, !srcloc !6
   %2505 = extractvalue { i64, i64 } %2504, 0
   %2506 = extractvalue { i64, i64 } %2504, 1
   %2507 = trunc i64 %2505 to i32
@@ -15672,7 +15666,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
   br i1 %.not25.i262, label %2584, label %2519
 
 2519:                                             ; preds = %2513
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2520 = load ptr, ptr %1, align 8
   %2521 = zext nneg i32 %2509 to i64
@@ -15757,7 +15751,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
 
 2576:                                             ; preds = %2572
   %2577 = load ptr, ptr %2502, align 8
-  %2578 = call i64 %2577(i64 noundef %2527, i32 noundef %2555, ptr noundef %2545) #6
+  %2578 = call i64 %2577(i64 noundef %2527, i32 noundef %2555, ptr noundef %2545) #7
   br label %2579
 
 2579:                                             ; preds = %2576, %2572, %2567, %2557, %2548
@@ -15776,7 +15770,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
 confWithBit.exit549:                              ; preds = %2519, %2583
   %.1361105 = phi i32 [ %.421011, %2519 ], [ %.1351104, %2583 ]
   %.173 = phi i64 [ %.43, %2519 ], [ %.172, %2583 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2584
 
 2584:                                             ; preds = %confWithBit.exit549, %2513, %2503
@@ -15807,7 +15801,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
   %.401009 = phi i32 [ %.26995, %2587 ], [ %.411010, %2674 ]
   %.41 = phi i64 [ %.27, %2587 ], [ %.42, %2674 ]
   %.0934 = phi i64 [ %2588, %2587 ], [ %2596, %2674 ]
-  %2594 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #7, !srcloc !6
+  %2594 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #6, !srcloc !6
   %2595 = extractvalue { i64, i64 } %2594, 0
   %2596 = extractvalue { i64, i64 } %2594, 1
   %2597 = trunc i64 %2595 to i32
@@ -15829,7 +15823,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
   br i1 %.not25.i258, label %2674, label %2609
 
 2609:                                             ; preds = %2603
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2610 = load ptr, ptr %1, align 8
   %2611 = zext nneg i32 %2599 to i64
@@ -15914,7 +15908,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
 
 2666:                                             ; preds = %2662
   %2667 = load ptr, ptr %2592, align 8
-  %2668 = call i64 %2667(i64 noundef %2617, i32 noundef %2645, ptr noundef %2635) #6
+  %2668 = call i64 %2667(i64 noundef %2617, i32 noundef %2645, ptr noundef %2635) #7
   br label %2669
 
 2669:                                             ; preds = %2666, %2662, %2657, %2647, %2638
@@ -15933,7 +15927,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
 confWithBit.exit556:                              ; preds = %2609, %2673
   %.1391108 = phi i32 [ %.401009, %2609 ], [ %.1381107, %2673 ]
   %.176 = phi i64 [ %.41, %2609 ], [ %.175, %2673 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2674
 
 2674:                                             ; preds = %confWithBit.exit556, %2603, %2593
@@ -15955,7 +15949,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2674
 
 2677:                                             ; preds = %.critedge236
   %2678 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2679 = ptrtoint ptr %.4965 to i64
   %2680 = ptrtoint ptr %33 to i64
@@ -16061,7 +16055,7 @@ vectoredLoad256.exit:                             ; preds = %2717, %2715, %2708,
   %.09331129 = phi <4 x i64> [ %2684, %2683 ], [ %2687, %2685 ], [ %2687, %2688 ], [ %2687, %2690 ], [ %2687, %2692 ], [ %2687, %2697 ], [ %2687, %2699 ], [ %2687, %2706 ], [ %2687, %2708 ], [ %2687, %2715 ], [ %2687, %2717 ]
   %.1.i.in = phi ptr [ %.4965, %2683 ], [ %29, %2685 ], [ %29, %2688 ], [ %29, %2690 ], [ %29, %2692 ], [ %29, %2697 ], [ %29, %2699 ], [ %29, %2706 ], [ %29, %2708 ], [ %29, %2715 ], [ %29, %2717 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2724 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2725 = bitcast <4 x i64> %48 to <32 x i8>
   %2726 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -16106,7 +16100,7 @@ vectoredLoad256.exit:                             ; preds = %2717, %2715, %2708,
   %.381007 = phi i32 [ %.23992, %2751 ], [ %.391008, %2856 ]
   %.39 = phi i64 [ %.24, %2751 ], [ %.40, %2856 ]
   %.0932 = phi i64 [ %2752, %2751 ], [ %2759, %2856 ]
-  %2757 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #7, !srcloc !6
+  %2757 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #6, !srcloc !6
   %2758 = extractvalue { i64, i64 } %2757, 0
   %2759 = extractvalue { i64, i64 } %2757, 1
   %2760 = lshr i64 %2758, 3
@@ -16126,7 +16120,7 @@ vectoredLoad256.exit:                             ; preds = %2717, %2715, %2708,
   br i1 %.not25.i254, label %2856, label %2770
 
 2770:                                             ; preds = %2764
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2771 = load ptr, ptr %1, align 8
   %2772 = and i64 %2760, 536870911
@@ -16260,7 +16254,7 @@ getConfVal.exit410:                               ; preds = %2775, %lv_u64a_ce.e
 
 2848:                                             ; preds = %2844
   %2849 = load ptr, ptr %2755, align 8
-  %2850 = call i64 %2849(i64 noundef %2799, i32 noundef %2827, ptr noundef %2817) #6
+  %2850 = call i64 %2849(i64 noundef %2799, i32 noundef %2827, ptr noundef %2817) #7
   br label %2851
 
 2851:                                             ; preds = %2848, %2844, %2839, %2829, %2820
@@ -16279,7 +16273,7 @@ getConfVal.exit410:                               ; preds = %2775, %lv_u64a_ce.e
 confWithBit.exit563:                              ; preds = %getConfVal.exit410, %2855
   %.1421111 = phi i32 [ %.381007, %getConfVal.exit410 ], [ %.1411110, %2855 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit410 ], [ %.178, %2855 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2856
 
 2856:                                             ; preds = %confWithBit.exit563, %2764, %2756
@@ -16309,7 +16303,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %2856
   %.361005 = phi i32 [ %.29998, %2859 ], [ %.371006, %2966 ]
   %.37 = phi i64 [ %.30, %2859 ], [ %.38, %2966 ]
   %.0931 = phi i64 [ %2860, %2859 ], [ %2867, %2966 ]
-  %2865 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #7, !srcloc !6
+  %2865 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #6, !srcloc !6
   %2866 = extractvalue { i64, i64 } %2865, 0
   %2867 = extractvalue { i64, i64 } %2865, 1
   %2868 = trunc i64 %2866 to i32
@@ -16331,7 +16325,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %2856
   br i1 %.not25.i250, label %2966, label %2880
 
 2880:                                             ; preds = %2874
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2881 = load ptr, ptr %1, align 8
   %2882 = zext nneg i32 %2870 to i64
@@ -16465,7 +16459,7 @@ getConfVal.exit414:                               ; preds = %2885, %lv_u64a_ce.e
 
 2958:                                             ; preds = %2954
   %2959 = load ptr, ptr %2863, align 8
-  %2960 = call i64 %2959(i64 noundef %2909, i32 noundef %2937, ptr noundef %2927) #6
+  %2960 = call i64 %2959(i64 noundef %2909, i32 noundef %2937, ptr noundef %2927) #7
   br label %2961
 
 2961:                                             ; preds = %2958, %2954, %2949, %2939, %2930
@@ -16484,7 +16478,7 @@ getConfVal.exit414:                               ; preds = %2885, %lv_u64a_ce.e
 confWithBit.exit570:                              ; preds = %getConfVal.exit414, %2965
   %.1451114 = phi i32 [ %.361005, %getConfVal.exit414 ], [ %.1441113, %2965 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit414 ], [ %.181, %2965 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2966
 
 2966:                                             ; preds = %confWithBit.exit570, %2874, %2864
@@ -16514,7 +16508,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %2966
   %.341003 = phi i32 [ %.30999, %2969 ], [ %.351004, %3076 ]
   %.35 = phi i64 [ %.31, %2969 ], [ %.36, %3076 ]
   %.0930 = phi i64 [ %2970, %2969 ], [ %2977, %3076 ]
-  %2975 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #7, !srcloc !6
+  %2975 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #6, !srcloc !6
   %2976 = extractvalue { i64, i64 } %2975, 0
   %2977 = extractvalue { i64, i64 } %2975, 1
   %2978 = trunc i64 %2976 to i32
@@ -16536,7 +16530,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %2966
   br i1 %.not25.i246, label %3076, label %2990
 
 2990:                                             ; preds = %2984
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %2991 = load ptr, ptr %1, align 8
   %2992 = zext nneg i32 %2980 to i64
@@ -16670,7 +16664,7 @@ getConfVal.exit418:                               ; preds = %2995, %lv_u64a_ce.e
 
 3068:                                             ; preds = %3064
   %3069 = load ptr, ptr %2973, align 8
-  %3070 = call i64 %3069(i64 noundef %3019, i32 noundef %3047, ptr noundef %3037) #6
+  %3070 = call i64 %3069(i64 noundef %3019, i32 noundef %3047, ptr noundef %3037) #7
   br label %3071
 
 3071:                                             ; preds = %3068, %3064, %3059, %3049, %3040
@@ -16689,7 +16683,7 @@ getConfVal.exit418:                               ; preds = %2995, %lv_u64a_ce.e
 confWithBit.exit577:                              ; preds = %getConfVal.exit418, %3075
   %.1481117 = phi i32 [ %.341003, %getConfVal.exit418 ], [ %.1471116, %3075 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit418 ], [ %.184, %3075 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3076
 
 3076:                                             ; preds = %confWithBit.exit577, %2984, %2974
@@ -16719,7 +16713,7 @@ do_confWithBit_teddy.exit248:                     ; preds = %3076
   %.321001 = phi i32 [ %.311000, %3079 ], [ %.331002, %3186 ]
   %.33 = phi i64 [ %.32, %3079 ], [ %.34, %3186 ]
   %.0 = phi i64 [ %3080, %3079 ], [ %3087, %3186 ]
-  %3085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3086 = extractvalue { i64, i64 } %3085, 0
   %3087 = extractvalue { i64, i64 } %3085, 1
   %3088 = trunc i64 %3086 to i32
@@ -16741,7 +16735,7 @@ do_confWithBit_teddy.exit248:                     ; preds = %3076
   br i1 %.not25.i, label %3186, label %3100
 
 3100:                                             ; preds = %3094
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3101 = load ptr, ptr %1, align 8
   %3102 = zext nneg i32 %3090 to i64
@@ -16875,7 +16869,7 @@ getConfVal.exit422:                               ; preds = %3105, %lv_u64a_ce.e
 
 3178:                                             ; preds = %3174
   %3179 = load ptr, ptr %3083, align 8
-  %3180 = call i64 %3179(i64 noundef %3129, i32 noundef %3157, ptr noundef %3147) #6
+  %3180 = call i64 %3179(i64 noundef %3129, i32 noundef %3157, ptr noundef %3147) #7
   br label %3181
 
 3181:                                             ; preds = %3178, %3174, %3169, %3159, %3150
@@ -16894,7 +16888,7 @@ getConfVal.exit422:                               ; preds = %3105, %lv_u64a_ce.e
 confWithBit.exit584:                              ; preds = %getConfVal.exit422, %3185
   %.1511120 = phi i32 [ %.321001, %getConfVal.exit422 ], [ %.1501119, %3185 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit422 ], [ %.187, %3185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3186
 
 3186:                                             ; preds = %confWithBit.exit584, %3094, %3084
@@ -16983,7 +16977,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks2_pck(ptr noundef readonly
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load i64, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %63, %30
   br i1 %.not.i, label %86, label %68
@@ -17141,7 +17135,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   %.2 = phi <4 x i64> [ %85, %80 ], [ %.1, %104 ], [ %.1, %107 ], [ %.1, %109 ], [ %.1, %111 ], [ %.1, %116 ], [ %.1, %118 ], [ %.1, %125 ], [ %.1, %127 ], [ %.1, %134 ], [ %.1, %136 ]
   %.1.i242.in = phi ptr [ %63, %80 ], [ %28, %104 ], [ %28, %107 ], [ %28, %109 ], [ %28, %111 ], [ %28, %116 ], [ %28, %118 ], [ %28, %125 ], [ %28, %127 ], [ %28, %134 ], [ %28, %136 ]
   %.1.i242 = load <4 x i64>, ptr %.1.i242.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %143 = lshr <4 x i64> %.1.i242, splat (i64 4)
   %144 = bitcast <4 x i64> %48 to <32 x i8>
   %145 = bitcast <4 x i64> %.1.i242 to <32 x i8>
@@ -17187,7 +17181,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   %.781047 = phi i32 [ -1, %170 ], [ %.791048, %276 ]
   %.79 = phi i64 [ %2, %170 ], [ %.80, %276 ]
   %.0953 = phi i64 [ %171, %170 ], [ %179, %276 ]
-  %177 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #7, !srcloc !6
+  %177 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #6, !srcloc !6
   %178 = extractvalue { i64, i64 } %177, 0
   %179 = extractvalue { i64, i64 } %177, 1
   %180 = lshr i64 %178, 3
@@ -17207,7 +17201,7 @@ vectoredLoad256.exit243:                          ; preds = %136, %134, %127, %1
   br i1 %.not25.i334, label %276, label %190
 
 190:                                              ; preds = %184
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %191 = load ptr, ptr %1, align 8
   %192 = and i64 %180, 536870911
@@ -17341,7 +17335,7 @@ getConfVal.exit:                                  ; preds = %195, %lv_u64a_ce.ex
 
 268:                                              ; preds = %264
   %269 = load ptr, ptr %175, align 8
-  %270 = call i64 %269(i64 noundef %219, i32 noundef %247, ptr noundef %237) #6
+  %270 = call i64 %269(i64 noundef %219, i32 noundef %247, ptr noundef %237) #7
   br label %271
 
 271:                                              ; preds = %268, %264, %259, %249, %240
@@ -17360,7 +17354,7 @@ getConfVal.exit:                                  ; preds = %195, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %275
   %.821051 = phi i32 [ %.781047, %getConfVal.exit ], [ %.811050, %275 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %275 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %276
 
 276:                                              ; preds = %confWithBit.exit, %184, %176
@@ -17391,7 +17385,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %276
   %.761045 = phi i32 [ %.1970, %279 ], [ %.771046, %387 ]
   %.77 = phi i64 [ %.1958, %279 ], [ %.78, %387 ]
   %.0952 = phi i64 [ %280, %279 ], [ %288, %387 ]
-  %286 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #7, !srcloc !6
+  %286 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #6, !srcloc !6
   %287 = extractvalue { i64, i64 } %286, 0
   %288 = extractvalue { i64, i64 } %286, 1
   %289 = trunc i64 %287 to i32
@@ -17413,7 +17407,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %276
   br i1 %.not25.i330, label %387, label %301
 
 301:                                              ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %302 = load ptr, ptr %1, align 8
   %303 = zext nneg i32 %291 to i64
@@ -17547,7 +17541,7 @@ getConfVal.exit346:                               ; preds = %306, %lv_u64a_ce.ex
 
 379:                                              ; preds = %375
   %380 = load ptr, ptr %284, align 8
-  %381 = call i64 %380(i64 noundef %330, i32 noundef %358, ptr noundef %348) #6
+  %381 = call i64 %380(i64 noundef %330, i32 noundef %358, ptr noundef %348) #7
   br label %382
 
 382:                                              ; preds = %379, %375, %370, %360, %351
@@ -17566,7 +17560,7 @@ getConfVal.exit346:                               ; preds = %306, %lv_u64a_ce.ex
 confWithBit.exit430:                              ; preds = %getConfVal.exit346, %386
   %.851054 = phi i32 [ %.761045, %getConfVal.exit346 ], [ %.841053, %386 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit346 ], [ %.121, %386 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %387
 
 387:                                              ; preds = %confWithBit.exit430, %295, %285
@@ -17597,7 +17591,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %387
   %.741043 = phi i32 [ %.2971, %390 ], [ %.751044, %498 ]
   %.75 = phi i64 [ %.2959, %390 ], [ %.76, %498 ]
   %.0951 = phi i64 [ %391, %390 ], [ %399, %498 ]
-  %397 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #7, !srcloc !6
+  %397 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #6, !srcloc !6
   %398 = extractvalue { i64, i64 } %397, 0
   %399 = extractvalue { i64, i64 } %397, 1
   %400 = trunc i64 %398 to i32
@@ -17619,7 +17613,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %387
   br i1 %.not25.i326, label %498, label %412
 
 412:                                              ; preds = %406
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %413 = load ptr, ptr %1, align 8
   %414 = zext nneg i32 %402 to i64
@@ -17753,7 +17747,7 @@ getConfVal.exit350:                               ; preds = %417, %lv_u64a_ce.ex
 
 490:                                              ; preds = %486
   %491 = load ptr, ptr %395, align 8
-  %492 = call i64 %491(i64 noundef %441, i32 noundef %469, ptr noundef %459) #6
+  %492 = call i64 %491(i64 noundef %441, i32 noundef %469, ptr noundef %459) #7
   br label %493
 
 493:                                              ; preds = %490, %486, %481, %471, %462
@@ -17772,7 +17766,7 @@ getConfVal.exit350:                               ; preds = %417, %lv_u64a_ce.ex
 confWithBit.exit437:                              ; preds = %getConfVal.exit350, %497
   %.881057 = phi i32 [ %.741043, %getConfVal.exit350 ], [ %.871056, %497 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit350 ], [ %.124, %497 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %498
 
 498:                                              ; preds = %confWithBit.exit437, %406, %396
@@ -17803,7 +17797,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %498
   %.721041 = phi i32 [ %.3972, %501 ], [ %.731042, %609 ]
   %.73 = phi i64 [ %.3, %501 ], [ %.74, %609 ]
   %.0950 = phi i64 [ %502, %501 ], [ %510, %609 ]
-  %508 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #7, !srcloc !6
+  %508 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #6, !srcloc !6
   %509 = extractvalue { i64, i64 } %508, 0
   %510 = extractvalue { i64, i64 } %508, 1
   %511 = trunc i64 %509 to i32
@@ -17825,7 +17819,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %498
   br i1 %.not25.i322, label %609, label %523
 
 523:                                              ; preds = %517
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %524 = load ptr, ptr %1, align 8
   %525 = zext nneg i32 %513 to i64
@@ -17959,7 +17953,7 @@ getConfVal.exit354:                               ; preds = %528, %lv_u64a_ce.ex
 
 601:                                              ; preds = %597
   %602 = load ptr, ptr %506, align 8
-  %603 = call i64 %602(i64 noundef %552, i32 noundef %580, ptr noundef %570) #6
+  %603 = call i64 %602(i64 noundef %552, i32 noundef %580, ptr noundef %570) #7
   br label %604
 
 604:                                              ; preds = %601, %597, %592, %582, %573
@@ -17978,7 +17972,7 @@ getConfVal.exit354:                               ; preds = %528, %lv_u64a_ce.ex
 confWithBit.exit444:                              ; preds = %getConfVal.exit354, %608
   %.911060 = phi i32 [ %.721041, %getConfVal.exit354 ], [ %.901059, %608 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit354 ], [ %.127, %608 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %609
 
 609:                                              ; preds = %confWithBit.exit444, %517, %507
@@ -18059,7 +18053,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %609
   %.701039 = phi i32 [ %.0969, %651 ], [ %.711040, %758 ]
   %.71 = phi i64 [ %.0957, %651 ], [ %.72, %758 ]
   %.0949 = phi i64 [ %652, %651 ], [ %661, %758 ]
-  %659 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #7, !srcloc !6
+  %659 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #6, !srcloc !6
   %660 = extractvalue { i64, i64 } %659, 0
   %661 = extractvalue { i64, i64 } %659, 1
   %662 = lshr i64 %660, 3
@@ -18079,7 +18073,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %609
   br i1 %.not25.i318, label %758, label %672
 
 672:                                              ; preds = %666
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %673 = load ptr, ptr %1, align 8
   %674 = and i64 %662, 536870911
@@ -18213,7 +18207,7 @@ getConfVal.exit358:                               ; preds = %677, %lv_u64a_ce.ex
 
 750:                                              ; preds = %746
   %751 = load ptr, ptr %657, align 8
-  %752 = call i64 %751(i64 noundef %701, i32 noundef %729, ptr noundef %719) #6
+  %752 = call i64 %751(i64 noundef %701, i32 noundef %729, ptr noundef %719) #7
   br label %753
 
 753:                                              ; preds = %750, %746, %741, %731, %722
@@ -18232,7 +18226,7 @@ getConfVal.exit358:                               ; preds = %677, %lv_u64a_ce.ex
 confWithBit.exit451:                              ; preds = %getConfVal.exit358, %757
   %.941063 = phi i32 [ %.701039, %getConfVal.exit358 ], [ %.931062, %757 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit358 ], [ %.130, %757 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %758
 
 758:                                              ; preds = %confWithBit.exit451, %666, %658
@@ -18264,7 +18258,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %758
   %.681037 = phi i32 [ %.7976, %761 ], [ %.691038, %870 ]
   %.69 = phi i64 [ %.7, %761 ], [ %.70, %870 ]
   %.0948 = phi i64 [ %762, %761 ], [ %771, %870 ]
-  %769 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #7, !srcloc !6
+  %769 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #6, !srcloc !6
   %770 = extractvalue { i64, i64 } %769, 0
   %771 = extractvalue { i64, i64 } %769, 1
   %772 = trunc i64 %770 to i32
@@ -18286,7 +18280,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %758
   br i1 %.not25.i314, label %870, label %784
 
 784:                                              ; preds = %778
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %785 = load ptr, ptr %1, align 8
   %786 = zext nneg i32 %774 to i64
@@ -18420,7 +18414,7 @@ getConfVal.exit362:                               ; preds = %789, %lv_u64a_ce.ex
 
 862:                                              ; preds = %858
   %863 = load ptr, ptr %767, align 8
-  %864 = call i64 %863(i64 noundef %813, i32 noundef %841, ptr noundef %831) #6
+  %864 = call i64 %863(i64 noundef %813, i32 noundef %841, ptr noundef %831) #7
   br label %865
 
 865:                                              ; preds = %862, %858, %853, %843, %834
@@ -18439,7 +18433,7 @@ getConfVal.exit362:                               ; preds = %789, %lv_u64a_ce.ex
 confWithBit.exit458:                              ; preds = %getConfVal.exit362, %869
   %.971066 = phi i32 [ %.681037, %getConfVal.exit362 ], [ %.961065, %869 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit362 ], [ %.133, %869 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %870
 
 870:                                              ; preds = %confWithBit.exit458, %778, %768
@@ -18471,7 +18465,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %870
   %.661035 = phi i32 [ %.8977, %873 ], [ %.671036, %982 ]
   %.67 = phi i64 [ %.8, %873 ], [ %.68, %982 ]
   %.0947 = phi i64 [ %874, %873 ], [ %883, %982 ]
-  %881 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #7, !srcloc !6
+  %881 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #6, !srcloc !6
   %882 = extractvalue { i64, i64 } %881, 0
   %883 = extractvalue { i64, i64 } %881, 1
   %884 = trunc i64 %882 to i32
@@ -18493,7 +18487,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %870
   br i1 %.not25.i310, label %982, label %896
 
 896:                                              ; preds = %890
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %897 = load ptr, ptr %1, align 8
   %898 = zext nneg i32 %886 to i64
@@ -18627,7 +18621,7 @@ getConfVal.exit366:                               ; preds = %901, %lv_u64a_ce.ex
 
 974:                                              ; preds = %970
   %975 = load ptr, ptr %879, align 8
-  %976 = call i64 %975(i64 noundef %925, i32 noundef %953, ptr noundef %943) #6
+  %976 = call i64 %975(i64 noundef %925, i32 noundef %953, ptr noundef %943) #7
   br label %977
 
 977:                                              ; preds = %974, %970, %965, %955, %946
@@ -18646,7 +18640,7 @@ getConfVal.exit366:                               ; preds = %901, %lv_u64a_ce.ex
 confWithBit.exit465:                              ; preds = %getConfVal.exit366, %981
   %.1001069 = phi i32 [ %.661035, %getConfVal.exit366 ], [ %.991068, %981 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit366 ], [ %.136, %981 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %982
 
 982:                                              ; preds = %confWithBit.exit465, %890, %880
@@ -18678,7 +18672,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %982
   %.641033 = phi i32 [ %.9978, %985 ], [ %.651034, %1094 ]
   %.65 = phi i64 [ %.9, %985 ], [ %.66, %1094 ]
   %.0946 = phi i64 [ %986, %985 ], [ %995, %1094 ]
-  %993 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #7, !srcloc !6
+  %993 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #6, !srcloc !6
   %994 = extractvalue { i64, i64 } %993, 0
   %995 = extractvalue { i64, i64 } %993, 1
   %996 = trunc i64 %994 to i32
@@ -18700,7 +18694,7 @@ do_confWithBit_teddy.exit312:                     ; preds = %982
   br i1 %.not25.i306, label %1094, label %1008
 
 1008:                                             ; preds = %1002
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %1009 = load ptr, ptr %1, align 8
   %1010 = zext nneg i32 %998 to i64
@@ -18834,7 +18828,7 @@ getConfVal.exit370:                               ; preds = %1013, %lv_u64a_ce.e
 
 1086:                                             ; preds = %1082
   %1087 = load ptr, ptr %991, align 8
-  %1088 = call i64 %1087(i64 noundef %1037, i32 noundef %1065, ptr noundef %1055) #6
+  %1088 = call i64 %1087(i64 noundef %1037, i32 noundef %1065, ptr noundef %1055) #7
   br label %1089
 
 1089:                                             ; preds = %1086, %1082, %1077, %1067, %1058
@@ -18853,7 +18847,7 @@ getConfVal.exit370:                               ; preds = %1013, %lv_u64a_ce.e
 confWithBit.exit472:                              ; preds = %getConfVal.exit370, %1093
   %.1031072 = phi i32 [ %.641033, %getConfVal.exit370 ], [ %.1021071, %1093 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit370 ], [ %.139, %1093 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1094
 
 1094:                                             ; preds = %confWithBit.exit472, %1002, %992
@@ -19126,7 +19120,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1238 = add i64 %indvars.iv1261, %1116
   %1239 = and i64 %1238, 4294967295
   %1240 = load i32, ptr %1216, align 8
-  %1241 = call i64 %1111(i64 noundef %1239, i32 noundef %1240, ptr noundef %1112) #6
+  %1241 = call i64 %1111(i64 noundef %1239, i32 noundef %1240, ptr noundef %1112) #7
   %.pre = load i64, ptr %1215, align 8
   %.pre1288 = and i64 %.pre, %1241
   %1242 = icmp eq i64 %.pre1288, 0
@@ -19136,7 +19130,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1244 = add i64 %1217, %indvars.iv1261
   %1245 = and i64 %1244, 4294967295
   %1246 = load i32, ptr %1216, align 8
-  %1247 = call i64 %1111(i64 noundef %1245, i32 noundef %1246, ptr noundef %1112) #6
+  %1247 = call i64 %1111(i64 noundef %1245, i32 noundef %1246, ptr noundef %1112) #7
   %.pre1277 = load i64, ptr %1215, align 8
   %.pre1290 = and i64 %.pre1277, %1247
   %1248 = icmp eq i64 %.pre1290, 0
@@ -19146,7 +19140,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1250 = add i64 %1218, %indvars.iv1261
   %1251 = and i64 %1250, 4294967295
   %1252 = load i32, ptr %1216, align 8
-  %1253 = call i64 %1111(i64 noundef %1251, i32 noundef %1252, ptr noundef %1112) #6
+  %1253 = call i64 %1111(i64 noundef %1251, i32 noundef %1252, ptr noundef %1112) #7
   %.pre1278 = load i64, ptr %1215, align 8
   %.pre1292 = and i64 %.pre1278, %1253
   %1254 = icmp eq i64 %.pre1292, 0
@@ -19156,7 +19150,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1256 = add i64 %1219, %indvars.iv1261
   %1257 = and i64 %1256, 4294967295
   %1258 = load i32, ptr %1216, align 8
-  %1259 = call i64 %1111(i64 noundef %1257, i32 noundef %1258, ptr noundef %1112) #6
+  %1259 = call i64 %1111(i64 noundef %1257, i32 noundef %1258, ptr noundef %1112) #7
   br label %.thread1326
 
 .thread1326:                                      ; preds = %1234, %1237, %1243, %1255, %1249
@@ -19183,7 +19177,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1268 = add i64 %indvars.iv1258, %1116
   %1269 = and i64 %1268, 4294967295
   %1270 = load i32, ptr %1208, align 8
-  %1271 = call i64 %1111(i64 noundef %1269, i32 noundef %1270, ptr noundef %1112) #6
+  %1271 = call i64 %1111(i64 noundef %1269, i32 noundef %1270, ptr noundef %1112) #7
   br label %1272
 
 1272:                                             ; preds = %1267, %1264
@@ -19197,7 +19191,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1276 = add i64 %indvars.iv1258, %1116
   %1277 = and i64 %1276, 4294967295
   %1278 = load i32, ptr %1210, align 4
-  %1279 = call i64 %1111(i64 noundef %1277, i32 noundef %1278, ptr noundef %1112) #6
+  %1279 = call i64 %1111(i64 noundef %1277, i32 noundef %1278, ptr noundef %1112) #7
   br label %1280
 
 1280:                                             ; preds = %1275, %1272
@@ -19212,7 +19206,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1285 = add i32 %1211, %1284
   %1286 = zext i32 %1285 to i64
   %1287 = load i32, ptr %1208, align 8
-  %1288 = call i64 %1111(i64 noundef %1286, i32 noundef %1287, ptr noundef %1112) #6
+  %1288 = call i64 %1111(i64 noundef %1286, i32 noundef %1287, ptr noundef %1112) #7
   br label %1289
 
 1289:                                             ; preds = %1283, %1280
@@ -19227,7 +19221,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1294 = add i32 %1211, %1293
   %1295 = zext i32 %1294 to i64
   %1296 = load i32, ptr %1210, align 4
-  %1297 = call i64 %1111(i64 noundef %1295, i32 noundef %1296, ptr noundef %1112) #6
+  %1297 = call i64 %1111(i64 noundef %1295, i32 noundef %1296, ptr noundef %1112) #7
   br label %1298
 
 1298:                                             ; preds = %1292, %1289
@@ -19242,7 +19236,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1303 = add i32 %1212, %1302
   %1304 = zext i32 %1303 to i64
   %1305 = load i32, ptr %1208, align 8
-  %1306 = call i64 %1111(i64 noundef %1304, i32 noundef %1305, ptr noundef %1112) #6
+  %1306 = call i64 %1111(i64 noundef %1304, i32 noundef %1305, ptr noundef %1112) #7
   br label %1307
 
 1307:                                             ; preds = %1301, %1298
@@ -19257,7 +19251,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1312 = add i32 %1212, %1311
   %1313 = zext i32 %1312 to i64
   %1314 = load i32, ptr %1210, align 4
-  %1315 = call i64 %1111(i64 noundef %1313, i32 noundef %1314, ptr noundef %1112) #6
+  %1315 = call i64 %1111(i64 noundef %1313, i32 noundef %1314, ptr noundef %1112) #7
   br label %1316
 
 1316:                                             ; preds = %1310, %1307
@@ -19272,7 +19266,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1321 = add i32 %1213, %1320
   %1322 = zext i32 %1321 to i64
   %1323 = load i32, ptr %1208, align 8
-  %1324 = call i64 %1111(i64 noundef %1322, i32 noundef %1323, ptr noundef %1112) #6
+  %1324 = call i64 %1111(i64 noundef %1322, i32 noundef %1323, ptr noundef %1112) #7
   br label %1325
 
 1325:                                             ; preds = %1319, %1316
@@ -19287,7 +19281,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1330 = add i32 %1213, %1329
   %1331 = zext i32 %1330 to i64
   %1332 = load i32, ptr %1210, align 4
-  %1333 = call i64 %1111(i64 noundef %1331, i32 noundef %1332, ptr noundef %1112) #6
+  %1333 = call i64 %1111(i64 noundef %1331, i32 noundef %1332, ptr noundef %1112) #7
   br label %1334
 
 1334:                                             ; preds = %1328, %1325
@@ -19314,7 +19308,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1343 = add i64 %indvars.iv, %1116
   %1344 = and i64 %1343, 4294967295
   %1345 = load i32, ptr %1200, align 8
-  %1346 = call i64 %1111(i64 noundef %1344, i32 noundef %1345, ptr noundef %1112) #6
+  %1346 = call i64 %1111(i64 noundef %1344, i32 noundef %1345, ptr noundef %1112) #7
   br label %1347
 
 1347:                                             ; preds = %1342, %1339
@@ -19328,7 +19322,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1351 = add i64 %indvars.iv, %1116
   %1352 = and i64 %1351, 4294967295
   %1353 = load i32, ptr %1202, align 4
-  %1354 = call i64 %1111(i64 noundef %1352, i32 noundef %1353, ptr noundef %1112) #6
+  %1354 = call i64 %1111(i64 noundef %1352, i32 noundef %1353, ptr noundef %1112) #7
   br label %1355
 
 1355:                                             ; preds = %1350, %1347
@@ -19342,7 +19336,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1359 = add i64 %indvars.iv, %1116
   %1360 = and i64 %1359, 4294967295
   %1361 = load i32, ptr %1204, align 8
-  %1362 = call i64 %1111(i64 noundef %1360, i32 noundef %1361, ptr noundef %1112) #6
+  %1362 = call i64 %1111(i64 noundef %1360, i32 noundef %1361, ptr noundef %1112) #7
   br label %1363
 
 1363:                                             ; preds = %1358, %1355
@@ -19357,7 +19351,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1368 = add i32 %1205, %1367
   %1369 = zext i32 %1368 to i64
   %1370 = load i32, ptr %1200, align 8
-  %1371 = call i64 %1111(i64 noundef %1369, i32 noundef %1370, ptr noundef %1112) #6
+  %1371 = call i64 %1111(i64 noundef %1369, i32 noundef %1370, ptr noundef %1112) #7
   br label %1372
 
 1372:                                             ; preds = %1366, %1363
@@ -19372,7 +19366,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1377 = add i32 %1205, %1376
   %1378 = zext i32 %1377 to i64
   %1379 = load i32, ptr %1202, align 4
-  %1380 = call i64 %1111(i64 noundef %1378, i32 noundef %1379, ptr noundef %1112) #6
+  %1380 = call i64 %1111(i64 noundef %1378, i32 noundef %1379, ptr noundef %1112) #7
   br label %1381
 
 1381:                                             ; preds = %1375, %1372
@@ -19387,7 +19381,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1386 = add i32 %1205, %1385
   %1387 = zext i32 %1386 to i64
   %1388 = load i32, ptr %1204, align 8
-  %1389 = call i64 %1111(i64 noundef %1387, i32 noundef %1388, ptr noundef %1112) #6
+  %1389 = call i64 %1111(i64 noundef %1387, i32 noundef %1388, ptr noundef %1112) #7
   br label %1390
 
 1390:                                             ; preds = %1384, %1381
@@ -19414,7 +19408,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1399 = add i64 %indvars.iv1270, %1116
   %1400 = and i64 %1399, 4294967295
   %1401 = load i32, ptr %1222, align 8
-  %1402 = call i64 %1111(i64 noundef %1400, i32 noundef %1401, ptr noundef %1112) #6
+  %1402 = call i64 %1111(i64 noundef %1400, i32 noundef %1401, ptr noundef %1112) #7
   br label %1403
 
 1403:                                             ; preds = %1398, %1395
@@ -19428,7 +19422,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1407 = add i64 %indvars.iv1270, %1116
   %1408 = and i64 %1407, 4294967295
   %1409 = load i32, ptr %1224, align 4
-  %1410 = call i64 %1111(i64 noundef %1408, i32 noundef %1409, ptr noundef %1112) #6
+  %1410 = call i64 %1111(i64 noundef %1408, i32 noundef %1409, ptr noundef %1112) #7
   br label %1411
 
 1411:                                             ; preds = %1406, %1403
@@ -19442,7 +19436,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1415 = add i64 %indvars.iv1270, %1116
   %1416 = and i64 %1415, 4294967295
   %1417 = load i32, ptr %1226, align 8
-  %1418 = call i64 %1111(i64 noundef %1416, i32 noundef %1417, ptr noundef %1112) #6
+  %1418 = call i64 %1111(i64 noundef %1416, i32 noundef %1417, ptr noundef %1112) #7
   br label %1419
 
 1419:                                             ; preds = %1414, %1411
@@ -19456,7 +19450,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1423 = add i64 %indvars.iv1270, %1116
   %1424 = and i64 %1423, 4294967295
   %1425 = load i32, ptr %1228, align 4
-  %1426 = call i64 %1111(i64 noundef %1424, i32 noundef %1425, ptr noundef %1112) #6
+  %1426 = call i64 %1111(i64 noundef %1424, i32 noundef %1425, ptr noundef %1112) #7
   br label %1427
 
 1427:                                             ; preds = %1422, %1419
@@ -19490,7 +19484,7 @@ split:                                            ; preds = %1179, %.thread1123
 1439:                                             ; preds = %1434
   %1440 = getelementptr inbounds nuw [16 x i32], ptr %1222, i64 0, i64 %indvars.iv1264
   %1441 = load i32, ptr %1440, align 4
-  %1442 = call i64 %1111(i64 noundef %1431, i32 noundef %1441, ptr noundef %1112) #6
+  %1442 = call i64 %1111(i64 noundef %1431, i32 noundef %1441, ptr noundef %1112) #7
   %.pre1279 = load i16, ptr %1142, align 4
   br label %1443
 
@@ -19507,7 +19501,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1449 = add i32 %1229, %1448
   %1450 = zext i32 %1449 to i64
   %1451 = load i32, ptr %1222, align 8
-  %1452 = call i64 %1111(i64 noundef %1450, i32 noundef %1451, ptr noundef %1112) #6
+  %1452 = call i64 %1111(i64 noundef %1450, i32 noundef %1451, ptr noundef %1112) #7
   br label %1453
 
 1453:                                             ; preds = %1447, %._crit_edge1203
@@ -19522,7 +19516,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1458 = add i32 %1229, %1457
   %1459 = zext i32 %1458 to i64
   %1460 = load i32, ptr %1224, align 4
-  %1461 = call i64 %1111(i64 noundef %1459, i32 noundef %1460, ptr noundef %1112) #6
+  %1461 = call i64 %1111(i64 noundef %1459, i32 noundef %1460, ptr noundef %1112) #7
   br label %1462
 
 1462:                                             ; preds = %1456, %1453
@@ -19537,7 +19531,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1467 = add i32 %1229, %1466
   %1468 = zext i32 %1467 to i64
   %1469 = load i32, ptr %1226, align 8
-  %1470 = call i64 %1111(i64 noundef %1468, i32 noundef %1469, ptr noundef %1112) #6
+  %1470 = call i64 %1111(i64 noundef %1468, i32 noundef %1469, ptr noundef %1112) #7
   br label %1471
 
 1471:                                             ; preds = %1465, %1462
@@ -19552,7 +19546,7 @@ split:                                            ; preds = %1179, %.thread1123
   %1476 = add i32 %1229, %1475
   %1477 = zext i32 %1476 to i64
   %1478 = load i32, ptr %1228, align 4
-  %1479 = call i64 %1111(i64 noundef %1477, i32 noundef %1478, ptr noundef %1112) #6
+  %1479 = call i64 %1111(i64 noundef %1477, i32 noundef %1478, ptr noundef %1112) #7
   br label %1480
 
 1480:                                             ; preds = %1474, %1471
@@ -19586,7 +19580,7 @@ split:                                            ; preds = %1179, %.thread1123
 1492:                                             ; preds = %1487
   %1493 = getelementptr inbounds nuw [16 x i32], ptr %1222, i64 0, i64 %indvars.iv1267
   %1494 = load i32, ptr %1493, align 4
-  %1495 = call i64 %1111(i64 noundef %1485, i32 noundef %1494, ptr noundef %1112) #6
+  %1495 = call i64 %1111(i64 noundef %1485, i32 noundef %1494, ptr noundef %1112) #7
   %.pre1280 = load i16, ptr %1142, align 4
   br label %1496
 
@@ -19683,7 +19677,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
   %.621031 = phi i32 [ %.129811218, %1550 ], [ %.631032, %1632 ]
   %.63 = phi i64 [ %.13, %1550 ], [ %.64, %1632 ]
   %.0945 = phi i64 [ %1551, %1550 ], [ %1556, %1632 ]
-  %1554 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0945) #7, !srcloc !6
+  %1554 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0945) #6, !srcloc !6
   %1555 = extractvalue { i64, i64 } %1554, 0
   %1556 = extractvalue { i64, i64 } %1554, 1
   %1557 = lshr i64 %1555, 3
@@ -19703,7 +19697,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
   br i1 %.not25.i302, label %1632, label %1567
 
 1567:                                             ; preds = %1561
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1568 = load ptr, ptr %1, align 8
   %1569 = and i64 %1557, 536870911
@@ -19788,7 +19782,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
 
 1624:                                             ; preds = %1620
   %1625 = load ptr, ptr %1097, align 8
-  %1626 = call i64 %1625(i64 noundef %1575, i32 noundef %1603, ptr noundef %1593) #6
+  %1626 = call i64 %1625(i64 noundef %1575, i32 noundef %1603, ptr noundef %1593) #7
   br label %1627
 
 1627:                                             ; preds = %1624, %1620, %1615, %1605, %1596
@@ -19807,7 +19801,7 @@ floodDetect.exit:                                 ; preds = %1145, %1152, %.crit
 confWithBit.exit479:                              ; preds = %1567, %1631
   %.1061075 = phi i32 [ %.621031, %1567 ], [ %.1051074, %1631 ]
   %.143 = phi i64 [ %.63, %1567 ], [ %.142, %1631 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1632
 
 1632:                                             ; preds = %confWithBit.exit479, %1561, %1553
@@ -19835,7 +19829,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
   %.601029 = phi i32 [ %.13982, %1635 ], [ %.611030, %1719 ]
   %.61 = phi i64 [ %.14, %1635 ], [ %.62, %1719 ]
   %.0944 = phi i64 [ %1636, %1635 ], [ %1641, %1719 ]
-  %1639 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #7, !srcloc !6
+  %1639 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #6, !srcloc !6
   %1640 = extractvalue { i64, i64 } %1639, 0
   %1641 = extractvalue { i64, i64 } %1639, 1
   %1642 = trunc i64 %1640 to i32
@@ -19857,7 +19851,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
   br i1 %.not25.i298, label %1719, label %1654
 
 1654:                                             ; preds = %1648
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1655 = load ptr, ptr %1, align 8
   %1656 = zext nneg i32 %1644 to i64
@@ -19942,7 +19936,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
 
 1711:                                             ; preds = %1707
   %1712 = load ptr, ptr %1097, align 8
-  %1713 = call i64 %1712(i64 noundef %1662, i32 noundef %1690, ptr noundef %1680) #6
+  %1713 = call i64 %1712(i64 noundef %1662, i32 noundef %1690, ptr noundef %1680) #7
   br label %1714
 
 1714:                                             ; preds = %1711, %1707, %1702, %1692, %1683
@@ -19961,7 +19955,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1632
 confWithBit.exit486:                              ; preds = %1654, %1718
   %.1091078 = phi i32 [ %.601029, %1654 ], [ %.1081077, %1718 ]
   %.146 = phi i64 [ %.61, %1654 ], [ %.145, %1718 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1719
 
 1719:                                             ; preds = %confWithBit.exit486, %1648, %1638
@@ -19989,7 +19983,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
   %.581027 = phi i32 [ %.14983, %1722 ], [ %.591028, %1806 ]
   %.59 = phi i64 [ %.15, %1722 ], [ %.60, %1806 ]
   %.0943 = phi i64 [ %1723, %1722 ], [ %1728, %1806 ]
-  %1726 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #7, !srcloc !6
+  %1726 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #6, !srcloc !6
   %1727 = extractvalue { i64, i64 } %1726, 0
   %1728 = extractvalue { i64, i64 } %1726, 1
   %1729 = trunc i64 %1727 to i32
@@ -20011,7 +20005,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
   br i1 %.not25.i294, label %1806, label %1741
 
 1741:                                             ; preds = %1735
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1742 = load ptr, ptr %1, align 8
   %1743 = zext nneg i32 %1731 to i64
@@ -20096,7 +20090,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
 
 1798:                                             ; preds = %1794
   %1799 = load ptr, ptr %1097, align 8
-  %1800 = call i64 %1799(i64 noundef %1749, i32 noundef %1777, ptr noundef %1767) #6
+  %1800 = call i64 %1799(i64 noundef %1749, i32 noundef %1777, ptr noundef %1767) #7
   br label %1801
 
 1801:                                             ; preds = %1798, %1794, %1789, %1779, %1770
@@ -20115,7 +20109,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1719
 confWithBit.exit493:                              ; preds = %1741, %1805
   %.1121081 = phi i32 [ %.581027, %1741 ], [ %.1111080, %1805 ]
   %.149 = phi i64 [ %.59, %1741 ], [ %.148, %1805 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1806
 
 1806:                                             ; preds = %confWithBit.exit493, %1735, %1725
@@ -20143,7 +20137,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
   %.561025 = phi i32 [ %.15984, %1809 ], [ %.571026, %1893 ]
   %.57 = phi i64 [ %.16, %1809 ], [ %.58, %1893 ]
   %.0942 = phi i64 [ %1810, %1809 ], [ %1815, %1893 ]
-  %1813 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #7, !srcloc !6
+  %1813 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #6, !srcloc !6
   %1814 = extractvalue { i64, i64 } %1813, 0
   %1815 = extractvalue { i64, i64 } %1813, 1
   %1816 = trunc i64 %1814 to i32
@@ -20165,7 +20159,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
   br i1 %.not25.i290, label %1893, label %1828
 
 1828:                                             ; preds = %1822
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1829 = load ptr, ptr %1, align 8
   %1830 = zext nneg i32 %1818 to i64
@@ -20250,7 +20244,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
 
 1885:                                             ; preds = %1881
   %1886 = load ptr, ptr %1097, align 8
-  %1887 = call i64 %1886(i64 noundef %1836, i32 noundef %1864, ptr noundef %1854) #6
+  %1887 = call i64 %1886(i64 noundef %1836, i32 noundef %1864, ptr noundef %1854) #7
   br label %1888
 
 1888:                                             ; preds = %1885, %1881, %1876, %1866, %1857
@@ -20269,7 +20263,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1806
 confWithBit.exit500:                              ; preds = %1828, %1892
   %.1151084 = phi i32 [ %.561025, %1828 ], [ %.1141083, %1892 ]
   %.152 = phi i64 [ %.57, %1828 ], [ %.151, %1892 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1893
 
 1893:                                             ; preds = %confWithBit.exit500, %1822, %1812
@@ -20338,7 +20332,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
   %.541023 = phi i32 [ %.17986, %1931 ], [ %.551024, %2015 ]
   %.55 = phi i64 [ %.18, %1931 ], [ %.56, %2015 ]
   %.0941 = phi i64 [ %1932, %1931 ], [ %1937, %2015 ]
-  %1935 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #7, !srcloc !6
+  %1935 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0941) #6, !srcloc !6
   %1936 = extractvalue { i64, i64 } %1935, 0
   %1937 = extractvalue { i64, i64 } %1935, 1
   %1938 = trunc i64 %1936 to i32
@@ -20360,7 +20354,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
   br i1 %.not25.i286, label %2015, label %1950
 
 1950:                                             ; preds = %1944
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %1951 = load ptr, ptr %1, align 8
   %1952 = zext nneg i32 %1940 to i64
@@ -20445,7 +20439,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
 
 2007:                                             ; preds = %2003
   %2008 = load ptr, ptr %1097, align 8
-  %2009 = call i64 %2008(i64 noundef %1958, i32 noundef %1986, ptr noundef %1976) #6
+  %2009 = call i64 %2008(i64 noundef %1958, i32 noundef %1986, ptr noundef %1976) #7
   br label %2010
 
 2010:                                             ; preds = %2007, %2003, %1998, %1988, %1979
@@ -20464,7 +20458,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %1893
 confWithBit.exit507:                              ; preds = %1950, %2014
   %.1181087 = phi i32 [ %.541023, %1950 ], [ %.1171086, %2014 ]
   %.155 = phi i64 [ %.55, %1950 ], [ %.154, %2014 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2015
 
 2015:                                             ; preds = %confWithBit.exit507, %1944, %1934
@@ -20492,7 +20486,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
   %.521021 = phi i32 [ %.18987, %2018 ], [ %.531022, %2102 ]
   %.53 = phi i64 [ %.19, %2018 ], [ %.54, %2102 ]
   %.0940 = phi i64 [ %2019, %2018 ], [ %2024, %2102 ]
-  %2022 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #7, !srcloc !6
+  %2022 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0940) #6, !srcloc !6
   %2023 = extractvalue { i64, i64 } %2022, 0
   %2024 = extractvalue { i64, i64 } %2022, 1
   %2025 = trunc i64 %2023 to i32
@@ -20514,7 +20508,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
   br i1 %.not25.i282, label %2102, label %2037
 
 2037:                                             ; preds = %2031
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %2038 = load ptr, ptr %1, align 8
   %2039 = zext nneg i32 %2027 to i64
@@ -20599,7 +20593,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
 
 2094:                                             ; preds = %2090
   %2095 = load ptr, ptr %1097, align 8
-  %2096 = call i64 %2095(i64 noundef %2045, i32 noundef %2073, ptr noundef %2063) #6
+  %2096 = call i64 %2095(i64 noundef %2045, i32 noundef %2073, ptr noundef %2063) #7
   br label %2097
 
 2097:                                             ; preds = %2094, %2090, %2085, %2075, %2066
@@ -20618,7 +20612,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2015
 confWithBit.exit514:                              ; preds = %2037, %2101
   %.1211090 = phi i32 [ %.521021, %2037 ], [ %.1201089, %2101 ]
   %.158 = phi i64 [ %.53, %2037 ], [ %.157, %2101 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2102
 
 2102:                                             ; preds = %confWithBit.exit514, %2031, %2021
@@ -20646,7 +20640,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
   %.501019 = phi i32 [ %.19988, %2105 ], [ %.511020, %2189 ]
   %.51 = phi i64 [ %.20, %2105 ], [ %.52, %2189 ]
   %.0939 = phi i64 [ %2106, %2105 ], [ %2111, %2189 ]
-  %2109 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #7, !srcloc !6
+  %2109 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0939) #6, !srcloc !6
   %2110 = extractvalue { i64, i64 } %2109, 0
   %2111 = extractvalue { i64, i64 } %2109, 1
   %2112 = trunc i64 %2110 to i32
@@ -20668,7 +20662,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
   br i1 %.not25.i278, label %2189, label %2124
 
 2124:                                             ; preds = %2118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2125 = load ptr, ptr %1, align 8
   %2126 = zext nneg i32 %2114 to i64
@@ -20753,7 +20747,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
 
 2181:                                             ; preds = %2177
   %2182 = load ptr, ptr %1097, align 8
-  %2183 = call i64 %2182(i64 noundef %2132, i32 noundef %2160, ptr noundef %2150) #6
+  %2183 = call i64 %2182(i64 noundef %2132, i32 noundef %2160, ptr noundef %2150) #7
   br label %2184
 
 2184:                                             ; preds = %2181, %2177, %2172, %2162, %2153
@@ -20772,7 +20766,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2102
 confWithBit.exit521:                              ; preds = %2124, %2188
   %.1241093 = phi i32 [ %.501019, %2124 ], [ %.1231092, %2188 ]
   %.161 = phi i64 [ %.51, %2124 ], [ %.160, %2188 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2189
 
 2189:                                             ; preds = %confWithBit.exit521, %2118, %2108
@@ -20800,7 +20794,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
   %.481017 = phi i32 [ %.20989, %2192 ], [ %.491018, %2276 ]
   %.49 = phi i64 [ %.21, %2192 ], [ %.50, %2276 ]
   %.0938 = phi i64 [ %2193, %2192 ], [ %2198, %2276 ]
-  %2196 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #7, !srcloc !6
+  %2196 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0938) #6, !srcloc !6
   %2197 = extractvalue { i64, i64 } %2196, 0
   %2198 = extractvalue { i64, i64 } %2196, 1
   %2199 = trunc i64 %2197 to i32
@@ -20822,7 +20816,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
   br i1 %.not25.i274, label %2276, label %2211
 
 2211:                                             ; preds = %2205
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2212 = load ptr, ptr %1, align 8
   %2213 = zext nneg i32 %2201 to i64
@@ -20907,7 +20901,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
 
 2268:                                             ; preds = %2264
   %2269 = load ptr, ptr %1097, align 8
-  %2270 = call i64 %2269(i64 noundef %2219, i32 noundef %2247, ptr noundef %2237) #6
+  %2270 = call i64 %2269(i64 noundef %2219, i32 noundef %2247, ptr noundef %2237) #7
   br label %2271
 
 2271:                                             ; preds = %2268, %2264, %2259, %2249, %2240
@@ -20926,7 +20920,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2189
 confWithBit.exit528:                              ; preds = %2211, %2275
   %.1271096 = phi i32 [ %.481017, %2211 ], [ %.1261095, %2275 ]
   %.164 = phi i64 [ %.49, %2211 ], [ %.163, %2275 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2276
 
 2276:                                             ; preds = %confWithBit.exit528, %2205, %2195
@@ -21013,7 +21007,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
   %.461015 = phi i32 [ %.12981.lcssa, %2319 ], [ %.471016, %2404 ]
   %.47 = phi i64 [ %.12.lcssa, %2319 ], [ %.48, %2404 ]
   %.0937 = phi i64 [ %2320, %2319 ], [ %2328, %2404 ]
-  %2326 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #7, !srcloc !6
+  %2326 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0937) #6, !srcloc !6
   %2327 = extractvalue { i64, i64 } %2326, 0
   %2328 = extractvalue { i64, i64 } %2326, 1
   %2329 = lshr i64 %2327, 3
@@ -21033,7 +21027,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
   br i1 %.not25.i270, label %2404, label %2339
 
 2339:                                             ; preds = %2333
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2340 = load ptr, ptr %1, align 8
   %2341 = and i64 %2329, 536870911
@@ -21118,7 +21112,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
 
 2396:                                             ; preds = %2392
   %2397 = load ptr, ptr %2324, align 8
-  %2398 = call i64 %2397(i64 noundef %2347, i32 noundef %2375, ptr noundef %2365) #6
+  %2398 = call i64 %2397(i64 noundef %2347, i32 noundef %2375, ptr noundef %2365) #7
   br label %2399
 
 2399:                                             ; preds = %2396, %2392, %2387, %2377, %2368
@@ -21137,7 +21131,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2276
 confWithBit.exit535:                              ; preds = %2339, %2403
   %.1301099 = phi i32 [ %.461015, %2339 ], [ %.1291098, %2403 ]
   %.167 = phi i64 [ %.47, %2339 ], [ %.166, %2403 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2404
 
 2404:                                             ; preds = %confWithBit.exit535, %2333, %2325
@@ -21168,7 +21162,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
   %.441013 = phi i32 [ %.24993, %2407 ], [ %.451014, %2494 ]
   %.45 = phi i64 [ %.25, %2407 ], [ %.46, %2494 ]
   %.0936 = phi i64 [ %2408, %2407 ], [ %2416, %2494 ]
-  %2414 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #7, !srcloc !6
+  %2414 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0936) #6, !srcloc !6
   %2415 = extractvalue { i64, i64 } %2414, 0
   %2416 = extractvalue { i64, i64 } %2414, 1
   %2417 = trunc i64 %2415 to i32
@@ -21190,7 +21184,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
   br i1 %.not25.i266, label %2494, label %2429
 
 2429:                                             ; preds = %2423
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2430 = load ptr, ptr %1, align 8
   %2431 = zext nneg i32 %2419 to i64
@@ -21275,7 +21269,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
 
 2486:                                             ; preds = %2482
   %2487 = load ptr, ptr %2412, align 8
-  %2488 = call i64 %2487(i64 noundef %2437, i32 noundef %2465, ptr noundef %2455) #6
+  %2488 = call i64 %2487(i64 noundef %2437, i32 noundef %2465, ptr noundef %2455) #7
   br label %2489
 
 2489:                                             ; preds = %2486, %2482, %2477, %2467, %2458
@@ -21294,7 +21288,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2404
 confWithBit.exit542:                              ; preds = %2429, %2493
   %.1331102 = phi i32 [ %.441013, %2429 ], [ %.1321101, %2493 ]
   %.170 = phi i64 [ %.45, %2429 ], [ %.169, %2493 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2494
 
 2494:                                             ; preds = %confWithBit.exit542, %2423, %2413
@@ -21325,7 +21319,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
   %.421011 = phi i32 [ %.25994, %2497 ], [ %.431012, %2584 ]
   %.43 = phi i64 [ %.26, %2497 ], [ %.44, %2584 ]
   %.0935 = phi i64 [ %2498, %2497 ], [ %2506, %2584 ]
-  %2504 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #7, !srcloc !6
+  %2504 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0935) #6, !srcloc !6
   %2505 = extractvalue { i64, i64 } %2504, 0
   %2506 = extractvalue { i64, i64 } %2504, 1
   %2507 = trunc i64 %2505 to i32
@@ -21347,7 +21341,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
   br i1 %.not25.i262, label %2584, label %2519
 
 2519:                                             ; preds = %2513
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2520 = load ptr, ptr %1, align 8
   %2521 = zext nneg i32 %2509 to i64
@@ -21432,7 +21426,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
 
 2576:                                             ; preds = %2572
   %2577 = load ptr, ptr %2502, align 8
-  %2578 = call i64 %2577(i64 noundef %2527, i32 noundef %2555, ptr noundef %2545) #6
+  %2578 = call i64 %2577(i64 noundef %2527, i32 noundef %2555, ptr noundef %2545) #7
   br label %2579
 
 2579:                                             ; preds = %2576, %2572, %2567, %2557, %2548
@@ -21451,7 +21445,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2494
 confWithBit.exit549:                              ; preds = %2519, %2583
   %.1361105 = phi i32 [ %.421011, %2519 ], [ %.1351104, %2583 ]
   %.173 = phi i64 [ %.43, %2519 ], [ %.172, %2583 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2584
 
 2584:                                             ; preds = %confWithBit.exit549, %2513, %2503
@@ -21482,7 +21476,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
   %.401009 = phi i32 [ %.26995, %2587 ], [ %.411010, %2674 ]
   %.41 = phi i64 [ %.27, %2587 ], [ %.42, %2674 ]
   %.0934 = phi i64 [ %2588, %2587 ], [ %2596, %2674 ]
-  %2594 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #7, !srcloc !6
+  %2594 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0934) #6, !srcloc !6
   %2595 = extractvalue { i64, i64 } %2594, 0
   %2596 = extractvalue { i64, i64 } %2594, 1
   %2597 = trunc i64 %2595 to i32
@@ -21504,7 +21498,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
   br i1 %.not25.i258, label %2674, label %2609
 
 2609:                                             ; preds = %2603
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2610 = load ptr, ptr %1, align 8
   %2611 = zext nneg i32 %2599 to i64
@@ -21589,7 +21583,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
 
 2666:                                             ; preds = %2662
   %2667 = load ptr, ptr %2592, align 8
-  %2668 = call i64 %2667(i64 noundef %2617, i32 noundef %2645, ptr noundef %2635) #6
+  %2668 = call i64 %2667(i64 noundef %2617, i32 noundef %2645, ptr noundef %2635) #7
   br label %2669
 
 2669:                                             ; preds = %2666, %2662, %2657, %2647, %2638
@@ -21608,7 +21602,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2584
 confWithBit.exit556:                              ; preds = %2609, %2673
   %.1391108 = phi i32 [ %.401009, %2609 ], [ %.1381107, %2673 ]
   %.176 = phi i64 [ %.41, %2609 ], [ %.175, %2673 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2674
 
 2674:                                             ; preds = %confWithBit.exit556, %2603, %2593
@@ -21630,7 +21624,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2674
 
 2677:                                             ; preds = %.critedge236
   %2678 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2679 = ptrtoint ptr %.4965 to i64
   %2680 = ptrtoint ptr %33 to i64
@@ -21736,7 +21730,7 @@ vectoredLoad256.exit:                             ; preds = %2717, %2715, %2708,
   %.09331129 = phi <4 x i64> [ %2684, %2683 ], [ %2687, %2685 ], [ %2687, %2688 ], [ %2687, %2690 ], [ %2687, %2692 ], [ %2687, %2697 ], [ %2687, %2699 ], [ %2687, %2706 ], [ %2687, %2708 ], [ %2687, %2715 ], [ %2687, %2717 ]
   %.1.i.in = phi ptr [ %.4965, %2683 ], [ %29, %2685 ], [ %29, %2688 ], [ %29, %2690 ], [ %29, %2692 ], [ %29, %2697 ], [ %29, %2699 ], [ %29, %2706 ], [ %29, %2708 ], [ %29, %2715 ], [ %29, %2717 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2724 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2725 = bitcast <4 x i64> %48 to <32 x i8>
   %2726 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -21781,7 +21775,7 @@ vectoredLoad256.exit:                             ; preds = %2717, %2715, %2708,
   %.381007 = phi i32 [ %.23992, %2751 ], [ %.391008, %2856 ]
   %.39 = phi i64 [ %.24, %2751 ], [ %.40, %2856 ]
   %.0932 = phi i64 [ %2752, %2751 ], [ %2759, %2856 ]
-  %2757 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #7, !srcloc !6
+  %2757 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0932) #6, !srcloc !6
   %2758 = extractvalue { i64, i64 } %2757, 0
   %2759 = extractvalue { i64, i64 } %2757, 1
   %2760 = lshr i64 %2758, 3
@@ -21801,7 +21795,7 @@ vectoredLoad256.exit:                             ; preds = %2717, %2715, %2708,
   br i1 %.not25.i254, label %2856, label %2770
 
 2770:                                             ; preds = %2764
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2771 = load ptr, ptr %1, align 8
   %2772 = and i64 %2760, 536870911
@@ -21935,7 +21929,7 @@ getConfVal.exit410:                               ; preds = %2775, %lv_u64a_ce.e
 
 2848:                                             ; preds = %2844
   %2849 = load ptr, ptr %2755, align 8
-  %2850 = call i64 %2849(i64 noundef %2799, i32 noundef %2827, ptr noundef %2817) #6
+  %2850 = call i64 %2849(i64 noundef %2799, i32 noundef %2827, ptr noundef %2817) #7
   br label %2851
 
 2851:                                             ; preds = %2848, %2844, %2839, %2829, %2820
@@ -21954,7 +21948,7 @@ getConfVal.exit410:                               ; preds = %2775, %lv_u64a_ce.e
 confWithBit.exit563:                              ; preds = %getConfVal.exit410, %2855
   %.1421111 = phi i32 [ %.381007, %getConfVal.exit410 ], [ %.1411110, %2855 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit410 ], [ %.178, %2855 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2856
 
 2856:                                             ; preds = %confWithBit.exit563, %2764, %2756
@@ -21984,7 +21978,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %2856
   %.361005 = phi i32 [ %.29998, %2859 ], [ %.371006, %2966 ]
   %.37 = phi i64 [ %.30, %2859 ], [ %.38, %2966 ]
   %.0931 = phi i64 [ %2860, %2859 ], [ %2867, %2966 ]
-  %2865 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #7, !srcloc !6
+  %2865 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0931) #6, !srcloc !6
   %2866 = extractvalue { i64, i64 } %2865, 0
   %2867 = extractvalue { i64, i64 } %2865, 1
   %2868 = trunc i64 %2866 to i32
@@ -22006,7 +22000,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %2856
   br i1 %.not25.i250, label %2966, label %2880
 
 2880:                                             ; preds = %2874
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2881 = load ptr, ptr %1, align 8
   %2882 = zext nneg i32 %2870 to i64
@@ -22140,7 +22134,7 @@ getConfVal.exit414:                               ; preds = %2885, %lv_u64a_ce.e
 
 2958:                                             ; preds = %2954
   %2959 = load ptr, ptr %2863, align 8
-  %2960 = call i64 %2959(i64 noundef %2909, i32 noundef %2937, ptr noundef %2927) #6
+  %2960 = call i64 %2959(i64 noundef %2909, i32 noundef %2937, ptr noundef %2927) #7
   br label %2961
 
 2961:                                             ; preds = %2958, %2954, %2949, %2939, %2930
@@ -22159,7 +22153,7 @@ getConfVal.exit414:                               ; preds = %2885, %lv_u64a_ce.e
 confWithBit.exit570:                              ; preds = %getConfVal.exit414, %2965
   %.1451114 = phi i32 [ %.361005, %getConfVal.exit414 ], [ %.1441113, %2965 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit414 ], [ %.181, %2965 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2966
 
 2966:                                             ; preds = %confWithBit.exit570, %2874, %2864
@@ -22189,7 +22183,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %2966
   %.341003 = phi i32 [ %.30999, %2969 ], [ %.351004, %3076 ]
   %.35 = phi i64 [ %.31, %2969 ], [ %.36, %3076 ]
   %.0930 = phi i64 [ %2970, %2969 ], [ %2977, %3076 ]
-  %2975 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #7, !srcloc !6
+  %2975 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0930) #6, !srcloc !6
   %2976 = extractvalue { i64, i64 } %2975, 0
   %2977 = extractvalue { i64, i64 } %2975, 1
   %2978 = trunc i64 %2976 to i32
@@ -22211,7 +22205,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %2966
   br i1 %.not25.i246, label %3076, label %2990
 
 2990:                                             ; preds = %2984
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %2991 = load ptr, ptr %1, align 8
   %2992 = zext nneg i32 %2980 to i64
@@ -22345,7 +22339,7 @@ getConfVal.exit418:                               ; preds = %2995, %lv_u64a_ce.e
 
 3068:                                             ; preds = %3064
   %3069 = load ptr, ptr %2973, align 8
-  %3070 = call i64 %3069(i64 noundef %3019, i32 noundef %3047, ptr noundef %3037) #6
+  %3070 = call i64 %3069(i64 noundef %3019, i32 noundef %3047, ptr noundef %3037) #7
   br label %3071
 
 3071:                                             ; preds = %3068, %3064, %3059, %3049, %3040
@@ -22364,7 +22358,7 @@ getConfVal.exit418:                               ; preds = %2995, %lv_u64a_ce.e
 confWithBit.exit577:                              ; preds = %getConfVal.exit418, %3075
   %.1481117 = phi i32 [ %.341003, %getConfVal.exit418 ], [ %.1471116, %3075 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit418 ], [ %.184, %3075 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3076
 
 3076:                                             ; preds = %confWithBit.exit577, %2984, %2974
@@ -22394,7 +22388,7 @@ do_confWithBit_teddy.exit248:                     ; preds = %3076
   %.321001 = phi i32 [ %.311000, %3079 ], [ %.331002, %3186 ]
   %.33 = phi i64 [ %.32, %3079 ], [ %.34, %3186 ]
   %.0 = phi i64 [ %3080, %3079 ], [ %3087, %3186 ]
-  %3085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3086 = extractvalue { i64, i64 } %3085, 0
   %3087 = extractvalue { i64, i64 } %3085, 1
   %3088 = trunc i64 %3086 to i32
@@ -22416,7 +22410,7 @@ do_confWithBit_teddy.exit248:                     ; preds = %3076
   br i1 %.not25.i, label %3186, label %3100
 
 3100:                                             ; preds = %3094
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3101 = load ptr, ptr %1, align 8
   %3102 = zext nneg i32 %3090 to i64
@@ -22550,7 +22544,7 @@ getConfVal.exit422:                               ; preds = %3105, %lv_u64a_ce.e
 
 3178:                                             ; preds = %3174
   %3179 = load ptr, ptr %3083, align 8
-  %3180 = call i64 %3179(i64 noundef %3129, i32 noundef %3157, ptr noundef %3147) #6
+  %3180 = call i64 %3179(i64 noundef %3129, i32 noundef %3157, ptr noundef %3147) #7
   br label %3181
 
 3181:                                             ; preds = %3178, %3174, %3169, %3159, %3150
@@ -22569,7 +22563,7 @@ getConfVal.exit422:                               ; preds = %3105, %lv_u64a_ce.e
 confWithBit.exit584:                              ; preds = %getConfVal.exit422, %3185
   %.1511120 = phi i32 [ %.321001, %getConfVal.exit422 ], [ %.1501119, %3185 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit422 ], [ %.187, %3185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3186
 
 3186:                                             ; preds = %confWithBit.exit584, %3094, %3084
@@ -22664,7 +22658,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks3(ptr noundef readonly %0,
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load i64, ptr %72, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %69, %30
   br i1 %.not.i, label %92, label %74
@@ -22822,7 +22816,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   %.2 = phi <4 x i64> [ %91, %86 ], [ %.1, %109 ], [ %.1, %112 ], [ %.1, %114 ], [ %.1, %116 ], [ %.1, %121 ], [ %.1, %123 ], [ %.1, %130 ], [ %.1, %132 ], [ %.1, %139 ], [ %.1, %141 ]
   %.1.i244.in = phi ptr [ %69, %86 ], [ %28, %109 ], [ %28, %112 ], [ %28, %114 ], [ %28, %116 ], [ %28, %121 ], [ %28, %123 ], [ %28, %130 ], [ %28, %132 ], [ %28, %139 ], [ %28, %141 ]
   %.1.i244 = load <4 x i64>, ptr %.1.i244.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %148 = lshr <4 x i64> %.1.i244, splat (i64 4)
   %149 = bitcast <4 x i64> %54 to <32 x i8>
   %150 = bitcast <4 x i64> %.1.i244 to <32 x i8>
@@ -22875,7 +22869,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   %.781059 = phi i32 [ -1, %182 ], [ %.791060, %288 ]
   %.79 = phi i64 [ %2, %182 ], [ %.80, %288 ]
   %.0965 = phi i64 [ %183, %182 ], [ %191, %288 ]
-  %189 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #7, !srcloc !6
+  %189 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #6, !srcloc !6
   %190 = extractvalue { i64, i64 } %189, 0
   %191 = extractvalue { i64, i64 } %189, 1
   %192 = lshr i64 %190, 3
@@ -22895,7 +22889,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   br i1 %.not25.i336, label %288, label %202
 
 202:                                              ; preds = %196
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %203 = load ptr, ptr %1, align 8
   %204 = and i64 %192, 536870911
@@ -23029,7 +23023,7 @@ getConfVal.exit:                                  ; preds = %207, %lv_u64a_ce.ex
 
 280:                                              ; preds = %276
   %281 = load ptr, ptr %187, align 8
-  %282 = call i64 %281(i64 noundef %231, i32 noundef %259, ptr noundef %249) #6
+  %282 = call i64 %281(i64 noundef %231, i32 noundef %259, ptr noundef %249) #7
   br label %283
 
 283:                                              ; preds = %280, %276, %271, %261, %252
@@ -23048,7 +23042,7 @@ getConfVal.exit:                                  ; preds = %207, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %287
   %.821063 = phi i32 [ %.781059, %getConfVal.exit ], [ %.811062, %287 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %287 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %288
 
 288:                                              ; preds = %confWithBit.exit, %196, %188
@@ -23079,7 +23073,7 @@ do_confWithBit_teddy.exit338:                     ; preds = %288
   %.761057 = phi i32 [ %.1982, %291 ], [ %.771058, %399 ]
   %.77 = phi i64 [ %.1970, %291 ], [ %.78, %399 ]
   %.0964 = phi i64 [ %292, %291 ], [ %300, %399 ]
-  %298 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #7, !srcloc !6
+  %298 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #6, !srcloc !6
   %299 = extractvalue { i64, i64 } %298, 0
   %300 = extractvalue { i64, i64 } %298, 1
   %301 = trunc i64 %299 to i32
@@ -23101,7 +23095,7 @@ do_confWithBit_teddy.exit338:                     ; preds = %288
   br i1 %.not25.i332, label %399, label %313
 
 313:                                              ; preds = %307
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %314 = load ptr, ptr %1, align 8
   %315 = zext nneg i32 %303 to i64
@@ -23235,7 +23229,7 @@ getConfVal.exit348:                               ; preds = %318, %lv_u64a_ce.ex
 
 391:                                              ; preds = %387
   %392 = load ptr, ptr %296, align 8
-  %393 = call i64 %392(i64 noundef %342, i32 noundef %370, ptr noundef %360) #6
+  %393 = call i64 %392(i64 noundef %342, i32 noundef %370, ptr noundef %360) #7
   br label %394
 
 394:                                              ; preds = %391, %387, %382, %372, %363
@@ -23254,7 +23248,7 @@ getConfVal.exit348:                               ; preds = %318, %lv_u64a_ce.ex
 confWithBit.exit432:                              ; preds = %getConfVal.exit348, %398
   %.851066 = phi i32 [ %.761057, %getConfVal.exit348 ], [ %.841065, %398 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit348 ], [ %.121, %398 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %399
 
 399:                                              ; preds = %confWithBit.exit432, %307, %297
@@ -23285,7 +23279,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %399
   %.741055 = phi i32 [ %.2983, %402 ], [ %.751056, %510 ]
   %.75 = phi i64 [ %.2971, %402 ], [ %.76, %510 ]
   %.0963 = phi i64 [ %403, %402 ], [ %411, %510 ]
-  %409 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #7, !srcloc !6
+  %409 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #6, !srcloc !6
   %410 = extractvalue { i64, i64 } %409, 0
   %411 = extractvalue { i64, i64 } %409, 1
   %412 = trunc i64 %410 to i32
@@ -23307,7 +23301,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %399
   br i1 %.not25.i328, label %510, label %424
 
 424:                                              ; preds = %418
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %425 = load ptr, ptr %1, align 8
   %426 = zext nneg i32 %414 to i64
@@ -23441,7 +23435,7 @@ getConfVal.exit352:                               ; preds = %429, %lv_u64a_ce.ex
 
 502:                                              ; preds = %498
   %503 = load ptr, ptr %407, align 8
-  %504 = call i64 %503(i64 noundef %453, i32 noundef %481, ptr noundef %471) #6
+  %504 = call i64 %503(i64 noundef %453, i32 noundef %481, ptr noundef %471) #7
   br label %505
 
 505:                                              ; preds = %502, %498, %493, %483, %474
@@ -23460,7 +23454,7 @@ getConfVal.exit352:                               ; preds = %429, %lv_u64a_ce.ex
 confWithBit.exit439:                              ; preds = %getConfVal.exit352, %509
   %.881069 = phi i32 [ %.741055, %getConfVal.exit352 ], [ %.871068, %509 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit352 ], [ %.124, %509 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
 
 510:                                              ; preds = %confWithBit.exit439, %418, %408
@@ -23491,7 +23485,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %510
   %.721053 = phi i32 [ %.3984, %513 ], [ %.731054, %621 ]
   %.73 = phi i64 [ %.3, %513 ], [ %.74, %621 ]
   %.0962 = phi i64 [ %514, %513 ], [ %522, %621 ]
-  %520 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #7, !srcloc !6
+  %520 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #6, !srcloc !6
   %521 = extractvalue { i64, i64 } %520, 0
   %522 = extractvalue { i64, i64 } %520, 1
   %523 = trunc i64 %521 to i32
@@ -23513,7 +23507,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %510
   br i1 %.not25.i324, label %621, label %535
 
 535:                                              ; preds = %529
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %536 = load ptr, ptr %1, align 8
   %537 = zext nneg i32 %525 to i64
@@ -23647,7 +23641,7 @@ getConfVal.exit356:                               ; preds = %540, %lv_u64a_ce.ex
 
 613:                                              ; preds = %609
   %614 = load ptr, ptr %518, align 8
-  %615 = call i64 %614(i64 noundef %564, i32 noundef %592, ptr noundef %582) #6
+  %615 = call i64 %614(i64 noundef %564, i32 noundef %592, ptr noundef %582) #7
   br label %616
 
 616:                                              ; preds = %613, %609, %604, %594, %585
@@ -23666,7 +23660,7 @@ getConfVal.exit356:                               ; preds = %540, %lv_u64a_ce.ex
 confWithBit.exit446:                              ; preds = %getConfVal.exit356, %620
   %.911072 = phi i32 [ %.721053, %getConfVal.exit356 ], [ %.901071, %620 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit356 ], [ %.127, %620 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %621
 
 621:                                              ; preds = %confWithBit.exit446, %529, %519
@@ -23754,7 +23748,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %621
   %.701051 = phi i32 [ %.0981, %670 ], [ %.711052, %777 ]
   %.71 = phi i64 [ %.0969, %670 ], [ %.72, %777 ]
   %.0961 = phi i64 [ %671, %670 ], [ %680, %777 ]
-  %678 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #7, !srcloc !6
+  %678 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #6, !srcloc !6
   %679 = extractvalue { i64, i64 } %678, 0
   %680 = extractvalue { i64, i64 } %678, 1
   %681 = lshr i64 %679, 3
@@ -23774,7 +23768,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %621
   br i1 %.not25.i320, label %777, label %691
 
 691:                                              ; preds = %685
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %692 = load ptr, ptr %1, align 8
   %693 = and i64 %681, 536870911
@@ -23908,7 +23902,7 @@ getConfVal.exit360:                               ; preds = %696, %lv_u64a_ce.ex
 
 769:                                              ; preds = %765
   %770 = load ptr, ptr %676, align 8
-  %771 = call i64 %770(i64 noundef %720, i32 noundef %748, ptr noundef %738) #6
+  %771 = call i64 %770(i64 noundef %720, i32 noundef %748, ptr noundef %738) #7
   br label %772
 
 772:                                              ; preds = %769, %765, %760, %750, %741
@@ -23927,7 +23921,7 @@ getConfVal.exit360:                               ; preds = %696, %lv_u64a_ce.ex
 confWithBit.exit453:                              ; preds = %getConfVal.exit360, %776
   %.941075 = phi i32 [ %.701051, %getConfVal.exit360 ], [ %.931074, %776 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit360 ], [ %.130, %776 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %777
 
 777:                                              ; preds = %confWithBit.exit453, %685, %677
@@ -23959,7 +23953,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %777
   %.681049 = phi i32 [ %.7988, %780 ], [ %.691050, %889 ]
   %.69 = phi i64 [ %.7, %780 ], [ %.70, %889 ]
   %.0960 = phi i64 [ %781, %780 ], [ %790, %889 ]
-  %788 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #7, !srcloc !6
+  %788 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #6, !srcloc !6
   %789 = extractvalue { i64, i64 } %788, 0
   %790 = extractvalue { i64, i64 } %788, 1
   %791 = trunc i64 %789 to i32
@@ -23981,7 +23975,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %777
   br i1 %.not25.i316, label %889, label %803
 
 803:                                              ; preds = %797
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %804 = load ptr, ptr %1, align 8
   %805 = zext nneg i32 %793 to i64
@@ -24115,7 +24109,7 @@ getConfVal.exit364:                               ; preds = %808, %lv_u64a_ce.ex
 
 881:                                              ; preds = %877
   %882 = load ptr, ptr %786, align 8
-  %883 = call i64 %882(i64 noundef %832, i32 noundef %860, ptr noundef %850) #6
+  %883 = call i64 %882(i64 noundef %832, i32 noundef %860, ptr noundef %850) #7
   br label %884
 
 884:                                              ; preds = %881, %877, %872, %862, %853
@@ -24134,7 +24128,7 @@ getConfVal.exit364:                               ; preds = %808, %lv_u64a_ce.ex
 confWithBit.exit460:                              ; preds = %getConfVal.exit364, %888
   %.971078 = phi i32 [ %.681049, %getConfVal.exit364 ], [ %.961077, %888 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit364 ], [ %.133, %888 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %889
 
 889:                                              ; preds = %confWithBit.exit460, %797, %787
@@ -24166,7 +24160,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %889
   %.661047 = phi i32 [ %.8989, %892 ], [ %.671048, %1001 ]
   %.67 = phi i64 [ %.8, %892 ], [ %.68, %1001 ]
   %.0959 = phi i64 [ %893, %892 ], [ %902, %1001 ]
-  %900 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #7, !srcloc !6
+  %900 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #6, !srcloc !6
   %901 = extractvalue { i64, i64 } %900, 0
   %902 = extractvalue { i64, i64 } %900, 1
   %903 = trunc i64 %901 to i32
@@ -24188,7 +24182,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %889
   br i1 %.not25.i312, label %1001, label %915
 
 915:                                              ; preds = %909
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %916 = load ptr, ptr %1, align 8
   %917 = zext nneg i32 %905 to i64
@@ -24322,7 +24316,7 @@ getConfVal.exit368:                               ; preds = %920, %lv_u64a_ce.ex
 
 993:                                              ; preds = %989
   %994 = load ptr, ptr %898, align 8
-  %995 = call i64 %994(i64 noundef %944, i32 noundef %972, ptr noundef %962) #6
+  %995 = call i64 %994(i64 noundef %944, i32 noundef %972, ptr noundef %962) #7
   br label %996
 
 996:                                              ; preds = %993, %989, %984, %974, %965
@@ -24341,7 +24335,7 @@ getConfVal.exit368:                               ; preds = %920, %lv_u64a_ce.ex
 confWithBit.exit467:                              ; preds = %getConfVal.exit368, %1000
   %.1001081 = phi i32 [ %.661047, %getConfVal.exit368 ], [ %.991080, %1000 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit368 ], [ %.136, %1000 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1001
 
 1001:                                             ; preds = %confWithBit.exit467, %909, %899
@@ -24373,7 +24367,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %1001
   %.641045 = phi i32 [ %.9990, %1004 ], [ %.651046, %1113 ]
   %.65 = phi i64 [ %.9, %1004 ], [ %.66, %1113 ]
   %.0958 = phi i64 [ %1005, %1004 ], [ %1014, %1113 ]
-  %1012 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #7, !srcloc !6
+  %1012 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #6, !srcloc !6
   %1013 = extractvalue { i64, i64 } %1012, 0
   %1014 = extractvalue { i64, i64 } %1012, 1
   %1015 = trunc i64 %1013 to i32
@@ -24395,7 +24389,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %1001
   br i1 %.not25.i308, label %1113, label %1027
 
 1027:                                             ; preds = %1021
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %1028 = load ptr, ptr %1, align 8
   %1029 = zext nneg i32 %1017 to i64
@@ -24529,7 +24523,7 @@ getConfVal.exit372:                               ; preds = %1032, %lv_u64a_ce.e
 
 1105:                                             ; preds = %1101
   %1106 = load ptr, ptr %1010, align 8
-  %1107 = call i64 %1106(i64 noundef %1056, i32 noundef %1084, ptr noundef %1074) #6
+  %1107 = call i64 %1106(i64 noundef %1056, i32 noundef %1084, ptr noundef %1074) #7
   br label %1108
 
 1108:                                             ; preds = %1105, %1101, %1096, %1086, %1077
@@ -24548,7 +24542,7 @@ getConfVal.exit372:                               ; preds = %1032, %lv_u64a_ce.e
 confWithBit.exit474:                              ; preds = %getConfVal.exit372, %1112
   %.1031084 = phi i32 [ %.641045, %getConfVal.exit372 ], [ %.1021083, %1112 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit372 ], [ %.139, %1112 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1113
 
 1113:                                             ; preds = %confWithBit.exit474, %1021, %1011
@@ -24823,7 +24817,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1259 = add i64 %indvars.iv1273, %1137
   %1260 = and i64 %1259, 4294967295
   %1261 = load i32, ptr %1237, align 8
-  %1262 = call i64 %1132(i64 noundef %1260, i32 noundef %1261, ptr noundef %1133) #6
+  %1262 = call i64 %1132(i64 noundef %1260, i32 noundef %1261, ptr noundef %1133) #7
   %.pre = load i64, ptr %1236, align 8
   %.pre1300 = and i64 %.pre, %1262
   %1263 = icmp eq i64 %.pre1300, 0
@@ -24833,7 +24827,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1265 = add i64 %1238, %indvars.iv1273
   %1266 = and i64 %1265, 4294967295
   %1267 = load i32, ptr %1237, align 8
-  %1268 = call i64 %1132(i64 noundef %1266, i32 noundef %1267, ptr noundef %1133) #6
+  %1268 = call i64 %1132(i64 noundef %1266, i32 noundef %1267, ptr noundef %1133) #7
   %.pre1289 = load i64, ptr %1236, align 8
   %.pre1302 = and i64 %.pre1289, %1268
   %1269 = icmp eq i64 %.pre1302, 0
@@ -24843,7 +24837,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1271 = add i64 %1239, %indvars.iv1273
   %1272 = and i64 %1271, 4294967295
   %1273 = load i32, ptr %1237, align 8
-  %1274 = call i64 %1132(i64 noundef %1272, i32 noundef %1273, ptr noundef %1133) #6
+  %1274 = call i64 %1132(i64 noundef %1272, i32 noundef %1273, ptr noundef %1133) #7
   %.pre1290 = load i64, ptr %1236, align 8
   %.pre1304 = and i64 %.pre1290, %1274
   %1275 = icmp eq i64 %.pre1304, 0
@@ -24853,7 +24847,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1277 = add i64 %1240, %indvars.iv1273
   %1278 = and i64 %1277, 4294967295
   %1279 = load i32, ptr %1237, align 8
-  %1280 = call i64 %1132(i64 noundef %1278, i32 noundef %1279, ptr noundef %1133) #6
+  %1280 = call i64 %1132(i64 noundef %1278, i32 noundef %1279, ptr noundef %1133) #7
   br label %.thread1338
 
 .thread1338:                                      ; preds = %1255, %1258, %1264, %1276, %1270
@@ -24880,7 +24874,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1289 = add i64 %indvars.iv1270, %1137
   %1290 = and i64 %1289, 4294967295
   %1291 = load i32, ptr %1229, align 8
-  %1292 = call i64 %1132(i64 noundef %1290, i32 noundef %1291, ptr noundef %1133) #6
+  %1292 = call i64 %1132(i64 noundef %1290, i32 noundef %1291, ptr noundef %1133) #7
   br label %1293
 
 1293:                                             ; preds = %1288, %1285
@@ -24894,7 +24888,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1297 = add i64 %indvars.iv1270, %1137
   %1298 = and i64 %1297, 4294967295
   %1299 = load i32, ptr %1231, align 4
-  %1300 = call i64 %1132(i64 noundef %1298, i32 noundef %1299, ptr noundef %1133) #6
+  %1300 = call i64 %1132(i64 noundef %1298, i32 noundef %1299, ptr noundef %1133) #7
   br label %1301
 
 1301:                                             ; preds = %1296, %1293
@@ -24909,7 +24903,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1306 = add i32 %1232, %1305
   %1307 = zext i32 %1306 to i64
   %1308 = load i32, ptr %1229, align 8
-  %1309 = call i64 %1132(i64 noundef %1307, i32 noundef %1308, ptr noundef %1133) #6
+  %1309 = call i64 %1132(i64 noundef %1307, i32 noundef %1308, ptr noundef %1133) #7
   br label %1310
 
 1310:                                             ; preds = %1304, %1301
@@ -24924,7 +24918,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1315 = add i32 %1232, %1314
   %1316 = zext i32 %1315 to i64
   %1317 = load i32, ptr %1231, align 4
-  %1318 = call i64 %1132(i64 noundef %1316, i32 noundef %1317, ptr noundef %1133) #6
+  %1318 = call i64 %1132(i64 noundef %1316, i32 noundef %1317, ptr noundef %1133) #7
   br label %1319
 
 1319:                                             ; preds = %1313, %1310
@@ -24939,7 +24933,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1324 = add i32 %1233, %1323
   %1325 = zext i32 %1324 to i64
   %1326 = load i32, ptr %1229, align 8
-  %1327 = call i64 %1132(i64 noundef %1325, i32 noundef %1326, ptr noundef %1133) #6
+  %1327 = call i64 %1132(i64 noundef %1325, i32 noundef %1326, ptr noundef %1133) #7
   br label %1328
 
 1328:                                             ; preds = %1322, %1319
@@ -24954,7 +24948,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1333 = add i32 %1233, %1332
   %1334 = zext i32 %1333 to i64
   %1335 = load i32, ptr %1231, align 4
-  %1336 = call i64 %1132(i64 noundef %1334, i32 noundef %1335, ptr noundef %1133) #6
+  %1336 = call i64 %1132(i64 noundef %1334, i32 noundef %1335, ptr noundef %1133) #7
   br label %1337
 
 1337:                                             ; preds = %1331, %1328
@@ -24969,7 +24963,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1342 = add i32 %1234, %1341
   %1343 = zext i32 %1342 to i64
   %1344 = load i32, ptr %1229, align 8
-  %1345 = call i64 %1132(i64 noundef %1343, i32 noundef %1344, ptr noundef %1133) #6
+  %1345 = call i64 %1132(i64 noundef %1343, i32 noundef %1344, ptr noundef %1133) #7
   br label %1346
 
 1346:                                             ; preds = %1340, %1337
@@ -24984,7 +24978,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1351 = add i32 %1234, %1350
   %1352 = zext i32 %1351 to i64
   %1353 = load i32, ptr %1231, align 4
-  %1354 = call i64 %1132(i64 noundef %1352, i32 noundef %1353, ptr noundef %1133) #6
+  %1354 = call i64 %1132(i64 noundef %1352, i32 noundef %1353, ptr noundef %1133) #7
   br label %1355
 
 1355:                                             ; preds = %1349, %1346
@@ -25011,7 +25005,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1364 = add i64 %indvars.iv, %1137
   %1365 = and i64 %1364, 4294967295
   %1366 = load i32, ptr %1221, align 8
-  %1367 = call i64 %1132(i64 noundef %1365, i32 noundef %1366, ptr noundef %1133) #6
+  %1367 = call i64 %1132(i64 noundef %1365, i32 noundef %1366, ptr noundef %1133) #7
   br label %1368
 
 1368:                                             ; preds = %1363, %1360
@@ -25025,7 +25019,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1372 = add i64 %indvars.iv, %1137
   %1373 = and i64 %1372, 4294967295
   %1374 = load i32, ptr %1223, align 4
-  %1375 = call i64 %1132(i64 noundef %1373, i32 noundef %1374, ptr noundef %1133) #6
+  %1375 = call i64 %1132(i64 noundef %1373, i32 noundef %1374, ptr noundef %1133) #7
   br label %1376
 
 1376:                                             ; preds = %1371, %1368
@@ -25039,7 +25033,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1380 = add i64 %indvars.iv, %1137
   %1381 = and i64 %1380, 4294967295
   %1382 = load i32, ptr %1225, align 8
-  %1383 = call i64 %1132(i64 noundef %1381, i32 noundef %1382, ptr noundef %1133) #6
+  %1383 = call i64 %1132(i64 noundef %1381, i32 noundef %1382, ptr noundef %1133) #7
   br label %1384
 
 1384:                                             ; preds = %1379, %1376
@@ -25054,7 +25048,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1389 = add i32 %1226, %1388
   %1390 = zext i32 %1389 to i64
   %1391 = load i32, ptr %1221, align 8
-  %1392 = call i64 %1132(i64 noundef %1390, i32 noundef %1391, ptr noundef %1133) #6
+  %1392 = call i64 %1132(i64 noundef %1390, i32 noundef %1391, ptr noundef %1133) #7
   br label %1393
 
 1393:                                             ; preds = %1387, %1384
@@ -25069,7 +25063,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1398 = add i32 %1226, %1397
   %1399 = zext i32 %1398 to i64
   %1400 = load i32, ptr %1223, align 4
-  %1401 = call i64 %1132(i64 noundef %1399, i32 noundef %1400, ptr noundef %1133) #6
+  %1401 = call i64 %1132(i64 noundef %1399, i32 noundef %1400, ptr noundef %1133) #7
   br label %1402
 
 1402:                                             ; preds = %1396, %1393
@@ -25084,7 +25078,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1407 = add i32 %1226, %1406
   %1408 = zext i32 %1407 to i64
   %1409 = load i32, ptr %1225, align 8
-  %1410 = call i64 %1132(i64 noundef %1408, i32 noundef %1409, ptr noundef %1133) #6
+  %1410 = call i64 %1132(i64 noundef %1408, i32 noundef %1409, ptr noundef %1133) #7
   br label %1411
 
 1411:                                             ; preds = %1405, %1402
@@ -25111,7 +25105,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1420 = add i64 %indvars.iv1282, %1137
   %1421 = and i64 %1420, 4294967295
   %1422 = load i32, ptr %1243, align 8
-  %1423 = call i64 %1132(i64 noundef %1421, i32 noundef %1422, ptr noundef %1133) #6
+  %1423 = call i64 %1132(i64 noundef %1421, i32 noundef %1422, ptr noundef %1133) #7
   br label %1424
 
 1424:                                             ; preds = %1419, %1416
@@ -25125,7 +25119,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1428 = add i64 %indvars.iv1282, %1137
   %1429 = and i64 %1428, 4294967295
   %1430 = load i32, ptr %1245, align 4
-  %1431 = call i64 %1132(i64 noundef %1429, i32 noundef %1430, ptr noundef %1133) #6
+  %1431 = call i64 %1132(i64 noundef %1429, i32 noundef %1430, ptr noundef %1133) #7
   br label %1432
 
 1432:                                             ; preds = %1427, %1424
@@ -25139,7 +25133,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1436 = add i64 %indvars.iv1282, %1137
   %1437 = and i64 %1436, 4294967295
   %1438 = load i32, ptr %1247, align 8
-  %1439 = call i64 %1132(i64 noundef %1437, i32 noundef %1438, ptr noundef %1133) #6
+  %1439 = call i64 %1132(i64 noundef %1437, i32 noundef %1438, ptr noundef %1133) #7
   br label %1440
 
 1440:                                             ; preds = %1435, %1432
@@ -25153,7 +25147,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1444 = add i64 %indvars.iv1282, %1137
   %1445 = and i64 %1444, 4294967295
   %1446 = load i32, ptr %1249, align 4
-  %1447 = call i64 %1132(i64 noundef %1445, i32 noundef %1446, ptr noundef %1133) #6
+  %1447 = call i64 %1132(i64 noundef %1445, i32 noundef %1446, ptr noundef %1133) #7
   br label %1448
 
 1448:                                             ; preds = %1443, %1440
@@ -25187,7 +25181,7 @@ split:                                            ; preds = %1200, %.thread1135
 1460:                                             ; preds = %1455
   %1461 = getelementptr inbounds nuw [16 x i32], ptr %1243, i64 0, i64 %indvars.iv1276
   %1462 = load i32, ptr %1461, align 4
-  %1463 = call i64 %1132(i64 noundef %1452, i32 noundef %1462, ptr noundef %1133) #6
+  %1463 = call i64 %1132(i64 noundef %1452, i32 noundef %1462, ptr noundef %1133) #7
   %.pre1291 = load i16, ptr %1163, align 4
   br label %1464
 
@@ -25204,7 +25198,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1470 = add i32 %1250, %1469
   %1471 = zext i32 %1470 to i64
   %1472 = load i32, ptr %1243, align 8
-  %1473 = call i64 %1132(i64 noundef %1471, i32 noundef %1472, ptr noundef %1133) #6
+  %1473 = call i64 %1132(i64 noundef %1471, i32 noundef %1472, ptr noundef %1133) #7
   br label %1474
 
 1474:                                             ; preds = %1468, %._crit_edge1215
@@ -25219,7 +25213,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1479 = add i32 %1250, %1478
   %1480 = zext i32 %1479 to i64
   %1481 = load i32, ptr %1245, align 4
-  %1482 = call i64 %1132(i64 noundef %1480, i32 noundef %1481, ptr noundef %1133) #6
+  %1482 = call i64 %1132(i64 noundef %1480, i32 noundef %1481, ptr noundef %1133) #7
   br label %1483
 
 1483:                                             ; preds = %1477, %1474
@@ -25234,7 +25228,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1488 = add i32 %1250, %1487
   %1489 = zext i32 %1488 to i64
   %1490 = load i32, ptr %1247, align 8
-  %1491 = call i64 %1132(i64 noundef %1489, i32 noundef %1490, ptr noundef %1133) #6
+  %1491 = call i64 %1132(i64 noundef %1489, i32 noundef %1490, ptr noundef %1133) #7
   br label %1492
 
 1492:                                             ; preds = %1486, %1483
@@ -25249,7 +25243,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1497 = add i32 %1250, %1496
   %1498 = zext i32 %1497 to i64
   %1499 = load i32, ptr %1249, align 4
-  %1500 = call i64 %1132(i64 noundef %1498, i32 noundef %1499, ptr noundef %1133) #6
+  %1500 = call i64 %1132(i64 noundef %1498, i32 noundef %1499, ptr noundef %1133) #7
   br label %1501
 
 1501:                                             ; preds = %1495, %1492
@@ -25283,7 +25277,7 @@ split:                                            ; preds = %1200, %.thread1135
 1513:                                             ; preds = %1508
   %1514 = getelementptr inbounds nuw [16 x i32], ptr %1243, i64 0, i64 %indvars.iv1279
   %1515 = load i32, ptr %1514, align 4
-  %1516 = call i64 %1132(i64 noundef %1506, i32 noundef %1515, ptr noundef %1133) #6
+  %1516 = call i64 %1132(i64 noundef %1506, i32 noundef %1515, ptr noundef %1133) #7
   %.pre1292 = load i16, ptr %1163, align 4
   br label %1517
 
@@ -25385,7 +25379,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
   %.621043 = phi i32 [ %.129931230, %1576 ], [ %.631044, %1658 ]
   %.63 = phi i64 [ %.13, %1576 ], [ %.64, %1658 ]
   %.0957 = phi i64 [ %1577, %1576 ], [ %1582, %1658 ]
-  %1580 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0957) #7, !srcloc !6
+  %1580 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0957) #6, !srcloc !6
   %1581 = extractvalue { i64, i64 } %1580, 0
   %1582 = extractvalue { i64, i64 } %1580, 1
   %1583 = lshr i64 %1581, 3
@@ -25405,7 +25399,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
   br i1 %.not25.i304, label %1658, label %1593
 
 1593:                                             ; preds = %1587
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1594 = load ptr, ptr %1, align 8
   %1595 = and i64 %1583, 536870911
@@ -25490,7 +25484,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
 
 1650:                                             ; preds = %1646
   %1651 = load ptr, ptr %1116, align 8
-  %1652 = call i64 %1651(i64 noundef %1601, i32 noundef %1629, ptr noundef %1619) #6
+  %1652 = call i64 %1651(i64 noundef %1601, i32 noundef %1629, ptr noundef %1619) #7
   br label %1653
 
 1653:                                             ; preds = %1650, %1646, %1641, %1631, %1622
@@ -25509,7 +25503,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
 confWithBit.exit481:                              ; preds = %1593, %1657
   %.1061087 = phi i32 [ %.621043, %1593 ], [ %.1051086, %1657 ]
   %.143 = phi i64 [ %.63, %1593 ], [ %.142, %1657 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1658
 
 1658:                                             ; preds = %confWithBit.exit481, %1587, %1579
@@ -25537,7 +25531,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
   %.601041 = phi i32 [ %.13994, %1661 ], [ %.611042, %1745 ]
   %.61 = phi i64 [ %.14, %1661 ], [ %.62, %1745 ]
   %.0956 = phi i64 [ %1662, %1661 ], [ %1667, %1745 ]
-  %1665 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #7, !srcloc !6
+  %1665 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #6, !srcloc !6
   %1666 = extractvalue { i64, i64 } %1665, 0
   %1667 = extractvalue { i64, i64 } %1665, 1
   %1668 = trunc i64 %1666 to i32
@@ -25559,7 +25553,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
   br i1 %.not25.i300, label %1745, label %1680
 
 1680:                                             ; preds = %1674
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1681 = load ptr, ptr %1, align 8
   %1682 = zext nneg i32 %1670 to i64
@@ -25644,7 +25638,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
 
 1737:                                             ; preds = %1733
   %1738 = load ptr, ptr %1116, align 8
-  %1739 = call i64 %1738(i64 noundef %1688, i32 noundef %1716, ptr noundef %1706) #6
+  %1739 = call i64 %1738(i64 noundef %1688, i32 noundef %1716, ptr noundef %1706) #7
   br label %1740
 
 1740:                                             ; preds = %1737, %1733, %1728, %1718, %1709
@@ -25663,7 +25657,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
 confWithBit.exit488:                              ; preds = %1680, %1744
   %.1091090 = phi i32 [ %.601041, %1680 ], [ %.1081089, %1744 ]
   %.146 = phi i64 [ %.61, %1680 ], [ %.145, %1744 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1745
 
 1745:                                             ; preds = %confWithBit.exit488, %1674, %1664
@@ -25691,7 +25685,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
   %.581039 = phi i32 [ %.14995, %1748 ], [ %.591040, %1832 ]
   %.59 = phi i64 [ %.15, %1748 ], [ %.60, %1832 ]
   %.0955 = phi i64 [ %1749, %1748 ], [ %1754, %1832 ]
-  %1752 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #7, !srcloc !6
+  %1752 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #6, !srcloc !6
   %1753 = extractvalue { i64, i64 } %1752, 0
   %1754 = extractvalue { i64, i64 } %1752, 1
   %1755 = trunc i64 %1753 to i32
@@ -25713,7 +25707,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
   br i1 %.not25.i296, label %1832, label %1767
 
 1767:                                             ; preds = %1761
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1768 = load ptr, ptr %1, align 8
   %1769 = zext nneg i32 %1757 to i64
@@ -25798,7 +25792,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
 
 1824:                                             ; preds = %1820
   %1825 = load ptr, ptr %1116, align 8
-  %1826 = call i64 %1825(i64 noundef %1775, i32 noundef %1803, ptr noundef %1793) #6
+  %1826 = call i64 %1825(i64 noundef %1775, i32 noundef %1803, ptr noundef %1793) #7
   br label %1827
 
 1827:                                             ; preds = %1824, %1820, %1815, %1805, %1796
@@ -25817,7 +25811,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
 confWithBit.exit495:                              ; preds = %1767, %1831
   %.1121093 = phi i32 [ %.581039, %1767 ], [ %.1111092, %1831 ]
   %.149 = phi i64 [ %.59, %1767 ], [ %.148, %1831 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1832
 
 1832:                                             ; preds = %confWithBit.exit495, %1761, %1751
@@ -25845,7 +25839,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
   %.561037 = phi i32 [ %.15996, %1835 ], [ %.571038, %1919 ]
   %.57 = phi i64 [ %.16, %1835 ], [ %.58, %1919 ]
   %.0954 = phi i64 [ %1836, %1835 ], [ %1841, %1919 ]
-  %1839 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #7, !srcloc !6
+  %1839 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #6, !srcloc !6
   %1840 = extractvalue { i64, i64 } %1839, 0
   %1841 = extractvalue { i64, i64 } %1839, 1
   %1842 = trunc i64 %1840 to i32
@@ -25867,7 +25861,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
   br i1 %.not25.i292, label %1919, label %1854
 
 1854:                                             ; preds = %1848
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1855 = load ptr, ptr %1, align 8
   %1856 = zext nneg i32 %1844 to i64
@@ -25952,7 +25946,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
 
 1911:                                             ; preds = %1907
   %1912 = load ptr, ptr %1116, align 8
-  %1913 = call i64 %1912(i64 noundef %1862, i32 noundef %1890, ptr noundef %1880) #6
+  %1913 = call i64 %1912(i64 noundef %1862, i32 noundef %1890, ptr noundef %1880) #7
   br label %1914
 
 1914:                                             ; preds = %1911, %1907, %1902, %1892, %1883
@@ -25971,7 +25965,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
 confWithBit.exit502:                              ; preds = %1854, %1918
   %.1151096 = phi i32 [ %.561037, %1854 ], [ %.1141095, %1918 ]
   %.152 = phi i64 [ %.57, %1854 ], [ %.151, %1918 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1919
 
 1919:                                             ; preds = %confWithBit.exit502, %1848, %1838
@@ -26045,7 +26039,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
   %.541035 = phi i32 [ %.17998, %1962 ], [ %.551036, %2046 ]
   %.55 = phi i64 [ %.18, %1962 ], [ %.56, %2046 ]
   %.0953 = phi i64 [ %1963, %1962 ], [ %1968, %2046 ]
-  %1966 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #7, !srcloc !6
+  %1966 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #6, !srcloc !6
   %1967 = extractvalue { i64, i64 } %1966, 0
   %1968 = extractvalue { i64, i64 } %1966, 1
   %1969 = trunc i64 %1967 to i32
@@ -26067,7 +26061,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
   br i1 %.not25.i288, label %2046, label %1981
 
 1981:                                             ; preds = %1975
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %1982 = load ptr, ptr %1, align 8
   %1983 = zext nneg i32 %1971 to i64
@@ -26152,7 +26146,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
 
 2038:                                             ; preds = %2034
   %2039 = load ptr, ptr %1116, align 8
-  %2040 = call i64 %2039(i64 noundef %1989, i32 noundef %2017, ptr noundef %2007) #6
+  %2040 = call i64 %2039(i64 noundef %1989, i32 noundef %2017, ptr noundef %2007) #7
   br label %2041
 
 2041:                                             ; preds = %2038, %2034, %2029, %2019, %2010
@@ -26171,7 +26165,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
 confWithBit.exit509:                              ; preds = %1981, %2045
   %.1181099 = phi i32 [ %.541035, %1981 ], [ %.1171098, %2045 ]
   %.155 = phi i64 [ %.55, %1981 ], [ %.154, %2045 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2046
 
 2046:                                             ; preds = %confWithBit.exit509, %1975, %1965
@@ -26199,7 +26193,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
   %.521033 = phi i32 [ %.18999, %2049 ], [ %.531034, %2133 ]
   %.53 = phi i64 [ %.19, %2049 ], [ %.54, %2133 ]
   %.0952 = phi i64 [ %2050, %2049 ], [ %2055, %2133 ]
-  %2053 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #7, !srcloc !6
+  %2053 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #6, !srcloc !6
   %2054 = extractvalue { i64, i64 } %2053, 0
   %2055 = extractvalue { i64, i64 } %2053, 1
   %2056 = trunc i64 %2054 to i32
@@ -26221,7 +26215,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
   br i1 %.not25.i284, label %2133, label %2068
 
 2068:                                             ; preds = %2062
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %2069 = load ptr, ptr %1, align 8
   %2070 = zext nneg i32 %2058 to i64
@@ -26306,7 +26300,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
 
 2125:                                             ; preds = %2121
   %2126 = load ptr, ptr %1116, align 8
-  %2127 = call i64 %2126(i64 noundef %2076, i32 noundef %2104, ptr noundef %2094) #6
+  %2127 = call i64 %2126(i64 noundef %2076, i32 noundef %2104, ptr noundef %2094) #7
   br label %2128
 
 2128:                                             ; preds = %2125, %2121, %2116, %2106, %2097
@@ -26325,7 +26319,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
 confWithBit.exit516:                              ; preds = %2068, %2132
   %.1211102 = phi i32 [ %.521033, %2068 ], [ %.1201101, %2132 ]
   %.158 = phi i64 [ %.53, %2068 ], [ %.157, %2132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2133
 
 2133:                                             ; preds = %confWithBit.exit516, %2062, %2052
@@ -26353,7 +26347,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
   %.501031 = phi i32 [ %.191000, %2136 ], [ %.511032, %2220 ]
   %.51 = phi i64 [ %.20, %2136 ], [ %.52, %2220 ]
   %.0951 = phi i64 [ %2137, %2136 ], [ %2142, %2220 ]
-  %2140 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #7, !srcloc !6
+  %2140 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #6, !srcloc !6
   %2141 = extractvalue { i64, i64 } %2140, 0
   %2142 = extractvalue { i64, i64 } %2140, 1
   %2143 = trunc i64 %2141 to i32
@@ -26375,7 +26369,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
   br i1 %.not25.i280, label %2220, label %2155
 
 2155:                                             ; preds = %2149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2156 = load ptr, ptr %1, align 8
   %2157 = zext nneg i32 %2145 to i64
@@ -26460,7 +26454,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
 
 2212:                                             ; preds = %2208
   %2213 = load ptr, ptr %1116, align 8
-  %2214 = call i64 %2213(i64 noundef %2163, i32 noundef %2191, ptr noundef %2181) #6
+  %2214 = call i64 %2213(i64 noundef %2163, i32 noundef %2191, ptr noundef %2181) #7
   br label %2215
 
 2215:                                             ; preds = %2212, %2208, %2203, %2193, %2184
@@ -26479,7 +26473,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
 confWithBit.exit523:                              ; preds = %2155, %2219
   %.1241105 = phi i32 [ %.501031, %2155 ], [ %.1231104, %2219 ]
   %.161 = phi i64 [ %.51, %2155 ], [ %.160, %2219 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2220
 
 2220:                                             ; preds = %confWithBit.exit523, %2149, %2139
@@ -26507,7 +26501,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
   %.481029 = phi i32 [ %.201001, %2223 ], [ %.491030, %2307 ]
   %.49 = phi i64 [ %.21, %2223 ], [ %.50, %2307 ]
   %.0950 = phi i64 [ %2224, %2223 ], [ %2229, %2307 ]
-  %2227 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #7, !srcloc !6
+  %2227 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #6, !srcloc !6
   %2228 = extractvalue { i64, i64 } %2227, 0
   %2229 = extractvalue { i64, i64 } %2227, 1
   %2230 = trunc i64 %2228 to i32
@@ -26529,7 +26523,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
   br i1 %.not25.i276, label %2307, label %2242
 
 2242:                                             ; preds = %2236
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2243 = load ptr, ptr %1, align 8
   %2244 = zext nneg i32 %2232 to i64
@@ -26614,7 +26608,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
 
 2299:                                             ; preds = %2295
   %2300 = load ptr, ptr %1116, align 8
-  %2301 = call i64 %2300(i64 noundef %2250, i32 noundef %2278, ptr noundef %2268) #6
+  %2301 = call i64 %2300(i64 noundef %2250, i32 noundef %2278, ptr noundef %2268) #7
   br label %2302
 
 2302:                                             ; preds = %2299, %2295, %2290, %2280, %2271
@@ -26633,7 +26627,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
 confWithBit.exit530:                              ; preds = %2242, %2306
   %.1271108 = phi i32 [ %.481029, %2242 ], [ %.1261107, %2306 ]
   %.164 = phi i64 [ %.49, %2242 ], [ %.163, %2306 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2307
 
 2307:                                             ; preds = %confWithBit.exit530, %2236, %2226
@@ -26727,7 +26721,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
   %.461027 = phi i32 [ %.12993.lcssa, %2357 ], [ %.471028, %2442 ]
   %.47 = phi i64 [ %.12.lcssa, %2357 ], [ %.48, %2442 ]
   %.0949 = phi i64 [ %2358, %2357 ], [ %2366, %2442 ]
-  %2364 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #7, !srcloc !6
+  %2364 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #6, !srcloc !6
   %2365 = extractvalue { i64, i64 } %2364, 0
   %2366 = extractvalue { i64, i64 } %2364, 1
   %2367 = lshr i64 %2365, 3
@@ -26747,7 +26741,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
   br i1 %.not25.i272, label %2442, label %2377
 
 2377:                                             ; preds = %2371
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2378 = load ptr, ptr %1, align 8
   %2379 = and i64 %2367, 536870911
@@ -26832,7 +26826,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
 
 2434:                                             ; preds = %2430
   %2435 = load ptr, ptr %2362, align 8
-  %2436 = call i64 %2435(i64 noundef %2385, i32 noundef %2413, ptr noundef %2403) #6
+  %2436 = call i64 %2435(i64 noundef %2385, i32 noundef %2413, ptr noundef %2403) #7
   br label %2437
 
 2437:                                             ; preds = %2434, %2430, %2425, %2415, %2406
@@ -26851,7 +26845,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
 confWithBit.exit537:                              ; preds = %2377, %2441
   %.1301111 = phi i32 [ %.461027, %2377 ], [ %.1291110, %2441 ]
   %.167 = phi i64 [ %.47, %2377 ], [ %.166, %2441 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2442
 
 2442:                                             ; preds = %confWithBit.exit537, %2371, %2363
@@ -26882,7 +26876,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
   %.441025 = phi i32 [ %.241005, %2445 ], [ %.451026, %2532 ]
   %.45 = phi i64 [ %.25, %2445 ], [ %.46, %2532 ]
   %.0948 = phi i64 [ %2446, %2445 ], [ %2454, %2532 ]
-  %2452 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #7, !srcloc !6
+  %2452 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #6, !srcloc !6
   %2453 = extractvalue { i64, i64 } %2452, 0
   %2454 = extractvalue { i64, i64 } %2452, 1
   %2455 = trunc i64 %2453 to i32
@@ -26904,7 +26898,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
   br i1 %.not25.i268, label %2532, label %2467
 
 2467:                                             ; preds = %2461
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2468 = load ptr, ptr %1, align 8
   %2469 = zext nneg i32 %2457 to i64
@@ -26989,7 +26983,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
 
 2524:                                             ; preds = %2520
   %2525 = load ptr, ptr %2450, align 8
-  %2526 = call i64 %2525(i64 noundef %2475, i32 noundef %2503, ptr noundef %2493) #6
+  %2526 = call i64 %2525(i64 noundef %2475, i32 noundef %2503, ptr noundef %2493) #7
   br label %2527
 
 2527:                                             ; preds = %2524, %2520, %2515, %2505, %2496
@@ -27008,7 +27002,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
 confWithBit.exit544:                              ; preds = %2467, %2531
   %.1331114 = phi i32 [ %.441025, %2467 ], [ %.1321113, %2531 ]
   %.170 = phi i64 [ %.45, %2467 ], [ %.169, %2531 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2532
 
 2532:                                             ; preds = %confWithBit.exit544, %2461, %2451
@@ -27039,7 +27033,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
   %.421023 = phi i32 [ %.251006, %2535 ], [ %.431024, %2622 ]
   %.43 = phi i64 [ %.26, %2535 ], [ %.44, %2622 ]
   %.0947 = phi i64 [ %2536, %2535 ], [ %2544, %2622 ]
-  %2542 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #7, !srcloc !6
+  %2542 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #6, !srcloc !6
   %2543 = extractvalue { i64, i64 } %2542, 0
   %2544 = extractvalue { i64, i64 } %2542, 1
   %2545 = trunc i64 %2543 to i32
@@ -27061,7 +27055,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
   br i1 %.not25.i264, label %2622, label %2557
 
 2557:                                             ; preds = %2551
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2558 = load ptr, ptr %1, align 8
   %2559 = zext nneg i32 %2547 to i64
@@ -27146,7 +27140,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
 
 2614:                                             ; preds = %2610
   %2615 = load ptr, ptr %2540, align 8
-  %2616 = call i64 %2615(i64 noundef %2565, i32 noundef %2593, ptr noundef %2583) #6
+  %2616 = call i64 %2615(i64 noundef %2565, i32 noundef %2593, ptr noundef %2583) #7
   br label %2617
 
 2617:                                             ; preds = %2614, %2610, %2605, %2595, %2586
@@ -27165,7 +27159,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
 confWithBit.exit551:                              ; preds = %2557, %2621
   %.1361117 = phi i32 [ %.421023, %2557 ], [ %.1351116, %2621 ]
   %.173 = phi i64 [ %.43, %2557 ], [ %.172, %2621 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2622
 
 2622:                                             ; preds = %confWithBit.exit551, %2551, %2541
@@ -27196,7 +27190,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
   %.401021 = phi i32 [ %.261007, %2625 ], [ %.411022, %2712 ]
   %.41 = phi i64 [ %.27, %2625 ], [ %.42, %2712 ]
   %.0946 = phi i64 [ %2626, %2625 ], [ %2634, %2712 ]
-  %2632 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #7, !srcloc !6
+  %2632 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #6, !srcloc !6
   %2633 = extractvalue { i64, i64 } %2632, 0
   %2634 = extractvalue { i64, i64 } %2632, 1
   %2635 = trunc i64 %2633 to i32
@@ -27218,7 +27212,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
   br i1 %.not25.i260, label %2712, label %2647
 
 2647:                                             ; preds = %2641
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2648 = load ptr, ptr %1, align 8
   %2649 = zext nneg i32 %2637 to i64
@@ -27303,7 +27297,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
 
 2704:                                             ; preds = %2700
   %2705 = load ptr, ptr %2630, align 8
-  %2706 = call i64 %2705(i64 noundef %2655, i32 noundef %2683, ptr noundef %2673) #6
+  %2706 = call i64 %2705(i64 noundef %2655, i32 noundef %2683, ptr noundef %2673) #7
   br label %2707
 
 2707:                                             ; preds = %2704, %2700, %2695, %2685, %2676
@@ -27322,7 +27316,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
 confWithBit.exit558:                              ; preds = %2647, %2711
   %.1391120 = phi i32 [ %.401021, %2647 ], [ %.1381119, %2711 ]
   %.176 = phi i64 [ %.41, %2647 ], [ %.175, %2711 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2712
 
 2712:                                             ; preds = %confWithBit.exit558, %2641, %2631
@@ -27344,7 +27338,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2712
 
 2715:                                             ; preds = %.critedge238
   %2716 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2717 = ptrtoint ptr %.4977 to i64
   %2718 = ptrtoint ptr %33 to i64
@@ -27450,7 +27444,7 @@ vectoredLoad256.exit:                             ; preds = %2755, %2753, %2746,
   %.09451141 = phi <4 x i64> [ %2722, %2721 ], [ %2725, %2723 ], [ %2725, %2726 ], [ %2725, %2728 ], [ %2725, %2730 ], [ %2725, %2735 ], [ %2725, %2737 ], [ %2725, %2744 ], [ %2725, %2746 ], [ %2725, %2753 ], [ %2725, %2755 ]
   %.1.i.in = phi ptr [ %.4977, %2721 ], [ %29, %2723 ], [ %29, %2726 ], [ %29, %2728 ], [ %29, %2730 ], [ %29, %2735 ], [ %29, %2737 ], [ %29, %2744 ], [ %29, %2746 ], [ %29, %2753 ], [ %29, %2755 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2762 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2763 = bitcast <4 x i64> %54 to <32 x i8>
   %2764 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -27502,7 +27496,7 @@ vectoredLoad256.exit:                             ; preds = %2755, %2753, %2746,
   %.381019 = phi i32 [ %.231004, %2796 ], [ %.391020, %2901 ]
   %.39 = phi i64 [ %.24, %2796 ], [ %.40, %2901 ]
   %.0944 = phi i64 [ %2797, %2796 ], [ %2804, %2901 ]
-  %2802 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #7, !srcloc !6
+  %2802 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #6, !srcloc !6
   %2803 = extractvalue { i64, i64 } %2802, 0
   %2804 = extractvalue { i64, i64 } %2802, 1
   %2805 = lshr i64 %2803, 3
@@ -27522,7 +27516,7 @@ vectoredLoad256.exit:                             ; preds = %2755, %2753, %2746,
   br i1 %.not25.i256, label %2901, label %2815
 
 2815:                                             ; preds = %2809
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2816 = load ptr, ptr %1, align 8
   %2817 = and i64 %2805, 536870911
@@ -27656,7 +27650,7 @@ getConfVal.exit412:                               ; preds = %2820, %lv_u64a_ce.e
 
 2893:                                             ; preds = %2889
   %2894 = load ptr, ptr %2800, align 8
-  %2895 = call i64 %2894(i64 noundef %2844, i32 noundef %2872, ptr noundef %2862) #6
+  %2895 = call i64 %2894(i64 noundef %2844, i32 noundef %2872, ptr noundef %2862) #7
   br label %2896
 
 2896:                                             ; preds = %2893, %2889, %2884, %2874, %2865
@@ -27675,7 +27669,7 @@ getConfVal.exit412:                               ; preds = %2820, %lv_u64a_ce.e
 confWithBit.exit565:                              ; preds = %getConfVal.exit412, %2900
   %.1421123 = phi i32 [ %.381019, %getConfVal.exit412 ], [ %.1411122, %2900 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit412 ], [ %.178, %2900 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2901
 
 2901:                                             ; preds = %confWithBit.exit565, %2809, %2801
@@ -27705,7 +27699,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2901
   %.361017 = phi i32 [ %.291010, %2904 ], [ %.371018, %3011 ]
   %.37 = phi i64 [ %.30, %2904 ], [ %.38, %3011 ]
   %.0943 = phi i64 [ %2905, %2904 ], [ %2912, %3011 ]
-  %2910 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #7, !srcloc !6
+  %2910 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #6, !srcloc !6
   %2911 = extractvalue { i64, i64 } %2910, 0
   %2912 = extractvalue { i64, i64 } %2910, 1
   %2913 = trunc i64 %2911 to i32
@@ -27727,7 +27721,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2901
   br i1 %.not25.i252, label %3011, label %2925
 
 2925:                                             ; preds = %2919
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2926 = load ptr, ptr %1, align 8
   %2927 = zext nneg i32 %2915 to i64
@@ -27861,7 +27855,7 @@ getConfVal.exit416:                               ; preds = %2930, %lv_u64a_ce.e
 
 3003:                                             ; preds = %2999
   %3004 = load ptr, ptr %2908, align 8
-  %3005 = call i64 %3004(i64 noundef %2954, i32 noundef %2982, ptr noundef %2972) #6
+  %3005 = call i64 %3004(i64 noundef %2954, i32 noundef %2982, ptr noundef %2972) #7
   br label %3006
 
 3006:                                             ; preds = %3003, %2999, %2994, %2984, %2975
@@ -27880,7 +27874,7 @@ getConfVal.exit416:                               ; preds = %2930, %lv_u64a_ce.e
 confWithBit.exit572:                              ; preds = %getConfVal.exit416, %3010
   %.1451126 = phi i32 [ %.361017, %getConfVal.exit416 ], [ %.1441125, %3010 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit416 ], [ %.181, %3010 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %3011
 
 3011:                                             ; preds = %confWithBit.exit572, %2919, %2909
@@ -27910,7 +27904,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %3011
   %.341015 = phi i32 [ %.301011, %3014 ], [ %.351016, %3121 ]
   %.35 = phi i64 [ %.31, %3014 ], [ %.36, %3121 ]
   %.0942 = phi i64 [ %3015, %3014 ], [ %3022, %3121 ]
-  %3020 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #7, !srcloc !6
+  %3020 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #6, !srcloc !6
   %3021 = extractvalue { i64, i64 } %3020, 0
   %3022 = extractvalue { i64, i64 } %3020, 1
   %3023 = trunc i64 %3021 to i32
@@ -27932,7 +27926,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %3011
   br i1 %.not25.i248, label %3121, label %3035
 
 3035:                                             ; preds = %3029
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %3036 = load ptr, ptr %1, align 8
   %3037 = zext nneg i32 %3025 to i64
@@ -28066,7 +28060,7 @@ getConfVal.exit420:                               ; preds = %3040, %lv_u64a_ce.e
 
 3113:                                             ; preds = %3109
   %3114 = load ptr, ptr %3018, align 8
-  %3115 = call i64 %3114(i64 noundef %3064, i32 noundef %3092, ptr noundef %3082) #6
+  %3115 = call i64 %3114(i64 noundef %3064, i32 noundef %3092, ptr noundef %3082) #7
   br label %3116
 
 3116:                                             ; preds = %3113, %3109, %3104, %3094, %3085
@@ -28085,7 +28079,7 @@ getConfVal.exit420:                               ; preds = %3040, %lv_u64a_ce.e
 confWithBit.exit579:                              ; preds = %getConfVal.exit420, %3120
   %.1481129 = phi i32 [ %.341015, %getConfVal.exit420 ], [ %.1471128, %3120 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit420 ], [ %.184, %3120 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3121
 
 3121:                                             ; preds = %confWithBit.exit579, %3029, %3019
@@ -28115,7 +28109,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %3121
   %.321013 = phi i32 [ %.311012, %3124 ], [ %.331014, %3231 ]
   %.33 = phi i64 [ %.32, %3124 ], [ %.34, %3231 ]
   %.0 = phi i64 [ %3125, %3124 ], [ %3132, %3231 ]
-  %3130 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3130 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3131 = extractvalue { i64, i64 } %3130, 0
   %3132 = extractvalue { i64, i64 } %3130, 1
   %3133 = trunc i64 %3131 to i32
@@ -28137,7 +28131,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %3121
   br i1 %.not25.i, label %3231, label %3145
 
 3145:                                             ; preds = %3139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3146 = load ptr, ptr %1, align 8
   %3147 = zext nneg i32 %3135 to i64
@@ -28271,7 +28265,7 @@ getConfVal.exit424:                               ; preds = %3150, %lv_u64a_ce.e
 
 3223:                                             ; preds = %3219
   %3224 = load ptr, ptr %3128, align 8
-  %3225 = call i64 %3224(i64 noundef %3174, i32 noundef %3202, ptr noundef %3192) #6
+  %3225 = call i64 %3224(i64 noundef %3174, i32 noundef %3202, ptr noundef %3192) #7
   br label %3226
 
 3226:                                             ; preds = %3223, %3219, %3214, %3204, %3195
@@ -28290,7 +28284,7 @@ getConfVal.exit424:                               ; preds = %3150, %lv_u64a_ce.e
 confWithBit.exit586:                              ; preds = %getConfVal.exit424, %3230
   %.1511132 = phi i32 [ %.321013, %getConfVal.exit424 ], [ %.1501131, %3230 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit424 ], [ %.187, %3230 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3231
 
 3231:                                             ; preds = %confWithBit.exit586, %3139, %3129
@@ -28385,7 +28379,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks3_pck(ptr noundef readonly
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load i64, ptr %72, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %69, %30
   br i1 %.not.i, label %92, label %74
@@ -28543,7 +28537,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   %.2 = phi <4 x i64> [ %91, %86 ], [ %.1, %109 ], [ %.1, %112 ], [ %.1, %114 ], [ %.1, %116 ], [ %.1, %121 ], [ %.1, %123 ], [ %.1, %130 ], [ %.1, %132 ], [ %.1, %139 ], [ %.1, %141 ]
   %.1.i244.in = phi ptr [ %69, %86 ], [ %28, %109 ], [ %28, %112 ], [ %28, %114 ], [ %28, %116 ], [ %28, %121 ], [ %28, %123 ], [ %28, %130 ], [ %28, %132 ], [ %28, %139 ], [ %28, %141 ]
   %.1.i244 = load <4 x i64>, ptr %.1.i244.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %148 = lshr <4 x i64> %.1.i244, splat (i64 4)
   %149 = bitcast <4 x i64> %54 to <32 x i8>
   %150 = bitcast <4 x i64> %.1.i244 to <32 x i8>
@@ -28596,7 +28590,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   %.781059 = phi i32 [ -1, %182 ], [ %.791060, %288 ]
   %.79 = phi i64 [ %2, %182 ], [ %.80, %288 ]
   %.0965 = phi i64 [ %183, %182 ], [ %191, %288 ]
-  %189 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #7, !srcloc !6
+  %189 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #6, !srcloc !6
   %190 = extractvalue { i64, i64 } %189, 0
   %191 = extractvalue { i64, i64 } %189, 1
   %192 = lshr i64 %190, 3
@@ -28616,7 +28610,7 @@ vectoredLoad256.exit245:                          ; preds = %141, %139, %132, %1
   br i1 %.not25.i336, label %288, label %202
 
 202:                                              ; preds = %196
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %203 = load ptr, ptr %1, align 8
   %204 = and i64 %192, 536870911
@@ -28750,7 +28744,7 @@ getConfVal.exit:                                  ; preds = %207, %lv_u64a_ce.ex
 
 280:                                              ; preds = %276
   %281 = load ptr, ptr %187, align 8
-  %282 = call i64 %281(i64 noundef %231, i32 noundef %259, ptr noundef %249) #6
+  %282 = call i64 %281(i64 noundef %231, i32 noundef %259, ptr noundef %249) #7
   br label %283
 
 283:                                              ; preds = %280, %276, %271, %261, %252
@@ -28769,7 +28763,7 @@ getConfVal.exit:                                  ; preds = %207, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %287
   %.821063 = phi i32 [ %.781059, %getConfVal.exit ], [ %.811062, %287 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %287 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %288
 
 288:                                              ; preds = %confWithBit.exit, %196, %188
@@ -28800,7 +28794,7 @@ do_confWithBit_teddy.exit338:                     ; preds = %288
   %.761057 = phi i32 [ %.1982, %291 ], [ %.771058, %399 ]
   %.77 = phi i64 [ %.1970, %291 ], [ %.78, %399 ]
   %.0964 = phi i64 [ %292, %291 ], [ %300, %399 ]
-  %298 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #7, !srcloc !6
+  %298 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #6, !srcloc !6
   %299 = extractvalue { i64, i64 } %298, 0
   %300 = extractvalue { i64, i64 } %298, 1
   %301 = trunc i64 %299 to i32
@@ -28822,7 +28816,7 @@ do_confWithBit_teddy.exit338:                     ; preds = %288
   br i1 %.not25.i332, label %399, label %313
 
 313:                                              ; preds = %307
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %314 = load ptr, ptr %1, align 8
   %315 = zext nneg i32 %303 to i64
@@ -28956,7 +28950,7 @@ getConfVal.exit348:                               ; preds = %318, %lv_u64a_ce.ex
 
 391:                                              ; preds = %387
   %392 = load ptr, ptr %296, align 8
-  %393 = call i64 %392(i64 noundef %342, i32 noundef %370, ptr noundef %360) #6
+  %393 = call i64 %392(i64 noundef %342, i32 noundef %370, ptr noundef %360) #7
   br label %394
 
 394:                                              ; preds = %391, %387, %382, %372, %363
@@ -28975,7 +28969,7 @@ getConfVal.exit348:                               ; preds = %318, %lv_u64a_ce.ex
 confWithBit.exit432:                              ; preds = %getConfVal.exit348, %398
   %.851066 = phi i32 [ %.761057, %getConfVal.exit348 ], [ %.841065, %398 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit348 ], [ %.121, %398 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %399
 
 399:                                              ; preds = %confWithBit.exit432, %307, %297
@@ -29006,7 +29000,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %399
   %.741055 = phi i32 [ %.2983, %402 ], [ %.751056, %510 ]
   %.75 = phi i64 [ %.2971, %402 ], [ %.76, %510 ]
   %.0963 = phi i64 [ %403, %402 ], [ %411, %510 ]
-  %409 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #7, !srcloc !6
+  %409 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #6, !srcloc !6
   %410 = extractvalue { i64, i64 } %409, 0
   %411 = extractvalue { i64, i64 } %409, 1
   %412 = trunc i64 %410 to i32
@@ -29028,7 +29022,7 @@ do_confWithBit_teddy.exit334:                     ; preds = %399
   br i1 %.not25.i328, label %510, label %424
 
 424:                                              ; preds = %418
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %425 = load ptr, ptr %1, align 8
   %426 = zext nneg i32 %414 to i64
@@ -29162,7 +29156,7 @@ getConfVal.exit352:                               ; preds = %429, %lv_u64a_ce.ex
 
 502:                                              ; preds = %498
   %503 = load ptr, ptr %407, align 8
-  %504 = call i64 %503(i64 noundef %453, i32 noundef %481, ptr noundef %471) #6
+  %504 = call i64 %503(i64 noundef %453, i32 noundef %481, ptr noundef %471) #7
   br label %505
 
 505:                                              ; preds = %502, %498, %493, %483, %474
@@ -29181,7 +29175,7 @@ getConfVal.exit352:                               ; preds = %429, %lv_u64a_ce.ex
 confWithBit.exit439:                              ; preds = %getConfVal.exit352, %509
   %.881069 = phi i32 [ %.741055, %getConfVal.exit352 ], [ %.871068, %509 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit352 ], [ %.124, %509 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
 
 510:                                              ; preds = %confWithBit.exit439, %418, %408
@@ -29212,7 +29206,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %510
   %.721053 = phi i32 [ %.3984, %513 ], [ %.731054, %621 ]
   %.73 = phi i64 [ %.3, %513 ], [ %.74, %621 ]
   %.0962 = phi i64 [ %514, %513 ], [ %522, %621 ]
-  %520 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #7, !srcloc !6
+  %520 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #6, !srcloc !6
   %521 = extractvalue { i64, i64 } %520, 0
   %522 = extractvalue { i64, i64 } %520, 1
   %523 = trunc i64 %521 to i32
@@ -29234,7 +29228,7 @@ do_confWithBit_teddy.exit330:                     ; preds = %510
   br i1 %.not25.i324, label %621, label %535
 
 535:                                              ; preds = %529
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %536 = load ptr, ptr %1, align 8
   %537 = zext nneg i32 %525 to i64
@@ -29368,7 +29362,7 @@ getConfVal.exit356:                               ; preds = %540, %lv_u64a_ce.ex
 
 613:                                              ; preds = %609
   %614 = load ptr, ptr %518, align 8
-  %615 = call i64 %614(i64 noundef %564, i32 noundef %592, ptr noundef %582) #6
+  %615 = call i64 %614(i64 noundef %564, i32 noundef %592, ptr noundef %582) #7
   br label %616
 
 616:                                              ; preds = %613, %609, %604, %594, %585
@@ -29387,7 +29381,7 @@ getConfVal.exit356:                               ; preds = %540, %lv_u64a_ce.ex
 confWithBit.exit446:                              ; preds = %getConfVal.exit356, %620
   %.911072 = phi i32 [ %.721053, %getConfVal.exit356 ], [ %.901071, %620 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit356 ], [ %.127, %620 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %621
 
 621:                                              ; preds = %confWithBit.exit446, %529, %519
@@ -29475,7 +29469,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %621
   %.701051 = phi i32 [ %.0981, %670 ], [ %.711052, %777 ]
   %.71 = phi i64 [ %.0969, %670 ], [ %.72, %777 ]
   %.0961 = phi i64 [ %671, %670 ], [ %680, %777 ]
-  %678 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #7, !srcloc !6
+  %678 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #6, !srcloc !6
   %679 = extractvalue { i64, i64 } %678, 0
   %680 = extractvalue { i64, i64 } %678, 1
   %681 = lshr i64 %679, 3
@@ -29495,7 +29489,7 @@ do_confWithBit_teddy.exit326:                     ; preds = %621
   br i1 %.not25.i320, label %777, label %691
 
 691:                                              ; preds = %685
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %692 = load ptr, ptr %1, align 8
   %693 = and i64 %681, 536870911
@@ -29629,7 +29623,7 @@ getConfVal.exit360:                               ; preds = %696, %lv_u64a_ce.ex
 
 769:                                              ; preds = %765
   %770 = load ptr, ptr %676, align 8
-  %771 = call i64 %770(i64 noundef %720, i32 noundef %748, ptr noundef %738) #6
+  %771 = call i64 %770(i64 noundef %720, i32 noundef %748, ptr noundef %738) #7
   br label %772
 
 772:                                              ; preds = %769, %765, %760, %750, %741
@@ -29648,7 +29642,7 @@ getConfVal.exit360:                               ; preds = %696, %lv_u64a_ce.ex
 confWithBit.exit453:                              ; preds = %getConfVal.exit360, %776
   %.941075 = phi i32 [ %.701051, %getConfVal.exit360 ], [ %.931074, %776 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit360 ], [ %.130, %776 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %777
 
 777:                                              ; preds = %confWithBit.exit453, %685, %677
@@ -29680,7 +29674,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %777
   %.681049 = phi i32 [ %.7988, %780 ], [ %.691050, %889 ]
   %.69 = phi i64 [ %.7, %780 ], [ %.70, %889 ]
   %.0960 = phi i64 [ %781, %780 ], [ %790, %889 ]
-  %788 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #7, !srcloc !6
+  %788 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #6, !srcloc !6
   %789 = extractvalue { i64, i64 } %788, 0
   %790 = extractvalue { i64, i64 } %788, 1
   %791 = trunc i64 %789 to i32
@@ -29702,7 +29696,7 @@ do_confWithBit_teddy.exit322:                     ; preds = %777
   br i1 %.not25.i316, label %889, label %803
 
 803:                                              ; preds = %797
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %804 = load ptr, ptr %1, align 8
   %805 = zext nneg i32 %793 to i64
@@ -29836,7 +29830,7 @@ getConfVal.exit364:                               ; preds = %808, %lv_u64a_ce.ex
 
 881:                                              ; preds = %877
   %882 = load ptr, ptr %786, align 8
-  %883 = call i64 %882(i64 noundef %832, i32 noundef %860, ptr noundef %850) #6
+  %883 = call i64 %882(i64 noundef %832, i32 noundef %860, ptr noundef %850) #7
   br label %884
 
 884:                                              ; preds = %881, %877, %872, %862, %853
@@ -29855,7 +29849,7 @@ getConfVal.exit364:                               ; preds = %808, %lv_u64a_ce.ex
 confWithBit.exit460:                              ; preds = %getConfVal.exit364, %888
   %.971078 = phi i32 [ %.681049, %getConfVal.exit364 ], [ %.961077, %888 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit364 ], [ %.133, %888 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %889
 
 889:                                              ; preds = %confWithBit.exit460, %797, %787
@@ -29887,7 +29881,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %889
   %.661047 = phi i32 [ %.8989, %892 ], [ %.671048, %1001 ]
   %.67 = phi i64 [ %.8, %892 ], [ %.68, %1001 ]
   %.0959 = phi i64 [ %893, %892 ], [ %902, %1001 ]
-  %900 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #7, !srcloc !6
+  %900 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #6, !srcloc !6
   %901 = extractvalue { i64, i64 } %900, 0
   %902 = extractvalue { i64, i64 } %900, 1
   %903 = trunc i64 %901 to i32
@@ -29909,7 +29903,7 @@ do_confWithBit_teddy.exit318:                     ; preds = %889
   br i1 %.not25.i312, label %1001, label %915
 
 915:                                              ; preds = %909
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %916 = load ptr, ptr %1, align 8
   %917 = zext nneg i32 %905 to i64
@@ -30043,7 +30037,7 @@ getConfVal.exit368:                               ; preds = %920, %lv_u64a_ce.ex
 
 993:                                              ; preds = %989
   %994 = load ptr, ptr %898, align 8
-  %995 = call i64 %994(i64 noundef %944, i32 noundef %972, ptr noundef %962) #6
+  %995 = call i64 %994(i64 noundef %944, i32 noundef %972, ptr noundef %962) #7
   br label %996
 
 996:                                              ; preds = %993, %989, %984, %974, %965
@@ -30062,7 +30056,7 @@ getConfVal.exit368:                               ; preds = %920, %lv_u64a_ce.ex
 confWithBit.exit467:                              ; preds = %getConfVal.exit368, %1000
   %.1001081 = phi i32 [ %.661047, %getConfVal.exit368 ], [ %.991080, %1000 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit368 ], [ %.136, %1000 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1001
 
 1001:                                             ; preds = %confWithBit.exit467, %909, %899
@@ -30094,7 +30088,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %1001
   %.641045 = phi i32 [ %.9990, %1004 ], [ %.651046, %1113 ]
   %.65 = phi i64 [ %.9, %1004 ], [ %.66, %1113 ]
   %.0958 = phi i64 [ %1005, %1004 ], [ %1014, %1113 ]
-  %1012 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #7, !srcloc !6
+  %1012 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #6, !srcloc !6
   %1013 = extractvalue { i64, i64 } %1012, 0
   %1014 = extractvalue { i64, i64 } %1012, 1
   %1015 = trunc i64 %1013 to i32
@@ -30116,7 +30110,7 @@ do_confWithBit_teddy.exit314:                     ; preds = %1001
   br i1 %.not25.i308, label %1113, label %1027
 
 1027:                                             ; preds = %1021
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %1028 = load ptr, ptr %1, align 8
   %1029 = zext nneg i32 %1017 to i64
@@ -30250,7 +30244,7 @@ getConfVal.exit372:                               ; preds = %1032, %lv_u64a_ce.e
 
 1105:                                             ; preds = %1101
   %1106 = load ptr, ptr %1010, align 8
-  %1107 = call i64 %1106(i64 noundef %1056, i32 noundef %1084, ptr noundef %1074) #6
+  %1107 = call i64 %1106(i64 noundef %1056, i32 noundef %1084, ptr noundef %1074) #7
   br label %1108
 
 1108:                                             ; preds = %1105, %1101, %1096, %1086, %1077
@@ -30269,7 +30263,7 @@ getConfVal.exit372:                               ; preds = %1032, %lv_u64a_ce.e
 confWithBit.exit474:                              ; preds = %getConfVal.exit372, %1112
   %.1031084 = phi i32 [ %.641045, %getConfVal.exit372 ], [ %.1021083, %1112 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit372 ], [ %.139, %1112 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1113
 
 1113:                                             ; preds = %confWithBit.exit474, %1021, %1011
@@ -30544,7 +30538,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1259 = add i64 %indvars.iv1273, %1137
   %1260 = and i64 %1259, 4294967295
   %1261 = load i32, ptr %1237, align 8
-  %1262 = call i64 %1132(i64 noundef %1260, i32 noundef %1261, ptr noundef %1133) #6
+  %1262 = call i64 %1132(i64 noundef %1260, i32 noundef %1261, ptr noundef %1133) #7
   %.pre = load i64, ptr %1236, align 8
   %.pre1300 = and i64 %.pre, %1262
   %1263 = icmp eq i64 %.pre1300, 0
@@ -30554,7 +30548,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1265 = add i64 %1238, %indvars.iv1273
   %1266 = and i64 %1265, 4294967295
   %1267 = load i32, ptr %1237, align 8
-  %1268 = call i64 %1132(i64 noundef %1266, i32 noundef %1267, ptr noundef %1133) #6
+  %1268 = call i64 %1132(i64 noundef %1266, i32 noundef %1267, ptr noundef %1133) #7
   %.pre1289 = load i64, ptr %1236, align 8
   %.pre1302 = and i64 %.pre1289, %1268
   %1269 = icmp eq i64 %.pre1302, 0
@@ -30564,7 +30558,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1271 = add i64 %1239, %indvars.iv1273
   %1272 = and i64 %1271, 4294967295
   %1273 = load i32, ptr %1237, align 8
-  %1274 = call i64 %1132(i64 noundef %1272, i32 noundef %1273, ptr noundef %1133) #6
+  %1274 = call i64 %1132(i64 noundef %1272, i32 noundef %1273, ptr noundef %1133) #7
   %.pre1290 = load i64, ptr %1236, align 8
   %.pre1304 = and i64 %.pre1290, %1274
   %1275 = icmp eq i64 %.pre1304, 0
@@ -30574,7 +30568,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1277 = add i64 %1240, %indvars.iv1273
   %1278 = and i64 %1277, 4294967295
   %1279 = load i32, ptr %1237, align 8
-  %1280 = call i64 %1132(i64 noundef %1278, i32 noundef %1279, ptr noundef %1133) #6
+  %1280 = call i64 %1132(i64 noundef %1278, i32 noundef %1279, ptr noundef %1133) #7
   br label %.thread1338
 
 .thread1338:                                      ; preds = %1255, %1258, %1264, %1276, %1270
@@ -30601,7 +30595,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1289 = add i64 %indvars.iv1270, %1137
   %1290 = and i64 %1289, 4294967295
   %1291 = load i32, ptr %1229, align 8
-  %1292 = call i64 %1132(i64 noundef %1290, i32 noundef %1291, ptr noundef %1133) #6
+  %1292 = call i64 %1132(i64 noundef %1290, i32 noundef %1291, ptr noundef %1133) #7
   br label %1293
 
 1293:                                             ; preds = %1288, %1285
@@ -30615,7 +30609,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1297 = add i64 %indvars.iv1270, %1137
   %1298 = and i64 %1297, 4294967295
   %1299 = load i32, ptr %1231, align 4
-  %1300 = call i64 %1132(i64 noundef %1298, i32 noundef %1299, ptr noundef %1133) #6
+  %1300 = call i64 %1132(i64 noundef %1298, i32 noundef %1299, ptr noundef %1133) #7
   br label %1301
 
 1301:                                             ; preds = %1296, %1293
@@ -30630,7 +30624,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1306 = add i32 %1232, %1305
   %1307 = zext i32 %1306 to i64
   %1308 = load i32, ptr %1229, align 8
-  %1309 = call i64 %1132(i64 noundef %1307, i32 noundef %1308, ptr noundef %1133) #6
+  %1309 = call i64 %1132(i64 noundef %1307, i32 noundef %1308, ptr noundef %1133) #7
   br label %1310
 
 1310:                                             ; preds = %1304, %1301
@@ -30645,7 +30639,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1315 = add i32 %1232, %1314
   %1316 = zext i32 %1315 to i64
   %1317 = load i32, ptr %1231, align 4
-  %1318 = call i64 %1132(i64 noundef %1316, i32 noundef %1317, ptr noundef %1133) #6
+  %1318 = call i64 %1132(i64 noundef %1316, i32 noundef %1317, ptr noundef %1133) #7
   br label %1319
 
 1319:                                             ; preds = %1313, %1310
@@ -30660,7 +30654,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1324 = add i32 %1233, %1323
   %1325 = zext i32 %1324 to i64
   %1326 = load i32, ptr %1229, align 8
-  %1327 = call i64 %1132(i64 noundef %1325, i32 noundef %1326, ptr noundef %1133) #6
+  %1327 = call i64 %1132(i64 noundef %1325, i32 noundef %1326, ptr noundef %1133) #7
   br label %1328
 
 1328:                                             ; preds = %1322, %1319
@@ -30675,7 +30669,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1333 = add i32 %1233, %1332
   %1334 = zext i32 %1333 to i64
   %1335 = load i32, ptr %1231, align 4
-  %1336 = call i64 %1132(i64 noundef %1334, i32 noundef %1335, ptr noundef %1133) #6
+  %1336 = call i64 %1132(i64 noundef %1334, i32 noundef %1335, ptr noundef %1133) #7
   br label %1337
 
 1337:                                             ; preds = %1331, %1328
@@ -30690,7 +30684,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1342 = add i32 %1234, %1341
   %1343 = zext i32 %1342 to i64
   %1344 = load i32, ptr %1229, align 8
-  %1345 = call i64 %1132(i64 noundef %1343, i32 noundef %1344, ptr noundef %1133) #6
+  %1345 = call i64 %1132(i64 noundef %1343, i32 noundef %1344, ptr noundef %1133) #7
   br label %1346
 
 1346:                                             ; preds = %1340, %1337
@@ -30705,7 +30699,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1351 = add i32 %1234, %1350
   %1352 = zext i32 %1351 to i64
   %1353 = load i32, ptr %1231, align 4
-  %1354 = call i64 %1132(i64 noundef %1352, i32 noundef %1353, ptr noundef %1133) #6
+  %1354 = call i64 %1132(i64 noundef %1352, i32 noundef %1353, ptr noundef %1133) #7
   br label %1355
 
 1355:                                             ; preds = %1349, %1346
@@ -30732,7 +30726,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1364 = add i64 %indvars.iv, %1137
   %1365 = and i64 %1364, 4294967295
   %1366 = load i32, ptr %1221, align 8
-  %1367 = call i64 %1132(i64 noundef %1365, i32 noundef %1366, ptr noundef %1133) #6
+  %1367 = call i64 %1132(i64 noundef %1365, i32 noundef %1366, ptr noundef %1133) #7
   br label %1368
 
 1368:                                             ; preds = %1363, %1360
@@ -30746,7 +30740,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1372 = add i64 %indvars.iv, %1137
   %1373 = and i64 %1372, 4294967295
   %1374 = load i32, ptr %1223, align 4
-  %1375 = call i64 %1132(i64 noundef %1373, i32 noundef %1374, ptr noundef %1133) #6
+  %1375 = call i64 %1132(i64 noundef %1373, i32 noundef %1374, ptr noundef %1133) #7
   br label %1376
 
 1376:                                             ; preds = %1371, %1368
@@ -30760,7 +30754,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1380 = add i64 %indvars.iv, %1137
   %1381 = and i64 %1380, 4294967295
   %1382 = load i32, ptr %1225, align 8
-  %1383 = call i64 %1132(i64 noundef %1381, i32 noundef %1382, ptr noundef %1133) #6
+  %1383 = call i64 %1132(i64 noundef %1381, i32 noundef %1382, ptr noundef %1133) #7
   br label %1384
 
 1384:                                             ; preds = %1379, %1376
@@ -30775,7 +30769,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1389 = add i32 %1226, %1388
   %1390 = zext i32 %1389 to i64
   %1391 = load i32, ptr %1221, align 8
-  %1392 = call i64 %1132(i64 noundef %1390, i32 noundef %1391, ptr noundef %1133) #6
+  %1392 = call i64 %1132(i64 noundef %1390, i32 noundef %1391, ptr noundef %1133) #7
   br label %1393
 
 1393:                                             ; preds = %1387, %1384
@@ -30790,7 +30784,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1398 = add i32 %1226, %1397
   %1399 = zext i32 %1398 to i64
   %1400 = load i32, ptr %1223, align 4
-  %1401 = call i64 %1132(i64 noundef %1399, i32 noundef %1400, ptr noundef %1133) #6
+  %1401 = call i64 %1132(i64 noundef %1399, i32 noundef %1400, ptr noundef %1133) #7
   br label %1402
 
 1402:                                             ; preds = %1396, %1393
@@ -30805,7 +30799,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1407 = add i32 %1226, %1406
   %1408 = zext i32 %1407 to i64
   %1409 = load i32, ptr %1225, align 8
-  %1410 = call i64 %1132(i64 noundef %1408, i32 noundef %1409, ptr noundef %1133) #6
+  %1410 = call i64 %1132(i64 noundef %1408, i32 noundef %1409, ptr noundef %1133) #7
   br label %1411
 
 1411:                                             ; preds = %1405, %1402
@@ -30832,7 +30826,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1420 = add i64 %indvars.iv1282, %1137
   %1421 = and i64 %1420, 4294967295
   %1422 = load i32, ptr %1243, align 8
-  %1423 = call i64 %1132(i64 noundef %1421, i32 noundef %1422, ptr noundef %1133) #6
+  %1423 = call i64 %1132(i64 noundef %1421, i32 noundef %1422, ptr noundef %1133) #7
   br label %1424
 
 1424:                                             ; preds = %1419, %1416
@@ -30846,7 +30840,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1428 = add i64 %indvars.iv1282, %1137
   %1429 = and i64 %1428, 4294967295
   %1430 = load i32, ptr %1245, align 4
-  %1431 = call i64 %1132(i64 noundef %1429, i32 noundef %1430, ptr noundef %1133) #6
+  %1431 = call i64 %1132(i64 noundef %1429, i32 noundef %1430, ptr noundef %1133) #7
   br label %1432
 
 1432:                                             ; preds = %1427, %1424
@@ -30860,7 +30854,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1436 = add i64 %indvars.iv1282, %1137
   %1437 = and i64 %1436, 4294967295
   %1438 = load i32, ptr %1247, align 8
-  %1439 = call i64 %1132(i64 noundef %1437, i32 noundef %1438, ptr noundef %1133) #6
+  %1439 = call i64 %1132(i64 noundef %1437, i32 noundef %1438, ptr noundef %1133) #7
   br label %1440
 
 1440:                                             ; preds = %1435, %1432
@@ -30874,7 +30868,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1444 = add i64 %indvars.iv1282, %1137
   %1445 = and i64 %1444, 4294967295
   %1446 = load i32, ptr %1249, align 4
-  %1447 = call i64 %1132(i64 noundef %1445, i32 noundef %1446, ptr noundef %1133) #6
+  %1447 = call i64 %1132(i64 noundef %1445, i32 noundef %1446, ptr noundef %1133) #7
   br label %1448
 
 1448:                                             ; preds = %1443, %1440
@@ -30908,7 +30902,7 @@ split:                                            ; preds = %1200, %.thread1135
 1460:                                             ; preds = %1455
   %1461 = getelementptr inbounds nuw [16 x i32], ptr %1243, i64 0, i64 %indvars.iv1276
   %1462 = load i32, ptr %1461, align 4
-  %1463 = call i64 %1132(i64 noundef %1452, i32 noundef %1462, ptr noundef %1133) #6
+  %1463 = call i64 %1132(i64 noundef %1452, i32 noundef %1462, ptr noundef %1133) #7
   %.pre1291 = load i16, ptr %1163, align 4
   br label %1464
 
@@ -30925,7 +30919,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1470 = add i32 %1250, %1469
   %1471 = zext i32 %1470 to i64
   %1472 = load i32, ptr %1243, align 8
-  %1473 = call i64 %1132(i64 noundef %1471, i32 noundef %1472, ptr noundef %1133) #6
+  %1473 = call i64 %1132(i64 noundef %1471, i32 noundef %1472, ptr noundef %1133) #7
   br label %1474
 
 1474:                                             ; preds = %1468, %._crit_edge1215
@@ -30940,7 +30934,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1479 = add i32 %1250, %1478
   %1480 = zext i32 %1479 to i64
   %1481 = load i32, ptr %1245, align 4
-  %1482 = call i64 %1132(i64 noundef %1480, i32 noundef %1481, ptr noundef %1133) #6
+  %1482 = call i64 %1132(i64 noundef %1480, i32 noundef %1481, ptr noundef %1133) #7
   br label %1483
 
 1483:                                             ; preds = %1477, %1474
@@ -30955,7 +30949,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1488 = add i32 %1250, %1487
   %1489 = zext i32 %1488 to i64
   %1490 = load i32, ptr %1247, align 8
-  %1491 = call i64 %1132(i64 noundef %1489, i32 noundef %1490, ptr noundef %1133) #6
+  %1491 = call i64 %1132(i64 noundef %1489, i32 noundef %1490, ptr noundef %1133) #7
   br label %1492
 
 1492:                                             ; preds = %1486, %1483
@@ -30970,7 +30964,7 @@ split:                                            ; preds = %1200, %.thread1135
   %1497 = add i32 %1250, %1496
   %1498 = zext i32 %1497 to i64
   %1499 = load i32, ptr %1249, align 4
-  %1500 = call i64 %1132(i64 noundef %1498, i32 noundef %1499, ptr noundef %1133) #6
+  %1500 = call i64 %1132(i64 noundef %1498, i32 noundef %1499, ptr noundef %1133) #7
   br label %1501
 
 1501:                                             ; preds = %1495, %1492
@@ -31004,7 +30998,7 @@ split:                                            ; preds = %1200, %.thread1135
 1513:                                             ; preds = %1508
   %1514 = getelementptr inbounds nuw [16 x i32], ptr %1243, i64 0, i64 %indvars.iv1279
   %1515 = load i32, ptr %1514, align 4
-  %1516 = call i64 %1132(i64 noundef %1506, i32 noundef %1515, ptr noundef %1133) #6
+  %1516 = call i64 %1132(i64 noundef %1506, i32 noundef %1515, ptr noundef %1133) #7
   %.pre1292 = load i16, ptr %1163, align 4
   br label %1517
 
@@ -31106,7 +31100,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
   %.621043 = phi i32 [ %.129931230, %1576 ], [ %.631044, %1658 ]
   %.63 = phi i64 [ %.13, %1576 ], [ %.64, %1658 ]
   %.0957 = phi i64 [ %1577, %1576 ], [ %1582, %1658 ]
-  %1580 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0957) #7, !srcloc !6
+  %1580 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0957) #6, !srcloc !6
   %1581 = extractvalue { i64, i64 } %1580, 0
   %1582 = extractvalue { i64, i64 } %1580, 1
   %1583 = lshr i64 %1581, 3
@@ -31126,7 +31120,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
   br i1 %.not25.i304, label %1658, label %1593
 
 1593:                                             ; preds = %1587
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1594 = load ptr, ptr %1, align 8
   %1595 = and i64 %1583, 536870911
@@ -31211,7 +31205,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
 
 1650:                                             ; preds = %1646
   %1651 = load ptr, ptr %1116, align 8
-  %1652 = call i64 %1651(i64 noundef %1601, i32 noundef %1629, ptr noundef %1619) #6
+  %1652 = call i64 %1651(i64 noundef %1601, i32 noundef %1629, ptr noundef %1619) #7
   br label %1653
 
 1653:                                             ; preds = %1650, %1646, %1641, %1631, %1622
@@ -31230,7 +31224,7 @@ floodDetect.exit:                                 ; preds = %1166, %1173, %.crit
 confWithBit.exit481:                              ; preds = %1593, %1657
   %.1061087 = phi i32 [ %.621043, %1593 ], [ %.1051086, %1657 ]
   %.143 = phi i64 [ %.63, %1593 ], [ %.142, %1657 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1658
 
 1658:                                             ; preds = %confWithBit.exit481, %1587, %1579
@@ -31258,7 +31252,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
   %.601041 = phi i32 [ %.13994, %1661 ], [ %.611042, %1745 ]
   %.61 = phi i64 [ %.14, %1661 ], [ %.62, %1745 ]
   %.0956 = phi i64 [ %1662, %1661 ], [ %1667, %1745 ]
-  %1665 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #7, !srcloc !6
+  %1665 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #6, !srcloc !6
   %1666 = extractvalue { i64, i64 } %1665, 0
   %1667 = extractvalue { i64, i64 } %1665, 1
   %1668 = trunc i64 %1666 to i32
@@ -31280,7 +31274,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
   br i1 %.not25.i300, label %1745, label %1680
 
 1680:                                             ; preds = %1674
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1681 = load ptr, ptr %1, align 8
   %1682 = zext nneg i32 %1670 to i64
@@ -31365,7 +31359,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
 
 1737:                                             ; preds = %1733
   %1738 = load ptr, ptr %1116, align 8
-  %1739 = call i64 %1738(i64 noundef %1688, i32 noundef %1716, ptr noundef %1706) #6
+  %1739 = call i64 %1738(i64 noundef %1688, i32 noundef %1716, ptr noundef %1706) #7
   br label %1740
 
 1740:                                             ; preds = %1737, %1733, %1728, %1718, %1709
@@ -31384,7 +31378,7 @@ do_confWithBit_teddy.exit306:                     ; preds = %1658
 confWithBit.exit488:                              ; preds = %1680, %1744
   %.1091090 = phi i32 [ %.601041, %1680 ], [ %.1081089, %1744 ]
   %.146 = phi i64 [ %.61, %1680 ], [ %.145, %1744 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1745
 
 1745:                                             ; preds = %confWithBit.exit488, %1674, %1664
@@ -31412,7 +31406,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
   %.581039 = phi i32 [ %.14995, %1748 ], [ %.591040, %1832 ]
   %.59 = phi i64 [ %.15, %1748 ], [ %.60, %1832 ]
   %.0955 = phi i64 [ %1749, %1748 ], [ %1754, %1832 ]
-  %1752 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #7, !srcloc !6
+  %1752 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #6, !srcloc !6
   %1753 = extractvalue { i64, i64 } %1752, 0
   %1754 = extractvalue { i64, i64 } %1752, 1
   %1755 = trunc i64 %1753 to i32
@@ -31434,7 +31428,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
   br i1 %.not25.i296, label %1832, label %1767
 
 1767:                                             ; preds = %1761
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1768 = load ptr, ptr %1, align 8
   %1769 = zext nneg i32 %1757 to i64
@@ -31519,7 +31513,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
 
 1824:                                             ; preds = %1820
   %1825 = load ptr, ptr %1116, align 8
-  %1826 = call i64 %1825(i64 noundef %1775, i32 noundef %1803, ptr noundef %1793) #6
+  %1826 = call i64 %1825(i64 noundef %1775, i32 noundef %1803, ptr noundef %1793) #7
   br label %1827
 
 1827:                                             ; preds = %1824, %1820, %1815, %1805, %1796
@@ -31538,7 +31532,7 @@ do_confWithBit_teddy.exit302:                     ; preds = %1745
 confWithBit.exit495:                              ; preds = %1767, %1831
   %.1121093 = phi i32 [ %.581039, %1767 ], [ %.1111092, %1831 ]
   %.149 = phi i64 [ %.59, %1767 ], [ %.148, %1831 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1832
 
 1832:                                             ; preds = %confWithBit.exit495, %1761, %1751
@@ -31566,7 +31560,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
   %.561037 = phi i32 [ %.15996, %1835 ], [ %.571038, %1919 ]
   %.57 = phi i64 [ %.16, %1835 ], [ %.58, %1919 ]
   %.0954 = phi i64 [ %1836, %1835 ], [ %1841, %1919 ]
-  %1839 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #7, !srcloc !6
+  %1839 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #6, !srcloc !6
   %1840 = extractvalue { i64, i64 } %1839, 0
   %1841 = extractvalue { i64, i64 } %1839, 1
   %1842 = trunc i64 %1840 to i32
@@ -31588,7 +31582,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
   br i1 %.not25.i292, label %1919, label %1854
 
 1854:                                             ; preds = %1848
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1855 = load ptr, ptr %1, align 8
   %1856 = zext nneg i32 %1844 to i64
@@ -31673,7 +31667,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
 
 1911:                                             ; preds = %1907
   %1912 = load ptr, ptr %1116, align 8
-  %1913 = call i64 %1912(i64 noundef %1862, i32 noundef %1890, ptr noundef %1880) #6
+  %1913 = call i64 %1912(i64 noundef %1862, i32 noundef %1890, ptr noundef %1880) #7
   br label %1914
 
 1914:                                             ; preds = %1911, %1907, %1902, %1892, %1883
@@ -31692,7 +31686,7 @@ do_confWithBit_teddy.exit298:                     ; preds = %1832
 confWithBit.exit502:                              ; preds = %1854, %1918
   %.1151096 = phi i32 [ %.561037, %1854 ], [ %.1141095, %1918 ]
   %.152 = phi i64 [ %.57, %1854 ], [ %.151, %1918 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1919
 
 1919:                                             ; preds = %confWithBit.exit502, %1848, %1838
@@ -31766,7 +31760,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
   %.541035 = phi i32 [ %.17998, %1962 ], [ %.551036, %2046 ]
   %.55 = phi i64 [ %.18, %1962 ], [ %.56, %2046 ]
   %.0953 = phi i64 [ %1963, %1962 ], [ %1968, %2046 ]
-  %1966 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #7, !srcloc !6
+  %1966 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0953) #6, !srcloc !6
   %1967 = extractvalue { i64, i64 } %1966, 0
   %1968 = extractvalue { i64, i64 } %1966, 1
   %1969 = trunc i64 %1967 to i32
@@ -31788,7 +31782,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
   br i1 %.not25.i288, label %2046, label %1981
 
 1981:                                             ; preds = %1975
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %1982 = load ptr, ptr %1, align 8
   %1983 = zext nneg i32 %1971 to i64
@@ -31873,7 +31867,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
 
 2038:                                             ; preds = %2034
   %2039 = load ptr, ptr %1116, align 8
-  %2040 = call i64 %2039(i64 noundef %1989, i32 noundef %2017, ptr noundef %2007) #6
+  %2040 = call i64 %2039(i64 noundef %1989, i32 noundef %2017, ptr noundef %2007) #7
   br label %2041
 
 2041:                                             ; preds = %2038, %2034, %2029, %2019, %2010
@@ -31892,7 +31886,7 @@ do_confWithBit_teddy.exit294:                     ; preds = %1919
 confWithBit.exit509:                              ; preds = %1981, %2045
   %.1181099 = phi i32 [ %.541035, %1981 ], [ %.1171098, %2045 ]
   %.155 = phi i64 [ %.55, %1981 ], [ %.154, %2045 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2046
 
 2046:                                             ; preds = %confWithBit.exit509, %1975, %1965
@@ -31920,7 +31914,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
   %.521033 = phi i32 [ %.18999, %2049 ], [ %.531034, %2133 ]
   %.53 = phi i64 [ %.19, %2049 ], [ %.54, %2133 ]
   %.0952 = phi i64 [ %2050, %2049 ], [ %2055, %2133 ]
-  %2053 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #7, !srcloc !6
+  %2053 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0952) #6, !srcloc !6
   %2054 = extractvalue { i64, i64 } %2053, 0
   %2055 = extractvalue { i64, i64 } %2053, 1
   %2056 = trunc i64 %2054 to i32
@@ -31942,7 +31936,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
   br i1 %.not25.i284, label %2133, label %2068
 
 2068:                                             ; preds = %2062
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %2069 = load ptr, ptr %1, align 8
   %2070 = zext nneg i32 %2058 to i64
@@ -32027,7 +32021,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
 
 2125:                                             ; preds = %2121
   %2126 = load ptr, ptr %1116, align 8
-  %2127 = call i64 %2126(i64 noundef %2076, i32 noundef %2104, ptr noundef %2094) #6
+  %2127 = call i64 %2126(i64 noundef %2076, i32 noundef %2104, ptr noundef %2094) #7
   br label %2128
 
 2128:                                             ; preds = %2125, %2121, %2116, %2106, %2097
@@ -32046,7 +32040,7 @@ do_confWithBit_teddy.exit290:                     ; preds = %2046
 confWithBit.exit516:                              ; preds = %2068, %2132
   %.1211102 = phi i32 [ %.521033, %2068 ], [ %.1201101, %2132 ]
   %.158 = phi i64 [ %.53, %2068 ], [ %.157, %2132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2133
 
 2133:                                             ; preds = %confWithBit.exit516, %2062, %2052
@@ -32074,7 +32068,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
   %.501031 = phi i32 [ %.191000, %2136 ], [ %.511032, %2220 ]
   %.51 = phi i64 [ %.20, %2136 ], [ %.52, %2220 ]
   %.0951 = phi i64 [ %2137, %2136 ], [ %2142, %2220 ]
-  %2140 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #7, !srcloc !6
+  %2140 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0951) #6, !srcloc !6
   %2141 = extractvalue { i64, i64 } %2140, 0
   %2142 = extractvalue { i64, i64 } %2140, 1
   %2143 = trunc i64 %2141 to i32
@@ -32096,7 +32090,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
   br i1 %.not25.i280, label %2220, label %2155
 
 2155:                                             ; preds = %2149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2156 = load ptr, ptr %1, align 8
   %2157 = zext nneg i32 %2145 to i64
@@ -32181,7 +32175,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
 
 2212:                                             ; preds = %2208
   %2213 = load ptr, ptr %1116, align 8
-  %2214 = call i64 %2213(i64 noundef %2163, i32 noundef %2191, ptr noundef %2181) #6
+  %2214 = call i64 %2213(i64 noundef %2163, i32 noundef %2191, ptr noundef %2181) #7
   br label %2215
 
 2215:                                             ; preds = %2212, %2208, %2203, %2193, %2184
@@ -32200,7 +32194,7 @@ do_confWithBit_teddy.exit286:                     ; preds = %2133
 confWithBit.exit523:                              ; preds = %2155, %2219
   %.1241105 = phi i32 [ %.501031, %2155 ], [ %.1231104, %2219 ]
   %.161 = phi i64 [ %.51, %2155 ], [ %.160, %2219 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2220
 
 2220:                                             ; preds = %confWithBit.exit523, %2149, %2139
@@ -32228,7 +32222,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
   %.481029 = phi i32 [ %.201001, %2223 ], [ %.491030, %2307 ]
   %.49 = phi i64 [ %.21, %2223 ], [ %.50, %2307 ]
   %.0950 = phi i64 [ %2224, %2223 ], [ %2229, %2307 ]
-  %2227 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #7, !srcloc !6
+  %2227 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0950) #6, !srcloc !6
   %2228 = extractvalue { i64, i64 } %2227, 0
   %2229 = extractvalue { i64, i64 } %2227, 1
   %2230 = trunc i64 %2228 to i32
@@ -32250,7 +32244,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
   br i1 %.not25.i276, label %2307, label %2242
 
 2242:                                             ; preds = %2236
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2243 = load ptr, ptr %1, align 8
   %2244 = zext nneg i32 %2232 to i64
@@ -32335,7 +32329,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
 
 2299:                                             ; preds = %2295
   %2300 = load ptr, ptr %1116, align 8
-  %2301 = call i64 %2300(i64 noundef %2250, i32 noundef %2278, ptr noundef %2268) #6
+  %2301 = call i64 %2300(i64 noundef %2250, i32 noundef %2278, ptr noundef %2268) #7
   br label %2302
 
 2302:                                             ; preds = %2299, %2295, %2290, %2280, %2271
@@ -32354,7 +32348,7 @@ do_confWithBit_teddy.exit282:                     ; preds = %2220
 confWithBit.exit530:                              ; preds = %2242, %2306
   %.1271108 = phi i32 [ %.481029, %2242 ], [ %.1261107, %2306 ]
   %.164 = phi i64 [ %.49, %2242 ], [ %.163, %2306 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2307
 
 2307:                                             ; preds = %confWithBit.exit530, %2236, %2226
@@ -32448,7 +32442,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
   %.461027 = phi i32 [ %.12993.lcssa, %2357 ], [ %.471028, %2442 ]
   %.47 = phi i64 [ %.12.lcssa, %2357 ], [ %.48, %2442 ]
   %.0949 = phi i64 [ %2358, %2357 ], [ %2366, %2442 ]
-  %2364 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #7, !srcloc !6
+  %2364 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0949) #6, !srcloc !6
   %2365 = extractvalue { i64, i64 } %2364, 0
   %2366 = extractvalue { i64, i64 } %2364, 1
   %2367 = lshr i64 %2365, 3
@@ -32468,7 +32462,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
   br i1 %.not25.i272, label %2442, label %2377
 
 2377:                                             ; preds = %2371
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2378 = load ptr, ptr %1, align 8
   %2379 = and i64 %2367, 536870911
@@ -32553,7 +32547,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
 
 2434:                                             ; preds = %2430
   %2435 = load ptr, ptr %2362, align 8
-  %2436 = call i64 %2435(i64 noundef %2385, i32 noundef %2413, ptr noundef %2403) #6
+  %2436 = call i64 %2435(i64 noundef %2385, i32 noundef %2413, ptr noundef %2403) #7
   br label %2437
 
 2437:                                             ; preds = %2434, %2430, %2425, %2415, %2406
@@ -32572,7 +32566,7 @@ do_confWithBit_teddy.exit278:                     ; preds = %2307
 confWithBit.exit537:                              ; preds = %2377, %2441
   %.1301111 = phi i32 [ %.461027, %2377 ], [ %.1291110, %2441 ]
   %.167 = phi i64 [ %.47, %2377 ], [ %.166, %2441 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2442
 
 2442:                                             ; preds = %confWithBit.exit537, %2371, %2363
@@ -32603,7 +32597,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
   %.441025 = phi i32 [ %.241005, %2445 ], [ %.451026, %2532 ]
   %.45 = phi i64 [ %.25, %2445 ], [ %.46, %2532 ]
   %.0948 = phi i64 [ %2446, %2445 ], [ %2454, %2532 ]
-  %2452 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #7, !srcloc !6
+  %2452 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0948) #6, !srcloc !6
   %2453 = extractvalue { i64, i64 } %2452, 0
   %2454 = extractvalue { i64, i64 } %2452, 1
   %2455 = trunc i64 %2453 to i32
@@ -32625,7 +32619,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
   br i1 %.not25.i268, label %2532, label %2467
 
 2467:                                             ; preds = %2461
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2468 = load ptr, ptr %1, align 8
   %2469 = zext nneg i32 %2457 to i64
@@ -32710,7 +32704,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
 
 2524:                                             ; preds = %2520
   %2525 = load ptr, ptr %2450, align 8
-  %2526 = call i64 %2525(i64 noundef %2475, i32 noundef %2503, ptr noundef %2493) #6
+  %2526 = call i64 %2525(i64 noundef %2475, i32 noundef %2503, ptr noundef %2493) #7
   br label %2527
 
 2527:                                             ; preds = %2524, %2520, %2515, %2505, %2496
@@ -32729,7 +32723,7 @@ do_confWithBit_teddy.exit274:                     ; preds = %2442
 confWithBit.exit544:                              ; preds = %2467, %2531
   %.1331114 = phi i32 [ %.441025, %2467 ], [ %.1321113, %2531 ]
   %.170 = phi i64 [ %.45, %2467 ], [ %.169, %2531 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2532
 
 2532:                                             ; preds = %confWithBit.exit544, %2461, %2451
@@ -32760,7 +32754,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
   %.421023 = phi i32 [ %.251006, %2535 ], [ %.431024, %2622 ]
   %.43 = phi i64 [ %.26, %2535 ], [ %.44, %2622 ]
   %.0947 = phi i64 [ %2536, %2535 ], [ %2544, %2622 ]
-  %2542 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #7, !srcloc !6
+  %2542 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0947) #6, !srcloc !6
   %2543 = extractvalue { i64, i64 } %2542, 0
   %2544 = extractvalue { i64, i64 } %2542, 1
   %2545 = trunc i64 %2543 to i32
@@ -32782,7 +32776,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
   br i1 %.not25.i264, label %2622, label %2557
 
 2557:                                             ; preds = %2551
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2558 = load ptr, ptr %1, align 8
   %2559 = zext nneg i32 %2547 to i64
@@ -32867,7 +32861,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
 
 2614:                                             ; preds = %2610
   %2615 = load ptr, ptr %2540, align 8
-  %2616 = call i64 %2615(i64 noundef %2565, i32 noundef %2593, ptr noundef %2583) #6
+  %2616 = call i64 %2615(i64 noundef %2565, i32 noundef %2593, ptr noundef %2583) #7
   br label %2617
 
 2617:                                             ; preds = %2614, %2610, %2605, %2595, %2586
@@ -32886,7 +32880,7 @@ do_confWithBit_teddy.exit270:                     ; preds = %2532
 confWithBit.exit551:                              ; preds = %2557, %2621
   %.1361117 = phi i32 [ %.421023, %2557 ], [ %.1351116, %2621 ]
   %.173 = phi i64 [ %.43, %2557 ], [ %.172, %2621 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2622
 
 2622:                                             ; preds = %confWithBit.exit551, %2551, %2541
@@ -32917,7 +32911,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
   %.401021 = phi i32 [ %.261007, %2625 ], [ %.411022, %2712 ]
   %.41 = phi i64 [ %.27, %2625 ], [ %.42, %2712 ]
   %.0946 = phi i64 [ %2626, %2625 ], [ %2634, %2712 ]
-  %2632 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #7, !srcloc !6
+  %2632 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0946) #6, !srcloc !6
   %2633 = extractvalue { i64, i64 } %2632, 0
   %2634 = extractvalue { i64, i64 } %2632, 1
   %2635 = trunc i64 %2633 to i32
@@ -32939,7 +32933,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
   br i1 %.not25.i260, label %2712, label %2647
 
 2647:                                             ; preds = %2641
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2648 = load ptr, ptr %1, align 8
   %2649 = zext nneg i32 %2637 to i64
@@ -33024,7 +33018,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
 
 2704:                                             ; preds = %2700
   %2705 = load ptr, ptr %2630, align 8
-  %2706 = call i64 %2705(i64 noundef %2655, i32 noundef %2683, ptr noundef %2673) #6
+  %2706 = call i64 %2705(i64 noundef %2655, i32 noundef %2683, ptr noundef %2673) #7
   br label %2707
 
 2707:                                             ; preds = %2704, %2700, %2695, %2685, %2676
@@ -33043,7 +33037,7 @@ do_confWithBit_teddy.exit266:                     ; preds = %2622
 confWithBit.exit558:                              ; preds = %2647, %2711
   %.1391120 = phi i32 [ %.401021, %2647 ], [ %.1381119, %2711 ]
   %.176 = phi i64 [ %.41, %2647 ], [ %.175, %2711 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2712
 
 2712:                                             ; preds = %confWithBit.exit558, %2641, %2631
@@ -33065,7 +33059,7 @@ do_confWithBit_teddy.exit262:                     ; preds = %2712
 
 2715:                                             ; preds = %.critedge238
   %2716 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2717 = ptrtoint ptr %.4977 to i64
   %2718 = ptrtoint ptr %33 to i64
@@ -33171,7 +33165,7 @@ vectoredLoad256.exit:                             ; preds = %2755, %2753, %2746,
   %.09451141 = phi <4 x i64> [ %2722, %2721 ], [ %2725, %2723 ], [ %2725, %2726 ], [ %2725, %2728 ], [ %2725, %2730 ], [ %2725, %2735 ], [ %2725, %2737 ], [ %2725, %2744 ], [ %2725, %2746 ], [ %2725, %2753 ], [ %2725, %2755 ]
   %.1.i.in = phi ptr [ %.4977, %2721 ], [ %29, %2723 ], [ %29, %2726 ], [ %29, %2728 ], [ %29, %2730 ], [ %29, %2735 ], [ %29, %2737 ], [ %29, %2744 ], [ %29, %2746 ], [ %29, %2753 ], [ %29, %2755 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2762 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2763 = bitcast <4 x i64> %54 to <32 x i8>
   %2764 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -33223,7 +33217,7 @@ vectoredLoad256.exit:                             ; preds = %2755, %2753, %2746,
   %.381019 = phi i32 [ %.231004, %2796 ], [ %.391020, %2901 ]
   %.39 = phi i64 [ %.24, %2796 ], [ %.40, %2901 ]
   %.0944 = phi i64 [ %2797, %2796 ], [ %2804, %2901 ]
-  %2802 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #7, !srcloc !6
+  %2802 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0944) #6, !srcloc !6
   %2803 = extractvalue { i64, i64 } %2802, 0
   %2804 = extractvalue { i64, i64 } %2802, 1
   %2805 = lshr i64 %2803, 3
@@ -33243,7 +33237,7 @@ vectoredLoad256.exit:                             ; preds = %2755, %2753, %2746,
   br i1 %.not25.i256, label %2901, label %2815
 
 2815:                                             ; preds = %2809
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2816 = load ptr, ptr %1, align 8
   %2817 = and i64 %2805, 536870911
@@ -33377,7 +33371,7 @@ getConfVal.exit412:                               ; preds = %2820, %lv_u64a_ce.e
 
 2893:                                             ; preds = %2889
   %2894 = load ptr, ptr %2800, align 8
-  %2895 = call i64 %2894(i64 noundef %2844, i32 noundef %2872, ptr noundef %2862) #6
+  %2895 = call i64 %2894(i64 noundef %2844, i32 noundef %2872, ptr noundef %2862) #7
   br label %2896
 
 2896:                                             ; preds = %2893, %2889, %2884, %2874, %2865
@@ -33396,7 +33390,7 @@ getConfVal.exit412:                               ; preds = %2820, %lv_u64a_ce.e
 confWithBit.exit565:                              ; preds = %getConfVal.exit412, %2900
   %.1421123 = phi i32 [ %.381019, %getConfVal.exit412 ], [ %.1411122, %2900 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit412 ], [ %.178, %2900 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2901
 
 2901:                                             ; preds = %confWithBit.exit565, %2809, %2801
@@ -33426,7 +33420,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2901
   %.361017 = phi i32 [ %.291010, %2904 ], [ %.371018, %3011 ]
   %.37 = phi i64 [ %.30, %2904 ], [ %.38, %3011 ]
   %.0943 = phi i64 [ %2905, %2904 ], [ %2912, %3011 ]
-  %2910 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #7, !srcloc !6
+  %2910 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0943) #6, !srcloc !6
   %2911 = extractvalue { i64, i64 } %2910, 0
   %2912 = extractvalue { i64, i64 } %2910, 1
   %2913 = trunc i64 %2911 to i32
@@ -33448,7 +33442,7 @@ do_confWithBit_teddy.exit258:                     ; preds = %2901
   br i1 %.not25.i252, label %3011, label %2925
 
 2925:                                             ; preds = %2919
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2926 = load ptr, ptr %1, align 8
   %2927 = zext nneg i32 %2915 to i64
@@ -33582,7 +33576,7 @@ getConfVal.exit416:                               ; preds = %2930, %lv_u64a_ce.e
 
 3003:                                             ; preds = %2999
   %3004 = load ptr, ptr %2908, align 8
-  %3005 = call i64 %3004(i64 noundef %2954, i32 noundef %2982, ptr noundef %2972) #6
+  %3005 = call i64 %3004(i64 noundef %2954, i32 noundef %2982, ptr noundef %2972) #7
   br label %3006
 
 3006:                                             ; preds = %3003, %2999, %2994, %2984, %2975
@@ -33601,7 +33595,7 @@ getConfVal.exit416:                               ; preds = %2930, %lv_u64a_ce.e
 confWithBit.exit572:                              ; preds = %getConfVal.exit416, %3010
   %.1451126 = phi i32 [ %.361017, %getConfVal.exit416 ], [ %.1441125, %3010 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit416 ], [ %.181, %3010 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %3011
 
 3011:                                             ; preds = %confWithBit.exit572, %2919, %2909
@@ -33631,7 +33625,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %3011
   %.341015 = phi i32 [ %.301011, %3014 ], [ %.351016, %3121 ]
   %.35 = phi i64 [ %.31, %3014 ], [ %.36, %3121 ]
   %.0942 = phi i64 [ %3015, %3014 ], [ %3022, %3121 ]
-  %3020 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #7, !srcloc !6
+  %3020 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0942) #6, !srcloc !6
   %3021 = extractvalue { i64, i64 } %3020, 0
   %3022 = extractvalue { i64, i64 } %3020, 1
   %3023 = trunc i64 %3021 to i32
@@ -33653,7 +33647,7 @@ do_confWithBit_teddy.exit254:                     ; preds = %3011
   br i1 %.not25.i248, label %3121, label %3035
 
 3035:                                             ; preds = %3029
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %3036 = load ptr, ptr %1, align 8
   %3037 = zext nneg i32 %3025 to i64
@@ -33787,7 +33781,7 @@ getConfVal.exit420:                               ; preds = %3040, %lv_u64a_ce.e
 
 3113:                                             ; preds = %3109
   %3114 = load ptr, ptr %3018, align 8
-  %3115 = call i64 %3114(i64 noundef %3064, i32 noundef %3092, ptr noundef %3082) #6
+  %3115 = call i64 %3114(i64 noundef %3064, i32 noundef %3092, ptr noundef %3082) #7
   br label %3116
 
 3116:                                             ; preds = %3113, %3109, %3104, %3094, %3085
@@ -33806,7 +33800,7 @@ getConfVal.exit420:                               ; preds = %3040, %lv_u64a_ce.e
 confWithBit.exit579:                              ; preds = %getConfVal.exit420, %3120
   %.1481129 = phi i32 [ %.341015, %getConfVal.exit420 ], [ %.1471128, %3120 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit420 ], [ %.184, %3120 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3121
 
 3121:                                             ; preds = %confWithBit.exit579, %3029, %3019
@@ -33836,7 +33830,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %3121
   %.321013 = phi i32 [ %.311012, %3124 ], [ %.331014, %3231 ]
   %.33 = phi i64 [ %.32, %3124 ], [ %.34, %3231 ]
   %.0 = phi i64 [ %3125, %3124 ], [ %3132, %3231 ]
-  %3130 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3130 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3131 = extractvalue { i64, i64 } %3130, 0
   %3132 = extractvalue { i64, i64 } %3130, 1
   %3133 = trunc i64 %3131 to i32
@@ -33858,7 +33852,7 @@ do_confWithBit_teddy.exit250:                     ; preds = %3121
   br i1 %.not25.i, label %3231, label %3145
 
 3145:                                             ; preds = %3139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3146 = load ptr, ptr %1, align 8
   %3147 = zext nneg i32 %3135 to i64
@@ -33992,7 +33986,7 @@ getConfVal.exit424:                               ; preds = %3150, %lv_u64a_ce.e
 
 3223:                                             ; preds = %3219
   %3224 = load ptr, ptr %3128, align 8
-  %3225 = call i64 %3224(i64 noundef %3174, i32 noundef %3202, ptr noundef %3192) #6
+  %3225 = call i64 %3224(i64 noundef %3174, i32 noundef %3202, ptr noundef %3192) #7
   br label %3226
 
 3226:                                             ; preds = %3223, %3219, %3214, %3204, %3195
@@ -34011,7 +34005,7 @@ getConfVal.exit424:                               ; preds = %3150, %lv_u64a_ce.e
 confWithBit.exit586:                              ; preds = %getConfVal.exit424, %3230
   %.1511132 = phi i32 [ %.321013, %getConfVal.exit424 ], [ %.1501131, %3230 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit424 ], [ %.187, %3230 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3231
 
 3231:                                             ; preds = %confWithBit.exit586, %3139, %3129
@@ -34112,7 +34106,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks4(ptr noundef readonly %0,
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load i64, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %75, %30
   br i1 %.not.i, label %98, label %80
@@ -34270,7 +34264,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   %.2 = phi <4 x i64> [ %97, %92 ], [ %.1, %115 ], [ %.1, %118 ], [ %.1, %120 ], [ %.1, %122 ], [ %.1, %127 ], [ %.1, %129 ], [ %.1, %136 ], [ %.1, %138 ], [ %.1, %145 ], [ %.1, %147 ]
   %.1.i246.in = phi ptr [ %75, %92 ], [ %28, %115 ], [ %28, %118 ], [ %28, %120 ], [ %28, %122 ], [ %28, %127 ], [ %28, %129 ], [ %28, %136 ], [ %28, %138 ], [ %28, %145 ], [ %28, %147 ]
   %.1.i246 = load <4 x i64>, ptr %.1.i246.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %154 = lshr <4 x i64> %.1.i246, splat (i64 4)
   %155 = bitcast <4 x i64> %60 to <32 x i8>
   %156 = bitcast <4 x i64> %.1.i246 to <32 x i8>
@@ -34330,7 +34324,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   %.781071 = phi i32 [ -1, %195 ], [ %.791072, %301 ]
   %.79 = phi i64 [ %2, %195 ], [ %.80, %301 ]
   %.0977 = phi i64 [ %196, %195 ], [ %204, %301 ]
-  %202 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0977) #7, !srcloc !6
+  %202 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0977) #6, !srcloc !6
   %203 = extractvalue { i64, i64 } %202, 0
   %204 = extractvalue { i64, i64 } %202, 1
   %205 = lshr i64 %203, 3
@@ -34350,7 +34344,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   br i1 %.not25.i338, label %301, label %215
 
 215:                                              ; preds = %209
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %216 = load ptr, ptr %1, align 8
   %217 = and i64 %205, 536870911
@@ -34484,7 +34478,7 @@ getConfVal.exit:                                  ; preds = %220, %lv_u64a_ce.ex
 
 293:                                              ; preds = %289
   %294 = load ptr, ptr %200, align 8
-  %295 = call i64 %294(i64 noundef %244, i32 noundef %272, ptr noundef %262) #6
+  %295 = call i64 %294(i64 noundef %244, i32 noundef %272, ptr noundef %262) #7
   br label %296
 
 296:                                              ; preds = %293, %289, %284, %274, %265
@@ -34503,7 +34497,7 @@ getConfVal.exit:                                  ; preds = %220, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %300
   %.821075 = phi i32 [ %.781071, %getConfVal.exit ], [ %.811074, %300 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %300 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %301
 
 301:                                              ; preds = %confWithBit.exit, %209, %201
@@ -34534,7 +34528,7 @@ do_confWithBit_teddy.exit340:                     ; preds = %301
   %.761069 = phi i32 [ %.1994, %304 ], [ %.771070, %412 ]
   %.77 = phi i64 [ %.1982, %304 ], [ %.78, %412 ]
   %.0976 = phi i64 [ %305, %304 ], [ %313, %412 ]
-  %311 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0976) #7, !srcloc !6
+  %311 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0976) #6, !srcloc !6
   %312 = extractvalue { i64, i64 } %311, 0
   %313 = extractvalue { i64, i64 } %311, 1
   %314 = trunc i64 %312 to i32
@@ -34556,7 +34550,7 @@ do_confWithBit_teddy.exit340:                     ; preds = %301
   br i1 %.not25.i334, label %412, label %326
 
 326:                                              ; preds = %320
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %327 = load ptr, ptr %1, align 8
   %328 = zext nneg i32 %316 to i64
@@ -34690,7 +34684,7 @@ getConfVal.exit350:                               ; preds = %331, %lv_u64a_ce.ex
 
 404:                                              ; preds = %400
   %405 = load ptr, ptr %309, align 8
-  %406 = call i64 %405(i64 noundef %355, i32 noundef %383, ptr noundef %373) #6
+  %406 = call i64 %405(i64 noundef %355, i32 noundef %383, ptr noundef %373) #7
   br label %407
 
 407:                                              ; preds = %404, %400, %395, %385, %376
@@ -34709,7 +34703,7 @@ getConfVal.exit350:                               ; preds = %331, %lv_u64a_ce.ex
 confWithBit.exit434:                              ; preds = %getConfVal.exit350, %411
   %.851078 = phi i32 [ %.761069, %getConfVal.exit350 ], [ %.841077, %411 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit350 ], [ %.121, %411 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %412
 
 412:                                              ; preds = %confWithBit.exit434, %320, %310
@@ -34740,7 +34734,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %412
   %.741067 = phi i32 [ %.2995, %415 ], [ %.751068, %523 ]
   %.75 = phi i64 [ %.2983, %415 ], [ %.76, %523 ]
   %.0975 = phi i64 [ %416, %415 ], [ %424, %523 ]
-  %422 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0975) #7, !srcloc !6
+  %422 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0975) #6, !srcloc !6
   %423 = extractvalue { i64, i64 } %422, 0
   %424 = extractvalue { i64, i64 } %422, 1
   %425 = trunc i64 %423 to i32
@@ -34762,7 +34756,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %412
   br i1 %.not25.i330, label %523, label %437
 
 437:                                              ; preds = %431
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %438 = load ptr, ptr %1, align 8
   %439 = zext nneg i32 %427 to i64
@@ -34896,7 +34890,7 @@ getConfVal.exit354:                               ; preds = %442, %lv_u64a_ce.ex
 
 515:                                              ; preds = %511
   %516 = load ptr, ptr %420, align 8
-  %517 = call i64 %516(i64 noundef %466, i32 noundef %494, ptr noundef %484) #6
+  %517 = call i64 %516(i64 noundef %466, i32 noundef %494, ptr noundef %484) #7
   br label %518
 
 518:                                              ; preds = %515, %511, %506, %496, %487
@@ -34915,7 +34909,7 @@ getConfVal.exit354:                               ; preds = %442, %lv_u64a_ce.ex
 confWithBit.exit441:                              ; preds = %getConfVal.exit354, %522
   %.881081 = phi i32 [ %.741067, %getConfVal.exit354 ], [ %.871080, %522 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit354 ], [ %.124, %522 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %523
 
 523:                                              ; preds = %confWithBit.exit441, %431, %421
@@ -34946,7 +34940,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %523
   %.721065 = phi i32 [ %.3996, %526 ], [ %.731066, %634 ]
   %.73 = phi i64 [ %.3, %526 ], [ %.74, %634 ]
   %.0974 = phi i64 [ %527, %526 ], [ %535, %634 ]
-  %533 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0974) #7, !srcloc !6
+  %533 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0974) #6, !srcloc !6
   %534 = extractvalue { i64, i64 } %533, 0
   %535 = extractvalue { i64, i64 } %533, 1
   %536 = trunc i64 %534 to i32
@@ -34968,7 +34962,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %523
   br i1 %.not25.i326, label %634, label %548
 
 548:                                              ; preds = %542
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %549 = load ptr, ptr %1, align 8
   %550 = zext nneg i32 %538 to i64
@@ -35102,7 +35096,7 @@ getConfVal.exit358:                               ; preds = %553, %lv_u64a_ce.ex
 
 626:                                              ; preds = %622
   %627 = load ptr, ptr %531, align 8
-  %628 = call i64 %627(i64 noundef %577, i32 noundef %605, ptr noundef %595) #6
+  %628 = call i64 %627(i64 noundef %577, i32 noundef %605, ptr noundef %595) #7
   br label %629
 
 629:                                              ; preds = %626, %622, %617, %607, %598
@@ -35121,7 +35115,7 @@ getConfVal.exit358:                               ; preds = %553, %lv_u64a_ce.ex
 confWithBit.exit448:                              ; preds = %getConfVal.exit358, %633
   %.911084 = phi i32 [ %.721065, %getConfVal.exit358 ], [ %.901083, %633 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit358 ], [ %.127, %633 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %634
 
 634:                                              ; preds = %confWithBit.exit448, %542, %532
@@ -35216,7 +35210,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %634
   %.701063 = phi i32 [ %.0993, %690 ], [ %.711064, %797 ]
   %.71 = phi i64 [ %.0981, %690 ], [ %.72, %797 ]
   %.0973 = phi i64 [ %691, %690 ], [ %700, %797 ]
-  %698 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0973) #7, !srcloc !6
+  %698 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0973) #6, !srcloc !6
   %699 = extractvalue { i64, i64 } %698, 0
   %700 = extractvalue { i64, i64 } %698, 1
   %701 = lshr i64 %699, 3
@@ -35236,7 +35230,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %634
   br i1 %.not25.i322, label %797, label %711
 
 711:                                              ; preds = %705
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %712 = load ptr, ptr %1, align 8
   %713 = and i64 %701, 536870911
@@ -35370,7 +35364,7 @@ getConfVal.exit362:                               ; preds = %716, %lv_u64a_ce.ex
 
 789:                                              ; preds = %785
   %790 = load ptr, ptr %696, align 8
-  %791 = call i64 %790(i64 noundef %740, i32 noundef %768, ptr noundef %758) #6
+  %791 = call i64 %790(i64 noundef %740, i32 noundef %768, ptr noundef %758) #7
   br label %792
 
 792:                                              ; preds = %789, %785, %780, %770, %761
@@ -35389,7 +35383,7 @@ getConfVal.exit362:                               ; preds = %716, %lv_u64a_ce.ex
 confWithBit.exit455:                              ; preds = %getConfVal.exit362, %796
   %.941087 = phi i32 [ %.701063, %getConfVal.exit362 ], [ %.931086, %796 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit362 ], [ %.130, %796 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %797
 
 797:                                              ; preds = %confWithBit.exit455, %705, %697
@@ -35421,7 +35415,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %797
   %.681061 = phi i32 [ %.71000, %800 ], [ %.691062, %909 ]
   %.69 = phi i64 [ %.7, %800 ], [ %.70, %909 ]
   %.0972 = phi i64 [ %801, %800 ], [ %810, %909 ]
-  %808 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0972) #7, !srcloc !6
+  %808 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0972) #6, !srcloc !6
   %809 = extractvalue { i64, i64 } %808, 0
   %810 = extractvalue { i64, i64 } %808, 1
   %811 = trunc i64 %809 to i32
@@ -35443,7 +35437,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %797
   br i1 %.not25.i318, label %909, label %823
 
 823:                                              ; preds = %817
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %824 = load ptr, ptr %1, align 8
   %825 = zext nneg i32 %813 to i64
@@ -35577,7 +35571,7 @@ getConfVal.exit366:                               ; preds = %828, %lv_u64a_ce.ex
 
 901:                                              ; preds = %897
   %902 = load ptr, ptr %806, align 8
-  %903 = call i64 %902(i64 noundef %852, i32 noundef %880, ptr noundef %870) #6
+  %903 = call i64 %902(i64 noundef %852, i32 noundef %880, ptr noundef %870) #7
   br label %904
 
 904:                                              ; preds = %901, %897, %892, %882, %873
@@ -35596,7 +35590,7 @@ getConfVal.exit366:                               ; preds = %828, %lv_u64a_ce.ex
 confWithBit.exit462:                              ; preds = %getConfVal.exit366, %908
   %.971090 = phi i32 [ %.681061, %getConfVal.exit366 ], [ %.961089, %908 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit366 ], [ %.133, %908 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %909
 
 909:                                              ; preds = %confWithBit.exit462, %817, %807
@@ -35628,7 +35622,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %909
   %.661059 = phi i32 [ %.81001, %912 ], [ %.671060, %1021 ]
   %.67 = phi i64 [ %.8, %912 ], [ %.68, %1021 ]
   %.0971 = phi i64 [ %913, %912 ], [ %922, %1021 ]
-  %920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0971) #7, !srcloc !6
+  %920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0971) #6, !srcloc !6
   %921 = extractvalue { i64, i64 } %920, 0
   %922 = extractvalue { i64, i64 } %920, 1
   %923 = trunc i64 %921 to i32
@@ -35650,7 +35644,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %909
   br i1 %.not25.i314, label %1021, label %935
 
 935:                                              ; preds = %929
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %936 = load ptr, ptr %1, align 8
   %937 = zext nneg i32 %925 to i64
@@ -35784,7 +35778,7 @@ getConfVal.exit370:                               ; preds = %940, %lv_u64a_ce.ex
 
 1013:                                             ; preds = %1009
   %1014 = load ptr, ptr %918, align 8
-  %1015 = call i64 %1014(i64 noundef %964, i32 noundef %992, ptr noundef %982) #6
+  %1015 = call i64 %1014(i64 noundef %964, i32 noundef %992, ptr noundef %982) #7
   br label %1016
 
 1016:                                             ; preds = %1013, %1009, %1004, %994, %985
@@ -35803,7 +35797,7 @@ getConfVal.exit370:                               ; preds = %940, %lv_u64a_ce.ex
 confWithBit.exit469:                              ; preds = %getConfVal.exit370, %1020
   %.1001093 = phi i32 [ %.661059, %getConfVal.exit370 ], [ %.991092, %1020 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit370 ], [ %.136, %1020 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1021
 
 1021:                                             ; preds = %confWithBit.exit469, %929, %919
@@ -35835,7 +35829,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %1021
   %.641057 = phi i32 [ %.91002, %1024 ], [ %.651058, %1133 ]
   %.65 = phi i64 [ %.9, %1024 ], [ %.66, %1133 ]
   %.0970 = phi i64 [ %1025, %1024 ], [ %1034, %1133 ]
-  %1032 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0970) #7, !srcloc !6
+  %1032 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0970) #6, !srcloc !6
   %1033 = extractvalue { i64, i64 } %1032, 0
   %1034 = extractvalue { i64, i64 } %1032, 1
   %1035 = trunc i64 %1033 to i32
@@ -35857,7 +35851,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %1021
   br i1 %.not25.i310, label %1133, label %1047
 
 1047:                                             ; preds = %1041
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %1048 = load ptr, ptr %1, align 8
   %1049 = zext nneg i32 %1037 to i64
@@ -35991,7 +35985,7 @@ getConfVal.exit374:                               ; preds = %1052, %lv_u64a_ce.e
 
 1125:                                             ; preds = %1121
   %1126 = load ptr, ptr %1030, align 8
-  %1127 = call i64 %1126(i64 noundef %1076, i32 noundef %1104, ptr noundef %1094) #6
+  %1127 = call i64 %1126(i64 noundef %1076, i32 noundef %1104, ptr noundef %1094) #7
   br label %1128
 
 1128:                                             ; preds = %1125, %1121, %1116, %1106, %1097
@@ -36010,7 +36004,7 @@ getConfVal.exit374:                               ; preds = %1052, %lv_u64a_ce.e
 confWithBit.exit476:                              ; preds = %getConfVal.exit374, %1132
   %.1031096 = phi i32 [ %.641057, %getConfVal.exit374 ], [ %.1021095, %1132 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit374 ], [ %.139, %1132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1133
 
 1133:                                             ; preds = %confWithBit.exit476, %1041, %1031
@@ -36287,7 +36281,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1281 = add i64 %indvars.iv1285, %1159
   %1282 = and i64 %1281, 4294967295
   %1283 = load i32, ptr %1259, align 8
-  %1284 = call i64 %1154(i64 noundef %1282, i32 noundef %1283, ptr noundef %1155) #6
+  %1284 = call i64 %1154(i64 noundef %1282, i32 noundef %1283, ptr noundef %1155) #7
   %.pre = load i64, ptr %1258, align 8
   %.pre1312 = and i64 %.pre, %1284
   %1285 = icmp eq i64 %.pre1312, 0
@@ -36297,7 +36291,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1287 = add i64 %1260, %indvars.iv1285
   %1288 = and i64 %1287, 4294967295
   %1289 = load i32, ptr %1259, align 8
-  %1290 = call i64 %1154(i64 noundef %1288, i32 noundef %1289, ptr noundef %1155) #6
+  %1290 = call i64 %1154(i64 noundef %1288, i32 noundef %1289, ptr noundef %1155) #7
   %.pre1301 = load i64, ptr %1258, align 8
   %.pre1314 = and i64 %.pre1301, %1290
   %1291 = icmp eq i64 %.pre1314, 0
@@ -36307,7 +36301,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1293 = add i64 %1261, %indvars.iv1285
   %1294 = and i64 %1293, 4294967295
   %1295 = load i32, ptr %1259, align 8
-  %1296 = call i64 %1154(i64 noundef %1294, i32 noundef %1295, ptr noundef %1155) #6
+  %1296 = call i64 %1154(i64 noundef %1294, i32 noundef %1295, ptr noundef %1155) #7
   %.pre1302 = load i64, ptr %1258, align 8
   %.pre1316 = and i64 %.pre1302, %1296
   %1297 = icmp eq i64 %.pre1316, 0
@@ -36317,7 +36311,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1299 = add i64 %1262, %indvars.iv1285
   %1300 = and i64 %1299, 4294967295
   %1301 = load i32, ptr %1259, align 8
-  %1302 = call i64 %1154(i64 noundef %1300, i32 noundef %1301, ptr noundef %1155) #6
+  %1302 = call i64 %1154(i64 noundef %1300, i32 noundef %1301, ptr noundef %1155) #7
   br label %.thread1350
 
 .thread1350:                                      ; preds = %1277, %1280, %1286, %1298, %1292
@@ -36344,7 +36338,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1311 = add i64 %indvars.iv1282, %1159
   %1312 = and i64 %1311, 4294967295
   %1313 = load i32, ptr %1251, align 8
-  %1314 = call i64 %1154(i64 noundef %1312, i32 noundef %1313, ptr noundef %1155) #6
+  %1314 = call i64 %1154(i64 noundef %1312, i32 noundef %1313, ptr noundef %1155) #7
   br label %1315
 
 1315:                                             ; preds = %1310, %1307
@@ -36358,7 +36352,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1319 = add i64 %indvars.iv1282, %1159
   %1320 = and i64 %1319, 4294967295
   %1321 = load i32, ptr %1253, align 4
-  %1322 = call i64 %1154(i64 noundef %1320, i32 noundef %1321, ptr noundef %1155) #6
+  %1322 = call i64 %1154(i64 noundef %1320, i32 noundef %1321, ptr noundef %1155) #7
   br label %1323
 
 1323:                                             ; preds = %1318, %1315
@@ -36373,7 +36367,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1328 = add i32 %1254, %1327
   %1329 = zext i32 %1328 to i64
   %1330 = load i32, ptr %1251, align 8
-  %1331 = call i64 %1154(i64 noundef %1329, i32 noundef %1330, ptr noundef %1155) #6
+  %1331 = call i64 %1154(i64 noundef %1329, i32 noundef %1330, ptr noundef %1155) #7
   br label %1332
 
 1332:                                             ; preds = %1326, %1323
@@ -36388,7 +36382,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1337 = add i32 %1254, %1336
   %1338 = zext i32 %1337 to i64
   %1339 = load i32, ptr %1253, align 4
-  %1340 = call i64 %1154(i64 noundef %1338, i32 noundef %1339, ptr noundef %1155) #6
+  %1340 = call i64 %1154(i64 noundef %1338, i32 noundef %1339, ptr noundef %1155) #7
   br label %1341
 
 1341:                                             ; preds = %1335, %1332
@@ -36403,7 +36397,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1346 = add i32 %1255, %1345
   %1347 = zext i32 %1346 to i64
   %1348 = load i32, ptr %1251, align 8
-  %1349 = call i64 %1154(i64 noundef %1347, i32 noundef %1348, ptr noundef %1155) #6
+  %1349 = call i64 %1154(i64 noundef %1347, i32 noundef %1348, ptr noundef %1155) #7
   br label %1350
 
 1350:                                             ; preds = %1344, %1341
@@ -36418,7 +36412,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1355 = add i32 %1255, %1354
   %1356 = zext i32 %1355 to i64
   %1357 = load i32, ptr %1253, align 4
-  %1358 = call i64 %1154(i64 noundef %1356, i32 noundef %1357, ptr noundef %1155) #6
+  %1358 = call i64 %1154(i64 noundef %1356, i32 noundef %1357, ptr noundef %1155) #7
   br label %1359
 
 1359:                                             ; preds = %1353, %1350
@@ -36433,7 +36427,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1364 = add i32 %1256, %1363
   %1365 = zext i32 %1364 to i64
   %1366 = load i32, ptr %1251, align 8
-  %1367 = call i64 %1154(i64 noundef %1365, i32 noundef %1366, ptr noundef %1155) #6
+  %1367 = call i64 %1154(i64 noundef %1365, i32 noundef %1366, ptr noundef %1155) #7
   br label %1368
 
 1368:                                             ; preds = %1362, %1359
@@ -36448,7 +36442,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1373 = add i32 %1256, %1372
   %1374 = zext i32 %1373 to i64
   %1375 = load i32, ptr %1253, align 4
-  %1376 = call i64 %1154(i64 noundef %1374, i32 noundef %1375, ptr noundef %1155) #6
+  %1376 = call i64 %1154(i64 noundef %1374, i32 noundef %1375, ptr noundef %1155) #7
   br label %1377
 
 1377:                                             ; preds = %1371, %1368
@@ -36475,7 +36469,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1386 = add i64 %indvars.iv, %1159
   %1387 = and i64 %1386, 4294967295
   %1388 = load i32, ptr %1243, align 8
-  %1389 = call i64 %1154(i64 noundef %1387, i32 noundef %1388, ptr noundef %1155) #6
+  %1389 = call i64 %1154(i64 noundef %1387, i32 noundef %1388, ptr noundef %1155) #7
   br label %1390
 
 1390:                                             ; preds = %1385, %1382
@@ -36489,7 +36483,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1394 = add i64 %indvars.iv, %1159
   %1395 = and i64 %1394, 4294967295
   %1396 = load i32, ptr %1245, align 4
-  %1397 = call i64 %1154(i64 noundef %1395, i32 noundef %1396, ptr noundef %1155) #6
+  %1397 = call i64 %1154(i64 noundef %1395, i32 noundef %1396, ptr noundef %1155) #7
   br label %1398
 
 1398:                                             ; preds = %1393, %1390
@@ -36503,7 +36497,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1402 = add i64 %indvars.iv, %1159
   %1403 = and i64 %1402, 4294967295
   %1404 = load i32, ptr %1247, align 8
-  %1405 = call i64 %1154(i64 noundef %1403, i32 noundef %1404, ptr noundef %1155) #6
+  %1405 = call i64 %1154(i64 noundef %1403, i32 noundef %1404, ptr noundef %1155) #7
   br label %1406
 
 1406:                                             ; preds = %1401, %1398
@@ -36518,7 +36512,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1411 = add i32 %1248, %1410
   %1412 = zext i32 %1411 to i64
   %1413 = load i32, ptr %1243, align 8
-  %1414 = call i64 %1154(i64 noundef %1412, i32 noundef %1413, ptr noundef %1155) #6
+  %1414 = call i64 %1154(i64 noundef %1412, i32 noundef %1413, ptr noundef %1155) #7
   br label %1415
 
 1415:                                             ; preds = %1409, %1406
@@ -36533,7 +36527,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1420 = add i32 %1248, %1419
   %1421 = zext i32 %1420 to i64
   %1422 = load i32, ptr %1245, align 4
-  %1423 = call i64 %1154(i64 noundef %1421, i32 noundef %1422, ptr noundef %1155) #6
+  %1423 = call i64 %1154(i64 noundef %1421, i32 noundef %1422, ptr noundef %1155) #7
   br label %1424
 
 1424:                                             ; preds = %1418, %1415
@@ -36548,7 +36542,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1429 = add i32 %1248, %1428
   %1430 = zext i32 %1429 to i64
   %1431 = load i32, ptr %1247, align 8
-  %1432 = call i64 %1154(i64 noundef %1430, i32 noundef %1431, ptr noundef %1155) #6
+  %1432 = call i64 %1154(i64 noundef %1430, i32 noundef %1431, ptr noundef %1155) #7
   br label %1433
 
 1433:                                             ; preds = %1427, %1424
@@ -36575,7 +36569,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1442 = add i64 %indvars.iv1294, %1159
   %1443 = and i64 %1442, 4294967295
   %1444 = load i32, ptr %1265, align 8
-  %1445 = call i64 %1154(i64 noundef %1443, i32 noundef %1444, ptr noundef %1155) #6
+  %1445 = call i64 %1154(i64 noundef %1443, i32 noundef %1444, ptr noundef %1155) #7
   br label %1446
 
 1446:                                             ; preds = %1441, %1438
@@ -36589,7 +36583,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1450 = add i64 %indvars.iv1294, %1159
   %1451 = and i64 %1450, 4294967295
   %1452 = load i32, ptr %1267, align 4
-  %1453 = call i64 %1154(i64 noundef %1451, i32 noundef %1452, ptr noundef %1155) #6
+  %1453 = call i64 %1154(i64 noundef %1451, i32 noundef %1452, ptr noundef %1155) #7
   br label %1454
 
 1454:                                             ; preds = %1449, %1446
@@ -36603,7 +36597,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1458 = add i64 %indvars.iv1294, %1159
   %1459 = and i64 %1458, 4294967295
   %1460 = load i32, ptr %1269, align 8
-  %1461 = call i64 %1154(i64 noundef %1459, i32 noundef %1460, ptr noundef %1155) #6
+  %1461 = call i64 %1154(i64 noundef %1459, i32 noundef %1460, ptr noundef %1155) #7
   br label %1462
 
 1462:                                             ; preds = %1457, %1454
@@ -36617,7 +36611,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1466 = add i64 %indvars.iv1294, %1159
   %1467 = and i64 %1466, 4294967295
   %1468 = load i32, ptr %1271, align 4
-  %1469 = call i64 %1154(i64 noundef %1467, i32 noundef %1468, ptr noundef %1155) #6
+  %1469 = call i64 %1154(i64 noundef %1467, i32 noundef %1468, ptr noundef %1155) #7
   br label %1470
 
 1470:                                             ; preds = %1465, %1462
@@ -36651,7 +36645,7 @@ split:                                            ; preds = %1222, %.thread1147
 1482:                                             ; preds = %1477
   %1483 = getelementptr inbounds nuw [16 x i32], ptr %1265, i64 0, i64 %indvars.iv1288
   %1484 = load i32, ptr %1483, align 4
-  %1485 = call i64 %1154(i64 noundef %1474, i32 noundef %1484, ptr noundef %1155) #6
+  %1485 = call i64 %1154(i64 noundef %1474, i32 noundef %1484, ptr noundef %1155) #7
   %.pre1303 = load i16, ptr %1185, align 4
   br label %1486
 
@@ -36668,7 +36662,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1492 = add i32 %1272, %1491
   %1493 = zext i32 %1492 to i64
   %1494 = load i32, ptr %1265, align 8
-  %1495 = call i64 %1154(i64 noundef %1493, i32 noundef %1494, ptr noundef %1155) #6
+  %1495 = call i64 %1154(i64 noundef %1493, i32 noundef %1494, ptr noundef %1155) #7
   br label %1496
 
 1496:                                             ; preds = %1490, %._crit_edge1227
@@ -36683,7 +36677,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1501 = add i32 %1272, %1500
   %1502 = zext i32 %1501 to i64
   %1503 = load i32, ptr %1267, align 4
-  %1504 = call i64 %1154(i64 noundef %1502, i32 noundef %1503, ptr noundef %1155) #6
+  %1504 = call i64 %1154(i64 noundef %1502, i32 noundef %1503, ptr noundef %1155) #7
   br label %1505
 
 1505:                                             ; preds = %1499, %1496
@@ -36698,7 +36692,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1510 = add i32 %1272, %1509
   %1511 = zext i32 %1510 to i64
   %1512 = load i32, ptr %1269, align 8
-  %1513 = call i64 %1154(i64 noundef %1511, i32 noundef %1512, ptr noundef %1155) #6
+  %1513 = call i64 %1154(i64 noundef %1511, i32 noundef %1512, ptr noundef %1155) #7
   br label %1514
 
 1514:                                             ; preds = %1508, %1505
@@ -36713,7 +36707,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1519 = add i32 %1272, %1518
   %1520 = zext i32 %1519 to i64
   %1521 = load i32, ptr %1271, align 4
-  %1522 = call i64 %1154(i64 noundef %1520, i32 noundef %1521, ptr noundef %1155) #6
+  %1522 = call i64 %1154(i64 noundef %1520, i32 noundef %1521, ptr noundef %1155) #7
   br label %1523
 
 1523:                                             ; preds = %1517, %1514
@@ -36747,7 +36741,7 @@ split:                                            ; preds = %1222, %.thread1147
 1535:                                             ; preds = %1530
   %1536 = getelementptr inbounds nuw [16 x i32], ptr %1265, i64 0, i64 %indvars.iv1291
   %1537 = load i32, ptr %1536, align 4
-  %1538 = call i64 %1154(i64 noundef %1528, i32 noundef %1537, ptr noundef %1155) #6
+  %1538 = call i64 %1154(i64 noundef %1528, i32 noundef %1537, ptr noundef %1155) #7
   %.pre1304 = load i16, ptr %1185, align 4
   br label %1539
 
@@ -36854,7 +36848,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
   %.621055 = phi i32 [ %.1210051242, %1603 ], [ %.631056, %1685 ]
   %.63 = phi i64 [ %.13, %1603 ], [ %.64, %1685 ]
   %.0969 = phi i64 [ %1604, %1603 ], [ %1609, %1685 ]
-  %1607 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0969) #7, !srcloc !6
+  %1607 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0969) #6, !srcloc !6
   %1608 = extractvalue { i64, i64 } %1607, 0
   %1609 = extractvalue { i64, i64 } %1607, 1
   %1610 = lshr i64 %1608, 3
@@ -36874,7 +36868,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
   br i1 %.not25.i306, label %1685, label %1620
 
 1620:                                             ; preds = %1614
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1621 = load ptr, ptr %1, align 8
   %1622 = and i64 %1610, 536870911
@@ -36959,7 +36953,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
 
 1677:                                             ; preds = %1673
   %1678 = load ptr, ptr %1136, align 8
-  %1679 = call i64 %1678(i64 noundef %1628, i32 noundef %1656, ptr noundef %1646) #6
+  %1679 = call i64 %1678(i64 noundef %1628, i32 noundef %1656, ptr noundef %1646) #7
   br label %1680
 
 1680:                                             ; preds = %1677, %1673, %1668, %1658, %1649
@@ -36978,7 +36972,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
 confWithBit.exit483:                              ; preds = %1620, %1684
   %.1061099 = phi i32 [ %.621055, %1620 ], [ %.1051098, %1684 ]
   %.143 = phi i64 [ %.63, %1620 ], [ %.142, %1684 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1685
 
 1685:                                             ; preds = %confWithBit.exit483, %1614, %1606
@@ -37006,7 +37000,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
   %.601053 = phi i32 [ %.131006, %1688 ], [ %.611054, %1772 ]
   %.61 = phi i64 [ %.14, %1688 ], [ %.62, %1772 ]
   %.0968 = phi i64 [ %1689, %1688 ], [ %1694, %1772 ]
-  %1692 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0968) #7, !srcloc !6
+  %1692 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0968) #6, !srcloc !6
   %1693 = extractvalue { i64, i64 } %1692, 0
   %1694 = extractvalue { i64, i64 } %1692, 1
   %1695 = trunc i64 %1693 to i32
@@ -37028,7 +37022,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
   br i1 %.not25.i302, label %1772, label %1707
 
 1707:                                             ; preds = %1701
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1708 = load ptr, ptr %1, align 8
   %1709 = zext nneg i32 %1697 to i64
@@ -37113,7 +37107,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
 
 1764:                                             ; preds = %1760
   %1765 = load ptr, ptr %1136, align 8
-  %1766 = call i64 %1765(i64 noundef %1715, i32 noundef %1743, ptr noundef %1733) #6
+  %1766 = call i64 %1765(i64 noundef %1715, i32 noundef %1743, ptr noundef %1733) #7
   br label %1767
 
 1767:                                             ; preds = %1764, %1760, %1755, %1745, %1736
@@ -37132,7 +37126,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
 confWithBit.exit490:                              ; preds = %1707, %1771
   %.1091102 = phi i32 [ %.601053, %1707 ], [ %.1081101, %1771 ]
   %.146 = phi i64 [ %.61, %1707 ], [ %.145, %1771 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1772
 
 1772:                                             ; preds = %confWithBit.exit490, %1701, %1691
@@ -37160,7 +37154,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
   %.581051 = phi i32 [ %.141007, %1775 ], [ %.591052, %1859 ]
   %.59 = phi i64 [ %.15, %1775 ], [ %.60, %1859 ]
   %.0967 = phi i64 [ %1776, %1775 ], [ %1781, %1859 ]
-  %1779 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0967) #7, !srcloc !6
+  %1779 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0967) #6, !srcloc !6
   %1780 = extractvalue { i64, i64 } %1779, 0
   %1781 = extractvalue { i64, i64 } %1779, 1
   %1782 = trunc i64 %1780 to i32
@@ -37182,7 +37176,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
   br i1 %.not25.i298, label %1859, label %1794
 
 1794:                                             ; preds = %1788
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1795 = load ptr, ptr %1, align 8
   %1796 = zext nneg i32 %1784 to i64
@@ -37267,7 +37261,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
 
 1851:                                             ; preds = %1847
   %1852 = load ptr, ptr %1136, align 8
-  %1853 = call i64 %1852(i64 noundef %1802, i32 noundef %1830, ptr noundef %1820) #6
+  %1853 = call i64 %1852(i64 noundef %1802, i32 noundef %1830, ptr noundef %1820) #7
   br label %1854
 
 1854:                                             ; preds = %1851, %1847, %1842, %1832, %1823
@@ -37286,7 +37280,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
 confWithBit.exit497:                              ; preds = %1794, %1858
   %.1121105 = phi i32 [ %.581051, %1794 ], [ %.1111104, %1858 ]
   %.149 = phi i64 [ %.59, %1794 ], [ %.148, %1858 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1859
 
 1859:                                             ; preds = %confWithBit.exit497, %1788, %1778
@@ -37314,7 +37308,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
   %.561049 = phi i32 [ %.151008, %1862 ], [ %.571050, %1946 ]
   %.57 = phi i64 [ %.16, %1862 ], [ %.58, %1946 ]
   %.0966 = phi i64 [ %1863, %1862 ], [ %1868, %1946 ]
-  %1866 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0966) #7, !srcloc !6
+  %1866 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0966) #6, !srcloc !6
   %1867 = extractvalue { i64, i64 } %1866, 0
   %1868 = extractvalue { i64, i64 } %1866, 1
   %1869 = trunc i64 %1867 to i32
@@ -37336,7 +37330,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
   br i1 %.not25.i294, label %1946, label %1881
 
 1881:                                             ; preds = %1875
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1882 = load ptr, ptr %1, align 8
   %1883 = zext nneg i32 %1871 to i64
@@ -37421,7 +37415,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
 
 1938:                                             ; preds = %1934
   %1939 = load ptr, ptr %1136, align 8
-  %1940 = call i64 %1939(i64 noundef %1889, i32 noundef %1917, ptr noundef %1907) #6
+  %1940 = call i64 %1939(i64 noundef %1889, i32 noundef %1917, ptr noundef %1907) #7
   br label %1941
 
 1941:                                             ; preds = %1938, %1934, %1929, %1919, %1910
@@ -37440,7 +37434,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
 confWithBit.exit504:                              ; preds = %1881, %1945
   %.1151108 = phi i32 [ %.561049, %1881 ], [ %.1141107, %1945 ]
   %.152 = phi i64 [ %.57, %1881 ], [ %.151, %1945 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1946
 
 1946:                                             ; preds = %confWithBit.exit504, %1875, %1865
@@ -37519,7 +37513,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
   %.541047 = phi i32 [ %.171010, %1994 ], [ %.551048, %2078 ]
   %.55 = phi i64 [ %.18, %1994 ], [ %.56, %2078 ]
   %.0965 = phi i64 [ %1995, %1994 ], [ %2000, %2078 ]
-  %1998 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #7, !srcloc !6
+  %1998 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #6, !srcloc !6
   %1999 = extractvalue { i64, i64 } %1998, 0
   %2000 = extractvalue { i64, i64 } %1998, 1
   %2001 = trunc i64 %1999 to i32
@@ -37541,7 +37535,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
   br i1 %.not25.i290, label %2078, label %2013
 
 2013:                                             ; preds = %2007
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %2014 = load ptr, ptr %1, align 8
   %2015 = zext nneg i32 %2003 to i64
@@ -37626,7 +37620,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
 
 2070:                                             ; preds = %2066
   %2071 = load ptr, ptr %1136, align 8
-  %2072 = call i64 %2071(i64 noundef %2021, i32 noundef %2049, ptr noundef %2039) #6
+  %2072 = call i64 %2071(i64 noundef %2021, i32 noundef %2049, ptr noundef %2039) #7
   br label %2073
 
 2073:                                             ; preds = %2070, %2066, %2061, %2051, %2042
@@ -37645,7 +37639,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
 confWithBit.exit511:                              ; preds = %2013, %2077
   %.1181111 = phi i32 [ %.541047, %2013 ], [ %.1171110, %2077 ]
   %.155 = phi i64 [ %.55, %2013 ], [ %.154, %2077 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2078
 
 2078:                                             ; preds = %confWithBit.exit511, %2007, %1997
@@ -37673,7 +37667,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
   %.521045 = phi i32 [ %.181011, %2081 ], [ %.531046, %2165 ]
   %.53 = phi i64 [ %.19, %2081 ], [ %.54, %2165 ]
   %.0964 = phi i64 [ %2082, %2081 ], [ %2087, %2165 ]
-  %2085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #7, !srcloc !6
+  %2085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #6, !srcloc !6
   %2086 = extractvalue { i64, i64 } %2085, 0
   %2087 = extractvalue { i64, i64 } %2085, 1
   %2088 = trunc i64 %2086 to i32
@@ -37695,7 +37689,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
   br i1 %.not25.i286, label %2165, label %2100
 
 2100:                                             ; preds = %2094
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %2101 = load ptr, ptr %1, align 8
   %2102 = zext nneg i32 %2090 to i64
@@ -37780,7 +37774,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
 
 2157:                                             ; preds = %2153
   %2158 = load ptr, ptr %1136, align 8
-  %2159 = call i64 %2158(i64 noundef %2108, i32 noundef %2136, ptr noundef %2126) #6
+  %2159 = call i64 %2158(i64 noundef %2108, i32 noundef %2136, ptr noundef %2126) #7
   br label %2160
 
 2160:                                             ; preds = %2157, %2153, %2148, %2138, %2129
@@ -37799,7 +37793,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
 confWithBit.exit518:                              ; preds = %2100, %2164
   %.1211114 = phi i32 [ %.521045, %2100 ], [ %.1201113, %2164 ]
   %.158 = phi i64 [ %.53, %2100 ], [ %.157, %2164 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2165
 
 2165:                                             ; preds = %confWithBit.exit518, %2094, %2084
@@ -37827,7 +37821,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
   %.501043 = phi i32 [ %.191012, %2168 ], [ %.511044, %2252 ]
   %.51 = phi i64 [ %.20, %2168 ], [ %.52, %2252 ]
   %.0963 = phi i64 [ %2169, %2168 ], [ %2174, %2252 ]
-  %2172 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #7, !srcloc !6
+  %2172 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #6, !srcloc !6
   %2173 = extractvalue { i64, i64 } %2172, 0
   %2174 = extractvalue { i64, i64 } %2172, 1
   %2175 = trunc i64 %2173 to i32
@@ -37849,7 +37843,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
   br i1 %.not25.i282, label %2252, label %2187
 
 2187:                                             ; preds = %2181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2188 = load ptr, ptr %1, align 8
   %2189 = zext nneg i32 %2177 to i64
@@ -37934,7 +37928,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
 
 2244:                                             ; preds = %2240
   %2245 = load ptr, ptr %1136, align 8
-  %2246 = call i64 %2245(i64 noundef %2195, i32 noundef %2223, ptr noundef %2213) #6
+  %2246 = call i64 %2245(i64 noundef %2195, i32 noundef %2223, ptr noundef %2213) #7
   br label %2247
 
 2247:                                             ; preds = %2244, %2240, %2235, %2225, %2216
@@ -37953,7 +37947,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
 confWithBit.exit525:                              ; preds = %2187, %2251
   %.1241117 = phi i32 [ %.501043, %2187 ], [ %.1231116, %2251 ]
   %.161 = phi i64 [ %.51, %2187 ], [ %.160, %2251 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2252
 
 2252:                                             ; preds = %confWithBit.exit525, %2181, %2171
@@ -37981,7 +37975,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
   %.481041 = phi i32 [ %.201013, %2255 ], [ %.491042, %2339 ]
   %.49 = phi i64 [ %.21, %2255 ], [ %.50, %2339 ]
   %.0962 = phi i64 [ %2256, %2255 ], [ %2261, %2339 ]
-  %2259 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #7, !srcloc !6
+  %2259 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #6, !srcloc !6
   %2260 = extractvalue { i64, i64 } %2259, 0
   %2261 = extractvalue { i64, i64 } %2259, 1
   %2262 = trunc i64 %2260 to i32
@@ -38003,7 +37997,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
   br i1 %.not25.i278, label %2339, label %2274
 
 2274:                                             ; preds = %2268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2275 = load ptr, ptr %1, align 8
   %2276 = zext nneg i32 %2264 to i64
@@ -38088,7 +38082,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
 
 2331:                                             ; preds = %2327
   %2332 = load ptr, ptr %1136, align 8
-  %2333 = call i64 %2332(i64 noundef %2282, i32 noundef %2310, ptr noundef %2300) #6
+  %2333 = call i64 %2332(i64 noundef %2282, i32 noundef %2310, ptr noundef %2300) #7
   br label %2334
 
 2334:                                             ; preds = %2331, %2327, %2322, %2312, %2303
@@ -38107,7 +38101,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
 confWithBit.exit532:                              ; preds = %2274, %2338
   %.1271120 = phi i32 [ %.481041, %2274 ], [ %.1261119, %2338 ]
   %.164 = phi i64 [ %.49, %2274 ], [ %.163, %2338 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2339
 
 2339:                                             ; preds = %confWithBit.exit532, %2268, %2258
@@ -38208,7 +38202,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
   %.461039 = phi i32 [ %.121005.lcssa, %2396 ], [ %.471040, %2481 ]
   %.47 = phi i64 [ %.12.lcssa, %2396 ], [ %.48, %2481 ]
   %.0961 = phi i64 [ %2397, %2396 ], [ %2405, %2481 ]
-  %2403 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #7, !srcloc !6
+  %2403 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #6, !srcloc !6
   %2404 = extractvalue { i64, i64 } %2403, 0
   %2405 = extractvalue { i64, i64 } %2403, 1
   %2406 = lshr i64 %2404, 3
@@ -38228,7 +38222,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
   br i1 %.not25.i274, label %2481, label %2416
 
 2416:                                             ; preds = %2410
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2417 = load ptr, ptr %1, align 8
   %2418 = and i64 %2406, 536870911
@@ -38313,7 +38307,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
 
 2473:                                             ; preds = %2469
   %2474 = load ptr, ptr %2401, align 8
-  %2475 = call i64 %2474(i64 noundef %2424, i32 noundef %2452, ptr noundef %2442) #6
+  %2475 = call i64 %2474(i64 noundef %2424, i32 noundef %2452, ptr noundef %2442) #7
   br label %2476
 
 2476:                                             ; preds = %2473, %2469, %2464, %2454, %2445
@@ -38332,7 +38326,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
 confWithBit.exit539:                              ; preds = %2416, %2480
   %.1301123 = phi i32 [ %.461039, %2416 ], [ %.1291122, %2480 ]
   %.167 = phi i64 [ %.47, %2416 ], [ %.166, %2480 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2481
 
 2481:                                             ; preds = %confWithBit.exit539, %2410, %2402
@@ -38363,7 +38357,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
   %.441037 = phi i32 [ %.241017, %2484 ], [ %.451038, %2571 ]
   %.45 = phi i64 [ %.25, %2484 ], [ %.46, %2571 ]
   %.0960 = phi i64 [ %2485, %2484 ], [ %2493, %2571 ]
-  %2491 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #7, !srcloc !6
+  %2491 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #6, !srcloc !6
   %2492 = extractvalue { i64, i64 } %2491, 0
   %2493 = extractvalue { i64, i64 } %2491, 1
   %2494 = trunc i64 %2492 to i32
@@ -38385,7 +38379,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
   br i1 %.not25.i270, label %2571, label %2506
 
 2506:                                             ; preds = %2500
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2507 = load ptr, ptr %1, align 8
   %2508 = zext nneg i32 %2496 to i64
@@ -38470,7 +38464,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
 
 2563:                                             ; preds = %2559
   %2564 = load ptr, ptr %2489, align 8
-  %2565 = call i64 %2564(i64 noundef %2514, i32 noundef %2542, ptr noundef %2532) #6
+  %2565 = call i64 %2564(i64 noundef %2514, i32 noundef %2542, ptr noundef %2532) #7
   br label %2566
 
 2566:                                             ; preds = %2563, %2559, %2554, %2544, %2535
@@ -38489,7 +38483,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
 confWithBit.exit546:                              ; preds = %2506, %2570
   %.1331126 = phi i32 [ %.441037, %2506 ], [ %.1321125, %2570 ]
   %.170 = phi i64 [ %.45, %2506 ], [ %.169, %2570 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2571
 
 2571:                                             ; preds = %confWithBit.exit546, %2500, %2490
@@ -38520,7 +38514,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
   %.421035 = phi i32 [ %.251018, %2574 ], [ %.431036, %2661 ]
   %.43 = phi i64 [ %.26, %2574 ], [ %.44, %2661 ]
   %.0959 = phi i64 [ %2575, %2574 ], [ %2583, %2661 ]
-  %2581 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #7, !srcloc !6
+  %2581 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #6, !srcloc !6
   %2582 = extractvalue { i64, i64 } %2581, 0
   %2583 = extractvalue { i64, i64 } %2581, 1
   %2584 = trunc i64 %2582 to i32
@@ -38542,7 +38536,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
   br i1 %.not25.i266, label %2661, label %2596
 
 2596:                                             ; preds = %2590
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2597 = load ptr, ptr %1, align 8
   %2598 = zext nneg i32 %2586 to i64
@@ -38627,7 +38621,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
 
 2653:                                             ; preds = %2649
   %2654 = load ptr, ptr %2579, align 8
-  %2655 = call i64 %2654(i64 noundef %2604, i32 noundef %2632, ptr noundef %2622) #6
+  %2655 = call i64 %2654(i64 noundef %2604, i32 noundef %2632, ptr noundef %2622) #7
   br label %2656
 
 2656:                                             ; preds = %2653, %2649, %2644, %2634, %2625
@@ -38646,7 +38640,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
 confWithBit.exit553:                              ; preds = %2596, %2660
   %.1361129 = phi i32 [ %.421035, %2596 ], [ %.1351128, %2660 ]
   %.173 = phi i64 [ %.43, %2596 ], [ %.172, %2660 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2661
 
 2661:                                             ; preds = %confWithBit.exit553, %2590, %2580
@@ -38677,7 +38671,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
   %.401033 = phi i32 [ %.261019, %2664 ], [ %.411034, %2751 ]
   %.41 = phi i64 [ %.27, %2664 ], [ %.42, %2751 ]
   %.0958 = phi i64 [ %2665, %2664 ], [ %2673, %2751 ]
-  %2671 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #7, !srcloc !6
+  %2671 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #6, !srcloc !6
   %2672 = extractvalue { i64, i64 } %2671, 0
   %2673 = extractvalue { i64, i64 } %2671, 1
   %2674 = trunc i64 %2672 to i32
@@ -38699,7 +38693,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
   br i1 %.not25.i262, label %2751, label %2686
 
 2686:                                             ; preds = %2680
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2687 = load ptr, ptr %1, align 8
   %2688 = zext nneg i32 %2676 to i64
@@ -38784,7 +38778,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
 
 2743:                                             ; preds = %2739
   %2744 = load ptr, ptr %2669, align 8
-  %2745 = call i64 %2744(i64 noundef %2694, i32 noundef %2722, ptr noundef %2712) #6
+  %2745 = call i64 %2744(i64 noundef %2694, i32 noundef %2722, ptr noundef %2712) #7
   br label %2746
 
 2746:                                             ; preds = %2743, %2739, %2734, %2724, %2715
@@ -38803,7 +38797,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
 confWithBit.exit560:                              ; preds = %2686, %2750
   %.1391132 = phi i32 [ %.401033, %2686 ], [ %.1381131, %2750 ]
   %.176 = phi i64 [ %.41, %2686 ], [ %.175, %2750 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2751
 
 2751:                                             ; preds = %confWithBit.exit560, %2680, %2670
@@ -38825,7 +38819,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2751
 
 2754:                                             ; preds = %.critedge240
   %2755 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2756 = ptrtoint ptr %.4989 to i64
   %2757 = ptrtoint ptr %33 to i64
@@ -38931,7 +38925,7 @@ vectoredLoad256.exit:                             ; preds = %2794, %2792, %2785,
   %.09571153 = phi <4 x i64> [ %2761, %2760 ], [ %2764, %2762 ], [ %2764, %2765 ], [ %2764, %2767 ], [ %2764, %2769 ], [ %2764, %2774 ], [ %2764, %2776 ], [ %2764, %2783 ], [ %2764, %2785 ], [ %2764, %2792 ], [ %2764, %2794 ]
   %.1.i.in = phi ptr [ %.4989, %2760 ], [ %29, %2762 ], [ %29, %2765 ], [ %29, %2767 ], [ %29, %2769 ], [ %29, %2774 ], [ %29, %2776 ], [ %29, %2783 ], [ %29, %2785 ], [ %29, %2792 ], [ %29, %2794 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2801 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2802 = bitcast <4 x i64> %60 to <32 x i8>
   %2803 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -38990,7 +38984,7 @@ vectoredLoad256.exit:                             ; preds = %2794, %2792, %2785,
   %.381031 = phi i32 [ %.231016, %2842 ], [ %.391032, %2947 ]
   %.39 = phi i64 [ %.24, %2842 ], [ %.40, %2947 ]
   %.0956 = phi i64 [ %2843, %2842 ], [ %2850, %2947 ]
-  %2848 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #7, !srcloc !6
+  %2848 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #6, !srcloc !6
   %2849 = extractvalue { i64, i64 } %2848, 0
   %2850 = extractvalue { i64, i64 } %2848, 1
   %2851 = lshr i64 %2849, 3
@@ -39010,7 +39004,7 @@ vectoredLoad256.exit:                             ; preds = %2794, %2792, %2785,
   br i1 %.not25.i258, label %2947, label %2861
 
 2861:                                             ; preds = %2855
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2862 = load ptr, ptr %1, align 8
   %2863 = and i64 %2851, 536870911
@@ -39144,7 +39138,7 @@ getConfVal.exit414:                               ; preds = %2866, %lv_u64a_ce.e
 
 2939:                                             ; preds = %2935
   %2940 = load ptr, ptr %2846, align 8
-  %2941 = call i64 %2940(i64 noundef %2890, i32 noundef %2918, ptr noundef %2908) #6
+  %2941 = call i64 %2940(i64 noundef %2890, i32 noundef %2918, ptr noundef %2908) #7
   br label %2942
 
 2942:                                             ; preds = %2939, %2935, %2930, %2920, %2911
@@ -39163,7 +39157,7 @@ getConfVal.exit414:                               ; preds = %2866, %lv_u64a_ce.e
 confWithBit.exit567:                              ; preds = %getConfVal.exit414, %2946
   %.1421135 = phi i32 [ %.381031, %getConfVal.exit414 ], [ %.1411134, %2946 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit414 ], [ %.178, %2946 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2947
 
 2947:                                             ; preds = %confWithBit.exit567, %2855, %2847
@@ -39193,7 +39187,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2947
   %.361029 = phi i32 [ %.291022, %2950 ], [ %.371030, %3057 ]
   %.37 = phi i64 [ %.30, %2950 ], [ %.38, %3057 ]
   %.0955 = phi i64 [ %2951, %2950 ], [ %2958, %3057 ]
-  %2956 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #7, !srcloc !6
+  %2956 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #6, !srcloc !6
   %2957 = extractvalue { i64, i64 } %2956, 0
   %2958 = extractvalue { i64, i64 } %2956, 1
   %2959 = trunc i64 %2957 to i32
@@ -39215,7 +39209,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2947
   br i1 %.not25.i254, label %3057, label %2971
 
 2971:                                             ; preds = %2965
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2972 = load ptr, ptr %1, align 8
   %2973 = zext nneg i32 %2961 to i64
@@ -39349,7 +39343,7 @@ getConfVal.exit418:                               ; preds = %2976, %lv_u64a_ce.e
 
 3049:                                             ; preds = %3045
   %3050 = load ptr, ptr %2954, align 8
-  %3051 = call i64 %3050(i64 noundef %3000, i32 noundef %3028, ptr noundef %3018) #6
+  %3051 = call i64 %3050(i64 noundef %3000, i32 noundef %3028, ptr noundef %3018) #7
   br label %3052
 
 3052:                                             ; preds = %3049, %3045, %3040, %3030, %3021
@@ -39368,7 +39362,7 @@ getConfVal.exit418:                               ; preds = %2976, %lv_u64a_ce.e
 confWithBit.exit574:                              ; preds = %getConfVal.exit418, %3056
   %.1451138 = phi i32 [ %.361029, %getConfVal.exit418 ], [ %.1441137, %3056 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit418 ], [ %.181, %3056 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %3057
 
 3057:                                             ; preds = %confWithBit.exit574, %2965, %2955
@@ -39398,7 +39392,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %3057
   %.341027 = phi i32 [ %.301023, %3060 ], [ %.351028, %3167 ]
   %.35 = phi i64 [ %.31, %3060 ], [ %.36, %3167 ]
   %.0954 = phi i64 [ %3061, %3060 ], [ %3068, %3167 ]
-  %3066 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #7, !srcloc !6
+  %3066 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #6, !srcloc !6
   %3067 = extractvalue { i64, i64 } %3066, 0
   %3068 = extractvalue { i64, i64 } %3066, 1
   %3069 = trunc i64 %3067 to i32
@@ -39420,7 +39414,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %3057
   br i1 %.not25.i250, label %3167, label %3081
 
 3081:                                             ; preds = %3075
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %3082 = load ptr, ptr %1, align 8
   %3083 = zext nneg i32 %3071 to i64
@@ -39554,7 +39548,7 @@ getConfVal.exit422:                               ; preds = %3086, %lv_u64a_ce.e
 
 3159:                                             ; preds = %3155
   %3160 = load ptr, ptr %3064, align 8
-  %3161 = call i64 %3160(i64 noundef %3110, i32 noundef %3138, ptr noundef %3128) #6
+  %3161 = call i64 %3160(i64 noundef %3110, i32 noundef %3138, ptr noundef %3128) #7
   br label %3162
 
 3162:                                             ; preds = %3159, %3155, %3150, %3140, %3131
@@ -39573,7 +39567,7 @@ getConfVal.exit422:                               ; preds = %3086, %lv_u64a_ce.e
 confWithBit.exit581:                              ; preds = %getConfVal.exit422, %3166
   %.1481141 = phi i32 [ %.341027, %getConfVal.exit422 ], [ %.1471140, %3166 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit422 ], [ %.184, %3166 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3167
 
 3167:                                             ; preds = %confWithBit.exit581, %3075, %3065
@@ -39603,7 +39597,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %3167
   %.321025 = phi i32 [ %.311024, %3170 ], [ %.331026, %3277 ]
   %.33 = phi i64 [ %.32, %3170 ], [ %.34, %3277 ]
   %.0 = phi i64 [ %3171, %3170 ], [ %3178, %3277 ]
-  %3176 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3176 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3177 = extractvalue { i64, i64 } %3176, 0
   %3178 = extractvalue { i64, i64 } %3176, 1
   %3179 = trunc i64 %3177 to i32
@@ -39625,7 +39619,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %3167
   br i1 %.not25.i, label %3277, label %3191
 
 3191:                                             ; preds = %3185
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3192 = load ptr, ptr %1, align 8
   %3193 = zext nneg i32 %3181 to i64
@@ -39759,7 +39753,7 @@ getConfVal.exit426:                               ; preds = %3196, %lv_u64a_ce.e
 
 3269:                                             ; preds = %3265
   %3270 = load ptr, ptr %3174, align 8
-  %3271 = call i64 %3270(i64 noundef %3220, i32 noundef %3248, ptr noundef %3238) #6
+  %3271 = call i64 %3270(i64 noundef %3220, i32 noundef %3248, ptr noundef %3238) #7
   br label %3272
 
 3272:                                             ; preds = %3269, %3265, %3260, %3250, %3241
@@ -39778,7 +39772,7 @@ getConfVal.exit426:                               ; preds = %3196, %lv_u64a_ce.e
 confWithBit.exit588:                              ; preds = %getConfVal.exit426, %3276
   %.1511144 = phi i32 [ %.321025, %getConfVal.exit426 ], [ %.1501143, %3276 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit426 ], [ %.187, %3276 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3277
 
 3277:                                             ; preds = %confWithBit.exit588, %3185, %3175
@@ -39879,7 +39873,7 @@ define hidden range(i32 0, 2) i32 @fdr_exec_teddy_msks4_pck(ptr noundef readonly
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load i64, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store <4 x i64> zeroinitializer, ptr %28, align 32
   %.not.i = icmp ult ptr %75, %30
   br i1 %.not.i, label %98, label %80
@@ -40037,7 +40031,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   %.2 = phi <4 x i64> [ %97, %92 ], [ %.1, %115 ], [ %.1, %118 ], [ %.1, %120 ], [ %.1, %122 ], [ %.1, %127 ], [ %.1, %129 ], [ %.1, %136 ], [ %.1, %138 ], [ %.1, %145 ], [ %.1, %147 ]
   %.1.i246.in = phi ptr [ %75, %92 ], [ %28, %115 ], [ %28, %118 ], [ %28, %120 ], [ %28, %122 ], [ %28, %127 ], [ %28, %129 ], [ %28, %136 ], [ %28, %138 ], [ %28, %145 ], [ %28, %147 ]
   %.1.i246 = load <4 x i64>, ptr %.1.i246.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %154 = lshr <4 x i64> %.1.i246, splat (i64 4)
   %155 = bitcast <4 x i64> %60 to <32 x i8>
   %156 = bitcast <4 x i64> %.1.i246 to <32 x i8>
@@ -40097,7 +40091,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   %.781071 = phi i32 [ -1, %195 ], [ %.791072, %301 ]
   %.79 = phi i64 [ %2, %195 ], [ %.80, %301 ]
   %.0977 = phi i64 [ %196, %195 ], [ %204, %301 ]
-  %202 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0977) #7, !srcloc !6
+  %202 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0977) #6, !srcloc !6
   %203 = extractvalue { i64, i64 } %202, 0
   %204 = extractvalue { i64, i64 } %202, 1
   %205 = lshr i64 %203, 3
@@ -40117,7 +40111,7 @@ vectoredLoad256.exit247:                          ; preds = %147, %145, %138, %1
   br i1 %.not25.i338, label %301, label %215
 
 215:                                              ; preds = %209
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %216 = load ptr, ptr %1, align 8
   %217 = and i64 %205, 536870911
@@ -40251,7 +40245,7 @@ getConfVal.exit:                                  ; preds = %220, %lv_u64a_ce.ex
 
 293:                                              ; preds = %289
   %294 = load ptr, ptr %200, align 8
-  %295 = call i64 %294(i64 noundef %244, i32 noundef %272, ptr noundef %262) #6
+  %295 = call i64 %294(i64 noundef %244, i32 noundef %272, ptr noundef %262) #7
   br label %296
 
 296:                                              ; preds = %293, %289, %284, %274, %265
@@ -40270,7 +40264,7 @@ getConfVal.exit:                                  ; preds = %220, %lv_u64a_ce.ex
 confWithBit.exit:                                 ; preds = %getConfVal.exit, %300
   %.821075 = phi i32 [ %.781071, %getConfVal.exit ], [ %.811074, %300 ]
   %.119 = phi i64 [ %.79, %getConfVal.exit ], [ %.118, %300 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %301
 
 301:                                              ; preds = %confWithBit.exit, %209, %201
@@ -40301,7 +40295,7 @@ do_confWithBit_teddy.exit340:                     ; preds = %301
   %.761069 = phi i32 [ %.1994, %304 ], [ %.771070, %412 ]
   %.77 = phi i64 [ %.1982, %304 ], [ %.78, %412 ]
   %.0976 = phi i64 [ %305, %304 ], [ %313, %412 ]
-  %311 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0976) #7, !srcloc !6
+  %311 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0976) #6, !srcloc !6
   %312 = extractvalue { i64, i64 } %311, 0
   %313 = extractvalue { i64, i64 } %311, 1
   %314 = trunc i64 %312 to i32
@@ -40323,7 +40317,7 @@ do_confWithBit_teddy.exit340:                     ; preds = %301
   br i1 %.not25.i334, label %412, label %326
 
 326:                                              ; preds = %320
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %327 = load ptr, ptr %1, align 8
   %328 = zext nneg i32 %316 to i64
@@ -40457,7 +40451,7 @@ getConfVal.exit350:                               ; preds = %331, %lv_u64a_ce.ex
 
 404:                                              ; preds = %400
   %405 = load ptr, ptr %309, align 8
-  %406 = call i64 %405(i64 noundef %355, i32 noundef %383, ptr noundef %373) #6
+  %406 = call i64 %405(i64 noundef %355, i32 noundef %383, ptr noundef %373) #7
   br label %407
 
 407:                                              ; preds = %404, %400, %395, %385, %376
@@ -40476,7 +40470,7 @@ getConfVal.exit350:                               ; preds = %331, %lv_u64a_ce.ex
 confWithBit.exit434:                              ; preds = %getConfVal.exit350, %411
   %.851078 = phi i32 [ %.761069, %getConfVal.exit350 ], [ %.841077, %411 ]
   %.122 = phi i64 [ %.77, %getConfVal.exit350 ], [ %.121, %411 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %412
 
 412:                                              ; preds = %confWithBit.exit434, %320, %310
@@ -40507,7 +40501,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %412
   %.741067 = phi i32 [ %.2995, %415 ], [ %.751068, %523 ]
   %.75 = phi i64 [ %.2983, %415 ], [ %.76, %523 ]
   %.0975 = phi i64 [ %416, %415 ], [ %424, %523 ]
-  %422 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0975) #7, !srcloc !6
+  %422 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0975) #6, !srcloc !6
   %423 = extractvalue { i64, i64 } %422, 0
   %424 = extractvalue { i64, i64 } %422, 1
   %425 = trunc i64 %423 to i32
@@ -40529,7 +40523,7 @@ do_confWithBit_teddy.exit336:                     ; preds = %412
   br i1 %.not25.i330, label %523, label %437
 
 437:                                              ; preds = %431
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %438 = load ptr, ptr %1, align 8
   %439 = zext nneg i32 %427 to i64
@@ -40663,7 +40657,7 @@ getConfVal.exit354:                               ; preds = %442, %lv_u64a_ce.ex
 
 515:                                              ; preds = %511
   %516 = load ptr, ptr %420, align 8
-  %517 = call i64 %516(i64 noundef %466, i32 noundef %494, ptr noundef %484) #6
+  %517 = call i64 %516(i64 noundef %466, i32 noundef %494, ptr noundef %484) #7
   br label %518
 
 518:                                              ; preds = %515, %511, %506, %496, %487
@@ -40682,7 +40676,7 @@ getConfVal.exit354:                               ; preds = %442, %lv_u64a_ce.ex
 confWithBit.exit441:                              ; preds = %getConfVal.exit354, %522
   %.881081 = phi i32 [ %.741067, %getConfVal.exit354 ], [ %.871080, %522 ]
   %.125 = phi i64 [ %.75, %getConfVal.exit354 ], [ %.124, %522 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %523
 
 523:                                              ; preds = %confWithBit.exit441, %431, %421
@@ -40713,7 +40707,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %523
   %.721065 = phi i32 [ %.3996, %526 ], [ %.731066, %634 ]
   %.73 = phi i64 [ %.3, %526 ], [ %.74, %634 ]
   %.0974 = phi i64 [ %527, %526 ], [ %535, %634 ]
-  %533 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0974) #7, !srcloc !6
+  %533 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0974) #6, !srcloc !6
   %534 = extractvalue { i64, i64 } %533, 0
   %535 = extractvalue { i64, i64 } %533, 1
   %536 = trunc i64 %534 to i32
@@ -40735,7 +40729,7 @@ do_confWithBit_teddy.exit332:                     ; preds = %523
   br i1 %.not25.i326, label %634, label %548
 
 548:                                              ; preds = %542
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %549 = load ptr, ptr %1, align 8
   %550 = zext nneg i32 %538 to i64
@@ -40869,7 +40863,7 @@ getConfVal.exit358:                               ; preds = %553, %lv_u64a_ce.ex
 
 626:                                              ; preds = %622
   %627 = load ptr, ptr %531, align 8
-  %628 = call i64 %627(i64 noundef %577, i32 noundef %605, ptr noundef %595) #6
+  %628 = call i64 %627(i64 noundef %577, i32 noundef %605, ptr noundef %595) #7
   br label %629
 
 629:                                              ; preds = %626, %622, %617, %607, %598
@@ -40888,7 +40882,7 @@ getConfVal.exit358:                               ; preds = %553, %lv_u64a_ce.ex
 confWithBit.exit448:                              ; preds = %getConfVal.exit358, %633
   %.911084 = phi i32 [ %.721065, %getConfVal.exit358 ], [ %.901083, %633 ]
   %.128 = phi i64 [ %.73, %getConfVal.exit358 ], [ %.127, %633 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %634
 
 634:                                              ; preds = %confWithBit.exit448, %542, %532
@@ -40983,7 +40977,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %634
   %.701063 = phi i32 [ %.0993, %690 ], [ %.711064, %797 ]
   %.71 = phi i64 [ %.0981, %690 ], [ %.72, %797 ]
   %.0973 = phi i64 [ %691, %690 ], [ %700, %797 ]
-  %698 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0973) #7, !srcloc !6
+  %698 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0973) #6, !srcloc !6
   %699 = extractvalue { i64, i64 } %698, 0
   %700 = extractvalue { i64, i64 } %698, 1
   %701 = lshr i64 %699, 3
@@ -41003,7 +40997,7 @@ do_confWithBit_teddy.exit328:                     ; preds = %634
   br i1 %.not25.i322, label %797, label %711
 
 711:                                              ; preds = %705
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %712 = load ptr, ptr %1, align 8
   %713 = and i64 %701, 536870911
@@ -41137,7 +41131,7 @@ getConfVal.exit362:                               ; preds = %716, %lv_u64a_ce.ex
 
 789:                                              ; preds = %785
   %790 = load ptr, ptr %696, align 8
-  %791 = call i64 %790(i64 noundef %740, i32 noundef %768, ptr noundef %758) #6
+  %791 = call i64 %790(i64 noundef %740, i32 noundef %768, ptr noundef %758) #7
   br label %792
 
 792:                                              ; preds = %789, %785, %780, %770, %761
@@ -41156,7 +41150,7 @@ getConfVal.exit362:                               ; preds = %716, %lv_u64a_ce.ex
 confWithBit.exit455:                              ; preds = %getConfVal.exit362, %796
   %.941087 = phi i32 [ %.701063, %getConfVal.exit362 ], [ %.931086, %796 ]
   %.131 = phi i64 [ %.71, %getConfVal.exit362 ], [ %.130, %796 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %797
 
 797:                                              ; preds = %confWithBit.exit455, %705, %697
@@ -41188,7 +41182,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %797
   %.681061 = phi i32 [ %.71000, %800 ], [ %.691062, %909 ]
   %.69 = phi i64 [ %.7, %800 ], [ %.70, %909 ]
   %.0972 = phi i64 [ %801, %800 ], [ %810, %909 ]
-  %808 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0972) #7, !srcloc !6
+  %808 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0972) #6, !srcloc !6
   %809 = extractvalue { i64, i64 } %808, 0
   %810 = extractvalue { i64, i64 } %808, 1
   %811 = trunc i64 %809 to i32
@@ -41210,7 +41204,7 @@ do_confWithBit_teddy.exit324:                     ; preds = %797
   br i1 %.not25.i318, label %909, label %823
 
 823:                                              ; preds = %817
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %824 = load ptr, ptr %1, align 8
   %825 = zext nneg i32 %813 to i64
@@ -41344,7 +41338,7 @@ getConfVal.exit366:                               ; preds = %828, %lv_u64a_ce.ex
 
 901:                                              ; preds = %897
   %902 = load ptr, ptr %806, align 8
-  %903 = call i64 %902(i64 noundef %852, i32 noundef %880, ptr noundef %870) #6
+  %903 = call i64 %902(i64 noundef %852, i32 noundef %880, ptr noundef %870) #7
   br label %904
 
 904:                                              ; preds = %901, %897, %892, %882, %873
@@ -41363,7 +41357,7 @@ getConfVal.exit366:                               ; preds = %828, %lv_u64a_ce.ex
 confWithBit.exit462:                              ; preds = %getConfVal.exit366, %908
   %.971090 = phi i32 [ %.681061, %getConfVal.exit366 ], [ %.961089, %908 ]
   %.134 = phi i64 [ %.69, %getConfVal.exit366 ], [ %.133, %908 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %909
 
 909:                                              ; preds = %confWithBit.exit462, %817, %807
@@ -41395,7 +41389,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %909
   %.661059 = phi i32 [ %.81001, %912 ], [ %.671060, %1021 ]
   %.67 = phi i64 [ %.8, %912 ], [ %.68, %1021 ]
   %.0971 = phi i64 [ %913, %912 ], [ %922, %1021 ]
-  %920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0971) #7, !srcloc !6
+  %920 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0971) #6, !srcloc !6
   %921 = extractvalue { i64, i64 } %920, 0
   %922 = extractvalue { i64, i64 } %920, 1
   %923 = trunc i64 %921 to i32
@@ -41417,7 +41411,7 @@ do_confWithBit_teddy.exit320:                     ; preds = %909
   br i1 %.not25.i314, label %1021, label %935
 
 935:                                              ; preds = %929
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %936 = load ptr, ptr %1, align 8
   %937 = zext nneg i32 %925 to i64
@@ -41551,7 +41545,7 @@ getConfVal.exit370:                               ; preds = %940, %lv_u64a_ce.ex
 
 1013:                                             ; preds = %1009
   %1014 = load ptr, ptr %918, align 8
-  %1015 = call i64 %1014(i64 noundef %964, i32 noundef %992, ptr noundef %982) #6
+  %1015 = call i64 %1014(i64 noundef %964, i32 noundef %992, ptr noundef %982) #7
   br label %1016
 
 1016:                                             ; preds = %1013, %1009, %1004, %994, %985
@@ -41570,7 +41564,7 @@ getConfVal.exit370:                               ; preds = %940, %lv_u64a_ce.ex
 confWithBit.exit469:                              ; preds = %getConfVal.exit370, %1020
   %.1001093 = phi i32 [ %.661059, %getConfVal.exit370 ], [ %.991092, %1020 ]
   %.137 = phi i64 [ %.67, %getConfVal.exit370 ], [ %.136, %1020 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1021
 
 1021:                                             ; preds = %confWithBit.exit469, %929, %919
@@ -41602,7 +41596,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %1021
   %.641057 = phi i32 [ %.91002, %1024 ], [ %.651058, %1133 ]
   %.65 = phi i64 [ %.9, %1024 ], [ %.66, %1133 ]
   %.0970 = phi i64 [ %1025, %1024 ], [ %1034, %1133 ]
-  %1032 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0970) #7, !srcloc !6
+  %1032 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0970) #6, !srcloc !6
   %1033 = extractvalue { i64, i64 } %1032, 0
   %1034 = extractvalue { i64, i64 } %1032, 1
   %1035 = trunc i64 %1033 to i32
@@ -41624,7 +41618,7 @@ do_confWithBit_teddy.exit316:                     ; preds = %1021
   br i1 %.not25.i310, label %1133, label %1047
 
 1047:                                             ; preds = %1041
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %1048 = load ptr, ptr %1, align 8
   %1049 = zext nneg i32 %1037 to i64
@@ -41758,7 +41752,7 @@ getConfVal.exit374:                               ; preds = %1052, %lv_u64a_ce.e
 
 1125:                                             ; preds = %1121
   %1126 = load ptr, ptr %1030, align 8
-  %1127 = call i64 %1126(i64 noundef %1076, i32 noundef %1104, ptr noundef %1094) #6
+  %1127 = call i64 %1126(i64 noundef %1076, i32 noundef %1104, ptr noundef %1094) #7
   br label %1128
 
 1128:                                             ; preds = %1125, %1121, %1116, %1106, %1097
@@ -41777,7 +41771,7 @@ getConfVal.exit374:                               ; preds = %1052, %lv_u64a_ce.e
 confWithBit.exit476:                              ; preds = %getConfVal.exit374, %1132
   %.1031096 = phi i32 [ %.641057, %getConfVal.exit374 ], [ %.1021095, %1132 ]
   %.140 = phi i64 [ %.65, %getConfVal.exit374 ], [ %.139, %1132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1133
 
 1133:                                             ; preds = %confWithBit.exit476, %1041, %1031
@@ -42054,7 +42048,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1281 = add i64 %indvars.iv1285, %1159
   %1282 = and i64 %1281, 4294967295
   %1283 = load i32, ptr %1259, align 8
-  %1284 = call i64 %1154(i64 noundef %1282, i32 noundef %1283, ptr noundef %1155) #6
+  %1284 = call i64 %1154(i64 noundef %1282, i32 noundef %1283, ptr noundef %1155) #7
   %.pre = load i64, ptr %1258, align 8
   %.pre1312 = and i64 %.pre, %1284
   %1285 = icmp eq i64 %.pre1312, 0
@@ -42064,7 +42058,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1287 = add i64 %1260, %indvars.iv1285
   %1288 = and i64 %1287, 4294967295
   %1289 = load i32, ptr %1259, align 8
-  %1290 = call i64 %1154(i64 noundef %1288, i32 noundef %1289, ptr noundef %1155) #6
+  %1290 = call i64 %1154(i64 noundef %1288, i32 noundef %1289, ptr noundef %1155) #7
   %.pre1301 = load i64, ptr %1258, align 8
   %.pre1314 = and i64 %.pre1301, %1290
   %1291 = icmp eq i64 %.pre1314, 0
@@ -42074,7 +42068,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1293 = add i64 %1261, %indvars.iv1285
   %1294 = and i64 %1293, 4294967295
   %1295 = load i32, ptr %1259, align 8
-  %1296 = call i64 %1154(i64 noundef %1294, i32 noundef %1295, ptr noundef %1155) #6
+  %1296 = call i64 %1154(i64 noundef %1294, i32 noundef %1295, ptr noundef %1155) #7
   %.pre1302 = load i64, ptr %1258, align 8
   %.pre1316 = and i64 %.pre1302, %1296
   %1297 = icmp eq i64 %.pre1316, 0
@@ -42084,7 +42078,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1299 = add i64 %1262, %indvars.iv1285
   %1300 = and i64 %1299, 4294967295
   %1301 = load i32, ptr %1259, align 8
-  %1302 = call i64 %1154(i64 noundef %1300, i32 noundef %1301, ptr noundef %1155) #6
+  %1302 = call i64 %1154(i64 noundef %1300, i32 noundef %1301, ptr noundef %1155) #7
   br label %.thread1350
 
 .thread1350:                                      ; preds = %1277, %1280, %1286, %1298, %1292
@@ -42111,7 +42105,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1311 = add i64 %indvars.iv1282, %1159
   %1312 = and i64 %1311, 4294967295
   %1313 = load i32, ptr %1251, align 8
-  %1314 = call i64 %1154(i64 noundef %1312, i32 noundef %1313, ptr noundef %1155) #6
+  %1314 = call i64 %1154(i64 noundef %1312, i32 noundef %1313, ptr noundef %1155) #7
   br label %1315
 
 1315:                                             ; preds = %1310, %1307
@@ -42125,7 +42119,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1319 = add i64 %indvars.iv1282, %1159
   %1320 = and i64 %1319, 4294967295
   %1321 = load i32, ptr %1253, align 4
-  %1322 = call i64 %1154(i64 noundef %1320, i32 noundef %1321, ptr noundef %1155) #6
+  %1322 = call i64 %1154(i64 noundef %1320, i32 noundef %1321, ptr noundef %1155) #7
   br label %1323
 
 1323:                                             ; preds = %1318, %1315
@@ -42140,7 +42134,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1328 = add i32 %1254, %1327
   %1329 = zext i32 %1328 to i64
   %1330 = load i32, ptr %1251, align 8
-  %1331 = call i64 %1154(i64 noundef %1329, i32 noundef %1330, ptr noundef %1155) #6
+  %1331 = call i64 %1154(i64 noundef %1329, i32 noundef %1330, ptr noundef %1155) #7
   br label %1332
 
 1332:                                             ; preds = %1326, %1323
@@ -42155,7 +42149,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1337 = add i32 %1254, %1336
   %1338 = zext i32 %1337 to i64
   %1339 = load i32, ptr %1253, align 4
-  %1340 = call i64 %1154(i64 noundef %1338, i32 noundef %1339, ptr noundef %1155) #6
+  %1340 = call i64 %1154(i64 noundef %1338, i32 noundef %1339, ptr noundef %1155) #7
   br label %1341
 
 1341:                                             ; preds = %1335, %1332
@@ -42170,7 +42164,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1346 = add i32 %1255, %1345
   %1347 = zext i32 %1346 to i64
   %1348 = load i32, ptr %1251, align 8
-  %1349 = call i64 %1154(i64 noundef %1347, i32 noundef %1348, ptr noundef %1155) #6
+  %1349 = call i64 %1154(i64 noundef %1347, i32 noundef %1348, ptr noundef %1155) #7
   br label %1350
 
 1350:                                             ; preds = %1344, %1341
@@ -42185,7 +42179,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1355 = add i32 %1255, %1354
   %1356 = zext i32 %1355 to i64
   %1357 = load i32, ptr %1253, align 4
-  %1358 = call i64 %1154(i64 noundef %1356, i32 noundef %1357, ptr noundef %1155) #6
+  %1358 = call i64 %1154(i64 noundef %1356, i32 noundef %1357, ptr noundef %1155) #7
   br label %1359
 
 1359:                                             ; preds = %1353, %1350
@@ -42200,7 +42194,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1364 = add i32 %1256, %1363
   %1365 = zext i32 %1364 to i64
   %1366 = load i32, ptr %1251, align 8
-  %1367 = call i64 %1154(i64 noundef %1365, i32 noundef %1366, ptr noundef %1155) #6
+  %1367 = call i64 %1154(i64 noundef %1365, i32 noundef %1366, ptr noundef %1155) #7
   br label %1368
 
 1368:                                             ; preds = %1362, %1359
@@ -42215,7 +42209,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1373 = add i32 %1256, %1372
   %1374 = zext i32 %1373 to i64
   %1375 = load i32, ptr %1253, align 4
-  %1376 = call i64 %1154(i64 noundef %1374, i32 noundef %1375, ptr noundef %1155) #6
+  %1376 = call i64 %1154(i64 noundef %1374, i32 noundef %1375, ptr noundef %1155) #7
   br label %1377
 
 1377:                                             ; preds = %1371, %1368
@@ -42242,7 +42236,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1386 = add i64 %indvars.iv, %1159
   %1387 = and i64 %1386, 4294967295
   %1388 = load i32, ptr %1243, align 8
-  %1389 = call i64 %1154(i64 noundef %1387, i32 noundef %1388, ptr noundef %1155) #6
+  %1389 = call i64 %1154(i64 noundef %1387, i32 noundef %1388, ptr noundef %1155) #7
   br label %1390
 
 1390:                                             ; preds = %1385, %1382
@@ -42256,7 +42250,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1394 = add i64 %indvars.iv, %1159
   %1395 = and i64 %1394, 4294967295
   %1396 = load i32, ptr %1245, align 4
-  %1397 = call i64 %1154(i64 noundef %1395, i32 noundef %1396, ptr noundef %1155) #6
+  %1397 = call i64 %1154(i64 noundef %1395, i32 noundef %1396, ptr noundef %1155) #7
   br label %1398
 
 1398:                                             ; preds = %1393, %1390
@@ -42270,7 +42264,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1402 = add i64 %indvars.iv, %1159
   %1403 = and i64 %1402, 4294967295
   %1404 = load i32, ptr %1247, align 8
-  %1405 = call i64 %1154(i64 noundef %1403, i32 noundef %1404, ptr noundef %1155) #6
+  %1405 = call i64 %1154(i64 noundef %1403, i32 noundef %1404, ptr noundef %1155) #7
   br label %1406
 
 1406:                                             ; preds = %1401, %1398
@@ -42285,7 +42279,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1411 = add i32 %1248, %1410
   %1412 = zext i32 %1411 to i64
   %1413 = load i32, ptr %1243, align 8
-  %1414 = call i64 %1154(i64 noundef %1412, i32 noundef %1413, ptr noundef %1155) #6
+  %1414 = call i64 %1154(i64 noundef %1412, i32 noundef %1413, ptr noundef %1155) #7
   br label %1415
 
 1415:                                             ; preds = %1409, %1406
@@ -42300,7 +42294,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1420 = add i32 %1248, %1419
   %1421 = zext i32 %1420 to i64
   %1422 = load i32, ptr %1245, align 4
-  %1423 = call i64 %1154(i64 noundef %1421, i32 noundef %1422, ptr noundef %1155) #6
+  %1423 = call i64 %1154(i64 noundef %1421, i32 noundef %1422, ptr noundef %1155) #7
   br label %1424
 
 1424:                                             ; preds = %1418, %1415
@@ -42315,7 +42309,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1429 = add i32 %1248, %1428
   %1430 = zext i32 %1429 to i64
   %1431 = load i32, ptr %1247, align 8
-  %1432 = call i64 %1154(i64 noundef %1430, i32 noundef %1431, ptr noundef %1155) #6
+  %1432 = call i64 %1154(i64 noundef %1430, i32 noundef %1431, ptr noundef %1155) #7
   br label %1433
 
 1433:                                             ; preds = %1427, %1424
@@ -42342,7 +42336,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1442 = add i64 %indvars.iv1294, %1159
   %1443 = and i64 %1442, 4294967295
   %1444 = load i32, ptr %1265, align 8
-  %1445 = call i64 %1154(i64 noundef %1443, i32 noundef %1444, ptr noundef %1155) #6
+  %1445 = call i64 %1154(i64 noundef %1443, i32 noundef %1444, ptr noundef %1155) #7
   br label %1446
 
 1446:                                             ; preds = %1441, %1438
@@ -42356,7 +42350,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1450 = add i64 %indvars.iv1294, %1159
   %1451 = and i64 %1450, 4294967295
   %1452 = load i32, ptr %1267, align 4
-  %1453 = call i64 %1154(i64 noundef %1451, i32 noundef %1452, ptr noundef %1155) #6
+  %1453 = call i64 %1154(i64 noundef %1451, i32 noundef %1452, ptr noundef %1155) #7
   br label %1454
 
 1454:                                             ; preds = %1449, %1446
@@ -42370,7 +42364,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1458 = add i64 %indvars.iv1294, %1159
   %1459 = and i64 %1458, 4294967295
   %1460 = load i32, ptr %1269, align 8
-  %1461 = call i64 %1154(i64 noundef %1459, i32 noundef %1460, ptr noundef %1155) #6
+  %1461 = call i64 %1154(i64 noundef %1459, i32 noundef %1460, ptr noundef %1155) #7
   br label %1462
 
 1462:                                             ; preds = %1457, %1454
@@ -42384,7 +42378,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1466 = add i64 %indvars.iv1294, %1159
   %1467 = and i64 %1466, 4294967295
   %1468 = load i32, ptr %1271, align 4
-  %1469 = call i64 %1154(i64 noundef %1467, i32 noundef %1468, ptr noundef %1155) #6
+  %1469 = call i64 %1154(i64 noundef %1467, i32 noundef %1468, ptr noundef %1155) #7
   br label %1470
 
 1470:                                             ; preds = %1465, %1462
@@ -42418,7 +42412,7 @@ split:                                            ; preds = %1222, %.thread1147
 1482:                                             ; preds = %1477
   %1483 = getelementptr inbounds nuw [16 x i32], ptr %1265, i64 0, i64 %indvars.iv1288
   %1484 = load i32, ptr %1483, align 4
-  %1485 = call i64 %1154(i64 noundef %1474, i32 noundef %1484, ptr noundef %1155) #6
+  %1485 = call i64 %1154(i64 noundef %1474, i32 noundef %1484, ptr noundef %1155) #7
   %.pre1303 = load i16, ptr %1185, align 4
   br label %1486
 
@@ -42435,7 +42429,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1492 = add i32 %1272, %1491
   %1493 = zext i32 %1492 to i64
   %1494 = load i32, ptr %1265, align 8
-  %1495 = call i64 %1154(i64 noundef %1493, i32 noundef %1494, ptr noundef %1155) #6
+  %1495 = call i64 %1154(i64 noundef %1493, i32 noundef %1494, ptr noundef %1155) #7
   br label %1496
 
 1496:                                             ; preds = %1490, %._crit_edge1227
@@ -42450,7 +42444,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1501 = add i32 %1272, %1500
   %1502 = zext i32 %1501 to i64
   %1503 = load i32, ptr %1267, align 4
-  %1504 = call i64 %1154(i64 noundef %1502, i32 noundef %1503, ptr noundef %1155) #6
+  %1504 = call i64 %1154(i64 noundef %1502, i32 noundef %1503, ptr noundef %1155) #7
   br label %1505
 
 1505:                                             ; preds = %1499, %1496
@@ -42465,7 +42459,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1510 = add i32 %1272, %1509
   %1511 = zext i32 %1510 to i64
   %1512 = load i32, ptr %1269, align 8
-  %1513 = call i64 %1154(i64 noundef %1511, i32 noundef %1512, ptr noundef %1155) #6
+  %1513 = call i64 %1154(i64 noundef %1511, i32 noundef %1512, ptr noundef %1155) #7
   br label %1514
 
 1514:                                             ; preds = %1508, %1505
@@ -42480,7 +42474,7 @@ split:                                            ; preds = %1222, %.thread1147
   %1519 = add i32 %1272, %1518
   %1520 = zext i32 %1519 to i64
   %1521 = load i32, ptr %1271, align 4
-  %1522 = call i64 %1154(i64 noundef %1520, i32 noundef %1521, ptr noundef %1155) #6
+  %1522 = call i64 %1154(i64 noundef %1520, i32 noundef %1521, ptr noundef %1155) #7
   br label %1523
 
 1523:                                             ; preds = %1517, %1514
@@ -42514,7 +42508,7 @@ split:                                            ; preds = %1222, %.thread1147
 1535:                                             ; preds = %1530
   %1536 = getelementptr inbounds nuw [16 x i32], ptr %1265, i64 0, i64 %indvars.iv1291
   %1537 = load i32, ptr %1536, align 4
-  %1538 = call i64 %1154(i64 noundef %1528, i32 noundef %1537, ptr noundef %1155) #6
+  %1538 = call i64 %1154(i64 noundef %1528, i32 noundef %1537, ptr noundef %1155) #7
   %.pre1304 = load i16, ptr %1185, align 4
   br label %1539
 
@@ -42621,7 +42615,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
   %.621055 = phi i32 [ %.1210051242, %1603 ], [ %.631056, %1685 ]
   %.63 = phi i64 [ %.13, %1603 ], [ %.64, %1685 ]
   %.0969 = phi i64 [ %1604, %1603 ], [ %1609, %1685 ]
-  %1607 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0969) #7, !srcloc !6
+  %1607 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0969) #6, !srcloc !6
   %1608 = extractvalue { i64, i64 } %1607, 0
   %1609 = extractvalue { i64, i64 } %1607, 1
   %1610 = lshr i64 %1608, 3
@@ -42641,7 +42635,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
   br i1 %.not25.i306, label %1685, label %1620
 
 1620:                                             ; preds = %1614
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %1621 = load ptr, ptr %1, align 8
   %1622 = and i64 %1610, 536870911
@@ -42726,7 +42720,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
 
 1677:                                             ; preds = %1673
   %1678 = load ptr, ptr %1136, align 8
-  %1679 = call i64 %1678(i64 noundef %1628, i32 noundef %1656, ptr noundef %1646) #6
+  %1679 = call i64 %1678(i64 noundef %1628, i32 noundef %1656, ptr noundef %1646) #7
   br label %1680
 
 1680:                                             ; preds = %1677, %1673, %1668, %1658, %1649
@@ -42745,7 +42739,7 @@ floodDetect.exit:                                 ; preds = %1188, %1195, %.crit
 confWithBit.exit483:                              ; preds = %1620, %1684
   %.1061099 = phi i32 [ %.621055, %1620 ], [ %.1051098, %1684 ]
   %.143 = phi i64 [ %.63, %1620 ], [ %.142, %1684 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1685
 
 1685:                                             ; preds = %confWithBit.exit483, %1614, %1606
@@ -42773,7 +42767,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
   %.601053 = phi i32 [ %.131006, %1688 ], [ %.611054, %1772 ]
   %.61 = phi i64 [ %.14, %1688 ], [ %.62, %1772 ]
   %.0968 = phi i64 [ %1689, %1688 ], [ %1694, %1772 ]
-  %1692 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0968) #7, !srcloc !6
+  %1692 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0968) #6, !srcloc !6
   %1693 = extractvalue { i64, i64 } %1692, 0
   %1694 = extractvalue { i64, i64 } %1692, 1
   %1695 = trunc i64 %1693 to i32
@@ -42795,7 +42789,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
   br i1 %.not25.i302, label %1772, label %1707
 
 1707:                                             ; preds = %1701
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %1708 = load ptr, ptr %1, align 8
   %1709 = zext nneg i32 %1697 to i64
@@ -42880,7 +42874,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
 
 1764:                                             ; preds = %1760
   %1765 = load ptr, ptr %1136, align 8
-  %1766 = call i64 %1765(i64 noundef %1715, i32 noundef %1743, ptr noundef %1733) #6
+  %1766 = call i64 %1765(i64 noundef %1715, i32 noundef %1743, ptr noundef %1733) #7
   br label %1767
 
 1767:                                             ; preds = %1764, %1760, %1755, %1745, %1736
@@ -42899,7 +42893,7 @@ do_confWithBit_teddy.exit308:                     ; preds = %1685
 confWithBit.exit490:                              ; preds = %1707, %1771
   %.1091102 = phi i32 [ %.601053, %1707 ], [ %.1081101, %1771 ]
   %.146 = phi i64 [ %.61, %1707 ], [ %.145, %1771 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1772
 
 1772:                                             ; preds = %confWithBit.exit490, %1701, %1691
@@ -42927,7 +42921,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
   %.581051 = phi i32 [ %.141007, %1775 ], [ %.591052, %1859 ]
   %.59 = phi i64 [ %.15, %1775 ], [ %.60, %1859 ]
   %.0967 = phi i64 [ %1776, %1775 ], [ %1781, %1859 ]
-  %1779 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0967) #7, !srcloc !6
+  %1779 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0967) #6, !srcloc !6
   %1780 = extractvalue { i64, i64 } %1779, 0
   %1781 = extractvalue { i64, i64 } %1779, 1
   %1782 = trunc i64 %1780 to i32
@@ -42949,7 +42943,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
   br i1 %.not25.i298, label %1859, label %1794
 
 1794:                                             ; preds = %1788
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %1795 = load ptr, ptr %1, align 8
   %1796 = zext nneg i32 %1784 to i64
@@ -43034,7 +43028,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
 
 1851:                                             ; preds = %1847
   %1852 = load ptr, ptr %1136, align 8
-  %1853 = call i64 %1852(i64 noundef %1802, i32 noundef %1830, ptr noundef %1820) #6
+  %1853 = call i64 %1852(i64 noundef %1802, i32 noundef %1830, ptr noundef %1820) #7
   br label %1854
 
 1854:                                             ; preds = %1851, %1847, %1842, %1832, %1823
@@ -43053,7 +43047,7 @@ do_confWithBit_teddy.exit304:                     ; preds = %1772
 confWithBit.exit497:                              ; preds = %1794, %1858
   %.1121105 = phi i32 [ %.581051, %1794 ], [ %.1111104, %1858 ]
   %.149 = phi i64 [ %.59, %1794 ], [ %.148, %1858 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1859
 
 1859:                                             ; preds = %confWithBit.exit497, %1788, %1778
@@ -43081,7 +43075,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
   %.561049 = phi i32 [ %.151008, %1862 ], [ %.571050, %1946 ]
   %.57 = phi i64 [ %.16, %1862 ], [ %.58, %1946 ]
   %.0966 = phi i64 [ %1863, %1862 ], [ %1868, %1946 ]
-  %1866 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0966) #7, !srcloc !6
+  %1866 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0966) #6, !srcloc !6
   %1867 = extractvalue { i64, i64 } %1866, 0
   %1868 = extractvalue { i64, i64 } %1866, 1
   %1869 = trunc i64 %1867 to i32
@@ -43103,7 +43097,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
   br i1 %.not25.i294, label %1946, label %1881
 
 1881:                                             ; preds = %1875
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1882 = load ptr, ptr %1, align 8
   %1883 = zext nneg i32 %1871 to i64
@@ -43188,7 +43182,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
 
 1938:                                             ; preds = %1934
   %1939 = load ptr, ptr %1136, align 8
-  %1940 = call i64 %1939(i64 noundef %1889, i32 noundef %1917, ptr noundef %1907) #6
+  %1940 = call i64 %1939(i64 noundef %1889, i32 noundef %1917, ptr noundef %1907) #7
   br label %1941
 
 1941:                                             ; preds = %1938, %1934, %1929, %1919, %1910
@@ -43207,7 +43201,7 @@ do_confWithBit_teddy.exit300:                     ; preds = %1859
 confWithBit.exit504:                              ; preds = %1881, %1945
   %.1151108 = phi i32 [ %.561049, %1881 ], [ %.1141107, %1945 ]
   %.152 = phi i64 [ %.57, %1881 ], [ %.151, %1945 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1946
 
 1946:                                             ; preds = %confWithBit.exit504, %1875, %1865
@@ -43286,7 +43280,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
   %.541047 = phi i32 [ %.171010, %1994 ], [ %.551048, %2078 ]
   %.55 = phi i64 [ %.18, %1994 ], [ %.56, %2078 ]
   %.0965 = phi i64 [ %1995, %1994 ], [ %2000, %2078 ]
-  %1998 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #7, !srcloc !6
+  %1998 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0965) #6, !srcloc !6
   %1999 = extractvalue { i64, i64 } %1998, 0
   %2000 = extractvalue { i64, i64 } %1998, 1
   %2001 = trunc i64 %1999 to i32
@@ -43308,7 +43302,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
   br i1 %.not25.i290, label %2078, label %2013
 
 2013:                                             ; preds = %2007
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %2014 = load ptr, ptr %1, align 8
   %2015 = zext nneg i32 %2003 to i64
@@ -43393,7 +43387,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
 
 2070:                                             ; preds = %2066
   %2071 = load ptr, ptr %1136, align 8
-  %2072 = call i64 %2071(i64 noundef %2021, i32 noundef %2049, ptr noundef %2039) #6
+  %2072 = call i64 %2071(i64 noundef %2021, i32 noundef %2049, ptr noundef %2039) #7
   br label %2073
 
 2073:                                             ; preds = %2070, %2066, %2061, %2051, %2042
@@ -43412,7 +43406,7 @@ do_confWithBit_teddy.exit296:                     ; preds = %1946
 confWithBit.exit511:                              ; preds = %2013, %2077
   %.1181111 = phi i32 [ %.541047, %2013 ], [ %.1171110, %2077 ]
   %.155 = phi i64 [ %.55, %2013 ], [ %.154, %2077 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2078
 
 2078:                                             ; preds = %confWithBit.exit511, %2007, %1997
@@ -43440,7 +43434,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
   %.521045 = phi i32 [ %.181011, %2081 ], [ %.531046, %2165 ]
   %.53 = phi i64 [ %.19, %2081 ], [ %.54, %2165 ]
   %.0964 = phi i64 [ %2082, %2081 ], [ %2087, %2165 ]
-  %2085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #7, !srcloc !6
+  %2085 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0964) #6, !srcloc !6
   %2086 = extractvalue { i64, i64 } %2085, 0
   %2087 = extractvalue { i64, i64 } %2085, 1
   %2088 = trunc i64 %2086 to i32
@@ -43462,7 +43456,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
   br i1 %.not25.i286, label %2165, label %2100
 
 2100:                                             ; preds = %2094
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %2101 = load ptr, ptr %1, align 8
   %2102 = zext nneg i32 %2090 to i64
@@ -43547,7 +43541,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
 
 2157:                                             ; preds = %2153
   %2158 = load ptr, ptr %1136, align 8
-  %2159 = call i64 %2158(i64 noundef %2108, i32 noundef %2136, ptr noundef %2126) #6
+  %2159 = call i64 %2158(i64 noundef %2108, i32 noundef %2136, ptr noundef %2126) #7
   br label %2160
 
 2160:                                             ; preds = %2157, %2153, %2148, %2138, %2129
@@ -43566,7 +43560,7 @@ do_confWithBit_teddy.exit292:                     ; preds = %2078
 confWithBit.exit518:                              ; preds = %2100, %2164
   %.1211114 = phi i32 [ %.521045, %2100 ], [ %.1201113, %2164 ]
   %.158 = phi i64 [ %.53, %2100 ], [ %.157, %2164 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2165
 
 2165:                                             ; preds = %confWithBit.exit518, %2094, %2084
@@ -43594,7 +43588,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
   %.501043 = phi i32 [ %.191012, %2168 ], [ %.511044, %2252 ]
   %.51 = phi i64 [ %.20, %2168 ], [ %.52, %2252 ]
   %.0963 = phi i64 [ %2169, %2168 ], [ %2174, %2252 ]
-  %2172 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #7, !srcloc !6
+  %2172 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0963) #6, !srcloc !6
   %2173 = extractvalue { i64, i64 } %2172, 0
   %2174 = extractvalue { i64, i64 } %2172, 1
   %2175 = trunc i64 %2173 to i32
@@ -43616,7 +43610,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
   br i1 %.not25.i282, label %2252, label %2187
 
 2187:                                             ; preds = %2181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %2188 = load ptr, ptr %1, align 8
   %2189 = zext nneg i32 %2177 to i64
@@ -43701,7 +43695,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
 
 2244:                                             ; preds = %2240
   %2245 = load ptr, ptr %1136, align 8
-  %2246 = call i64 %2245(i64 noundef %2195, i32 noundef %2223, ptr noundef %2213) #6
+  %2246 = call i64 %2245(i64 noundef %2195, i32 noundef %2223, ptr noundef %2213) #7
   br label %2247
 
 2247:                                             ; preds = %2244, %2240, %2235, %2225, %2216
@@ -43720,7 +43714,7 @@ do_confWithBit_teddy.exit288:                     ; preds = %2165
 confWithBit.exit525:                              ; preds = %2187, %2251
   %.1241117 = phi i32 [ %.501043, %2187 ], [ %.1231116, %2251 ]
   %.161 = phi i64 [ %.51, %2187 ], [ %.160, %2251 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2252
 
 2252:                                             ; preds = %confWithBit.exit525, %2181, %2171
@@ -43748,7 +43742,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
   %.481041 = phi i32 [ %.201013, %2255 ], [ %.491042, %2339 ]
   %.49 = phi i64 [ %.21, %2255 ], [ %.50, %2339 ]
   %.0962 = phi i64 [ %2256, %2255 ], [ %2261, %2339 ]
-  %2259 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #7, !srcloc !6
+  %2259 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0962) #6, !srcloc !6
   %2260 = extractvalue { i64, i64 } %2259, 0
   %2261 = extractvalue { i64, i64 } %2259, 1
   %2262 = trunc i64 %2260 to i32
@@ -43770,7 +43764,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
   br i1 %.not25.i278, label %2339, label %2274
 
 2274:                                             ; preds = %2268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %2275 = load ptr, ptr %1, align 8
   %2276 = zext nneg i32 %2264 to i64
@@ -43855,7 +43849,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
 
 2331:                                             ; preds = %2327
   %2332 = load ptr, ptr %1136, align 8
-  %2333 = call i64 %2332(i64 noundef %2282, i32 noundef %2310, ptr noundef %2300) #6
+  %2333 = call i64 %2332(i64 noundef %2282, i32 noundef %2310, ptr noundef %2300) #7
   br label %2334
 
 2334:                                             ; preds = %2331, %2327, %2322, %2312, %2303
@@ -43874,7 +43868,7 @@ do_confWithBit_teddy.exit284:                     ; preds = %2252
 confWithBit.exit532:                              ; preds = %2274, %2338
   %.1271120 = phi i32 [ %.481041, %2274 ], [ %.1261119, %2338 ]
   %.164 = phi i64 [ %.49, %2274 ], [ %.163, %2338 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2339
 
 2339:                                             ; preds = %confWithBit.exit532, %2268, %2258
@@ -43975,7 +43969,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
   %.461039 = phi i32 [ %.121005.lcssa, %2396 ], [ %.471040, %2481 ]
   %.47 = phi i64 [ %.12.lcssa, %2396 ], [ %.48, %2481 ]
   %.0961 = phi i64 [ %2397, %2396 ], [ %2405, %2481 ]
-  %2403 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #7, !srcloc !6
+  %2403 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0961) #6, !srcloc !6
   %2404 = extractvalue { i64, i64 } %2403, 0
   %2405 = extractvalue { i64, i64 } %2403, 1
   %2406 = lshr i64 %2404, 3
@@ -43995,7 +43989,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
   br i1 %.not25.i274, label %2481, label %2416
 
 2416:                                             ; preds = %2410
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %2417 = load ptr, ptr %1, align 8
   %2418 = and i64 %2406, 536870911
@@ -44080,7 +44074,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
 
 2473:                                             ; preds = %2469
   %2474 = load ptr, ptr %2401, align 8
-  %2475 = call i64 %2474(i64 noundef %2424, i32 noundef %2452, ptr noundef %2442) #6
+  %2475 = call i64 %2474(i64 noundef %2424, i32 noundef %2452, ptr noundef %2442) #7
   br label %2476
 
 2476:                                             ; preds = %2473, %2469, %2464, %2454, %2445
@@ -44099,7 +44093,7 @@ do_confWithBit_teddy.exit280:                     ; preds = %2339
 confWithBit.exit539:                              ; preds = %2416, %2480
   %.1301123 = phi i32 [ %.461039, %2416 ], [ %.1291122, %2480 ]
   %.167 = phi i64 [ %.47, %2416 ], [ %.166, %2480 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2481
 
 2481:                                             ; preds = %confWithBit.exit539, %2410, %2402
@@ -44130,7 +44124,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
   %.441037 = phi i32 [ %.241017, %2484 ], [ %.451038, %2571 ]
   %.45 = phi i64 [ %.25, %2484 ], [ %.46, %2571 ]
   %.0960 = phi i64 [ %2485, %2484 ], [ %2493, %2571 ]
-  %2491 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #7, !srcloc !6
+  %2491 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0960) #6, !srcloc !6
   %2492 = extractvalue { i64, i64 } %2491, 0
   %2493 = extractvalue { i64, i64 } %2491, 1
   %2494 = trunc i64 %2492 to i32
@@ -44152,7 +44146,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
   br i1 %.not25.i270, label %2571, label %2506
 
 2506:                                             ; preds = %2500
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
   %2507 = load ptr, ptr %1, align 8
   %2508 = zext nneg i32 %2496 to i64
@@ -44237,7 +44231,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
 
 2563:                                             ; preds = %2559
   %2564 = load ptr, ptr %2489, align 8
-  %2565 = call i64 %2564(i64 noundef %2514, i32 noundef %2542, ptr noundef %2532) #6
+  %2565 = call i64 %2564(i64 noundef %2514, i32 noundef %2542, ptr noundef %2532) #7
   br label %2566
 
 2566:                                             ; preds = %2563, %2559, %2554, %2544, %2535
@@ -44256,7 +44250,7 @@ do_confWithBit_teddy.exit276:                     ; preds = %2481
 confWithBit.exit546:                              ; preds = %2506, %2570
   %.1331126 = phi i32 [ %.441037, %2506 ], [ %.1321125, %2570 ]
   %.170 = phi i64 [ %.45, %2506 ], [ %.169, %2570 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2571
 
 2571:                                             ; preds = %confWithBit.exit546, %2500, %2490
@@ -44287,7 +44281,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
   %.421035 = phi i32 [ %.251018, %2574 ], [ %.431036, %2661 ]
   %.43 = phi i64 [ %.26, %2574 ], [ %.44, %2661 ]
   %.0959 = phi i64 [ %2575, %2574 ], [ %2583, %2661 ]
-  %2581 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #7, !srcloc !6
+  %2581 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0959) #6, !srcloc !6
   %2582 = extractvalue { i64, i64 } %2581, 0
   %2583 = extractvalue { i64, i64 } %2581, 1
   %2584 = trunc i64 %2582 to i32
@@ -44309,7 +44303,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
   br i1 %.not25.i266, label %2661, label %2596
 
 2596:                                             ; preds = %2590
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %2597 = load ptr, ptr %1, align 8
   %2598 = zext nneg i32 %2586 to i64
@@ -44394,7 +44388,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
 
 2653:                                             ; preds = %2649
   %2654 = load ptr, ptr %2579, align 8
-  %2655 = call i64 %2654(i64 noundef %2604, i32 noundef %2632, ptr noundef %2622) #6
+  %2655 = call i64 %2654(i64 noundef %2604, i32 noundef %2632, ptr noundef %2622) #7
   br label %2656
 
 2656:                                             ; preds = %2653, %2649, %2644, %2634, %2625
@@ -44413,7 +44407,7 @@ do_confWithBit_teddy.exit272:                     ; preds = %2571
 confWithBit.exit553:                              ; preds = %2596, %2660
   %.1361129 = phi i32 [ %.421035, %2596 ], [ %.1351128, %2660 ]
   %.173 = phi i64 [ %.43, %2596 ], [ %.172, %2660 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2661
 
 2661:                                             ; preds = %confWithBit.exit553, %2590, %2580
@@ -44444,7 +44438,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
   %.401033 = phi i32 [ %.261019, %2664 ], [ %.411034, %2751 ]
   %.41 = phi i64 [ %.27, %2664 ], [ %.42, %2751 ]
   %.0958 = phi i64 [ %2665, %2664 ], [ %2673, %2751 ]
-  %2671 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #7, !srcloc !6
+  %2671 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0958) #6, !srcloc !6
   %2672 = extractvalue { i64, i64 } %2671, 0
   %2673 = extractvalue { i64, i64 } %2671, 1
   %2674 = trunc i64 %2672 to i32
@@ -44466,7 +44460,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
   br i1 %.not25.i262, label %2751, label %2686
 
 2686:                                             ; preds = %2680
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %2687 = load ptr, ptr %1, align 8
   %2688 = zext nneg i32 %2676 to i64
@@ -44551,7 +44545,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
 
 2743:                                             ; preds = %2739
   %2744 = load ptr, ptr %2669, align 8
-  %2745 = call i64 %2744(i64 noundef %2694, i32 noundef %2722, ptr noundef %2712) #6
+  %2745 = call i64 %2744(i64 noundef %2694, i32 noundef %2722, ptr noundef %2712) #7
   br label %2746
 
 2746:                                             ; preds = %2743, %2739, %2734, %2724, %2715
@@ -44570,7 +44564,7 @@ do_confWithBit_teddy.exit268:                     ; preds = %2661
 confWithBit.exit560:                              ; preds = %2686, %2750
   %.1391132 = phi i32 [ %.401033, %2686 ], [ %.1381131, %2750 ]
   %.176 = phi i64 [ %.41, %2686 ], [ %.175, %2750 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2751
 
 2751:                                             ; preds = %confWithBit.exit560, %2680, %2670
@@ -44592,7 +44586,7 @@ do_confWithBit_teddy.exit264:                     ; preds = %2751
 
 2754:                                             ; preds = %.critedge240
   %2755 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> zeroinitializer, ptr %29, align 32
   %2756 = ptrtoint ptr %.4989 to i64
   %2757 = ptrtoint ptr %33 to i64
@@ -44698,7 +44692,7 @@ vectoredLoad256.exit:                             ; preds = %2794, %2792, %2785,
   %.09571153 = phi <4 x i64> [ %2761, %2760 ], [ %2764, %2762 ], [ %2764, %2765 ], [ %2764, %2767 ], [ %2764, %2769 ], [ %2764, %2774 ], [ %2764, %2776 ], [ %2764, %2783 ], [ %2764, %2785 ], [ %2764, %2792 ], [ %2764, %2794 ]
   %.1.i.in = phi ptr [ %.4989, %2760 ], [ %29, %2762 ], [ %29, %2765 ], [ %29, %2767 ], [ %29, %2769 ], [ %29, %2774 ], [ %29, %2776 ], [ %29, %2783 ], [ %29, %2785 ], [ %29, %2792 ], [ %29, %2794 ]
   %.1.i = load <4 x i64>, ptr %.1.i.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2801 = lshr <4 x i64> %.1.i, splat (i64 4)
   %2802 = bitcast <4 x i64> %60 to <32 x i8>
   %2803 = bitcast <4 x i64> %.1.i to <32 x i8>
@@ -44757,7 +44751,7 @@ vectoredLoad256.exit:                             ; preds = %2794, %2792, %2785,
   %.381031 = phi i32 [ %.231016, %2842 ], [ %.391032, %2947 ]
   %.39 = phi i64 [ %.24, %2842 ], [ %.40, %2947 ]
   %.0956 = phi i64 [ %2843, %2842 ], [ %2850, %2947 ]
-  %2848 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #7, !srcloc !6
+  %2848 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0956) #6, !srcloc !6
   %2849 = extractvalue { i64, i64 } %2848, 0
   %2850 = extractvalue { i64, i64 } %2848, 1
   %2851 = lshr i64 %2849, 3
@@ -44777,7 +44771,7 @@ vectoredLoad256.exit:                             ; preds = %2794, %2792, %2785,
   br i1 %.not25.i258, label %2947, label %2861
 
 2861:                                             ; preds = %2855
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %2862 = load ptr, ptr %1, align 8
   %2863 = and i64 %2851, 536870911
@@ -44911,7 +44905,7 @@ getConfVal.exit414:                               ; preds = %2866, %lv_u64a_ce.e
 
 2939:                                             ; preds = %2935
   %2940 = load ptr, ptr %2846, align 8
-  %2941 = call i64 %2940(i64 noundef %2890, i32 noundef %2918, ptr noundef %2908) #6
+  %2941 = call i64 %2940(i64 noundef %2890, i32 noundef %2918, ptr noundef %2908) #7
   br label %2942
 
 2942:                                             ; preds = %2939, %2935, %2930, %2920, %2911
@@ -44930,7 +44924,7 @@ getConfVal.exit414:                               ; preds = %2866, %lv_u64a_ce.e
 confWithBit.exit567:                              ; preds = %getConfVal.exit414, %2946
   %.1421135 = phi i32 [ %.381031, %getConfVal.exit414 ], [ %.1411134, %2946 ]
   %.179 = phi i64 [ %.39, %getConfVal.exit414 ], [ %.178, %2946 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2947
 
 2947:                                             ; preds = %confWithBit.exit567, %2855, %2847
@@ -44960,7 +44954,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2947
   %.361029 = phi i32 [ %.291022, %2950 ], [ %.371030, %3057 ]
   %.37 = phi i64 [ %.30, %2950 ], [ %.38, %3057 ]
   %.0955 = phi i64 [ %2951, %2950 ], [ %2958, %3057 ]
-  %2956 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #7, !srcloc !6
+  %2956 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0955) #6, !srcloc !6
   %2957 = extractvalue { i64, i64 } %2956, 0
   %2958 = extractvalue { i64, i64 } %2956, 1
   %2959 = trunc i64 %2957 to i32
@@ -44982,7 +44976,7 @@ do_confWithBit_teddy.exit260:                     ; preds = %2947
   br i1 %.not25.i254, label %3057, label %2971
 
 2971:                                             ; preds = %2965
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8
   %2972 = load ptr, ptr %1, align 8
   %2973 = zext nneg i32 %2961 to i64
@@ -45116,7 +45110,7 @@ getConfVal.exit418:                               ; preds = %2976, %lv_u64a_ce.e
 
 3049:                                             ; preds = %3045
   %3050 = load ptr, ptr %2954, align 8
-  %3051 = call i64 %3050(i64 noundef %3000, i32 noundef %3028, ptr noundef %3018) #6
+  %3051 = call i64 %3050(i64 noundef %3000, i32 noundef %3028, ptr noundef %3018) #7
   br label %3052
 
 3052:                                             ; preds = %3049, %3045, %3040, %3030, %3021
@@ -45135,7 +45129,7 @@ getConfVal.exit418:                               ; preds = %2976, %lv_u64a_ce.e
 confWithBit.exit574:                              ; preds = %getConfVal.exit418, %3056
   %.1451138 = phi i32 [ %.361029, %getConfVal.exit418 ], [ %.1441137, %3056 ]
   %.182 = phi i64 [ %.37, %getConfVal.exit418 ], [ %.181, %3056 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %3057
 
 3057:                                             ; preds = %confWithBit.exit574, %2965, %2955
@@ -45165,7 +45159,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %3057
   %.341027 = phi i32 [ %.301023, %3060 ], [ %.351028, %3167 ]
   %.35 = phi i64 [ %.31, %3060 ], [ %.36, %3167 ]
   %.0954 = phi i64 [ %3061, %3060 ], [ %3068, %3167 ]
-  %3066 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #7, !srcloc !6
+  %3066 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0954) #6, !srcloc !6
   %3067 = extractvalue { i64, i64 } %3066, 0
   %3068 = extractvalue { i64, i64 } %3066, 1
   %3069 = trunc i64 %3067 to i32
@@ -45187,7 +45181,7 @@ do_confWithBit_teddy.exit256:                     ; preds = %3057
   br i1 %.not25.i250, label %3167, label %3081
 
 3081:                                             ; preds = %3075
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %3082 = load ptr, ptr %1, align 8
   %3083 = zext nneg i32 %3071 to i64
@@ -45321,7 +45315,7 @@ getConfVal.exit422:                               ; preds = %3086, %lv_u64a_ce.e
 
 3159:                                             ; preds = %3155
   %3160 = load ptr, ptr %3064, align 8
-  %3161 = call i64 %3160(i64 noundef %3110, i32 noundef %3138, ptr noundef %3128) #6
+  %3161 = call i64 %3160(i64 noundef %3110, i32 noundef %3138, ptr noundef %3128) #7
   br label %3162
 
 3162:                                             ; preds = %3159, %3155, %3150, %3140, %3131
@@ -45340,7 +45334,7 @@ getConfVal.exit422:                               ; preds = %3086, %lv_u64a_ce.e
 confWithBit.exit581:                              ; preds = %getConfVal.exit422, %3166
   %.1481141 = phi i32 [ %.341027, %getConfVal.exit422 ], [ %.1471140, %3166 ]
   %.185 = phi i64 [ %.35, %getConfVal.exit422 ], [ %.184, %3166 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %3167
 
 3167:                                             ; preds = %confWithBit.exit581, %3075, %3065
@@ -45370,7 +45364,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %3167
   %.321025 = phi i32 [ %.311024, %3170 ], [ %.331026, %3277 ]
   %.33 = phi i64 [ %.32, %3170 ], [ %.34, %3277 ]
   %.0 = phi i64 [ %3171, %3170 ], [ %3178, %3277 ]
-  %3176 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #7, !srcloc !6
+  %3176 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0) #6, !srcloc !6
   %3177 = extractvalue { i64, i64 } %3176, 0
   %3178 = extractvalue { i64, i64 } %3176, 1
   %3179 = trunc i64 %3177 to i32
@@ -45392,7 +45386,7 @@ do_confWithBit_teddy.exit252:                     ; preds = %3167
   br i1 %.not25.i, label %3277, label %3191
 
 3191:                                             ; preds = %3185
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8
   %3192 = load ptr, ptr %1, align 8
   %3193 = zext nneg i32 %3181 to i64
@@ -45526,7 +45520,7 @@ getConfVal.exit426:                               ; preds = %3196, %lv_u64a_ce.e
 
 3269:                                             ; preds = %3265
   %3270 = load ptr, ptr %3174, align 8
-  %3271 = call i64 %3270(i64 noundef %3220, i32 noundef %3248, ptr noundef %3238) #6
+  %3271 = call i64 %3270(i64 noundef %3220, i32 noundef %3248, ptr noundef %3238) #7
   br label %3272
 
 3272:                                             ; preds = %3269, %3265, %3260, %3250, %3241
@@ -45545,7 +45539,7 @@ getConfVal.exit426:                               ; preds = %3196, %lv_u64a_ce.e
 confWithBit.exit588:                              ; preds = %getConfVal.exit426, %3276
   %.1511144 = phi i32 [ %.321025, %getConfVal.exit426 ], [ %.1501143, %3276 ]
   %.188 = phi i64 [ %.33, %getConfVal.exit426 ], [ %.187, %3276 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3277
 
 3277:                                             ; preds = %confWithBit.exit588, %3185, %3175
@@ -45567,7 +45561,13 @@ do_confWithBit_teddy.exit:                        ; preds = %3277
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #3
+declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
@@ -45582,13 +45582,13 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind memory(none) }
+attributes #6 = { nounwind memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -1095,13 +1095,13 @@ define internal i32 @dissect_ixveriwave(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %15 = lshr i8 %14, 4
   %16 = and i8 %14, 15
@@ -1421,7 +1421,7 @@ define internal i32 @dissect_ixveriwave(ptr noundef %0, ptr noundef %1, ptr noun
 
 195:                                              ; preds = %.thread839.thread
   %196 = call ptr @wmem_file_scope()
-  %197 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %196, i64 noundef 24) #7
+  %197 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %196, i64 noundef 24) #6
   %198 = load i32, ptr @previous_frame_data.0, align 8
   %.not782 = icmp ne i32 %198, 0
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2036,7 +2036,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %242, %241, %2
 
 620:                                              ; preds = %.thread882, %615
   %.0759884 = phi ptr [ %618, %.thread882 ], [ %616, %615 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %621 = call ptr @wmem_file_scope()
   %622 = load i32, ptr @proto_ixveriwave, align 4
@@ -2125,13 +2125,13 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   %673 = call ptr @tvb_new_subset_remaining(ptr noundef %.0759884, i32 noundef %635)
   %674 = load ptr, ptr @ethernet_handle, align 8
   %675 = call i32 @call_dissector(ptr noundef %674, ptr noundef %673, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1301
 
 676:                                              ; preds = %615
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 noundef 0, i64 noundef 72, i1 noundef false) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 noundef 0, i64 noundef 72, i1 noundef false) #7
   %677 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %678 = call zeroext i16 @tvb_get_letohs(ptr noundef %616, i32 noundef 0)
   %679 = zext i16 %678 to i32
@@ -2754,15 +2754,15 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   br label %wlantap_dissect_octo.exit
 
 wlantap_dissect_octo.exit:                        ; preds = %1080, %1082
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1301
 
 .thread886:                                       ; preds = %.thread882
   %1086 = load i32, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 noundef 0, i64 noundef 72, i1 noundef false) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 noundef 0, i64 noundef 72, i1 noundef false) #7
   %1087 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %1088 = call zeroext i16 @tvb_get_letohs(ptr noundef %618, i32 noundef 20)
   %1089 = call ptr @wmem_file_scope()
@@ -3093,16 +3093,16 @@ wlantap_dissect.exit:                             ; preds = %1273, %1284
   %1298 = call ptr @tvb_new_subset_remaining(ptr noundef %618, i32 noundef %spec.select.i)
   %1299 = load ptr, ptr @ieee80211_radio_handle, align 8
   %1300 = call i32 @call_dissector_with_data(ptr noundef %1299, ptr noundef %1298, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1301
 
 1301:                                             ; preds = %ethernettap_dissect.exit, %wlantap_dissect.exit, %wlantap_dissect_octo.exit, %613
   %1302 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %1302
 }
 
@@ -3124,9 +3124,6 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -3180,7 +3177,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -3199,9 +3196,6 @@ declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr nou
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -3234,11 +3228,11 @@ define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr 
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @hf_radiotap_ht_mcsindex, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef -2147483648)
   %12 = load i32, ptr @hf_radiotap_ht_bw, align 4
@@ -3317,11 +3311,11 @@ define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr 
   %70 = load i32, ptr @hf_radiotap_ht_tail, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %70, ptr noundef %1, i32 noundef %23, i32 noundef 3, i32 noundef -2147483648)
   %72 = add nuw nsw i32 %2, 6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %72
 }
 
@@ -3336,15 +3330,15 @@ define internal fastcc range(i32 29, 45) i32 @decode_vht_sig(ptr noundef %0, ptr
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load i32, ptr @hf_radiotap_vht_bw, align 4
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef -2147483648, ptr noundef nonnull %5)
   %16 = load i32, ptr %5, align 4
@@ -3550,20 +3544,26 @@ switch.lookup133:                                 ; preds = %127
 
 144:                                              ; preds = %127, %.sink.split131, %130
   %145 = add nuw nsw i32 %2, 10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %145
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #4
@@ -3573,12 +3573,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #6 = { allocsize(1) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

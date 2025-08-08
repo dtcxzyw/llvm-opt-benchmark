@@ -475,7 +475,7 @@ _ZN16java_lang_Module11is_instanceEP7oopDesc.exit.thread: ; preds = %_ZNK6Handle
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit160
 
 _ZNK6HandleclEv.exit141:                          ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %59 = tail call noundef ptr @_ZN16java_lang_Module4nameEP7oopDesc(ptr noundef nonnull %39) #14
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %63
@@ -501,7 +501,7 @@ _ZNK6HandleclEv.exit141:                          ; preds = %_ZN16java_lang_Modu
 
 _ZL15get_module_nameP7oopDescRiP10JavaThread.exit: ; preds = %61, %63, %67
   %.0.i = phi ptr [ null, %61 ], [ null, %67 ], [ %64, %63 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %70 = load ptr, ptr %23, align 8
   %.not198 = icmp eq ptr %70, null
   br i1 %.not198, label %71, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit160
@@ -1235,12 +1235,12 @@ define internal fastcc void @_ZL22define_javabase_module6HandleP8_jstringS1_14ob
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = icmp eq ptr %1, null
   br i1 %23, label %_ZL9as_symbolP8_jstring.exit.thread, label %24
 
 _ZL9as_symbolP8_jstring.exit.thread:              ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
 
 24:                                               ; preds = %6
@@ -1272,7 +1272,7 @@ _ZL9as_symbolP8_jstring.exit:                     ; preds = %27, %31, %35
   %37 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescRi(ptr noundef %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %8) #14
   %38 = load i32, ptr %8, align 4
   %39 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %37, i32 noundef %38) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %40
 
@@ -1289,12 +1289,12 @@ _ZL9as_symbolP8_jstring.exit:                     ; preds = %27, %31, %35
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZL9as_symbolP8_jstring.exit.thread, %_ZL9as_symbolP8_jstring.exit, %40, %44
   %.not.i87 = phi i1 [ true, %_ZL9as_symbolP8_jstring.exit.thread ], [ true, %_ZL9as_symbolP8_jstring.exit ], [ false, %40 ], [ false, %44 ]
   %.0.i86 = phi ptr [ null, %_ZL9as_symbolP8_jstring.exit.thread ], [ null, %_ZL9as_symbolP8_jstring.exit ], [ %39, %40 ], [ %39, %44 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = icmp eq ptr %2, null
   br i1 %45, label %_ZL9as_symbolP8_jstring.exit54.thread, label %46
 
 _ZL9as_symbolP8_jstring.exit54.thread:            ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit56
 
 46:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
@@ -1326,7 +1326,7 @@ _ZL9as_symbolP8_jstring.exit54:                   ; preds = %49, %53, %57
   %59 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescRi(ptr noundef %.0.i.i.i52, ptr noundef nonnull align 4 dereferenceable(4) %7) #14
   %60 = load i32, ptr %7, align 4
   %61 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %59, i32 noundef %60) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i55 = icmp eq ptr %61, null
   br i1 %.not.i55, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit56, label %62
 
@@ -5624,10 +5624,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

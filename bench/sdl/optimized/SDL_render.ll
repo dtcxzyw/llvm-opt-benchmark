@@ -324,13 +324,10 @@ SDL_GetRendererProperties_REAL.exit:              ; preds = %20, %26, %28, %32
   ret i1 %.not
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetRendererProperties_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -367,9 +364,6 @@ define hidden i32 @SDL_GetRendererProperties_REAL(ptr noundef %0) local_unnamed_
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetupRendererColorspace(ptr noundef writeonly captures(none) initializes((480, 484)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.1, i64 noundef 301991328) #15
@@ -379,10 +373,10 @@ define hidden void @SDL_SetupRendererColorspace(ptr noundef writeonly captures(n
   ret void
 }
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_RenderingLinearSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_RenderingLinearSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -410,7 +404,7 @@ define hidden void @SDL_ConvertToLinear(ptr noundef captures(none) %0) local_unn
   ret void
 }
 
-declare float @SDL_sRGBtoLinear(float noundef) local_unnamed_addr #3
+declare float @SDL_sRGBtoLinear(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_ConvertFromLinear(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -428,7 +422,7 @@ define hidden void @SDL_ConvertFromLinear(ptr noundef captures(none) %0) local_u
   ret void
 }
 
-declare float @SDL_sRGBfromLinear(float noundef) local_unnamed_addr #3
+declare float @SDL_sRGBfromLinear(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_FlushRenderer_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -558,7 +552,7 @@ define hidden ptr @SDL_AllocateRenderVertices(ptr noundef captures(none) %0, i64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @SDL_GetNumRenderDrivers_REAL() local_unnamed_addr #5 {
+define hidden noundef i32 @SDL_GetNumRenderDrivers_REAL() local_unnamed_addr #4 {
   ret i32 5
 }
 
@@ -584,7 +578,7 @@ define hidden ptr @SDL_GetRenderDriver_REAL(i32 noundef %0) local_unnamed_addr #
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_CreateWindowAndRenderer_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -645,7 +639,7 @@ define hidden zeroext i1 @SDL_CreateWindowAndRenderer_REAL(ptr noundef %0, i32 n
   ret i1 %.0
 }
 
-declare ptr @SDL_CreateWindow_REAL(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateWindow_REAL(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreateRenderer_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -657,9 +651,9 @@ define hidden noundef ptr @SDL_CreateRenderer_REAL(ptr noundef %0, ptr noundef %
   ret ptr %6
 }
 
-declare void @SDL_DestroyWindow_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyWindow_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ShowWindow_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ShowWindow_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreateRendererWithProperties_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -1160,16 +1154,16 @@ SDL_CalculateSimulatedVSyncInterval.exit:         ; preds = %196, %198, %202, %2
   ret ptr %.0
 }
 
-declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_WindowHasSurface_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_WindowHasSurface_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetRenderer_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -1178,19 +1172,19 @@ define hidden ptr @SDL_GetRenderer_REAL(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %3
 }
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @SW_CreateRendererForSurface(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SW_CreateRendererForSurface(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyRendererWithoutFreeing(ptr noundef initializes((688, 689)) %0) local_unnamed_addr #0 {
@@ -1399,9 +1393,9 @@ SDL_DestroyTexture_REAL.exit:                     ; preds = %58, %60, %65
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #3
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @UpdatePixelViewport(ptr noundef captures(none) initializes((24, 40)) %0) unnamed_addr #0 {
@@ -1479,9 +1473,9 @@ define internal fastcc void @UpdatePixelViewport(ptr noundef captures(none) init
 define internal fastcc void @UpdateMainViewDimensions(ptr noundef initializes((288, 296)) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -1564,14 +1558,14 @@ SDL_GetRenderOutputSize_REAL.exit:                ; preds = %12, %18, %23, %27, 
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 444
   store float %.sink, ptr %46, align 4
   call fastcc void @UpdatePixelViewport(ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @UpdateHDRProperties(ptr noundef %0) unnamed_addr #0 {
@@ -1664,9 +1658,9 @@ SDL_GetRendererProperties_REAL.exit.thread:       ; preds = %7, %13, %SDL_GetRen
   ret void
 }
 
-declare i32 @SDL_GetWindowProperties_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetWindowProperties_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_AddWindowRenderer(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_AddWindowRenderer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1728,7 +1722,7 @@ define hidden zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef %0, ptr noundef
 
 33:                                               ; preds = %28, %26
   tail call fastcc void @UpdatePixelViewport(ptr noundef nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load ptr, ptr %14, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false)
@@ -1802,7 +1796,7 @@ define hidden zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef %0, ptr noundef
 
 QueueCmdSetViewport.exit:                         ; preds = %39, %48, %63, %64
   %.0.i = phi i1 [ true, %39 ], [ true, %64 ], [ false, %63 ], [ false, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 66:                                               ; preds = %24, %QueueCmdSetViewport.exit, %11, %5
@@ -1810,7 +1804,7 @@ QueueCmdSetViewport.exit:                         ; preds = %39, %48, %63, %64
   ret i1 %.0
 }
 
-declare void @SDL_AddWindowEventWatch(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_AddWindowEventWatch(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SDL_RendererEventWatch(ptr noundef %0, ptr noundef %1) #0 {
@@ -2014,13 +2008,13 @@ SDL_GetRendererProperties_REAL.exit:              ; preds = %41, %46, %48, %52
   ret i1 %.0
 }
 
-declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ClearError_REAL() local_unnamed_addr #3
+declare zeroext i1 @SDL_ClearError_REAL() local_unnamed_addr #2
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #3
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #3
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreateGPURenderer_REAL(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -2111,7 +2105,7 @@ SDL_GetRendererProperties_REAL.exit:              ; preds = %25, %31, %33, %37
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreateSoftwareRenderer_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -2163,7 +2157,7 @@ define hidden ptr @SDL_GetRenderWindow_REAL(ptr noundef %0) local_unnamed_addr #
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetRendererName_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -2195,7 +2189,7 @@ define hidden ptr @SDL_GetRendererName_REAL(ptr noundef %0) local_unnamed_addr #
   ret ptr %.0
 }
 
-declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2261,7 +2255,7 @@ define hidden zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef %0, ptr nound
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GetCurrentRenderOutputSize_REAL(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -2851,13 +2845,13 @@ IsSupportedFormat.exit279:                        ; preds = %172
   ret ptr %.0
 }
 
-declare i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef) local_unnamed_addr #2
 
-declare float @SDL_GetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #3
+declare float @SDL_GetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
 
-declare float @SDL_GetDefaultSDRWhitePoint(i32 noundef) local_unnamed_addr #3
+declare float @SDL_GetDefaultSDRWhitePoint(i32 noundef) local_unnamed_addr #2
 
-declare float @SDL_GetDefaultHDRHeadroom(i32 noundef) local_unnamed_addr #3
+declare float @SDL_GetDefaultHDRHeadroom(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyTexture_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -2885,7 +2879,7 @@ define hidden void @SDL_DestroyTexture_REAL(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = icmp eq i32 %1, 1196444237
   br i1 %3, label %.preheader218, label %21
 
@@ -3151,9 +3145,9 @@ define hidden i32 @SDL_GetTextureProperties_REAL(ptr noundef %0) local_unnamed_a
   ret i32 %.0
 }
 
-declare ptr @SDL_SW_CreateYUVTexture(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_SW_CreateYUVTexture(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreateTexture_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -3260,14 +3254,14 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
   br i1 %.not242, label %43, label %40
 
 40:                                               ; preds = %switch.lookup
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @SDL_DetectPalette(ptr noundef nonnull %39, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
   %41 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %42 = trunc nuw i8 %41 to i1
   %spec.select = select i1 %42, i8 %.0197, i8 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %43
 
 43:                                               ; preds = %40, %switch.lookup
@@ -3728,11 +3722,11 @@ SDL_GetTextureProperties_REAL.exit.thread3.i:     ; preds = %SDL_GetTexturePrope
   br label %232
 
 232:                                              ; preds = %226, %218, %211
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %233 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   %234 = load i8, ptr %3, align 1
   %235 = load i8, ptr %4, align 1
@@ -3818,11 +3812,11 @@ IsSupportedBlendMode.exit.thread.us.i.i:          ; preds = %tailrecurse.us20.i.
   br label %SDL_UpdateTextureFromSurface.exit
 
 SDL_UpdateTextureFromSurface.exit:                ; preds = %IsSupportedBlendMode.exit.thread.us.i.i, %.split17.us.i.i, %269
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_DestroyTexture_REAL.exit
 
 273:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.i, %SDL_GetTextureProperties_REAL.exit.thread3.i, %178, %224, %SDL_GetTextureProperties_REAL.exit.thread.i
@@ -3850,19 +3844,19 @@ SDL_DestroyTexture_REAL.exit:                     ; preds = %282, %277, %275, %S
   ret ptr %.0196
 }
 
-declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetSurfacePalette_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetSurfacePalette_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DetectPalette(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_DetectPalette(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef) local_unnamed_addr #2
 
-declare float @SDL_GetSurfaceSDRWhitePoint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare float @SDL_GetSurfaceSDRWhitePoint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare float @SDL_GetSurfaceHDRHeadroom(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare float @SDL_GetSurfaceHDRHeadroom(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetRendererFromTexture_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -4163,10 +4157,10 @@ define hidden noundef zeroext i1 @SDL_GetTextureColorModFloat_REAL(ptr noundef %
   ret i1 %11
 }
 
-declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetTextureAlphaMod_REAL(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
@@ -4464,7 +4458,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 3) #15
   br i1 %9, label %12, label %10
 
@@ -4529,7 +4523,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   br i1 %.not29, label %84, label %38
 
 38:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = call zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef nonnull %35, ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %3) #15
   br i1 %39, label %40, label %SDL_UpdateTextureYUV.exit
 
@@ -4549,9 +4543,9 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %50 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %50, label %51, label %.critedge.i
@@ -4565,8 +4559,8 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   %57 = load i32, ptr %7, align 4
   %58 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %52, ptr noundef nonnull %5, i32 noundef %53, i32 noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %57) #15
   call void @SDL_UnlockTexture_REAL(ptr noundef nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SDL_UpdateTextureYUV.exit
 
 59:                                               ; preds = %40
@@ -4620,13 +4614,13 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   br label %SDL_UpdateTextureYUV.exit
 
 .critedge.i:                                      ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SDL_UpdateTextureYUV.exit
 
 SDL_UpdateTextureYUV.exit:                        ; preds = %38, %51, %67, %75, %77, %.critedge.i
   %.0.i = phi i1 [ false, %38 ], [ false, %.critedge.i ], [ false, %75 ], [ true, %67 ], [ true, %77 ], [ true, %51 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %96
 
 84:                                               ; preds = %33
@@ -4653,11 +4647,11 @@ SDL_UpdateTextureYUV.exit:                        ; preds = %38, %51, %67, %75, 
 
 96:                                               ; preds = %92, %87, %28, %26, %85, %SDL_UpdateTextureYUV.exit, %16, %13, %10
   %.0 = phi i1 [ %.0.i, %SDL_UpdateTextureYUV.exit ], [ %86, %85 ], [ %17, %16 ], [ %14, %13 ], [ false, %10 ], [ true, %26 ], [ true, %28 ], [ %95, %92 ], [ false, %87 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 {
@@ -4683,9 +4677,9 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef r
   br i1 %17, label %18, label %32
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %19 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef %8, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br i1 %19, label %20, label %.critedge
@@ -4703,8 +4697,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef r
   %30 = load i32, ptr %6, align 4
   %31 = call zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef 0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %26, i32 noundef %28, i32 noundef 0, ptr noundef %29, i32 noundef %30) #15
   call void @SDL_UnlockTexture_REAL(ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge61
 
 32:                                               ; preds = %14
@@ -4762,8 +4756,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef r
   br label %.critedge61
 
 .critedge:                                        ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge61
 
 .critedge61:                                      ; preds = %20, %50, %40, %45, %.critedge, %4, %11
@@ -4828,7 +4822,7 @@ FlushRenderCommands.exit:                         ; preds = %22, %4, %0
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_UpdateYUVTexture_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 3) #15
   br i1 %10, label %13, label %11
 
@@ -4959,7 +4953,7 @@ define hidden zeroext i1 @SDL_UpdateYUVTexture_REAL(ptr noundef %0, ptr noundef 
 
 68:                                               ; preds = %60, %45, %66, %63, %53, %33, %29, %26, %23, %20, %17, %14, %11
   %.0 = phi i1 [ %34, %33 ], [ %54, %53 ], [ %65, %63 ], [ %67, %66 ], [ %30, %29 ], [ %27, %26 ], [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %15, %14 ], [ false, %11 ], [ true, %45 ], [ false, %60 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
 
@@ -4970,7 +4964,7 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   %11 = alloca i32, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @SDL_SW_UpdateYUVTexturePlanar(ptr noundef %15, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %6, i32 noundef %7) #15
@@ -5000,9 +4994,9 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %30 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   br i1 %30, label %31, label %.critedge
@@ -5016,8 +5010,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   %37 = load i32, ptr %11, align 4
   %38 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %32, ptr noundef nonnull %9, i32 noundef %33, i32 noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37) #15
   call void @SDL_UnlockTexture_REAL(ptr noundef nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge66
 
 39:                                               ; preds = %25
@@ -5069,20 +5063,20 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   br label %.critedge66
 
 .critedge:                                        ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge66
 
 .critedge66:                                      ; preds = %31, %57, %47, %55, %.critedge, %17, %8
   %.0 = phi i1 [ false, %8 ], [ true, %17 ], [ false, %.critedge ], [ false, %55 ], [ true, %47 ], [ true, %57 ], [ true, %31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_UpdateNVTexture_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 3) #15
   br i1 %8, label %11, label %9
 
@@ -5197,7 +5191,7 @@ define hidden zeroext i1 @SDL_UpdateNVTexture_REAL(ptr noundef %0, ptr noundef %
 
 60:                                               ; preds = %52, %37, %58, %55, %45, %25, %21, %18, %15, %12, %9
   %.0 = phi i1 [ %26, %25 ], [ %46, %45 ], [ %57, %55 ], [ %59, %58 ], [ %22, %21 ], [ %19, %18 ], [ %16, %15 ], [ %13, %12 ], [ false, %9 ], [ true, %37 ], [ false, %52 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -5208,7 +5202,7 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @SDL_SW_UpdateNVTexturePlanar(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5) #15
@@ -5238,9 +5232,9 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %28 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br i1 %28, label %29, label %.critedge
@@ -5254,8 +5248,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   %35 = load i32, ptr %9, align 4
   %36 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %30, ptr noundef nonnull %7, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35) #15
   call void @SDL_UnlockTexture_REAL(ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge64
 
 37:                                               ; preds = %23
@@ -5307,20 +5301,20 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   br label %.critedge64
 
 .critedge:                                        ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge64
 
 .critedge64:                                      ; preds = %29, %55, %45, %53, %.critedge, %15, %6
   %.0 = phi i1 [ false, %6 ], [ true, %15 ], [ false, %.critedge ], [ false, %53 ], [ true, %45 ], [ true, %55 ], [ true, %29 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_LockTexture_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 3) #15
   %.025.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.025.sroa.gep38 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5537,7 +5531,7 @@ FlushRenderCommandsIfTextureNeeded.exit37.thread: ; preds = %88, %81, %FlushRend
 
 114:                                              ; preds = %FlushRenderCommandsIfTextureNeeded.exit37.thread, %FlushRenderCommandsIfTextureNeeded.exit37, %FlushRenderCommandsIfTextureNeeded.exit, %SDL_LockTextureNative.exit, %FlushRenderCommandsIfTextureNeeded.exit.thread, %12, %7
   %.0 = phi i1 [ %13, %12 ], [ %54, %FlushRenderCommandsIfTextureNeeded.exit.thread ], [ true, %SDL_LockTextureNative.exit ], [ false, %7 ], [ false, %FlushRenderCommandsIfTextureNeeded.exit ], [ %113, %FlushRenderCommandsIfTextureNeeded.exit37.thread ], [ false, %FlushRenderCommandsIfTextureNeeded.exit37 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -5546,10 +5540,10 @@ define hidden noundef zeroext i1 @SDL_LockTextureToSurface_REAL(ptr noundef %0, 
   %4 = alloca %struct.SDL_Rect, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %2, null
@@ -5601,13 +5595,13 @@ define hidden noundef zeroext i1 @SDL_LockTextureToSurface_REAL(ptr noundef %0, 
 
 31:                                               ; preds = %19, %3, %30, %29
   %.0 = phi i1 [ true, %30 ], [ false, %29 ], [ false, %3 ], [ false, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_UnlockTexture_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -5638,11 +5632,11 @@ define hidden void @SDL_UnlockTexture_REAL(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not12, label %35, label %18
 
 18:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %19, align 4
@@ -5669,9 +5663,9 @@ define hidden void @SDL_UnlockTexture_REAL(ptr noundef %0) local_unnamed_addr #0
   br label %SDL_UnlockTextureYUV.exit
 
 SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %76
 
 35:                                               ; preds = %13
@@ -5679,9 +5673,9 @@ SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
   br i1 %.not13, label %71, label %36
 
 36:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -5739,8 +5733,8 @@ SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
   br label %SDL_UnlockTextureNative.exit
 
 SDL_UnlockTextureNative.exit:                     ; preds = %55, %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %76
 
 71:                                               ; preds = %35
@@ -5762,7 +5756,7 @@ SDL_UnlockTextureNative.exit:                     ; preds = %55, %58
   ret void
 }
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetRenderTarget_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -5884,7 +5878,7 @@ FlushRenderCommands.exit:                         ; preds = %26, %44
   br i1 %64, label %66, label %134
 
 66:                                               ; preds = %FlushRenderCommands.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = load ptr, ptr %55, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %68, i64 16, i1 false)
@@ -5956,13 +5950,13 @@ FlushRenderCommands.exit:                         ; preds = %26, %44
   br label %98
 
 QueueCmdSetViewport.exit:                         ; preds = %81, %95
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %134
 
 98:                                               ; preds = %72, %96
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %99 = load ptr, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %100, i64 16, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 619
@@ -6037,7 +6031,7 @@ QueueCmdSetViewport.exit:                         ; preds = %81, %95
 
 QueueCmdSetClipRect.exit:                         ; preds = %109, %118, %126
   %.0.i41 = phi i1 [ true, %109 ], [ true, %126 ], [ false, %118 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %134
 
 134:                                              ; preds = %FlushRenderCommands.exit, %QueueCmdSetViewport.exit, %QueueCmdSetClipRect.exit, %22, %17, %12, %7
@@ -6045,9 +6039,9 @@ QueueCmdSetClipRect.exit:                         ; preds = %109, %118, %126
   ret i1 %.027
 }
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetRenderTarget_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6154,8 +6148,8 @@ define internal fastcc void @UpdateLogicalPresentation(ptr noundef %0) unnamed_a
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %12 = load i32, ptr %11, align 4
   %13 = sitofp i32 %12 to float
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %7, label %14, label %36
 
 14:                                               ; preds = %1
@@ -6501,8 +6495,8 @@ SDL_GetRenderOutputSize_REAL.exit:                ; preds = %34, %32, %27, %22, 
   %217 = fptosi float %216 to i32
   %218 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %217, ptr %218, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -6910,8 +6904,8 @@ define hidden noundef zeroext i1 @SDL_ConvertEventToRenderCoordinates_REAL(ptr n
   br i1 %.not, label %151, label %62
 
 62:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = call zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef nonnull %61, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   br i1 %63, label %.thread, label %85
 
@@ -6938,13 +6932,13 @@ define hidden noundef zeroext i1 @SDL_ConvertEventToRenderCoordinates_REAL(ptr n
   %83 = sitofp i32 %82 to float
   %84 = fmul float %81, %83
   call fastcc void @SDL_RenderVectorFromWindow(ptr noundef nonnull %0, float noundef %79, float noundef %84, ptr noundef nonnull %75, ptr noundef nonnull %80)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %151
 
 85:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %151
 
 86:                                               ; preds = %14
@@ -7037,10 +7031,10 @@ define hidden noundef zeroext i1 @SDL_ConvertEventToRenderCoordinates_REAL(ptr n
   ret i1 %.0
 }
 
-declare ptr @SDL_GetWindowFromID_REAL(i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_GetWindowFromID_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @SDL_RenderVectorFromWindow(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #10 {
+define internal fastcc void @SDL_RenderVectorFromWindow(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #9 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %7 = load float, ptr %6, align 8
   %8 = fmul float %1, %7
@@ -7081,7 +7075,7 @@ define internal fastcc void @SDL_RenderVectorFromWindow(ptr noundef readonly cap
   ret void
 }
 
-declare zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GetRenderViewport_REAL(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -7170,7 +7164,7 @@ define hidden noundef zeroext i1 @SDL_GetRenderViewport_REAL(ptr noundef %0, ptr
   ret i1 %.0
 }
 
-declare float @SDL_ceilf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_ceilf_REAL(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RenderViewportSet_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -7263,31 +7257,31 @@ define hidden zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef %0, ptr noundef
   br i1 %.not, label %72, label %29
 
 29:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = call zeroext i1 @SDL_GetWindowSafeArea_REAL(ptr noundef nonnull %25, ptr noundef nonnull %3) #15
   br i1 %30, label %31, label %.thread
 
 .thread:                                          ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = load i32, ptr %3, align 4
   %33 = sitofp i32 %32 to float
   store float %33, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sitofp i32 %35 to float
   store float %36, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = sitofp i32 %38 to float
   %40 = fadd float %33, %39
   store float %40, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = sitofp i32 %42 to float
@@ -7322,7 +7316,7 @@ define hidden zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef %0, ptr noundef
   %64 = fptosi float %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %64, ptr %65, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = call zeroext i1 @SDL_GetRenderViewport_REAL(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br i1 %66, label %67, label %.thread35
 
@@ -7335,30 +7329,30 @@ define hidden zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef %0, ptr noundef
   br label %.thread35
 
 .thread30:                                        ; preds = %46, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
 .thread35:                                        ; preds = %69, %48
   %.3.ph = phi i1 [ false, %48 ], [ %70, %69 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
 71:                                               ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
 72:                                               ; preds = %28, %71, %.thread35, %.thread30, %.thread, %26, %18, %12
@@ -7366,7 +7360,7 @@ define hidden zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef %0, ptr noundef
   ret i1 %.020
 }
 
-declare zeroext i1 @SDL_GetWindowSafeArea_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetWindowSafeArea_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetRenderClipRect_REAL(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -7458,7 +7452,7 @@ define hidden noundef zeroext i1 @SDL_SetRenderClipRect_REAL(ptr noundef %0, ptr
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 16, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 619
@@ -7534,7 +7528,7 @@ define hidden noundef zeroext i1 @SDL_SetRenderClipRect_REAL(ptr noundef %0, ptr
 
 QueueCmdSetClipRect.exit:                         ; preds = %72, %81, %90
   %.0.i = phi i1 [ true, %72 ], [ true, %90 ], [ false, %81 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %98
 
 98:                                               ; preds = %QueueCmdSetClipRect.exit, %11, %5
@@ -7700,7 +7694,7 @@ define hidden noundef zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef %0, float 
   %63 = fptosi float %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 %63, ptr %64, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = load ptr, ptr %16, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %66, i64 16, i1 false)
@@ -7774,9 +7768,9 @@ define hidden noundef zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef %0, float 
 
 QueueCmdSetViewport.exit:                         ; preds = %70, %79, %94, %95
   %.0.i = phi i1 [ true, %70 ], [ true, %95 ], [ false, %94 ], [ false, %79 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %97 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %98, i64 16, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 619
@@ -7852,7 +7846,7 @@ QueueCmdSetViewport.exit:                         ; preds = %70, %79, %94, %95
 
 QueueCmdSetClipRect.exit:                         ; preds = %107, %116, %125
   %.0.i29 = phi i1 [ true, %107 ], [ true, %125 ], [ false, %116 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %133 = and i1 %.0.i, %.0.i29
   br label %134
 
@@ -8453,7 +8447,7 @@ QueueCmdClear.exit:                               ; preds = %26, %17, %9, %3
 define hidden noundef zeroext i1 @SDL_RenderPoint_REAL(ptr noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.SDL_FPoint, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %2, ptr %6, align 4
@@ -8490,7 +8484,7 @@ define hidden noundef zeroext i1 @SDL_RenderPoint_REAL(ptr noundef %0, float nou
 
 .lr.ph.i:                                         ; preds = %22, %16
   %savedstack = tail call ptr @llvm.stacksave.p0()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load ptr, ptr %17, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %28 = load float, ptr %27, align 4
@@ -8506,7 +8500,7 @@ define hidden noundef zeroext i1 @SDL_RenderPoint_REAL(ptr noundef %0, float nou
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %30, ptr %35, align 4
   %36 = call fastcc zeroext i1 @QueueCmdFillRects(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.stackrestore.p0(ptr %savedstack)
   br label %SDL_RenderPoints_REAL.exit
 
@@ -8516,7 +8510,7 @@ define hidden noundef zeroext i1 @SDL_RenderPoint_REAL(ptr noundef %0, float nou
 
 SDL_RenderPoints_REAL.exit:                       ; preds = %8, %14, %.lr.ph.i, %37
   %.0.i = phi i1 [ false, %14 ], [ false, %8 ], [ %36, %.lr.ph.i ], [ %38, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
 
@@ -8666,7 +8660,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdDrawPoints(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RenderLine_REAL(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.SDL_FPoint], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %1, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %2, ptr %7, align 4
@@ -8675,7 +8669,7 @@ define hidden zeroext i1 @SDL_RenderLine_REAL(ptr noundef %0, float noundef %1, 
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float %4, ptr %9, align 4
   %10 = call zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %10
 }
 
@@ -9111,7 +9105,7 @@ define hidden zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef %1, i
   ret i1 %.0
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @QueueCmdGeometry(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef range(i32 3, -2147483648) %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, float noundef %12, float noundef %13, i32 noundef %14, i32 noundef %15) unnamed_addr #0 {
@@ -9138,7 +9132,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdGeometry(ptr noundef %0, ptr 
   ret i1 %.0.shrunk
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #0 {
@@ -9360,7 +9354,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdDrawLines(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RenderRect_REAL(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [5 x %struct.SDL_FPoint], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   %.0.sroa.gep23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.0.sroa.gep29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9465,7 +9459,7 @@ GetRenderViewportSize.exit:                       ; preds = %35, %33, %._crit_ed
 
 58:                                               ; preds = %GetRenderViewportSize.exit, %11, %5
   %.020 = phi i1 [ false, %11 ], [ %57, %GetRenderViewportSize.exit ], [ false, %5 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.020
 }
 
@@ -9517,7 +9511,7 @@ define hidden zeroext i1 @SDL_RenderRects_REAL(ptr noundef %0, ptr noundef reado
 28:                                               ; preds = %SDL_RenderRect_REAL.exit, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %SDL_RenderRect_REAL.exit ]
   %29 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %1, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
   %.0.sroa.gep23.i = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.0.sroa.gep29.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -9538,7 +9532,7 @@ define hidden zeroext i1 @SDL_RenderRects_REAL(ptr noundef %0, ptr noundef reado
   br label %SDL_RenderRect_REAL.exit.thread
 
 SDL_RenderRect_REAL.exit.thread:                  ; preds = %36, %31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 SDL_RenderRect_REAL.exit:                         ; preds = %33
@@ -9561,7 +9555,7 @@ SDL_RenderRect_REAL.exit:                         ; preds = %33
   store float %.pre.i, ptr %26, align 16
   store float %.pre61.i, ptr %27, align 4
   %42 = call zeroext i1 @SDL_RenderLines_REAL(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %42, i1 %exitcond.not, i1 false
@@ -9578,10 +9572,10 @@ define hidden noundef zeroext i1 @SDL_RenderFillRect_REAL(ptr noundef %0, ptr no
   %.sroa.4 = alloca float, align 4
   %.sroa.6 = alloca float, align 4
   %.sroa.8 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %3 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.0.sroa.gep12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9709,10 +9703,10 @@ SDL_RenderFillRects_REAL.exit:                    ; preds = %41, %46, %.lr.ph.i
 
 67:                                               ; preds = %SDL_RenderFillRects_REAL.exit, %10, %4
   %.07 = phi i1 [ false, %10 ], [ %.0.i, %SDL_RenderFillRects_REAL.exit ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   ret i1 %.07
 }
 
@@ -10003,7 +9997,7 @@ define hidden zeroext i1 @SDL_RenderTexture_REAL(ptr noundef %0, ptr noundef %1,
   br label %75
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %26, align 4
@@ -10025,7 +10019,7 @@ define hidden zeroext i1 @SDL_RenderTexture_REAL(ptr noundef %0, ptr noundef %1,
   br i1 %36, label %37, label %74
 
 37:                                               ; preds = %35, %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not26 = icmp eq ptr %3, null
   br i1 %.not26, label %38, label %67
 
@@ -10091,12 +10085,12 @@ GetRenderViewportSize.exit:                       ; preds = %59, %61
   %72 = getelementptr inbounds nuw i8, ptr %spec.select, i64 272
   store i32 %71, ptr %72, align 8
   %73 = call fastcc zeroext i1 @SDL_RenderTextureInternal(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %5, ptr noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 74:                                               ; preds = %35, %67
   %.1 = phi i1 [ %73, %67 ], [ true, %35 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 75:                                               ; preds = %74, %23, %18, %14, %8
@@ -10104,7 +10098,7 @@ GetRenderViewportSize.exit:                       ; preds = %59, %61
   ret i1 %.019
 }
 
-declare zeroext i1 @SDL_GetRectIntersectionFloat_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetRectIntersectionFloat_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @SDL_RenderTextureInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
@@ -10123,8 +10117,8 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureInternal(ptr noundef
   br i1 %.not, label %16, label %68
 
 16:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = load float, ptr %2, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
@@ -10204,12 +10198,12 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureInternal(ptr noundef
 
 QueueCmdGeometry.exit:                            ; preds = %16, %60, %67
   %.0.shrunk.i = phi i1 [ true, %60 ], [ false, %67 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
 68:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = load float, ptr %3, align 4
   %70 = fmul float %11, %69
   store float %70, ptr %7, align 4
@@ -10243,7 +10237,7 @@ QueueCmdGeometry.exit:                            ; preds = %16, %60, %67
 
 QueueCmdCopy.exit:                                ; preds = %68, %84, %87
   %.0.shrunk.i55 = phi i1 [ true, %84 ], [ false, %87 ], [ false, %68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88
 
 88:                                               ; preds = %QueueCmdCopy.exit, %QueueCmdGeometry.exit
@@ -10256,7 +10250,7 @@ define hidden zeroext i1 @SDL_RenderTextureAffine_REAL(ptr noundef %0, ptr nound
   %7 = alloca %struct.SDL_FRect, align 4
   %8 = alloca [8 x float], align 16
   %9 = alloca [8 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   br i1 %10, label %13, label %11
 
@@ -10386,8 +10380,8 @@ GetRenderViewportSize.exit:                       ; preds = %68, %70
   %83 = load float, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 148
   %85 = load float, ptr %84, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %86 = load float, ptr %7, align 4
   %87 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %88 = load i32, ptr %87, align 4
@@ -10512,13 +10506,13 @@ GetRenderViewportSize.exit:                       ; preds = %68, %70
 
 QueueCmdGeometry.exit:                            ; preds = %146, %149, %156
   %.0.shrunk.i = phi i1 [ true, %149 ], [ false, %156 ], [ false, %146 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %157
 
 157:                                              ; preds = %46, %QueueCmdGeometry.exit, %34, %26, %21, %17, %11
   %.0 = phi i1 [ false, %17 ], [ %27, %26 ], [ %.0.shrunk.i, %QueueCmdGeometry.exit ], [ %35, %34 ], [ false, %21 ], [ false, %11 ], [ true, %46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -10529,8 +10523,8 @@ define hidden zeroext i1 @SDL_RenderTextureRotated_REAL(ptr noundef %0, ptr noun
   %10 = alloca %struct.SDL_FRect, align 4
   %11 = alloca [8 x float], align 16
   %12 = alloca [8 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = icmp eq i32 %6, 0
   %.0127.sroa.gep135 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.0127.sroa.gep136 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -10625,7 +10619,7 @@ define hidden zeroext i1 @SDL_RenderTextureRotated_REAL(ptr noundef %0, ptr noun
   br i1 %59, label %60, label %195
 
 60:                                               ; preds = %58, %48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not187 = icmp eq ptr %3, null
   br i1 %.not187, label %61, label %87
 
@@ -10727,8 +10721,8 @@ GetRenderViewportSize.exit:                       ; preds = %80, %82
   br i1 %.not190, label %116, label %192
 
 116:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %117 = fmul double %4, 0x400921FB54442D18
   %118 = fdiv double %117, 1.800000e+02
   %119 = fptrunc double %118 to float
@@ -10826,8 +10820,8 @@ GetRenderViewportSize.exit:                       ; preds = %80, %82
   store float %188, ptr %189, align 4
   %190 = getelementptr inbounds nuw i8, ptr %spec.select, i64 40
   %191 = call fastcc zeroext i1 @QueueCmdGeometry(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, ptr noundef %11, i32 noundef 8, ptr noundef nonnull %190, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 8, i32 noundef 4, ptr noundef nonnull @rect_index_order, i32 noundef 6, i32 noundef 4, float noundef %112, float noundef %114, i32 noundef 1, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %194
 
 192:                                              ; preds = %103
@@ -10836,19 +10830,19 @@ GetRenderViewportSize.exit:                       ; preds = %80, %82
 
 194:                                              ; preds = %192, %116
   %.0128.in = phi i1 [ %191, %116 ], [ %193, %192 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %195
 
 195:                                              ; preds = %58, %194, %46, %38, %33, %29, %23, %19
   %.0 = phi i1 [ %20, %19 ], [ false, %29 ], [ %39, %38 ], [ %.0128.in, %194 ], [ %47, %46 ], [ false, %33 ], [ false, %23 ], [ true, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
-declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #2
 
-declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @QueueCmdCopyEx(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, double noundef %4, ptr noundef nonnull %5, i32 noundef %6, float noundef %7, float noundef %8) unnamed_addr #0 {
@@ -10875,7 +10869,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdCopyEx(ptr noundef %0, ptr no
 define hidden zeroext i1 @SDL_RenderTextureTiled_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SDL_FRect, align 4
   %7 = alloca %struct.SDL_FRect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   br i1 %8, label %11, label %9
 
@@ -10941,7 +10935,7 @@ define hidden zeroext i1 @SDL_RenderTextureTiled_REAL(ptr noundef %0, ptr nounde
   br i1 %41, label %42, label %104
 
 42:                                               ; preds = %40, %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not39 = icmp eq ptr %4, null
   br i1 %.not39, label %43, label %72
 
@@ -11055,12 +11049,12 @@ GetRenderViewportSize.exit:                       ; preds = %64, %66
 
 103:                                              ; preds = %101, %99
   %.1 = phi i1 [ %102, %101 ], [ %100, %99 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %104
 
 104:                                              ; preds = %40, %103, %28, %24, %19, %15, %9
   %.031 = phi i1 [ false, %15 ], [ %25, %24 ], [ %29, %28 ], [ %.1, %103 ], [ false, %19 ], [ false, %9 ], [ true, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.031
 }
 
@@ -11068,8 +11062,8 @@ GetRenderViewportSize.exit:                       ; preds = %64, %66
 define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Wrap(ptr noundef %0, ptr noundef %1, float %.8.val, float %.12.val, float noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [8 x float], align 16
   %6 = alloca [8 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fmul float %.8.val, %2
@@ -11140,8 +11134,8 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Wrap(ptr nound
 
 QueueCmdGeometry.exit:                            ; preds = %4, %41, %48
   %.0.shrunk.i = phi i1 [ true, %41 ], [ false, %48 ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.shrunk.i
 }
 
@@ -11160,8 +11154,8 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Iterate(ptr no
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = load float, ptr %16, align 4
   %18 = fmul float %3, %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load float, ptr %19, align 4
   %21 = fdiv float %20, %15
@@ -11180,8 +11174,8 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Iterate(ptr no
   %34 = fptosi float %33 to i32
   %35 = load float, ptr %10, align 4
   %36 = fptosi float %35 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %38 = load float, ptr %37, align 4
@@ -11264,7 +11258,7 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Iterate(ptr no
   br i1 %.not.i.us, label %95, label %86
 
 86:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %87 = fmul float %79, %82
   store float %87, ptr %8, align 4
   %88 = fmul float %69, %84
@@ -11283,13 +11277,13 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Iterate(ptr no
   br i1 %94, label %SDL_RenderTextureInternal.exit.us, label %.split.us
 
 SDL_RenderTextureInternal.exit.us:                ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = fadd float %15, %79
   br label %117
 
 95:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = load float, ptr %11, align 4
   %97 = load i32, ptr %47, align 4
   %98 = sitofp i32 %97 to float
@@ -11335,8 +11329,8 @@ SDL_RenderTextureInternal.exit.us:                ; preds = %92
   br i1 %116, label %QueueCmdGeometry.exit.i.us, label %.split90.us
 
 QueueCmdGeometry.exit.i.us:                       ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %117
 
 117:                                              ; preds = %QueueCmdGeometry.exit.i.us, %SDL_RenderTextureInternal.exit.us
@@ -11385,8 +11379,8 @@ QueueCmdGeometry.exit.i.us:                       ; preds = %112
   br label %QueueCmdGeometry.exit.i.thread
 
 QueueCmdGeometry.exit.i.thread:                   ; preds = %95, %.split90.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .split.us:                                        ; preds = %92
@@ -11394,7 +11388,7 @@ QueueCmdGeometry.exit.i.thread:                   ; preds = %95, %.split90.us
   br label %SDL_RenderTextureInternal.exit.thread
 
 SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 ..critedge67_crit_edge.split.split:               ; preds = %.critedge
@@ -11445,10 +11439,10 @@ SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
 
 .loopexit:                                        ; preds = %.critedge.us93, %72, %.lr.ph, %QueueCmdGeometry.exit.i.thread, %SDL_RenderTextureInternal.exit.thread, %140, %143
   %.3 = phi i1 [ true, %143 ], [ false, %140 ], [ false, %SDL_RenderTextureInternal.exit.thread ], [ false, %QueueCmdGeometry.exit.i.thread ], [ false, %.lr.ph ], [ false, %72 ], [ false, %.critedge.us93 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.3
 }
 
@@ -11464,16 +11458,16 @@ define hidden zeroext i1 @SDL_RenderTexture9Grid_REAL(ptr noundef %0, ptr nounde
   %.sroa.8 = alloca float, align 4
   %10 = alloca %struct.SDL_FRect, align 4
   %11 = alloca %struct.SDL_FRect, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0260)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0260)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   %.0137.sroa.gep140 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.0137.sroa.gep143 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11791,16 +11785,16 @@ GetRenderViewportSize.exit:                       ; preds = %58, %60
 
 185:                                              ; preds = %175, %161, %151, %139, %135, %125, %115, %109, %80, %28, %23, %19, %13
   %.0136 = phi i1 [ false, %19 ], [ %29, %28 ], [ false, %23 ], [ false, %13 ], [ false, %80 ], [ false, %109 ], [ false, %115 ], [ false, %125 ], [ false, %135 ], [ false, %139 ], [ false, %151 ], [ false, %161 ], [ %184, %175 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0260)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0260)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21)
   ret i1 %.0136
 }
 
@@ -11816,16 +11810,16 @@ define hidden zeroext i1 @SDL_RenderTexture9GridTiled_REAL(ptr noundef %0, ptr n
   %.sroa.8 = alloca float, align 4
   %11 = alloca %struct.SDL_FRect, align 4
   %12 = alloca %struct.SDL_FRect, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0265)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   %.0142.sroa.gep145 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.0142.sroa.gep148 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12143,16 +12137,16 @@ GetRenderViewportSize.exit:                       ; preds = %59, %61
 
 186:                                              ; preds = %176, %162, %152, %140, %136, %126, %116, %110, %81, %29, %24, %20, %14
   %.0140 = phi i1 [ false, %20 ], [ %30, %29 ], [ false, %24 ], [ false, %14 ], [ false, %81 ], [ false, %110 ], [ false, %116 ], [ false, %126 ], [ false, %136 ], [ false, %140 ], [ false, %152 ], [ false, %162 ], [ %185, %176 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0265)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21)
   ret i1 %.0140
 }
 
@@ -12464,7 +12458,7 @@ define internal fastcc noundef zeroext i1 @SDL_SW_RenderGeometryRaw(ptr noundef 
   %15 = alloca %struct.SDL_FRect, align 4
   %.not = icmp eq ptr %9, null
   %16 = select i1 %.not, i32 %8, i32 %10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
@@ -12795,8 +12789,8 @@ select.unfold:                                    ; preds = %152
   br i1 %207, label %208, label %.critedge
 
 208:                                              ; preds = %205
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %209 = mul nsw i32 %.0282, %5
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr %4, i64 %210
@@ -13039,8 +13033,8 @@ QueueCmdGeometry.exit:                            ; preds = %.critedge, %320, %1
 
 .thread:                                          ; preds = %285, %270, %SDL_SetRenderDrawColorFloat_REAL.exit, %287
   store i32 -1, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next404408 = add nuw nsw i64 %indvars.iv403, 3
   %327 = trunc nuw i64 %indvars.iv.next404408 to i32
   %328 = icmp sgt i32 %16, %327
@@ -13102,7 +13096,7 @@ QueueCmdGeometry.exit359:                         ; preds = %.thread, %318, %Que
   br label %353
 
 353:                                              ; preds = %348, %346, %340
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.4
 }
 
@@ -13269,7 +13263,7 @@ define hidden ptr @SDL_RenderReadPixels_REAL(ptr noundef %0, ptr noundef %1) loc
   br label %FlushRenderCommands.exit
 
 FlushRenderCommands.exit:                         ; preds = %18, %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -13372,7 +13366,7 @@ SDL_GetTextureProperties_REAL.exit:               ; preds = %59, %61, %65
 
 98:                                               ; preds = %50, %85, %88, %91, %48
   %.1 = phi ptr [ null, %48 ], [ %52, %91 ], [ %52, %88 ], [ %52, %85 ], [ null, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
 99:                                               ; preds = %98, %16, %11, %5
@@ -13380,9 +13374,9 @@ SDL_GetTextureProperties_REAL.exit:               ; preds = %59, %61, %65
   ret ptr %.0
 }
 
-declare i32 @SDL_GetSurfaceProperties_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetSurfaceProperties_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RenderPresent_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -13435,8 +13429,8 @@ define hidden zeroext i1 @SDL_RenderPresent_REAL(ptr noundef %0) local_unnamed_a
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %34 = load i8, ptr %33, align 4, !range !3, !noundef !4
   %35 = trunc nuw i8 %34 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %.sroa.0.0.copyload.i = load float, ptr %36, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -13586,7 +13580,7 @@ SDL_SetRenderDrawColorFloat_REAL.exit.i.i:        ; preds = %98, %96, %91
   br i1 %75, label %99, label %112
 
 99:                                               ; preds = %SDL_SetRenderDrawColorFloat_REAL.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0.000000e+00, ptr %100, align 4
@@ -13605,14 +13599,14 @@ SDL_SetRenderDrawColorFloat_REAL.exit.i.i:        ; preds = %98, %96, %91
   %110 = fsub float %109, %107
   store float %110, ptr %101, align 4
   %111 = call zeroext i1 @SDL_RenderFillRect_REAL(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %112
 
 112:                                              ; preds = %99, %SDL_SetRenderDrawColorFloat_REAL.exit.i.i
   br i1 %76, label %113, label %126
 
 113:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %114, align 4
@@ -13631,7 +13625,7 @@ SDL_SetRenderDrawColorFloat_REAL.exit.i.i:        ; preds = %98, %96, %91
   %124 = fsub float %123, %120
   store float %124, ptr %118, align 4
   %125 = call zeroext i1 @SDL_RenderFillRect_REAL(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %126
 
 126:                                              ; preds = %113, %112
@@ -13698,8 +13692,8 @@ SDL_RenderLogicalBorders.exit.i:                  ; preds = %136, %134, %129, %7
   br label %SDL_SetRenderLogicalPresentation_REAL.exit36.i
 
 SDL_SetRenderLogicalPresentation_REAL.exit36.i:   ; preds = %150, %148, %143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_RenderLogicalPresentation.exit
 
 SDL_RenderLogicalPresentation.exit:               ; preds = %20, %SDL_SetRenderLogicalPresentation_REAL.exit36.i
@@ -14046,13 +14040,13 @@ FlushRenderCommandsIfTextureNeeded.exit._crit_edge: ; preds = %FlushRenderComman
   ret void
 }
 
-declare void @SDL_RemoveWindowEventWatch(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_RemoveWindowEventWatch(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_RemoveWindowRenderer(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_RemoveWindowRenderer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetRenderMetalLayer_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -14251,7 +14245,7 @@ define hidden zeroext i1 @SDL_AddVulkanRenderSemaphores_REAL(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 18940194, 18940193) i32 @SDL_ComposeCustomBlendMode_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 18940194, 18940193) i32 @SDL_ComposeCustomBlendMode_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = shl i32 %0, 4
   %8 = or i32 %2, %7
   %9 = shl i32 %1, 8
@@ -14299,7 +14293,7 @@ SDL_GetShortBlendMode.exit:                       ; preds = %6, %17, %18, %19, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 16) i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %5 [
     i32 0, label %SDL_GetLongBlendMode.exit
     i32 1, label %2
@@ -14330,7 +14324,7 @@ SDL_GetLongBlendMode.exit:                        ; preds = %1, %1, %1, %2, %3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 16) i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %5 [
     i32 0, label %SDL_GetLongBlendMode.exit
     i32 1, label %2
@@ -14361,7 +14355,7 @@ SDL_GetLongBlendMode.exit:                        ; preds = %1, %2, %3, %4, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @SDL_GetBlendModeColorOperation(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 16) i32 @SDL_GetBlendModeColorOperation(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %2 [
     i32 0, label %SDL_GetLongBlendMode.exit
     i32 1, label %SDL_GetLongBlendMode.exit
@@ -14382,7 +14376,7 @@ SDL_GetLongBlendMode.exit:                        ; preds = %1, %1, %1, %1, %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 16) i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %3 [
     i32 0, label %SDL_GetLongBlendMode.exit
     i32 1, label %SDL_GetLongBlendMode.exit
@@ -14407,7 +14401,7 @@ SDL_GetLongBlendMode.exit:                        ; preds = %1, %1, %1, %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 16) i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %4 [
     i32 0, label %SDL_GetLongBlendMode.exit
     i32 1, label %2
@@ -14435,7 +14429,7 @@ SDL_GetLongBlendMode.exit:                        ; preds = %1, %2, %3, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 16) i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %2 [
     i32 0, label %SDL_GetLongBlendMode.exit
     i32 1, label %SDL_GetLongBlendMode.exit
@@ -14456,7 +14450,7 @@ SDL_GetLongBlendMode.exit:                        ; preds = %1, %1, %1, %1, %1, 
   ret i32 %.0.i
 }
 
-declare zeroext i1 @SDL_SetWindowTextureVSync(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetWindowTextureVSync(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GetRenderVSync_REAL(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -14808,20 +14802,20 @@ SDL_SetTextureAlphaMod_REAL.exit:                 ; preds = %109
   %137 = mul nuw nsw i32 %136, 10
   %138 = or disjoint i32 %137, 1
   %139 = uitofp nneg i32 %138 to float
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %135, ptr %5, align 4
   store float %139, ptr %113, align 4
   store float 8.000000e+00, ptr %114, align 4
   store float 8.000000e+00, ptr %115, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %.0194050, ptr %6, align 4
   store float %2, ptr %116, align 4
   store float 8.000000e+00, ptr %117, align 4
   store float 8.000000e+00, ptr %118, align 4
   %140 = load ptr, ptr %18, align 8
   %141 = call zeroext i1 @SDL_RenderTexture_REAL(ptr noundef nonnull %0, ptr noundef %140, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %141, label %.backedge, label %.critedge
 
 .backedge:                                        ; preds = %.lr.ph51, %131
@@ -14835,13 +14829,13 @@ SDL_SetTextureAlphaMod_REAL.exit:                 ; preds = %109
   ret i1 %.0
 }
 
-declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_RenderDebugTextFormat_REAL(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %7 = call i32 @SDL_strcmp_REAL(ptr noundef %3, ptr noundef nonnull @.str.92) #15
   %8 = icmp eq i32 %7, 0
@@ -14876,7 +14870,7 @@ define hidden noundef zeroext i1 @SDL_RenderDebugTextFormat_REAL(ptr noundef %0,
   br label %34
 
 26:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %27 = call i32 @SDL_vasprintf_REAL(ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull %5) #15
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -14892,24 +14886,24 @@ define hidden noundef zeroext i1 @SDL_RenderDebugTextFormat_REAL(ptr noundef %0,
 
 33:                                               ; preds = %26, %29
   %.1 = phi i1 [ %31, %29 ], [ false, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %33, %22
   %.0 = phi i1 [ %25, %22 ], [ %.1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #11
+declare void @llvm.va_start.p0(ptr) #10
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #11
+declare void @llvm.va_end.p0(ptr) #10
 
-declare i32 @SDL_vasprintf_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_vasprintf_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetDefaultTextureScaleMode_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -15408,50 +15402,50 @@ define hidden noundef zeroext i1 @SDL_SetRenderGPUState_REAL(ptr noundef %0, ptr
   ret i1 %.0
 }
 
-declare float @SDL_floorf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_floorf_REAL(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #12
+declare float @llvm.fmuladd.f32(float, float, float) #11
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetDisplayForWindow_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetDisplayForWindow_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetPrimaryDisplay_REAL() local_unnamed_addr #3
+declare i32 @SDL_GetPrimaryDisplay_REAL() local_unnamed_addr #2
 
-declare ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SW_UpdateYUVTexturePlanar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SW_UpdateYUVTexturePlanar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SW_UpdateNVTexturePlanar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SW_UpdateNVTexturePlanar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SW_LockYUVTexture(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SW_LockYUVTexture(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i32 5, 11) %1, ptr noundef %2) unnamed_addr #0 {
@@ -15573,7 +15567,7 @@ define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i
   br i1 %66, label %.thread67, label %67
 
 67:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -15629,14 +15623,14 @@ define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i
   br label %.thread73
 
 .thread73:                                        ; preds = %91, %76
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread76
 
 92:                                               ; preds = %85
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   store i8 1, ptr %64, align 2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread67
 
 .thread67:                                        ; preds = %.thread, %92
@@ -15648,7 +15642,7 @@ define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i
 97:                                               ; preds = %.thread67
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %99 = load ptr, ptr %98, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %100, i64 16, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -15700,11 +15694,11 @@ define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store i8 %120, ptr %121, align 8
   store i8 1, ptr %94, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread78
 
 122:                                              ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread76
 
 .thread78:                                        ; preds = %.thread67, %.thread80
@@ -15808,7 +15802,7 @@ define internal fastcc zeroext i1 @RenderLineBresenham(ptr noundef %0, i32 nound
   %16 = load i32, ptr %15, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %14, i32 %16)
   %17 = shl nsw i32 %., 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false)
   store i32 0, ptr %11, align 4
@@ -15957,15 +15951,15 @@ QueueCmdDrawPoints.exit:                          ; preds = %79, %75, %73, %71
 
 81:                                               ; preds = %80, %QueueCmdDrawPoints.exit, %55, %6, %48
   %.0 = phi i1 [ %49, %48 ], [ true, %6 ], [ false, %55 ], [ %.069.in, %QueueCmdDrawPoints.exit ], [ %.069.in, %80 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #2
 
-declare float @SDL_modff_REAL(float noundef, ptr noundef) local_unnamed_addr #3
+declare float @SDL_modff_REAL(float noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @remap_indices(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8) unnamed_addr #0 {
@@ -16077,13 +16071,19 @@ remap_one_indice.exit.thread:                     ; preds = %60, %53, %48, %.pre
   ret i32 %.0
 }
 
-declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #3
+declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #2
 
-declare void @SDL_DelayPrecise_REAL(i64 noundef) local_unnamed_addr #3
+declare void @SDL_DelayPrecise_REAL(i64 noundef) local_unnamed_addr #2
 
-declare void @SDL_SW_DestroyYUVTexture(ptr noundef) local_unnamed_addr #3
+declare void @SDL_SW_DestroyYUVTexture(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
@@ -16098,18 +16098,18 @@ declare ptr @llvm.stacksave.p0() #14
 declare void @llvm.stackrestore.p0(ptr) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nounwind }

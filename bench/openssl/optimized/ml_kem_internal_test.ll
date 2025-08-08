@@ -99,25 +99,25 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
 21:                                               ; preds = %.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread ]
   %.059100 = phi i32 [ 0, %.preheader ], [ %106, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 256, ptr %6, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @ml_kem_private_entropy, i64 noundef 64) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.9, ptr noundef nonnull %6) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %14, ptr noundef nonnull %1) #5
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
@@ -180,10 +180,10 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   br i1 %.not74, label %.thread, label %60
 
 60:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.8, ptr noundef nonnull @ml_kem_public_entropy, i64 noundef 64) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %61 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %17, ptr noundef nonnull %1) #5
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
@@ -276,12 +276,12 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   call void @ossl_ml_kem_key_free(ptr noundef %29) #5
   call void @CRYPTO_free(ptr noundef %.05795, ptr noundef nonnull @.str, i32 noundef 254) #5
   call void @CRYPTO_free(ptr noundef %.05696, ptr noundef nonnull @.str, i32 noundef 255) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %107, label %21, !llvm.loop !24
@@ -293,21 +293,18 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   br label %110
 
 .critedge:                                        ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %110
 
 110:                                              ; preds = %.critedge, %13, %16, %0, %107
   %.0 = phi i32 [ %109, %107 ], [ 0, %0 ], [ 0, %16 ], [ 0, %13 ], [ 0, %.critedge ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -320,10 +317,7 @@ declare ptr @RAND_get0_public(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_uint(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -352,7 +346,7 @@ declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @ossl_ml_kem_decap(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @test_mem_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -366,11 +360,17 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

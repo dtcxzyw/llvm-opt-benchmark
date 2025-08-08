@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @mpeg_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = call zeroext i1 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 16, ptr noundef %1, ptr noundef %2)
   br i1 %6, label %.preheader, label %8
@@ -74,7 +74,7 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr noundef captures(none) %0, ptr
   store ptr @mpeg_seek_read, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %28, align 8
-  %29 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #8
+  %29 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #7
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %29, ptr %30, align 8
   store i64 0, ptr %29, align 8
@@ -90,18 +90,15 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr noundef captures(none) %0, ptr
 
 .loopexit:                                        ; preds = %13, %.preheader, %17, %8, %21
   %.0 = phi i32 [ 1, %21 ], [ %., %8 ], [ -1, %17 ], [ 0, %.preheader ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @mpeg_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -145,10 +142,7 @@ define internal noundef zeroext i1 @mpeg_seek_read(ptr noundef readonly captures
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_mpeg() local_unnamed_addr #0 {
@@ -159,13 +153,13 @@ define hidden void @register_mpeg() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %.96.val, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -178,7 +172,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
   %12 = alloca i32, align 4
   %13 = alloca %struct.mpa, align 4
   %14 = alloca %struct.nstime_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef align 8 dereferenceable(16) %.96.val, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %.96.val, i64 24
   %16 = load i8, ptr %15, align 8, !range !8, !noundef !9
@@ -186,7 +180,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
   br i1 %17, label %18, label %92
 
 18:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %19 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 4, ptr noundef %3, ptr noundef %4)
   br i1 %19, label %20, label %mpeg_read_audio_packet.exit
 
@@ -197,9 +191,9 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %12, align 4
-  %25 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #9, !srcloc !10
+  %25 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #8, !srcloc !10
   store i32 %25, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %25, ptr %13, align 4
   %26 = icmp ugt i32 %25, -2097153
   br i1 %26, label %27, label %59
@@ -277,7 +271,7 @@ define internal fastcc noundef zeroext i1 @mpeg_read_packet(ptr captures(none) %
 
 71:                                               ; preds = %68
   %72 = load i32, ptr %12, align 4
-  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #9, !srcloc !11
+  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #8, !srcloc !11
   store i32 %73, ptr %12, align 4
   %74 = call i32 @decode_synchsafe_int(i32 noundef %73)
   %75 = add i32 %74, 10
@@ -325,16 +319,16 @@ mpeg_resync.exit.i:                               ; preds = %87, %84, %.thread.i
 
 91:                                               ; preds = %mpeg_resync.exit.i, %71, %68, %66, %63, %55, %46, %37
   %.1.i = phi i32 [ 0, %63 ], [ 0, %66 ], [ 0, %68 ], [ %45, %37 ], [ %45, %55 ], [ %45, %46 ], [ %75, %71 ], [ %..015.i.i, %mpeg_resync.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %mpeg_read_audio_packet.exit
 
 mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   %.0.i = phi i32 [ %.1.i, %91 ], [ 0, %18 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %169
 
 92:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %93
 
 93:                                               ; preds = %107, %92
@@ -348,7 +342,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 98:                                               ; preds = %95
   %99 = load i32, ptr %6, align 4
-  %100 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %99) #9, !srcloc !13
+  %100 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %99) #8, !srcloc !13
   store i32 %100, ptr %6, align 4
   %.mask.i = and i32 %100, -256
   %101 = icmp eq i32 %.mask.i, 256
@@ -376,7 +370,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 .loopexit2.i:                                     ; preds = %98, %103
   %109 = call i64 @file_tell(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %110 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 3, ptr noundef %3, ptr noundef %4)
   br i1 %110, label %111, label %168
 
@@ -392,9 +386,9 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   ]
 
 115:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %116 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %3, ptr noundef %4)
   br i1 %116, label %117, label %.critedge.i
 
@@ -404,11 +398,11 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 119:                                              ; preds = %117
   %120 = load i32, ptr %8, align 4
-  %121 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %120) #9, !srcloc !14
+  %121 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %120) #8, !srcloc !14
   %122 = zext i32 %121 to i64
   %123 = shl nuw i64 %122, 32
   %124 = load i32, ptr %9, align 4
-  %125 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %124) #9, !srcloc !15
+  %125 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %124) #8, !srcloc !15
   %126 = zext i32 %125 to i64
   %127 = or disjoint i64 %123, %126
   %.mask99.i = and i64 %122, 3221225472
@@ -459,13 +453,13 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 158:                                              ; preds = %135, %132, %119
   %.184.shrunk.i = phi i8 [ %narrow.i, %132 ], [ %narrow.i, %135 ], [ 12, %119 ]
   %.184.i = zext nneg i8 %.184.shrunk.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %165
 
 159:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %160 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %3, ptr noundef %4)
   br i1 %160, label %.thread.i, label %164
 
@@ -474,11 +468,11 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   %rev.i = call i16 @llvm.bswap.i16(i16 %161)
   %162 = zext i16 %rev.i to i32
   %163 = add nuw nsw i32 %162, 6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %165
 
 164:                                              ; preds = %159
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %168
 
 165:                                              ; preds = %.thread.i, %158, %113
@@ -489,19 +483,19 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   br label %168
 
 .critedge.i:                                      ; preds = %130, %128, %117, %115
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %168
 
 168:                                              ; preds = %.critedge.i, %165, %164, %111, %.loopexit2.i
   %.1.i32 = phi i32 [ 0, %164 ], [ 0, %.loopexit2.i ], [ 0, %111 ], [ 0, %.critedge.i ], [ %..285.i, %165 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mpeg_read_pes_packet.exit
 
 mpeg_read_pes_packet.exit:                        ; preds = %93, %95, %107, %103, %105, %168
   %.0.i31 = phi i32 [ %.1.i32, %168 ], [ 0, %105 ], [ 0, %103 ], [ 0, %107 ], [ 0, %95 ], [ 0, %93 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %169
 
 169:                                              ; preds = %mpeg_read_pes_packet.exit, %mpeg_read_audio_packet.exit
@@ -538,48 +532,54 @@ mpeg_read_pes_packet.exit:                        ; preds = %93, %95, %107, %103
 
 183:                                              ; preds = %171, %169, %180
   %.029 = phi i1 [ true, %180 ], [ false, %169 ], [ false, %171 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.029
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mpa_version(ptr noundef) local_unnamed_addr #2
+declare i32 @mpa_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mpa_layer(ptr noundef) local_unnamed_addr #2
+declare i32 @mpa_layer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mpa_bitrate(ptr noundef) local_unnamed_addr #2
+declare i32 @mpa_bitrate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mpa_frequency(ptr noundef) local_unnamed_addr #2
+declare i32 @mpa_frequency(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mpa_samples(ptr noundef) local_unnamed_addr #2
+declare i32 @mpa_samples(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mpa_padding(ptr noundef) local_unnamed_addr #2
+declare i32 @mpa_padding(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @decode_synchsafe_int(i32 noundef) local_unnamed_addr #2
+declare i32 @decode_synchsafe_int(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @file_getc(ptr noundef) local_unnamed_addr #2
+declare i32 @file_getc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
@@ -588,15 +588,14 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i16 @llvm.bswap.i16(i16) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { allocsize(0) }
-attributes #9 = { nounwind memory(none) }
+attributes #7 = { allocsize(0) }
+attributes #8 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

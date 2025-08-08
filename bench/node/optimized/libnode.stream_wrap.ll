@@ -1120,7 +1120,7 @@ declare i32 @uv_fileno(ptr noundef, ptr noundef) local_unnamed_addr #0
 define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap5GetFDEv(ptr noundef readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   %fd.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fd.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %fd.i)
   store i32 -1, ptr %fd.i, align 4
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %stream_.i.i, align 8
@@ -1134,7 +1134,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4node15LibuvStreamWrap5GetFDEv.exit:           ; preds = %entry, %if.then.i
   %1 = phi i32 [ %.pre.i, %if.then.i ], [ -1, %entry ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %fd.i)
   ret i32 %1
 }
 
@@ -1401,7 +1401,7 @@ if.then29:                                        ; preds = %if.then27
   %12 = load ptr, ptr %realm_.i, align 8
   %env_.i.i11 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %13 = load ptr, ptr %env_.i.i11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i)
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %13, i64 88
   %14 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i, ptr noundef %14) #18
@@ -1478,14 +1478,14 @@ if.end46.i:                                       ; preds = %do.end38.i
 _ZN4nodeL12AcceptHandleINS_7TCPWrapEEEN2v810MaybeLocalINS2_6ObjectEEEPNS_11EnvironmentEPNS_15LibuvStreamWrapE.exit: ; preds = %if.then29, %if.end46.i
   %retval.sroa.0.0.i = phi ptr [ %call4.i.i, %if.end46.i ], [ null, %if.then29 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i)
   br label %land.rhs
 
 if.then37:                                        ; preds = %if.then27
   %30 = load ptr, ptr %realm_.i, align 8
   %env_.i.i13 = getelementptr inbounds nuw i8, ptr %30, i64 176
   %31 = load ptr, ptr %env_.i.i13, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scope.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i14)
   %isolate_.i.i15 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %32 = load ptr, ptr %isolate_.i.i15, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i14, ptr noundef %32) #18
@@ -1562,14 +1562,14 @@ if.end46.i37:                                     ; preds = %do.end38.i31
 _ZN4nodeL12AcceptHandleINS_8PipeWrapEEEN2v810MaybeLocalINS2_6ObjectEEEPNS_11EnvironmentEPNS_15LibuvStreamWrapE.exit: ; preds = %if.then37, %if.end46.i37
   %retval.sroa.0.0.i39 = phi ptr [ %call4.i.i38, %if.end46.i37 ], [ null, %if.then37 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i14) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scope.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i14)
   br label %land.rhs
 
 if.then47:                                        ; preds = %if.then27
   %48 = load ptr, ptr %realm_.i, align 8
   %env_.i.i45 = getelementptr inbounds nuw i8, ptr %48, i64 176
   %49 = load ptr, ptr %env_.i.i45, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scope.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i46)
   %isolate_.i.i47 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %50 = load ptr, ptr %isolate_.i.i47, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i46, ptr noundef %50) #18
@@ -1646,7 +1646,7 @@ if.end46.i69:                                     ; preds = %do.end38.i63
 _ZN4nodeL12AcceptHandleINS_7UDPWrapEEEN2v810MaybeLocalINS2_6ObjectEEEPNS_11EnvironmentEPNS_15LibuvStreamWrapE.exit: ; preds = %if.then47, %if.end46.i69
   %retval.sroa.0.0.i71 = phi ptr [ %call4.i.i70, %if.end46.i69 ], [ null, %if.then47 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i46) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scope.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i46)
   br label %land.rhs
 
 do.body63:                                        ; preds = %if.then27
@@ -2575,7 +2575,7 @@ define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_08__invokeEP11
 entry:
   %scope.i.i = alloca %"class.v8::HandleScope", align 8
   %handle.val = load ptr, ptr %handle, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %scope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i.i)
   %realm_.i.i.i = getelementptr inbounds nuw i8, ptr %handle.val, i64 16
   %0 = load ptr, ptr %realm_.i.i.i, align 8
   %env_.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2606,7 +2606,7 @@ entry:
   store i64 %10, ptr %ref.tmp.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i.i.i) #18
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i.i) #18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %scope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i.i)
   ret void
 }
 
@@ -2615,7 +2615,7 @@ define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_18__invokeEP11
 entry:
   %try_catch.i = alloca %"class.node::errors::TryCatchScope", align 8
   %stream.val = load ptr, ptr %stream, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %try_catch.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %try_catch.i)
   %realm_.i.i = getelementptr inbounds nuw i8, ptr %stream.val, i64 16
   %0 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2630,7 +2630,7 @@ entry:
   call void @_ZN2v88TryCatch10SetVerboseEb(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, i1 noundef zeroext true) #18
   %call2.i = call i8 @_ZN4node15LibuvStreamWrap8OnUvReadElPK8uv_buf_t(ptr noundef nonnull align 8 dereferenceable(160) %stream.val, i64 noundef %nread, ptr noundef %buf)
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch.i) #18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %try_catch.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %try_catch.i)
   ret void
 }
 
@@ -3560,10 +3560,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

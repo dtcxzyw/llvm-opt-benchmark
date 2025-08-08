@@ -287,17 +287,11 @@ define i32 @_testfunc_array_in_struct2(i64 %0, i64 %1) local_unnamed_addr #4 {
   br i1 %exitcond.not, label %5, label %6, !llvm.loop !15
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define double @_testfunc_array_in_struct3A(<2 x float> %0, <2 x float> %1) local_unnamed_addr #7 {
+define double @_testfunc_array_in_struct3A(<2 x float> %0, <2 x float> %1) local_unnamed_addr #6 {
   %3 = alloca %struct.Test3A, align 8
   store <2 x float> %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -350,7 +344,7 @@ define { double, double } @_testfunc_array_in_struct3B_set_defaults() local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @_testfunc_array_in_struct3C(ptr noundef readonly byval(%struct.Test3C) align 8 captures(none) %0) local_unnamed_addr #8 {
+define double @_testfunc_array_in_struct3C(ptr noundef readonly byval(%struct.Test3C) align 8 captures(none) %0) local_unnamed_addr #7 {
   br label %3
 
 2:                                                ; preds = %3
@@ -368,7 +362,7 @@ define double @_testfunc_array_in_struct3C(ptr noundef readonly byval(%struct.Te
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_testfunc_array_in_struct3C_set_defaults(ptr dead_on_unwind noalias writable writeonly sret(%struct.Test3C) align 8 captures(none) %0) local_unnamed_addr #9 {
+define void @_testfunc_array_in_struct3C_set_defaults(ptr dead_on_unwind noalias writable writeonly sret(%struct.Test3C) align 8 captures(none) %0) local_unnamed_addr #8 {
   br label %3
 
 2:                                                ; preds = %3
@@ -386,7 +380,7 @@ define void @_testfunc_array_in_struct3C_set_defaults(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @_testfunc_array_in_struct3D(ptr noundef readonly byval(%struct.Test3D) align 8 captures(none) %0) local_unnamed_addr #8 {
+define double @_testfunc_array_in_struct3D(ptr noundef readonly byval(%struct.Test3D) align 8 captures(none) %0) local_unnamed_addr #7 {
   br label %3
 
 2:                                                ; preds = %3
@@ -404,7 +398,7 @@ define double @_testfunc_array_in_struct3D(ptr noundef readonly byval(%struct.Te
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_testfunc_array_in_struct3D_set_defaults(ptr dead_on_unwind noalias writable writeonly sret(%struct.Test3D) align 8 captures(none) %0) local_unnamed_addr #9 {
+define void @_testfunc_array_in_struct3D_set_defaults(ptr dead_on_unwind noalias writable writeonly sret(%struct.Test3D) align 8 captures(none) %0) local_unnamed_addr #8 {
   br label %3
 
 2:                                                ; preds = %3
@@ -422,7 +416,7 @@ define void @_testfunc_array_in_struct3D_set_defaults(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @_testfunc_array_in_struct3E(ptr noundef readonly byval(%struct.Test3E) align 8 captures(none) %0) local_unnamed_addr #8 {
+define double @_testfunc_array_in_struct3E(ptr noundef readonly byval(%struct.Test3E) align 8 captures(none) %0) local_unnamed_addr #7 {
   br label %3
 
 2:                                                ; preds = %3
@@ -440,7 +434,7 @@ define double @_testfunc_array_in_struct3E(ptr noundef readonly byval(%struct.Te
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_testfunc_array_in_struct3E_set_defaults(ptr dead_on_unwind noalias writable writeonly sret(%struct.Test3E) align 8 captures(none) %0) local_unnamed_addr #9 {
+define void @_testfunc_array_in_struct3E_set_defaults(ptr dead_on_unwind noalias writable writeonly sret(%struct.Test3E) align 8 captures(none) %0) local_unnamed_addr #8 {
   br label %3
 
 2:                                                ; preds = %3
@@ -458,7 +452,7 @@ define void @_testfunc_array_in_struct3E_set_defaults(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_testfunc_union_by_value1(i64 %0) local_unnamed_addr #10 {
+define i64 @_testfunc_union_by_value1(i64 %0) local_unnamed_addr #9 {
   %sext = shl i64 %0, 32
   %2 = ashr exact i64 %sext, 32
   %3 = ashr i64 %0, 32
@@ -468,7 +462,7 @@ define i64 @_testfunc_union_by_value1(i64 %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_value2(ptr noundef readonly byval(%struct.Test5) align 8 captures(none) %0) local_unnamed_addr #11 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_value2(ptr noundef readonly byval(%struct.Test5) align 8 captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !33
@@ -478,14 +472,14 @@ define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_value2(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_testfunc_union_by_reference1(ptr noundef captures(none) %0) local_unnamed_addr #12 {
+define i64 @_testfunc_union_by_reference1(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !tbaa !14
   store i64 0, ptr %0, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference2(ptr noundef captures(none) %0) local_unnamed_addr #12 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference2(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr %0, align 8, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !14
@@ -496,7 +490,7 @@ define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference2(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr noundef captures(none) initializes((4, 8), (12, 24), (28, 32)) %0) local_unnamed_addr #12 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr noundef captures(none) initializes((4, 8), (12, 24), (28, 32)) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !33
@@ -510,7 +504,7 @@ define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value1(i32 %0) local_unnamed_addr #10 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value1(i32 %0) local_unnamed_addr #9 {
   %.sroa.0.0.extract.trunc = trunc i32 %0 to i8
   %2 = and i32 %0, 1
   %3 = shl i8 %.sroa.0.0.extract.trunc, 5
@@ -529,7 +523,7 @@ define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value1(i32 %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -9, 6) i64 @_testfunc_bitfield_by_reference1(ptr noundef captures(none) initializes((1, 4)) %0) local_unnamed_addr #12 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_reference1(ptr noundef captures(none) initializes((1, 4)) %0) local_unnamed_addr #11 {
   %2 = load i8, ptr %0, align 4
   %3 = and i8 %2, 1
   %4 = shl i8 %2, 5
@@ -546,7 +540,7 @@ define range(i64 -9, 6) i64 @_testfunc_bitfield_by_reference1(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr noundef captures(none) initializes((1, 4)) %0) local_unnamed_addr #12 {
+define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr noundef captures(none) initializes((1, 4)) %0) local_unnamed_addr #11 {
   %2 = load i8, ptr %0, align 4
   %3 = and i8 %2, 1
   %4 = lshr i8 %2, 1
@@ -563,9 +557,9 @@ define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_testfunc_bitfield_by_reference3(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #11 {
+define i64 @_testfunc_bitfield_by_reference3(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = alloca [10 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i16, ptr %0, align 4, !tbaa !35
   %5 = zext i16 %4 to i64
   store i64 %5, ptr %3, align 16, !tbaa !38
@@ -624,12 +618,12 @@ define i64 @_testfunc_bitfield_by_reference3(ptr noundef readonly captures(none)
 
 45:                                               ; preds = %2, %42
   %.0 = phi i64 [ %44, %42 ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value2(i32 %0) local_unnamed_addr #10 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value2(i32 %0) local_unnamed_addr #9 {
   %2 = and i32 %0, 1
   %3 = shl i32 %0, 30
   %4 = shl i32 %0, 29
@@ -642,7 +636,7 @@ define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value2(i32 %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @testfunc_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define void @testfunc_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 4, !tbaa !39
   %3 = getelementptr i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !39
@@ -655,10 +649,10 @@ define void @testfunc_array(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef x86_fp80 @testfunc_Ddd(double noundef %0, double noundef %1) local_unnamed_addr #13 {
+define noundef x86_fp80 @testfunc_Ddd(double noundef %0, double noundef %1) local_unnamed_addr #12 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double %0, ptr %3, align 8, !tbaa !22
@@ -673,7 +667,7 @@ define noundef x86_fp80 @testfunc_Ddd(double noundef %0, double noundef %1) loca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef x86_fp80 @testfunc_DDD(x86_fp80 noundef %0, x86_fp80 noundef %1) local_unnamed_addr #13 {
+define noundef x86_fp80 @testfunc_DDD(x86_fp80 noundef %0, x86_fp80 noundef %1) local_unnamed_addr #12 {
   %3 = alloca x86_fp80, align 16
   %4 = alloca x86_fp80, align 16
   store x86_fp80 %0, ptr %3, align 16, !tbaa !40
@@ -687,7 +681,7 @@ define noundef x86_fp80 @testfunc_DDD(x86_fp80 noundef %0, x86_fp80 noundef %1) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @testfunc_iii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef i32 @testfunc_iii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %3, align 4, !tbaa !39
@@ -698,73 +692,73 @@ define noundef i32 @testfunc_iii(i32 noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @myprintf(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #13 {
+define noundef i32 @myprintf(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #12 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stdout, align 8, !tbaa !42, !noalias !45
   %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #35
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #15
+declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #15
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define ptr @my_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
+define ptr @my_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
   %3 = tail call ptr @strtok(ptr noundef %0, ptr noundef %1) #35
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #17
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define ptr @my_strchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define ptr @my_strchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef %1) #36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) #19
+declare ptr @strchr(ptr noundef, i32 noundef) #18
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define double @my_sqrt(double noundef %0) local_unnamed_addr #20 {
+define double @my_sqrt(double noundef %0) local_unnamed_addr #19 {
   %2 = tail call double @sqrt(double noundef %0) #35, !tbaa !39
   ret double %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #21
+declare double @sqrt(double noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind uwtable
-define void @my_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #13 {
+define void @my_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #12 {
   tail call void @qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #35
   ret void
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_testfunc_ai8(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #10 {
+define noundef ptr @_testfunc_ai8(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #9 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_testfunc_v(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #23 {
+define void @_testfunc_v(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #22 {
   %4 = add i32 %1, %0
   store i32 %4, ptr %2, align 4, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_testfunc_i_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #10 {
+define i32 @_testfunc_i_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #9 {
   %7 = sext i8 %0 to i32
   %8 = sext i16 %1 to i32
   %9 = add nsw i32 %8, %7
@@ -780,7 +774,7 @@ define i32 @_testfunc_i_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define float @_testfunc_f_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #10 {
+define float @_testfunc_f_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #9 {
   %7 = sext i8 %0 to i32
   %8 = sext i16 %1 to i32
   %9 = add nsw i32 %8, %7
@@ -796,7 +790,7 @@ define float @_testfunc_f_bhilfd(i8 noundef signext %0, i16 noundef signext %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define double @_testfunc_d_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #10 {
+define double @_testfunc_d_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #9 {
   %7 = sext i8 %0 to i32
   %8 = sext i16 %1 to i32
   %9 = add nsw i32 %8, %7
@@ -811,7 +805,7 @@ define double @_testfunc_d_bhilfd(i8 noundef signext %0, i16 noundef signext %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define x86_fp80 @_testfunc_D_bhilfD(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, x86_fp80 noundef %5) local_unnamed_addr #10 {
+define x86_fp80 @_testfunc_D_bhilfD(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, x86_fp80 noundef %5) local_unnamed_addr #9 {
   %7 = sext i8 %0 to i32
   %8 = sext i16 %1 to i32
   %9 = add nsw i32 %8, %7
@@ -826,12 +820,12 @@ define x86_fp80 @_testfunc_D_bhilfD(i8 noundef signext %0, i16 noundef signext %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_testfunc_p_p(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #10 {
+define noundef ptr @_testfunc_p_p(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #9 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_testfunc_c_p_p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define ptr @_testfunc_c_p_p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !tbaa !39
   %4 = add i32 %3, -1
   %5 = sext i32 %4 to i64
@@ -841,12 +835,12 @@ define ptr @_testfunc_c_p_p(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @get_strchr() local_unnamed_addr #10 {
+define noundef nonnull ptr @get_strchr() local_unnamed_addr #9 {
   ret ptr @strchr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @my_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
+define noundef ptr @my_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #36
   %3 = add i64 %2, 1
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #37
@@ -862,25 +856,25 @@ define noundef ptr @my_strdup(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #25
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #26
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @my_free(ptr noundef captures(none) %0) local_unnamed_addr #27 {
+define void @my_free(ptr noundef captures(none) %0) local_unnamed_addr #26 {
   tail call void @free(ptr noundef %0) #35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #28
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @my_wcsdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
+define noalias noundef ptr @my_wcsdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #36
   %3 = shl i64 %2, 2
   %4 = add i64 %3, 4
@@ -897,10 +891,10 @@ define noalias noundef ptr @my_wcsdup(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #19
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define i64 @my_wcslen(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define i64 @my_wcslen(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #36
   ret i64 %2
 }
@@ -916,7 +910,7 @@ define noundef i32 @_testfunc_callfuncp(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_testfunc_deref_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define i32 @_testfunc_deref_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 4, !tbaa !39
   ret i32 %2
 }
@@ -924,15 +918,15 @@ define i32 @_testfunc_deref_pointer(ptr noundef readonly captures(none) %0) loca
 ; Function Attrs: nounwind uwtable
 define i32 @_testfunc_callback_with_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 16 dereferenceable(40) @__const._testfunc_callback_with_pointer.table, i64 40, i1 false)
   %3 = call i32 %0(ptr noundef nonnull %2) #35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_testfunc_q_bhilfdq(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5, i64 noundef %6) local_unnamed_addr #10 {
+define i64 @_testfunc_q_bhilfdq(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5, i64 noundef %6) local_unnamed_addr #9 {
   %8 = sext i8 %0 to i32
   %9 = sext i16 %1 to i32
   %10 = add nsw i32 %9, %8
@@ -950,7 +944,7 @@ define i64 @_testfunc_q_bhilfdq(i8 noundef signext %0, i16 noundef signext %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_testfunc_q_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #10 {
+define i64 @_testfunc_q_bhilfd(i8 noundef signext %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, float noundef %4, double noundef %5) local_unnamed_addr #9 {
   %7 = sext i8 %0 to i32
   %8 = sext i16 %1 to i32
   %9 = add nsw i32 %8, %7
@@ -1006,13 +1000,13 @@ define i64 @_testfunc_callback_q_qf(i64 noundef %0, ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @getSPAMANDEGGS(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #23 {
+define noundef i32 @getSPAMANDEGGS(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #22 {
   store ptr @my_eggs, ptr %0, align 8, !tbaa !55
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @_testfunc_byval(i64 %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #23 {
+define i32 @_testfunc_byval(i64 %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #22 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -1029,7 +1023,7 @@ define i32 @_testfunc_byval(i64 %0, ptr noundef writeonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @get_an_integer() local_unnamed_addr #29 {
+define i32 @get_an_integer() local_unnamed_addr #28 {
   %1 = load i32, ptr @an_integer, align 4, !tbaa !39
   ret i32 %1
 }
@@ -1065,7 +1059,7 @@ define double @integrate(double noundef %0, double noundef %1, ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #30
+declare double @llvm.fmuladd.f64(double, double, double) #29
 
 ; Function Attrs: nounwind uwtable
 define internal void @_xxx_init(ptr noundef %0, ptr noundef %1) #0 {
@@ -1078,7 +1072,7 @@ define internal void @_xxx_init(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @library_get() local_unnamed_addr #10 {
+define noundef nonnull ptr @library_get() local_unnamed_addr #9 {
   ret ptr @_xxx_lib
 }
 
@@ -1086,8 +1080,8 @@ define noundef nonnull ptr @library_get() local_unnamed_addr #10 {
 define hidden ptr @py_func_si(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %3, ptr noundef nonnull %4) #35
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -1098,17 +1092,17 @@ define hidden ptr @py_func_si(ptr readnone captures(none) %0, ptr noundef %1) #0
 
 8:                                                ; preds = %2, %6
   %.0 = phi ptr [ %7, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #31
+declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #30
 
-declare ptr @Py_GetConstantBorrowed(i32 noundef) local_unnamed_addr #31
+declare ptr @Py_GetConstantBorrowed(i32 noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_py_func_si(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @_py_func_si(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   ret void
 }
 
@@ -1119,12 +1113,12 @@ define hidden ptr @py_func(ptr readnone captures(none) %0, ptr readnone captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_py_func() local_unnamed_addr #10 {
+define void @_py_func() local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -256, 1000) i32 @unpack_bitfields(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #11 {
+define range(i32 -256, 1000) i32 @unpack_bitfields(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #10 {
   switch i8 %1, label %84 [
     i8 65, label %3
     i8 66, label %8
@@ -1263,7 +1257,7 @@ define range(i32 -256, 1000) i32 @unpack_bitfields(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -256, 1000) i32 @unpack_bitfields_msvc(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #11 {
+define range(i32 -256, 1000) i32 @unpack_bitfields_msvc(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #10 {
   switch i8 %1, label %83 [
     i8 65, label %3
     i8 66, label %7
@@ -1401,7 +1395,7 @@ define range(i32 -256, 1000) i32 @unpack_bitfields_msvc(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext range(i8 -42, 43) i8 @tf_b(i8 noundef signext %0) local_unnamed_addr #32 {
+define noundef signext range(i8 -42, 43) i8 @tf_b(i8 noundef signext %0) local_unnamed_addr #31 {
   %2 = sext i8 %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i8 %0, 3
@@ -1409,7 +1403,7 @@ define noundef signext range(i8 -42, 43) i8 @tf_b(i8 noundef signext %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 0, 86) i8 @tf_B(i8 noundef zeroext %0) local_unnamed_addr #32 {
+define noundef zeroext range(i8 0, 86) i8 @tf_B(i8 noundef zeroext %0) local_unnamed_addr #31 {
   %2 = zext i8 %0 to i64
   store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i8 %0, 3
@@ -1417,7 +1411,7 @@ define noundef zeroext range(i8 0, 86) i8 @tf_B(i8 noundef zeroext %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext range(i16 -10922, 10923) i16 @tf_h(i16 noundef signext %0) local_unnamed_addr #32 {
+define noundef signext range(i16 -10922, 10923) i16 @tf_h(i16 noundef signext %0) local_unnamed_addr #31 {
   %2 = sext i16 %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i16 %0, 3
@@ -1425,7 +1419,7 @@ define noundef signext range(i16 -10922, 10923) i16 @tf_h(i16 noundef signext %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext range(i16 0, 21846) i16 @tf_H(i16 noundef zeroext %0) local_unnamed_addr #32 {
+define noundef zeroext range(i16 0, 21846) i16 @tf_H(i16 noundef zeroext %0) local_unnamed_addr #31 {
   %2 = zext i16 %0 to i64
   store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i16 %0, 3
@@ -1433,7 +1427,7 @@ define noundef zeroext range(i16 0, 21846) i16 @tf_H(i16 noundef zeroext %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i32 -715827882, 715827883) i32 @tf_i(i32 noundef %0) local_unnamed_addr #32 {
+define noundef range(i32 -715827882, 715827883) i32 @tf_i(i32 noundef %0) local_unnamed_addr #31 {
   %2 = sext i32 %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i32 %0, 3
@@ -1441,7 +1435,7 @@ define noundef range(i32 -715827882, 715827883) i32 @tf_i(i32 noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 1431655766) i32 @tf_I(i32 noundef %0) local_unnamed_addr #32 {
+define noundef range(i32 0, 1431655766) i32 @tf_I(i32 noundef %0) local_unnamed_addr #31 {
   %2 = zext i32 %0 to i64
   store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i32 %0, 3
@@ -1449,35 +1443,35 @@ define noundef range(i32 0, 1431655766) i32 @tf_I(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_l(i64 noundef %0) local_unnamed_addr #32 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_l(i64 noundef %0) local_unnamed_addr #31 {
   store i64 %0, ptr @last_tf_arg_s, align 8, !tbaa !57
   %2 = sdiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 6148914691236517206) i64 @tf_L(i64 noundef %0) local_unnamed_addr #32 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_L(i64 noundef %0) local_unnamed_addr #31 {
   store i64 %0, ptr @last_tf_arg_u, align 8, !tbaa !57
   %2 = udiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_q(i64 noundef %0) local_unnamed_addr #32 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_q(i64 noundef %0) local_unnamed_addr #31 {
   store i64 %0, ptr @last_tf_arg_s, align 8, !tbaa !57
   %2 = sdiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 6148914691236517206) i64 @tf_Q(i64 noundef %0) local_unnamed_addr #32 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_Q(i64 noundef %0) local_unnamed_addr #31 {
   store i64 %0, ptr @last_tf_arg_u, align 8, !tbaa !57
   %2 = udiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef float @tf_f(float noundef %0) local_unnamed_addr #32 {
+define noundef float @tf_f(float noundef %0) local_unnamed_addr #31 {
   %2 = fptosi float %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = fdiv float %0, 3.000000e+00
@@ -1485,7 +1479,7 @@ define noundef float @tf_f(float noundef %0) local_unnamed_addr #32 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef double @tf_d(double noundef %0) local_unnamed_addr #32 {
+define noundef double @tf_d(double noundef %0) local_unnamed_addr #31 {
   %2 = fptosi double %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = fdiv double %0, 3.000000e+00
@@ -1493,7 +1487,7 @@ define noundef double @tf_d(double noundef %0) local_unnamed_addr #32 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef x86_fp80 @tf_D(x86_fp80 noundef %0) local_unnamed_addr #32 {
+define noundef x86_fp80 @tf_D(x86_fp80 noundef %0) local_unnamed_addr #31 {
   %2 = fptosi x86_fp80 %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = fdiv x86_fp80 %0, 0xK4000C000000000000000
@@ -1501,7 +1495,7 @@ define noundef x86_fp80 @tf_D(x86_fp80 noundef %0) local_unnamed_addr #32 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext range(i8 -42, 43) i8 @tf_bb(i8 noundef signext %0, i8 noundef signext %1) local_unnamed_addr #32 {
+define noundef signext range(i8 -42, 43) i8 @tf_bb(i8 noundef signext %0, i8 noundef signext %1) local_unnamed_addr #31 {
   %3 = sext i8 %1 to i64
   store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = sdiv i8 %1, 3
@@ -1509,7 +1503,7 @@ define noundef signext range(i8 -42, 43) i8 @tf_bb(i8 noundef signext %0, i8 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 0, 86) i8 @tf_bB(i8 noundef signext %0, i8 noundef zeroext %1) local_unnamed_addr #32 {
+define noundef zeroext range(i8 0, 86) i8 @tf_bB(i8 noundef signext %0, i8 noundef zeroext %1) local_unnamed_addr #31 {
   %3 = zext i8 %1 to i64
   store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !57
   %4 = udiv i8 %1, 3
@@ -1517,7 +1511,7 @@ define noundef zeroext range(i8 0, 86) i8 @tf_bB(i8 noundef signext %0, i8 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext range(i16 -10922, 10923) i16 @tf_bh(i8 noundef signext %0, i16 noundef signext %1) local_unnamed_addr #32 {
+define noundef signext range(i16 -10922, 10923) i16 @tf_bh(i8 noundef signext %0, i16 noundef signext %1) local_unnamed_addr #31 {
   %3 = sext i16 %1 to i64
   store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = sdiv i16 %1, 3
@@ -1525,7 +1519,7 @@ define noundef signext range(i16 -10922, 10923) i16 @tf_bh(i8 noundef signext %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext range(i16 0, 21846) i16 @tf_bH(i8 noundef signext %0, i16 noundef zeroext %1) local_unnamed_addr #32 {
+define noundef zeroext range(i16 0, 21846) i16 @tf_bH(i8 noundef signext %0, i16 noundef zeroext %1) local_unnamed_addr #31 {
   %3 = zext i16 %1 to i64
   store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !57
   %4 = udiv i16 %1, 3
@@ -1533,7 +1527,7 @@ define noundef zeroext range(i16 0, 21846) i16 @tf_bH(i8 noundef signext %0, i16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i32 -715827882, 715827883) i32 @tf_bi(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #32 {
+define noundef range(i32 -715827882, 715827883) i32 @tf_bi(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #31 {
   %3 = sext i32 %1 to i64
   store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = sdiv i32 %1, 3
@@ -1541,7 +1535,7 @@ define noundef range(i32 -715827882, 715827883) i32 @tf_bi(i8 noundef signext %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 1431655766) i32 @tf_bI(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #32 {
+define noundef range(i32 0, 1431655766) i32 @tf_bI(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #31 {
   %3 = zext i32 %1 to i64
   store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !57
   %4 = udiv i32 %1, 3
@@ -1549,35 +1543,35 @@ define noundef range(i32 0, 1431655766) i32 @tf_bI(i8 noundef signext %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bl(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bl(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #31 {
   store i64 %1, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 6148914691236517206) i64 @tf_bL(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_bL(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #31 {
   store i64 %1, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bq(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bq(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #31 {
   store i64 %1, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 6148914691236517206) i64 @tf_bQ(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_bQ(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #31 {
   store i64 %1, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef float @tf_bf(i8 noundef signext %0, float noundef %1) local_unnamed_addr #32 {
+define noundef float @tf_bf(i8 noundef signext %0, float noundef %1) local_unnamed_addr #31 {
   %3 = fptosi float %1 to i64
   store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = fdiv float %1, 3.000000e+00
@@ -1585,7 +1579,7 @@ define noundef float @tf_bf(i8 noundef signext %0, float noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef double @tf_bd(i8 noundef signext %0, double noundef %1) local_unnamed_addr #32 {
+define noundef double @tf_bd(i8 noundef signext %0, double noundef %1) local_unnamed_addr #31 {
   %3 = fptosi double %1 to i64
   store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = fdiv double %1, 3.000000e+00
@@ -1593,7 +1587,7 @@ define noundef double @tf_bd(i8 noundef signext %0, double noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef x86_fp80 @tf_bD(i8 noundef signext %0, x86_fp80 noundef %1) local_unnamed_addr #32 {
+define noundef x86_fp80 @tf_bD(i8 noundef signext %0, x86_fp80 noundef %1) local_unnamed_addr #31 {
   %3 = fptosi x86_fp80 %1 to i64
   store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = fdiv x86_fp80 %1, 0xK4000C000000000000000
@@ -1601,14 +1595,14 @@ define noundef x86_fp80 @tf_bD(i8 noundef signext %0, x86_fp80 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @tv_i(i32 noundef %0) local_unnamed_addr #32 {
+define void @tv_i(i32 noundef %0) local_unnamed_addr #31 {
   %2 = sext i32 %0 to i64
   store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PointInRect(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @PointInRect(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #10 {
   %4 = load i64, ptr %0, align 8, !tbaa !59
   %5 = icmp slt i64 %1, %4
   br i1 %5, label %18, label %6
@@ -1638,7 +1632,7 @@ define range(i32 0, 2) i32 @PointInRect(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ReturnRect(ptr dead_on_unwind noalias writable writeonly sret(%struct.RECT) align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1, ptr noundef byval(%struct.RECT) align 8 captures(none) %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.RECT) align 8 captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly byval(%struct.POINT) align 8 captures(none) %8, ptr noundef readonly byval(%struct.RECT) align 8 captures(none) %9) local_unnamed_addr #33 {
+define void @ReturnRect(ptr dead_on_unwind noalias writable writeonly sret(%struct.RECT) align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1, ptr noundef byval(%struct.RECT) align 8 captures(none) %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.RECT) align 8 captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly byval(%struct.POINT) align 8 captures(none) %8, ptr noundef readonly byval(%struct.RECT) align 8 captures(none) %9) local_unnamed_addr #32 {
   %11 = load i64, ptr %2, align 8, !tbaa !59
   %12 = load i64, ptr %3, align 8, !tbaa !59
   %13 = add i64 %12, %11
@@ -1719,7 +1713,7 @@ define void @ReturnRect(ptr dead_on_unwind noalias writable writeonly sret(%stru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ret_2h_func(i32 %0) local_unnamed_addr #10 {
+define i32 @ret_2h_func(i32 %0) local_unnamed_addr #9 {
   %2 = shl i32 %0, 1
   %3 = lshr i32 %0, 16
   %.sroa.2.0.insert.ext = mul i32 %3, 196608
@@ -1729,7 +1723,7 @@ define i32 @ret_2h_func(i32 %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ret_8i_func(ptr dead_on_unwind noalias writable writeonly sret(%struct.S8I) align 4 captures(none) initializes((0, 32)) %0, ptr noundef byval(%struct.S8I) align 8 captures(none) %1) local_unnamed_addr #12 {
+define void @ret_8i_func(ptr dead_on_unwind noalias writable writeonly sret(%struct.S8I) align 4 captures(none) initializes((0, 32)) %0, ptr noundef byval(%struct.S8I) align 8 captures(none) %1) local_unnamed_addr #11 {
   %3 = load i32, ptr %1, align 8, !tbaa !67
   %4 = shl i32 %3, 1
   store i32 %4, ptr %1, align 8, !tbaa !67
@@ -1766,7 +1760,7 @@ define void @ret_8i_func(ptr dead_on_unwind noalias writable writeonly sret(%str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @GetRectangle(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #23 {
+define range(i32 0, 2) i32 @GetRectangle(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #22 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %15, label %4
 
@@ -1793,7 +1787,7 @@ define range(i32 0, 2) i32 @GetRectangle(i32 noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @TwoOutArgs(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #12 {
+define void @TwoOutArgs(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #11 {
   %5 = load i32, ptr %1, align 4, !tbaa !39
   %6 = add i32 %5, %0
   store i32 %6, ptr %1, align 4, !tbaa !39
@@ -1809,7 +1803,7 @@ define i32 @_testfunc_pylist_append(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #31
+declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #30
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__ctypes_test() local_unnamed_addr #0 {
@@ -1817,10 +1811,10 @@ define ptr @PyInit__ctypes_test() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #31
+declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #30
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr noundef %1) #0 {
@@ -1919,7 +1913,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %84, label %85, label %117
 
 85:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.21) #35
   %.not16945 = icmp eq ptr %86, null
   br i1 %.not16945, label %.critedge, label %87
@@ -2038,7 +2032,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread:                                          ; preds = %116, %112, %113, %110, %105, %.critedge17818, %.critedge17814, %100, %95, %90, %.critedge16958, %.critedge16954, %.critedge
   %.4 = phi ptr [ null, %110 ], [ null, %105 ], [ null, %100 ], [ null, %95 ], [ null, %90 ], [ null, %.critedge ], [ null, %.critedge16954 ], [ null, %.critedge16958 ], [ null, %.critedge17814 ], [ null, %.critedge17818 ], [ %81, %113 ], [ null, %112 ], [ null, %116 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %7359
 
 117:                                              ; preds = %82
@@ -2047,7 +2041,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %119, label %120, label %152
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %121 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.22) #35
   %.not16939 = icmp eq ptr %121, null
   br i1 %.not16939, label %.critedge16962, label %122
@@ -2166,7 +2160,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21078:                                     ; preds = %151, %147, %148, %145, %140, %.critedge17826, %.critedge17822, %135, %130, %125, %.critedge16970, %.critedge16966, %.critedge16962
   %.17 = phi ptr [ null, %145 ], [ null, %140 ], [ null, %135 ], [ null, %130 ], [ null, %125 ], [ null, %.critedge16962 ], [ null, %.critedge16966 ], [ null, %.critedge16970 ], [ null, %.critedge17822 ], [ null, %.critedge17826 ], [ %81, %148 ], [ null, %147 ], [ null, %151 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %7359
 
 152:                                              ; preds = %117
@@ -2175,7 +2169,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %154, label %155, label %187
 
 155:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %156 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.23) #35
   %.not16933 = icmp eq ptr %156, null
   br i1 %.not16933, label %.critedge16974, label %157
@@ -2294,7 +2288,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21081:                                     ; preds = %186, %182, %183, %180, %175, %.critedge17835, %.critedge17831, %170, %165, %160, %.critedge16982, %.critedge16978, %.critedge16974
   %.30 = phi ptr [ null, %180 ], [ null, %175 ], [ null, %170 ], [ null, %165 ], [ null, %160 ], [ null, %.critedge16974 ], [ null, %.critedge16978 ], [ null, %.critedge16982 ], [ null, %.critedge17831 ], [ null, %.critedge17835 ], [ %81, %183 ], [ null, %182 ], [ null, %186 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %7359
 
 187:                                              ; preds = %152
@@ -2303,7 +2297,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %189, label %190, label %254
 
 190:                                              ; preds = %187
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4294967295, ptr %6, align 8
   %191 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.24) #35
   %.not16921 = icmp eq ptr %191, null
@@ -2544,7 +2538,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21084:                                     ; preds = %253, %249, %250, %247, %242, %236, %231, %226, %220, %215, %210, %.critedge17868, %.critedge17864, %.critedge17860, %.critedge17856, %.critedge17852, %.critedge17848, %.critedge17844, %.critedge17840, %205, %200, %195, %.critedge16994, %.critedge16990, %.critedge16986
   %.43 = phi ptr [ null, %247 ], [ null, %242 ], [ null, %236 ], [ null, %231 ], [ null, %226 ], [ null, %220 ], [ null, %215 ], [ null, %210 ], [ null, %205 ], [ null, %200 ], [ null, %195 ], [ null, %.critedge16986 ], [ null, %.critedge16990 ], [ null, %.critedge16994 ], [ null, %.critedge17840 ], [ null, %.critedge17844 ], [ null, %.critedge17848 ], [ null, %.critedge17852 ], [ null, %.critedge17856 ], [ null, %.critedge17860 ], [ null, %.critedge17864 ], [ null, %.critedge17868 ], [ %81, %250 ], [ null, %249 ], [ null, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %7359
 
 254:                                              ; preds = %187
@@ -2553,7 +2547,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %256, label %257, label %319
 
 257:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %258 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.25) #35
   %.not16909 = icmp eq ptr %258, null
   br i1 %.not16909, label %.critedge16998, label %259
@@ -2792,7 +2786,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21087:                                     ; preds = %318, %314, %315, %312, %307, %302, %297, %292, %287, %282, %277, %.critedge17901, %.critedge17897, %.critedge17893, %.critedge17889, %.critedge17885, %.critedge17881, %.critedge17877, %.critedge17873, %272, %267, %262, %.critedge17006, %.critedge17002, %.critedge16998
   %.68 = phi ptr [ null, %312 ], [ null, %307 ], [ null, %302 ], [ null, %297 ], [ null, %292 ], [ null, %287 ], [ null, %282 ], [ null, %277 ], [ null, %272 ], [ null, %267 ], [ null, %262 ], [ null, %.critedge16998 ], [ null, %.critedge17002 ], [ null, %.critedge17006 ], [ null, %.critedge17873 ], [ null, %.critedge17877 ], [ null, %.critedge17881 ], [ null, %.critedge17885 ], [ null, %.critedge17889 ], [ null, %.critedge17893 ], [ null, %.critedge17897 ], [ null, %.critedge17901 ], [ %81, %315 ], [ null, %314 ], [ null, %318 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %7359
 
 319:                                              ; preds = %254
@@ -2801,7 +2795,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %321, label %322, label %466
 
 322:                                              ; preds = %319
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %323 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.26) #35
   %.not16882 = icmp eq ptr %323, null
@@ -3348,7 +3342,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21090:                                     ; preds = %465, %461, %462, %459, %454, %448, %443, %438, %432, %427, %422, %416, %411, %406, %400, %395, %390, %384, %379, %374, %368, %363, %358, %352, %347, %342, %.critedge17994, %.critedge17990, %.critedge17986, %.critedge17982, %.critedge17978, %.critedge17974, %.critedge17970, %.critedge17966, %.critedge17962, %.critedge17958, %.critedge17954, %.critedge17950, %.critedge17946, %.critedge17942, %.critedge17938, %.critedge17934, %.critedge17930, %.critedge17926, %.critedge17922, %.critedge17918, %.critedge17914, %.critedge17910, %.critedge17906, %337, %332, %327, %.critedge17018, %.critedge17014, %.critedge17010
   %.93 = phi ptr [ null, %459 ], [ null, %454 ], [ null, %448 ], [ null, %443 ], [ null, %438 ], [ null, %432 ], [ null, %427 ], [ null, %422 ], [ null, %416 ], [ null, %411 ], [ null, %406 ], [ null, %400 ], [ null, %395 ], [ null, %390 ], [ null, %384 ], [ null, %379 ], [ null, %374 ], [ null, %368 ], [ null, %363 ], [ null, %358 ], [ null, %352 ], [ null, %347 ], [ null, %342 ], [ null, %337 ], [ null, %332 ], [ null, %327 ], [ null, %.critedge17010 ], [ null, %.critedge17014 ], [ null, %.critedge17018 ], [ null, %.critedge17906 ], [ null, %.critedge17910 ], [ null, %.critedge17914 ], [ null, %.critedge17918 ], [ null, %.critedge17922 ], [ null, %.critedge17926 ], [ null, %.critedge17930 ], [ null, %.critedge17934 ], [ null, %.critedge17938 ], [ null, %.critedge17942 ], [ null, %.critedge17946 ], [ null, %.critedge17950 ], [ null, %.critedge17954 ], [ null, %.critedge17958 ], [ null, %.critedge17962 ], [ null, %.critedge17966 ], [ null, %.critedge17970 ], [ null, %.critedge17974 ], [ null, %.critedge17978 ], [ null, %.critedge17982 ], [ null, %.critedge17986 ], [ null, %.critedge17990 ], [ null, %.critedge17994 ], [ %81, %462 ], [ null, %461 ], [ null, %465 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %7359
 
 466:                                              ; preds = %319
@@ -3357,7 +3351,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %468, label %469, label %606
 
 469:                                              ; preds = %466
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 255, ptr %9, align 8
   %470 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.27) #35
   %.not16855 = icmp eq ptr %470, null
@@ -3896,7 +3890,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21093:                                     ; preds = %605, %601, %602, %599, %594, %589, %584, %579, %574, %569, %564, %559, %554, %549, %544, %539, %534, %529, %524, %519, %514, %509, %504, %499, %494, %489, %.critedge18087, %.critedge18083, %.critedge18079, %.critedge18075, %.critedge18071, %.critedge18067, %.critedge18063, %.critedge18059, %.critedge18055, %.critedge18051, %.critedge18047, %.critedge18043, %.critedge18039, %.critedge18035, %.critedge18031, %.critedge18027, %.critedge18023, %.critedge18019, %.critedge18015, %.critedge18011, %.critedge18007, %.critedge18003, %.critedge17999, %484, %479, %474, %.critedge17030, %.critedge17026, %.critedge17022
   %.148 = phi ptr [ null, %599 ], [ null, %594 ], [ null, %589 ], [ null, %584 ], [ null, %579 ], [ null, %574 ], [ null, %569 ], [ null, %564 ], [ null, %559 ], [ null, %554 ], [ null, %549 ], [ null, %544 ], [ null, %539 ], [ null, %534 ], [ null, %529 ], [ null, %524 ], [ null, %519 ], [ null, %514 ], [ null, %509 ], [ null, %504 ], [ null, %499 ], [ null, %494 ], [ null, %489 ], [ null, %484 ], [ null, %479 ], [ null, %474 ], [ null, %.critedge17022 ], [ null, %.critedge17026 ], [ null, %.critedge17030 ], [ null, %.critedge17999 ], [ null, %.critedge18003 ], [ null, %.critedge18007 ], [ null, %.critedge18011 ], [ null, %.critedge18015 ], [ null, %.critedge18019 ], [ null, %.critedge18023 ], [ null, %.critedge18027 ], [ null, %.critedge18031 ], [ null, %.critedge18035 ], [ null, %.critedge18039 ], [ null, %.critedge18043 ], [ null, %.critedge18047 ], [ null, %.critedge18051 ], [ null, %.critedge18055 ], [ null, %.critedge18059 ], [ null, %.critedge18063 ], [ null, %.critedge18067 ], [ null, %.critedge18071 ], [ null, %.critedge18075 ], [ null, %.critedge18079 ], [ null, %.critedge18083 ], [ null, %.critedge18087 ], [ %81, %602 ], [ null, %601 ], [ null, %605 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %7359
 
 606:                                              ; preds = %466
@@ -3905,7 +3899,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %608, label %609, label %768
 
 609:                                              ; preds = %606
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %610 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %610, i8 0, i64 16, i1 false)
   %611 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.28) #35
@@ -4512,7 +4506,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21096:                                     ; preds = %767, %763, %764, %761, %756, %750, %745, %740, %734, %729, %724, %718, %713, %708, %703, %698, %693, %688, %683, %678, %672, %667, %662, %656, %651, %646, %640, %635, %630, %.critedge18192, %.critedge18188, %.critedge18184, %.critedge18180, %.critedge18176, %.critedge18172, %.critedge18168, %.critedge18164, %.critedge18160, %.critedge18156, %.critedge18152, %.critedge18148, %.critedge18144, %.critedge18140, %.critedge18136, %.critedge18132, %.critedge18128, %.critedge18124, %.critedge18120, %.critedge18116, %.critedge18112, %.critedge18108, %.critedge18104, %.critedge18100, %.critedge18096, %.critedge18092, %625, %620, %615, %.critedge17042, %.critedge17038, %.critedge17034
   %.203 = phi ptr [ null, %761 ], [ null, %756 ], [ null, %750 ], [ null, %745 ], [ null, %740 ], [ null, %734 ], [ null, %729 ], [ null, %724 ], [ null, %718 ], [ null, %713 ], [ null, %708 ], [ null, %703 ], [ null, %698 ], [ null, %693 ], [ null, %688 ], [ null, %683 ], [ null, %678 ], [ null, %672 ], [ null, %667 ], [ null, %662 ], [ null, %656 ], [ null, %651 ], [ null, %646 ], [ null, %640 ], [ null, %635 ], [ null, %630 ], [ null, %625 ], [ null, %620 ], [ null, %615 ], [ null, %.critedge17034 ], [ null, %.critedge17038 ], [ null, %.critedge17042 ], [ null, %.critedge18092 ], [ null, %.critedge18096 ], [ null, %.critedge18100 ], [ null, %.critedge18104 ], [ null, %.critedge18108 ], [ null, %.critedge18112 ], [ null, %.critedge18116 ], [ null, %.critedge18120 ], [ null, %.critedge18124 ], [ null, %.critedge18128 ], [ null, %.critedge18132 ], [ null, %.critedge18136 ], [ null, %.critedge18140 ], [ null, %.critedge18144 ], [ null, %.critedge18148 ], [ null, %.critedge18152 ], [ null, %.critedge18156 ], [ null, %.critedge18160 ], [ null, %.critedge18164 ], [ null, %.critedge18168 ], [ null, %.critedge18172 ], [ null, %.critedge18176 ], [ null, %.critedge18180 ], [ null, %.critedge18184 ], [ null, %.critedge18188 ], [ null, %.critedge18192 ], [ %81, %764 ], [ null, %763 ], [ null, %767 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %7359
 
 768:                                              ; preds = %606
@@ -4521,7 +4515,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %770, label %771, label %820
 
 771:                                              ; preds = %768
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %11) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %772 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i64 0, ptr %772, align 1
   %773 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.29) #35
@@ -4703,7 +4697,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21099:                                     ; preds = %819, %815, %816, %813, %808, %802, %797, %792, %.critedge18213, %.critedge18209, %.critedge18205, %.critedge18201, %.critedge18197, %787, %782, %777, %.critedge17054, %.critedge17050, %.critedge17046
   %.264 = phi ptr [ null, %813 ], [ null, %808 ], [ null, %802 ], [ null, %797 ], [ null, %792 ], [ null, %787 ], [ null, %782 ], [ null, %777 ], [ null, %.critedge17046 ], [ null, %.critedge17050 ], [ null, %.critedge17054 ], [ null, %.critedge18197 ], [ null, %.critedge18201 ], [ null, %.critedge18205 ], [ null, %.critedge18209 ], [ null, %.critedge18213 ], [ %81, %816 ], [ null, %815 ], [ null, %819 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %11) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %7359
 
 820:                                              ; preds = %768
@@ -4712,7 +4706,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %822, label %823, label %871
 
 823:                                              ; preds = %820
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %12) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %12, i8 0, i64 10, i1 false)
   %824 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.30) #35
   %.not16807 = icmp eq ptr %824, null
@@ -4893,7 +4887,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21102:                                     ; preds = %870, %866, %867, %864, %859, %853, %848, %843, %.critedge18234, %.critedge18230, %.critedge18226, %.critedge18222, %.critedge18218, %838, %833, %828, %.critedge17066, %.critedge17062, %.critedge17058
   %.283 = phi ptr [ null, %864 ], [ null, %859 ], [ null, %853 ], [ null, %848 ], [ null, %843 ], [ null, %838 ], [ null, %833 ], [ null, %828 ], [ null, %.critedge17058 ], [ null, %.critedge17062 ], [ null, %.critedge17066 ], [ null, %.critedge18218 ], [ null, %.critedge18222 ], [ null, %.critedge18226 ], [ null, %.critedge18230 ], [ null, %.critedge18234 ], [ %81, %867 ], [ null, %866 ], [ null, %870 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %12) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %7359
 
 871:                                              ; preds = %820
@@ -4902,7 +4896,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %873, label %874, label %922
 
 874:                                              ; preds = %871
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, i8 0, i64 12, i1 false)
   %875 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.31) #35
   %.not16798 = icmp eq ptr %875, null
@@ -5083,7 +5077,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21105:                                     ; preds = %921, %917, %918, %915, %910, %904, %899, %894, %.critedge18255, %.critedge18251, %.critedge18247, %.critedge18243, %.critedge18239, %889, %884, %879, %.critedge17078, %.critedge17074, %.critedge17070
   %.302 = phi ptr [ null, %915 ], [ null, %910 ], [ null, %904 ], [ null, %899 ], [ null, %894 ], [ null, %889 ], [ null, %884 ], [ null, %879 ], [ null, %.critedge17070 ], [ null, %.critedge17074 ], [ null, %.critedge17078 ], [ null, %.critedge18239 ], [ null, %.critedge18243 ], [ null, %.critedge18247 ], [ null, %.critedge18251 ], [ null, %.critedge18255 ], [ %81, %918 ], [ null, %917 ], [ null, %921 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %7359
 
 922:                                              ; preds = %871
@@ -5092,7 +5086,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %924, label %925, label %973
 
 925:                                              ; preds = %922
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %926 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.32) #35
   %.not16789 = icmp eq ptr %926, null
@@ -5273,7 +5267,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21108:                                     ; preds = %972, %968, %969, %966, %961, %955, %950, %945, %.critedge18276, %.critedge18272, %.critedge18268, %.critedge18264, %.critedge18260, %940, %935, %930, %.critedge17090, %.critedge17086, %.critedge17082
   %.321 = phi ptr [ null, %966 ], [ null, %961 ], [ null, %955 ], [ null, %950 ], [ null, %945 ], [ null, %940 ], [ null, %935 ], [ null, %930 ], [ null, %.critedge17082 ], [ null, %.critedge17086 ], [ null, %.critedge17090 ], [ null, %.critedge18260 ], [ null, %.critedge18264 ], [ null, %.critedge18268 ], [ null, %.critedge18272 ], [ null, %.critedge18276 ], [ %81, %969 ], [ null, %968 ], [ null, %972 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %7359
 
 973:                                              ; preds = %922
@@ -5282,7 +5276,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %975, label %976, label %1040
 
 976:                                              ; preds = %973
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %977 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.33) #35
   %.not16777 = icmp eq ptr %977, null
@@ -5524,7 +5518,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21111:                                     ; preds = %1039, %1035, %1036, %1033, %1028, %1022, %1017, %1012, %1006, %1001, %996, %.critedge18309, %.critedge18305, %.critedge18301, %.critedge18297, %.critedge18293, %.critedge18289, %.critedge18285, %.critedge18281, %991, %986, %981, %.critedge17102, %.critedge17098, %.critedge17094
   %.340 = phi ptr [ null, %1033 ], [ null, %1028 ], [ null, %1022 ], [ null, %1017 ], [ null, %1012 ], [ null, %1006 ], [ null, %1001 ], [ null, %996 ], [ null, %991 ], [ null, %986 ], [ null, %981 ], [ null, %.critedge17094 ], [ null, %.critedge17098 ], [ null, %.critedge17102 ], [ null, %.critedge18281 ], [ null, %.critedge18285 ], [ null, %.critedge18289 ], [ null, %.critedge18293 ], [ null, %.critedge18297 ], [ null, %.critedge18301 ], [ null, %.critedge18305 ], [ null, %.critedge18309 ], [ %81, %1036 ], [ null, %1035 ], [ null, %1039 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %7359
 
 1040:                                             ; preds = %973
@@ -5533,7 +5527,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %1042, label %1043, label %1124
 
 1043:                                             ; preds = %1040
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 15, ptr %16, align 4
   %1044 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.34) #35
   %.not16765 = icmp eq ptr %1044, null
@@ -5791,7 +5785,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21114:                                     ; preds = %1123, %1119, %1120, %1115, %1107, %1100, %1093, %1085, %1078, %1071, %1063, %.critedge18342, %.critedge18338, %.critedge18334, %.critedge18330, %.critedge18326, %.critedge18322, %.critedge18318, %.critedge18314, %1058, %1053, %1048, %.critedge17114, %.critedge17110, %.critedge17106
   %.365 = phi ptr [ null, %1115 ], [ null, %1107 ], [ null, %1100 ], [ null, %1093 ], [ null, %1085 ], [ null, %1078 ], [ null, %1071 ], [ null, %1063 ], [ null, %1058 ], [ null, %1053 ], [ null, %1048 ], [ null, %.critedge17106 ], [ null, %.critedge17110 ], [ null, %.critedge17114 ], [ null, %.critedge18314 ], [ null, %.critedge18318 ], [ null, %.critedge18322 ], [ null, %.critedge18326 ], [ null, %.critedge18330 ], [ null, %.critedge18334 ], [ null, %.critedge18338 ], [ null, %.critedge18342 ], [ %81, %1120 ], [ null, %1119 ], [ null, %1123 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %7359
 
 1124:                                             ; preds = %1040
@@ -5800,7 +5794,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %1126, label %1127, label %1232
 
 1127:                                             ; preds = %1124
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1128 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %1128, align 8
   %1129 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.35) #35
@@ -6128,7 +6122,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21117:                                     ; preds = %1231, %1227, %1228, %1223, %1215, %1207, %1200, %1192, %1185, %1178, %1170, %1163, %1156, %1148, %.critedge18387, %.critedge18383, %.critedge18379, %.critedge18375, %.critedge18371, %.critedge18367, %.critedge18363, %.critedge18359, %.critedge18355, %.critedge18351, %.critedge18347, %1143, %1138, %1133, %.critedge17126, %.critedge17122, %.critedge17118
   %.390 = phi ptr [ null, %1223 ], [ null, %1215 ], [ null, %1207 ], [ null, %1200 ], [ null, %1192 ], [ null, %1185 ], [ null, %1178 ], [ null, %1170 ], [ null, %1163 ], [ null, %1156 ], [ null, %1148 ], [ null, %1143 ], [ null, %1138 ], [ null, %1133 ], [ null, %.critedge17118 ], [ null, %.critedge17122 ], [ null, %.critedge17126 ], [ null, %.critedge18347 ], [ null, %.critedge18351 ], [ null, %.critedge18355 ], [ null, %.critedge18359 ], [ null, %.critedge18363 ], [ null, %.critedge18367 ], [ null, %.critedge18371 ], [ null, %.critedge18375 ], [ null, %.critedge18379 ], [ null, %.critedge18383 ], [ null, %.critedge18387 ], [ %81, %1228 ], [ null, %1227 ], [ null, %1231 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %7359
 
 1232:                                             ; preds = %1124
@@ -6137,7 +6131,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %1234, label %1235, label %1447
 
 1235:                                             ; preds = %1232
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1236 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.36) #35
   %.not16720 = icmp eq ptr %1236, null
   br i1 %.not16720, label %.critedge17130, label %1237
@@ -6796,7 +6790,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21120:                                     ; preds = %1446, %1442, %1443, %1438, %1430, %1423, %1416, %1408, %1401, %1394, %1386, %1379, %1372, %1364, %1357, %1350, %1342, %1335, %1328, %1320, %1313, %1306, %1298, %1291, %1284, %1276, %1269, %1262, %1255, %.critedge18492, %.critedge18488, %.critedge18484, %.critedge18480, %.critedge18476, %.critedge18472, %.critedge18468, %.critedge18464, %.critedge18460, %.critedge18456, %.critedge18452, %.critedge18448, %.critedge18444, %.critedge18440, %.critedge18436, %.critedge18432, %.critedge18428, %.critedge18424, %.critedge18420, %.critedge18416, %.critedge18412, %.critedge18408, %.critedge18404, %.critedge18400, %.critedge18396, %.critedge18392, %1250, %1245, %1240, %.critedge17138, %.critedge17134, %.critedge17130
   %.421 = phi ptr [ null, %1438 ], [ null, %1430 ], [ null, %1423 ], [ null, %1416 ], [ null, %1408 ], [ null, %1401 ], [ null, %1394 ], [ null, %1386 ], [ null, %1379 ], [ null, %1372 ], [ null, %1364 ], [ null, %1357 ], [ null, %1350 ], [ null, %1342 ], [ null, %1335 ], [ null, %1328 ], [ null, %1320 ], [ null, %1313 ], [ null, %1306 ], [ null, %1298 ], [ null, %1291 ], [ null, %1284 ], [ null, %1276 ], [ null, %1269 ], [ null, %1262 ], [ null, %1255 ], [ null, %1250 ], [ null, %1245 ], [ null, %1240 ], [ null, %.critedge17130 ], [ null, %.critedge17134 ], [ null, %.critedge17138 ], [ null, %.critedge18392 ], [ null, %.critedge18396 ], [ null, %.critedge18400 ], [ null, %.critedge18404 ], [ null, %.critedge18408 ], [ null, %.critedge18412 ], [ null, %.critedge18416 ], [ null, %.critedge18420 ], [ null, %.critedge18424 ], [ null, %.critedge18428 ], [ null, %.critedge18432 ], [ null, %.critedge18436 ], [ null, %.critedge18440 ], [ null, %.critedge18444 ], [ null, %.critedge18448 ], [ null, %.critedge18452 ], [ null, %.critedge18456 ], [ null, %.critedge18460 ], [ null, %.critedge18464 ], [ null, %.critedge18468 ], [ null, %.critedge18472 ], [ null, %.critedge18476 ], [ null, %.critedge18480 ], [ null, %.critedge18484 ], [ null, %.critedge18488 ], [ null, %.critedge18492 ], [ %81, %1443 ], [ null, %1442 ], [ null, %1446 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %7359
 
 1447:                                             ; preds = %1232
@@ -6805,7 +6799,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %1449, label %1450, label %1817
 
 1450:                                             ; preds = %1447
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1451 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %1451, align 8
   %1452 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.37) #35
@@ -7935,7 +7929,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21123:                                     ; preds = %1816, %1812, %1813, %1808, %1800, %1793, %1786, %1778, %1770, %1763, %1755, %1748, %1741, %1733, %1726, %1719, %1711, %1704, %1697, %1689, %1682, %1675, %1668, %1661, %1654, %1646, %1639, %1632, %1624, %1617, %1610, %1602, %1595, %1588, %1580, %1573, %1566, %1558, %1551, %1544, %1536, %1529, %1522, %1514, %1507, %1500, %1492, %1485, %1478, %1471, %.critedge18681, %.critedge18677, %.critedge18673, %.critedge18669, %.critedge18665, %.critedge18661, %.critedge18657, %.critedge18653, %.critedge18649, %.critedge18645, %.critedge18641, %.critedge18637, %.critedge18633, %.critedge18629, %.critedge18625, %.critedge18621, %.critedge18617, %.critedge18613, %.critedge18609, %.critedge18605, %.critedge18601, %.critedge18597, %.critedge18593, %.critedge18589, %.critedge18585, %.critedge18581, %.critedge18577, %.critedge18573, %.critedge18569, %.critedge18565, %.critedge18561, %.critedge18557, %.critedge18553, %.critedge18549, %.critedge18545, %.critedge18541, %.critedge18537, %.critedge18533, %.critedge18529, %.critedge18525, %.critedge18521, %.critedge18517, %.critedge18513, %.critedge18509, %.critedge18505, %.critedge18501, %.critedge18497, %1466, %1461, %1456, %.critedge17150, %.critedge17146, %.critedge17142
   %.482 = phi ptr [ null, %1808 ], [ null, %1800 ], [ null, %1793 ], [ null, %1786 ], [ null, %1778 ], [ null, %1770 ], [ null, %1763 ], [ null, %1755 ], [ null, %1748 ], [ null, %1741 ], [ null, %1733 ], [ null, %1726 ], [ null, %1719 ], [ null, %1711 ], [ null, %1704 ], [ null, %1697 ], [ null, %1689 ], [ null, %1682 ], [ null, %1675 ], [ null, %1668 ], [ null, %1661 ], [ null, %1654 ], [ null, %1646 ], [ null, %1639 ], [ null, %1632 ], [ null, %1624 ], [ null, %1617 ], [ null, %1610 ], [ null, %1602 ], [ null, %1595 ], [ null, %1588 ], [ null, %1580 ], [ null, %1573 ], [ null, %1566 ], [ null, %1558 ], [ null, %1551 ], [ null, %1544 ], [ null, %1536 ], [ null, %1529 ], [ null, %1522 ], [ null, %1514 ], [ null, %1507 ], [ null, %1500 ], [ null, %1492 ], [ null, %1485 ], [ null, %1478 ], [ null, %1471 ], [ null, %1466 ], [ null, %1461 ], [ null, %1456 ], [ null, %.critedge17142 ], [ null, %.critedge17146 ], [ null, %.critedge17150 ], [ null, %.critedge18497 ], [ null, %.critedge18501 ], [ null, %.critedge18505 ], [ null, %.critedge18509 ], [ null, %.critedge18513 ], [ null, %.critedge18517 ], [ null, %.critedge18521 ], [ null, %.critedge18525 ], [ null, %.critedge18529 ], [ null, %.critedge18533 ], [ null, %.critedge18537 ], [ null, %.critedge18541 ], [ null, %.critedge18545 ], [ null, %.critedge18549 ], [ null, %.critedge18553 ], [ null, %.critedge18557 ], [ null, %.critedge18561 ], [ null, %.critedge18565 ], [ null, %.critedge18569 ], [ null, %.critedge18573 ], [ null, %.critedge18577 ], [ null, %.critedge18581 ], [ null, %.critedge18585 ], [ null, %.critedge18589 ], [ null, %.critedge18593 ], [ null, %.critedge18597 ], [ null, %.critedge18601 ], [ null, %.critedge18605 ], [ null, %.critedge18609 ], [ null, %.critedge18613 ], [ null, %.critedge18617 ], [ null, %.critedge18621 ], [ null, %.critedge18625 ], [ null, %.critedge18629 ], [ null, %.critedge18633 ], [ null, %.critedge18637 ], [ null, %.critedge18641 ], [ null, %.critedge18645 ], [ null, %.critedge18649 ], [ null, %.critedge18653 ], [ null, %.critedge18657 ], [ null, %.critedge18661 ], [ null, %.critedge18665 ], [ null, %.critedge18669 ], [ null, %.critedge18673 ], [ null, %.critedge18677 ], [ null, %.critedge18681 ], [ %81, %1813 ], [ null, %1812 ], [ null, %1816 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %7359
 
 1817:                                             ; preds = %1447
@@ -7944,7 +7938,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %1819, label %1820, label %2033
 
 1820:                                             ; preds = %1817
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 1, ptr %20, align 8
   %1821 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.38) #35
   %.not16639 = icmp eq ptr %1821, null
@@ -8604,7 +8598,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21126:                                     ; preds = %2032, %2028, %2029, %2024, %2016, %2009, %2002, %1994, %1986, %1979, %1971, %1964, %1957, %1949, %1942, %1935, %1927, %1920, %1913, %1905, %1898, %1891, %1883, %1876, %1869, %1861, %1854, %1847, %1840, %.critedge18786, %.critedge18782, %.critedge18778, %.critedge18774, %.critedge18770, %.critedge18766, %.critedge18762, %.critedge18758, %.critedge18754, %.critedge18750, %.critedge18746, %.critedge18742, %.critedge18738, %.critedge18734, %.critedge18730, %.critedge18726, %.critedge18722, %.critedge18718, %.critedge18714, %.critedge18710, %.critedge18706, %.critedge18702, %.critedge18698, %.critedge18694, %.critedge18690, %.critedge18686, %1835, %1830, %1825, %.critedge17162, %.critedge17158, %.critedge17154
   %.585 = phi ptr [ null, %2024 ], [ null, %2016 ], [ null, %2009 ], [ null, %2002 ], [ null, %1994 ], [ null, %1986 ], [ null, %1979 ], [ null, %1971 ], [ null, %1964 ], [ null, %1957 ], [ null, %1949 ], [ null, %1942 ], [ null, %1935 ], [ null, %1927 ], [ null, %1920 ], [ null, %1913 ], [ null, %1905 ], [ null, %1898 ], [ null, %1891 ], [ null, %1883 ], [ null, %1876 ], [ null, %1869 ], [ null, %1861 ], [ null, %1854 ], [ null, %1847 ], [ null, %1840 ], [ null, %1835 ], [ null, %1830 ], [ null, %1825 ], [ null, %.critedge17154 ], [ null, %.critedge17158 ], [ null, %.critedge17162 ], [ null, %.critedge18686 ], [ null, %.critedge18690 ], [ null, %.critedge18694 ], [ null, %.critedge18698 ], [ null, %.critedge18702 ], [ null, %.critedge18706 ], [ null, %.critedge18710 ], [ null, %.critedge18714 ], [ null, %.critedge18718 ], [ null, %.critedge18722 ], [ null, %.critedge18726 ], [ null, %.critedge18730 ], [ null, %.critedge18734 ], [ null, %.critedge18738 ], [ null, %.critedge18742 ], [ null, %.critedge18746 ], [ null, %.critedge18750 ], [ null, %.critedge18754 ], [ null, %.critedge18758 ], [ null, %.critedge18762 ], [ null, %.critedge18766 ], [ null, %.critedge18770 ], [ null, %.critedge18774 ], [ null, %.critedge18778 ], [ null, %.critedge18782 ], [ null, %.critedge18786 ], [ %81, %2029 ], [ null, %2028 ], [ null, %2032 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %7359
 
 2033:                                             ; preds = %1817
@@ -8613,7 +8607,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2035, label %2036, label %2405
 
 2036:                                             ; preds = %2033
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %2037 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i64 0, ptr %2037, align 4
   %2038 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.39) #35
@@ -9745,7 +9739,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21129:                                     ; preds = %2404, %2400, %2401, %2396, %2388, %2381, %2374, %2366, %2358, %2351, %2343, %2336, %2329, %2321, %2314, %2307, %2299, %2292, %2285, %2277, %2270, %2263, %2256, %2248, %2241, %2233, %2226, %2219, %2211, %2203, %2196, %2188, %2181, %2174, %2166, %2159, %2152, %2144, %2137, %2130, %2122, %2115, %2108, %2100, %2093, %2086, %2078, %2071, %2064, %2057, %.critedge18975, %.critedge18971, %.critedge18967, %.critedge18963, %.critedge18959, %.critedge18955, %.critedge18951, %.critedge18947, %.critedge18943, %.critedge18939, %.critedge18935, %.critedge18931, %.critedge18927, %.critedge18923, %.critedge18919, %.critedge18915, %.critedge18911, %.critedge18907, %.critedge18903, %.critedge18899, %.critedge18895, %.critedge18891, %.critedge18887, %.critedge18883, %.critedge18879, %.critedge18875, %.critedge18871, %.critedge18867, %.critedge18863, %.critedge18859, %.critedge18855, %.critedge18851, %.critedge18847, %.critedge18843, %.critedge18839, %.critedge18835, %.critedge18831, %.critedge18827, %.critedge18823, %.critedge18819, %.critedge18815, %.critedge18811, %.critedge18807, %.critedge18803, %.critedge18799, %.critedge18795, %.critedge18791, %2052, %2047, %2042, %.critedge17174, %.critedge17170, %.critedge17166
   %.646 = phi ptr [ null, %2396 ], [ null, %2388 ], [ null, %2381 ], [ null, %2374 ], [ null, %2366 ], [ null, %2358 ], [ null, %2351 ], [ null, %2343 ], [ null, %2336 ], [ null, %2329 ], [ null, %2321 ], [ null, %2314 ], [ null, %2307 ], [ null, %2299 ], [ null, %2292 ], [ null, %2285 ], [ null, %2277 ], [ null, %2270 ], [ null, %2263 ], [ null, %2256 ], [ null, %2248 ], [ null, %2241 ], [ null, %2233 ], [ null, %2226 ], [ null, %2219 ], [ null, %2211 ], [ null, %2203 ], [ null, %2196 ], [ null, %2188 ], [ null, %2181 ], [ null, %2174 ], [ null, %2166 ], [ null, %2159 ], [ null, %2152 ], [ null, %2144 ], [ null, %2137 ], [ null, %2130 ], [ null, %2122 ], [ null, %2115 ], [ null, %2108 ], [ null, %2100 ], [ null, %2093 ], [ null, %2086 ], [ null, %2078 ], [ null, %2071 ], [ null, %2064 ], [ null, %2057 ], [ null, %2052 ], [ null, %2047 ], [ null, %2042 ], [ null, %.critedge17166 ], [ null, %.critedge17170 ], [ null, %.critedge17174 ], [ null, %.critedge18791 ], [ null, %.critedge18795 ], [ null, %.critedge18799 ], [ null, %.critedge18803 ], [ null, %.critedge18807 ], [ null, %.critedge18811 ], [ null, %.critedge18815 ], [ null, %.critedge18819 ], [ null, %.critedge18823 ], [ null, %.critedge18827 ], [ null, %.critedge18831 ], [ null, %.critedge18835 ], [ null, %.critedge18839 ], [ null, %.critedge18843 ], [ null, %.critedge18847 ], [ null, %.critedge18851 ], [ null, %.critedge18855 ], [ null, %.critedge18859 ], [ null, %.critedge18863 ], [ null, %.critedge18867 ], [ null, %.critedge18871 ], [ null, %.critedge18875 ], [ null, %.critedge18879 ], [ null, %.critedge18883 ], [ null, %.critedge18887 ], [ null, %.critedge18891 ], [ null, %.critedge18895 ], [ null, %.critedge18899 ], [ null, %.critedge18903 ], [ null, %.critedge18907 ], [ null, %.critedge18911 ], [ null, %.critedge18915 ], [ null, %.critedge18919 ], [ null, %.critedge18923 ], [ null, %.critedge18927 ], [ null, %.critedge18931 ], [ null, %.critedge18935 ], [ null, %.critedge18939 ], [ null, %.critedge18943 ], [ null, %.critedge18947 ], [ null, %.critedge18951 ], [ null, %.critedge18955 ], [ null, %.critedge18959 ], [ null, %.critedge18963 ], [ null, %.critedge18967 ], [ null, %.critedge18971 ], [ null, %.critedge18975 ], [ %81, %2401 ], [ null, %2400 ], [ null, %2404 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %7359
 
 2405:                                             ; preds = %2033
@@ -9754,7 +9748,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2407, label %2408, label %2487
 
 2408:                                             ; preds = %2405
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %2409 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.40) #35
   %.not16576 = icmp eq ptr %2409, null
   br i1 %.not16576, label %.critedge17178, label %2410
@@ -10010,7 +10004,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21132:                                     ; preds = %2486, %2482, %2483, %2478, %2471, %2464, %2457, %2449, %2442, %2435, %2428, %.critedge19008, %.critedge19004, %.critedge19000, %.critedge18996, %.critedge18992, %.critedge18988, %.critedge18984, %.critedge18980, %2423, %2418, %2413, %.critedge17186, %.critedge17182, %.critedge17178
   %.749 = phi ptr [ null, %2478 ], [ null, %2471 ], [ null, %2464 ], [ null, %2457 ], [ null, %2449 ], [ null, %2442 ], [ null, %2435 ], [ null, %2428 ], [ null, %2423 ], [ null, %2418 ], [ null, %2413 ], [ null, %.critedge17178 ], [ null, %.critedge17182 ], [ null, %.critedge17186 ], [ null, %.critedge18980 ], [ null, %.critedge18984 ], [ null, %.critedge18988 ], [ null, %.critedge18992 ], [ null, %.critedge18996 ], [ null, %.critedge19000 ], [ null, %.critedge19004 ], [ null, %.critedge19008 ], [ %81, %2483 ], [ null, %2482 ], [ null, %2486 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %7359
 
 2487:                                             ; preds = %2405
@@ -10019,7 +10013,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2489, label %2490, label %2569
 
 2490:                                             ; preds = %2487
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %2491 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.41) #35
   %.not16564 = icmp eq ptr %2491, null
   br i1 %.not16564, label %.critedge17190, label %2492
@@ -10275,7 +10269,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21135:                                     ; preds = %2568, %2564, %2565, %2560, %2553, %2546, %2539, %2531, %2524, %2517, %2510, %.critedge19041, %.critedge19037, %.critedge19033, %.critedge19029, %.critedge19025, %.critedge19021, %.critedge19017, %.critedge19013, %2505, %2500, %2495, %.critedge17198, %.critedge17194, %.critedge17190
   %.774 = phi ptr [ null, %2560 ], [ null, %2553 ], [ null, %2546 ], [ null, %2539 ], [ null, %2531 ], [ null, %2524 ], [ null, %2517 ], [ null, %2510 ], [ null, %2505 ], [ null, %2500 ], [ null, %2495 ], [ null, %.critedge17190 ], [ null, %.critedge17194 ], [ null, %.critedge17198 ], [ null, %.critedge19013 ], [ null, %.critedge19017 ], [ null, %.critedge19021 ], [ null, %.critedge19025 ], [ null, %.critedge19029 ], [ null, %.critedge19033 ], [ null, %.critedge19037 ], [ null, %.critedge19041 ], [ %81, %2565 ], [ null, %2564 ], [ null, %2568 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %7359
 
 2569:                                             ; preds = %2487
@@ -10284,7 +10278,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2571, label %2572, label %2652
 
 2572:                                             ; preds = %2569
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %2573 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.42) #35
   %.not16552 = icmp eq ptr %2573, null
   br i1 %.not16552, label %.critedge17202, label %2574
@@ -10541,7 +10535,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21138:                                     ; preds = %2651, %2647, %2648, %2643, %2636, %2629, %2622, %2614, %2607, %2600, %2592, %.critedge19074, %.critedge19070, %.critedge19066, %.critedge19062, %.critedge19058, %.critedge19054, %.critedge19050, %.critedge19046, %2587, %2582, %2577, %.critedge17210, %.critedge17206, %.critedge17202
   %.799 = phi ptr [ null, %2643 ], [ null, %2636 ], [ null, %2629 ], [ null, %2622 ], [ null, %2614 ], [ null, %2607 ], [ null, %2600 ], [ null, %2592 ], [ null, %2587 ], [ null, %2582 ], [ null, %2577 ], [ null, %.critedge17202 ], [ null, %.critedge17206 ], [ null, %.critedge17210 ], [ null, %.critedge19046 ], [ null, %.critedge19050 ], [ null, %.critedge19054 ], [ null, %.critedge19058 ], [ null, %.critedge19062 ], [ null, %.critedge19066 ], [ null, %.critedge19070 ], [ null, %.critedge19074 ], [ %81, %2648 ], [ null, %2647 ], [ null, %2651 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %7359
 
 2652:                                             ; preds = %2569
@@ -10550,7 +10544,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2654, label %2655, label %2734
 
 2655:                                             ; preds = %2652
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2656 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.43) #35
   %.not16540 = icmp eq ptr %2656, null
   br i1 %.not16540, label %.critedge17214, label %2657
@@ -10806,7 +10800,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21141:                                     ; preds = %2733, %2729, %2730, %2725, %2718, %2711, %2704, %2696, %2689, %2682, %2675, %.critedge19107, %.critedge19103, %.critedge19099, %.critedge19095, %.critedge19091, %.critedge19087, %.critedge19083, %.critedge19079, %2670, %2665, %2660, %.critedge17222, %.critedge17218, %.critedge17214
   %.824 = phi ptr [ null, %2725 ], [ null, %2718 ], [ null, %2711 ], [ null, %2704 ], [ null, %2696 ], [ null, %2689 ], [ null, %2682 ], [ null, %2675 ], [ null, %2670 ], [ null, %2665 ], [ null, %2660 ], [ null, %.critedge17214 ], [ null, %.critedge17218 ], [ null, %.critedge17222 ], [ null, %.critedge19079 ], [ null, %.critedge19083 ], [ null, %.critedge19087 ], [ null, %.critedge19091 ], [ null, %.critedge19095 ], [ null, %.critedge19099 ], [ null, %.critedge19103 ], [ null, %.critedge19107 ], [ %81, %2730 ], [ null, %2729 ], [ null, %2733 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %7359
 
 2734:                                             ; preds = %2652
@@ -10815,7 +10809,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2736, label %2737, label %2834
 
 2737:                                             ; preds = %2734
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %2738 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store i16 0, ptr %2738, align 1
   %2739 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.44) #35
@@ -11135,7 +11129,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21144:                                     ; preds = %2833, %2829, %2830, %2825, %2818, %2811, %2804, %2796, %2788, %2783, %2778, %2772, %2765, %2758, %.critedge19152, %.critedge19148, %.critedge19144, %.critedge19140, %.critedge19136, %.critedge19132, %.critedge19128, %.critedge19124, %.critedge19120, %.critedge19116, %.critedge19112, %2753, %2748, %2743, %.critedge17234, %.critedge17230, %.critedge17226
   %.849 = phi ptr [ null, %2825 ], [ null, %2818 ], [ null, %2811 ], [ null, %2804 ], [ null, %2796 ], [ null, %2788 ], [ null, %2783 ], [ null, %2778 ], [ null, %2772 ], [ null, %2765 ], [ null, %2758 ], [ null, %2753 ], [ null, %2748 ], [ null, %2743 ], [ null, %.critedge17226 ], [ null, %.critedge17230 ], [ null, %.critedge17234 ], [ null, %.critedge19112 ], [ null, %.critedge19116 ], [ null, %.critedge19120 ], [ null, %.critedge19124 ], [ null, %.critedge19128 ], [ null, %.critedge19132 ], [ null, %.critedge19136 ], [ null, %.critedge19140 ], [ null, %.critedge19144 ], [ null, %.critedge19148 ], [ null, %.critedge19152 ], [ %81, %2830 ], [ null, %2829 ], [ null, %2833 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %26) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %7359
 
 2834:                                             ; preds = %2734
@@ -11144,7 +11138,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2836, label %2837, label %2920
 
 2837:                                             ; preds = %2834
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %27) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %2838 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 0, ptr %2838, align 2
   %2839 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.45) #35
@@ -11405,7 +11399,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21147:                                     ; preds = %2919, %2915, %2916, %2911, %2903, %2895, %2888, %2880, %2873, %2866, %2858, %.critedge19185, %.critedge19181, %.critedge19177, %.critedge19173, %.critedge19169, %.critedge19165, %.critedge19161, %.critedge19157, %2853, %2848, %2843, %.critedge17246, %.critedge17242, %.critedge17238
   %.880 = phi ptr [ null, %2911 ], [ null, %2903 ], [ null, %2895 ], [ null, %2888 ], [ null, %2880 ], [ null, %2873 ], [ null, %2866 ], [ null, %2858 ], [ null, %2853 ], [ null, %2848 ], [ null, %2843 ], [ null, %.critedge17238 ], [ null, %.critedge17242 ], [ null, %.critedge17246 ], [ null, %.critedge19157 ], [ null, %.critedge19161 ], [ null, %.critedge19165 ], [ null, %.critedge19169 ], [ null, %.critedge19173 ], [ null, %.critedge19177 ], [ null, %.critedge19181 ], [ null, %.critedge19185 ], [ %81, %2916 ], [ null, %2915 ], [ null, %2919 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %27) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %7359
 
 2920:                                             ; preds = %2834
@@ -11414,7 +11408,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %2922, label %2923, label %3003
 
 2923:                                             ; preds = %2920
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2924 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.46) #35
   %.not16501 = icmp eq ptr %2924, null
   br i1 %.not16501, label %.critedge17250, label %2925
@@ -11671,7 +11665,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21150:                                     ; preds = %3002, %2998, %2999, %2994, %2987, %2980, %2973, %2965, %2958, %2951, %2943, %.critedge19218, %.critedge19214, %.critedge19210, %.critedge19206, %.critedge19202, %.critedge19198, %.critedge19194, %.critedge19190, %2938, %2933, %2928, %.critedge17258, %.critedge17254, %.critedge17250
   %.905 = phi ptr [ null, %2994 ], [ null, %2987 ], [ null, %2980 ], [ null, %2973 ], [ null, %2965 ], [ null, %2958 ], [ null, %2951 ], [ null, %2943 ], [ null, %2938 ], [ null, %2933 ], [ null, %2928 ], [ null, %.critedge17250 ], [ null, %.critedge17254 ], [ null, %.critedge17258 ], [ null, %.critedge19190 ], [ null, %.critedge19194 ], [ null, %.critedge19198 ], [ null, %.critedge19202 ], [ null, %.critedge19206 ], [ null, %.critedge19210 ], [ null, %.critedge19214 ], [ null, %.critedge19218 ], [ %81, %2999 ], [ null, %2998 ], [ null, %3002 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %7359
 
 3003:                                             ; preds = %2920
@@ -11680,7 +11674,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3005, label %3006, label %3085
 
 3006:                                             ; preds = %3003
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %3007 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.47) #35
   %.not16489 = icmp eq ptr %3007, null
   br i1 %.not16489, label %.critedge17262, label %3008
@@ -11936,7 +11930,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21153:                                     ; preds = %3084, %3080, %3081, %3076, %3069, %3062, %3055, %3047, %3040, %3033, %3026, %.critedge19251, %.critedge19247, %.critedge19243, %.critedge19239, %.critedge19235, %.critedge19231, %.critedge19227, %.critedge19223, %3021, %3016, %3011, %.critedge17270, %.critedge17266, %.critedge17262
   %.930 = phi ptr [ null, %3076 ], [ null, %3069 ], [ null, %3062 ], [ null, %3055 ], [ null, %3047 ], [ null, %3040 ], [ null, %3033 ], [ null, %3026 ], [ null, %3021 ], [ null, %3016 ], [ null, %3011 ], [ null, %.critedge17262 ], [ null, %.critedge17266 ], [ null, %.critedge17270 ], [ null, %.critedge19223 ], [ null, %.critedge19227 ], [ null, %.critedge19231 ], [ null, %.critedge19235 ], [ null, %.critedge19239 ], [ null, %.critedge19243 ], [ null, %.critedge19247 ], [ null, %.critedge19251 ], [ %81, %3081 ], [ null, %3080 ], [ null, %3084 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %7359
 
 3085:                                             ; preds = %3003
@@ -11945,7 +11939,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3087, label %3088, label %3185
 
 3088:                                             ; preds = %3085
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %30) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %3089 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i16 0, ptr %3089, align 1
   %3090 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.48) #35
@@ -12265,7 +12259,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21156:                                     ; preds = %3184, %3180, %3181, %3176, %3169, %3162, %3155, %3147, %3139, %3134, %3129, %3123, %3116, %3109, %.critedge19296, %.critedge19292, %.critedge19288, %.critedge19284, %.critedge19280, %.critedge19276, %.critedge19272, %.critedge19268, %.critedge19264, %.critedge19260, %.critedge19256, %3104, %3099, %3094, %.critedge17282, %.critedge17278, %.critedge17274
   %.955 = phi ptr [ null, %3176 ], [ null, %3169 ], [ null, %3162 ], [ null, %3155 ], [ null, %3147 ], [ null, %3139 ], [ null, %3134 ], [ null, %3129 ], [ null, %3123 ], [ null, %3116 ], [ null, %3109 ], [ null, %3104 ], [ null, %3099 ], [ null, %3094 ], [ null, %.critedge17274 ], [ null, %.critedge17278 ], [ null, %.critedge17282 ], [ null, %.critedge19256 ], [ null, %.critedge19260 ], [ null, %.critedge19264 ], [ null, %.critedge19268 ], [ null, %.critedge19272 ], [ null, %.critedge19276 ], [ null, %.critedge19280 ], [ null, %.critedge19284 ], [ null, %.critedge19288 ], [ null, %.critedge19292 ], [ null, %.critedge19296 ], [ %81, %3181 ], [ null, %3180 ], [ null, %3184 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %30) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %7359
 
 3185:                                             ; preds = %3085
@@ -12274,7 +12268,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3187, label %3188, label %3271
 
 3188:                                             ; preds = %3185
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %31) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %3189 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i8 0, ptr %3189, align 2
   %3190 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.49) #35
@@ -12535,7 +12529,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21159:                                     ; preds = %3270, %3266, %3267, %3262, %3254, %3246, %3239, %3231, %3224, %3217, %3209, %.critedge19329, %.critedge19325, %.critedge19321, %.critedge19317, %.critedge19313, %.critedge19309, %.critedge19305, %.critedge19301, %3204, %3199, %3194, %.critedge17294, %.critedge17290, %.critedge17286
   %.986 = phi ptr [ null, %3262 ], [ null, %3254 ], [ null, %3246 ], [ null, %3239 ], [ null, %3231 ], [ null, %3224 ], [ null, %3217 ], [ null, %3209 ], [ null, %3204 ], [ null, %3199 ], [ null, %3194 ], [ null, %.critedge17286 ], [ null, %.critedge17290 ], [ null, %.critedge17294 ], [ null, %.critedge19301 ], [ null, %.critedge19305 ], [ null, %.critedge19309 ], [ null, %.critedge19313 ], [ null, %.critedge19317 ], [ null, %.critedge19321 ], [ null, %.critedge19325 ], [ null, %.critedge19329 ], [ %81, %3267 ], [ null, %3266 ], [ null, %3270 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %31) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %7359
 
 3271:                                             ; preds = %3185
@@ -12544,7 +12538,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3273, label %3274, label %3354
 
 3274:                                             ; preds = %3271
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %32) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i16 7, ptr %32, align 2
   %3275 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.50) #35
   %.not16450 = icmp eq ptr %3275, null
@@ -12801,7 +12795,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21162:                                     ; preds = %3353, %3349, %3350, %3345, %3338, %3331, %3324, %3316, %3309, %3302, %3294, %.critedge19362, %.critedge19358, %.critedge19354, %.critedge19350, %.critedge19346, %.critedge19342, %.critedge19338, %.critedge19334, %3289, %3284, %3279, %.critedge17306, %.critedge17302, %.critedge17298
   %.1011 = phi ptr [ null, %3345 ], [ null, %3338 ], [ null, %3331 ], [ null, %3324 ], [ null, %3316 ], [ null, %3309 ], [ null, %3302 ], [ null, %3294 ], [ null, %3289 ], [ null, %3284 ], [ null, %3279 ], [ null, %.critedge17298 ], [ null, %.critedge17302 ], [ null, %.critedge17306 ], [ null, %.critedge19334 ], [ null, %.critedge19338 ], [ null, %.critedge19342 ], [ null, %.critedge19346 ], [ null, %.critedge19350 ], [ null, %.critedge19354 ], [ null, %.critedge19358 ], [ null, %.critedge19362 ], [ %81, %3350 ], [ null, %3349 ], [ null, %3353 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %32) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %7359
 
 3354:                                             ; preds = %3271
@@ -12810,7 +12804,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3356, label %3357, label %3436
 
 3357:                                             ; preds = %3354
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %33) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %3358 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.51) #35
   %.not16438 = icmp eq ptr %3358, null
   br i1 %.not16438, label %.critedge17310, label %3359
@@ -13066,7 +13060,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21165:                                     ; preds = %3435, %3431, %3432, %3427, %3420, %3413, %3406, %3398, %3391, %3384, %3377, %.critedge19395, %.critedge19391, %.critedge19387, %.critedge19383, %.critedge19379, %.critedge19375, %.critedge19371, %.critedge19367, %3372, %3367, %3362, %.critedge17318, %.critedge17314, %.critedge17310
   %.1036 = phi ptr [ null, %3427 ], [ null, %3420 ], [ null, %3413 ], [ null, %3406 ], [ null, %3398 ], [ null, %3391 ], [ null, %3384 ], [ null, %3377 ], [ null, %3372 ], [ null, %3367 ], [ null, %3362 ], [ null, %.critedge17310 ], [ null, %.critedge17314 ], [ null, %.critedge17318 ], [ null, %.critedge19367 ], [ null, %.critedge19371 ], [ null, %.critedge19375 ], [ null, %.critedge19379 ], [ null, %.critedge19383 ], [ null, %.critedge19387 ], [ null, %.critedge19391 ], [ null, %.critedge19395 ], [ %81, %3432 ], [ null, %3431 ], [ null, %3435 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %7359
 
 3436:                                             ; preds = %3354
@@ -13075,7 +13069,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3438, label %3439, label %3535
 
 3439:                                             ; preds = %3436
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %34) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %34, i8 0, i64 6, i1 false)
   %3440 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.52) #35
   %.not16423 = icmp eq ptr %3440, null
@@ -13394,7 +13388,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21168:                                     ; preds = %3534, %3530, %3531, %3526, %3519, %3512, %3505, %3497, %3489, %3484, %3479, %3473, %3466, %3459, %.critedge19440, %.critedge19436, %.critedge19432, %.critedge19428, %.critedge19424, %.critedge19420, %.critedge19416, %.critedge19412, %.critedge19408, %.critedge19404, %.critedge19400, %3454, %3449, %3444, %.critedge17330, %.critedge17326, %.critedge17322
   %.1061 = phi ptr [ null, %3526 ], [ null, %3519 ], [ null, %3512 ], [ null, %3505 ], [ null, %3497 ], [ null, %3489 ], [ null, %3484 ], [ null, %3479 ], [ null, %3473 ], [ null, %3466 ], [ null, %3459 ], [ null, %3454 ], [ null, %3449 ], [ null, %3444 ], [ null, %.critedge17322 ], [ null, %.critedge17326 ], [ null, %.critedge17330 ], [ null, %.critedge19400 ], [ null, %.critedge19404 ], [ null, %.critedge19408 ], [ null, %.critedge19412 ], [ null, %.critedge19416 ], [ null, %.critedge19420 ], [ null, %.critedge19424 ], [ null, %.critedge19428 ], [ null, %.critedge19432 ], [ null, %.critedge19436 ], [ null, %.critedge19440 ], [ %81, %3531 ], [ null, %3530 ], [ null, %3534 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %34) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %7359
 
 3535:                                             ; preds = %3436
@@ -13403,7 +13397,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3537, label %3538, label %3621
 
 3538:                                             ; preds = %3535
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %35) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %3539 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i16 0, ptr %3539, align 4
   %3540 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.53) #35
@@ -13664,7 +13658,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21171:                                     ; preds = %3620, %3616, %3617, %3612, %3604, %3596, %3589, %3581, %3574, %3567, %3559, %.critedge19473, %.critedge19469, %.critedge19465, %.critedge19461, %.critedge19457, %.critedge19453, %.critedge19449, %.critedge19445, %3554, %3549, %3544, %.critedge17342, %.critedge17338, %.critedge17334
   %.1092 = phi ptr [ null, %3612 ], [ null, %3604 ], [ null, %3596 ], [ null, %3589 ], [ null, %3581 ], [ null, %3574 ], [ null, %3567 ], [ null, %3559 ], [ null, %3554 ], [ null, %3549 ], [ null, %3544 ], [ null, %.critedge17334 ], [ null, %.critedge17338 ], [ null, %.critedge17342 ], [ null, %.critedge19445 ], [ null, %.critedge19449 ], [ null, %.critedge19453 ], [ null, %.critedge19457 ], [ null, %.critedge19461 ], [ null, %.critedge19465 ], [ null, %.critedge19469 ], [ null, %.critedge19473 ], [ %81, %3617 ], [ null, %3616 ], [ null, %3620 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %35) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %7359
 
 3621:                                             ; preds = %3535
@@ -13673,7 +13667,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3623, label %3624, label %3704
 
 3624:                                             ; preds = %3621
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %36) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i16 7, ptr %36, align 2
   %3625 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.54) #35
   %.not16399 = icmp eq ptr %3625, null
@@ -13930,7 +13924,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21174:                                     ; preds = %3703, %3699, %3700, %3695, %3688, %3681, %3674, %3666, %3659, %3652, %3644, %.critedge19506, %.critedge19502, %.critedge19498, %.critedge19494, %.critedge19490, %.critedge19486, %.critedge19482, %.critedge19478, %3639, %3634, %3629, %.critedge17354, %.critedge17350, %.critedge17346
   %.1117 = phi ptr [ null, %3695 ], [ null, %3688 ], [ null, %3681 ], [ null, %3674 ], [ null, %3666 ], [ null, %3659 ], [ null, %3652 ], [ null, %3644 ], [ null, %3639 ], [ null, %3634 ], [ null, %3629 ], [ null, %.critedge17346 ], [ null, %.critedge17350 ], [ null, %.critedge17354 ], [ null, %.critedge19478 ], [ null, %.critedge19482 ], [ null, %.critedge19486 ], [ null, %.critedge19490 ], [ null, %.critedge19494 ], [ null, %.critedge19498 ], [ null, %.critedge19502 ], [ null, %.critedge19506 ], [ %81, %3700 ], [ null, %3699 ], [ null, %3703 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %36) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %7359
 
 3704:                                             ; preds = %3621
@@ -13939,7 +13933,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3706, label %3707, label %3786
 
 3707:                                             ; preds = %3704
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %37) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %3708 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.55) #35
   %.not16387 = icmp eq ptr %3708, null
   br i1 %.not16387, label %.critedge17358, label %3709
@@ -14195,7 +14189,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21177:                                     ; preds = %3785, %3781, %3782, %3777, %3770, %3763, %3756, %3748, %3741, %3734, %3727, %.critedge19539, %.critedge19535, %.critedge19531, %.critedge19527, %.critedge19523, %.critedge19519, %.critedge19515, %.critedge19511, %3722, %3717, %3712, %.critedge17366, %.critedge17362, %.critedge17358
   %.1142 = phi ptr [ null, %3777 ], [ null, %3770 ], [ null, %3763 ], [ null, %3756 ], [ null, %3748 ], [ null, %3741 ], [ null, %3734 ], [ null, %3727 ], [ null, %3722 ], [ null, %3717 ], [ null, %3712 ], [ null, %.critedge17358 ], [ null, %.critedge17362 ], [ null, %.critedge17366 ], [ null, %.critedge19511 ], [ null, %.critedge19515 ], [ null, %.critedge19519 ], [ null, %.critedge19523 ], [ null, %.critedge19527 ], [ null, %.critedge19531 ], [ null, %.critedge19535 ], [ null, %.critedge19539 ], [ %81, %3782 ], [ null, %3781 ], [ null, %3785 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %37) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %7359
 
 3786:                                             ; preds = %3704
@@ -14204,7 +14198,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3788, label %3789, label %3885
 
 3789:                                             ; preds = %3786
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %38) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %38, i8 0, i64 6, i1 false)
   %3790 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.56) #35
   %.not16372 = icmp eq ptr %3790, null
@@ -14523,7 +14517,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21180:                                     ; preds = %3884, %3880, %3881, %3876, %3869, %3862, %3855, %3847, %3839, %3834, %3829, %3823, %3816, %3809, %.critedge19584, %.critedge19580, %.critedge19576, %.critedge19572, %.critedge19568, %.critedge19564, %.critedge19560, %.critedge19556, %.critedge19552, %.critedge19548, %.critedge19544, %3804, %3799, %3794, %.critedge17378, %.critedge17374, %.critedge17370
   %.1167 = phi ptr [ null, %3876 ], [ null, %3869 ], [ null, %3862 ], [ null, %3855 ], [ null, %3847 ], [ null, %3839 ], [ null, %3834 ], [ null, %3829 ], [ null, %3823 ], [ null, %3816 ], [ null, %3809 ], [ null, %3804 ], [ null, %3799 ], [ null, %3794 ], [ null, %.critedge17370 ], [ null, %.critedge17374 ], [ null, %.critedge17378 ], [ null, %.critedge19544 ], [ null, %.critedge19548 ], [ null, %.critedge19552 ], [ null, %.critedge19556 ], [ null, %.critedge19560 ], [ null, %.critedge19564 ], [ null, %.critedge19568 ], [ null, %.critedge19572 ], [ null, %.critedge19576 ], [ null, %.critedge19580 ], [ null, %.critedge19584 ], [ %81, %3881 ], [ null, %3880 ], [ null, %3884 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %38) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %7359
 
 3885:                                             ; preds = %3786
@@ -14532,7 +14526,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3887, label %3888, label %3971
 
 3888:                                             ; preds = %3885
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %39) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %3889 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i16 0, ptr %3889, align 4
   %3890 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.57) #35
@@ -14793,7 +14787,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21183:                                     ; preds = %3970, %3966, %3967, %3962, %3954, %3946, %3939, %3931, %3924, %3917, %3909, %.critedge19617, %.critedge19613, %.critedge19609, %.critedge19605, %.critedge19601, %.critedge19597, %.critedge19593, %.critedge19589, %3904, %3899, %3894, %.critedge17390, %.critedge17386, %.critedge17382
   %.1198 = phi ptr [ null, %3962 ], [ null, %3954 ], [ null, %3946 ], [ null, %3939 ], [ null, %3931 ], [ null, %3924 ], [ null, %3917 ], [ null, %3909 ], [ null, %3904 ], [ null, %3899 ], [ null, %3894 ], [ null, %.critedge17382 ], [ null, %.critedge17386 ], [ null, %.critedge17390 ], [ null, %.critedge19589 ], [ null, %.critedge19593 ], [ null, %.critedge19597 ], [ null, %.critedge19601 ], [ null, %.critedge19605 ], [ null, %.critedge19609 ], [ null, %.critedge19613 ], [ null, %.critedge19617 ], [ %81, %3967 ], [ null, %3966 ], [ null, %3970 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %39) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %7359
 
 3971:                                             ; preds = %3885
@@ -14802,7 +14796,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %3973, label %3974, label %4054
 
 3974:                                             ; preds = %3971
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i32 7, ptr %40, align 4
   %3975 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.58) #35
   %.not16348 = icmp eq ptr %3975, null
@@ -15059,7 +15053,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21186:                                     ; preds = %4053, %4049, %4050, %4045, %4038, %4031, %4024, %4016, %4009, %4002, %3994, %.critedge19650, %.critedge19646, %.critedge19642, %.critedge19638, %.critedge19634, %.critedge19630, %.critedge19626, %.critedge19622, %3989, %3984, %3979, %.critedge17402, %.critedge17398, %.critedge17394
   %.1223 = phi ptr [ null, %4045 ], [ null, %4038 ], [ null, %4031 ], [ null, %4024 ], [ null, %4016 ], [ null, %4009 ], [ null, %4002 ], [ null, %3994 ], [ null, %3989 ], [ null, %3984 ], [ null, %3979 ], [ null, %.critedge17394 ], [ null, %.critedge17398 ], [ null, %.critedge17402 ], [ null, %.critedge19622 ], [ null, %.critedge19626 ], [ null, %.critedge19630 ], [ null, %.critedge19634 ], [ null, %.critedge19638 ], [ null, %.critedge19642 ], [ null, %.critedge19646 ], [ null, %.critedge19650 ], [ %81, %4050 ], [ null, %4049 ], [ null, %4053 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %7359
 
 4054:                                             ; preds = %3971
@@ -15068,7 +15062,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4056, label %4057, label %4136
 
 4057:                                             ; preds = %4054
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %4058 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.59) #35
   %.not16336 = icmp eq ptr %4058, null
   br i1 %.not16336, label %.critedge17406, label %4059
@@ -15324,7 +15318,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21189:                                     ; preds = %4135, %4131, %4132, %4127, %4120, %4113, %4106, %4098, %4091, %4084, %4077, %.critedge19683, %.critedge19679, %.critedge19675, %.critedge19671, %.critedge19667, %.critedge19663, %.critedge19659, %.critedge19655, %4072, %4067, %4062, %.critedge17414, %.critedge17410, %.critedge17406
   %.1248 = phi ptr [ null, %4127 ], [ null, %4120 ], [ null, %4113 ], [ null, %4106 ], [ null, %4098 ], [ null, %4091 ], [ null, %4084 ], [ null, %4077 ], [ null, %4072 ], [ null, %4067 ], [ null, %4062 ], [ null, %.critedge17406 ], [ null, %.critedge17410 ], [ null, %.critedge17414 ], [ null, %.critedge19655 ], [ null, %.critedge19659 ], [ null, %.critedge19663 ], [ null, %.critedge19667 ], [ null, %.critedge19671 ], [ null, %.critedge19675 ], [ null, %.critedge19679 ], [ null, %.critedge19683 ], [ %81, %4132 ], [ null, %4131 ], [ null, %4135 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %7359
 
 4136:                                             ; preds = %4054
@@ -15333,7 +15327,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4138, label %4139, label %4235
 
 4139:                                             ; preds = %4136
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %42) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, i8 0, i64 12, i1 false)
   %4140 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.60) #35
   %.not16321 = icmp eq ptr %4140, null
@@ -15652,7 +15646,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21192:                                     ; preds = %4234, %4230, %4231, %4226, %4219, %4212, %4205, %4197, %4189, %4184, %4179, %4173, %4166, %4159, %.critedge19728, %.critedge19724, %.critedge19720, %.critedge19716, %.critedge19712, %.critedge19708, %.critedge19704, %.critedge19700, %.critedge19696, %.critedge19692, %.critedge19688, %4154, %4149, %4144, %.critedge17426, %.critedge17422, %.critedge17418
   %.1273 = phi ptr [ null, %4226 ], [ null, %4219 ], [ null, %4212 ], [ null, %4205 ], [ null, %4197 ], [ null, %4189 ], [ null, %4184 ], [ null, %4179 ], [ null, %4173 ], [ null, %4166 ], [ null, %4159 ], [ null, %4154 ], [ null, %4149 ], [ null, %4144 ], [ null, %.critedge17418 ], [ null, %.critedge17422 ], [ null, %.critedge17426 ], [ null, %.critedge19688 ], [ null, %.critedge19692 ], [ null, %.critedge19696 ], [ null, %.critedge19700 ], [ null, %.critedge19704 ], [ null, %.critedge19708 ], [ null, %.critedge19712 ], [ null, %.critedge19716 ], [ null, %.critedge19720 ], [ null, %.critedge19724 ], [ null, %.critedge19728 ], [ %81, %4231 ], [ null, %4230 ], [ null, %4234 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %42) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %7359
 
 4235:                                             ; preds = %4136
@@ -15661,7 +15655,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4237, label %4238, label %4321
 
 4238:                                             ; preds = %4235
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %43) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %4239 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 0, ptr %4239, align 8
   %4240 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.61) #35
@@ -15922,7 +15916,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21195:                                     ; preds = %4320, %4316, %4317, %4312, %4304, %4296, %4289, %4281, %4274, %4267, %4259, %.critedge19761, %.critedge19757, %.critedge19753, %.critedge19749, %.critedge19745, %.critedge19741, %.critedge19737, %.critedge19733, %4254, %4249, %4244, %.critedge17438, %.critedge17434, %.critedge17430
   %.1304 = phi ptr [ null, %4312 ], [ null, %4304 ], [ null, %4296 ], [ null, %4289 ], [ null, %4281 ], [ null, %4274 ], [ null, %4267 ], [ null, %4259 ], [ null, %4254 ], [ null, %4249 ], [ null, %4244 ], [ null, %.critedge17430 ], [ null, %.critedge17434 ], [ null, %.critedge17438 ], [ null, %.critedge19733 ], [ null, %.critedge19737 ], [ null, %.critedge19741 ], [ null, %.critedge19745 ], [ null, %.critedge19749 ], [ null, %.critedge19753 ], [ null, %.critedge19757 ], [ null, %.critedge19761 ], [ %81, %4317 ], [ null, %4316 ], [ null, %4320 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %43) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %7359
 
 4321:                                             ; preds = %4235
@@ -15931,7 +15925,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4323, label %4324, label %4404
 
 4324:                                             ; preds = %4321
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 7, ptr %44, align 4
   %4325 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.62) #35
   %.not16297 = icmp eq ptr %4325, null
@@ -16188,7 +16182,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21198:                                     ; preds = %4403, %4399, %4400, %4395, %4388, %4381, %4374, %4366, %4359, %4352, %4344, %.critedge19794, %.critedge19790, %.critedge19786, %.critedge19782, %.critedge19778, %.critedge19774, %.critedge19770, %.critedge19766, %4339, %4334, %4329, %.critedge17450, %.critedge17446, %.critedge17442
   %.1329 = phi ptr [ null, %4395 ], [ null, %4388 ], [ null, %4381 ], [ null, %4374 ], [ null, %4366 ], [ null, %4359 ], [ null, %4352 ], [ null, %4344 ], [ null, %4339 ], [ null, %4334 ], [ null, %4329 ], [ null, %.critedge17442 ], [ null, %.critedge17446 ], [ null, %.critedge17450 ], [ null, %.critedge19766 ], [ null, %.critedge19770 ], [ null, %.critedge19774 ], [ null, %.critedge19778 ], [ null, %.critedge19782 ], [ null, %.critedge19786 ], [ null, %.critedge19790 ], [ null, %.critedge19794 ], [ %81, %4400 ], [ null, %4399 ], [ null, %4403 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %7359
 
 4404:                                             ; preds = %4321
@@ -16197,7 +16191,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4406, label %4407, label %4486
 
 4407:                                             ; preds = %4404
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %4408 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.63) #35
   %.not16285 = icmp eq ptr %4408, null
   br i1 %.not16285, label %.critedge17454, label %4409
@@ -16453,7 +16447,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21201:                                     ; preds = %4485, %4481, %4482, %4477, %4470, %4463, %4456, %4448, %4441, %4434, %4427, %.critedge19827, %.critedge19823, %.critedge19819, %.critedge19815, %.critedge19811, %.critedge19807, %.critedge19803, %.critedge19799, %4422, %4417, %4412, %.critedge17462, %.critedge17458, %.critedge17454
   %.1354 = phi ptr [ null, %4477 ], [ null, %4470 ], [ null, %4463 ], [ null, %4456 ], [ null, %4448 ], [ null, %4441 ], [ null, %4434 ], [ null, %4427 ], [ null, %4422 ], [ null, %4417 ], [ null, %4412 ], [ null, %.critedge17454 ], [ null, %.critedge17458 ], [ null, %.critedge17462 ], [ null, %.critedge19799 ], [ null, %.critedge19803 ], [ null, %.critedge19807 ], [ null, %.critedge19811 ], [ null, %.critedge19815 ], [ null, %.critedge19819 ], [ null, %.critedge19823 ], [ null, %.critedge19827 ], [ %81, %4482 ], [ null, %4481 ], [ null, %4485 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %7359
 
 4486:                                             ; preds = %4404
@@ -16462,7 +16456,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4488, label %4489, label %4585
 
 4489:                                             ; preds = %4486
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %46) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, i8 0, i64 12, i1 false)
   %4490 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.64) #35
   %.not16270 = icmp eq ptr %4490, null
@@ -16781,7 +16775,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21204:                                     ; preds = %4584, %4580, %4581, %4576, %4569, %4562, %4555, %4547, %4539, %4534, %4529, %4523, %4516, %4509, %.critedge19872, %.critedge19868, %.critedge19864, %.critedge19860, %.critedge19856, %.critedge19852, %.critedge19848, %.critedge19844, %.critedge19840, %.critedge19836, %.critedge19832, %4504, %4499, %4494, %.critedge17474, %.critedge17470, %.critedge17466
   %.1379 = phi ptr [ null, %4576 ], [ null, %4569 ], [ null, %4562 ], [ null, %4555 ], [ null, %4547 ], [ null, %4539 ], [ null, %4534 ], [ null, %4529 ], [ null, %4523 ], [ null, %4516 ], [ null, %4509 ], [ null, %4504 ], [ null, %4499 ], [ null, %4494 ], [ null, %.critedge17466 ], [ null, %.critedge17470 ], [ null, %.critedge17474 ], [ null, %.critedge19832 ], [ null, %.critedge19836 ], [ null, %.critedge19840 ], [ null, %.critedge19844 ], [ null, %.critedge19848 ], [ null, %.critedge19852 ], [ null, %.critedge19856 ], [ null, %.critedge19860 ], [ null, %.critedge19864 ], [ null, %.critedge19868 ], [ null, %.critedge19872 ], [ %81, %4581 ], [ null, %4580 ], [ null, %4584 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %46) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %7359
 
 4585:                                             ; preds = %4486
@@ -16790,7 +16784,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4587, label %4588, label %4671
 
 4588:                                             ; preds = %4585
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %47) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %4589 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 0, ptr %4589, align 8
   %4590 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.65) #35
@@ -17051,7 +17045,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21207:                                     ; preds = %4670, %4666, %4667, %4662, %4654, %4646, %4639, %4631, %4624, %4617, %4609, %.critedge19905, %.critedge19901, %.critedge19897, %.critedge19893, %.critedge19889, %.critedge19885, %.critedge19881, %.critedge19877, %4604, %4599, %4594, %.critedge17486, %.critedge17482, %.critedge17478
   %.1410 = phi ptr [ null, %4662 ], [ null, %4654 ], [ null, %4646 ], [ null, %4639 ], [ null, %4631 ], [ null, %4624 ], [ null, %4617 ], [ null, %4609 ], [ null, %4604 ], [ null, %4599 ], [ null, %4594 ], [ null, %.critedge17478 ], [ null, %.critedge17482 ], [ null, %.critedge17486 ], [ null, %.critedge19877 ], [ null, %.critedge19881 ], [ null, %.critedge19885 ], [ null, %.critedge19889 ], [ null, %.critedge19893 ], [ null, %.critedge19897 ], [ null, %.critedge19901 ], [ null, %.critedge19905 ], [ %81, %4667 ], [ null, %4666 ], [ null, %4670 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %47) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %7359
 
 4671:                                             ; preds = %4585
@@ -17060,7 +17054,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4673, label %4674, label %4754
 
 4674:                                             ; preds = %4671
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 7, ptr %48, align 8
   %4675 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.66) #35
   %.not16246 = icmp eq ptr %4675, null
@@ -17317,7 +17311,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21210:                                     ; preds = %4753, %4749, %4750, %4745, %4738, %4731, %4724, %4716, %4709, %4702, %4694, %.critedge19938, %.critedge19934, %.critedge19930, %.critedge19926, %.critedge19922, %.critedge19918, %.critedge19914, %.critedge19910, %4689, %4684, %4679, %.critedge17498, %.critedge17494, %.critedge17490
   %.1435 = phi ptr [ null, %4745 ], [ null, %4738 ], [ null, %4731 ], [ null, %4724 ], [ null, %4716 ], [ null, %4709 ], [ null, %4702 ], [ null, %4694 ], [ null, %4689 ], [ null, %4684 ], [ null, %4679 ], [ null, %.critedge17490 ], [ null, %.critedge17494 ], [ null, %.critedge17498 ], [ null, %.critedge19910 ], [ null, %.critedge19914 ], [ null, %.critedge19918 ], [ null, %.critedge19922 ], [ null, %.critedge19926 ], [ null, %.critedge19930 ], [ null, %.critedge19934 ], [ null, %.critedge19938 ], [ %81, %4750 ], [ null, %4749 ], [ null, %4753 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %7359
 
 4754:                                             ; preds = %4671
@@ -17326,7 +17320,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4756, label %4757, label %4836
 
 4757:                                             ; preds = %4754
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %4758 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.67) #35
   %.not16234 = icmp eq ptr %4758, null
   br i1 %.not16234, label %.critedge17502, label %4759
@@ -17582,7 +17576,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21213:                                     ; preds = %4835, %4831, %4832, %4827, %4820, %4813, %4806, %4798, %4791, %4784, %4777, %.critedge19971, %.critedge19967, %.critedge19963, %.critedge19959, %.critedge19955, %.critedge19951, %.critedge19947, %.critedge19943, %4772, %4767, %4762, %.critedge17510, %.critedge17506, %.critedge17502
   %.1460 = phi ptr [ null, %4827 ], [ null, %4820 ], [ null, %4813 ], [ null, %4806 ], [ null, %4798 ], [ null, %4791 ], [ null, %4784 ], [ null, %4777 ], [ null, %4772 ], [ null, %4767 ], [ null, %4762 ], [ null, %.critedge17502 ], [ null, %.critedge17506 ], [ null, %.critedge17510 ], [ null, %.critedge19943 ], [ null, %.critedge19947 ], [ null, %.critedge19951 ], [ null, %.critedge19955 ], [ null, %.critedge19959 ], [ null, %.critedge19963 ], [ null, %.critedge19967 ], [ null, %.critedge19971 ], [ %81, %4832 ], [ null, %4831 ], [ null, %4835 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %7359
 
 4836:                                             ; preds = %4754
@@ -17591,7 +17585,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4838, label %4839, label %4935
 
 4839:                                             ; preds = %4836
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %4840 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.68) #35
   %.not16219 = icmp eq ptr %4840, null
@@ -17910,7 +17904,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21216:                                     ; preds = %4934, %4930, %4931, %4926, %4919, %4912, %4905, %4897, %4889, %4884, %4879, %4873, %4866, %4859, %.critedge20016, %.critedge20012, %.critedge20008, %.critedge20004, %.critedge20000, %.critedge19996, %.critedge19992, %.critedge19988, %.critedge19984, %.critedge19980, %.critedge19976, %4854, %4849, %4844, %.critedge17522, %.critedge17518, %.critedge17514
   %.1485 = phi ptr [ null, %4926 ], [ null, %4919 ], [ null, %4912 ], [ null, %4905 ], [ null, %4897 ], [ null, %4889 ], [ null, %4884 ], [ null, %4879 ], [ null, %4873 ], [ null, %4866 ], [ null, %4859 ], [ null, %4854 ], [ null, %4849 ], [ null, %4844 ], [ null, %.critedge17514 ], [ null, %.critedge17518 ], [ null, %.critedge17522 ], [ null, %.critedge19976 ], [ null, %.critedge19980 ], [ null, %.critedge19984 ], [ null, %.critedge19988 ], [ null, %.critedge19992 ], [ null, %.critedge19996 ], [ null, %.critedge20000 ], [ null, %.critedge20004 ], [ null, %.critedge20008 ], [ null, %.critedge20012 ], [ null, %.critedge20016 ], [ %81, %4931 ], [ null, %4930 ], [ null, %4934 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %7359
 
 4935:                                             ; preds = %4836
@@ -17919,7 +17913,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %4937, label %4938, label %5021
 
 4938:                                             ; preds = %4935
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %4939 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.69) #35
   %.not16207 = icmp eq ptr %4939, null
@@ -18180,7 +18174,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21219:                                     ; preds = %5020, %5016, %5017, %5012, %5004, %4996, %4989, %4981, %4973, %4966, %4958, %.critedge20049, %.critedge20045, %.critedge20041, %.critedge20037, %.critedge20033, %.critedge20029, %.critedge20025, %.critedge20021, %4953, %4948, %4943, %.critedge17534, %.critedge17530, %.critedge17526
   %.1516 = phi ptr [ null, %5012 ], [ null, %5004 ], [ null, %4996 ], [ null, %4989 ], [ null, %4981 ], [ null, %4973 ], [ null, %4966 ], [ null, %4958 ], [ null, %4953 ], [ null, %4948 ], [ null, %4943 ], [ null, %.critedge17526 ], [ null, %.critedge17530 ], [ null, %.critedge17534 ], [ null, %.critedge20021 ], [ null, %.critedge20025 ], [ null, %.critedge20029 ], [ null, %.critedge20033 ], [ null, %.critedge20037 ], [ null, %.critedge20041 ], [ null, %.critedge20045 ], [ null, %.critedge20049 ], [ %81, %5017 ], [ null, %5016 ], [ null, %5020 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %7359
 
 5021:                                             ; preds = %4935
@@ -18189,7 +18183,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5023, label %5024, label %5104
 
 5024:                                             ; preds = %5021
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i64 7, ptr %52, align 8
   %5025 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.70) #35
   %.not16195 = icmp eq ptr %5025, null
@@ -18446,7 +18440,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21222:                                     ; preds = %5103, %5099, %5100, %5095, %5088, %5081, %5074, %5066, %5059, %5052, %5044, %.critedge20082, %.critedge20078, %.critedge20074, %.critedge20070, %.critedge20066, %.critedge20062, %.critedge20058, %.critedge20054, %5039, %5034, %5029, %.critedge17546, %.critedge17542, %.critedge17538
   %.1541 = phi ptr [ null, %5095 ], [ null, %5088 ], [ null, %5081 ], [ null, %5074 ], [ null, %5066 ], [ null, %5059 ], [ null, %5052 ], [ null, %5044 ], [ null, %5039 ], [ null, %5034 ], [ null, %5029 ], [ null, %.critedge17538 ], [ null, %.critedge17542 ], [ null, %.critedge17546 ], [ null, %.critedge20054 ], [ null, %.critedge20058 ], [ null, %.critedge20062 ], [ null, %.critedge20066 ], [ null, %.critedge20070 ], [ null, %.critedge20074 ], [ null, %.critedge20078 ], [ null, %.critedge20082 ], [ %81, %5100 ], [ null, %5099 ], [ null, %5103 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %7359
 
 5104:                                             ; preds = %5021
@@ -18455,7 +18449,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5106, label %5107, label %5186
 
 5107:                                             ; preds = %5104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %5108 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.71) #35
   %.not16183 = icmp eq ptr %5108, null
   br i1 %.not16183, label %.critedge17550, label %5109
@@ -18711,7 +18705,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21225:                                     ; preds = %5185, %5181, %5182, %5177, %5170, %5163, %5156, %5148, %5141, %5134, %5127, %.critedge20115, %.critedge20111, %.critedge20107, %.critedge20103, %.critedge20099, %.critedge20095, %.critedge20091, %.critedge20087, %5122, %5117, %5112, %.critedge17558, %.critedge17554, %.critedge17550
   %.1566 = phi ptr [ null, %5177 ], [ null, %5170 ], [ null, %5163 ], [ null, %5156 ], [ null, %5148 ], [ null, %5141 ], [ null, %5134 ], [ null, %5127 ], [ null, %5122 ], [ null, %5117 ], [ null, %5112 ], [ null, %.critedge17550 ], [ null, %.critedge17554 ], [ null, %.critedge17558 ], [ null, %.critedge20087 ], [ null, %.critedge20091 ], [ null, %.critedge20095 ], [ null, %.critedge20099 ], [ null, %.critedge20103 ], [ null, %.critedge20107 ], [ null, %.critedge20111 ], [ null, %.critedge20115 ], [ %81, %5182 ], [ null, %5181 ], [ null, %5185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %7359
 
 5186:                                             ; preds = %5104
@@ -18720,7 +18714,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5188, label %5189, label %5285
 
 5189:                                             ; preds = %5186
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %5190 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.72) #35
   %.not16168 = icmp eq ptr %5190, null
@@ -19039,7 +19033,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21228:                                     ; preds = %5284, %5280, %5281, %5276, %5269, %5262, %5255, %5247, %5239, %5234, %5229, %5223, %5216, %5209, %.critedge20160, %.critedge20156, %.critedge20152, %.critedge20148, %.critedge20144, %.critedge20140, %.critedge20136, %.critedge20132, %.critedge20128, %.critedge20124, %.critedge20120, %5204, %5199, %5194, %.critedge17570, %.critedge17566, %.critedge17562
   %.1591 = phi ptr [ null, %5276 ], [ null, %5269 ], [ null, %5262 ], [ null, %5255 ], [ null, %5247 ], [ null, %5239 ], [ null, %5234 ], [ null, %5229 ], [ null, %5223 ], [ null, %5216 ], [ null, %5209 ], [ null, %5204 ], [ null, %5199 ], [ null, %5194 ], [ null, %.critedge17562 ], [ null, %.critedge17566 ], [ null, %.critedge17570 ], [ null, %.critedge20120 ], [ null, %.critedge20124 ], [ null, %.critedge20128 ], [ null, %.critedge20132 ], [ null, %.critedge20136 ], [ null, %.critedge20140 ], [ null, %.critedge20144 ], [ null, %.critedge20148 ], [ null, %.critedge20152 ], [ null, %.critedge20156 ], [ null, %.critedge20160 ], [ %81, %5281 ], [ null, %5280 ], [ null, %5284 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %7359
 
 5285:                                             ; preds = %5186
@@ -19048,7 +19042,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5287, label %5288, label %5371
 
 5288:                                             ; preds = %5285
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   %5289 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.73) #35
   %.not16156 = icmp eq ptr %5289, null
@@ -19309,7 +19303,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21231:                                     ; preds = %5370, %5366, %5367, %5362, %5354, %5346, %5339, %5331, %5323, %5316, %5308, %.critedge20193, %.critedge20189, %.critedge20185, %.critedge20181, %.critedge20177, %.critedge20173, %.critedge20169, %.critedge20165, %5303, %5298, %5293, %.critedge17582, %.critedge17578, %.critedge17574
   %.1622 = phi ptr [ null, %5362 ], [ null, %5354 ], [ null, %5346 ], [ null, %5339 ], [ null, %5331 ], [ null, %5323 ], [ null, %5316 ], [ null, %5308 ], [ null, %5303 ], [ null, %5298 ], [ null, %5293 ], [ null, %.critedge17574 ], [ null, %.critedge17578 ], [ null, %.critedge17582 ], [ null, %.critedge20165 ], [ null, %.critedge20169 ], [ null, %.critedge20173 ], [ null, %.critedge20177 ], [ null, %.critedge20181 ], [ null, %.critedge20185 ], [ null, %.critedge20189 ], [ null, %.critedge20193 ], [ %81, %5367 ], [ null, %5366 ], [ null, %5370 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %7359
 
 5371:                                             ; preds = %5285
@@ -19318,7 +19312,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5373, label %5374, label %5433
 
 5374:                                             ; preds = %5371
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i32 15, ptr %56, align 4
   %5375 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.74) #35
   %.not16147 = icmp eq ptr %5375, null
@@ -19509,7 +19503,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21234:                                     ; preds = %5432, %5428, %5429, %5424, %5416, %5409, %5402, %5394, %.critedge20214, %.critedge20210, %.critedge20206, %.critedge20202, %.critedge20198, %5389, %5384, %5379, %.critedge17594, %.critedge17590, %.critedge17586
   %.1647 = phi ptr [ null, %5424 ], [ null, %5416 ], [ null, %5409 ], [ null, %5402 ], [ null, %5394 ], [ null, %5389 ], [ null, %5384 ], [ null, %5379 ], [ null, %.critedge17586 ], [ null, %.critedge17590 ], [ null, %.critedge17594 ], [ null, %.critedge20198 ], [ null, %.critedge20202 ], [ null, %.critedge20206 ], [ null, %.critedge20210 ], [ null, %.critedge20214 ], [ %81, %5429 ], [ null, %5428 ], [ null, %5432 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %7359
 
 5433:                                             ; preds = %5371
@@ -19518,7 +19512,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5435, label %5436, label %5495
 
 5436:                                             ; preds = %5433
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %5437 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.75) #35
   %.not16138 = icmp eq ptr %5437, null
   br i1 %.not16138, label %.critedge17598, label %5438
@@ -19709,7 +19703,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21237:                                     ; preds = %5494, %5490, %5491, %5486, %5478, %5471, %5464, %5456, %.critedge20235, %.critedge20231, %.critedge20227, %.critedge20223, %.critedge20219, %5451, %5446, %5441, %.critedge17606, %.critedge17602, %.critedge17598
   %.1666 = phi ptr [ null, %5486 ], [ null, %5478 ], [ null, %5471 ], [ null, %5464 ], [ null, %5456 ], [ null, %5451 ], [ null, %5446 ], [ null, %5441 ], [ null, %.critedge17598 ], [ null, %.critedge17602 ], [ null, %.critedge17606 ], [ null, %.critedge20219 ], [ null, %.critedge20223 ], [ null, %.critedge20227 ], [ null, %.critedge20231 ], [ null, %.critedge20235 ], [ %81, %5491 ], [ null, %5490 ], [ null, %5494 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %7359
 
 5495:                                             ; preds = %5433
@@ -19718,7 +19712,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5497, label %5498, label %5557
 
 5498:                                             ; preds = %5495
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %58) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %5499 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.76) #35
   %.not16129 = icmp eq ptr %5499, null
   br i1 %.not16129, label %.critedge17610, label %5500
@@ -19909,7 +19903,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21240:                                     ; preds = %5556, %5552, %5553, %5548, %5540, %5533, %5526, %5518, %.critedge20256, %.critedge20252, %.critedge20248, %.critedge20244, %.critedge20240, %5513, %5508, %5503, %.critedge17618, %.critedge17614, %.critedge17610
   %.1685 = phi ptr [ null, %5548 ], [ null, %5540 ], [ null, %5533 ], [ null, %5526 ], [ null, %5518 ], [ null, %5513 ], [ null, %5508 ], [ null, %5503 ], [ null, %.critedge17610 ], [ null, %.critedge17614 ], [ null, %.critedge17618 ], [ null, %.critedge20240 ], [ null, %.critedge20244 ], [ null, %.critedge20248 ], [ null, %.critedge20252 ], [ null, %.critedge20256 ], [ %81, %5553 ], [ null, %5552 ], [ null, %5556 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %7359
 
 5557:                                             ; preds = %5495
@@ -19918,7 +19912,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5559, label %5560, label %5707
 
 5560:                                             ; preds = %5557
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %5561 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.77) #35
   %.not16108 = icmp eq ptr %5561, null
   br i1 %.not16108, label %.critedge17622, label %5562
@@ -20377,7 +20371,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21243:                                     ; preds = %5706, %5702, %5703, %5698, %5690, %5683, %5676, %5668, %5661, %5654, %5646, %5639, %5632, %5624, %5617, %5610, %5602, %5595, %5588, %5580, %.critedge20325, %.critedge20321, %.critedge20317, %.critedge20313, %.critedge20309, %.critedge20305, %.critedge20301, %.critedge20297, %.critedge20293, %.critedge20289, %.critedge20285, %.critedge20281, %.critedge20277, %.critedge20273, %.critedge20269, %.critedge20265, %.critedge20261, %5575, %5570, %5565, %.critedge17630, %.critedge17626, %.critedge17622
   %.1704 = phi ptr [ null, %5698 ], [ null, %5690 ], [ null, %5683 ], [ null, %5676 ], [ null, %5668 ], [ null, %5661 ], [ null, %5654 ], [ null, %5646 ], [ null, %5639 ], [ null, %5632 ], [ null, %5624 ], [ null, %5617 ], [ null, %5610 ], [ null, %5602 ], [ null, %5595 ], [ null, %5588 ], [ null, %5580 ], [ null, %5575 ], [ null, %5570 ], [ null, %5565 ], [ null, %.critedge17622 ], [ null, %.critedge17626 ], [ null, %.critedge17630 ], [ null, %.critedge20261 ], [ null, %.critedge20265 ], [ null, %.critedge20269 ], [ null, %.critedge20273 ], [ null, %.critedge20277 ], [ null, %.critedge20281 ], [ null, %.critedge20285 ], [ null, %.critedge20289 ], [ null, %.critedge20293 ], [ null, %.critedge20297 ], [ null, %.critedge20301 ], [ null, %.critedge20305 ], [ null, %.critedge20309 ], [ null, %.critedge20313 ], [ null, %.critedge20317 ], [ null, %.critedge20321 ], [ null, %.critedge20325 ], [ %81, %5703 ], [ null, %5702 ], [ null, %5706 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %7359
 
 5707:                                             ; preds = %5557
@@ -20386,7 +20380,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5709, label %5710, label %5768
 
 5710:                                             ; preds = %5707
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %5711 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.78) #35
   %.not16099 = icmp eq ptr %5711, null
   br i1 %.not16099, label %.critedge17634, label %5712
@@ -20576,7 +20570,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21246:                                     ; preds = %5767, %5763, %5764, %5759, %5751, %5744, %5737, %5730, %.critedge20346, %.critedge20342, %.critedge20338, %.critedge20334, %.critedge20330, %5725, %5720, %5715, %.critedge17642, %.critedge17638, %.critedge17634
   %.1747 = phi ptr [ null, %5759 ], [ null, %5751 ], [ null, %5744 ], [ null, %5737 ], [ null, %5730 ], [ null, %5725 ], [ null, %5720 ], [ null, %5715 ], [ null, %.critedge17634 ], [ null, %.critedge17638 ], [ null, %.critedge17642 ], [ null, %.critedge20330 ], [ null, %.critedge20334 ], [ null, %.critedge20338 ], [ null, %.critedge20342 ], [ null, %.critedge20346 ], [ %81, %5764 ], [ null, %5763 ], [ null, %5767 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %7359
 
 5768:                                             ; preds = %5707
@@ -20585,7 +20579,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5770, label %5771, label %5829
 
 5771:                                             ; preds = %5768
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %5772 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.79) #35
   %.not16090 = icmp eq ptr %5772, null
   br i1 %.not16090, label %.critedge17646, label %5773
@@ -20775,7 +20769,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21249:                                     ; preds = %5828, %5824, %5825, %5820, %5812, %5805, %5798, %5791, %.critedge20367, %.critedge20363, %.critedge20359, %.critedge20355, %.critedge20351, %5786, %5781, %5776, %.critedge17654, %.critedge17650, %.critedge17646
   %.1766 = phi ptr [ null, %5820 ], [ null, %5812 ], [ null, %5805 ], [ null, %5798 ], [ null, %5791 ], [ null, %5786 ], [ null, %5781 ], [ null, %5776 ], [ null, %.critedge17646 ], [ null, %.critedge17650 ], [ null, %.critedge17654 ], [ null, %.critedge20351 ], [ null, %.critedge20355 ], [ null, %.critedge20359 ], [ null, %.critedge20363 ], [ null, %.critedge20367 ], [ %81, %5825 ], [ null, %5824 ], [ null, %5828 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %7359
 
 5829:                                             ; preds = %5768
@@ -20784,7 +20778,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5831, label %5832, label %5909
 
 5832:                                             ; preds = %5829
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %5833 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.80) #35
   %.not16078 = icmp eq ptr %5833, null
@@ -21039,7 +21033,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21252:                                     ; preds = %5908, %5904, %5905, %5900, %5892, %5885, %5878, %5870, %5862, %5857, %5852, %.critedge20400, %.critedge20396, %.critedge20392, %.critedge20388, %.critedge20384, %.critedge20380, %.critedge20376, %.critedge20372, %5847, %5842, %5837, %.critedge17666, %.critedge17662, %.critedge17658
   %.1785 = phi ptr [ null, %5900 ], [ null, %5892 ], [ null, %5885 ], [ null, %5878 ], [ null, %5870 ], [ null, %5862 ], [ null, %5857 ], [ null, %5852 ], [ null, %5847 ], [ null, %5842 ], [ null, %5837 ], [ null, %.critedge17658 ], [ null, %.critedge17662 ], [ null, %.critedge17666 ], [ null, %.critedge20372 ], [ null, %.critedge20376 ], [ null, %.critedge20380 ], [ null, %.critedge20384 ], [ null, %.critedge20388 ], [ null, %.critedge20392 ], [ null, %.critedge20396 ], [ null, %.critedge20400 ], [ %81, %5905 ], [ null, %5904 ], [ null, %5908 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %7359
 
 5909:                                             ; preds = %5829
@@ -21048,7 +21042,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5911, label %5912, label %5988
 
 5912:                                             ; preds = %5909
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %5913 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.81) #35
   %.not16066 = icmp eq ptr %5913, null
@@ -21302,7 +21296,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21255:                                     ; preds = %5987, %5983, %5984, %5979, %5972, %5965, %5958, %5950, %5942, %5937, %5932, %.critedge20433, %.critedge20429, %.critedge20425, %.critedge20421, %.critedge20417, %.critedge20413, %.critedge20409, %.critedge20405, %5927, %5922, %5917, %.critedge17678, %.critedge17674, %.critedge17670
   %.1810 = phi ptr [ null, %5979 ], [ null, %5972 ], [ null, %5965 ], [ null, %5958 ], [ null, %5950 ], [ null, %5942 ], [ null, %5937 ], [ null, %5932 ], [ null, %5927 ], [ null, %5922 ], [ null, %5917 ], [ null, %.critedge17670 ], [ null, %.critedge17674 ], [ null, %.critedge17678 ], [ null, %.critedge20405 ], [ null, %.critedge20409 ], [ null, %.critedge20413 ], [ null, %.critedge20417 ], [ null, %.critedge20421 ], [ null, %.critedge20425 ], [ null, %.critedge20429 ], [ null, %.critedge20433 ], [ %81, %5984 ], [ null, %5983 ], [ null, %5987 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %7359
 
 5988:                                             ; preds = %5909
@@ -21311,7 +21305,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %5990, label %5991, label %6061
 
 5991:                                             ; preds = %5988
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %5992 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.82) #35
   %.not16054 = icmp eq ptr %5992, null
@@ -21559,7 +21553,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21258:                                     ; preds = %6060, %6056, %6057, %6052, %6045, %6037, %6032, %6027, %6021, %6016, %6011, %.critedge20466, %.critedge20462, %.critedge20458, %.critedge20454, %.critedge20450, %.critedge20446, %.critedge20442, %.critedge20438, %6006, %6001, %5996, %.critedge17690, %.critedge17686, %.critedge17682
   %.1835 = phi ptr [ null, %6052 ], [ null, %6045 ], [ null, %6037 ], [ null, %6032 ], [ null, %6027 ], [ null, %6021 ], [ null, %6016 ], [ null, %6011 ], [ null, %6006 ], [ null, %6001 ], [ null, %5996 ], [ null, %.critedge17682 ], [ null, %.critedge17686 ], [ null, %.critedge17690 ], [ null, %.critedge20438 ], [ null, %.critedge20442 ], [ null, %.critedge20446 ], [ null, %.critedge20450 ], [ null, %.critedge20454 ], [ null, %.critedge20458 ], [ null, %.critedge20462 ], [ null, %.critedge20466 ], [ %81, %6057 ], [ null, %6056 ], [ null, %6060 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %7359
 
 6061:                                             ; preds = %5988
@@ -21568,7 +21562,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6063, label %6064, label %6118
 
 6064:                                             ; preds = %6061
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i32 255, ptr %65, align 4
   %6065 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.83) #35
   %.not16045 = icmp eq ptr %6065, null
@@ -21754,7 +21748,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21261:                                     ; preds = %6117, %6113, %6114, %6109, %6102, %6094, %6089, %6084, %.critedge20487, %.critedge20483, %.critedge20479, %.critedge20475, %.critedge20471, %6079, %6074, %6069, %.critedge17702, %.critedge17698, %.critedge17694
   %.1860 = phi ptr [ null, %6109 ], [ null, %6102 ], [ null, %6094 ], [ null, %6089 ], [ null, %6084 ], [ null, %6079 ], [ null, %6074 ], [ null, %6069 ], [ null, %.critedge17694 ], [ null, %.critedge17698 ], [ null, %.critedge17702 ], [ null, %.critedge20471 ], [ null, %.critedge20475 ], [ null, %.critedge20479 ], [ null, %.critedge20483 ], [ null, %.critedge20487 ], [ %81, %6114 ], [ null, %6113 ], [ null, %6117 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %7359
 
 6118:                                             ; preds = %6061
@@ -21763,7 +21757,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6120, label %6121, label %6178
 
 6121:                                             ; preds = %6118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i64 1, ptr %66, align 8
   %6122 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.84) #35
   %.not16036 = icmp eq ptr %6122, null
@@ -21952,7 +21946,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21264:                                     ; preds = %6177, %6173, %6174, %6169, %6162, %6155, %6148, %6141, %.critedge20508, %.critedge20504, %.critedge20500, %.critedge20496, %.critedge20492, %6136, %6131, %6126, %.critedge17714, %.critedge17710, %.critedge17706
   %.1879 = phi ptr [ null, %6169 ], [ null, %6162 ], [ null, %6155 ], [ null, %6148 ], [ null, %6141 ], [ null, %6136 ], [ null, %6131 ], [ null, %6126 ], [ null, %.critedge17706 ], [ null, %.critedge17710 ], [ null, %.critedge17714 ], [ null, %.critedge20492 ], [ null, %.critedge20496 ], [ null, %.critedge20500 ], [ null, %.critedge20504 ], [ null, %.critedge20508 ], [ %81, %6174 ], [ null, %6173 ], [ null, %6177 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %7359
 
 6178:                                             ; preds = %6118
@@ -21961,7 +21955,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6180, label %6181, label %6238
 
 6181:                                             ; preds = %6178
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i64 1, ptr %67, align 8
   %6182 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.85) #35
   %.not16027 = icmp eq ptr %6182, null
@@ -22150,7 +22144,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21267:                                     ; preds = %6237, %6233, %6234, %6229, %6222, %6215, %6208, %6201, %.critedge20529, %.critedge20525, %.critedge20521, %.critedge20517, %.critedge20513, %6196, %6191, %6186, %.critedge17726, %.critedge17722, %.critedge17718
   %.1898 = phi ptr [ null, %6229 ], [ null, %6222 ], [ null, %6215 ], [ null, %6208 ], [ null, %6201 ], [ null, %6196 ], [ null, %6191 ], [ null, %6186 ], [ null, %.critedge17718 ], [ null, %.critedge17722 ], [ null, %.critedge17726 ], [ null, %.critedge20513 ], [ null, %.critedge20517 ], [ null, %.critedge20521 ], [ null, %.critedge20525 ], [ null, %.critedge20529 ], [ %81, %6234 ], [ null, %6233 ], [ null, %6237 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %7359
 
 6238:                                             ; preds = %6178
@@ -22159,7 +22153,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6240, label %6241, label %6470
 
 6241:                                             ; preds = %6238
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %68) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %6242 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store i16 0, ptr %6242, align 1
   %6243 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.86) #35
@@ -22881,7 +22875,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21270:                                     ; preds = %6469, %6465, %6466, %6461, %6453, %6446, %6439, %6431, %6423, %6416, %6409, %6402, %6395, %6388, %6381, %6374, %6367, %6360, %6353, %6346, %6339, %6332, %6325, %6318, %6311, %6304, %6297, %6290, %6283, %6276, %6269, %6262, %.critedge20646, %.critedge20642, %.critedge20638, %.critedge20634, %.critedge20630, %.critedge20626, %.critedge20622, %.critedge20618, %.critedge20614, %.critedge20610, %.critedge20606, %.critedge20602, %.critedge20598, %.critedge20594, %.critedge20590, %.critedge20586, %.critedge20582, %.critedge20578, %.critedge20574, %.critedge20570, %.critedge20566, %.critedge20562, %.critedge20558, %.critedge20554, %.critedge20550, %.critedge20546, %.critedge20542, %.critedge20538, %.critedge20534, %6257, %6252, %6247, %.critedge17738, %.critedge17734, %.critedge17730
   %.1917 = phi ptr [ null, %6461 ], [ null, %6453 ], [ null, %6446 ], [ null, %6439 ], [ null, %6431 ], [ null, %6423 ], [ null, %6416 ], [ null, %6409 ], [ null, %6402 ], [ null, %6395 ], [ null, %6388 ], [ null, %6381 ], [ null, %6374 ], [ null, %6367 ], [ null, %6360 ], [ null, %6353 ], [ null, %6346 ], [ null, %6339 ], [ null, %6332 ], [ null, %6325 ], [ null, %6318 ], [ null, %6311 ], [ null, %6304 ], [ null, %6297 ], [ null, %6290 ], [ null, %6283 ], [ null, %6276 ], [ null, %6269 ], [ null, %6262 ], [ null, %6257 ], [ null, %6252 ], [ null, %6247 ], [ null, %.critedge17730 ], [ null, %.critedge17734 ], [ null, %.critedge17738 ], [ null, %.critedge20534 ], [ null, %.critedge20538 ], [ null, %.critedge20542 ], [ null, %.critedge20546 ], [ null, %.critedge20550 ], [ null, %.critedge20554 ], [ null, %.critedge20558 ], [ null, %.critedge20562 ], [ null, %.critedge20566 ], [ null, %.critedge20570 ], [ null, %.critedge20574 ], [ null, %.critedge20578 ], [ null, %.critedge20582 ], [ null, %.critedge20586 ], [ null, %.critedge20590 ], [ null, %.critedge20594 ], [ null, %.critedge20598 ], [ null, %.critedge20602 ], [ null, %.critedge20606 ], [ null, %.critedge20610 ], [ null, %.critedge20614 ], [ null, %.critedge20618 ], [ null, %.critedge20622 ], [ null, %.critedge20626 ], [ null, %.critedge20630 ], [ null, %.critedge20634 ], [ null, %.critedge20638 ], [ null, %.critedge20642 ], [ null, %.critedge20646 ], [ %81, %6466 ], [ null, %6465 ], [ null, %6469 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %68) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %7359
 
 6470:                                             ; preds = %6238
@@ -22890,7 +22884,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6472, label %6473, label %6656
 
 6473:                                             ; preds = %6470
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %69) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %6474 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.87) #35
   %.not15967 = icmp eq ptr %6474, null
   br i1 %.not15967, label %.critedge17742, label %6475
@@ -23475,7 +23469,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21273:                                     ; preds = %6655, %6651, %6652, %6647, %6640, %6633, %6626, %6619, %6612, %6605, %6598, %6591, %6584, %6577, %6570, %6563, %6556, %6549, %6542, %6535, %6528, %6521, %6514, %6507, %6500, %6493, %.critedge20739, %.critedge20735, %.critedge20731, %.critedge20727, %.critedge20723, %.critedge20719, %.critedge20715, %.critedge20711, %.critedge20707, %.critedge20703, %.critedge20699, %.critedge20695, %.critedge20691, %.critedge20687, %.critedge20683, %.critedge20679, %.critedge20675, %.critedge20671, %.critedge20667, %.critedge20663, %.critedge20659, %.critedge20655, %.critedge20651, %6488, %6483, %6478, %.critedge17750, %.critedge17746, %.critedge17742
   %.1984 = phi ptr [ null, %6647 ], [ null, %6640 ], [ null, %6633 ], [ null, %6626 ], [ null, %6619 ], [ null, %6612 ], [ null, %6605 ], [ null, %6598 ], [ null, %6591 ], [ null, %6584 ], [ null, %6577 ], [ null, %6570 ], [ null, %6563 ], [ null, %6556 ], [ null, %6549 ], [ null, %6542 ], [ null, %6535 ], [ null, %6528 ], [ null, %6521 ], [ null, %6514 ], [ null, %6507 ], [ null, %6500 ], [ null, %6493 ], [ null, %6488 ], [ null, %6483 ], [ null, %6478 ], [ null, %.critedge17742 ], [ null, %.critedge17746 ], [ null, %.critedge17750 ], [ null, %.critedge20651 ], [ null, %.critedge20655 ], [ null, %.critedge20659 ], [ null, %.critedge20663 ], [ null, %.critedge20667 ], [ null, %.critedge20671 ], [ null, %.critedge20675 ], [ null, %.critedge20679 ], [ null, %.critedge20683 ], [ null, %.critedge20687 ], [ null, %.critedge20691 ], [ null, %.critedge20695 ], [ null, %.critedge20699 ], [ null, %.critedge20703 ], [ null, %.critedge20707 ], [ null, %.critedge20711 ], [ null, %.critedge20715 ], [ null, %.critedge20719 ], [ null, %.critedge20723 ], [ null, %.critedge20727 ], [ null, %.critedge20731 ], [ null, %.critedge20735 ], [ null, %.critedge20739 ], [ %81, %6652 ], [ null, %6651 ], [ null, %6655 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %7359
 
 6656:                                             ; preds = %6470
@@ -23484,7 +23478,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6658, label %6659, label %6888
 
 6659:                                             ; preds = %6656
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %70) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %6660 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store i16 0, ptr %6660, align 1
   %6661 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.88) #35
@@ -24206,7 +24200,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21276:                                     ; preds = %6887, %6883, %6884, %6879, %6871, %6864, %6857, %6849, %6841, %6834, %6827, %6820, %6813, %6806, %6799, %6792, %6785, %6778, %6771, %6764, %6757, %6750, %6743, %6736, %6729, %6722, %6715, %6708, %6701, %6694, %6687, %6680, %.critedge20856, %.critedge20852, %.critedge20848, %.critedge20844, %.critedge20840, %.critedge20836, %.critedge20832, %.critedge20828, %.critedge20824, %.critedge20820, %.critedge20816, %.critedge20812, %.critedge20808, %.critedge20804, %.critedge20800, %.critedge20796, %.critedge20792, %.critedge20788, %.critedge20784, %.critedge20780, %.critedge20776, %.critedge20772, %.critedge20768, %.critedge20764, %.critedge20760, %.critedge20756, %.critedge20752, %.critedge20748, %.critedge20744, %6675, %6670, %6665, %.critedge17762, %.critedge17758, %.critedge17754
   %.2039 = phi ptr [ null, %6879 ], [ null, %6871 ], [ null, %6864 ], [ null, %6857 ], [ null, %6849 ], [ null, %6841 ], [ null, %6834 ], [ null, %6827 ], [ null, %6820 ], [ null, %6813 ], [ null, %6806 ], [ null, %6799 ], [ null, %6792 ], [ null, %6785 ], [ null, %6778 ], [ null, %6771 ], [ null, %6764 ], [ null, %6757 ], [ null, %6750 ], [ null, %6743 ], [ null, %6736 ], [ null, %6729 ], [ null, %6722 ], [ null, %6715 ], [ null, %6708 ], [ null, %6701 ], [ null, %6694 ], [ null, %6687 ], [ null, %6680 ], [ null, %6675 ], [ null, %6670 ], [ null, %6665 ], [ null, %.critedge17754 ], [ null, %.critedge17758 ], [ null, %.critedge17762 ], [ null, %.critedge20744 ], [ null, %.critedge20748 ], [ null, %.critedge20752 ], [ null, %.critedge20756 ], [ null, %.critedge20760 ], [ null, %.critedge20764 ], [ null, %.critedge20768 ], [ null, %.critedge20772 ], [ null, %.critedge20776 ], [ null, %.critedge20780 ], [ null, %.critedge20784 ], [ null, %.critedge20788 ], [ null, %.critedge20792 ], [ null, %.critedge20796 ], [ null, %.critedge20800 ], [ null, %.critedge20804 ], [ null, %.critedge20808 ], [ null, %.critedge20812 ], [ null, %.critedge20816 ], [ null, %.critedge20820 ], [ null, %.critedge20824 ], [ null, %.critedge20828 ], [ null, %.critedge20832 ], [ null, %.critedge20836 ], [ null, %.critedge20840 ], [ null, %.critedge20844 ], [ null, %.critedge20848 ], [ null, %.critedge20852 ], [ null, %.critedge20856 ], [ %81, %6884 ], [ null, %6883 ], [ null, %6887 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %70) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %7359
 
 6888:                                             ; preds = %6656
@@ -24215,7 +24209,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %6890, label %6891, label %7119
 
 6891:                                             ; preds = %6888
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i64 65535, ptr %71, align 8
   %6892 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.89) #35
   %.not15901 = icmp eq ptr %6892, null
@@ -24935,7 +24929,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21279:                                     ; preds = %7118, %7114, %7115, %7110, %7102, %7095, %7088, %7080, %7073, %7066, %7058, %7050, %7043, %7035, %7028, %7021, %7014, %7007, %7000, %6993, %6986, %6979, %6972, %6965, %6958, %6951, %6944, %6937, %6929, %6921, %6916, %6911, %.critedge20973, %.critedge20969, %.critedge20965, %.critedge20961, %.critedge20957, %.critedge20953, %.critedge20949, %.critedge20945, %.critedge20941, %.critedge20937, %.critedge20933, %.critedge20929, %.critedge20925, %.critedge20921, %.critedge20917, %.critedge20913, %.critedge20909, %.critedge20905, %.critedge20901, %.critedge20897, %.critedge20893, %.critedge20889, %.critedge20885, %.critedge20881, %.critedge20877, %.critedge20873, %.critedge20869, %.critedge20865, %.critedge20861, %6906, %6901, %6896, %.critedge17774, %.critedge17770, %.critedge17766
   %.2106 = phi ptr [ null, %7110 ], [ null, %7102 ], [ null, %7095 ], [ null, %7088 ], [ null, %7080 ], [ null, %7073 ], [ null, %7066 ], [ null, %7058 ], [ null, %7050 ], [ null, %7043 ], [ null, %7035 ], [ null, %7028 ], [ null, %7021 ], [ null, %7014 ], [ null, %7007 ], [ null, %7000 ], [ null, %6993 ], [ null, %6986 ], [ null, %6979 ], [ null, %6972 ], [ null, %6965 ], [ null, %6958 ], [ null, %6951 ], [ null, %6944 ], [ null, %6937 ], [ null, %6929 ], [ null, %6921 ], [ null, %6916 ], [ null, %6911 ], [ null, %6906 ], [ null, %6901 ], [ null, %6896 ], [ null, %.critedge17766 ], [ null, %.critedge17770 ], [ null, %.critedge17774 ], [ null, %.critedge20861 ], [ null, %.critedge20865 ], [ null, %.critedge20869 ], [ null, %.critedge20873 ], [ null, %.critedge20877 ], [ null, %.critedge20881 ], [ null, %.critedge20885 ], [ null, %.critedge20889 ], [ null, %.critedge20893 ], [ null, %.critedge20897 ], [ null, %.critedge20901 ], [ null, %.critedge20905 ], [ null, %.critedge20909 ], [ null, %.critedge20913 ], [ null, %.critedge20917 ], [ null, %.critedge20921 ], [ null, %.critedge20925 ], [ null, %.critedge20929 ], [ null, %.critedge20933 ], [ null, %.critedge20937 ], [ null, %.critedge20941 ], [ null, %.critedge20945 ], [ null, %.critedge20949 ], [ null, %.critedge20953 ], [ null, %.critedge20957 ], [ null, %.critedge20961 ], [ null, %.critedge20965 ], [ null, %.critedge20969 ], [ null, %.critedge20973 ], [ %81, %7115 ], [ null, %7114 ], [ null, %7118 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %7359
 
 7119:                                             ; preds = %6888
@@ -24944,7 +24938,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %7121, label %7122, label %7203
 
 7122:                                             ; preds = %7119
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %7123 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.90) #35
   %.not15889 = icmp eq ptr %7123, null
   br i1 %.not15889, label %.critedge17778, label %7124
@@ -25202,7 +25196,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21282:                                     ; preds = %7202, %7198, %7199, %7194, %7186, %7179, %7172, %7164, %7157, %7150, %7142, %.critedge21006, %.critedge21002, %.critedge20998, %.critedge20994, %.critedge20990, %.critedge20986, %.critedge20982, %.critedge20978, %7137, %7132, %7127, %.critedge17786, %.critedge17782, %.critedge17778
   %.2173 = phi ptr [ null, %7194 ], [ null, %7186 ], [ null, %7179 ], [ null, %7172 ], [ null, %7164 ], [ null, %7157 ], [ null, %7150 ], [ null, %7142 ], [ null, %7137 ], [ null, %7132 ], [ null, %7127 ], [ null, %.critedge17778 ], [ null, %.critedge17782 ], [ null, %.critedge17786 ], [ null, %.critedge20978 ], [ null, %.critedge20982 ], [ null, %.critedge20986 ], [ null, %.critedge20990 ], [ null, %.critedge20994 ], [ null, %.critedge20998 ], [ null, %.critedge21002 ], [ null, %.critedge21006 ], [ %81, %7199 ], [ null, %7198 ], [ null, %7202 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %7359
 
 7203:                                             ; preds = %7119
@@ -25211,7 +25205,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %7205, label %7206, label %7278
 
 7206:                                             ; preds = %7203
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %73) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %7207 = getelementptr inbounds nuw i8, ptr %73, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7207, i8 0, i64 5, i1 false)
   %7208 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.91) #35
@@ -25461,7 +25455,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21285:                                     ; preds = %7277, %7273, %7274, %7269, %7261, %7253, %7248, %7243, %7237, %7232, %7227, %.critedge21039, %.critedge21035, %.critedge21031, %.critedge21027, %.critedge21023, %.critedge21019, %.critedge21015, %.critedge21011, %7222, %7217, %7212, %.critedge17798, %.critedge17794, %.critedge17790
   %.2198 = phi ptr [ null, %7269 ], [ null, %7261 ], [ null, %7253 ], [ null, %7248 ], [ null, %7243 ], [ null, %7237 ], [ null, %7232 ], [ null, %7227 ], [ null, %7222 ], [ null, %7217 ], [ null, %7212 ], [ null, %.critedge17790 ], [ null, %.critedge17794 ], [ null, %.critedge17798 ], [ null, %.critedge21011 ], [ null, %.critedge21015 ], [ null, %.critedge21019 ], [ null, %.critedge21023 ], [ null, %.critedge21027 ], [ null, %.critedge21031 ], [ null, %.critedge21035 ], [ null, %.critedge21039 ], [ %81, %7274 ], [ null, %7273 ], [ null, %7277 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %73) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %7359
 
 7278:                                             ; preds = %7203
@@ -25470,7 +25464,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br i1 %7280, label %7281, label %7356
 
 7281:                                             ; preds = %7278
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %74) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store i16 15, ptr %74, align 2
   %7282 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.92) #35
   %.not15865 = icmp eq ptr %7282, null
@@ -25722,7 +25716,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .thread21288:                                     ; preds = %7355, %7351, %7352, %7349, %7344, %7338, %7331, %7323, %7316, %7309, %7301, %.critedge21072, %.critedge21068, %.critedge21064, %.critedge21060, %.critedge21056, %.critedge21052, %.critedge21048, %.critedge21044, %7296, %7291, %7286, %.critedge17810, %.critedge17806, %.critedge17802
   %.2223 = phi ptr [ null, %7349 ], [ null, %7344 ], [ null, %7338 ], [ null, %7331 ], [ null, %7323 ], [ null, %7316 ], [ null, %7309 ], [ null, %7301 ], [ null, %7296 ], [ null, %7291 ], [ null, %7286 ], [ null, %.critedge17802 ], [ null, %.critedge17806 ], [ null, %.critedge17810 ], [ null, %.critedge21044 ], [ null, %.critedge21048 ], [ null, %.critedge21052 ], [ null, %.critedge21056 ], [ null, %.critedge21060 ], [ null, %.critedge21064 ], [ null, %.critedge21068 ], [ null, %.critedge21072 ], [ %81, %7352 ], [ null, %7351 ], [ null, %7355 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %74) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %7359
 
 7356:                                             ; preds = %7278
@@ -25736,23 +25730,29 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   ret ptr %.0
 }
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #31
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #30
 
-declare ptr @PyList_New(i64 noundef) local_unnamed_addr #31
+declare ptr @PyList_New(i64 noundef) local_unnamed_addr #30
 
-declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #31
+declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #30
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #31
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #30
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #31
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #30
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #31
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #30
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #31
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #30
 
-declare i64 @PyType_GetFlags(ptr noundef) local_unnamed_addr #31
+declare i64 @PyType_GetFlags(ptr noundef) local_unnamed_addr #30
 
-declare void @_Py_DecRef(ptr noundef) local_unnamed_addr #31
+declare void @_Py_DecRef(ptr noundef) local_unnamed_addr #30
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #33
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #33
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #34
@@ -25762,35 +25762,35 @@ attributes #1 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessib
 attributes #2 = { nofree norecurse nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #15 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #34 = { nofree nounwind }
 attributes #35 = { nounwind }
 attributes #36 = { nounwind willreturn memory(read) }

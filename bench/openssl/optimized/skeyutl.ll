@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
   %4 = tail call ptr @opt_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @skeyutl_options) #3
   br label %.outer
@@ -234,69 +234,69 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   call void @EVP_SKEY_free(ptr noundef %.036) #3
   %84 = load ptr, ptr %3, align 8, !tbaa !4
   call void @EVP_CIPHER_free(ptr noundef %84) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.043
 }
 
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_next() local_unnamed_addr #1
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @opt_help(ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_arg() local_unnamed_addr #1
+
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
+
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_cipher_any(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_SKEYMGMT_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @app_get0_libctx() local_unnamed_addr #1
+
+declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #1
+
+declare ptr @app_get0_propq() local_unnamed_addr #1
+
+declare ptr @app_params_new_from_opts(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_SKEYMGMT_get0_gen_settable_params(ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_SKEY_generate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_SKEY_get0_key_id(ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_SKEY_get0_provider_name(ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_SKEY_get0_skeymgmt_name(ptr noundef) local_unnamed_addr #1
+
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_SKEYMGMT_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_SKEY_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_next() local_unnamed_addr #2
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @opt_help(ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_arg() local_unnamed_addr #2
-
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
-
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_cipher_any(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_SKEYMGMT_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @app_get0_libctx() local_unnamed_addr #2
-
-declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #2
-
-declare ptr @app_get0_propq() local_unnamed_addr #2
-
-declare ptr @app_params_new_from_opts(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_SKEYMGMT_get0_gen_settable_params(ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_SKEY_generate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_SKEY_get0_key_id(ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_SKEY_get0_provider_name(ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_SKEY_get0_skeymgmt_name(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_SKEYMGMT_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_SKEY_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

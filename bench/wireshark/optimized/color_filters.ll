@@ -59,20 +59,14 @@ define noalias noundef ptr @color_filter_new(ptr noundef %0, ptr noundef %1, ptr
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias ptr @color_filters_get_tmp(i8 noundef zeroext %0) local_unnamed_addr #0 {
@@ -108,27 +102,27 @@ define noalias ptr @color_filters_get_tmp(i8 noundef zeroext %0) local_unnamed_a
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @color_filters_find_by_name_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal i32 @color_filters_find_by_name_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %1) #13
   ret i32 %4
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #3
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @color_filters_set_tmp(i8 noundef zeroext %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = icmp eq ptr %1, null
   %8 = zext i8 %0 to i32
@@ -208,22 +202,22 @@ define noundef zeroext i1 @color_filters_set_tmp(i8 noundef zeroext %0, ptr noun
 
 .loopexit:                                        ; preds = %41, %25
   %42 = phi i1 [ false, %25 ], [ true, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @df_error_free(ptr noundef) local_unnamed_addr #3
+declare void @df_error_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dfilter_free(ptr noundef) local_unnamed_addr #3
+declare void @dfilter_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @color_filters_tmp_color(i8 noundef zeroext %0) local_unnamed_addr #0 {
@@ -289,7 +283,7 @@ define void @color_filter_list_delete(ptr noundef captures(none) %0) local_unnam
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @color_filter_delete_cb(ptr noundef %0) #0 {
@@ -444,7 +438,7 @@ define noundef zeroext i1 @color_filters_reload(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @color_filters_cleanup() local_unnamed_addr #0 {
@@ -457,18 +451,18 @@ define void @color_filters_cleanup() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @color_filters_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._color_clone, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr @color_filter_list, align 8
   call void @g_slist_foreach(ptr noundef %5, ptr noundef nonnull @color_filters_clone_cb, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @color_filters_clone_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -514,28 +508,28 @@ define zeroext i1 @color_filters_apply(ptr noundef %0, ptr noundef %1, ptr nound
   %10 = load ptr, ptr @color_filter_valid_list, align 8
   tail call void @g_slist_free_full(ptr noundef %10, ptr noundef nonnull @color_filter_delete_cb)
   store ptr null, ptr @color_filter_valid_list, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   call void @g_slist_foreach(ptr noundef %0, ptr noundef nonnull @color_filter_list_clone_cb, ptr noundef nonnull %6)
   %11 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %11, ptr @color_filter_valid_list, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @color_filter_list_clone_cb, ptr noundef nonnull %5)
   %12 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = call ptr @g_slist_concat(ptr noundef %11, ptr noundef %12)
   store ptr %13, ptr @color_filter_valid_list, align 8
   call void @g_slist_foreach(ptr noundef %13, ptr noundef nonnull @color_filter_validate_cb, ptr noundef %2)
   %14 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %14, null
   %15 = load ptr, ptr @color_filter_valid_list, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @g_slist_foreach(ptr noundef %15, ptr noundef nonnull @color_filter_list_clone_cb, ptr noundef nonnull %4)
   %16 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %16, ptr @color_filter_list, align 8
   call void @g_slist_foreach(ptr noundef %16, ptr noundef nonnull @color_filter_compile_cb, ptr noundef %2)
   %17 = load ptr, ptr %2, align 8
@@ -547,7 +541,7 @@ define zeroext i1 @color_filters_apply(ptr noundef %0, ptr noundef %1, ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @color_filter_validate_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i8, ptr %4, align 4, !range !6, !noundef !7
@@ -574,14 +568,14 @@ define internal void @color_filter_validate_cb(ptr noundef %0, ptr noundef write
   br label %19
 
 19:                                               ; preds = %7, %12, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @color_filter_compile_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i8, ptr %4, align 4, !range !6, !noundef !7
@@ -607,19 +601,19 @@ define internal void @color_filter_compile_cb(ptr noundef %0, ptr noundef writeo
   br label %19
 
 19:                                               ; preds = %7, %12, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @color_filters_used() local_unnamed_addr #7 {
+define zeroext i1 @color_filters_used() local_unnamed_addr #6 {
   %1 = load ptr, ptr @color_filter_list, align 8
   %2 = icmp ne ptr %1, null
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @tmp_color_filters_used() local_unnamed_addr #7 {
+define zeroext i1 @tmp_color_filters_used() local_unnamed_addr #6 {
   %.b1 = load i1, ptr @tmp_colors_set, align 1
   ret i1 %.b1
 }
@@ -783,7 +777,7 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dfilter_apply_edt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @dfilter_apply_edt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @color_filters_read_globals(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -829,16 +823,16 @@ define noundef zeroext i1 @color_filters_read_globals(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_datafile_path(ptr noundef) local_unnamed_addr #3
+declare ptr @get_datafile_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @g_strerror(i32 noundef) local_unnamed_addr #9
+declare ptr @g_strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
@@ -850,12 +844,12 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnul
   %10 = alloca i16, align 2
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #12
   %14 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1083,9 +1077,9 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   br label %.outer.outer
 
 98:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %99 = trunc nuw i8 %.173 to i1
   br i1 %99, label %106, label %100
@@ -1147,8 +1141,8 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   br label %126
 
 126:                                              ; preds = %125, %121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.outer.outer.backedge
 
 .loopexit:                                        ; preds = %89, %63, %getc_unlocked.exit, %getc_unlocked.exit96
@@ -1167,17 +1161,17 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   %.069 = phi i32 [ %130, %128 ], [ 0, %.loopexit ]
   call void @g_free(ptr noundef %.1)
   call void @g_free(ptr noundef %.166)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.069
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @color_filters_import(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -1220,7 +1214,7 @@ define noundef zeroext i1 @color_filters_import(ptr noundef %0, ptr noundef %1, 
 define noundef zeroext i1 @color_filters_write(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.write_filter_data, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @create_persconffile_dir(ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %14
@@ -1253,28 +1247,28 @@ define noundef zeroext i1 @color_filters_write(ptr noundef %0, ptr noundef write
 
 23:                                               ; preds = %14
   call void @g_free(ptr noundef %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %24, align 8
   %25 = call ptr @application_flavor_name_proper()
   %26 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %25)
   call void @g_slist_foreach(ptr noundef %0, ptr noundef nonnull @write_filter, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = call i32 @fclose(ptr noundef nonnull %16)
   br label %28
 
 28:                                               ; preds = %23, %18, %7
   %.0 = phi i1 [ false, %7 ], [ false, %18 ], [ true, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @create_persconffile_dir(ptr noundef) local_unnamed_addr #3
+declare i32 @create_persconffile_dir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @color_filters_export(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
@@ -1293,14 +1287,14 @@ define noundef zeroext i1 @color_filters_export(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %4
   %14 = zext i1 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %14, ptr %15, align 8
   %16 = tail call ptr @application_flavor_name_proper()
   %17 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %16)
   call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @write_filter, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = call i32 @fclose(ptr noundef nonnull %6)
   br label %19
 
@@ -1309,19 +1303,19 @@ define noundef zeroext i1 @color_filters_export(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_strfreev(ptr noundef) local_unnamed_addr #3
+declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @color_filter_list_clone_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
@@ -1353,34 +1347,34 @@ define internal void @color_filter_list_clone_cb(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @epan_dissect_prime_with_dfilter(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @epan_dissect_prime_with_dfilter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dfilter_interested_in_field(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @dfilter_interested_in_field(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dfilter_interested_in_proto(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @dfilter_interested_in_proto(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @report_warning(ptr noundef, ...) local_unnamed_addr #3
+declare void @report_warning(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__uflow(ptr noundef) local_unnamed_addr #3
+declare i32 @__uflow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @application_flavor_name_proper() local_unnamed_addr #3
+declare ptr @application_flavor_name_proper() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @write_filter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -1429,20 +1423,26 @@ define internal void @write_filter(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind null_pointer_is_valid memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind null_pointer_is_valid memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { allocsize(0) }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nounwind }

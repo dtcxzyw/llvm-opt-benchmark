@@ -221,8 +221,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.ex
   br i1 %.not3.i.i124, label %99, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125: ; preds = %99, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %114 = load ptr, ptr %3, align 8
@@ -293,13 +293,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.ex
   br i1 %148, label %.loopexit, label %136, !llvm.loop !13
 
 _ZN32pxrInternal_v0_24__pxrReserved__L21_OriginsAreNestedArcsERKNS_10PcpNodeRefES2_.exit.thread: ; preds = %118, %136
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %156
 
 .loopexit:                                        ; preds = %144, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %149 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %150 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %151 = icmp sgt i32 %149, %150
@@ -1573,10 +1573,10 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13

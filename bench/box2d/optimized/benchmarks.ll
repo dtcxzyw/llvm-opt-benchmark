@@ -37,7 +37,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.b2BodyDef, align 8
   tail call void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext false) #8
   %6 = tail call noalias dereferenceable_or_null(80000) ptr @malloc(i64 noundef 80000) #9
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %2) #8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float 1.000000e+00, ptr %7, align 4, !tbaa !3
@@ -45,11 +45,11 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   store i64 2, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 4294967293, ptr %9, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) @__const.CreateJointGrid.circle, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -110,10 +110,10 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %.split.us
   call void @free(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 .split.us:                                        ; preds = %43, %28
@@ -171,16 +171,13 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
 
 declare void @b2World_EnableSleeping(i32, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @b2DefaultRevoluteJointDef(ptr dead_on_unwind writable sret(%struct.b2RevoluteJointDef) align 8) local_unnamed_addr #1
 
@@ -192,11 +189,8 @@ declare i64 @b2CreateCircleShape(i64, ptr noundef, ptr noundef) local_unnamed_ad
 
 declare i64 @b2CreateRevoluteJoint(i32, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
@@ -207,40 +201,40 @@ define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
   %6 = alloca %struct.b2ShapeDef, align 8
   %7 = alloca %struct.b2Polygon, align 4
   tail call void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2) #8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0.000000e+00, ptr %8, align 4, !tbaa !20
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float -1.000000e+00, ptr %.sroa.221.0..sroa_idx, align 8, !tbaa !20
   %9 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %3, float noundef 1.000000e+02, float noundef 1.000000e+00) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4) #8
   %10 = call i64 @b2CreatePolygonShape(i64 %9, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5) #8
   store i32 2, ptr %5, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 0, ptr %11, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %6) #8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store float 1.000000e+00, ptr %12, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2MakeSquare(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 5.000000e-01) #8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %15
 
 14:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 15:                                               ; preds = %1, %22
@@ -290,10 +284,10 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   %6 = alloca %struct.b2ShapeDef, align 8
   %7 = alloca %struct.b2Segment, align 4
   tail call void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5) #8
   %8 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %6) #8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -308,14 +302,14 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
 13:                                               ; preds = %1, %13
   %.042 = phi float [ 0.000000e+00, %1 ], [ %15, %13 ]
   %.03941 = phi i32 [ 0, %1 ], [ %16, %13 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float -2.200000e+02, ptr %7, align 4, !tbaa !29
   store float %.042, ptr %9, align 4, !tbaa !30
   store float 2.200000e+02, ptr %10, align 4, !tbaa !29
   store float %.042, ptr %11, align 4, !tbaa !30
   %14 = call i64 @b2CreateSegmentShape(i64 %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %15 = fadd float %.042, 1.100000e+01
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = add nuw nsw i32 %.03941, 1
   %exitcond.not = icmp eq i32 %16, 20
   br i1 %exitcond.not, label %.preheader40, label %13, !llvm.loop !31
@@ -326,8 +320,8 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   br label %21
 
 17:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 18:                                               ; preds = %CreateSmallPyramid.exit
@@ -342,12 +336,12 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   %23 = fmul float %22, 1.100000e+01
   %24 = fadd float %23, -1.100000e+02
   %25 = fadd float %24, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2) #8
   store i32 2, ptr %2, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2MakeSquare(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef 5.000000e-01) #8
   br label %26
 
@@ -385,9 +379,9 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %34, label %36, !llvm.loop !34
 
 CreateSmallPyramid.exit:                          ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %47 = add nuw nsw i32 %.03643, 1
   %exitcond46.not = icmp eq i32 %47, 20
   br i1 %exitcond46.not, label %18, label %21, !llvm.loop !35
@@ -396,17 +390,17 @@ CreateSmallPyramid.exit:                          ; preds = %34
 declare i64 @b2CreateSegmentShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @CreateRain(i32 %0) local_unnamed_addr #6 {
+define void @CreateRain(i32 %0) local_unnamed_addr #5 {
   %2 = alloca %struct.b2BodyDef, align 8
   %3 = alloca %struct.b2ShapeDef, align 8
   %4 = alloca %struct.b2Polygon, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(272016) @g_rainData, i8 0, i64 272016, i1 false)
   store float 5.000000e-01, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
   store i32 500, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2) #8
   %5 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3) #8
   %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
   %7 = fmul float %6, 5.000000e-01
@@ -415,8 +409,8 @@ define void @CreateRain(i32 %0) local_unnamed_addr #6 {
   br i1 %9, label %.split22.us, label %.split
 
 .split22.us:                                      ; preds = %._crit_edge, %1
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !39
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !40
   ret void
@@ -446,14 +440,14 @@ define void @CreateRain(i32 %0) local_unnamed_addr #6 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01318 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.01417 = phi float [ %21, %.lr.ph ], [ %14, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.01.0.vec.insert = insertelement <2 x float> poison, float %.01417, i64 0
   %.sroa.01.4.vec.insert = insertelement <2 x float> %.sroa.01.0.vec.insert, float %.020, i64 1
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef %7, float noundef %7, <2 x float> %.sroa.01.4.vec.insert, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
   %19 = call i64 @b2CreatePolygonShape(i64 %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %20 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
   %21 = fadd float %.01417, %20
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = add nuw nsw i32 %.01318, 1
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
   %.not.not = icmp slt i32 %.01318, %23
@@ -461,12 +455,12 @@ define void @CreateRain(i32 %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @b2MakeOffsetBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef, float noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = mul nsw i32 %1, 40
   %5 = add nsw i32 %4, %2
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
@@ -530,7 +524,7 @@ define void @DestroyGroup(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 declare void @DestroyHuman(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = and i32 %1, 7
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %67
@@ -657,7 +651,7 @@ CreateGroup.exit22:                               ; preds = %62
 }
 
 ; Function Attrs: nounwind uwtable
-define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
+define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   %2 = alloca %struct.b2BodyDef, align 8
   %3 = alloca [360 x %struct.b2Vec2], align 16
   %4 = alloca %struct.b2SurfaceMaterial, align 4
@@ -671,21 +665,21 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
   %12 = alloca %struct.b2Polygon, align 4
   %13 = alloca %struct.b2BodyDef, align 8
   %14 = alloca %struct.b2ShapeDef, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2) #8
   %15 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 2880, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call <2 x float> @b2ComputeCosSin(float noundef 0xBF91DF46A0000000) #8
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %16, i64 0
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %16, i64 1
   br label %41
 
 17:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
   store float 0x3FB99999A0000000, ptr %4, align 4, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultChainDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ChainDef) align 8 %5) #8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %19, align 8, !tbaa !50
@@ -698,11 +692,11 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 1, ptr %23, align 8, !tbaa !57
   %24 = call i64 @b2CreateChain(i64 %15, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 2880, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %6) #8
   store i32 2, ptr %6, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -712,14 +706,14 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 0, ptr %26, align 8, !tbaa !26
   %27 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2MakeRoundedBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 0x3FD99999A0000000, float noundef 2.000000e+01, float noundef 0x3FC99999A0000000) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %8) #8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float 0.000000e+00, ptr %28, align 8, !tbaa !58
   %29 = call i64 @b2CreatePolygonShape(i64 %27, ptr noundef nonnull %8, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %9) #8
   store i64 %15, ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -735,20 +729,20 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
   store float 4.000000e+04, ptr %35, align 8, !tbaa !64
   %36 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %9) #8
   store i64 %36, ptr @g_spinnerData, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) @__const.CreateSpinner.capsule, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) @__const.CreateSpinner.circle, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @b2MakeSquare(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %12, float noundef 0x3FD6666660000000) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %13) #8
   store i32 2, ptr %13, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %14) #8
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store float 0x3FB99999A0000000, ptr %37, align 8, !tbaa !58
@@ -784,11 +778,11 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
   br i1 %exitcond.not, label %17, label %41, !llvm.loop !66
 
 51:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 52:                                               ; preds = %17, %61
@@ -850,7 +844,7 @@ define float @StepSpinner(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
 declare float @b2RevoluteJoint_GetAngle(i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @CreateSmash(i32 %0) local_unnamed_addr #6 {
+define void @CreateSmash(i32 %0) local_unnamed_addr #5 {
   %2 = alloca %struct.b2Polygon, align 4
   %3 = alloca %struct.b2BodyDef, align 8
   %4 = alloca %struct.b2ShapeDef, align 8
@@ -858,9 +852,9 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #6 {
   %6 = alloca %struct.b2BodyDef, align 8
   %7 = alloca %struct.b2ShapeDef, align 8
   tail call void @b2World_SetGravity(i32 %0, <2 x float> zeroinitializer) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %2, float noundef 4.000000e+00, float noundef 4.000000e+00) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3) #8
   store i32 2, ptr %3, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -872,22 +866,22 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #6 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   %10 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4) #8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 8.000000e+00, ptr %11, align 4, !tbaa !3
   %12 = call i64 @b2CreatePolygonShape(i64 %10, ptr noundef nonnull %4, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2MakeSquare(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %5, float noundef 0x3FC99999A0000000) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %6) #8
   store i32 2, ptr %6, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 65
   store i8 0, ptr %13, align 1, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7) #8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -901,9 +895,9 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #6 {
   br label %22
 
 19:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 20:                                               ; preds = %22
@@ -928,7 +922,7 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #6 {
 declare void @b2World_SetGravity(i32, <2 x float>) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @CreateTumbler(i32 %0) local_unnamed_addr #6 {
+define void @CreateTumbler(i32 %0) local_unnamed_addr #5 {
   %2 = alloca %struct.b2BodyDef, align 8
   %3 = alloca %struct.b2BodyDef, align 8
   %4 = alloca %struct.b2ShapeDef, align 8
@@ -940,11 +934,11 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #6 {
   %10 = alloca %struct.b2Polygon, align 4
   %11 = alloca %struct.b2BodyDef, align 8
   %12 = alloca %struct.b2ShapeDef, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2) #8
   %13 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3) #8
   store i32 2, ptr %3, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -952,29 +946,29 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #6 {
   %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float 1.000000e+01, ptr %.sroa.236.0..sroa_idx, align 8, !tbaa !20
   %15 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4) #8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 5.000000e+01, ptr %16, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %5, float noundef 5.000000e-01, float noundef 1.000000e+01, <2 x float> <float 1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
   %17 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 5.000000e-01, float noundef 1.000000e+01, <2 x float> <float -1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %6, i64 144, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 1.000000e+01, float noundef 5.000000e-01, <2 x float> <float 0.000000e+00, float 1.000000e+01>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %19 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %8, float noundef 1.000000e+01, float noundef 5.000000e-01, <2 x float> <float 0.000000e+00, float -1.000000e+01>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %20 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %9) #8
   store i64 %13, ptr %9, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -996,16 +990,16 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #6 {
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i8 1, ptr %27, align 4, !tbaa !59
   %28 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %10, float noundef 1.250000e-01, float noundef 1.250000e-01) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %11) #8
   store i32 2, ptr %11, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %12) #8
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1017,9 +1011,9 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #6 {
   br label %34
 
 30:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 31:                                               ; preds = %34
@@ -1043,14 +1037,20 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #6 {
 
 declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 

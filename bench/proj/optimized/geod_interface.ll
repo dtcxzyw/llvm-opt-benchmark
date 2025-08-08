@@ -33,13 +33,7 @@ define hidden void @geod_pre() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @geod_lineinit(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @geod_for() local_unnamed_addr #0 {
@@ -47,9 +41,9 @@ define hidden void @geod_for() local_unnamed_addr #0 {
   %2 = alloca double, align 8
   %3 = alloca double, align 8
   %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @geod_position(ptr noundef nonnull @GlobalGeodesicLine, double noundef %4, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %5 = load double, ptr %3, align 8, !tbaa !14
   %6 = fcmp oge double %5, 0.000000e+00
@@ -63,9 +57,9 @@ define hidden void @geod_for() local_unnamed_addr #0 {
   store double %12, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8, !tbaa !16
   %13 = fmul double %8, 0x3F91DF46A2529D39
   store double %13, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -84,9 +78,9 @@ define hidden void @geod_inv() local_unnamed_addr #0 {
   %9 = fdiv double %8, 0x3F91DF46A2529D39
   %10 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8, !tbaa !16
   %11 = fdiv double %10, 0x3F91DF46A2529D39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @geod_inverse(ptr noundef nonnull @GlobalGeodesic, double noundef %5, double noundef %7, double noundef %9, double noundef %11, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %12 = load double, ptr %2, align 8, !tbaa !14
   %13 = fneg double %12
@@ -100,22 +94,27 @@ define hidden void @geod_inv() local_unnamed_addr #0 {
   store double %19, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8, !tbaa !17
   %20 = load double, ptr %3, align 8, !tbaa !14
   store double %20, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 declare void @geod_inverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #3
+declare double @llvm.copysign.f64(double, double) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

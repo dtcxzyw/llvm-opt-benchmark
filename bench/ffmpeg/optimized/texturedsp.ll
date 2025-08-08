@@ -342,8 +342,8 @@ define internal noundef i32 @rgtc1u_alpha_block(ptr noundef writeonly captures(n
 define internal noundef i32 @rgtc2s_block(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %4, i64 noundef 16, ptr noundef readonly %2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull readonly %6, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4)
@@ -402,8 +402,8 @@ define internal noundef i32 @rgtc2s_block(ptr noundef writeonly captures(none) %
   br i1 %exitcond37.not.i, label %rgtc2_block_internal.exit, label %.preheader.i, !llvm.loop !34
 
 rgtc2_block_internal.exit:                        ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 16
 }
 
@@ -411,8 +411,8 @@ rgtc2_block_internal.exit:                        ; preds = %34
 define internal noundef i32 @rgtc2u_block(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %4, i64 noundef 16, ptr noundef readonly %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull readonly %6, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
@@ -471,8 +471,8 @@ define internal noundef i32 @rgtc2u_block(ptr noundef writeonly captures(none) %
   br i1 %exitcond37.not.i, label %rgtc2_block_internal.exit, label %.preheader.i, !llvm.loop !34
 
 rgtc2_block_internal.exit:                        ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 16
 }
 
@@ -480,8 +480,8 @@ rgtc2_block_internal.exit:                        ; preds = %34
 define internal noundef i32 @dxn3dc_block(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %4, i64 noundef 16, ptr noundef readonly %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call fastcc void @rgtc1_block_internal(ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull readonly %6, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
@@ -540,8 +540,8 @@ define internal noundef i32 @dxn3dc_block(ptr noundef captures(none) %0, i64 nou
   br i1 %exitcond37.not.i, label %rgtc2_block_internal.exit, label %.preheader.i, !llvm.loop !34
 
 rgtc2_block_internal.exit:                        ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
 .preheader:                                       ; preds = %rgtc2_block_internal.exit, %41
@@ -667,7 +667,7 @@ define internal noundef i32 @exec_func(ptr readnone captures(none) %0, ptr nound
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @dxt1_block_internal(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext range(i8 -1, 1) %3) unnamed_addr #3 {
   %5 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i16, ptr %2, align 1, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %8 = load i16, ptr %7, align 1, !tbaa !23
@@ -834,21 +834,15 @@ extract_color.exit:                               ; preds = %52, %88
   br i1 %exitcond35.not, label %121, label %.preheader, !llvm.loop !70
 
 121:                                              ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i16, ptr %6, align 1, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
@@ -964,7 +958,7 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %97 = shl nuw nsw i64 %indvars.iv42, 1
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 %97
   %99 = load i16, ptr %98, align 1, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = trunc i16 %99 to i8
   %101 = and i8 %100, 15
   %102 = mul nuw i8 %101, 17
@@ -1005,13 +999,13 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
 
 125:                                              ; preds = %112
   %126 = getelementptr inbounds i8, ptr %.040, i64 %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
   br i1 %exitcond45.not, label %127, label %96, !llvm.loop !72
 
 127:                                              ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1019,8 +1013,8 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
 define internal fastcc void @dxt5_block_internal(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i16, ptr %6, align 1, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
@@ -1286,8 +1280,8 @@ decompress_indices.exit:                          ; preds = %32
   br i1 %exitcond69.not, label %.split62.us, label %.preheader, !llvm.loop !78
 
 .split62.us:                                      ; preds = %.split, %.split.us.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1295,7 +1289,7 @@ decompress_indices.exit:                          ; preds = %32
 define internal fastcc void @rgtc1_block_internal(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 4) %5, i32 noundef range(i32 1, 5) %6) unnamed_addr #3 {
   %8 = alloca [16 x i8], align 16
   %9 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq i32 %3, 0
   %10 = load i8, ptr %2, align 1, !tbaa !23
   br i1 %.not, label %18, label %11
@@ -1400,7 +1394,7 @@ define internal fastcc void @rgtc1_block_internal(ptr noundef writeonly captures
   store i32 %.sink55, ptr %67, align 8, !tbaa !68
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %.sink, ptr %68, align 4, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %70
 
@@ -1501,16 +1495,22 @@ decompress_indices.exit.preheader.i:              ; preds = %86
   br i1 %exitcond39.not.i, label %rgtc_block_internal.exit, label %.preheader.i, !llvm.loop !82
 
 rgtc_block_internal.exit:                         ; preds = %.split.i, %.split.us.us.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #5
+declare float @llvm.sqrt.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f64(double) #5
+declare i64 @llvm.lrint.i64.f64(double) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
@@ -1522,8 +1522,8 @@ attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize wil
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

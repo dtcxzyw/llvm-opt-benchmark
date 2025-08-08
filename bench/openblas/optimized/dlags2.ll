@@ -27,28 +27,28 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %33 = alloca double, align 8
   %34 = alloca double, align 8
   %35 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %36 = load i32, ptr %0, align 4, !tbaa !3
   %.not = icmp eq i32 %36, 0
   %37 = load double, ptr %1, align 8, !tbaa !7
@@ -462,51 +462,51 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 343:                                              ; preds = %268, %338, %120, %188
   %.sink189 = phi double [ %274, %268 ], [ %342, %338 ], [ %126, %120 ], [ %192, %188 ]
   store double %.sink189, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
-declare void @dlasv2_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @dlasv2_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dlartg_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @dlartg_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

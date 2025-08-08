@@ -139,23 +139,17 @@ define hidden void @HIDAPI_DumpPacket(ptr noundef %0, ptr noundef readonly captu
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #2
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @HIDAPI_SupportsPlaystationDetection(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
@@ -193,10 +187,10 @@ define hidden noundef zeroext i1 @HIDAPI_SupportsPlaystationDetection(i16 nounde
   ret i1 %.0
 }
 
-declare i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef float @HIDAPI_RemapVal(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
+define hidden noundef float @HIDAPI_RemapVal(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = fsub float %4, %3
   %7 = fsub float %0, %1
   %8 = fmul float %7, %6
@@ -237,13 +231,13 @@ define hidden void @HIDAPI_SetDeviceName(ptr noundef %0, ptr noundef %1) local_u
   ret void
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetJoystickGUIDCRC(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetJoystickGUIDCRC(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i16 @SDL_crc16_REAL(i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_crc16_REAL(i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @HIDAPI_SetDeviceProduct(ptr noundef captures(none) initializes((49, 64)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
@@ -265,7 +259,7 @@ define hidden void @HIDAPI_SetDeviceProduct(ptr noundef captures(none) initializ
   ret void
 }
 
-declare { i64, i64 } @SDL_CreateJoystickGUID(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare { i64, i64 } @SDL_CreateJoystickGUID(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @HIDAPI_SetDeviceSerial(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -391,7 +385,7 @@ define hidden noundef zeroext i1 @HIDAPI_HasConnectedUSBDevice(ptr noundef %0) l
   ret i1 %.010
 }
 
-declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
+declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @HIDAPI_DisconnectBluetoothDevice(ptr noundef %0) local_unnamed_addr #0 {
@@ -785,13 +779,13 @@ HIDAPI_AddJoystickInstanceToDevice.exit26:        ; preds = %40, %52
   ret i1 true
 }
 
-declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
+declare i32 @SDL_GetNextObjectID() local_unnamed_addr #1
 
-declare void @SDL_PrivateJoystickAdded(i32 noundef) local_unnamed_addr #2
+declare void @SDL_PrivateJoystickAdded(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_LockJoysticks_REAL() local_unnamed_addr #2
+declare void @SDL_LockJoysticks_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_GetJoystickFromID_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickFromID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @HIDAPI_JoystickClose(ptr noundef %0) #0 {
@@ -859,9 +853,9 @@ define internal void @HIDAPI_JoystickClose(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @SDL_PrivateJoystickRemoved(i32 noundef) local_unnamed_addr #2
+declare void @SDL_PrivateJoystickRemoved(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #2
+declare void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @HIDAPI_UpdateDeviceProperties(ptr noundef %0) local_unnamed_addr #0 {
@@ -1020,7 +1014,7 @@ define internal fastcc void @HIDAPI_UpdateDeviceList() unnamed_addr #0 {
   br i1 %.b46, label %5, label %26
 
 5:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #9
   store i32 0, ptr @SDL_HIDAPI_numdrivers, align 4
   br label %6
@@ -1085,7 +1079,7 @@ define internal fastcc void @HIDAPI_UpdateDeviceList() unnamed_addr #0 {
   br i1 %21, label %.split.i.backedge, label %SDL_HIDAPI_UpdateDrivers.exit
 
 SDL_HIDAPI_UpdateDrivers.exit:                    ; preds = %._crit_edge.i, %22, %18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i1 false, ptr @SDL_HIDAPI_hints_changed, align 1
   br label %26
 
@@ -1415,8 +1409,8 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
   %.02857.i = phi ptr [ %.02853.i99, %.lr.ph.i68.preheader.lr.ph ], [ %.02857.i.be, %.lr.ph.i68.backedge ]
   %.sroa.7.056.i = phi ptr [ null, %.lr.ph.i68.preheader.lr.ph ], [ %.sroa.7.056.i.be, %.lr.ph.i68.backedge ]
   %.sroa.0.055.i = phi ptr [ null, %.lr.ph.i68.preheader.lr.ph ], [ %.sroa.0.055.i.be, %.lr.ph.i68.backedge ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %1) #9
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %162 = getelementptr inbounds nuw i8, ptr %.02857.i, i64 104
   %163 = load ptr, ptr %162, align 8
   %.not32.i = icmp eq ptr %163, null
@@ -1493,7 +1487,7 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
   br i1 %.not52.i, label %.thread.i, label %201
 
 201:                                              ; preds = %200
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %202 = call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #9
   %.not38.i = icmp eq ptr %202, null
   br i1 %.not38.i, label %HIDAPI_CreateCombinedJoyCons.exit.thread78, label %203
@@ -1532,8 +1526,8 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
 .thread.i:                                        ; preds = %200, %197, %193, %167, %164, %.lr.ph.i68
   %.sroa.0.1.ph.i = phi ptr [ null, %200 ], [ %.sroa.0.055.i, %167 ], [ %.sroa.0.055.i, %164 ], [ %.sroa.0.055.i, %.lr.ph.i68 ], [ %.sroa.0.2.i, %197 ], [ %.sroa.0.2.i, %193 ]
   %.sroa.7.1.ph.i = phi ptr [ %.sroa.7.2.i, %200 ], [ %.sroa.7.056.i, %167 ], [ %.sroa.7.056.i, %164 ], [ %.sroa.7.056.i, %.lr.ph.i68 ], [ null, %197 ], [ null, %193 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %210 = getelementptr inbounds nuw i8, ptr %.02857.i, i64 184
   %.028.i = load ptr, ptr %210, align 8
   %.not.i69 = icmp eq ptr %.028.i, null
@@ -1546,15 +1540,15 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
   br label %.lr.ph.i68, !llvm.loop !29
 
 HIDAPI_CreateCombinedJoyCons.exit.thread78:       ; preds = %201, %.critedge.i, %209
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %HIDAPI_CreateCombinedJoyCons.exit.thread
 
 HIDAPI_CreateCombinedJoyCons.exit:                ; preds = %206
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @SDL_AssertJoysticksLocked() #9
   %211 = load i8, ptr @SDL_HIDAPI_combine_joycons, align 1, !range !6, !noundef !7
   %212 = trunc nuw i8 %211 to i1
@@ -1751,7 +1745,7 @@ HIDAPI_IsEquivalentToDevice.exit.thread:          ; preds = %HIDAPI_IsEquivalent
   ret i1 %.018
 }
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @HIDAPI_GetDeviceProductName(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
@@ -1872,7 +1866,7 @@ define hidden i32 @HIDAPI_GetJoystickTypeFromGUID(i64 %0, i64 %1) local_unnamed_
   ret i32 %.0
 }
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @HIDAPI_GetGamepadTypeFromGUID(i64 %0, i64 %1) local_unnamed_addr #0 {
@@ -1965,12 +1959,12 @@ define hidden void @HIDAPI_UpdateDevices() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @SDL_TryLockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_TryLockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @HIDAPI_JoystickGetCount() #4 {
+define internal i32 @HIDAPI_JoystickGetCount() #3 {
   %1 = load i32, ptr @SDL_HIDAPI_numjoysticks, align 4
   ret i32 %1
 }
@@ -2745,7 +2739,7 @@ HIDAPI_GetJoystickDevice.exit:                    ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @HIDAPI_JoystickUpdate(ptr readnone captures(none) %0) #3 {
+define internal void @HIDAPI_JoystickUpdate(ptr readnone captures(none) %0) #2 {
   ret void
 }
 
@@ -2819,23 +2813,23 @@ define internal void @HIDAPI_JoystickQuit() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @HIDAPI_JoystickGetGamepadMapping(i32 %0, ptr readnone captures(none) %1) #3 {
+define internal noundef zeroext i1 @HIDAPI_JoystickGetGamepadMapping(i32 %0, ptr readnone captures(none) %1) #2 {
   ret i1 false
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_hid_init_REAL() local_unnamed_addr #2
+declare i32 @SDL_hid_init_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_HIDAPIDriverHintChanged(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
@@ -2855,20 +2849,20 @@ define internal void @SDL_HIDAPIDriverHintChanged(ptr readnone captures(none) %0
   ret void
 }
 
-declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_hid_device_change_count_REAL() local_unnamed_addr #2
+declare i32 @SDL_hid_device_change_count_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_hid_enumerate_REAL(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @SDL_hid_enumerate_REAL(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @HIDAPI_AddDevice(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #9
   br label %5
 
@@ -3231,11 +3225,11 @@ SDL_GetJoystickGameControllerProtocol.exit:       ; preds = %142, %.loopexit.i, 
 
 195:                                              ; preds = %99, %160, %7, %.thread
   %.0105 = phi ptr [ %8, %.thread ], [ null, %99 ], [ null, %7 ], [ null, %160 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0105
 }
 
-declare void @SDL_hid_free_enumeration_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_hid_free_enumeration_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
@@ -3730,71 +3724,77 @@ define internal fastcc void @HIDAPI_CleanupDeviceDriver(ptr noundef nonnull %0) 
   ret void
 }
 
-declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_hid_open_path_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_hid_open_path_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_GetError_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetError_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_hid_set_nonblocking_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_hid_set_nonblocking_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_hid_close_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_hid_close_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_iconv_string_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SDL_iconv_string_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_wcslen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_wcslen_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_CreateJoystickName(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateJoystickName(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare void @SDL_GetJoystickGUIDInfo_REAL(i64, i64, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_GetJoystickGUIDInfo_REAL(i64, i64, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConLeft(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConLeft(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConGrip(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConGrip(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConRight(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConRight(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_HIDAPI_QuitRumble() local_unnamed_addr #2
+declare void @SDL_HIDAPI_QuitRumble() local_unnamed_addr #1
 
-declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_hid_exit_REAL() local_unnamed_addr #2
+declare i32 @SDL_hid_exit_REAL() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(1) }
 attributes #11 = { nounwind allocsize(0,1) }

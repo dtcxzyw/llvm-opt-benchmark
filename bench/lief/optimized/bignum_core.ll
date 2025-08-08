@@ -42,14 +42,8 @@ define hidden range(i64 0, 137438953409) i64 @mbedtls_mpi_core_bitlen(ptr nounde
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_mpi_core_bigendian_to_host(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_mpi_core_bigendian_to_host(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i64 %1, 0
   %4 = getelementptr i64, ptr %0, i64 %1
   %.01214 = getelementptr i8, ptr %4, i64 -8
@@ -76,7 +70,7 @@ define hidden void @mbedtls_mpi_core_bigendian_to_host(ptr noundef captures(addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !tbaa !3
   %5 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 %0) #10, !srcloc !10
   %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
@@ -103,7 +97,7 @@ define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mbedtls_mpi_core_lt_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden i64 @mbedtls_mpi_core_lt_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
   %5 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
   %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
@@ -139,7 +133,7 @@ define hidden i64 @mbedtls_mpi_core_lt_ct(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_cond_assign(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_cond_assign(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp ne ptr %0, %1
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
@@ -163,7 +157,7 @@ define hidden void @mbedtls_mpi_core_cond_assign(ptr noundef captures(address) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_cond_swap(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_cond_swap(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp ne ptr %0, %1
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
@@ -191,7 +185,7 @@ define hidden void @mbedtls_mpi_core_cond_swap(ptr noundef captures(address) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = lshr i64 %3, 3
   %6 = and i64 %3, 7
   %7 = icmp ne i64 %6, 0
@@ -233,10 +227,10 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_le(ptr noundef capture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_be(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_be(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = lshr i64 %3, 3
   %6 = and i64 %3, 7
   %7 = icmp ne i64 %6, 0
@@ -287,10 +281,10 @@ mbedtls_mpi_core_bigendian_to_host.exit:          ; preds = %.lr.ph.i, %18, %11,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_le(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_le(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = shl i64 %1, 3
   %6 = icmp ult i64 %5, %3
   br i1 %6, label %.critedge, label %.preheader
@@ -351,7 +345,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_le(ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_be(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_be(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = shl i64 %1, 3
   %6 = icmp ult i64 %5, %3
   br i1 %6, label %7, label %.preheader
@@ -417,7 +411,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_be(ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_mpi_core_shift_r(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @mbedtls_mpi_core_shift_r(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = lshr i64 %2, 6
   %5 = and i64 %2, 63
   %6 = icmp ugt i64 %4, %1
@@ -491,7 +485,7 @@ define hidden void @mbedtls_mpi_core_shift_r(ptr noundef captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_mpi_core_shift_l(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @mbedtls_mpi_core_shift_l(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = lshr i64 %2, 6
   %5 = and i64 %2, 63
   %.not = icmp ult i64 %2, 64
@@ -554,7 +548,7 @@ define hidden void @mbedtls_mpi_core_shift_l(ptr noundef captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -584,7 +578,7 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add(ptr noundef writeonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add_if(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add_if(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = zext i32 %3 to i64
   %6 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %5) #10, !srcloc !12
   %.not = icmp eq i64 %2, 0
@@ -616,7 +610,7 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add_if(ptr noundef captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_sub(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_sub(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -646,7 +640,7 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_sub(ptr noundef writeonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #5 {
+define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %6 = sub i64 %1, %spec.select
   %7 = and i64 %spec.select, 7
@@ -716,7 +710,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_mul(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_mul(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #4 {
   %6 = add i64 %4, %2
   %7 = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %7, i1 false)
@@ -945,7 +939,7 @@ define hidden i64 @mbedtls_mpi_core_montmul_init(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #4 {
   %9 = shl i64 %5, 4
   %10 = or disjoint i64 %9, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, i8 0, i64 %10, i1 false)
@@ -1134,10 +1128,10 @@ mbedtls_mpi_core_mla.exit66:                      ; preds = %.lr.ph60.i60, %.pre
   br i1 %exitcond.not, label %.lr.ph.i.preheader, label %39, !llvm.loop !42
 }
 
-declare void @mbedtls_ct_memcpy_if(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @mbedtls_ct_memcpy_if(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @mbedtls_mpi_lset(ptr noundef %0, i64 noundef 1) #10
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %16
@@ -1167,16 +1161,16 @@ define hidden i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-declare i32 @mbedtls_mpi_lset(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @mbedtls_mpi_lset(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare i32 @mbedtls_mpi_shift_l(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @mbedtls_mpi_shift_l(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @mbedtls_mpi_shrink(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @mbedtls_mpi_shrink(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_core_fill_random(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #5 {
+define hidden i32 @mbedtls_mpi_core_fill_random(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = lshr i64 %2, 3
   %7 = and i64 %2, 7
   %8 = icmp ne i64 %7, 0
@@ -1226,7 +1220,7 @@ mbedtls_mpi_core_bigendian_to_host.exit:          ; preds = %.lr.ph.i, %20, %12,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_core_random(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden i32 @mbedtls_mpi_core_random(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #10, !srcloc !11
   %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
   %9 = and i64 %3, 4294967295
@@ -1454,13 +1448,13 @@ define hidden i64 @mbedtls_mpi_core_exp_mod_working_limbs(i64 noundef %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_exp_mod(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_exp_mod(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 {
   tail call fastcc void @mbedtls_mpi_core_exp_mod_optionally_safe(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef 0, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbedtls_mpi_core_exp_mod_optionally_safe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i32 noundef range(i32 0, 707406379) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #5 {
+define internal fastcc void @mbedtls_mpi_core_exp_mod_optionally_safe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i32 noundef range(i32 0, 707406379) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #4 {
   %10 = icmp eq i32 %6, 707406378
   br i1 %10, label %11, label %exp_mod_calc_first_bit_optionally_safe.exit
 
@@ -1635,13 +1629,13 @@ exp_mod_table_lookup_optionally_safe.exit:        ; preds = %mbedtls_mpi_core_co
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_exp_mod_unsafe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_exp_mod_unsafe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 {
   tail call fastcc void @mbedtls_mpi_core_exp_mod_optionally_safe(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef 707406378, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @mbedtls_mpi_core_sub_int(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden i64 @mbedtls_mpi_core_sub_int(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1665,7 +1659,7 @@ define hidden i64 @mbedtls_mpi_core_sub_int(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1686,23 +1680,29 @@ define hidden i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_to_mont_rep(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_to_mont_rep(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
   tail call void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef %1, ptr noundef %5, i64 noundef %3, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_core_from_mont_rep(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden void @mbedtls_mpi_core_from_mont_rep(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %7, align 8, !tbaa !3
   call void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -1710,12 +1710,12 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

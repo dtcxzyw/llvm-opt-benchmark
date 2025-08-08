@@ -1099,7 +1099,7 @@ define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %0, i64 nound
   br i1 %.not.i14, label %104, label %55
 
 55:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1088), align 8, !tbaa !17
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %58, label %.thread.i
@@ -1207,7 +1207,7 @@ define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %0, i64 nound
   br i1 %102, label %94, label %103, !llvm.loop !189
 
 103:                                              ; preds = %99
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %py_getrandom.exit
 
 104:                                              ; preds = %.loopexit
@@ -1250,7 +1250,7 @@ define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %0, i64 nound
   br label %py_getrandom.exit
 
 .critedge50.i:                                    ; preds = %94, %96, %87, %77, %74
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %py_getrandom.exit
 
 py_getrandom.exit:                                ; preds = %.split.split.us.us.i, %35, %.split.split.i, %48, %.split.us.us.i, %20, %24, %.critedge50.i, %120, %.critedge.thread.i, %104, %103, %.split44.us.i, %11, %7, %8
@@ -1334,14 +1334,8 @@ define hidden void @_Py_HashRandomization_Init(ptr dead_on_unwind noalias writab
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_Py_HashRandomization_Fini() local_unnamed_addr #0 {
@@ -1358,44 +1352,50 @@ dev_urandom_close.exit:                           ; preds = %0, %3
   ret void
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare ptr @PyEval_SaveThread() local_unnamed_addr #3
+declare ptr @PyEval_SaveThread() local_unnamed_addr #2
 
-declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #3
+declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyErr_CheckSignals() local_unnamed_addr #3
+declare i32 @PyErr_CheckSignals() local_unnamed_addr #2
 
-declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #3
+declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #2
 
-declare i32 @_Py_fstat_noraise(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_Py_fstat_noraise(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @_Py_open(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_Py_open(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
-declare i32 @_Py_fstat(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_Py_fstat(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @_Py_read(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @_Py_read(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @_Py_open_noraise(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_Py_open_noraise(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }
 

@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @av_sscanf(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct.FFFILE, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !11
@@ -30,30 +30,24 @@ define i32 @av_sscanf(ptr noundef %0, ptr noundef readonly captures(none) %1, ..
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr @ffstring_read, ptr %8, align 8, !tbaa !13
   %9 = call fastcc i32 @ff_vfscanf(ptr noundef %3, ptr noundef readonly %1, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.va_end.p0(ptr) #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @ffstring_read(ptr noundef captures(none) initializes((16, 32)) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #3 {
+define internal i64 @ffstring_read(ptr noundef captures(none) initializes((16, 32)) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = add i64 %2, 256
-  %7 = tail call ptr @memchr(ptr noundef %5, i32 noundef 0, i64 noundef %6) #12
+  %7 = tail call ptr @memchr(ptr noundef %5, i32 noundef 0, i64 noundef %6) #11
   %.not = icmp eq ptr %7, null
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
@@ -110,7 +104,7 @@ define internal fastcc i32 @ff_vfscanf(ptr noundef nonnull %0, ptr noundef reado
   %38 = alloca i8, align 1
   %39 = alloca i8, align 1
   %40 = alloca [257 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %40) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -202,16 +196,16 @@ av_isspace.exit248:                               ; preds = %av_isspace.exit
   br i1 %or.cond.i, label %80, label %.thread785
 
 80:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %81 = load i64, ptr %0, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 %81
   store ptr %82, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %82, ptr %47, align 8, !tbaa !14
   %83 = load ptr, ptr %50, align 8, !tbaa !13
-  %84 = call i64 %83(ptr noundef nonnull %0, ptr noundef nonnull %39, i64 noundef 1) #11
+  %84 = call i64 %83(ptr noundef nonnull %0, ptr noundef nonnull %39, i64 noundef 1) #12
   %.not40.i = icmp eq i64 %84, 1
   %85 = load i8, ptr %39, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br i1 %.not40.i, label %88, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %80
@@ -346,16 +340,16 @@ ffshgetc.exit:                                    ; preds = %102, %88, %69
   br i1 %or.cond.i257, label %140, label %av_isspace.exit276.thread
 
 140:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %141 = load i64, ptr %0, align 8, !tbaa !4
   %142 = getelementptr inbounds nuw i8, ptr %134, i64 %141
   store ptr %142, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %142, ptr %47, align 8, !tbaa !14
   %143 = load ptr, ptr %50, align 8, !tbaa !13
-  %144 = call i64 %143(ptr noundef nonnull %0, ptr noundef nonnull %38, i64 noundef 1) #11
+  %144 = call i64 %143(ptr noundef nonnull %0, ptr noundef nonnull %38, i64 noundef 1) #12
   %.not40.i261 = icmp eq i64 %144, 1
   %145 = load i8, ptr %38, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br i1 %.not40.i261, label %148, label %._crit_edge.i262
 
 ._crit_edge.i262:                                 ; preds = %140
@@ -431,17 +425,17 @@ ffshgetc.exit275:                                 ; preds = %162, %148, %129
   br label %ffshgetc.exit297
 
 169:                                              ; preds = %163
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %170 = load i64, ptr %0, align 8, !tbaa !4
   %171 = getelementptr inbounds nuw i8, ptr %119, i64 %170
   store ptr %171, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %171, ptr %47, align 8, !tbaa !14
   %172 = load ptr, ptr %50, align 8, !tbaa !13
-  %173 = call i64 %172(ptr noundef nonnull %0, ptr noundef nonnull %37, i64 noundef 1) #11
+  %173 = call i64 %172(ptr noundef nonnull %0, ptr noundef nonnull %37, i64 noundef 1) #12
   %.not40.i283 = icmp eq i64 %173, 1
   %174 = load i8, ptr %37, align 1
   %175 = zext i8 %174 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br i1 %.not40.i283, label %177, label %.thread
 
 .thread:                                          ; preds = %169
@@ -545,7 +539,7 @@ ffshgetc.exit297:                                 ; preds = %ffshgetc.exit297.lo
   br i1 %220, label %221, label %249
 
 221:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %2)
   %222 = icmp samesign ugt i32 %215, 1
   %.promoted.i = load i32, ptr %36, align 16
@@ -602,7 +596,7 @@ arg_n.exit:                                       ; preds = %238, %243
   %246 = phi ptr [ %241, %238 ], [ %244, %243 ]
   %247 = load ptr, ptr %246, align 8, !tbaa !24
   call void @llvm.va_end.p0(ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %248 = getelementptr inbounds nuw i8, ptr %.0195, i64 3
   br label %263
 
@@ -811,16 +805,16 @@ arg_n.exit:                                       ; preds = %238, %243
   br i1 %or.cond.i307, label %328, label %.thread792
 
 328:                                              ; preds = %320
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %329 = load i64, ptr %0, align 8, !tbaa !4
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 %329
   store ptr %330, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %330, ptr %47, align 8, !tbaa !14
   %331 = load ptr, ptr %50, align 8, !tbaa !13
-  %332 = call i64 %331(ptr noundef nonnull %0, ptr noundef nonnull %35, i64 noundef 1) #11
+  %332 = call i64 %331(ptr noundef nonnull %0, ptr noundef nonnull %35, i64 noundef 1) #12
   %.not40.i311 = icmp eq i64 %332, 1
   %333 = load i8, ptr %35, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br i1 %.not40.i311, label %336, label %._crit_edge.i312
 
 ._crit_edge.i312:                                 ; preds = %328
@@ -938,16 +932,16 @@ ffshgetc.exit325:                                 ; preds = %350, %336, %317
   br i1 %or.cond.i334, label %377, label %ffshgetc.exit352
 
 377:                                              ; preds = %376
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %378 = load i64, ptr %0, align 8, !tbaa !4
   %379 = getelementptr inbounds nuw i8, ptr %365, i64 %378
   store ptr %379, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %379, ptr %47, align 8, !tbaa !14
   %380 = load ptr, ptr %50, align 8, !tbaa !13
-  %381 = call i64 %380(ptr noundef nonnull %0, ptr noundef nonnull %34, i64 noundef 1) #11
+  %381 = call i64 %380(ptr noundef nonnull %0, ptr noundef nonnull %34, i64 noundef 1) #12
   %.not40.i338 = icmp eq i64 %381, 1
   %382 = load i8, ptr %34, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br i1 %.not40.i338, label %383, label %._crit_edge.i339
 
 ._crit_edge.i339:                                 ; preds = %377
@@ -1166,17 +1160,17 @@ ffshgetc.exit352:                                 ; preds = %376, %._crit_edge.i
   br i1 %or.cond.i355, label %456, label %463
 
 456:                                              ; preds = %448
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %457 = load i64, ptr %0, align 8, !tbaa !4
   %458 = getelementptr inbounds nuw i8, ptr %450, i64 %457
   store ptr %458, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %458, ptr %47, align 8, !tbaa !14
   %459 = load ptr, ptr %50, align 8, !tbaa !13
-  %460 = call i64 %459(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef 1) #11
+  %460 = call i64 %459(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef 1) #12
   %.not40.i359 = icmp eq i64 %460, 1
   %461 = load i8, ptr %33, align 1
   %462 = zext i8 %461 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br i1 %.not40.i359, label %466, label %._crit_edge.i360
 
 ._crit_edge.i360:                                 ; preds = %456
@@ -1268,17 +1262,17 @@ ffshgetc.exit373:                                 ; preds = %480, %466, %463, %4
   br i1 %or.cond.i376, label %505, label %512
 
 505:                                              ; preds = %497
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %506 = load i64, ptr %0, align 8, !tbaa !4
   %507 = getelementptr inbounds nuw i8, ptr %499, i64 %506
   store ptr %507, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %507, ptr %47, align 8, !tbaa !14
   %508 = load ptr, ptr %50, align 8, !tbaa !13
-  %509 = call i64 %508(ptr noundef nonnull %0, ptr noundef nonnull %32, i64 noundef 1) #11
+  %509 = call i64 %508(ptr noundef nonnull %0, ptr noundef nonnull %32, i64 noundef 1) #12
   %.not40.i380 = icmp eq i64 %509, 1
   %510 = load i8, ptr %32, align 1
   %511 = zext i8 %510 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %.not40.i380, label %515, label %._crit_edge.i381
 
 ._crit_edge.i381:                                 ; preds = %505
@@ -1415,16 +1409,16 @@ ffshgetc.exit394:                                 ; preds = %529, %515, %512, %4
   br i1 %or.cond.i.i, label %570, label %ffshgetc.exit219.thread508.i
 
 570:                                              ; preds = %562
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %571 = load i64, ptr %0, align 8, !tbaa !4
   %572 = getelementptr inbounds nuw i8, ptr %564, i64 %571
   store ptr %572, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %572, ptr %47, align 8, !tbaa !14
   %573 = load ptr, ptr %50, align 8, !tbaa !13
-  %574 = call i64 %573(ptr noundef nonnull %0, ptr noundef nonnull %31, i64 noundef 1) #11
+  %574 = call i64 %573(ptr noundef nonnull %0, ptr noundef nonnull %31, i64 noundef 1) #12
   %.not40.i.i = icmp eq i64 %574, 1
   %575 = load i8, ptr %31, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %.not40.i.i, label %578, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %570
@@ -1511,16 +1505,16 @@ ffshgetc.exit.i:                                  ; preds = %592, %578, %559
   br i1 %or.cond.i201.i, label %609, label %ffshgetc.exit219.thread.i
 
 609:                                              ; preds = %601
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %610 = load i64, ptr %0, align 8, !tbaa !4
   %611 = getelementptr inbounds nuw i8, ptr %603, i64 %610
   store ptr %611, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %611, ptr %47, align 8, !tbaa !14
   %612 = load ptr, ptr %50, align 8, !tbaa !13
-  %613 = call i64 %612(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef 1) #11
+  %613 = call i64 %612(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef 1) #12
   %.not40.i205.i = icmp eq i64 %613, 1
   %614 = load i8, ptr %30, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %.not40.i205.i, label %617, label %._crit_edge.i206.i
 
 ._crit_edge.i206.i:                               ; preds = %609
@@ -1601,16 +1595,16 @@ ffshgetc.exit219.i:                               ; preds = %ffshgetc.exit.i, %6
   br i1 %or.cond.i222.i, label %648, label %ffshgetc.exit240.thread.i
 
 648:                                              ; preds = %640
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %649 = load i64, ptr %0, align 8, !tbaa !4
   %650 = getelementptr inbounds nuw i8, ptr %642, i64 %649
   store ptr %650, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %650, ptr %47, align 8, !tbaa !14
   %651 = load ptr, ptr %50, align 8, !tbaa !13
-  %652 = call i64 %651(ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef 1) #11
+  %652 = call i64 %651(ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef 1) #12
   %.not40.i226.i = icmp eq i64 %652, 1
   %653 = load i8, ptr %29, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.not40.i226.i, label %656, label %._crit_edge.i227.i
 
 ._crit_edge.i227.i:                               ; preds = %648
@@ -1692,17 +1686,17 @@ ffshgetc.exit240.i:                               ; preds = %670, %656, %637
   br i1 %or.cond.i243.i, label %690, label %697
 
 690:                                              ; preds = %682
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %691 = load i64, ptr %0, align 8, !tbaa !4
   %692 = getelementptr inbounds nuw i8, ptr %684, i64 %691
   store ptr %692, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %692, ptr %47, align 8, !tbaa !14
   %693 = load ptr, ptr %50, align 8, !tbaa !13
-  %694 = call i64 %693(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef 1) #11
+  %694 = call i64 %693(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef 1) #12
   %.not40.i247.i = icmp eq i64 %694, 1
   %695 = load i8, ptr %28, align 1
   %696 = zext i8 %695 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %.not40.i247.i, label %700, label %._crit_edge.i248.i
 
 ._crit_edge.i248.i:                               ; preds = %690
@@ -1870,16 +1864,16 @@ ffshgetc.exit261.i:                               ; preds = %714, %700, %697, %6
   br i1 %or.cond.i271.i, label %769, label %ffshgetc.exit289.thread.i
 
 769:                                              ; preds = %761
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %770 = load i64, ptr %0, align 8, !tbaa !4
   %771 = getelementptr inbounds nuw i8, ptr %763, i64 %770
   store ptr %771, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %771, ptr %47, align 8, !tbaa !14
   %772 = load ptr, ptr %50, align 8, !tbaa !13
-  %773 = call i64 %772(ptr noundef nonnull %0, ptr noundef nonnull %27, i64 noundef 1) #11
+  %773 = call i64 %772(ptr noundef nonnull %0, ptr noundef nonnull %27, i64 noundef 1) #12
   %.not40.i275.i = icmp eq i64 %773, 1
   %774 = load i8, ptr %27, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %.not40.i275.i, label %777, label %._crit_edge.i276.i
 
 ._crit_edge.i276.i:                               ; preds = %769
@@ -1988,16 +1982,16 @@ ffshgetc.exit289.i:                               ; preds = %791, %777, %758
   br i1 %or.cond.i292.i, label %822, label %.thread524.i
 
 822:                                              ; preds = %814
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %823 = load i64, ptr %0, align 8, !tbaa !4
   %824 = getelementptr inbounds nuw i8, ptr %816, i64 %823
   store ptr %824, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %824, ptr %47, align 8, !tbaa !14
   %825 = load ptr, ptr %50, align 8, !tbaa !13
-  %826 = call i64 %825(ptr noundef nonnull %0, ptr noundef nonnull %26, i64 noundef 1) #11
+  %826 = call i64 %825(ptr noundef nonnull %0, ptr noundef nonnull %26, i64 noundef 1) #12
   %.not40.i296.i = icmp eq i64 %826, 1
   %827 = load i8, ptr %26, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.not40.i296.i, label %830, label %._crit_edge.i297.i
 
 ._crit_edge.i297.i:                               ; preds = %822
@@ -2121,17 +2115,17 @@ ffshgetc.exit310.i:                               ; preds = %844, %830, %811
   br i1 %or.cond.i313.i, label %887, label %894
 
 887:                                              ; preds = %879
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %888 = load i64, ptr %0, align 8, !tbaa !4
   %889 = getelementptr inbounds nuw i8, ptr %881, i64 %888
   store ptr %889, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %889, ptr %47, align 8, !tbaa !14
   %890 = load ptr, ptr %50, align 8, !tbaa !13
-  %891 = call i64 %890(ptr noundef nonnull %0, ptr noundef nonnull %25, i64 noundef 1) #11
+  %891 = call i64 %890(ptr noundef nonnull %0, ptr noundef nonnull %25, i64 noundef 1) #12
   %.not40.i317.i = icmp eq i64 %891, 1
   %892 = load i8, ptr %25, align 1
   %893 = zext i8 %892 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %.not40.i317.i, label %897, label %._crit_edge.i318.i
 
 ._crit_edge.i318.i:                               ; preds = %887
@@ -2230,17 +2224,17 @@ ffshgetc.exit331.i:                               ; preds = %911, %897, %894, %8
   br i1 %or.cond.i334.i, label %944, label %951
 
 944:                                              ; preds = %936
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %945 = load i64, ptr %0, align 8, !tbaa !4
   %946 = getelementptr inbounds nuw i8, ptr %938, i64 %945
   store ptr %946, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %946, ptr %47, align 8, !tbaa !14
   %947 = load ptr, ptr %50, align 8, !tbaa !13
-  %948 = call i64 %947(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef 1) #11
+  %948 = call i64 %947(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef 1) #12
   %.not40.i338.i = icmp eq i64 %948, 1
   %949 = load i8, ptr %24, align 1
   %950 = zext i8 %949 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %.not40.i338.i, label %954, label %._crit_edge.i339.i
 
 ._crit_edge.i339.i:                               ; preds = %944
@@ -2330,17 +2324,17 @@ ffshgetc.exit352.i:                               ; preds = %968, %954, %951, %9
   br i1 %or.cond.i355.i, label %995, label %1002
 
 995:                                              ; preds = %987
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %996 = load i64, ptr %0, align 8, !tbaa !4
   %997 = getelementptr inbounds nuw i8, ptr %989, i64 %996
   store ptr %997, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %997, ptr %47, align 8, !tbaa !14
   %998 = load ptr, ptr %50, align 8, !tbaa !13
-  %999 = call i64 %998(ptr noundef nonnull %0, ptr noundef nonnull %23, i64 noundef 1) #11
+  %999 = call i64 %998(ptr noundef nonnull %0, ptr noundef nonnull %23, i64 noundef 1) #12
   %.not40.i359.i = icmp eq i64 %999, 1
   %1000 = load i8, ptr %23, align 1
   %1001 = zext i8 %1000 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %.not40.i359.i, label %1005, label %._crit_edge.i360.i
 
 ._crit_edge.i360.i:                               ; preds = %995
@@ -2451,17 +2445,17 @@ ffshgetc.exit373.i:                               ; preds = %1019, %1005, %1002,
   br i1 %or.cond.i376.i, label %1055, label %1062
 
 1055:                                             ; preds = %1047
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1056 = load i64, ptr %0, align 8, !tbaa !4
   %1057 = getelementptr inbounds nuw i8, ptr %1049, i64 %1056
   store ptr %1057, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1057, ptr %47, align 8, !tbaa !14
   %1058 = load ptr, ptr %50, align 8, !tbaa !13
-  %1059 = call i64 %1058(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef 1) #11
+  %1059 = call i64 %1058(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef 1) #12
   %.not40.i380.i = icmp eq i64 %1059, 1
   %1060 = load i8, ptr %22, align 1
   %1061 = zext i8 %1060 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %.not40.i380.i, label %1065, label %._crit_edge.i381.i
 
 ._crit_edge.i381.i:                               ; preds = %1055
@@ -2563,17 +2557,17 @@ ffshgetc.exit394.i..critedge12.i.loopexit464_crit_edge: ; preds = %ffshgetc.exit
   br i1 %or.cond.i397.i, label %1106, label %1113
 
 1106:                                             ; preds = %1098
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1107 = load i64, ptr %0, align 8, !tbaa !4
   %1108 = getelementptr inbounds nuw i8, ptr %1100, i64 %1107
   store ptr %1108, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1108, ptr %47, align 8, !tbaa !14
   %1109 = load ptr, ptr %50, align 8, !tbaa !13
-  %1110 = call i64 %1109(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1) #11
+  %1110 = call i64 %1109(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1) #12
   %.not40.i401.i = icmp eq i64 %1110, 1
   %1111 = load i8, ptr %21, align 1
   %1112 = zext i8 %1111 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.not40.i401.i, label %1116, label %._crit_edge.i402.i
 
 ._crit_edge.i402.i:                               ; preds = %1106
@@ -2756,16 +2750,16 @@ ffintscan.exit:                                   ; preds = %.thread524.i, %.cri
   br i1 %or.cond.i.i403, label %1178, label %av_isspace.exit.thread.i
 
 1178:                                             ; preds = %1170
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1179 = load i64, ptr %0, align 8, !tbaa !4
   %1180 = getelementptr inbounds nuw i8, ptr %1172, i64 %1179
   store ptr %1180, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1180, ptr %47, align 8, !tbaa !14
   %1181 = load ptr, ptr %50, align 8, !tbaa !13
-  %1182 = call i64 %1181(ptr noundef nonnull %0, ptr noundef nonnull %20, i64 noundef 1) #11
+  %1182 = call i64 %1181(ptr noundef nonnull %0, ptr noundef nonnull %20, i64 noundef 1) #12
   %.not40.i.i415 = icmp eq i64 %1182, 1
   %1183 = load i8, ptr %20, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not40.i.i415, label %1186, label %._crit_edge.i.i416
 
 ._crit_edge.i.i416:                               ; preds = %1178
@@ -2854,16 +2848,16 @@ ffshgetc.exit.i428:                               ; preds = %1200, %1186, %1167
   br i1 %or.cond.i141.i, label %1218, label %1224
 
 1218:                                             ; preds = %1210
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1219 = load i64, ptr %0, align 8, !tbaa !4
   %1220 = getelementptr inbounds nuw i8, ptr %1212, i64 %1219
   store ptr %1220, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1220, ptr %47, align 8, !tbaa !14
   %1221 = load ptr, ptr %50, align 8, !tbaa !13
-  %1222 = call i64 %1221(ptr noundef nonnull %0, ptr noundef nonnull %19, i64 noundef 1) #11
+  %1222 = call i64 %1221(ptr noundef nonnull %0, ptr noundef nonnull %19, i64 noundef 1) #12
   %.not40.i145.i = icmp eq i64 %1222, 1
   %1223 = load i8, ptr %19, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not40.i145.i, label %1227, label %._crit_edge.i146.i
 
 ._crit_edge.i146.i:                               ; preds = %1218
@@ -2951,17 +2945,17 @@ ffshgetc.exit159.i:                               ; preds = %ffshgetc.exit.i428,
   br i1 %or.cond.i162.i, label %1260, label %1267
 
 1260:                                             ; preds = %1252
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1261 = load i64, ptr %0, align 8, !tbaa !4
   %1262 = getelementptr inbounds nuw i8, ptr %1254, i64 %1261
   store ptr %1262, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1262, ptr %47, align 8, !tbaa !14
   %1263 = load ptr, ptr %50, align 8, !tbaa !13
-  %1264 = call i64 %1263(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 1) #11
+  %1264 = call i64 %1263(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 1) #12
   %.not40.i166.i = icmp eq i64 %1264, 1
   %1265 = load i8, ptr %18, align 1
   %1266 = zext i8 %1265 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not40.i166.i, label %1270, label %._crit_edge.i167.i
 
 ._crit_edge.i167.i:                               ; preds = %1260
@@ -3079,17 +3073,17 @@ ffshgetc.exit180.i:                               ; preds = %1284, %1270, %1267,
   br i1 %or.cond.i183.i, label %1317, label %1324
 
 1317:                                             ; preds = %1309
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1318 = load i64, ptr %0, align 8, !tbaa !4
   %1319 = getelementptr inbounds nuw i8, ptr %1311, i64 %1318
   store ptr %1319, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1319, ptr %47, align 8, !tbaa !14
   %1320 = load ptr, ptr %50, align 8, !tbaa !13
-  %1321 = call i64 %1320(ptr noundef nonnull %0, ptr noundef nonnull %17, i64 noundef 1) #11
+  %1321 = call i64 %1320(ptr noundef nonnull %0, ptr noundef nonnull %17, i64 noundef 1) #12
   %.not40.i187.i = icmp eq i64 %1321, 1
   %1322 = load i8, ptr %17, align 1
   %1323 = zext i8 %1322 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.not40.i187.i, label %1327, label %._crit_edge.i188.i
 
 ._crit_edge.i188.i:                               ; preds = %1317
@@ -3178,16 +3172,16 @@ ffshgetc.exit201.i:                               ; preds = %1341, %1327, %1324,
   br i1 %or.cond.i204.i, label %1362, label %.thread.i408
 
 1362:                                             ; preds = %1354
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1363 = load i64, ptr %0, align 8, !tbaa !4
   %1364 = getelementptr inbounds nuw i8, ptr %1356, i64 %1363
   store ptr %1364, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1364, ptr %47, align 8, !tbaa !14
   %1365 = load ptr, ptr %50, align 8, !tbaa !13
-  %1366 = call i64 %1365(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef 1) #11
+  %1366 = call i64 %1365(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef 1) #12
   %.not40.i208.i = icmp eq i64 %1366, 1
   %1367 = load i8, ptr %16, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not40.i208.i, label %1370, label %._crit_edge.i209.i
 
 ._crit_edge.i209.i:                               ; preds = %1362
@@ -3278,17 +3272,17 @@ ffshgetc.exit222.i:                               ; preds = %1384, %1370, %1351
   br i1 %or.cond.i225.i, label %1404, label %1411
 
 1404:                                             ; preds = %1396
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1405 = load i64, ptr %0, align 8, !tbaa !4
   %1406 = getelementptr inbounds nuw i8, ptr %1398, i64 %1405
   store ptr %1406, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1406, ptr %47, align 8, !tbaa !14
   %1407 = load ptr, ptr %50, align 8, !tbaa !13
-  %1408 = call i64 %1407(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef 1) #11
+  %1408 = call i64 %1407(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef 1) #12
   %.not40.i229.i = icmp eq i64 %1408, 1
   %1409 = load i8, ptr %15, align 1
   %1410 = zext i8 %1409 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not40.i229.i, label %1414, label %._crit_edge.i230.i
 
 ._crit_edge.i230.i:                               ; preds = %1404
@@ -3439,16 +3433,16 @@ ffshgetc.exit243.i:                               ; preds = %1428, %1414, %1411,
   br i1 %or.cond.i253.i, label %1478, label %.thread316.i
 
 1478:                                             ; preds = %1470
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1479 = load i64, ptr %0, align 8, !tbaa !4
   %1480 = getelementptr inbounds nuw i8, ptr %1472, i64 %1479
   store ptr %1480, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1480, ptr %47, align 8, !tbaa !14
   %1481 = load ptr, ptr %50, align 8, !tbaa !13
-  %1482 = call i64 %1481(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef 1) #11
+  %1482 = call i64 %1481(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef 1) #12
   %.not40.i257.i = icmp eq i64 %1482, 1
   %1483 = load i8, ptr %14, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not40.i257.i, label %1486, label %._crit_edge.i258.i
 
 ._crit_edge.i258.i:                               ; preds = %1478
@@ -3529,17 +3523,17 @@ ffshgetc.exit271.i:                               ; preds = %1500, %1486, %1467
   br i1 %or.cond.i.i.i, label %1519, label %1526
 
 1519:                                             ; preds = %1511
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1520 = load i64, ptr %0, align 8, !tbaa !4
   %1521 = getelementptr inbounds nuw i8, ptr %1513, i64 %1520
   store ptr %1521, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1521, ptr %47, align 8, !tbaa !14
   %1522 = load ptr, ptr %50, align 8, !tbaa !13
-  %1523 = call i64 %1522(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1) #11
+  %1523 = call i64 %1522(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1) #12
   %.not40.i.i.i = icmp eq i64 %1523, 1
   %1524 = load i8, ptr %13, align 1
   %1525 = zext i8 %1524 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not40.i.i.i, label %1529, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %1519
@@ -3626,17 +3620,17 @@ ffshgetc.exit.i.i:                                ; preds = %ffshgetc.exit.i.i.b
   br i1 %or.cond.i175.i.i, label %1560, label %1567
 
 1560:                                             ; preds = %1552
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1561 = load i64, ptr %0, align 8, !tbaa !4
   %1562 = getelementptr inbounds nuw i8, ptr %1554, i64 %1561
   store ptr %1562, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1562, ptr %47, align 8, !tbaa !14
   %1563 = load ptr, ptr %50, align 8, !tbaa !13
-  %1564 = call i64 %1563(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef 1) #11
+  %1564 = call i64 %1563(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef 1) #12
   %.not40.i179.i.i = icmp eq i64 %1564, 1
   %1565 = load i8, ptr %12, align 1
   %1566 = zext i8 %1565 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not40.i179.i.i, label %1570, label %._crit_edge.i180.i.i
 
 ._crit_edge.i180.i.i:                             ; preds = %1560
@@ -3714,16 +3708,16 @@ ffshgetc.exit.i.i.backedge:                       ; preds = %1584, %1570, %1567,
   br i1 %or.cond.i196.i.i, label %1600, label %ffshgetc.exit214.thread.i.i
 
 1600:                                             ; preds = %1592
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1601 = load i64, ptr %0, align 8, !tbaa !4
   %1602 = getelementptr inbounds nuw i8, ptr %1594, i64 %1601
   store ptr %1602, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1602, ptr %47, align 8, !tbaa !14
   %1603 = load ptr, ptr %50, align 8, !tbaa !13
-  %1604 = call i64 %1603(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 1) #11
+  %1604 = call i64 %1603(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 1) #12
   %.not40.i200.i.i = icmp eq i64 %1604, 1
   %1605 = load i8, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not40.i200.i.i, label %1608, label %._crit_edge.i201.i.i
 
 ._crit_edge.i201.i.i:                             ; preds = %1600
@@ -3804,16 +3798,16 @@ ffshgetc.exit214.i.i:                             ; preds = %1622, %1608, %1589
   br i1 %or.cond.i217.i.i, label %1639, label %ffshgetc.exit235.thread.i.i
 
 1639:                                             ; preds = %1631
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1640 = load i64, ptr %0, align 8, !tbaa !4
   %1641 = getelementptr inbounds nuw i8, ptr %1633, i64 %1640
   store ptr %1641, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1641, ptr %47, align 8, !tbaa !14
   %1642 = load ptr, ptr %50, align 8, !tbaa !13
-  %1643 = call i64 %1642(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef 1) #11
+  %1643 = call i64 %1642(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef 1) #12
   %.not40.i221.i.i = icmp eq i64 %1643, 1
   %1644 = load i8, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not40.i221.i.i, label %1648, label %._crit_edge.i222.i.i
 
 ._crit_edge.i222.i.i:                             ; preds = %1639
@@ -3984,17 +3978,17 @@ ffshgetc.exit235.i.i:                             ; preds = %1662, %1648, %1628
   br i1 %or.cond.i238.i.i, label %1709, label %1716
 
 1709:                                             ; preds = %1701
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1710 = load i64, ptr %0, align 8, !tbaa !4
   %1711 = getelementptr inbounds nuw i8, ptr %1703, i64 %1710
   store ptr %1711, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1711, ptr %47, align 8, !tbaa !14
   %1712 = load ptr, ptr %50, align 8, !tbaa !13
-  %1713 = call i64 %1712(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 1) #11
+  %1713 = call i64 %1712(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 1) #12
   %.not40.i242.i.i = icmp eq i64 %1713, 1
   %1714 = load i8, ptr %9, align 1
   %1715 = zext i8 %1714 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not40.i242.i.i, label %1719, label %._crit_edge.i243.i.i
 
 ._crit_edge.i243.i.i:                             ; preds = %1709
@@ -4245,7 +4239,7 @@ ffshgetc.exit235.i.i:                             ; preds = %1662, %1648, %1628
 .critedge7.i.thread.thread:                       ; preds = %1224, %av_isspace.exit.thread.i, %1820, %1819, %.thread316.i, %.critedge7.i.thread
   %.0115.i799805810819 = phi i32 [ %.0115.i, %1820 ], [ %.0115.i, %1819 ], [ %.0115.i, %.thread316.i ], [ %.0115.i, %.critedge7.i.thread ], [ %1203, %1224 ], [ 1, %av_isspace.exit.thread.i ]
   %.3.i811818 = phi i32 [ 48, %1820 ], [ 48, %1819 ], [ 48, %.thread316.i ], [ %.0.i406, %.critedge7.i.thread ], [ -1, %1224 ], [ -1, %av_isspace.exit.thread.i ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1823 = sub nsw i32 0, %.0107.i
   %1824 = sub nuw nsw i32 %1823, %.0108.i
   br label %ffshgetc.exit.i298.i
@@ -4285,17 +4279,17 @@ ffshgetc.exit.i298.i:                             ; preds = %ffshgetc.exit.i298.
   br i1 %or.cond.i.i295.i, label %1841, label %1848
 
 1841:                                             ; preds = %1833
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1842 = load i64, ptr %0, align 8, !tbaa !4
   %1843 = getelementptr inbounds nuw i8, ptr %1835, i64 %1842
   store ptr %1843, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1843, ptr %47, align 8, !tbaa !14
   %1844 = load ptr, ptr %50, align 8, !tbaa !13
-  %1845 = call i64 %1844(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 1) #11
+  %1845 = call i64 %1844(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 1) #12
   %.not40.i.i299.i = icmp eq i64 %1845, 1
   %1846 = load i8, ptr %7, align 1
   %1847 = zext i8 %1846 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not40.i.i299.i, label %1851, label %._crit_edge.i.i300.i
 
 ._crit_edge.i.i300.i:                             ; preds = %1841
@@ -4373,16 +4367,16 @@ ffshgetc.exit.i298.i.backedge:                    ; preds = %1865, %1851, %1848,
   br i1 %or.cond.i431.i.i, label %1881, label %ffshgetc.exit449.thread.i.i
 
 1881:                                             ; preds = %1873
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1882 = load i64, ptr %0, align 8, !tbaa !4
   %1883 = getelementptr inbounds nuw i8, ptr %1875, i64 %1882
   store ptr %1883, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1883, ptr %47, align 8, !tbaa !14
   %1884 = load ptr, ptr %50, align 8, !tbaa !13
-  %1885 = call i64 %1884(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1) #11
+  %1885 = call i64 %1884(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1) #12
   %.not40.i435.i.i = icmp eq i64 %1885, 1
   %1886 = load i8, ptr %6, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not40.i435.i.i, label %1889, label %._crit_edge.i436.i.i
 
 ._crit_edge.i436.i.i:                             ; preds = %1881
@@ -4462,16 +4456,16 @@ ffshgetc.exit449.i.i:                             ; preds = %1903, %1889, %1870
   br i1 %or.cond.i452.i.i, label %1921, label %ffshgetc.exit470.thread.i.i
 
 1921:                                             ; preds = %1913
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1922 = load i64, ptr %0, align 8, !tbaa !4
   %1923 = getelementptr inbounds nuw i8, ptr %1915, i64 %1922
   store ptr %1923, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1923, ptr %47, align 8, !tbaa !14
   %1924 = load ptr, ptr %50, align 8, !tbaa !13
-  %1925 = call i64 %1924(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #11
+  %1925 = call i64 %1924(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #12
   %.not40.i456.i.i = icmp eq i64 %1925, 1
   %1926 = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not40.i456.i.i, label %1929, label %._crit_edge.i457.i.i
 
 ._crit_edge.i457.i.i:                             ; preds = %1921
@@ -4641,17 +4635,17 @@ ffshgetc.exit470.i.i:                             ; preds = %1943, %1929, %1910
   br i1 %or.cond.i473.i.i, label %1989, label %1996
 
 1989:                                             ; preds = %1981
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1990 = load i64, ptr %0, align 8, !tbaa !4
   %1991 = getelementptr inbounds nuw i8, ptr %1983, i64 %1990
   store ptr %1991, ptr %.phi.trans.insert.i302, align 8, !tbaa !15
   store ptr %1991, ptr %47, align 8, !tbaa !14
   %1992 = load ptr, ptr %50, align 8, !tbaa !13
-  %1993 = call i64 %1992(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #11
+  %1993 = call i64 %1992(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
   %.not40.i477.i.i = icmp eq i64 %1993, 1
   %1994 = load i8, ptr %4, align 1
   %1995 = zext i8 %1994 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not40.i477.i.i, label %1999, label %._crit_edge.i478.i.i
 
 ._crit_edge.i478.i.i:                             ; preds = %1989
@@ -5396,7 +5390,7 @@ ffshgetc.exit491.i.i:                             ; preds = %2013, %1999, %1996,
 
 decfloat.exit.i:                                  ; preds = %2339, %2117, %2102, %2095, %2072, %2063, %2055, %2047, %2040, %2024
   %.0.i284.i = phi nsz double [ %2058, %2055 ], [ %2067, %2063 ], [ %2076, %2072 ], [ %2340, %2339 ], [ 0.000000e+00, %2040 ], [ 0.000000e+00, %2024 ], [ 0.000000e+00, %2047 ], [ %2126, %2117 ], [ %2111, %2102 ], [ %2099, %2095 ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fffloatscan.exit
 
 fffloatscan.exit:                                 ; preds = %1159, %.critedge.thread.i413, %.thread.i408, %1385, %1386, %1438, %1444, %1455, %1739, %1754, %1765, %1773, %1783, %1816, %decfloat.exit.i
@@ -5465,27 +5459,27 @@ store_int.exit:                                   ; preds = %306, %305, %303, %3
 
 .loopexit467:                                     ; preds = %56, %fffloatscan.exit, %ffintscan.exit, %538, %741, %724, %2362, %.loopexit463, %199
   %.2189 = phi i32 [ %.0187, %199 ], [ -1, %2362 ], [ %.0187, %.loopexit463 ], [ %.0187, %724 ], [ %.0187, %741 ], [ %.0187, %538 ], [ %.0187, %ffintscan.exit ], [ %.0187, %fffloatscan.exit ], [ %.0187, %56 ]
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %40) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   ret i32 %.2189
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #2
+declare void @llvm.va_copy.p0(ptr, ptr) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @scanexp(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -5524,7 +5518,7 @@ define internal fastcc i64 @scanexp(ptr noundef nonnull %0) unnamed_addr #0 {
   br i1 %or.cond.i, label %26, label %.thread148
 
 26:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i64, ptr %0, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5532,10 +5526,10 @@ define internal fastcc i64 @scanexp(ptr noundef nonnull %0) unnamed_addr #0 {
   store ptr %28, ptr %7, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !13
-  %32 = call i64 %31(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1) #11
+  %32 = call i64 %31(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1) #12
   %.not40.i = icmp eq i64 %32, 1
   %33 = load i8, ptr %6, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not40.i, label %36, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26
@@ -5620,7 +5614,7 @@ ffshgetc.exit:                                    ; preds = %50, %36, %12
   br i1 %or.cond.i64, label %70, label %.thread
 
 70:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = load i64, ptr %0, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5628,10 +5622,10 @@ ffshgetc.exit:                                    ; preds = %50, %36, %12
   store ptr %72, ptr %7, align 8, !tbaa !14
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %75 = load ptr, ptr %74, align 8, !tbaa !13
-  %76 = call i64 %75(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #11
+  %76 = call i64 %75(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #12
   %.not40.i68 = icmp eq i64 %76, 1
   %77 = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not40.i68, label %80, label %._crit_edge.i69
 
 ._crit_edge.i69:                                  ; preds = %70
@@ -5737,16 +5731,16 @@ ffshgetc.exit82:                                  ; preds = %56, %80, %94, %ffsh
   br i1 %or.cond.i85, label %125, label %._crit_edge.thread
 
 125:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %126 = load i64, ptr %0, align 8, !tbaa !4
   %127 = getelementptr inbounds nuw i8, ptr %119, i64 %126
   store ptr %127, ptr %101, align 8, !tbaa !15
   store ptr %127, ptr %7, align 8, !tbaa !14
   %128 = load ptr, ptr %102, align 8, !tbaa !13
-  %129 = call i64 %128(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #11
+  %129 = call i64 %128(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
   %.not40.i89 = icmp eq i64 %129, 1
   %130 = load i8, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not40.i89, label %134, label %._crit_edge.i90
 
 ._crit_edge.i90:                                  ; preds = %125
@@ -5860,16 +5854,16 @@ ffshgetc.exit103:                                 ; preds = %148, %134, %114
   br i1 %or.cond.i106, label %186, label %.preheader.thread174
 
 186:                                              ; preds = %178
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %187 = load i64, ptr %0, align 8, !tbaa !4
   %188 = getelementptr inbounds nuw i8, ptr %180, i64 %187
   store ptr %188, ptr %159, align 8, !tbaa !15
   store ptr %188, ptr %7, align 8, !tbaa !14
   %189 = load ptr, ptr %160, align 8, !tbaa !13
-  %190 = call i64 %189(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 1) #11
+  %190 = call i64 %189(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 1) #12
   %.not40.i110 = icmp eq i64 %190, 1
   %191 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not40.i110, label %194, label %._crit_edge.i111
 
 ._crit_edge.i111:                                 ; preds = %186
@@ -5952,16 +5946,16 @@ ffshgetc.exit124:                                 ; preds = %208, %194, %175
   br i1 %or.cond.i127, label %229, label %._crit_edge159.thread
 
 229:                                              ; preds = %221
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %230 = load i64, ptr %0, align 8, !tbaa !4
   %231 = getelementptr inbounds nuw i8, ptr %223, i64 %230
   store ptr %231, ptr %165, align 8, !tbaa !15
   store ptr %231, ptr %7, align 8, !tbaa !14
   %232 = load ptr, ptr %166, align 8, !tbaa !13
-  %233 = call i64 %232(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 1) #11
+  %233 = call i64 %232(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 1) #12
   %.not40.i131 = icmp eq i64 %233, 1
   %234 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not40.i131, label %237, label %._crit_edge.i132
 
 ._crit_edge.i132:                                 ; preds = %229
@@ -6039,16 +6033,22 @@ ffshgetc.exit145:                                 ; preds = %251, %237, %218
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @scalbn(double noundef, i32 noundef) local_unnamed_addr #9
+declare double @scalbn(double noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #8
+declare double @llvm.copysign.f64(double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.fmuladd.f80(x86_fp80, x86_fp80, x86_fp80) #8
+declare x86_fp80 @llvm.fmuladd.f80(x86_fp80, x86_fp80, x86_fp80) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #8
+declare double @llvm.fabs.f64(double) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -6063,18 +6063,18 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

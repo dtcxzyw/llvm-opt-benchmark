@@ -932,7 +932,7 @@ define hidden void @_ZNK14G1BarrierSetC212post_barrierEP8GraphKitP4NodeS3_S3_S3_
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %44 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %5, ptr noundef nonnull %43, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
   %45 = call noundef ptr @_ZN12AllocateNode16Ideal_allocationEP4Node(ptr noundef %44) #6
@@ -968,11 +968,11 @@ define hidden void @_ZNK14G1BarrierSetC212post_barrierEP8GraphKitP4NodeS3_S3_S3_
   br i1 %67, label %_ZNK14G1BarrierSetC226g1_can_remove_post_barrierEP8GraphKitP11PhaseValuesP4NodeS5_.exit, label %_ZNK14G1BarrierSetC226g1_can_remove_post_barrierEP8GraphKitP11PhaseValuesP4NodeS5_.exit.thread
 
 _ZNK14G1BarrierSetC226g1_can_remove_post_barrierEP8GraphKitP11PhaseValuesP4NodeS5_.exit.thread: ; preds = %41, %65, %57, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %68
 
 _ZNK14G1BarrierSetC226g1_can_remove_post_barrierEP8GraphKitP11PhaseValuesP4NodeS5_.exit: ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %359
 
 68:                                               ; preds = %_ZNK14G1BarrierSetC226g1_can_remove_post_barrierEP8GraphKitP11PhaseValuesP4NodeS5_.exit.thread, %39
@@ -2678,10 +2678,10 @@ declare noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnul
 declare noundef ptr @_ZN11PhaseValues14find_long_typeEP4Node(ptr noundef nonnull align 8 dereferenceable(2400), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

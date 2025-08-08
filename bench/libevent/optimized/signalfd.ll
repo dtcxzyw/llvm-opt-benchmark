@@ -46,7 +46,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, i16 signext %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = sext i32 %1 to i64
@@ -158,14 +158,14 @@ define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, 
 
 64:                                               ; preds = %18, %12, %62, %58, %44, %34, %30
   %.0 = phi i32 [ -1, %30 ], [ -1, %34 ], [ -1, %44 ], [ -1, %62 ], [ 0, %58 ], [ 0, %12 ], [ -1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %0, i32 noundef %1, i16 signext %2, i16 signext %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %1 to i64
   %8 = call i32 @sigemptyset(ptr noundef nonnull %6) #7
   %9 = call i32 @sigaddset(ptr noundef nonnull %6, i32 noundef %1) #7
@@ -221,42 +221,39 @@ define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %0, i
 
 35:                                               ; preds = %.critedge, %27, %11
   %.0 = phi i32 [ -1, %11 ], [ 0, %27 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @evsig_ensure_saved_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @evsig_ensure_saved_(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #3
 
-declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #4
-
-declare void @event_warn(ptr noundef, ...) local_unnamed_addr #4
+declare void @event_warn(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #5
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @signalfd(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @event_new(ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare i32 @signalfd(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare ptr @event_new(ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @sigfd_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #2 {
   %4 = alloca %struct.signalfd_siginfo, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i64 @read(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 128) #7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 952
   %7 = load ptr, ptr %6, align 8
@@ -281,33 +278,36 @@ define internal void @sigfd_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
   br label %17
 
 17:                                               ; preds = %14, %11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @event_add_nolock_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @event_add_nolock_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-declare i32 @event_del_nolock_(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @event_del_nolock_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nofree nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

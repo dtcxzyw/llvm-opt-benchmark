@@ -108,9 +108,9 @@ define hidden i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %4) #3
   %8 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %4, ptr noundef %0) #3
   %.not12 = icmp eq i32 %8, 0
@@ -134,9 +134,9 @@ define hidden i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr nound
 19:                                               ; preds = %11, %9, %7
   %20 = phi i32 [ 0, %9 ], [ 0, %7 ], [ %18, %11 ]
   %21 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 22:                                               ; preds = %3
@@ -152,9 +152,6 @@ define hidden i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -165,9 +162,6 @@ declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i
 
 declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -175,9 +169,9 @@ define hidden range(i32 0, 2) i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr nou
   %4 = alloca %struct.env_md_ctx_st, align 8
   %5 = alloca [64 x i8], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %4) #3
   %7 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %4, ptr noundef %0) #3
   %.not = icmp eq i32 %7, 0
@@ -201,9 +195,9 @@ define hidden range(i32 0, 2) i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr nou
 18:                                               ; preds = %10, %8, %3
   %19 = phi i32 [ 0, %8 ], [ 0, %3 ], [ %17, %10 ]
   %20 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %19
 }
 
@@ -224,6 +218,12 @@ declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @EVP_PKEY_CTX_free(ptr noundef) #1
 
 declare ptr @EVP_PKEY_CTX_dup(ptr noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

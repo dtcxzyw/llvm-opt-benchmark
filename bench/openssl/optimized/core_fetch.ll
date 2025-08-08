@@ -21,7 +21,7 @@ define ptr @ossl_method_construct(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 10:                                               ; preds = %6, %8
   %11 = phi ptr [ %9, %8 ], [ null, %6 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %12, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -50,14 +50,11 @@ define ptr @ossl_method_construct(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 25:                                               ; preds = %.thread, %17
   %.1 = phi ptr [ %24, %.thread ], [ %20, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ossl_algorithm_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_algorithm_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ossl_method_construct_precondition(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 {
@@ -238,22 +235,25 @@ is_temporary_method_store.exit.thread:            ; preds = %7, %is_temporary_me
   ret i32 %.0
 }
 
+declare void @ERR_new() local_unnamed_addr #1
+
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @ossl_provider_test_operation_bit(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ossl_provider_set_operation_bit(ptr noundef, i64 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare void @ERR_new() local_unnamed_addr #2
-
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @ossl_provider_test_operation_bit(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ossl_provider_set_operation_bit(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

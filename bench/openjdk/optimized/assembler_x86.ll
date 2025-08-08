@@ -423,8 +423,8 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
@@ -441,7 +441,7 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %30) #18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -478,12 +478,12 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i8 0, ptr %59, align 1
   store ptr %60, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = load ptr, ptr %11, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr null, ptr %62, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %63
 
 63:                                               ; preds = %8, %2
@@ -4456,8 +4456,8 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
   %36 = load i8, ptr %6, align 8
   %37 = trunc i8 %36 to i1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %38 = icmp sgt i32 %4, 0
   br i1 %38, label %39, label %49
 
@@ -4528,8 +4528,8 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   br label %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %60, %62, %70
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %79
 
 79:                                               ; preds = %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit, %14
@@ -7929,7 +7929,7 @@ define hidden void @_ZN9Assembler4callER5LabelN9relocInfo9relocTypeE(ptr noundef
   store i8 -24, ptr %24, align 1
   store ptr %25, ptr %23, align 8
   %26 = add nsw i32 %20, -5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = icmp eq i32 %2, 0
   br i1 %27, label %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit, label %28
 
@@ -7955,7 +7955,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit: ; preds = %12, %28, %.sin
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store ptr %38, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 39:                                               ; preds = %3
@@ -7983,7 +7983,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit: ; preds = %12, %28, %.sin
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 -24, ptr %58, align 1
   store ptr %59, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %60 = icmp eq i32 %2, 0
   br i1 %60, label %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10, label %61
 
@@ -8009,7 +8009,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10: ; preds = %39, %61, %.s
   %70 = load ptr, ptr %68, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store ptr %71, ptr %68, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %72
 
 72:                                               ; preds = %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10, %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit
@@ -8964,7 +8964,7 @@ define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr noundef nonnull read
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %17) #18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -9002,7 +9002,7 @@ define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr noundef nonnull read
   %47 = load ptr, ptr %45, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store ptr %48, ptr %45, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = load ptr, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %50, align 8
@@ -22775,7 +22775,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %35, %56
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler9evmovdqubE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -22842,7 +22842,7 @@ define hidden void @_ZN9Assembler9evmovdqubE11XMMRegisterS0_i(ptr noundef nonnul
   br label %_ZN9Assembler9evmovdqubE11XMMRegister9KRegisterS0_bi.exit
 
 _ZN9Assembler9evmovdqubE11XMMRegister9KRegisterS0_bi.exit: ; preds = %4, %46
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -23435,7 +23435,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i32, ptr @UseAVX, align 4
@@ -23498,7 +23498,7 @@ define hidden void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnul
   br label %_ZN9Assembler9evmovdqulE11XMMRegister9KRegisterS0_bi.exit
 
 _ZN9Assembler9evmovdqulE11XMMRegister9KRegisterS0_bi.exit: ; preds = %4, %42
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -23878,7 +23878,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler9evmovdquqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i32, ptr @UseAVX, align 4
@@ -23941,7 +23941,7 @@ define hidden void @_ZN9Assembler9evmovdquqE11XMMRegisterS0_i(ptr noundef nonnul
   br label %_ZN9Assembler9evmovdquqE11XMMRegister9KRegisterS0_bi.exit
 
 _ZN9Assembler9evmovdquqE11XMMRegister9KRegisterS0_bi.exit: ; preds = %4, %42
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -40514,7 +40514,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %26, %52
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler12evpmadd52luqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i32, ptr @UseAVX, align 4
@@ -40582,7 +40582,7 @@ define hidden void @_ZN9Assembler12evpmadd52luqE11XMMRegisterS0_S0_i(ptr noundef
   br label %_ZN9Assembler12evpmadd52luqE11XMMRegister9KRegisterS0_S0_bi.exit
 
 _ZN9Assembler12evpmadd52luqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -40888,7 +40888,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %26, %52
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler12evpmadd52huqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i32, ptr @UseAVX, align 4
@@ -40956,7 +40956,7 @@ define hidden void @_ZN9Assembler12evpmadd52huqE11XMMRegisterS0_S0_i(ptr noundef
   br label %_ZN9Assembler12evpmadd52huqE11XMMRegister9KRegisterS0_S0_bi.exit
 
 _ZN9Assembler12evpmadd52huqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -45410,7 +45410,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler12evpunpcklqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i32, ptr @UseAVX, align 4
@@ -45478,7 +45478,7 @@ define hidden void @_ZN9Assembler12evpunpcklqdqE11XMMRegisterS0_S0_i(ptr noundef
   br label %_ZN9Assembler12evpunpcklqdqE11XMMRegister9KRegisterS0_S0_bi.exit
 
 _ZN9Assembler12evpunpcklqdqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -45571,7 +45571,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler12evpunpckhqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i32, ptr @UseAVX, align 4
@@ -45639,7 +45639,7 @@ define hidden void @_ZN9Assembler12evpunpckhqdqE11XMMRegisterS0_S0_i(ptr noundef
   br label %_ZN9Assembler12evpunpckhqdqE11XMMRegister9KRegisterS0_S0_bi.exit
 
 _ZN9Assembler12evpunpckhqdqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -45970,7 +45970,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler11evex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler6push2pE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -46037,14 +46037,14 @@ define hidden void @_ZN9Assembler6push2pE8RegisterS0_(ptr noundef nonnull align 
   br label %_ZN9Assembler5push2E8RegisterS0_b.exit
 
 _ZN9Assembler5push2E8RegisterS0_b.exit:           ; preds = %3, %46
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler5pop2pE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -46111,7 +46111,7 @@ define hidden void @_ZN9Assembler5pop2pE8RegisterS0_(ptr noundef nonnull align 8
   br label %_ZN9Assembler4pop2E8RegisterS0_b.exit
 
 _ZN9Assembler4pop2E8RegisterS0_b.exit:            ; preds = %3, %46
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -72162,7 +72162,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler7evpandqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i32, ptr @UseAVX, align 4
@@ -72230,7 +72230,7 @@ define hidden void @_ZN9Assembler7evpandqE11XMMRegisterS0_S0_i(ptr noundef nonnu
   br label %_ZN9Assembler7evpandqE11XMMRegister9KRegisterS0_S0_bi.exit
 
 _ZN9Assembler7evpandqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -73570,7 +73570,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9Assembler6evporqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i32, ptr @UseAVX, align 4
@@ -73638,7 +73638,7 @@ define hidden void @_ZN9Assembler6evporqE11XMMRegisterS0_S0_i(ptr noundef nonnul
   br label %_ZN9Assembler6evporqE11XMMRegister9KRegisterS0_S0_bi.exit
 
 _ZN9Assembler6evporqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -103509,7 +103509,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %23, %35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = load i32, ptr %6, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %59
@@ -103587,7 +103587,7 @@ _ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i: ; preds = %93, %82
 
 _ZN9Assembler11get_prefixqE7Address8Registerb.exit: ; preds = %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i, %74
   %.0.i = phi i32 [ %108, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i ], [ %81, %74 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %109 = shl i32 %.0.i, 24
   br i1 %2, label %110, label %113
 
@@ -109635,7 +109635,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %39, %40, %18
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store i8 %44, ptr %46, align 1
   store ptr %47, ptr %45, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = icmp eq i32 %3, 0
   br i1 %48, label %_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi.exit, label %49
 
@@ -109655,7 +109655,7 @@ _ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi.exit: ; preds = %_ZN9Assembl
   %55 = load ptr, ptr %53, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %56, ptr %53, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = load ptr, ptr %7, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr null, ptr %58, align 8
@@ -113744,7 +113744,7 @@ define hidden void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_add
   %70 = load ptr, ptr %63, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %73 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %74 = and i64 %73, 68719476736
   %.not.i = icmp eq i64 %74, 0
@@ -113801,7 +113801,7 @@ _ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15Inst
   br label %_ZN9Assembler19vzeroupper_uncachedEv.exit
 
 _ZN9Assembler19vzeroupper_uncachedEv.exit:        ; preds = %6, %_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %95
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %97 = load ptr, ptr %63, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
@@ -113951,7 +113951,7 @@ define hidden void @_ZN9Assembler13popa_uncachedEv(ptr noundef nonnull align 8 d
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store i8 8, ptr %56, align 1
   store ptr %57, ptr %53, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 4, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -113992,8 +113992,8 @@ define hidden void @_ZN9Assembler13popa_uncachedEv(ptr noundef nonnull align 8 d
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit:            ; preds = %34, %76
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 4, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -114033,8 +114033,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit:            ; preds = %34, %76
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit67
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit67:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit, %95
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 4, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -114074,8 +114074,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit67:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit69
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit69:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit67, %114
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %116 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 4, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -114115,8 +114115,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit69:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit71
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit71:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit69, %133
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 4, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -114156,8 +114156,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit71:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit73
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit73:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit71, %152
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 4, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %11, i64 20
@@ -114197,8 +114197,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit73:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit75
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit75:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit73, %171
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %173 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 4, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -114238,8 +114238,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit75:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit77
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit77:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit75, %190
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %192 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 4, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -114279,8 +114279,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit77:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit79
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit79:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit77, %209
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %211 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 4, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -114320,8 +114320,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit79:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit81
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit81:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit79, %228
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -114361,8 +114361,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit81:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit83
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit83:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit81, %247
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %249 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 4, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -114402,8 +114402,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit83:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit85
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit85:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit83, %266
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %268 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 4, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -114443,8 +114443,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit85:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit87
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit87:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit85, %285
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %287 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 4, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -114484,8 +114484,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit87:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit89
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit89:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit87, %304
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %306 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %306, align 8
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -114525,8 +114525,8 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit89:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit91
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit91:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit89, %323
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %325 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 4, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -114566,7 +114566,7 @@ _ZN9Assembler5pop2pE8RegisterS0_.exit91:          ; preds = %_ZN9Assembler5pop2p
   br label %_ZN9Assembler5pop2pE8RegisterS0_.exit93
 
 _ZN9Assembler5pop2pE8RegisterS0_.exit93:          ; preds = %_ZN9Assembler5pop2pE8RegisterS0_.exit91, %342
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %344 = load ptr, ptr %35, align 8
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load ptr, ptr %345, align 8
@@ -114986,7 +114986,7 @@ define hidden void @_ZN9Assembler14pusha_uncachedEv(ptr noundef nonnull align 8 
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 3
   store i8 -16, ptr %65, align 1
   store ptr %66, ptr %62, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 4, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -115027,8 +115027,8 @@ define hidden void @_ZN9Assembler14pusha_uncachedEv(ptr noundef nonnull align 8 
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit
 
 _ZN9Assembler6push2pE8RegisterS0_.exit:           ; preds = %39, %85
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 4, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -115068,8 +115068,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit:           ; preds = %39, %85
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit68
 
 _ZN9Assembler6push2pE8RegisterS0_.exit68:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit, %104
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 4, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -115109,8 +115109,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit68:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit70
 
 _ZN9Assembler6push2pE8RegisterS0_.exit70:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit68, %123
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %125 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 4, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -115150,8 +115150,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit70:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit72
 
 _ZN9Assembler6push2pE8RegisterS0_.exit72:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit70, %142
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %144 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 4, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -115191,8 +115191,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit72:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit74
 
 _ZN9Assembler6push2pE8RegisterS0_.exit74:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit72, %161
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %163 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 4, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %11, i64 20
@@ -115232,8 +115232,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit74:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit76
 
 _ZN9Assembler6push2pE8RegisterS0_.exit76:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit74, %180
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 4, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -115273,8 +115273,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit76:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit78
 
 _ZN9Assembler6push2pE8RegisterS0_.exit78:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit76, %199
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 4, ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -115314,8 +115314,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit78:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit80
 
 _ZN9Assembler6push2pE8RegisterS0_.exit80:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit78, %218
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %220 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 4, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -115355,8 +115355,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit80:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit82
 
 _ZN9Assembler6push2pE8RegisterS0_.exit82:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit80, %237
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %239 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -115396,8 +115396,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit82:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit84
 
 _ZN9Assembler6push2pE8RegisterS0_.exit84:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit82, %256
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %258 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 4, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -115437,8 +115437,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit84:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit86
 
 _ZN9Assembler6push2pE8RegisterS0_.exit86:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit84, %275
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 4, ptr %277, align 8
   %278 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -115478,8 +115478,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit86:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit88
 
 _ZN9Assembler6push2pE8RegisterS0_.exit88:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit86, %294
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %296 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 4, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -115519,8 +115519,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit88:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit90
 
 _ZN9Assembler6push2pE8RegisterS0_.exit90:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit88, %313
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %315 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -115560,8 +115560,8 @@ _ZN9Assembler6push2pE8RegisterS0_.exit90:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit92
 
 _ZN9Assembler6push2pE8RegisterS0_.exit92:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit90, %332
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %334 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 4, ptr %334, align 8
   %335 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -115601,7 +115601,7 @@ _ZN9Assembler6push2pE8RegisterS0_.exit92:         ; preds = %_ZN9Assembler6push2
   br label %_ZN9Assembler6push2pE8RegisterS0_.exit94
 
 _ZN9Assembler6push2pE8RegisterS0_.exit94:         ; preds = %_ZN9Assembler6push2pE8RegisterS0_.exit92, %351
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %353 = load ptr, ptr %34, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %355 = load ptr, ptr %354, align 8
@@ -119924,10 +119924,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

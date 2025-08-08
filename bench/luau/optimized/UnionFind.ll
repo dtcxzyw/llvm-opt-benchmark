@@ -160,16 +160,10 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %44, %_ZNSt6vectorIi
 
 declare void @_ZN4Luau5EqSat2IdC1Ej(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZNK4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.Luau::EqSat::Id", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %4 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %5 = zext i32 %4 to i64
@@ -196,7 +190,7 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnul
 
 _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.sroa.01.0.copyload.i
 }
 
@@ -237,7 +231,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull
   %3 = alloca %"struct.Luau::EqSat::Id", align 4
   %4 = alloca %"struct.Luau::EqSat::Id", align 4
   store i32 %1, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %5 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %6 = zext i32 %5 to i64
@@ -264,7 +258,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull
 
 _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %0, align 8, !tbaa !10
@@ -307,7 +301,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   %5 = alloca %"struct.Luau::EqSat::Id", align 4
   %6 = tail call i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %1)
   store i32 %6, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %2)
   store i32 %7, ptr %5, align 4
   %8 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdeqES1_(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 %7)
@@ -366,7 +360,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   br label %48
 
 48:                                               ; preds = %24, %41, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = load i32, ptr %4, align 4
   ret i32 %49
 }
@@ -374,18 +368,24 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
 declare noundef zeroext i1 @_ZNK4Luau5EqSat2IdeqES1_(ptr noundef nonnull align 4 dereferenceable(4), i32) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
@@ -401,18 +401,17 @@ declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { noreturn }
 attributes #11 = { builtin allocsize(0) }
 attributes #12 = { builtin nounwind }
-attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

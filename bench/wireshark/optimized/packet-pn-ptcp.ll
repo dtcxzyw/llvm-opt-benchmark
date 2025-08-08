@@ -358,9 +358,6 @@ define internal noundef zeroext i1 @dissect_PNPTCP_Data_heur(ptr noundef %0, ptr
   ret i1 %or.cond5.not
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -379,10 +376,10 @@ define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @hf_pn_ptcp_header, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %14 = load i32, ptr @ett_pn_ptcp_header, align 4
@@ -445,17 +442,17 @@ define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef
 
 60:                                               ; preds = %48, %7
   %61 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %30, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %61
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_pn_ptcp_header, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %11 = load i32, ptr @ett_pn_ptcp_header, align 4
@@ -476,7 +473,7 @@ define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr nound
   %24 = zext i16 %23 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.170, i32 noundef %24)
   %25 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %25
 }
 
@@ -484,8 +481,8 @@ define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr nound
 define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @hf_pn_ptcp_header, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %12 = load i32, ptr @ett_pn_ptcp_header, align 4
@@ -512,8 +509,8 @@ define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr nound
   %31 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.173, i32 noundef %30, i32 noundef %31)
   %32 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %32
 }
 
@@ -521,8 +518,8 @@ define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr nound
 define internal fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @hf_pn_ptcp_header, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %12 = load i32, ptr @ett_pn_ptcp_header, align 4
@@ -549,8 +546,8 @@ define internal fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef 
   %31 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.176, i32 noundef %30, i32 noundef %31)
   %32 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %32
 }
 
@@ -568,9 +565,6 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -655,8 +649,8 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   %65 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %.02, i32 noundef 2, i32 noundef 0)
   %66 = load i32, ptr @ett_pn_ptcp_block_header, align 4
   %67 = call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %68 = load i32, ptr @hf_pn_ptcp_tl_type, align 4
   %69 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.02, ptr noundef %2, ptr noundef %67, i32 noundef %68, ptr noundef nonnull %25)
   %70 = load i16, ptr %25, align 2
@@ -665,8 +659,8 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   %73 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.02, ptr noundef %2, ptr noundef %67, i32 noundef %72, ptr noundef nonnull %26)
   %74 = load i16, ptr %26, align 2
   %75 = and i16 %74, 511
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %76 = zext nneg i16 %71 to i32
   %77 = call ptr @val_to_str_const(i32 noundef %76, ptr noundef nonnull @pn_ptcp_block_type, ptr noundef nonnull @.str.106)
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %61, ptr noundef nonnull @.str.137, ptr noundef %77)
@@ -686,8 +680,8 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   ]
 
 80:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %23) #3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %81 = load i32, ptr @hf_pn_ptcp_master_source_address, align 4
   %82 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %81, ptr noundef nonnull %23)
   %83 = load i32, ptr @hf_pn_ptcp_subdomain_uuid, align 4
@@ -747,14 +741,14 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   %130 = load i8, ptr %58, align 1
   %131 = zext i8 %130 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.151, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117, i32 noundef %119, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #3
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %23) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %dissect_PNPTCP_block.exit
 
 132:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %133 = load i32, ptr @hf_pn_ptcp_epoch_number, align 4
   %134 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %133, ptr noundef nonnull %20)
   %135 = load i32, ptr @hf_pn_ptcp_seconds, align 4
@@ -773,14 +767,14 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   %147 = load i16, ptr %20, align 2
   %148 = zext i16 %147 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %144, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %145, i32 noundef %146, i32 noundef %148)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %dissect_PNPTCP_block.exit
 
 149:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %150 = load i32, ptr @hf_pn_ptcp_flags, align 4
   %151 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %150, ptr noundef nonnull %18)
   %152 = load i32, ptr @hf_pn_ptcp_currentutcoffset, align 4
@@ -791,16 +785,16 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   %157 = load i16, ptr %19, align 2
   %158 = zext i16 %157 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.154, i32 noundef %156, i32 noundef %158)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %dissect_PNPTCP_block.exit
 
 159:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %160 = load i32, ptr @hf_pn_ptcp_master_priority1, align 4
   %161 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %160, ptr noundef nonnull %13)
   %162 = load i32, ptr @hf_pn_ptcp_master_priority_level, align 4
@@ -852,16 +846,16 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %199 = load i16, ptr %17, align 2
   %200 = sext i16 %199 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull %.str.159.sink.i.i, ptr noundef %189, ptr noundef %192, ptr noundef %195, ptr noundef %198, i32 noundef %200)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_PNPTCP_block.exit
 
 201:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %202 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63)
   %203 = load i32, ptr @hf_pn_ptcp_t2portrxdelay, align 4
   %204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11)
@@ -875,12 +869,12 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %211 = load i32, ptr %11, align 4
   %212 = load i32, ptr %12, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.161, i32 noundef %211, i32 noundef %212)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_PNPTCP_block.exit
 
 213:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %214 = load i32, ptr @hf_pn_ptcp_port_mac_address, align 4
   %215 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %214, ptr noundef nonnull %10)
   %216 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %215, ptr noundef %2, ptr noundef %63)
@@ -911,11 +905,11 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %240 = load i8, ptr %42, align 1
   %241 = zext i8 %240 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.163, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_PNPTCP_block.exit
 
 242:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %243 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63)
   %244 = load i32, ptr @hf_pn_ptcp_t2timestamp, align 4
   %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
@@ -924,11 +918,11 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %247 = load ptr, ptr %37, align 8
   %248 = load i32, ptr %9, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.165, i32 noundef %248)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_PNPTCP_block.exit
 
 249:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %250 = icmp samesign ult i16 %75, 4
   br i1 %250, label %251, label %253
 
@@ -947,8 +941,8 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
 
 257:                                              ; preds = %253, %253
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.166)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %258 = load i32, ptr @hf_pn_ptcp_profinet_subtype, align 4
   %259 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %258, ptr noundef nonnull %6)
   %260 = load i8, ptr %6, align 1
@@ -990,8 +984,8 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   br label %dissect_PNPTCP_Option_PROFINET.exit.i.i
 
 dissect_PNPTCP_Option_PROFINET.exit.i.i:          ; preds = %286, %261
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_PNPTCP_Option.exit.i
 
 290:                                              ; preds = %253
@@ -1001,7 +995,7 @@ dissect_PNPTCP_Option_PROFINET.exit.i.i:          ; preds = %286, %261
   br label %dissect_PNPTCP_Option.exit.i
 
 dissect_PNPTCP_Option.exit.i:                     ; preds = %290, %dissect_PNPTCP_Option_PROFINET.exit.i.i, %251
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_PNPTCP_block.exit
 
 294:                                              ; preds = %59
@@ -1052,10 +1046,15 @@ declare i32 @dissect_pn_padding(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

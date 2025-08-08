@@ -772,7 +772,7 @@ if.end.i.i.i.i.i.i29:                             ; preds = %_ZN6hermes2vm15Hand
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit34: ; preds = %if.then.i.i.i.i.i.i32, %if.end.i.i.i.i.i.i29
   %retval.0.i.i.i.i.i.i31 = phi ptr [ %7, %if.then.i.i.i.i.i.i32 ], [ %call7.i.i.i.i.i.i30, %if.end.i.i.i.i.i.i29 ]
   %call14 = tail call i32 @_ZN6hermes2vm7JSProxy14setPrototypeOfENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeES4_(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i31) #17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %bf.cast.i.i6.mask.i = and i32 %call14, 255
   %cmp.i.i = icmp eq i32 %bf.cast.i.i6.mask.i, 0
   br i1 %cmp.i.i, label %_ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit, label %if.end.i
@@ -806,7 +806,7 @@ if.end5.i:                                        ; preds = %if.end.i
 _ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit34, %if.then3.i, %if.end5.i
   %retval.sroa.0.0.i = phi i32 [ %11, %if.end5.i ], [ %bf.value.i.i, %if.then3.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit34 ]
   %retval.sroa.6.0.i = phi i32 [ %12, %if.end5.i ], [ 0, %if.then3.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit34 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2462,7 +2462,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 if.then.i.i:                                      ; preds = %for.body.i.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i115, i64 4
   %agg.tmp7.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %tobool.i.not.i.i.i.i.i = icmp samesign ult i32 %55, 268435456
   br i1 %tobool.i.not.i.i.i.i.i, label %if.end.i.i.i, label %"_ZZN6hermes2vm8JSObject18getOwnPropertyKeysENS0_6HandleIS1_EERNS0_7RuntimeENS0_12OwnKeysFlagsEENK3$_0clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i.i"
 
@@ -2523,7 +2523,7 @@ if.end22.i.i.i:                                   ; preds = %if.end12.i.i.i
 
 "_ZZN6hermes2vm8JSObject18getOwnPropertyKeysENS0_6HandleIS1_EERNS0_7RuntimeENS0_12OwnKeysFlagsEENK3$_0clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i.i": ; preds = %if.end22.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i.i.i, %if.end.i.i.i, %if.then.i.i
   %index.9 = phi i32 [ %index.7, %if.end.i.i.i ], [ %inc.i.i.i, %if.end22.i.i.i ], [ %index.7, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit.i.i.i ], [ %index.7, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   %66 = load ptr, ptr %chunks_.i.i.i.i, align 8
   %arrayidx.i19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %66, i64 %conv.i.i.i.i113
   %67 = load ptr, ptr %arrayidx.i19.i.i.i.i, align 8
@@ -5417,7 +5417,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %tobool19.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then, %if.end, %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %desc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %desc.i)
   store i32 0, ptr %desc.i, align 4
   %slot.i.i.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 4
   store i32 -1, ptr %slot.i.i.i, align 4
@@ -5463,7 +5463,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.
 _ZN6hermes2vm8JSObject8hasNamedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDE.exit: ; preds = %if.end23, %if.end.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.6.0.i = phi i32 [ %15, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit.i ], [ 0, %if.end23 ], [ 0, %if.end.i ]
   %retval.sroa.0.0.i = phi i32 [ %16, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit.i ], [ 1, %if.end23 ], [ 257, %if.end.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %desc.i)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then9, %_ZN6hermes2vm8JSObject8hasNamedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDE.exit
@@ -8884,7 +8884,7 @@ if.then23:                                        ; preds = %if.then
 
 if.else35:                                        ; preds = %land.rhs
   %call43 = call i32 @_ZN6hermes2vm7JSProxy11deleteNamedENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_8SymbolIDE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce) #17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %bf.cast.i.i6.mask.i = and i32 %call43, 255
   %cmp.i.i = icmp eq i32 %bf.cast.i.i6.mask.i, 0
   br i1 %cmp.i.i, label %_ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit, label %if.end.i
@@ -8918,7 +8918,7 @@ if.end5.i:                                        ; preds = %if.end.i
 _ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit: ; preds = %if.else35, %if.then3.i, %if.end5.i
   %retval.sroa.0.0.i = phi i32 [ %12, %if.end5.i ], [ %bf.value.i.i, %if.then3.i ], [ 0, %if.else35 ]
   %retval.sroa.6.0.i = phi i32 [ %13, %if.end5.i ], [ 0, %if.then3.i ], [ 0, %if.else35 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 if.end48:                                         ; preds = %if.then23, %entry
@@ -13017,9 +13017,9 @@ if.else.i108:                                     ; preds = %if.end47
 _ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit119: ; preds = %if.end47, %if.else.i108
   %retval.0.i118 = phi i32 [ %add6.i117, %if.else.i108 ], [ %94, %if.end47 ]
   store i32 %retval.0.i118, ptr %beginIndex, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dedupNames.i)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %dedupIdxNames.i)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dedupNames.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dedupIdxNames.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i)
   %98 = load ptr, ptr %topGCScope_.i.i.i, align 8
   %next_.i.i.i.i.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %98, i64 192
   %99 = load ptr, ptr %next_.i.i.i.i.i.i.i.i121, align 8
@@ -13364,9 +13364,9 @@ if.then60.i:                                      ; preds = %if.end58.i
   br i1 %cmp65.i, label %cleanup149.critedge.i, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then60.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp24.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24.i.i)
   %133 = load i64, ptr %retval.0.i.i.i.i.i.i.i127, align 8
   %cmp.i.i.i.i136 = icmp ult i64 %133, -1970324836974592
   br i1 %cmp.i.i.i.i136, label %if.then.i.i143, label %if.else.i.i137
@@ -13400,9 +13400,9 @@ if.then23.i.i:                                    ; preds = %if.else.i.i137
   br label %"_ZZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEjENK3$_0clENS2_IS9_EENS2_INS0_8SymbolIDEEE.exit.i"
 
 "_ZZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEjENK3$_0clENS2_IS9_EENS2_INS0_8SymbolIDEEE.exit.i": ; preds = %"_ZZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEjENK3$_0clENS2_IS9_EENS2_INS0_8SymbolIDEEE.exit.sink.split.i", %if.else.i.i137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp24.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i.i)
   %inc.i139 = add i32 %size.2268.i, 1
   br label %for.inc.i
 
@@ -13619,9 +13619,9 @@ if.then116.i:                                     ; preds = %if.end113.i, %lor.l
   br i1 %cmp121.i, label %cleanup149.critedge.i, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.then116.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i178.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i179.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp24.i180.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i178.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i179.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24.i180.i)
   %165 = load i64, ptr %retval.0.i.i.i.i.i.i.i127, align 8
   %cmp.i.i.i181.i = icmp ult i64 %165, -1970324836974592
   br i1 %cmp.i.i.i181.i, label %if.then.i193.i, label %if.else.i182.i
@@ -13655,9 +13655,9 @@ if.then23.i189.i:                                 ; preds = %if.else.i182.i
   br label %"_ZZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEjENK3$_0clENS2_IS9_EENS2_INS0_8SymbolIDEEE.exit195.i"
 
 "_ZZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEjENK3$_0clENS2_IS9_EENS2_INS0_8SymbolIDEEE.exit195.i": ; preds = %"_ZZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEjENK3$_0clENS2_IS9_EENS2_INS0_8SymbolIDEEE.exit195.sink.split.i", %if.else.i182.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i178.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i179.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp24.i180.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i178.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i179.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i180.i)
   %inc131.i = add i32 %size.2268.i, 1
   br label %for.inc.i
 
@@ -13759,9 +13759,9 @@ if.then.i.i.i216.i:                               ; preds = %_ZN4llvh8SmallSetId
   br label %_ZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEj.exit
 
 _ZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEj.exit: ; preds = %_ZN4llvh8SmallSetIdLj4ESt4lessIdEED2Ev.exit.i, %if.then.i.i.i216.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dedupNames.i)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %dedupIdxNames.i)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dedupNames.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dedupIdxNames.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   br i1 %cmp.i172, label %return, label %if.end57
 
 if.end57:                                         ; preds = %_ZN6hermes2vm12_GLOBAL__N_122appendAllPropertyNamesENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeERNS0_13MutableHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEj.exit
@@ -15065,9 +15065,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   call void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_RT0_(ptr noundef %__first, ptr noundef %__last.addr.025, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i
@@ -15480,10 +15480,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

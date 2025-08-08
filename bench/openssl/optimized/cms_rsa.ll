@@ -28,7 +28,7 @@ define i32 @ossl_cms_rsa_envelope(ptr noundef %0, i32 noundef %1) local_unnamed_
   ]
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = tail call ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef %0) #4
   %12 = icmp eq ptr %11, null
   br i1 %12, label %rsa_cms_decrypt.exit, label %13
@@ -181,19 +181,19 @@ rsa_oaep_decode.exit.i:                           ; preds = %30, %.rsa_oaep_deco
 
 rsa_cms_decrypt.exit:                             ; preds = %10, %13, %15, %19, %.thread.i
   %.0.i = phi i32 [ -1, %19 ], [ %.031.i, %.thread.i ], [ 0, %10 ], [ -1, %13 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %130
 
 76:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %77 = tail call ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %78 = call i32 @CMS_RecipientInfo_ktri_get0_algs(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #4
   %79 = icmp slt i32 %78, 1
   br i1 %79, label %rsa_cms_encrypt.exit, label %80
@@ -305,12 +305,12 @@ rsa_cms_decrypt.exit:                             ; preds = %10, %13, %15, %19, 
 
 rsa_cms_encrypt.exit:                             ; preds = %76, %81, %84, %.thread.i8, %127
   %.0.i7 = phi i32 [ %87, %.thread.i8 ], [ %.022.i, %127 ], [ 0, %76 ], [ 0, %81 ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %130
 
 129:                                              ; preds = %2
@@ -346,8 +346,8 @@ define i32 @ossl_cms_rsa_sign(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   ]
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = tail call ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef %0) #4
   %13 = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %12) #4
   call void @CMS_SignerInfo_get0_algs(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %10) #4
@@ -389,19 +389,19 @@ define i32 @ossl_cms_rsa_sign(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 rsa_cms_verify.exit:                              ; preds = %18, %24, %25, %27
   %.0.shrunk.i = phi i1 [ %21, %18 ], [ false, %24 ], [ true, %25 ], [ %or.cond.i, %27 ]
   %.0.i = zext i1 %.0.shrunk.i to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %65
 
 32:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = tail call ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @CMS_SignerInfo_get0_algs(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #4
   %.not.i5 = icmp eq ptr %33, null
   br i1 %.not.i5, label %.thread.i, label %34
@@ -449,10 +449,10 @@ rsa_cms_verify.exit:                              ; preds = %18, %24, %25, %27
 53:                                               ; preds = %41
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, i64 noundef 128) #4
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %55 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %33, ptr noundef nonnull %7) #4
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %rsa_cms_sign.exit, label %57
@@ -471,11 +471,11 @@ rsa_cms_verify.exit:                              ; preds = %18, %24, %25, %27
 
 rsa_cms_sign.exit:                                ; preds = %34, %37, %.thread.i, %45, %48, %52, %53, %57, %61
   %.0.i6 = phi i32 [ %40, %.thread.i ], [ 0, %34 ], [ 0, %37 ], [ 0, %52 ], [ 0, %45 ], [ 1, %48 ], [ 0, %53 ], [ 0, %57 ], [ %..i, %61 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %65
 
 64:                                               ; preds = %2
@@ -489,9 +489,6 @@ rsa_cms_sign.exit:                                ; preds = %34, %37, %.thread.i
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef) local_unnamed_addr #1
 
 declare i32 @CMS_RecipientInfo_ktri_get0_algs(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -499,9 +496,6 @@ declare i32 @CMS_RecipientInfo_ktri_get0_algs(ptr noundef, ptr noundef, ptr noun
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ossl_x509_algor_get_md(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -568,7 +562,7 @@ declare ptr @ossl_rsa_ctx_to_pss_string(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
@@ -576,10 +570,16 @@ declare i32 @EVP_PKEY_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_add
 
 declare ptr @d2i_X509_ALGOR(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

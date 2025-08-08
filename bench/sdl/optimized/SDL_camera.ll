@@ -130,14 +130,8 @@ define hidden noundef zeroext i1 @SDL_AddCameraFormat(ptr noundef captures(none)
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @UnrefPhysicalCamera(ptr noundef %0) local_unnamed_addr #1 {
@@ -349,7 +343,7 @@ declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #2
 declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
 
@@ -360,12 +354,12 @@ declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
 declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @CameraSpecCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal range(i32 -1, 2) i32 @CameraSpecCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %3, 0
@@ -500,7 +494,7 @@ define internal range(i32 -1, 2) i32 @CameraSpecCmp(ptr noundef readonly capture
 declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
 
@@ -517,7 +511,7 @@ define hidden void @SDL_CameraDisconnected(ptr noundef %0) local_unnamed_addr #1
   br i1 %.not, label %45, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -598,7 +592,7 @@ ReleaseCamera.exit:                               ; preds = %21, %36
   br label %44
 
 44:                                               ; preds = %39, %ReleaseCamera.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %45
 
 45:                                               ; preds = %1, %44
@@ -850,7 +844,7 @@ define hidden void @SDL_CameraPermissionOutcome(ptr noundef %0, i1 noundef zeroe
   br i1 %.not, label %43, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   %6 = select i1 %1, i32 1, i32 -1
@@ -926,7 +920,7 @@ ReleaseCamera.exit:                               ; preds = %20, %35
   br label %42
 
 42:                                               ; preds = %37, %ReleaseCamera.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %2, %42
@@ -945,7 +939,7 @@ define hidden ptr @SDL_FindPhysicalCameraByCallback(ptr noundef %0, ptr noundef 
   br label %19
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %8, align 8
@@ -968,7 +962,7 @@ define hidden ptr @SDL_FindPhysicalCameraByCallback(ptr noundef %0, ptr noundef 
 
 17:                                               ; preds = %15, %7
   %18 = phi ptr [ %.pre, %15 ], [ %14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %17, %5
@@ -1192,7 +1186,7 @@ ReleaseCamera.exit:                               ; preds = %33, %19, %6, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetCameraName_REAL(i32 noundef %0) local_unnamed_addr #1 {
@@ -1248,7 +1242,7 @@ define internal fastcc ptr @ObtainPhysicalCamera(i32 noundef %0) unnamed_addr #1
   br label %22
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @camera_driver, i64 88), align 8
   tail call void @SDL_LockRWLockForReading_REAL(ptr noundef %7) #11
@@ -1275,7 +1269,7 @@ define internal fastcc ptr @ObtainPhysicalCamera(i32 noundef %0) unnamed_addr #1
 
 20:                                               ; preds = %16, %14
   %21 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %22
 
 22:                                               ; preds = %20, %4
@@ -1357,7 +1351,7 @@ define hidden ptr @SDL_GetCameras_REAL(ptr noundef writeonly captures(address_is
   br i1 %.not13, label %20, label %13
 
 13:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %12, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %14, align 8
@@ -1368,7 +1362,7 @@ define hidden ptr @SDL_GetCameras_REAL(ptr noundef writeonly captures(address_is
   %18 = sext i32 %8 to i64
   %19 = getelementptr inbounds i32, ptr %12, i64 %18
   store i32 0, ptr %19, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 20:                                               ; preds = %6, %13
@@ -1387,7 +1381,7 @@ define hidden ptr @SDL_GetCameras_REAL(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @GetOneCamera(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #10 {
+define internal noundef zeroext i1 @GetOneCamera(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #9 {
   %5 = ptrtoint ptr %2 to i64
   %6 = trunc i64 %5 to i32
   %7 = load ptr, ptr %0, align 8
@@ -1533,7 +1527,7 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
   br label %133
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -1755,7 +1749,7 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
   br label %132
 
 132:                                              ; preds = %.thread, %46, %125, %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %133
 
 133:                                              ; preds = %12, %132, %6
@@ -2089,7 +2083,7 @@ ReleaseCamera.exit:                               ; preds = %9, %24
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @camera_driver, i64 56), align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %34, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %37 = load i32, ptr %36, align 8
@@ -2433,7 +2427,7 @@ ChooseBestCameraSpec.exit:                        ; preds = %168, %39, %40, %42,
   br i1 %215, label %224, label %216
 
 216:                                              ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %217 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %218 = load i32, ptr %217, align 4
   %219 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.2, i32 noundef %218) #11
@@ -2447,11 +2441,11 @@ ChooseBestCameraSpec.exit:                        ; preds = %168, %39, %40, %42,
   call fastcc void @ClosePhysicalCamera(ptr noundef nonnull %5)
   call fastcc void @ReleaseCamera(ptr noundef %5)
   %223 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReleaseCamera.exit36
 
 .critedge:                                        ; preds = %216
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %224
 
 224:                                              ; preds = %.critedge, %212
@@ -2484,7 +2478,7 @@ ChooseBestCameraSpec.exit:                        ; preds = %168, %39, %40, %42,
 
 ReleaseCamera.exit36:                             ; preds = %239, %224, %210, %195, %186, %171, %222
   %.1 = phi ptr [ null, %222 ], [ null, %171 ], [ null, %186 ], [ null, %195 ], [ null, %210 ], [ %5, %224 ], [ %5, %239 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %241
 
 241:                                              ; preds = %2, %ReleaseCamera.exit36, %ReleaseCamera.exit
@@ -3217,7 +3211,7 @@ define hidden void @SDL_UpdateCamera() local_unnamed_addr #1 {
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %16 = load i32, ptr %.011, align 8
   store i32 %16, ptr %1, align 8
@@ -3225,7 +3219,7 @@ define hidden void @SDL_UpdateCamera() local_unnamed_addr #1 {
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %9, align 8
   %19 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %1) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %20
 
 20:                                               ; preds = %15, %10
@@ -3259,17 +3253,23 @@ declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #2
 
 declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(1) }
 attributes #13 = { nounwind allocsize(0,1) }

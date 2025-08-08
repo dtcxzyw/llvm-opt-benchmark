@@ -254,9 +254,6 @@ list_length.exit:                                 ; preds = %46, %55
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ExecHashJoin(ptr noundef %0) #0 {
   %2 = alloca [2 x i32], align 4
@@ -272,7 +269,7 @@ define internal noundef ptr @ExecHashJoin(ptr noundef %0) #0 {
   %12 = alloca i8, align 1
   %13 = alloca i32, align 4
   %14 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -480,7 +477,7 @@ ExecProcNode.exit:                                ; preds = %78, %80
   br i1 %125, label %126, label %ExecHashJoinOuterGetTuple.exit.thread
 
 126:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %127 = load ptr, ptr %25, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr %.13855.i, ptr %128, align 8
@@ -503,7 +500,7 @@ ExecProcNode.exit:                                ; preds = %78, %80
   %139 = getelementptr inbounds nuw i8, ptr %.13855.i, i64 4
   %140 = trunc i64 %136 to i32
   store i8 1, ptr %43, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre = load i16, ptr %139, align 4
   br label %ExecHashJoinOuterGetTuple.exit
 
@@ -519,7 +516,7 @@ ExecProcNode.exit:                                ; preds = %78, %80
 144:                                              ; preds = %143, %141
   %145 = load ptr, ptr %45, align 8
   %146 = call ptr %145(ptr noundef nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %147 = icmp eq ptr %146, null
   br i1 %147, label %ExecHashJoinOuterGetTuple.exit.thread, label %.lr.ph.i
 
@@ -540,7 +537,7 @@ ExecProcNode.exit:                                ; preds = %78, %80
 
 159:                                              ; preds = %152
   %160 = load ptr, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %161 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i47.i = icmp eq i32 %161, 0
   br i1 %.not.i47.i, label %163, label %162, !prof !6
@@ -560,7 +557,7 @@ ExecHashJoinGetSavedTuple.exit.thread.i:          ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load ptr, ptr %168, align 8
   call void %169(ptr noundef %160) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ExecHashJoinOuterGetTuple.exit.thread
 
 ExecHashJoinGetSavedTuple.exit.i:                 ; preds = %163
@@ -575,7 +572,7 @@ ExecHashJoinGetSavedTuple.exit.i:                 ; preds = %163
   %177 = add nsw i64 %176, -4
   call void @BufFileReadExact(ptr noundef nonnull %157, ptr noundef nonnull %175, i64 noundef %177) #6
   call void @ExecForceStoreMinimalTuple(ptr noundef nonnull %173, ptr noundef %160, i1 noundef zeroext true) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %178 = icmp eq ptr %160, null
   br i1 %178, label %ExecHashJoinOuterGetTuple.exit.thread, label %179
 
@@ -625,14 +622,14 @@ ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %11
   br i1 %or.cond, label %194, label %214
 
 194:                                              ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %195 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %.2.i, ptr noundef nonnull %14) #6
   %196 = getelementptr inbounds nuw i8, ptr %.1142.i, i64 120
   %197 = load ptr, ptr %196, align 8
   %198 = load i32, ptr %13, align 4
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds ptr, ptr %197, i64 %199
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %.4, ptr %10, align 4
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
@@ -654,7 +651,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %208 = load i32, ptr %195, align 4
   %209 = zext i32 %208 to i64
   call void @BufFileWrite(ptr noundef %.0.i, ptr noundef nonnull %195, i64 noundef %209) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %210 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %211 = trunc nuw i8 %210 to i1
   br i1 %211, label %212, label %213
@@ -664,7 +661,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br label %213
 
 213:                                              ; preds = %212, %ExecHashJoinSaveTuple.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge.backedge
 
 214:                                              ; preds = %188
@@ -696,7 +693,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br i1 %55, label %231, label %226
 
 226:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %227 = load ptr, ptr %27, align 8
   %228 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %227, ptr @CurrentMemoryContext, align 8
@@ -704,7 +701,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %230 = call i64 %229(ptr noundef nonnull %16, ptr noundef %26, ptr noundef nonnull %9) #6
   store ptr %228, ptr @CurrentMemoryContext, align 8
   %.not16 = icmp eq i64 %230, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not16, label %285, label %231
 
 231:                                              ; preds = %226, %225
@@ -746,7 +743,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br i1 %35, label %253, label %248
 
 248:                                              ; preds = %247
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %249 = load ptr, ptr %27, align 8
   %250 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %249, ptr @CurrentMemoryContext, align 8
@@ -754,7 +751,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %252 = call i64 %251(ptr noundef nonnull %18, ptr noundef %26, ptr noundef nonnull %8) #6
   store ptr %250, ptr @CurrentMemoryContext, align 8
   %.not17 = icmp eq i64 %252, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not17, label %279, label %253
 
 253:                                              ; preds = %248, %247
@@ -765,7 +762,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %259 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %260 = load ptr, ptr %259, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
@@ -789,7 +786,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %277 = trunc i32 %276 to i16
   %278 = getelementptr inbounds nuw i8, ptr %260, i64 6
   store i16 %277, ptr %278, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ExecHashJoinImpl.exit
 
 279:                                              ; preds = %248
@@ -836,7 +833,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br i1 %35, label %302, label %297
 
 297:                                              ; preds = %296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %298 = load ptr, ptr %27, align 8
   %299 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %298, ptr @CurrentMemoryContext, align 8
@@ -844,7 +841,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %301 = call i64 %300(ptr noundef nonnull %18, ptr noundef nonnull %26, ptr noundef nonnull %6) #6
   store ptr %299, ptr @CurrentMemoryContext, align 8
   %.not15 = icmp eq i64 %301, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not15, label %328, label %302
 
 302:                                              ; preds = %297, %296
@@ -855,7 +852,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %309 = load ptr, ptr %308, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 24
@@ -879,7 +876,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %326 = trunc i32 %325 to i16
   %327 = getelementptr inbounds nuw i8, ptr %309, i64 6
   store i16 %326, ptr %327, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ExecHashJoinImpl.exit
 
 328:                                              ; preds = %297
@@ -908,7 +905,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br i1 %35, label %344, label %339
 
 339:                                              ; preds = %337
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %340 = load ptr, ptr %27, align 8
   %341 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %340, ptr @CurrentMemoryContext, align 8
@@ -916,7 +913,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %343 = call i64 %342(ptr noundef nonnull %18, ptr noundef nonnull %26, ptr noundef nonnull %4) #6
   store ptr %341, ptr @CurrentMemoryContext, align 8
   %.not = icmp eq i64 %343, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not, label %370, label %344
 
 344:                                              ; preds = %339, %337
@@ -927,7 +924,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %349 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %350 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %351 = load ptr, ptr %350, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 24
@@ -951,7 +948,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %368 = trunc i32 %367 to i16
   %369 = getelementptr inbounds nuw i8, ptr %351, i64 6
   store i16 %368, ptr %369, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ExecHashJoinImpl.exit
 
 370:                                              ; preds = %339
@@ -1115,7 +1112,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
 
 .preheader.i:                                     ; preds = %434, %458
   %440 = load ptr, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %441 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i5 = icmp eq i32 %441, 0
   br i1 %.not.i.i5, label %443, label %442, !prof !6
@@ -1135,7 +1132,7 @@ ExecHashJoinGetSavedTuple.exit.thread.i7:         ; preds = %443
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 24
   %449 = load ptr, ptr %448, align 8
   call void %449(ptr noundef %440) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit.i
 
 ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
@@ -1150,7 +1147,7 @@ ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
   %457 = add nsw i64 %456, -4
   call void @BufFileReadExact(ptr noundef nonnull %433, ptr noundef nonnull %455, i64 noundef %457) #6
   call void @ExecForceStoreMinimalTuple(ptr noundef nonnull %453, ptr noundef %440, i1 noundef zeroext true) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not94.i = icmp eq ptr %440, null
   br i1 %.not94.i, label %.loopexit.i, label %458
 
@@ -1199,51 +1196,48 @@ ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
 
 ExecHashJoinImpl.exit:                            ; preds = %399, %97, %425, %88, %253, %302, %344
   %.1.i = phi ptr [ %260, %253 ], [ null, %88 ], [ %309, %302 ], [ %351, %344 ], [ null, %425 ], [ null, %97 ], [ null, %399 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.1.i
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #2
+declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAssignProjectionInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAssignProjectionInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecGetResultSlotOps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecGetResultSlotOps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNullTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitNullTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @get_op_hash_functions(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @get_op_hash_functions(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @op_strict(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @op_strict(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ExecBuildHash32Expr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @ExecBuildHash32Expr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
-
-declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndHashJoin(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1267,9 +1261,9 @@ define dso_local void @ExecEndHashJoin(ptr noundef captures(none) %0) local_unna
   ret void
 }
 
-declare void @ExecHashTableDestroy(ptr noundef) local_unnamed_addr #2
+declare void @ExecHashTableDestroy(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashJoinSaveTuple(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -1298,9 +1292,9 @@ define dso_local void @ExecHashJoinSaveTuple(ptr noundef %0, i32 noundef %1, ptr
   ret void
 }
 
-declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanHashJoin(ptr noundef captures(none) initializes((240, 252), (256, 264), (296, 304), (308, 309)) %0) local_unnamed_addr #0 {
@@ -1420,11 +1414,11 @@ define dso_local void @ExecReScanHashJoin(ptr noundef captures(none) initializes
   ret void
 }
 
-declare void @ExecHashTableResetMatchFlags(ptr noundef) local_unnamed_addr #2
+declare void @ExecHashTableResetMatchFlags(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashAccumInstrumentation(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashAccumInstrumentation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecShutdownHashJoin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1443,9 +1437,9 @@ define dso_local void @ExecShutdownHashJoin(ptr noundef readonly captures(none) 
   ret void
 }
 
-declare void @ExecHashTableDetachBatch(ptr noundef) local_unnamed_addr #2
+declare void @ExecHashTableDetachBatch(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashTableDetach(ptr noundef) local_unnamed_addr #2
+declare void @ExecHashTableDetach(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashJoinEstimate(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -1460,7 +1454,7 @@ define dso_local void @ExecHashJoinEstimate(ptr noundef readnone captures(none) 
   ret void
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashJoinInitializeDSM(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1516,7 +1510,7 @@ define dso_local void @ExecHashJoinInitializeDSM(ptr noundef %0, ptr noundef rea
   ret void
 }
 
-declare void @ExecSetExecProcNode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecSetExecProcNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ExecParallelHashJoin(ptr noundef %0) #0 {
@@ -1538,8 +1532,8 @@ define internal noundef ptr @ExecParallelHashJoin(ptr noundef %0) #0 {
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1652,7 +1646,7 @@ define internal noundef ptr @ExecParallelHashJoin(ptr noundef %0) #0 {
   %90 = load ptr, ptr %26, align 8
   %91 = load ptr, ptr %30, align 8
   %92 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 104
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 24
@@ -1661,7 +1655,7 @@ define internal noundef ptr @ExecParallelHashJoin(ptr noundef %0) #0 {
   br label %98
 
 98:                                               ; preds = %134, %89
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %99 = load ptr, ptr %93, align 8
   %.not.i.i = icmp eq ptr %99, null
   br i1 %.not.i.i, label %ExecProcNode.exit.i, label %100
@@ -1702,9 +1696,9 @@ ExecProcNode.exit.i:                              ; preds = %100, %98
   br i1 %118, label %131, label %119
 
 119:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %120 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %102, ptr noundef nonnull %16) #6
   %121 = load i32, ptr %12, align 4
   call void @ExecHashGetBucketAndBatch(ptr noundef %92, i32 noundef %121, ptr noundef nonnull %15, ptr noundef nonnull %14) #6
@@ -1723,9 +1717,9 @@ ExecProcNode.exit.i:                              ; preds = %100, %98
   br label %130
 
 130:                                              ; preds = %129, %119
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %131
 
 131:                                              ; preds = %130, %108
@@ -1738,11 +1732,11 @@ ExecProcNode.exit.i:                              ; preds = %100, %98
   br label %134
 
 134:                                              ; preds = %133, %131
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %98
 
 .critedge.i3:                                     ; preds = %104, %ExecProcNode.exit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %135 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %136 = load i32, ptr %135, align 8
   %137 = icmp sgt i32 %136, 0
@@ -1761,7 +1755,7 @@ ExecProcNode.exit.i:                              ; preds = %100, %98
   br i1 %143, label %.lr.ph.i, label %ExecParallelHashJoinPartitionOuter.exit, !llvm.loop !11
 
 ExecParallelHashJoinPartitionOuter.exit:          ; preds = %.lr.ph.i, %.critedge.i3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %144
 
 144:                                              ; preds = %ExecParallelHashJoinPartitionOuter.exit, %86
@@ -1814,7 +1808,7 @@ ExecProcNode.exit.i7:                             ; preds = %160, %158
   br i1 %167, label %168, label %ExecParallelHashJoinOuterGetTuple.exit.thread
 
 168:                                              ; preds = %.lr.ph.i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %169 = load ptr, ptr %30, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store ptr %.03445.i, ptr %170, align 8
@@ -1836,7 +1830,7 @@ ExecProcNode.exit.i7:                             ; preds = %160, %158
   br i1 %181, label %182, label %ExecParallelHashJoinOuterGetTuple.exit.thread14
 
 ExecParallelHashJoinOuterGetTuple.exit.thread14:  ; preds = %168
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %208
 
 182:                                              ; preds = %168
@@ -1851,7 +1845,7 @@ ExecParallelHashJoinOuterGetTuple.exit.thread14:  ; preds = %168
 185:                                              ; preds = %184, %182
   %186 = load ptr, ptr %48, align 8
   %187 = call ptr %186(ptr noundef nonnull %27) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = icmp eq ptr %187, null
   br i1 %188, label %ExecParallelHashJoinOuterGetTuple.exit.thread, label %.lr.ph.i8
 
@@ -1940,7 +1934,7 @@ ExecParallelHashJoinOuterGetTuple.exit:           ; preds = %190
   br i1 %or.cond, label %227, label %248
 
 227:                                              ; preds = %219
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %228 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %.2.i16, ptr noundef nonnull %19) #6
   %229 = load i32, ptr %17, align 4
   %230 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 120
@@ -1948,7 +1942,7 @@ ExecParallelHashJoinOuterGetTuple.exit:           ; preds = %190
   %232 = load i32, ptr %18, align 4
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds ptr, ptr %231, i64 %233
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %229, ptr %10, align 4
   %235 = load ptr, ptr %234, align 8
   %236 = icmp eq ptr %235, null
@@ -1970,7 +1964,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %242 = load i32, ptr %228, align 4
   %243 = zext i32 %242 to i64
   call void @BufFileWrite(ptr noundef %.0.i, ptr noundef nonnull %228, i64 noundef %243) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %244 = load i8, ptr %19, align 1, !range !4, !noundef !5
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %246, label %247
@@ -1980,7 +1974,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   br label %247
 
 247:                                              ; preds = %246, %ExecHashJoinSaveTuple.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.backedge.backedge
 
 248:                                              ; preds = %219
@@ -2011,7 +2005,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   br i1 %55, label %265, label %260
 
 260:                                              ; preds = %259
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %261 = load ptr, ptr %34, align 8
   %262 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %261, ptr @CurrentMemoryContext, align 8
@@ -2019,7 +2013,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %264 = call i64 %263(ptr noundef nonnull %21, ptr noundef %31, ptr noundef nonnull %9) #6
   store ptr %262, ptr @CurrentMemoryContext, align 8
   %.not19 = icmp eq i64 %264, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not19, label %319, label %265
 
 265:                                              ; preds = %260, %259
@@ -2061,7 +2055,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   br i1 %40, label %287, label %282
 
 282:                                              ; preds = %281
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %283 = load ptr, ptr %34, align 8
   %284 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %283, ptr @CurrentMemoryContext, align 8
@@ -2069,7 +2063,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %286 = call i64 %285(ptr noundef nonnull %23, ptr noundef %31, ptr noundef nonnull %8) #6
   store ptr %284, ptr @CurrentMemoryContext, align 8
   %.not20 = icmp eq i64 %286, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not20, label %313, label %287
 
 287:                                              ; preds = %282, %281
@@ -2080,7 +2074,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %293 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %294 = load ptr, ptr %293, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load ptr, ptr %295, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 24
@@ -2104,7 +2098,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %311 = trunc i32 %310 to i16
   %312 = getelementptr inbounds nuw i8, ptr %294, i64 6
   store i16 %311, ptr %312, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ExecHashJoinImpl.exit
 
 313:                                              ; preds = %282
@@ -2151,7 +2145,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   br i1 %40, label %336, label %331
 
 331:                                              ; preds = %330
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %332 = load ptr, ptr %34, align 8
   %333 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %332, ptr @CurrentMemoryContext, align 8
@@ -2159,7 +2153,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %335 = call i64 %334(ptr noundef nonnull %23, ptr noundef nonnull %31, ptr noundef nonnull %6) #6
   store ptr %333, ptr @CurrentMemoryContext, align 8
   %.not18 = icmp eq i64 %335, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not18, label %362, label %336
 
 336:                                              ; preds = %331, %330
@@ -2170,7 +2164,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %342 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %343 = load ptr, ptr %342, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
@@ -2194,7 +2188,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %360 = trunc i32 %359 to i16
   %361 = getelementptr inbounds nuw i8, ptr %343, i64 6
   store i16 %360, ptr %361, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ExecHashJoinImpl.exit
 
 362:                                              ; preds = %331
@@ -2223,7 +2217,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   br i1 %40, label %378, label %373
 
 373:                                              ; preds = %371
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %374 = load ptr, ptr %34, align 8
   %375 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %374, ptr @CurrentMemoryContext, align 8
@@ -2231,7 +2225,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %377 = call i64 %376(ptr noundef nonnull %23, ptr noundef nonnull %31, ptr noundef nonnull %4) #6
   store ptr %375, ptr @CurrentMemoryContext, align 8
   %.not = icmp eq i64 %377, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not, label %404, label %378
 
 378:                                              ; preds = %373, %371
@@ -2242,7 +2236,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %383 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %384 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %385 = load ptr, ptr %384, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 24
@@ -2266,7 +2260,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %402 = trunc i32 %401 to i16
   %403 = getelementptr inbounds nuw i8, ptr %385, i64 6
   store i16 %402, ptr %403, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ExecHashJoinImpl.exit
 
 404:                                              ; preds = %373
@@ -2310,7 +2304,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
 
 429:                                              ; preds = %465, %420
   %.052.i = phi i32 [ %427, %420 ], [ %468, %465 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %430 = load ptr, ptr %428, align 8
   %431 = sext i32 %.052.i to i64
   %432 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %430, i64 %431
@@ -2398,7 +2392,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %466 = add i32 %.052.i, 1
   %467 = load i32, ptr %425, align 8
   %468 = srem i32 %466, %467
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not56.i = icmp eq i32 %468, %427
   br i1 %.not56.i, label %ExecHashJoinImpl.exit, label %429, !llvm.loop !14
 
@@ -2408,7 +2402,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %470 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %469, i64 %431, i32 10
   %471 = load ptr, ptr %470, align 8
   call void @sts_begin_parallel_scan(ptr noundef %471) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 2, ptr %36, align 8
   br label %.backedge.backedge
 
@@ -2422,20 +2416,20 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
 
 ExecHashJoinImpl.exit:                            ; preds = %146, %465, %.lr.ph, %74, %287, %336, %378
   %.1.i = phi ptr [ %294, %287 ], [ %343, %336 ], [ %385, %378 ], [ null, %74 ], [ null, %.lr.ph ], [ null, %465 ], [ null, %146 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret ptr %.1.i
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @BarrierInit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @BarrierInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SharedFileSetInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SharedFileSetInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashJoinReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -2475,9 +2469,9 @@ define dso_local void @ExecHashJoinReInitializeDSM(ptr noundef readonly captures
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SharedFileSetDeleteAll(ptr noundef) local_unnamed_addr #2
+declare void @SharedFileSetDeleteAll(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashJoinInitializeWorker(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -2500,77 +2494,83 @@ define dso_local void @ExecHashJoinInitializeWorker(ptr noundef %0, ptr noundef 
   ret void
 }
 
-declare void @SharedFileSetAttach(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SharedFileSetAttach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare ptr @ExecHashTableCreate(ptr noundef) local_unnamed_addr #2
+declare ptr @ExecHashTableCreate(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MultiExecProcNode(ptr noundef) local_unnamed_addr #2
+declare ptr @MultiExecProcNode(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BarrierPhase(ptr noundef) local_unnamed_addr #2
+declare i32 @BarrierPhase(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @BarrierArriveAndWait(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @BarrierArriveAndWait(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ExecParallelPrepHashTableForUnmatched(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ExecParallelPrepHashTableForUnmatched(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecPrepHashTableForUnmatched(ptr noundef) local_unnamed_addr #2
+declare void @ExecPrepHashTableForUnmatched(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashGetBucketAndBatch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecHashGetBucketAndBatch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ExecHashGetSkewBucket(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ExecHashGetSkewBucket(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecFetchSlotMinimalTuple(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecFetchSlotMinimalTuple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @heap_free_minimal_tuple(ptr noundef) local_unnamed_addr #2
+declare void @heap_free_minimal_tuple(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ExecParallelScanHashBucket(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ExecParallelScanHashBucket(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ExecScanHashBucket(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ExecScanHashBucket(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ExecScanHashTableForUnmatched(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ExecScanHashTableForUnmatched(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sts_puttuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @sts_puttuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sts_end_write(ptr noundef) local_unnamed_addr #2
+declare void @sts_end_write(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sts_parallel_scan_next(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sts_parallel_scan_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecForceStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ExecForceStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @BufFileReadMaybeEOF(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i64 @BufFileReadMaybeEOF(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @BufFileReadExact(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @BufFileReadExact(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @BarrierAttach(ptr noundef) local_unnamed_addr #2
+declare i32 @BarrierAttach(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecParallelHashTableAlloc(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecParallelHashTableAlloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecParallelHashTableSetCurrentBatch(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecParallelHashTableSetCurrentBatch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @sts_begin_parallel_scan(ptr noundef) local_unnamed_addr #2
+declare void @sts_begin_parallel_scan(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecParallelHashTableInsertCurrentBatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecParallelHashTableInsertCurrentBatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @sts_end_parallel_scan(ptr noundef) local_unnamed_addr #2
+declare void @sts_end_parallel_scan(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @BarrierDetach(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @BarrierDetach(ptr noundef) local_unnamed_addr #1
 
-declare void @BufFileClose(ptr noundef) local_unnamed_addr #2
+declare void @BufFileClose(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecHashTableReset(ptr noundef) local_unnamed_addr #2
+declare void @ExecHashTableReset(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BufFileSeek(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BufFileSeek(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ExecHashTableInsert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecHashTableInsert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
@@ -2579,9 +2579,9 @@ declare void @llvm.assume(i1 noundef) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

@@ -80,13 +80,7 @@ define dso_local ptr @_elapsed_time(i64 noundef %0, i64 noundef %1) local_unname
   ret ptr %.028
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @print_fields(ptr noundef %0) local_unnamed_addr #0 {
@@ -148,9 +142,9 @@ define dso_local void @print_fields(ptr noundef %0) local_unnamed_addr #0 {
 
 49:                                               ; preds = %.lr.ph, %713
   %50 = phi ptr [ %22, %.lr.ph ], [ %717, %713 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 -2, ptr %19, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) @outbuf, i8 0, i64 34, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -935,7 +929,7 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
 
 467:                                              ; preds = %49
   %468 = load ptr, ptr %44, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %469 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %470 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %471 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -950,12 +944,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %479 = zext i1 %478 to i32
   call void %475(ptr noundef %473, ptr noundef %472, i32 noundef %479) #7
   call void @slurm_xfree(ptr noundef nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %713
 
 480:                                              ; preds = %49
   %481 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %482 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %483 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %484 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -970,13 +964,13 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %492 = zext i1 %491 to i32
   call void %488(ptr noundef %486, ptr noundef %485, i32 noundef %492) #7
   call void @slurm_xfree(ptr noundef nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %713
 
 493:                                              ; preds = %49
   %494 = load ptr, ptr %42, align 8
   %495 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %496 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %497 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %494, ptr noundef %496, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef %495) #7
   store ptr %497, ptr %15, align 8
@@ -989,12 +983,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %504 = zext i1 %503 to i32
   call void %500(ptr noundef %498, ptr noundef %497, i32 noundef %504) #7
   call void @slurm_xfree(ptr noundef nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %713
 
 505:                                              ; preds = %49
   %506 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %507 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %508 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %506, ptr noundef %507, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef null) #7
   store ptr %508, ptr %14, align 8
@@ -1007,12 +1001,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %515 = zext i1 %514 to i32
   call void %511(ptr noundef %509, ptr noundef %508, i32 noundef %515) #7
   call void @slurm_xfree(ptr noundef nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %713
 
 516:                                              ; preds = %49
   %517 = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %518 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %519 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %520 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -1027,13 +1021,13 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %528 = zext i1 %527 to i32
   call void %524(ptr noundef %522, ptr noundef %521, i32 noundef %528) #7
   call void @slurm_xfree(ptr noundef nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %713
 
 529:                                              ; preds = %49
   %530 = load ptr, ptr %39, align 8
   %531 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %532 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %533 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %530, ptr noundef %532, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef %531) #7
   store ptr %533, ptr %12, align 8
@@ -1046,12 +1040,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %540 = zext i1 %539 to i32
   call void %536(ptr noundef %534, ptr noundef %533, i32 noundef %540) #7
   call void @slurm_xfree(ptr noundef nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %713
 
 541:                                              ; preds = %49
   %542 = load ptr, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %543 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %544 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %542, ptr noundef %543, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef null) #7
   store ptr %544, ptr %11, align 8
@@ -1064,12 +1058,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %551 = zext i1 %550 to i32
   call void %547(ptr noundef %545, ptr noundef %544, i32 noundef %551) #7
   call void @slurm_xfree(ptr noundef nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %713
 
 552:                                              ; preds = %49
   %553 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %554 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %555 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %556 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -1084,12 +1078,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %564 = zext i1 %563 to i32
   call void %560(ptr noundef %558, ptr noundef %557, i32 noundef %564) #7
   call void @slurm_xfree(ptr noundef nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %713
 
 565:                                              ; preds = %49
   %566 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %567 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %568 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -1104,12 +1098,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %577 = zext i1 %576 to i32
   call void %573(ptr noundef %571, ptr noundef %570, i32 noundef %577) #7
   call void @slurm_xfree(ptr noundef nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %713
 
 578:                                              ; preds = %49
   %579 = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %580 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %581 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %582 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -1124,13 +1118,13 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %590 = zext i1 %589 to i32
   call void %586(ptr noundef %584, ptr noundef %583, i32 noundef %590) #7
   call void @slurm_xfree(ptr noundef nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %713
 
 591:                                              ; preds = %49
   %592 = load ptr, ptr %34, align 8
   %593 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %594 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %595 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %592, ptr noundef %594, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef %593) #7
   store ptr %595, ptr %7, align 8
@@ -1143,12 +1137,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %602 = zext i1 %601 to i32
   call void %598(ptr noundef %596, ptr noundef %595, i32 noundef %602) #7
   call void @slurm_xfree(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %713
 
 603:                                              ; preds = %49
   %604 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %605 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %606 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %604, ptr noundef %605, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef null) #7
   store ptr %606, ptr %6, align 8
@@ -1161,12 +1155,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %613 = zext i1 %612 to i32
   call void %609(ptr noundef %607, ptr noundef %606, i32 noundef %613) #7
   call void @slurm_xfree(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %713
 
 614:                                              ; preds = %49
   %615 = load ptr, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %616 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %617 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %618 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -1181,13 +1175,13 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %626 = zext i1 %625 to i32
   call void %622(ptr noundef %620, ptr noundef %619, i32 noundef %626) #7
   call void @slurm_xfree(ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %713
 
 627:                                              ; preds = %49
   %628 = load ptr, ptr %31, align 8
   %629 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %630 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %631 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %628, ptr noundef %630, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef %629) #7
   store ptr %631, ptr %4, align 8
@@ -1200,12 +1194,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %638 = zext i1 %637 to i32
   call void %634(ptr noundef %632, ptr noundef %631, i32 noundef %638) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %713
 
 639:                                              ; preds = %49
   %640 = load ptr, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %641 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %642 = call ptr @slurmdb_make_tres_string_from_simple(ptr noundef %640, ptr noundef %641, i32 noundef -2, i32 noundef 4, i32 noundef 2048, ptr noundef null) #7
   store ptr %642, ptr %3, align 8
@@ -1218,12 +1212,12 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %649 = zext i1 %648 to i32
   call void %645(ptr noundef %643, ptr noundef %642, i32 noundef %649) #7
   call void @slurm_xfree(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %713
 
 650:                                              ; preds = %49
   %651 = load ptr, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %652 = load ptr, ptr @assoc_mgr_tres_list, align 8
   %653 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
   %654 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 44), align 4
@@ -1238,7 +1232,7 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %662 = zext i1 %661 to i32
   call void %658(ptr noundef %656, ptr noundef %655, i32 noundef %662) #7
   call void @slurm_xfree(ptr noundef nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %713
 
 663:                                              ; preds = %49
@@ -1316,8 +1310,8 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   %714 = load i32, ptr @curr_inx, align 4
   %715 = add nsw i32 %714, 1
   store i32 %715, ptr @curr_inx, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %716 = load ptr, ptr @print_fields_itr, align 8
   %717 = call ptr @list_next(ptr noundef %716) #7
   store ptr %717, ptr @field, align 8
@@ -1329,31 +1323,37 @@ _elapsed_time.exit101:                            ; preds = %419, %423, %425
   ret void
 }
 
-declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #2
+declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #1
 
-declare ptr @list_next(ptr noundef) local_unnamed_addr #2
+declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i64 @slurmdb_find_tres_count_in_string(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @slurmdb_find_tres_count_in_string(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
-declare void @convert_num_unit2(double noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @convert_num_unit2(double noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @convert_num_unit(double noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @convert_num_unit(double noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @find_hostname(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @find_hostname(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @cpu_freq_to_string(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @cpu_freq_to_string(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare ptr @slurmdb_make_tres_string_from_simple(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurmdb_make_tres_string_from_simple(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
@@ -1365,10 +1365,10 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare double @llvm.fabs.f64(double) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

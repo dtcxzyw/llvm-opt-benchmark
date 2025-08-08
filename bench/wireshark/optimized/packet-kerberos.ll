@@ -2103,12 +2103,6 @@ kerberos_get_private_data.exit:                   ; preds = %1, %4
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @read_keytab_file_from_preferences() local_unnamed_addr #0 {
   %1 = load i8, ptr @krb_decrypt, align 1, !range !6, !noundef !7
@@ -2141,22 +2135,22 @@ define void @read_keytab_file_from_preferences() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #3
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.krb5_keytab_entry_st, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %140, label %6
 
@@ -2216,7 +2210,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %.lr.ph92, %121
   %34 = call ptr @wmem_epan_scope()
-  %35 = call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %34, i64 noundef 432) #22
+  %35 = call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %34, i64 noundef 432) #21
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 308
   store i32 -1, ptr %36, align 4
   %37 = load i32, ptr @kerberos_longterm_ids, align 4
@@ -2330,7 +2324,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %112 = load ptr, ptr %29, align 8
   %113 = call i32 @llvm.umin.i32(i32 %109, i32 32)
   %114 = zext nneg i32 %113 to i64
-  %115 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef %112, i64 noundef range(i64 -2147483648, 4294967296) %114, i64 noundef 416) #21, !alias.scope !10
+  %115 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef %112, i64 noundef range(i64 -2147483648, 4294967296) %114, i64 noundef 416) #22, !alias.scope !10
   store ptr %35, ptr @enc_key_list, align 8
   %116 = load ptr, ptr @krb5_ctx, align 8
   %117 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %116, ptr noundef nonnull %3)
@@ -2376,38 +2370,38 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   br label %140
 
 140:                                              ; preds = %133, %137, %10, %1, %6, %30, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_init_context(ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_init_context(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_kt_resolve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_kt_resolve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_kt_start_seq_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_kt_start_seq_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_kt_next_entry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_kt_next_entry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_epan_scope() local_unnamed_addr #3
+declare ptr @wmem_epan_scope() local_unnamed_addr #2
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_free_keytab_entry_contents(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_free_keytab_entry_contents(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -2556,10 +2550,10 @@ enc_key_cmp_id.exit51:                            ; preds = %53
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_kt_end_seq_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_kt_end_seq_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_kt_close(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_kt_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -2572,7 +2566,7 @@ define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef
 define internal fastcc noundef ptr @kerberos_new_private_data(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noalias dereferenceable_or_null(296) ptr @wmem_alloc0(ptr noundef %3, i64 noundef 296) #22
+  %4 = tail call noalias dereferenceable_or_null(296) ptr @wmem_alloc0(ptr noundef %3, i64 noundef 296) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %35, label %6
 
@@ -2611,7 +2605,7 @@ define internal fastcc noundef ptr @kerberos_new_private_data(ptr noundef %0) un
 
 28:                                               ; preds = %21
   %29 = tail call ptr @wmem_file_scope()
-  %30 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %29, i64 noundef 8) #22
+  %30 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %29, i64 noundef 8) #21
   %31 = tail call ptr @wmem_file_scope()
   %32 = tail call noalias ptr @wmem_list_new(ptr noundef %31)
   store ptr %32, ptr %30, align 8
@@ -2632,7 +2626,7 @@ krb5_conv_find_or_create.exit:                    ; preds = %21, %28
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca %struct.decrypt_krb5_data_state, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @tvb_captured_length(ptr noundef %4)
   %10 = tail call ptr @tvb_get_ptr(ptr noundef %4, i32 noundef 0, i32 noundef %9)
   %11 = load i8, ptr @krb_decrypt, align 1, !range !6, !noundef !7
@@ -2648,7 +2642,7 @@ define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr nounde
   br i1 %17, label %33, label %18
 
 18:                                               ; preds = %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef 0, i64 noundef 24, i1 noundef false) #22
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %9, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2656,7 +2650,7 @@ define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %9 to i64
-  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %23) #22
+  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %23) #21
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -2680,21 +2674,21 @@ define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr nounde
 
 33:                                               ; preds = %18, %14, %7, %31
   %.0 = phi ptr [ %32, %31 ], [ null, %7 ], [ null, %14 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.decrypt_krb5_krb_cfx_dce_state, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call fastcc ptr @kerberos_new_private_data(ptr noundef %1)
   %11 = load i8, ptr @krb_decrypt, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %74
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 noundef 0, i64 noundef 80, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 noundef 0, i64 noundef 80, i1 noundef false) #22
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %22, label %14
 
@@ -2731,7 +2725,7 @@ define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %30 to i64
-  %35 = tail call noalias ptr @wmem_alloc0(ptr noundef %33, i64 noundef %34) #22
+  %35 = tail call noalias ptr @wmem_alloc0(ptr noundef %33, i64 noundef %34) #21
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
@@ -2774,7 +2768,7 @@ define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 
   store i32 %56, ptr %57, align 8
   %58 = load ptr, ptr %32, align 8
   %59 = zext i32 %56 to i64
-  %60 = tail call noalias ptr @wmem_alloc0(ptr noundef %58, i64 noundef %59) #22
+  %60 = tail call noalias ptr @wmem_alloc0(ptr noundef %58, i64 noundef %59) #21
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %60, ptr %61, align 8
   %62 = icmp eq ptr %60, null
@@ -2803,24 +2797,24 @@ define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 
 
 74:                                               ; preds = %.sink.split, %67, %54, %48, %50, %39, %28, %22, %24, %14, %8
   %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %24 ], [ null, %22 ], [ null, %28 ], [ null, %39 ], [ null, %50 ], [ null, %48 ], [ null, %54 ], [ %70, %67 ], [ null, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #3
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.insert_longterm_keys_into_key_map_state, align 8
   %10 = alloca %struct.decrypt_krb5_with_cb_state, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %11, align 8
@@ -2883,11 +2877,11 @@ read_keytab_file_from_preferences.exit:           ; preds = %8, %26, %28
   br i1 %38, label %39, label %insert_longterm_keys_into_key_map.exit
 
 39:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %34, ptr %9, align 8
   %40 = load ptr, ptr @kerberos_longterm_keys, align 8
   call void @wmem_map_foreach(ptr noundef %40, ptr noundef nonnull @insert_longterm_keys_into_key_map_cb, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %insert_longterm_keys_into_key_map.exit
 
 insert_longterm_keys_into_key_map.exit:           ; preds = %39, %33, %31
@@ -3027,7 +3021,7 @@ used_encryption_key.exit:                         ; preds = %._crit_edge.i, %133
 135:                                              ; preds = %insert_longterm_keys_into_key_map.exit
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %137 = load ptr, ptr %136, align 8
-  %138 = call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %137, i64 noundef 432) #22
+  %138 = call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %137, i64 noundef 432) #21
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %141 = load i32, ptr %140, align 4
@@ -3059,7 +3053,7 @@ used_encryption_key.exit:                         ; preds = %._crit_edge.i, %133
 
 missing_encryption_key.exit:                      ; preds = %157, %135, %used_encryption_key.exit
   %.027 = phi i32 [ 0, %used_encryption_key.exit ], [ -1, %135 ], [ -1, %157 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.027
 }
 
@@ -3069,16 +3063,16 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca [6 x %struct._krb5_crypto_iov], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load i32, ptr %8, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %7, i8 noundef 0, i64 noundef 144, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %7, i8 noundef 0, i64 noundef 144, i1 noundef false) #22
   %10 = load ptr, ptr @krb5_ctx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
@@ -3210,18 +3204,18 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
 
 91:                                               ; preds = %30, %25, %22, %17, %14, %3, %78
   %.0 = phi i32 [ %90, %78 ], [ %13, %3 ], [ -1, %14 ], [ %21, %17 ], [ -1, %22 ], [ %29, %25 ], [ -1, %30 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -3231,7 +3225,7 @@ define hidden i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext %0, ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_kerberos_TGT_REP(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -3352,16 +3346,16 @@ define hidden i32 @dissect_kerberos_KERB_TICKET_LOGON(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_Ticket(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -3398,19 +3392,19 @@ define hidden void @show_krb_recordmark(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @kerberos_rm_to_reclen(i32 noundef %0) local_unnamed_addr #6 {
+define hidden noundef range(i32 0, -2147483648) i32 @kerberos_rm_to_reclen(i32 noundef %0) local_unnamed_addr #5 {
   %2 = and i32 %0, 2147483647
   ret i32 %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_kerberos_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -3437,13 +3431,13 @@ define internal fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef 
   %22 = alloca %struct.kerberos_display_key_state, align 8
   %23 = alloca %struct.kerberos_display_key_state, align 8
   %24 = zext i1 %3 to i8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store volatile ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %24, ptr @gbl_do_col_info, align 1
   br i1 %5, label %25, label %52
 
@@ -3502,9 +3496,9 @@ show_krb_recordmark.exit:                         ; preds = %39, %41
   br label %kerberos_get_private_data.exit
 
 52:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.0..0..0..0.48 = load volatile i32, ptr %8, align 4
   %53 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %.0..0..0..0.48, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %54 = load i8, ptr %12, align 1
@@ -3568,9 +3562,9 @@ show_krb_recordmark.exit:                         ; preds = %39, %41
   br label %73
 
 73:                                               ; preds = %67, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %kerberos_get_private_data.exit
 
 kerberos_get_private_data.exit:                   ; preds = %73, %show_krb_recordmark.exit
@@ -3583,11 +3577,11 @@ kerberos_get_private_data.exit:                   ; preds = %73, %show_krb_recor
   store ptr %77, ptr %74, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 72
   store ptr %6, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store volatile i32 0, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #21
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @except_setup_try(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull @dissect_kerberos_common.catch_spec, i64 noundef 1)
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %80 = call i32 @_setjmp(ptr noundef nonnull %79) #23
@@ -3700,10 +3694,10 @@ kerberos_get_private_data.exit:                   ; preds = %73, %show_krb_recor
   %124 = load volatile ptr, ptr %123, align 8
   call void @except_free(ptr noundef %124)
   %125 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %18) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %126 = getelementptr inbounds nuw i8, ptr %77, i64 276
   %127 = load i32, ptr %126, align 4
   %.not91 = icmp eq i32 %127, -1
@@ -3736,8 +3730,8 @@ proto_item_set_generated.exit:                    ; preds = %134, %131, %128, %1
   br i1 %.not92, label %161, label %140
 
 140:                                              ; preds = %proto_item_set_generated.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.0..0..0..0.37 = load volatile ptr, ptr %9, align 8
   %141 = load i32, ptr @hf_krb_response_to, align 4
   %142 = call ptr @proto_tree_add_uint(ptr noundef %.0..0..0..0.37, i32 noundef %141, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %139)
@@ -3782,8 +3776,8 @@ proto_item_set_generated.exit99:                  ; preds = %140, %143, %146
   br label %proto_item_set_generated.exit102
 
 proto_item_set_generated.exit102:                 ; preds = %proto_item_set_generated.exit99, %154, %157
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %161
 
 161:                                              ; preds = %proto_item_set_generated.exit102, %proto_item_set_generated.exit
@@ -3792,7 +3786,7 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   br i1 %.not93, label %171, label %162
 
 162:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.0..0..0..0.40 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.40, ptr %21, align 8
   %163 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -3810,7 +3804,7 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   %169 = getelementptr inbounds nuw i8, ptr %77, i64 160
   %170 = load ptr, ptr %169, align 8
   call void @wmem_list_foreach(ptr noundef %170, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %171
 
 171:                                              ; preds = %162, %161
@@ -3819,7 +3813,7 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   br i1 %.not94, label %181, label %172
 
 172:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.0..0..0..0.42 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.42, ptr %22, align 8
   %173 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3837,7 +3831,7 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   %179 = getelementptr inbounds nuw i8, ptr %77, i64 168
   %180 = load ptr, ptr %179, align 8
   call void @wmem_list_foreach(ptr noundef %180, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %181
 
 181:                                              ; preds = %172, %171
@@ -3846,7 +3840,7 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   br i1 %.not95, label %191, label %182
 
 182:                                              ; preds = %181
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.0..0..0..0.44 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.44, ptr %23, align 8
   %183 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3864,7 +3858,7 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   %189 = getelementptr inbounds nuw i8, ptr %77, i64 152
   %190 = load ptr, ptr %189, align 8
   call void @wmem_list_foreach(ptr noundef %190, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %191
 
 191:                                              ; preds = %182, %181
@@ -3875,22 +3869,22 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   br label %192
 
 .critedge:                                        ; preds = %55, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %192
 
 192:                                              ; preds = %.critedge, %25, %191
   %.0 = phi i32 [ %.0..0..0..0.51, %191 ], [ -1, %25 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @kerberos_output_keytype() local_unnamed_addr #7 {
+define hidden i32 @kerberos_output_keytype() local_unnamed_addr #6 {
   %1 = load i32, ptr @gbl_keytype, align 4
   ret i32 %1
 }
@@ -3904,7 +3898,7 @@ define hidden range(i32 4, -2147483644) i32 @get_krb_pdu_len(ptr readnone captur
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_kerberos() local_unnamed_addr #0 {
@@ -3947,25 +3941,25 @@ define hidden void @proto_register_kerberos() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #3
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @register_tap(ptr noundef) local_unnamed_addr #3
+declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @krb5stat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #0 {
@@ -4003,7 +3997,7 @@ define internal void @krb5stat_init(ptr readnone captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -4051,31 +4045,31 @@ define internal i32 @dissect_kerberos_tcp(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal void @kerberos_prefs_apply_cb() #6 {
+define internal void @kerberos_prefs_apply_cb() #5 {
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_filename_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @prefs_register_filename_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @enc_key_list_cb(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #8 {
+define internal noundef zeroext i1 @enc_key_list_cb(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #7 {
   store ptr null, ptr @enc_key_list, align 8
   store i32 0, ptr @kerberos_longterm_ids, align 4
   ret i1 true
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @enc_key_content_hash(ptr noundef %0) #0 {
@@ -4093,7 +4087,7 @@ define internal i32 @enc_key_content_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
+define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4124,10 +4118,10 @@ define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr noundef readonly 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #3
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_kerberos() local_unnamed_addr #0 {
@@ -4145,49 +4139,49 @@ define hidden void @proto_reg_handoff_kerberos() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @register_dcerpc_auth_subdissector(i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @register_dcerpc_auth_subdissector(i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #3
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @decrypt_krb5_data_cb(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._krb5_enc_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef 0, i64 noundef 16, i1 noundef false) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef 0, i64 noundef 16, i1 noundef false) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4197,24 +4191,24 @@ define internal i32 @decrypt_krb5_data_cb(ptr noundef %0, i32 noundef %1, ptr no
   %9 = load ptr, ptr @krb5_ctx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = call i32 @krb5_c_decrypt(ptr noundef %9, ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_decrypt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_c_decrypt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
@@ -4225,7 +4219,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   %8 = alloca %struct._krb5_keyblock, align 8
   %9 = alloca %struct._krb5_keyblock, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
@@ -4313,9 +4307,9 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   br i1 %.082, label %56, label %114
 
 56:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   store i32 -1760647421, ptr %5, align 8
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -4404,18 +4398,18 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   br label %113
 
 113:                                              ; preds = %76, %56, %110, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %193
 
 114:                                              ; preds = %55
   br i1 %.081, label %115, label %170
 
 115:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   store i32 -1760647421, ptr %8, align 8
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4493,9 +4487,9 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   br label %169
 
 169:                                              ; preds = %115, %166, %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %193
 
 170:                                              ; preds = %114
@@ -4541,12 +4535,12 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   br label %193
 
 193:                                              ; preds = %._crit_edge, %173, %3, %192, %169, %113
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_map_size(ptr noundef) local_unnamed_addr #3
+declare i32 @wmem_map_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @insert_longterm_keys_into_key_map_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -4556,7 +4550,7 @@ define internal void @insert_longterm_keys_into_key_map_cb(ptr readnone captures
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_fx_cf2_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_c_fx_cf2_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @add_encryption_key(ptr noundef %0, ptr noundef captures(none) initializes((104, 112)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
@@ -4587,7 +4581,7 @@ define internal fastcc void @add_encryption_key(ptr noundef %0, ptr noundef capt
 
 26:                                               ; preds = %24, %21
   %.0 = phi ptr [ %23, %21 ], [ %25, %24 ]
-  %27 = tail call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %.0, i64 noundef 432) #22
+  %27 = tail call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %.0, i64 noundef 432) #21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
@@ -4610,7 +4604,7 @@ define internal fastcc void @add_encryption_key(ptr noundef %0, ptr noundef capt
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %43 = tail call i32 @llvm.smin.i32(i32 %6, i32 32)
   %44 = sext i32 %43 to i64
-  %45 = tail call ptr @__memcpy_chk(ptr noundef nonnull %42, ptr noundef %7, i64 noundef range(i64 -2147483648, 4294967296) %44, i64 noundef 416) #21, !alias.scope !18
+  %45 = tail call ptr @__memcpy_chk(ptr noundef nonnull %42, ptr noundef %7, i64 noundef range(i64 -2147483648, 4294967296) %44, i64 noundef 416) #22, !alias.scope !18
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 416
   store ptr %9, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 424
@@ -4634,11 +4628,11 @@ define internal fastcc void @add_encryption_key(ptr noundef %0, ptr noundef capt
   br i1 %58, label %59, label %insert_longterm_keys_into_key_map.exit
 
 59:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %54, ptr %12, align 8
   %60 = load ptr, ptr @kerberos_longterm_keys, align 8
   call void @wmem_map_foreach(ptr noundef %60, ptr noundef nonnull @insert_longterm_keys_into_key_map_cb, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %insert_longterm_keys_into_key_map.exit
 
 insert_longterm_keys_into_key_map.exit:           ; preds = %52, %59
@@ -4737,34 +4731,34 @@ kerberos_key_list_append.exit:                    ; preds = %122, %126
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @krb5_free_keyblock(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @krb5_free_keyblock(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_tree_move_item(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @proto_tree_move_item(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_find(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_list_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_crypto_length(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_c_crypto_length(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_block_size(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_c_block_size(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_decrypt_iov(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @krb5_c_decrypt_iov(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_INTEGER_5(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -4789,7 +4783,7 @@ define internal i32 @dissect_kerberos_MESSAGE_TYPE(i1 noundef zeroext %0, ptr no
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %16 = load i8, ptr @gbl_do_col_info, align 1, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
@@ -4817,18 +4811,18 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
   br label %30
 
 30:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_OCTET_STRING(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -4837,7 +4831,7 @@ define internal i32 @dissect_kerberos_OCTET_STRING(i1 noundef zeroext %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_CKSUMTYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -4863,7 +4857,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_T_checksum(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -4947,18 +4941,18 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
 
 dissect_krb5_rfc1964_checksum.exit:               ; preds = %61, %56, %43, %17, %64
   %.0 = phi i32 [ %65, %64 ], [ %18, %17 ], [ %18, %43 ], [ %18, %56 ], [ %18, %61 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_Applications(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -4968,7 +4962,7 @@ define internal i32 @dissect_kerberos_Applications(i1 zeroext %0, ptr noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_choice(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_choice(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_Authenticator(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -5091,7 +5085,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_tagged_type(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_tagged_type(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_Authenticator_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -5207,7 +5201,7 @@ define internal i32 @dissect_kerberos_SEQUENCE_OF_CNameString(i1 noundef zeroext
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_sequence_of(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_sequence_of(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_CNameString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -5216,7 +5210,7 @@ define internal i32 @dissect_kerberos_CNameString(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @save_Authenticator_subkey(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
@@ -5295,7 +5289,7 @@ kerberos_get_private_data.exit:                   ; preds = %7, %11
   %15 = phi ptr [ %14, %11 ], [ %10, %7 ]
   %16 = tail call ptr @proto_registrar_get_name(i32 noundef %5)
   %17 = tail call ptr @proto_registrar_get_name(i32 noundef %6)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %18 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 256, i32 noundef 2, i64 noundef 256, ptr noundef nonnull @.str.898, ptr noundef %16, ptr noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5313,12 +5307,12 @@ kerberos_get_private_data.exit:                   ; preds = %7, %11
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %32 = load ptr, ptr %31, align 8
   call fastcc void @add_encryption_key(ptr noundef %20, ptr noundef %15, ptr noundef %22, ptr noundef %24, ptr noundef %26, i32 noundef %28, i32 noundef %30, ptr noundef %32, ptr noundef nonnull %8, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #3
+declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_T_keytype(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -5367,7 +5361,7 @@ proto_item_set_hidden.exit:                       ; preds = %19, %17, %kerberos_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_T_keyvalue(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -5396,7 +5390,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
   %23 = load ptr, ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %23, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -5504,7 +5498,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_AD_CAMMAC(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -5570,14 +5564,14 @@ define internal noundef i32 @dissect_krb5_AD_WIN2K_PAC(i1 zeroext %0, ptr nounde
 
 kerberos_get_private_data.exit.i:                 ; preds = %43, %6
   %47 = phi ptr [ %46, %43 ], [ %42, %6 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %48 = tail call i32 @tvb_captured_length(ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %40) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %40, i8 0, i64 104, i1 false)
   %49 = load i8, ptr @krb_decrypt, align 1, !range !6, !noundef !7
   %50 = trunc nuw i8 %49 to i1
@@ -5733,7 +5727,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %123, %121, %114
 
 141:                                              ; preds = %148, %138
   %indvars.iv.i.i = phi i64 [ 0, %138 ], [ %indvars.iv.next.i.i, %148 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 4
   %142 = load ptr, ptr @krb5_ctx, align 8
   %143 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i
@@ -5743,7 +5737,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %123, %121, %114
   %146 = load i32, ptr %36, align 4
   %147 = icmp eq i32 %140, %146
   %or.cond.i.i = select i1 %.not.i56.i, i1 %147, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br i1 %or.cond.i.i, label %keytype_for_cksumtype.exit.i, label %148
 
 148:                                              ; preds = %141
@@ -5790,7 +5784,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %148, %141
 
 172:                                              ; preds = %179, %169
   %indvars.iv.i57.i = phi i64 [ 0, %169 ], [ %indvars.iv.next.i60.i, %179 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 0, ptr %35, align 4
   %173 = load ptr, ptr @krb5_ctx, align 8
   %174 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i57.i
@@ -5800,7 +5794,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %148, %141
   %177 = load i32, ptr %35, align 4
   %178 = icmp eq i32 %171, %177
   %or.cond.i59.i = select i1 %.not.i58.i, i1 %178, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br i1 %or.cond.i59.i, label %keytype_for_cksumtype.exit63.i, label %179
 
 179:                                              ; preds = %172
@@ -5842,21 +5836,21 @@ kerberos_get_private_data.exit.i.i:               ; preds = %192, %190
   %196 = phi ptr [ %195, %192 ], [ %191, %190 ]
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 120
   %198 = load ptr, ptr %197, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr null, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr null, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) @__const.verify_krb5_pac_full_checksum.kdc_key, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 0, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 0, ptr %33, align 4
   %199 = load ptr, ptr %158, align 8
   %200 = icmp eq ptr %199, null
@@ -5868,7 +5862,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %192, %190
 
 203:                                              ; preds = %210, %201
   %indvars.iv.i.i.i = phi i64 [ 0, %201 ], [ %indvars.iv.next.i.i.i, %210 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4
   %204 = load ptr, ptr @krb5_ctx, align 8
   %205 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i.i
@@ -5878,7 +5872,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %192, %190
   %208 = load i32, ptr %25, align 4
   %209 = icmp eq i32 %202, %208
   %or.cond.i.i.i = select i1 %.not.i127.i.i, i1 %209, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %or.cond.i.i.i, label %keytype_for_cksumtype.exit.i.i, label %210
 
 210:                                              ; preds = %203
@@ -5996,7 +5990,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %276 = phi ptr [ %317, %310 ], [ %265, %.preheader142.i.i ]
   %277 = phi i64 [ %315, %310 ], [ 0, %.preheader142.i.i ]
   %.0102160.i.i = phi i32 [ %312, %310 ], [ 0, %.preheader142.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr null, ptr %34, align 8
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 4
   %279 = load i32, ptr %278, align 4
@@ -6065,12 +6059,12 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %308 = load ptr, ptr @krb5_ctx, align 8
   %309 = load ptr, ptr %27, align 8
   call void @krb5_free_enc_tkt_part(ptr noundef %308, ptr noundef %309)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
 310:                                              ; preds = %.loopexit.i.i, %.lr.ph161.i.i
   %311 = phi ptr [ %.pre.i.i, %.loopexit.i.i ], [ %275, %.lr.ph161.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %312 = add i32 %.0102160.i.i, 1
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 72
   %314 = load ptr, ptr %313, align 8
@@ -6088,7 +6082,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr ptr, ptr %323, i64 %277
   store ptr %320, ptr %324, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %325 = load ptr, ptr %27, align 8
   %326 = call i32 @encode_krb5_enc_tkt_part(ptr noundef %325, ptr noundef nonnull %28)
   %327 = load ptr, ptr %27, align 8
@@ -6172,14 +6166,14 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
 verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %370, %365, %353, %340, %.thread.i.i, %266, %245, %220, %216, %214, %keytype_for_cksumtype.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %373
 
 373:                                              ; preds = %verify_krb5_pac_ticket_checksum.exit.i, %187
@@ -6213,15 +6207,15 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %370, %365, %353, %3
 
 kerberos_get_private_data.exit.i66.i:             ; preds = %383, %381
   %387 = phi ptr [ %386, %383 ], [ %382, %381 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) @__const.verify_krb5_pac_full_checksum.kdc_key, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 0, ptr %24, align 4
   %388 = load ptr, ptr %158, align 8
   %389 = icmp eq ptr %388, null
@@ -6233,7 +6227,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %383, %381
 
 392:                                              ; preds = %399, %390
   %indvars.iv.i.i72.i = phi i64 [ 0, %390 ], [ %indvars.iv.next.i.i74.i, %399 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
   %393 = load ptr, ptr @krb5_ctx, align 8
   %394 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i72.i
@@ -6243,7 +6237,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %383, %381
   %397 = load i32, ptr %19, align 4
   %398 = icmp eq i32 %391, %397
   %or.cond.i.i73.i = select i1 %.not.i183.i.i, i1 %398, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %or.cond.i.i73.i, label %keytype_for_cksumtype.exit.i76.i, label %399
 
 399:                                              ; preds = %392
@@ -6464,7 +6458,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %399, %392
   %531 = add nsw i32 %494, -4
   %532 = zext nneg i32 %531 to i64
   %533 = call i64 @llvm.usub.sat.i64(i64 %443, i64 %529)
-  %534 = call ptr @__memset_chk(ptr noundef %530, i32 noundef 0, i64 noundef range(i64 1, 4294967292) %532, i64 noundef %533) #21
+  %534 = call ptr @__memset_chk(ptr noundef %530, i32 noundef 0, i64 noundef range(i64 1, 4294967292) %532, i64 noundef %533) #22
   br label %.critedge180.i.i
 
 .critedge180.i.i:                                 ; preds = %527, %526, %524
@@ -6521,11 +6515,11 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %399, %392
   br label %verify_krb5_pac_full_checksum.exit.i
 
 verify_krb5_pac_full_checksum.exit.i:             ; preds = %563, %558, %548, %518, %509, %501, %484, %474, %467, %458, %447, %433, %415, %keytype_for_cksumtype.exit.i76.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %566
 
 566:                                              ; preds = %verify_krb5_pac_full_checksum.exit.i, %378
@@ -6546,10 +6540,10 @@ verify_krb5_pac_full_checksum.exit.i:             ; preds = %563, %558, %548, %5
   br label %verify_krb5_pac.exit
 
 verify_krb5_pac.exit:                             ; preds = %kerberos_get_private_data.exit.i, %52, %63, %571
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %40) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %574 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2)
   %575 = load i32, ptr @hf_krb_w2k_pac_entries, align 4
   %576 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %575, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %574)
@@ -6607,11 +6601,11 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
   ]
 
 605:                                              ; preds = %590
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 16, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, i8 0, i64 136, i1 false)
   store i8 -1, ptr %588, align 8
   store ptr %17, ptr %589, align 8
@@ -6624,13 +6618,13 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
   %610 = load ptr, ptr %582, align 8
   %611 = call i32 @dissect_ndr_pointer(ptr noundef %604, i32 noundef 16, ptr noundef %610, ptr noundef %609, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef nonnull @.str.937, i32 noundef -1)
   call void @free_ndr_pointer_list(ptr noundef nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %18) #21
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %17) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 612:                                              ; preds = %590
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4
   %613 = load i32, ptr @hf_krb_pac_credential_info, align 4
   %614 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %613, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
@@ -6659,7 +6653,7 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
   br label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i
 
 dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %627, %612
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 633:                                              ; preds = %590
@@ -6700,11 +6694,11 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %627, %612
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 664:                                              ; preds = %590
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 16, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, i8 0, i64 136, i1 false)
   store i8 -1, ptr %586, align 8
   store ptr %13, ptr %587, align 8
@@ -6717,9 +6711,9 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %627, %612
   %669 = load ptr, ptr %582, align 8
   %670 = call i32 @dissect_ndr_pointer(ptr noundef %604, i32 noundef 16, ptr noundef %669, ptr noundef %668, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef nonnull @.str.941, i32 noundef -1)
   call void @free_ndr_pointer_list(ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 671:                                              ; preds = %590
@@ -6735,7 +6729,7 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %627, %612
 
 kerberos_get_private_data.exit.i.i26:             ; preds = %673, %671
   %676 = phi ptr [ %675, %673 ], [ %672, %671 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %677 = load i32, ptr @hf_krb_pac_upn_dns_info, align 4
   %678 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %677, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
@@ -6853,7 +6847,7 @@ kerberos_get_private_data.exit.i.i26:             ; preds = %673, %671
   br label %dissect_krb5_PAC_UPN_DNS_INFO.exit.i
 
 dissect_krb5_PAC_UPN_DNS_INFO.exit.i:             ; preds = %750, %744, %735
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 755:                                              ; preds = %590
@@ -6877,13 +6871,13 @@ dissect_krb5_PAC_UPN_DNS_INFO.exit.i:             ; preds = %750, %744, %735
 
 kerberos_get_private_data.exit.i71.i:             ; preds = %763, %761
   %766 = phi ptr [ %765, %763 ], [ %762, %761 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 16, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, i8 0, i64 136, i1 false)
   store i8 -1, ptr %583, align 8
   store ptr %9, ptr %584, align 8
@@ -6917,10 +6911,10 @@ kerberos_get_private_data.exit.i71.i:             ; preds = %763, %761
   br label %dissect_krb5_PAC_DEVICE_INFO.exit.i
 
 dissect_krb5_PAC_DEVICE_INFO.exit.i:              ; preds = %778, %770
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 781:                                              ; preds = %590
@@ -7065,20 +7059,20 @@ define internal i32 @dissect_kerberos_UTF8String(i1 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_pac_parse(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_pac_parse(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_pac_get_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_pac_get_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @krb5_free_data_contents(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @krb5_free_data_contents(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @verify_krb5_pac_try_server_key(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct._krb5_keyblock, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
@@ -7133,8 +7127,8 @@ define internal void @verify_krb5_pac_try_server_key(ptr readnone captures(none)
   br label %38
 
 38:                                               ; preds = %17, %37, %28, %12, %9, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7210,7 +7204,7 @@ kerberos_key_list_append.exit:                    ; preds = %._crit_edge, %53
 define internal fastcc void @missing_signing_key(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 432) #22
+  %13 = tail call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 432) #21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
@@ -7248,8 +7242,8 @@ kerberos_key_list_append.exit:                    ; preds = %10, %32
 define internal void @verify_krb5_pac_try_kdc_key(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct._krb5_keyblock, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
@@ -7304,58 +7298,58 @@ define internal void @verify_krb5_pac_try_kdc_key(ptr readnone captures(none) %0
   br label %38
 
 38:                                               ; preds = %17, %37, %28, %12, %9, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @krb5_pac_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @krb5_pac_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5int_c_mandatory_cksumtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5int_c_mandatory_cksumtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_pac_verify(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_pac_verify(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_checksum_length(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_c_checksum_length(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @decode_krb5_enc_tkt_part(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @decode_krb5_enc_tkt_part(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_decode_authdata_container(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_decode_authdata_container(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @krb5_free_enc_tkt_part(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @krb5_free_enc_tkt_part(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @krb5_free_authdata(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @krb5_free_authdata(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_encode_authdata_container(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_encode_authdata_container(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @encode_krb5_enc_tkt_part(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @encode_krb5_enc_tkt_part(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @krb5_c_verify_checksum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @krb5_c_verify_checksum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @krb5_free_data(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @krb5_free_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
@@ -7388,52 +7382,52 @@ dissect_krb5_PAC_DREP.exit:                       ; preds = %3, %15
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @init_ndr_pointer_list(ptr noundef) local_unnamed_addr #3
+declare void @init_ndr_pointer_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_ndr_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @netlogon_dissect_PAC_LOGON_INFO(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @netlogon_dissect_PAC_LOGON_INFO(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @free_ndr_pointer_list(ptr noundef) local_unnamed_addr #3
+declare void @free_ndr_pointer_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dissect_nttime(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @dissect_nttime(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @netlogon_dissect_PAC_S4U_DELEGATION_INFO(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @netlogon_dissect_PAC_S4U_DELEGATION_INFO(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @netlogon_dissect_PAC_DEVICE_INFO(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @netlogon_dissect_PAC_DEVICE_INFO(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_PADATA_TYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -7467,7 +7461,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_ENCTYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -7593,7 +7587,7 @@ define internal i32 @dissect_kerberos_HostAddresses(i1 noundef zeroext %0, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_bitstring(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_bitstring(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @save_EncTicketPart_key(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
@@ -7674,10 +7668,10 @@ define internal i32 @dissect_kerberos_T_address(i1 zeroext %0, ptr noundef %1, i
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [61 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
@@ -7715,7 +7709,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %14
   br label %53
 
 33:                                               ; preds = %kerberos_get_private_data.exit
-  call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %34 = call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %23, i32 noundef 16)
   %35 = call i32 @process_netbios_name(ptr noundef %34, ptr noundef nonnull %11, i32 noundef 61)
   %36 = load ptr, ptr %19, align 8
@@ -7725,7 +7719,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %14
   %40 = load i32, ptr @hf_krb_address_netbios, align 4
   %41 = call ptr @netbios_name_type_descr(i32 noundef %35)
   %42 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %4, i32 noundef %40, ptr noundef %1, i32 noundef %23, i32 noundef 16, ptr noundef nonnull %11, ptr noundef nonnull @.str.957, ptr noundef %39, ptr noundef %41)
-  call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %53
 
 43:                                               ; preds = %kerberos_get_private_data.exit
@@ -7761,42 +7755,42 @@ kerberos_get_private_data.exit:                   ; preds = %6, %14
 59:                                               ; preds = %.thread, %56, %53
   %60 = load i32, ptr %10, align 4
   %61 = add i32 %60, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %61
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_identifier(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_identifier(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @process_netbios_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @process_netbios_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @netbios_name_type_descr(i32 noundef) local_unnamed_addr #3
+declare ptr @netbios_name_type_descr(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_get_parent(ptr noundef) local_unnamed_addr #3
+declare ptr @proto_item_get_parent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_KDC_REQ(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -7838,7 +7832,7 @@ kerberos_get_private_data.exit.i:                 ; preds = %21, %19
   %25 = phi ptr [ %24, %21 ], [ %20, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 264
   %29 = load ptr, ptr %28, align 8
@@ -7856,7 +7850,7 @@ kerberos_get_private_data.exit.i:                 ; preds = %21, %19
 
 37:                                               ; preds = %31
   %38 = tail call ptr @wmem_file_scope()
-  %39 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %38, i64 noundef 40) #22
+  %39 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %38, i64 noundef 40) #21
   %40 = icmp eq ptr %39, null
   br i1 %40, label %krb5_conf_add_request.exit, label %._crit_edge.i
 
@@ -7923,7 +7917,7 @@ kerberos_get_private_data.exit.i:                 ; preds = %21, %19
   br label %krb5_conf_add_request.exit
 
 krb5_conf_add_request.exit:                       ; preds = %kerberos_get_private_data.exit.i, %37, %54, %58, %61, %65
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %69
 
 69:                                               ; preds = %krb5_conf_add_request.exit, %kerberos_get_private_data.exit
@@ -7947,7 +7941,7 @@ define internal i32 @dissect_kerberos_T_rEQ_SEQUENCE_OF_PA_DATA(i1 noundef zeroe
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store i8 1, ptr %15, align 8
@@ -7970,7 +7964,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
 
 23:                                               ; preds = %20, %kerberos_get_private_data.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %17
 }
 
@@ -8196,16 +8190,16 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_pkinit_PA_PK_AS_REQ_Win2k(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dissect_pkinit_PA_PK_AS_REQ_Win2k(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_pkinit_PA_PK_AS_REP_Win2k(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dissect_pkinit_PA_PK_AS_REP_Win2k(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_pkinit_PA_PK_AS_REQ(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dissect_pkinit_PA_PK_AS_REQ(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_pkinit_PA_PK_AS_REP(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dissect_pkinit_PA_PK_AS_REP(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_PA_PAC_REQUEST(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -8222,7 +8216,7 @@ define internal i32 @dissect_kerberos_PA_S4U2Self(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_PA_S4U_X509_USER(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -8474,9 +8468,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %12
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @proto_item_get_parent(ptr noundef %18)
   %20 = tail call ptr @proto_item_get_parent(ptr noundef %19)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %22 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %22, 1
@@ -8547,9 +8541,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %12
 
 47:                                               ; preds = %41, %39, %37, %35, %33, %28
   %.0 = phi i32 [ %46, %41 ], [ %30, %28 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -8560,7 +8554,7 @@ define internal i32 @dissect_kerberos_BOOLEAN(i1 noundef zeroext %0, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_boolean(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_boolean(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_GeneralString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -8588,7 +8582,7 @@ define internal i32 @dissect_kerberos_BIT_STRING(i1 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_GeneralString(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_GeneralString(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_T_pA_ENC_TIMESTAMP_cipher(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -8599,7 +8593,7 @@ define internal i32 @dissect_kerberos_T_pA_ENC_TIMESTAMP_cipher(i1 zeroext %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_krb5_decrypt_PA_ENC_TIMESTAMP(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %9, ptr %7, align 4
@@ -8636,7 +8630,7 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %6, %12
 
 28:                                               ; preds = %22, %decrypt_krb5_data_asn1.exit
   %.0 = phi i32 [ %27, %22 ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -8661,13 +8655,13 @@ define internal i32 @dissect_kerberos_KerberosString(i1 noundef zeroext %0, ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_KrbFastArmoredRep(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -8692,7 +8686,7 @@ define internal i32 @dissect_kerberos_T_encryptedKrbFastResponse_cipher(i1 zeroe
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_krb5_decrypt_KrbFastResponse(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -8746,7 +8740,7 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %kerberos_get_privat
 
 37:                                               ; preds = %28, %decrypt_krb5_data_asn1.exit
   %.0 = phi i32 [ %36, %28 ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -8864,7 +8858,7 @@ define internal i32 @dissect_kerberos_T_encryptedChallenge_cipher(i1 zeroext %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_krb5_decrypt_EncryptedChallenge(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -8946,7 +8940,7 @@ decrypt_krb5_data_asn1.exit24:                    ; preds = %.split, %29
 
 47:                                               ; preds = %40, %39
   %.0 = phi i32 [ %46, %40 ], [ %2, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -9093,7 +9087,7 @@ define internal i32 @dissect_kerberos_EncryptedSpakeResponseData(i1 noundef zero
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_ber_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @get_ber_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_SET_OF_KRB5_SRP_PA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -9103,7 +9097,7 @@ define internal i32 @dissect_kerberos_SET_OF_KRB5_SRP_PA(i1 noundef zeroext %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_set_of(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_set_of(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_KRB5_SRP_PA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -9218,7 +9212,7 @@ define internal i32 @dissect_kerberos_T_encryptedKrbFastReq_cipher(i1 zeroext %0
 define internal i32 @dissect_krb5_decrypt_KrbFastReq(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._kerberos_PA_FX_FAST_REQUEST, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
@@ -9315,19 +9309,19 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %37, %39
 
 dissect_kerberos_KrbFastReq.exit:                 ; preds = %49, %54
   %57 = phi ptr [ %56, %54 ], [ %53, %49 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   %59 = load i32, ptr @ett_kerberos_KrbFastReq, align 4
   %60 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %51, i32 noundef 0, ptr noundef nonnull @KrbFastReq_sequence, i32 noundef -1, i32 noundef %59)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 61:                                               ; preds = %dissect_kerberos_KrbFastReq.exit, %decrypt_krb5_data_asn1.exit
   %.0 = phi i32 [ %60, %dissect_kerberos_KrbFastReq.exit ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -9350,9 +9344,9 @@ define internal fastcc void @krb5_fast_key(ptr noundef captures(none) %0, ptr no
 
 kerberos_get_private_data.exit:                   ; preds = %8, %14
   %18 = phi ptr [ %17, %14 ], [ %13, %8 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %19 = load i8, ptr @krb_decrypt, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
@@ -9410,9 +9404,9 @@ kerberos_get_private_data.exit:                   ; preds = %8, %14
   br label %54
 
 54:                                               ; preds = %23, %kerberos_get_private_data.exit, %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -9487,7 +9481,7 @@ define internal i32 @dissect_krb5_decrypt_authorization_data(i1 zeroext %0, ptr 
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %16, ptr %7, align 4
@@ -9553,15 +9547,15 @@ decrypt_krb5_data_asn1.exit23:                    ; preds = %31, %32
 
 50:                                               ; preds = %43, %42
   %.0 = phi i32 [ %49, %43 ], [ %2, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @krb5_frame_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
+define internal i32 @krb5_frame_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9571,13 +9565,13 @@ define internal i32 @krb5_frame_compare(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_KDC_REP(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -9629,7 +9623,7 @@ kerberos_get_private_data.exit:                   ; preds = %1, %5
   %9 = phi ptr [ %8, %5 ], [ %4, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %13 = load ptr, ptr %12, align 8
@@ -9647,7 +9641,7 @@ kerberos_get_private_data.exit:                   ; preds = %1, %5
 
 21:                                               ; preds = %15
   %22 = tail call ptr @wmem_file_scope()
-  %23 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %22, i64 noundef 40) #22
+  %23 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %22, i64 noundef 40) #21
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %._crit_edge
 
@@ -9743,7 +9737,7 @@ kerberos_get_private_data.exit:                   ; preds = %1, %5
   br label %.thread
 
 .thread:                                          ; preds = %38, %46, %53, %50, %42, %21, %kerberos_get_private_data.exit, %56
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -9777,7 +9771,7 @@ define internal i32 @dissect_krb5_decrypt_KDC_REP_data(i1 zeroext %0, ptr nounde
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %16, ptr %7, align 4
@@ -9892,15 +9886,15 @@ decrypt_krb5_data_asn1.exit37:                    ; preds = %56, %58
 
 .thread:                                          ; preds = %kerberos_get_private_data.exit, %.thread40, %66
   %.0 = phi i32 [ %72, %.thread40 ], [ %2, %66 ], [ %2, %kerberos_get_private_data.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_prev(ptr noundef) local_unnamed_addr #3
+declare ptr @wmem_list_frame_prev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_AP_REQ_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -9946,7 +9940,7 @@ define internal i32 @dissect_krb5_decrypt_authenticator_data(i1 zeroext %0, ptr 
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %16, ptr %7, align 4
@@ -10012,7 +10006,7 @@ decrypt_krb5_data_asn1.exit23:                    ; preds = %31, %32
 
 50:                                               ; preds = %43, %42
   %.0 = phi i32 [ %49, %43 ], [ %2, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -10039,7 +10033,7 @@ define internal i32 @dissect_kerberos_T_encryptedAPREPData_cipher(i1 zeroext %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_krb5_decrypt_AP_REP_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %9, ptr %7, align 4
@@ -10076,7 +10070,7 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %6, %12
 
 28:                                               ; preds = %22, %decrypt_krb5_data_asn1.exit
   %.0 = phi i32 [ %27, %22 ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -10111,7 +10105,7 @@ define internal i32 @dissect_kerberos_T_kRB_SAFE_BODY_user_data(i1 zeroext %0, p
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %16 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %16, null
@@ -10149,7 +10143,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
   br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !28
 
 call_kerberos_callbacks.exit:                     ; preds = %29, %25, %.preheader.i, %17, %kerberos_get_private_data.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -10176,7 +10170,7 @@ define internal i32 @dissect_kerberos_T_encryptedKrbPrivData_cipher(i1 zeroext %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_krb5_decrypt_PRIV_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %9, ptr %7, align 4
@@ -10213,7 +10207,7 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %6, %12
 
 28:                                               ; preds = %22, %decrypt_krb5_data_asn1.exit
   %.0 = phi i32 [ %27, %22 ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -10518,7 +10512,7 @@ define internal i32 @dissect_kerberos_T_encKrbPrivPart_user_data(i1 zeroext %0, 
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %16 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %16, null
@@ -10556,7 +10550,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
   br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !28
 
 call_kerberos_callbacks.exit:                     ; preds = %29, %25, %.preheader.i, %17, %kerberos_get_private_data.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -10704,7 +10698,7 @@ define internal i32 @dissect_kerberos_T_e_data(i1 zeroext %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_T_e_data_octets(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -10713,11 +10707,11 @@ define internal i32 @dissect_kerberos_T_e_data_octets(i1 noundef zeroext %0, ptr
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %13 = load i8, ptr %7, align 1
   %14 = icmp eq i8 %13, 0
@@ -10770,19 +10764,19 @@ define internal i32 @dissect_kerberos_T_e_data_octets(i1 noundef zeroext %0, ptr
 
 42:                                               ; preds = %40, %37, %31
   %.0 = phi i32 [ %41, %40 ], [ %33, %31 ], [ %39, %37 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_ber_length(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @get_ber_length(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_SEQUENCE_OF_KerberosString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
@@ -10814,7 +10808,7 @@ define internal i32 @dissect_kerberos_T_encryptedTicketData_cipher(i1 zeroext %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_krb5_decrypt_ticket_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %9, ptr %7, align 4
@@ -10871,7 +10865,7 @@ kerberos_get_private_data.exit:                   ; preds = %22, %24
 
 37:                                               ; preds = %kerberos_get_private_data.exit, %decrypt_krb5_data_asn1.exit
   %.0 = phi i32 [ %36, %kerberos_get_private_data.exit ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -10912,7 +10906,7 @@ define internal i32 @dissect_krb5_decrypt_CRED_data(i1 zeroext %0, ptr noundef %
 
 kerberos_get_private_data.exit:                   ; preds = %6, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2)
   %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2)
   store i32 %16, ptr %7, align 4
@@ -10959,45 +10953,45 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %23, %25
 
 41:                                               ; preds = %decrypt_krb5_data_asn1.exit, %35, %20
   %.0 = phi i32 [ %22, %20 ], [ %40, %35 ], [ %2, %decrypt_krb5_data_asn1.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #15
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: noreturn nounwind null_pointer_is_valid
-declare void @__longjmp_chk(ptr noundef, i32 noundef) local_unnamed_addr #16
+declare void @__longjmp_chk(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #17
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_free(ptr noundef) local_unnamed_addr #3
+declare void @except_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @except_pop() local_unnamed_addr #3
+declare ptr @except_pop() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @kerberos_display_key(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -11132,22 +11126,22 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_srt_table_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_srt_table_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @init_srt_table_row(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @init_srt_table_row(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 273)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -11169,7 +11163,7 @@ define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initia
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @wrap_dissect_gss_kerb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
@@ -11180,10 +11174,16 @@ define internal i32 @wrap_dissect_gss_kerb(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wrap_dissect_gssapi_verf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @wrap_dissect_gssapi_verf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wrap_dissect_gssapi_payload(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @wrap_dissect_gssapi_payload(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
@@ -11198,28 +11198,28 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind }
-attributes #22 = { allocsize(1) }
+attributes #21 = { allocsize(1) }
+attributes #22 = { nounwind }
 attributes #23 = { nounwind returns_twice }
 attributes #24 = { noreturn nounwind }
 attributes #25 = { noreturn }

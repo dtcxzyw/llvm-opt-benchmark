@@ -26,21 +26,21 @@ define noundef ptr @udatpg_open_77(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %12
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
   %8 = invoke noundef ptr @_ZN6icu_7724DateTimePatternGenerator14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %9 unwind label %10
 
 9:                                                ; preds = %7
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #5
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #5
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %9, %5
@@ -52,18 +52,12 @@ declare noundef ptr @_ZN6icu_7724DateTimePatternGenerator14createInstanceER10UEr
 
 declare noundef ptr @_ZN6icu_7724DateTimePatternGenerator14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @udatpg_openEmpty_77(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -74,7 +68,7 @@ define noundef ptr @udatpg_openEmpty_77(ptr noundef nonnull %0) local_unnamed_ad
 declare noundef ptr @_ZN6icu_7724DateTimePatternGenerator19createEmptyInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @udatpg_close_77(ptr noundef %0) local_unnamed_addr #4 {
+define void @udatpg_close_77(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -133,7 +127,7 @@ define noundef i32 @udatpg_getBestPatternWithOptions_77(ptr noundef %0, ptr noun
   br label %36
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.lobit = lshr i32 %2, 31
   %19 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %9, align 8, !tbaa !9
@@ -143,7 +137,7 @@ define noundef i32 @udatpg_getBestPatternWithOptions_77(ptr noundef %0, ptr noun
 20:                                               ; preds = %18
   %21 = load ptr, ptr %9, align 8, !tbaa !9
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %21) #5, !srcloc !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6icu_7724DateTimePatternGenerator14getBestPatternERKNS_13UnicodeStringE28UDateTimePatternMatchOptionsR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(4796) %0, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %22 unwind label %29
 
@@ -156,9 +150,9 @@ define noundef i32 @udatpg_getBestPatternWithOptions_77(ptr noundef %0, ptr noun
   %25 = load ptr, ptr %11, align 8, !tbaa !14
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25) #5, !srcloc !16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 26:                                               ; preds = %18
@@ -183,13 +177,13 @@ define noundef i32 @udatpg_getBestPatternWithOptions_77(ptr noundef %0, ptr noun
 
 34:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #5
   br label %35
 
 35:                                               ; preds = %34, %26
   %.pn.pn = phi { ptr, i32 } [ %.pn, %34 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
 
 36:                                               ; preds = %7, %24, %17
@@ -204,7 +198,7 @@ declare void @_ZN6icu_7724DateTimePatternGenerator14getBestPatternERKNS_13Unicod
 declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @udatpg_getSkeleton_77(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -227,7 +221,7 @@ define noundef i32 @udatpg_getSkeleton_77(ptr noundef readnone captures(none) %0
   br label %35
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.lobit = lshr i32 %2, 31
   %18 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %8, align 8, !tbaa !9
@@ -237,7 +231,7 @@ define noundef i32 @udatpg_getSkeleton_77(ptr noundef readnone captures(none) %0
 19:                                               ; preds = %17
   %20 = load ptr, ptr %8, align 8, !tbaa !9
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #5, !srcloc !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6icu_7724DateTimePatternGenerator17staticGetSkeletonERKNS_13UnicodeStringER10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %21 unwind label %28
 
@@ -250,9 +244,9 @@ define noundef i32 @udatpg_getSkeleton_77(ptr noundef readnone captures(none) %0
   %24 = load ptr, ptr %10, align 8, !tbaa !14
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #5, !srcloc !16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 25:                                               ; preds = %17
@@ -277,13 +271,13 @@ define noundef i32 @udatpg_getSkeleton_77(ptr noundef readnone captures(none) %0
 
 33:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
   br label %34
 
 34:                                               ; preds = %33, %25
   %.pn.pn = phi { ptr, i32 } [ %.pn, %33 ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %6, %23, %16
@@ -314,7 +308,7 @@ define noundef i32 @udatpg_getBaseSkeleton_77(ptr noundef readnone captures(none
   br label %35
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.lobit = lshr i32 %2, 31
   %18 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %8, align 8, !tbaa !9
@@ -324,7 +318,7 @@ define noundef i32 @udatpg_getBaseSkeleton_77(ptr noundef readnone captures(none
 19:                                               ; preds = %17
   %20 = load ptr, ptr %8, align 8, !tbaa !9
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #5, !srcloc !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6icu_7724DateTimePatternGenerator21staticGetBaseSkeletonERKNS_13UnicodeStringER10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %21 unwind label %28
 
@@ -337,9 +331,9 @@ define noundef i32 @udatpg_getBaseSkeleton_77(ptr noundef readnone captures(none
   %24 = load ptr, ptr %10, align 8, !tbaa !14
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #5, !srcloc !16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 25:                                               ; preds = %17
@@ -364,13 +358,13 @@ define noundef i32 @udatpg_getBaseSkeleton_77(ptr noundef readnone captures(none
 
 33:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
   br label %34
 
 34:                                               ; preds = %33, %25
   %.pn.pn = phi { ptr, i32 } [ %.pn, %33 ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %6, %23, %16
@@ -401,7 +395,7 @@ define noundef i32 @udatpg_addPattern_77(ptr noundef %0, ptr noundef %1, i32 nou
   br label %41
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.lobit = lshr i32 %2, 31
   %20 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %10, align 8, !tbaa !9
@@ -411,7 +405,7 @@ define noundef i32 @udatpg_addPattern_77(ptr noundef %0, ptr noundef %1, i32 nou
 21:                                               ; preds = %19
   %22 = load ptr, ptr %10, align 8, !tbaa !9
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #5, !srcloc !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %11, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i16 2, ptr %23, align 8, !tbaa !17
@@ -454,21 +448,21 @@ define noundef i32 @udatpg_addPattern_77(ptr noundef %0, ptr noundef %1, i32 nou
 
 38:                                               ; preds = %29, %27
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %41
 
 39:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #5
   br label %40
 
 40:                                               ; preds = %39, %30
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn.pn
 
 41:                                               ; preds = %8, %38, %18
@@ -482,7 +476,7 @@ declare noundef i32 @_ZN6icu_7724DateTimePatternGenerator10addPatternERKNS_13Uni
 define void @udatpg_setAppendItemFormat_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.lobit = lshr i32 %3, 31
   %7 = trunc nuw nsw i32 %.lobit to i8
   store ptr %2, ptr %6, align 8, !tbaa !9
@@ -497,7 +491,7 @@ define void @udatpg_setAppendItemFormat_77(ptr noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %8
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 11:                                               ; preds = %4
@@ -515,7 +509,7 @@ define void @udatpg_setAppendItemFormat_77(ptr noundef %0, i32 noundef %1, ptr n
 
 16:                                               ; preds = %14, %11
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -571,7 +565,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7724DateTimePa
 define void @udatpg_setAppendItemName_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.lobit = lshr i32 %3, 31
   %7 = trunc nuw nsw i32 %.lobit to i8
   store ptr %2, ptr %6, align 8, !tbaa !9
@@ -586,7 +580,7 @@ define void @udatpg_setAppendItemName_77(ptr noundef %0, i32 noundef %1, ptr nou
 
 10:                                               ; preds = %8
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 11:                                               ; preds = %4
@@ -604,7 +598,7 @@ define void @udatpg_setAppendItemName_77(ptr noundef %0, i32 noundef %1, ptr nou
 
 16:                                               ; preds = %14, %11
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -681,7 +675,7 @@ define i32 @udatpg_getFieldDisplayName_77(ptr noundef %0, i32 noundef %1, i32 no
   br label %34
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK6icu_7724DateTimePatternGenerator19getFieldDisplayNameE21UDateTimePatternField23UDateTimePGDisplayWidth(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(4796) %0, i32 noundef %1, i32 noundef %2)
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load i16, ptr %18, align 8, !tbaa !17
@@ -694,7 +688,7 @@ define i32 @udatpg_getFieldDisplayName_77(ptr noundef %0, i32 noundef %1, i32 no
   br label %33
 
 26:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK6icu_7724DateTimePatternGenerator19getFieldDisplayNameE21UDateTimePatternField23UDateTimePGDisplayWidth(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(4796) %0, i32 noundef %1, i32 noundef %2)
   store ptr %3, ptr %8, align 8, !tbaa !14
   %27 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %8, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -711,13 +705,13 @@ define i32 @udatpg_getFieldDisplayName_77(ptr noundef %0, i32 noundef %1, i32 no
   %32 = load ptr, ptr %8, align 8, !tbaa !14
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #5, !srcloc !16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %31
 
 33:                                               ; preds = %17, %28
   %.1 = phi i32 [ %27, %28 ], [ %25, %17 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 34:                                               ; preds = %6, %33, %16
@@ -731,7 +725,7 @@ declare void @_ZNK6icu_7724DateTimePatternGenerator19getFieldDisplayNameE21UDate
 define void @udatpg_setDateTimeFormat_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.lobit = lshr i32 %2, 31
   %6 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %5, align 8, !tbaa !9
@@ -746,7 +740,7 @@ define void @udatpg_setDateTimeFormat_77(ptr noundef %0, ptr noundef %1, i32 nou
 
 9:                                                ; preds = %7
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 10:                                               ; preds = %3
@@ -764,7 +758,7 @@ define void @udatpg_setDateTimeFormat_77(ptr noundef %0, ptr noundef %1, i32 nou
 
 15:                                               ; preds = %13, %10
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -773,7 +767,7 @@ declare void @_ZN6icu_7724DateTimePatternGenerator17setDateTimeFormatERKNS_13Uni
 ; Function Attrs: mustprogress uwtable
 define ptr @udatpg_getDateTimeFormat_77(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !6
   %4 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7724DateTimePatternGenerator17getDateTimeFormatE16UDateFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4796) %0, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.not12.i = icmp eq ptr %1, null
@@ -814,7 +808,7 @@ define ptr @udatpg_getDateTimeFormat_77(ptr noundef nonnull %0, ptr noundef writ
 
 udatpg_getDateTimeFormatForStyle_77.exit:         ; preds = %14, %20, %22
   %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -892,7 +886,7 @@ define void @udatpg_setDateTimeFormatForStyle_77(ptr noundef %0, i32 noundef %1,
   br label %18
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.lobit = lshr i32 %3, 31
   %14 = trunc nuw nsw i32 %.lobit to i8
   store ptr %2, ptr %7, align 8, !tbaa !9
@@ -907,7 +901,7 @@ define void @udatpg_setDateTimeFormatForStyle_77(ptr noundef %0, i32 noundef %1,
 
 17:                                               ; preds = %15
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %18
 
 18:                                               ; preds = %5, %17, %12
@@ -928,7 +922,7 @@ define void @udatpg_setDateTimeFormatForStyle_77(ptr noundef %0, i32 noundef %1,
 
 24:                                               ; preds = %22, %19
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
@@ -940,7 +934,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7724DateTimePa
 define void @udatpg_setDecimal_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.lobit = lshr i32 %2, 31
   %6 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %5, align 8, !tbaa !9
@@ -955,7 +949,7 @@ define void @udatpg_setDecimal_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 9:                                                ; preds = %7
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 10:                                               ; preds = %3
@@ -973,7 +967,7 @@ define void @udatpg_setDecimal_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 15:                                               ; preds = %13, %10
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -1060,7 +1054,7 @@ define noundef i32 @udatpg_replaceFieldTypesWithOptions_77(ptr noundef %0, ptr n
   br label %50
 
 25:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.lobit = lshr i32 %2, 31
   %26 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %11, align 8, !tbaa !9
@@ -1070,7 +1064,7 @@ define noundef i32 @udatpg_replaceFieldTypesWithOptions_77(ptr noundef %0, ptr n
 27:                                               ; preds = %25
   %28 = load ptr, ptr %11, align 8, !tbaa !9
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #5, !srcloc !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.lobit27 = lshr i32 %4, 31
   %29 = trunc nuw nsw i32 %.lobit27 to i8
   store ptr %3, ptr %13, align 8, !tbaa !9
@@ -1080,7 +1074,7 @@ define noundef i32 @udatpg_replaceFieldTypesWithOptions_77(ptr noundef %0, ptr n
 30:                                               ; preds = %27
   %31 = load ptr, ptr %13, align 8, !tbaa !9
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #5, !srcloc !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN6icu_7724DateTimePatternGenerator17replaceFieldTypesERKNS_13UnicodeStringES3_28UDateTimePatternMatchOptionsR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(4796) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %32 unwind label %42
 
@@ -1093,11 +1087,11 @@ define noundef i32 @udatpg_replaceFieldTypesWithOptions_77(ptr noundef %0, ptr n
   %35 = load ptr, ptr %15, align 8, !tbaa !14
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #5, !srcloc !16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %50
 
 36:                                               ; preds = %25
@@ -1129,19 +1123,19 @@ define noundef i32 @udatpg_replaceFieldTypesWithOptions_77(ptr noundef %0, ptr n
 
 47:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #5
   br label %48
 
 48:                                               ; preds = %47, %39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %47 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #5
   br label %49
 
 49:                                               ; preds = %48, %36
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %48 ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn.pn.pn
 
 50:                                               ; preds = %9, %34, %24
@@ -1175,7 +1169,7 @@ declare noundef ptr @_ZNK6icu_7724DateTimePatternGenerator16getBaseSkeletonsER10
 define ptr @udatpg_getPatternForSkeleton_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.lobit = lshr i32 %2, 31
   %7 = trunc nuw nsw i32 %.lobit to i8
   store ptr %1, ptr %6, align 8, !tbaa !9
@@ -1241,12 +1235,12 @@ define ptr @udatpg_getPatternForSkeleton_77(ptr noundef %0, ptr noundef %1, i32 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %26, %32, %34
   %.0.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %26 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0.i
 
 37:                                               ; preds = %24, %21
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -1260,11 +1254,17 @@ define noundef i32 @udatpg_getDefaultHourCycle_77(ptr noundef nonnull %0, ptr no
 
 declare noundef i32 @_ZNK6icu_7724DateTimePatternGenerator19getDefaultHourCycleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

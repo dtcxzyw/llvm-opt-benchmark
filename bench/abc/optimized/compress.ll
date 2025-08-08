@@ -542,7 +542,7 @@ bsW.exit120:                                      ; preds = %272, %bsW.exit
   %291 = or i32 %290, %287
   store i32 %291, ptr %114, align 8, !tbaa !12
   store i32 %288, ptr %111, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %293 = load ptr, ptr %292, align 8, !tbaa !28
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -794,9 +794,9 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   store i32 %410, ptr %408, align 4, !tbaa !33
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 668
   store i32 %405, ptr %411, align 4, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %413 = load i32, ptr %412, align 8, !tbaa !18
   %414 = icmp sgt i32 %413, 2
@@ -2176,7 +2176,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br label %1505
 
 1505:                                             ; preds = %1504, %1502
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %1508
 
 .preheader1969.i:                                 ; preds = %1508
@@ -2230,7 +2230,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %exitcond2427.not.i, label %._crit_edge2166.i, label %1511, !llvm.loop !56
 
 ._crit_edge2166.i:                                ; preds = %._crit_edge2159.i, %.preheader1969.i
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1518 = getelementptr inbounds nuw i8, ptr %0, i64 39256
   br label %.preheader1968.i
 
@@ -2282,7 +2282,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %exitcond2437.not.i, label %1531, label %.preheader1968.i, !llvm.loop !58
 
 1531:                                             ; preds = %.thread.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %1532
 
 1532:                                             ; preds = %1541, %1531
@@ -2518,7 +2518,7 @@ bsW.exit1548.i:                                   ; preds = %.lr.ph.i1545.i, %16
   %.pre.i1553.i = phi i32 [ %.pre.i1553.i.pre, %1633 ], [ %.pre16.i15362488.i, %1630 ]
   %1638 = phi i32 [ %.pre2498.i, %1633 ], [ %1629, %1630 ]
   %1639 = phi i32 [ %.pre.i125, %1633 ], [ %1628, %1630 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1640 = icmp sgt i32 %1638, 7
   br i1 %1640, label %.lr.ph.i1552.i, label %bsW.exit1555.i
 
@@ -5333,8 +5333,8 @@ bsW.exit1961.i:                                   ; preds = %3335, %.lr.ph2201.i
   br label %sendMTFValues.exit
 
 sendMTFValues.exit:                               ; preds = %3360, %3363
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %3368
 
 3368:                                             ; preds = %sendMTFValues.exit, %107
@@ -5823,17 +5823,17 @@ bsW.exit27:                                       ; preds = %83, %bsW.exit20
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #3
 
 declare void @BZ2_hbMakeCodeLengths(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @BZ2_hbAssignCodes(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6

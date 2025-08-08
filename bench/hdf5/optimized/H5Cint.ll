@@ -76,10 +76,10 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !37
   %10 = load i8, ptr @H5C_init_g, align 1, !tbaa !38, !range !39, !noundef !40
   %11 = trunc nuw i8 %10 to i1
@@ -477,18 +477,15 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
 
 231:                                              ; preds = %16, %230, %2
   %.0 = phi i32 [ %.1.ph, %230 ], [ 0, %2 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @H5C_get_cache_hit_rate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5C_get_cache_hit_rate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new_marker(ptr noundef %0) unnamed_addr #0 {
@@ -1133,10 +1130,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
   ret i32 %.0
 }
 
-declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef captures(address) %0) local_unnamed_addr #0 {
@@ -1417,7 +1411,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C__flash_increase_cache_size(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr @H5C_init_g, align 1, !tbaa !38, !range !39, !noundef !40
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !39
@@ -1532,7 +1526,7 @@ define range(i32 -1, 1) i32 @H5C__flash_increase_cache_size(ptr noundef %0, i64 
 
 77:                                               ; preds = %12, %31, %35, %63, %73, %70, %24, %16, %3
   %.0 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %31 ], [ -1, %63 ], [ -1, %73 ], [ 0, %70 ], [ 0, %24 ], [ 0, %16 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2154,13 +2148,13 @@ define range(i32 -1, 1) i32 @H5C__flush_ring(ptr noundef %0, i32 noundef %1, i32
   ret i32 %.0
 }
 
-declare ptr @H5SL_first(ptr noundef) local_unnamed_addr #2
+declare ptr @H5SL_first(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5SL_item(ptr noundef) local_unnamed_addr #2
+declare ptr @H5SL_item(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5SL_next(ptr noundef) local_unnamed_addr #2
+declare ptr @H5SL_next(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5C__flush_single_entry(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5C__flush_single_entry(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C__make_space_in_cache(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -2628,11 +2622,17 @@ H5C__serialize_ring.exit:                         ; preds = %116, %103, %76
   ret i32 %.0
 }
 
-declare i32 @H5MF_settle_raw_data_fsm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5MF_settle_raw_data_fsm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5MF_settle_meta_data_fsm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5MF_settle_meta_data_fsm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5C__serialize_single_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5C__serialize_single_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
@@ -2647,8 +2647,8 @@ declare i64 @llvm.umax.i64(i64, i64) #4
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }

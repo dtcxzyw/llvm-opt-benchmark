@@ -60,7 +60,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
 
 17:                                               ; preds = %2
   call void @"_ZN77_$LT$target_lexicon..triple..Triple$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hd966acfe447f867eE"(ptr nonnull sret([40 x i8]) align 8 %10, ptr nonnull align 1 @anon.965bca594b54ec786d317de168aead3f.4, i64 25)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i64, ptr %10, align 8
   %.not.i = icmp eq i64 %18, 16
   br i1 %.not.i, label %19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd9dce8a8b69bb270E.exit"
@@ -88,7 +88,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd9dce8a8b69bb270E.exit": ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = invoke zeroext i1 @"_ZN71_$LT$target_lexicon..triple..Triple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc7a7fd089059d894E"(ptr align 8 %0, ptr nonnull align 8 %11)
           to label %54 unwind label %52
 
@@ -103,7 +103,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %31, align 8
   %32 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit3", label %34
 
@@ -128,7 +128,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit3": ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr @anon.965bca594b54ec786d317de168aead3f.18, ptr %12, align 8
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %40, align 8
@@ -139,7 +139,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %43, align 8
   %44 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit4", label %46
 
@@ -164,7 +164,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit4": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit3"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd9dce8a8b69bb270E.exit"
@@ -188,7 +188,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %59, align 8
   %60 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = icmp eq ptr %60, null
   br i1 %61, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit", label %62
 
@@ -213,7 +213,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit": ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr @anon.965bca594b54ec786d317de168aead3f.12, ptr %8, align 8
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %68, align 8
@@ -224,7 +224,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %71, align 8
   %72 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = icmp eq ptr %72, null
   br i1 %73, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit2", label %74
 
@@ -249,7 +249,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit2": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %80
 
 80:                                               ; preds = %54, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit2", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit4"
@@ -279,7 +279,7 @@ define hidden void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h
           to label %17 unwind label %15
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = invoke { ptr, i64 } @"_ZN105_$LT$std..ffi..os_str..OsString$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFull$GT$$GT$5index17h7541bfdb4f3df999E"(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.25)
           to label %.noexc unwind label %15
 
@@ -321,7 +321,7 @@ define hidden void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h
           to label %39 unwind label %27
 
 23:                                               ; preds = %.noexc22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env17ha1be7e4bab438489E(ptr nonnull sret([160 x i8]) align 8 %5)
           to label %24 unwind label %15
 
@@ -749,10 +749,10 @@ declare void @"_ZN4core3ptr41drop_in_place$LT$std..process..Output$GT$17h0b8dbfd
 declare i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17hb43bac1669c6c293E"(ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

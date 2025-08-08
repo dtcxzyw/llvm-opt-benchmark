@@ -7128,12 +7128,6 @@ Py_DECREF.exit2185:                               ; preds = %1945, %1942, %1940,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_asdl_mod_seq_new(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %or.cond = icmp ugt i64 %0, 2305843009213693952
@@ -7178,12 +7172,12 @@ define hidden ptr @_Py_asdl_mod_seq_new(i64 noundef %0, ptr noundef %1) local_un
   ret ptr %.0
 }
 
-declare ptr @PyErr_NoMemory() local_unnamed_addr #2
+declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
-declare ptr @_PyArena_Malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_PyArena_Malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_asdl_stmt_seq_new(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -7817,7 +7811,7 @@ define hidden ptr @_PyAST_Expression(ptr noundef %0, ptr noundef %1) local_unnam
   ret ptr %.0
 }
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyAST_FunctionType(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -10516,7 +10510,7 @@ define dso_local ptr @PyInit__ast() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
+declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PyAST_mod2obj(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -10542,7 +10536,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %1
   br i1 %.not, label %get_ast_state.exit, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 10000, ptr %15, align 4, !tbaa !108
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 52
@@ -10984,7 +10978,7 @@ ast2obj_mod.exit.thread19:                        ; preds = %Py_DECREF.exit111.s
 
 ast2obj_mod.exit.thread:                          ; preds = %24, %26, %77, %114, %132, %14, %200, %197, %Py_XDECREF.exit.thread.i, %22, %ast2obj_mod.exit.thread19, %203
   %.2 = phi ptr [ null, %203 ], [ %.071.i.ph, %ast2obj_mod.exit.thread19 ], [ null, %22 ], [ null, %Py_XDECREF.exit.thread.i ], [ null, %197 ], [ null, %200 ], [ @_Py_NoneStruct, %14 ], [ null, %132 ], [ null, %114 ], [ null, %77 ], [ null, %26 ], [ null, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %get_ast_state.exit
 
 get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnce.exit.i, %ast2obj_mod.exit.thread, %12
@@ -10992,7 +10986,7 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret ptr %.0
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PyAST_obj2mod(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -11026,7 +11020,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %15
   br i1 %24, label %get_ast_state.exit, label %25
 
 25:                                               ; preds = %15, %_PyOnceFlag_CallOnce.exit.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 80520
   %27 = load ptr, ptr %26, align 8, !tbaa !112
   store ptr %27, ptr %12, align 16, !tbaa !4
@@ -11058,7 +11052,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %15
   br label %510
 
 45:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
   %46 = icmp eq ptr %0, @_Py_NoneStruct
   br i1 %46, label %obj2ast_mod.exit.thread24, label %47
@@ -11149,7 +11143,7 @@ _Py_asdl_stmt_seq_new.exit.i:                     ; preds = %81
 .lr.ph385.i:                                      ; preds = %_Py_asdl_stmt_seq_new.exit.i, %117
   %88 = phi ptr [ %113, %117 ], [ %.pre398.i, %_Py_asdl_stmt_seq_new.exit.i ]
   %.0176384.i = phi i64 [ %120, %117 ], [ 0, %_Py_asdl_stmt_seq_new.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !117
   %91 = getelementptr ptr, ptr %90, i64 %.0176384.i
@@ -11215,14 +11209,14 @@ Py_DECREF.exit257.i:                              ; preds = %111, %108, %_Py_Ent
   br label %.thread.i
 
 .thread.i:                                        ; preds = %Py_DECREF.exit257.i, %_Py_EnterRecursiveCall.exit.i, %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Py_DECREF.exit255.thread331.i
 
 117:                                              ; preds = %112
   %118 = load ptr, ptr %7, align 8, !tbaa !141
   %119 = getelementptr [1 x ptr], ptr %86, i64 0, i64 %.0176384.i
   store ptr %118, ptr %119, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %120 = add nuw nsw i64 %.0176384.i, 1
   %exitcond394.not.i = icmp eq i64 %120, %.val278.i
   br i1 %exitcond394.not.i, label %._crit_edge386.thread.i, label %.lr.ph385.i, !llvm.loop !143
@@ -11333,7 +11327,7 @@ _Py_EnterRecursiveCall.exit288.i:                 ; preds = %_Py_NewRef.exit286.
   br i1 %.not377.i, label %_Py_EnterRecursiveCall.exit288.thread.i, label %Py_DECREF.exit255.thread331.i
 
 _Py_EnterRecursiveCall.exit288.thread.i:          ; preds = %_Py_EnterRecursiveCall.exit288.i, %_Py_NewRef.exit286.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !4
   %171 = icmp eq ptr %161, @_Py_NoneStruct
   br i1 %171, label %obj2ast_type_ignore.exit.i, label %172
@@ -11347,7 +11341,7 @@ _Py_EnterRecursiveCall.exit288.thread.i:          ; preds = %_Py_EnterRecursiveC
   ]
 
 175:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %176 = load ptr, ptr %153, align 8, !tbaa !145
   %177 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %161, ptr noundef %176, ptr noundef nonnull %4) #8
   %178 = icmp slt i32 %177, 0
@@ -11498,7 +11492,7 @@ Py_DECREF.exit48.sink.split.i.i:                  ; preds = %220, %179
 Py_DECREF.exit48.i.i:                             ; preds = %Py_DECREF.exit48.sink.split.i.i, %240, %216, %175
   %.3310.i = phi ptr [ %.0307387.i, %175 ], [ %.0307387.i, %Py_DECREF.exit48.sink.split.i.i ], [ %.0307387.i, %216 ], [ %242, %240 ]
   %245 = phi i1 [ false, %175 ], [ false, %Py_DECREF.exit48.sink.split.i.i ], [ false, %216 ], [ true, %240 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %obj2ast_type_ignore.exit.i
 
 .thread.i.i:                                      ; preds = %172
@@ -11508,7 +11502,7 @@ Py_DECREF.exit48.i.i:                             ; preds = %Py_DECREF.exit48.si
 
 248:                                              ; preds = %240, %225, %223, %obj2ast_int.exit.thread.i.i, %_Py_EnterRecursiveCall.exit.i.i
   %.2309.i = phi ptr [ %.0307387.i, %obj2ast_int.exit.thread.i.i ], [ null, %240 ], [ %.0307387.i, %225 ], [ %.0307387.i, %223 ], [ %.0307387.i, %_Py_EnterRecursiveCall.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre70.i.i = load ptr, ptr %4, align 8, !tbaa !4
   %.not.i51.i.i = icmp eq ptr %.pre70.i.i, null
   br i1 %.not.i51.i.i, label %obj2ast_type_ignore.exit.i, label %249
@@ -11531,7 +11525,7 @@ Py_DECREF.exit48.i.i:                             ; preds = %Py_DECREF.exit48.si
 obj2ast_type_ignore.exit.i:                       ; preds = %254, %251, %249, %248, %.thread.i.i, %Py_DECREF.exit48.i.i, %172, %_Py_EnterRecursiveCall.exit288.thread.i
   %.4311.i = phi ptr [ %.3310.i, %Py_DECREF.exit48.i.i ], [ %.2309.i, %248 ], [ %.2309.i, %254 ], [ %.2309.i, %251 ], [ %.2309.i, %249 ], [ %.0307387.i, %172 ], [ %.0307387.i, %.thread.i.i ], [ null, %_Py_EnterRecursiveCall.exit288.thread.i ]
   %.0.i289.i = phi i1 [ %245, %Py_DECREF.exit48.i.i ], [ false, %248 ], [ false, %254 ], [ false, %251 ], [ false, %249 ], [ false, %172 ], [ false, %.thread.i.i ], [ true, %_Py_EnterRecursiveCall.exit288.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %255 = load ptr, ptr %16, align 8, !tbaa !97
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 52
   %257 = load i32, ptr %256, align 4, !tbaa !110
@@ -11693,7 +11687,7 @@ _Py_asdl_stmt_seq_new.exit297.i:                  ; preds = %316
 .lr.ph382.i:                                      ; preds = %_Py_asdl_stmt_seq_new.exit297.i, %352
   %323 = phi ptr [ %348, %352 ], [ %.pre397.i, %_Py_asdl_stmt_seq_new.exit297.i ]
   %.0180381.i = phi i64 [ %355, %352 ], [ 0, %_Py_asdl_stmt_seq_new.exit297.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 24
   %325 = load ptr, ptr %324, align 8, !tbaa !117
   %326 = getelementptr ptr, ptr %325, i64 %.0180381.i
@@ -11759,14 +11753,14 @@ Py_DECREF.exit249.i:                              ; preds = %346, %343, %_Py_Ent
   br label %.thread338.i
 
 .thread338.i:                                     ; preds = %Py_DECREF.exit249.i, %_Py_EnterRecursiveCall.exit300.i, %350
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Py_DECREF.exit255.thread331.i
 
 352:                                              ; preds = %347
   %353 = load ptr, ptr %8, align 8, !tbaa !141
   %354 = getelementptr [1 x ptr], ptr %321, i64 0, i64 %.0180381.i
   store ptr %353, ptr %354, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %355 = add nuw nsw i64 %.0180381.i, 1
   %exitcond393.not.i = icmp eq i64 %355, %.val282.i
   br i1 %exitcond393.not.i, label %._crit_edge383.thread.i, label %.lr.ph382.i, !llvm.loop !150
@@ -11812,7 +11806,7 @@ _PyAST_Interactive.exit.i:                        ; preds = %362
   ]
 
 368:                                              ; preds = %365
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %369 = getelementptr inbounds nuw i8, ptr %19, i64 81032
   %370 = load ptr, ptr %369, align 8, !tbaa !124
   %371 = call i32 @PyObject_GetOptionalAttr(ptr noundef %0, ptr noundef %370, ptr noundef nonnull %6) #8
@@ -11873,13 +11867,13 @@ _PyAST_Interactive.exit.i:                        ; preds = %362
   br i1 %398, label %Py_DECREF.exit245.thread355.i, label %Py_DECREF.exit245.i
 
 Py_DECREF.exit245.thread355.i:                    ; preds = %395, %380, %378
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit255.thread331.i
 
 Py_DECREF.exit245.i:                              ; preds = %395, %376, %368
   %.4 = phi ptr [ null, %368 ], [ null, %376 ], [ %397, %395 ]
   %.3.i = phi i32 [ -1, %368 ], [ -1, %376 ], [ 0, %395 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %obj2ast_mod.exit
 
 399:                                              ; preds = %365
@@ -11892,7 +11886,7 @@ Py_DECREF.exit245.i:                              ; preds = %395, %376, %368
   ]
 
 403:                                              ; preds = %399
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %404 = getelementptr inbounds nuw i8, ptr %19, i64 80984
   %405 = load ptr, ptr %404, align 8, !tbaa !129
   %406 = call i32 @PyObject_GetOptionalAttr(ptr noundef %0, ptr noundef %405, ptr noundef nonnull %6) #8
@@ -11945,7 +11939,7 @@ Py_DECREF.exit245.i:                              ; preds = %395, %376, %368
 429:                                              ; preds = %459, %.lr.ph.i
   %430 = phi ptr [ %.pre396.i, %.lr.ph.i ], [ %455, %459 ]
   %.0175380.i = phi i64 [ 0, %.lr.ph.i ], [ %462, %459 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 24
   %432 = load ptr, ptr %431, align 8, !tbaa !117
   %433 = getelementptr ptr, ptr %432, i64 %.0175380.i
@@ -12011,14 +12005,14 @@ Py_DECREF.exit243.i:                              ; preds = %453, %450, %_Py_Ent
   br label %.thread361.i
 
 .thread361.i:                                     ; preds = %Py_DECREF.exit243.i, %_Py_EnterRecursiveCall.exit304.i, %457
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit241.thread372.i
 
 459:                                              ; preds = %454
   %460 = load ptr, ptr %11, align 8, !tbaa !151
   %461 = getelementptr [1 x ptr], ptr %428, i64 0, i64 %.0175380.i
   store ptr %460, ptr %461, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %462 = add nuw nsw i64 %.0175380.i, 1
   %exitcond.not.i = icmp eq i64 %462, %.val284.i
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %429, !llvm.loop !152
@@ -12105,13 +12099,13 @@ Py_DECREF.exit243.i:                              ; preds = %453, %450, %_Py_Ent
   br i1 %499, label %Py_DECREF.exit241.thread372.i, label %Py_DECREF.exit241.i
 
 Py_DECREF.exit241.thread372.i:                    ; preds = %496, %481, %479, %.thread361.i, %423, %419
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Py_DECREF.exit255.thread331.i
 
 Py_DECREF.exit241.i:                              ; preds = %496, %477, %469, %411, %403
   %.218 = phi ptr [ null, %403 ], [ null, %411 ], [ null, %469 ], [ null, %477 ], [ %498, %496 ]
   %.4.i = phi i32 [ -1, %403 ], [ -1, %411 ], [ -1, %469 ], [ -1, %477 ], [ 0, %496 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %obj2ast_mod.exit
 
 500:                                              ; preds = %399
@@ -12140,25 +12134,25 @@ Py_DECREF.exit255.thread331.i:                    ; preds = %Py_DECREF.exit253.i
   br label %obj2ast_mod.exit.thread
 
 obj2ast_mod.exit.thread:                          ; preds = %47, %282, %365, %399, %50, %58, %127, %135, %285, %293, %Py_DECREF.exit255.thread331.i, %504, %506, %509
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
 
 obj2ast_mod.exit.thread24:                        ; preds = %_PyAST_Module.exit.i, %_PyAST_Interactive.exit.i, %45
   %.5.ph = phi ptr [ null, %45 ], [ %363, %_PyAST_Interactive.exit.i ], [ %279, %_PyAST_Module.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
 
 obj2ast_mod.exit:                                 ; preds = %Py_DECREF.exit245.i, %Py_DECREF.exit241.i
   %.5 = phi ptr [ %.4, %Py_DECREF.exit245.i ], [ %.218, %Py_DECREF.exit241.i ]
   %.0.i = phi i32 [ %.3.i, %Py_DECREF.exit245.i ], [ %.4.i, %Py_DECREF.exit241.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not16 = icmp eq i32 %.0.i, 0
   %spec.select = select i1 %.not16, ptr %.5, ptr null
   br label %510
 
 510:                                              ; preds = %obj2ast_mod.exit, %obj2ast_mod.exit.thread, %obj2ast_mod.exit.thread24, %25, %38
   %.2 = phi ptr [ null, %38 ], [ null, %25 ], [ null, %obj2ast_mod.exit.thread ], [ %.5.ph, %obj2ast_mod.exit.thread24 ], [ %spec.select, %obj2ast_mod.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %get_ast_state.exit
 
 get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnce.exit.i, %510, %3
@@ -12166,11 +12160,11 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret ptr %.0
 }
 
-declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @PyObject_IsInstance(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_IsInstance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyType_Name(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyType_Name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @PyAST_Check(ptr noundef %0) local_unnamed_addr #0 {
@@ -12200,7 +12194,7 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret i32 %.0
 }
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @astmodule_exec(ptr noundef %0) #0 {
@@ -13112,9 +13106,9 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret i32 %.0
 }
 
-declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @init_types(ptr noundef initializes((1104, 1112)) %0) #0 {
@@ -15491,9 +15485,9 @@ init_identifiers.exit.thread:                     ; preds = %389, %367, %365, %3
   ret i32 %.0
 }
 
-declare i32 @_PyOnceFlag_CallOnceSlow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyOnceFlag_CallOnceSlow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #2
+declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @make_type(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 8) %4, ptr noundef %5) unnamed_addr #0 {
@@ -15633,9 +15627,9 @@ Py_DECREF.exit22:                                 ; preds = %Py_DECREF.exit22.si
   ret i32 %.0
 }
 
-declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @add_ast_annotations(ptr noundef readonly %0) unnamed_addr #0 {
@@ -32292,7 +32286,7 @@ Py_DECREF.exit:                                   ; preds = %6961, %6966, %6969
   ret i32 %.0
 }
 
-declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @ast_dealloc(ptr noundef %0) #0 {
@@ -32347,9 +32341,9 @@ define internal ptr @ast_repr(ptr noundef %0) #0 {
   ret ptr %2
 }
 
-declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #2
+declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
-declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ast_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
@@ -32431,9 +32425,9 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %3
   br i1 %16, label %get_ast_state.exit, label %17
 
 17:                                               ; preds = %3, %_PyOnceFlag_CallOnce.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = getelementptr i8, ptr %0, i64 8
   %.val161 = load ptr, ptr %18, align 8, !tbaa !133
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 80936
@@ -32842,9 +32836,9 @@ Py_XDECREF.exit172:                               ; preds = %Py_XDECREF.exit169.
 
 Py_XDECREF.exit175:                               ; preds = %17, %188, %185, %183, %Py_XDECREF.exit172
   %.1 = phi i32 [ %.092220237, %Py_XDECREF.exit172 ], [ %.092220237, %183 ], [ %.092220237, %185 ], [ %.092220237, %188 ], [ -1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_ast_state.exit
 
 get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnce.exit.i, %Py_XDECREF.exit175
@@ -32852,13 +32846,13 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret i32 %.0
 }
 
-declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #2
+declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 
-declare void @PyObject_GC_Del(ptr noundef) #2
+declare void @PyObject_GC_Del(ptr noundef) #1
 
-declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #2
+declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyType_GetSlot(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PyType_GetSlot(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ast_repr_max_depth(ptr noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 {
@@ -32909,7 +32903,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %2
   br label %get_ast_state.exit
 
 30:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr i8, ptr %0, i64 8
   %.val126 = load ptr, ptr %31, align 8, !tbaa !133
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 80936
@@ -33064,7 +33058,7 @@ _PyOnceFlag_CallOnce.exit.i132:                   ; preds = %90
   br label %ast_repr_list.exit
 
 106:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %107 = call ptr @PyUnicodeWriter_Create(i64 noundef 0) #8
   %108 = icmp eq ptr %107, null
@@ -33259,7 +33253,7 @@ Py_XDECREF.exit:                                  ; preds = %180, %182, %185
 
 189:                                              ; preds = %.thread146, %Py_XDECREF.exit
   %.2.i = phi ptr [ null, %.thread146 ], [ %186, %Py_XDECREF.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ast_repr_list.exit
 
 190:                                              ; preds = %86
@@ -33476,7 +33470,7 @@ Py_DECREF.exit:                                   ; preds = %select.unfold150, %
 
 Py_DECREF.exit108:                                ; preds = %47, %44, %41, %Py_DECREF.exit106, %Py_DECREF.exit, %Py_DECREF.exit84, %36
   %.2 = phi ptr [ null, %36 ], [ %59, %Py_DECREF.exit106 ], [ null, %Py_DECREF.exit ], [ %263, %Py_DECREF.exit84 ], [ null, %41 ], [ null, %44 ], [ null, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_ast_state.exit
 
 get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnce.exit.i, %25, %Py_DECREF.exit108, %23, %16
@@ -33484,40 +33478,40 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret ptr %.063
 }
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @Py_ReprEnter(ptr noundef) local_unnamed_addr #2
+declare i32 @Py_ReprEnter(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Py_ReprLeave(ptr noundef) local_unnamed_addr #2
+declare void @Py_ReprLeave(ptr noundef) local_unnamed_addr #1
 
-declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #2
+declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyUnicodeWriter_Create(i64 noundef) local_unnamed_addr #2
+declare ptr @PyUnicodeWriter_Create(i64 noundef) local_unnamed_addr #1
 
-declare i32 @PyUnicodeWriter_WriteUTF8(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @PyUnicodeWriter_WriteUTF8(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #2
+declare ptr @PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #1
 
-declare void @PyUnicodeWriter_Discard(ptr noundef) local_unnamed_addr #2
+declare void @PyUnicodeWriter_Discard(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyUnicodeWriter_WriteRepr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyUnicodeWriter_WriteRepr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Py_XDECREF(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @Py_XDECREF(ptr noundef %0) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %Py_DECREF.exit, label %2
 
@@ -33561,9 +33555,9 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %2
   br i1 %14, label %get_ast_state.exit, label %15
 
 15:                                               ; preds = %2, %_PyOnceFlag_CallOnce.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 80896
   %17 = load ptr, ptr %16, align 8, !tbaa !272
@@ -33628,7 +33622,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %2
   br i1 %.not47, label %Py_DECREF.exit53, label %45
 
 45:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = load ptr, ptr %3, align 8, !tbaa !4
   %47 = call i32 @PyDict_GetItemRef(ptr noundef %46, ptr noundef nonnull %44, ptr noundef nonnull %5) #8
   %48 = load i32, ptr %44, align 8, !tbaa !9
@@ -33676,17 +33670,17 @@ Py_DECREF.exit:                                   ; preds = %56, %60, %63
   br i1 %64, label %.thread76, label %65
 
 65:                                               ; preds = %Py_DECREF.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = add nuw nsw i64 %.03279, 1
   %exitcond.not = icmp eq i64 %66, %31
   br i1 %exitcond.not, label %.thread69, label %.lr.ph, !llvm.loop !397
 
 .thread76:                                        ; preds = %Py_DECREF.exit51, %Py_DECREF.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Py_DECREF.exit53
 
 67:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread69
 
 .thread69:                                        ; preds = %65, %.preheader, %67
@@ -33753,8 +33747,8 @@ Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit53, %
 
 Py_XDECREF.exit62:                                ; preds = %89, %86, %84, %Py_XDECREF.exit, %15
   %.1 = phi ptr [ null, %15 ], [ %.035, %Py_XDECREF.exit ], [ %.035, %84 ], [ %.035, %86 ], [ %.035, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %get_ast_state.exit
 
 get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnce.exit.i, %Py_XDECREF.exit62
@@ -33802,11 +33796,11 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %20
   br i1 %29, label %get_ast_state.exit, label %30
 
 30:                                               ; preds = %20, %_PyOnceFlag_CallOnce.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !4
   %31 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %31, align 8, !tbaa !133
@@ -33867,10 +33861,10 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %20
   br i1 %.not80.i, label %87, label %63
 
 63:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !389
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %64
 
 64:                                               ; preds = %75, %63
@@ -33921,15 +33915,15 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %20
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %84, %77, %72, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Py_XDECREF.exit43
 
 .critedge87.i:                                    ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %87
 
 87:                                               ; preds = %.critedge87.i, %62
@@ -33937,10 +33931,10 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %20
   br i1 %.not82.i, label %115, label %88
 
 88:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !389
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %89
 
 89:                                               ; preds = %91, %88
@@ -33969,12 +33963,12 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %20
   br i1 %.not.i, label %Py_DECREF.exit111.i, label %101
 
 101:                                              ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %50, ptr %4, align 16, !tbaa !4
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %49, ptr %102, align 8, !tbaa !4
   %103 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53648), ptr noundef nonnull %4, i64 noundef -9223372036854775806, ptr noundef null) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not84.i = icmp eq ptr %103, null
   br i1 %.not84.i, label %104, label %109
 
@@ -34005,9 +33999,9 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %20
   br label %Py_DECREF.exit111.i
 
 Py_DECREF.exit111.i:                              ; preds = %114, %111, %109, %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %115
 
 115:                                              ; preds = %Py_DECREF.exit111.i, %87
@@ -34037,10 +34031,10 @@ Py_DECREF.exit111.i:                              ; preds = %114, %111, %109, %1
   br label %Py_XDECREF.exit43
 
 127:                                              ; preds = %118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !389
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %128 = call i32 @_PySet_NextEntry(ptr noundef nonnull %50, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %.not85139.i = icmp eq i32 %128, 0
   br i1 %.not85139.i, label %._crit_edge.i, label %.lr.ph.i
@@ -34197,9 +34191,9 @@ Py_DECREF.exit99.sink.split.i:                    ; preds = %187, %163, %155, %1
   br label %Py_DECREF.exit99.i
 
 Py_DECREF.exit99.i:                               ; preds = %Py_DECREF.exit99.sink.split.i, %187, %179, %Py_DECREF.exit93.i, %163, %161, %155, %153, %140, %Py_DECREF.exit105.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_XDECREF.exit43
 
 190:                                              ; preds = %115
@@ -34222,9 +34216,9 @@ Py_DECREF.exit99.i:                               ; preds = %Py_DECREF.exit99.si
   br label %.critedge89.i
 
 .critedge89.i:                                    ; preds = %.critedge89.sink.split.i, %106, %104, %97, %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Py_XDECREF.exit43
 
 ast_type_replace_check.exit:                      ; preds = %195, %192, %190
@@ -34361,9 +34355,9 @@ Py_XDECREF.exit49:                                ; preds = %Py_XDECREF.exit46, 
   br label %Py_XDECREF.exit52
 
 Py_XDECREF.exit52:                                ; preds = %Py_XDECREF.exit49, %244, %246, %249
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %get_ast_state.exit
 
 get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnce.exit.i, %Py_XDECREF.exit52, %18
@@ -34371,24 +34365,24 @@ get_ast_state.exit:                               ; preds = %_PyOnceFlag_CallOnc
   ret ptr %.0
 }
 
-declare ptr @PyList_New(i64 noundef) local_unnamed_addr #2
+declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
-declare i32 @PyDict_GetItemRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_GetItemRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyList_AsTuple(ptr noundef) local_unnamed_addr #2
+declare ptr @PyList_AsTuple(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @_PyArg_NoPositional(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyArg_NoPositional(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #2
+declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
-declare ptr @PyDict_New() local_unnamed_addr #2
+declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ast_type_replace_update_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ast_type_replace_update_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.thread, label %6
@@ -34409,7 +34403,7 @@ define internal fastcc range(i32 -1, 1) i32 @ast_type_replace_update_payload(ptr
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call i32 @PyDict_GetItemRef(ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %4) #8
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %20
@@ -34486,11 +34480,11 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit29, %
   br i1 %42, label %.thread38, label %43
 
 .thread38:                                        ; preds = %Py_DECREF.exit, %14, %16, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 43:                                               ; preds = %28, %25, %23, %Py_DECREF.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = add nuw nsw i64 %.02346, 1
   %exitcond.not = icmp eq i64 %44, %7
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !403
@@ -34500,58 +34494,58 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit29, %
   ret i32 %.0
 }
 
-declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PySet_New(ptr noundef) local_unnamed_addr #2
+declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PySet_Update(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PySet_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PySet_Discard(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PySet_Discard(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PySet_NextEntry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PySet_NextEntry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyList_Sort(ptr noundef) local_unnamed_addr #2
+declare i32 @PyList_Sort(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyUnicode_Join(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_Join(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_GenericGetDict(ptr noundef, ptr noundef) #2
+declare ptr @PyObject_GenericGetDict(ptr noundef, ptr noundef) #1
 
-declare i32 @PyObject_GenericSetDict(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @PyObject_GenericSetDict(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @PySet_Size(ptr noundef) local_unnamed_addr #2
+declare i64 @PySet_Size(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PySequence_List(ptr noundef) local_unnamed_addr #2
+declare ptr @PySequence_List(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #2
+declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
-declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_Py_union_type_or(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_Py_union_type_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ast2obj_list(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
@@ -39620,7 +39614,7 @@ Py_XDECREF.exit1071:                              ; preds = %1094, %1091, %1089,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @ast2obj_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) #6 {
+define internal noundef nonnull ptr @ast2obj_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) #5 {
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr @_Py_NoneStruct, ptr %2
   %4 = load i32, ptr %spec.store.select, align 8, !tbaa !9
@@ -40723,7 +40717,7 @@ Py_XDECREF.exit101:                               ; preds = %123, %120, %Py_XDEC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @ast2obj_operator(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @ast2obj_operator(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   switch i32 %1, label %68 [
     i32 1, label %3
     i32 2, label %8
@@ -42064,7 +42058,7 @@ Py_XDECREF.exit118:                               ; preds = %139, %136, %Py_XDEC
   ret ptr %.0
 }
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #2
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ast2obj_pattern(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
@@ -42892,7 +42886,7 @@ Py_XDECREF.exit348:                               ; preds = %384, %381, %379, %P
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @ast2obj_unaryop(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @ast2obj_unaryop(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   switch i32 %1, label %23 [
     i32 1, label %3
     i32 2, label %8
@@ -43189,7 +43183,7 @@ Py_XDECREF.exit74:                                ; preds = %109, %106, %Py_XDEC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @ast2obj_expr_context(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @ast2obj_expr_context(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   switch i32 %1, label %18 [
     i32 1, label %3
     i32 2, label %8
@@ -43233,7 +43227,7 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sin
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_Py_EnterRecursiveCall(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @_Py_EnterRecursiveCall(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
@@ -43338,11 +43332,11 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_stmt(ptr noundef nonnull %0
   %84 = alloca ptr, align 8
   %85 = alloca ptr, align 8
   %86 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %87 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %87, label %88, label %89
 
@@ -43671,10 +43665,10 @@ Py_DECREF.exit2909.thread:                        ; preds = %229, %226, %224, %2
   ]
 
 233:                                              ; preds = %Py_DECREF.exit2909.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %235 = load ptr, ptr %234, align 8, !tbaa !327
   %236 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %235, ptr noundef nonnull %5) #8
@@ -43825,7 +43819,7 @@ Py_DECREF.exit2909.thread:                        ; preds = %229, %226, %224, %2
 309:                                              ; preds = %.lr.ph4037, %336
   %310 = phi ptr [ %.pre4153, %.lr.ph4037 ], [ %332, %336 ]
   %.018964036 = phi i64 [ 0, %.lr.ph4037 ], [ %339, %336 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %312 = load ptr, ptr %311, align 8, !tbaa !117
   %313 = getelementptr ptr, ptr %312, i64 %.018964036
@@ -43882,14 +43876,14 @@ Py_DECREF.exit2903:                               ; preds = %320, %327, %330
   br label %.thread
 
 .thread:                                          ; preds = %_Py_NewRef.exit, %Py_DECREF.exit2903, %334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %Py_DECREF.exit2907.thread3385
 
 336:                                              ; preds = %331
   %337 = load ptr, ptr %13, align 8, !tbaa !141
   %338 = getelementptr [1 x ptr], ptr %308, i64 0, i64 %.018964036
   store ptr %337, ptr %338, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %339 = add nuw nsw i64 %.018964036, 1
   %exitcond4080.not = icmp eq i64 %339, %.val3251
   br i1 %exitcond4080.not, label %._crit_edge4038.thread, label %309, !llvm.loop !406
@@ -43968,7 +43962,7 @@ Py_DECREF.exit2903:                               ; preds = %320, %327, %330
 372:                                              ; preds = %.lr.ph4040, %399
   %373 = phi ptr [ %.pre4155, %.lr.ph4040 ], [ %395, %399 ]
   %.018984039 = phi i64 [ 0, %.lr.ph4040 ], [ %402, %399 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %375 = load ptr, ptr %374, align 8, !tbaa !117
   %376 = getelementptr ptr, ptr %375, i64 %.018984039
@@ -44025,14 +44019,14 @@ Py_DECREF.exit2899:                               ; preds = %383, %390, %393
   br label %.thread3365
 
 .thread3365:                                      ; preds = %_Py_NewRef.exit3255, %Py_DECREF.exit2899, %397
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %Py_DECREF.exit2907.thread3385
 
 399:                                              ; preds = %394
   %400 = load ptr, ptr %14, align 8, !tbaa !151
   %401 = getelementptr [1 x ptr], ptr %371, i64 0, i64 %.018984039
   store ptr %400, ptr %401, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %402 = add nuw nsw i64 %.018984039, 1
   %exitcond4081.not = icmp eq i64 %402, %.val3249
   br i1 %exitcond4081.not, label %._crit_edge4041.thread, label %372, !llvm.loop !407
@@ -44259,7 +44253,7 @@ Py_DECREF.exit2889.thread:                        ; preds = %473, %470, %468, %4
 499:                                              ; preds = %.lr.ph4043, %526
   %500 = phi ptr [ %.pre4157, %.lr.ph4043 ], [ %522, %526 ]
   %.018994042 = phi i64 [ 0, %.lr.ph4043 ], [ %529, %526 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
   %502 = load ptr, ptr %501, align 8, !tbaa !117
   %503 = getelementptr ptr, ptr %502, i64 %.018994042
@@ -44316,14 +44310,14 @@ Py_DECREF.exit2887:                               ; preds = %510, %517, %520
   br label %.thread3377
 
 .thread3377:                                      ; preds = %_Py_NewRef.exit3256, %Py_DECREF.exit2887, %524
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %Py_DECREF.exit2907.thread3385
 
 526:                                              ; preds = %521
   %527 = load ptr, ptr %15, align 8, !tbaa !408
   %528 = getelementptr [1 x ptr], ptr %498, i64 0, i64 %.018994042
   store ptr %527, ptr %528, align 8, !tbaa !408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %529 = add nuw nsw i64 %.018994042, 1
   %exitcond4082.not = icmp eq i64 %529, %.val3247
   br i1 %exitcond4082.not, label %._crit_edge4044.thread, label %499, !llvm.loop !410
@@ -44363,10 +44357,10 @@ Py_DECREF.exit2887:                               ; preds = %510, %517, %520
   br i1 %545, label %Py_DECREF.exit2907.thread3385, label %Py_DECREF.exit2907
 
 Py_DECREF.exit2907.thread3385:                    ; preds = %241, %243, %266, %268, %299, %303, %.thread, %362, %366, %.thread3365, %425, %427, %457, %459, %489, %493, %.thread3377, %536
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2907.sink.split:                    ; preds = %263, %238
@@ -44377,10 +44371,10 @@ Py_DECREF.exit2907.sink.split:                    ; preds = %263, %238
 
 Py_DECREF.exit2907:                               ; preds = %Py_DECREF.exit2907.sink.split, %536, %481, %Py_DECREF.exit2889.thread, %Py_DECREF.exit2893.thread, %409, %354, %346, %291, %283, %258, %233
   %.1 = phi i32 [ -1, %233 ], [ -1, %258 ], [ -1, %283 ], [ -1, %291 ], [ -1, %346 ], [ -1, %354 ], [ -1, %409 ], [ -1, %Py_DECREF.exit2893.thread ], [ -1, %Py_DECREF.exit2889.thread ], [ -1, %481 ], [ 0, %536 ], [ -1, %Py_DECREF.exit2907.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit2831
 
 547:                                              ; preds = %Py_DECREF.exit2909.thread
@@ -44393,10 +44387,10 @@ Py_DECREF.exit2907:                               ; preds = %Py_DECREF.exit2907.
   ]
 
 551:                                              ; preds = %547
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %553 = load ptr, ptr %552, align 8, !tbaa !327
   %554 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %553, ptr noundef nonnull %5) #8
@@ -44547,7 +44541,7 @@ Py_DECREF.exit2907:                               ; preds = %Py_DECREF.exit2907.
 627:                                              ; preds = %.lr.ph4028, %654
   %628 = phi ptr [ %.pre4147, %.lr.ph4028 ], [ %650, %654 ]
   %.019054027 = phi i64 [ 0, %.lr.ph4028 ], [ %657, %654 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 24
   %630 = load ptr, ptr %629, align 8, !tbaa !117
   %631 = getelementptr ptr, ptr %630, i64 %.019054027
@@ -44604,14 +44598,14 @@ Py_DECREF.exit2879:                               ; preds = %638, %645, %648
   br label %.thread3394
 
 .thread3394:                                      ; preds = %_Py_NewRef.exit3257, %Py_DECREF.exit2879, %652
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %Py_DECREF.exit2883.thread3423
 
 654:                                              ; preds = %649
   %655 = load ptr, ptr %20, align 8, !tbaa !141
   %656 = getelementptr [1 x ptr], ptr %626, i64 0, i64 %.019054027
   store ptr %655, ptr %656, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %657 = add nuw nsw i64 %.019054027, 1
   %exitcond4077.not = icmp eq i64 %657, %.val3245
   br i1 %exitcond4077.not, label %._crit_edge4029.thread, label %627, !llvm.loop !413
@@ -44690,7 +44684,7 @@ Py_DECREF.exit2879:                               ; preds = %638, %645, %648
 690:                                              ; preds = %.lr.ph4031, %717
   %691 = phi ptr [ %.pre4149, %.lr.ph4031 ], [ %713, %717 ]
   %.019064030 = phi i64 [ 0, %.lr.ph4031 ], [ %720, %717 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 24
   %693 = load ptr, ptr %692, align 8, !tbaa !117
   %694 = getelementptr ptr, ptr %693, i64 %.019064030
@@ -44747,14 +44741,14 @@ Py_DECREF.exit2875:                               ; preds = %701, %708, %711
   br label %.thread3402
 
 .thread3402:                                      ; preds = %_Py_NewRef.exit3258, %Py_DECREF.exit2875, %715
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %Py_DECREF.exit2883.thread3423
 
 717:                                              ; preds = %712
   %718 = load ptr, ptr %21, align 8, !tbaa !151
   %719 = getelementptr [1 x ptr], ptr %689, i64 0, i64 %.019064030
   store ptr %718, ptr %719, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %720 = add nuw nsw i64 %.019064030, 1
   %exitcond4078.not = icmp eq i64 %720, %.val3243
   br i1 %exitcond4078.not, label %._crit_edge4032.thread, label %690, !llvm.loop !414
@@ -44981,7 +44975,7 @@ Py_DECREF.exit2865.thread:                        ; preds = %791, %788, %786, %7
 817:                                              ; preds = %.lr.ph4034, %844
   %818 = phi ptr [ %.pre4151, %.lr.ph4034 ], [ %840, %844 ]
   %.019074033 = phi i64 [ 0, %.lr.ph4034 ], [ %847, %844 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %819 = getelementptr inbounds nuw i8, ptr %818, i64 24
   %820 = load ptr, ptr %819, align 8, !tbaa !117
   %821 = getelementptr ptr, ptr %820, i64 %.019074033
@@ -45038,14 +45032,14 @@ Py_DECREF.exit2863:                               ; preds = %828, %835, %838
   br label %.thread3414
 
 .thread3414:                                      ; preds = %_Py_NewRef.exit3259, %Py_DECREF.exit2863, %842
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %Py_DECREF.exit2883.thread3423
 
 844:                                              ; preds = %839
   %845 = load ptr, ptr %22, align 8, !tbaa !408
   %846 = getelementptr [1 x ptr], ptr %816, i64 0, i64 %.019074033
   store ptr %845, ptr %846, align 8, !tbaa !408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %847 = add nuw nsw i64 %.019074033, 1
   %exitcond4079.not = icmp eq i64 %847, %.val3241
   br i1 %exitcond4079.not, label %._crit_edge4035.thread, label %817, !llvm.loop !415
@@ -45085,10 +45079,10 @@ Py_DECREF.exit2863:                               ; preds = %828, %835, %838
   br i1 %863, label %Py_DECREF.exit2883.thread3423, label %Py_DECREF.exit2883
 
 Py_DECREF.exit2883.thread3423:                    ; preds = %559, %561, %584, %586, %617, %621, %.thread3394, %680, %684, %.thread3402, %743, %745, %775, %777, %807, %811, %.thread3414, %854
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2883.sink.split:                    ; preds = %581, %556
@@ -45099,10 +45093,10 @@ Py_DECREF.exit2883.sink.split:                    ; preds = %581, %556
 
 Py_DECREF.exit2883:                               ; preds = %Py_DECREF.exit2883.sink.split, %854, %799, %Py_DECREF.exit2865.thread, %Py_DECREF.exit2869.thread, %727, %672, %664, %609, %601, %576, %551
   %.2 = phi i32 [ -1, %551 ], [ -1, %576 ], [ -1, %601 ], [ -1, %609 ], [ -1, %664 ], [ -1, %672 ], [ -1, %727 ], [ -1, %Py_DECREF.exit2869.thread ], [ -1, %Py_DECREF.exit2865.thread ], [ -1, %799 ], [ 0, %854 ], [ -1, %Py_DECREF.exit2883.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Py_DECREF.exit2831
 
 865:                                              ; preds = %547
@@ -45115,7 +45109,7 @@ Py_DECREF.exit2883:                               ; preds = %Py_DECREF.exit2883.
   ]
 
 869:                                              ; preds = %865
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %870 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %871 = load ptr, ptr %870, align 8, !tbaa !327
   %872 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %871, ptr noundef nonnull %5) #8
@@ -45222,7 +45216,7 @@ Py_DECREF.exit2883:                               ; preds = %Py_DECREF.exit2883.
 922:                                              ; preds = %.lr.ph4013, %949
   %923 = phi ptr [ %.pre4137, %.lr.ph4013 ], [ %945, %949 ]
   %.019144012 = phi i64 [ 0, %.lr.ph4013 ], [ %952, %949 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %924 = getelementptr inbounds nuw i8, ptr %923, i64 24
   %925 = load ptr, ptr %924, align 8, !tbaa !117
   %926 = getelementptr ptr, ptr %925, i64 %.019144012
@@ -45279,14 +45273,14 @@ Py_DECREF.exit2857:                               ; preds = %933, %940, %943
   br label %.thread3430
 
 .thread3430:                                      ; preds = %_Py_NewRef.exit3260, %Py_DECREF.exit2857, %947
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %Py_DECREF.exit2859.thread3471
 
 949:                                              ; preds = %944
   %950 = load ptr, ptr %24, align 8, !tbaa !151
   %951 = getelementptr [1 x ptr], ptr %921, i64 0, i64 %.019144012
   store ptr %950, ptr %951, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %952 = add nuw nsw i64 %.019144012, 1
   %exitcond4072.not = icmp eq i64 %952, %.val3239
   br i1 %exitcond4072.not, label %._crit_edge4014.thread, label %922, !llvm.loop !416
@@ -45365,7 +45359,7 @@ Py_DECREF.exit2857:                               ; preds = %933, %940, %943
 985:                                              ; preds = %.lr.ph4016, %1012
   %986 = phi ptr [ %.pre4139, %.lr.ph4016 ], [ %1008, %1012 ]
   %.019154015 = phi i64 [ 0, %.lr.ph4016 ], [ %1015, %1012 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 24
   %988 = load ptr, ptr %987, align 8, !tbaa !117
   %989 = getelementptr ptr, ptr %988, i64 %.019154015
@@ -45422,14 +45416,14 @@ Py_DECREF.exit2853:                               ; preds = %996, %1003, %1006
   br label %.thread3438
 
 .thread3438:                                      ; preds = %_Py_NewRef.exit3261, %Py_DECREF.exit2853, %1010
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %Py_DECREF.exit2859.thread3471
 
 1012:                                             ; preds = %1007
   %1013 = load ptr, ptr %25, align 8, !tbaa !417
   %1014 = getelementptr [1 x ptr], ptr %984, i64 0, i64 %.019154015
   store ptr %1013, ptr %1014, align 8, !tbaa !417
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1015 = add nuw nsw i64 %.019154015, 1
   %exitcond4073.not = icmp eq i64 %1015, %.val3237
   br i1 %exitcond4073.not, label %._crit_edge4017.thread, label %985, !llvm.loop !419
@@ -45508,7 +45502,7 @@ Py_DECREF.exit2853:                               ; preds = %996, %1003, %1006
 1048:                                             ; preds = %.lr.ph4019, %1075
   %1049 = phi ptr [ %.pre4141, %.lr.ph4019 ], [ %1071, %1075 ]
   %.019164018 = phi i64 [ 0, %.lr.ph4019 ], [ %1078, %1075 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 24
   %1051 = load ptr, ptr %1050, align 8, !tbaa !117
   %1052 = getelementptr ptr, ptr %1051, i64 %.019164018
@@ -45565,14 +45559,14 @@ Py_DECREF.exit2849:                               ; preds = %1059, %1066, %1069
   br label %.thread3446
 
 .thread3446:                                      ; preds = %_Py_NewRef.exit3262, %Py_DECREF.exit2849, %1073
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %Py_DECREF.exit2859.thread3471
 
 1075:                                             ; preds = %1070
   %1076 = load ptr, ptr %26, align 8, !tbaa !141
   %1077 = getelementptr [1 x ptr], ptr %1047, i64 0, i64 %.019164018
   store ptr %1076, ptr %1077, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %1078 = add nuw nsw i64 %.019164018, 1
   %exitcond4074.not = icmp eq i64 %1078, %.val3235
   br i1 %exitcond4074.not, label %._crit_edge4020.thread, label %1048, !llvm.loop !420
@@ -45651,7 +45645,7 @@ Py_DECREF.exit2849:                               ; preds = %1059, %1066, %1069
 1111:                                             ; preds = %.lr.ph4022, %1138
   %1112 = phi ptr [ %.pre4143, %.lr.ph4022 ], [ %1134, %1138 ]
   %.019174021 = phi i64 [ 0, %.lr.ph4022 ], [ %1141, %1138 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 24
   %1114 = load ptr, ptr %1113, align 8, !tbaa !117
   %1115 = getelementptr ptr, ptr %1114, i64 %.019174021
@@ -45708,14 +45702,14 @@ Py_DECREF.exit2845:                               ; preds = %1122, %1129, %1132
   br label %.thread3454
 
 .thread3454:                                      ; preds = %_Py_NewRef.exit3263, %Py_DECREF.exit2845, %1136
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %Py_DECREF.exit2859.thread3471
 
 1138:                                             ; preds = %1133
   %1139 = load ptr, ptr %27, align 8, !tbaa !151
   %1140 = getelementptr [1 x ptr], ptr %1110, i64 0, i64 %.019174021
   store ptr %1139, ptr %1140, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %1141 = add nuw nsw i64 %.019174021, 1
   %exitcond4075.not = icmp eq i64 %1141, %.val3233
   br i1 %exitcond4075.not, label %._crit_edge4023.thread, label %1111, !llvm.loop !421
@@ -45794,7 +45788,7 @@ Py_DECREF.exit2845:                               ; preds = %1122, %1129, %1132
 1174:                                             ; preds = %.lr.ph4025, %1201
   %1175 = phi ptr [ %.pre4145, %.lr.ph4025 ], [ %1197, %1201 ]
   %.019184024 = phi i64 [ 0, %.lr.ph4025 ], [ %1204, %1201 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 24
   %1177 = load ptr, ptr %1176, align 8, !tbaa !117
   %1178 = getelementptr ptr, ptr %1177, i64 %.019184024
@@ -45851,14 +45845,14 @@ Py_DECREF.exit2841:                               ; preds = %1185, %1192, %1195
   br label %.thread3462
 
 .thread3462:                                      ; preds = %_Py_NewRef.exit3264, %Py_DECREF.exit2841, %1199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %Py_DECREF.exit2859.thread3471
 
 1201:                                             ; preds = %1196
   %1202 = load ptr, ptr %28, align 8, !tbaa !408
   %1203 = getelementptr [1 x ptr], ptr %1173, i64 0, i64 %.019184024
   store ptr %1202, ptr %1203, align 8, !tbaa !408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1204 = add nuw nsw i64 %.019184024, 1
   %exitcond4076.not = icmp eq i64 %1204, %.val3231
   br i1 %exitcond4076.not, label %._crit_edge4026.thread, label %1174, !llvm.loop !422
@@ -45895,12 +45889,12 @@ Py_DECREF.exit2841:                               ; preds = %1185, %1192, %1195
   br i1 %1217, label %Py_DECREF.exit2859.thread3471, label %Py_DECREF.exit2859
 
 Py_DECREF.exit2859.thread3471:                    ; preds = %879, %881, %912, %916, %.thread3430, %975, %979, %.thread3438, %1038, %1042, %.thread3446, %1101, %1105, %.thread3454, %1164, %1168, %.thread3462, %1211
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2859:                               ; preds = %1211, %1156, %1148, %1093, %1085, %1030, %1022, %967, %959, %904, %896, %869, %877
   %.3 = phi i32 [ -1, %877 ], [ -1, %869 ], [ -1, %896 ], [ -1, %904 ], [ -1, %959 ], [ -1, %967 ], [ -1, %1022 ], [ -1, %1030 ], [ -1, %1085 ], [ -1, %1093 ], [ -1, %1148 ], [ -1, %1156 ], [ 0, %1211 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %Py_DECREF.exit2831
 
 1218:                                             ; preds = %865
@@ -45913,7 +45907,7 @@ Py_DECREF.exit2859:                               ; preds = %1211, %1156, %1148,
   ]
 
 1222:                                             ; preds = %1218
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1223 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %1224 = load ptr, ptr %1223, align 8, !tbaa !350
   %1225 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1224, ptr noundef nonnull %5) #8
@@ -46016,12 +46010,12 @@ select.unfold3477:                                ; preds = %Py_DECREF.exit2835.
   br label %Py_DECREF.exit2835.thread3479
 
 Py_DECREF.exit2835.thread3479:                    ; preds = %1238, %1240, %select.unfold3477
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2835:                               ; preds = %_PyAST_Return.exit, %1222
   %.4 = phi i32 [ -1, %1222 ], [ 0, %_PyAST_Return.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %Py_DECREF.exit2831
 
 1265:                                             ; preds = %1218
@@ -46086,7 +46080,7 @@ Py_DECREF.exit2835:                               ; preds = %_PyAST_Return.exit,
 1295:                                             ; preds = %.lr.ph4010, %1322
   %1296 = phi ptr [ %.pre4135, %.lr.ph4010 ], [ %1318, %1322 ]
   %.019204009 = phi i64 [ 0, %.lr.ph4010 ], [ %1325, %1322 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 24
   %1298 = load ptr, ptr %1297, align 8, !tbaa !117
   %1299 = getelementptr ptr, ptr %1298, i64 %.019204009
@@ -46143,14 +46137,14 @@ Py_DECREF.exit2833:                               ; preds = %1306, %1313, %1316
   br label %.thread3484
 
 .thread3484:                                      ; preds = %_Py_NewRef.exit3266, %Py_DECREF.exit2833, %1320
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %Py_DECREF.exit2919
 
 1322:                                             ; preds = %1317
   %1323 = load ptr, ptr %30, align 8, !tbaa !151
   %1324 = getelementptr [1 x ptr], ptr %1294, i64 0, i64 %.019204009
   store ptr %1323, ptr %1324, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %1325 = add nuw nsw i64 %.019204009, 1
   %exitcond4071.not = icmp eq i64 %1325, %.val3229
   br i1 %exitcond4071.not, label %._crit_edge4011.thread, label %1295, !llvm.loop !423
@@ -46213,8 +46207,8 @@ select.unfold3491:                                ; preds = %1332
   ]
 
 1346:                                             ; preds = %1342
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1347 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   %1348 = load ptr, ptr %1347, align 8, !tbaa !344
   %1349 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1348, ptr noundef nonnull %5) #8
@@ -46267,7 +46261,7 @@ select.unfold3491:                                ; preds = %1332
 1372:                                             ; preds = %.lr.ph4007, %1399
   %1373 = phi ptr [ %.pre4133, %.lr.ph4007 ], [ %1395, %1399 ]
   %.019234006 = phi i64 [ 0, %.lr.ph4007 ], [ %1402, %1399 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %1374 = getelementptr inbounds nuw i8, ptr %1373, i64 24
   %1375 = load ptr, ptr %1374, align 8, !tbaa !117
   %1376 = getelementptr ptr, ptr %1375, i64 %.019234006
@@ -46324,14 +46318,14 @@ Py_DECREF.exit2829:                               ; preds = %1383, %1390, %1393
   br label %.thread3498
 
 .thread3498:                                      ; preds = %_Py_NewRef.exit3268, %Py_DECREF.exit2829, %1397
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %Py_DECREF.exit2827.thread3511
 
 1399:                                             ; preds = %1394
   %1400 = load ptr, ptr %33, align 8, !tbaa !151
   %1401 = getelementptr [1 x ptr], ptr %1371, i64 0, i64 %.019234006
   store ptr %1400, ptr %1401, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %1402 = add nuw nsw i64 %.019234006, 1
   %exitcond4070.not = icmp eq i64 %1402, %.val3227
   br i1 %exitcond4070.not, label %._crit_edge4008.thread, label %1372, !llvm.loop !424
@@ -46497,14 +46491,14 @@ Py_DECREF.exit2821.thread:                        ; preds = %1468, %1465, %1463,
   br i1 %1475, label %Py_DECREF.exit2827.thread3511, label %Py_DECREF.exit2827
 
 Py_DECREF.exit2827.thread3511:                    ; preds = %1362, %1366, %.thread3498, %1419, %1421, %1452, %1454, %Py_DECREF.exit2821.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2827:                               ; preds = %Py_DECREF.exit2821.thread, %1436, %1409, %1354, %1346, %1417
   %.6 = phi i32 [ -1, %1417 ], [ -1, %1346 ], [ -1, %1354 ], [ -1, %1409 ], [ -1, %1436 ], [ 0, %Py_DECREF.exit2821.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %Py_DECREF.exit2831
 
 1476:                                             ; preds = %1342
@@ -46517,8 +46511,8 @@ Py_DECREF.exit2827:                               ; preds = %Py_DECREF.exit2821.
   ]
 
 1480:                                             ; preds = %1476
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %1482 = load ptr, ptr %1481, align 8, !tbaa !327
   %1483 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1482, ptr noundef nonnull %5) #8
@@ -46620,7 +46614,7 @@ Py_DECREF.exit2827:                               ; preds = %Py_DECREF.exit2821.
 1531:                                             ; preds = %.lr.ph4004, %1558
   %1532 = phi ptr [ %.pre4131, %.lr.ph4004 ], [ %1554, %1558 ]
   %.019264003 = phi i64 [ 0, %.lr.ph4004 ], [ %1561, %1558 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 24
   %1534 = load ptr, ptr %1533, align 8, !tbaa !117
   %1535 = getelementptr ptr, ptr %1534, i64 %.019264003
@@ -46677,14 +46671,14 @@ Py_DECREF.exit2817:                               ; preds = %1542, %1549, %1552
   br label %.thread3518
 
 .thread3518:                                      ; preds = %_Py_NewRef.exit3269, %Py_DECREF.exit2817, %1556
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %Py_DECREF.exit2819.thread3529
 
 1558:                                             ; preds = %1553
   %1559 = load ptr, ptr %36, align 8, !tbaa !408
   %1560 = getelementptr [1 x ptr], ptr %1530, i64 0, i64 %.019264003
   store ptr %1559, ptr %1560, align 8, !tbaa !408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %1561 = add nuw nsw i64 %.019264003, 1
   %exitcond4069.not = icmp eq i64 %1561, %.val3225
   br i1 %exitcond4069.not, label %._crit_edge4005.thread, label %1531, !llvm.loop !425
@@ -46771,8 +46765,8 @@ Py_DECREF.exit2817:                               ; preds = %1542, %1549, %1552
   br i1 %1600, label %Py_DECREF.exit2819.thread3529, label %Py_DECREF.exit2819
 
 Py_DECREF.exit2819.thread3529:                    ; preds = %1488, %1490, %1521, %1525, %.thread3518, %1576, %1578, %1593
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2819.sink.split:                    ; preds = %1573, %1485
@@ -46783,8 +46777,8 @@ Py_DECREF.exit2819.sink.split:                    ; preds = %1573, %1485
 
 Py_DECREF.exit2819:                               ; preds = %Py_DECREF.exit2819.sink.split, %1593, %1568, %1513, %1505, %1480
   %.7 = phi i32 [ -1, %1480 ], [ -1, %1505 ], [ -1, %1513 ], [ -1, %1568 ], [ 0, %1593 ], [ -1, %Py_DECREF.exit2819.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %Py_DECREF.exit2831
 
 1602:                                             ; preds = %1476
@@ -46797,9 +46791,9 @@ Py_DECREF.exit2819:                               ; preds = %Py_DECREF.exit2819.
   ]
 
 1606:                                             ; preds = %1602
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1607 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %1608 = load ptr, ptr %1607, align 8, !tbaa !343
   %1609 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1608, ptr noundef nonnull %5) #8
@@ -46959,9 +46953,9 @@ Py_DECREF.exit2819:                               ; preds = %Py_DECREF.exit2819.
   br i1 %1689, label %Py_DECREF.exit2811.thread3541, label %Py_DECREF.exit2811
 
 Py_DECREF.exit2811.thread3541:                    ; preds = %1614, %1616, %1639, %1641, %1664, %1666, %1681
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2811.sink.split:                    ; preds = %1661, %1636, %1611
@@ -46972,9 +46966,9 @@ Py_DECREF.exit2811.sink.split:                    ; preds = %1661, %1636, %1611
 
 Py_DECREF.exit2811:                               ; preds = %Py_DECREF.exit2811.sink.split, %1681, %1656, %1631, %1606
   %.8 = phi i32 [ -1, %1606 ], [ -1, %1631 ], [ -1, %1656 ], [ 0, %1681 ], [ -1, %Py_DECREF.exit2811.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %Py_DECREF.exit2831
 
 1691:                                             ; preds = %1602
@@ -46987,10 +46981,10 @@ Py_DECREF.exit2811:                               ; preds = %Py_DECREF.exit2811.
   ]
 
 1695:                                             ; preds = %1691
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1696 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %1697 = load ptr, ptr %1696, align 8, !tbaa !343
   %1698 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1697, ptr noundef nonnull %5) #8
@@ -47225,10 +47219,10 @@ Py_DECREF.exit2799.thread:                        ; preds = %1777, %1774, %1772,
   br i1 %1811, label %Py_DECREF.exit2805.thread3555, label %Py_DECREF.exit2805
 
 Py_DECREF.exit2805.thread3555:                    ; preds = %1703, %1705, %1728, %1730, %1761, %1763, %1785, %1787, %1802
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2805.sink.split:                    ; preds = %1782, %1725, %1700
@@ -47239,10 +47233,10 @@ Py_DECREF.exit2805.sink.split:                    ; preds = %1782, %1725, %1700
 
 Py_DECREF.exit2805:                               ; preds = %Py_DECREF.exit2805.sink.split, %1802, %Py_DECREF.exit2799.thread, %1745, %1720, %1695
   %.9 = phi i32 [ -1, %1695 ], [ -1, %1720 ], [ -1, %1745 ], [ -1, %Py_DECREF.exit2799.thread ], [ 0, %1802 ], [ -1, %Py_DECREF.exit2805.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %Py_DECREF.exit2831
 
 1813:                                             ; preds = %1691
@@ -47255,9 +47249,9 @@ Py_DECREF.exit2805:                               ; preds = %Py_DECREF.exit2805.
   ]
 
 1817:                                             ; preds = %1813
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1818 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %1819 = load ptr, ptr %1818, align 8, !tbaa !343
   %1820 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1819, ptr noundef nonnull %5) #8
@@ -47408,7 +47402,7 @@ Py_DECREF.exit2805:                               ; preds = %Py_DECREF.exit2805.
 1893:                                             ; preds = %.lr.ph3998, %1920
   %1894 = phi ptr [ %.pre4127, %.lr.ph3998 ], [ %1916, %1920 ]
   %.019303997 = phi i64 [ 0, %.lr.ph3998 ], [ %1923, %1920 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1895 = getelementptr inbounds nuw i8, ptr %1894, i64 24
   %1896 = load ptr, ptr %1895, align 8, !tbaa !117
   %1897 = getelementptr ptr, ptr %1896, i64 %.019303997
@@ -47465,14 +47459,14 @@ Py_DECREF.exit2791:                               ; preds = %1904, %1911, %1914
   br label %.thread3564
 
 .thread3564:                                      ; preds = %_Py_NewRef.exit3270, %Py_DECREF.exit2791, %1918
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %Py_DECREF.exit2795.thread3583
 
 1920:                                             ; preds = %1915
   %1921 = load ptr, ptr %47, align 8, !tbaa !141
   %1922 = getelementptr [1 x ptr], ptr %1892, i64 0, i64 %.019303997
   store ptr %1921, ptr %1922, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1923 = add nuw nsw i64 %.019303997, 1
   %exitcond4067.not = icmp eq i64 %1923, %.val3223
   br i1 %exitcond4067.not, label %._crit_edge3999.thread, label %1893, !llvm.loop !426
@@ -47551,7 +47545,7 @@ Py_DECREF.exit2791:                               ; preds = %1904, %1911, %1914
 1956:                                             ; preds = %.lr.ph4001, %1983
   %1957 = phi ptr [ %.pre4129, %.lr.ph4001 ], [ %1979, %1983 ]
   %.019314000 = phi i64 [ 0, %.lr.ph4001 ], [ %1986, %1983 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1958 = getelementptr inbounds nuw i8, ptr %1957, i64 24
   %1959 = load ptr, ptr %1958, align 8, !tbaa !117
   %1960 = getelementptr ptr, ptr %1959, i64 %.019314000
@@ -47608,14 +47602,14 @@ Py_DECREF.exit2787:                               ; preds = %1967, %1974, %1977
   br label %.thread3572
 
 .thread3572:                                      ; preds = %_Py_NewRef.exit3271, %Py_DECREF.exit2787, %1981
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %Py_DECREF.exit2795.thread3583
 
 1983:                                             ; preds = %1978
   %1984 = load ptr, ptr %48, align 8, !tbaa !141
   %1985 = getelementptr [1 x ptr], ptr %1955, i64 0, i64 %.019314000
   store ptr %1984, ptr %1985, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %1986 = add nuw nsw i64 %.019314000, 1
   %exitcond4068.not = icmp eq i64 %1986, %.val3221
   br i1 %exitcond4068.not, label %._crit_edge4002.thread, label %1956, !llvm.loop !427
@@ -47728,9 +47722,9 @@ Py_DECREF.exit2781.thread:                        ; preds = %2025, %2022, %2020,
   br i1 %2033, label %Py_DECREF.exit2795.thread3583, label %Py_DECREF.exit2795
 
 Py_DECREF.exit2795.thread3583:                    ; preds = %1825, %1827, %1850, %1852, %1883, %1887, %.thread3564, %1946, %1950, %.thread3572, %2009, %2011, %Py_DECREF.exit2781.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2795.sink.split:                    ; preds = %1847, %1822
@@ -47741,9 +47735,9 @@ Py_DECREF.exit2795.sink.split:                    ; preds = %1847, %1822
 
 Py_DECREF.exit2795:                               ; preds = %Py_DECREF.exit2795.sink.split, %Py_DECREF.exit2781.thread, %1993, %1938, %1930, %1875, %1867, %1842, %1817
   %.10 = phi i32 [ -1, %1817 ], [ -1, %1842 ], [ -1, %1867 ], [ -1, %1875 ], [ -1, %1930 ], [ -1, %1938 ], [ -1, %1993 ], [ 0, %Py_DECREF.exit2781.thread ], [ -1, %Py_DECREF.exit2795.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %Py_DECREF.exit2831
 
 2035:                                             ; preds = %1813
@@ -47756,9 +47750,9 @@ Py_DECREF.exit2795:                               ; preds = %Py_DECREF.exit2795.
   ]
 
 2039:                                             ; preds = %2035
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %2040 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %2041 = load ptr, ptr %2040, align 8, !tbaa !343
   %2042 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2041, ptr noundef nonnull %5) #8
@@ -47909,7 +47903,7 @@ Py_DECREF.exit2795:                               ; preds = %Py_DECREF.exit2795.
 2115:                                             ; preds = %.lr.ph3992, %2142
   %2116 = phi ptr [ %.pre4123, %.lr.ph3992 ], [ %2138, %2142 ]
   %.019343991 = phi i64 [ 0, %.lr.ph3992 ], [ %2145, %2142 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %2117 = getelementptr inbounds nuw i8, ptr %2116, i64 24
   %2118 = load ptr, ptr %2117, align 8, !tbaa !117
   %2119 = getelementptr ptr, ptr %2118, i64 %.019343991
@@ -47966,14 +47960,14 @@ Py_DECREF.exit2775:                               ; preds = %2126, %2133, %2136
   br label %.thread3592
 
 .thread3592:                                      ; preds = %_Py_NewRef.exit3272, %Py_DECREF.exit2775, %2140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %Py_DECREF.exit2779.thread3611
 
 2142:                                             ; preds = %2137
   %2143 = load ptr, ptr %52, align 8, !tbaa !141
   %2144 = getelementptr [1 x ptr], ptr %2114, i64 0, i64 %.019343991
   store ptr %2143, ptr %2144, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %2145 = add nuw nsw i64 %.019343991, 1
   %exitcond4065.not = icmp eq i64 %2145, %.val3219
   br i1 %exitcond4065.not, label %._crit_edge3993.thread, label %2115, !llvm.loop !428
@@ -48052,7 +48046,7 @@ Py_DECREF.exit2775:                               ; preds = %2126, %2133, %2136
 2178:                                             ; preds = %.lr.ph3995, %2205
   %2179 = phi ptr [ %.pre4125, %.lr.ph3995 ], [ %2201, %2205 ]
   %.019353994 = phi i64 [ 0, %.lr.ph3995 ], [ %2208, %2205 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %2180 = getelementptr inbounds nuw i8, ptr %2179, i64 24
   %2181 = load ptr, ptr %2180, align 8, !tbaa !117
   %2182 = getelementptr ptr, ptr %2181, i64 %.019353994
@@ -48109,14 +48103,14 @@ Py_DECREF.exit2771:                               ; preds = %2189, %2196, %2199
   br label %.thread3600
 
 .thread3600:                                      ; preds = %_Py_NewRef.exit3273, %Py_DECREF.exit2771, %2203
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %Py_DECREF.exit2779.thread3611
 
 2205:                                             ; preds = %2200
   %2206 = load ptr, ptr %53, align 8, !tbaa !141
   %2207 = getelementptr [1 x ptr], ptr %2177, i64 0, i64 %.019353994
   store ptr %2206, ptr %2207, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %2208 = add nuw nsw i64 %.019353994, 1
   %exitcond4066.not = icmp eq i64 %2208, %.val3217
   br i1 %exitcond4066.not, label %._crit_edge3996.thread, label %2178, !llvm.loop !429
@@ -48229,9 +48223,9 @@ Py_DECREF.exit2765.thread:                        ; preds = %2247, %2244, %2242,
   br i1 %2255, label %Py_DECREF.exit2779.thread3611, label %Py_DECREF.exit2779
 
 Py_DECREF.exit2779.thread3611:                    ; preds = %2047, %2049, %2072, %2074, %2105, %2109, %.thread3592, %2168, %2172, %.thread3600, %2231, %2233, %Py_DECREF.exit2765.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2779.sink.split:                    ; preds = %2069, %2044
@@ -48242,9 +48236,9 @@ Py_DECREF.exit2779.sink.split:                    ; preds = %2069, %2044
 
 Py_DECREF.exit2779:                               ; preds = %Py_DECREF.exit2779.sink.split, %Py_DECREF.exit2765.thread, %2215, %2160, %2152, %2097, %2089, %2064, %2039
   %.11 = phi i32 [ -1, %2039 ], [ -1, %2064 ], [ -1, %2089 ], [ -1, %2097 ], [ -1, %2152 ], [ -1, %2160 ], [ -1, %2215 ], [ 0, %Py_DECREF.exit2765.thread ], [ -1, %Py_DECREF.exit2779.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %Py_DECREF.exit2831
 
 2257:                                             ; preds = %2035
@@ -48257,7 +48251,7 @@ Py_DECREF.exit2779:                               ; preds = %Py_DECREF.exit2779.
   ]
 
 2261:                                             ; preds = %2257
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %2262 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   %2263 = load ptr, ptr %2262, align 8, !tbaa !345
   %2264 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2263, ptr noundef nonnull %5) #8
@@ -48364,7 +48358,7 @@ Py_DECREF.exit2779:                               ; preds = %Py_DECREF.exit2779.
 2314:                                             ; preds = %.lr.ph3986, %2341
   %2315 = phi ptr [ %.pre4119, %.lr.ph3986 ], [ %2337, %2341 ]
   %.019383985 = phi i64 [ 0, %.lr.ph3986 ], [ %2344, %2341 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %2316 = getelementptr inbounds nuw i8, ptr %2315, i64 24
   %2317 = load ptr, ptr %2316, align 8, !tbaa !117
   %2318 = getelementptr ptr, ptr %2317, i64 %.019383985
@@ -48421,14 +48415,14 @@ Py_DECREF.exit2761:                               ; preds = %2325, %2332, %2335
   br label %.thread3618
 
 .thread3618:                                      ; preds = %_Py_NewRef.exit3274, %Py_DECREF.exit2761, %2339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %Py_DECREF.exit2763.thread3635
 
 2341:                                             ; preds = %2336
   %2342 = load ptr, ptr %55, align 8, !tbaa !141
   %2343 = getelementptr [1 x ptr], ptr %2313, i64 0, i64 %.019383985
   store ptr %2342, ptr %2343, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %2344 = add nuw nsw i64 %.019383985, 1
   %exitcond4063.not = icmp eq i64 %2344, %.val3215
   br i1 %exitcond4063.not, label %._crit_edge3987.thread, label %2314, !llvm.loop !430
@@ -48507,7 +48501,7 @@ Py_DECREF.exit2761:                               ; preds = %2325, %2332, %2335
 2377:                                             ; preds = %.lr.ph3989, %2404
   %2378 = phi ptr [ %.pre4121, %.lr.ph3989 ], [ %2400, %2404 ]
   %.019393988 = phi i64 [ 0, %.lr.ph3989 ], [ %2407, %2404 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %2379 = getelementptr inbounds nuw i8, ptr %2378, i64 24
   %2380 = load ptr, ptr %2379, align 8, !tbaa !117
   %2381 = getelementptr ptr, ptr %2380, i64 %.019393988
@@ -48564,14 +48558,14 @@ Py_DECREF.exit2757:                               ; preds = %2388, %2395, %2398
   br label %.thread3626
 
 .thread3626:                                      ; preds = %_Py_NewRef.exit3275, %Py_DECREF.exit2757, %2402
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %Py_DECREF.exit2763.thread3635
 
 2404:                                             ; preds = %2399
   %2405 = load ptr, ptr %56, align 8, !tbaa !141
   %2406 = getelementptr [1 x ptr], ptr %2376, i64 0, i64 %.019393988
   store ptr %2405, ptr %2406, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %2407 = add nuw nsw i64 %.019393988, 1
   %exitcond4064.not = icmp eq i64 %2407, %.val3213
   br i1 %exitcond4064.not, label %._crit_edge3990.thread, label %2377, !llvm.loop !431
@@ -48608,12 +48602,12 @@ Py_DECREF.exit2757:                               ; preds = %2388, %2395, %2398
   br i1 %2420, label %Py_DECREF.exit2763.thread3635, label %Py_DECREF.exit2763
 
 Py_DECREF.exit2763.thread3635:                    ; preds = %2271, %2273, %2304, %2308, %.thread3618, %2367, %2371, %.thread3626, %2414
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2763:                               ; preds = %2414, %2359, %2351, %2296, %2288, %2261, %2269
   %.12 = phi i32 [ -1, %2269 ], [ -1, %2261 ], [ -1, %2288 ], [ -1, %2296 ], [ -1, %2351 ], [ -1, %2359 ], [ 0, %2414 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %Py_DECREF.exit2831
 
 2421:                                             ; preds = %2257
@@ -48626,7 +48620,7 @@ Py_DECREF.exit2763:                               ; preds = %2414, %2359, %2351,
   ]
 
 2425:                                             ; preds = %2421
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %2426 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   %2427 = load ptr, ptr %2426, align 8, !tbaa !345
   %2428 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2427, ptr noundef nonnull %5) #8
@@ -48733,7 +48727,7 @@ Py_DECREF.exit2763:                               ; preds = %2414, %2359, %2351,
 2478:                                             ; preds = %.lr.ph3980, %2505
   %2479 = phi ptr [ %.pre4115, %.lr.ph3980 ], [ %2501, %2505 ]
   %.019433979 = phi i64 [ 0, %.lr.ph3980 ], [ %2508, %2505 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %2480 = getelementptr inbounds nuw i8, ptr %2479, i64 24
   %2481 = load ptr, ptr %2480, align 8, !tbaa !117
   %2482 = getelementptr ptr, ptr %2481, i64 %.019433979
@@ -48790,14 +48784,14 @@ Py_DECREF.exit2751:                               ; preds = %2489, %2496, %2499
   br label %.thread3642
 
 .thread3642:                                      ; preds = %_Py_NewRef.exit3276, %Py_DECREF.exit2751, %2503
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %Py_DECREF.exit2753.thread3659
 
 2505:                                             ; preds = %2500
   %2506 = load ptr, ptr %58, align 8, !tbaa !141
   %2507 = getelementptr [1 x ptr], ptr %2477, i64 0, i64 %.019433979
   store ptr %2506, ptr %2507, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %2508 = add nuw nsw i64 %.019433979, 1
   %exitcond4061.not = icmp eq i64 %2508, %.val3211
   br i1 %exitcond4061.not, label %._crit_edge3981.thread, label %2478, !llvm.loop !432
@@ -48876,7 +48870,7 @@ Py_DECREF.exit2751:                               ; preds = %2489, %2496, %2499
 2541:                                             ; preds = %.lr.ph3983, %2568
   %2542 = phi ptr [ %.pre4117, %.lr.ph3983 ], [ %2564, %2568 ]
   %.019443982 = phi i64 [ 0, %.lr.ph3983 ], [ %2571, %2568 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %2543 = getelementptr inbounds nuw i8, ptr %2542, i64 24
   %2544 = load ptr, ptr %2543, align 8, !tbaa !117
   %2545 = getelementptr ptr, ptr %2544, i64 %.019443982
@@ -48933,14 +48927,14 @@ Py_DECREF.exit2747:                               ; preds = %2552, %2559, %2562
   br label %.thread3650
 
 .thread3650:                                      ; preds = %_Py_NewRef.exit3277, %Py_DECREF.exit2747, %2566
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %Py_DECREF.exit2753.thread3659
 
 2568:                                             ; preds = %2563
   %2569 = load ptr, ptr %59, align 8, !tbaa !141
   %2570 = getelementptr [1 x ptr], ptr %2540, i64 0, i64 %.019443982
   store ptr %2569, ptr %2570, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %2571 = add nuw nsw i64 %.019443982, 1
   %exitcond4062.not = icmp eq i64 %2571, %.val3209
   br i1 %exitcond4062.not, label %._crit_edge3984.thread, label %2541, !llvm.loop !433
@@ -48977,12 +48971,12 @@ Py_DECREF.exit2747:                               ; preds = %2552, %2559, %2562
   br i1 %2584, label %Py_DECREF.exit2753.thread3659, label %Py_DECREF.exit2753
 
 Py_DECREF.exit2753.thread3659:                    ; preds = %2435, %2437, %2468, %2472, %.thread3642, %2531, %2535, %.thread3650, %2578
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2753:                               ; preds = %2578, %2523, %2515, %2460, %2452, %2425, %2433
   %.13 = phi i32 [ -1, %2433 ], [ -1, %2425 ], [ -1, %2452 ], [ -1, %2460 ], [ -1, %2515 ], [ -1, %2523 ], [ 0, %2578 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %Py_DECREF.exit2831
 
 2585:                                             ; preds = %2421
@@ -48995,7 +48989,7 @@ Py_DECREF.exit2753:                               ; preds = %2578, %2523, %2515,
   ]
 
 2589:                                             ; preds = %2585
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %2590 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %2591 = load ptr, ptr %2590, align 8, !tbaa !311
   %2592 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2591, ptr noundef nonnull %5) #8
@@ -49048,7 +49042,7 @@ Py_DECREF.exit2753:                               ; preds = %2578, %2523, %2515,
 2615:                                             ; preds = %.lr.ph3974, %2642
   %2616 = phi ptr [ %.pre4111, %.lr.ph3974 ], [ %2638, %2642 ]
   %.019483973 = phi i64 [ 0, %.lr.ph3974 ], [ %2645, %2642 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %2617 = getelementptr inbounds nuw i8, ptr %2616, i64 24
   %2618 = load ptr, ptr %2617, align 8, !tbaa !117
   %2619 = getelementptr ptr, ptr %2618, i64 %.019483973
@@ -49105,14 +49099,14 @@ Py_DECREF.exit2743:                               ; preds = %2626, %2633, %2636
   br label %.thread3664
 
 .thread3664:                                      ; preds = %_Py_NewRef.exit3278, %Py_DECREF.exit2743, %2640
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %Py_DECREF.exit2741.thread3683
 
 2642:                                             ; preds = %2637
   %2643 = load ptr, ptr %61, align 8, !tbaa !434
   %2644 = getelementptr [1 x ptr], ptr %2614, i64 0, i64 %.019483973
   store ptr %2643, ptr %2644, align 8, !tbaa !434
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %2645 = add nuw nsw i64 %.019483973, 1
   %exitcond4059.not = icmp eq i64 %2645, %.val3207
   br i1 %exitcond4059.not, label %._crit_edge3975.thread, label %2615, !llvm.loop !436
@@ -49191,7 +49185,7 @@ Py_DECREF.exit2743:                               ; preds = %2626, %2633, %2636
 2678:                                             ; preds = %.lr.ph3977, %2705
   %2679 = phi ptr [ %.pre4113, %.lr.ph3977 ], [ %2701, %2705 ]
   %.019493976 = phi i64 [ 0, %.lr.ph3977 ], [ %2708, %2705 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %2680 = getelementptr inbounds nuw i8, ptr %2679, i64 24
   %2681 = load ptr, ptr %2680, align 8, !tbaa !117
   %2682 = getelementptr ptr, ptr %2681, i64 %.019493976
@@ -49248,14 +49242,14 @@ Py_DECREF.exit2739:                               ; preds = %2689, %2696, %2699
   br label %.thread3672
 
 .thread3672:                                      ; preds = %_Py_NewRef.exit3279, %Py_DECREF.exit2739, %2703
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %Py_DECREF.exit2741.thread3683
 
 2705:                                             ; preds = %2700
   %2706 = load ptr, ptr %62, align 8, !tbaa !141
   %2707 = getelementptr [1 x ptr], ptr %2677, i64 0, i64 %.019493976
   store ptr %2706, ptr %2707, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %2708 = add nuw nsw i64 %.019493976, 1
   %exitcond4060.not = icmp eq i64 %2708, %.val3205
   br i1 %exitcond4060.not, label %._crit_edge3978.thread, label %2678, !llvm.loop !437
@@ -49388,12 +49382,12 @@ select.unfold3681:                                ; preds = %Py_DECREF.exit2733.
   br label %Py_DECREF.exit2741.thread3683
 
 Py_DECREF.exit2741.thread3683:                    ; preds = %2605, %2609, %.thread3664, %2668, %2672, %.thread3672, %2731, %2733, %select.unfold3681
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2741:                               ; preds = %_PyAST_With.exit, %2715, %2660, %2652, %2597, %2589
   %.14 = phi i32 [ -1, %2589 ], [ -1, %2597 ], [ -1, %2652 ], [ -1, %2660 ], [ -1, %2715 ], [ 0, %_PyAST_With.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %Py_DECREF.exit2831
 
 2760:                                             ; preds = %2585
@@ -49406,7 +49400,7 @@ Py_DECREF.exit2741:                               ; preds = %_PyAST_With.exit, %
   ]
 
 2764:                                             ; preds = %2760
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %2765 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %2766 = load ptr, ptr %2765, align 8, !tbaa !311
   %2767 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2766, ptr noundef nonnull %5) #8
@@ -49459,7 +49453,7 @@ Py_DECREF.exit2741:                               ; preds = %_PyAST_With.exit, %
 2790:                                             ; preds = %.lr.ph3968, %2817
   %2791 = phi ptr [ %.pre4107, %.lr.ph3968 ], [ %2813, %2817 ]
   %.019533967 = phi i64 [ 0, %.lr.ph3968 ], [ %2820, %2817 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %2792 = getelementptr inbounds nuw i8, ptr %2791, i64 24
   %2793 = load ptr, ptr %2792, align 8, !tbaa !117
   %2794 = getelementptr ptr, ptr %2793, i64 %.019533967
@@ -49516,14 +49510,14 @@ Py_DECREF.exit2731:                               ; preds = %2801, %2808, %2811
   br label %.thread3688
 
 .thread3688:                                      ; preds = %_Py_NewRef.exit3281, %Py_DECREF.exit2731, %2815
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %Py_DECREF.exit2729.thread3707
 
 2817:                                             ; preds = %2812
   %2818 = load ptr, ptr %64, align 8, !tbaa !434
   %2819 = getelementptr [1 x ptr], ptr %2789, i64 0, i64 %.019533967
   store ptr %2818, ptr %2819, align 8, !tbaa !434
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %2820 = add nuw nsw i64 %.019533967, 1
   %exitcond4057.not = icmp eq i64 %2820, %.val3203
   br i1 %exitcond4057.not, label %._crit_edge3969.thread, label %2790, !llvm.loop !438
@@ -49602,7 +49596,7 @@ Py_DECREF.exit2731:                               ; preds = %2801, %2808, %2811
 2853:                                             ; preds = %.lr.ph3971, %2880
   %2854 = phi ptr [ %.pre4109, %.lr.ph3971 ], [ %2876, %2880 ]
   %.019543970 = phi i64 [ 0, %.lr.ph3971 ], [ %2883, %2880 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %2855 = getelementptr inbounds nuw i8, ptr %2854, i64 24
   %2856 = load ptr, ptr %2855, align 8, !tbaa !117
   %2857 = getelementptr ptr, ptr %2856, i64 %.019543970
@@ -49659,14 +49653,14 @@ Py_DECREF.exit2727:                               ; preds = %2864, %2871, %2874
   br label %.thread3696
 
 .thread3696:                                      ; preds = %_Py_NewRef.exit3282, %Py_DECREF.exit2727, %2878
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %Py_DECREF.exit2729.thread3707
 
 2880:                                             ; preds = %2875
   %2881 = load ptr, ptr %65, align 8, !tbaa !141
   %2882 = getelementptr [1 x ptr], ptr %2852, i64 0, i64 %.019543970
   store ptr %2881, ptr %2882, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %2883 = add nuw nsw i64 %.019543970, 1
   %exitcond4058.not = icmp eq i64 %2883, %.val3201
   br i1 %exitcond4058.not, label %._crit_edge3972.thread, label %2853, !llvm.loop !439
@@ -49799,12 +49793,12 @@ select.unfold3705:                                ; preds = %Py_DECREF.exit2721.
   br label %Py_DECREF.exit2729.thread3707
 
 Py_DECREF.exit2729.thread3707:                    ; preds = %2780, %2784, %.thread3688, %2843, %2847, %.thread3696, %2906, %2908, %select.unfold3705
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2729:                               ; preds = %_PyAST_AsyncWith.exit, %2890, %2835, %2827, %2772, %2764
   %.15 = phi i32 [ -1, %2764 ], [ -1, %2772 ], [ -1, %2827 ], [ -1, %2835 ], [ -1, %2890 ], [ 0, %_PyAST_AsyncWith.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %Py_DECREF.exit2831
 
 2935:                                             ; preds = %2760
@@ -49817,7 +49811,7 @@ Py_DECREF.exit2729:                               ; preds = %_PyAST_AsyncWith.ex
   ]
 
 2939:                                             ; preds = %2935
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %2940 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   %2941 = load ptr, ptr %2940, align 8, !tbaa !342
   %2942 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2941, ptr noundef nonnull %5) #8
@@ -49924,7 +49918,7 @@ Py_DECREF.exit2729:                               ; preds = %_PyAST_AsyncWith.ex
 2992:                                             ; preds = %.lr.ph3965, %3019
   %2993 = phi ptr [ %.pre4105, %.lr.ph3965 ], [ %3015, %3019 ]
   %.019563964 = phi i64 [ 0, %.lr.ph3965 ], [ %3022, %3019 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %2994 = getelementptr inbounds nuw i8, ptr %2993, i64 24
   %2995 = load ptr, ptr %2994, align 8, !tbaa !117
   %2996 = getelementptr ptr, ptr %2995, i64 %.019563964
@@ -49981,14 +49975,14 @@ Py_DECREF.exit2717:                               ; preds = %3003, %3010, %3013
   br label %.thread3714
 
 .thread3714:                                      ; preds = %_Py_NewRef.exit3284, %Py_DECREF.exit2717, %3017
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %Py_DECREF.exit2719.thread3723
 
 3019:                                             ; preds = %3014
   %3020 = load ptr, ptr %67, align 8, !tbaa !440
   %3021 = getelementptr [1 x ptr], ptr %2991, i64 0, i64 %.019563964
   store ptr %3020, ptr %3021, align 8, !tbaa !440
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   %3022 = add nuw nsw i64 %.019563964, 1
   %exitcond4056.not = icmp eq i64 %3022, %.val3199
   br i1 %exitcond4056.not, label %._crit_edge3966.thread, label %2992, !llvm.loop !442
@@ -50025,12 +50019,12 @@ Py_DECREF.exit2717:                               ; preds = %3003, %3010, %3013
   br i1 %3035, label %Py_DECREF.exit2719.thread3723, label %Py_DECREF.exit2719
 
 Py_DECREF.exit2719.thread3723:                    ; preds = %2949, %2951, %2982, %2986, %.thread3714, %3029
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2719:                               ; preds = %3029, %2974, %2966, %2939, %2947
   %.16 = phi i32 [ -1, %2947 ], [ -1, %2939 ], [ -1, %2966 ], [ -1, %2974 ], [ 0, %3029 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %Py_DECREF.exit2831
 
 3036:                                             ; preds = %2935
@@ -50043,8 +50037,8 @@ Py_DECREF.exit2719:                               ; preds = %3029, %2974, %2966,
   ]
 
 3040:                                             ; preds = %3036
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %3041 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %3042 = load ptr, ptr %3041, align 8, !tbaa !301
   %3043 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %3042, ptr noundef nonnull %5) #8
@@ -50224,14 +50218,14 @@ select.unfold3731:                                ; preds = %Py_DECREF.exit2707.
   br label %Py_DECREF.exit2711.thread3733
 
 Py_DECREF.exit2711.thread3733:                    ; preds = %3056, %3058, %3088, %3090, %select.unfold3731
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2711:                               ; preds = %_PyAST_Raise.exit, %Py_DECREF.exit2711.thread, %3040
   %.17 = phi i32 [ -1, %3040 ], [ -1, %Py_DECREF.exit2711.thread ], [ 0, %_PyAST_Raise.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %Py_DECREF.exit2831
 
 3117:                                             ; preds = %3036
@@ -50296,7 +50290,7 @@ Py_DECREF.exit2711:                               ; preds = %_PyAST_Raise.exit, 
 3147:                                             ; preds = %.lr.ph3953, %3174
   %3148 = phi ptr [ %.pre4097, %.lr.ph3953 ], [ %3170, %3174 ]
   %.019663952 = phi i64 [ 0, %.lr.ph3953 ], [ %3177, %3174 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %3149 = getelementptr inbounds nuw i8, ptr %3148, i64 24
   %3150 = load ptr, ptr %3149, align 8, !tbaa !117
   %3151 = getelementptr ptr, ptr %3150, i64 %.019663952
@@ -50353,14 +50347,14 @@ Py_DECREF.exit2705:                               ; preds = %3158, %3165, %3168
   br label %.thread3738
 
 .thread3738:                                      ; preds = %_Py_NewRef.exit3286, %Py_DECREF.exit2705, %3172
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %Py_DECREF.exit2919
 
 3174:                                             ; preds = %3169
   %3175 = load ptr, ptr %70, align 8, !tbaa !141
   %3176 = getelementptr [1 x ptr], ptr %3146, i64 0, i64 %.019663952
   store ptr %3175, ptr %3176, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %3177 = add nuw nsw i64 %.019663952, 1
   %exitcond4052.not = icmp eq i64 %3177, %.val3197
   br i1 %exitcond4052.not, label %._crit_edge3954.thread, label %3147, !llvm.loop !443
@@ -50439,7 +50433,7 @@ Py_DECREF.exit2705:                               ; preds = %3158, %3165, %3168
 3210:                                             ; preds = %.lr.ph3956, %3237
   %3211 = phi ptr [ %.pre4099, %.lr.ph3956 ], [ %3233, %3237 ]
   %.019673955 = phi i64 [ 0, %.lr.ph3956 ], [ %3240, %3237 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %3212 = getelementptr inbounds nuw i8, ptr %3211, i64 24
   %3213 = load ptr, ptr %3212, align 8, !tbaa !117
   %3214 = getelementptr ptr, ptr %3213, i64 %.019673955
@@ -50496,14 +50490,14 @@ Py_DECREF.exit2701:                               ; preds = %3221, %3228, %3231
   br label %.thread3746
 
 .thread3746:                                      ; preds = %_Py_NewRef.exit3287, %Py_DECREF.exit2701, %3235
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %Py_DECREF.exit2919
 
 3237:                                             ; preds = %3232
   %3238 = load ptr, ptr %71, align 8, !tbaa !444
   %3239 = getelementptr [1 x ptr], ptr %3209, i64 0, i64 %.019673955
   store ptr %3238, ptr %3239, align 8, !tbaa !444
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %3240 = add nuw nsw i64 %.019673955, 1
   %exitcond4053.not = icmp eq i64 %3240, %.val3195
   br i1 %exitcond4053.not, label %._crit_edge3957.thread, label %3210, !llvm.loop !446
@@ -50582,7 +50576,7 @@ Py_DECREF.exit2701:                               ; preds = %3221, %3228, %3231
 3273:                                             ; preds = %.lr.ph3959, %3300
   %3274 = phi ptr [ %.pre4101, %.lr.ph3959 ], [ %3296, %3300 ]
   %.019693958 = phi i64 [ 0, %.lr.ph3959 ], [ %3303, %3300 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %3275 = getelementptr inbounds nuw i8, ptr %3274, i64 24
   %3276 = load ptr, ptr %3275, align 8, !tbaa !117
   %3277 = getelementptr ptr, ptr %3276, i64 %.019693958
@@ -50639,14 +50633,14 @@ Py_DECREF.exit2697:                               ; preds = %3284, %3291, %3294
   br label %.thread3754
 
 .thread3754:                                      ; preds = %_Py_NewRef.exit3288, %Py_DECREF.exit2697, %3298
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %Py_DECREF.exit2919
 
 3300:                                             ; preds = %3295
   %3301 = load ptr, ptr %72, align 8, !tbaa !141
   %3302 = getelementptr [1 x ptr], ptr %3272, i64 0, i64 %.019693958
   store ptr %3301, ptr %3302, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %3303 = add nuw nsw i64 %.019693958, 1
   %exitcond4054.not = icmp eq i64 %3303, %.val3193
   br i1 %exitcond4054.not, label %._crit_edge3960.thread, label %3273, !llvm.loop !447
@@ -50725,7 +50719,7 @@ Py_DECREF.exit2697:                               ; preds = %3284, %3291, %3294
 3336:                                             ; preds = %.lr.ph3962, %3363
   %3337 = phi ptr [ %.pre4103, %.lr.ph3962 ], [ %3359, %3363 ]
   %.019683961 = phi i64 [ 0, %.lr.ph3962 ], [ %3366, %3363 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %3338 = getelementptr inbounds nuw i8, ptr %3337, i64 24
   %3339 = load ptr, ptr %3338, align 8, !tbaa !117
   %3340 = getelementptr ptr, ptr %3339, i64 %.019683961
@@ -50782,14 +50776,14 @@ Py_DECREF.exit2693:                               ; preds = %3347, %3354, %3357
   br label %.thread3762
 
 .thread3762:                                      ; preds = %_Py_NewRef.exit3289, %Py_DECREF.exit2693, %3361
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %Py_DECREF.exit2919
 
 3363:                                             ; preds = %3358
   %3364 = load ptr, ptr %73, align 8, !tbaa !141
   %3365 = getelementptr [1 x ptr], ptr %3335, i64 0, i64 %.019683961
   store ptr %3364, ptr %3365, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %3366 = add nuw nsw i64 %.019683961, 1
   %exitcond4055.not = icmp eq i64 %3366, %.val3191
   br i1 %exitcond4055.not, label %._crit_edge3963.thread, label %3336, !llvm.loop !448
@@ -50910,7 +50904,7 @@ select.unfold3769:                                ; preds = %3373
 3416:                                             ; preds = %.lr.ph3941, %3443
   %3417 = phi ptr [ %.pre4089, %.lr.ph3941 ], [ %3439, %3443 ]
   %.019583940 = phi i64 [ 0, %.lr.ph3941 ], [ %3446, %3443 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %3418 = getelementptr inbounds nuw i8, ptr %3417, i64 24
   %3419 = load ptr, ptr %3418, align 8, !tbaa !117
   %3420 = getelementptr ptr, ptr %3419, i64 %.019583940
@@ -50967,14 +50961,14 @@ Py_DECREF.exit2689:                               ; preds = %3427, %3434, %3437
   br label %.thread3776
 
 .thread3776:                                      ; preds = %_Py_NewRef.exit3291, %Py_DECREF.exit2689, %3441
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %Py_DECREF.exit2919
 
 3443:                                             ; preds = %3438
   %3444 = load ptr, ptr %74, align 8, !tbaa !141
   %3445 = getelementptr [1 x ptr], ptr %3415, i64 0, i64 %.019583940
   store ptr %3444, ptr %3445, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %3446 = add nuw nsw i64 %.019583940, 1
   %exitcond4048.not = icmp eq i64 %3446, %.val3189
   br i1 %exitcond4048.not, label %._crit_edge3942.thread, label %3416, !llvm.loop !449
@@ -51053,7 +51047,7 @@ Py_DECREF.exit2689:                               ; preds = %3427, %3434, %3437
 3479:                                             ; preds = %.lr.ph3944, %3506
   %3480 = phi ptr [ %.pre4091, %.lr.ph3944 ], [ %3502, %3506 ]
   %.019523943 = phi i64 [ 0, %.lr.ph3944 ], [ %3509, %3506 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %3481 = getelementptr inbounds nuw i8, ptr %3480, i64 24
   %3482 = load ptr, ptr %3481, align 8, !tbaa !117
   %3483 = getelementptr ptr, ptr %3482, i64 %.019523943
@@ -51110,14 +51104,14 @@ Py_DECREF.exit2685:                               ; preds = %3490, %3497, %3500
   br label %.thread3784
 
 .thread3784:                                      ; preds = %_Py_NewRef.exit3292, %Py_DECREF.exit2685, %3504
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %Py_DECREF.exit2919
 
 3506:                                             ; preds = %3501
   %3507 = load ptr, ptr %75, align 8, !tbaa !444
   %3508 = getelementptr [1 x ptr], ptr %3478, i64 0, i64 %.019523943
   store ptr %3507, ptr %3508, align 8, !tbaa !444
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %3509 = add nuw nsw i64 %.019523943, 1
   %exitcond4049.not = icmp eq i64 %3509, %.val3187
   br i1 %exitcond4049.not, label %._crit_edge3945.thread, label %3479, !llvm.loop !450
@@ -51196,7 +51190,7 @@ Py_DECREF.exit2685:                               ; preds = %3490, %3497, %3500
 3542:                                             ; preds = %.lr.ph3947, %3569
   %3543 = phi ptr [ %.pre4093, %.lr.ph3947 ], [ %3565, %3569 ]
   %.019463946 = phi i64 [ 0, %.lr.ph3947 ], [ %3572, %3569 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %3544 = getelementptr inbounds nuw i8, ptr %3543, i64 24
   %3545 = load ptr, ptr %3544, align 8, !tbaa !117
   %3546 = getelementptr ptr, ptr %3545, i64 %.019463946
@@ -51253,14 +51247,14 @@ Py_DECREF.exit2681:                               ; preds = %3553, %3560, %3563
   br label %.thread3792
 
 .thread3792:                                      ; preds = %_Py_NewRef.exit3293, %Py_DECREF.exit2681, %3567
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %Py_DECREF.exit2919
 
 3569:                                             ; preds = %3564
   %3570 = load ptr, ptr %76, align 8, !tbaa !141
   %3571 = getelementptr [1 x ptr], ptr %3541, i64 0, i64 %.019463946
   store ptr %3570, ptr %3571, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %3572 = add nuw nsw i64 %.019463946, 1
   %exitcond4050.not = icmp eq i64 %3572, %.val3185
   br i1 %exitcond4050.not, label %._crit_edge3948.thread, label %3542, !llvm.loop !451
@@ -51339,7 +51333,7 @@ Py_DECREF.exit2681:                               ; preds = %3553, %3560, %3563
 3605:                                             ; preds = %.lr.ph3950, %3632
   %3606 = phi ptr [ %.pre4095, %.lr.ph3950 ], [ %3628, %3632 ]
   %.019403949 = phi i64 [ 0, %.lr.ph3950 ], [ %3635, %3632 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %3607 = getelementptr inbounds nuw i8, ptr %3606, i64 24
   %3608 = load ptr, ptr %3607, align 8, !tbaa !117
   %3609 = getelementptr ptr, ptr %3608, i64 %.019403949
@@ -51396,14 +51390,14 @@ Py_DECREF.exit2677:                               ; preds = %3616, %3623, %3626
   br label %.thread3800
 
 .thread3800:                                      ; preds = %_Py_NewRef.exit3294, %Py_DECREF.exit2677, %3630
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %Py_DECREF.exit2919
 
 3632:                                             ; preds = %3627
   %3633 = load ptr, ptr %77, align 8, !tbaa !141
   %3634 = getelementptr [1 x ptr], ptr %3604, i64 0, i64 %.019403949
   store ptr %3633, ptr %3634, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %3635 = add nuw nsw i64 %.019403949, 1
   %exitcond4051.not = icmp eq i64 %3635, %.val3183
   br i1 %exitcond4051.not, label %._crit_edge3951.thread, label %3605, !llvm.loop !452
@@ -51472,8 +51466,8 @@ select.unfold3807:                                ; preds = %3642
   ]
 
 3659:                                             ; preds = %3655
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %3660 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   %3661 = load ptr, ptr %3660, align 8, !tbaa !345
   %3662 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %3661, ptr noundef nonnull %5) #8
@@ -51613,14 +51607,14 @@ Py_DECREF.exit2669.thread:                        ; preds = %3718, %3715, %3713,
   br i1 %3725, label %Py_DECREF.exit2673.thread3819, label %Py_DECREF.exit2673
 
 Py_DECREF.exit2673.thread3819:                    ; preds = %3669, %3671, %3702, %3704, %Py_DECREF.exit2669.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2673:                               ; preds = %Py_DECREF.exit2669.thread, %3686, %3659, %3667
   %.20 = phi i32 [ -1, %3667 ], [ -1, %3659 ], [ -1, %3686 ], [ 0, %Py_DECREF.exit2669.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %Py_DECREF.exit2831
 
 3726:                                             ; preds = %3655
@@ -51685,7 +51679,7 @@ Py_DECREF.exit2673:                               ; preds = %Py_DECREF.exit2669.
 3756:                                             ; preds = %.lr.ph3938, %3783
   %3757 = phi ptr [ %.pre4087, %.lr.ph3938 ], [ %3779, %3783 ]
   %.019253937 = phi i64 [ 0, %.lr.ph3938 ], [ %3786, %3783 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %3758 = getelementptr inbounds nuw i8, ptr %3757, i64 24
   %3759 = load ptr, ptr %3758, align 8, !tbaa !117
   %3760 = getelementptr ptr, ptr %3759, i64 %.019253937
@@ -51742,14 +51736,14 @@ Py_DECREF.exit2667:                               ; preds = %3767, %3774, %3777
   br label %.thread3824
 
 .thread3824:                                      ; preds = %_Py_NewRef.exit3296, %Py_DECREF.exit2667, %3781
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %Py_DECREF.exit2919
 
 3783:                                             ; preds = %3778
   %3784 = load ptr, ptr %80, align 8, !tbaa !453
   %3785 = getelementptr [1 x ptr], ptr %3755, i64 0, i64 %.019253937
   store ptr %3784, ptr %3785, align 8, !tbaa !453
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %3786 = add nuw nsw i64 %.019253937, 1
   %exitcond4047.not = icmp eq i64 %3786, %.val3181
   br i1 %exitcond4047.not, label %._crit_edge3939.thread, label %3756, !llvm.loop !455
@@ -51812,8 +51806,8 @@ select.unfold3831:                                ; preds = %3793
   ]
 
 3807:                                             ; preds = %3803
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %82) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %3808 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3809 = load ptr, ptr %3808, align 8, !tbaa !325
   %3810 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %3809, ptr noundef nonnull %5) #8
@@ -51940,7 +51934,7 @@ Py_DECREF.exit2661.thread:                        ; preds = %3839, %3836, %3834,
 3865:                                             ; preds = %.lr.ph3935, %3892
   %3866 = phi ptr [ %.pre4085, %.lr.ph3935 ], [ %3888, %3892 ]
   %.019133934 = phi i64 [ 0, %.lr.ph3935 ], [ %3895, %3892 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %3867 = getelementptr inbounds nuw i8, ptr %3866, i64 24
   %3868 = load ptr, ptr %3867, align 8, !tbaa !117
   %3869 = getelementptr ptr, ptr %3868, i64 %.019133934
@@ -51997,14 +51991,14 @@ Py_DECREF.exit2659:                               ; preds = %3876, %3883, %3886
   br label %.thread3840
 
 .thread3840:                                      ; preds = %_Py_NewRef.exit3298, %Py_DECREF.exit2659, %3890
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %Py_DECREF.exit2661.thread3851
 
 3892:                                             ; preds = %3887
   %3893 = load ptr, ptr %83, align 8, !tbaa !453
   %3894 = getelementptr [1 x ptr], ptr %3864, i64 0, i64 %.019133934
   store ptr %3893, ptr %3894, align 8, !tbaa !453
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %3895 = add nuw nsw i64 %.019133934, 1
   %exitcond4046.not = icmp eq i64 %3895, %.val3179
   br i1 %exitcond4046.not, label %._crit_edge3936.thread, label %3865, !llvm.loop !456
@@ -52138,14 +52132,14 @@ select.unfold3849:                                ; preds = %Py_DECREF.exit2653.
   br label %Py_DECREF.exit2661.thread3851
 
 Py_DECREF.exit2661.thread3851:                    ; preds = %3823, %3825, %3855, %3859, %.thread3840, %3918, %3920, %select.unfold3849
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %82) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit2661:                               ; preds = %_PyAST_ImportFrom.exit, %3902, %3847, %Py_DECREF.exit2661.thread, %3807
   %.22 = phi i32 [ -1, %3807 ], [ -1, %Py_DECREF.exit2661.thread ], [ -1, %3847 ], [ -1, %3902 ], [ 0, %_PyAST_ImportFrom.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %82) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %Py_DECREF.exit2831
 
 3948:                                             ; preds = %3803
@@ -52208,7 +52202,7 @@ Py_DECREF.exit2661:                               ; preds = %_PyAST_ImportFrom.e
 
 3978:                                             ; preds = %.lr.ph3932, %4005
   %.019013931 = phi i64 [ 0, %.lr.ph3932 ], [ %4008, %4005 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %3979 = load ptr, ptr %5, align 8, !tbaa !4
   %3980 = getelementptr inbounds nuw i8, ptr %3979, i64 24
   %3981 = load ptr, ptr %3980, align 8, !tbaa !117
@@ -52266,14 +52260,14 @@ Py_DECREF.exit2651:                               ; preds = %3989, %3996, %3999
   br label %.thread3856
 
 .thread3856:                                      ; preds = %_Py_NewRef.exit3300, %Py_DECREF.exit2651, %4003
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %Py_DECREF.exit2919
 
 4005:                                             ; preds = %4000
   %4006 = load ptr, ptr %84, align 8, !tbaa !4
   %4007 = getelementptr [1 x ptr], ptr %3977, i64 0, i64 %.019013931
   store ptr %4006, ptr %4007, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %4008 = add nuw nsw i64 %.019013931, 1
   %exitcond4045.not = icmp eq i64 %4008, %.val3177
   br i1 %exitcond4045.not, label %._crit_edge3933, label %3978, !llvm.loop !457
@@ -52386,7 +52380,7 @@ select.unfold3863:                                ; preds = %4016
 
 4056:                                             ; preds = %.lr.ph, %4083
   %.018943930 = phi i64 [ 0, %.lr.ph ], [ %4086, %4083 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %4057 = load ptr, ptr %5, align 8, !tbaa !4
   %4058 = getelementptr inbounds nuw i8, ptr %4057, i64 24
   %4059 = load ptr, ptr %4058, align 8, !tbaa !117
@@ -52444,14 +52438,14 @@ Py_DECREF.exit2647:                               ; preds = %4067, %4074, %4077
   br label %.thread3870
 
 .thread3870:                                      ; preds = %_Py_NewRef.exit3302, %Py_DECREF.exit2647, %4081
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %Py_DECREF.exit2919
 
 4083:                                             ; preds = %4078
   %4084 = load ptr, ptr %85, align 8, !tbaa !4
   %4085 = getelementptr [1 x ptr], ptr %4055, i64 0, i64 %.018943930
   store ptr %4084, ptr %4085, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %4086 = add nuw nsw i64 %.018943930, 1
   %exitcond.not = icmp eq i64 %4086, %.val3175
   br i1 %exitcond.not, label %._crit_edge, label %4056, !llvm.loop !458
@@ -52514,7 +52508,7 @@ select.unfold3877:                                ; preds = %4094
   ]
 
 4108:                                             ; preds = %4104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %4109 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %4110 = load ptr, ptr %4109, align 8, !tbaa !350
   %4111 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %4110, ptr noundef nonnull %5) #8
@@ -52579,12 +52573,12 @@ select.unfold3877:                                ; preds = %4094
   br i1 %4141, label %Py_DECREF.exit.thread3887, label %Py_DECREF.exit
 
 Py_DECREF.exit.thread3887:                        ; preds = %4118, %4120, %4135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %Py_DECREF.exit2919
 
 Py_DECREF.exit:                                   ; preds = %4135, %4108, %4116
   %.25 = phi i32 [ -1, %4116 ], [ -1, %4108 ], [ 0, %4135 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %Py_DECREF.exit2831
 
 4142:                                             ; preds = %4104
@@ -52716,10 +52710,10 @@ Py_DECREF.exit2919:                               ; preds = %select.unfold3877, 
 
 Py_DECREF.exit2831:                               ; preds = %_PyAST_Nonlocal.exit, %_PyAST_Global.exit, %_PyAST_Import.exit, %_PyAST_TryStar.exit, %_PyAST_Try.exit, %_PyAST_Delete.exit, %4190, %4187, %4185, %Py_DECREF.exit2919, %_PyAST_Continue.exit, %_PyAST_Break.exit, %_PyAST_Pass.exit, %Py_DECREF.exit, %4030, %4038, %3952, %3960, %Py_DECREF.exit2661, %3730, %3738, %Py_DECREF.exit2673, %3390, %3398, %3453, %3461, %3516, %3524, %3579, %3587, %3121, %3129, %3184, %3192, %3247, %3255, %3310, %3318, %Py_DECREF.exit2711, %Py_DECREF.exit2719, %Py_DECREF.exit2729, %Py_DECREF.exit2741, %Py_DECREF.exit2753, %Py_DECREF.exit2763, %Py_DECREF.exit2779, %Py_DECREF.exit2795, %Py_DECREF.exit2805, %Py_DECREF.exit2811, %Py_DECREF.exit2819, %Py_DECREF.exit2827, %1269, %1277, %Py_DECREF.exit2835, %Py_DECREF.exit2859, %Py_DECREF.exit2883, %Py_DECREF.exit2907, %4168, %4155, %4142, %4104, %4026, %3948, %3803, %3726, %3655, %3386, %3117, %3036, %2935, %2760, %2585, %2421, %2257, %2035, %1813, %1691, %1602, %1476, %1342, %1265, %1218, %865, %547, %Py_DECREF.exit2909.thread, %Py_DECREF.exit2913.thread, %164, %134, %89, %142, %97, %88
   %.0 = phi i32 [ 0, %88 ], [ -1, %97 ], [ -1, %142 ], [ %.1, %Py_DECREF.exit2907 ], [ %.2, %Py_DECREF.exit2883 ], [ %.3, %Py_DECREF.exit2859 ], [ %.4, %Py_DECREF.exit2835 ], [ %.6, %Py_DECREF.exit2827 ], [ %.7, %Py_DECREF.exit2819 ], [ %.8, %Py_DECREF.exit2811 ], [ %.9, %Py_DECREF.exit2805 ], [ %.10, %Py_DECREF.exit2795 ], [ %.11, %Py_DECREF.exit2779 ], [ %.12, %Py_DECREF.exit2763 ], [ %.13, %Py_DECREF.exit2753 ], [ %.14, %Py_DECREF.exit2741 ], [ %.15, %Py_DECREF.exit2729 ], [ %.16, %Py_DECREF.exit2719 ], [ %.17, %Py_DECREF.exit2711 ], [ %.20, %Py_DECREF.exit2673 ], [ %.22, %Py_DECREF.exit2661 ], [ %.25, %Py_DECREF.exit ], [ -1, %89 ], [ -1, %134 ], [ -1, %164 ], [ -1, %Py_DECREF.exit2913.thread ], [ %232, %Py_DECREF.exit2909.thread ], [ %550, %547 ], [ %868, %865 ], [ %1221, %1218 ], [ %1268, %1265 ], [ %1345, %1342 ], [ %1479, %1476 ], [ %1605, %1602 ], [ %1694, %1691 ], [ %1816, %1813 ], [ %2038, %2035 ], [ %2260, %2257 ], [ %2424, %2421 ], [ %2588, %2585 ], [ %2763, %2760 ], [ %2938, %2935 ], [ %3039, %3036 ], [ %3120, %3117 ], [ %3389, %3386 ], [ %3658, %3655 ], [ %3729, %3726 ], [ %3806, %3803 ], [ %3951, %3948 ], [ %4029, %4026 ], [ %4107, %4104 ], [ %4145, %4142 ], [ 0, %_PyAST_Pass.exit ], [ %4158, %4155 ], [ 0, %_PyAST_Break.exit ], [ %4171, %4168 ], [ 0, %_PyAST_Continue.exit ], [ -1, %1269 ], [ -1, %1277 ], [ 0, %_PyAST_Delete.exit ], [ -1, %3121 ], [ -1, %3129 ], [ -1, %3184 ], [ -1, %3192 ], [ -1, %3247 ], [ -1, %3255 ], [ -1, %3310 ], [ -1, %3318 ], [ 0, %_PyAST_Try.exit ], [ -1, %3390 ], [ -1, %3398 ], [ -1, %3453 ], [ -1, %3461 ], [ -1, %3516 ], [ -1, %3524 ], [ -1, %3579 ], [ -1, %3587 ], [ 0, %_PyAST_TryStar.exit ], [ -1, %3730 ], [ -1, %3738 ], [ 0, %_PyAST_Import.exit ], [ -1, %3952 ], [ -1, %3960 ], [ 0, %_PyAST_Global.exit ], [ -1, %4030 ], [ -1, %4038 ], [ 0, %_PyAST_Nonlocal.exit ], [ -1, %Py_DECREF.exit2919 ], [ -1, %4185 ], [ -1, %4187 ], [ -1, %4190 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -52786,11 +52780,11 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr(ptr noundef nonnull %0
   %63 = alloca ptr, align 8
   %64 = alloca ptr, align 8
   %65 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %66, label %67, label %68
 
@@ -53119,7 +53113,7 @@ Py_DECREF.exit1893.thread:                        ; preds = %208, %205, %203, %2
   ]
 
 212:                                              ; preds = %Py_DECREF.exit1893.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %214 = load ptr, ptr %213, align 8, !tbaa !329
   %215 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %214, ptr noundef nonnull %5) #8
@@ -53226,7 +53220,7 @@ Py_DECREF.exit1893.thread:                        ; preds = %208, %205, %203, %2
 265:                                              ; preds = %.lr.ph2559, %292
   %266 = phi ptr [ %.pre2605, %.lr.ph2559 ], [ %288, %292 ]
   %.012512558 = phi i64 [ 0, %.lr.ph2559 ], [ %295, %292 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %268 = load ptr, ptr %267, align 8, !tbaa !117
   %269 = getelementptr ptr, ptr %268, i64 %.012512558
@@ -53283,14 +53277,14 @@ Py_DECREF.exit1889:                               ; preds = %276, %283, %286
   br label %.thread
 
 .thread:                                          ; preds = %_Py_NewRef.exit, %Py_DECREF.exit1889, %290
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Py_DECREF.exit1891.thread2141
 
 292:                                              ; preds = %287
   %293 = load ptr, ptr %10, align 8, !tbaa !151
   %294 = getelementptr [1 x ptr], ptr %264, i64 0, i64 %.012512558
   store ptr %293, ptr %294, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %295 = add nuw nsw i64 %.012512558, 1
   %exitcond2574.not = icmp eq i64 %295, %.val2061
   br i1 %exitcond2574.not, label %._crit_edge2560.thread, label %265, !llvm.loop !459
@@ -53327,12 +53321,12 @@ Py_DECREF.exit1889:                               ; preds = %276, %283, %286
   br i1 %308, label %Py_DECREF.exit1891.thread2141, label %Py_DECREF.exit1891
 
 Py_DECREF.exit1891.thread2141:                    ; preds = %222, %224, %255, %259, %.thread, %302
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1891:                               ; preds = %302, %247, %239, %212, %220
   %.1 = phi i32 [ -1, %220 ], [ -1, %212 ], [ -1, %239 ], [ -1, %247 ], [ 0, %302 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit1859
 
 309:                                              ; preds = %Py_DECREF.exit1893.thread
@@ -53345,8 +53339,8 @@ Py_DECREF.exit1891:                               ; preds = %302, %247, %239, %2
   ]
 
 313:                                              ; preds = %309
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %315 = load ptr, ptr %314, align 8, !tbaa !343
   %316 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %315, ptr noundef nonnull %5) #8
@@ -53456,8 +53450,8 @@ Py_DECREF.exit1891:                               ; preds = %302, %247, %239, %2
   br i1 %370, label %Py_DECREF.exit1885.thread2151, label %Py_DECREF.exit1885
 
 Py_DECREF.exit1885.thread2151:                    ; preds = %321, %323, %346, %348, %363
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1885.sink.split:                    ; preds = %343, %318
@@ -53468,8 +53462,8 @@ Py_DECREF.exit1885.sink.split:                    ; preds = %343, %318
 
 Py_DECREF.exit1885:                               ; preds = %Py_DECREF.exit1885.sink.split, %363, %338, %313
   %.2 = phi i32 [ -1, %313 ], [ -1, %338 ], [ 0, %363 ], [ -1, %Py_DECREF.exit1885.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit1859
 
 372:                                              ; preds = %309
@@ -53482,9 +53476,9 @@ Py_DECREF.exit1885:                               ; preds = %Py_DECREF.exit1885.
   ]
 
 376:                                              ; preds = %372
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %378 = load ptr, ptr %377, align 8, !tbaa !322
   %379 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %378, ptr noundef nonnull %5) #8
@@ -53644,9 +53638,9 @@ Py_DECREF.exit1885:                               ; preds = %Py_DECREF.exit1885.
   br i1 %459, label %Py_DECREF.exit1881.thread2163, label %Py_DECREF.exit1881
 
 Py_DECREF.exit1881.thread2163:                    ; preds = %384, %386, %409, %411, %434, %436, %451
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1881.sink.split:                    ; preds = %431, %406, %381
@@ -53657,9 +53651,9 @@ Py_DECREF.exit1881.sink.split:                    ; preds = %431, %406, %381
 
 Py_DECREF.exit1881:                               ; preds = %Py_DECREF.exit1881.sink.split, %451, %426, %401, %376
   %.3 = phi i32 [ -1, %376 ], [ -1, %401 ], [ -1, %426 ], [ 0, %451 ], [ -1, %Py_DECREF.exit1881.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %Py_DECREF.exit1859
 
 461:                                              ; preds = %372
@@ -53672,8 +53666,8 @@ Py_DECREF.exit1881:                               ; preds = %Py_DECREF.exit1881.
   ]
 
 465:                                              ; preds = %461
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %466 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %467 = load ptr, ptr %466, align 8, !tbaa !329
   %468 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %467, ptr noundef nonnull %5) #8
@@ -53783,8 +53777,8 @@ Py_DECREF.exit1881:                               ; preds = %Py_DECREF.exit1881.
   br i1 %522, label %Py_DECREF.exit1875.thread2173, label %Py_DECREF.exit1875
 
 Py_DECREF.exit1875.thread2173:                    ; preds = %473, %475, %498, %500, %515
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1875.sink.split:                    ; preds = %495, %470
@@ -53795,8 +53789,8 @@ Py_DECREF.exit1875.sink.split:                    ; preds = %495, %470
 
 Py_DECREF.exit1875:                               ; preds = %Py_DECREF.exit1875.sink.split, %515, %490, %465
   %.4 = phi i32 [ -1, %465 ], [ -1, %490 ], [ 0, %515 ], [ -1, %Py_DECREF.exit1875.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Py_DECREF.exit1859
 
 524:                                              ; preds = %461
@@ -53809,8 +53803,8 @@ Py_DECREF.exit1875:                               ; preds = %Py_DECREF.exit1875.
   ]
 
 528:                                              ; preds = %524
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %530 = load ptr, ptr %529, align 8, !tbaa !280
   %531 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %530, ptr noundef nonnull %5) #8
@@ -53920,8 +53914,8 @@ Py_DECREF.exit1875:                               ; preds = %Py_DECREF.exit1875.
   br i1 %585, label %Py_DECREF.exit1871.thread2183, label %Py_DECREF.exit1871
 
 Py_DECREF.exit1871.thread2183:                    ; preds = %536, %538, %561, %563, %578
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1871.sink.split:                    ; preds = %558, %533
@@ -53932,8 +53926,8 @@ Py_DECREF.exit1871.sink.split:                    ; preds = %558, %533
 
 Py_DECREF.exit1871:                               ; preds = %Py_DECREF.exit1871.sink.split, %578, %553, %528
   %.5 = phi i32 [ -1, %528 ], [ -1, %553 ], [ 0, %578 ], [ -1, %Py_DECREF.exit1871.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %Py_DECREF.exit1859
 
 587:                                              ; preds = %524
@@ -53946,9 +53940,9 @@ Py_DECREF.exit1871:                               ; preds = %Py_DECREF.exit1871.
   ]
 
 591:                                              ; preds = %587
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   %593 = load ptr, ptr %592, align 8, !tbaa !345
   %594 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %593, ptr noundef nonnull %5) #8
@@ -54108,9 +54102,9 @@ Py_DECREF.exit1871:                               ; preds = %Py_DECREF.exit1871.
   br i1 %674, label %Py_DECREF.exit1867.thread2195, label %Py_DECREF.exit1867
 
 Py_DECREF.exit1867.thread2195:                    ; preds = %599, %601, %624, %626, %649, %651, %666
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1867.sink.split:                    ; preds = %646, %621, %596
@@ -54121,9 +54115,9 @@ Py_DECREF.exit1867.sink.split:                    ; preds = %646, %621, %596
 
 Py_DECREF.exit1867:                               ; preds = %Py_DECREF.exit1867.sink.split, %666, %641, %616, %591
   %.6 = phi i32 [ -1, %591 ], [ -1, %616 ], [ -1, %641 ], [ 0, %666 ], [ -1, %Py_DECREF.exit1867.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %Py_DECREF.exit1859
 
 676:                                              ; preds = %587
@@ -54188,7 +54182,7 @@ Py_DECREF.exit1867:                               ; preds = %Py_DECREF.exit1867.
 706:                                              ; preds = %.lr.ph2553, %733
   %707 = phi ptr [ %.pre2601, %.lr.ph2553 ], [ %729, %733 ]
   %.012542552 = phi i64 [ 0, %.lr.ph2553 ], [ %736, %733 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 24
   %709 = load ptr, ptr %708, align 8, !tbaa !117
   %710 = getelementptr ptr, ptr %709, i64 %.012542552
@@ -54245,14 +54239,14 @@ Py_DECREF.exit1861:                               ; preds = %717, %724, %727
   br label %.thread2200
 
 .thread2200:                                      ; preds = %_Py_NewRef.exit2065, %Py_DECREF.exit1861, %731
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %Py_DECREF.exit1903
 
 733:                                              ; preds = %728
   %734 = load ptr, ptr %23, align 8, !tbaa !151
   %735 = getelementptr [1 x ptr], ptr %705, i64 0, i64 %.012542552
   store ptr %734, ptr %735, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %736 = add nuw nsw i64 %.012542552, 1
   %exitcond2572.not = icmp eq i64 %736, %.val2059
   br i1 %exitcond2572.not, label %._crit_edge2554.thread, label %706, !llvm.loop !460
@@ -54331,7 +54325,7 @@ Py_DECREF.exit1861:                               ; preds = %717, %724, %727
 769:                                              ; preds = %.lr.ph2556, %796
   %770 = phi ptr [ %.pre2603, %.lr.ph2556 ], [ %792, %796 ]
   %.012552555 = phi i64 [ 0, %.lr.ph2556 ], [ %799, %796 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 24
   %772 = load ptr, ptr %771, align 8, !tbaa !117
   %773 = getelementptr ptr, ptr %772, i64 %.012552555
@@ -54388,14 +54382,14 @@ Py_DECREF.exit1857:                               ; preds = %780, %787, %790
   br label %.thread2208
 
 .thread2208:                                      ; preds = %_Py_NewRef.exit2066, %Py_DECREF.exit1857, %794
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %Py_DECREF.exit1903
 
 796:                                              ; preds = %791
   %797 = load ptr, ptr %24, align 8, !tbaa !151
   %798 = getelementptr [1 x ptr], ptr %768, i64 0, i64 %.012552555
   store ptr %797, ptr %798, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %799 = add nuw nsw i64 %.012552555, 1
   %exitcond2573.not = icmp eq i64 %799, %.val2057
   br i1 %exitcond2573.not, label %._crit_edge2557.thread, label %769, !llvm.loop !461
@@ -54512,7 +54506,7 @@ select.unfold2215:                                ; preds = %806
 847:                                              ; preds = %.lr.ph2550, %874
   %848 = phi ptr [ %.pre2599, %.lr.ph2550 ], [ %870, %874 ]
   %.012572549 = phi i64 [ 0, %.lr.ph2550 ], [ %877, %874 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 24
   %850 = load ptr, ptr %849, align 8, !tbaa !117
   %851 = getelementptr ptr, ptr %850, i64 %.012572549
@@ -54569,14 +54563,14 @@ Py_DECREF.exit1853:                               ; preds = %858, %865, %868
   br label %.thread2222
 
 .thread2222:                                      ; preds = %_Py_NewRef.exit2068, %Py_DECREF.exit1853, %872
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %Py_DECREF.exit1903
 
 874:                                              ; preds = %869
   %875 = load ptr, ptr %25, align 8, !tbaa !151
   %876 = getelementptr [1 x ptr], ptr %846, i64 0, i64 %.012572549
   store ptr %875, ptr %876, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %877 = add nuw nsw i64 %.012572549, 1
   %exitcond2571.not = icmp eq i64 %877, %.val2055
   br i1 %exitcond2571.not, label %._crit_edge2551.thread, label %847, !llvm.loop !462
@@ -54639,7 +54633,7 @@ select.unfold2229:                                ; preds = %884
   ]
 
 898:                                              ; preds = %894
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %900 = load ptr, ptr %899, align 8, !tbaa !297
   %901 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %900, ptr noundef nonnull %5) #8
@@ -54746,7 +54740,7 @@ select.unfold2229:                                ; preds = %884
 951:                                              ; preds = %.lr.ph2547, %978
   %952 = phi ptr [ %.pre2597, %.lr.ph2547 ], [ %974, %978 ]
   %.012592546 = phi i64 [ 0, %.lr.ph2547 ], [ %981, %978 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 24
   %954 = load ptr, ptr %953, align 8, !tbaa !117
   %955 = getelementptr ptr, ptr %954, i64 %.012592546
@@ -54803,14 +54797,14 @@ Py_DECREF.exit1847:                               ; preds = %962, %969, %972
   br label %.thread2238
 
 .thread2238:                                      ; preds = %_Py_NewRef.exit2070, %Py_DECREF.exit1847, %976
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %Py_DECREF.exit1849.thread2247
 
 978:                                              ; preds = %973
   %979 = load ptr, ptr %27, align 8, !tbaa !463
   %980 = getelementptr [1 x ptr], ptr %950, i64 0, i64 %.012592546
   store ptr %979, ptr %980, align 8, !tbaa !463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %981 = add nuw nsw i64 %.012592546, 1
   %exitcond2570.not = icmp eq i64 %981, %.val2053
   br i1 %exitcond2570.not, label %._crit_edge2548.thread, label %951, !llvm.loop !465
@@ -54847,12 +54841,12 @@ Py_DECREF.exit1847:                               ; preds = %962, %969, %972
   br i1 %994, label %Py_DECREF.exit1849.thread2247, label %Py_DECREF.exit1849
 
 Py_DECREF.exit1849.thread2247:                    ; preds = %908, %910, %941, %945, %.thread2238, %988
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1849:                               ; preds = %988, %933, %925, %898, %906
   %.9 = phi i32 [ -1, %906 ], [ -1, %898 ], [ -1, %925 ], [ -1, %933 ], [ 0, %988 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %Py_DECREF.exit1859
 
 995:                                              ; preds = %894
@@ -54865,7 +54859,7 @@ Py_DECREF.exit1849:                               ; preds = %988, %933, %925, %8
   ]
 
 999:                                              ; preds = %995
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %1001 = load ptr, ptr %1000, align 8, !tbaa !297
   %1002 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1001, ptr noundef nonnull %5) #8
@@ -54972,7 +54966,7 @@ Py_DECREF.exit1849:                               ; preds = %988, %933, %925, %8
 1052:                                             ; preds = %.lr.ph2544, %1079
   %1053 = phi ptr [ %.pre2595, %.lr.ph2544 ], [ %1075, %1079 ]
   %.012612543 = phi i64 [ 0, %.lr.ph2544 ], [ %1082, %1079 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 24
   %1055 = load ptr, ptr %1054, align 8, !tbaa !117
   %1056 = getelementptr ptr, ptr %1055, i64 %.012612543
@@ -55029,14 +55023,14 @@ Py_DECREF.exit1841:                               ; preds = %1063, %1070, %1073
   br label %.thread2254
 
 .thread2254:                                      ; preds = %_Py_NewRef.exit2071, %Py_DECREF.exit1841, %1077
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %Py_DECREF.exit1843.thread2263
 
 1079:                                             ; preds = %1074
   %1080 = load ptr, ptr %29, align 8, !tbaa !463
   %1081 = getelementptr [1 x ptr], ptr %1051, i64 0, i64 %.012612543
   store ptr %1080, ptr %1081, align 8, !tbaa !463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1082 = add nuw nsw i64 %.012612543, 1
   %exitcond2569.not = icmp eq i64 %1082, %.val2051
   br i1 %exitcond2569.not, label %._crit_edge2545.thread, label %1052, !llvm.loop !466
@@ -55073,12 +55067,12 @@ Py_DECREF.exit1841:                               ; preds = %1063, %1070, %1073
   br i1 %1095, label %Py_DECREF.exit1843.thread2263, label %Py_DECREF.exit1843
 
 Py_DECREF.exit1843.thread2263:                    ; preds = %1009, %1011, %1042, %1046, %.thread2254, %1089
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1843:                               ; preds = %1089, %1034, %1026, %999, %1007
   %.10 = phi i32 [ -1, %1007 ], [ -1, %999 ], [ -1, %1026 ], [ -1, %1034 ], [ 0, %1089 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %Py_DECREF.exit1859
 
 1096:                                             ; preds = %995
@@ -55091,8 +55085,8 @@ Py_DECREF.exit1843:                               ; preds = %1089, %1034, %1026,
   ]
 
 1100:                                             ; preds = %1096
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %1101 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %1102 = load ptr, ptr %1101, align 8, !tbaa !313
   %1103 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1102, ptr noundef nonnull %5) #8
@@ -55243,7 +55237,7 @@ Py_DECREF.exit1843:                               ; preds = %1089, %1034, %1026,
 1176:                                             ; preds = %.lr.ph2541, %1203
   %1177 = phi ptr [ %.pre2593, %.lr.ph2541 ], [ %1199, %1203 ]
   %.012632540 = phi i64 [ 0, %.lr.ph2541 ], [ %1206, %1203 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 24
   %1179 = load ptr, ptr %1178, align 8, !tbaa !117
   %1180 = getelementptr ptr, ptr %1179, i64 %.012632540
@@ -55300,14 +55294,14 @@ Py_DECREF.exit1833:                               ; preds = %1187, %1194, %1197
   br label %.thread2272
 
 .thread2272:                                      ; preds = %_Py_NewRef.exit2072, %Py_DECREF.exit1833, %1201
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %Py_DECREF.exit1837.thread2281
 
 1203:                                             ; preds = %1198
   %1204 = load ptr, ptr %32, align 8, !tbaa !463
   %1205 = getelementptr [1 x ptr], ptr %1175, i64 0, i64 %.012632540
   store ptr %1204, ptr %1205, align 8, !tbaa !463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1206 = add nuw nsw i64 %.012632540, 1
   %exitcond2568.not = icmp eq i64 %1206, %.val2049
   br i1 %exitcond2568.not, label %._crit_edge2542.thread, label %1176, !llvm.loop !467
@@ -55345,8 +55339,8 @@ Py_DECREF.exit1833:                               ; preds = %1187, %1194, %1197
   br i1 %1220, label %Py_DECREF.exit1837.thread2281, label %Py_DECREF.exit1837
 
 Py_DECREF.exit1837.thread2281:                    ; preds = %1108, %1110, %1133, %1135, %1166, %1170, %.thread2272, %1213
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1837.sink.split:                    ; preds = %1130, %1105
@@ -55357,8 +55351,8 @@ Py_DECREF.exit1837.sink.split:                    ; preds = %1130, %1105
 
 Py_DECREF.exit1837:                               ; preds = %Py_DECREF.exit1837.sink.split, %1213, %1158, %1150, %1125, %1100
   %.11 = phi i32 [ -1, %1100 ], [ -1, %1125 ], [ -1, %1150 ], [ -1, %1158 ], [ 0, %1213 ], [ -1, %Py_DECREF.exit1837.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %Py_DECREF.exit1859
 
 1222:                                             ; preds = %1096
@@ -55371,7 +55365,7 @@ Py_DECREF.exit1837:                               ; preds = %Py_DECREF.exit1837.
   ]
 
 1226:                                             ; preds = %1222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %1227 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %1228 = load ptr, ptr %1227, align 8, !tbaa !297
   %1229 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1228, ptr noundef nonnull %5) #8
@@ -55478,7 +55472,7 @@ Py_DECREF.exit1837:                               ; preds = %Py_DECREF.exit1837.
 1279:                                             ; preds = %.lr.ph2538, %1306
   %1280 = phi ptr [ %.pre2591, %.lr.ph2538 ], [ %1302, %1306 ]
   %.012652537 = phi i64 [ 0, %.lr.ph2538 ], [ %1309, %1306 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1281 = getelementptr inbounds nuw i8, ptr %1280, i64 24
   %1282 = load ptr, ptr %1281, align 8, !tbaa !117
   %1283 = getelementptr ptr, ptr %1282, i64 %.012652537
@@ -55535,14 +55529,14 @@ Py_DECREF.exit1827:                               ; preds = %1290, %1297, %1300
   br label %.thread2288
 
 .thread2288:                                      ; preds = %_Py_NewRef.exit2073, %Py_DECREF.exit1827, %1304
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %Py_DECREF.exit1829.thread2297
 
 1306:                                             ; preds = %1301
   %1307 = load ptr, ptr %34, align 8, !tbaa !463
   %1308 = getelementptr [1 x ptr], ptr %1278, i64 0, i64 %.012652537
   store ptr %1307, ptr %1308, align 8, !tbaa !463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %1309 = add nuw nsw i64 %.012652537, 1
   %exitcond2567.not = icmp eq i64 %1309, %.val2047
   br i1 %exitcond2567.not, label %._crit_edge2539.thread, label %1279, !llvm.loop !468
@@ -55579,12 +55573,12 @@ Py_DECREF.exit1827:                               ; preds = %1290, %1297, %1300
   br i1 %1322, label %Py_DECREF.exit1829.thread2297, label %Py_DECREF.exit1829
 
 Py_DECREF.exit1829.thread2297:                    ; preds = %1236, %1238, %1269, %1273, %.thread2288, %1316
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1829:                               ; preds = %1316, %1261, %1253, %1226, %1234
   %.12 = phi i32 [ -1, %1234 ], [ -1, %1226 ], [ -1, %1253 ], [ -1, %1261 ], [ 0, %1316 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %Py_DECREF.exit1859
 
 1323:                                             ; preds = %1222
@@ -55597,7 +55591,7 @@ Py_DECREF.exit1829:                               ; preds = %1316, %1261, %1253,
   ]
 
 1327:                                             ; preds = %1323
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1328 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %1329 = load ptr, ptr %1328, align 8, !tbaa !350
   %1330 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1329, ptr noundef nonnull %5) #8
@@ -55662,12 +55656,12 @@ Py_DECREF.exit1829:                               ; preds = %1316, %1261, %1253,
   br i1 %1360, label %Py_DECREF.exit1823.thread2305, label %Py_DECREF.exit1823
 
 Py_DECREF.exit1823.thread2305:                    ; preds = %1337, %1339, %1354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1823:                               ; preds = %1354, %1327, %1335
   %.13 = phi i32 [ -1, %1335 ], [ -1, %1327 ], [ 0, %1354 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %Py_DECREF.exit1859
 
 1361:                                             ; preds = %1323
@@ -55680,7 +55674,7 @@ Py_DECREF.exit1823:                               ; preds = %1354, %1327, %1335
   ]
 
 1365:                                             ; preds = %1361
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1366 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %1367 = load ptr, ptr %1366, align 8, !tbaa !350
   %1368 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1367, ptr noundef nonnull %5) #8
@@ -55783,12 +55777,12 @@ select.unfold2311:                                ; preds = %Py_DECREF.exit1819.
   br label %Py_DECREF.exit1819.thread2313
 
 Py_DECREF.exit1819.thread2313:                    ; preds = %1381, %1383, %select.unfold2311
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1819:                               ; preds = %_PyAST_Yield.exit, %1365
   %.14 = phi i32 [ -1, %1365 ], [ 0, %_PyAST_Yield.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %Py_DECREF.exit1859
 
 1408:                                             ; preds = %1361
@@ -55801,7 +55795,7 @@ Py_DECREF.exit1819:                               ; preds = %_PyAST_Yield.exit, 
   ]
 
 1412:                                             ; preds = %1408
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1413 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %1414 = load ptr, ptr %1413, align 8, !tbaa !350
   %1415 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1414, ptr noundef nonnull %5) #8
@@ -55866,12 +55860,12 @@ Py_DECREF.exit1819:                               ; preds = %_PyAST_Yield.exit, 
   br i1 %1445, label %Py_DECREF.exit1817.thread2321, label %Py_DECREF.exit1817
 
 Py_DECREF.exit1817.thread2321:                    ; preds = %1422, %1424, %1439
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1817:                               ; preds = %1439, %1412, %1420
   %.15 = phi i32 [ -1, %1420 ], [ -1, %1412 ], [ 0, %1439 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %Py_DECREF.exit1859
 
 1446:                                             ; preds = %1408
@@ -55884,7 +55878,7 @@ Py_DECREF.exit1817:                               ; preds = %1439, %1412, %1420
   ]
 
 1450:                                             ; preds = %1446
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %1452 = load ptr, ptr %1451, align 8, !tbaa !322
   %1453 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1452, ptr noundef nonnull %5) #8
@@ -55991,7 +55985,7 @@ Py_DECREF.exit1817:                               ; preds = %1439, %1412, %1420
 1503:                                             ; preds = %.lr.ph2532, %1530
   %1504 = phi ptr [ %.pre2587, %.lr.ph2532 ], [ %1526, %1530 ]
   %.012692531 = phi i64 [ 0, %.lr.ph2532 ], [ %1533, %1530 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1505 = getelementptr inbounds nuw i8, ptr %1504, i64 24
   %1506 = load ptr, ptr %1505, align 8, !tbaa !117
   %1507 = getelementptr ptr, ptr %1506, i64 %.012692531
@@ -56048,14 +56042,14 @@ Py_DECREF.exit1813:                               ; preds = %1514, %1521, %1524
   br label %.thread2328
 
 .thread2328:                                      ; preds = %_Py_NewRef.exit2075, %Py_DECREF.exit1813, %1528
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %Py_DECREF.exit1815.thread2345
 
 1530:                                             ; preds = %1525
   %1531 = load i32, ptr %39, align 4, !tbaa !404
   %1532 = getelementptr [1 x i32], ptr %1502, i64 0, i64 %.012692531
   store i32 %1531, ptr %1532, align 4, !tbaa !404
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %1533 = add nuw nsw i64 %.012692531, 1
   %exitcond2565.not = icmp eq i64 %1533, %.val2045
   br i1 %exitcond2565.not, label %._crit_edge2533.thread, label %1503, !llvm.loop !469
@@ -56134,7 +56128,7 @@ Py_DECREF.exit1813:                               ; preds = %1514, %1521, %1524
 1566:                                             ; preds = %.lr.ph2535, %1593
   %1567 = phi ptr [ %.pre2589, %.lr.ph2535 ], [ %1589, %1593 ]
   %.012712534 = phi i64 [ 0, %.lr.ph2535 ], [ %1596, %1593 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 24
   %1569 = load ptr, ptr %1568, align 8, !tbaa !117
   %1570 = getelementptr ptr, ptr %1569, i64 %.012712534
@@ -56191,14 +56185,14 @@ Py_DECREF.exit1809:                               ; preds = %1577, %1584, %1587
   br label %.thread2336
 
 .thread2336:                                      ; preds = %_Py_NewRef.exit2076, %Py_DECREF.exit1809, %1591
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %Py_DECREF.exit1815.thread2345
 
 1593:                                             ; preds = %1588
   %1594 = load ptr, ptr %40, align 8, !tbaa !151
   %1595 = getelementptr [1 x ptr], ptr %1565, i64 0, i64 %.012712534
   store ptr %1594, ptr %1595, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %1596 = add nuw nsw i64 %.012712534, 1
   %exitcond2566.not = icmp eq i64 %1596, %.val2043
   br i1 %exitcond2566.not, label %._crit_edge2536.thread, label %1566, !llvm.loop !470
@@ -56235,12 +56229,12 @@ Py_DECREF.exit1809:                               ; preds = %1577, %1584, %1587
   br i1 %1609, label %Py_DECREF.exit1815.thread2345, label %Py_DECREF.exit1815
 
 Py_DECREF.exit1815.thread2345:                    ; preds = %1460, %1462, %1493, %1497, %.thread2328, %1556, %1560, %.thread2336, %1603
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1815:                               ; preds = %1603, %1548, %1540, %1485, %1477, %1450, %1458
   %.16 = phi i32 [ -1, %1458 ], [ -1, %1450 ], [ -1, %1477 ], [ -1, %1485 ], [ -1, %1540 ], [ -1, %1548 ], [ 0, %1603 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %Py_DECREF.exit1859
 
 1610:                                             ; preds = %1446
@@ -56253,7 +56247,7 @@ Py_DECREF.exit1815:                               ; preds = %1603, %1548, %1540,
   ]
 
 1614:                                             ; preds = %1610
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1615 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %1616 = load ptr, ptr %1615, align 8, !tbaa !304
   %1617 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1616, ptr noundef nonnull %5) #8
@@ -56360,7 +56354,7 @@ Py_DECREF.exit1815:                               ; preds = %1603, %1548, %1540,
 1667:                                             ; preds = %.lr.ph2526, %1694
   %1668 = phi ptr [ %.pre2583, %.lr.ph2526 ], [ %1690, %1694 ]
   %.012742525 = phi i64 [ 0, %.lr.ph2526 ], [ %1697, %1694 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %1669 = getelementptr inbounds nuw i8, ptr %1668, i64 24
   %1670 = load ptr, ptr %1669, align 8, !tbaa !117
   %1671 = getelementptr ptr, ptr %1670, i64 %.012742525
@@ -56417,14 +56411,14 @@ Py_DECREF.exit1803:                               ; preds = %1678, %1685, %1688
   br label %.thread2352
 
 .thread2352:                                      ; preds = %_Py_NewRef.exit2077, %Py_DECREF.exit1803, %1692
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %Py_DECREF.exit1805.thread2369
 
 1694:                                             ; preds = %1689
   %1695 = load ptr, ptr %42, align 8, !tbaa !151
   %1696 = getelementptr [1 x ptr], ptr %1666, i64 0, i64 %.012742525
   store ptr %1695, ptr %1696, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1697 = add nuw nsw i64 %.012742525, 1
   %exitcond2563.not = icmp eq i64 %1697, %.val2041
   br i1 %exitcond2563.not, label %._crit_edge2527.thread, label %1667, !llvm.loop !471
@@ -56503,7 +56497,7 @@ Py_DECREF.exit1803:                               ; preds = %1678, %1685, %1688
 1730:                                             ; preds = %.lr.ph2529, %1757
   %1731 = phi ptr [ %.pre2585, %.lr.ph2529 ], [ %1753, %1757 ]
   %.012752528 = phi i64 [ 0, %.lr.ph2529 ], [ %1760, %1757 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 24
   %1733 = load ptr, ptr %1732, align 8, !tbaa !117
   %1734 = getelementptr ptr, ptr %1733, i64 %.012752528
@@ -56560,14 +56554,14 @@ Py_DECREF.exit1799:                               ; preds = %1741, %1748, %1751
   br label %.thread2360
 
 .thread2360:                                      ; preds = %_Py_NewRef.exit2078, %Py_DECREF.exit1799, %1755
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %Py_DECREF.exit1805.thread2369
 
 1757:                                             ; preds = %1752
   %1758 = load ptr, ptr %43, align 8, !tbaa !417
   %1759 = getelementptr [1 x ptr], ptr %1729, i64 0, i64 %.012752528
   store ptr %1758, ptr %1759, align 8, !tbaa !417
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %1760 = add nuw nsw i64 %.012752528, 1
   %exitcond2564.not = icmp eq i64 %1760, %.val2039
   br i1 %exitcond2564.not, label %._crit_edge2530.thread, label %1730, !llvm.loop !472
@@ -56604,12 +56598,12 @@ Py_DECREF.exit1799:                               ; preds = %1741, %1748, %1751
   br i1 %1773, label %Py_DECREF.exit1805.thread2369, label %Py_DECREF.exit1805
 
 Py_DECREF.exit1805.thread2369:                    ; preds = %1624, %1626, %1657, %1661, %.thread2352, %1720, %1724, %.thread2360, %1767
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1805:                               ; preds = %1767, %1712, %1704, %1649, %1641, %1614, %1622
   %.17 = phi i32 [ -1, %1622 ], [ -1, %1614 ], [ -1, %1641 ], [ -1, %1649 ], [ -1, %1704 ], [ -1, %1712 ], [ 0, %1767 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %Py_DECREF.exit1859
 
 1774:                                             ; preds = %1610
@@ -56622,9 +56616,9 @@ Py_DECREF.exit1805:                               ; preds = %1767, %1712, %1704,
   ]
 
 1778:                                             ; preds = %1774
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1779 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %1780 = load ptr, ptr %1779, align 8, !tbaa !350
   %1781 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1780, ptr noundef nonnull %5) #8
@@ -56809,9 +56803,9 @@ Py_DECREF.exit1789.thread:                        ; preds = %1860, %1857, %1855,
   br i1 %1868, label %Py_DECREF.exit1795.thread2381, label %Py_DECREF.exit1795
 
 Py_DECREF.exit1795.thread2381:                    ; preds = %1786, %1788, %1811, %1813, %1844, %1846, %Py_DECREF.exit1789.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1795.sink.split:                    ; preds = %1808, %1783
@@ -56822,9 +56816,9 @@ Py_DECREF.exit1795.sink.split:                    ; preds = %1808, %1783
 
 Py_DECREF.exit1795:                               ; preds = %Py_DECREF.exit1795.sink.split, %Py_DECREF.exit1789.thread, %1828, %1803, %1778
   %.18 = phi i32 [ -1, %1778 ], [ -1, %1803 ], [ -1, %1828 ], [ 0, %Py_DECREF.exit1789.thread ], [ -1, %Py_DECREF.exit1795.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %Py_DECREF.exit1859
 
 1870:                                             ; preds = %1774
@@ -56889,7 +56883,7 @@ Py_DECREF.exit1795:                               ; preds = %Py_DECREF.exit1795.
 1900:                                             ; preds = %.lr.ph2523, %1927
   %1901 = phi ptr [ %.pre2581, %.lr.ph2523 ], [ %1923, %1927 ]
   %.012782522 = phi i64 [ 0, %.lr.ph2523 ], [ %1930, %1927 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1902 = getelementptr inbounds nuw i8, ptr %1901, i64 24
   %1903 = load ptr, ptr %1902, align 8, !tbaa !117
   %1904 = getelementptr ptr, ptr %1903, i64 %.012782522
@@ -56946,14 +56940,14 @@ Py_DECREF.exit1787:                               ; preds = %1911, %1918, %1921
   br label %.thread2386
 
 .thread2386:                                      ; preds = %_Py_NewRef.exit2079, %Py_DECREF.exit1787, %1925
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %Py_DECREF.exit1903
 
 1927:                                             ; preds = %1922
   %1928 = load ptr, ptr %47, align 8, !tbaa !151
   %1929 = getelementptr [1 x ptr], ptr %1899, i64 0, i64 %.012782522
   store ptr %1928, ptr %1929, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1930 = add nuw nsw i64 %.012782522, 1
   %exitcond2562.not = icmp eq i64 %1930, %.val2037
   br i1 %exitcond2562.not, label %._crit_edge2524.thread, label %1900, !llvm.loop !473
@@ -57016,7 +57010,7 @@ select.unfold2393:                                ; preds = %1937
   ]
 
 1951:                                             ; preds = %1947
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1952 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %1953 = load ptr, ptr %1952, align 8, !tbaa !350
   %1954 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %1953, ptr noundef nonnull %5) #8
@@ -57173,12 +57167,12 @@ Py_DECREF.exit1779.thread:                        ; preds = %2020, %2017, %2015,
   br i1 %2026, label %Py_DECREF.exit1783.thread2411, label %Py_DECREF.exit1783
 
 Py_DECREF.exit1783.thread2411:                    ; preds = %1961, %obj2ast_constant.exit, %2004, %2006, %Py_DECREF.exit1779.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1783:                               ; preds = %Py_DECREF.exit1779.thread, %1988, %1951, %1959
   %.20 = phi i32 [ -1, %1959 ], [ -1, %1951 ], [ -1, %1988 ], [ 0, %Py_DECREF.exit1779.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %Py_DECREF.exit1859
 
 2027:                                             ; preds = %1947
@@ -57191,9 +57185,9 @@ Py_DECREF.exit1783:                               ; preds = %Py_DECREF.exit1779.
   ]
 
 2031:                                             ; preds = %2027
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %2032 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %2033 = load ptr, ptr %2032, align 8, !tbaa !350
   %2034 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2033, ptr noundef nonnull %5) #8
@@ -57353,9 +57347,9 @@ Py_DECREF.exit1783:                               ; preds = %Py_DECREF.exit1779.
   br i1 %2114, label %Py_DECREF.exit1777.thread2423, label %Py_DECREF.exit1777
 
 Py_DECREF.exit1777.thread2423:                    ; preds = %2039, %2041, %2064, %2066, %2089, %2091, %2106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1777.sink.split:                    ; preds = %2086, %2061, %2036
@@ -57366,9 +57360,9 @@ Py_DECREF.exit1777.sink.split:                    ; preds = %2086, %2061, %2036
 
 Py_DECREF.exit1777:                               ; preds = %Py_DECREF.exit1777.sink.split, %2106, %2081, %2056, %2031
   %.21 = phi i32 [ -1, %2031 ], [ -1, %2056 ], [ -1, %2081 ], [ 0, %2106 ], [ -1, %Py_DECREF.exit1777.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %Py_DECREF.exit1859
 
 2116:                                             ; preds = %2027
@@ -57381,9 +57375,9 @@ Py_DECREF.exit1777:                               ; preds = %Py_DECREF.exit1777.
   ]
 
 2120:                                             ; preds = %2116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %2121 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %2122 = load ptr, ptr %2121, align 8, !tbaa !350
   %2123 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2122, ptr noundef nonnull %5) #8
@@ -57543,9 +57537,9 @@ Py_DECREF.exit1777:                               ; preds = %Py_DECREF.exit1777.
   br i1 %2203, label %Py_DECREF.exit1771.thread2435, label %Py_DECREF.exit1771
 
 Py_DECREF.exit1771.thread2435:                    ; preds = %2128, %2130, %2153, %2155, %2178, %2180, %2195
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1771.sink.split:                    ; preds = %2175, %2150, %2125
@@ -57556,9 +57550,9 @@ Py_DECREF.exit1771.sink.split:                    ; preds = %2175, %2150, %2125
 
 Py_DECREF.exit1771:                               ; preds = %Py_DECREF.exit1771.sink.split, %2195, %2170, %2145, %2120
   %.22 = phi i32 [ -1, %2120 ], [ -1, %2145 ], [ -1, %2170 ], [ 0, %2195 ], [ -1, %Py_DECREF.exit1771.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %Py_DECREF.exit1859
 
 2205:                                             ; preds = %2116
@@ -57571,8 +57565,8 @@ Py_DECREF.exit1771:                               ; preds = %Py_DECREF.exit1771.
   ]
 
 2209:                                             ; preds = %2205
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %2210 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %2211 = load ptr, ptr %2210, align 8, !tbaa !350
   %2212 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2211, ptr noundef nonnull %5) #8
@@ -57682,8 +57676,8 @@ Py_DECREF.exit1771:                               ; preds = %Py_DECREF.exit1771.
   br i1 %2266, label %Py_DECREF.exit1765.thread2445, label %Py_DECREF.exit1765
 
 Py_DECREF.exit1765.thread2445:                    ; preds = %2217, %2219, %2242, %2244, %2259
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1765.sink.split:                    ; preds = %2239, %2214
@@ -57694,8 +57688,8 @@ Py_DECREF.exit1765.sink.split:                    ; preds = %2239, %2214
 
 Py_DECREF.exit1765:                               ; preds = %Py_DECREF.exit1765.sink.split, %2259, %2234, %2209
   %.23 = phi i32 [ -1, %2209 ], [ -1, %2234 ], [ 0, %2259 ], [ -1, %Py_DECREF.exit1765.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %Py_DECREF.exit1859
 
 2268:                                             ; preds = %2205
@@ -57708,8 +57702,8 @@ Py_DECREF.exit1765:                               ; preds = %Py_DECREF.exit1765.
   ]
 
 2272:                                             ; preds = %2268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %2273 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %2274 = load ptr, ptr %2273, align 8, !tbaa !308
   %2275 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2274, ptr noundef nonnull %5) #8
@@ -57819,8 +57813,8 @@ Py_DECREF.exit1765:                               ; preds = %Py_DECREF.exit1765.
   br i1 %2329, label %Py_DECREF.exit1761.thread2455, label %Py_DECREF.exit1761
 
 Py_DECREF.exit1761.thread2455:                    ; preds = %2280, %2282, %2305, %2307, %2322
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1761.sink.split:                    ; preds = %2302, %2277
@@ -57831,8 +57825,8 @@ Py_DECREF.exit1761.sink.split:                    ; preds = %2302, %2277
 
 Py_DECREF.exit1761:                               ; preds = %Py_DECREF.exit1761.sink.split, %2322, %2297, %2272
   %.24 = phi i32 [ -1, %2272 ], [ -1, %2297 ], [ 0, %2322 ], [ -1, %Py_DECREF.exit1761.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %Py_DECREF.exit1859
 
 2331:                                             ; preds = %2268
@@ -57845,7 +57839,7 @@ Py_DECREF.exit1761:                               ; preds = %Py_DECREF.exit1761.
   ]
 
 2335:                                             ; preds = %2331
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %2336 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %2337 = load ptr, ptr %2336, align 8, !tbaa !298
   %2338 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2337, ptr noundef nonnull %5) #8
@@ -57898,7 +57892,7 @@ Py_DECREF.exit1761:                               ; preds = %Py_DECREF.exit1761.
 2361:                                             ; preds = %.lr.ph2520, %2388
   %2362 = phi ptr [ %.pre2579, %.lr.ph2520 ], [ %2384, %2388 ]
   %.012772519 = phi i64 [ 0, %.lr.ph2520 ], [ %2391, %2388 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %2363 = getelementptr inbounds nuw i8, ptr %2362, i64 24
   %2364 = load ptr, ptr %2363, align 8, !tbaa !117
   %2365 = getelementptr ptr, ptr %2364, i64 %.012772519
@@ -57955,14 +57949,14 @@ Py_DECREF.exit1757:                               ; preds = %2372, %2379, %2382
   br label %.thread2460
 
 .thread2460:                                      ; preds = %_Py_NewRef.exit2082, %Py_DECREF.exit1757, %2386
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %Py_DECREF.exit1755.thread2471
 
 2388:                                             ; preds = %2383
   %2389 = load ptr, ptr %60, align 8, !tbaa !151
   %2390 = getelementptr [1 x ptr], ptr %2360, i64 0, i64 %.012772519
   store ptr %2389, ptr %2390, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %2391 = add nuw nsw i64 %.012772519, 1
   %exitcond2561.not = icmp eq i64 %2391, %.val2035
   br i1 %exitcond2561.not, label %._crit_edge2521.thread, label %2361, !llvm.loop !474
@@ -58053,12 +58047,12 @@ Py_DECREF.exit1757:                               ; preds = %2372, %2379, %2382
   br i1 %2431, label %Py_DECREF.exit1755.thread2471, label %Py_DECREF.exit1755
 
 Py_DECREF.exit1755.thread2471:                    ; preds = %2351, %2355, %.thread2460, %2408, %2410, %2425
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1755:                               ; preds = %2425, %2398, %2343, %2335, %2406
   %.25 = phi i32 [ -1, %2406 ], [ -1, %2335 ], [ -1, %2343 ], [ -1, %2398 ], [ 0, %2425 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %Py_DECREF.exit1859
 
 2432:                                             ; preds = %2331
@@ -58071,7 +58065,7 @@ Py_DECREF.exit1755:                               ; preds = %2425, %2398, %2343,
   ]
 
 2436:                                             ; preds = %2432
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %2437 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %2438 = load ptr, ptr %2437, align 8, !tbaa !298
   %2439 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2438, ptr noundef nonnull %5) #8
@@ -58124,7 +58118,7 @@ Py_DECREF.exit1755:                               ; preds = %2425, %2398, %2343,
 2462:                                             ; preds = %.lr.ph, %2489
   %2463 = phi ptr [ %.pre2577, %.lr.ph ], [ %2485, %2489 ]
   %.012672518 = phi i64 [ 0, %.lr.ph ], [ %2492, %2489 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %2464 = getelementptr inbounds nuw i8, ptr %2463, i64 24
   %2465 = load ptr, ptr %2464, align 8, !tbaa !117
   %2466 = getelementptr ptr, ptr %2465, i64 %.012672518
@@ -58181,14 +58175,14 @@ Py_DECREF.exit1751:                               ; preds = %2473, %2480, %2483
   br label %.thread2476
 
 .thread2476:                                      ; preds = %_Py_NewRef.exit2083, %Py_DECREF.exit1751, %2487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %Py_DECREF.exit1749.thread2487
 
 2489:                                             ; preds = %2484
   %2490 = load ptr, ptr %62, align 8, !tbaa !151
   %2491 = getelementptr [1 x ptr], ptr %2461, i64 0, i64 %.012672518
   store ptr %2490, ptr %2491, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %2492 = add nuw nsw i64 %.012672518, 1
   %exitcond.not = icmp eq i64 %2492, %.val2033
   br i1 %exitcond.not, label %._crit_edge.thread, label %2462, !llvm.loop !475
@@ -58279,12 +58273,12 @@ Py_DECREF.exit1751:                               ; preds = %2473, %2480, %2483
   br i1 %2532, label %Py_DECREF.exit1749.thread2487, label %Py_DECREF.exit1749
 
 Py_DECREF.exit1749.thread2487:                    ; preds = %2452, %2456, %.thread2476, %2509, %2511, %2526
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1749:                               ; preds = %2526, %2499, %2444, %2436, %2507
   %.26 = phi i32 [ -1, %2507 ], [ -1, %2436 ], [ -1, %2444 ], [ -1, %2499 ], [ 0, %2526 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %Py_DECREF.exit1859
 
 2533:                                             ; preds = %2432
@@ -58297,9 +58291,9 @@ Py_DECREF.exit1749:                               ; preds = %2526, %2499, %2444,
   ]
 
 2537:                                             ; preds = %2533
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %2538 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %2539 = load ptr, ptr %2538, align 8, !tbaa !324
   %2540 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %2539, ptr noundef nonnull %5) #8
@@ -58556,16 +58550,16 @@ select.unfold2497:                                ; preds = %Py_DECREF.exit.thre
   br label %Py_DECREF.exit1743.thread2499
 
 Py_DECREF.exit1743.thread2499:                    ; preds = %2553, %2555, %2585, %2587, %2617, %2619, %select.unfold2497
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %Py_DECREF.exit1903
 
 Py_DECREF.exit1743:                               ; preds = %_PyAST_Slice.exit, %Py_DECREF.exit1739.thread, %Py_DECREF.exit1743.thread, %2537
   %.27 = phi i32 [ -1, %2537 ], [ -1, %Py_DECREF.exit1743.thread ], [ -1, %Py_DECREF.exit1739.thread ], [ 0, %_PyAST_Slice.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %Py_DECREF.exit1859
 
 2648:                                             ; preds = %2533
@@ -58595,14 +58589,14 @@ Py_DECREF.exit1903:                               ; preds = %select.unfold2393, 
 
 Py_DECREF.exit1859:                               ; preds = %_PyAST_JoinedStr.exit, %_PyAST_Set.exit, %_PyAST_Dict.exit, %2657, %2654, %2652, %Py_DECREF.exit1903, %Py_DECREF.exit1743, %Py_DECREF.exit1749, %Py_DECREF.exit1755, %Py_DECREF.exit1761, %Py_DECREF.exit1765, %Py_DECREF.exit1771, %Py_DECREF.exit1777, %Py_DECREF.exit1783, %1874, %1882, %Py_DECREF.exit1795, %Py_DECREF.exit1805, %Py_DECREF.exit1815, %Py_DECREF.exit1817, %Py_DECREF.exit1819, %Py_DECREF.exit1823, %Py_DECREF.exit1829, %Py_DECREF.exit1837, %Py_DECREF.exit1843, %Py_DECREF.exit1849, %821, %829, %680, %688, %743, %751, %Py_DECREF.exit1867, %Py_DECREF.exit1871, %Py_DECREF.exit1875, %Py_DECREF.exit1881, %Py_DECREF.exit1885, %Py_DECREF.exit1891, %2533, %2432, %2331, %2268, %2205, %2116, %2027, %1947, %1870, %1774, %1610, %1446, %1408, %1361, %1323, %1222, %1096, %995, %894, %817, %676, %587, %524, %461, %372, %309, %Py_DECREF.exit1893.thread, %Py_DECREF.exit1897.thread, %143, %113, %68, %121, %76, %67
   %.0 = phi i32 [ 0, %67 ], [ -1, %76 ], [ -1, %121 ], [ %.1, %Py_DECREF.exit1891 ], [ %.2, %Py_DECREF.exit1885 ], [ %.3, %Py_DECREF.exit1881 ], [ %.4, %Py_DECREF.exit1875 ], [ %.5, %Py_DECREF.exit1871 ], [ %.6, %Py_DECREF.exit1867 ], [ %.9, %Py_DECREF.exit1849 ], [ %.10, %Py_DECREF.exit1843 ], [ %.11, %Py_DECREF.exit1837 ], [ %.12, %Py_DECREF.exit1829 ], [ %.13, %Py_DECREF.exit1823 ], [ %.14, %Py_DECREF.exit1819 ], [ %.15, %Py_DECREF.exit1817 ], [ %.16, %Py_DECREF.exit1815 ], [ %.17, %Py_DECREF.exit1805 ], [ %.18, %Py_DECREF.exit1795 ], [ %.20, %Py_DECREF.exit1783 ], [ %.21, %Py_DECREF.exit1777 ], [ %.22, %Py_DECREF.exit1771 ], [ %.23, %Py_DECREF.exit1765 ], [ %.24, %Py_DECREF.exit1761 ], [ %.25, %Py_DECREF.exit1755 ], [ %.26, %Py_DECREF.exit1749 ], [ %.27, %Py_DECREF.exit1743 ], [ -1, %68 ], [ -1, %113 ], [ -1, %143 ], [ -1, %Py_DECREF.exit1897.thread ], [ %211, %Py_DECREF.exit1893.thread ], [ %312, %309 ], [ %375, %372 ], [ %464, %461 ], [ %527, %524 ], [ %590, %587 ], [ %679, %676 ], [ %820, %817 ], [ %897, %894 ], [ %998, %995 ], [ %1099, %1096 ], [ %1225, %1222 ], [ %1326, %1323 ], [ %1364, %1361 ], [ %1411, %1408 ], [ %1449, %1446 ], [ %1613, %1610 ], [ %1777, %1774 ], [ %1873, %1870 ], [ %1950, %1947 ], [ %2030, %2027 ], [ %2119, %2116 ], [ %2208, %2205 ], [ %2271, %2268 ], [ %2334, %2331 ], [ %2435, %2432 ], [ %2536, %2533 ], [ -1, %680 ], [ -1, %688 ], [ -1, %743 ], [ -1, %751 ], [ 0, %_PyAST_Dict.exit ], [ -1, %821 ], [ -1, %829 ], [ 0, %_PyAST_Set.exit ], [ -1, %1874 ], [ -1, %1882 ], [ 0, %_PyAST_JoinedStr.exit ], [ -1, %Py_DECREF.exit1903 ], [ -1, %2652 ], [ -1, %2654 ], [ -1, %2657 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @obj2ast_int(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
@@ -58692,10 +58686,10 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_arguments(ptr noundef nonnu
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %14 = load ptr, ptr %13, align 8, !tbaa !336
   %15 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %14, ptr noundef nonnull %5) #8
@@ -58777,7 +58771,7 @@ _Py_asdl_arg_seq_new.exit:                        ; preds = %43
 51:                                               ; preds = %.lr.ph, %81
   %52 = phi ptr [ %.pre374, %.lr.ph ], [ %77, %81 ]
   %.0165355 = phi i64 [ 0, %.lr.ph ], [ %84, %81 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !117
   %55 = getelementptr ptr, ptr %54, i64 %.0165355
@@ -58843,14 +58837,14 @@ Py_DECREF.exit254:                                ; preds = %_Py_EnterRecursiveC
   br label %.thread
 
 .thread:                                          ; preds = %_Py_EnterRecursiveCall.exit, %Py_DECREF.exit254, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Py_DECREF.exit252
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %8, align 8, !tbaa !476
   %83 = getelementptr [1 x ptr], ptr %48, i64 0, i64 %.0165355
   store ptr %82, ptr %83, align 8, !tbaa !476
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %84 = add nuw nsw i64 %.0165355, 1
   %exitcond.not = icmp eq i64 %84, %.val291
   br i1 %exitcond.not, label %._crit_edge.thread, label %51, !llvm.loop !477
@@ -58958,7 +58952,7 @@ _Py_asdl_arg_seq_new.exit296:                     ; preds = %122
 130:                                              ; preds = %.lr.ph357, %160
   %131 = phi ptr [ %.pre375, %.lr.ph357 ], [ %156, %160 ]
   %.0166356 = phi i64 [ 0, %.lr.ph357 ], [ %163, %160 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = load ptr, ptr %132, align 8, !tbaa !117
   %134 = getelementptr ptr, ptr %133, i64 %.0166356
@@ -59024,14 +59018,14 @@ Py_DECREF.exit250:                                ; preds = %_Py_EnterRecursiveC
   br label %.thread318
 
 .thread318:                                       ; preds = %_Py_EnterRecursiveCall.exit299, %Py_DECREF.exit250, %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit252
 
 160:                                              ; preds = %155
   %161 = load ptr, ptr %9, align 8, !tbaa !476
   %162 = getelementptr [1 x ptr], ptr %127, i64 0, i64 %.0166356
   store ptr %161, ptr %162, align 8, !tbaa !476
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %163 = add nuw nsw i64 %.0166356, 1
   %exitcond370.not = icmp eq i64 %163, %.val289
   br i1 %exitcond370.not, label %._crit_edge358.thread, label %130, !llvm.loop !478
@@ -59186,7 +59180,7 @@ Py_DECREF.exit244.thread:                         ; preds = %203, %200, %198, %1
 230:                                              ; preds = %.lr.ph360, %260
   %231 = phi ptr [ %.pre376, %.lr.ph360 ], [ %256, %260 ]
   %.0167359 = phi i64 [ 0, %.lr.ph360 ], [ %263, %260 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %233 = load ptr, ptr %232, align 8, !tbaa !117
   %234 = getelementptr ptr, ptr %233, i64 %.0167359
@@ -59252,14 +59246,14 @@ Py_DECREF.exit242:                                ; preds = %_Py_EnterRecursiveC
   br label %.thread328
 
 .thread328:                                       ; preds = %_Py_EnterRecursiveCall.exit302, %Py_DECREF.exit242, %258
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Py_DECREF.exit252
 
 260:                                              ; preds = %255
   %261 = load ptr, ptr %10, align 8, !tbaa !476
   %262 = getelementptr [1 x ptr], ptr %229, i64 0, i64 %.0167359
   store ptr %261, ptr %262, align 8, !tbaa !476
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %263 = add nuw nsw i64 %.0167359, 1
   %exitcond371.not = icmp eq i64 %263, %.val287
   br i1 %exitcond371.not, label %._crit_edge361.thread, label %230, !llvm.loop !479
@@ -59339,7 +59333,7 @@ Py_DECREF.exit242:                                ; preds = %_Py_EnterRecursiveC
 297:                                              ; preds = %.lr.ph363, %324
   %298 = phi ptr [ %.pre377, %.lr.ph363 ], [ %320, %324 ]
   %.0168362 = phi i64 [ 0, %.lr.ph363 ], [ %327, %324 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %300 = load ptr, ptr %299, align 8, !tbaa !117
   %301 = getelementptr ptr, ptr %300, i64 %.0168362
@@ -59396,14 +59390,14 @@ Py_DECREF.exit238:                                ; preds = %308, %315, %318
   br label %.thread335
 
 .thread335:                                       ; preds = %_Py_NewRef.exit303, %Py_DECREF.exit238, %322
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit252
 
 324:                                              ; preds = %319
   %325 = load ptr, ptr %11, align 8, !tbaa !151
   %326 = getelementptr [1 x ptr], ptr %296, i64 0, i64 %.0168362
   store ptr %325, ptr %326, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %327 = add nuw nsw i64 %.0168362, 1
   %exitcond372.not = icmp eq i64 %327, %.val285
   br i1 %exitcond372.not, label %._crit_edge364.thread, label %297, !llvm.loop !480
@@ -59558,7 +59552,7 @@ Py_DECREF.exit232.thread:                         ; preds = %367, %364, %362, %3
 394:                                              ; preds = %.lr.ph366, %421
   %395 = phi ptr [ %.pre378, %.lr.ph366 ], [ %417, %421 ]
   %.0160365 = phi i64 [ 0, %.lr.ph366 ], [ %424, %421 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %397 = load ptr, ptr %396, align 8, !tbaa !117
   %398 = getelementptr ptr, ptr %397, i64 %.0160365
@@ -59615,14 +59609,14 @@ Py_DECREF.exit230:                                ; preds = %405, %412, %415
   br label %.thread344
 
 .thread344:                                       ; preds = %_Py_NewRef.exit304, %Py_DECREF.exit230, %419
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %Py_DECREF.exit252
 
 421:                                              ; preds = %416
   %422 = load ptr, ptr %12, align 8, !tbaa !151
   %423 = getelementptr [1 x ptr], ptr %393, i64 0, i64 %.0160365
   store ptr %422, ptr %423, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %424 = add nuw nsw i64 %.0160365, 1
   %exitcond373.not = icmp eq i64 %424, %.val283
   br i1 %exitcond373.not, label %._crit_edge367.thread, label %394, !llvm.loop !481
@@ -59698,9 +59692,9 @@ Py_DECREF.exit252:                                ; preds = %125, %120, %113, %4
 
 Py_XDECREF.exit:                                  ; preds = %447, %444, %442, %Py_DECREF.exit252, %_PyAST_arguments.exit, %375, %Py_DECREF.exit232.thread, %334, %278, %270, %211, %Py_DECREF.exit244.thread, %170, %99, %91, %20, %4
   %.0 = phi i32 [ -1, %4 ], [ -1, %20 ], [ -1, %91 ], [ -1, %99 ], [ -1, %170 ], [ -1, %Py_DECREF.exit244.thread ], [ -1, %211 ], [ -1, %270 ], [ -1, %278 ], [ -1, %334 ], [ -1, %Py_DECREF.exit232.thread ], [ -1, %375 ], [ 0, %_PyAST_arguments.exit ], [ -1, %Py_DECREF.exit252 ], [ -1, %442 ], [ -1, %444 ], [ -1, %447 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -59761,11 +59755,11 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_param(ptr noundef nonn
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %16, label %17, label %18
 
@@ -60053,9 +60047,9 @@ _Py_EnterRecursiveCall.exit293.thread:            ; preds = %_Py_EnterRecursiveC
   ]
 
 151:                                              ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %153 = load ptr, ptr %152, align 8, !tbaa !327
   %154 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %153, ptr noundef nonnull %5) #8
@@ -60270,16 +60264,16 @@ Py_DECREF.exit260.thread:                         ; preds = %242, %239, %237, %2
   br i1 %250, label %Py_DECREF.exit268.thread322, label %Py_DECREF.exit268
 
 Py_DECREF.exit268.thread322:                      ; preds = %161, %163, %194, %196, %226, %228, %Py_DECREF.exit260.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit276
 
 Py_DECREF.exit268:                                ; preds = %Py_DECREF.exit260.thread, %Py_DECREF.exit264.thread, %178, %151, %159
   %.1 = phi i32 [ -1, %159 ], [ -1, %151 ], [ -1, %178 ], [ -1, %Py_DECREF.exit264.thread ], [ 0, %Py_DECREF.exit260.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_XDECREF.exit
 
 251:                                              ; preds = %147
@@ -60292,8 +60286,8 @@ Py_DECREF.exit268:                                ; preds = %Py_DECREF.exit260.t
   ]
 
 255:                                              ; preds = %251
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %257 = load ptr, ptr %256, align 8, !tbaa !327
   %258 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %257, ptr noundef nonnull %5) #8
@@ -60433,14 +60427,14 @@ Py_DECREF.exit254.thread:                         ; preds = %314, %311, %309, %3
   br i1 %321, label %Py_DECREF.exit258.thread332, label %Py_DECREF.exit258
 
 Py_DECREF.exit258.thread332:                      ; preds = %265, %267, %298, %300, %Py_DECREF.exit254.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %Py_DECREF.exit276
 
 Py_DECREF.exit258:                                ; preds = %Py_DECREF.exit254.thread, %282, %255, %263
   %.2 = phi i32 [ -1, %263 ], [ -1, %255 ], [ -1, %282 ], [ 0, %Py_DECREF.exit254.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %Py_XDECREF.exit
 
 322:                                              ; preds = %251
@@ -60453,8 +60447,8 @@ Py_DECREF.exit258:                                ; preds = %Py_DECREF.exit254.t
   ]
 
 326:                                              ; preds = %322
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %328 = load ptr, ptr %327, align 8, !tbaa !327
   %329 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %328, ptr noundef nonnull %5) #8
@@ -60594,14 +60588,14 @@ Py_DECREF.exit.thread:                            ; preds = %385, %382, %380, %3
   br i1 %392, label %Py_DECREF.exit252.thread342, label %Py_DECREF.exit252
 
 Py_DECREF.exit252.thread342:                      ; preds = %336, %338, %369, %371, %Py_DECREF.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %Py_DECREF.exit276
 
 Py_DECREF.exit252:                                ; preds = %Py_DECREF.exit.thread, %353, %326, %334
   %.3 = phi i32 [ -1, %334 ], [ -1, %326 ], [ -1, %353 ], [ 0, %Py_DECREF.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %Py_XDECREF.exit
 
 393:                                              ; preds = %322
@@ -60631,10 +60625,10 @@ Py_DECREF.exit276:                                ; preds = %Py_DECREF.exit252.t
 
 Py_XDECREF.exit:                                  ; preds = %402, %399, %397, %Py_DECREF.exit276, %Py_DECREF.exit252, %Py_DECREF.exit258, %Py_DECREF.exit268, %322, %251, %147, %120, %93, %63, %18, %128, %101, %71, %26, %17
   %.0 = phi i32 [ 0, %17 ], [ -1, %26 ], [ -1, %71 ], [ -1, %101 ], [ -1, %128 ], [ %.1, %Py_DECREF.exit268 ], [ %.2, %Py_DECREF.exit258 ], [ %.3, %Py_DECREF.exit252 ], [ -1, %18 ], [ -1, %63 ], [ -1, %93 ], [ -1, %120 ], [ %150, %147 ], [ %254, %251 ], [ %325, %322 ], [ -1, %Py_DECREF.exit276 ], [ -1, %397 ], [ -1, %399 ], [ -1, %402 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -60646,13 +60640,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_keyword(ptr noundef
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %12 = load ptr, ptr %11, align 8, !tbaa !279
   %13 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5) #8
@@ -61143,12 +61137,12 @@ Py_DECREF.exit139:                                ; preds = %200, %202, %167, %1
 
 Py_XDECREF.exit:                                  ; preds = %230, %227, %225, %Py_DECREF.exit139, %Py_DECREF.exit.thread, %Py_DECREF.exit129.thread, %150, %123, %93, %Py_DECREF.exit141, %4, %131, %101, %70
   %.0 = phi i32 [ -1, %70 ], [ -1, %101 ], [ -1, %131 ], [ -1, %4 ], [ -1, %Py_DECREF.exit141 ], [ -1, %93 ], [ -1, %123 ], [ -1, %150 ], [ -1, %Py_DECREF.exit129.thread ], [ 0, %Py_DECREF.exit.thread ], [ -1, %Py_DECREF.exit139 ], [ -1, %225 ], [ -1, %227 ], [ -1, %230 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -61337,10 +61331,10 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_withitem(ptr noundef nonnul
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %9 = load ptr, ptr %8, align 8, !tbaa !291
   %10 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %5) #8
@@ -61544,9 +61538,9 @@ Py_DECREF.exit45:                                 ; preds = %_PyAST_withitem.exi
 
 Py_XDECREF.exit:                                  ; preds = %87, %84, %82, %Py_DECREF.exit45, %_PyAST_withitem.exit, %38, %4, %15
   %.0 = phi i32 [ -1, %15 ], [ -1, %4 ], [ -1, %38 ], [ 0, %_PyAST_withitem.exit ], [ -1, %Py_DECREF.exit45 ], [ -1, %82 ], [ -1, %84 ], [ -1, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -61556,10 +61550,10 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_match_case(ptr noundef nonn
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %10 = load ptr, ptr %9, align 8, !tbaa !334
   %11 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %10, ptr noundef nonnull %5) #8
@@ -61792,7 +61786,7 @@ _Py_asdl_stmt_seq_new.exit:                       ; preds = %105
 .lr.ph:                                           ; preds = %_Py_asdl_stmt_seq_new.exit, %141
   %112 = phi ptr [ %137, %141 ], [ %.pre118, %_Py_asdl_stmt_seq_new.exit ]
   %.054114 = phi i64 [ %144, %141 ], [ 0, %_Py_asdl_stmt_seq_new.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8, !tbaa !117
   %115 = getelementptr ptr, ptr %114, i64 %.054114
@@ -61858,14 +61852,14 @@ Py_DECREF.exit78:                                 ; preds = %_Py_EnterRecursiveC
   br label %.thread
 
 .thread:                                          ; preds = %_Py_EnterRecursiveCall.exit96, %Py_DECREF.exit78, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Py_DECREF.exit84
 
 141:                                              ; preds = %136
   %142 = load ptr, ptr %8, align 8, !tbaa !141
   %143 = getelementptr [1 x ptr], ptr %110, i64 0, i64 %.054114
   store ptr %142, ptr %143, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %144 = add nuw nsw i64 %.054114, 1
   %exitcond.not = icmp eq i64 %144, %.val92
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !482
@@ -61921,9 +61915,9 @@ Py_DECREF.exit84:                                 ; preds = %108, %103, %96, %90
 
 Py_XDECREF.exit:                                  ; preds = %162, %159, %157, %Py_DECREF.exit84, %151, %82, %Py_DECREF.exit80.thread, %39, %4, %16
   %.0 = phi i32 [ -1, %16 ], [ -1, %4 ], [ -1, %39 ], [ -1, %Py_DECREF.exit80.thread ], [ -1, %82 ], [ 0, %151 ], [ -1, %Py_DECREF.exit84 ], [ -1, %157 ], [ -1, %159 ], [ -1, %162 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -61936,11 +61930,11 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_excepthandler(ptr noundef n
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %12, label %13, label %14
 
@@ -62269,8 +62263,8 @@ Py_DECREF.exit192.thread:                         ; preds = %154, %151, %149, %1
   ]
 
 158:                                              ; preds = %Py_DECREF.exit192.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1856
   %160 = load ptr, ptr %159, align 8, !tbaa !346
   %161 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %160, ptr noundef nonnull %5) #8
@@ -62471,7 +62465,7 @@ Py_DECREF.exit184.thread:                         ; preds = %222, %219, %217, %2
 248:                                              ; preds = %.lr.ph, %275
   %249 = phi ptr [ %.pre261, %.lr.ph ], [ %271, %275 ]
   %.0126258 = phi i64 [ 0, %.lr.ph ], [ %278, %275 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %251 = load ptr, ptr %250, align 8, !tbaa !117
   %252 = getelementptr ptr, ptr %251, i64 %.0126258
@@ -62528,14 +62522,14 @@ Py_DECREF.exit182:                                ; preds = %259, %266, %269
   br label %.thread
 
 .thread:                                          ; preds = %_Py_NewRef.exit, %Py_DECREF.exit182, %273
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit188.thread253
 
 275:                                              ; preds = %270
   %276 = load ptr, ptr %11, align 8, !tbaa !141
   %277 = getelementptr [1 x ptr], ptr %247, i64 0, i64 %.0126258
   store ptr %276, ptr %277, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %278 = add nuw nsw i64 %.0126258, 1
   %exitcond.not = icmp eq i64 %278, %.val217
   br i1 %exitcond.not, label %._crit_edge.thread, label %248, !llvm.loop !484
@@ -62595,14 +62589,14 @@ select.unfold:                                    ; preds = %285
   br label %Py_DECREF.exit188.thread253
 
 Py_DECREF.exit188.thread253:                      ; preds = %174, %176, %206, %208, %238, %242, %.thread, %select.unfold
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit202
 
 Py_DECREF.exit188:                                ; preds = %_PyAST_ExceptHandler.exit, %230, %Py_DECREF.exit184.thread, %Py_DECREF.exit188.thread, %158
   %.1 = phi i32 [ -1, %158 ], [ -1, %Py_DECREF.exit188.thread ], [ -1, %Py_DECREF.exit184.thread ], [ -1, %230 ], [ 0, %_PyAST_ExceptHandler.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_XDECREF.exit
 
 299:                                              ; preds = %Py_DECREF.exit192.thread
@@ -62632,10 +62626,10 @@ Py_DECREF.exit202:                                ; preds = %Py_DECREF.exit188.t
 
 Py_XDECREF.exit:                                  ; preds = %308, %305, %303, %Py_DECREF.exit202, %Py_DECREF.exit188, %Py_DECREF.exit192.thread, %Py_DECREF.exit196.thread, %89, %59, %14, %67, %22, %13
   %.0 = phi i32 [ 0, %13 ], [ -1, %22 ], [ -1, %67 ], [ %.1, %Py_DECREF.exit188 ], [ -1, %14 ], [ -1, %59 ], [ -1, %89 ], [ -1, %Py_DECREF.exit196.thread ], [ %157, %Py_DECREF.exit192.thread ], [ -1, %Py_DECREF.exit202 ], [ -1, %303 ], [ -1, %305 ], [ -1, %308 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -62646,12 +62640,12 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_alias(ptr noundef nonnull r
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %11 = load ptr, ptr %10, align 8, !tbaa !327
   %12 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %11, ptr noundef nonnull %5) #8
@@ -63163,19 +63157,19 @@ Py_DECREF.exit141:                                ; preds = %Py_DECREF.exit141.s
 
 Py_XDECREF.exit:                                  ; preds = %238, %235, %233, %Py_DECREF.exit141, %Py_DECREF.exit.thread, %Py_DECREF.exit129.thread, %154, %127, %Py_DECREF.exit139, %52, %4, %135, %105, %17
   %.0 = phi i32 [ -1, %17 ], [ -1, %105 ], [ -1, %135 ], [ -1, %4 ], [ -1, %52 ], [ -1, %Py_DECREF.exit139 ], [ -1, %127 ], [ -1, %154 ], [ -1, %Py_DECREF.exit129.thread ], [ 0, %Py_DECREF.exit.thread ], [ -1, %Py_DECREF.exit141 ], [ -1, %233 ], [ -1, %235 ], [ -1, %238 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare ptr @_Py_asdl_identifier_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_Py_asdl_identifier_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #2
+declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
@@ -63186,14 +63180,14 @@ define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef non
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %13 = load ptr, ptr %12, align 8, !tbaa !279
   %14 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %13, ptr noundef nonnull %5) #8
@@ -63763,13 +63757,13 @@ Py_DECREF.exit170:                                ; preds = %234, %236, %201, %2
 
 Py_XDECREF.exit:                                  ; preds = %265, %262, %260, %Py_DECREF.exit170, %Py_DECREF.exit.thread, %Py_DECREF.exit154.thread, %184, %157, %Py_DECREF.exit162.thread, %Py_DECREF.exit166.thread, %60, %4, %165, %138, %19
   %.0 = phi i32 [ -1, %19 ], [ -1, %138 ], [ -1, %165 ], [ -1, %4 ], [ -1, %60 ], [ -1, %Py_DECREF.exit166.thread ], [ -1, %Py_DECREF.exit162.thread ], [ -1, %157 ], [ -1, %184 ], [ -1, %Py_DECREF.exit154.thread ], [ 0, %Py_DECREF.exit.thread ], [ -1, %Py_DECREF.exit170 ], [ -1, %260 ], [ -1, %262 ], [ -1, %265 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -63792,11 +63786,11 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_pattern(ptr noundef nonnull
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %22, label %23, label %24
 
@@ -64084,7 +64078,7 @@ _Py_EnterRecursiveCall.exit703.thread:            ; preds = %_Py_EnterRecursiveC
   ]
 
 157:                                              ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %159 = load ptr, ptr %158, align 8, !tbaa !350
   %160 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %159, ptr noundef nonnull %5) #8
@@ -64149,12 +64143,12 @@ _Py_EnterRecursiveCall.exit703.thread:            ; preds = %_Py_EnterRecursiveC
   br i1 %190, label %Py_DECREF.exit630.thread746, label %Py_DECREF.exit630
 
 Py_DECREF.exit630.thread746:                      ; preds = %167, %169, %184
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit638
 
 Py_DECREF.exit630:                                ; preds = %184, %157, %165
   %.1 = phi i32 [ -1, %165 ], [ -1, %157 ], [ 0, %184 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit628
 
 191:                                              ; preds = %153
@@ -64309,7 +64303,7 @@ obj2ast_constant.exit:                            ; preds = %207
 268:                                              ; preds = %.lr.ph888, %295
   %269 = phi ptr [ %.pre908, %.lr.ph888 ], [ %291, %295 ]
   %.0416887 = phi i64 [ 0, %.lr.ph888 ], [ %298, %295 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
   %271 = load ptr, ptr %270, align 8, !tbaa !117
   %272 = getelementptr ptr, ptr %271, i64 %.0416887
@@ -64366,14 +64360,14 @@ Py_DECREF.exit626:                                ; preds = %279, %286, %289
   br label %.thread
 
 .thread:                                          ; preds = %_Py_NewRef.exit, %Py_DECREF.exit626, %293
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Py_DECREF.exit638
 
 295:                                              ; preds = %290
   %296 = load ptr, ptr %10, align 8, !tbaa !483
   %297 = getelementptr [1 x ptr], ptr %267, i64 0, i64 %.0416887
   store ptr %296, ptr %297, align 8, !tbaa !483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %298 = add nuw nsw i64 %.0416887, 1
   %exitcond895.not = icmp eq i64 %298, %.val700
   br i1 %exitcond895.not, label %._crit_edge889.thread, label %268, !llvm.loop !485
@@ -64436,7 +64430,7 @@ select.unfold770:                                 ; preds = %305
   ]
 
 319:                                              ; preds = %315
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %321 = load ptr, ptr %320, align 8, !tbaa !314
   %322 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %321, ptr noundef nonnull %5) #8
@@ -64489,7 +64483,7 @@ select.unfold770:                                 ; preds = %305
 345:                                              ; preds = %.lr.ph882, %372
   %346 = phi ptr [ %.pre904, %.lr.ph882 ], [ %368, %372 ]
   %.0419881 = phi i64 [ 0, %.lr.ph882 ], [ %375, %372 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %348 = load ptr, ptr %347, align 8, !tbaa !117
   %349 = getelementptr ptr, ptr %348, i64 %.0419881
@@ -64546,14 +64540,14 @@ Py_DECREF.exit622:                                ; preds = %356, %363, %366
   br label %.thread777
 
 .thread777:                                       ; preds = %_Py_NewRef.exit706, %Py_DECREF.exit622, %370
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %Py_DECREF.exit620.thread796
 
 372:                                              ; preds = %367
   %373 = load ptr, ptr %12, align 8, !tbaa !151
   %374 = getelementptr [1 x ptr], ptr %344, i64 0, i64 %.0419881
   store ptr %373, ptr %374, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %375 = add nuw nsw i64 %.0419881, 1
   %exitcond893.not = icmp eq i64 %375, %.val698
   br i1 %exitcond893.not, label %._crit_edge883.thread, label %345, !llvm.loop !486
@@ -64632,7 +64626,7 @@ Py_DECREF.exit622:                                ; preds = %356, %363, %366
 408:                                              ; preds = %.lr.ph885, %435
   %409 = phi ptr [ %.pre906, %.lr.ph885 ], [ %431, %435 ]
   %.0420884 = phi i64 [ 0, %.lr.ph885 ], [ %438, %435 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 24
   %411 = load ptr, ptr %410, align 8, !tbaa !117
   %412 = getelementptr ptr, ptr %411, i64 %.0420884
@@ -64689,14 +64683,14 @@ Py_DECREF.exit618:                                ; preds = %419, %426, %429
   br label %.thread785
 
 .thread785:                                       ; preds = %_Py_NewRef.exit707, %Py_DECREF.exit618, %433
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %Py_DECREF.exit620.thread796
 
 435:                                              ; preds = %430
   %436 = load ptr, ptr %13, align 8, !tbaa !483
   %437 = getelementptr [1 x ptr], ptr %407, i64 0, i64 %.0420884
   store ptr %436, ptr %437, align 8, !tbaa !483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %438 = add nuw nsw i64 %.0420884, 1
   %exitcond894.not = icmp eq i64 %438, %.val696
   br i1 %exitcond894.not, label %._crit_edge886.thread, label %408, !llvm.loop !487
@@ -64829,12 +64823,12 @@ select.unfold794:                                 ; preds = %Py_DECREF.exit612.t
   br label %Py_DECREF.exit620.thread796
 
 Py_DECREF.exit620.thread796:                      ; preds = %335, %339, %.thread777, %398, %402, %.thread785, %461, %463, %select.unfold794
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit638
 
 Py_DECREF.exit620:                                ; preds = %_PyAST_MatchMapping.exit, %445, %390, %382, %327, %319
   %.4 = phi i32 [ -1, %319 ], [ -1, %327 ], [ -1, %382 ], [ -1, %390 ], [ -1, %445 ], [ 0, %_PyAST_MatchMapping.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Py_DECREF.exit628
 
 490:                                              ; preds = %315
@@ -64847,7 +64841,7 @@ Py_DECREF.exit620:                                ; preds = %_PyAST_MatchMapping
   ]
 
 494:                                              ; preds = %490
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %496 = load ptr, ptr %495, align 8, !tbaa !288
   %497 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %496, ptr noundef nonnull %5) #8
@@ -64954,7 +64948,7 @@ Py_DECREF.exit620:                                ; preds = %_PyAST_MatchMapping
 547:                                              ; preds = %.lr.ph873, %574
   %548 = phi ptr [ %.pre900, %.lr.ph873 ], [ %570, %574 ]
   %.0424872 = phi i64 [ 0, %.lr.ph873 ], [ %577, %574 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 24
   %550 = load ptr, ptr %549, align 8, !tbaa !117
   %551 = getelementptr ptr, ptr %550, i64 %.0424872
@@ -65011,14 +65005,14 @@ Py_DECREF.exit608:                                ; preds = %558, %565, %568
   br label %.thread803
 
 .thread803:                                       ; preds = %_Py_NewRef.exit709, %Py_DECREF.exit608, %572
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %Py_DECREF.exit610.thread828
 
 574:                                              ; preds = %569
   %575 = load ptr, ptr %15, align 8, !tbaa !483
   %576 = getelementptr [1 x ptr], ptr %546, i64 0, i64 %.0424872
   store ptr %575, ptr %576, align 8, !tbaa !483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %577 = add nuw nsw i64 %.0424872, 1
   %exitcond890.not = icmp eq i64 %577, %.val694
   br i1 %exitcond890.not, label %._crit_edge874.thread, label %547, !llvm.loop !488
@@ -65095,7 +65089,7 @@ Py_DECREF.exit608:                                ; preds = %558, %565, %568
 
 610:                                              ; preds = %.lr.ph876, %637
   %.0425875 = phi i64 [ 0, %.lr.ph876 ], [ %640, %637 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %611 = load ptr, ptr %5, align 8, !tbaa !4
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 24
   %613 = load ptr, ptr %612, align 8, !tbaa !117
@@ -65153,14 +65147,14 @@ Py_DECREF.exit604:                                ; preds = %621, %628, %631
   br label %.thread811
 
 .thread811:                                       ; preds = %_Py_NewRef.exit710, %Py_DECREF.exit604, %635
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Py_DECREF.exit610.thread828
 
 637:                                              ; preds = %632
   %638 = load ptr, ptr %16, align 8, !tbaa !4
   %639 = getelementptr [1 x ptr], ptr %609, i64 0, i64 %.0425875
   store ptr %638, ptr %639, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %640 = add nuw nsw i64 %.0425875, 1
   %exitcond891.not = icmp eq i64 %640, %.val692
   br i1 %exitcond891.not, label %._crit_edge877, label %610, !llvm.loop !489
@@ -65239,7 +65233,7 @@ Py_DECREF.exit604:                                ; preds = %621, %628, %631
 674:                                              ; preds = %.lr.ph879, %701
   %675 = phi ptr [ %.pre902, %.lr.ph879 ], [ %697, %701 ]
   %.0426878 = phi i64 [ 0, %.lr.ph879 ], [ %704, %701 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %677 = load ptr, ptr %676, align 8, !tbaa !117
   %678 = getelementptr ptr, ptr %677, i64 %.0426878
@@ -65296,14 +65290,14 @@ Py_DECREF.exit600:                                ; preds = %685, %692, %695
   br label %.thread819
 
 .thread819:                                       ; preds = %_Py_NewRef.exit711, %Py_DECREF.exit600, %699
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %Py_DECREF.exit610.thread828
 
 701:                                              ; preds = %696
   %702 = load ptr, ptr %17, align 8, !tbaa !483
   %703 = getelementptr [1 x ptr], ptr %673, i64 0, i64 %.0426878
   store ptr %702, ptr %703, align 8, !tbaa !483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %704 = add nuw nsw i64 %.0426878, 1
   %exitcond892.not = icmp eq i64 %704, %.val690
   br i1 %exitcond892.not, label %._crit_edge880.thread, label %674, !llvm.loop !490
@@ -65340,12 +65334,12 @@ Py_DECREF.exit600:                                ; preds = %685, %692, %695
   br i1 %717, label %Py_DECREF.exit610.thread828, label %Py_DECREF.exit610
 
 Py_DECREF.exit610.thread828:                      ; preds = %504, %506, %537, %541, %.thread803, %600, %604, %.thread811, %664, %668, %.thread819, %711
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %Py_DECREF.exit638
 
 Py_DECREF.exit610:                                ; preds = %711, %656, %648, %592, %584, %529, %521, %494, %502
   %.5 = phi i32 [ -1, %502 ], [ -1, %494 ], [ -1, %521 ], [ -1, %529 ], [ -1, %584 ], [ -1, %592 ], [ -1, %648 ], [ -1, %656 ], [ 0, %711 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %Py_DECREF.exit628
 
 718:                                              ; preds = %490
@@ -65358,7 +65352,7 @@ Py_DECREF.exit610:                                ; preds = %711, %656, %648, %5
   ]
 
 722:                                              ; preds = %718
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %724 = load ptr, ptr %723, align 8, !tbaa !327
   %725 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %724, ptr noundef nonnull %5) #8
@@ -65461,12 +65455,12 @@ select.unfold834:                                 ; preds = %Py_DECREF.exit594.t
   br label %Py_DECREF.exit594.thread836
 
 Py_DECREF.exit594.thread836:                      ; preds = %738, %740, %select.unfold834
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %Py_DECREF.exit638
 
 Py_DECREF.exit594:                                ; preds = %_PyAST_MatchStar.exit, %722
   %.6 = phi i32 [ -1, %722 ], [ 0, %_PyAST_MatchStar.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %Py_DECREF.exit628
 
 765:                                              ; preds = %718
@@ -65479,8 +65473,8 @@ Py_DECREF.exit594:                                ; preds = %_PyAST_MatchStar.ex
   ]
 
 769:                                              ; preds = %765
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %770 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %771 = load ptr, ptr %770, align 8, !tbaa !334
   %772 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %771, ptr noundef nonnull %5) #8
@@ -65660,14 +65654,14 @@ select.unfold844:                                 ; preds = %Py_DECREF.exit586.t
   br label %Py_DECREF.exit590.thread846
 
 Py_DECREF.exit590.thread846:                      ; preds = %785, %787, %817, %819, %select.unfold844
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %Py_DECREF.exit638
 
 Py_DECREF.exit590:                                ; preds = %_PyAST_MatchAs.exit, %Py_DECREF.exit590.thread, %769
   %.7 = phi i32 [ -1, %769 ], [ -1, %Py_DECREF.exit590.thread ], [ 0, %_PyAST_MatchAs.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %Py_DECREF.exit628
 
 846:                                              ; preds = %765
@@ -65732,7 +65726,7 @@ Py_DECREF.exit590:                                ; preds = %_PyAST_MatchAs.exit
 876:                                              ; preds = %.lr.ph, %903
   %877 = phi ptr [ %.pre898, %.lr.ph ], [ %899, %903 ]
   %.0404871 = phi i64 [ 0, %.lr.ph ], [ %906, %903 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 24
   %879 = load ptr, ptr %878, align 8, !tbaa !117
   %880 = getelementptr ptr, ptr %879, i64 %.0404871
@@ -65789,14 +65783,14 @@ Py_DECREF.exit584:                                ; preds = %887, %894, %897
   br label %.thread851
 
 .thread851:                                       ; preds = %_Py_NewRef.exit714, %Py_DECREF.exit584, %901
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %Py_DECREF.exit638
 
 903:                                              ; preds = %898
   %904 = load ptr, ptr %21, align 8, !tbaa !483
   %905 = getelementptr [1 x ptr], ptr %875, i64 0, i64 %.0404871
   store ptr %904, ptr %905, align 8, !tbaa !483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %906 = add nuw nsw i64 %.0404871, 1
   %exitcond.not = icmp eq i64 %906, %.val688
   br i1 %exitcond.not, label %._crit_edge.thread, label %876, !llvm.loop !491
@@ -65876,10 +65870,10 @@ Py_DECREF.exit638:                                ; preds = %select.unfold858, %
 
 Py_DECREF.exit628:                                ; preds = %_PyAST_MatchOr.exit, %_PyAST_MatchSequence.exit, %932, %929, %927, %Py_DECREF.exit638, %850, %858, %Py_DECREF.exit590, %Py_DECREF.exit594, %Py_DECREF.exit610, %Py_DECREF.exit620, %242, %250, %203, %195, %232, %Py_DECREF.exit630, %846, %765, %718, %490, %315, %238, %191, %153, %126, %99, %69, %24, %134, %107, %77, %32, %23
   %.0 = phi i32 [ 0, %23 ], [ -1, %32 ], [ -1, %77 ], [ -1, %107 ], [ -1, %134 ], [ %.1, %Py_DECREF.exit630 ], [ %.4, %Py_DECREF.exit620 ], [ %.5, %Py_DECREF.exit610 ], [ %.6, %Py_DECREF.exit594 ], [ %.7, %Py_DECREF.exit590 ], [ -1, %24 ], [ -1, %69 ], [ -1, %99 ], [ -1, %126 ], [ %156, %153 ], [ %194, %191 ], [ %241, %238 ], [ %318, %315 ], [ %493, %490 ], [ %721, %718 ], [ %768, %765 ], [ %849, %846 ], [ -1, %203 ], [ -1, %195 ], [ 0, %232 ], [ -1, %242 ], [ -1, %250 ], [ 0, %_PyAST_MatchSequence.exit ], [ -1, %850 ], [ -1, %858 ], [ 0, %_PyAST_MatchOr.exit ], [ -1, %Py_DECREF.exit638 ], [ -1, %927 ], [ -1, %929 ], [ -1, %932 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -65990,11 +65984,11 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_comprehension(ptr noundef n
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %11 = load ptr, ptr %10, align 8, !tbaa !343
   %12 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef %11, ptr noundef nonnull %5) #8
@@ -66182,7 +66176,7 @@ _Py_EnterRecursiveCall.exit104.thread:            ; preds = %_Py_EnterRecursiveC
 96:                                               ; preds = %.lr.ph, %126
   %97 = phi ptr [ %.pre128, %.lr.ph ], [ %122, %126 ]
   %.059125 = phi i64 [ 0, %.lr.ph ], [ %129, %126 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !117
   %100 = getelementptr ptr, ptr %99, i64 %.059125
@@ -66248,14 +66242,14 @@ Py_DECREF.exit90:                                 ; preds = %_Py_EnterRecursiveC
   br label %.thread
 
 .thread:                                          ; preds = %_Py_EnterRecursiveCall.exit106, %Py_DECREF.exit90, %124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Py_DECREF.exit94
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %9, align 8, !tbaa !151
   %128 = getelementptr [1 x ptr], ptr %95, i64 0, i64 %.059125
   store ptr %127, ptr %128, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %129 = add nuw nsw i64 %.059125, 1
   %exitcond.not = icmp eq i64 %129, %.val102
   br i1 %exitcond.not, label %._crit_edge.thread, label %96, !llvm.loop !492
@@ -66366,14 +66360,14 @@ Py_DECREF.exit94:                                 ; preds = %146, %148, %86, %90
 
 Py_XDECREF.exit:                                  ; preds = %175, %172, %170, %Py_DECREF.exit94, %163, %136, %78, %70, %40, %4, %144, %48, %17
   %.0 = phi i32 [ -1, %17 ], [ -1, %48 ], [ -1, %144 ], [ -1, %4 ], [ -1, %40 ], [ -1, %70 ], [ -1, %78 ], [ -1, %136 ], [ 0, %163 ], [ -1, %Py_DECREF.exit94 ], [ -1, %170 ], [ -1, %172 ], [ -1, %175 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare ptr @_Py_asdl_int_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_Py_asdl_int_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @obj2ast_cmpop(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
@@ -66566,16 +66560,22 @@ define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr_context(ptr noundef no
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

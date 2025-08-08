@@ -199,8 +199,8 @@ invoke.cont:                                      ; preds = %cond.false.i.i, %co
 do.body:                                          ; preds = %do.cond, %invoke.cont
   %out.sroa.0.0 = phi ptr [ %add.ptr.i.pn.i.i, %invoke.cont ], [ %add.ptr.i.i31, %do.cond ]
   %out.sroa.9.0 = phi i64 [ %.sroa.speculated.i.i, %invoke.cont ], [ %sub.i.i33, %do.cond ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i)
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %19 = load ptr, ptr %vfn.i, align 8
@@ -211,8 +211,8 @@ call.i.noexc:                                     ; preds = %do.body
   br i1 %call.i10, label %if.end.i9, label %invoke.cont3.thread
 
 invoke.cont3.thread:                              ; preds = %call.i.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
   br label %if.then6
 
 if.end.i9:                                        ; preds = %call.i.noexc
@@ -237,8 +237,8 @@ invoke.cont3:                                     ; preds = %if.end.i9, %.noexc
   %24 = phi i32 [ %23, %.noexc ], [ %20, %if.end.i9 ]
   %25 = load ptr, ptr %buffer.i, align 8
   %conv.i = sext i32 %24 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
   %cmp.i11 = icmp eq i32 %24, 0
   br i1 %cmp.i11, label %if.then6, label %if.end9
 
@@ -1242,10 +1242,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

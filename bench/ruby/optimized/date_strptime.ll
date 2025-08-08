@@ -375,9 +375,6 @@ rbimpl_intern_const.exit100:                      ; preds = %.lr.ph.i98, %57
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
@@ -774,7 +771,7 @@ head_match_p.exit1076.thread:                     ; preds = %head_match_p.exit10
   br label %.thread1733
 
 136:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %137 = getelementptr i8, ptr %2, i64 %.2839
   %138 = getelementptr i8, ptr %137, i64 2
   %139 = load i8, ptr %138, align 1, !tbaa !15
@@ -853,7 +850,7 @@ num_pattern_p.exit:                               ; preds = %155, %151, %144
   %169 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef %date__strptime_internal.rbimpl_id.25.sink, ptr noundef @.str.2) #13
   %170 = tail call i64 @rb_id2sym(i64 noundef %169) #10
   %171 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %170, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread1733
 
 .loopexit1790:                                    ; preds = %.lr.ph.i1094, %167
@@ -861,7 +858,7 @@ num_pattern_p.exit:                               ; preds = %155, %151, %144
   %172 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1093) #10
   %173 = load i64, ptr %6, align 8, !tbaa !6
   %174 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %172, i64 noundef %173) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %962
 
 175:                                              ; preds = %.preheader1798
@@ -909,7 +906,7 @@ rbimpl_intern_const.exit1108:                     ; preds = %.lr.ph.i1106, %184
   br i1 %191, label %962, label %.thread1733
 
 193:                                              ; preds = %.preheader1798, %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %195 = load i8, ptr %194, align 1, !tbaa !15
   %196 = icmp eq i8 %195, 32
@@ -1009,14 +1006,14 @@ valid_range_p.exit.thread:                        ; preds = %216, %220, %valid_r
   %.lcssa.i1126.sink = phi i64 [ %.pr.i1109, %202 ], [ %.pr.i1115, %209 ], [ %.pr.i1124, %valid_range_p.exit.thread ], [ %203, %.lr.ph.i1112 ], [ %224, %.lr.ph.i1127 ], [ %210, %.lr.ph.i1118 ]
   %227 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1126.sink) #10
   %228 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %227, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread1733
 
 .loopexit1791:                                    ; preds = %.lr.ph.i1133, %225
   %.lcssa.i1132 = phi i64 [ %.pr.i1130, %225 ], [ %226, %.lr.ph.i1133 ]
   %229 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1132) #10
   %230 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %229, i64 noundef %214) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %962
 
 231:                                              ; preds = %.preheader1798
@@ -1042,7 +1039,7 @@ rbimpl_intern_const.exit1141:                     ; preds = %.lr.ph.i1139, %231
   br i1 %238, label %962, label %.thread1733
 
 240:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %241 = getelementptr i8, ptr %2, i64 %.2839
   %242 = getelementptr i8, ptr %241, i64 2
   %243 = load i8, ptr %242, align 1, !tbaa !15
@@ -1121,7 +1118,7 @@ num_pattern_p.exit1149:                           ; preds = %259, %255, %248
   %273 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef %date__strptime_internal.rbimpl_id.39.sink, ptr noundef @.str.2) #13
   %274 = tail call i64 @rb_id2sym(i64 noundef %273) #10
   %275 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %274, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread1733
 
 .loopexit1792:                                    ; preds = %.lr.ph.i1153, %271
@@ -1129,11 +1126,11 @@ num_pattern_p.exit1149:                           ; preds = %259, %255, %248
   %276 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1152) #10
   %277 = load i64, ptr %8, align 8, !tbaa !6
   %278 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %276, i64 noundef %277) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %962
 
 279:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %281 = sub i64 %1, %.07662004
   %282 = call fastcc i64 @read_digits(ptr noundef %280, i64 noundef %281, ptr noundef %9, i64 noundef 2)
@@ -1243,11 +1240,11 @@ rbimpl_intern_const.exit1191:                     ; preds = %.lr.ph.i1189, %rbim
   br label %312
 
 312:                                              ; preds = %rbimpl_intern_const.exit1179, %rbimpl_intern_const.exit1191
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %962
 
 313:                                              ; preds = %.preheader1798, %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %315 = load i8, ptr %314, align 1, !tbaa !15
   %316 = icmp eq i8 %315, 32
@@ -1346,18 +1343,18 @@ valid_range_p.exit1209.thread:                    ; preds = %336, %339, %valid_r
   %.lcssa.i1212.sink = phi i64 [ %.pr.i1192, %322 ], [ %.pr.i1198, %329 ], [ %.pr.i1210, %valid_range_p.exit1209.thread ], [ %323, %.lr.ph.i1195 ], [ %343, %.lr.ph.i1213 ], [ %330, %.lr.ph.i1201 ]
   %346 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1212.sink) #10
   %347 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %346, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread1733
 
 .loopexit1793:                                    ; preds = %.lr.ph.i1219, %344
   %.lcssa.i1218 = phi i64 [ %.pr.i1216, %344 ], [ %345, %.lr.ph.i1219 ]
   %348 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1218) #10
   %349 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %348, i64 noundef %334) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %962
 
 350:                                              ; preds = %.preheader1798, %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %352 = load i8, ptr %351, align 1, !tbaa !15
   %353 = icmp eq i8 %352, 32
@@ -1457,18 +1454,18 @@ valid_range_p.exit1239.thread:                    ; preds = %373, %377, %valid_r
   %.lcssa.i1242.sink = phi i64 [ %.pr.i1222, %359 ], [ %.pr.i1228, %366 ], [ %.pr.i1240, %valid_range_p.exit1239.thread ], [ %360, %.lr.ph.i1225 ], [ %381, %.lr.ph.i1243 ], [ %367, %.lr.ph.i1231 ]
   %384 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1242.sink) #10
   %385 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %384, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread1733
 
 .loopexit1794:                                    ; preds = %.lr.ph.i1249, %382
   %.lcssa.i1248 = phi i64 [ %.pr.i1246, %382 ], [ %383, %.lr.ph.i1249 ]
   %386 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1248) #10
   %387 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %386, i64 noundef %371) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %962
 
 388:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %390 = sub i64 %1, %.07662004
   %391 = call fastcc i64 @read_digits(ptr noundef %389, i64 noundef %390, ptr noundef %12, i64 noundef 3)
@@ -1529,18 +1526,18 @@ rbimpl_intern_const.exit1269:                     ; preds = %.lr.ph.i1267, %.cri
   %.lcssa.i1266 = phi i64 [ %.pr.i1264, %.critedge1030 ], [ %407, %.lr.ph.i1267 ]
   %408 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1266) #10
   %409 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %408, i64 noundef %396) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %962
 
 .thread1707:                                      ; preds = %.lr.ph.i1255, %392, %valid_range_p.exit1263.thread
   %.lcssa.i1254.sink = phi i64 [ %406, %valid_range_p.exit1263.thread ], [ %.pr.i1252, %392 ], [ %393, %.lr.ph.i1255 ]
   %410 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1254.sink) #10
   %411 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %410, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread1733
 
 412:                                              ; preds = %.preheader1798, %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %414 = load i8, ptr %413, align 1, !tbaa !15
   switch i8 %414, label %418 [
@@ -1699,7 +1696,7 @@ rbimpl_intern_const.exit1301:                     ; preds = %.lr.ph.i1299, %rbim
   %.lcssa.i1280.sink = phi i64 [ %453, %.thread1716 ], [ %.pr.i1278, %448 ], [ %449, %.lr.ph.i1281 ]
   %470 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1280.sink) #10
   %471 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %470, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread1733
 
 472:                                              ; preds = %468, %465
@@ -1707,11 +1704,11 @@ rbimpl_intern_const.exit1301:                     ; preds = %.lr.ph.i1299, %rbim
   %473 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 21, i64 noundef %.lcssa.i1298, i32 noundef 1, i64 noundef %.0.i1302) #10
   %474 = tail call i64 @rb_rational_new(i64 noundef %462, i64 noundef %473) #10
   %475 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %461, i64 noundef %474) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %962
 
 476:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %478 = sub i64 %1, %.07662004
   %479 = call fastcc i64 @read_digits(ptr noundef %477, i64 noundef %478, ptr noundef %14, i64 noundef 2)
@@ -1771,18 +1768,18 @@ rbimpl_intern_const.exit1320:                     ; preds = %.lr.ph.i1318, %.cri
   %.lcssa.i1317 = phi i64 [ %.pr.i1315, %.critedge1032 ], [ %494, %.lr.ph.i1318 ]
   %495 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1317) #10
   %496 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %495, i64 noundef %484) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %962
 
 .thread1722:                                      ; preds = %.lr.ph.i1306, %480, %valid_range_p.exit1314.thread
   %.lcssa.i1305.sink = phi i64 [ %493, %valid_range_p.exit1314.thread ], [ %.pr.i1303, %480 ], [ %481, %.lr.ph.i1306 ]
   %497 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1305.sink) #10
   %498 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %497, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread1733
 
 499:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %501 = sub i64 %1, %.07662004
   %502 = call fastcc i64 @read_digits(ptr noundef %500, i64 noundef %501, ptr noundef %15, i64 noundef 2)
@@ -1843,14 +1840,14 @@ rbimpl_intern_const.exit1338:                     ; preds = %.lr.ph.i1336, %.cri
   %.lcssa.i1335 = phi i64 [ %.pr.i1333, %.critedge1034 ], [ %518, %.lr.ph.i1336 ]
   %519 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1335) #10
   %520 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %519, i64 noundef %507) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %962
 
 .thread1727:                                      ; preds = %.lr.ph.i1324, %503, %valid_range_p.exit1332.thread
   %.lcssa.i1323.sink = phi i64 [ %517, %valid_range_p.exit1332.thread ], [ %.pr.i1321, %503 ], [ %504, %.lr.ph.i1324 ]
   %521 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1323.sink) #10
   %522 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %521, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread1733
 
 523:                                              ; preds = %.preheader1798, %.preheader1798
@@ -1998,7 +1995,7 @@ rbimpl_intern_const.exit1362:                     ; preds = %.lr.ph.i1360, %567
   br label %962
 
 577:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %579 = load i8, ptr %578, align 1, !tbaa !15
   %580 = icmp eq i8 %579, 45
@@ -2060,7 +2057,7 @@ rbimpl_intern_const.exit1386:                     ; preds = %.lr.ph.i1384, %593
   %596 = load i64, ptr %16, align 8, !tbaa !6
   %597 = tail call i64 @rb_rational_new(i64 noundef %596, i64 noundef 2001) #10
   %598 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %595, i64 noundef %597) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %962
 
 599:                                              ; preds = %.preheader1798
@@ -2108,7 +2105,7 @@ rbimpl_intern_const.exit1398:                     ; preds = %.lr.ph.i1396, %608
   br i1 %615, label %962, label %.thread1733
 
 617:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %619 = sub i64 %1, %.07662004
   %620 = call fastcc i64 @read_digits(ptr noundef %618, i64 noundef %619, ptr noundef %17, i64 noundef 2)
@@ -2168,18 +2165,18 @@ rbimpl_intern_const.exit1416:                     ; preds = %.lr.ph.i1414, %.cri
   %.lcssa.i1413 = phi i64 [ %.pr.i1411, %.critedge1038 ], [ %635, %.lr.ph.i1414 ]
   %636 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1413) #10
   %637 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %636, i64 noundef %625) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %962
 
 .thread1738:                                      ; preds = %.lr.ph.i1402, %621, %valid_range_p.exit1410.thread
   %.lcssa.i1401.sink = phi i64 [ %634, %valid_range_p.exit1410.thread ], [ %.pr.i1399, %621 ], [ %622, %.lr.ph.i1402 ]
   %638 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1401.sink) #10
   %639 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %638, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread1733
 
 640:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %641 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %642 = load i8, ptr %641, align 1, !tbaa !15
   %643 = icmp eq i8 %642, 45
@@ -2240,7 +2237,7 @@ rbimpl_intern_const.exit1434:                     ; preds = %.lr.ph.i1432, %656
   %658 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1431) #10
   %659 = load i64, ptr %18, align 8, !tbaa !6
   %660 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %658, i64 noundef %659) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %962
 
 661:                                              ; preds = %.preheader1798
@@ -2266,7 +2263,7 @@ rbimpl_intern_const.exit1440:                     ; preds = %.lr.ph.i1438, %661
   br i1 %668, label %962, label %.thread1733
 
 670:                                              ; preds = %.preheader1798, %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %671 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %672 = sub i64 %1, %.07662004
   %673 = call fastcc i64 @read_digits(ptr noundef %671, i64 noundef %672, ptr noundef %19, i64 noundef 2)
@@ -2317,18 +2314,18 @@ valid_range_p.exit1452.thread:                    ; preds = %680, %683, %valid_r
   %690 = tail call i64 @rb_intern(ptr noundef nonnull %689) #10
   %691 = tail call i64 @rb_id2sym(i64 noundef %690) #10
   %692 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %691, i64 noundef %678) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %962
 
 .thread1745:                                      ; preds = %.lr.ph.i1444, %674, %valid_range_p.exit1452.thread
   %.lcssa.i1443.sink = phi i64 [ %687, %valid_range_p.exit1452.thread ], [ %.pr.i1441, %674 ], [ %675, %.lr.ph.i1444 ]
   %693 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1443.sink) #10
   %694 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %693, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread1733
 
 695:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %697 = sub i64 %1, %.07662004
   %698 = call fastcc i64 @read_digits(ptr noundef %696, i64 noundef %697, ptr noundef %20, i64 noundef 1)
@@ -2389,18 +2386,18 @@ rbimpl_intern_const.exit1470:                     ; preds = %.lr.ph.i1468, %.cri
   %.lcssa.i1467 = phi i64 [ %.pr.i1465, %.critedge1045 ], [ %714, %.lr.ph.i1468 ]
   %715 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1467) #10
   %716 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %715, i64 noundef %703) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %962
 
 .thread1750:                                      ; preds = %.lr.ph.i1456, %699, %valid_range_p.exit1464.thread
   %.lcssa.i1455.sink = phi i64 [ %713, %valid_range_p.exit1464.thread ], [ %.pr.i1453, %699 ], [ %700, %.lr.ph.i1456 ]
   %717 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1455.sink) #10
   %718 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %717, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread1733
 
 719:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %721 = sub i64 %1, %.07662004
   %722 = call fastcc i64 @read_digits(ptr noundef %720, i64 noundef %721, ptr noundef %21, i64 noundef 2)
@@ -2461,14 +2458,14 @@ rbimpl_intern_const.exit1488:                     ; preds = %.lr.ph.i1486, %.cri
   %.lcssa.i1485 = phi i64 [ %.pr.i1483, %.critedge1047 ], [ %738, %.lr.ph.i1486 ]
   %739 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1485) #10
   %740 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %739, i64 noundef %727) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %962
 
 .thread1755:                                      ; preds = %.lr.ph.i1474, %723, %valid_range_p.exit1482.thread
   %.lcssa.i1473.sink = phi i64 [ %737, %valid_range_p.exit1482.thread ], [ %.pr.i1471, %723 ], [ %724, %.lr.ph.i1474 ]
   %741 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1473.sink) #10
   %742 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %741, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread1733
 
 743:                                              ; preds = %.preheader1798
@@ -2494,7 +2491,7 @@ rbimpl_intern_const.exit1494:                     ; preds = %.lr.ph.i1492, %743
   br i1 %750, label %962, label %.thread1733
 
 752:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %754 = sub i64 %1, %.07662004
   %755 = call fastcc i64 @read_digits(ptr noundef %753, i64 noundef %754, ptr noundef %22, i64 noundef 1)
@@ -2554,14 +2551,14 @@ rbimpl_intern_const.exit1512:                     ; preds = %.lr.ph.i1510, %.cri
   %.lcssa.i1509 = phi i64 [ %.pr.i1507, %.critedge1049 ], [ %770, %.lr.ph.i1510 ]
   %771 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1509) #10
   %772 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %771, i64 noundef %760) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %962
 
 .thread1760:                                      ; preds = %.lr.ph.i1498, %756, %valid_range_p.exit1506.thread
   %.lcssa.i1497.sink = phi i64 [ %769, %valid_range_p.exit1506.thread ], [ %.pr.i1495, %756 ], [ %757, %.lr.ph.i1498 ]
   %773 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1497.sink) #10
   %774 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %773, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.thread1733
 
 775:                                              ; preds = %.preheader1798
@@ -2609,7 +2606,7 @@ rbimpl_intern_const.exit1524:                     ; preds = %.lr.ph.i1522, %784
   br i1 %791, label %962, label %.thread1733
 
 793:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %794 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %795 = load i8, ptr %794, align 1, !tbaa !15
   switch i8 %795, label %799 [
@@ -2724,7 +2721,7 @@ rbimpl_intern_const.exit1538:                     ; preds = %.lr.ph.i1536, %831
   %837 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef %date__strptime_internal.rbimpl_id.120.sink, ptr noundef @.str.2) #13
   %838 = tail call i64 @rb_id2sym(i64 noundef %837) #10
   %839 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %838, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread1733
 
 .loopexit1796:                                    ; preds = %.lr.ph.i1542, %835
@@ -2732,11 +2729,11 @@ rbimpl_intern_const.exit1538:                     ; preds = %.lr.ph.i1536, %831
   %840 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1541) #10
   %841 = load i64, ptr %23, align 8, !tbaa !6
   %842 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %840, i64 noundef %841) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %962
 
 843:                                              ; preds = %.preheader1798
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %844 = getelementptr inbounds nuw i8, ptr %0, i64 %.07662004
   %845 = sub i64 %1, %.07662004
   %846 = call fastcc i64 @read_digits(ptr noundef %844, i64 noundef %845, ptr noundef %24, i64 noundef 2)
@@ -2846,7 +2843,7 @@ rbimpl_intern_const.exit1580:                     ; preds = %.lr.ph.i1578, %rbim
   br label %876
 
 876:                                              ; preds = %rbimpl_intern_const.exit1568, %rbimpl_intern_const.exit1580
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %962
 
 877:                                              ; preds = %.preheader1798, %.preheader1798
@@ -3084,28 +3081,28 @@ rbimpl_intern_const.exit1624:                     ; preds = %.lr.ph.i1622, %955
   %.lcssa.i1158.sink = phi i64 [ %296, %valid_range_p.exit1167.thread ], [ %.pr.i1156, %283 ], [ %284, %.lr.ph.i1159 ]
   %964 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1158.sink) #10
   %965 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %964, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread1733
 
 .critedge1036:                                    ; preds = %.lr.ph.i1372, %585
   %.lcssa.i1371 = phi i64 [ %.pr.i1369, %585 ], [ %586, %.lr.ph.i1372 ]
   %966 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1371) #10
   %967 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %966, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread1733
 
 .critedge1041:                                    ; preds = %.lr.ph.i1420, %648
   %.lcssa.i1419 = phi i64 [ %.pr.i1417, %648 ], [ %649, %.lr.ph.i1420 ]
   %968 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1419) #10
   %969 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %968, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread1733
 
 .critedge1051:                                    ; preds = %.lr.ph.i1548, %847, %valid_range_p.exit1556.thread
   %.lcssa.i1547.sink = phi i64 [ %860, %valid_range_p.exit1556.thread ], [ %.pr.i1545, %847 ], [ %848, %.lr.ph.i1548 ]
   %970 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1547.sink) #10
   %971 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %970, i64 noundef 20) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.thread1733
 
 .thread1733:                                      ; preds = %rbimpl_intern_const.exit1618, %rbimpl_intern_const.exit1524, %rbimpl_intern_const.exit1518, %rbimpl_intern_const.exit1494, %rbimpl_intern_const.exit1440, %rbimpl_intern_const.exit1398, %rbimpl_intern_const.exit1392, %rbimpl_intern_const.exit1344, %rbimpl_intern_const.exit1141, %rbimpl_intern_const.exit1108, %rbimpl_intern_const.exit1102, %.backedge1801, %42, %5, %rbimpl_intern_const.exit1350, %rbimpl_intern_const.exit1362, %rbimpl_intern_const.exit1356, %.thread1780, %.thread1772, %.thread1719, %.thread1704, %.thread1693, %.thread1677, %.thread1667, %.thread1656, %.loopexit1789, %.loopexit, %.thread, %.critedge1051, %.thread1760, %.thread1755, %.thread1750, %.thread1745, %.critedge1041, %.thread1738, %.critedge1036, %.thread1727, %.thread1722, %.thread1707, %.critedge1028, %rbimpl_intern_const.exit1624, %946, %935, %917, %535, %rbimpl_intern_const.exit
@@ -3113,14 +3110,14 @@ rbimpl_intern_const.exit1624:                     ; preds = %.lr.ph.i1622, %955
   ret i64 %.1
 }
 
-declare i64 @rb_usascii_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_usascii_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %.pr = load i64, ptr %0, align 8, !tbaa !6
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -3137,20 +3134,17 @@ define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonn
   ret i64 %.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_hash_delete(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_hash_delete(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #4
+declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i64 noundef range(i64 1, -9223372036854775808) %3) unnamed_addr #0 {
@@ -3224,7 +3218,7 @@ rb_long2num_inline.exit:                          ; preds = %30, %33
   br label %48
 
 35:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !6
   %36 = add i64 %.13643, 1
   %37 = icmp ult i64 %36, 1024
@@ -3248,7 +3242,7 @@ rb_long2num_inline.exit:                          ; preds = %30, %33
   %47 = call i64 @rb_cstr_to_inum(ptr noundef nonnull %45, i32 noundef 10, i32 noundef 0) #10
   store i64 %47, ptr %2, align 8, !tbaa !6
   call void @rb_free_tmp_buffer(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 48:                                               ; preds = %rb_long2num_inline.exit, %.critedge, %44
@@ -3256,45 +3250,51 @@ rb_long2num_inline.exit:                          ; preds = %30, %33
   ret i64 %.0
 }
 
-declare i64 @rb_rational_new(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_rational_new(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_reg_new(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @rb_reg_new(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_obj_freeze(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_obj_freeze(i64 noundef) local_unnamed_addr #1
 
-declare void @rb_gc_register_mark_object(i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_register_mark_object(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_backref_get() local_unnamed_addr #2
+declare i64 @rb_backref_get() local_unnamed_addr #1
 
-declare void @rb_match_busy(i64 noundef) local_unnamed_addr #2
+declare void @rb_match_busy(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_reg_nth_match(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_reg_nth_match(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @date_zone_to_diff(i64 noundef) local_unnamed_addr #2
+declare i64 @date_zone_to_diff(i64 noundef) local_unnamed_addr #1
 
-declare void @rb_backref_set(i64 noundef) local_unnamed_addr #2
+declare void @rb_backref_set(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i64 @rb_cstr_to_inum(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @rb_cstr_to_inum(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #2
+declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1,2)
-declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
@@ -3303,13 +3303,13 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }

@@ -288,7 +288,7 @@ i2r_ISSUER_SERIAL.exit.i.i.i:                     ; preds = %66, %64, %59, %50, 
 78:                                               ; preds = %75
   %79 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.30, i32 noundef range(i32 -2147483642, -2147483648) %12, ptr noundef nonnull @.str.22) #4
   %80 = load ptr, ptr %76, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !25
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %83
@@ -354,8 +354,8 @@ switch.lookup:                                    ; preds = %87
   br i1 %.not45.i.i.i.i, label %123, label %113
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %114 = call i32 @OBJ_find_sigid_algs(i32 noundef %112, ptr noundef nonnull %7, ptr noundef nonnull %6) #4
   %.not46.i.i.i.i = icmp eq i32 %114, 0
   br i1 %.not46.i.i.i.i, label %.thread.i.i.i.i, label %115
@@ -373,14 +373,14 @@ switch.lookup:                                    ; preds = %87
   br i1 %.not48.i.i.i.i, label %.thread.i.i.i.i, label %121
 
 .thread.i.i.i.i:                                  ; preds = %118, %115, %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 
 121:                                              ; preds = %118
   %122 = call i32 %120(ptr noundef %2, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef %14, ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %i2r_OBJECT_DIGEST_INFO.exit.i.i.i
 
 123:                                              ; preds = %.thread.i.i.i.i, %110
@@ -393,7 +393,7 @@ switch.lookup:                                    ; preds = %87
   br label %i2r_OBJECT_DIGEST_INFO.exit.i.i.i
 
 i2r_OBJECT_DIGEST_INFO.exit.i.i.i:                ; preds = %125, %123, %121, %106, %102, %99, %83, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %i2r_TARGET.exit.sink.split.i
 
 i2r_TARGET.exit.sink.split.i:                     ; preds = %i2r_OBJECT_DIGEST_INFO.exit.i.i.i, %75, %28, %23
@@ -443,17 +443,11 @@ declare ptr @ASN1_OBJECT_it() #2
 
 declare ptr @X509_ALGOR_it() #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -484,6 +478,12 @@ declare ptr @EVP_PKEY_asn1_find(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @X509_signature_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

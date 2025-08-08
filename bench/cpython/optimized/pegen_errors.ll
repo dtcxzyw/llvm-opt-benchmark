@@ -71,9 +71,9 @@ define hidden void @_PyPegen_raise_tokenizer_init_error(ptr noundef %0) local_un
   br i1 %.not13, label %65, label %16
 
 16:                                               ; preds = %13, %10, %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %17 = load ptr, ptr %3, align 8, !tbaa !4
   %18 = call ptr @PyObject_Str(ptr noundef %17) #7
@@ -210,9 +210,9 @@ Py_XDECREF.exit26:                                ; preds = %Py_XDECREF.exit23, 
   br label %Py_XDECREF.exit29
 
 Py_XDECREF.exit29:                                ; preds = %Py_XDECREF.exit26, %59, %61, %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %65
 
 65:                                               ; preds = %13, %Py_XDECREF.exit29
@@ -220,9 +220,6 @@ Py_XDECREF.exit29:                                ; preds = %Py_XDECREF.exit26, 
 }
 
 declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @PyErr_Fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -233,9 +230,6 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #1
 
 declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unnamed_addr #0 {
@@ -373,11 +367,11 @@ define hidden noalias noundef ptr @_PyPegen_raise_error(ptr noundef %0, ptr noun
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %16 = call ptr @_PyPegen_raise_error_known_location(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef -1, ptr noundef %3, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %74
 
 17:                                               ; preds = %11
@@ -472,7 +466,7 @@ define hidden noalias noundef ptr @_PyPegen_raise_error(ptr noundef %0, ptr noun
   %66 = load i32, ptr %65, align 8, !tbaa !38
   %narrow = tail call i32 @llvm.uadd.sat.i32(i32 %66, i32 1)
   %.034 = sext i32 %narrow to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_start.p0(ptr nonnull %6)
   %67 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %68 = load i32, ptr %67, align 4, !tbaa !39
@@ -482,7 +476,7 @@ define hidden noalias noundef ptr @_PyPegen_raise_error(ptr noundef %0, ptr noun
   %72 = sext i32 %71 to i64
   %73 = call ptr @_PyPegen_raise_error_known_location(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %69, i64 noundef %.035, i64 noundef %72, i64 noundef %.034, ptr noundef %3, ptr noundef nonnull %6)
   call void @llvm.va_end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 74:                                               ; preds = %9, %64, %25, %15
@@ -496,9 +490,9 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, ...) unnamed_addr #3 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, ...) unnamed_addr #2 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = icmp eq i64 %3, -5
   %10 = add i64 %3, 1
@@ -508,7 +502,7 @@ define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef captures(none) %0, 
   %14 = select i1 %12, i64 -5, i64 %13
   %15 = call ptr @_PyPegen_raise_error_known_location(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %11, i64 noundef %4, i64 noundef %14, ptr noundef %6, ptr noundef nonnull %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -530,9 +524,9 @@ define hidden noundef i32 @_Pypegen_raise_decode_error(ptr noundef %0) local_unn
 
 .thread:                                          ; preds = %1, %7
   %.022 = phi ptr [ @.str.10, %7 ], [ @.str.9, %1 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %10 = load ptr, ptr %3, align 8, !tbaa !4
   %11 = call ptr @PyObject_Str(ptr noundef %10) #7
@@ -623,9 +617,9 @@ Py_XDECREF.exit16:                                ; preds = %Py_XDECREF.exit, %3
   br label %Py_XDECREF.exit19
 
 Py_XDECREF.exit19:                                ; preds = %Py_XDECREF.exit16, %38, %40, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
 44:                                               ; preds = %Py_XDECREF.exit19, %7
@@ -635,7 +629,7 @@ Py_XDECREF.exit19:                                ; preds = %Py_XDECREF.exit16, 
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #4
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @_PyPegen_raise_error_known_location(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -880,7 +874,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #4
+declare void @llvm.va_end.p0(ptr) #3
 
 declare i32 @_PyPegen_fill_token(ptr noundef) local_unnamed_addr #1
 
@@ -1101,9 +1095,9 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   br i1 %.not, label %9, label %84
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !31
@@ -1125,7 +1119,7 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   %22 = phi ptr [ %20, %12 ], [ %11, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i32, ptr %23, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyToken_Init(ptr noundef nonnull %5) #7
   br label %25
 
@@ -1253,10 +1247,10 @@ Py_XDECREF.exit27:                                ; preds = %Py_XDECREF.exit, %6
   br label %Py_XDECREF.exit30
 
 Py_XDECREF.exit30:                                ; preds = %79, %76, %74, %Py_XDECREF.exit27, %80
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %1, %Py_XDECREF.exit30
@@ -1275,10 +1269,10 @@ define hidden void @_Pypegen_stack_overflow(ptr noundef writeonly captures(none)
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @_PyToken_Init(ptr noundef) local_unnamed_addr #1
 
@@ -1288,6 +1282,12 @@ declare void @_PyToken_Free(ptr noundef) local_unnamed_addr #1
 
 declare void @PyErr_Restore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
@@ -1296,10 +1296,10 @@ declare i32 @llvm.uadd.sat.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }

@@ -207,15 +207,15 @@ define dso_local noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10
   br i1 %.not.i.i.i, label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit, label %33
 
 33:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %5) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr nonnull %2, i64 %3) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(16) %6) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit
 
 _ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit: ; preds = %32, %33
@@ -312,17 +312,11 @@ define dso_local noundef ptr @_ZN4llvm15ContextTrieNode22getHottestChildContextE
   br i1 %.not24, label %._crit_edge, label %9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK4llvm15ContextTrieNode18getFunctionSamplesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK4llvm15ContextTrieNode18getFunctionSamplesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   ret ptr %3
@@ -339,7 +333,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20Samp
   %11 = alloca %"class.llvm::MD5", align 4
   %12 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %14, align 8, !tbaa !51
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -349,15 +343,15 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20Samp
   br i1 %.not.i.i.i, label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit, label %15
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %11) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %11, ptr nonnull %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %11, ptr noundef nonnull align 1 dereferenceable(16) %12) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit
 
 _ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit: ; preds = %4, %15
@@ -396,12 +390,12 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS
 
 .critedge.i:                                      ; preds = %25, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %25 ], [ %.19.i.i.i.i, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i ], [ %20, %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %13, ptr %9, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
 
 _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; preds = %25, %.critedge.i
@@ -411,7 +405,7 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; 
   br i1 %.not.i.i.i24, label %_ZN4llvm15ContextTrieNodeaSERKS0_.exit, label %31
 
 31:                                               ; preds = %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !48
   store ptr %33, ptr %8, align 8, !tbaa !54
@@ -486,7 +480,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %58 = phi ptr [ %.pre6.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ERKSA_RT0_.exit.i.i.i ], [ %33, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE20_Reuse_or_alloc_nodeC2ERSA_.exit.i.i.i ]
   %59 = phi ptr [ %.pre.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ERKSA_RT0_.exit.i.i.i ], [ %30, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE20_Reuse_or_alloc_nodeC2ERSA_.exit.i.i.i ]
   call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef %58)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm15ContextTrieNodeaSERKS0_.exit
 
 _ZN4llvm15ContextTrieNodeaSERKS0_.exit:           ; preds = %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit, %57
@@ -526,12 +520,12 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS
 
 .critedge.i37:                                    ; preds = %69, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i35, %_ZN4llvm15ContextTrieNodeaSERKS0_.exit
   %.08.lcssa.i.i.i11.i38 = phi ptr [ %.19.i.i.i.i30, %69 ], [ %.19.i.i.i.i30, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i35 ], [ %20, %_ZN4llvm15ContextTrieNodeaSERKS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %13, ptr %6, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i38, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.critedge.i37, %69
@@ -603,11 +597,11 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   br i1 %.not, label %101, label %96
 
 96:                                               ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %95, ptr %5, align 8, !tbaa !72
   %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(8) %5)
   store ptr %86, ptr %97, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %99 = load i32, ptr %98, align 8, !tbaa !73
   %100 = or i32 %99, 2
@@ -811,12 +805,12 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ; pr
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i43, %._crit_edge
   %200 = shl i64 %.lcssa61, 3
   call void @_ZdlPvm(ptr noundef %.lcssa65, i64 noundef %200) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !51
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -827,12 +821,12 @@ define dso_local { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15ContextTrieNode18getAllChildContextEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15ContextTrieNode18getAllChildContextEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode14setCallSiteLocERKNS_10sampleprof12LineLocationE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode14setCallSiteLocERKNS_10sampleprof12LineLocationE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -840,7 +834,7 @@ define dso_local void @_ZN4llvm15ContextTrieNode14setCallSiteLocERKNS_10samplepr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode16setParentContextEPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode16setParentContextEPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !69
   ret void
@@ -851,21 +845,21 @@ define dso_local void @_ZN4llvm15ContextTrieNode18removeChildContextERKNS_10samp
   %5 = alloca %"class.llvm::MD5", align 4
   %6 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 4
   %.not.i.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i.i, label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit, label %8
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %5) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr nonnull %2, i64 %3) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(16) %6) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit
 
 _ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit: ; preds = %4, %8
@@ -874,26 +868,26 @@ _ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12
   %10 = add i64 %.0.i.i.i, %9
   store i64 %10, ptr %7, align 8, !tbaa !47
   %11 = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode18setFunctionSamplesEPNS_10sampleprof15FunctionSamplesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode18setFunctionSamplesEPNS_10sampleprof15FunctionSamplesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK4llvm15ContextTrieNode15getFunctionSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
+define dso_local i64 @_ZNK4llvm15ContextTrieNode15getFunctionSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode15addFunctionSizeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((85, 88)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode15addFunctionSizeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((85, 88)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
 _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -909,14 +903,14 @@ _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK4llvm15ContextTrieNode14getCallSiteLocEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
+define dso_local i64 @_ZNK4llvm15ContextTrieNode14getCallSiteLocEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK4llvm15ContextTrieNode16getParentContextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK4llvm15ContextTrieNode16getParentContextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   ret ptr %3
@@ -1246,9 +1240,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %160, %162
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm10sampleproflsERNS_11raw_ostreamERKNS0_12LineLocationE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm10sampleproflsERNS_11raw_ostreamERKNS0_12LineLocationE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #7
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15ContextTrieNode8dumpTreeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
@@ -1537,21 +1531,21 @@ define dso_local noundef ptr @_ZN4llvm15ContextTrieNode23getOrCreateChildContext
   %11 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %12 = alloca i64, align 8
   %13 = alloca %"class.llvm::ContextTrieNode", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 4
   %.not.i.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i.i, label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit, label %14
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %10) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %10, ptr nonnull %2, i64 %3) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %10, ptr noundef nonnull align 1 dereferenceable(16) %11) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit
 
 _ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit: ; preds = %5, %14
@@ -1596,7 +1590,7 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.
   br i1 %4, label %29, label %77
 
 29:                                               ; preds = %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %30, align 8, !tbaa !88
@@ -1647,12 +1641,12 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS
 
 .critedge.i:                                      ; preds = %44, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, %29
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %44 ], [ %.19.i.i.i.i, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i ], [ %19, %29 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %12, ptr %8, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %48 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
 
 _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; preds = %44, %.critedge.i
@@ -1695,7 +1689,7 @@ _ZN4llvm15ContextTrieNodeaSEOS0_.exit:            ; preds = %_ZNSt3mapImN4llvm15
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %35, i64 48, i1 false)
   call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %64 = load ptr, ptr %17, align 8, !tbaa !46
   %.not10.i.i.i.i11 = icmp eq ptr %64, null
   br i1 %.not10.i.i.i.i11, label %.critedge.i22, label %.lr.ph.i.i.i.i12
@@ -1729,12 +1723,12 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS
 
 .critedge.i22:                                    ; preds = %71, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i20, %_ZN4llvm15ContextTrieNodeaSEOS0_.exit
   %.08.lcssa.i.i.i11.i23 = phi ptr [ %.19.i.i.i.i15, %71 ], [ %.19.i.i.i.i15, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i20 ], [ %19, %_ZN4llvm15ContextTrieNodeaSEOS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %6, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11.i23, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit24
 
 _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit24: ; preds = %71, %.critedge.i22
@@ -1744,7 +1738,7 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit24: 
 
 77:                                               ; preds = %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit24, %27
   %.0 = phi ptr [ %28, %27 ], [ %76, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit24 ], [ null, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
 }
 
@@ -1809,7 +1803,7 @@ define dso_local void @_ZN4llvm20SampleContextTrackerC2ERNS_10sampleprof16Sample
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !107
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 56
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !12
   store i32 0, ptr %26, align 4, !tbaa !108
   %.idx.i = mul nuw nsw i64 %.sroa.4.0.copyload, 24
@@ -1833,7 +1827,7 @@ define dso_local void @_ZN4llvm20SampleContextTrackerC2ERNS_10sampleprof16Sample
 
 _ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit: ; preds = %.lr.ph.split.us.i, %27
   %.0.lcssa.i = phi ptr [ %17, %27 ], [ %30, %.lr.ph.split.us.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 72
   store ptr %28, ptr %34, align 8, !tbaa !15
   %.sroa.010.0 = load ptr, ptr %.sroa.010.020, align 8, !tbaa !106
@@ -1842,13 +1836,13 @@ _ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13Sample
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4, !tbaa !108
@@ -1880,7 +1874,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker22getOrCreateContext
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   %.0.lcssa = phi ptr [ %5, %3 ], [ %9, %.lr.ph.split.us ], [ %13, %.lr.ph.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.lcssa
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -1964,38 +1958,38 @@ _ZN4llvm20SampleContextTracker8IteratorD2Ev.exit13: ; preds = %.lr.ph.i.i.i.i.i9
   %30 = load i32, ptr %29, align 8, !tbaa !73
   %31 = or i32 %30, 1
   store i32 %31, ptr %29, align 8, !tbaa !73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %27, ptr %6, align 8, !tbaa !72
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(8) %6)
   store ptr %25, ptr %32, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %33, align 8, !tbaa !51
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 64
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i.i.i14 = icmp eq ptr %.sroa.0.0.copyload.i, null
   br i1 %.not.i.i.i.i14, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, label %34
 
 34:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %2) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %2, ptr nonnull %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %2, ptr noundef nonnull align 1 dereferenceable(16) %3) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i
 
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %34, %28
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %34 ], [ %.sroa.2.0.copyload.i, %28 ]
   store i64 %.0.i.i.i.i, ptr %4, align 8, !tbaa !47
   %35 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = load ptr, ptr %5, align 8, !tbaa !117
   %.not.i.i.i2.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i2.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit, label %37
@@ -2011,7 +2005,7 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit: ; preds = %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, %37
   %.fca.0.extract.i = extractvalue { ptr, i8 } %35, 0
   %42 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !121
   %45 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 32
@@ -2317,11 +2311,11 @@ _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit: ; preds = %8, %15
   br i1 %.not.i, label %_ZN4llvm20SampleContextTracker19getCalleeContextForEPKNS_10DILocationENS_10sampleprof10FunctionIdE.exit.thread, label %_ZN4llvm20SampleContextTracker19getCalleeContextForEPKNS_10DILocationENS_10sampleprof10FunctionIdE.exit
 
 _ZN4llvm20SampleContextTracker19getCalleeContextForEPKNS_10DILocationENS_10sampleprof10FunctionIdE.exit: ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = tail call i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef nonnull %7, i1 noundef zeroext false) #23
   store i64 %18, ptr %5, align 8
   %19 = call noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr %.sroa.06.0.i, i64 %.sroa.37.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %_ZN4llvm20SampleContextTracker19getCalleeContextForEPKNS_10DILocationENS_10sampleprof10FunctionIdE.exit.thread, label %20
 
@@ -2355,7 +2349,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit32:              ; preds = %4
   br i1 %9, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit47
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 46, ptr %5, align 1, !tbaa !122, !noalias !123
   %10 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %5, i64 1, i64 noundef 0) #23, !noalias !126
   %11 = icmp eq i64 %10, -1
@@ -2363,7 +2357,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %4, %_ZN4llvmeqENS_9
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %10, i64 %.sroa.557.0.copyload59)
   %.sroa.557.0 = select i1 %11, i64 %.sroa.557.0.copyload59, i64 %.sroa.speculated.i.i.i
   %.sroa.055.0 = load ptr, ptr %7, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.sroa.055.0, ptr %6, align 8, !tbaa !51
   %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.557.0, ptr %.sroa.557.0..sroa_idx, align 8, !tbaa !47
@@ -2460,11 +2454,11 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker19getCalleeContextFo
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = tail call i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef %1, i1 noundef zeroext false) #23
   store i64 %8, ptr %5, align 8
   %9 = call noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr %2, i64 %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -2587,7 +2581,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForEPKNS
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = alloca %"struct.std::pair.81", align 8
   %5 = alloca %"struct.std::pair.81", align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %3, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2749,7 +2743,7 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39: ; preds = %77, %7
 _ZNK4llvm12DISubprogram7getNameEv.exit:           ; preds = %84, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit
   %.sroa.0100.0 = phi ptr [ %56, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit ], [ %86, %84 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39 ]
   %.sroa.5101.0 = phi i64 [ %57, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit ], [ %87, %84 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = call i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef nonnull %.028113, i1 noundef zeroext false) #23
   %89 = icmp ne i64 %.sroa.5101.0, 0
   %90 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples6UseMD5E, align 1, !range !77
@@ -2805,7 +2799,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_10sampleprof12LineLocationENS2_10Fu
   %111 = load i32, ptr %7, align 8, !tbaa !138
   %112 = add i32 %111, 1
   store i32 %112, ptr %7, align 8, !tbaa !138
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = getelementptr inbounds i8, ptr %.028113, i64 -16
   %114 = load i64, ptr %113, align 8
   %115 = and i64 %114, 2
@@ -2945,7 +2939,7 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i70: ; preds = %177, %
   br i1 %.not.not.i.i72, label %_ZNK4llvm12DISubprogram7getNameEv.exit77.thread, label %184
 
 _ZNK4llvm12DISubprogram7getNameEv.exit77.thread:  ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i70
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit83
 
 184:                                              ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i70
@@ -2957,7 +2951,7 @@ _ZNK4llvm12DISubprogram7getNameEv.exit77:         ; preds = %184, %_ZNK4llvm12DI
   %.pn = phi { ptr, i64 } [ %156, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit65 ], [ %185, %184 ]
   %.sroa.5.0 = phi i64 [ %157, %_ZNK4llvm12DISubprogram14getLinkageNameEv.exit65 ], [ %186, %184 ]
   %.sroa.095.0 = extractvalue { ptr, i64 } %.pn, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %187 = icmp ne i64 %.sroa.5.0, 0
   %188 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples6UseMD5E, align 1, !range !77
   %189 = trunc nuw i8 %188 to i1
@@ -3015,7 +3009,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_10sampleprof12LineLocationENS2_10Fu
   %211 = load i32, ptr %7, align 8, !tbaa !138
   %212 = add i32 %211, 1
   store i32 %212, ptr %7, align 8, !tbaa !138
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %214 = icmp ult i32 %211, 2147483647
   br i1 %214, label %.lr.ph116.preheader, label %._crit_edge117
@@ -3058,11 +3052,11 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_10sampleprof12LineLocationENS2_10Fu
 _ZN4llvm11SmallVectorISt4pairINS_10sampleprof12LineLocationENS2_10FunctionIdEELj10EED2Ev.exit: ; preds = %._crit_edge117, %226
   %227 = icmp slt i32 %.031.lcssa, 1
   %.030. = select i1 %227, ptr %.030.lcssa, ptr null
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.030.
 }
 
-declare i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
+declare i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesForEPKNS_10DILocationE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
@@ -3099,7 +3093,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesF
 define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesForERKNS_10sampleprof13SampleContextE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4, !tbaa !108
@@ -3113,7 +3107,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesF
   br i1 %.not18.i.i, label %_ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.exit.thread, label %.lr.ph.split.i.i
 
 _ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.exit.thread: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 .lr.ph.split.i.i:                                 ; preds = %2, %.lr.ph.split.i.i
@@ -3131,7 +3125,7 @@ _ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.
   br i1 %.not.i.i, label %_ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.exit, label %.lr.ph.split.i.i
 
 _ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.exit: ; preds = %.lr.ph.split.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %15, label %12
 
@@ -3150,7 +3144,7 @@ _ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.
 define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4, !tbaa !108
@@ -3179,7 +3173,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForERKNS
 
 _ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit: ; preds = %.lr.ph.split.i, %2
   %.0.lcssa.i = phi ptr [ %4, %2 ], [ %8, %.lr.ph.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.lcssa.i
 }
 
@@ -3190,13 +3184,13 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm20Samp
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.llvm::Attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.14, i64 36) #23
   store ptr %8, ptr %7, align 8
   %9 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #23
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %12 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #23
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
@@ -3211,35 +3205,35 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm20Samp
 
 _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread: ; preds = %2
   %21 = call noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr %16, i64 %17) #23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i
 
 _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, label %22
 
 22:                                               ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %16, i64 %17) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr noundef nonnull align 1 dereferenceable(16) %4) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i
 
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread, %22, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %22 ], [ %17, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit ], [ %21, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread ]
   store i64 %.0.i.i.i.i, ptr %5, align 8, !tbaa !47
   %23 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load ptr, ptr %6, align 8, !tbaa !117
   %.not.i.i.i2.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i2.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit, label %25
@@ -3256,7 +3250,7 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit: ; preds = %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, %25
   %.fca.0.extract.i = extractvalue { ptr, i8 } %23, 0
   %31 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %31
 }
 
@@ -3274,35 +3268,35 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm20Samp
 
 _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread: ; preds = %3
   %11 = tail call noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr %1, i64 %2) #23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i
 
 _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit: ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, label %12
 
 12:                                               ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %4) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %4, ptr nonnull %1, i64 %2) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %4, ptr noundef nonnull align 1 dereferenceable(16) %5) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i
 
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread, %12, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %12 ], [ %2, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit ], [ %11, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread ]
   store i64 %.0.i.i.i.i, ptr %6, align 8, !tbaa !47
   %13 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = load ptr, ptr %7, align 8, !tbaa !117
   %.not.i.i.i2.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i2.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit, label %15
@@ -3319,20 +3313,20 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit: ; preds = %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, %15
   %.fca.0.extract.i = extractvalue { ptr, i8 } %13, 0
   %21 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm20SampleContextTracker17getBaseSamplesForERKNS_8FunctionEb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.14, i64 36) #23
   store ptr %5, ptr %4, align 8
   %6 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #23
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
@@ -3364,38 +3358,38 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker17getBaseSamplesForE
   %8 = alloca %"class.std::vector", align 8
   %9 = alloca %"struct.llvm::sampleprof::LineLocation", align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %11, align 4, !tbaa !108
   %12 = call noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr %1, i64 %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %3, label %13, label %.loopexit
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, label %14
 
 14:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %5) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr nonnull %1, i64 %2) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(16) %6) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i
 
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %14, %13
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %14 ], [ %2, %13 ]
   store i64 %.0.i.i.i.i, ptr %7, align 8, !tbaa !47
   %15 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = load ptr, ptr %8, align 8, !tbaa !117
   %.not.i.i.i2.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i2.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit, label %17
@@ -3412,7 +3406,7 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEEixERKS3_.exit: ; preds = %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i, %17
   %.fca.0.extract.i = extractvalue { ptr, i8 } %15, 0
   %23 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %24 = load ptr, ptr %23, align 8, !tbaa !152
   %25 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !152
@@ -3531,12 +3525,12 @@ _ZNK4llvm20SampleContextTracker24getContextNodeForProfileEPKNS_10sampleprof15Fun
 define dso_local noundef ptr @_ZN4llvm20SampleContextTracker22getTopLevelContextNodeENS_10sampleprof10FunctionIdE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::sampleprof::LineLocation", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4, !tbaa !108
   %7 = call noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr %1, i64 %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %7
 }
 
@@ -3548,7 +3542,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20Samp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm20SampleContextTracker25markContextSamplesInlinedEPKNS_10sampleprof15FunctionSamplesE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm20SampleContextTracker25markContextSamplesInlinedEPKNS_10sampleprof15FunctionSamplesE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8, !tbaa !73
   %5 = or i32 %4, 4
@@ -3557,7 +3551,7 @@ define dso_local void @_ZN4llvm20SampleContextTracker25markContextSamplesInlined
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker14getRootContextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker14getRootContextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
@@ -3572,7 +3566,7 @@ define dso_local void @_ZN4llvm20SampleContextTracker30promoteMergeContextSample
   br i1 %.not, label %36, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef %7, i1 noundef zeroext false) #23
   store i64 %10, ptr %5, align 8
   %11 = icmp eq i64 %3, 0
@@ -3630,7 +3624,7 @@ define dso_local void @_ZN4llvm20SampleContextTracker30promoteMergeContextSample
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %12, %33, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 36:                                               ; preds = %4, %.loopexit
@@ -3644,7 +3638,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20Samp
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4, !tbaa !108
@@ -3711,12 +3705,12 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20Samp
 
 44:                                               ; preds = %43
   store ptr %23, ptr %24, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %23, ptr %7, align 8, !tbaa !72
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %18, ptr %46, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %48 = load i32, ptr %47, align 8, !tbaa !73
   %49 = or i32 %48, 2
@@ -3759,20 +3753,20 @@ _ZN4llvm20SampleContextTracker16mergeContextNodeERNS_15ContextTrieNodeES2_.exit:
   %.sroa.0.0.copyload.i26 = load ptr, ptr %62, align 8, !tbaa !51
   %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %.sroa.2.0.copyload.i28 = load i64, ptr %.sroa.2.0..sroa_idx.i27, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i26, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm15ContextTrieNode18removeChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE.exit, label %63
 
 63:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %4) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %4, ptr nonnull %.sroa.0.0.copyload.i26, i64 %.sroa.2.0.copyload.i28) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %4, ptr noundef nonnull align 1 dereferenceable(16) %5) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm15ContextTrieNode18removeChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE.exit
 
 _ZN4llvm15ContextTrieNode18removeChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE.exit: ; preds = %61, %63
@@ -3781,11 +3775,11 @@ _ZN4llvm15ContextTrieNode18removeChildContextERKNS_10sampleprof12LineLocationENS
   %65 = add i64 %.0.i.i.i.i, %64
   store i64 %65, ptr %6, align 8, !tbaa !47
   %66 = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %67
 
 67:                                               ; preds = %_ZN4llvm15ContextTrieNode18removeChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE.exit, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -3824,15 +3818,15 @@ define dso_local { ptr, i64 } @_ZNK4llvm20SampleContextTracker14getFuncNameForEP
   br i1 %.not.i11, label %_ZNK4llvm10sampleprof10FunctionId11getHashCodeEv.exit, label %13
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %.sroa.0.0.copyload.i6, i64 %.sroa.2.0.copyload.i8) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr noundef nonnull align 1 dereferenceable(16) %4) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm10sampleprof10FunctionId11getHashCodeEv.exit
 
 _ZNK4llvm10sampleprof10FunctionId11getHashCodeEv.exit: ; preds = %9, %13
@@ -3889,18 +3883,18 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6de
   ret { ptr, i64 } %.pn
 }
 
-declare noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
+declare noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker22addTopLevelContextNodeENS_10sampleprof10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::sampleprof::LineLocation", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4, !tbaa !108
   %7 = call noundef ptr @_ZN4llvm15ContextTrieNode23getOrCreateChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdEb(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr %1, i64 %2, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %7
 }
 
@@ -3944,12 +3938,12 @@ define dso_local void @_ZN4llvm20SampleContextTracker16mergeContextNodeERNS_15Co
 
 27:                                               ; preds = %26
   store ptr %6, ptr %7, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !72
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store ptr %2, ptr %29, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !73
   %32 = or i32 %31, 2
@@ -4189,12 +4183,12 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i: ; preds = %101
 
 .critedge.i:                                      ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i, %97, %_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_.exit.i, %79
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_.exit.i ], [ %75, %79 ], [ %.19.i.i.i.i, %97 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %80, ptr %4, align 8, !tbaa !173
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = call ptr @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEEixERS7_.exit
 
 _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEEixERS7_.exit: ; preds = %101, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i, %.critedge.i
@@ -4512,7 +4506,7 @@ _ZN4llvm20SampleContextTracker8IteratorD2Ev.exit15: ; preds = %.lr.ph.i.i.i.i.i1
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %25, align 8, !tbaa !51
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -4522,7 +4516,7 @@ _ZN4llvm20SampleContextTracker8IteratorD2Ev.exit15: ; preds = %.lr.ph.i.i.i.i.i1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %26 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm10sampleprof16SampleProfileMap6createERKNS0_13SampleContextE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(40) %3)
   %27 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples5mergeERKS1_m(ptr noundef nonnull align 8 dereferenceable(176) %26, ptr noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %.sroa.14.048, align 8, !tbaa !70
   br label %28
 
@@ -4746,7 +4740,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   %4 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %5 = alloca %"class.llvm::hash_code", align 8
   %6 = alloca %"class.llvm::sampleprof::FunctionSamples", align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -4764,7 +4758,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   store ptr %11, ptr %14, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !73
   %.not.i.i.i = icmp eq i32 %17, 0
@@ -4787,22 +4781,22 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   br i1 %.not.i.i.i.i, label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE11try_emplaceIJS4_EEESt4pairINSt8__detail14_Node_iteratorIS7_IKNS_9hash_codeES4_ELb0ELb1EEEbERKS3_DpOT_.exit, label %23
 
 23:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %.sroa.0.0.copyload.i1.i.i.i, i64 %.sroa.2.0.copyload.i3.i.i.i) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr noundef nonnull align 1 dereferenceable(16) %4) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE11try_emplaceIJS4_EEESt4pairINSt8__detail14_Node_iteratorIS7_IKNS_9hash_codeES4_ELb0ELb1EEEbERKS3_DpOT_.exit
 
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE11try_emplaceIJS4_EEESt4pairINSt8__detail14_Node_iteratorIS7_IKNS_9hash_codeES4_ELb0ELb1EEEbERKS3_DpOT_.exit: ; preds = %18, %22, %23
   %.0.i.i.i = phi i64 [ %21, %18 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %23 ], [ %.sroa.2.0.copyload.i3.i.i.i, %22 ]
   store i64 %.0.i.i.i, ptr %5, align 8
   %24 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4llvm9hash_codeESt4pairIKS2_NS1_10sampleprof15FunctionSamplesEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JS6_EEES3_INS_14_Node_iteratorIS7_Lb0ELb1EEEbENS_20_Node_const_iteratorIS7_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(176) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract = extractvalue { ptr, i8 } %24, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %24, 1
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -4811,7 +4805,7 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15Func
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %28 = load ptr, ptr %8, align 8, !tbaa !46
   call void @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %28)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %29, label %30, label %32
 
@@ -4962,7 +4956,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15Contex
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE17_M_construct_nodeIJRKS4_EEEvPSt13_Rb_tree_nodeIS4_EDpOT_.exit, label %37
 
 37:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %26, ptr %4, align 8, !tbaa !58
   %38 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull %36, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %39
@@ -4990,7 +4984,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !62
   store i64 %46, ptr %34, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %38, ptr %27, align 8, !tbaa !48
   br label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE17_M_construct_nodeIJRKS4_EEEvPSt13_Rb_tree_nodeIS4_EDpOT_.exit
 
@@ -5016,7 +5010,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
 
 57:                                               ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %58, ptr %3, align 8, !tbaa !58
   %59 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %58, ptr noundef nonnull %56, ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %60
@@ -5044,7 +5038,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %67 = load i64, ptr %66, align 8, !tbaa !62
   store i64 %67, ptr %54, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %59, ptr %51, align 8, !tbaa !48
   br label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE17_M_construct_nodeIJRKS4_EEEvPSt13_Rb_tree_nodeIS4_EDpOT_.exit
 
@@ -5082,7 +5076,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNo
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %19, ptr %6, align 8, !tbaa !58
   %20 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %21
@@ -5110,7 +5104,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %28 = load i64, ptr %27, align 8, !tbaa !62
   store i64 %28, ptr %15, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %20, ptr %12, align 8, !tbaa !48
   br label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE17_M_construct_nodeIJRKS4_EEEvPSt13_Rb_tree_nodeIS4_EDpOT_.exit
 
@@ -5166,7 +5160,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %52, ptr %5, align 8, !tbaa !58
   %53 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %52, ptr noundef nonnull %50, ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %54
@@ -5194,7 +5188,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %60 = getelementptr inbounds nuw i8, ptr %.043, i64 80
   %61 = load i64, ptr %60, align 8, !tbaa !62
   store i64 %61, ptr %48, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %45, align 8, !tbaa !48
   br label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE17_M_construct_nodeIJRKS4_EEEvPSt13_Rb_tree_nodeIS4_EDpOT_.exit31
 
@@ -5232,13 +5226,13 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -5265,7 +5259,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt1
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
@@ -5377,7 +5371,7 @@ _ZNSt10_HashtableIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS4_PNS0_15Conte
   ret ptr %.1
 }
 
-declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS4_PNS0_15ContextTrieNodeEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -5478,42 +5472,42 @@ _ZNSt10_HashtableIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS4_PNS0_15Conte
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #7
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
+declare noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
-declare noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
-
-declare noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
-declare noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr, i64) local_unnamed_addr #8
+declare noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #7
 
-declare ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #8
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
-declare { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
+declare noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr, i64) local_unnamed_addr #7
 
-declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
+declare ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #7
 
-declare void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152)) unnamed_addr #8
+declare { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
-declare void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152), ptr, i64) local_unnamed_addr #8
+declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #7
 
-declare void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152), ptr noundef nonnull align 1 dereferenceable(16)) local_unnamed_addr #8
+declare void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152)) unnamed_addr #7
+
+declare void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152), ptr, i64) local_unnamed_addr #7
+
+declare void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152), ptr noundef nonnull align 1 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
-declare { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
+declare { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
-declare noundef i32 @_ZN4llvm10sampleprof12SampleRecord5mergeERKS1_m(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #8
+declare noundef i32 @_ZN4llvm10sampleprof12SampleRecord5mergeERKS1_m(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm10sampleprof15FunctionSamples17functionSamplesAtERKNS0_12LineLocationE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
@@ -5672,12 +5666,12 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i: ; preds = %76
 
 .critedge.i:                                      ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i, %72, %_ZNSt3mapIN4llvm10sampleprof12LineLocationES_INS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS3_ESaISt4pairIKS3_S4_EEES5_IS2_ESaIS7_IKS2_SB_EEE11lower_boundERSD_.exit.i, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %_ZNSt3mapIN4llvm10sampleprof12LineLocationES_INS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS3_ESaISt4pairIKS3_S4_EEES5_IS2_ESaIS7_IKS2_SB_EEE11lower_boundERSD_.exit.i ], [ %57, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit ], [ %.19.i.i.i.i, %72 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.0.i, ptr %3, align 8, !tbaa !173
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %81 = call ptr @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_St3mapINS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS6_ESaIS3_IKS6_S7_EEEESt10_Select1stISE_ES8_IS2_ESaISE_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESO_IJEEEEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt3mapIN4llvm10sampleprof12LineLocationES_INS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS3_ESaISt4pairIKS3_S4_EEES5_IS2_ESaIS7_IKS2_SB_EEEixERSD_.exit
 
 _ZNSt3mapIN4llvm10sampleprof12LineLocationES_INS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS3_ESaISt4pairIKS3_S4_EEES5_IS2_ESaIS7_IKS2_SB_EEEixERSD_.exit: ; preds = %76, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i, %.critedge.i
@@ -5687,7 +5681,7 @@ _ZNSt3mapIN4llvm10sampleprof12LineLocationES_INS1_10FunctionIdENS1_15FunctionSam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 {
@@ -6165,16 +6159,16 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #17
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_St3mapINS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS6_ESaIS3_IKS6_S7_EEEESt10_Select1stISE_ES8_IS2_ESaISE_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESO_IJEEEEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 {
@@ -7384,7 +7378,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_1
   %5 = alloca %"class.llvm::MD5", align 4
   %6 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %.not61 = icmp eq ptr %0, %1
   br i1 %.not61, label %._crit_edge, label %.lr.ph
@@ -7400,15 +7394,15 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_1
   br i1 %.not.i.i.i.i, label %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit, label %12
 
 12:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %5) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr nonnull %9, i64 %11) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(16) %6) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit: ; preds = %.lr.ph, %12
@@ -7506,15 +7500,15 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit: ; preds = %_ZN4
   br i1 %.not.i.i.i.i25, label %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28, label %57
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #23
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %54, i64 %56) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr noundef nonnull align 1 dereferenceable(16) %4) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i26 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28
 
 _ZN4llvm7hashing6detail17get_hashable_dataINS_10sampleprof18SampleContextFrameEEENSt9enable_ifIXntsr16is_hashable_dataIT_EE5valueEmE4typeERKS6_.exit28: ; preds = %53, %57
@@ -7644,12 +7638,12 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit29: ; preds = %_Z
 
 136:                                              ; preds = %._crit_edge78, %._crit_edge
   %.sroa.046.0 = phi i64 [ %20, %._crit_edge ], [ %135, %._crit_edge78 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.sroa.046.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #18 comdat {
+define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #17 comdat {
   %4 = add i64 %1, -4
   %or.cond = icmp ult i64 %4, 5
   br i1 %or.cond, label %5, label %22
@@ -7995,10 +7989,10 @@ _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._cri
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 {
@@ -8393,9 +8387,9 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
 }
 
 ; Function Attrs: nounwind
-declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #17
+declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamESt9nullopt_t(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamESt9nullopt_t(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 comdat align 2 {
@@ -8618,9 +8612,15 @@ _ZNSt10_HashtableImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
@@ -8639,24 +8639,24 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nounwind willreturn memory(read) }

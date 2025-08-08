@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_OpenURL(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
@@ -42,37 +42,37 @@ define hidden zeroext i1 @SDL_SYS_OpenURL(ptr noundef %0) local_unnamed_addr #0 
   %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ %.not18, %9 ]
   call void @SDL_DestroyEnvironment_REAL(ptr noundef %5) #3
   call void @SDL_DestroyProcess_REAL(ptr noundef %.013) #3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_CreateEnvironment_REAL(i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_CreateEnvironment_REAL(i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_DestroyEnvironment_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyEnvironment_REAL(ptr noundef) local_unnamed_addr #2
-
-declare void @SDL_DestroyProcess_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyProcess_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

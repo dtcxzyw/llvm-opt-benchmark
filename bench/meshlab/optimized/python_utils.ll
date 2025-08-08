@@ -980,7 +980,7 @@ define void @_ZN9pymeshlab17computePythonNameERK7QString(ptr dead_on_unwind noal
           to label %21 unwind label %46
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString7replaceERK18QRegularExpressionRKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN9pymeshlab17computePythonNameERK7QStringE5rgexp, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %23 unwind label %28
@@ -1014,7 +1014,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.body
 
 30:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK11QStringListRK7QStringN2Qt15CaseSensitivityE(ptr noundef nonnull @_ZN9pymeshlabL14pythonKeywordsE, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
           to label %_ZNK11QStringList8containsERK7QStringN2Qt15CaseSensitivityE.exit unwind label %46
 
@@ -1022,7 +1022,7 @@ _ZNK11QStringList8containsERK7QStringN2Qt15CaseSensitivityE.exit: ; preds = %30
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %_ZNK11QStringList8containsERK7QStringN2Qt15CaseSensitivityE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull @.str.55, i32 noundef 1)
           to label %.noexc unwind label %46
 
@@ -1059,7 +1059,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i8: ; preds = %_ZN9QtPrivate8RefCo
   br label %.body
 
 _ZN7QStringpLEPKc.exit:                           ; preds = %34, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i9, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 41:                                               ; preds = %10
@@ -1173,7 +1173,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %class.QByteArray, align 8
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !noalias !10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noalias !10
@@ -1194,7 +1194,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
 
 13:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load ptr, ptr %4, align 8
   %15 = load atomic i32, ptr %14 monotonic, align 4
   switch i32 %15, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -1348,7 +1348,7 @@ common.resume:                                    ; preds = %30, %157, %161
 __cxx_global_var_init.exit:                       ; preds = %26
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), align 8
   %34 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayI7QStringLm14EED2Ev, ptr nonnull @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr nonnull @__dso_handle) #10
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %35 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.15, i32 noundef 5)
   store ptr %35, ptr %1, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1652,17 +1652,17 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN9QtPrivate8RefCo
 
 __cxx_global_var_init.14.exit:                    ; preds = %_ZN7QStringD2Ev.exit.i
   %165 = call i32 @__cxa_atexit(ptr nonnull @_ZN11QStringListD2Ev, ptr nonnull @_ZN9pymeshlabL14pythonKeywordsE, ptr nonnull @__dso_handle) #10
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %166 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

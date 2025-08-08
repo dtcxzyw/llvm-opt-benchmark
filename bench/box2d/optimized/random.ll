@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Polygon) align 4 %0, float noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x %struct.b2Vec2], align 16
   %4 = alloca %struct.b2Hull, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i32, ptr @g_seed, align 4, !tbaa !3
   %6 = shl i32 %5, 13
   %7 = xor i32 %6, %5
@@ -32,7 +32,7 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
 
 16:                                               ; preds = %20
   store i32 %39, ptr @g_seed, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %3, i32 noundef %14) #3
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %18 = load i32, ptr %17, align 4, !tbaa !7
@@ -81,26 +81,26 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   br label %47
 
 47:                                               ; preds = %46, %45
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #1
+
+declare void @b2MakeSquare(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #2
-
-declare void @b2MakeSquare(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

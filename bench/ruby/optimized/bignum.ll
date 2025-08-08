@@ -140,8 +140,8 @@ BIGNUM_LEN.exit11:                                ; preds = %21, %24
   %42 = or disjoint i64 %40, %41
   %43 = or disjoint i64 %42, 16384
   store i64 %43, ptr %34, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = ptrtoint ptr %44 to i64
@@ -158,8 +158,8 @@ BIGNUM_LEN.exit11:                                ; preds = %21, %24
   %51 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %51, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 52:                                               ; preds = %BIGNUM_LEN.exit11
@@ -302,26 +302,23 @@ bary_muladd_1xN.exit.i:                           ; preds = %.lr.ph41.i.i, %.pre
   br i1 %exitcond.not.i, label %bary_mul_normal.exit, label %.lr.ph21.split.i, !llvm.loop !23
 
 bary_mul_normal.exit:                             ; preds = %bary_muladd_1xN.exit.i, %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #26, !srcloc !26
   %110 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = load volatile i64, ptr %110, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !27
   %112 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %113 = load volatile i64, ptr %112, align 8, !tbaa !7
   ret i64 %33
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @bary_mul_normal(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) unnamed_addr #2 {
+define internal fastcc void @bary_mul_normal(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) unnamed_addr #1 {
   %.not17 = icmp eq i64 %1, 0
   br i1 %.not17, label %.preheader, label %.lr.ph.preheader
 
@@ -407,9 +404,6 @@ bary_muladd_1xN.exit:                             ; preds = %.lr.ph41.i, %.prehe
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_big_sq_fast(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [6 x i64], align 16
@@ -453,8 +447,8 @@ BIGNUM_LEN.exit:                                  ; preds = %9, %12
   %26 = add nuw nsw i64 %24, %25
   %27 = or disjoint i64 %26, 16384
   store i64 %27, ptr %20, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %29 = ptrtoint ptr %28 to i64
@@ -471,8 +465,8 @@ BIGNUM_LEN.exit:                                  ; preds = %9, %12
   %35 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %35, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %bignew_1.exit
 
 36:                                               ; preds = %BIGNUM_LEN.exit
@@ -518,17 +512,17 @@ BIGNUM_DIGITS.exit:                               ; preds = %42, %44
 BIGNUM_DIGITS.exit10:                             ; preds = %49, %51
   %.0.i9 = phi ptr [ %50, %49 ], [ %53, %51 ]
   call fastcc void @bary_sq_fast(ptr noundef %.0.i7, i64 noundef %15, ptr noundef %.0.i9, i64 noundef %.0.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !28
   %54 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %55 = load volatile i64, ptr %54, align 8, !tbaa !7
   ret i64 %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @bary_sq_fast(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc void @bary_sq_fast(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #1 {
   %.not94 = icmp eq i64 %1, 0
   br i1 %.not94, label %._crit_edge, label %.lr.ph.preheader
 
@@ -746,8 +740,8 @@ BIGNUM_LEN.exit11:                                ; preds = %21, %24
   %42 = or disjoint i64 %40, %41
   %43 = or disjoint i64 %42, 16384
   store i64 %43, ptr %34, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = ptrtoint ptr %44 to i64
@@ -764,8 +758,8 @@ BIGNUM_LEN.exit11:                                ; preds = %21, %24
   %51 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %51, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 52:                                               ; preds = %BIGNUM_LEN.exit11
@@ -827,17 +821,17 @@ BIGNUM_DIGITS.exit17:                             ; preds = %65, %67
 BIGNUM_DIGITS.exit20:                             ; preds = %72, %74
   %.0.i19 = phi ptr [ %73, %72 ], [ %76, %74 ]
   call fastcc void @bary_mul_balance_with_mulfunc(ptr noundef %.0.i14, i64 noundef %27, ptr noundef %.0.i16, i64 noundef %.0.i, ptr noundef %.0.i19, i64 noundef %.0.i10, ptr noundef null, i64 noundef 0, ptr noundef nonnull @bary_mul_toom3_start)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #26, !srcloc !33
   %77 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %78 = load volatile i64, ptr %77, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !34
   %79 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %80 = load volatile i64, ptr %79, align 8, !tbaa !7
   ret i64 %33
 }
@@ -845,7 +839,7 @@ BIGNUM_DIGITS.exit20:                             ; preds = %72, %74
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bary_mul_balance_with_mulfunc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !7
   %.not134 = icmp eq i64 %3, 0
   br i1 %.not134, label %._crit_edge, label %.lr.ph.preheader
@@ -1167,7 +1161,7 @@ bary_add.exit126:                                 ; preds = %.lr.ph.i.i, %117, %
   br label %140
 
 140:                                              ; preds = %139, %._crit_edge152
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -1290,8 +1284,8 @@ BIGNUM_LEN.exit19:                                ; preds = %21, %24
   %42 = or disjoint i64 %40, %41
   %43 = or disjoint i64 %42, 16384
   store i64 %43, ptr %34, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = ptrtoint ptr %44 to i64
@@ -1308,8 +1302,8 @@ BIGNUM_LEN.exit19:                                ; preds = %21, %24
   %51 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %51, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 52:                                               ; preds = %BIGNUM_LEN.exit19
@@ -1383,23 +1377,23 @@ BIGNUM_DIGITS.exit25:                             ; preds = %71, %73
 BIGNUM_DIGITS.exit28:                             ; preds = %78, %80
   %.0.i27 = phi ptr [ %79, %78 ], [ %82, %80 ]
   call fastcc void @bary_mul_karatsuba(ptr noundef %.0.i22, i64 noundef %27, ptr noundef %.0.i24, i64 noundef %.0.i, ptr noundef %.0.i27, i64 noundef %.0.i18, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #26, !srcloc !45
   %83 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %84 = load volatile i64, ptr %83, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !46
   %85 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %86 = load volatile i64, ptr %85, align 8, !tbaa !7
   ret i64 %33
 }
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bary_mul_karatsuba(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
@@ -1429,7 +1423,7 @@ define internal fastcc void @bary_mul_karatsuba(ptr noundef %0, i64 noundef %1, 
   %32 = alloca i64, align 8
   %33 = alloca i64, align 8
   %34 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 0, ptr %33, align 8, !tbaa !7
   %35 = icmp eq ptr %2, %4
   %36 = icmp eq i64 %3, %5
@@ -1631,12 +1625,12 @@ bary_2comp.exit.thread:                           ; preds = %bary_sub.exit
   br i1 %37, label %.critedge, label %bary_2comp.exit266
 
 .critedge:                                        ; preds = %bary_2comp.exit.thread, %bary_2comp.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %59, ptr %27, align 8, !tbaa !43
   store i64 %46, ptr %28, align 8, !tbaa !7
   store ptr %0, ptr %29, align 8, !tbaa !43
@@ -1658,12 +1652,12 @@ bary_2comp.exit.thread:                           ; preds = %bary_sub.exit
   br label %bary_mul_karatsuba_start.exit
 
 bary_mul_karatsuba_start.exit:                    ; preds = %.critedge, %119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.not27.i269.old = icmp eq i64 %46, 0
   br i1 %.not27.i269.old, label %bary_2comp.exit280, label %.lr.ph.i270.preheader
 
@@ -1726,12 +1720,12 @@ bary_mul_karatsuba_start.exit:                    ; preds = %.critedge, %119
 
 bary_2comp.exit266:                               ; preds = %142, %.lr.ph26.i261, %._crit_edge.i.i225, %126, %bary_2comp.exit.thread, %144
   %.2 = phi i32 [ %.0.i.i448, %144 ], [ %.0194, %._crit_edge.i.i225 ], [ %.0194, %126 ], [ 0, %bary_2comp.exit.thread ], [ %.0.i.i448, %.lr.ph26.i261 ], [ %.0.i.i448, %142 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %59, ptr %21, align 8, !tbaa !43
   store i64 %46, ptr %22, align 8, !tbaa !7
   store ptr %0, ptr %23, align 8, !tbaa !43
@@ -1755,12 +1749,12 @@ bary_2comp.exit266:                               ; preds = %142, %.lr.ph26.i261
   br label %bary_mul_karatsuba_start.exit268
 
 bary_mul_karatsuba_start.exit268:                 ; preds = %bary_2comp.exit266, %152
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %161 = icmp eq i32 %.2, 0
   %.not27.i269 = icmp eq i64 %46, 0
   %or.cond479 = or i1 %.not27.i269, %161
@@ -1820,12 +1814,12 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %bary_2comp.exit280
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %176
   %177 = getelementptr i32, ptr %.0192, i64 %44
   %178 = sub i64 %.0193, %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %0, ptr %15, align 8, !tbaa !43
   store i64 %46, ptr %16, align 8, !tbaa !7
   store ptr %2, ptr %17, align 8, !tbaa !43
@@ -1847,12 +1841,12 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br label %bary_mul_karatsuba_start.exit283
 
 bary_mul_karatsuba_start.exit283:                 ; preds = %ruby_nonempty_memcpy.exit, %180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not.i281, label %ruby_nonempty_memcpy.exit315, label %.lr.ph.i.i285
 
 .lr.ph.i.i285:                                    ; preds = %bary_mul_karatsuba_start.exit283, %.lr.ph.i.i285
@@ -1925,12 +1919,12 @@ ruby_nonempty_memcpy.exit315:                     ; preds = %bary_mul_karatsuba_
   %.058.lcssa.i.i304570 = phi i1 [ %225, %222 ], [ true, %bary_mul_karatsuba_start.exit283 ]
   %226 = phi i32 [ %224, %222 ], [ 0, %bary_mul_karatsuba_start.exit283 ]
   %227 = sub i64 %1, %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %60, ptr %9, align 8, !tbaa !43
   store i64 %227, ptr %10, align 8, !tbaa !7
   store ptr %57, ptr %11, align 8, !tbaa !43
@@ -1952,12 +1946,12 @@ ruby_nonempty_memcpy.exit315:                     ; preds = %bary_mul_karatsuba_
   br label %bary_mul_karatsuba_start.exit317
 
 bary_mul_karatsuba_start.exit317:                 ; preds = %ruby_nonempty_memcpy.exit315, %229
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not.i281, label %bary_add.exit331, label %.lr.ph.i.i319
 
 .lr.ph.i.i319:                                    ; preds = %bary_mul_karatsuba_start.exit317, %.lr.ph.i.i319
@@ -2276,7 +2270,7 @@ bary_add_one.exit:                                ; preds = %.lr.ph.i354, %bary_
   br i1 %.not214, label %bary_sub_one.exit, label %358
 
 358:                                              ; preds = %357
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 %345, ptr %34, align 4, !tbaa !18
   %359 = icmp ugt i64 %250, 1
   br i1 %359, label %.lr.ph.i.i371.preheader, label %360
@@ -2358,7 +2352,7 @@ bary_add_one.exit:                                ; preds = %.lr.ph.i354, %bary_
   br i1 %exitcond105.not.i.i398, label %.preheader.i.i392, label %.lr.ph91.i.i396, !llvm.loop !41
 
 bary_add.exit403:                                 ; preds = %366, %.preheader72.i.i375, %.loopexit71.i.i388, %.preheader.i.i392, %.lr.ph94.preheader.i.i394
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %bary_sub_one.exit
 
 bary_sub_one.exit:                                ; preds = %349, %.lr.ph82.i.i360, %347, %357, %bary_add.exit403
@@ -2563,7 +2557,7 @@ bary_muladd_1xN.exit427:                          ; preds = %.lr.ph41.i420, %.lr
   br label %488
 
 488:                                              ; preds = %487, %bary_muladd_1xN.exit427
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   ret void
 }
 
@@ -2635,8 +2629,8 @@ BIGNUM_LEN.exit18:                                ; preds = %21, %24
   %42 = or disjoint i64 %40, %41
   %43 = or disjoint i64 %42, 16384
   store i64 %43, ptr %34, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = ptrtoint ptr %44 to i64
@@ -2653,8 +2647,8 @@ BIGNUM_LEN.exit18:                                ; preds = %21, %24
   %51 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %51, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 52:                                               ; preds = %BIGNUM_LEN.exit18
@@ -2734,17 +2728,17 @@ BIGNUM_DIGITS.exit24:                             ; preds = %75, %77
 BIGNUM_DIGITS.exit27:                             ; preds = %82, %84
   %.0.i26 = phi ptr [ %83, %82 ], [ %86, %84 ]
   call fastcc void @bary_mul_toom3(ptr noundef %.0.i21, i64 noundef %27, ptr noundef %.0.i23, i64 noundef %.0.i, ptr noundef %.0.i26, i64 noundef %.0.i17, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #26, !srcloc !54
   %87 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %88 = load volatile i64, ptr %87, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !55
   %89 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %90 = load volatile i64, ptr %89, align 8, !tbaa !7
   ret i64 %33
 }
@@ -2752,7 +2746,7 @@ BIGNUM_DIGITS.exit27:                             ; preds = %82, %84
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bary_mul_toom3(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !7
   %10 = icmp eq ptr %2, %4
   %11 = icmp eq i64 %3, %5
@@ -5624,7 +5618,7 @@ ruby_nonempty_memcpy.exit1990:                    ; preds = %1163, %rbimpl_size_
   br label %1173
 
 1173:                                             ; preds = %1172, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -5696,8 +5690,8 @@ BIGNUM_LEN.exit11:                                ; preds = %21, %24
   %42 = or disjoint i64 %40, %41
   %43 = or disjoint i64 %42, 16384
   store i64 %43, ptr %34, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = ptrtoint ptr %44 to i64
@@ -5714,8 +5708,8 @@ BIGNUM_LEN.exit11:                                ; preds = %21, %24
   %51 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %51, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 52:                                               ; preds = %BIGNUM_LEN.exit11
@@ -5777,17 +5771,17 @@ BIGNUM_DIGITS.exit17:                             ; preds = %65, %67
 BIGNUM_DIGITS.exit20:                             ; preds = %72, %74
   %.0.i19 = phi ptr [ %73, %72 ], [ %76, %74 ]
   call fastcc void @bary_mul_gmp(ptr noundef %.0.i14, i64 noundef %27, ptr noundef %.0.i16, i64 noundef %.0.i, ptr noundef %.0.i19, i64 noundef %.0.i10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #26, !srcloc !62
   %77 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %78 = load volatile i64, ptr %77, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !63
   %79 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %80 = load volatile i64, ptr %79, align 8, !tbaa !7
   ret i64 %33
 }
@@ -5798,10 +5792,10 @@ define internal fastcc void @bary_mul_gmp(ptr noundef %0, i64 noundef %1, ptr no
   %8 = alloca [1 x %struct.__mpz_struct], align 16
   %9 = alloca [1 x %struct.__mpz_struct], align 16
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @__gmpz_init(ptr noundef nonnull %7) #26
   call void @__gmpz_init(ptr noundef nonnull %8) #26
   call void @__gmpz_init(ptr noundef nonnull %9) #26
@@ -5834,10 +5828,10 @@ define internal fastcc void @bary_mul_gmp(ptr noundef %0, i64 noundef %1, ptr no
   call void @__gmpz_clear(ptr noundef nonnull %7) #26
   call void @__gmpz_clear(ptr noundef nonnull %8) #26
   call void @__gmpz_clear(ptr noundef nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -5995,8 +5989,8 @@ BIGNUM_DIGITS.exit49:                             ; preds = %34, %36
   %76 = or disjoint i64 %74, %75
   %77 = or disjoint i64 %76, 16384
   store i64 %77, ptr %68, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %79 = ptrtoint ptr %78 to i64
@@ -6013,8 +6007,8 @@ BIGNUM_DIGITS.exit49:                             ; preds = %34, %36
   %85 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %85, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit
 
 86:                                               ; preds = %60
@@ -6062,8 +6056,8 @@ BIGNUM_DIGITS.exit53:                             ; preds = %92, %94
   %109 = or disjoint i64 %107, %108
   %110 = or disjoint i64 %109, 16384
   store i64 %110, ptr %101, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %111 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %112 = ptrtoint ptr %111 to i64
@@ -6080,8 +6074,8 @@ BIGNUM_DIGITS.exit53:                             ; preds = %92, %94
   %118 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %118, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i57 = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit58
 
 119:                                              ; preds = %BIGNUM_DIGITS.exit53
@@ -6229,17 +6223,17 @@ BIGNUM_LEN.exit19.i72:                            ; preds = %173, %170
   br label %bigtrunc.exit74
 
 bigtrunc.exit74:                                  ; preds = %BIGNUM_DIGITS.exit.i64, %BIGNUM_LEN.exit19.i72, %177
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %7, ptr %9, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #26, !srcloc !67
   %178 = load ptr, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %179 = load volatile i64, ptr %178, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %8, ptr %10, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #26, !srcloc !68
   %180 = load ptr, ptr %10, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %181 = load volatile i64, ptr %180, align 8, !tbaa !7
   %182 = call i64 @rb_assoc_new(i64 noundef %67, i64 noundef %100) #26
   br label %183
@@ -6250,14 +6244,14 @@ bigtrunc.exit74:                                  ; preds = %BIGNUM_DIGITS.exit.
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_num_zerodiv() local_unnamed_addr #4
+declare void @rb_num_zerodiv() local_unnamed_addr #3
 
-declare i64 @rb_assoc_new(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_assoc_new(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bary_divmod_normal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !7
   %10 = add i64 %5, 1
   %11 = getelementptr i32, ptr %6, i64 %7
@@ -6580,7 +6574,7 @@ rbimpl_size_mul_or_raise.exit134:                 ; preds = %124
   br label %135
 
 135:                                              ; preds = %134, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -6739,8 +6733,8 @@ BIGNUM_DIGITS.exit50:                             ; preds = %34, %36
   %77 = or disjoint i64 %75, %76
   %78 = or disjoint i64 %77, 16384
   store i64 %78, ptr %69, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %80 = ptrtoint ptr %79 to i64
@@ -6757,8 +6751,8 @@ BIGNUM_DIGITS.exit50:                             ; preds = %34, %36
   %86 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %86, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit
 
 87:                                               ; preds = %60
@@ -6806,8 +6800,8 @@ BIGNUM_DIGITS.exit54:                             ; preds = %93, %95
   %110 = or disjoint i64 %108, %109
   %111 = or disjoint i64 %110, 16384
   store i64 %111, ptr %102, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %113 = ptrtoint ptr %112 to i64
@@ -6824,8 +6818,8 @@ BIGNUM_DIGITS.exit54:                             ; preds = %93, %95
   %119 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %119, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i58 = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit59
 
 120:                                              ; preds = %BIGNUM_DIGITS.exit54
@@ -6973,17 +6967,17 @@ BIGNUM_LEN.exit19.i73:                            ; preds = %174, %171
   br label %bigtrunc.exit75
 
 bigtrunc.exit75:                                  ; preds = %BIGNUM_DIGITS.exit.i65, %BIGNUM_LEN.exit19.i73, %178
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %7, ptr %9, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #26, !srcloc !72
   %179 = load ptr, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %180 = load volatile i64, ptr %179, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %8, ptr %10, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #26, !srcloc !73
   %181 = load ptr, ptr %10, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %182 = load volatile i64, ptr %181, align 8, !tbaa !7
   %183 = call i64 @rb_assoc_new(i64 noundef %68, i64 noundef %101) #26
   br label %184
@@ -7000,11 +6994,11 @@ define internal fastcc void @bary_divmod_gmp(ptr noundef %0, i64 noundef %1, ptr
   %11 = alloca [1 x %struct.__mpz_struct], align 16
   %12 = alloca [1 x %struct.__mpz_struct], align 16
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @__gmpz_init(ptr noundef nonnull %9) #26
   call void @__gmpz_init(ptr noundef nonnull %10) #26
   %.not = icmp eq ptr %0, null
@@ -7081,16 +7075,16 @@ define internal fastcc void @bary_divmod_gmp(ptr noundef %0, i64 noundef %1, ptr
   br label %33
 
 33:                                               ; preds = %._crit_edge37, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @rb_bigzero_p(i64 noundef %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @rb_bigzero_p(i64 noundef %0) local_unnamed_addr #5 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !11
   %4 = and i64 %3, 16384
@@ -7158,7 +7152,7 @@ bigzero_p.exit:                                   ; preds = %25, %.preheader.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @bigzero_p(i64 noundef %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @bigzero_p(i64 noundef %0) unnamed_addr #5 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !11
   %4 = and i64 %3, 16384
@@ -7321,9 +7315,9 @@ bigzero_p.exit.thread:                            ; preds = %41, %BIGNUM_LEN.exi
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_cmperr(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @rb_cmperr(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #5
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_big_resize(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -7379,8 +7373,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %17, %15
   %30 = or disjoint i64 %28, %29
   %31 = or disjoint i64 %30, 16384
   store i64 %31, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %32 = ptrtoint ptr %24 to i64
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7396,8 +7390,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %17, %15
   %38 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !75
   store volatile i64 %38, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %rb_big_realloc.exit, label %rbimpl_size_mul_or_raise.exit.i
 
@@ -7478,8 +7472,8 @@ define dso_local i64 @rb_big_new(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %16 = or disjoint i64 %14, %15
   %17 = or disjoint i64 %16, 16384
   store i64 %17, ptr %9, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = ptrtoint ptr %18 to i64
@@ -7496,8 +7490,8 @@ define dso_local i64 @rb_big_new(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %25 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %25, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 26:                                               ; preds = %2
@@ -7590,8 +7584,8 @@ rb_class_of.exit:                                 ; preds = %17, %19, %20, %21, 
   %38 = or disjoint i64 %36, %37
   %39 = or disjoint i64 %38, 16384
   store i64 %39, ptr %30, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %41 = ptrtoint ptr %40 to i64
@@ -7608,8 +7602,8 @@ rb_class_of.exit:                                 ; preds = %17, %19, %20, %21, 
   %47 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %47, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %bignew_1.exit
 
 48:                                               ; preds = %rb_class_of.exit
@@ -8001,8 +7995,8 @@ define dso_local i64 @rb_uint2big(i64 noundef %0) local_unnamed_addr #0 {
   %.sink.i.i = and i64 %9, -253953
   %10 = or disjoint i64 %.sink.i.i, 90112
   store i64 %10, ptr %8, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = ptrtoint ptr %11 to i64
@@ -8019,8 +8013,8 @@ define dso_local i64 @rb_uint2big(i64 noundef %0) local_unnamed_addr #0 {
   %18 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %18, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @rb_obj_freeze_inline(i64 noundef %7) #26
   %19 = load i64, ptr %8, align 8, !tbaa !11
   %20 = and i64 %19, 16384
@@ -8083,8 +8077,8 @@ define dso_local i64 @rb_int2big(i64 noundef %0) local_unnamed_addr #0 {
   %.sink.i.i.i = and i64 %10, -253953
   %11 = or disjoint i64 %.sink.i.i.i, 90112
   store i64 %11, ptr %9, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = ptrtoint ptr %12 to i64
@@ -8101,8 +8095,8 @@ define dso_local i64 @rb_int2big(i64 noundef %0) local_unnamed_addr #0 {
   %19 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %19, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @rb_obj_freeze_inline(i64 noundef %8) #26
   %20 = load i64, ptr %9, align 8, !tbaa !11
   %21 = and i64 %20, 16384
@@ -8181,8 +8175,8 @@ define dso_local i64 @rb_uint2inum(i64 noundef %0) local_unnamed_addr #0 {
   %.sink.i.i.i = and i64 %14, -253953
   %15 = or disjoint i64 %.sink.i.i.i, 90112
   store i64 %15, ptr %13, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = ptrtoint ptr %16 to i64
@@ -8199,8 +8193,8 @@ define dso_local i64 @rb_uint2inum(i64 noundef %0) local_unnamed_addr #0 {
   %23 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %23, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @rb_obj_freeze_inline(i64 noundef %12) #26
   %24 = load i64, ptr %13, align 8, !tbaa !11
   %25 = and i64 %24, 16384
@@ -8274,15 +8268,15 @@ define dso_local void @rb_big_pack(i64 noundef %0, ptr noundef nonnull %1, i64 n
   %4 = alloca i64, align 8
   %5 = alloca [2 x i32], align 4
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %0, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i64 @rb_to_int(i64 noundef %0) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #26, !srcloc !79
   %8 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store volatile i64 %7, ptr %8, align 8, !tbaa !7
   %9 = load i64, ptr %4, align 8, !tbaa !7
   %10 = and i64 %9, 1
@@ -8337,8 +8331,8 @@ rb_integer_pack.exit:                             ; preds = %23, %28, %BIGNUM_LE
   %.018.i = phi i64 [ %31, %28 ], [ %27, %23 ], [ 2, %BIGNUM_LEN.exit.loopexit.i ]
   %.117.i = phi i32 [ %21, %28 ], [ %21, %23 ], [ %.016.i, %BIGNUM_LEN.exit.loopexit.i ]
   %33 = call fastcc i32 @bary_pack(i32 noundef %.117.i, ptr noundef %.019.i, i64 noundef %.018.i, ptr noundef nonnull %1, i64 noundef %2, i64 noundef 8, i64 noundef 0, i32 noundef 194)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8348,13 +8342,13 @@ define dso_local i32 @rb_integer_pack(i64 noundef %0, ptr noundef nonnull %1, i6
   %8 = alloca [2 x i32], align 4
   %9 = alloca ptr, align 8
   store i64 %0, ptr %7, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = tail call i64 @rb_to_int(i64 noundef %0) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %7, ptr %9, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #26, !srcloc !79
   %11 = load ptr, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store volatile i64 %10, ptr %11, align 8, !tbaa !7
   %12 = load i64, ptr %7, align 8, !tbaa !7
   %13 = and i64 %12, 1
@@ -8409,7 +8403,7 @@ BIGNUM_LEN.exit:                                  ; preds = %BIGNUM_LEN.exit.loo
   %.018 = phi i64 [ %34, %31 ], [ %30, %26 ], [ 2, %BIGNUM_LEN.exit.loopexit ]
   %.117 = phi i32 [ %24, %31 ], [ %24, %26 ], [ %.016, %BIGNUM_LEN.exit.loopexit ]
   %36 = call fastcc i32 @bary_pack(i32 noundef %.117, ptr noundef %.019, i64 noundef %.018, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %36
 }
 
@@ -8428,7 +8422,7 @@ define dso_local i64 @rb_integer_unpack(ptr noundef nonnull %0, i64 noundef %1, 
   %10 = alloca [6 x i64], align 16
   %11 = alloca i64, align 8
   %12 = alloca [2 x i32], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   tail call fastcc void @validate_integer_pack_format(i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 2035)
   %13 = udiv i64 2305843009213693948, %2
@@ -8516,8 +8510,8 @@ integer_unpack_num_bdigits.exit:                  ; preds = %35, %40
   %61 = or disjoint i64 %59, %60
   %62 = or disjoint i64 %61, 16384
   store i64 %62, ptr %54, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i64 1296236545, ptr %10, align 16, !tbaa !7
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %64 = ptrtoint ptr %63 to i64
@@ -8534,8 +8528,8 @@ integer_unpack_num_bdigits.exit:                  ; preds = %35, %40
   %70 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #26, !srcloc !17
   store volatile i64 %70, ptr %11, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %11, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %bignew_1.exit
 
 71:                                               ; preds = %49
@@ -8638,8 +8632,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %93, %90
   %118 = and i64 %117, -253953
   %119 = or disjoint i64 %118, 114688
   store i64 %119, ptr %116, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i64 1296236545, ptr %8, align 16, !tbaa !7
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %121 = ptrtoint ptr %120 to i64
@@ -8656,8 +8650,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %93, %90
   %127 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, i64 0) #26, !srcloc !17
   store volatile i64 %127, ptr %9, align 8, !tbaa !7
   %.0..0..0..0..0..0..i75 = load volatile i64, ptr %9, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @rb_obj_freeze_inline(i64 noundef %115) #26
   %128 = load i64, ptr %116, align 8, !tbaa !11
   %129 = and i64 %128, 16384
@@ -8759,8 +8753,8 @@ BIGNUM_DIGITS.exit82:                             ; preds = %BIGNUM_DIGITS.exit7
   %179 = or disjoint i64 %177, %178
   %180 = or disjoint i64 %179, 16384
   store i64 %180, ptr %172, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 1296236545, ptr %6, align 16, !tbaa !7
   %181 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %182 = ptrtoint ptr %181 to i64
@@ -8777,8 +8771,8 @@ BIGNUM_DIGITS.exit82:                             ; preds = %BIGNUM_DIGITS.exit7
   %188 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #26, !srcloc !17
   store volatile i64 %188, ptr %7, align 8, !tbaa !7
   %.0..0..0..0..0..0..i84 = load volatile i64, ptr %7, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %bignew_1.exit85
 
 189:                                              ; preds = %167
@@ -9044,14 +9038,14 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %264, %260
 
 bigtrunc.exit:                                    ; preds = %273, %.thread115, %165, %157, %293, %291, %286, %BIGNUM_DIGITS.exit.i.i, %252, %251, %BIGNUM_LEN.exit19.i, %BIGNUM_DIGITS.exit.i
   %.1 = phi i64 [ %.2, %BIGNUM_DIGITS.exit.i ], [ %.2, %BIGNUM_LEN.exit19.i ], [ %.2, %251 ], [ %.2, %293 ], [ %288, %286 ], [ %292, %291 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %.2, %252 ], [ 1, %.thread115 ], [ %166, %165 ], [ %159, %157 ], [ 1, %273 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_absint_size(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %5 = and i64 %4, 1
   %.not43 = icmp eq i64 %5, 0
@@ -9153,11 +9147,11 @@ BIGNUM_LEN.exit:                                  ; preds = %18, %23
 
 51:                                               ; preds = %36, %37, %44
   %.029 = phi i64 [ %50, %44 ], [ 0, %37 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.029
 }
 
-declare i64 @rb_to_int(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_to_int(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_absint_numwords(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -9174,7 +9168,7 @@ define dso_local i64 @rb_absint_numwords(i64 noundef %0, i64 noundef %1, ptr nou
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %15 = and i64 %14, 1
   %.not43.i = icmp eq i64 %15, 0
@@ -9245,7 +9239,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %33, %28
   br i1 %45, label %rb_absint_size.exit.thread, label %rb_absint_size.exit
 
 rb_absint_size.exit.thread:                       ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %57
 
 rb_absint_size.exit:                              ; preds = %.critedge.i
@@ -9259,7 +9253,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   %53 = zext nneg i32 %52 to i64
   %54 = add i64 %51, %53
   %55 = sub i64 %50, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %56 = icmp ult i64 %55, 2305843009213693952
   br i1 %56, label %57, label %68
 
@@ -9279,13 +9273,13 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   br label %198
 
 68:                                               ; preds = %rb_absint_size.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %55, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, i8 0, i64 12, i1 false), !tbaa !18
   br label %.lr.ph21.split.i.i.i
@@ -9588,13 +9582,13 @@ bary_zero_p.exit.i:                               ; preds = %183, %bary_add.exit
   %195 = call fastcc i32 @bary_pack(i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %10, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64)
   %196 = icmp eq i32 %195, 2
   %197 = load i64, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %196, label %.thread, label %198
 
 198:                                              ; preds = %bary_zero_p.exit.i, %57
@@ -9619,7 +9613,7 @@ bary_zero_p.exit.i:                               ; preds = %183, %bary_add.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @rb_absint_singlebit_p(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %4 = and i64 %3, 1
   %.not43 = icmp eq i64 %4, 0
@@ -9712,7 +9706,7 @@ BIGNUM_LEN.exit:                                  ; preds = %17, %22
 
 45:                                               ; preds = %.critedge2, %40
   %.031 = phi i32 [ %44, %40 ], [ 0, %.critedge2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }
 
@@ -10612,7 +10606,7 @@ integer_pack_fill_dd.exit396:                     ; preds = %321, %324
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @validate_integer_pack_format(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 1267, 2036) %4) unnamed_addr #0 {
@@ -11365,7 +11359,7 @@ bary_2comp.exit:                                  ; preds = %239, %246, %.lr.ph2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_cstr_to_inum(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, ptr %4, ptr null
   %5 = call i64 @rb_int_parse_cstr(ptr noundef nonnull %0, i64 noundef -1, ptr noundef %., ptr noundef null, i32 noundef %1, i32 noundef 7)
@@ -11379,19 +11373,19 @@ define dso_local i64 @rb_cstr_to_inum(ptr noundef nonnull %0, i32 noundef %1, i3
 
 8:                                                ; preds = %3
   %.mux = select i1 %6, i64 %5, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.mux
 }
 
 ; Function Attrs: noreturn
-declare void @rb_invalid_str(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @rb_invalid_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !7
   %9 = icmp ne ptr %2, null
   %.not = icmp eq ptr %0, null
@@ -12207,19 +12201,19 @@ str2big_scan_digits.exit.thread.thread:           ; preds = %231, %239, %.loopex
 
 bignorm.exit:                                     ; preds = %324, %208, %202, %197, %222, %220, %217, %345, %343, %338, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %300, %str2big_scan_digits.exit.thread.thread, %347
   %.1 = phi i64 [ %.0172279, %347 ], [ %.0172279, %str2big_scan_digits.exit.thread.thread ], [ %.1173, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %.1173, %345 ], [ %340, %338 ], [ %344, %343 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %.1173, %300 ], [ 4, %197 ], [ %227, %222 ], [ %221, %220 ], [ %219, %217 ], [ 4, %202 ], [ 4, %208 ], [ 1, %324 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.1
 }
 
 ; Function Attrs: inlinehint noreturn nounwind sspstrong uwtable
-define internal fastcc void @invalid_radix(i32 noundef %0) unnamed_addr #8 {
+define internal fastcc void @invalid_radix(i32 noundef %0) unnamed_addr #7 {
   %2 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %0) #28
   unreachable
 }
 
-declare i64 @ruby_scan_digits(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @ruby_scan_digits(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @str2big_poweroftwo(i32 noundef range(i32 0, 2) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef range(i32 0, 33) %4) unnamed_addr #0 {
@@ -12253,8 +12247,8 @@ define internal fastcc i64 @str2big_poweroftwo(i32 noundef range(i32 0, 2) %0, p
   %27 = or disjoint i64 %25, %26
   %28 = or disjoint i64 %27, 16384
   store i64 %28, ptr %20, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 1296236545, ptr %6, align 16, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %30 = ptrtoint ptr %29 to i64
@@ -12271,8 +12265,8 @@ define internal fastcc i64 @str2big_poweroftwo(i32 noundef range(i32 0, 2) %0, p
   %36 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #26, !srcloc !17
   store volatile i64 %36, ptr %7, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %7, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %bignew_1.exit
 
 37:                                               ; preds = %5
@@ -12361,9 +12355,9 @@ define internal fastcc i64 @str2big_gmp(i32 noundef range(i32 0, 2) %0, ptr noun
   %9 = alloca i64, align 8
   %10 = alloca [1 x %struct.__mpz_struct], align 16
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = add i64 %3, 1
   %13 = icmp ult i64 %12, 1024
   br i1 %13, label %14, label %rb_alloc_tmp_buffer2.exit
@@ -12430,8 +12424,8 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %6
   %43 = or disjoint i64 %41, %42
   %44 = or disjoint i64 %43, 16384
   store i64 %44, ptr %36, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i64 1296236545, ptr %7, align 16, !tbaa !7
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %46 = ptrtoint ptr %45 to i64
@@ -12448,8 +12442,8 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %6
   %52 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i64 0) #26, !srcloc !17
   store volatile i64 %52, ptr %8, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %8, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignew_1.exit
 
 53:                                               ; preds = %._crit_edge
@@ -12501,9 +12495,9 @@ BIGNUM_DIGITS.exit33:                             ; preds = %59, %61
   br label %71
 
 71:                                               ; preds = %70, %._crit_edge43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %35
 }
 
@@ -12531,8 +12525,8 @@ define internal fastcc i64 @str2big_normal(i32 noundef range(i32 0, 2) %0, ptr n
   %19 = or disjoint i64 %17, %18
   %20 = or disjoint i64 %19, 16384
   store i64 %20, ptr %12, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 1296236545, ptr %6, align 16, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %22 = ptrtoint ptr %21 to i64
@@ -12549,8 +12543,8 @@ define internal fastcc i64 @str2big_normal(i32 noundef range(i32 0, 2) %0, ptr n
   %28 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #26, !srcloc !17
   store volatile i64 %28, ptr %7, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %7, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %bignew_1.exit
 
 29:                                               ; preds = %5
@@ -12655,7 +12649,7 @@ define internal fastcc i64 @str2big_karatsuba(i32 noundef range(i32 0, 2) %0, pt
   %10 = alloca [6 x i64], align 16
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !7
   %13 = shl i64 %4, 1
   %14 = icmp ult i64 %13, 256
@@ -12704,8 +12698,8 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %18
   %.sink.i.i.i = and i64 %41, -253953
   %42 = or disjoint i64 %.sink.i.i.i, 90112
   store i64 %42, ptr %40, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i64 1296236545, ptr %10, align 16, !tbaa !7
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = ptrtoint ptr %43 to i64
@@ -12722,8 +12716,8 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %18
   %50 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #26, !srcloc !17
   store volatile i64 %50, ptr %11, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %11, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @rb_obj_freeze_inline(i64 noundef %39) #26
   %51 = load i64, ptr %40, align 8, !tbaa !11
   %52 = and i64 %51, 16384
@@ -13136,8 +13130,8 @@ bary_add.exit:                                    ; preds = %130, %178, %.lr.ph9
   %223 = or disjoint i64 %221, %222
   %224 = or disjoint i64 %223, 16384
   store i64 %224, ptr %216, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i64 1296236545, ptr %8, align 16, !tbaa !7
   %225 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %226 = ptrtoint ptr %225 to i64
@@ -13154,8 +13148,8 @@ bary_add.exit:                                    ; preds = %130, %178, %.lr.ph9
   %232 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, i64 0) #26, !srcloc !17
   store volatile i64 %232, ptr %9, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %9, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %bignew_1.exit
 
 233:                                              ; preds = %.critedge
@@ -13210,7 +13204,7 @@ ruby_nonempty_memcpy.exit198:                     ; preds = %rbimpl_size_mul_or_
   br label %250
 
 250:                                              ; preds = %249, %ruby_nonempty_memcpy.exit198
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %215
 }
 
@@ -13219,7 +13213,7 @@ define hidden i64 @rb_str_convert_to_inum(i64 noundef %0, i32 noundef %1, i32 no
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   store i64 %0, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i64 @rb_string_value(ptr noundef nonnull %5) #26
   %8 = load i64, ptr %5, align 8, !tbaa !7
   call void @rb_must_asciicompat(i64 noundef %8) #26
@@ -13258,16 +13252,16 @@ rbimpl_rstring_getmem.exit:                       ; preds = %4, %14
 
 20:                                               ; preds = %rbimpl_rstring_getmem.exit, %17
   %.0 = phi i64 [ 4, %17 ], [ %.mux, %rbimpl_rstring_getmem.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
 
-declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #5
+declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #4
 
-declare void @rb_must_asciicompat(i64 noundef) local_unnamed_addr #5
+declare void @rb_must_asciicompat(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint noreturn nounwind sspstrong uwtable
-define internal fastcc void @invalid_integer(i64 noundef %0) unnamed_addr #8 {
+define internal fastcc void @invalid_integer(i64 noundef %0) unnamed_addr #7 {
   %2 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.33, i64 noundef %0) #28
   unreachable
@@ -13277,9 +13271,9 @@ define internal fastcc void @invalid_integer(i64 noundef %0) unnamed_addr #8 {
 define dso_local i64 @rb_str_to_inum(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %0, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i64 @rb_string_value(ptr noundef nonnull %4) #26
   %7 = load i64, ptr %4, align 8, !tbaa !7
   call void @rb_must_asciicompat(i64 noundef %7) #26
@@ -13313,8 +13307,8 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %13, %3
 
 rb_str_convert_to_inum.exit:                      ; preds = %rbimpl_rstring_getmem.exit.i
   %.mux.i = select i1 %15, i64 %14, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.mux.i
 }
 
@@ -13483,11 +13477,11 @@ str2big_scan_digits.exit:                         ; preds = %11, %.thread9.i
   %63 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 false)
   %64 = sub nuw nsw i32 32, %63
   %65 = call fastcc i64 @str2big_poweroftwo(i32 noundef %.0, ptr noundef %.017, ptr noundef %62, i64 noundef %.125, i32 noundef %64)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !138
   %66 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = load volatile i64, ptr %66, align 8, !tbaa !7
   %68 = icmp eq i64 %65, 0
   %69 = and i64 %65, 7
@@ -13592,7 +13586,7 @@ bignorm.exit:                                     ; preds = %91, %str2big_scan_d
   ret i64 %.0.i20
 }
 
-declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #5
+declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_str2big_normal(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -13775,11 +13769,11 @@ str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
   %70 = udiv i64 %69, %68
   %71 = shl i64 %70, 1
   %72 = call fastcc i64 @str2big_normal(i32 noundef %.036, ptr noundef %.01733, ptr noundef %64, i64 noundef %71, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !139
   %73 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = load volatile i64, ptr %73, align 8, !tbaa !7
   %75 = icmp eq i64 %72, 0
   %76 = and i64 %72, 7
@@ -13884,7 +13878,7 @@ bignorm.exit:                                     ; preds = %98, %str2big_scan_d
   ret i64 %.0.i20
 }
 
-declare ptr @rb_string_value_ptr(ptr noundef) local_unnamed_addr #5
+declare ptr @rb_string_value_ptr(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_str2big_karatsuba(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -14067,11 +14061,11 @@ str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
   %70 = udiv i64 %69, %67
   %71 = shl i64 %70, 1
   %72 = call fastcc i64 @str2big_karatsuba(i32 noundef %.036, ptr noundef %.01733, ptr noundef %63, i64 noundef %.1, i64 noundef %71, i32 noundef %66, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !140
   %73 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = load volatile i64, ptr %73, align 8, !tbaa !7
   %75 = icmp eq i64 %72, 0
   %76 = and i64 %72, 7
@@ -14357,11 +14351,11 @@ str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
   %70 = udiv i64 %69, %67
   %71 = shl i64 %70, 1
   %72 = call fastcc i64 @str2big_gmp(i32 noundef %.036, ptr noundef %.01733, ptr noundef %63, i64 noundef %.1, i64 noundef %71, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !141
   %73 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = load volatile i64, ptr %73, align 8, !tbaa !7
   %75 = icmp eq i64 %72, 0
   %76 = and i64 %72, 7
@@ -14488,8 +14482,8 @@ define dso_local i64 @rb_ull2inum(i64 noundef %0) local_unnamed_addr #0 {
   %.sink.i.i.i = and i64 %14, -253953
   %15 = or disjoint i64 %.sink.i.i.i, 90112
   store i64 %15, ptr %13, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = ptrtoint ptr %16 to i64
@@ -14506,8 +14500,8 @@ define dso_local i64 @rb_ull2inum(i64 noundef %0) local_unnamed_addr #0 {
   %23 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %23, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @rb_obj_freeze_inline(i64 noundef %12) #26
   %24 = load i64, ptr %13, align 8, !tbaa !11
   %25 = and i64 %24, 16384
@@ -14589,8 +14583,8 @@ define dso_local i64 @rb_ll2inum(i64 noundef %0) local_unnamed_addr #0 {
   %.sink.i.i.i.i = and i64 %15, -253953
   %16 = or disjoint i64 %.sink.i.i.i.i, 90112
   store i64 %16, ptr %14, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = ptrtoint ptr %17 to i64
@@ -14607,8 +14601,8 @@ define dso_local i64 @rb_ll2inum(i64 noundef %0) local_unnamed_addr #0 {
   %24 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %24, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..0..0..i.i.i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @rb_obj_freeze_inline(i64 noundef %13) #26
   %25 = load i64, ptr %14, align 8, !tbaa !11
   %26 = and i64 %25, 16384
@@ -14702,8 +14696,8 @@ define hidden i64 @rb_int128t2big(i64 noundef %0, i64 noundef %1) local_unnamed_
   %.sink.i.i.i = and i64 %12, -253953
   %13 = or disjoint i64 %.sink.i.i.i, 155648
   store i64 %13, ptr %11, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = ptrtoint ptr %14 to i64
@@ -14720,8 +14714,8 @@ define hidden i64 @rb_int128t2big(i64 noundef %0, i64 noundef %1) local_unnamed_
   %21 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %21, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @rb_obj_freeze_inline(i64 noundef %10) #26
   %22 = load i64, ptr %11, align 8, !tbaa !11
   %23 = and i64 %22, 16384
@@ -14793,7 +14787,7 @@ rb_uint128t2big.exit:                             ; preds = %38, %42
 define dso_local i64 @rb_cstr2inum(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp ne i32 %1, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %..i = select i1 %4, ptr %3, ptr null
   %5 = call i64 @rb_int_parse_cstr(ptr noundef nonnull %0, i64 noundef -1, ptr noundef %..i, ptr noundef null, i32 noundef %1, i32 noundef 7)
   %6 = icmp ne i64 %5, 4
@@ -14806,7 +14800,7 @@ define dso_local i64 @rb_cstr2inum(ptr noundef nonnull %0, i32 noundef %1) local
 
 rb_cstr_to_inum.exit:                             ; preds = %2
   %.mux.i = select i1 %6, i64 %5, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.mux.i
 }
 
@@ -14815,9 +14809,9 @@ define dso_local i64 @rb_str2inum(i64 noundef %0, i32 noundef %1) local_unnamed_
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = icmp ne i32 %1, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %0, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i64 @rb_string_value(ptr noundef nonnull %3) #26
   %7 = load i64, ptr %3, align 8, !tbaa !7
   call void @rb_must_asciicompat(i64 noundef %7) #26
@@ -14850,8 +14844,8 @@ rbimpl_rstring_getmem.exit.i.i:                   ; preds = %13, %2
 
 rb_str_to_inum.exit:                              ; preds = %rbimpl_rstring_getmem.exit.i.i
   %.mux.i.i = select i1 %15, i64 %14, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.mux.i.i
 }
 
@@ -14932,15 +14926,15 @@ RSTRING_PTR.exit31.i:                             ; preds = %38, %32, %RSTRING_P
   %.0.i = phi ptr [ %27, %RSTRING_PTR.exit.i ], [ %37, %32 ], [ %.sroa.2.0.copyload.i29.i, %38 ]
   %39 = sub nsw i32 8, %6
   %40 = sext i32 %39 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %0, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = tail call i64 @rb_to_int(i64 noundef %0) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !79
   %42 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store volatile i64 %41, ptr %42, align 8, !tbaa !7
   %43 = load i64, ptr %3, align 8, !tbaa !7
   %44 = and i64 %43, 1
@@ -14994,8 +14988,8 @@ rb_integer_pack.exit.i:                           ; preds = %BIGNUM_LEN.exit.loo
   %.018.i.i = phi i64 [ %65, %62 ], [ %61, %57 ], [ 2, %BIGNUM_LEN.exit.loopexit.i.i ]
   %.117.i.i = phi i32 [ %55, %62 ], [ %55, %57 ], [ %.016.i.i, %BIGNUM_LEN.exit.loopexit.i.i ]
   %67 = call fastcc i32 @bary_pack(i32 noundef %.117.i.i, ptr noundef %.019.i.i, i64 noundef %.018.i.i, ptr noundef nonnull %.0.i, i64 noundef %8, i64 noundef 1, i64 noundef %40, i32 noundef 17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not2736.i = icmp eq i64 %8, 0
   br i1 %.not2736.i, label %big2str_base_poweroftwo.exit, label %.lr.ph.i
 
@@ -15033,7 +15027,7 @@ define internal fastcc i64 @big2str_generic(i64 noundef %0, i32 noundef %1) unna
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   store i64 %0, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = inttoptr i64 %0 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !11
   %13 = and i64 %12, 16384
@@ -15115,8 +15109,8 @@ BIGNUM_LEN.exit:                                  ; preds = %14, %19
   %.sink.i.i.i = and i64 %51, -253953
   %52 = or disjoint i64 %.sink.i.i.i, 90112
   store i64 %52, ptr %50, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 1296236545, ptr %4, align 16, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %54 = ptrtoint ptr %53 to i64
@@ -15133,8 +15127,8 @@ BIGNUM_LEN.exit:                                  ; preds = %14, %19
   %60 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #26, !srcloc !17
   store volatile i64 %60, ptr %5, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @rb_obj_freeze_inline(i64 noundef %49) #26
   %61 = load i64, ptr %50, align 8, !tbaa !11
   %62 = and i64 %61, 16384
@@ -15244,7 +15238,7 @@ BIGNUM_LEN.exit61:                                ; preds = %86, %89
   br i1 %105, label %106, label %141
 
 106:                                              ; preds = %BIGNUM_LEN.exit61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   switch i64 %.04378, label %big2str_2bdigits.exit [
     i64 2, label %107
     i64 1, label %109
@@ -15335,11 +15329,11 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %138, %big2str_alloc
   br label %big2str_2bdigits.exit
 
 big2str_2bdigits.exit:                            ; preds = %106, %bary2bdigitdbl.exit.i, %ruby_nonempty_memcpy.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %167
 
 141:                                              ; preds = %BIGNUM_LEN.exit61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !7
   %142 = zext nneg i32 %spec.select to i64
   br i1 %.not.i59, label %143, label %146
@@ -15395,15 +15389,15 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_alloc_tmp_buffer
   br label %166
 
 166:                                              ; preds = %165, %rbimpl_size_mul_or_raise.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %167
 
 167:                                              ; preds = %166, %big2str_2bdigits.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %6, ptr %9, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #26, !srcloc !170
   %168 = load ptr, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %169 = load volatile i64, ptr %168, align 8, !tbaa !7
   %170 = load ptr, ptr %104, align 8, !tbaa !165
   store i8 0, ptr %170, align 1, !tbaa !13
@@ -15426,18 +15420,18 @@ RSTRING_PTR.exit:                                 ; preds = %167, %177
   %179 = ptrtoint ptr %.sroa.2.0.i to i64
   %180 = sub i64 %178, %179
   %181 = call i64 @rb_str_resize(i64 noundef %171, i64 noundef %180) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %6, ptr %10, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #26, !srcloc !174
   %182 = load ptr, ptr %10, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %183 = load volatile i64, ptr %182, align 8, !tbaa !7
   %184 = load i64, ptr %103, align 8, !tbaa !164
   br label %185
 
 185:                                              ; preds = %RSTRING_PTR.exit, %._crit_edge
   %.0 = phi i64 [ %29, %._crit_edge ], [ %184, %RSTRING_PTR.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
@@ -15446,9 +15440,9 @@ define dso_local i64 @rb_big2str_gmp(i64 noundef %0, i32 noundef %1) local_unnam
   %3 = alloca i64, align 8
   %4 = alloca [1 x %struct.__mpz_struct], align 16
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %0, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = inttoptr i64 %0 to ptr
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = and i64 %7, 16384
@@ -15529,14 +15523,14 @@ RSTRING_PTR.exit21.i:                             ; preds = %36, %RSTRING_PTR.ex
   br label %big2str_gmp.exit
 
 big2str_gmp.exit:                                 ; preds = %RSTRING_PTR.exit21.i, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !183
   %44 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = load volatile i64, ptr %44, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %27
 }
 
@@ -15752,15 +15746,15 @@ RSTRING_PTR.exit31.i.i:                           ; preds = %97, %91, %RSTRING_P
   %.0.i30.i = phi ptr [ %86, %RSTRING_PTR.exit.i.i ], [ %96, %91 ], [ %.sroa.2.0.copyload.i29.i.i, %97 ]
   %98 = sub nuw nsw i32 8, %cttz.i.i
   %99 = zext nneg i32 %98 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %0, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %100 = tail call i64 @rb_to_int(i64 noundef %0) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !79
   %101 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store volatile i64 %100, ptr %101, align 8, !tbaa !7
   %102 = load i64, ptr %6, align 8, !tbaa !7
   %103 = and i64 %102, 1
@@ -15814,8 +15808,8 @@ rb_integer_pack.exit.i.i:                         ; preds = %BIGNUM_LEN.exit.loo
   %.018.i.i.i = phi i64 [ %124, %121 ], [ %120, %116 ], [ 2, %BIGNUM_LEN.exit.loopexit.i.i.i ]
   %.117.i.i.i = phi i32 [ %114, %121 ], [ %114, %116 ], [ %.016.i.i.i, %BIGNUM_LEN.exit.loopexit.i.i.i ]
   %126 = call fastcc i32 @bary_pack(i32 noundef %.117.i.i.i, ptr noundef %.019.i.i.i, i64 noundef %.018.i.i.i, ptr noundef nonnull %.0.i30.i, i64 noundef %68, i64 noundef 1, i64 noundef %99, i32 noundef 17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not2736.i.i = icmp eq i64 %68, 0
   br i1 %.not2736.i.i, label %rb_big2str1.exit, label %.lr.ph.i.i
 
@@ -15837,9 +15831,9 @@ rb_integer_pack.exit.i.i:                         ; preds = %BIGNUM_LEN.exit.loo
   br i1 %134, label %135, label %173
 
 135:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %0, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %.not.i25.i, label %136, label %141
 
 136:                                              ; preds = %135
@@ -15916,14 +15910,14 @@ RSTRING_PTR.exit21.i.i:                           ; preds = %163, %RSTRING_PTR.e
   br label %big2str_gmp.exit.i
 
 big2str_gmp.exit.i:                               ; preds = %170, %RSTRING_PTR.exit21.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !183
   %171 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = load volatile i64, ptr %171, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %rb_big2str1.exit
 
 173:                                              ; preds = %133
@@ -16027,7 +16021,7 @@ BIGNUM_LEN.exit39:                                ; preds = %24, %.thread69
 
 34:                                               ; preds = %BIGNUM_LEN.exit30.thread, %BIGNUM_LEN.exit30
   %.0.i454751555968 = phi i64 [ %11, %BIGNUM_LEN.exit30.thread ], [ %8, %BIGNUM_LEN.exit30 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %36 = and i64 %35, 1
   %.not43.i = icmp eq i64 %36, 0
@@ -16111,7 +16105,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %54, %49
 
 rb_absint_size.exit:                              ; preds = %.critedge.i, %67
   %.029.i = phi i64 [ %76, %67 ], [ 0, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
 77:                                               ; preds = %BIGNUM_LEN.exit39, %rb_absint_size.exit
@@ -16293,7 +16287,7 @@ BIGNUM_LEN.exit42:                                ; preds = %24, %.thread89
 34:                                               ; preds = %BIGNUM_LEN.exit33.thread, %BIGNUM_LEN.exit33
   %.0.i45495560697488 = phi i64 [ %13, %BIGNUM_LEN.exit33.thread ], [ %8, %BIGNUM_LEN.exit33 ]
   %.0.i24505362677686 = phi ptr [ %14, %BIGNUM_LEN.exit33.thread ], [ %10, %BIGNUM_LEN.exit33 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %36 = and i64 %35, 1
   %.not43.i = icmp eq i64 %36, 0
@@ -16377,7 +16371,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %54, %49
 
 rb_absint_size.exit:                              ; preds = %.critedge.i, %67
   %.029.i = phi i64 [ %76, %67 ], [ 0, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
 77:                                               ; preds = %BIGNUM_LEN.exit42, %rb_absint_size.exit
@@ -16614,8 +16608,8 @@ define internal fastcc i64 @dbl2big(double noundef %0) unnamed_addr #0 {
   %32 = or disjoint i64 %30, %31
   %33 = or disjoint i64 %32, 16384
   store i64 %33, ptr %25, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %35 = ptrtoint ptr %34 to i64
@@ -16632,8 +16626,8 @@ define internal fastcc i64 @dbl2big(double noundef %0) unnamed_addr #0 {
   %41 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %41, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %bignew_1.exit
 
 42:                                               ; preds = %._crit_edge
@@ -16886,9 +16880,9 @@ BIGNUM_DIGITS.exit:                               ; preds = %29, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
-declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #5
+declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_integer_float_cmp(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -16902,7 +16896,7 @@ define hidden i64 @rb_integer_float_cmp(i64 noundef %0, i64 noundef %1) local_un
   br i1 %.not.i.i, label %rb_float_value_inline.exit.thread, label %7
 
 rb_float_value_inline.exit.thread:                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %18
 
 7:                                                ; preds = %6
@@ -16922,7 +16916,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6
 
 rb_float_value_inline.exit:                       ; preds = %7, %13
   %.0.i = phi double [ %16, %13 ], [ %12, %7 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = fcmp uno double %.0.i, 0.000000e+00
   br i1 %17, label %47, label %18
 
@@ -16984,12 +16978,12 @@ rb_float_value_inline.exit:                       ; preds = %7, %13
 
 47:                                               ; preds = %45, %40, %27, %29, %31, %35, %38, %21, %rb_float_value_inline.exit
   %.0 = phi i64 [ 4, %rb_float_value_inline.exit ], [ %., %21 ], [ 3, %27 ], [ -1, %29 ], [ -1, %31 ], [ 3, %35 ], [ %.25, %38 ], [ %42, %40 ], [ %.26, %45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_big_cmp(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -17318,7 +17312,7 @@ define hidden i64 @rb_integer_float_eq(i64 noundef %0, i64 noundef %1) local_unn
 
 rb_float_value_inline.exit:                       ; preds = %6, %7, %13
   %.0.i = phi double [ %16, %13 ], [ %12, %7 ], [ 0.000000e+00, %6 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = tail call double @llvm.fabs.f64(double %.0.i)
   %18 = fcmp ueq double %17, 0x7FF0000000000000
   br i1 %18, label %36, label %19
@@ -17354,7 +17348,7 @@ rb_float_value_inline.exit:                       ; preds = %6, %7, %13
 
 36:                                               ; preds = %28, %25, %19, %rb_float_value_inline.exit, %33
   %.0 = phi i64 [ %35, %33 ], [ 0, %rb_float_value_inline.exit ], [ 0, %19 ], [ %32, %28 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -17511,7 +17505,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %53
 
 rb_float_value_inline.exit.i:                     ; preds = %69, %63, %62
   %.0.i.i = phi double [ %71, %69 ], [ %68, %63 ], [ 0.000000e+00, %62 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %72 = tail call double @llvm.fabs.f64(double %.0.i.i)
   %73 = fcmp ueq double %72, 0x7FF0000000000000
   br i1 %73, label %rb_integer_float_eq.exit, label %74
@@ -17547,7 +17541,7 @@ rb_float_value_inline.exit.i:                     ; preds = %69, %63, %62
 
 rb_integer_float_eq.exit:                         ; preds = %rb_float_value_inline.exit.i, %74, %80, %83, %88
   %.0.i19 = phi i64 [ %90, %88 ], [ 0, %rb_float_value_inline.exit.i ], [ 0, %74 ], [ %87, %83 ], [ 0, %80 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %130
 
 RB_FLOAT_TYPE_P.exit.thread36:                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -17647,7 +17641,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %BIGNUM_LEN.exit32.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 2) i32 @bary_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #11 {
+define internal fastcc range(i32 -1, 2) i32 @bary_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #10 {
   %.not36 = icmp eq i64 %1, 0
   br i1 %.not36, label %.critedge, label %.lr.ph
 
@@ -17737,7 +17731,7 @@ define internal fastcc range(i32 -1, 2) i32 @bary_cmp(ptr noundef readonly captu
   ret i32 %.032
 }
 
-declare i64 @rb_num_coerce_cmp(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_num_coerce_cmp(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_big_gt(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -17859,7 +17853,7 @@ define hidden i64 @rb_big_le(i64 noundef %0, i64 noundef %1) local_unnamed_addr 
   ret i64 %3
 }
 
-declare i64 @rb_equal(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_equal(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 0, 21) i64 @rb_big_eql(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -18592,8 +18586,8 @@ BIGNUM_LEN.exit:                                  ; preds = %10, %15
   %35 = add nuw nsw i64 %33, %34
   %36 = or disjoint i64 %35, 16384
   store i64 %36, ptr %27, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %38 = ptrtoint ptr %37 to i64
@@ -18610,8 +18604,8 @@ BIGNUM_LEN.exit:                                  ; preds = %10, %15
   %44 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %44, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 45:                                               ; preds = %22
@@ -18861,11 +18855,11 @@ get2comp.exit:                                    ; preds = %.lr.ph26.i.i, %120,
   br label %.loopexit98.thread
 
 .loopexit98.thread:                               ; preds = %.loopexit, %get2comp.exit, %.loopexit98
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #26, !srcloc !216
   %149 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %150 = load volatile i64, ptr %149, align 8, !tbaa !7
   %151 = icmp eq i64 %26, 0
   %152 = and i64 %26, 7
@@ -19036,8 +19030,8 @@ BIGNUM_LEN.exit:                                  ; preds = %10, %15
   %41 = add nuw nsw i64 %39, %40
   %42 = or disjoint i64 %41, 16384
   store i64 %42, ptr %33, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %44 = ptrtoint ptr %43 to i64
@@ -19054,8 +19048,8 @@ BIGNUM_LEN.exit:                                  ; preds = %10, %15
   %50 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %50, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 51:                                               ; preds = %27
@@ -19196,11 +19190,11 @@ BIGNUM_DIGITS.exit82:                             ; preds = %57, %59
   br label %.loopexit, !llvm.loop !220
 
 .loopexit90:                                      ; preds = %78, %.preheader89, %.loopexit, %.loopexit88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #26, !srcloc !221
   %111 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = load volatile i64, ptr %111, align 8, !tbaa !7
   %113 = icmp eq i64 %32, 0
   %114 = and i64 %32, 7
@@ -19400,8 +19394,8 @@ BIGNUM_LEN.exit30:                                ; preds = %BIGNUM_LEN.exit27.t
   %55 = or disjoint i64 %53, %54
   %56 = or disjoint i64 %55, 16384
   store i64 %56, ptr %48, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 1296236545, ptr %4, align 16, !tbaa !7
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %58 = ptrtoint ptr %57 to i64
@@ -19418,8 +19412,8 @@ BIGNUM_LEN.exit30:                                ; preds = %BIGNUM_LEN.exit27.t
   %64 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #26, !srcloc !17
   store volatile i64 %64, ptr %5, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %bignew_1.exit
 
 65:                                               ; preds = %BIGNUM_LEN.exit30
@@ -19613,7 +19607,7 @@ bary_add.exit:                                    ; preds = %130, %.preheader70.
   ret i64 %.023
 }
 
-declare i64 @rb_num_coerce_bin(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_num_coerce_bin(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_big_minus(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -20126,8 +20120,8 @@ BIGNUM_LEN.exit19:                                ; preds = %25, %28
   %51 = or disjoint i64 %49, %50
   %52 = or disjoint i64 %51, 16384
   store i64 %52, ptr %43, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %54 = ptrtoint ptr %53 to i64
@@ -20144,8 +20138,8 @@ BIGNUM_LEN.exit19:                                ; preds = %25, %28
   %60 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %60, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 61:                                               ; preds = %35
@@ -20207,17 +20201,17 @@ BIGNUM_DIGITS.exit25:                             ; preds = %74, %76
 BIGNUM_DIGITS.exit28:                             ; preds = %81, %83
   %.0.i27 = phi ptr [ %82, %81 ], [ %85, %83 ]
   call fastcc void @bary_mul(ptr noundef %.0.i27, i64 noundef %36, ptr noundef %.0.i22, i64 noundef %.0.i, ptr noundef %.0.i24, i64 noundef %.0.i18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #26, !srcloc !222
   %86 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = load volatile i64, ptr %86, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !223
   %88 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %89 = load volatile i64, ptr %88, align 8, !tbaa !7
   br label %90
 
@@ -20235,7 +20229,7 @@ define dso_local i64 @rb_big_div(i64 noundef %0, i64 noundef %1) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rb_big_divide(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 47, 3570) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = and i64 %1, 1
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %6
@@ -20485,7 +20479,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %86, %82
 
 bignorm.exit:                                     ; preds = %95, %116, %114, %109, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %70, %RB_FLOAT_TYPE_P.exit.thread33, %rb_float_value_inline.exit26, %rb_float_new_inline.exit
   %.0 = phi i64 [ %40, %rb_float_new_inline.exit ], [ %68, %rb_float_value_inline.exit26 ], [ %69, %RB_FLOAT_TYPE_P.exit.thread33 ], [ %71, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %71, %116 ], [ %111, %109 ], [ %115, %114 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %71, %70 ], [ 1, %95 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
@@ -20498,7 +20492,7 @@ define dso_local i64 @rb_big_idiv(i64 noundef %0, i64 noundef %1) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_big_modulo(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = and i64 %1, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %5
@@ -20630,7 +20624,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %34, %30
 
 bignorm.exit:                                     ; preds = %43, %64, %62, %57, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %18, %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %.08 = phi i64 [ %17, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %19, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %19, %64 ], [ %59, %57 ], [ %63, %62 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %19, %18 ], [ 1, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.08
 }
 
@@ -20639,7 +20633,7 @@ define internal fastcc void @bigdivmod(i64 noundef %0, i64 noundef %1, ptr nound
   %5 = alloca [6 x i64], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @bigdivrem(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8, !tbaa !11
@@ -20728,8 +20722,8 @@ bigzero_p.exit:                                   ; preds = %.preheader.i.i, %BI
   %.sink.i.i.i.i = and i64 %47, -253953
   %48 = or disjoint i64 %.sink.i.i.i.i, 90112
   store i64 %48, ptr %46, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = ptrtoint ptr %49 to i64
@@ -20746,8 +20740,8 @@ bigzero_p.exit:                                   ; preds = %.preheader.i.i, %BI
   %56 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %56, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..0..0..i.i.i = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @rb_obj_freeze_inline(i64 noundef %45) #26
   %57 = load i64, ptr %46, align 8, !tbaa !11
   %58 = and i64 %57, 16384
@@ -20800,14 +20794,14 @@ bigzero_p.exit.thread:                            ; preds = %39, %BIGNUM_LEN.exi
   br label %74
 
 74:                                               ; preds = %.sink.split, %bigzero_p.exit.thread, %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_big_remainder(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = and i64 %1, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %5
@@ -20951,7 +20945,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %35, %31
 
 bignorm.exit:                                     ; preds = %44, %65, %63, %58, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %19, %rbimpl_intern_const.exit
   %.0 = phi i64 [ %18, %rbimpl_intern_const.exit ], [ %20, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %20, %65 ], [ %60, %58 ], [ %64, %63 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %20, %19 ], [ 1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -21099,8 +21093,8 @@ BIGNUM_DIGITS.exit127:                            ; preds = %49, %51
   %.sink.i.i.i.i = and i64 %80, -253953
   %81 = or disjoint i64 %.sink.i.i.i.i, 90112
   store i64 %81, ptr %79, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store volatile i64 1296236545, ptr %17, align 16, !tbaa !7
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %83 = ptrtoint ptr %82 to i64
@@ -21117,8 +21111,8 @@ BIGNUM_DIGITS.exit127:                            ; preds = %49, %51
   %89 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, i64 0) #26, !srcloc !17
   store volatile i64 %89, ptr %18, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..0..0..i.i.i = load volatile i64, ptr %18, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @rb_obj_freeze_inline(i64 noundef %78) #26
   %90 = load i64, ptr %79, align 8, !tbaa !11
   %91 = and i64 %90, 16384
@@ -21182,8 +21176,8 @@ rb_int2big.exit:                                  ; preds = %92, %96
   %120 = or disjoint i64 %118, %119
   %121 = or disjoint i64 %120, 16384
   store i64 %121, ptr %112, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store volatile i64 1296236545, ptr %15, align 16, !tbaa !7
   %122 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %123 = ptrtoint ptr %122 to i64
@@ -21200,8 +21194,8 @@ rb_int2big.exit:                                  ; preds = %92, %96
   %129 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, i64 0) #26, !srcloc !17
   store volatile i64 %129, ptr %16, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %16, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %bignew_1.exit
 
 130:                                              ; preds = %104
@@ -21310,8 +21304,8 @@ bigdivrem_single.exit:                            ; preds = %150, %143, %161, %.
   %.sink.i.i.i = and i64 %182, -253953
   %183 = or disjoint i64 %.sink.i.i.i, 90112
   store i64 %183, ptr %181, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store volatile i64 1296236545, ptr %13, align 16, !tbaa !7
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %185 = ptrtoint ptr %184 to i64
@@ -21328,8 +21322,8 @@ bigdivrem_single.exit:                            ; preds = %150, %143, %161, %.
   %191 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, i64 0) #26, !srcloc !17
   store volatile i64 %191, ptr %14, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %14, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @rb_obj_freeze_inline(i64 noundef %180) #26
   %192 = load i64, ptr %181, align 8, !tbaa !11
   %193 = and i64 %192, 16384
@@ -21401,8 +21395,8 @@ rb_uint2big.exit:                                 ; preds = %194, %198
   %228 = or disjoint i64 %227, %221
   %229 = xor i64 %228, 90112
   store i64 %229, ptr %225, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store volatile i64 1296236545, ptr %11, align 16, !tbaa !7
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %231 = ptrtoint ptr %230 to i64
@@ -21419,8 +21413,8 @@ rb_uint2big.exit:                                 ; preds = %194, %198
   %237 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, i64 0) #26, !srcloc !17
   store volatile i64 %237, ptr %12, align 8, !tbaa !7
   %.0..0..0..0..0..0..i139 = load volatile i64, ptr %12, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @rb_obj_freeze_inline(i64 noundef %224) #26
   %238 = load i64, ptr %225, align 8, !tbaa !11
   %239 = and i64 %238, 16384
@@ -21455,8 +21449,8 @@ BIGNUM_DIGITS.exit142:                            ; preds = %218, %240
   %.sink.i.i145 = or disjoint i64 %251, %253
   %254 = or disjoint i64 %.sink.i.i145, 81920
   store i64 %254, ptr %250, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store volatile i64 1296236545, ptr %9, align 16, !tbaa !7
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %256 = ptrtoint ptr %255 to i64
@@ -21473,8 +21467,8 @@ BIGNUM_DIGITS.exit142:                            ; preds = %218, %240
   %262 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %9, i64 0) #26, !srcloc !17
   store volatile i64 %262, ptr %10, align 8, !tbaa !7
   %.0..0..0..0..0..0..i146 = load volatile i64, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @rb_obj_freeze_inline(i64 noundef %249) #26
   %263 = load i64, ptr %250, align 8, !tbaa !11
   %264 = and i64 %263, 16384
@@ -21519,8 +21513,8 @@ BIGNUM_DIGITS.exit149:                            ; preds = %244, %265
   %285 = or disjoint i64 %283, %284
   %286 = or disjoint i64 %285, 16384
   store i64 %286, ptr %277, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i64 1296236545, ptr %7, align 16, !tbaa !7
   %287 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %288 = ptrtoint ptr %287 to i64
@@ -21537,8 +21531,8 @@ BIGNUM_DIGITS.exit149:                            ; preds = %244, %265
   %294 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i64 0) #26, !srcloc !17
   store volatile i64 %294, ptr %8, align 8, !tbaa !7
   %.0..0..0..0..0..0..i153 = load volatile i64, ptr %8, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignew_1.exit154
 
 295:                                              ; preds = %269
@@ -21593,8 +21587,8 @@ BIGNUM_DIGITS.exit157:                            ; preds = %303, %301, %268
   %320 = or disjoint i64 %318, %319
   %321 = or disjoint i64 %320, 16384
   store i64 %321, ptr %312, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %322 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %323 = ptrtoint ptr %322 to i64
@@ -21611,8 +21605,8 @@ BIGNUM_DIGITS.exit157:                            ; preds = %303, %301, %268
   %329 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %329, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..i161 = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit162
 
 330:                                              ; preds = %306
@@ -21796,8 +21790,8 @@ bigtrunc.exit181:                                 ; preds = %BIGNUM_DIGITS.exit.
 define dso_local i64 @rb_big_divmod(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = and i64 %1, 1
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %6
@@ -22035,8 +22029,8 @@ bignorm.exit29:                                   ; preds = %90, %bignorm.exit, 
 
 113:                                              ; preds = %bignorm.exit29, %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %.08 = phi i64 [ %112, %bignorm.exit29 ], [ %18, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.08
 }
 
@@ -22119,11 +22113,11 @@ rb_float_value_inline.exit.thread.thread:         ; preds = %25
   br i1 %39, label %.thread39, label %61
 
 .thread39:                                        ; preds = %rb_float_value_inline.exit.thread.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %big_fdiv_float.exit
 
 40:                                               ; preds = %rb_float_value_inline.exit.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %18, label %41, label %48
 
 41:                                               ; preds = %40
@@ -22154,7 +22148,7 @@ big_fdiv_float.exit:                              ; preds = %.thread39, %41, %42
   %56 = add i32 %55, -53
   %57 = sext i32 %56 to i64
   %58 = tail call fastcc double @big_fdiv(i64 noundef %0, i64 noundef %54, i64 noundef %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %92
 
 RB_FLOAT_TYPE_P.exit.thread32:                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -22346,9 +22340,9 @@ BIGNUM_DIGITS.exit:                               ; preds = %30, %34
   ret double %phi.call
 }
 
-declare double @rb_num2dbl(i64 noundef) local_unnamed_addr #5
+declare double @rb_num2dbl(i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_flo_div_flo(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_flo_div_flo(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_big_fdiv(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -22943,15 +22937,15 @@ rb_float_new_inline.exit:                         ; preds = %207, %3, %rb_float_
   ret i64 %.0
 }
 
-declare i64 @rb_dbl_complex_new_polar_pi(double noundef, double noundef) local_unnamed_addr #5
+declare i64 @rb_dbl_complex_new_polar_pi(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #12
+declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 
-declare i64 @rb_rational_raw(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_rational_raw(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @bigsq(i64 noundef %0) unnamed_addr #0 {
@@ -23010,8 +23004,8 @@ BIGNUM_LEN.exit:                                  ; preds = %9, %12
   %34 = add nuw nsw i64 %32, %33
   %35 = or disjoint i64 %34, 16384
   store i64 %35, ptr %28, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i64 1296236545, ptr %2, align 16, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = ptrtoint ptr %36 to i64
@@ -23028,8 +23022,8 @@ BIGNUM_LEN.exit:                                  ; preds = %9, %12
   %43 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 0) #26, !srcloc !17
   store volatile i64 %43, ptr %3, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %bignew_1.exit
 
 44:                                               ; preds = %23
@@ -23086,11 +23080,11 @@ BIGNUM_DIGITS.exit21:                             ; preds = %57, %59
   br label %65
 
 65:                                               ; preds = %64, %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #26, !srcloc !228
   %66 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = load volatile i64, ptr %66, align 8, !tbaa !7
   ret i64 %27
 }
@@ -23111,8 +23105,8 @@ define dso_local i64 @rb_big_and(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %14 = alloca ptr, align 8
   store i64 %0, ptr %9, align 8, !tbaa !7
   store i64 %1, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = and i64 %1, 1
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %16, label %26
@@ -23140,7 +23134,7 @@ rb_integer_type_p.exit.thread57:                  ; preds = %16, %rb_integer_typ
   %28 = load i64, ptr %9, align 8, !tbaa !7
   %29 = load i64, ptr %11, align 8, !tbaa !7
   %30 = ashr i64 %1, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %28, ptr %7, align 8, !tbaa !7
   %31 = icmp ult i64 %1, 2
   br i1 %31, label %bigand_int.exit, label %32
@@ -23194,8 +23188,8 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %42, %40
   %58 = or disjoint i64 %56, %57
   %59 = or disjoint i64 %58, 16384
   store i64 %59, ptr %51, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %61 = ptrtoint ptr %60 to i64
@@ -23212,8 +23206,8 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %42, %40
   %67 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %67, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit.i
 
 68:                                               ; preds = %BIGNUM_DIGITS.exit.i
@@ -23427,11 +23421,11 @@ big_extend_carry.exit.i.i.i:                      ; preds = %146, %141
   br label %twocomp2abs_bang.exit.i
 
 twocomp2abs_bang.exit.i:                          ; preds = %.lr.ph26.i.i.i.i, %big_extend_carry.exit.i.i.i, %125, %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !233
   %152 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %153 = load volatile i64, ptr %152, align 8, !tbaa !7
   %154 = icmp eq i64 %50, 0
   %155 = and i64 %50, 7
@@ -23532,7 +23526,7 @@ BIGNUM_DIGITS.exit.i.i68.i:                       ; preds = %167, %163
 
 bigand_int.exit:                                  ; preds = %176, %34, %26, %twocomp2abs_bang.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %BIGNUM_DIGITS.exit.i.i68.i, %190, %195, %197
   %.0.i39 = phi i64 [ 1, %26 ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %50, %197 ], [ %192, %190 ], [ %196, %195 ], [ 1, %BIGNUM_DIGITS.exit.i.i68.i ], [ %50, %twocomp2abs_bang.exit.i ], [ %spec.select62, %34 ], [ 1, %176 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignorm.exit
 
 198:                                              ; preds = %rb_integer_type_p.exit
@@ -23610,8 +23604,8 @@ BIGNUM_DIGITS.exit45:                             ; preds = %222, %224
   %239 = or disjoint i64 %237, %238
   %240 = or disjoint i64 %239, 16384
   store i64 %240, ptr %232, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %241 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %242 = ptrtoint ptr %241 to i64
@@ -23628,8 +23622,8 @@ BIGNUM_DIGITS.exit45:                             ; preds = %222, %224
   %248 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %248, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 249:                                              ; preds = %BIGNUM_DIGITS.exit45
@@ -23795,17 +23789,17 @@ big_extend_carry.exit.i.i:                        ; preds = %311, %306
   br label %twocomp2abs_bang.exit
 
 twocomp2abs_bang.exit:                            ; preds = %.lr.ph26.i.i.i, %._crit_edge, %290, %big_extend_carry.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %9, ptr %13, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %13) #26, !srcloc !236
   %317 = load ptr, ptr %13, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %318 = load volatile i64, ptr %317, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %10, ptr %14, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %14) #26, !srcloc !237
   %319 = load ptr, ptr %14, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %320 = load volatile i64, ptr %319, align 8, !tbaa !7
   %321 = icmp eq i64 %231, 0
   %322 = and i64 %231, 7
@@ -23906,12 +23900,12 @@ BIGNUM_DIGITS.exit.i.i54:                         ; preds = %334, %330
 
 bignorm.exit:                                     ; preds = %343, %364, %362, %357, %BIGNUM_DIGITS.exit.i.i54, %rbimpl_RB_TYPE_P_fastpath.exit.i, %twocomp2abs_bang.exit, %bigand_int.exit, %rb_integer_type_p.exit.thread57
   %.0 = phi i64 [ %.0.i39, %bigand_int.exit ], [ %25, %rb_integer_type_p.exit.thread57 ], [ %231, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %231, %364 ], [ %359, %357 ], [ %363, %362 ], [ 1, %BIGNUM_DIGITS.exit.i.i54 ], [ %231, %twocomp2abs_bang.exit ], [ 1, %343 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
 }
 
-declare i64 @rb_num_coerce_bit(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_num_coerce_bit(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @abs2twocomp(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
@@ -24023,8 +24017,8 @@ rb_class_of.exit:                                 ; preds = %32, %34, %35, %36, 
   %52 = or disjoint i64 %50, %51
   %53 = or disjoint i64 %52, 16384
   store i64 %53, ptr %45, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %55 = ptrtoint ptr %54 to i64
@@ -24041,8 +24035,8 @@ rb_class_of.exit:                                 ; preds = %32, %34, %35, %36, 
   %61 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %61, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 62:                                               ; preds = %rb_class_of.exit
@@ -24156,8 +24150,8 @@ define dso_local i64 @rb_big_or(i64 noundef %0, i64 noundef %1) local_unnamed_ad
   %14 = alloca ptr, align 8
   store i64 %0, ptr %9, align 8, !tbaa !7
   store i64 %1, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = and i64 %1, 1
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %16, label %26
@@ -24185,7 +24179,7 @@ rb_integer_type_p.exit.thread57:                  ; preds = %16, %rb_integer_typ
   %28 = load i64, ptr %9, align 8, !tbaa !7
   %29 = load i64, ptr %11, align 8, !tbaa !7
   %30 = ashr i64 %1, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %28, ptr %7, align 8, !tbaa !7
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %bigor_int.exit, label %32
@@ -24240,8 +24234,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %44, %39
   %59 = add nuw nsw i64 %57, %58
   %60 = or disjoint i64 %59, 16384
   store i64 %60, ptr %52, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %62 = ptrtoint ptr %61 to i64
@@ -24258,8 +24252,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %44, %39
   %68 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %68, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit.i
 
 69:                                               ; preds = %BIGNUM_LEN.exit.i
@@ -24492,11 +24486,11 @@ big_extend_carry.exit.i.i.i:                      ; preds = %150, %145
   br label %twocomp2abs_bang.exit.i
 
 twocomp2abs_bang.exit.i:                          ; preds = %.lr.ph26.i.i.i.i, %big_extend_carry.exit.i.i.i, %129, %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !242
   %156 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %157 = load volatile i64, ptr %156, align 8, !tbaa !7
   %158 = icmp eq i64 %51, 0
   %159 = and i64 %51, 7
@@ -24597,7 +24591,7 @@ BIGNUM_DIGITS.exit.i.i72.i:                       ; preds = %171, %167
 
 bigor_int.exit:                                   ; preds = %180, %34, %26, %twocomp2abs_bang.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %BIGNUM_DIGITS.exit.i.i72.i, %194, %199, %201
   %.0.i40 = phi i64 [ -1, %26 ], [ %51, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %51, %201 ], [ %196, %194 ], [ %200, %199 ], [ 1, %BIGNUM_DIGITS.exit.i.i72.i ], [ %51, %twocomp2abs_bang.exit.i ], [ %spec.select62, %34 ], [ 1, %180 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignorm.exit
 
 202:                                              ; preds = %rb_integer_type_p.exit
@@ -24675,8 +24669,8 @@ BIGNUM_DIGITS.exit45:                             ; preds = %226, %228
   %243 = or disjoint i64 %241, %242
   %244 = or disjoint i64 %243, 16384
   store i64 %244, ptr %236, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %246 = ptrtoint ptr %245 to i64
@@ -24693,8 +24687,8 @@ BIGNUM_DIGITS.exit45:                             ; preds = %226, %228
   %252 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %252, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 253:                                              ; preds = %BIGNUM_DIGITS.exit45
@@ -24860,17 +24854,17 @@ big_extend_carry.exit.i.i:                        ; preds = %315, %310
   br label %twocomp2abs_bang.exit
 
 twocomp2abs_bang.exit:                            ; preds = %.lr.ph26.i.i.i, %._crit_edge, %294, %big_extend_carry.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %9, ptr %13, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %13) #26, !srcloc !245
   %321 = load ptr, ptr %13, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %322 = load volatile i64, ptr %321, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %10, ptr %14, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %14) #26, !srcloc !246
   %323 = load ptr, ptr %14, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %324 = load volatile i64, ptr %323, align 8, !tbaa !7
   %325 = icmp eq i64 %235, 0
   %326 = and i64 %235, 7
@@ -24971,8 +24965,8 @@ BIGNUM_DIGITS.exit.i.i54:                         ; preds = %338, %334
 
 bignorm.exit:                                     ; preds = %347, %368, %366, %361, %BIGNUM_DIGITS.exit.i.i54, %rbimpl_RB_TYPE_P_fastpath.exit.i, %twocomp2abs_bang.exit, %bigor_int.exit, %rb_integer_type_p.exit.thread57
   %.0 = phi i64 [ %.0.i40, %bigor_int.exit ], [ %25, %rb_integer_type_p.exit.thread57 ], [ %235, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %235, %368 ], [ %363, %361 ], [ %367, %366 ], [ 1, %BIGNUM_DIGITS.exit.i.i54 ], [ %235, %twocomp2abs_bang.exit ], [ 1, %347 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
 }
 
@@ -24992,8 +24986,8 @@ define dso_local i64 @rb_big_xor(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %14 = alloca ptr, align 8
   store i64 %0, ptr %9, align 8, !tbaa !7
   store i64 %1, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = and i64 %1, 1
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %16, label %26
@@ -25021,7 +25015,7 @@ rb_integer_type_p.exit.thread53:                  ; preds = %16, %rb_integer_typ
   %28 = load i64, ptr %9, align 8, !tbaa !7
   %29 = load i64, ptr %11, align 8, !tbaa !7
   %30 = ashr i64 %1, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %28, ptr %7, align 8, !tbaa !7
   %.lobit.i = ashr i64 %1, 63
   %31 = trunc nsw i64 %.lobit.i to i32
@@ -25065,8 +25059,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %40, %35
   %55 = add nuw nsw i64 %53, %54
   %56 = or disjoint i64 %55, 16384
   store i64 %56, ptr %48, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %58 = ptrtoint ptr %57 to i64
@@ -25083,8 +25077,8 @@ BIGNUM_LEN.exit.i:                                ; preds = %40, %35
   %64 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %64, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit.i
 
 65:                                               ; preds = %BIGNUM_LEN.exit.i
@@ -25286,11 +25280,11 @@ big_extend_carry.exit.i.i.i:                      ; preds = %137, %132
   br label %twocomp2abs_bang.exit.i
 
 twocomp2abs_bang.exit.i:                          ; preds = %.lr.ph26.i.i.i.i, %big_extend_carry.exit.i.i.i, %116, %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #26, !srcloc !251
   %143 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %144 = load volatile i64, ptr %143, align 8, !tbaa !7
   %145 = icmp eq i64 %47, 0
   %146 = and i64 %47, 7
@@ -25391,7 +25385,7 @@ BIGNUM_DIGITS.exit.i.i50.i:                       ; preds = %158, %154
 
 bigxor_int.exit:                                  ; preds = %167, %twocomp2abs_bang.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %BIGNUM_DIGITS.exit.i.i50.i, %181, %186, %188
   %.0.i48.i = phi i64 [ %47, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %47, %188 ], [ %183, %181 ], [ %187, %186 ], [ 1, %BIGNUM_DIGITS.exit.i.i50.i ], [ %47, %twocomp2abs_bang.exit.i ], [ 1, %167 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignorm.exit
 
 189:                                              ; preds = %rb_integer_type_p.exit
@@ -25466,8 +25460,8 @@ BIGNUM_DIGITS.exit41:                             ; preds = %213, %215
   %229 = or disjoint i64 %227, %228
   %230 = or disjoint i64 %229, 16384
   store i64 %230, ptr %222, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %231 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %232 = ptrtoint ptr %231 to i64
@@ -25484,8 +25478,8 @@ BIGNUM_DIGITS.exit41:                             ; preds = %213, %215
   %238 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %238, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 239:                                              ; preds = %BIGNUM_DIGITS.exit41
@@ -25650,17 +25644,17 @@ big_extend_carry.exit.i.i:                        ; preds = %300, %295
   br label %twocomp2abs_bang.exit
 
 twocomp2abs_bang.exit:                            ; preds = %.lr.ph26.i.i.i, %._crit_edge, %279, %big_extend_carry.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %9, ptr %13, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %13) #26, !srcloc !254
   %306 = load ptr, ptr %13, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %307 = load volatile i64, ptr %306, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %10, ptr %14, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %14) #26, !srcloc !255
   %308 = load ptr, ptr %14, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %309 = load volatile i64, ptr %308, align 8, !tbaa !7
   %310 = icmp eq i64 %221, 0
   %311 = and i64 %221, 7
@@ -25761,8 +25755,8 @@ BIGNUM_DIGITS.exit.i.i50:                         ; preds = %323, %319
 
 bignorm.exit:                                     ; preds = %332, %353, %351, %346, %BIGNUM_DIGITS.exit.i.i50, %rbimpl_RB_TYPE_P_fastpath.exit.i, %twocomp2abs_bang.exit, %bigxor_int.exit, %rb_integer_type_p.exit.thread53
   %.0 = phi i64 [ %.0.i48.i, %bigxor_int.exit ], [ %25, %rb_integer_type_p.exit.thread53 ], [ %221, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %221, %353 ], [ %348, %346 ], [ %352, %351 ], [ 1, %BIGNUM_DIGITS.exit.i.i50 ], [ %221, %twocomp2abs_bang.exit ], [ 1, %332 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
 }
 
@@ -26016,7 +26010,7 @@ define internal fastcc i64 @big_shift3(i64 noundef %0, i32 noundef range(i32 0, 
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   store i64 %0, ptr %9, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq i32 %1, 0
   %12 = icmp slt i64 %2, 0
   br i1 %.not, label %86, label %13
@@ -26073,8 +26067,8 @@ BIGNUM_LEN.exit:                                  ; preds = %20, %23
   %42 = or disjoint i64 %40, %41
   %43 = or disjoint i64 %42, 16384
   store i64 %43, ptr %34, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i64 1296236545, ptr %7, align 16, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = ptrtoint ptr %44 to i64
@@ -26091,8 +26085,8 @@ BIGNUM_LEN.exit:                                  ; preds = %20, %23
   %51 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i64 0) #26, !srcloc !17
   store volatile i64 %51, ptr %8, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %8, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignew_1.exit
 
 52:                                               ; preds = %28
@@ -26298,8 +26292,8 @@ BIGNUM_DIGITS.exit74:                             ; preds = %120, %122
   %141 = or disjoint i64 %139, %140
   %142 = or disjoint i64 %141, 16384
   store i64 %142, ptr %134, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236545, ptr %5, align 16, !tbaa !7
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %144 = ptrtoint ptr %143 to i64
@@ -26316,8 +26310,8 @@ BIGNUM_DIGITS.exit74:                             ; preds = %120, %122
   %150 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #26, !srcloc !17
   store volatile i64 %150, ptr %6, align 8, !tbaa !7
   %.0..0..0..0..0..0..i76 = load volatile i64, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %bignew_1.exit77
 
 151:                                              ; preds = %128
@@ -26474,17 +26468,17 @@ big_extend_carry.exit.i.i:                        ; preds = %212, %207
 
 bary_zero_p.exit.thread93:                        ; preds = %.lr.ph26.i.i.i, %big_extend_carry.exit.i.i, %191, %bary_small_rshift.exit, %bary_small_lshift.exit
   %.043 = phi i64 [ %33, %bary_small_lshift.exit ], [ %133, %bary_small_rshift.exit ], [ %133, %191 ], [ %133, %big_extend_carry.exit.i.i ], [ %133, %.lr.ph26.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %9, ptr %11, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #26, !srcloc !256
   %218 = load ptr, ptr %11, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %219 = load volatile i64, ptr %218, align 8, !tbaa !7
   br label %bary_zero_p.exit
 
 bary_zero_p.exit:                                 ; preds = %113, %.preheader.i, %BIGNUM_LEN.exit69, %126, %._crit_edge111, %bary_zero_p.exit.thread93
   %.1 = phi i64 [ %.043, %bary_zero_p.exit.thread93 ], [ %127, %126 ], [ 1, %._crit_edge111 ], [ 1, %BIGNUM_LEN.exit69 ], [ 1, %113 ], [ -1, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.1
 }
 
@@ -26494,7 +26488,7 @@ define internal fastcc i64 @big_shift2(i64 noundef %0, i32 noundef range(i32 0, 
   %5 = alloca [2 x i32], align 4
   %6 = alloca ptr, align 8
   %7 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = and i64 %9, 16384
@@ -26558,15 +26552,15 @@ BIGNUM_LEN.exit.i:                                ; preds = %BIGNUM_LEN.exit31.t
   br i1 %.not7.i.i, label %bigzero_p.exit.thread, label %.preheader.i.i, !llvm.loop !74
 
 bigzero_p.exit:                                   ; preds = %.preheader.i.i, %BIGNUM_DIGITS.exit.thread, %BIGNUM_DIGITS.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = tail call i64 @rb_to_int(i64 noundef %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #26, !srcloc !79
   %33 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store volatile i64 %32, ptr %33, align 8, !tbaa !7
   %34 = load i64, ptr %4, align 8, !tbaa !7
   %35 = and i64 %34, 1
@@ -26683,8 +26677,8 @@ ruby_nonempty_memcpy.exit367.i.thread:            ; preds = %.critedge5.i
 
 bary_pack.exit:                                   ; preds = %ruby_nonempty_memcpy.exit367.i.thread, %rbimpl_size_mul_or_raise.exit.i, %.thread512.i
   %.0254.i = phi i32 [ 0, %rbimpl_size_mul_or_raise.exit.i ], [ %spec.select.i, %.thread512.i ], [ %77, %ruby_nonempty_memcpy.exit367.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.023 = call i32 @llvm.abs.i32(i32 %.0254.i, i1 true)
   %80 = lshr i32 %.0254.i, 31
   %.022 = xor i32 %80, %1
@@ -26724,7 +26718,7 @@ bary_pack.exit:                                   ; preds = %ruby_nonempty_memcp
 
 bigzero_p.exit.thread:                            ; preds = %31, %BIGNUM_LEN.exit.i, %BIGNUM_LEN.exit31.thread, %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit, %BIGNUM_LEN.exit31, %93, %89
   %.0 = phi i64 [ %98, %93 ], [ %92, %89 ], [ 1, %BIGNUM_LEN.exit31 ], [ 1, %BIGNUM_LEN.exit ], [ 1, %BIGNUM_LEN.exit.thread ], [ 1, %BIGNUM_LEN.exit31.thread ], [ 1, %BIGNUM_LEN.exit.i ], [ 1, %31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
@@ -27104,7 +27098,7 @@ BIGNUM_LEN.exit70:                                ; preds = %56, %.thread90
   br label %109
 
 66:                                               ; preds = %BIGNUM_LEN.exit61.thread, %BIGNUM_LEN.exit61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = tail call i64 @rb_to_int(i64 noundef %1) #26
   %68 = and i64 %67, 1
   %.not43.i = icmp eq i64 %68, 0
@@ -27188,7 +27182,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %86, %81
 
 rb_absint_size.exit:                              ; preds = %.critedge.i71, %99
   %.029.i = phi i64 [ %108, %99 ], [ 0, %.critedge.i71 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %109
 
 109:                                              ; preds = %BIGNUM_LEN.exit70, %rb_absint_size.exit
@@ -27363,7 +27357,7 @@ BIGNUM_LEN.exit:                                  ; preds = %5, %10
   ret i64 %21
 }
 
-declare i64 @rb_memhash(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_memhash(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_big_abs(i64 noundef %0) local_unnamed_addr #0 {
@@ -27387,7 +27381,7 @@ define hidden i64 @rb_big_abs(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @rb_big_sign(i64 noundef %0) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @rb_big_sign(i64 noundef %0) local_unnamed_addr #12 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !11
   %4 = trunc i64 %3 to i32
@@ -27455,7 +27449,7 @@ BIGNUM_LEN.exit20:                                ; preds = %22, %.thread29
   br label %75
 
 32:                                               ; preds = %BIGNUM_LEN.exit11.thread, %BIGNUM_LEN.exit11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %33 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %34 = and i64 %33, 1
   %.not43.i = icmp eq i64 %34, 0
@@ -27539,7 +27533,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %52, %47
 
 rb_absint_size.exit:                              ; preds = %.critedge.i, %65
   %.029.i = phi i64 [ %74, %65 ], [ 0, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %75
 
 75:                                               ; preds = %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit20, %rb_absint_size.exit, %BIGNUM_LEN.exit
@@ -27573,9 +27567,9 @@ define hidden i64 @rb_big_bit_length(i64 noundef %0) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = alloca [2 x i32], align 8
   %5 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call i64 @rb_to_int(i64 noundef %0) #26
   %7 = and i64 %6, 1
   %.not43.i = icmp eq i64 %7, 0
@@ -27648,7 +27642,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %25, %20
   br i1 %37, label %rb_absint_size.exit.thread, label %rb_absint_size.exit
 
 rb_absint_size.exit.thread:                       ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %rb_ull2num_inline.exit
 
 rb_absint_size.exit:                              ; preds = %.critedge.i
@@ -27662,7 +27656,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   %45 = zext nneg i32 %44 to i64
   %46 = add i64 %43, %45
   %47 = sub i64 %42, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %rb_ull2num_inline.exit, label %49
 
@@ -27674,7 +27668,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   br i1 %.not.i, label %53, label %99
 
 53:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %54 = call i64 @rb_to_int(i64 noundef %0) #26
   %55 = and i64 %54, 1
   %.not43.i7 = icmp eq i64 %55, 0
@@ -27758,14 +27752,14 @@ BIGNUM_LEN.exit.i13:                              ; preds = %73, %68
   br i1 %.not.i11, label %rb_absint_singlebit_p.exit, label %rb_absint_singlebit_p.exit.thread
 
 rb_absint_singlebit_p.exit.thread:                ; preds = %.critedge2.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %99
 
 rb_absint_singlebit_p.exit:                       ; preds = %.critedge2.i
   %91 = load i32, ptr %.135.lcssa.i, align 4, !tbaa !18
   %92 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %91)
   %93 = icmp samesign ugt i32 %92, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %rb_absint_singlebit_p.exit
@@ -27881,13 +27875,13 @@ bary_sub.exit:                                    ; preds = %139, %.lr.ph82.i.i
 
 rb_ull2num_inline.exit:                           ; preds = %109, %106, %rb_absint_size.exit, %rb_absint_size.exit.thread, %bary_sub.exit
   %.0 = phi i64 [ %146, %bary_sub.exit ], [ 1, %rb_absint_size.exit.thread ], [ 1, %rb_absint_size.exit ], [ %108, %106 ], [ %110, %109 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 21) i64 @rb_big_odd_p(i64 noundef %0) local_unnamed_addr #13 {
+define hidden range(i64 0, 21) i64 @rb_big_odd_p(i64 noundef %0) local_unnamed_addr #12 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !11
   %4 = and i64 %3, 16384
@@ -27928,7 +27922,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %.thread, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 21) i64 @rb_big_even_p(i64 noundef %0) local_unnamed_addr #13 {
+define hidden range(i64 0, 21) i64 @rb_big_even_p(i64 noundef %0) local_unnamed_addr #12 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !11
   %4 = and i64 %3, 16384
@@ -28113,21 +28107,21 @@ rb_ull2num_inline.exit36:                         ; preds = %57, %62
   ret i64 %.027
 }
 
-declare i64 @rb_ulong_isqrt(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_ulong_isqrt(i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_rshift(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_rshift(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_plus(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_plus(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_lshift(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_lshift(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_idiv(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_idiv(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_mul(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_mul(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_gt(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_gt(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_minus(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_minus(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_int_powm(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -28567,9 +28561,9 @@ bignorm.exit:                                     ; preds = %rb_bigzero_p.exit, 
 
 bignorm.exit.thread:                              ; preds = %162, %BIGNUM_DIGITS.exit.i.i, %bignorm.exit
   %185 = tail call i64 @rb_int_modulo(i64 noundef %2, i64 noundef %.034) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %185, ptr %11, align 8, !tbaa !7
   store i64 %20, ptr %12, align 8, !tbaa !7
   store i64 %.034, ptr %13, align 8, !tbaa !7
@@ -28665,8 +28659,8 @@ BIGNUM_LEN.exit19.i:                              ; preds = %220, %217
   %233 = or disjoint i64 %231, %232
   %234 = or disjoint i64 %233, 16384
   store i64 %234, ptr %227, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store volatile i64 1296236545, ptr %9, align 16, !tbaa !7
   %235 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %236 = ptrtoint ptr %235 to i64
@@ -28683,8 +28677,8 @@ BIGNUM_LEN.exit19.i:                              ; preds = %220, %217
   %242 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %9, i64 0) #26, !srcloc !17
   store volatile i64 %242, ptr %10, align 8, !tbaa !7
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %bignew_1.exit.i
 
 243:                                              ; preds = %BIGNUM_LEN.exit19.i
@@ -28761,11 +28755,11 @@ BIGNUM_DIGITS.exit27.i:                           ; preds = %265, %263
 
 BIGNUM_DIGITS.exit30.i:                           ; preds = %272, %270
   %.0.i29.i = phi ptr [ %271, %270 ], [ %274, %272 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @__gmpz_init(ptr noundef nonnull %5) #26
   call void @__gmpz_init(ptr noundef nonnull %6) #26
   call void @__gmpz_init(ptr noundef nonnull %7) #26
@@ -28791,11 +28785,11 @@ bary_powm_gmp.exit.i:                             ; preds = %.lr.ph.preheader.i.
   call void @__gmpz_clear(ptr noundef nonnull %6) #26
   call void @__gmpz_clear(ptr noundef nonnull %7) #26
   call void @__gmpz_clear(ptr noundef nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %280 = load i64, ptr %227, align 8, !tbaa !11
   %281 = and i64 %280, 8192
   %282 = icmp ne i64 %281, 0
@@ -28808,23 +28802,23 @@ bary_powm_gmp.exit.i:                             ; preds = %.lr.ph.preheader.i.
 
 285:                                              ; preds = %283, %bary_powm_gmp.exit.i
   %.0.i60 = phi i64 [ %284, %283 ], [ %226, %bary_powm_gmp.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %11, ptr %14, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %14) #26, !srcloc !267
   %286 = load ptr, ptr %14, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %287 = load volatile i64, ptr %286, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %12, ptr %15, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %15) #26, !srcloc !268
   %288 = load ptr, ptr %15, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %289 = load volatile i64, ptr %288, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %13, ptr %16, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %16) #26, !srcloc !269
   %290 = load ptr, ptr %16, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %291 = load volatile i64, ptr %290, align 8, !tbaa !7
   %292 = icmp eq i64 %.0.i60, 0
   %293 = and i64 %.0.i60, 7
@@ -28926,9 +28920,9 @@ BIGNUM_DIGITS.exit.i.i.i.i:                       ; preds = %306, %302
 
 int_pow_tmp3.exit:                                ; preds = %315, %285, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %BIGNUM_DIGITS.exit.i.i.i.i, %329, %334, %336
   %.0.i.i.i = phi i64 [ %.0.i60, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ %.0.i60, %336 ], [ %331, %329 ], [ %335, %334 ], [ 1, %BIGNUM_DIGITS.exit.i.i.i.i ], [ %.0.i60, %285 ], [ 1, %315 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %337
 
 337:                                              ; preds = %int_pow_tmp3.exit, %57, %int_pow_tmp2.exit, %int_pow_tmp1.exit, %bignorm.exit, %21
@@ -28936,13 +28930,13 @@ int_pow_tmp3.exit:                                ; preds = %315, %285, %rbimpl_
   ret i64 %.0
 }
 
-declare i64 @rb_int_pow(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_pow(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @rb_int_negative_p(i64 noundef) local_unnamed_addr #5
+declare i32 @rb_int_negative_p(i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_uminus(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_uminus(i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_int_modulo(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_modulo(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_Bignum() local_unnamed_addr #0 {
@@ -28955,7 +28949,7 @@ define hidden void @Init_Bignum() local_unnamed_addr #0 {
   ret void
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_int_coerce(i64 noundef %0, i64 noundef %1) #0 {
@@ -28992,20 +28986,20 @@ rb_integer_type_p.exit.thread9:                   ; preds = %4, %rb_integer_type
   ret i64 %.0
 }
 
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #5
+declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #4
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #5
+declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1,2)
-declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @bary_2comp(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc void @bary_2comp(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #1 {
   %.not27 = icmp eq i64 %1, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
@@ -29683,20 +29677,20 @@ bary_short_mul.exit78:                            ; preds = %bary_mul_normal.exi
   ret void
 }
 
-declare void @__gmpz_init(ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_init(ptr noundef) local_unnamed_addr #4
 
-declare void @__gmpz_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #4
 
-declare void @__gmpz_import(ptr noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_import(ptr noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @__gmpz_export(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @__gmpz_export(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bigdivrem_restoring(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.big_div_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -29822,14 +29816,14 @@ bigdivrem_single1.exit:                           ; preds = %29, %21, %40, %._cr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %71, %bigdivrem_single1.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare ptr @rb_nogvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @rb_nogvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nounwind sspstrong uwtable
-define internal noalias noundef ptr @bigdivrem1(ptr noundef %0) #15 {
+define internal noalias noundef ptr @bigdivrem1(ptr noundef %0) #14 {
   %2 = load i64, ptr %0, align 8, !tbaa !275
   %.fr = freeze i64 %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30030,58 +30024,58 @@ bary_add.exit.loopexit:                           ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @rb_big_stop(ptr noundef %0) #16 {
+define internal void @rb_big_stop(ptr noundef %0) #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i64 20, ptr %2, align 8, !tbaa !279
   ret void
 }
 
-declare void @__gmpz_fdiv_q(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_fdiv_q(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @__gmpz_fdiv_r(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_fdiv_r(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @__gmpz_fdiv_qr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_fdiv_qr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #18
+declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #17
 
-declare void @ruby_xfree(ptr noundef) local_unnamed_addr #5
+declare void @ruby_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1,2)
-declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #14
+declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #13
 
-declare i64 @rb_wb_protected_newobj_of(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_wb_protected_newobj_of(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #5
+declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: nocallback nofree nounwind memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #19
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #9
+declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
-declare i32 @__gmpz_set_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @__gmpz_set_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #21 {
+define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #20 {
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -30103,7 +30097,7 @@ define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1
   br i1 %.not, label %16, label %79
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = icmp eq i32 %1, 0
   br i1 %17, label %18, label %44
 
@@ -30121,8 +30115,8 @@ define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1
   %.sink.i.i = and i64 %28, -253953
   %29 = or disjoint i64 %.sink.i.i, 90112
   store i64 %29, ptr %27, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 1296236545, ptr %4, align 16, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = ptrtoint ptr %30 to i64
@@ -30139,8 +30133,8 @@ define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1
   %37 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #26, !srcloc !17
   store volatile i64 %37, ptr %5, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @rb_obj_freeze_inline(i64 noundef %26) #26
   %38 = load i64, ptr %27, align 8, !tbaa !11
   %39 = and i64 %38, 16384
@@ -30235,7 +30229,7 @@ bigtrunc.exit:                                    ; preds = %BIGNUM_DIGITS.exit.
   %78 = getelementptr [65 x i64], ptr %77, i64 0, i64 %13
   store i64 %storemerge, ptr %78, align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %.1) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 79:                                               ; preds = %75, %9
@@ -30476,13 +30470,13 @@ bary_short_mul.exit:                              ; preds = %bary_mul_normal.exi
   ret void
 }
 
-declare i64 @rb_obj_hide(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_obj_hide(i64 noundef) local_unnamed_addr #4
 
-declare void @rb_vm_register_global_object(i64 noundef) local_unnamed_addr #5
+declare void @rb_vm_register_global_object(i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_usascii_str_new(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_usascii_str_new(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @big2str_karatsuba(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
@@ -30490,8 +30484,8 @@ define internal fastcc void @big2str_karatsuba(ptr noundef nonnull %0, ptr nound
   %8 = alloca [64 x i8], align 16
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %bary_zero_p.exit, label %.preheader.i
 
@@ -30530,7 +30524,7 @@ bary_zero_p.exit:                                 ; preds = %15, %6
   br i1 %27, label %28, label %88
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !165
   %.not.i134 = icmp eq ptr %30, null
@@ -30664,7 +30658,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %83, %67, %big2str_a
   br label %big2str_2bdigits.exit
 
 big2str_2bdigits.exit:                            ; preds = %bary2bdigitdbl.exit.thread.i, %36, %ruby_nonempty_memcpy.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %303
 
 88:                                               ; preds = %26
@@ -30857,7 +30851,7 @@ BIGNUM_DIGITS.exit150:                            ; preds = %151, %155
 
 177:                                              ; preds = %171, %168
   %178 = phi ptr [ %176, %171 ], [ null, %168 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i151 = icmp eq ptr %178, null
   switch i64 %2, label %bary2bdigitdbl.exit.thread.i171 [
     i64 2, label %179
@@ -30987,7 +30981,7 @@ ruby_nonempty_memcpy.exit.i158:                   ; preds = %229, %214, %big2str
   br label %big2str_2bdigits.exit172
 
 big2str_2bdigits.exit172:                         ; preds = %bary2bdigitdbl.exit.thread.i171, %184, %ruby_nonempty_memcpy.exit.i158
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %303
 
 .critedge.thread:                                 ; preds = %108, %165, %163, %.critedge
@@ -31149,31 +31143,31 @@ bary_small_rshift.exit:                           ; preds = %274, %270, %.thread
   br label %303
 
 303:                                              ; preds = %big2str_2bdigits.exit172, %.critedge6, %bary_zero_p.exit, %18, %big2str_2bdigits.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
-declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @__gmpz_sizeinbase(ptr noundef, i32 noundef) local_unnamed_addr #22
+declare i64 @__gmpz_sizeinbase(ptr noundef, i32 noundef) local_unnamed_addr #21
 
-declare ptr @__gmpz_get_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @__gmpz_get_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_fix2str(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @rb_fix2str(i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #12
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #11
 
-declare i64 @rb_num_coerce_relop(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_num_coerce_relop(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @bigsub(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -31233,8 +31227,8 @@ BIGNUM_LEN.exit21:                                ; preds = %17, %20
   %34 = or disjoint i64 %32, %33
   %35 = or disjoint i64 %34, 16384
   store i64 %35, ptr %28, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236545, ptr %3, align 16, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = ptrtoint ptr %36 to i64
@@ -31251,8 +31245,8 @@ BIGNUM_LEN.exit21:                                ; preds = %17, %20
   %43 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #26, !srcloc !17
   store volatile i64 %43, ptr %4, align 8, !tbaa !7
   %.0..0..0..0..0..0..i = load volatile i64, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %bignew_1.exit
 
 44:                                               ; preds = %BIGNUM_LEN.exit21
@@ -31477,20 +31471,20 @@ bary_sub.exit.thread:                             ; preds = %.lr.ph96.preheader.
   ret i64 %27
 }
 
-declare i64 @rb_float_new_in_heap(double noundef) local_unnamed_addr #5
+declare i64 @rb_float_new_in_heap(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #9
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #9
+declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #8
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc double @big_fdiv(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = inttoptr i64 %0 to ptr
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = and i64 %6, 16384
@@ -31618,25 +31612,31 @@ big_shift.exit:                                   ; preds = %BIGNUM_DIGITS.exit
 
 65:                                               ; preds = %58, %55, %60
   %.019 = phi double [ %64, %60 ], [ 0x7FF0000000000000, %55 ], [ 0.000000e+00, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.019
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
-declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #4
 
-declare void @rb_thread_check_ints() local_unnamed_addr #5
+declare void @rb_thread_check_ints() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @rb_int_odd_p(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_int_odd_p(i64 noundef) local_unnamed_addr #4
 
-declare void @__gmpz_powm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @__gmpz_powm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @rb_Float(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_Float(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
@@ -31672,28 +31672,28 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #23
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #25
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { inlinehint noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { inlinehint noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

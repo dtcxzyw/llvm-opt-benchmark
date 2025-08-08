@@ -55,9 +55,9 @@ define internal noundef i32 @mqtt_do(ptr noundef %0, ptr noundef writeonly captu
   %4 = alloca [4 x i8], align 4
   %5 = alloca [13 x i8], align 1
   store i8 0, ptr %1, align 1, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %5, ptr noundef nonnull align 1 dereferenceable(13) @__const.mqtt_connect.client_id, i64 13, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %7 = load ptr, ptr %6, align 8, !tbaa !10
@@ -244,7 +244,7 @@ add_passwd.exit.i:                                ; preds = %78
 89:                                               ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %91 = load ptr, ptr %90, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %92 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef %26, i1 noundef zeroext false, ptr noundef nonnull %3) #8
   %.not.i8 = icmp eq i32 %92, 0
   br i1 %.not.i8, label %93, label %mqtt_send.exit
@@ -275,13 +275,13 @@ add_passwd.exit.i:                                ; preds = %78
 
 mqtt_send.exit:                                   ; preds = %89, %96, %100, %102
   %.0.i9 = phi i32 [ %92, %89 ], [ 27, %96 ], [ 0, %100 ], [ 0, %102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mqtt_connect.exit
 
 mqtt_connect.exit.thread:                         ; preds = %mqtt_encode_len.exit.i, %28
   %.0.i.ph = phi i32 [ 27, %28 ], [ 8, %mqtt_encode_len.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %108
 
 mqtt_connect.exit:                                ; preds = %add_client_id.exit.i, %add_user.exit.i, %add_passwd.exit.i, %88, %mqtt_send.exit
@@ -296,8 +296,8 @@ mqtt_connect.exit:                                ; preds = %add_client_id.exit.
   %107 = load ptr, ptr %9, align 8, !tbaa !79
   call void %106(ptr noundef %107) #8
   store ptr null, ptr %9, align 8, !tbaa !79
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %.065.i, 0
   br i1 %.not, label %109, label %108
 
@@ -349,8 +349,8 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1088
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %16 = load ptr, ptr %15, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %1, align 1, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !88
@@ -360,7 +360,7 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
 19:                                               ; preds = %2
   %20 = load ptr, ptr %16, align 8, !tbaa !86
   %21 = load ptr, ptr %15, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef %20, i64 noundef %18, i1 noundef zeroext false, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %mqtt_send.exit
@@ -390,14 +390,14 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
   br label %mqtt_send.exit.thread
 
 mqtt_send.exit.thread:                            ; preds = %30, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %33 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %33(ptr noundef %20) #8
   br label %35
 
 mqtt_send.exit:                                   ; preds = %19, %26
   %.0.i = phi i32 [ %22, %19 ], [ 27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %34(ptr noundef %20) #8
   br label %mqstate.exit.thread
@@ -601,8 +601,8 @@ mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
   br i1 %120, label %121, label %130
 
 121:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %122 = sub nuw nsw i64 2, %119
   %123 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %122, ptr noundef nonnull %8) #8
   %.not.i.i = icmp eq i32 %123, 0
@@ -616,14 +616,14 @@ mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
 
 .thread.i.i:                                      ; preds = %124, %121
   %.014.ph.i.i = phi i32 [ 27, %124 ], [ %123, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mqstate.exit
 
 127:                                              ; preds = %124
   %128 = call i64 @Curl_dyn_len(ptr noundef nonnull %118) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = icmp ult i64 %128, 2
   br i1 %129, label %mqstate.exit.thread116, label %130
 
@@ -698,7 +698,7 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
 
 158:                                              ; preds = %48, %48, %48
   %159 = load ptr, ptr %12, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1088
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %162 = load ptr, ptr %15, align 8, !tbaa !7
@@ -723,8 +723,8 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   br i1 %168, label %169, label %178
 
 169:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %170 = sub nuw nsw i64 3, %167
   %171 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %170, ptr noundef nonnull %4) #8
   %.not.i.i.i = icmp eq i32 %171, 0
@@ -738,14 +738,14 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
 
 .thread.i.i.i:                                    ; preds = %172, %169
   %.014.ph.i.i.i = phi i32 [ 27, %172 ], [ %171, %169 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mqtt_read_publish.exit
 
 175:                                              ; preds = %172
   %176 = call i64 @Curl_dyn_len(ptr noundef nonnull %166) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %177 = icmp ult i64 %176, 3
   br i1 %177, label %mqtt_read_publish.exit, label %178
 
@@ -890,7 +890,7 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 240:                                              ; preds = %237, %._crit_edge.i106
   %241 = phi i64 [ %.pre.i, %._crit_edge.i106 ], [ %221, %237 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %242 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %241, i64 4096)
   %243 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %spec.store.select.i, ptr noundef nonnull %5) #8
@@ -971,12 +971,12 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 277:                                              ; preds = %274, %270, %268, %267, %263, %257, %254, %250, %244, %240
   %.1.i = phi i32 [ 81, %244 ], [ 81, %250 ], [ 81, %254 ], [ 18, %267 ], [ 18, %263 ], [ 18, %257 ], [ %269, %268 ], [ 0, %274 ], [ 0, %270 ], [ %243, %240 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mqtt_read_publish.exit
 
 mqtt_read_publish.exit:                           ; preds = %158, %.thread.i.i.i, %175, %192, %mqtt_verify_suback.exit.i, %202, %218, %236, %277
   %.062.i = phi i32 [ 0, %mqtt_verify_suback.exit.i ], [ 63, %236 ], [ %.1.i, %277 ], [ 0, %218 ], [ 8, %202 ], [ 8, %158 ], [ 81, %175 ], [ %.014.ph.i.i.i, %.thread.i.i.i ], [ 8, %192 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mqstate.exit
 
 278:                                              ; preds = %48
@@ -995,8 +995,8 @@ mqstate.exit.thread116:                           ; preds = %127, %mqstate.exit
 
 mqstate.exit.thread:                              ; preds = %mqstate.exit.thread119, %96, %91, %155, %55, %98, %115, %278, %mqstate.exit.thread116, %mqstate.exit, %mqtt_send.exit
   %.1 = phi i32 [ %.0.i, %mqtt_send.exit ], [ 0, %mqstate.exit.thread116 ], [ %.174.fr, %mqstate.exit ], [ 0, %96 ], [ 0, %91 ], [ 0, %155 ], [ 56, %55 ], [ 0, %98 ], [ 0, %115 ], [ 0, %278 ], [ 8, %mqstate.exit.thread119 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
@@ -1008,38 +1008,32 @@ define internal noundef i32 @mqtt_getsock(ptr readnone captures(none) %0, ptr no
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @Curl_rand_alnum(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_rand_alnum(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @Curl_xfer_send(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare i32 @Curl_xfer_send(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @Curl_debug(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @Curl_debug(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #3
+declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @Curl_xfer_recv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Curl_xfer_recv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mqtt_publish(ptr noundef %0) unnamed_addr #0 {
@@ -1049,10 +1043,10 @@ define internal fastcc i32 @mqtt_publish(ptr noundef %0) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %7 = load ptr, ptr %6, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %72, label %8
 
@@ -1148,7 +1142,7 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i, %mqtt_get
   %55 = add i64 %53, %.039
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %57 = load ptr, ptr %56, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %58 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef nonnull %37, i64 noundef %55, i1 noundef zeroext false, ptr noundef nonnull %2) #8
   %.not.i49 = icmp eq i32 %58, 0
   br i1 %.not.i49, label %59, label %mqtt_send.exit
@@ -1179,7 +1173,7 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i, %mqtt_get
 
 mqtt_send.exit:                                   ; preds = %38, %62, %66, %68
   %.0.i50 = phi i32 [ %58, %38 ], [ 27, %62 ], [ 0, %66 ], [ 0, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mqtt_get_topic.exit.thread
 
 mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %19, %mqtt_encode_len.exit, %mqtt_send.exit
@@ -1194,9 +1188,9 @@ mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %19,
 
 72:                                               ; preds = %1, %mqtt_get_topic.exit.thread
   %.0 = phi i32 [ %.038, %mqtt_get_topic.exit.thread ], [ 43, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1205,7 +1199,7 @@ define internal fastcc i32 @mqtt_disconnect(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @Curl_xfer_send(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %mqtt_send.exit
@@ -1236,7 +1230,7 @@ define internal fastcc i32 @mqtt_disconnect(ptr noundef %0) unnamed_addr #0 {
 
 mqtt_send.exit:                                   ; preds = %1, %9, %13, %15
   %.0.i = phi i32 [ %5, %1 ], [ 27, %9 ], [ 0, %13 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %17 = load ptr, ptr %4, align 8, !tbaa !86
   call void %16(ptr noundef %17) #8
@@ -1252,10 +1246,10 @@ define internal fastcc i32 @mqtt_subscribe(ptr noundef %0) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4616
@@ -1345,7 +1339,7 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i
   store i8 0, ptr %54, align 1, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %56 = load ptr, ptr %55, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %57 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef nonnull %32, i64 noundef %30, i1 noundef zeroext false, ptr noundef nonnull %2) #8
   %.not.i36 = icmp eq i32 %57, 0
   br i1 %.not.i36, label %58, label %mqtt_send.exit
@@ -1376,7 +1370,7 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i
 
 mqtt_send.exit:                                   ; preds = %33, %61, %65, %67
   %.0.i37 = phi i32 [ %57, %33 ], [ 27, %61 ], [ 0, %65 ], [ 0, %67 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mqtt_get_topic.exit.thread
 
 mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %12, %mqtt_encode_len.exit, %mqtt_send.exit
@@ -1387,38 +1381,44 @@ mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %12,
   call void %68(ptr noundef %69) #8
   %70 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %70(ptr noundef %.030) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #3
+declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #2
 
-declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #3
+declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #2
 
-declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #3
+declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #2
 
-declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_dyn_tail(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_dyn_tail(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

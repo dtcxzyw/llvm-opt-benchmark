@@ -158,19 +158,13 @@ newLOfd.exit:                                     ; preds = %32, %.loopexit.loop
   ret i64 %45
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @PreventCommandIfReadOnly(ptr noundef) local_unnamed_addr #1
 
-declare void @PreventCommandIfReadOnly(ptr noundef) local_unnamed_addr #2
+declare ptr @inv_open(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @inv_open(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #1
 
-declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #2
-
-declare ptr @RegisterSnapshotOnOwner(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @RegisterSnapshotOnOwner(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -217,13 +211,13 @@ closeLOfd.exit:                                   ; preds = %17, %20
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lo_read(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -269,7 +263,7 @@ define dso_local i32 @lo_read(i32 noundef %0, ptr noundef %1, i32 noundef %2) lo
   ret i32 %26
 }
 
-declare i32 @inv_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @inv_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lo_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -315,7 +309,7 @@ define dso_local i32 @lo_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   ret i32 %26
 }
 
-declare i32 @inv_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @inv_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_lseek(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -369,7 +363,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_lseek(ptr noundef
   ret i64 %24
 }
 
-declare i64 @inv_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @inv_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @be_lo_lseek64(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -417,7 +411,7 @@ define dso_local range(i64 0, 4294967296) i64 @be_lo_creat(ptr noundef readnone 
   ret i64 %3
 }
 
-declare i32 @inv_create(i32 noundef) local_unnamed_addr #2
+declare i32 @inv_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @be_lo_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -476,7 +470,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_tell(ptr noundef 
   ret i64 %18
 }
 
-declare i64 @inv_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @inv_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @be_lo_tell64(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -603,13 +597,13 @@ closeLOfd.exit:                                   ; preds = %31, %34
   ret i64 %42
 }
 
-declare zeroext i1 @LargeObjectExists(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LargeObjectExists(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @GetUserId() local_unnamed_addr #2
+declare i32 @GetUserId() local_unnamed_addr #1
 
-declare i32 @inv_drop(i32 noundef) local_unnamed_addr #2
+declare i32 @inv_drop(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @be_loread(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -632,7 +626,7 @@ define dso_local i64 @be_loread(ptr noundef readonly captures(none) %0) local_un
   ret i64 %15
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @be_lowrite(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -688,7 +682,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lowrite(ptr noundef 
   ret i64 %35
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @be_lo_import(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -705,8 +699,8 @@ define dso_local range(i64 0, 4294967296) i64 @be_lo_import(ptr noundef readonly
 define internal fastcc noundef i32 @lo_import_internal(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [8192 x i8], align 16
   %4 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @PreventCommandIfReadOnly(ptr noundef nonnull @.str.21) #10
   call void @text_to_cstring_buffer(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 1024) #10
   %5 = call i32 @OpenTransientFile(ptr noundef nonnull %4, i32 noundef 0) #10
@@ -767,8 +761,8 @@ define internal fastcc noundef i32 @lo_import_internal(ptr noundef %0, i32 nound
   unreachable
 
 34:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %12
 }
 
@@ -798,8 +792,8 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_export(pt
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = call ptr @pg_detoast_datum_packed(ptr noundef %10) #10
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i1 true, ptr @lo_cleanup_needed, align 1
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   %13 = call ptr @inv_open(i32 noundef %7, i32 noundef 262144, ptr noundef %12) #10
@@ -807,7 +801,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_export(pt
   %14 = call i32 @umask(i32 noundef 18) #10
   %15 = load ptr, ptr @PG_exception_stack, align 8
   %16 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #12
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %.critedge
@@ -820,7 +814,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_export(pt
   %20 = call i32 @umask(i32 noundef %14) #10
   store ptr %15, ptr @PG_exception_stack, align 8
   store ptr %16, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp slt i32 %19, 0
   br i1 %21, label %23, label %.preheader
 
@@ -874,32 +868,32 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_export(pt
 
 43:                                               ; preds = %37
   call void @inv_close(ptr noundef %13) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 1
 }
 
-declare void @text_to_cstring_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @text_to_cstring_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @umask(i32 noundef) local_unnamed_addr #4
+declare i32 @umask(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @OpenTransientFilePerm(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OpenTransientFilePerm(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #6
+declare void @pg_re_throw() local_unnamed_addr #5
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
-declare void @inv_close(ptr noundef) local_unnamed_addr #2
+declare void @inv_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_truncate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1042,9 +1036,9 @@ closeLOfd.exit:                                   ; preds = %9, %12
   ret void
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
-declare void @close_lo_relation(i1 noundef zeroext) local_unnamed_addr #2
+declare void @close_lo_relation(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOSubXact_LargeObject(i1 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1323,20 +1317,26 @@ define dso_local noundef i64 @be_lo_put(ptr noundef readonly captures(none) %0) 
   ret i64 0
 }
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
-declare void @inv_truncate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @inv_truncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @repalloc0(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc0(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @UnregisterSnapshotFromOwner(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @UnregisterSnapshotFromOwner(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -1348,13 +1348,13 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i64 @llvm.smin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

@@ -148,8 +148,8 @@ if.end.i.i.i.i.i.i19:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i19
   %retval.0.i.i.i.i.i.i21 = phi ptr [ %3, %if.then.i.i.i.i.i.i22 ], [ %call7.i.i.i.i.i.i20, %if.end.i.i.i.i.i.i19 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %13 = extractvalue { i32, i64 } %call.i, 0
   %14 = extractvalue { i32, i64 } %call.i, 1
@@ -212,8 +212,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i24 = phi i32 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %21, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -305,8 +305,8 @@ if.end.i.i.i.i.i.i19:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i19
   %retval.0.i.i.i.i.i.i21 = phi ptr [ %3, %if.then.i.i.i.i.i.i22 ], [ %call7.i.i.i.i.i.i20, %if.end.i.i.i.i.i.i19 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i24 = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %13 = extractvalue { i32, i64 } %call.i24, 0
   %14 = extractvalue { i32, i64 } %call.i24, 1
@@ -369,8 +369,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i25 = phi i32 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %21, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -458,8 +458,8 @@ if.end.i.i.i.i.i.i19:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i19
   %retval.0.i.i.i.i.i.i21 = phi ptr [ %3, %if.then.i.i.i.i.i.i22 ], [ %call7.i.i.i.i.i.i20, %if.end.i.i.i.i.i.i19 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %13 = extractvalue { i32, i64 } %call.i, 0
   %14 = extractvalue { i32, i64 } %call.i, 1
@@ -522,8 +522,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i24 = phi i32 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %21, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -611,8 +611,8 @@ if.end.i.i.i.i.i.i19:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i19
   %retval.0.i.i.i.i.i.i21 = phi ptr [ %3, %if.then.i.i.i.i.i.i22 ], [ %call7.i.i.i.i.i.i20, %if.end.i.i.i.i.i.i19 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %13 = extractvalue { i32, i64 } %call.i, 0
   %14 = extractvalue { i32, i64 } %call.i, 1
@@ -675,8 +675,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i24 = phi i32 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %21, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -765,8 +765,8 @@ if.end.i.i.i.i.i.i21:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i21
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %3, %if.then.i.i.i.i.i.i24 ], [ %call7.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i21 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %12 = extractvalue { i32, i64 } %call.i, 0
   %13 = extractvalue { i32, i64 } %call.i, 1
@@ -829,8 +829,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i = phi i32 [ %19, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -921,8 +921,8 @@ if.end.i.i.i.i.i.i21:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i21
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %3, %if.then.i.i.i.i.i.i24 ], [ %call7.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i21 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %12 = extractvalue { i32, i64 } %call.i, 0
   %13 = extractvalue { i32, i64 } %call.i, 1
@@ -985,8 +985,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i = phi i32 [ %19, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -1075,8 +1075,8 @@ if.end.i.i.i.i.i.i21:                             ; preds = %if.end42
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i21
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %3, %if.then.i.i.i.i.i.i24 ], [ %call7.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i21 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %12 = extractvalue { i32, i64 } %call.i, 0
   %13 = extractvalue { i32, i64 } %call.i, 1
@@ -1139,8 +1139,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i = phi i32 [ %19, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %if.end23, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end34
@@ -1246,8 +1246,8 @@ if.end.i.i.i.i.i.i21:                             ; preds = %if.end43
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i21
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %3, %if.then.i.i.i.i.i.i24 ], [ %call7.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i21 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i26 = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %12 = extractvalue { i32, i64 } %call.i26, 0
   %13 = extractvalue { i32, i64 } %call.i26, 1
@@ -1310,8 +1310,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i = phi i32 [ %19, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes15truncateToInt32Ed.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end35
@@ -1419,8 +1419,8 @@ if.end.i.i.i.i.i.i21:                             ; preds = %if.end43
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i21
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %3, %if.then.i.i.i.i.i.i24 ], [ %call7.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i21 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i26 = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %12 = extractvalue { i32, i64 } %call.i26, 0
   %13 = extractvalue { i32, i64 } %call.i26, 1
@@ -1483,8 +1483,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i = phi i32 [ %19, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes15truncateToInt32Ed.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end35
@@ -1590,8 +1590,8 @@ if.end.i.i.i.i.i.i21:                             ; preds = %if.end43
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i21
   %retval.0.i.i.i.i.i.i23 = phi ptr [ %3, %if.then.i.i.i.i.i.i24 ], [ %call7.i.i.i.i.i.i22, %if.end.i.i.i.i.i.i21 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %call.i26 = tail call { i32, i64 } @_ZN6hermes2vm13toNumeric_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %rhs.coerce) #11
   %12 = extractvalue { i32, i64 } %call.i26, 0
   %13 = extractvalue { i32, i64 } %call.i26, 1
@@ -1654,8 +1654,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT
 _ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit, %if.then9.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i
   %retval.sroa.0.0.i = phi i32 [ %19, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ %call14.i, %if.then9.i ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
   %retval.sroa.4.0.i = phi i64 [ %20, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit.i ], [ undef, %if.then9.i ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15BigIntPrimitiveEEENS0_6HandleIT_EEPS5_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes15truncateToInt32Ed.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %_ZN6hermes2vmL13doBigIntBinOpERNS0_7RuntimeEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES2_NS0_6HandleINS0_15BigIntPrimitiveEEESA_ESA_NS8_IS4_EE.exit, %if.end35
@@ -1964,8 +1964,8 @@ if.end.i.i.i.i.i.i37:                             ; preds = %if.end55
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit: ; preds = %if.then.i.i.i.i.i.i40, %if.end.i.i.i.i.i.i37
   %retval.0.i.i.i.i.i.i39 = phi ptr [ %20, %if.then.i.i.i.i.i.i40 ], [ %call7.i.i.i.i.i.i38, %if.end.i.i.i.i.i.i37 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %rightKind_.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
   %leftSize_.i4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
@@ -1982,8 +1982,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   %23 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i32 3, ptr %23, align 8
   %call.i42 = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %retval.0.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   br label %cleanup85
 
 if.end65:                                         ; preds = %lor.rhs
@@ -3474,10 +3474,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

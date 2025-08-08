@@ -7940,13 +7940,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.i
@@ -8039,13 +8039,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.i:
   %3 = alloca %struct._Filler, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.i
@@ -9224,20 +9224,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iE
   %3 = alloca %class.anon, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9487,10 +9487,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10062,11 +10062,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -10675,13 +10675,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.i
@@ -10771,13 +10771,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.i
@@ -11942,20 +11942,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iE
   %3 = alloca %class.anon.8, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12205,10 +12205,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12780,11 +12780,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -13282,13 +13282,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.i
@@ -13378,13 +13378,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.i
@@ -14553,20 +14553,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iE
   %3 = alloca %class.anon.16, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", align 8
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14819,10 +14819,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15393,11 +15393,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -15883,13 +15883,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.i
@@ -15979,13 +15979,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.25, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.i
@@ -17154,20 +17154,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hE
   %3 = alloca %class.anon.24, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", align 8
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17420,10 +17420,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17994,11 +17994,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -18528,13 +18528,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, i8 0, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.i
@@ -18624,13 +18624,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.i
@@ -19795,20 +19795,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hE
   %3 = alloca %class.anon.32, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, i8 0, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(6) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.32, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20058,10 +20058,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(6) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.32, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20633,11 +20633,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -21153,13 +21153,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.i
@@ -21249,13 +21249,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.41, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.i
@@ -22424,20 +22424,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hE
   %3 = alloca %class.anon.40, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", align 4
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.40, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22690,10 +22690,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.40, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23264,11 +23264,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -23770,13 +23770,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.i
@@ -23866,13 +23866,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.49, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.i
@@ -25037,20 +25037,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fE
   %3 = alloca %class.anon.48, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.48, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25300,10 +25300,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.48, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25875,11 +25875,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -26385,13 +26385,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.i
@@ -26481,13 +26481,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.57, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.i
@@ -27652,20 +27652,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fE
   %3 = alloca %class.anon.56, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.56, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27915,10 +27915,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.56, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28490,11 +28490,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -28992,13 +28992,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.i
@@ -29088,13 +29088,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.65, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.i
@@ -30263,20 +30263,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fE
   %3 = alloca %class.anon.64, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", align 8
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30529,10 +30529,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31103,11 +31103,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -31593,13 +31593,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.i
@@ -31689,13 +31689,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.73, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.i
@@ -32860,20 +32860,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dE
   %3 = alloca %class.anon.72, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.72, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33123,10 +33123,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.72, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33698,11 +33698,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -34208,13 +34208,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.i
@@ -34304,13 +34304,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.81, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.i
@@ -35475,20 +35475,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dE
   %3 = alloca %class.anon.80, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.80, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35738,10 +35738,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.80, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36313,11 +36313,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -36815,13 +36815,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.i
@@ -36911,13 +36911,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.89, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.i
@@ -38082,20 +38082,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dE
   %3 = alloca %class.anon.88, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.88, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38345,10 +38345,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.88, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38920,11 +38920,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -39410,13 +39410,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.i
@@ -39506,13 +39506,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.97, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.i
@@ -40677,20 +40677,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %3 = alloca %class.anon.96, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.96, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40940,10 +40940,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.96, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41515,11 +41515,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -41997,13 +41997,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.i
@@ -42093,13 +42093,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.106, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.i
@@ -43264,20 +43264,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %3 = alloca %class.anon.105, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(36) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.105, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43527,10 +43527,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(36) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.105, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44102,11 +44102,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -44584,13 +44584,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.i
@@ -44680,13 +44680,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.115, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.i
@@ -45851,20 +45851,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %3 = alloca %class.anon.114, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.114, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46114,10 +46114,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.114, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46689,11 +46689,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -47171,13 +47171,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.i
@@ -47267,13 +47267,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.124, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.i
@@ -48438,20 +48438,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %3 = alloca %class.anon.123, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(128) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.123, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -48701,10 +48701,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(128) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.123, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -49276,11 +49276,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -49758,13 +49758,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.i
@@ -49854,13 +49854,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.133, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.i
@@ -51025,20 +51025,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %3 = alloca %class.anon.132, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.132, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51288,10 +51288,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.132, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51863,11 +51863,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -52345,13 +52345,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.i:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.i
@@ -52441,13 +52441,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.142, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.i
@@ -53612,20 +53612,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %3 = alloca %class.anon.141, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.141, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -53875,10 +53875,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.141, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -54450,11 +54450,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -54942,13 +54942,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.i:
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store float 0xC7EFFFFFE0000000, ptr %8, align 4
   store float 0xC7EFFFFFE0000000, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %9 unwind label %10
 
 9:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.i
@@ -55038,13 +55038,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.150, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.i
@@ -56249,20 +56249,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store float 0xC7EFFFFFE0000000, ptr %9, align 4
   store float 0xC7EFFFFFE0000000, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.149, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56524,10 +56524,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.149, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -57115,11 +57115,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -57651,13 +57651,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.i:
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store double 0xC7EFFFFFE0000000, ptr %8, align 8
   store double 0xC7EFFFFFE0000000, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %9 unwind label %10
 
 9:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.i
@@ -57747,13 +57747,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.158, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.i
@@ -58958,20 +58958,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double 0xC7EFFFFFE0000000, ptr %9, align 8
   store double 0xC7EFFFFFE0000000, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.157, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -59233,10 +59233,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.157, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -59824,11 +59824,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -60356,13 +60356,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.i:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float 0xC7EFFFFFE0000000, ptr %6, align 4
   store float 0xC7EFFFFFE0000000, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %7 unwind label %8
 
 7:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.i
@@ -60452,13 +60452,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.166, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.i
@@ -61659,20 +61659,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0xC7EFFFFFE0000000, ptr %7, align 4
   store float 0xC7EFFFFFE0000000, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.165, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -61934,10 +61934,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.165, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -62525,11 +62525,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -63037,13 +63037,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.i:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double 0xC7EFFFFFE0000000, ptr %6, align 8
   store double 0xC7EFFFFFE0000000, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %7 unwind label %8
 
 7:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.i
@@ -63133,13 +63133,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.174, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.i
@@ -64340,20 +64340,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double 0xC7EFFFFFE0000000, ptr %7, align 8
   store double 0xC7EFFFFFE0000000, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.173, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -64615,10 +64615,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.173, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -65206,11 +65206,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -65714,13 +65714,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.i:
   store float 0x47EFFFFFE0000000, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0xC7EFFFFFE0000000, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %6
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 6:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.i
@@ -65810,13 +65810,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.182, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.i
@@ -67022,20 +67022,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   store float 0x47EFFFFFE0000000, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0xC7EFFFFFE0000000, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.181, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -67302,10 +67302,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.181, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -67896,11 +67896,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -68388,13 +68388,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.i:
   store double 0x47EFFFFFE0000000, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 0xC7EFFFFFE0000000, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %6
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 6:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.i
@@ -68484,13 +68484,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.190, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.i
@@ -69687,20 +69687,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   store double 0x47EFFFFFE0000000, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0xC7EFFFFFE0000000, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.189, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -69962,10 +69962,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.189, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -70553,11 +70553,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -71049,13 +71049,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.i:
   store double 0.000000e+00, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %7 unwind label %8
 
 7:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.i
@@ -71145,13 +71145,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfInter
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.198, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.i
@@ -72352,20 +72352,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfInter
   store double 0.000000e+00, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.197, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -72627,10 +72627,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.197, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -73241,11 +73241,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfInter
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -73761,13 +73761,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.i:
   store i32 -1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 -1, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %7 unwind label %8
 
 7:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.i
@@ -73857,13 +73857,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2i
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.206, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.i
@@ -75064,20 +75064,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2i
   store i32 -1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.205, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -75339,10 +75339,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.205, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -75930,11 +75930,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2i
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -76435,13 +76435,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.i:
   %2 = alloca %struct._Filler.214, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.i
@@ -76531,13 +76531,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.214, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.i
@@ -77740,20 +77740,20 @@ define weak_odr noundef nonnull align 2 dereferenceable(8) ptr @_ZNK32pxrInterna
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.213, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.213, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -78020,10 +78020,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.213, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -78614,11 +78614,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -79147,13 +79147,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.i:
   %2 = alloca %struct._Filler.222, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.i
@@ -79243,13 +79243,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.222, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.i
@@ -80443,20 +80443,20 @@ define weak_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrIntern
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.221, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.221, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -80718,10 +80718,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.221, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -81309,11 +81309,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -81818,13 +81818,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.i:
   %2 = alloca %struct._Filler.230, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.i
@@ -81914,13 +81914,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.230, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.i
@@ -83114,20 +83114,20 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrIntern
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.229, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.229, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -83389,10 +83389,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.229, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -83980,11 +83980,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -84489,13 +84489,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.i
   %2 = alloca %struct._Filler.238, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.i
@@ -84585,13 +84585,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuate
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.238, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.i
@@ -85785,20 +85785,20 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrIntern
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.237, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.237, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -86060,10 +86060,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit: 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.237, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -86651,11 +86651,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuate
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -87160,13 +87160,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.i:
   %2 = alloca %struct._Filler.246, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.i
@@ -87256,13 +87256,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.246, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.i
@@ -88456,20 +88456,20 @@ define weak_odr noundef nonnull align 2 dereferenceable(16) ptr @_ZNK32pxrIntern
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.245, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.245, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -88731,10 +88731,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit: ;
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.245, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -89322,11 +89322,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -89803,13 +89803,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.i:
   %2 = alloca %struct._Filler.254, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.i
@@ -89899,13 +89899,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.254, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.i
@@ -91099,20 +91099,20 @@ define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZNK32pxrIntern
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.253, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.253, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -91374,10 +91374,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit: ;
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.253, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -91965,11 +91965,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -92506,13 +92506,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.i:
   %2 = alloca %struct._Filler.262, align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.i
@@ -92602,13 +92602,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.262, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeIZNS2_6assignEmRKS1_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.i
@@ -93802,20 +93802,20 @@ define weak_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNK32pxrIntern
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.261, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.261, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -94077,10 +94077,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit: ;
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.261, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -94668,11 +94668,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -95129,9 +95129,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr
   %5 = alloca %struct._Copier.413, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %3, align 8
   store ptr %6, ptr %4, align 8
   store ptr %3, ptr %5, align 8
@@ -95141,9 +95141,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr
           to label %8 unwind label %9
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 9:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_.exit.i
@@ -95159,9 +95159,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignESt
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.413, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -95242,9 +95242,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %37, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_E7_CopierEEvmOS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -95313,13 +95313,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.i:
   %3 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i8 0, ptr %3, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6assignEmRKbE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.i
@@ -95409,13 +95409,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEC2EmRKb(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.i:
   %3 = alloca %struct._Filler.270, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6assignEmRKbE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.i
@@ -95626,9 +95626,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.413, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -95709,9 +95709,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %37, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_E7_CopierEEvmOS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -96579,20 +96579,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEm(
   %3 = alloca %class.anon.269, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6resizeEmRKbEUlPbS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmOb(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.269, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6resizeEmRKbEUlPbS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -96826,10 +96826,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRb(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.269, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeIZNS1_6resizeEmRKbEUlPbS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -97375,11 +97375,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -97771,9 +97771,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr
   %5 = alloca %struct._Copier.414, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %3, align 8
   store ptr %6, ptr %4, align 8
   store ptr %3, ptr %5, align 8
@@ -97783,9 +97783,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr
           to label %8 unwind label %9
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 9:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_.exit.i
@@ -97801,9 +97801,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignESt
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.414, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -97884,9 +97884,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %37, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_E7_CopierEEvmOS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -97955,13 +97955,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.i:
   %3 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i8 0, ptr %3, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6assignEmRKcE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.i
@@ -98051,13 +98051,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcEC2EmRKc(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.i:
   %3 = alloca %struct._Filler.278, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6assignEmRKcE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.i
@@ -98268,9 +98268,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.414, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -98351,9 +98351,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %37, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_E7_CopierEEvmOS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -99217,20 +99217,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEm(
   %3 = alloca %class.anon.277, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6resizeEmRKcEUlPcS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmOc(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.277, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6resizeEmRKcEUlPcS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -99461,10 +99461,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRc(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.277, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeIZNS1_6resizeEmRKcEUlPcS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -100007,11 +100007,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -100403,9 +100403,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr
   %5 = alloca %struct._Copier.415, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %3, align 8
   store ptr %6, ptr %4, align 8
   store ptr %3, ptr %5, align 8
@@ -100415,9 +100415,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr
           to label %8 unwind label %9
 
 8:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 9:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_.exit.i
@@ -100433,9 +100433,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignESt
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.415, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -100516,9 +100516,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %37, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_E7_CopierEEvmOS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -100587,13 +100587,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.i:
   %3 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i8 0, ptr %3, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6assignEmRKhE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.i
@@ -100683,13 +100683,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEC2EmRKh(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.i:
   %3 = alloca %struct._Filler.286, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6assignEmRKhE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.i
@@ -100900,9 +100900,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.415, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -100983,9 +100983,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %37, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_E7_CopierEEvmOS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -101849,20 +101849,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEm(
   %3 = alloca %class.anon.285, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6resizeEmRKhEUlPhS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmOh(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.285, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6resizeEmRKhEUlPhS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -102093,10 +102093,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRh(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.285, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeIZNS1_6resizeEmRKhEUlPhS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -102639,11 +102639,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -103116,13 +103116,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.i:
   %3 = alloca i16, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i16 0, ptr %3, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeIZNS1_6assignEmRKsE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.i
@@ -103212,13 +103212,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsEC2EmRKs(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.i:
   %3 = alloca %struct._Filler.294, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeIZNS1_6assignEmRKsE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.i
@@ -104387,20 +104387,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEm(
   %3 = alloca %class.anon.293, align 8
   %4 = alloca i16, align 2
   store i16 0, ptr %4, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeIZNS1_6resizeEmRKsEUlPsS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmOs(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.293, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeIZNS1_6resizeEmRKsEUlPsS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -104653,10 +104653,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRs(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.293, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeIZNS1_6resizeEmRKsEUlPsS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -105227,11 +105227,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -105704,13 +105704,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.i:
   %3 = alloca i16, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i16 0, ptr %3, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeIZNS1_6assignEmRKtE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.i
@@ -105800,13 +105800,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItEC2EmRKt(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.i:
   %3 = alloca %struct._Filler.302, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeIZNS1_6assignEmRKtE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.i
@@ -106975,20 +106975,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEm(
   %3 = alloca %class.anon.301, align 8
   %4 = alloca i16, align 2
   store i16 0, ptr %4, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeIZNS1_6resizeEmRKtEUlPtS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmOt(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.301, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeIZNS1_6resizeEmRKtEUlPtS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -107241,10 +107241,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRt(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.301, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeIZNS1_6resizeEmRKtEUlPtS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -107815,11 +107815,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -108292,13 +108292,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.i:
   %3 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeIZNS1_6assignEmRKiE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.i
@@ -108388,13 +108388,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC2EmRKi(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.i:
   %3 = alloca %struct._Filler.310, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeIZNS1_6assignEmRKiE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.i
@@ -109563,20 +109563,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEm(
   %3 = alloca %class.anon.309, align 8
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeIZNS1_6resizeEmRKiEUlPiS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmOi(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.309, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeIZNS1_6resizeEmRKiEUlPiS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -109829,10 +109829,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRi(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.309, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeIZNS1_6resizeEmRKiEUlPiS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -110403,11 +110403,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -110880,13 +110880,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.i:
   %3 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeIZNS1_6assignEmRKjE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.i
@@ -110976,13 +110976,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEC2EmRKj(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.i:
   %3 = alloca %struct._Filler.318, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeIZNS1_6assignEmRKjE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.i
@@ -112151,20 +112151,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEm(
   %3 = alloca %class.anon.317, align 8
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeIZNS1_6resizeEmRKjEUlPjS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmOj(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.317, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeIZNS1_6resizeEmRKjEUlPjS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -112417,10 +112417,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRj(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.317, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeIZNS1_6resizeEmRKjEUlPjS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -112991,11 +112991,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -113468,13 +113468,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.i:
   %3 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeIZNS1_6assignEmRKlE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.i
@@ -113564,13 +113564,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC2EmRKl(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.i:
   %3 = alloca %struct._Filler.326, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeIZNS1_6assignEmRKlE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.i
@@ -114739,20 +114739,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEm(
   %3 = alloca %class.anon.325, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeIZNS1_6resizeEmRKlEUlPlS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmOl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.325, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeIZNS1_6resizeEmRKlEUlPlS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -115005,10 +115005,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.325, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeIZNS1_6resizeEmRKlEUlPlS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -115579,11 +115579,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -116056,13 +116056,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.i:
   %3 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeIZNS1_6assignEmRKmE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.i
@@ -116152,13 +116152,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImEC2EmRKm(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.i:
   %3 = alloca %struct._Filler.334, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeIZNS1_6assignEmRKmE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.i
@@ -117327,20 +117327,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEm(
   %3 = alloca %class.anon.333, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeIZNS1_6resizeEmRKmEUlPmS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmOm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.333, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeIZNS1_6resizeEmRKmEUlPmS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -117593,10 +117593,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.333, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeIZNS1_6resizeEmRKmEUlPmS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -118167,11 +118167,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -118644,13 +118644,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.i:
   %3 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store double 0.000000e+00, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZNS1_6assignEmRKdE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.i
@@ -118740,13 +118740,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEC2EmRKd(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.i:
   %3 = alloca %struct._Filler.342, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZNS1_6assignEmRKdE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.i
@@ -119915,20 +119915,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEm(
   %3 = alloca %class.anon.341, align 8
   %4 = alloca double, align 8
   store double 0.000000e+00, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZNS1_6resizeEmRKdEUlPdS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmOd(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.341, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZNS1_6resizeEmRKdEUlPdS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -120181,10 +120181,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRd(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.341, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZNS1_6resizeEmRKdEUlPdS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -120755,11 +120755,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -121241,13 +121241,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.i:
   %3 = alloca float, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store float 0.000000e+00, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeIZNS1_6assignEmRKfE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.i
@@ -121337,13 +121337,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC2EmRKf(pt
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.i:
   %3 = alloca %struct._Filler.350, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeIZNS1_6assignEmRKfE7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.i
@@ -122512,20 +122512,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEm(
   %3 = alloca %class.anon.349, align 8
   %4 = alloca float, align 4
   store float 0.000000e+00, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeIZNS1_6resizeEmRKfEUlPfS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmOf(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.349, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeIZNS1_6resizeEmRKfEUlPfS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -122778,10 +122778,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit: ; preds = %_ZN32p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRf(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.349, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeIZNS1_6resizeEmRKfEUlPfS5_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -123352,11 +123352,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE4swapERS1_
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -123838,13 +123838,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.i
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i16 0, ptr %3, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeIZNS3_6assignEmRKS2_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.i
@@ -123934,13 +123934,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.i:
   %3 = alloca %struct._Filler.358, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeIZNS3_6assignEmRKS2_E7_FillerEEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.i
@@ -125109,20 +125109,20 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half
   %3 = alloca %class.anon.357, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", align 2
   store i16 0, ptr %4, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeIZNS3_6resizeEmRKS2_EUlPS2_S7_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmOS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.357, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeIZNS3_6resizeEmRKS2_EUlPS2_S7_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -125375,10 +125375,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit: 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.357, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeIZNS3_6resizeEmRKS2_EUlPS2_S7_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -125949,11 +125949,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -126358,9 +126358,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   %6 = alloca %struct._Copier.425, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -126374,9 +126374,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
           to label %9 unwind label %10
 
 9:                                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 10:                                               ; preds = %.noexc, %3
@@ -126392,9 +126392,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.425, align 8
   %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -126402,9 +126402,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %8, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeIZNS7_6assignIPKS6_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeESD_SD_E7_CopierEEvmOSD_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -126491,7 +126491,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc unwind label %6
 
@@ -126501,7 +126501,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
           to label %5 unwind label %6
 
 5:                                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   ret void
 
@@ -126532,7 +126532,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5EmRKS6_) align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Filler.366, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc unwind label %6
 
@@ -126542,7 +126542,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
           to label %5 unwind label %6
 
 5:                                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 6:                                                ; preds = %.noexc, %3
@@ -126810,9 +126810,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.425, align 8
   %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -126820,9 +126820,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %8, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeIZNS7_6assignIPKS6_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeESD_SD_E7_CopierEEvmOSD_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -127786,13 +127786,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   %3 = alloca %class.anon.365, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeIZNS7_6resizeEmRKS6_EUlPS6_SB_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   ret void
 
@@ -127806,10 +127806,10 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeEmOS6_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.365, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeIZNS7_6resizeEmRKS6_EUlPS6_SB_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -128133,10 +128133,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11cha
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeEmRS6_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.365, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeIZNS7_6resizeEmRKS6_EUlPS6_SB_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -128874,11 +128874,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -129290,9 +129290,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
   %6 = alloca %struct._Copier.426, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %7 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -129306,9 +129306,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
           to label %9 unwind label %10
 
 9:                                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 10:                                               ; preds = %.noexc, %3
@@ -129324,9 +129324,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.426, align 8
   %7 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -129334,9 +129334,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %8, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeIZNS2_6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_E7_CopierEEvmOS8_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -129435,7 +129435,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc unwind label %13
 
@@ -129445,7 +129445,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
           to label %5 unwind label %13
 
 5:                                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = load ptr, ptr %4, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 7
@@ -129494,7 +129494,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC2EmRKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC5EmRKS1_) align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Filler.374, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc unwind label %6
 
@@ -129504,7 +129504,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
           to label %5 unwind label %6
 
 5:                                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 6:                                                ; preds = %.noexc, %3
@@ -129808,9 +129808,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Copier.426, align 8
   %7 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %7, ptr %5, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -129818,9 +129818,9 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %8, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeIZNS2_6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_E7_CopierEEvmOS8_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -131016,13 +131016,13 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
   %3 = alloca %class.anon.373, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %5 unwind label %13
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = load ptr, ptr %4, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 7
@@ -131060,10 +131060,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit4: ; preds = %13, %18
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeEmOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.373, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -131430,10 +131430,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeEmRS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.anon.373, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeIZNS2_6resizeEmRKS1_EUlPS1_S6_E_EEvmOT_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -132244,11 +132244,11 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
   %7 = load ptr, ptr %5, align 8
   store ptr %7, ptr %4, align 8
   store ptr %6, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %8, align 8
@@ -145034,10 +145034,10 @@ define internal void @_GLOBAL__sub_I_array.cpp() #12 section ".text.startup" {
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

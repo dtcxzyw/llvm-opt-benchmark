@@ -20,7 +20,7 @@ define dso_local noundef i32 @crypto_hash_sha256_init(ptr noundef nonnull initia
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [72 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %.loopexit, label %6
 
@@ -98,12 +98,9 @@ define dso_local noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %3, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define internal fastcc void @SHA256_Transform(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
@@ -952,15 +949,12 @@ split:                                            ; preds = %34, %split
   ret void
 }
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_hash_sha256_final(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [72 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   fence acquire
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -1057,22 +1051,28 @@ SHA256_Pad.exit:                                  ; preds = %.preheader28.i, %.l
 be32enc_vect.exit:                                ; preds = %45
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 288) #7
   call void @sodium_memzero(ptr noundef nonnull %0, i64 noundef 104) #7
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_hash_sha256(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.crypto_hash_sha256_state, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 noundef 32, i1 noundef false) #7
   %6 = call i32 @crypto_hash_sha256_update(ptr noundef %4, ptr noundef %1, i64 noundef %2)
   %7 = call i32 @crypto_hash_sha256_final(ptr noundef %4, ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
@@ -1085,8 +1085,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }

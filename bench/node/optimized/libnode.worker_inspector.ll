@@ -280,17 +280,17 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i64 16), ptr %call, align 8
   %id_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %0, ptr %id_.i, align 8
   %info_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %conv.i = trunc i64 %0 to i32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i.i)
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, i32 noundef %conv.i) #12, !noalias !5
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i, i64 noundef 0, ptr noundef nonnull @.str) #12, !noalias !8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i) #12, !noalias !5
@@ -311,8 +311,8 @@ cond.true.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
   br label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i.i.i), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i.i.i), !noalias !5
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr nonnull sret(%"class.std::allocator") align 1 %ref.tmp1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_) #12, !noalias !14
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i.i) #12, !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #12, !noalias !5
@@ -323,8 +323,8 @@ cond.false.i.i:                                   ; preds = %_ZNSt10shared_ptrIN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, i64 noundef %add.i.i.i) #12, !noalias !5
   %call3.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull @.str.3, i64 noundef 1) #12, !noalias !5
   %call4.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_) #12, !noalias !5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i.i.i), !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i.i.i), !noalias !5
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
@@ -362,11 +362,11 @@ _ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequest16BuildWorkerTitleEiRKNSt7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i.i)
   br i1 %cmp.not.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestC2EmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_16MainThreadHandleEEbSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequest16BuildWorkerTitleEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -486,7 +486,7 @@ _ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestC2EmRKNSt7__cxx1112basic_s
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #12
   %waiting_.i = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i8 %frombool.i, ptr %waiting_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 if.then.i.i.i3:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
@@ -494,7 +494,7 @@ if.then.i.i.i3:                                   ; preds = %_ZN9__gnu_cxx27__ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #12
   %waiting_.i19 = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i8 %frombool.i18, ptr %waiting_.i19, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %22 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %22, 4294967297
   %23 = trunc i64 %22 to i32
@@ -1109,10 +1109,10 @@ entry:
   br i1 %wait, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i)
   store ptr %delegates_waiting_on_start_, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %delegates_waiting_on_start_, ptr noundef nonnull align 4 dereferenceable(4) %id.addr, ptr noundef nonnull align 4 dereferenceable(4) %id.addr, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1131,16 +1131,16 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %id_, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %id.addr.i)
   store i32 %1, ptr %id.addr.i, align 4
   %delegates_waiting_on_start_.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   br i1 %wait_on_start, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i.i)
   store ptr %delegates_waiting_on_start_.i, ptr %__node_gen.i.i.i, align 8
   %call3.i.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %delegates_waiting_on_start_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i.i)
   br label %_ZN4node9inspector13WorkerManager25SetWaitOnStartForDelegateEib.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1148,7 +1148,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN4node9inspector13WorkerManager25SetWaitOnStartForDelegateEib.exit
 
 _ZN4node9inspector13WorkerManager25SetWaitOnStartForDelegateEib.exit: ; preds = %if.then.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i)
   ret void
 }
 
@@ -1159,13 +1159,13 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %id_, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %id.addr.i)
   store i32 %1, ptr %id.addr.i, align 4
   %delegates_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %delegates_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
   %delegates_waiting_on_start_.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %call.i.i1.i = call noundef i64 @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKi(ptr noundef nonnull align 8 dereferenceable(56) %delegates_waiting_on_start_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i)
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -1254,11 +1254,11 @@ entry:
   %1 = load ptr, ptr %ref.tmp, align 8
   %worker_id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %worker_id_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session_id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %session_id.addr.i)
   store i64 %2, ptr %session_id.addr.i, align 8
   %children_.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmN4node9inspector10WorkerInfoEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %children_.i, ptr noundef nonnull align 8 dereferenceable(8) %session_id.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %session_id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %session_id.addr.i)
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %3 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -1369,7 +1369,7 @@ entry:
   %waiting_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %3 = load i8, ptr %waiting_, align 8
   %tobool = trunc i8 %3 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session_id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %session_id.addr.i)
   store i64 %2, ptr %session_id.addr.i, align 8
   %worker_thread.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %4 = load ptr, ptr %worker_thread.i, align 8
@@ -1394,7 +1394,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp.i.not.i, label %_ZN4node9inspector13WorkerManager13WorkerStartedEmRKNS0_10WorkerInfoEb.exit, label %for.body.i
 
 _ZN4node9inspector13WorkerManager13WorkerStartedEmRKNS0_10WorkerInfoEb.exit: ; preds = %for.body.i, %entry, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %session_id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %session_id.addr.i)
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %manager, i64 8
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -3197,10 +3197,10 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

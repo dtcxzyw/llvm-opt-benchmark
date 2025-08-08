@@ -691,15 +691,9 @@ ast_parse_done.exit:                              ; preds = %setup_vparser.exit
   ret i64 %28
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 declare i64 @rb_parser_compile_string_path(i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @rb_parser_set_script_lines(i64 noundef) local_unnamed_addr #1
 
@@ -716,7 +710,7 @@ declare ptr @rb_ruby_ast_data_get(i64 noundef) local_unnamed_addr #1
 declare void @rb_ast_dispose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #3
+declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef i64 @ast_new_internal(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -730,7 +724,7 @@ define internal fastcc noundef i64 @ast_new_internal(i64 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -838,7 +832,7 @@ declare i64 @rb_file_open_str(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #4 {
   %.pr = load i64, ptr %0, align 8, !tbaa !47
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -862,7 +856,7 @@ declare i64 @rb_parser_compile_file_path(i64 noundef, i64 noundef, i64 noundef, 
 declare i64 @rb_io_close(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -879,7 +873,7 @@ declare i64 @rb_obj_is_proc(i64 noundef) local_unnamed_addr #1
 declare ptr @rb_method_iseq(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i64 @rb_iseq_path(ptr noundef) local_unnamed_addr #1
 
@@ -993,7 +987,7 @@ declare i64 @rb_parser_compile_array(i64 noundef, i64 noundef, i64 noundef, i32 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @node_children(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [22 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr %1, align 8, !tbaa !73
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 8
@@ -2579,7 +2573,7 @@ var_name.exit:                                    ; preds = %809, %812, %814
 
 910:                                              ; preds = %906, %903, %900, %897, %894, %871, %851, %828, %793, %731, %721, %712, %706, %702, %699, %681, %677, %675, %673, %671, %669, %667, %661, %656, %650, %639, %633, %625, %620, %612, %606, %603, %586, %572, %568, %562, %556, %552, %549, %546, %528, %525, %522, %519, %516, %513, %510, %504, %502, %500, %490, %481, %474, %469, %464, %459, %454, %449, %444, %440, %436, %434, %432, %430, %426, %421, %418, %407, %390, %373, %356, %339, %324, %309, %285, %262, %248, %236, %225, %214, %203, %195, %185, %177, %166, %153, %.thread, %118, %108, %100, %96, %94, %92, %88, %84, %80, %76, %70, %60, %52, %44, %38, %32, %26, %18, %10, %8
   %.0 = phi i64 [ %9, %8 ], [ %17, %10 ], [ %25, %18 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ], [ %51, %44 ], [ %59, %52 ], [ %69, %60 ], [ %75, %70 ], [ %79, %76 ], [ %83, %80 ], [ %87, %84 ], [ %91, %88 ], [ %93, %92 ], [ %95, %94 ], [ %99, %96 ], [ %107, %100 ], [ %117, %108 ], [ %123, %118 ], [ %125, %.thread ], [ %156, %153 ], [ %169, %166 ], [ %180, %177 ], [ %187, %185 ], [ %198, %195 ], [ %205, %203 ], [ %216, %214 ], [ %227, %225 ], [ %238, %236 ], [ %250, %248 ], [ %264, %262 ], [ %287, %285 ], [ %311, %309 ], [ %326, %324 ], [ %341, %339 ], [ %358, %356 ], [ %375, %373 ], [ %392, %390 ], [ %409, %407 ], [ %420, %418 ], [ %425, %421 ], [ %429, %426 ], [ %431, %430 ], [ %433, %432 ], [ %435, %434 ], [ %439, %436 ], [ %443, %440 ], [ %448, %444 ], [ %453, %449 ], [ %458, %454 ], [ %463, %459 ], [ %468, %464 ], [ %473, %469 ], [ %480, %474 ], [ %489, %481 ], [ %492, %490 ], [ %501, %500 ], [ %503, %502 ], [ %509, %504 ], [ %512, %510 ], [ %515, %513 ], [ %518, %516 ], [ %521, %519 ], [ %524, %522 ], [ %527, %525 ], [ %531, %528 ], [ %548, %546 ], [ %551, %549 ], [ %555, %552 ], [ %561, %556 ], [ %567, %562 ], [ %571, %568 ], [ %577, %572 ], [ %588, %586 ], [ %605, %603 ], [ %611, %606 ], [ %619, %612 ], [ %624, %620 ], [ %632, %625 ], [ %638, %633 ], [ %644, %639 ], [ %655, %650 ], [ %660, %656 ], [ %666, %661 ], [ %668, %667 ], [ %670, %669 ], [ %672, %671 ], [ %674, %673 ], [ %676, %675 ], [ %680, %677 ], [ %684, %681 ], [ %701, %699 ], [ %705, %702 ], [ %711, %706 ], [ %717, %712 ], [ %724, %721 ], [ %733, %731 ], [ %798, %793 ], [ %830, %828 ], [ %853, %851 ], [ %873, %871 ], [ %896, %894 ], [ %899, %897 ], [ %902, %900 ], [ %905, %903 ], [ %907, %906 ]
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -2635,7 +2629,7 @@ define internal fastcc i64 @dump_block(i64 noundef %0, ptr noundef readonly capt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_ary_new_from_node_args(i64 noundef %0, i64 noundef range(i64 0, 5) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @rb_ary_new_capa(i64 noundef %1) #11
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not11 = icmp eq i64 %1, 0
@@ -2690,7 +2684,7 @@ define internal i64 @rb_ary_new_from_node_args(i64 noundef %0, i64 noundef range
 
 ._crit_edge:                                      ; preds = %26, %2
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %4
 }
 
@@ -2926,15 +2920,15 @@ declare i64 @rb_node_file_path_val(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_node_encoding_val(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #7
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #6
 
 declare ptr @ruby_node_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #8
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #8
+declare void @llvm.va_end.p0(ptr) #7
 
 declare i64 @rb_id2str(i64 noundef) local_unnamed_addr #1
 
@@ -8355,28 +8349,34 @@ location_new.exit715:                             ; preds = %null_loc_p.exit.i71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @location_gc_mark(ptr readnone captures(none) %0) #9 {
+define internal void @location_gc_mark(ptr readnone captures(none) %0) #8 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @location_memsize(ptr readnone captures(none) %0) #9 {
+define internal noundef i64 @location_memsize(ptr readnone captures(none) %0) #8 {
   ret i64 16
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

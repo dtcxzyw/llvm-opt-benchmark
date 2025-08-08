@@ -341,7 +341,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
 
 .loopexit:                                        ; preds = %26, %7
   %.sroa.0.0.copyload.i19 = load i64, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i19) #14
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
@@ -392,7 +392,7 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %.loopexit, %37
   %59 = add i64 %58, 1
   store i64 %59, ptr %57, align 8
   %60 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %61 = load ptr, ptr %1, align 8
   store ptr %60, ptr %61, align 8
   store ptr %60, ptr %1, align 8
@@ -471,7 +471,7 @@ define hidden noundef nonnull ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePP
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -522,7 +522,7 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %3, %13
   %35 = add i64 %34, 1
   store i64 %35, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val = load ptr, ptr %1, align 8
   store ptr %36, ptr %.val, align 8
   ret ptr %36
@@ -575,7 +575,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edge
 
 30:                                               ; preds = %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %31, ptr %6, align 8
   br label %.lr.ph.i.i20
 
@@ -628,14 +628,14 @@ _ZL22find_closest_skip_edgePK10StoredEdgePm.exit.i: ; preds = %.lr.ph.i.i20
   br label %_ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m.exit
 
 _ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m.exit: ; preds = %39, %40, %45, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %88
 
 .loopexit:                                        ; preds = %28, %13
   %51 = load ptr, ptr %2, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i.i) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %53 = load ptr, ptr %0, align 8
@@ -684,7 +684,7 @@ _ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit: ; preds = %.loopexit, 
   %79 = add i64 %78, 1
   store i64 %79, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val.i22 = load ptr, ptr %1, align 8
   store ptr %80, ptr %.val.i22, align 8
   store ptr %80, ptr %1, align 8
@@ -711,7 +711,7 @@ _ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit: ; preds = %.loopexit, 
 define hidden void @_ZN9EdgeStoreC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.NativeCallStack, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 16, i32 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1009, ptr %4, align 8
@@ -731,7 +731,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EEC2EPS2_m.ex
   %10 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8072, i8 noundef zeroext 16, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #14
   store ptr %10, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8072) %10, i8 0, i64 8072, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %11, align 8
   store ptr %3, ptr %0, align 8
@@ -890,7 +890,7 @@ define hidden noundef nonnull ptr @_ZN9EdgeStore37associate_leak_context_with_ca
   %3 = alloca %class.StoredEdge, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -941,7 +941,7 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %2, %11
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = call noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   %36 = load ptr, ptr @_ZL19_leak_context_edges, align 8
   %37 = icmp eq ptr %36, null
@@ -1659,10 +1659,10 @@ declare void @llvm.assume(i1 noundef) #11
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

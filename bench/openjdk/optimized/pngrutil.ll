@@ -488,7 +488,7 @@ png_crc_read.exit:                                ; preds = %2, %png_crc_read.ex
 
 ._crit_edge:                                      ; preds = %png_crc_read.exit, %2
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %9 = load i32, ptr %8, align 8, !alias.scope !15
   %10 = and i32 %9, 536870912
@@ -511,7 +511,7 @@ png_crc_read.exit:                                ; preds = %2, %png_crc_read.ex
   br i1 %.not9.not.i, label %png_crc_error.exit, label %png_crc_error.exit.thread
 
 png_crc_error.exit.thread:                        ; preds = %17, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 png_crc_error.exit:                               ; preds = %14, %17
@@ -535,7 +535,7 @@ png_crc_error.exit:                               ; preds = %14, %17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %37 = load i32, ptr %36, align 4, !alias.scope !15
   %.not21 = icmp eq i32 %35, %37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not21, label %49, label %38
 
 38:                                               ; preds = %png_crc_error.exit
@@ -4605,7 +4605,7 @@ define hidden void @png_read_IDAT_data(ptr noalias noundef initializes((336, 348
 29:                                               ; preds = %.preheader
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !61
   %30 = load i32, ptr %12, align 8, !alias.scope !67
   %31 = and i32 %30, 536870912
   %.not.i.i = icmp eq i32 %31, 0
@@ -4625,7 +4625,7 @@ define hidden void @png_read_IDAT_data(ptr noalias noundef initializes((336, 348
   br i1 %.not9.not.i.i, label %png_crc_error.exit.i, label %png_crc_error.exit.thread.i
 
 png_crc_error.exit.thread.i:                      ; preds = %36, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !61
   br label %png_crc_finish.exit
 
 png_crc_error.exit.i:                             ; preds = %36, %33
@@ -4645,7 +4645,7 @@ png_crc_error.exit.i:                             ; preds = %36, %33
   %51 = or disjoint i32 %48, %50
   %52 = load i32, ptr %18, align 4, !alias.scope !67
   %.not21.i = icmp eq i32 %51, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !61
   br i1 %.not21.i, label %png_crc_finish.exit, label %53
 
 53:                                               ; preds = %png_crc_error.exit.i
@@ -5352,7 +5352,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
 
 175:                                              ; preds = %174, %168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %177 = load i32, ptr %176, align 8, !alias.scope !79
   %.not.i = icmp eq i32 %177, 0
@@ -5415,7 +5415,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
 206:                                              ; preds = %203, %198
   %.031.i = phi i32 [ %204, %203 ], [ %199, %198 ]
   call void @png_zstream_error(ptr noundef nonnull %0, i32 noundef %.031.i) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %208 = load ptr, ptr %207, align 8
   call void @png_error(ptr noundef nonnull %0, ptr noundef %208) #11
@@ -5424,7 +5424,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
 209:                                              ; preds = %._crit_edge, %.thread.i
   %210 = phi i32 [ %.pre147, %._crit_edge ], [ %202, %.thread.i ]
   store i32 1229209940, ptr %176, align 8, !alias.scope !79
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %211 = or i32 %210, 64
   store i32 %211, ptr %195, align 8
   ret void
@@ -5707,10 +5707,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

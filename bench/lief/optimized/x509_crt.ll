@@ -123,11 +123,11 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
 .critedge.thread:                                 ; preds = %.preheader, %.preheader.preheader, %24
   %.129 = phi ptr [ %25, %24 ], [ %0, %.preheader.preheader ], [ %20, %.preheader ]
   %.1 = phi ptr [ %.02856, %24 ], [ null, %.preheader.preheader ], [ %.02856, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
@@ -201,7 +201,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   %62 = getelementptr inbounds nuw i8, ptr %.129, i64 40
   store i64 %61, ptr %62, align 8, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %.129, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %7, i32 noundef 160) #17
   switch i32 %64, label %66 [
     i32 0, label %68
@@ -234,16 +234,16 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   br i1 %.not15.i.i, label %x509_get_version.exit.thread.i, label %x509_get_version.exit.thread175.i
 
 x509_get_version.exit.thread175.i:                ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %x509_crt_parse_der_core.exit.thread.sink.split
 
 x509_get_version.exit.thread.i:                   ; preds = %75, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %77
 
 x509_get_version.exit.i:                          ; preds = %73, %66
   %.0.i.i = phi i32 [ %67, %66 ], [ %74, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not145.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not145.i, label %77, label %x509_crt_parse_der_core.exit.thread.sink.split
 
@@ -470,11 +470,11 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %.not169.i, label %x509_crt_parse_der_core.exit.thread43, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 x509_crt_parse_der_core.exit.thread43:            ; preds = %190
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %197
 
 x509_crt_parse_der_core.exit.thread.sink.split:   ; preds = %190, %187, %163, %168, %173, %176, %182, %161, %.thread.i, %158, %126, %121, %103, %97, %85, %83, %x509_get_version.exit.thread175.i, %x509_get_version.exit.i, %77, %80, %27
@@ -484,20 +484,20 @@ x509_crt_parse_der_core.exit.thread.sink.split:   ; preds = %190, %187, %163, %1
 
 x509_crt_parse_der_core.exit.thread:              ; preds = %x509_crt_parse_der_core.exit.thread.sink.split, %.critedge.thread, %38
   %.0117.i.ph = phi i32 [ -10368, %38 ], [ -10240, %.critedge.thread ], [ %.0117.i.ph.ph, %x509_crt_parse_der_core.exit.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %192
 
 x509_crt_parse_der_core.exit:                     ; preds = %52, %95, %117, %148, %155
   %.0117.i = phi i32 [ %53, %52 ], [ %96, %95 ], [ %118, %117 ], [ %147, %148 ], [ %154, %155 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not37 = icmp eq i32 %.0117.i, 0
   br i1 %.not37, label %197, label %192
 
@@ -566,12 +566,12 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   br label %39
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not119 = icmp eq i64 %2, 1
   br i1 %.not119, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 .lr.ph:                                           ; preds = %17
@@ -584,7 +584,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   %.147114 = phi i32 [ 0, %.lr.ph ], [ %.349, %33 ]
   %.051113 = phi i64 [ %2, %.lr.ph ], [ %.152, %33 ]
   %.053112 = phi ptr [ %1, %.lr.ph ], [ %.154, %33 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @mbedtls_pem_init(ptr noundef nonnull %4) #17
   %20 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %.053112, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #17
   switch i32 %20, label %26 [
@@ -625,25 +625,25 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   %.3 = phi i32 [ %32, %30 ], [ %29, %26 ], [ %.140116, %21 ]
   %.152 = sub i64 %.051113, %.pn
   %.154 = getelementptr inbounds nuw i8, ptr %.053112, i64 %.pn
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = icmp ugt i64 %.152, 1
   br i1 %34, label %19, label %.loopexit
 
 35:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 36:                                               ; preds = %19, %21
   %.358.ph = phi i32 [ %25, %21 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 .loopexit:                                        ; preds = %33, %35
   %.147111 = phi i32 [ %.147114, %35 ], [ %.349, %33 ]
   %.142108 = phi i32 [ %.142115, %35 ], [ %.344, %33 ]
   %.140105 = phi i32 [ %.140116, %35 ], [ %.3, %33 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not68 = icmp eq i32 %.147111, 0
   br i1 %.not68, label %37, label %39
 
@@ -660,27 +660,21 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   ret i32 %.055
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @mbedtls_pem_init(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_pem_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_pem_read_buffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_pem_read_buffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @mbedtls_pem_free(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @mbedtls_pem_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_parse_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mbedtls_pk_load_file(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -696,14 +690,14 @@ define hidden i32 @mbedtls_x509_crt_parse_file(ptr noundef %0, ptr noundef %1) l
 
 12:                                               ; preds = %2, %6
   %.0 = phi i32 [ %9, %6 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_pk_load_file(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_pk_load_file(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @mbedtls_zeroize_and_free(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @mbedtls_zeroize_and_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -711,8 +705,8 @@ define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) l
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @opendir(ptr noundef %1)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %41, label %9
@@ -762,8 +756,8 @@ define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) l
   br i1 %29, label %30, label %.backedge
 
 30:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = call i32 @mbedtls_pk_load_file(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %32, label %mbedtls_x509_crt_parse_file.exit
@@ -779,8 +773,8 @@ define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) l
 
 mbedtls_x509_crt_parse_file.exit:                 ; preds = %30, %32
   %.0.i = phi i32 [ %35, %32 ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = icmp slt i32 %.0.i, 0
   %.2.v = select i1 %38, i32 1, i32 %.0.i
   %.2 = add nuw nsw i32 %.2.v, %.016.ph27
@@ -795,39 +789,39 @@ mbedtls_x509_crt_parse_file.exit:                 ; preds = %30, %32
 
 41:                                               ; preds = %2, %.outer._crit_edge
   %.0 = phi i32 [ %.1, %.outer._crit_edge ], [ -10496, %2 ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @readdir(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare ptr @readdir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [18 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %3, null
   br i1 %8, label %9, label %13
 
@@ -1287,34 +1281,34 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 258:                                              ; preds = %9, %247, %252, %241, %235, %238, %226, %220, %223, %210, %204, %207, %194, %188, %191, %179, %173, %176, %159, %163, %145, %151, %130, %135, %124, %110, %122, %103, %108, %84, %101, %65, %82, %57, %63, %50, %55, %42, %48, %35, %40, %27, %33, %20, %25, %13, %18, %255
   %.0 = phi i32 [ %257, %255 ], [ -10624, %18 ], [ -10624, %13 ], [ -10624, %25 ], [ -10624, %20 ], [ -10624, %33 ], [ -10624, %27 ], [ -10624, %40 ], [ -10624, %35 ], [ -10624, %48 ], [ -10624, %42 ], [ -10624, %55 ], [ -10624, %50 ], [ -10624, %63 ], [ -10624, %57 ], [ -10624, %82 ], [ -10624, %65 ], [ -10624, %101 ], [ -10624, %84 ], [ -10624, %108 ], [ -10624, %103 ], [ -10624, %122 ], [ -10624, %110 ], [ %129, %124 ], [ -10624, %135 ], [ -10624, %130 ], [ -10624, %151 ], [ -10624, %145 ], [ -10624, %163 ], [ -10624, %159 ], [ -10624, %176 ], [ -10624, %173 ], [ %184, %179 ], [ -10624, %191 ], [ -10624, %188 ], [ %200, %194 ], [ -10624, %207 ], [ -10624, %204 ], [ %216, %210 ], [ -10624, %223 ], [ -10624, %220 ], [ %231, %226 ], [ -10624, %238 ], [ -10624, %235 ], [ %246, %241 ], [ -10624, %252 ], [ -10624, %247 ], [ %spec.select, %9 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_x509_serial_gets(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_serial_gets(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_dn_gets(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_dn_gets(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_sig_alg_gets(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_sig_alg_gets(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_key_size_helper(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_key_size_helper(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @mbedtls_pk_get_name(ptr noundef) local_unnamed_addr #3
+declare ptr @mbedtls_pk_get_name(ptr noundef) local_unnamed_addr #2
 
-declare i64 @mbedtls_pk_get_bitlen(ptr noundef) local_unnamed_addr #3
+declare i64 @mbedtls_pk_get_bitlen(ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_info_subject_alt_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_info_subject_alt_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_info_cert_type(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare i32 @mbedtls_x509_info_cert_type(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_info_key_usage(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_info_key_usage(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !tbaa !25
   %6 = load ptr, ptr %0, align 8, !tbaa !24
   br label %7
@@ -1362,14 +1356,14 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr nou
 
 .loopexit:                                        ; preds = %10, %14, %21
   %.023 = phi i32 [ 0, %21 ], [ -10624, %14 ], [ -10624, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !tbaa !25
   %6 = load ptr, ptr %0, align 8, !tbaa !24
   br label %7
@@ -1417,12 +1411,12 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr nou
 
 .loopexit:                                        ; preds = %10, %14, %21
   %.023 = phi i32 [ 0, %21 ], [ -10624, %14 ], [ -10624, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @mbedtls_x509_crt_verify_info(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_x509_crt_verify_info(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   br label %5
 
 5:                                                ; preds = %4, %19
@@ -1492,7 +1486,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load i32, ptr %3, align 8, !tbaa !67
   %5 = and i32 %4, 4
@@ -1521,7 +1515,7 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr nou
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8, !tbaa !67
   %6 = and i32 %5, 2048
@@ -1570,7 +1564,7 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usag
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1620,7 +1614,7 @@ define hidden range(i64 0, 17) i64 @mbedtls_x509_crt_parse_cn_inet_pton(ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -1639,7 +1633,7 @@ define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, pt
   %15 = alloca %struct.mbedtls_pk_context, align 8
   %16 = alloca [4 x i32], align 16
   %17 = alloca %struct.mbedtls_x509_crt_verify_chain, align 8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %5, align 4, !tbaa !31
   br label %18
 
@@ -1723,7 +1717,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %18
 
 44:                                               ; preds = %.critedge.i.i, %.critedge.thread47.i.i
   %45 = phi i1 [ %41, %.critedge.thread47.i.i ], [ %43, %.critedge.i.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 58) #18
   %47 = icmp eq ptr %46, null
   %..i.i.i.i = select i1 %47, i32 2, i32 10
@@ -1760,11 +1754,11 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %18
   br i1 %.not.i.i.i, label %x509_crt_check_san_ip.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !96
 
 x509_crt_check_san_ip.exit.thread.i.i:            ; preds = %.critedge.i.i.i, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %45, label %x509_crt_verify_name.exit, label %.lr.ph.i24.i.i.preheader
 
 x509_crt_check_san_ip.exit.i.i:                   ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %x509_crt_verify_name.exit
 
 63:                                               ; preds = %.critedge.i.i
@@ -1874,13 +1868,13 @@ x509_profile_check_pk_alg.exit.thread:            ; preds = %x509_crt_verify_nam
   %.val.i = load ptr, ptr %91, align 8
   %110 = getelementptr i8, ptr %0, i64 368
   %.val21.i = load ptr, ptr %110, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %.val.i, ptr %15, align 8
   %111 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.val21.i, ptr %111, align 8
   %112 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %15) #17
   %113 = load ptr, ptr %111, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %114 = load i32, ptr %113, align 8, !tbaa !105
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %x509_profile_check_key.exit.thread, label %x509_profile_check_key.exit
@@ -1900,7 +1894,7 @@ x509_profile_check_key.exit.thread:               ; preds = %102, %107, %109, %x
 
 122:                                              ; preds = %102, %x509_profile_check_key.exit.thread, %x509_profile_check_key.exit
   %.3 = phi i32 [ %.2, %x509_profile_check_key.exit ], [ %121, %x509_profile_check_key.exit.thread ], [ %.2, %102 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %123 = call i64 @time(ptr noundef null) #17
   %124 = call i32 @mbedtls_x509_time_gmtime(i64 noundef %123, ptr noundef nonnull %14) #17
   %.not.i39 = icmp eq i32 %124, 0
@@ -2227,7 +2221,7 @@ x509_crt_check_parent.exit.i.i.i:                 ; preds = %285, %280, %274
   br i1 %or.cond12.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %293
 
 293:                                              ; preds = %x509_crt_check_parent.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %294 = load i32, ptr %151, align 8, !tbaa !65
   %295 = call ptr @mbedtls_md_info_from_type(i32 noundef %294) #17
   %296 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %295) #17
@@ -2257,7 +2251,7 @@ x509_crt_check_parent.exit.i.i.i:                 ; preds = %285, %280, %274
 
 x509_crt_check_signature.exit.i.i.i:              ; preds = %305, %301, %293
   %.0.i.i.i.i = phi i1 [ %312, %305 ], [ false, %293 ], [ false, %301 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %313 = zext i1 %.0.i.i.i.i to i32
   %or.cond.i.i.i = select i1 %.not9.i.i.i.i, i1 true, i1 %.0.i.i.i.i
   br i1 %or.cond.i.i.i, label %314, label %x509_crt_check_parent.exit.thread.i.i.i
@@ -2357,12 +2351,12 @@ x509_crt_find_parent.exit.i:                      ; preds = %x509_crt_find_paren
   %.val.i.i = load ptr, ptr %341, align 8
   %350 = getelementptr i8, ptr %.2.ph.i, i64 368
   %.val21.i.i = load ptr, ptr %350, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.val.i.i, ptr %12, align 8
   store ptr %.val21.i.i, ptr %127, align 8
   %351 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %12) #17
   %352 = load ptr, ptr %127, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %353 = load i32, ptr %352, align 8, !tbaa !105
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %x509_profile_check_key.exit.thread.i, label %x509_profile_check_key.exit.i
@@ -2382,7 +2376,7 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   br label %361
 
 361:                                              ; preds = %x509_profile_check_key.exit.thread.i, %x509_profile_check_key.exit.i, %343
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %.not9295.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %361
@@ -2516,12 +2510,12 @@ x509_profile_check_pk_alg.exit.i.i:               ; preds = %395
 426:                                              ; preds = %424
   %.val.i.i.i = load ptr, ptr %341, align 8
   %.val21.i.i.i = load ptr, ptr %365, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.val.i.i.i, ptr %10, align 8
   store ptr %.val21.i.i.i, ptr %129, align 8
   %427 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %10) #17
   %428 = load ptr, ptr %129, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %429 = load i32, ptr %428, align 8, !tbaa !105
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %x509_profile_check_key.exit.thread.i.i, label %431
@@ -2615,7 +2609,7 @@ mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %467
 
 x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %375, %mbedtls_x509_crt_is_revoked.exit.i.i, %449, %416, %mbedtls_x509_crt_check_key_usage.exit.i.i, %361
   %.0.i60.i = phi i32 [ 0, %361 ], [ %385, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %417, %416 ], [ %450, %449 ], [ %475, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.044.ph96.i.i, %375 ], [ %.6.i.i, %.outer.i.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %478 = load i32, ptr %134, align 8, !tbaa !31
   %479 = or i32 %478, %.0.i60.i
   store i32 %479, ptr %134, align 8, !tbaa !31
@@ -2623,16 +2617,16 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %375, %
   br label %130
 
 x509_crt_verify_chain.exit:                       ; preds = %331, %122
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread
 
 .loopexit24:                                      ; preds = %149, %184, %x509_crt_find_parent.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %480 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %481 = load i32, ptr %480, align 8, !tbaa !90
   %482 = or i32 %481, %.3
   store i32 %482, ptr %480, align 8, !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %483 = load i32, ptr %22, align 8, !tbaa !114
   %.not18.i = icmp eq i32 %483, 0
   br i1 %.not18.i, label %.loopexit24..loopexit20_crit_edge, label %.lr.ph.i
@@ -2688,7 +2682,7 @@ x509_crt_verify_chain.exit:                       ; preds = %331, %122
   br i1 %.not.i48, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !139
 
 502:                                              ; preds = %.lr.ph.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %503 = icmp eq i32 %.fr, -9984
   %spec.select = select i1 %503, i32 -12288, i32 %.fr
   br label %.thread
@@ -2704,14 +2698,14 @@ x509_crt_verify_chain.exit:                       ; preds = %331, %122
 
 .loopexit20:                                      ; preds = %498, %.loopexit24..loopexit20_crit_edge, %.loopexit
   %504 = phi i32 [ %.pre111, %.loopexit24..loopexit20_crit_edge ], [ %491, %.loopexit ], [ %501, %498 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not34 = icmp eq i32 %504, 0
   %. = select i1 %.not34, i32 0, i32 -9984
   br label %505
 
 505:                                              ; preds = %.loopexit20, %.thread
   %.0 = phi i32 [ %.ph, %.thread ], [ %., %.loopexit20 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0
 }
 
@@ -2728,7 +2722,7 @@ define hidden i32 @mbedtls_x509_crt_verify_restartable(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509_crt_init(ptr noundef writeonly captures(none) initializes((0, 744)) %0) local_unnamed_addr #10 {
+define hidden void @mbedtls_x509_crt_init(ptr noundef writeonly captures(none) initializes((0, 744)) %0) local_unnamed_addr #9 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 0, i64 744, i1 false)
   ret void
 }
@@ -2798,19 +2792,19 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   ret void
 }
 
-declare void @mbedtls_pk_free(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_pk_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-declare void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef) local_unnamed_addr #2
 
-declare void @mbedtls_asn1_sequence_free(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_asn1_sequence_free(ptr noundef) local_unnamed_addr #2
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_x509_crt_get_ca_istrue(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define hidden i32 @mbedtls_x509_crt_get_ca_istrue(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load i32, ptr %2, align 8, !tbaa !67
   %4 = and i32 %3, 256
@@ -2828,25 +2822,25 @@ define hidden i32 @mbedtls_x509_crt_get_ca_istrue(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
-declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
-declare i32 @mbedtls_x509_get_serial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_serial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_sig_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_sig_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @x509_get_dates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -2876,11 +2870,11 @@ define internal fastcc i32 @x509_get_dates(ptr noundef nonnull %0, ptr noundef %
 
 18:                                               ; preds = %16, %14, %9, %7
   %.0 = phi i32 [ %8, %7 ], [ %13, %9 ], [ %15, %14 ], [ %spec.select, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_pk_parse_subpubkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_pk_parse_subpubkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
@@ -2924,7 +2918,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef
   %7 = alloca %struct.mbedtls_asn1_buf, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load ptr, ptr %0, align 8, !tbaa !24
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %113, label %12
@@ -2964,11 +2958,11 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef
   br label %37
 
 37:                                               ; preds = %.lr.ph, %x509_get_ext_key_usage.exit.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !31
   %38 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %6, i32 noundef 48) #17
   %.not121 = icmp eq i32 %38, 0
@@ -3142,9 +3136,9 @@ x509_get_ext_key_usage.exit:                      ; preds = %85
 
 .thread:                                          ; preds = %66, %75, %81, %83, %x509_get_ext_key_usage.exit, %91, %93, %95, %97, %107, %109, %59, %73, %87, %39, %46, %53, %57
   %.2.ph = phi i32 [ %58, %57 ], [ %54, %53 ], [ %47, %46 ], [ %40, %39 ], [ -9572, %87 ], [ -9570, %73 ], [ %69, %66 ], [ -9472, %75 ], [ %82, %81 ], [ %84, %83 ], [ %90, %x509_get_ext_key_usage.exit ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %107 ], [ -8320, %109 ], [ -9574, %59 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %113
 
 x509_get_ext_key_usage.exit.thread.sink.split:    ; preds = %109, %66
@@ -3152,9 +3146,9 @@ x509_get_ext_key_usage.exit.thread.sink.split:    ; preds = %109, %66
   br label %x509_get_ext_key_usage.exit.thread
 
 x509_get_ext_key_usage.exit.thread:               ; preds = %x509_get_ext_key_usage.exit.thread.sink.split, %81, %83, %x509_get_ext_key_usage.exit, %91, %93, %95, %97, %103, %99, %107, %87, %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = load ptr, ptr %0, align 8, !tbaa !24
   %112 = icmp ult ptr %111, %20
   br i1 %112, label %37, label %._crit_edge
@@ -3167,26 +3161,26 @@ x509_get_ext_key_usage.exit.thread:               ; preds = %x509_get_ext_key_us
 
 113:                                              ; preds = %._crit_edge, %.thread, %12, %5
   %.097 = phi i32 [ 0, %5 ], [ %14, %12 ], [ %.2.ph, %.thread ], [ %spec.select, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.097
 }
 
-declare i32 @mbedtls_x509_get_sig(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_sig(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_asn1_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_time(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_time(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_ext(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_ext(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_asn1_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_oid_get_x509_ext_type(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_oid_get_x509_ext_type(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_basic_constraints(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull initializes((0, 4)) %2, ptr noundef nonnull initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %2, align 4, !tbaa !31
   store i32 0, ptr %3, align 4, !tbaa !31
   %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #17
@@ -3262,16 +3256,16 @@ define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_basic_co
 
 36:                                               ; preds = %31, %29, %22, %9, %34, %27, %17, %7
   %.028 = phi i32 [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ 0, %34 ], [ 0, %9 ], [ 0, %22 ], [ -9574, %29 ], [ -9572, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.028
 }
 
-declare i32 @mbedtls_x509_get_key_usage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_key_usage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_subject_key_id(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !25
   %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 4) #17
   %.not = icmp eq i32 %5, 0
@@ -3297,14 +3291,14 @@ define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_subject_
 
 14:                                               ; preds = %8, %6
   %.0 = phi i32 [ %7, %6 ], [ %spec.select, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @x509_get_authority_key_id(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !25
   %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 48) #17
   %.not = icmp eq i32 %5, 0
@@ -3401,18 +3395,18 @@ define internal fastcc i32 @x509_get_authority_key_id(ptr noundef nonnull %0, pt
 
 48:                                               ; preds = %8, %46, %29, %37, %27, %20, %6
   %.0 = phi i32 [ %7, %6 ], [ %28, %27 ], [ %38, %37 ], [ %21, %20 ], [ %34, %29 ], [ %., %46 ], [ -9574, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_x509_get_subject_alt_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_subject_alt_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_ns_cert_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_ns_cert_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_certificate_policies(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 48) #17
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -3535,28 +3529,28 @@ define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_certific
 
 .thread69:                                        ; preds = %54, %37, %34, %56, %48, %24, %17, %8, %6
   %.0 = phi i32 [ %7, %6 ], [ -9574, %8 ], [ %49, %48 ], [ %25, %24 ], [ %18, %17 ], [ %spec.select, %56 ], [ -9574, %54 ], [ -9472, %34 ], [ -9578, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_asn1_get_sequence_of(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_get_sequence_of(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_get_subject_alt_name_ext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_get_subject_alt_name_ext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_oid_get_extended_key_usage(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_oid_get_extended_key_usage(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_oid_get_certificate_policies(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_oid_get_certificate_policies(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
+declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-declare i32 @mbedtls_pk_get_type(ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_pk_get_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i64 %5, %2
@@ -3666,15 +3660,15 @@ x509_check_wildcard.exit:                         ; preds = %21, %36, %53, %50, 
   ret i32 %.0
 }
 
-declare i32 @mbedtls_x509_time_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_time_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #14
+declare i64 @time(ptr noundef) local_unnamed_addr #13
 
-declare i32 @mbedtls_x509_time_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_time_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @x509_name_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @x509_name_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #8 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = or i1 %3, %4
@@ -3812,34 +3806,40 @@ x509_string_cmp.exit.thread:                      ; preds = %.lr.ph, %16, %11, %
   ret i32 %.019
 }
 
-declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #3
+declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_md(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_md(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_pk_can_do(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_pk_can_do(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_pk_verify_ext(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_pk_verify_ext(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nounwind allocsize(0,1) }
 attributes #17 = { nounwind }

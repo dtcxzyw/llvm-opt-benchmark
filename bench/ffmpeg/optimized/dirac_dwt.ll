@@ -1261,13 +1261,7 @@ spatial_idwt_init_8bit.exit.thread:               ; preds = %.sink.split.i67, %.
   ret i32 %.024
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_spatial_idwt_slice2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1414,7 +1408,7 @@ define internal void @spatial_compose_dd97i_dy_8bit(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose53iL0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose53iL0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1447,7 +1441,7 @@ define internal void @vertical_compose53iL0_8bit(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dd97iH0_8bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #3 {
+define internal void @vertical_compose_dd97iH0_8bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1489,7 +1483,7 @@ define internal void @vertical_compose_dd97iH0_8bit(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 2)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 2)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !55
   %6 = sext i32 %4 to i64
@@ -1716,7 +1710,7 @@ avpriv_mirror.exit42:                             ; preds = %32, %5, %avpriv_mir
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dirac53iH0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_dirac53iH0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1749,7 +1743,7 @@ define internal void @vertical_compose_dirac53iH0_8bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 2)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 2)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !55
   %6 = sext i32 %4 to i64
@@ -1951,7 +1945,7 @@ define internal void @spatial_compose_dd137i_dy_8bit(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dd137iL0_8bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #3 {
+define internal void @vertical_compose_dd137iL0_8bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1993,7 +1987,7 @@ define internal void @vertical_compose_dd137iL0_8bit(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !55
   %6 = sext i32 %4 to i64
@@ -2191,7 +2185,7 @@ define internal void @spatial_compose_haari_dy_8bit(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_haar_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @vertical_compose_haar_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2223,7 +2217,7 @@ define internal void @vertical_compose_haar_8bit(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_haar0i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_haar0i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %horizontal_compose_haari_8bit.exit
@@ -2280,7 +2274,7 @@ horizontal_compose_haari_8bit.exit:               ; preds = %.lr.ph7, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_haar1i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_haar1i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %horizontal_compose_haari_8bit.exit
@@ -2351,7 +2345,7 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp sgt i32 %3, 1
   br i1 %11, label %.preheader53.lr.ph, label %.preheader52
 
@@ -2459,12 +2453,12 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
   %60 = getelementptr i8, ptr %0, i64 160
   %61 = getelementptr i8, ptr %60, i64 %.idx
   store i32 %58, ptr %61, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vertical_compose_fidelityiL0_8bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
+define internal void @vertical_compose_fidelityiL0_8bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
@@ -2540,7 +2534,7 @@ define internal void @vertical_compose_fidelityiL0_8bit(ptr noundef captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vertical_compose_fidelityiH0_8bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
+define internal void @vertical_compose_fidelityiH0_8bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
@@ -2616,10 +2610,10 @@ define internal void @vertical_compose_fidelityiH0_8bit(ptr noundef captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = alloca [8 x i16], align 16
   %5 = ashr i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader48.lr.ph, label %interleave_8bit.exit
 
@@ -2794,7 +2788,7 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   br i1 %exitcond76.not, label %interleave_8bit.exit, label %.lr.ph, !llvm.loop !63
 
 interleave_8bit.exit:                             ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2938,7 +2932,7 @@ avpriv_mirror.exit56:                             ; preds = %33, %5, %avpriv_mir
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iL0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iL0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2972,7 +2966,7 @@ define internal void @vertical_compose_daub97iL0_8bit(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iH0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iH0_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3006,7 +3000,7 @@ define internal void @vertical_compose_daub97iH0_8bit(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iL1_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iL1_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3040,7 +3034,7 @@ define internal void @vertical_compose_daub97iL1_8bit(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iH1_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iH1_8bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3074,7 +3068,7 @@ define internal void @vertical_compose_daub97iH1_8bit(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 2)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 2)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !55
   %6 = sext i32 %4 to i64
@@ -3310,7 +3304,7 @@ define internal void @spatial_compose_dd97i_dy_10bit(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose53iL0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose53iL0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3340,7 +3334,7 @@ define internal void @vertical_compose53iL0_10bit(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dd97iH0_10bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #3 {
+define internal void @vertical_compose_dd97iH0_10bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3377,7 +3371,7 @@ define internal void @vertical_compose_dd97iH0_10bit(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -3591,7 +3585,7 @@ avpriv_mirror.exit:                               ; preds = %32, %5, %avpriv_mir
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dirac53iH0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_dirac53iH0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3621,7 +3615,7 @@ define internal void @vertical_compose_dirac53iH0_10bit(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -3813,7 +3807,7 @@ define internal void @spatial_compose_dd137i_dy_10bit(ptr noundef captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dd137iL0_10bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #3 {
+define internal void @vertical_compose_dd137iL0_10bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3850,7 +3844,7 @@ define internal void @vertical_compose_dd137iL0_10bit(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -4024,7 +4018,7 @@ define internal void @spatial_compose_haari_dy_10bit(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_haar_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @vertical_compose_haar_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4054,7 +4048,7 @@ define internal void @vertical_compose_haar_10bit(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_haar0i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_haar0i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %horizontal_compose_haari_10bit.exit
@@ -4109,7 +4103,7 @@ horizontal_compose_haari_10bit.exit:              ; preds = %.lr.ph7, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_haar1i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_haar1i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %horizontal_compose_haari_10bit.exit
@@ -4174,7 +4168,7 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp sgt i32 %3, 1
   br i1 %11, label %.preheader53.lr.ph, label %.preheader52
 
@@ -4282,12 +4276,12 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
   %60 = getelementptr i8, ptr %0, i64 160
   %61 = getelementptr i8, ptr %60, i64 %.idx
   store i32 %58, ptr %61, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vertical_compose_fidelityiL0_10bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
+define internal void @vertical_compose_fidelityiL0_10bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
@@ -4354,7 +4348,7 @@ define internal void @vertical_compose_fidelityiL0_10bit(ptr noundef captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vertical_compose_fidelityiH0_10bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
+define internal void @vertical_compose_fidelityiH0_10bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
@@ -4421,10 +4415,10 @@ define internal void @vertical_compose_fidelityiH0_10bit(ptr noundef captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = alloca [8 x i32], align 16
   %5 = ashr i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader48.lr.ph, label %interleave_10bit.exit
 
@@ -4581,7 +4575,7 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   br i1 %exitcond76.not, label %interleave_10bit.exit, label %.lr.ph, !llvm.loop !93
 
 interleave_10bit.exit:                            ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4725,7 +4719,7 @@ avpriv_mirror.exit:                               ; preds = %33, %5, %avpriv_mir
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iL0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iL0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4756,7 +4750,7 @@ define internal void @vertical_compose_daub97iL0_10bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iH0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iH0_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4787,7 +4781,7 @@ define internal void @vertical_compose_daub97iH0_10bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iL1_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iL1_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4818,7 +4812,7 @@ define internal void @vertical_compose_daub97iL1_10bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iH1_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iH1_10bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4849,7 +4843,7 @@ define internal void @vertical_compose_daub97iH1_10bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -5065,7 +5059,7 @@ define internal void @spatial_compose_dd97i_dy_12bit(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose53iL0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose53iL0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5095,7 +5089,7 @@ define internal void @vertical_compose53iL0_12bit(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dd97iH0_12bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #3 {
+define internal void @vertical_compose_dd97iH0_12bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5132,7 +5126,7 @@ define internal void @vertical_compose_dd97iH0_12bit(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -5346,7 +5340,7 @@ avpriv_mirror.exit:                               ; preds = %32, %5, %avpriv_mir
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dirac53iH0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_dirac53iH0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5376,7 +5370,7 @@ define internal void @vertical_compose_dirac53iH0_12bit(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -5568,7 +5562,7 @@ define internal void @spatial_compose_dd137i_dy_12bit(ptr noundef captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_dd137iL0_12bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #3 {
+define internal void @vertical_compose_dd137iL0_12bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5605,7 +5599,7 @@ define internal void @vertical_compose_dd137iL0_12bit(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -5779,7 +5773,7 @@ define internal void @spatial_compose_haari_dy_12bit(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_haar_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @vertical_compose_haar_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5809,7 +5803,7 @@ define internal void @vertical_compose_haar_12bit(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_haar0i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_haar0i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %horizontal_compose_haari_12bit.exit
@@ -5864,7 +5858,7 @@ horizontal_compose_haari_12bit.exit:              ; preds = %.lr.ph7, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_haar1i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_haar1i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %horizontal_compose_haari_12bit.exit
@@ -5929,7 +5923,7 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp sgt i32 %3, 1
   br i1 %11, label %.preheader53.lr.ph, label %.preheader52
 
@@ -6037,12 +6031,12 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
   %60 = getelementptr i8, ptr %0, i64 160
   %61 = getelementptr i8, ptr %60, i64 %.idx
   store i32 %58, ptr %61, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vertical_compose_fidelityiL0_12bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
+define internal void @vertical_compose_fidelityiL0_12bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
@@ -6109,7 +6103,7 @@ define internal void @vertical_compose_fidelityiL0_12bit(ptr noundef captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vertical_compose_fidelityiH0_12bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 {
+define internal void @vertical_compose_fidelityiH0_12bit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
@@ -6176,10 +6170,10 @@ define internal void @vertical_compose_fidelityiH0_12bit(ptr noundef captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = alloca [8 x i32], align 16
   %5 = ashr i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader48.lr.ph, label %interleave_12bit.exit
 
@@ -6336,7 +6330,7 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   br i1 %exitcond76.not, label %interleave_12bit.exit, label %.lr.ph, !llvm.loop !122
 
 interleave_12bit.exit:                            ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6480,7 +6474,7 @@ avpriv_mirror.exit:                               ; preds = %33, %5, %avpriv_mir
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iL0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iL0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6511,7 +6505,7 @@ define internal void @vertical_compose_daub97iL0_12bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iH0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iH0_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6542,7 +6536,7 @@ define internal void @vertical_compose_daub97iH0_12bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iL1_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iL1_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6573,7 +6567,7 @@ define internal void @vertical_compose_daub97iL1_12bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @vertical_compose_daub97iH1_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @vertical_compose_daub97iH1_12bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6604,7 +6598,7 @@ define internal void @vertical_compose_daub97iH1_12bit(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #3 {
+define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef %2) #2 {
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !86
   %6 = sext i32 %4 to i64
@@ -6727,14 +6721,20 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

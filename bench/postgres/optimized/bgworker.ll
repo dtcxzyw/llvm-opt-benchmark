@@ -84,20 +84,14 @@ define dso_local i64 @BackgroundWorkerShmemSize() local_unnamed_addr #0 {
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @max_worker_processes, align 4
   %3 = sext i32 %2 to i64
   %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 1488) #14
@@ -175,14 +169,14 @@ select.unfold:                                    ; preds = %9, %select.unfold
   br i1 %37, label %33, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %33, %.preheader, %0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_unnamed_addr #0 {
@@ -440,16 +434,16 @@ ReportBackgroundWorkerPID.exit:                   ; preds = %121, %ReportBackgro
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReportBackgroundWorkerPID(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -476,15 +470,15 @@ define dso_local void @ReportBackgroundWorkerPID(ptr noundef readonly captures(n
   ret void
 }
 
-declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare void @ascii_safe_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ascii_safe_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ForgetBackgroundWorker(ptr noundef %0) local_unnamed_addr #0 {
@@ -531,7 +525,7 @@ define dso_local void @ForgetBackgroundWorker(ptr noundef %0) local_unnamed_addr
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReportBackgroundWorkerExit(ptr noundef %0) local_unnamed_addr #0 {
@@ -612,7 +606,7 @@ ForgetBackgroundWorker.exit:                      ; preds = %31, %33
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @BackgroundWorkerStopNotifications(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local void @BackgroundWorkerStopNotifications(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
   %.not = icmp eq ptr %2, null
   %.not7810 = icmp eq ptr %2, @BackgroundWorkerList
@@ -797,9 +791,9 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %8
 
@@ -882,25 +876,25 @@ define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(addres
   unreachable
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
-declare void @init_ps_display(ptr noundef) local_unnamed_addr #2
+declare void @init_ps_display(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
-declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @StatementCancelHandler(i32 noundef) #2
+declare void @StatementCancelHandler(i32 noundef) #1
 
-declare void @procsignal_sigusr1_handler(i32 noundef) #2
+declare void @procsignal_sigusr1_handler(i32 noundef) #1
 
 ; Function Attrs: noreturn
-declare void @FloatExceptionHandler(i32 noundef) #8
+declare void @FloatExceptionHandler(i32 noundef) #7
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @bgworker_die(i32 %0) #9 {
+define internal void @bgworker_die(i32 %0) #8 {
   %2 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef null) #14
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
   tail call void @llvm.assume(i1 %3)
@@ -912,10 +906,10 @@ define internal void @bgworker_die(i32 %0) #9 {
   unreachable
 }
 
-declare void @InitializeTimeouts() local_unnamed_addr #2
+declare void @InitializeTimeouts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerUnblockSignals() local_unnamed_addr #0 {
@@ -923,14 +917,14 @@ define dso_local void @BackgroundWorkerUnblockSignals() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @EmitErrorReport() local_unnamed_addr #2
+declare void @EmitErrorReport() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) local_unnamed_addr #8
+declare void @proc_exit(i32 noundef) local_unnamed_addr #7
 
-declare void @InitProcess() local_unnamed_addr #2
+declare void @InitProcess() local_unnamed_addr #1
 
-declare void @BaseInit() local_unnamed_addr #2
+declare void @BaseInit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1009,7 +1003,7 @@ define dso_local void @BackgroundWorkerInitializeConnection(ptr noundef %0, ptr 
   ret void
 }
 
-declare void @InitPostgres(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @InitPostgres(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerInitializeConnectionByOid(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1055,7 +1049,7 @@ define dso_local void @BackgroundWorkerBlockSignals() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_addr #0 {
@@ -1279,9 +1273,9 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   ret i1 %.0
 }
 
-declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1393,13 +1387,13 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   ret i1 %.0
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
-declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
+declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -1524,11 +1518,11 @@ GetBackgroundWorkerPid.exit.thread:               ; preds = %24, %GetBackgroundW
   ret i32 %.06.ph
 }
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #2
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1676,39 +1670,45 @@ define dso_local noundef ptr @GetBackgroundWorkerTypeByPid(i32 noundef %0) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
-declare ptr @load_external_function(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @load_external_function(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @ParallelWorkerMain(i64 noundef) #2
+declare void @ParallelWorkerMain(i64 noundef) #1
 
-declare void @ApplyLauncherMain(i64 noundef) #2
+declare void @ApplyLauncherMain(i64 noundef) #1
 
-declare void @ApplyWorkerMain(i64 noundef) #2
+declare void @ApplyWorkerMain(i64 noundef) #1
 
-declare void @ParallelApplyWorkerMain(i64 noundef) #2
+declare void @ParallelApplyWorkerMain(i64 noundef) #1
 
-declare void @TablesyncWorkerMain(i64 noundef) #2
+declare void @TablesyncWorkerMain(i64 noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nounwind }
 attributes #15 = { cold nounwind }

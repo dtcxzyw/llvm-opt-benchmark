@@ -37,10 +37,10 @@ define hidden zeroext i1 @X11_CreateWindowFramebuffer(ptr noundef readnone captu
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 336
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
   %16 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %16, null
@@ -289,17 +289,14 @@ X11_DestroyWindowFramebuffer.exit:                ; preds = %5, %40, %43
 
 155:                                              ; preds = %134, %.critedge, %153, %150, %63, %58, %52
   %.0 = phi i1 [ %64, %63 ], [ true, %153 ], [ %152, %150 ], [ %59, %58 ], [ %53, %52 ], [ true, %.critedge ], [ false, %134 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_DestroyWindowFramebuffer(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -358,17 +355,17 @@ define hidden void @X11_DestroyWindowFramebuffer(ptr noundef readnone captures(n
   ret void
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @X11_GetVisualInfoFromVisual(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @X11_GetVisualInfoFromVisual(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @shm_errhandler(ptr noundef %0, ptr noundef %1) #0 {
@@ -392,17 +389,14 @@ define internal i32 @shm_errhandler(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @shmdt(ptr noundef) local_unnamed_addr #3
+declare i32 @shmdt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @X11_UpdateWindowFramebuffer(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -413,8 +407,8 @@ define hidden noundef zeroext i1 @X11_UpdateWindowFramebuffer(ptr noundef readno
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 336
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = load i8, ptr %13, align 8, !range !3, !noundef !4
@@ -555,17 +549,23 @@ define hidden noundef zeroext i1 @X11_UpdateWindowFramebuffer(ptr noundef readno
   call void @X11_HandlePresent(ptr noundef %91) #4
   %92 = load ptr, ptr @X11_XSync, align 8
   %93 = call i32 %92(ptr noundef %11, i32 noundef 0) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 true
 }
 
-declare void @X11_HandlePresent(ptr noundef) local_unnamed_addr #2
+declare void @X11_HandlePresent(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

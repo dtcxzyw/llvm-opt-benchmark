@@ -17,7 +17,7 @@ $_ZGVZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines =
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl12crc_internal22UnextendCrc32cByZeroesENS_8crc32c_tEm(i32 %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = xor i32 %0, -1
   store i32 %4, ptr %3, align 4, !tbaa !4
   %5 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
@@ -52,20 +52,14 @@ _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %2, %7, %11
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %3, i64 noundef %1)
   %18 = load i32, ptr %3, align 4, !tbaa !4
   %19 = xor i32 %18, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %19
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl12crc_internal20ExtendCrc32cInternalENS_8crc32c_tESt17basic_string_viewIcSt11char_traitsIcEE(i32 %0, i64 %1, ptr %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = xor i32 %0, -1
   store i32 %5, ptr %4, align 4, !tbaa !4
   %6 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
@@ -100,14 +94,14 @@ _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %3, %8, %12
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %4, ptr noundef %2, i64 noundef %1)
   %19 = load i32, ptr %4, align 4, !tbaa !4
   %20 = xor i32 %19, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %20
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl13ComputeCrc32cESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !4
   %4 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -141,14 +135,14 @@ _ZN4absl12ExtendCrc32cENS_8crc32c_tESt17basic_string_viewIcSt11char_traitsIcEE.e
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %3, ptr noundef %1, i64 noundef %0)
   %17 = load i32, ptr %3, align 4, !tbaa !4
   %18 = xor i32 %17, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl20ExtendCrc32cByZeroesENS_8crc32c_tEm(i32 %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = xor i32 %0, -1
   store i32 %4, ptr %3, align 4, !tbaa !4
   %5 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
@@ -183,14 +177,14 @@ _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %2, %7, %11
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %3, i64 noundef %1)
   %18 = load i32, ptr %3, align 4, !tbaa !4
   %19 = xor i32 %18, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl12ConcatCrc32cENS_8crc32c_tES0_m(i32 %0, i32 %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %0, ptr %4, align 4, !tbaa !4
   %5 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
   %6 = icmp eq i8 %5, 0
@@ -224,14 +218,14 @@ _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %3, %7, %11
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %4, i64 noundef %2)
   %18 = load i32, ptr %4, align 4, !tbaa !4
   %19 = xor i32 %18, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl18RemoveCrc32cPrefixENS_8crc32c_tES0_m(i32 %0, i32 %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %0, ptr %4, align 4, !tbaa !4
   %5 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
   %6 = icmp eq i8 %5, 0
@@ -265,7 +259,7 @@ _ZN4absl12ConcatCrc32cENS_8crc32c_tES0_m.exit:    ; preds = %3, %7, %11
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %4, i64 noundef %2)
   %18 = load i32, ptr %4, align 4, !tbaa !4
   %19 = xor i32 %18, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %19
 }
 
@@ -311,7 +305,7 @@ _ZN4absl12crc_internal13Crc32CAndCopyEPvPKvmNS_8crc32c_tEb.exit: ; preds = %4, %
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN4absl18RemoveCrc32cSuffixENS_8crc32c_tES0_m(i32 %0, i32 %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = xor i32 %1, %0
   store i32 %5, ptr %4, align 4, !tbaa !4
   %6 = load atomic i8, ptr @_ZGVZN4absl12_GLOBAL__N_19CrcEngineEvE6engine acquire, align 8
@@ -345,32 +339,38 @@ _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %3, %8, %12
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %4, i64 noundef %2)
   %19 = load i32, ptr %4, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %19
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
-declare noundef ptr @_ZN4absl12crc_internal3CRC6Crc32cEv() local_unnamed_addr #3
+declare noundef ptr @_ZN4absl12crc_internal3CRC6Crc32cEv() local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
-declare { ptr, ptr } @_ZN4absl12crc_internal9CrcMemcpy22GetArchSpecificEnginesEv() local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4absl12crc_internal9CrcMemcpy22GetArchSpecificEnginesEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

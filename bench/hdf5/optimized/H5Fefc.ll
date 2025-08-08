@@ -87,22 +87,16 @@ define noalias ptr @H5F__efc_create(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5VL_connector_prop_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   %11 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -419,20 +413,20 @@ define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef ca
 
 .thread133:                                       ; preds = %40, %52, %104, %97, %32, %25, %18, %.critedge127, %37, %119, %160, %174, %7
   %.0 = phi i32 [ -1, %174 ], [ 0, %7 ], [ 0, %.critedge127 ], [ 0, %37 ], [ -1, %40 ], [ -1, %52 ], [ -1, %104 ], [ -1, %97 ], [ 0, %119 ], [ 0, %160 ], [ -1, %32 ], [ -1, %25 ], [ -1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare ptr @H5I_object(i64 noundef) local_unnamed_addr #2
+declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5CX_set_vol_connector_prop(ptr noundef) local_unnamed_addr #2
+declare i32 @H5CX_set_vol_connector_prop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5F__efc_open_file(i1 noundef zeroext %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !20
   %8 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
@@ -497,13 +491,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__efc_open_file(i1 noundef zeroe
 
 .thread:                                          ; preds = %21, %31, %36, %38, %41, %6
   %.0 = phi i32 [ -1, %41 ], [ -1, %38 ], [ -1, %36 ], [ 0, %6 ], [ 0, %31 ], [ 0, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr noundef captures(none) %0, ptr noundef nonnull captures(address) %1) unnamed_addr #0 {
@@ -609,15 +603,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr noundef cap
   ret i32 %.0
 }
 
-declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5SL_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5SL_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5F_try_close(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5F_try_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
+declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F_efc_close(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -699,7 +693,7 @@ define range(i32 -1, 1) i32 @H5F_efc_close(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5F__efc_max_nfiles(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @H5F__efc_max_nfiles(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4, !tbaa !12
   ret i32 %3
@@ -871,14 +865,14 @@ define range(i32 -1, 1) i32 @H5F__efc_destroy(ptr noundef %0) local_unnamed_addr
   ret i32 %.0
 }
 
-declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #2
+declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F__efc_try_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1139,13 +1133,13 @@ H5F__efc_release_real.exit66.thread:              ; preds = %96, %._crit_edge.i6
 
 .loopexit:                                        ; preds = %.preheader69, %.lr.ph91, %H5F__efc_release_real.exit, %48, %41, %34, %119, %H5F__efc_release_real.exit66.thread, %1
   %.0 = phi i32 [ -1, %34 ], [ -1, %119 ], [ 0, %H5F__efc_release_real.exit66.thread ], [ 0, %1 ], [ 0, %H5F__efc_release_real.exit ], [ 0, %41 ], [ 0, %48 ], [ 0, %.lr.ph91 ], [ 0, %.preheader69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5F__efc_try_close_tag1(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @H5F__efc_try_close_tag1(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
   %3 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1232,7 +1226,7 @@ define internal fastcc void @H5F__efc_try_close_tag1(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5F__efc_try_close_tag2(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @H5F__efc_try_close_tag2(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
   %3 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1308,20 +1302,26 @@ define internal fastcc void @H5F__efc_try_close_tag2(ptr noundef readonly captur
   ret void
 }
 
-declare i32 @H5F_open(i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @H5F_open(i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5F__post_open(ptr noundef) local_unnamed_addr #2
+declare i32 @H5F__post_open(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5SL_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @H5SL_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

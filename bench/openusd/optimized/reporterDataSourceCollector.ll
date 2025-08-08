@@ -479,7 +479,7 @@ _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %2
   %18 = mul i64 %16, 3
   %19 = and i64 %18, 7
   %20 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %17, i64 0, i64 %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %21 = call noundef i64 @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS6_S9_EENS8_INSA_11padded_pageEEERPSE_(ptr noundef nonnull align 8 dereferenceable(33) %20, i64 noundef %16, ptr noundef nonnull align 128 dereferenceable(648) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %22 = load ptr, ptr %3, align 8
@@ -519,7 +519,7 @@ _ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrRese
   store atomic i64 %41, ptr %38 monotonic, align 8
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %43 = atomicrmw add ptr %42, i64 8 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE4pushERKS6_.exit, %_ZNKSt8functionIFbvEEclEv.exit
@@ -1526,7 +1526,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(34) %0)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i24 = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i24, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_32TraceReporterDataSourceCollectorEE13_FetchPointerEv.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i25
@@ -1554,7 +1554,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_32Trace
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_32TraceReporterDataSourceCollectorEE11GetWeakBaseEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.not23 = icmp eq ptr %28, null
   %39 = select i1 %.not23, ptr @_ZTIv, ptr %5
@@ -1609,11 +1609,11 @@ define linkonce_odr ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TfNotice18_Stand
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__24TraceCollectionAvailableE)
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %10 = load ptr, ptr %2, align 8
   %11 = icmp eq ptr %10, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %1
@@ -2413,7 +2413,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2432,7 +2432,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN
 
 _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS8_EEE12prepare_pageEmRNS3_20concurrent_queue_repIS8_SB_EENSA_INSC_11padded_pageEEERPSG_EUlvE_E12on_exceptionIZNSC_12prepare_pageEmSF_SH_SJ_EUlvE0_EEvT_.exit: ; preds = %10
   store ptr %12, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %12, i8 0, i64 16, i1 false)
   %.pre = load i64, ptr %6, align 8
   br label %15
@@ -2657,10 +2657,10 @@ declare void @_ZN3tbb6detail2r115throw_exceptionENS0_2d012exception_idE(i32 noun
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

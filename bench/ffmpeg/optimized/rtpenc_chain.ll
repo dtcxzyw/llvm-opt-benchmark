@@ -11,8 +11,8 @@ define i32 @ff_rtp_chain_mux_open(ptr noundef writeonly captures(none) %0, ptr n
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call ptr @av_guess_format(ptr noundef nonnull @.str, ptr noundef null, ptr noundef null) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !4
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %87, label %10
@@ -175,54 +175,54 @@ define i32 @ff_rtp_chain_mux_open(ptr noundef writeonly captures(none) %0, ptr n
 
 90:                                               ; preds = %87, %88, %86, %.thread76
   %.0 = phi i32 [ %.275, %.thread76 ], [ 0, %86 ], [ %.052, %88 ], [ %.052, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @av_guess_format(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_guess_format(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @avformat_alloc_context() local_unnamed_addr #1
 
-declare ptr @avformat_alloc_context() local_unnamed_addr #2
-
-declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @ff_rtp_get_payload_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_rtp_get_payload_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_opt_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_opt_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @avcodec_parameters_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avcodec_parameters_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ffio_fdopen(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ffio_fdopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ffurl_close(ptr noundef) local_unnamed_addr #2
+declare i32 @ffurl_close(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ffio_open_dyn_packet_buf(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ffio_open_dyn_packet_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @avformat_write_header(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avformat_write_header(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_dict_free(ptr noundef) local_unnamed_addr #2
+declare void @av_dict_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @avio_closep(ptr noundef) local_unnamed_addr #2
+declare i32 @avio_closep(ptr noundef) local_unnamed_addr #1
 
-declare void @ffio_free_dyn_buf(ptr noundef) local_unnamed_addr #2
+declare void @ffio_free_dyn_buf(ptr noundef) local_unnamed_addr #1
 
-declare void @avformat_free_context(ptr noundef) local_unnamed_addr #2
+declare void @avformat_free_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

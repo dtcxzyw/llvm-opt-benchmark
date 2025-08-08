@@ -418,7 +418,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i: ; p
 
 .critedge.i:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i, %.noexc40, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2ESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i, %.preheader
   %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2ESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit.i ], [ %.19.i.i.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i ], [ %.19.i.i.i.i, %.noexc40 ], [ %19, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %98 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #20
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -596,7 +596,7 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2EED
 
 .noexc41:                                         ; preds = %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2EED2Ev.exit, %.thread.i
   %.sroa.0.010.i = phi ptr [ %98, %.thread.i ], [ %127, %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2EED2Ev.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %184
 
 184:                                              ; preds = %.noexc41, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i, %.noexc40, %95, %89
@@ -650,7 +650,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i: ; preds = %
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit: ; preds = %184, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0147, i64 16
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i78 = icmp eq ptr %210, %209
   br i1 %.not.i78, label %243, label %211
 
@@ -743,7 +743,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_7VtVa
   unreachable
 
 243:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit, %237
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0147, i64 64
   %.not137 = icmp eq ptr %244, %75
   br i1 %.not137, label %245, label %.preheader
@@ -1040,7 +1040,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.i: ; p
 
 .critedge.i57:                                    ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.i, %364, %360, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorINS0_21HdMaterialConnection2ESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2ESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit
   %.08.lcssa.i.i.i10.i58 = phi ptr [ %.19.i.i.i.i53, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorINS0_21HdMaterialConnection2ESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i ], [ %.19.i.i.i.i53, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.i ], [ %.19.i.i.i.i53, %360 ], [ %318, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_15HdMaterialNode2ESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit ], [ %.19.i.i.i.i53, %364 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %314, ptr %4, align 8
   %384 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
           to label %.noexc89 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1247,7 +1247,7 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorINS0_21HdMateri
 
 .noexc59:                                         ; preds = %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorINS0_21HdMaterialConnection2ESaIS4_EEED2Ev.exit, %.thread.i87
   %.sroa.0.010.i88 = phi ptr [ %384, %.thread.i87 ], [ %398, %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorINS0_21HdMaterialConnection2ESaIS4_EEED2Ev.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %485
 
 485:                                              ; preds = %.noexc59, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.i, %374, %362, %360
@@ -1567,7 +1567,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2D2Ev.exit: ; preds =
   br i1 %.not, label %._crit_edge162, label %41
 
 ._crit_edge162:                                   ; preds = %643, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %11, label %645, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 645:                                              ; preds = %._crit_edge162
@@ -1579,13 +1579,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2D2Ev.exit: ; preds =
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._crit_edge162, %645
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %48, %235, %438, %145, %613
   %.pn = phi { ptr, i32 } [ %614, %613 ], [ %49, %48 ], [ %146, %145 ], [ %236, %235 ], [ %439, %438 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit139, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit142, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit144, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__18HdMaterialNetwork2D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %11, label %647, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit68
 
 647:                                              ; preds = %.body
@@ -1597,7 +1597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._cri
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit68
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit68: ; preds = %.body, %647
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 }
 
@@ -2233,7 +2233,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetSampler
   %13 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = tail call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L28_ResolveWrapSamplerParameterERKNS_7TfTokenERKSt3mapIS0_NS_7VtValueESt4lessIS0_ESaISt4pairIS1_S4_EEERKPKNS_13SdrShaderNodeERKNS_7SdfPathES2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
@@ -2338,8 +2338,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveMinSamplerParameterERKNS_7TfTokenERKSt3mapIS0_NS_7VtValueESt4lessIS0_ESaISt4pairIS1_S4_EEERKPKNS_13SdrShaderNodeERKNS_7SdfPathE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveMinSamplerParameterERKNS_7TfTokenERKSt3mapIS0_NS_7VtValueESt4lessIS0_ESaISt4pairIS1_S4_EEERKPKNS_13SdrShaderNodeERKNS_7SdfPathE.exit: ; preds = %71, %73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %77 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 80
   %79 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
@@ -2377,7 +2377,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveMagSamplerParameterERKNS_7TfToke
   %98 = xor i64 %97, %85
   %99 = icmp ugt i64 %98, 7
   %..i = zext i1 %99 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdSamplerParametersC1ENS_6HdWrapES1_S1_NS_11HdMinFilterENS_11HdMagFilterENS_13HdBorderColorEbNS_17HdCompareFunctionE(ptr noundef nonnull align 4 dereferenceable(32) %0, i32 noundef %9, i32 noundef %12, i32 noundef %15, i32 noundef %.0.i, i32 noundef %..i, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0)
   ret void
 }
@@ -4216,7 +4216,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #20
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull @.str.9, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %385
 
@@ -5061,7 +5061,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit119.i.i.i.i: ; preds = %37
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %387 = ptrtoint ptr %5 to i64
   %388 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE, i64 0, i64 %387 seq_cst seq_cst, align 8
   %389 = extractvalue { i64, i1 } %388, 1
@@ -7399,10 +7399,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -31,14 +31,14 @@ define hidden noundef i32 @ir_gcm(ptr noundef %0) local_unnamed_addr #0 {
 ir_array_init.exit157:
   %1 = alloca %struct._ir_list, align 8
   %2 = alloca %struct._ir_gcm_split_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !26
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 2
-  %9 = tail call noalias ptr @_emalloc(i64 noundef %8) #11
+  %9 = tail call noalias ptr @_emalloc(i64 noundef %8) #10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = icmp eq i32 %11, 1
@@ -182,14 +182,14 @@ ir_array_init.exit157:
   br i1 %84, label %.lr.ph212, label %.loopexit
 
 ._crit_edge217:                                   ; preds = %.loopexit, %.preheader
-  tail call void @_efree(ptr noundef %9) #10
+  tail call void @_efree(ptr noundef %9) #11
   br label %234
 
 ir_array_init.exit156:                            ; preds = %ir_array_init.exit157
   %85 = load i32, ptr %5, align 8, !tbaa !26
   %86 = zext i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 2
-  %88 = tail call noalias ptr @_emalloc(i64 noundef %87) #11
+  %88 = tail call noalias ptr @_emalloc(i64 noundef %87) #10
   store ptr %88, ptr %1, align 8, !tbaa !40
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %85, ptr %89, align 8, !tbaa !42
@@ -407,7 +407,7 @@ ir_array_init.exit156:                            ; preds = %ir_array_init.exit1
   br i1 %194, label %.lr.ph196, label %.loopexit174
 
 ._crit_edge199:                                   ; preds = %.loopexit174, %ir_array_init.exit156, %.preheader175
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %195 = load i32, ptr %10, align 4, !tbaa !27
   %196 = add i32 %195, 1
   store i32 %196, ptr %2, align 8, !tbaa !47
@@ -415,7 +415,7 @@ ir_array_init.exit156:                            ; preds = %ir_array_init.exit1
   store i32 0, ptr %197, align 4, !tbaa !49
   %198 = zext i32 %196 to i64
   %199 = shl nuw nsw i64 %198, 3
-  %200 = tail call noalias ptr @_emalloc(i64 noundef %199) #11
+  %200 = tail call noalias ptr @_emalloc(i64 noundef %199) #10
   %201 = getelementptr inbounds nuw i32, ptr %200, i64 %198
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %201, ptr %202, align 8, !tbaa !50
@@ -424,7 +424,7 @@ ir_array_init.exit156:                            ; preds = %ir_array_init.exit1
   %205 = add i32 %204, 1
   %206 = zext i32 %205 to i64
   %207 = shl nuw nsw i64 %206, 2
-  %208 = tail call noalias ptr @_emalloc(i64 noundef %207) #11
+  %208 = tail call noalias ptr @_emalloc(i64 noundef %207) #10
   store ptr %208, ptr %203, align 8, !tbaa !40
   %209 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %205, ptr %209, align 8, !tbaa !42
@@ -467,7 +467,7 @@ ir_array_init.exit156:                            ; preds = %ir_array_init.exit1
 
 ._crit_edge202:                                   ; preds = %._crit_edge202.loopexit, %._crit_edge199
   %227 = phi ptr [ %.pre, %._crit_edge202.loopexit ], [ %208, %._crit_edge199 ]
-  call void @_efree(ptr noundef %227) #10
+  call void @_efree(ptr noundef %227) #11
   store ptr null, ptr %203, align 8, !tbaa !40
   store i32 0, ptr %209, align 8, !tbaa !42
   store i32 0, ptr %210, align 8, !tbaa !43
@@ -476,24 +476,21 @@ ir_array_init.exit156:                            ; preds = %ir_array_init.exit1
   %230 = zext i32 %229 to i64
   %231 = sub nsw i64 0, %230
   %232 = getelementptr inbounds i32, ptr %228, i64 %231
-  call void @_efree(ptr noundef %232) #10
+  call void @_efree(ptr noundef %232) #11
   store ptr null, ptr %211, align 8, !tbaa !33
-  call void @_efree(ptr noundef %9) #10
+  call void @_efree(ptr noundef %9) #11
   %233 = load ptr, ptr %1, align 8, !tbaa !40
-  call void @_efree(ptr noundef %233) #10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #10
+  call void @_efree(ptr noundef %233) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %234
 
 234:                                              ; preds = %._crit_edge202, %._crit_edge217
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
+define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !31
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct._ir_insn, ptr %4, i64 %5
@@ -1003,7 +1000,7 @@ ir_sparse_set_in.exit.thread.i.i:                 ; preds = %ir_sparse_set_in.ex
   br i1 %.not.i.i.i, label %ir_array_set.exit.i.i, label %242
 
 242:                                              ; preds = %ir_sparse_set_in.exit.thread.i.i
-  tail call void @ir_array_grow(ptr noundef nonnull %208, i32 noundef %240) #10
+  tail call void @ir_array_grow(ptr noundef nonnull %208, i32 noundef %240) #11
   br label %ir_array_set.exit.i.i
 
 ir_array_set.exit.i.i:                            ; preds = %242, %ir_sparse_set_in.exit.thread.i.i
@@ -1147,7 +1144,7 @@ ir_sparse_set_in.exit.thread.i432.i:              ; preds = %ir_sparse_set_in.ex
   br i1 %.not.i.i433.i, label %ir_array_set.exit.i434.i, label %323
 
 323:                                              ; preds = %ir_sparse_set_in.exit.thread.i432.i
-  tail call void @ir_array_grow(ptr noundef nonnull %211, i32 noundef %321) #10
+  tail call void @ir_array_grow(ptr noundef nonnull %211, i32 noundef %321) #11
   %.pre546.i = load ptr, ptr %211, align 8, !tbaa !40
   br label %ir_array_set.exit.i434.i
 
@@ -1180,18 +1177,18 @@ _check_successors.exit.i:                         ; preds = %ir_sparse_set_in.ex
 ._crit_edge464.i:                                 ; preds = %_check_successors.exit.i, %.preheader445.i
   %335 = load ptr, ptr %10, align 8, !tbaa !34
   %336 = getelementptr inbounds %struct._ir_use_list, ptr %335, i64 %8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
   %338 = load i32, ptr %337, align 4, !tbaa !35
   %339 = sext i32 %338 to i64
   %340 = shl nsw i64 %339, 4
-  %341 = tail call noalias ptr @_emalloc(i64 noundef %340) #11
+  %341 = tail call noalias ptr @_emalloc(i64 noundef %340) #10
   %342 = load i32, ptr %337, align 4, !tbaa !35
   %343 = sext i32 %342 to i64
   %344 = mul nsw i64 %343, 12
-  %345 = tail call noalias ptr @_emalloc(i64 noundef %344) #11
+  %345 = tail call noalias ptr @_emalloc(i64 noundef %344) #10
   %346 = load i32, ptr %337, align 4, !tbaa !35
-  call void @ir_hashtab_init(ptr noundef nonnull %4, i32 noundef %346) #10
+  call void @ir_hashtab_init(ptr noundef nonnull %4, i32 noundef %346) #11
   %347 = load i32, ptr %337, align 4, !tbaa !35
   %348 = icmp sgt i32 %347, 0
   br i1 %348, label %.lr.ph479.i, label %._crit_edge480.thread.i
@@ -1227,12 +1224,12 @@ _check_successors.exit.i:                         ; preds = %ir_sparse_set_in.ex
   %364 = getelementptr inbounds nuw i8, ptr %358, i64 2
   %365 = load i16, ptr %364, align 2, !tbaa !33
   %366 = sub nsw i32 0, %355
-  %367 = call i32 @ir_hashtab_find(ptr noundef nonnull %4, i32 noundef %366) #10
+  %367 = call i32 @ir_hashtab_find(ptr noundef nonnull %4, i32 noundef %366) #11
   %.not412.i = icmp eq i32 %367, -2147483648
   br i1 %.not412.i, label %368, label %.loopexit441.i
 
 368:                                              ; preds = %361
-  %369 = call zeroext i1 @ir_hashtab_add(ptr noundef nonnull %4, i32 noundef %366, i32 noundef -1) #10
+  %369 = call zeroext i1 @ir_hashtab_add(ptr noundef nonnull %4, i32 noundef %366, i32 noundef -1) #11
   %370 = icmp ugt i16 %365, 1
   br i1 %370, label %.lr.ph472.preheader.i, label %.loopexit441.i
 
@@ -1285,7 +1282,7 @@ ir_sparse_set_in.exit418.i:                       ; preds = %386
   br i1 %398, label %386, label %ir_sparse_set_in.exit418.thread.i
 
 ir_sparse_set_in.exit418.thread.i:                ; preds = %ir_sparse_set_in.exit418.i, %386
-  %399 = call i32 @ir_hashtab_find(ptr noundef nonnull %4, i32 noundef %.0377.i) #10
+  %399 = call i32 @ir_hashtab_find(ptr noundef nonnull %4, i32 noundef %.0377.i) #11
   %400 = icmp eq i32 %399, -2147483648
   br i1 %400, label %402, label %ir_sparse_set_in.exit418.thread._crit_edge.i
 
@@ -1301,7 +1298,7 @@ ir_sparse_set_in.exit418.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
 
 402:                                              ; preds = %ir_sparse_set_in.exit418.thread.i
   %403 = add i32 %.2370466.i, 1
-  %404 = call zeroext i1 @ir_hashtab_add(ptr noundef nonnull %4, i32 noundef %.0377.i, i32 noundef %.2370466.i) #10
+  %404 = call zeroext i1 @ir_hashtab_add(ptr noundef nonnull %4, i32 noundef %.0377.i, i32 noundef %.2370466.i) #11
   %405 = zext i32 %.2370466.i to i64
   %406 = getelementptr inbounds nuw %struct.anon.16, ptr %341, i64 %405
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 4
@@ -1374,7 +1371,7 @@ ir_sparse_set_in.exit419.i:                       ; preds = %432
 
 ir_sparse_set_in.exit419.thread.i:                ; preds = %ir_sparse_set_in.exit419.i, %432, %425
   %.1378.i = phi i32 [ 0, %425 ], [ %.2379.i, %432 ], [ %.2379.i, %ir_sparse_set_in.exit419.i ]
-  %445 = call i32 @ir_hashtab_find(ptr noundef nonnull %4, i32 noundef %.1378.i) #10
+  %445 = call i32 @ir_hashtab_find(ptr noundef nonnull %4, i32 noundef %.1378.i) #11
   %446 = icmp eq i32 %445, -2147483648
   br i1 %446, label %448, label %ir_sparse_set_in.exit419.thread._crit_edge.i
 
@@ -1390,7 +1387,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
 
 448:                                              ; preds = %ir_sparse_set_in.exit419.thread.i
   %449 = add i32 %.0368474.i, 1
-  %450 = call zeroext i1 @ir_hashtab_add(ptr noundef nonnull %4, i32 noundef %.1378.i, i32 noundef %.0368474.i) #10
+  %450 = call zeroext i1 @ir_hashtab_add(ptr noundef nonnull %4, i32 noundef %.1378.i, i32 noundef %.0368474.i) #11
   %451 = zext i32 %.0368474.i to i64
   %452 = getelementptr inbounds nuw %struct.anon.16, ptr %341, i64 %451
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 4
@@ -1450,7 +1447,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   %477 = load i32, ptr %476, align 8, !tbaa !33
   %478 = getelementptr inbounds nuw i8, ptr %.0352483.i, i64 12
   %479 = load i32, ptr %478, align 4, !tbaa !33
-  %480 = call i32 @ir_emit(ptr noundef nonnull %0, i32 noundef %473, i32 noundef %475, i32 noundef %477, i32 noundef %479) #10
+  %480 = call i32 @ir_emit(ptr noundef nonnull %0, i32 noundef %473, i32 noundef %475, i32 noundef %477, i32 noundef %479) #11
   %481 = getelementptr inbounds nuw %struct.anon.16, ptr %341, i64 %indvars.iv.i
   store i32 %480, ptr %481, align 4, !tbaa !56
   %482 = load ptr, ptr %0, align 8, !tbaa !31
@@ -1461,7 +1458,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   br i1 %486, label %487, label %489
 
 487:                                              ; preds = %.lr.ph485.i
-  %488 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %485, i32 noundef %480) #10
+  %488 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %485, i32 noundef %480) #11
   br label %489
 
 489:                                              ; preds = %487, %.lr.ph485.i
@@ -1471,7 +1468,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   br i1 %492, label %493, label %495
 
 493:                                              ; preds = %489
-  %494 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %491, i32 noundef %480) #10
+  %494 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %491, i32 noundef %480) #11
   br label %495
 
 495:                                              ; preds = %493, %489
@@ -1481,7 +1478,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   br i1 %498, label %499, label %501
 
 499:                                              ; preds = %495
-  %500 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %497, i32 noundef %480) #10
+  %500 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %497, i32 noundef %480) #11
   br label %501
 
 501:                                              ; preds = %499, %495
@@ -1708,10 +1705,10 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   br i1 %exitcond544.not.i, label %ir_split_partially_dead_node.exit, label %517
 
 ir_split_partially_dead_node.exit:                ; preds = %._crit_edge503.i, %._crit_edge486.i
-  call void @_efree(ptr noundef %345) #10
-  call void @_efree(ptr noundef nonnull %341) #10
-  call void @ir_hashtab_free(ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @_efree(ptr noundef %345) #11
+  call void @_efree(ptr noundef nonnull %341) #11
+  call void @ir_hashtab_free(ptr noundef nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.exit416.thread.i, %ir_sparse_set_in.exit.thread.i, %3, %.critedge415.i, %._crit_edge
@@ -1759,7 +1756,7 @@ ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.ex
   br i1 %.not65.i, label %ir_gcm_select_best_block.exit, label %627
 
 627:                                              ; preds = %624
-  %628 = tail call i32 @ir_binding_find(ptr noundef nonnull %0, i32 noundef %1) #10
+  %628 = tail call i32 @ir_binding_find(ptr noundef nonnull %0, i32 noundef %1) #11
   %.not66.i = icmp eq i32 %628, 0
   br i1 %.not66.i, label %ir_gcm_select_best_block.exit, label %629
 
@@ -1855,7 +1852,7 @@ ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.ex
   br i1 %.not73.i, label %ir_gcm_select_best_block.exit, label %681
 
 681:                                              ; preds = %679
-  %682 = tail call i32 @ir_binding_find(ptr noundef nonnull %0, i32 noundef %1) #10
+  %682 = tail call i32 @ir_binding_find(ptr noundef nonnull %0, i32 noundef %1) #11
   %.not74.i = icmp eq i32 %682, 0
   br i1 %.not74.i, label %ir_gcm_select_best_block.exit, label %._crit_edge.i111
 
@@ -1919,9 +1916,6 @@ ir_gcm_select_best_block.exit:                    ; preds = %679, %681, %683, %6
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._ir_ctx, align 8
@@ -1930,18 +1924,18 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 688, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
-  %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #11
+  %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #10
   %15 = load i32, ptr %10, align 8, !tbaa !26
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
-  %18 = tail call noalias ptr @_emalloc(i64 noundef %17) #11
+  %18 = tail call noalias ptr @_emalloc(i64 noundef %17) #10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 60
@@ -2740,22 +2734,22 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   br i1 %.not904.not.not, label %.thread949, label %.preheader955
 
 .thread949:                                       ; preds = %393
-  tail call void @_efree(ptr noundef nonnull %110) #10
-  tail call void @_efree(ptr noundef nonnull %14) #10
+  tail call void @_efree(ptr noundef nonnull %110) #11
+  tail call void @_efree(ptr noundef nonnull %14) #11
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %18, ptr %396, align 8, !tbaa !72
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %398 = load i32, ptr %397, align 4, !tbaa !73
   %399 = or i32 %398, 32
   store i32 %399, ptr %397, align 4, !tbaa !73
-  tail call void @ir_truncate(ptr noundef %0) #10
+  tail call void @ir_truncate(ptr noundef %0) #11
   br label %806
 
 .loopexit956:                                     ; preds = %.preheader955, %387, %._crit_edge1061
-  tail call void @_efree(ptr noundef %18) #10
+  tail call void @_efree(ptr noundef %18) #11
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %401 = load i32, ptr %400, align 8, !tbaa !74
-  call void @ir_init(ptr noundef nonnull %2, i32 noundef %401, i32 noundef %.0827.lcssa, i32 noundef %.0819.lcssa) #10
+  call void @ir_init(ptr noundef nonnull %2, i32 noundef %401, i32 noundef %.0827.lcssa, i32 noundef %.0819.lcssa) #11
   %402 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.0819.lcssa, ptr %402, align 8, !tbaa !26
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2844,21 +2838,21 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   br i1 %.not910, label %483, label %457
 
 457:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %458 = zext i16 %456 to i32
-  %459 = call ptr @ir_get_strl(ptr noundef %0, i32 noundef %458, ptr noundef nonnull %3) #10
+  %459 = call ptr @ir_get_strl(ptr noundef %0, i32 noundef %458, ptr noundef nonnull %3) #11
   %460 = load i64, ptr %3, align 8, !tbaa !86
-  %461 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %459, i64 noundef %460) #10
+  %461 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %459, i64 noundef %460) #11
   %462 = trunc i32 %461 to i16
   store i16 %462, ptr %455, align 2, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %483
 
 463:                                              ; preds = %.preheader
   %464 = getelementptr inbounds nuw i8, ptr %.0875, i64 8
   %465 = load i32, ptr %464, align 8, !tbaa !33
-  %466 = call ptr @ir_get_str(ptr noundef %0, i32 noundef %465) #10
-  %467 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %466) #10
+  %466 = call ptr @ir_get_str(ptr noundef %0, i32 noundef %465) #11
+  %467 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %466) #11
   %468 = sext i32 %467 to i64
   store i64 %468, ptr %464, align 8, !tbaa !33
   %469 = getelementptr inbounds nuw i8, ptr %.0875, i64 2
@@ -2867,21 +2861,21 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   br i1 %.not909, label %483, label %471
 
 471:                                              ; preds = %463
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %472 = zext i16 %470 to i32
-  %473 = call ptr @ir_get_strl(ptr noundef %0, i32 noundef %472, ptr noundef nonnull %4) #10
+  %473 = call ptr @ir_get_strl(ptr noundef %0, i32 noundef %472, ptr noundef nonnull %4) #11
   %474 = load i64, ptr %4, align 8, !tbaa !86
-  %475 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %473, i64 noundef %474) #10
+  %475 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %473, i64 noundef %474) #11
   %476 = trunc i32 %475 to i16
   store i16 %476, ptr %469, align 2, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %483
 
 477:                                              ; preds = %.preheader, %.preheader
   %478 = getelementptr inbounds nuw i8, ptr %.0875, i64 8
   %479 = load i32, ptr %478, align 8, !tbaa !33
-  %480 = call ptr @ir_get_str(ptr noundef %0, i32 noundef %479) #10
-  %481 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %480) #10
+  %480 = call ptr @ir_get_str(ptr noundef %0, i32 noundef %479) #11
+  %481 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %480) #11
   %482 = sext i32 %481 to i64
   store i64 %482, ptr %478, align 8, !tbaa !33
   br label %483
@@ -2941,15 +2935,15 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   br i1 %.not908, label %515, label %508
 
 508:                                              ; preds = %502
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %509 = zext i16 %507 to i32
-  %510 = call ptr @ir_get_strl(ptr noundef nonnull %0, i32 noundef %509, ptr noundef nonnull %5) #10
+  %510 = call ptr @ir_get_strl(ptr noundef nonnull %0, i32 noundef %509, ptr noundef nonnull %5) #11
   %511 = load i64, ptr %5, align 8, !tbaa !86
-  %512 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %510, i64 noundef %511) #10
+  %512 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %510, i64 noundef %511) #11
   %513 = trunc i32 %512 to i16
   %514 = getelementptr inbounds nuw i8, ptr %.18761065, i64 2
   store i16 %513, ptr %514, align 2, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %546
 
 515:                                              ; preds = %502
@@ -2960,8 +2954,8 @@ ir_count_constant.exit946:                        ; preds = %378, %382
 517:                                              ; preds = %498
   %518 = getelementptr inbounds nuw i8, ptr %.108741066, i64 8
   %519 = load i32, ptr %518, align 8, !tbaa !33
-  %520 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %519) #10
-  %521 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %520) #10
+  %520 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %519) #11
+  %521 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %520) #11
   %522 = sext i32 %521 to i64
   %523 = getelementptr inbounds nuw i8, ptr %.18761065, i64 8
   store i64 %522, ptr %523, align 8, !tbaa !33
@@ -2971,15 +2965,15 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   br i1 %.not907, label %533, label %526
 
 526:                                              ; preds = %517
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %527 = zext i16 %525 to i32
-  %528 = call ptr @ir_get_strl(ptr noundef nonnull %0, i32 noundef %527, ptr noundef nonnull %6) #10
+  %528 = call ptr @ir_get_strl(ptr noundef nonnull %0, i32 noundef %527, ptr noundef nonnull %6) #11
   %529 = load i64, ptr %6, align 8, !tbaa !86
-  %530 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %528, i64 noundef %529) #10
+  %530 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %528, i64 noundef %529) #11
   %531 = trunc i32 %530 to i16
   %532 = getelementptr inbounds nuw i8, ptr %.18761065, i64 2
   store i16 %531, ptr %532, align 2, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %546
 
 533:                                              ; preds = %517
@@ -2990,8 +2984,8 @@ ir_count_constant.exit946:                        ; preds = %378, %382
 535:                                              ; preds = %498, %498
   %536 = getelementptr inbounds nuw i8, ptr %.108741066, i64 8
   %537 = load i32, ptr %536, align 8, !tbaa !33
-  %538 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %537) #10
-  %539 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %538) #10
+  %538 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %537) #11
+  %539 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %538) #11
   %540 = sext i32 %539 to i64
   %541 = getelementptr inbounds nuw i8, ptr %.18761065, i64 8
   store i64 %540, ptr %541, align 8, !tbaa !33
@@ -3036,18 +3030,18 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   store ptr %558, ptr %559, align 8, !tbaa !4
   %560 = sext i32 %.0819.lcssa to i64
   %561 = shl nsw i64 %560, 2
-  %562 = call noalias ptr @_emalloc(i64 noundef %561) #11
+  %562 = call noalias ptr @_emalloc(i64 noundef %561) #10
   %563 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr %562, ptr %563, align 8, !tbaa !72
   %564 = shl nsw i64 %560, 3
-  %565 = call noalias ptr @_emalloc(i64 noundef %564) #11
+  %565 = call noalias ptr @_emalloc(i64 noundef %564) #10
   %566 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %565, ptr %566, align 8, !tbaa !34
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %568 = load i32, ptr %567, align 8, !tbaa !87
   %569 = sext i32 %568 to i64
   %570 = shl nsw i64 %569, 2
-  %571 = call noalias ptr @_emalloc(i64 noundef %570) #11
+  %571 = call noalias ptr @_emalloc(i64 noundef %570) #10
   %572 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %571, ptr %572, align 8, !tbaa !37
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3187,8 +3181,8 @@ ir_count_constant.exit946:                        ; preds = %378, %382
 646:                                              ; preds = %643, %635
   %647 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %648 = load i32, ptr %647, align 8, !tbaa !33
-  %649 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %648) #10
-  %650 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %649) #10
+  %649 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %648) #11
+  %650 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %649) #11
   %651 = getelementptr inbounds nuw i8, ptr %620, i64 8
   store i32 %650, ptr %651, align 8, !tbaa !33
   br label %665
@@ -3198,15 +3192,15 @@ ir_count_constant.exit946:                        ; preds = %378, %382
   br i1 %653, label %654, label %661
 
 654:                                              ; preds = %652
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %655 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %656 = load i32, ptr %655, align 8, !tbaa !33
-  %657 = call ptr @ir_get_strl(ptr noundef nonnull %0, i32 noundef %656, ptr noundef nonnull %7) #10
+  %657 = call ptr @ir_get_strl(ptr noundef nonnull %0, i32 noundef %656, ptr noundef nonnull %7) #11
   %658 = load i64, ptr %7, align 8, !tbaa !86
-  %659 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %657, i64 noundef %658) #10
+  %659 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %657, i64 noundef %658) #11
   %660 = getelementptr inbounds nuw i8, ptr %620, i64 8
   store i32 %659, ptr %660, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %665
 
 661:                                              ; preds = %652
@@ -3458,7 +3452,7 @@ ir_xlat_binding.exit:                             ; preds = %782, %747
   %789 = sext i32 %788 to i64
   %790 = sub nsw i64 0, %789
   %791 = getelementptr inbounds i32, ptr %113, i64 %790
-  call void @_efree(ptr noundef %791) #10
+  call void @_efree(ptr noundef %791) #11
   %792 = load i32, ptr %117, align 4, !tbaa !27
   %793 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %792, ptr %793, align 4, !tbaa !27
@@ -3476,47 +3470,47 @@ ir_xlat_binding.exit:                             ; preds = %782, %747
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 328
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %803 = load ptr, ptr %802, align 8, !tbaa !97
-  call void @ir_free(ptr noundef nonnull %0) #10
+  call void @ir_free(ptr noundef nonnull %0) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(688) %2, i64 688, i1 false)
   store ptr %803, ptr %802, align 8, !tbaa !97
   %804 = load i32, ptr %403, align 4, !tbaa !73
   %805 = or i32 %804, 32
   store i32 %805, ptr %403, align 4, !tbaa !73
-  call void @_efree(ptr noundef %14) #10
+  call void @_efree(ptr noundef %14) #11
   br label %806
 
 806:                                              ; preds = %.thread949, %787
-  call void @llvm.lifetime.end.p0(i64 688, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @_efree(ptr noundef) local_unnamed_addr #5
+declare void @_efree(ptr noundef) local_unnamed_addr #4
 
-declare void @ir_truncate(ptr noundef) local_unnamed_addr #5
+declare void @ir_truncate(ptr noundef) local_unnamed_addr #4
 
-declare void @ir_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @ir_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @ir_get_strl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @ir_get_strl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_strl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @ir_strl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @ir_str(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ir_str(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @ir_get_str(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @ir_get_str(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @ir_free(ptr noundef) local_unnamed_addr #5
+declare void @ir_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_build_prev_refs(ptr noundef captures(none) initializes((248, 256)) %0) local_unnamed_addr #0 {
@@ -3524,7 +3518,7 @@ define hidden void @ir_build_prev_refs(ptr noundef captures(none) initializes((2
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
-  %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
+  %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %6, ptr %7, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -3591,40 +3585,46 @@ define hidden void @ir_build_prev_refs(ptr noundef captures(none) initializes((2
   ret void
 }
 
-declare void @ir_hashtab_init(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @ir_hashtab_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ir_hashtab_find(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_hashtab_find(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @ir_hashtab_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @ir_hashtab_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ir_emit(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_emit(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @ir_use_list_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @ir_use_list_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @ir_hashtab_free(ptr noundef) local_unnamed_addr #5
+declare void @ir_hashtab_free(ptr noundef) local_unnamed_addr #4
 
-declare void @ir_array_grow(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @ir_array_grow(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ir_binding_find(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_binding_find(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(1) }
 attributes #13 = { nounwind allocsize(0,1) }
 

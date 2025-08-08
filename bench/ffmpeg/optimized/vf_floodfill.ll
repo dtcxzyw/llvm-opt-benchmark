@@ -68,19 +68,19 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %17 = load i32, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %19 = load i32, ptr %18, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !31
   store i32 %21, ptr %4, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !31
   store i32 %23, ptr %5, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !31
   store i32 %25, ptr %6, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !31
   store i32 %27, ptr %7, align 4, !tbaa !31
@@ -331,10 +331,10 @@ is_inside.exit.thread:                            ; preds = %58, %is_inside.exit
 
 155:                                              ; preds = %is_inside.exit.thread, %89
   %.0 = phi i32 [ %154, %is_inside.exit.thread ], [ %81, %89 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -413,24 +413,18 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   ret i32 %.
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @ff_inlink_make_frame_writable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_inlink_make_frame_writable(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #3
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #3
-
-declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #3
+declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @set_pixel1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #4 {
+define internal void @set_pixel1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #3 {
   %8 = trunc i32 %3 to i8
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -444,7 +438,7 @@ define internal void @set_pixel1(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @is_same1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #5 {
+define internal range(i32 0, 2) i32 @is_same1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #4 {
   %8 = load ptr, ptr %0, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -460,7 +454,7 @@ define internal range(i32 0, 2) i32 @is_same1(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @pick_pixel1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #6 {
+define internal void @pick_pixel1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #5 {
   %8 = load i32, ptr %3, align 4, !tbaa !31
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %20
@@ -483,7 +477,7 @@ define internal void @pick_pixel1(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @set_pixel3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #4 {
+define internal void @set_pixel3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #3 {
   %8 = trunc i32 %3 to i8
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -517,7 +511,7 @@ define internal void @set_pixel3(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @is_same3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #5 {
+define internal range(i32 0, 2) i32 @is_same3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #4 {
   %8 = load ptr, ptr %0, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -565,7 +559,7 @@ define internal range(i32 0, 2) i32 @is_same3(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6) #6 {
+define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6) #5 {
   %8 = load i32, ptr %3, align 4, !tbaa !31
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %20
@@ -626,7 +620,7 @@ define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @set_pixel4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #4 {
+define internal void @set_pixel4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #3 {
   %8 = trunc i32 %3 to i8
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -670,7 +664,7 @@ define internal void @set_pixel4(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @is_same4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
+define internal range(i32 0, 2) i32 @is_same4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #4 {
   %8 = load ptr, ptr %0, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -730,7 +724,7 @@ define internal range(i32 0, 2) i32 @is_same4(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) #6 {
+define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) #5 {
   %8 = load i32, ptr %3, align 4, !tbaa !31
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %20
@@ -810,7 +804,7 @@ define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @set_pixel1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #4 {
+define internal void @set_pixel1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #3 {
   %8 = trunc i32 %3 to i16
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -826,7 +820,7 @@ define internal void @set_pixel1_16(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @is_same1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #5 {
+define internal range(i32 0, 2) i32 @is_same1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #4 {
   %8 = load ptr, ptr %0, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -844,7 +838,7 @@ define internal range(i32 0, 2) i32 @is_same1_16(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @pick_pixel1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #6 {
+define internal void @pick_pixel1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #5 {
   %8 = load i32, ptr %3, align 4, !tbaa !31
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %22
@@ -869,7 +863,7 @@ define internal void @pick_pixel1_16(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @set_pixel3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #4 {
+define internal void @set_pixel3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #3 {
   %8 = trunc i32 %3 to i16
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -905,7 +899,7 @@ define internal void @set_pixel3_16(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @is_same3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #5 {
+define internal range(i32 0, 2) i32 @is_same3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #4 {
   %8 = load ptr, ptr %0, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -955,7 +949,7 @@ define internal range(i32 0, 2) i32 @is_same3_16(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6) #6 {
+define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6) #5 {
   %8 = load i32, ptr %3, align 4, !tbaa !31
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %22
@@ -1022,7 +1016,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @set_pixel4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #4 {
+define internal void @set_pixel4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #3 {
   %8 = trunc i32 %3 to i16
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1068,7 +1062,7 @@ define internal void @set_pixel4_16(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @is_same4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
+define internal range(i32 0, 2) i32 @is_same4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #4 {
   %8 = load ptr, ptr %0, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
@@ -1130,7 +1124,7 @@ define internal range(i32 0, 2) i32 @is_same4_16(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) #6 {
+define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) #5 {
   %8 = load i32, ptr %3, align 4, !tbaa !31
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %22
@@ -1217,19 +1211,25 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
   ret void
 }
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @av_default_item_name(ptr noundef) #3
+declare ptr @av_default_item_name(ptr noundef) #2
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

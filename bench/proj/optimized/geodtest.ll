@@ -270,14 +270,14 @@ define hidden i32 @main() local_unnamed_addr #0 {
   %206 = alloca double, align 8
   %207 = alloca double, align 8
   %208 = alloca %struct.geod_geodesic, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %201) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %202) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %203) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %204) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %205) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %206) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %207) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %208) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   call void @geod_init(ptr noundef nonnull %208, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   br label %209
 
@@ -417,14 +417,14 @@ checkEquals.exit49.i:                             ; preds = %287, %checkEquals.e
   br i1 %exitcond.not.i, label %testinverse.exit, label %209
 
 testinverse.exit:                                 ; preds = %checkEquals.exit49.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %208) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %207) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %206) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %205) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %204) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %203) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %202) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %201) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
   %.not = icmp eq i32 %289, 0
   br i1 %.not, label %292, label %290
 
@@ -434,15 +434,15 @@ testinverse.exit:                                 ; preds = %checkEquals.exit49.
 
 292:                                              ; preds = %290, %testinverse.exit
   %.0 = phi i32 [ 1, %290 ], [ 0, %testinverse.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %192) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %193) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %194) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %195) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %196) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %197) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %198) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %199) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %200) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   call void @geod_init(ptr noundef nonnull %200, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   br label %293
 
@@ -594,15 +594,15 @@ checkEquals.exit54.i:                             ; preds = %377, %checkEquals.e
   br i1 %exitcond.not.i180, label %testdirect.exit, label %293
 
 testdirect.exit:                                  ; preds = %checkEquals.exit54.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %200) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %199) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %198) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %197) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %196) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %195) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %194) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %193) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %192) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   %.not133 = icmp eq i32 %379, 0
   br i1 %.not133, label %383, label %380
 
@@ -613,15 +613,15 @@ testdirect.exit:                                  ; preds = %checkEquals.exit54.
 
 383:                                              ; preds = %380, %testdirect.exit
   %.1 = phi i32 [ %381, %380 ], [ %.0, %testdirect.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %183) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %185) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %186) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %187) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %188) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %189) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %190) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %191) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   call void @geod_init(ptr noundef nonnull %191, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   br label %384
 
@@ -786,15 +786,15 @@ checkEquals.exit58.i:                             ; preds = %475, %checkEquals.e
   br i1 %exitcond.not.i199, label %testarcdirect.exit, label %384
 
 testarcdirect.exit:                               ; preds = %checkEquals.exit58.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %191) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %189) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %187) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %186) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %185) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %183) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   %.not134 = icmp eq i32 %477, 0
   br i1 %.not134, label %481, label %478
 
@@ -805,10 +805,10 @@ testarcdirect.exit:                               ; preds = %checkEquals.exit58.
 
 481:                                              ; preds = %478, %testarcdirect.exit
   %.2 = phi i32 [ %479, %478 ], [ %.1, %testarcdirect.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %179) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %181) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %182) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   call void @geod_init(ptr noundef nonnull %182, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %182, double noundef 4.060000e+01, double noundef 0xC052733333333333, double noundef 0x4048822222294AA7, double noundef 2.550000e+00, ptr noundef nonnull %181, ptr noundef nonnull %179, ptr noundef nonnull %180) #7
   %482 = load double, ptr %179, align 8, !tbaa !4
@@ -849,10 +849,10 @@ GeodSolve0.exit:                                  ; preds = %checkEquals.exit5.i
   %.0.i6.i = phi i32 [ 1, %498 ], [ 0, %checkEquals.exit5.i ]
   %500 = add nuw nsw i32 %.0.i4.i, %.0.i.i201
   %501 = add nuw nsw i32 %500, %.0.i6.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %182) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %179) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   %.not135 = icmp eq i32 %501, 0
   br i1 %.not135, label %505, label %502
 
@@ -863,10 +863,10 @@ GeodSolve0.exit:                                  ; preds = %checkEquals.exit5.i
 
 505:                                              ; preds = %502, %GeodSolve0.exit
   %.3 = phi i32 [ %503, %502 ], [ %.2, %GeodSolve0.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %175) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %176) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %177) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %178) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   call void @geod_init(ptr noundef nonnull %178, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_direct(ptr noundef nonnull %178, double noundef 0x404451E26AEEB657, double noundef 0xC05271D950C97123, double noundef 5.350000e+01, double noundef 5.850000e+06, ptr noundef nonnull %175, ptr noundef nonnull %176, ptr noundef nonnull %177) #7
   %506 = load double, ptr %175, align 8, !tbaa !4
@@ -907,10 +907,10 @@ GeodSolve1.exit:                                  ; preds = %checkEquals.exit5.i
   %.0.i6.i206 = phi i32 [ 1, %522 ], [ 0, %checkEquals.exit5.i204 ]
   %524 = add nuw nsw i32 %.0.i4.i205, %.0.i.i203
   %525 = add nuw nsw i32 %524, %.0.i6.i206
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %178) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %177) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   %.not136 = icmp eq i32 %525, 0
   br i1 %.not136, label %529, label %526
 
@@ -921,10 +921,10 @@ GeodSolve1.exit:                                  ; preds = %checkEquals.exit5.i
 
 529:                                              ; preds = %526, %GeodSolve1.exit
   %.4 = phi i32 [ %527, %526 ], [ %.3, %GeodSolve1.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %171) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %172) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %173) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %174) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   call void @geod_init(ptr noundef nonnull %174, double noundef 6.400000e+06, double noundef 0xBF7B4E81B4E81B4F) #7
   call void @geod_inverse(ptr noundef nonnull %174, double noundef 7.476000e-02, double noundef 0.000000e+00, double noundef -7.476000e-02, double noundef 1.800000e+02, ptr noundef nonnull %173, ptr noundef nonnull %171, ptr noundef nonnull %172) #7
   %530 = load double, ptr %171, align 8, !tbaa !4
@@ -1005,10 +1005,10 @@ GeodSolve2.exit:                                  ; preds = %checkEquals.exit14.
   %568 = add nuw nsw i32 %567, %.0.i11.i
   %569 = add nuw nsw i32 %568, %.0.i13.i
   %570 = add nuw nsw i32 %569, %.0.i15.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %174) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %173) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %171) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   %.not137 = icmp eq i32 %570, 0
   br i1 %.not137, label %574, label %571
 
@@ -1019,8 +1019,8 @@ GeodSolve2.exit:                                  ; preds = %checkEquals.exit14.
 
 574:                                              ; preds = %571, %GeodSolve2.exit
   %.5 = phi i32 [ %572, %571 ], [ %.4, %GeodSolve2.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %170) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   call void @geod_init(ptr noundef nonnull %170, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %170, double noundef 0x40423F2612F714BA, double noundef 0.000000e+00, double noundef 0x40423F2612F714BB, double noundef 0x3EAAD7F29ABCAF48, ptr noundef nonnull %169, ptr noundef null, ptr noundef null) #7
   %575 = load double, ptr %169, align 8, !tbaa !4
@@ -1030,24 +1030,24 @@ GeodSolve2.exit:                                  ; preds = %checkEquals.exit14.
   br i1 %578, label %579, label %GeodSolve4.exit.thread
 
 GeodSolve4.exit.thread:                           ; preds = %574
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %170) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %583
 
 579:                                              ; preds = %574
   %580 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %575, double noundef 0x3FB26E978D4FDF3B, double noundef 5.000000e-04)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %170) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   %581 = add nuw nsw i32 %.5, 1
   %582 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef 1)
   br label %583
 
 583:                                              ; preds = %GeodSolve4.exit.thread, %579
   %.6 = phi i32 [ %581, %579 ], [ %.5, %GeodSolve4.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %165) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %167) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %168) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   call void @geod_init(ptr noundef nonnull %168, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_direct(ptr noundef nonnull %168, double noundef 0x3F923440DEC92B14, double noundef 3.000000e+01, double noundef 0.000000e+00, double noundef 1.000000e+07, ptr noundef nonnull %165, ptr noundef nonnull %166, ptr noundef nonnull %167) #7
   %584 = load double, ptr %165, align 8, !tbaa !4
@@ -1124,10 +1124,10 @@ checkEquals.exit14.i215:                          ; preds = %617, %checkEquals.e
 
 GeodSolve5.exit:                                  ; preds = %checkEquals.exit10.i219, %checkEquals.exit14.i215
   %.0.i = phi i32 [ %606, %checkEquals.exit10.i219 ], [ %619, %checkEquals.exit14.i215 ]
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %168) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %167) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   %.not139 = icmp eq i32 %.0.i, 0
   br i1 %.not139, label %623, label %620
 
@@ -1138,8 +1138,8 @@ GeodSolve5.exit:                                  ; preds = %checkEquals.exit10.
 
 623:                                              ; preds = %620, %GeodSolve5.exit
   %.7 = phi i32 [ %621, %620 ], [ %.6, %GeodSolve5.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %163) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %164) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @geod_init(ptr noundef nonnull %164, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %164, double noundef 0x40560CF5C042CBC2, double noundef 0.000000e+00, double noundef 0xC0560CF5C042CBC2, double noundef 0x40667F6488518B83, ptr noundef nonnull %163, ptr noundef null, ptr noundef null) #7
   %624 = load double, ptr %163, align 8, !tbaa !4
@@ -1182,8 +1182,8 @@ GeodSolve6.exit:                                  ; preds = %checkEquals.exit5.i
   %.0.i6.i225 = phi i32 [ 1, %640 ], [ 0, %checkEquals.exit5.i223 ]
   %642 = add nuw nsw i32 %.0.i4.i224, %.0.i.i222
   %643 = add nuw nsw i32 %642, %.0.i6.i225
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %164) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   %.not140 = icmp eq i32 %643, 0
   br i1 %.not140, label %647, label %644
 
@@ -1194,8 +1194,8 @@ GeodSolve6.exit:                                  ; preds = %checkEquals.exit5.i
 
 647:                                              ; preds = %644, %GeodSolve6.exit
   %.8 = phi i32 [ %645, %644 ], [ %.7, %GeodSolve6.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %161) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %162) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @geod_init(ptr noundef nonnull %162, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %162, double noundef 0x404C29140573060D, double noundef 0.000000e+00, double noundef 0xC04C29140573060D, double noundef 0x406675459CE8CB6A, ptr noundef nonnull %161, ptr noundef null, ptr noundef null) #7
   %648 = load double, ptr %161, align 8, !tbaa !4
@@ -1205,22 +1205,22 @@ GeodSolve6.exit:                                  ; preds = %checkEquals.exit5.i
   br i1 %651, label %652, label %GeodSolve9.exit.thread
 
 GeodSolve9.exit.thread:                           ; preds = %647
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %162) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %656
 
 652:                                              ; preds = %647
   %653 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %648, double noundef 0x4173113D64978D50, double noundef 5.000000e-04)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %162) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   %654 = add nsw i32 %.8, 1
   %655 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef 1)
   br label %656
 
 656:                                              ; preds = %GeodSolve9.exit.thread, %652
   %.9 = phi i32 [ %654, %652 ], [ %.8, %GeodSolve9.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %159) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %160) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   call void @geod_init(ptr noundef nonnull %160, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %160, double noundef 0x404A64692B57BFCE, double noundef 0.000000e+00, double noundef 0xC04A64692B57BFCD, double noundef 0x4066744D10E248B3, ptr noundef nonnull %159, ptr noundef null, ptr noundef null) #7
   %657 = load double, ptr %159, align 8, !tbaa !4
@@ -1230,22 +1230,22 @@ GeodSolve9.exit.thread:                           ; preds = %647
   br i1 %660, label %661, label %GeodSolve10.exit.thread
 
 GeodSolve10.exit.thread:                          ; preds = %656
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %160) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %159) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %665
 
 661:                                              ; preds = %656
   %662 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %657, double noundef 0x417310C2C1851EB8, double noundef 5.000000e-04)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %160) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %159) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   %663 = add nsw i32 %.9, 1
   %664 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 1)
   br label %665
 
 665:                                              ; preds = %GeodSolve10.exit.thread, %661
   %.10 = phi i32 [ %663, %661 ], [ %.9, %GeodSolve10.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %158) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   call void @geod_init(ptr noundef nonnull %158, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %158, double noundef 0x404842ED9FF7515D, double noundef 0.000000e+00, double noundef 0xC04842ED9FF7515B, double noundef 0x40667330E8F4470D, ptr noundef nonnull %157, ptr noundef null, ptr noundef null) #7
   %666 = load double, ptr %157, align 8, !tbaa !4
@@ -1255,24 +1255,24 @@ GeodSolve10.exit.thread:                          ; preds = %656
   br i1 %669, label %670, label %GeodSolve11.exit.thread
 
 GeodSolve11.exit.thread:                          ; preds = %665
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %158) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   br label %674
 
 670:                                              ; preds = %665
   %671 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %666, double noundef 0x417310298C624DD3, double noundef 5.000000e-04)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %158) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %672 = add nsw i32 %.10, 1
   %673 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef 1)
   br label %674
 
 674:                                              ; preds = %GeodSolve11.exit.thread, %670
   %.11 = phi i32 [ %672, %670 ], [ %.10, %GeodSolve11.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %153) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %156) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   call void @geod_init(ptr noundef nonnull %156, double noundef 0x4056733333333333, double noundef -1.830000e+00) #7
   call void @geod_inverse(ptr noundef nonnull %156, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef -1.000000e+01, double noundef 1.600000e+02, ptr noundef nonnull %155, ptr noundef nonnull %153, ptr noundef nonnull %154) #7
   %675 = load double, ptr %153, align 8, !tbaa !4
@@ -1313,10 +1313,10 @@ GeodSolve12.exit:                                 ; preds = %checkEquals.exit5.i
   %.0.i6.i236 = phi i32 [ 1, %691 ], [ 0, %checkEquals.exit5.i234 ]
   %693 = add nuw nsw i32 %.0.i4.i235, %.0.i.i233
   %694 = add nuw nsw i32 %693, %.0.i6.i236
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %156) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   %.not144 = icmp eq i32 %694, 0
   br i1 %.not144, label %698, label %695
 
@@ -1327,10 +1327,10 @@ GeodSolve12.exit:                                 ; preds = %checkEquals.exit5.i
 
 698:                                              ; preds = %695, %GeodSolve12.exit
   %.12 = phi i32 [ %696, %695 ], [ %.11, %GeodSolve12.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %152) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   call void @geod_init(ptr noundef nonnull %152, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %152, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0x7FF8000000000000, ptr noundef nonnull %151, ptr noundef nonnull %149, ptr noundef nonnull %150) #7
   %699 = load double, ptr %149, align 8, !tbaa !4
@@ -1365,10 +1365,10 @@ GeodSolve14.exit:                                 ; preds = %checkNaN.exit5.i, %
   %.0.i6.i239 = phi i32 [ 1, %709 ], [ 0, %checkNaN.exit5.i ]
   %711 = add nuw nsw i32 %.0.i4.i238, %.0.i.i237
   %712 = add nuw nsw i32 %711, %.0.i6.i239
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %152) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   %.not145 = icmp eq i32 %712, 0
   br i1 %.not145, label %716, label %713
 
@@ -1379,8 +1379,8 @@ GeodSolve14.exit:                                 ; preds = %checkNaN.exit5.i, %
 
 716:                                              ; preds = %713, %GeodSolve14.exit
   %.13 = phi i32 [ %714, %713 ], [ %.12, %GeodSolve14.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %148) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   call void @geod_init(ptr noundef nonnull %148, double noundef 6.400000e+06, double noundef 0xBF7B4E81B4E81B4F) #7
   %717 = call double @geod_gendirect(ptr noundef nonnull %148, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 3.000000e+00, i32 noundef 0, double noundef 4.000000e+00, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %147) #7
   %718 = load double, ptr %147, align 8, !tbaa !4
@@ -1390,25 +1390,25 @@ GeodSolve14.exit:                                 ; preds = %checkNaN.exit5.i, %
   br i1 %721, label %722, label %GeodSolve15.exit.thread
 
 GeodSolve15.exit.thread:                          ; preds = %716
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %148) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %726
 
 722:                                              ; preds = %716
   %723 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %718, double noundef 2.370000e+04, double noundef 5.000000e-01)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %148) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   %724 = add nsw i32 %.13, 1
   %725 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef 1)
   br label %726
 
 726:                                              ; preds = %GeodSolve15.exit.thread, %722
   %.14 = phi i32 [ %724, %722 ], [ %.13, %GeodSolve15.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %144) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %145) #7
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %146) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   call void @geod_init(ptr noundef nonnull %145, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   %727 = call double @geod_gendirect(ptr noundef nonnull %145, double noundef 4.000000e+01, double noundef -7.500000e+01, double noundef -1.000000e+01, i32 noundef 32768, double noundef 2.000000e+07, ptr noundef nonnull %142, ptr noundef nonnull %143, ptr noundef nonnull %144, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %728 = load double, ptr %142, align 8, !tbaa !4
@@ -1570,11 +1570,11 @@ GeodSolve17.exit:                                 ; preds = %checkEquals.exit34.
   %809 = add nuw nsw i32 %808, %.0.i31.i
   %810 = add nuw nsw i32 %809, %.0.i33.i
   %811 = add nuw nsw i32 %810, %.0.i35.i
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %146) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %145) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %144) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   %.not147 = icmp eq i32 %811, 0
   br i1 %.not147, label %815, label %812
 
@@ -1585,8 +1585,8 @@ GeodSolve17.exit:                                 ; preds = %checkEquals.exit34.
 
 815:                                              ; preds = %812, %GeodSolve17.exit
   %.15 = phi i32 [ %813, %812 ], [ %.14, %GeodSolve17.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %141) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   call void @geod_init(ptr noundef nonnull %141, double noundef 6.400000e+06, double noundef 0.000000e+00) #7
   %816 = call double @geod_geninverse(ptr noundef nonnull %141, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 3.000000e+00, double noundef 4.000000e+00, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %140) #7
   %817 = load double, ptr %140, align 8, !tbaa !4
@@ -1596,21 +1596,21 @@ GeodSolve17.exit:                                 ; preds = %checkEquals.exit34.
   br i1 %820, label %821, label %GeodSolve26.exit.thread
 
 GeodSolve26.exit.thread:                          ; preds = %815
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %141) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %825
 
 821:                                              ; preds = %815
   %822 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %817, double noundef 0x42273DDC3FC60000, double noundef 5.000000e-01)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %141) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %823 = add nsw i32 %.15, 1
   %824 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef 1)
   br label %825
 
 825:                                              ; preds = %GeodSolve26.exit.thread, %821
   %.16 = phi i32 [ %823, %821 ], [ %.15, %GeodSolve26.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %139) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   call void @geod_init(ptr noundef nonnull %139, double noundef 6.400000e+06, double noundef 1.000000e-01) #7
   %826 = call double @geod_gendirect(ptr noundef nonnull %139, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 1.000000e+01, i32 noundef 0, double noundef 5.000000e+06, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %827 = fadd double %826, 0xC04847216758D4AD
@@ -1619,22 +1619,22 @@ GeodSolve26.exit.thread:                          ; preds = %815
   br i1 %829, label %830, label %GeodSolve28.exit.thread
 
 GeodSolve28.exit.thread:                          ; preds = %825
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %139) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %834
 
 830:                                              ; preds = %825
   %831 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %826, double noundef 0x404847216758D4AD, double noundef 5.000000e-09)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %139) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   %832 = add nsw i32 %.16, 1
   %833 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef 1)
   br label %834
 
 834:                                              ; preds = %GeodSolve28.exit.thread, %830
   %.17 = phi i32 [ %832, %830 ], [ %.16, %GeodSolve28.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %138) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   call void @geod_init(ptr noundef nonnull %138, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %138, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.790000e+02, ptr noundef nonnull %137, ptr noundef nonnull %135, ptr noundef nonnull %136) #7
   %835 = load double, ptr %135, align 8, !tbaa !4
@@ -2077,10 +2077,10 @@ GeodSolve33.exit:                                 ; preds = %checkEquals.exit95.
   %1062 = add nuw nsw i32 %1061, %.0.i92.i
   %1063 = add nuw nsw i32 %1062, %.0.i94.i
   %1064 = add nuw nsw i32 %1063, %.0.i96.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %138) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   %.not150 = icmp eq i32 %1064, 0
   br i1 %.not150, label %1068, label %1065
 
@@ -2091,10 +2091,10 @@ GeodSolve33.exit:                                 ; preds = %checkEquals.exit95.
 
 1068:                                             ; preds = %1065, %GeodSolve33.exit
   %.18 = phi i32 [ %1066, %1065 ], [ %.17, %GeodSolve33.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %134) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   call void @geod_init(ptr noundef nonnull %134, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %134, double noundef 0x7FF8000000000000, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, ptr noundef nonnull %133, ptr noundef nonnull %131, ptr noundef nonnull %132) #7
   %1069 = load double, ptr %131, align 8, !tbaa !4
@@ -2163,10 +2163,10 @@ GeodSolve55.exit:                                 ; preds = %checkNaN.exit14.i, 
   %1095 = add nuw nsw i32 %1094, %.0.i11.i269
   %1096 = add nuw nsw i32 %1095, %.0.i13.i270
   %1097 = add nuw nsw i32 %1096, %.0.i15.i271
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %134) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   %.not151 = icmp eq i32 %1097, 0
   br i1 %.not151, label %1101, label %1098
 
@@ -2177,10 +2177,10 @@ GeodSolve55.exit:                                 ; preds = %checkNaN.exit14.i, 
 
 1101:                                             ; preds = %1098, %GeodSolve55.exit
   %.19 = phi i32 [ %1099, %1098 ], [ %.18, %GeodSolve55.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %130) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   call void @geod_init(ptr noundef nonnull %130, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %130, double noundef 5.000000e+00, double noundef 0x3D06849B86A12B9B, double noundef 1.000000e+01, double noundef 1.800000e+02, ptr noundef nonnull %129, ptr noundef nonnull %127, ptr noundef nonnull %128) #7
   %1102 = load double, ptr %127, align 8, !tbaa !4
@@ -2221,10 +2221,10 @@ GeodSolve59.exit:                                 ; preds = %checkEquals.exit5.i
   %.0.i6.i276 = phi i32 [ 1, %1118 ], [ 0, %checkEquals.exit5.i274 ]
   %1120 = add nuw nsw i32 %.0.i4.i275, %.0.i.i273
   %1121 = add nuw nsw i32 %1120, %.0.i6.i276
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %130) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   %.not152 = icmp eq i32 %1121, 0
   br i1 %.not152, label %1125, label %1122
 
@@ -2235,11 +2235,11 @@ GeodSolve59.exit:                                 ; preds = %checkEquals.exit5.i
 
 1125:                                             ; preds = %1122, %GeodSolve59.exit
   %.20 = phi i32 [ %1123, %1122 ], [ %.19, %GeodSolve59.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %125) #7
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %126) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @geod_init(ptr noundef nonnull %125, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   %1126 = call double @geod_gendirect(ptr noundef nonnull %125, double noundef 4.500000e+01, double noundef 0.000000e+00, double noundef -3.000000e-18, i32 noundef 32768, double noundef 1.000000e+07, ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %1127 = load double, ptr %122, align 8, !tbaa !4
@@ -2323,11 +2323,11 @@ GeodSolve61.exit:                                 ; preds = %checkEquals.exit16.
   %1168 = add nuw nsw i32 %1167, %.0.i13.i284
   %1169 = add nuw nsw i32 %1168, %.0.i15.i286
   %1170 = add nuw nsw i32 %1169, %.0.i17.i288
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %126) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %125) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   %.not153 = icmp eq i32 %1170, 0
   br i1 %.not153, label %1174, label %1171
 
@@ -2338,16 +2338,16 @@ GeodSolve61.exit:                                 ; preds = %checkEquals.exit16.
 
 1174:                                             ; preds = %1171, %GeodSolve61.exit
   %.21 = phi i32 [ %1172, %1171 ], [ %.20, %GeodSolve61.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %120) #7
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %121) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call void @geod_init(ptr noundef nonnull %120, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverseline(ptr noundef nonnull %121, ptr noundef nonnull %120, double noundef 3.000000e+01, double noundef -1.000000e-18, double noundef -3.100000e+01, double noundef 1.800000e+02, i32 noundef 32671) #7
   %1175 = call double @geod_genposition(ptr noundef nonnull %121, i32 noundef 32768, double noundef 1.000000e+07, ptr noundef nonnull %112, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %119) #7
@@ -2583,16 +2583,16 @@ GeodSolve65.exit:                                 ; preds = %checkEquals.exit54.
   %1297 = add nuw nsw i32 %1296, %.0.i51.i317
   %1298 = add nuw nsw i32 %1297, %.0.i53.i319
   %1299 = add nuw nsw i32 %1298, %.0.i55.i321
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %121) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %120) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %.not154 = icmp eq i32 %1299, 0
   br i1 %.not154, label %1303, label %1300
 
@@ -2603,11 +2603,11 @@ GeodSolve65.exit:                                 ; preds = %checkEquals.exit54.
 
 1303:                                             ; preds = %1300, %GeodSolve65.exit
   %.22 = phi i32 [ %1301, %1300 ], [ %.21, %GeodSolve65.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %110) #7
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %111) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   call void @geod_init(ptr noundef nonnull %110, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverseline(ptr noundef nonnull %111, ptr noundef nonnull %110, double noundef -5.000000e+00, double noundef -2.000000e-15, double noundef -1.000000e+01, double noundef 1.800000e+02, i32 noundef 0) #7
   %1304 = call double @geod_genposition(ptr noundef nonnull %111, i32 noundef 32768, double noundef 2.000000e+07, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
@@ -2692,11 +2692,11 @@ GeodSolve67.exit:                                 ; preds = %checkEquals.exit16.
   %1347 = add nuw nsw i32 %1346, %.0.i13.i329
   %1348 = add nuw nsw i32 %1347, %.0.i15.i331
   %1349 = add nuw nsw i32 %1348, %.0.i17.i333
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %111) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %110) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   %.not155 = icmp eq i32 %1349, 0
   br i1 %.not155, label %1353, label %1350
 
@@ -2707,11 +2707,11 @@ GeodSolve67.exit:                                 ; preds = %checkEquals.exit16.
 
 1353:                                             ; preds = %1350, %GeodSolve67.exit
   %.23 = phi i32 [ %1351, %1350 ], [ %.22, %GeodSolve67.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %105) #7
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %106) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @geod_init(ptr noundef nonnull %105, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_directline(ptr noundef nonnull %106, ptr noundef nonnull %105, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 4.500000e+01, double noundef 1.000000e+07, i32 noundef 0) #7
   %1354 = getelementptr inbounds nuw i8, ptr %106, i64 64
@@ -2756,11 +2756,11 @@ GeodSolve71.exit:                                 ; preds = %checkEquals.exit5.i
   %.0.i6.i338 = phi i32 [ 1, %1373 ], [ 0, %checkEquals.exit5.i336 ]
   %1375 = add nuw nsw i32 %.0.i4.i337, %.0.i.i335
   %1376 = add nuw nsw i32 %1375, %.0.i6.i338
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %106) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %105) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   %.not156 = icmp eq i32 %1376, 0
   br i1 %.not156, label %1380, label %1377
 
@@ -2771,10 +2771,10 @@ GeodSolve71.exit:                                 ; preds = %checkEquals.exit5.i
 
 1380:                                             ; preds = %1377, %GeodSolve71.exit
   %.24 = phi i32 [ %1378, %1377 ], [ %.23, %GeodSolve71.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %101) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @geod_init(ptr noundef nonnull %101, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_direct(ptr noundef nonnull %101, double noundef 9.000000e+01, double noundef 1.000000e+01, double noundef 1.800000e+02, double noundef -1.000000e+06, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100) #7
   %1381 = load double, ptr %98, align 8, !tbaa !4
@@ -2810,10 +2810,10 @@ GeodSolve73.exit:                                 ; preds = %checkEquals.exit.i3
   %1399 = fcmp ule double %1398, 0.000000e+00
   %1400 = zext i1 %1399 to i32
   %1401 = add nuw nsw i32 %1397, %1400
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %101) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   %.not157 = icmp eq i32 %1401, 0
   br i1 %.not157, label %1405, label %1402
 
@@ -2824,14 +2824,14 @@ GeodSolve73.exit:                                 ; preds = %checkEquals.exit.i3
 
 1405:                                             ; preds = %1402, %GeodSolve73.exit
   %.25 = phi i32 [ %1403, %1402 ], [ %.24, %GeodSolve73.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %97) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @geod_init(ptr noundef nonnull %97, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   %1406 = call double @geod_geninverse(ptr noundef nonnull %97, double noundef 5.415890e+01, double noundef 1.538720e+01, double noundef 5.415910e+01, double noundef 1.538770e+01, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef nonnull %96) #7
   %1407 = load double, ptr %91, align 8, !tbaa !4
@@ -2936,14 +2936,14 @@ GeodSolve74.exit:                                 ; preds = %checkEquals.exit20.
   %1458 = add nuw nsw i32 %1457, %.0.i17.i352
   %1459 = add nuw nsw i32 %1458, %.0.i19.i354
   %1460 = add nuw nsw i32 %1459, %.0.i21.i356
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %97) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %.not158 = icmp eq i32 %1460, 0
   br i1 %.not158, label %1464, label %1461
 
@@ -2954,10 +2954,10 @@ GeodSolve74.exit:                                 ; preds = %checkEquals.exit20.
 
 1464:                                             ; preds = %1461, %GeodSolve74.exit
   %.26 = phi i32 [ %1462, %1461 ], [ %.25, %GeodSolve74.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %89) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call void @geod_init(ptr noundef nonnull %89, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %89, double noundef 0xC044A88888888889, double noundef 0x4065DA2222222222, double noundef 0x40447BBBBBBBBBBC, double noundef -5.500000e+00, ptr noundef nonnull %88, ptr noundef nonnull %86, ptr noundef nonnull %87) #7
   %1465 = load double, ptr %86, align 8, !tbaa !4
@@ -2998,10 +2998,10 @@ GeodSolve76.exit:                                 ; preds = %checkEquals.exit5.i
   %.0.i6.i361 = phi i32 [ 1, %1481 ], [ 0, %checkEquals.exit5.i359 ]
   %1483 = add nuw nsw i32 %.0.i4.i360, %.0.i.i358
   %1484 = add nuw nsw i32 %1483, %.0.i6.i361
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %89) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   %.not159 = icmp eq i32 %1484, 0
   br i1 %.not159, label %1488, label %1485
 
@@ -3012,10 +3012,10 @@ GeodSolve76.exit:                                 ; preds = %checkEquals.exit5.i
 
 1488:                                             ; preds = %1485, %GeodSolve76.exit
   %.27 = phi i32 [ %1486, %1485 ], [ %.26, %GeodSolve76.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %85) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call void @geod_init(ptr noundef nonnull %85, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %85, double noundef 2.720000e+01, double noundef 0.000000e+00, double noundef -2.710000e+01, double noundef 1.795000e+02, ptr noundef nonnull %84, ptr noundef nonnull %82, ptr noundef nonnull %83) #7
   %1489 = load double, ptr %82, align 8, !tbaa !4
@@ -3056,10 +3056,10 @@ GeodSolve78.exit:                                 ; preds = %checkEquals.exit5.i
   %.0.i6.i366 = phi i32 [ 1, %1505 ], [ 0, %checkEquals.exit5.i364 ]
   %1507 = add nuw nsw i32 %.0.i4.i365, %.0.i.i363
   %1508 = add nuw nsw i32 %1507, %.0.i6.i366
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %85) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %.not160 = icmp eq i32 %1508, 0
   br i1 %.not160, label %1512, label %1509
 
@@ -3070,15 +3070,15 @@ GeodSolve78.exit:                                 ; preds = %checkEquals.exit5.i
 
 1512:                                             ; preds = %1509, %GeodSolve78.exit
   %.28 = phi i32 [ %1510, %1509 ], [ %.27, %GeodSolve78.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %80) #7
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %81) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call void @geod_init(ptr noundef nonnull %80, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   %1513 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef null) #7
   %1514 = load double, ptr %77, align 8, !tbaa !4
@@ -3359,15 +3359,15 @@ GeodSolve80.exit:                                 ; preds = %checkEquals.exit65.
   %1662 = add nuw nsw i32 %1661, %.0.i62.i398
   %1663 = add nuw nsw i32 %1662, %.0.i64.i400
   %1664 = add nuw nsw i32 %1663, %.0.i66.i402
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %81) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %80) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %.not161 = icmp eq i32 %1664, 0
   br i1 %.not161, label %1668, label %1665
 
@@ -3378,11 +3378,11 @@ GeodSolve80.exit:                                 ; preds = %checkEquals.exit65.
 
 1668:                                             ; preds = %1665, %GeodSolve80.exit
   %.29 = phi i32 [ %1666, %1665 ], [ %.28, %GeodSolve80.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %72) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   call void @geod_init(ptr noundef nonnull %72, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 0.000000e+00, ptr noundef nonnull %71, ptr noundef null, ptr noundef null) #7
   %1669 = load double, ptr %71, align 8, !tbaa !4
@@ -3634,11 +3634,11 @@ GeodSolve84.exit:                                 ; preds = %checkNaN.exit60.i, 
   %1786 = add nuw nsw i32 %1785, %.0.i57.i421
   %1787 = add nuw nsw i32 %1786, %.0.i59.i
   %1788 = add nuw nsw i32 %1787, %.0.i61.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %72) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %.not162 = icmp eq i32 %1788, 0
   br i1 %.not162, label %1792, label %1789
 
@@ -3649,10 +3649,10 @@ GeodSolve84.exit:                                 ; preds = %checkNaN.exit60.i, 
 
 1792:                                             ; preds = %1789, %GeodSolve84.exit
   %.30 = phi i32 [ %1790, %1789 ], [ %.29, %GeodSolve84.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %67) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   call void @geod_init(ptr noundef nonnull %67, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %67, double noundef 0x4042E0F7121AB4B8, double noundef 0xC05E9E176DDACEEE, double noundef 0x4042E0F7121AB4B7, double noundef 0xC05E9E1761459536, ptr noundef nonnull %66, ptr noundef nonnull %64, ptr noundef nonnull %65) #7
   %1793 = load double, ptr %64, align 8, !tbaa !4
@@ -3693,10 +3693,10 @@ GeodSolve92.exit:                                 ; preds = %checkEquals.exit5.i
   %.0.i6.i426 = phi i32 [ 1, %1809 ], [ 0, %checkEquals.exit5.i424 ]
   %1811 = add nuw nsw i32 %.0.i4.i425, %.0.i.i423
   %1812 = add nuw nsw i32 %1811, %.0.i6.i426
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %67) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %.not163 = icmp eq i32 %1812, 0
   br i1 %.not163, label %1816, label %1813
 
@@ -3707,10 +3707,10 @@ GeodSolve92.exit:                                 ; preds = %checkEquals.exit5.i
 
 1816:                                             ; preds = %1813, %GeodSolve92.exit
   %.31 = phi i32 [ %1814, %1813 ], [ %.30, %GeodSolve92.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %63) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @geod_init(ptr noundef nonnull %63, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %63, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x7FF8000000000000, double noundef 9.000000e+01, ptr noundef nonnull %62, ptr noundef nonnull %60, ptr noundef nonnull %61) #7
   %1817 = load double, ptr %60, align 8, !tbaa !4
@@ -3745,10 +3745,10 @@ GeodSolve94.exit:                                 ; preds = %checkNaN.exit5.i429
   %.0.i6.i431 = phi i32 [ 1, %1827 ], [ 0, %checkNaN.exit5.i429 ]
   %1829 = add nuw nsw i32 %.0.i4.i430, %.0.i.i428
   %1830 = add nuw nsw i32 %1829, %.0.i6.i431
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %63) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %.not164 = icmp eq i32 %1830, 0
   br i1 %.not164, label %1834, label %1831
 
@@ -3759,8 +3759,8 @@ GeodSolve94.exit:                                 ; preds = %checkNaN.exit5.i429
 
 1834:                                             ; preds = %1831, %GeodSolve94.exit
   %.32 = phi i32 [ %1832, %1831 ], [ %.31, %GeodSolve94.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #7
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %59) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @geod_init(ptr noundef nonnull %59, double noundef 0x415854A640000000, double noundef 0x3F6B775A87362105) #7
   %1835 = call double @geod_geninverse(ptr noundef nonnull %59, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x404E0AA802CD5C72, double noundef 0x4056765998952DAD, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %58) #7
   %1836 = load double, ptr %58, align 8, !tbaa !4
@@ -3770,21 +3770,21 @@ GeodSolve94.exit:                                 ; preds = %checkNaN.exit5.i429
   br i1 %1839, label %1840, label %GeodSolve96.exit.thread
 
 GeodSolve96.exit.thread:                          ; preds = %1834
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %59) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %1844
 
 1840:                                             ; preds = %1834
   %1841 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1836, double noundef 0x42C34B251CABCA80, double noundef 5.000000e-01)
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %59) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %1842 = add nsw i32 %.32, 1
   %1843 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef 1)
   br label %1844
 
 1844:                                             ; preds = %GeodSolve96.exit.thread, %1840
   %.33 = phi i32 [ %1842, %1840 ], [ %.32, %GeodSolve96.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %53) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   %1845 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store double -1.000000e+00, ptr %1845, align 8
@@ -3794,16 +3794,16 @@ GeodSolve96.exit.thread:                          ; preds = %1834
   store double 1.000000e+00, ptr %1847, align 8
   %1848 = getelementptr inbounds nuw i8, ptr %53, i64 48
   store double 1.000000e+00, ptr %1848, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %54, i8 0, i64 48, i1 false)
   store double 9.000000e+01, ptr %54, align 16
   %1849 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store double 9.000000e+01, ptr %1849, align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %55) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @geod_init(ptr noundef nonnull %55, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %52) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @geod_polygon_init(ptr noundef nonnull %52, i32 noundef 0) #7
   br label %1850
 
@@ -3818,7 +3818,7 @@ GeodSolve96.exit.thread:                          ; preds = %1834
 
 planimeter.exit.i:                                ; preds = %1850
   %1853 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %52, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %52) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %1854 = load double, ptr %56, align 8, !tbaa !4
   %1855 = fadd double %1854, 0xC1234817BFBE76C9
   %1856 = call double @llvm.fabs.f64(double %1855)
@@ -3843,7 +3843,7 @@ checkEquals.exit.i434:                            ; preds = %1858, %planimeter.e
 
 checkEquals.exit11.i:                             ; preds = %1864, %checkEquals.exit.i434
   %.0.i10.i = phi i32 [ 1, %1864 ], [ 0, %checkEquals.exit.i434 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %51) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @geod_polygon_init(ptr noundef nonnull %51, i32 noundef 0) #7
   br label %1866
 
@@ -3858,7 +3858,7 @@ checkEquals.exit11.i:                             ; preds = %1864, %checkEquals.
 
 planimeter.exit15.i:                              ; preds = %1866
   %1869 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %51, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %51) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %1870 = load double, ptr %56, align 8, !tbaa !4
   %1871 = fadd double %1870, 0xC1234817BFBE76C9
   %1872 = call double @llvm.fabs.f64(double %1871)
@@ -3883,7 +3883,7 @@ checkEquals.exit17.i:                             ; preds = %1874, %planimeter.e
 
 checkEquals.exit19.i:                             ; preds = %1880, %checkEquals.exit17.i
   %.0.i18.i = phi i32 [ 1, %1880 ], [ 0, %checkEquals.exit17.i ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %50) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @geod_polygon_init(ptr noundef nonnull %50, i32 noundef 0) #7
   br label %1882
 
@@ -3900,7 +3900,7 @@ checkEquals.exit19.i:                             ; preds = %1880, %checkEquals.
 
 planimeter.exit23.i:                              ; preds = %1882
   %1887 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %50) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %1888 = load double, ptr %56, align 8, !tbaa !4
   %1889 = fadd double %1888, 0xC123271C8BD3C361
   %1890 = call double @llvm.fabs.f64(double %1889)
@@ -3925,7 +3925,7 @@ checkEquals.exit25.i:                             ; preds = %1892, %planimeter.e
 
 checkEquals.exit27.i:                             ; preds = %1898, %checkEquals.exit25.i
   %.0.i26.i = phi i32 [ 1, %1898 ], [ 0, %checkEquals.exit25.i ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %49) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @geod_polygon_init(ptr noundef nonnull %49, i32 noundef 0) #7
   br label %1900
 
@@ -3942,7 +3942,7 @@ checkEquals.exit27.i:                             ; preds = %1898, %checkEquals.
 
 planimeter.exit31.i:                              ; preds = %1900
   %1905 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %49) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %1906 = load double, ptr %56, align 8, !tbaa !4
   %1907 = fadd double %1906, 0xC17CA1C1D0000000
   %1908 = call double @llvm.fabs.f64(double %1907)
@@ -3967,7 +3967,7 @@ checkEquals.exit33.i436:                          ; preds = %1910, %planimeter.e
 
 checkEquals.exit35.i438:                          ; preds = %1916, %checkEquals.exit33.i436
   %.0.i34.i439 = phi i32 [ 1, %1916 ], [ 0, %checkEquals.exit33.i436 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %48) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @geod_polygon_init(ptr noundef nonnull %48, i32 noundef 1) #7
   br label %1918
 
@@ -3984,7 +3984,7 @@ checkEquals.exit35.i438:                          ; preds = %1916, %checkEquals.
 
 polylength.exit.i:                                ; preds = %1918
   %1923 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %48, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %48) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %1924 = load double, ptr %56, align 8, !tbaa !4
   %1925 = fadd double %1924, 0xC17317DEF0000000
   %1926 = call double @llvm.fabs.f64(double %1925)
@@ -4005,11 +4005,11 @@ Planimeter0.exit:                                 ; preds = %polylength.exit.i, 
   %1935 = add nuw nsw i32 %1934, %.0.i32.i437
   %1936 = add nuw nsw i32 %1935, %.0.i34.i439
   %1937 = add nuw nsw i32 %1936, %.0.i39.i441
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %55) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %53) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %.not166 = icmp eq i32 %1937, 0
   br i1 %.not166, label %1941, label %1938
 
@@ -4020,7 +4020,7 @@ Planimeter0.exit:                                 ; preds = %polylength.exit.i, 
 
 1941:                                             ; preds = %1938, %Planimeter0.exit
   %.34 = phi i32 [ %1939, %1938 ], [ %.33, %Planimeter0.exit ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store double 8.900000e+01, ptr %44, align 16
   %1942 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store double 1.000000e-01, ptr %1942, align 8
@@ -4032,11 +4032,11 @@ Planimeter0.exit:                                 ; preds = %polylength.exit.i, 
   store double 8.900000e+01, ptr %1945, align 16
   %1946 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store double -1.799000e+02, ptr %1946, align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %45) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @geod_init(ptr noundef nonnull %45, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %43) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @geod_polygon_init(ptr noundef nonnull %43, i32 noundef 0) #7
   br label %1947
 
@@ -4053,7 +4053,7 @@ Planimeter0.exit:                                 ; preds = %polylength.exit.i, 
 
 planimeter.exit.i445:                             ; preds = %1947
   %1952 = call i32 @geod_polygon_compute(ptr noundef nonnull %45, ptr noundef nonnull %43, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %47, ptr noundef nonnull %46) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %43) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %1953 = load double, ptr %46, align 8, !tbaa !4
   %1954 = fadd double %1953, -5.392970e+05
   %1955 = call double @llvm.fabs.f64(double %1954)
@@ -4079,10 +4079,10 @@ checkEquals.exit.i446:                            ; preds = %1957, %planimeter.e
 Planimeter5.exit:                                 ; preds = %checkEquals.exit.i446, %1963
   %.0.i3.i = phi i32 [ 1, %1963 ], [ 0, %checkEquals.exit.i446 ]
   %1965 = add nuw nsw i32 %.0.i3.i, %.0.i.i447
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %45) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %.not167 = icmp eq i32 %1965, 0
   br i1 %.not167, label %1969, label %1966
 
@@ -4093,7 +4093,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
 
 1969:                                             ; preds = %1966, %Planimeter5.exit
   %.35 = phi i32 [ %1967, %1966 ], [ %.34, %Planimeter5.exit ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1970 = getelementptr inbounds nuw i8, ptr %36, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1970, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %36, align 16
@@ -4104,7 +4104,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
   %1973 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store double 1.800000e+02, ptr %1973, align 8
   store double 9.000000e+00, ptr %1970, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1974 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1974, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %37, align 16
@@ -4115,7 +4115,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
   store double 9.000000e+00, ptr %1976, align 16
   %1977 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store double 1.800000e+02, ptr %1977, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1978 = getelementptr inbounds nuw i8, ptr %38, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1978, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %38, align 16
@@ -4126,7 +4126,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
   %1981 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store double 1.800000e+02, ptr %1981, align 8
   store double 9.000000e+00, ptr %1978, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1982 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1982, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %39, align 16
@@ -4137,11 +4137,11 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
   store double 9.000000e+00, ptr %1984, align 16
   %1985 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store double 1.800000e+02, ptr %1985, align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %40) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @geod_init(ptr noundef nonnull %40, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @geod_polygon_init(ptr noundef nonnull %35, i32 noundef 0) #7
   br label %1986
 
@@ -4158,7 +4158,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
 
 planimeter.exit.i451:                             ; preds = %1986
   %1991 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %35) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1992 = load double, ptr %41, align 8, !tbaa !4
   %1993 = fadd double %1992, 0xC1812DCF68000000
   %1994 = call double @llvm.fabs.f64(double %1993)
@@ -4182,7 +4182,7 @@ checkEquals.exit.i452:                            ; preds = %1996, %planimeter.e
 
 checkEquals.exit10.i454:                          ; preds = %2001, %checkEquals.exit.i452
   %.0.i9.i455 = phi i32 [ 1, %2001 ], [ 0, %checkEquals.exit.i452 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @geod_polygon_init(ptr noundef nonnull %34, i32 noundef 0) #7
   br label %2003
 
@@ -4199,7 +4199,7 @@ checkEquals.exit10.i454:                          ; preds = %2001, %checkEquals.
 
 planimeter.exit14.i:                              ; preds = %2003
   %2008 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %2009 = load double, ptr %41, align 8, !tbaa !4
   %2010 = fadd double %2009, 0xC1812DCF68000000
   %2011 = call double @llvm.fabs.f64(double %2010)
@@ -4223,7 +4223,7 @@ checkEquals.exit16.i456:                          ; preds = %2013, %planimeter.e
 
 checkEquals.exit18.i458:                          ; preds = %2018, %checkEquals.exit16.i456
   %.0.i17.i459 = phi i32 [ 1, %2018 ], [ 0, %checkEquals.exit16.i456 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @geod_polygon_init(ptr noundef nonnull %33, i32 noundef 0) #7
   br label %2020
 
@@ -4240,7 +4240,7 @@ checkEquals.exit18.i458:                          ; preds = %2018, %checkEquals.
 
 planimeter.exit22.i:                              ; preds = %2020
   %2025 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %2026 = load double, ptr %41, align 8, !tbaa !4
   %2027 = fadd double %2026, 0xC1812DCF68000000
   %2028 = call double @llvm.fabs.f64(double %2027)
@@ -4264,7 +4264,7 @@ checkEquals.exit24.i460:                          ; preds = %2030, %planimeter.e
 
 checkEquals.exit26.i462:                          ; preds = %2035, %checkEquals.exit24.i460
   %.0.i25.i463 = phi i32 [ 1, %2035 ], [ 0, %checkEquals.exit24.i460 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @geod_polygon_init(ptr noundef nonnull %32, i32 noundef 0) #7
   br label %2037
 
@@ -4281,7 +4281,7 @@ checkEquals.exit26.i462:                          ; preds = %2035, %checkEquals.
 
 planimeter.exit30.i:                              ; preds = %2037
   %2042 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %2043 = load double, ptr %41, align 8, !tbaa !4
   %2044 = fadd double %2043, 0xC1812DCF68000000
   %2045 = call double @llvm.fabs.f64(double %2044)
@@ -4312,13 +4312,13 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
   %2058 = add nuw nsw i32 %2057, %.0.i25.i463
   %2059 = add nuw nsw i32 %2058, %.0.i31.i465
   %2060 = add nuw nsw i32 %2059, %.0.i33.i467
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %40) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.not168 = icmp eq i32 %2060, 0
   br i1 %.not168, label %2064, label %2061
 
@@ -4329,7 +4329,7 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
 
 2064:                                             ; preds = %2061, %Planimeter6.exit
   %.36 = phi i32 [ %2062, %2061 ], [ %.35, %Planimeter6.exit ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %28, i8 0, i64 16, i1 false)
   store double 0x4050A3FB72EA24C4, ptr %28, align 16
   %2065 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -4340,11 +4340,11 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
   store double 0x4050A3FB72EA24C4, ptr %2067, align 16
   %2068 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store double 3.600000e+02, ptr %2068, align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %29) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @geod_init(ptr noundef nonnull %29, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @geod_polygon_init(ptr noundef nonnull %27, i32 noundef 0) #7
   br label %2069
 
@@ -4361,7 +4361,7 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
 
 planimeter.exit.i471:                             ; preds = %2069
   %2074 = call i32 @geod_polygon_compute(ptr noundef nonnull %29, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %31, ptr noundef nonnull %30) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %27) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %2075 = load double, ptr %30, align 8, !tbaa !4
   %2076 = fadd double %2075, 0xC163F63820000000
   %2077 = call double @llvm.fabs.f64(double %2076)
@@ -4386,10 +4386,10 @@ checkEquals.exit.i472:                            ; preds = %2079, %planimeter.e
 Planimeter12.exit:                                ; preds = %checkEquals.exit.i472, %2084
   %.0.i3.i474 = phi i32 [ 1, %2084 ], [ 0, %checkEquals.exit.i472 ]
   %2086 = add nuw nsw i32 %.0.i3.i474, %.0.i.i473
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %29) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.not169 = icmp eq i32 %2086, 0
   br i1 %.not169, label %2090, label %2087
 
@@ -4400,7 +4400,7 @@ Planimeter12.exit:                                ; preds = %checkEquals.exit.i4
 
 2090:                                             ; preds = %2087, %Planimeter12.exit
   %.37 = phi i32 [ %2088, %2087 ], [ %.36, %Planimeter12.exit ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %23, i8 0, i64 16, i1 false)
   store double 0x4050A3FB72EA24C4, ptr %23, align 16
   %2091 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -4411,11 +4411,11 @@ Planimeter12.exit:                                ; preds = %checkEquals.exit.i4
   store double 0x4050A3FB72EA24C4, ptr %2093, align 16
   %2094 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store double -3.600000e+02, ptr %2094, align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %24) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @geod_init(ptr noundef nonnull %24, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @geod_polygon_init(ptr noundef nonnull %22, i32 noundef 0) #7
   br label %2095
 
@@ -4432,7 +4432,7 @@ Planimeter12.exit:                                ; preds = %checkEquals.exit.i4
 
 planimeter.exit.i478:                             ; preds = %2095
   %2100 = call i32 @geod_polygon_compute(ptr noundef nonnull %24, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %26, ptr noundef nonnull %25) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %2101 = load double, ptr %25, align 8, !tbaa !4
   %2102 = fadd double %2101, 0xC163F63820000000
   %2103 = call double @llvm.fabs.f64(double %2102)
@@ -4457,10 +4457,10 @@ checkEquals.exit.i479:                            ; preds = %2105, %planimeter.e
 Planimeter12r.exit:                               ; preds = %checkEquals.exit.i479, %2110
   %.0.i3.i481 = phi i32 [ 1, %2110 ], [ 0, %checkEquals.exit.i479 ]
   %2112 = add nuw nsw i32 %.0.i3.i481, %.0.i.i480
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %24) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not170 = icmp eq i32 %2112, 0
   br i1 %.not170, label %2116, label %2113
 
@@ -4471,11 +4471,11 @@ Planimeter12r.exit:                               ; preds = %checkEquals.exit.i4
 
 2116:                                             ; preds = %2113, %Planimeter12r.exit
   %.38 = phi i32 [ %2114, %2113 ], [ %.37, %Planimeter12r.exit ]
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %19) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @geod_init(ptr noundef nonnull %19, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @geod_polygon_init(ptr noundef nonnull %18, i32 noundef 0) #7
   br label %2117
 
@@ -4490,7 +4490,7 @@ Planimeter12r.exit:                               ; preds = %checkEquals.exit.i4
 
 planimeter.exit.i485:                             ; preds = %2117
   %2120 = call i32 @geod_polygon_compute(ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %20) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %2121 = load double, ptr %20, align 8, !tbaa !4
   %2122 = fadd double %2121, 0xC131B62500000000
   %2123 = call double @llvm.fabs.f64(double %2122)
@@ -4516,9 +4516,9 @@ checkEquals.exit.i486:                            ; preds = %2125, %planimeter.e
 Planimeter13.exit:                                ; preds = %checkEquals.exit.i486, %2131
   %.0.i3.i488 = phi i32 [ 1, %2131 ], [ 0, %checkEquals.exit.i486 ]
   %2133 = add nuw nsw i32 %.0.i3.i488, %.0.i.i487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not171 = icmp eq i32 %2133, 0
   br i1 %.not171, label %2137, label %2134
 
@@ -4529,15 +4529,15 @@ Planimeter13.exit:                                ; preds = %checkEquals.exit.i4
 
 2137:                                             ; preds = %2134, %Planimeter13.exit
   %.39 = phi i32 [ %2135, %2134 ], [ %.38, %Planimeter13.exit ]
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %13, ptr noundef nonnull align 16 dereferenceable(24) @__const.Planimeter15.lat, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %14, ptr noundef nonnull align 16 dereferenceable(24) @__const.Planimeter15.lon, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @geod_init(ptr noundef nonnull %11, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_polygon_init(ptr noundef nonnull %12, i32 noundef 0) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 2.000000e+00, double noundef 1.000000e+00) #7
@@ -4733,13 +4733,13 @@ Planimeter15.exit:                                ; preds = %checkEquals.exit50.
   %2245 = add nuw nsw i32 %2244, %.0.i47.i510
   %2246 = add nuw nsw i32 %2245, %.0.i49.i512
   %2247 = add nuw nsw i32 %2246, %.0.i51.i514
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not172 = icmp eq i32 %2247, 0
   br i1 %.not172, label %2251, label %2248
 
@@ -4750,10 +4750,10 @@ Planimeter15.exit:                                ; preds = %checkEquals.exit50.
 
 2251:                                             ; preds = %2248, %Planimeter15.exit
   %.40 = phi i32 [ %2249, %2248 ], [ %.39, %Planimeter15.exit ]
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @geod_init(ptr noundef nonnull %7, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_polygon_init(ptr noundef nonnull %8, i32 noundef 0) #7
   %2252 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
@@ -4864,10 +4864,10 @@ Planimeter19.exit:                                ; preds = %checkEquals.exit.i5
   %2323 = add nuw nsw i32 %2320, %2322
   %2324 = add nuw nsw i32 %2323, %.0.i19.i520
   %2325 = add nuw nsw i32 %2324, %.0.i20.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not173 = icmp eq i32 %2325, 0
   br i1 %.not173, label %2329, label %2326
 
@@ -4878,9 +4878,9 @@ Planimeter19.exit:                                ; preds = %checkEquals.exit.i5
 
 2329:                                             ; preds = %2326, %Planimeter19.exit
   %.41 = phi i32 [ %2327, %2326 ], [ %.40, %Planimeter19.exit ]
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @geod_init(ptr noundef nonnull %4, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_polygon_init(ptr noundef nonnull %5, i32 noundef 0) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 6.000000e+01) #7
@@ -5076,9 +5076,9 @@ checkEquals.exit84.i:                             ; preds = %2430, %checkEquals.
   br i1 %exitcond.not.i523, label %Planimeter21.exit, label %2330
 
 Planimeter21.exit:                                ; preds = %checkEquals.exit84.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not174 = icmp eq i32 %2432, 0
   br i1 %.not174, label %2437, label %2434
 
@@ -5089,9 +5089,9 @@ Planimeter21.exit:                                ; preds = %checkEquals.exit84.
 
 2437:                                             ; preds = %2434, %Planimeter21.exit
   %.42 = phi i32 [ %2435, %2434 ], [ %.41, %Planimeter21.exit ]
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %1) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @geod_init(ptr noundef nonnull %1, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_polygon_init(ptr noundef nonnull %2, i32 noundef 0) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
@@ -5106,16 +5106,16 @@ Planimeter21.exit:                                ; preds = %checkEquals.exit84.
   br i1 %2442, label %2443, label %Planimeter29.exit.thread
 
 Planimeter29.exit.thread:                         ; preds = %2437
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %2447
 
 2443:                                             ; preds = %2437
   %2444 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2439, double noundef 1.000000e+06, double noundef 1.000000e-02)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %2445 = add nsw i32 %.42, 1
   %2446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef 1)
   br label %2447
@@ -5125,68 +5125,68 @@ Planimeter29.exit.thread:                         ; preds = %2437
   ret i32 %.43
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @geod_init(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @geod_init(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
-
-declare double @geod_geninverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare double @geod_geninverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #3
 
-declare double @geod_gendirect(ptr noundef, double noundef, double noundef, double noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare double @geod_gendirect(ptr noundef, double noundef, double noundef, double noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @geod_inverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @geod_inverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @geod_direct(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @geod_direct(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @geod_lineinit(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #3
+declare void @geod_lineinit(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #2
 
-declare double @geod_genposition(ptr noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare double @geod_genposition(ptr noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @geod_position(ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @geod_position(ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @geod_inverseline(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #3
+declare void @geod_inverseline(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @geod_directline(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #3
+declare void @geod_directline(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @geod_polygon_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @geod_polygon_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @geod_polygon_addpoint(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @geod_polygon_addpoint(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare i32 @geod_polygon_compute(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @geod_polygon_compute(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @geod_polygon_testpoint(ptr noundef, ptr noundef, double noundef, double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @geod_polygon_testpoint(ptr noundef, ptr noundef, double noundef, double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @geod_polygon_testedge(ptr noundef, ptr noundef, double noundef, double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @geod_polygon_testedge(ptr noundef, ptr noundef, double noundef, double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @geod_polygonarea(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @geod_polygonarea(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
-declare void @geod_polygon_addedge(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @geod_polygon_addedge(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

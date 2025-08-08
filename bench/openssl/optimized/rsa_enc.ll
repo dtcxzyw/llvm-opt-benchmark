@@ -626,10 +626,10 @@ define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef captures(add
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %12 = icmp eq ptr %0, null
   br i1 %12, label %ossl_param_is_empty.exit.thread, label %13
@@ -681,7 +681,7 @@ ossl_param_is_empty.exit:                         ; preds = %13
   br i1 %.not90, label %60, label %32
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !32
@@ -761,11 +761,11 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %58 = phi i32 [ %.pre, %..critedge106_crit_edge ], [ %49, %thread-pre-split ], [ 4, %50 ], [ 0, %.lr.ph ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %58, ptr %59, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 .critedge:                                        ; preds = %37, %54, %thread-pre-split, %32, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ossl_param_is_empty.exit.thread
 
 60:                                               ; preds = %.critedge106, %30
@@ -811,9 +811,9 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not98, label %86, label %78
 
 78:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %79 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %77, ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull %8) #7
   %.not99.not = icmp eq i32 %79, 0
   br i1 %.not99.not, label %.critedge108, label %80
@@ -827,8 +827,8 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %84 = load i64, ptr %8, align 8, !tbaa !15
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %84, ptr %85, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86
 
 86:                                               ; preds = %80, %76
@@ -837,7 +837,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not100, label %93, label %88
 
 88:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %89 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %87, ptr noundef nonnull %9) #7
   %.not101.not = icmp eq i32 %89, 0
   br i1 %.not101.not, label %.critedge110, label %90
@@ -846,7 +846,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %91 = load i32, ptr %9, align 4, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %91, ptr %92, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %93
 
 93:                                               ; preds = %90, %86
@@ -855,7 +855,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not102, label %100, label %95
 
 95:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %96 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %94, ptr noundef nonnull %10) #7
   %.not103.not = icmp eq i32 %96, 0
   br i1 %.not103.not, label %.critedge112, label %97
@@ -864,7 +864,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %98 = load i32, ptr %10, align 4, !tbaa !29
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %98, ptr %99, align 4, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %100
 
 100:                                              ; preds = %97, %93
@@ -873,7 +873,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not104, label %ossl_param_is_empty.exit.thread, label %102
 
 102:                                              ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %103 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %101, ptr noundef nonnull %11) #7
   %.not105.not = icmp eq i32 %103, 0
   br i1 %.not105.not, label %.critedge114, label %104
@@ -882,31 +882,31 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %105 = load i32, ptr %11, align 4, !tbaa !29
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %105, ptr %106, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ossl_param_is_empty.exit.thread
 
 .critedge108:                                     ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ossl_param_is_empty.exit.thread
 
 .critedge110:                                     ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ossl_param_is_empty.exit.thread
 
 .critedge112:                                     ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ossl_param_is_empty.exit.thread
 
 .critedge114:                                     ; preds = %102
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %13, %100, %104, %.critedge114, %.critedge112, %.critedge110, %.critedge108, %69, %66, %62, %.critedge, %24, %22, %18, %ossl_param_is_empty.exit, %2
   %.068 = phi i32 [ 0, %.critedge ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %18 ], [ 0, %22 ], [ 0, %24 ], [ 0, %62 ], [ 0, %66 ], [ 0, %69 ], [ 0, %.critedge108 ], [ 0, %.critedge110 ], [ 0, %.critedge112 ], [ 0, %.critedge114 ], [ 1, %104 ], [ 1, %100 ], [ 1, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.068
 }
 
@@ -915,22 +915,16 @@ define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr readnone captur
   ret ptr @known_settable_ctx_params
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @ossl_prov_is_running() local_unnamed_addr #2
 
-declare i32 @ossl_prov_is_running() local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 512, 1025) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !29
   %6 = tail call i32 @ossl_prov_is_running() #7
   %7 = icmp eq i32 %6, 0
@@ -977,84 +971,90 @@ define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef captures(addres
 
 24:                                               ; preds = %20, %12, %10, %4, %23
   %.0 = phi i32 [ 0, %23 ], [ 0, %4 ], [ 0, %10 ], [ 0, %12 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @ossl_rsa_key_op_get_protect(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_rsa_key_op_get_protect(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_up_ref(ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_up_ref(ptr noundef) local_unnamed_addr #2
 
-declare void @RSA_free(ptr noundef) local_unnamed_addr #3
+declare void @RSA_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RSA_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @RSA_size(ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_size(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_public_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RSA_public_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @RSA_private_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RSA_private_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #2
 
-declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind memory(none) }
 attributes #9 = { nounwind willreturn memory(read) }

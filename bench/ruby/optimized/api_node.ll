@@ -336,7 +336,7 @@ define hidden i64 @pm_token_new(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %4, label %15, label %32
 
 15:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %3, ptr %6, align 16, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -356,7 +356,7 @@ define hidden i64 @pm_token_new(ptr noundef readonly captures(none) %0, ptr noun
   %29 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %30 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %6, i64 noundef %29) #5
   %31 = call i64 @rb_obj_freeze(i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %pm_location_new.exit
 
 32:                                               ; preds = %5
@@ -397,7 +397,7 @@ pm_location_new.exit:                             ; preds = %15, %44, %47
   br label %57
 
 57:                                               ; preds = %55, %pm_location_new.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %3, ptr %7, align 16, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = call i64 @rb_id2sym(i64 noundef %10) #5
@@ -415,27 +415,21 @@ pm_location_new.exit:                             ; preds = %15, %44, %47
   br label %66
 
 66:                                               ; preds = %64, %57
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %63
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
+declare ptr @pm_token_type_name(i32 noundef) local_unnamed_addr #1
 
-declare ptr @pm_token_type_name(i32 noundef) local_unnamed_addr #2
+declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_obj_freeze(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_obj_freeze(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #2
-
-declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @pm_integer_new(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -553,9 +547,9 @@ rbimpl_intern_const.exit36:                       ; preds = %.lr.ph.i34, %47
   ret i64 %.1
 }
 
-declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @pm_source_new(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -641,9 +635,9 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %34
   ret i64 %42
 }
 
-declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -2914,7 +2908,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %2269 ]
   %2258 = load ptr, ptr %540, align 8, !tbaa !66
   %2259 = getelementptr %struct.pm_constant_t, ptr %2258, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %383) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %383)
   store i32 0, ptr %383, align 4, !tbaa !47
   %2260 = load ptr, ptr %2259, align 8, !tbaa !67
   %2261 = getelementptr inbounds nuw i8, ptr %2259, i64 8
@@ -2934,7 +2928,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
 2269:                                             ; preds = %2266, %2257
   %.04114 = phi i64 [ %2268, %2266 ], [ %2264, %2257 ]
   %2270 = call i64 @rb_ary_push(i64 noundef %538, i64 noundef %.04114) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %383) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %383)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2271 = load i32, ptr %535, align 8, !tbaa !59
   %2272 = zext i32 %2271 to i64
@@ -5602,7 +5596,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   ]
 
 3564:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %384) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %384)
   store i64 %3, ptr %384, align 16, !tbaa !16
   %3565 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %3566 = load i32, ptr %3565, align 4, !tbaa !447
@@ -5617,7 +5611,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br i1 %4, label %3574, label %3588
 
 3574:                                             ; preds = %3564
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %382) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %382)
   store i64 %3, ptr %382, align 16, !tbaa !16
   %3575 = load ptr, ptr %546, align 8, !tbaa !18
   %3576 = ptrtoint ptr %3571 to i64
@@ -5634,7 +5628,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %3585 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3586 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %382, i64 noundef %3585) #5
   %3587 = call i64 @rb_obj_freeze(i64 noundef %3586) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %382) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %382)
   br label %pm_location_new.exit
 
 3588:                                             ; preds = %3564
@@ -5708,7 +5702,7 @@ pm_location_new.exit4258.thread:                  ; preds = %3626, %3629
   br label %3650
 
 3633:                                             ; preds = %pm_location_new.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %381) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %381)
   store i64 %3, ptr %381, align 16, !tbaa !16
   %3634 = load ptr, ptr %546, align 8, !tbaa !18
   %3635 = ptrtoint ptr %3612 to i64
@@ -5725,7 +5719,7 @@ pm_location_new.exit4258.thread:                  ; preds = %3626, %3629
   %3644 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3645 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %381, i64 noundef %3644) #5
   %3646 = call i64 @rb_obj_freeze(i64 noundef %3645) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %381) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %381)
   store i64 %3646, ptr %2254, align 16, !tbaa !16
   %3647 = load i64, ptr @rb_cPrismAliasGlobalVariableNode, align 8, !tbaa !16
   %3648 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %384, i64 noundef %3647) #5
@@ -5735,11 +5729,11 @@ pm_location_new.exit4258.thread:                  ; preds = %3626, %3629
 3650:                                             ; preds = %pm_location_new.exit4258.thread, %3633
   %3651 = phi i64 [ %3632, %pm_location_new.exit4258.thread ], [ %3648, %3633 ]
   %3652 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %3651) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %384) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %384)
   br label %.backedge
 
 3653:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %385) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %385)
   store i64 %3, ptr %385, align 16, !tbaa !16
   %3654 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %3655 = load i32, ptr %3654, align 4, !tbaa !447
@@ -5754,7 +5748,7 @@ pm_location_new.exit4258.thread:                  ; preds = %3626, %3629
   br i1 %4, label %3663, label %3677
 
 3663:                                             ; preds = %3653
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %380) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %380)
   store i64 %3, ptr %380, align 16, !tbaa !16
   %3664 = load ptr, ptr %546, align 8, !tbaa !18
   %3665 = ptrtoint ptr %3660 to i64
@@ -5771,7 +5765,7 @@ pm_location_new.exit4258.thread:                  ; preds = %3626, %3629
   %3674 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3675 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %380, i64 noundef %3674) #5
   %3676 = call i64 @rb_obj_freeze(i64 noundef %3675) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %380) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %380)
   br label %pm_location_new.exit4261
 
 3677:                                             ; preds = %3653
@@ -5845,7 +5839,7 @@ pm_location_new.exit4264.thread:                  ; preds = %3715, %3718
   br label %3739
 
 3722:                                             ; preds = %pm_location_new.exit4261
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %379) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %379)
   store i64 %3, ptr %379, align 16, !tbaa !16
   %3723 = load ptr, ptr %546, align 8, !tbaa !18
   %3724 = ptrtoint ptr %3701 to i64
@@ -5862,7 +5856,7 @@ pm_location_new.exit4264.thread:                  ; preds = %3715, %3718
   %3733 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3734 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %379, i64 noundef %3733) #5
   %3735 = call i64 @rb_obj_freeze(i64 noundef %3734) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %379) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %379)
   store i64 %3735, ptr %2244, align 16, !tbaa !16
   %3736 = load i64, ptr @rb_cPrismAliasMethodNode, align 8, !tbaa !16
   %3737 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %385, i64 noundef %3736) #5
@@ -5872,11 +5866,11 @@ pm_location_new.exit4264.thread:                  ; preds = %3715, %3718
 3739:                                             ; preds = %pm_location_new.exit4264.thread, %3722
   %3740 = phi i64 [ %3721, %pm_location_new.exit4264.thread ], [ %3737, %3722 ]
   %3741 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %3740) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %385) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %385)
   br label %.backedge
 
 3742:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %386) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %386)
   store i64 %3, ptr %386, align 16, !tbaa !16
   %3743 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %3744 = load i32, ptr %3743, align 4, !tbaa !447
@@ -5891,7 +5885,7 @@ pm_location_new.exit4264.thread:                  ; preds = %3715, %3718
   br i1 %4, label %3752, label %3766
 
 3752:                                             ; preds = %3742
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %378) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %378)
   store i64 %3, ptr %378, align 16, !tbaa !16
   %3753 = load ptr, ptr %546, align 8, !tbaa !18
   %3754 = ptrtoint ptr %3749 to i64
@@ -5908,7 +5902,7 @@ pm_location_new.exit4264.thread:                  ; preds = %3715, %3718
   %3763 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3764 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %378, i64 noundef %3763) #5
   %3765 = call i64 @rb_obj_freeze(i64 noundef %3764) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %378) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %378)
   br label %pm_location_new.exit4267
 
 3766:                                             ; preds = %3742
@@ -5982,7 +5976,7 @@ pm_location_new.exit4270.thread:                  ; preds = %3804, %3807
   br label %3828
 
 3811:                                             ; preds = %pm_location_new.exit4267
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %377) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %377)
   store i64 %3, ptr %377, align 16, !tbaa !16
   %3812 = load ptr, ptr %546, align 8, !tbaa !18
   %3813 = ptrtoint ptr %3790 to i64
@@ -5999,7 +5993,7 @@ pm_location_new.exit4270.thread:                  ; preds = %3804, %3807
   %3822 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3823 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %377, i64 noundef %3822) #5
   %3824 = call i64 @rb_obj_freeze(i64 noundef %3823) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %377) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %377)
   store i64 %3824, ptr %2234, align 16, !tbaa !16
   %3825 = load i64, ptr @rb_cPrismAlternationPatternNode, align 8, !tbaa !16
   %3826 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %386, i64 noundef %3825) #5
@@ -6009,11 +6003,11 @@ pm_location_new.exit4270.thread:                  ; preds = %3804, %3807
 3828:                                             ; preds = %pm_location_new.exit4270.thread, %3811
   %3829 = phi i64 [ %3810, %pm_location_new.exit4270.thread ], [ %3826, %3811 ]
   %3830 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %3829) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %386) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %386)
   br label %.backedge
 
 3831:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %387) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %387)
   store i64 %3, ptr %387, align 16, !tbaa !16
   %3832 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %3833 = load i32, ptr %3832, align 4, !tbaa !447
@@ -6028,7 +6022,7 @@ pm_location_new.exit4270.thread:                  ; preds = %3804, %3807
   br i1 %4, label %3841, label %3855
 
 3841:                                             ; preds = %3831
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %376) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %376)
   store i64 %3, ptr %376, align 16, !tbaa !16
   %3842 = load ptr, ptr %546, align 8, !tbaa !18
   %3843 = ptrtoint ptr %3838 to i64
@@ -6045,7 +6039,7 @@ pm_location_new.exit4270.thread:                  ; preds = %3804, %3807
   %3852 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3853 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %376, i64 noundef %3852) #5
   %3854 = call i64 @rb_obj_freeze(i64 noundef %3853) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %376) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %376)
   br label %pm_location_new.exit4273
 
 3855:                                             ; preds = %3831
@@ -6119,7 +6113,7 @@ pm_location_new.exit4276.thread:                  ; preds = %3893, %3896
   br label %3917
 
 3900:                                             ; preds = %pm_location_new.exit4273
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %375) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %375)
   store i64 %3, ptr %375, align 16, !tbaa !16
   %3901 = load ptr, ptr %546, align 8, !tbaa !18
   %3902 = ptrtoint ptr %3879 to i64
@@ -6136,7 +6130,7 @@ pm_location_new.exit4276.thread:                  ; preds = %3893, %3896
   %3911 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3912 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %375, i64 noundef %3911) #5
   %3913 = call i64 @rb_obj_freeze(i64 noundef %3912) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %375) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %375)
   store i64 %3913, ptr %2224, align 16, !tbaa !16
   %3914 = load i64, ptr @rb_cPrismAndNode, align 8, !tbaa !16
   %3915 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %387, i64 noundef %3914) #5
@@ -6146,11 +6140,11 @@ pm_location_new.exit4276.thread:                  ; preds = %3893, %3896
 3917:                                             ; preds = %pm_location_new.exit4276.thread, %3900
   %3918 = phi i64 [ %3899, %pm_location_new.exit4276.thread ], [ %3915, %3900 ]
   %3919 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %3918) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %387) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %387)
   br label %.backedge
 
 3920:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %388) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %388)
   store i64 %3, ptr %388, align 16, !tbaa !16
   %3921 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %3922 = load i32, ptr %3921, align 4, !tbaa !447
@@ -6165,7 +6159,7 @@ pm_location_new.exit4276.thread:                  ; preds = %3893, %3896
   br i1 %4, label %3930, label %3944
 
 3930:                                             ; preds = %3920
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %374) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %374)
   store i64 %3, ptr %374, align 16, !tbaa !16
   %3931 = load ptr, ptr %546, align 8, !tbaa !18
   %3932 = ptrtoint ptr %3927 to i64
@@ -6182,7 +6176,7 @@ pm_location_new.exit4276.thread:                  ; preds = %3893, %3896
   %3941 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %3942 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %374, i64 noundef %3941) #5
   %3943 = call i64 @rb_obj_freeze(i64 noundef %3942) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %374) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %374)
   br label %pm_location_new.exit4279
 
 3944:                                             ; preds = %3920
@@ -6253,11 +6247,11 @@ pm_location_new.exit4279:                         ; preds = %3930, %3955, %3958
 3984:                                             ; preds = %3975, %3978
   %3985 = phi i64 [ %3982, %3978 ], [ %3977, %3975 ]
   %3986 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %3985) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %388) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %388)
   br label %.backedge
 
 3987:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %389) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %389)
   store i64 %3, ptr %389, align 16, !tbaa !16
   %3988 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %3989 = load i32, ptr %3988, align 4, !tbaa !447
@@ -6272,7 +6266,7 @@ pm_location_new.exit4279:                         ; preds = %3930, %3955, %3958
   br i1 %4, label %3997, label %4011
 
 3997:                                             ; preds = %3987
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %373) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %373)
   store i64 %3, ptr %373, align 16, !tbaa !16
   %3998 = load ptr, ptr %546, align 8, !tbaa !18
   %3999 = ptrtoint ptr %3994 to i64
@@ -6289,7 +6283,7 @@ pm_location_new.exit4279:                         ; preds = %3930, %3955, %3958
   %4008 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4009 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %373, i64 noundef %4008) #5
   %4010 = call i64 @rb_obj_freeze(i64 noundef %4009) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %373) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %373)
   br label %pm_location_new.exit4283
 
 4011:                                             ; preds = %3987
@@ -6400,7 +6394,7 @@ pm_location_new.exit4286.thread5983:              ; preds = %4042
 pm_location_new.exit4286.thread:                  ; preds = %4042
   %4076 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %4077 = load ptr, ptr %4076, align 8, !tbaa !462
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %372) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %372)
   store i64 %3, ptr %372, align 16, !tbaa !16
   %4078 = load ptr, ptr %546, align 8, !tbaa !18
   %4079 = ptrtoint ptr %4046 to i64
@@ -6417,7 +6411,7 @@ pm_location_new.exit4286.thread:                  ; preds = %4042
   %4088 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4089 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %372, i64 noundef %4088) #5
   %4090 = call i64 @rb_obj_freeze(i64 noundef %4089) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %372) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %372)
   store i64 %4090, ptr %2205, align 8, !tbaa !16
   %4091 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %4092 = load ptr, ptr %4091, align 8, !tbaa !463
@@ -6428,7 +6422,7 @@ pm_location_new.exit4286.thread:                  ; preds = %4042
   %4094 = phi ptr [ %4074, %pm_location_new.exit4286.thread5983 ], [ %4092, %pm_location_new.exit4286.thread ]
   %.in6366 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %4095 = load ptr, ptr %.in6366, align 8, !tbaa !464
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %371) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %371)
   store i64 %3, ptr %371, align 16, !tbaa !16
   %4096 = load ptr, ptr %546, align 8, !tbaa !18
   %4097 = ptrtoint ptr %4094 to i64
@@ -6445,7 +6439,7 @@ pm_location_new.exit4286.thread:                  ; preds = %4042
   %4106 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4107 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %371, i64 noundef %4106) #5
   %4108 = call i64 @rb_obj_freeze(i64 noundef %4107) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %371) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %371)
   br label %pm_location_new.exit4288.thread5985
 
 4109:                                             ; preds = %pm_location_new.exit4286
@@ -6496,11 +6490,11 @@ pm_location_new.exit4288.thread5985:              ; preds = %pm_location_new.exi
 4134:                                             ; preds = %pm_location_new.exit4288, %pm_location_new.exit4288.thread5776, %pm_location_new.exit4288.thread5985
   %4135 = phi i64 [ %4132, %pm_location_new.exit4288.thread5985 ], [ %4130, %pm_location_new.exit4288 ], [ %4128, %pm_location_new.exit4288.thread5776 ]
   %4136 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4135) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %389) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %389)
   br label %.backedge
 
 4137:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %390) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %390)
   store i64 %3, ptr %390, align 16, !tbaa !16
   %4138 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4139 = load i32, ptr %4138, align 4, !tbaa !447
@@ -6515,7 +6509,7 @@ pm_location_new.exit4288.thread5985:              ; preds = %pm_location_new.exi
   br i1 %4, label %4147, label %4161
 
 4147:                                             ; preds = %4137
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %370) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %370)
   store i64 %3, ptr %370, align 16, !tbaa !16
   %4148 = load ptr, ptr %546, align 8, !tbaa !18
   %4149 = ptrtoint ptr %4144 to i64
@@ -6532,7 +6526,7 @@ pm_location_new.exit4288.thread5985:              ; preds = %pm_location_new.exi
   %4158 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4159 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %370, i64 noundef %4158) #5
   %4160 = call i64 @rb_obj_freeze(i64 noundef %4159) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %370) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %370)
   br label %pm_location_new.exit4291
 
 4161:                                             ; preds = %4137
@@ -6674,7 +6668,7 @@ pm_location_new.exit4294.thread5986:              ; preds = %4208
 pm_location_new.exit4294.thread:                  ; preds = %4208
   %4242 = getelementptr inbounds nuw i8, ptr %2279, i64 96
   %4243 = load ptr, ptr %4242, align 8, !tbaa !468
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %369) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %369)
   store i64 %3, ptr %369, align 16, !tbaa !16
   %4244 = load ptr, ptr %546, align 8, !tbaa !18
   %4245 = ptrtoint ptr %4212 to i64
@@ -6691,7 +6685,7 @@ pm_location_new.exit4294.thread:                  ; preds = %4208
   %4254 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4255 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %369, i64 noundef %4254) #5
   %4256 = call i64 @rb_obj_freeze(i64 noundef %4255) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %369) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %369)
   store i64 %4256, ptr %2193, align 16, !tbaa !16
   %4257 = getelementptr inbounds nuw i8, ptr %2279, i64 104
   %4258 = load ptr, ptr %4257, align 8, !tbaa !469
@@ -6702,7 +6696,7 @@ pm_location_new.exit4294.thread:                  ; preds = %4208
   %4260 = phi ptr [ %4240, %pm_location_new.exit4294.thread5986 ], [ %4258, %pm_location_new.exit4294.thread ]
   %.in6364 = getelementptr inbounds nuw i8, ptr %2279, i64 112
   %4261 = load ptr, ptr %.in6364, align 8, !tbaa !470
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %368) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %368)
   store i64 %3, ptr %368, align 16, !tbaa !16
   %4262 = load ptr, ptr %546, align 8, !tbaa !18
   %4263 = ptrtoint ptr %4260 to i64
@@ -6719,7 +6713,7 @@ pm_location_new.exit4294.thread:                  ; preds = %4208
   %4272 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4273 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %368, i64 noundef %4272) #5
   %4274 = call i64 @rb_obj_freeze(i64 noundef %4273) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %368) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %368)
   br label %pm_location_new.exit4296.thread5988
 
 4275:                                             ; preds = %pm_location_new.exit4294
@@ -6770,11 +6764,11 @@ pm_location_new.exit4296.thread5988:              ; preds = %pm_location_new.exi
 4300:                                             ; preds = %pm_location_new.exit4296, %pm_location_new.exit4296.thread5783, %pm_location_new.exit4296.thread5988
   %4301 = phi i64 [ %4298, %pm_location_new.exit4296.thread5988 ], [ %4296, %pm_location_new.exit4296 ], [ %4294, %pm_location_new.exit4296.thread5783 ]
   %4302 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4301) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %390) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %390)
   br label %.backedge
 
 4303:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %391) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %391)
   store i64 %3, ptr %391, align 16, !tbaa !16
   %4304 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4305 = load i32, ptr %4304, align 4, !tbaa !447
@@ -6789,7 +6783,7 @@ pm_location_new.exit4296.thread5988:              ; preds = %pm_location_new.exi
   br i1 %4, label %4313, label %4327
 
 4313:                                             ; preds = %4303
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %367) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %367)
   store i64 %3, ptr %367, align 16, !tbaa !16
   %4314 = load ptr, ptr %546, align 8, !tbaa !18
   %4315 = ptrtoint ptr %4310 to i64
@@ -6806,7 +6800,7 @@ pm_location_new.exit4296.thread5988:              ; preds = %pm_location_new.exi
   %4324 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4325 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %367, i64 noundef %4324) #5
   %4326 = call i64 @rb_obj_freeze(i64 noundef %4325) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %367) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %367)
   br label %pm_location_new.exit4299
 
 4327:                                             ; preds = %4303
@@ -6855,7 +6849,7 @@ pm_location_new.exit4299:                         ; preds = %4313, %4338, %4341
   br i1 %4, label %pm_location_new.exit4302.thread5785, label %4371
 
 pm_location_new.exit4302.thread5785:              ; preds = %4353
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %366) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %366)
   store i64 %3, ptr %366, align 16, !tbaa !16
   %4356 = load ptr, ptr %546, align 8, !tbaa !18
   %4357 = ptrtoint ptr %4351 to i64
@@ -6872,7 +6866,7 @@ pm_location_new.exit4302.thread5785:              ; preds = %4353
   %4366 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4367 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %366, i64 noundef %4366) #5
   %4368 = call i64 @rb_obj_freeze(i64 noundef %4367) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %366) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %366)
   store i64 %4368, ptr %2181, align 16, !tbaa !16
   %4369 = load i64, ptr @rb_cPrismAssocNode, align 8, !tbaa !16
   %4370 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %391, i64 noundef %4369) #5
@@ -6921,11 +6915,11 @@ pm_location_new.exit4302:                         ; preds = %pm_location_new.exi
 4394:                                             ; preds = %pm_location_new.exit4302.thread, %4391, %pm_location_new.exit4302
   %4395 = phi i64 [ %4388, %pm_location_new.exit4302.thread ], [ %4392, %4391 ], [ %4390, %pm_location_new.exit4302 ]
   %4396 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4395) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %391) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %391)
   br label %.backedge
 
 4397:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %392) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %392)
   store i64 %3, ptr %392, align 16, !tbaa !16
   %4398 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4399 = load i32, ptr %4398, align 4, !tbaa !447
@@ -6940,7 +6934,7 @@ pm_location_new.exit4302:                         ; preds = %pm_location_new.exi
   br i1 %4, label %4407, label %4421
 
 4407:                                             ; preds = %4397
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %365) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %365)
   store i64 %3, ptr %365, align 16, !tbaa !16
   %4408 = load ptr, ptr %546, align 8, !tbaa !18
   %4409 = ptrtoint ptr %4404 to i64
@@ -6957,7 +6951,7 @@ pm_location_new.exit4302:                         ; preds = %pm_location_new.exi
   %4418 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4419 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %365, i64 noundef %4418) #5
   %4420 = call i64 @rb_obj_freeze(i64 noundef %4419) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %365) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %365)
   br label %pm_location_new.exit4305
 
 4421:                                             ; preds = %4397
@@ -7029,7 +7023,7 @@ pm_location_new.exit4308.thread:                  ; preds = %4458, %4461
   br label %4482
 
 4465:                                             ; preds = %pm_location_new.exit4305
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %364) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %364)
   store i64 %3, ptr %364, align 16, !tbaa !16
   %4466 = load ptr, ptr %546, align 8, !tbaa !18
   %4467 = ptrtoint ptr %4444 to i64
@@ -7046,7 +7040,7 @@ pm_location_new.exit4308.thread:                  ; preds = %4458, %4461
   %4476 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4477 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %364, i64 noundef %4476) #5
   %4478 = call i64 @rb_obj_freeze(i64 noundef %4477) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %364) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %364)
   store i64 %4478, ptr %2171, align 8, !tbaa !16
   %4479 = load i64, ptr @rb_cPrismAssocSplatNode, align 8, !tbaa !16
   %4480 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %392, i64 noundef %4479) #5
@@ -7056,11 +7050,11 @@ pm_location_new.exit4308.thread:                  ; preds = %4458, %4461
 4482:                                             ; preds = %pm_location_new.exit4308.thread, %4465
   %4483 = phi i64 [ %4464, %pm_location_new.exit4308.thread ], [ %4480, %4465 ]
   %4484 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4483) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %392) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %392)
   br label %.backedge
 
 4485:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %393) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %393)
   store i64 %3, ptr %393, align 16, !tbaa !16
   %4486 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4487 = load i32, ptr %4486, align 4, !tbaa !447
@@ -7075,7 +7069,7 @@ pm_location_new.exit4308.thread:                  ; preds = %4458, %4461
   br i1 %4, label %4495, label %4509
 
 4495:                                             ; preds = %4485
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %363) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %363)
   store i64 %3, ptr %363, align 16, !tbaa !16
   %4496 = load ptr, ptr %546, align 8, !tbaa !18
   %4497 = ptrtoint ptr %4492 to i64
@@ -7092,7 +7086,7 @@ pm_location_new.exit4308.thread:                  ; preds = %4458, %4461
   %4506 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4507 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %363, i64 noundef %4506) #5
   %4508 = call i64 @rb_obj_freeze(i64 noundef %4507) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %363) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %363)
   br label %pm_location_new.exit4311
 
 4509:                                             ; preds = %4485
@@ -7154,11 +7148,11 @@ rb_array_const_ptr.exit:                          ; preds = %pm_location_new.exi
 
 4544:                                             ; preds = %4542, %rb_array_const_ptr.exit
   %4545 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4541) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %393) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %393)
   br label %.backedge
 
 4546:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %394) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %394)
   store i64 %3, ptr %394, align 16, !tbaa !16
   %4547 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4548 = load i32, ptr %4547, align 4, !tbaa !447
@@ -7173,7 +7167,7 @@ rb_array_const_ptr.exit:                          ; preds = %pm_location_new.exi
   br i1 %4, label %4556, label %4570
 
 4556:                                             ; preds = %4546
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %362) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %362)
   store i64 %3, ptr %362, align 16, !tbaa !16
   %4557 = load ptr, ptr %546, align 8, !tbaa !18
   %4558 = ptrtoint ptr %4553 to i64
@@ -7190,7 +7184,7 @@ rb_array_const_ptr.exit:                          ; preds = %pm_location_new.exi
   %4567 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4568 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %362, i64 noundef %4567) #5
   %4569 = call i64 @rb_obj_freeze(i64 noundef %4568) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %362) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %362)
   br label %pm_location_new.exit4316
 
 4570:                                             ; preds = %4546
@@ -7235,7 +7229,7 @@ pm_location_new.exit4316:                         ; preds = %4556, %4581, %4584
   br i1 %4, label %4597, label %4611
 
 4597:                                             ; preds = %4594
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %361) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %361)
   store i64 %3, ptr %361, align 16, !tbaa !16
   %4598 = load ptr, ptr %546, align 8, !tbaa !18
   %4599 = ptrtoint ptr %4592 to i64
@@ -7252,7 +7246,7 @@ pm_location_new.exit4316:                         ; preds = %4556, %4581, %4584
   %4608 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4609 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %361, i64 noundef %4608) #5
   %4610 = call i64 @rb_obj_freeze(i64 noundef %4609) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %361) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %361)
   br label %pm_location_new.exit4319
 
 4611:                                             ; preds = %4594
@@ -7299,7 +7293,7 @@ pm_location_new.exit4319:                         ; preds = %4625, %4622, %4597,
   br i1 %4, label %pm_location_new.exit4321.thread5788, label %4653
 
 pm_location_new.exit4321.thread5788:              ; preds = %4635
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %360) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %360)
   store i64 %3, ptr %360, align 16, !tbaa !16
   %4638 = load ptr, ptr %546, align 8, !tbaa !18
   %4639 = ptrtoint ptr %4633 to i64
@@ -7316,7 +7310,7 @@ pm_location_new.exit4321.thread5788:              ; preds = %4635
   %4648 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4649 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %360, i64 noundef %4648) #5
   %4650 = call i64 @rb_obj_freeze(i64 noundef %4649) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %360) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %360)
   store i64 %4650, ptr %2156, align 8, !tbaa !16
   %4651 = load i64, ptr @rb_cPrismBeginNode, align 8, !tbaa !16
   %4652 = call i64 @rb_class_new_instance(i32 noundef 10, ptr noundef nonnull %394, i64 noundef %4651) #5
@@ -7365,11 +7359,11 @@ pm_location_new.exit4321:                         ; preds = %pm_location_new.exi
 4676:                                             ; preds = %pm_location_new.exit4321.thread, %4673, %pm_location_new.exit4321
   %4677 = phi i64 [ %4670, %pm_location_new.exit4321.thread ], [ %4674, %4673 ], [ %4672, %pm_location_new.exit4321 ]
   %4678 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4677) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %394) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %394)
   br label %.backedge
 
 4679:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %395) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %395)
   store i64 %3, ptr %395, align 16, !tbaa !16
   %4680 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4681 = load i32, ptr %4680, align 4, !tbaa !447
@@ -7384,7 +7378,7 @@ pm_location_new.exit4321:                         ; preds = %pm_location_new.exi
   br i1 %4, label %4689, label %4703
 
 4689:                                             ; preds = %4679
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %359) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %359)
   store i64 %3, ptr %359, align 16, !tbaa !16
   %4690 = load ptr, ptr %546, align 8, !tbaa !18
   %4691 = ptrtoint ptr %4686 to i64
@@ -7401,7 +7395,7 @@ pm_location_new.exit4321:                         ; preds = %pm_location_new.exi
   %4700 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4701 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %359, i64 noundef %4700) #5
   %4702 = call i64 @rb_obj_freeze(i64 noundef %4701) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %359) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %359)
   br label %pm_location_new.exit4324
 
 4703:                                             ; preds = %4679
@@ -7473,7 +7467,7 @@ pm_location_new.exit4327.thread:                  ; preds = %4740, %4743
   br label %4764
 
 4747:                                             ; preds = %pm_location_new.exit4324
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %358) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %358)
   store i64 %3, ptr %358, align 16, !tbaa !16
   %4748 = load ptr, ptr %546, align 8, !tbaa !18
   %4749 = ptrtoint ptr %4726 to i64
@@ -7490,7 +7484,7 @@ pm_location_new.exit4327.thread:                  ; preds = %4740, %4743
   %4758 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4759 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %358, i64 noundef %4758) #5
   %4760 = call i64 @rb_obj_freeze(i64 noundef %4759) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %358) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %358)
   store i64 %4760, ptr %2141, align 8, !tbaa !16
   %4761 = load i64, ptr @rb_cPrismBlockArgumentNode, align 8, !tbaa !16
   %4762 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %395, i64 noundef %4761) #5
@@ -7500,11 +7494,11 @@ pm_location_new.exit4327.thread:                  ; preds = %4740, %4743
 4764:                                             ; preds = %pm_location_new.exit4327.thread, %4747
   %4765 = phi i64 [ %4746, %pm_location_new.exit4327.thread ], [ %4762, %4747 ]
   %4766 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4765) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %395) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %395)
   br label %.backedge
 
 4767:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %396) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %396)
   store i64 %3, ptr %396, align 16, !tbaa !16
   %4768 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4769 = load i32, ptr %4768, align 4, !tbaa !447
@@ -7519,7 +7513,7 @@ pm_location_new.exit4327.thread:                  ; preds = %4740, %4743
   br i1 %4, label %4777, label %4791
 
 4777:                                             ; preds = %4767
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %357) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %357)
   store i64 %3, ptr %357, align 16, !tbaa !16
   %4778 = load ptr, ptr %546, align 8, !tbaa !18
   %4779 = ptrtoint ptr %4774 to i64
@@ -7536,7 +7530,7 @@ pm_location_new.exit4327.thread:                  ; preds = %4740, %4743
   %4788 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4789 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %357, i64 noundef %4788) #5
   %4790 = call i64 @rb_obj_freeze(i64 noundef %4789) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %357) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %357)
   br label %pm_location_new.exit4330
 
 4791:                                             ; preds = %4767
@@ -7598,11 +7592,11 @@ rb_array_const_ptr.exit4334:                      ; preds = %pm_location_new.exi
 
 4826:                                             ; preds = %4824, %rb_array_const_ptr.exit4334
   %4827 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4823) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %396) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %396)
   br label %.backedge
 
 4828:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %397) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %397)
   store i64 %3, ptr %397, align 16, !tbaa !16
   %4829 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4830 = load i32, ptr %4829, align 4, !tbaa !447
@@ -7617,7 +7611,7 @@ rb_array_const_ptr.exit4334:                      ; preds = %pm_location_new.exi
   br i1 %4, label %4838, label %4852
 
 4838:                                             ; preds = %4828
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %356) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %356)
   store i64 %3, ptr %356, align 16, !tbaa !16
   %4839 = load ptr, ptr %546, align 8, !tbaa !18
   %4840 = ptrtoint ptr %4835 to i64
@@ -7634,7 +7628,7 @@ rb_array_const_ptr.exit4334:                      ; preds = %pm_location_new.exi
   %4849 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4850 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %356, i64 noundef %4849) #5
   %4851 = call i64 @rb_obj_freeze(i64 noundef %4850) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %356) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %356)
   br label %pm_location_new.exit4337
 
 4852:                                             ; preds = %4828
@@ -7785,7 +7779,7 @@ pm_location_new.exit4345.thread:                  ; preds = %4934, %4937
   br label %4975
 
 4941:                                             ; preds = %4898
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %355) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %355)
   store i64 %3, ptr %355, align 16, !tbaa !16
   %4942 = load ptr, ptr %546, align 8, !tbaa !18
   %4943 = ptrtoint ptr %4902 to i64
@@ -7802,13 +7796,13 @@ pm_location_new.exit4345.thread:                  ; preds = %4934, %4937
   %4952 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4953 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %355, i64 noundef %4952) #5
   %4954 = call i64 @rb_obj_freeze(i64 noundef %4953) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %355) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %355)
   store i64 %4954, ptr %2123, align 8, !tbaa !16
   %4955 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %4956 = load ptr, ptr %4955, align 8, !tbaa !490
   %4957 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %4958 = load ptr, ptr %4957, align 8, !tbaa !491
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %354) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %354)
   store i64 %3, ptr %354, align 16, !tbaa !16
   %4959 = load ptr, ptr %546, align 8, !tbaa !18
   %4960 = ptrtoint ptr %4956 to i64
@@ -7825,7 +7819,7 @@ pm_location_new.exit4345.thread:                  ; preds = %4934, %4937
   %4969 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %4970 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %354, i64 noundef %4969) #5
   %4971 = call i64 @rb_obj_freeze(i64 noundef %4970) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %354) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %354)
   store i64 %4971, ptr %2124, align 16, !tbaa !16
   %4972 = load i64, ptr @rb_cPrismBlockNode, align 8, !tbaa !16
   %4973 = call i64 @rb_class_new_instance(i32 noundef 9, ptr noundef nonnull %397, i64 noundef %4972) #5
@@ -7835,11 +7829,11 @@ pm_location_new.exit4345.thread:                  ; preds = %4934, %4937
 4975:                                             ; preds = %pm_location_new.exit4345.thread, %4941
   %4976 = phi i64 [ %4940, %pm_location_new.exit4345.thread ], [ %4973, %4941 ]
   %4977 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %4976) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %397) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %397)
   br label %.backedge
 
 4978:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %398) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %398)
   store i64 %3, ptr %398, align 16, !tbaa !16
   %4979 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %4980 = load i32, ptr %4979, align 4, !tbaa !447
@@ -7854,7 +7848,7 @@ pm_location_new.exit4345.thread:                  ; preds = %4934, %4937
   br i1 %4, label %4988, label %5002
 
 4988:                                             ; preds = %4978
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %353) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %353)
   store i64 %3, ptr %353, align 16, !tbaa !16
   %4989 = load ptr, ptr %546, align 8, !tbaa !18
   %4990 = ptrtoint ptr %4985 to i64
@@ -7871,7 +7865,7 @@ pm_location_new.exit4345.thread:                  ; preds = %4934, %4937
   %4999 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5000 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %353, i64 noundef %4999) #5
   %5001 = call i64 @rb_obj_freeze(i64 noundef %5000) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %353) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %353)
   br label %pm_location_new.exit4348
 
 5002:                                             ; preds = %4978
@@ -7942,7 +7936,7 @@ rb_array_const_ptr.exit4352:                      ; preds = %5026, %5029
   br i1 %4, label %pm_location_new.exit4354.thread5793, label %5060
 
 pm_location_new.exit4354.thread5793:              ; preds = %5040
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %352) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %352)
   store i64 %3, ptr %352, align 16, !tbaa !16
   %5043 = load ptr, ptr %546, align 8, !tbaa !18
   %5044 = ptrtoint ptr %5038 to i64
@@ -7959,7 +7953,7 @@ pm_location_new.exit4354.thread5793:              ; preds = %5040
   %5053 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5054 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %352, i64 noundef %5053) #5
   %5055 = call i64 @rb_obj_freeze(i64 noundef %5054) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %352) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %352)
   store i64 %5055, ptr %2109, align 8, !tbaa !16
   %5056 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %5057 = load ptr, ptr %5056, align 8, !tbaa !496
@@ -8040,7 +8034,7 @@ pm_location_new.exit4356.thread:                  ; preds = %5097, %5100
 5104:                                             ; preds = %pm_location_new.exit4354.thread5793, %pm_location_new.exit4354
   %5105 = phi ptr [ %5059, %pm_location_new.exit4354.thread5793 ], [ %5083, %pm_location_new.exit4354 ]
   %5106 = phi ptr [ %5057, %pm_location_new.exit4354.thread5793 ], [ %5081, %pm_location_new.exit4354 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %351) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %351)
   store i64 %3, ptr %351, align 16, !tbaa !16
   %5107 = load ptr, ptr %546, align 8, !tbaa !18
   %5108 = ptrtoint ptr %5106 to i64
@@ -8057,7 +8051,7 @@ pm_location_new.exit4356.thread:                  ; preds = %5097, %5100
   %5117 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5118 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %351, i64 noundef %5117) #5
   %5119 = call i64 @rb_obj_freeze(i64 noundef %5118) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %351) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %351)
   store i64 %5119, ptr %2112, align 16, !tbaa !16
   %5120 = load i64, ptr @rb_cPrismBlockParameterNode, align 8, !tbaa !16
   %5121 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %398, i64 noundef %5120) #5
@@ -8067,11 +8061,11 @@ pm_location_new.exit4356.thread:                  ; preds = %5097, %5100
 5123:                                             ; preds = %pm_location_new.exit4356.thread, %5104
   %5124 = phi i64 [ %5103, %pm_location_new.exit4356.thread ], [ %5121, %5104 ]
   %5125 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %5124) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %398) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %398)
   br label %.backedge
 
 5126:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %399) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %399)
   store i64 %3, ptr %399, align 16, !tbaa !16
   %5127 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %5128 = load i32, ptr %5127, align 4, !tbaa !447
@@ -8086,7 +8080,7 @@ pm_location_new.exit4356.thread:                  ; preds = %5097, %5100
   br i1 %4, label %5136, label %5150
 
 5136:                                             ; preds = %5126
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %350) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %350)
   store i64 %3, ptr %350, align 16, !tbaa !16
   %5137 = load ptr, ptr %546, align 8, !tbaa !18
   %5138 = ptrtoint ptr %5133 to i64
@@ -8103,7 +8097,7 @@ pm_location_new.exit4356.thread:                  ; preds = %5097, %5100
   %5147 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5148 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %350, i64 noundef %5147) #5
   %5149 = call i64 @rb_obj_freeze(i64 noundef %5148) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %350) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %350)
   br label %pm_location_new.exit4359
 
 5150:                                             ; preds = %5126
@@ -8216,7 +8210,7 @@ pm_location_new.exit4362.thread5989:              ; preds = %5182
 pm_location_new.exit4362.thread:                  ; preds = %5182
   %5216 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %5217 = load ptr, ptr %5216, align 8, !tbaa !500
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %349) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %349)
   store i64 %3, ptr %349, align 16, !tbaa !16
   %5218 = load ptr, ptr %546, align 8, !tbaa !18
   %5219 = ptrtoint ptr %5186 to i64
@@ -8233,7 +8227,7 @@ pm_location_new.exit4362.thread:                  ; preds = %5182
   %5228 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5229 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %349, i64 noundef %5228) #5
   %5230 = call i64 @rb_obj_freeze(i64 noundef %5229) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %349) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %349)
   store i64 %5230, ptr %2097, align 16, !tbaa !16
   %5231 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %5232 = load ptr, ptr %5231, align 8, !tbaa !501
@@ -8244,7 +8238,7 @@ pm_location_new.exit4362.thread:                  ; preds = %5182
   %5234 = phi ptr [ %5214, %pm_location_new.exit4362.thread5989 ], [ %5232, %pm_location_new.exit4362.thread ]
   %.in6360 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %5235 = load ptr, ptr %.in6360, align 8, !tbaa !502
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %348) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %348)
   store i64 %3, ptr %348, align 16, !tbaa !16
   %5236 = load ptr, ptr %546, align 8, !tbaa !18
   %5237 = ptrtoint ptr %5234 to i64
@@ -8261,7 +8255,7 @@ pm_location_new.exit4362.thread:                  ; preds = %5182
   %5246 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5247 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %348, i64 noundef %5246) #5
   %5248 = call i64 @rb_obj_freeze(i64 noundef %5247) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %348) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %348)
   br label %pm_location_new.exit4364.thread5991
 
 5249:                                             ; preds = %pm_location_new.exit4362
@@ -8312,11 +8306,11 @@ pm_location_new.exit4364.thread5991:              ; preds = %pm_location_new.exi
 5274:                                             ; preds = %pm_location_new.exit4364, %pm_location_new.exit4364.thread5801, %pm_location_new.exit4364.thread5991
   %5275 = phi i64 [ %5272, %pm_location_new.exit4364.thread5991 ], [ %5270, %pm_location_new.exit4364 ], [ %5268, %pm_location_new.exit4364.thread5801 ]
   %5276 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %5275) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %399) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %399)
   br label %.backedge
 
 5277:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %400) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %400)
   store i64 %3, ptr %400, align 16, !tbaa !16
   %5278 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %5279 = load i32, ptr %5278, align 4, !tbaa !447
@@ -8331,7 +8325,7 @@ pm_location_new.exit4364.thread5991:              ; preds = %pm_location_new.exi
   br i1 %4, label %5287, label %5301
 
 5287:                                             ; preds = %5277
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %347) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %347)
   store i64 %3, ptr %347, align 16, !tbaa !16
   %5288 = load ptr, ptr %546, align 8, !tbaa !18
   %5289 = ptrtoint ptr %5284 to i64
@@ -8348,7 +8342,7 @@ pm_location_new.exit4364.thread5991:              ; preds = %pm_location_new.exi
   %5298 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5299 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %347, i64 noundef %5298) #5
   %5300 = call i64 @rb_obj_freeze(i64 noundef %5299) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %347) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %347)
   br label %pm_location_new.exit4367
 
 5301:                                             ; preds = %5277
@@ -8420,7 +8414,7 @@ pm_location_new.exit4370.thread:                  ; preds = %5338, %5341
   br label %5362
 
 5345:                                             ; preds = %pm_location_new.exit4367
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %346) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %346)
   store i64 %3, ptr %346, align 16, !tbaa !16
   %5346 = load ptr, ptr %546, align 8, !tbaa !18
   %5347 = ptrtoint ptr %5324 to i64
@@ -8437,7 +8431,7 @@ pm_location_new.exit4370.thread:                  ; preds = %5338, %5341
   %5356 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5357 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %346, i64 noundef %5356) #5
   %5358 = call i64 @rb_obj_freeze(i64 noundef %5357) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %346) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %346)
   store i64 %5358, ptr %2087, align 8, !tbaa !16
   %5359 = load i64, ptr @rb_cPrismBreakNode, align 8, !tbaa !16
   %5360 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %400, i64 noundef %5359) #5
@@ -8447,11 +8441,11 @@ pm_location_new.exit4370.thread:                  ; preds = %5338, %5341
 5362:                                             ; preds = %pm_location_new.exit4370.thread, %5345
   %5363 = phi i64 [ %5344, %pm_location_new.exit4370.thread ], [ %5360, %5345 ]
   %5364 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %5363) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %400) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %400)
   br label %.backedge
 
 5365:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %401) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %401)
   store i64 %3, ptr %401, align 16, !tbaa !16
   %5366 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %5367 = load i32, ptr %5366, align 4, !tbaa !447
@@ -8466,7 +8460,7 @@ pm_location_new.exit4370.thread:                  ; preds = %5338, %5341
   br i1 %4, label %5375, label %5389
 
 5375:                                             ; preds = %5365
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %345) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %345)
   store i64 %3, ptr %345, align 16, !tbaa !16
   %5376 = load ptr, ptr %546, align 8, !tbaa !18
   %5377 = ptrtoint ptr %5372 to i64
@@ -8483,7 +8477,7 @@ pm_location_new.exit4370.thread:                  ; preds = %5338, %5341
   %5386 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5387 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %345, i64 noundef %5386) #5
   %5388 = call i64 @rb_obj_freeze(i64 noundef %5387) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %345) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %345)
   br label %pm_location_new.exit4373
 
 5389:                                             ; preds = %5365
@@ -8560,7 +8554,7 @@ pm_location_new.exit4376:                         ; preds = %5431, %5428, %pm_lo
   br i1 %5436, label %pm_location_new.exit4378, label %5455
 
 pm_location_new.exit4376.thread:                  ; preds = %5414
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %344) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %344)
   store i64 %3, ptr %344, align 16, !tbaa !16
   %5437 = load ptr, ptr %546, align 8, !tbaa !18
   %5438 = ptrtoint ptr %5412 to i64
@@ -8577,7 +8571,7 @@ pm_location_new.exit4376.thread:                  ; preds = %5414
   %5447 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5448 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %344, i64 noundef %5447) #5
   %5449 = call i64 @rb_obj_freeze(i64 noundef %5448) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %344) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %344)
   store i64 %5449, ptr %2071, align 8, !tbaa !16
   %5450 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %5451 = load ptr, ptr %5450, align 8, !tbaa !507
@@ -8600,7 +8594,7 @@ pm_location_new.exit4376.thread:                  ; preds = %5414
   %5459 = phi ptr [ %.pre6476, %.thread5803 ], [ %.pre6477, %5455 ]
   %5460 = phi ptr [ %5454, %.thread5803 ], [ %5457, %5455 ]
   %5461 = phi ptr [ %5451, %.thread5803 ], [ %5435, %5455 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %343) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %343)
   store i64 %3, ptr %343, align 16, !tbaa !16
   %5462 = ptrtoint ptr %5461 to i64
   %5463 = ptrtoint ptr %5459 to i64
@@ -8616,7 +8610,7 @@ pm_location_new.exit4376.thread:                  ; preds = %5414
   %5471 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5472 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %343, i64 noundef %5471) #5
   %5473 = call i64 @rb_obj_freeze(i64 noundef %5472) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %343) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %343)
   br label %pm_location_new.exit4378
 
 5474:                                             ; preds = %5455
@@ -8686,7 +8680,7 @@ rb_array_const_ptr.exit4384:                      ; preds = %rb_array_const_ptr.
   br i1 %4, label %5514, label %5528
 
 5514:                                             ; preds = %rb_array_const_ptr.exit4384
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %342) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %342)
   store i64 %3, ptr %342, align 16, !tbaa !16
   %5515 = load ptr, ptr %546, align 8, !tbaa !18
   %5516 = ptrtoint ptr %5511 to i64
@@ -8703,7 +8697,7 @@ rb_array_const_ptr.exit4384:                      ; preds = %rb_array_const_ptr.
   %5525 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5526 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %342, i64 noundef %5525) #5
   %5527 = call i64 @rb_obj_freeze(i64 noundef %5526) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %342) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %342)
   br label %pm_location_new.exit4386
 
 5528:                                             ; preds = %rb_array_const_ptr.exit4384
@@ -8743,11 +8737,11 @@ pm_location_new.exit4386:                         ; preds = %5514, %5539, %5542
 
 5549:                                             ; preds = %5547, %pm_location_new.exit4386
   %5550 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %5546) #5
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %401) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %401)
   br label %.backedge
 
 5551:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %402) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %402)
   store i64 %3, ptr %402, align 16, !tbaa !16
   %5552 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %5553 = load i32, ptr %5552, align 4, !tbaa !447
@@ -8762,7 +8756,7 @@ pm_location_new.exit4386:                         ; preds = %5514, %5539, %5542
   br i1 %4, label %5561, label %5575
 
 5561:                                             ; preds = %5551
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %341) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %341)
   store i64 %3, ptr %341, align 16, !tbaa !16
   %5562 = load ptr, ptr %546, align 8, !tbaa !18
   %5563 = ptrtoint ptr %5558 to i64
@@ -8779,7 +8773,7 @@ pm_location_new.exit4386:                         ; preds = %5514, %5539, %5542
   %5572 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5573 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %341, i64 noundef %5572) #5
   %5574 = call i64 @rb_obj_freeze(i64 noundef %5573) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %341) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %341)
   br label %pm_location_new.exit4389
 
 5575:                                             ; preds = %5551
@@ -8826,7 +8820,7 @@ pm_location_new.exit4389:                         ; preds = %5561, %5586, %5589
   br i1 %4, label %5603, label %5617
 
 5603:                                             ; preds = %5600
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %340) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %340)
   store i64 %3, ptr %340, align 16, !tbaa !16
   %5604 = load ptr, ptr %546, align 8, !tbaa !18
   %5605 = ptrtoint ptr %5598 to i64
@@ -8843,7 +8837,7 @@ pm_location_new.exit4389:                         ; preds = %5561, %5586, %5589
   %5614 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5615 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %340, i64 noundef %5614) #5
   %5616 = call i64 @rb_obj_freeze(i64 noundef %5615) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %340) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %340)
   br label %pm_location_new.exit4392
 
 5617:                                             ; preds = %5600
@@ -8930,7 +8924,7 @@ pm_location_new.exit4397:                         ; preds = %5664, %5661, %rb_ar
   br i1 %5669, label %pm_location_new.exit4399, label %5688
 
 pm_location_new.exit4397.thread:                  ; preds = %5647
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %339) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %339)
   store i64 %3, ptr %339, align 16, !tbaa !16
   %5670 = load ptr, ptr %546, align 8, !tbaa !18
   %5671 = ptrtoint ptr %5645 to i64
@@ -8947,7 +8941,7 @@ pm_location_new.exit4397.thread:                  ; preds = %5647
   %5680 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5681 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %339, i64 noundef %5680) #5
   %5682 = call i64 @rb_obj_freeze(i64 noundef %5681) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %339) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %339)
   store i64 %5682, ptr %2054, align 8, !tbaa !16
   %5683 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %5684 = load ptr, ptr %5683, align 8, !tbaa !518
@@ -8970,7 +8964,7 @@ pm_location_new.exit4397.thread:                  ; preds = %5647
   %5692 = phi ptr [ %.pre6474, %.thread5804 ], [ %.pre6475, %5688 ]
   %5693 = phi ptr [ %5687, %.thread5804 ], [ %5690, %5688 ]
   %5694 = phi ptr [ %5684, %.thread5804 ], [ %5668, %5688 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %338) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %338)
   store i64 %3, ptr %338, align 16, !tbaa !16
   %5695 = ptrtoint ptr %5694 to i64
   %5696 = ptrtoint ptr %5692 to i64
@@ -8986,7 +8980,7 @@ pm_location_new.exit4397.thread:                  ; preds = %5647
   %5704 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5705 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %338, i64 noundef %5704) #5
   %5706 = call i64 @rb_obj_freeze(i64 noundef %5705) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %338) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %338)
   br label %pm_location_new.exit4399
 
 5707:                                             ; preds = %5688
@@ -9026,7 +9020,7 @@ pm_location_new.exit4399:                         ; preds = %5720, %5717, %5691,
   br i1 %4, label %5730, label %5744
 
 5730:                                             ; preds = %5727
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %337) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %337)
   store i64 %3, ptr %337, align 16, !tbaa !16
   %5731 = load ptr, ptr %546, align 8, !tbaa !18
   %5732 = ptrtoint ptr %5725 to i64
@@ -9043,7 +9037,7 @@ pm_location_new.exit4399:                         ; preds = %5720, %5717, %5691,
   %5741 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5742 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %337, i64 noundef %5741) #5
   %5743 = call i64 @rb_obj_freeze(i64 noundef %5742) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %337) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %337)
   br label %pm_location_new.exit4401
 
 5744:                                             ; preds = %5727
@@ -9083,11 +9077,11 @@ pm_location_new.exit4401:                         ; preds = %5758, %5755, %5730,
 
 5766:                                             ; preds = %5764, %pm_location_new.exit4401
   %5767 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %5763) #5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %402) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %402)
   br label %.backedge
 
 5768:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %403) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %403)
   store i64 %3, ptr %403, align 16, !tbaa !16
   %5769 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %5770 = load i32, ptr %5769, align 4, !tbaa !447
@@ -9102,7 +9096,7 @@ pm_location_new.exit4401:                         ; preds = %5758, %5755, %5730,
   br i1 %4, label %5778, label %5792
 
 5778:                                             ; preds = %5768
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %336) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %336)
   store i64 %3, ptr %336, align 16, !tbaa !16
   %5779 = load ptr, ptr %546, align 8, !tbaa !18
   %5780 = ptrtoint ptr %5775 to i64
@@ -9119,7 +9113,7 @@ pm_location_new.exit4401:                         ; preds = %5758, %5755, %5730,
   %5789 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5790 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %336, i64 noundef %5789) #5
   %5791 = call i64 @rb_obj_freeze(i64 noundef %5790) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %336) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %336)
   br label %pm_location_new.exit4404
 
 5792:                                             ; preds = %5768
@@ -9196,7 +9190,7 @@ pm_location_new.exit4407:                         ; preds = %5834, %5831, %pm_lo
   br i1 %5839, label %pm_location_new.exit4409, label %5858
 
 pm_location_new.exit4407.thread:                  ; preds = %5817
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %335) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %335)
   store i64 %3, ptr %335, align 16, !tbaa !16
   %5840 = load ptr, ptr %546, align 8, !tbaa !18
   %5841 = ptrtoint ptr %5815 to i64
@@ -9213,7 +9207,7 @@ pm_location_new.exit4407.thread:                  ; preds = %5817
   %5850 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5851 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %335, i64 noundef %5850) #5
   %5852 = call i64 @rb_obj_freeze(i64 noundef %5851) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %335) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %335)
   store i64 %5852, ptr %2031, align 8, !tbaa !16
   %5853 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %5854 = load ptr, ptr %5853, align 8, !tbaa !524
@@ -9236,7 +9230,7 @@ pm_location_new.exit4407.thread:                  ; preds = %5817
   %5862 = phi ptr [ %.pre6472, %.thread5805 ], [ %.pre6473, %5858 ]
   %5863 = phi ptr [ %5857, %.thread5805 ], [ %5860, %5858 ]
   %5864 = phi ptr [ %5854, %.thread5805 ], [ %5838, %5858 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %334) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %334)
   store i64 %3, ptr %334, align 16, !tbaa !16
   %5865 = ptrtoint ptr %5864 to i64
   %5866 = ptrtoint ptr %5862 to i64
@@ -9252,7 +9246,7 @@ pm_location_new.exit4407.thread:                  ; preds = %5817
   %5874 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5875 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %334, i64 noundef %5874) #5
   %5876 = call i64 @rb_obj_freeze(i64 noundef %5875) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %334) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %334)
   br label %pm_location_new.exit4409
 
 5877:                                             ; preds = %5858
@@ -9340,7 +9334,7 @@ rb_array_const_ptr.exit4418:                      ; preds = %rb_array_const_ptr.
   br i1 %4, label %5927, label %5941
 
 5927:                                             ; preds = %rb_array_const_ptr.exit4418
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %333) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %333)
   store i64 %3, ptr %333, align 16, !tbaa !16
   %5928 = load ptr, ptr %546, align 8, !tbaa !18
   %5929 = ptrtoint ptr %5924 to i64
@@ -9357,7 +9351,7 @@ rb_array_const_ptr.exit4418:                      ; preds = %rb_array_const_ptr.
   %5938 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5939 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %333, i64 noundef %5938) #5
   %5940 = call i64 @rb_obj_freeze(i64 noundef %5939) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %333) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %333)
   br label %pm_location_new.exit4420
 
 5941:                                             ; preds = %rb_array_const_ptr.exit4418
@@ -9397,11 +9391,11 @@ pm_location_new.exit4420:                         ; preds = %5927, %5952, %5955
 
 5962:                                             ; preds = %5960, %pm_location_new.exit4420
   %5963 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %5959) #5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %403) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %403)
   br label %.backedge
 
 5964:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %404) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %404)
   store i64 %3, ptr %404, align 16, !tbaa !16
   %5965 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %5966 = load i32, ptr %5965, align 4, !tbaa !447
@@ -9416,7 +9410,7 @@ pm_location_new.exit4420:                         ; preds = %5927, %5952, %5955
   br i1 %4, label %5974, label %5988
 
 5974:                                             ; preds = %5964
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %332) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %332)
   store i64 %3, ptr %332, align 16, !tbaa !16
   %5975 = load ptr, ptr %546, align 8, !tbaa !18
   %5976 = ptrtoint ptr %5971 to i64
@@ -9433,7 +9427,7 @@ pm_location_new.exit4420:                         ; preds = %5927, %5952, %5955
   %5985 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %5986 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %332, i64 noundef %5985) #5
   %5987 = call i64 @rb_obj_freeze(i64 noundef %5986) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %332) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %332)
   br label %pm_location_new.exit4423
 
 5988:                                             ; preds = %5964
@@ -9510,7 +9504,7 @@ pm_location_new.exit4426:                         ; preds = %6030, %6027, %pm_lo
   br i1 %6035, label %pm_location_new.exit4428, label %6054
 
 pm_location_new.exit4426.thread:                  ; preds = %6013
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %331) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %331)
   store i64 %3, ptr %331, align 16, !tbaa !16
   %6036 = load ptr, ptr %546, align 8, !tbaa !18
   %6037 = ptrtoint ptr %6011 to i64
@@ -9527,7 +9521,7 @@ pm_location_new.exit4426.thread:                  ; preds = %6013
   %6046 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6047 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %331, i64 noundef %6046) #5
   %6048 = call i64 @rb_obj_freeze(i64 noundef %6047) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %331) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %331)
   store i64 %6048, ptr %2013, align 8, !tbaa !16
   %6049 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %6050 = load ptr, ptr %6049, align 8, !tbaa !533
@@ -9550,7 +9544,7 @@ pm_location_new.exit4426.thread:                  ; preds = %6013
   %6058 = phi ptr [ %.pre6470, %.thread5806 ], [ %.pre6471, %6054 ]
   %6059 = phi ptr [ %6053, %.thread5806 ], [ %6056, %6054 ]
   %6060 = phi ptr [ %6050, %.thread5806 ], [ %6034, %6054 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %330) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %330)
   store i64 %3, ptr %330, align 16, !tbaa !16
   %6061 = ptrtoint ptr %6060 to i64
   %6062 = ptrtoint ptr %6058 to i64
@@ -9566,7 +9560,7 @@ pm_location_new.exit4426.thread:                  ; preds = %6013
   %6070 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6071 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %330, i64 noundef %6070) #5
   %6072 = call i64 @rb_obj_freeze(i64 noundef %6071) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %330) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %330)
   br label %pm_location_new.exit4428
 
 6073:                                             ; preds = %6054
@@ -9636,7 +9630,7 @@ rb_array_const_ptr.exit4434:                      ; preds = %rb_array_const_ptr.
   br i1 %4, label %6113, label %6127
 
 6113:                                             ; preds = %rb_array_const_ptr.exit4434
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %329) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %329)
   store i64 %3, ptr %329, align 16, !tbaa !16
   %6114 = load ptr, ptr %546, align 8, !tbaa !18
   %6115 = ptrtoint ptr %6110 to i64
@@ -9653,7 +9647,7 @@ rb_array_const_ptr.exit4434:                      ; preds = %rb_array_const_ptr.
   %6124 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6125 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %329, i64 noundef %6124) #5
   %6126 = call i64 @rb_obj_freeze(i64 noundef %6125) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %329) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %329)
   br label %pm_location_new.exit4436
 
 6127:                                             ; preds = %rb_array_const_ptr.exit4434
@@ -9693,11 +9687,11 @@ pm_location_new.exit4436:                         ; preds = %6113, %6138, %6141
 
 6148:                                             ; preds = %6146, %pm_location_new.exit4436
   %6149 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6145) #5
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %404) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %404)
   br label %.backedge
 
 6150:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %405) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %405)
   store i64 %3, ptr %405, align 16, !tbaa !16
   %6151 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6152 = load i32, ptr %6151, align 4, !tbaa !447
@@ -9712,7 +9706,7 @@ pm_location_new.exit4436:                         ; preds = %6113, %6138, %6141
   br i1 %4, label %6160, label %6174
 
 6160:                                             ; preds = %6150
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %328) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %328)
   store i64 %3, ptr %328, align 16, !tbaa !16
   %6161 = load ptr, ptr %546, align 8, !tbaa !18
   %6162 = ptrtoint ptr %6157 to i64
@@ -9729,7 +9723,7 @@ pm_location_new.exit4436:                         ; preds = %6113, %6138, %6141
   %6171 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6172 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %328, i64 noundef %6171) #5
   %6173 = call i64 @rb_obj_freeze(i64 noundef %6172) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %328) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %328)
   br label %pm_location_new.exit4439
 
 6174:                                             ; preds = %6150
@@ -9772,7 +9766,7 @@ pm_location_new.exit4439:                         ; preds = %6160, %6185, %6188
   br i1 %4, label %6200, label %6214
 
 6200:                                             ; preds = %pm_location_new.exit4439
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %327) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %327)
   store i64 %3, ptr %327, align 16, !tbaa !16
   %6201 = load ptr, ptr %546, align 8, !tbaa !18
   %6202 = ptrtoint ptr %6197 to i64
@@ -9789,7 +9783,7 @@ pm_location_new.exit4439:                         ; preds = %6160, %6185, %6188
   %6211 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6212 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %327, i64 noundef %6211) #5
   %6213 = call i64 @rb_obj_freeze(i64 noundef %6212) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %327) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %327)
   br label %pm_location_new.exit4442
 
 6214:                                             ; preds = %pm_location_new.exit4439
@@ -9871,7 +9865,7 @@ pm_location_new.exit4447.thread:                  ; preds = %6255, %6258
   br label %6279
 
 6262:                                             ; preds = %rb_array_const_ptr.exit4445
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %326) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %326)
   store i64 %3, ptr %326, align 16, !tbaa !16
   %6263 = load ptr, ptr %546, align 8, !tbaa !18
   %6264 = ptrtoint ptr %6241 to i64
@@ -9888,7 +9882,7 @@ pm_location_new.exit4447.thread:                  ; preds = %6255, %6258
   %6273 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6274 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %326, i64 noundef %6273) #5
   %6275 = call i64 @rb_obj_freeze(i64 noundef %6274) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %326) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %326)
   store i64 %6275, ptr %2002, align 8, !tbaa !16
   %6276 = load i64, ptr @rb_cPrismCallTargetNode, align 8, !tbaa !16
   %6277 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %405, i64 noundef %6276) #5
@@ -9898,11 +9892,11 @@ pm_location_new.exit4447.thread:                  ; preds = %6255, %6258
 6279:                                             ; preds = %pm_location_new.exit4447.thread, %6262
   %6280 = phi i64 [ %6261, %pm_location_new.exit4447.thread ], [ %6277, %6262 ]
   %6281 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6280) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %405) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %405)
   br label %.backedge
 
 6282:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %406) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %406)
   store i64 %3, ptr %406, align 16, !tbaa !16
   %6283 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6284 = load i32, ptr %6283, align 4, !tbaa !447
@@ -9917,7 +9911,7 @@ pm_location_new.exit4447.thread:                  ; preds = %6255, %6258
   br i1 %4, label %6292, label %6306
 
 6292:                                             ; preds = %6282
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %325) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %325)
   store i64 %3, ptr %325, align 16, !tbaa !16
   %6293 = load ptr, ptr %546, align 8, !tbaa !18
   %6294 = ptrtoint ptr %6289 to i64
@@ -9934,7 +9928,7 @@ pm_location_new.exit4447.thread:                  ; preds = %6255, %6258
   %6303 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6304 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %325, i64 noundef %6303) #5
   %6305 = call i64 @rb_obj_freeze(i64 noundef %6304) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %325) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %325)
   br label %pm_location_new.exit4450
 
 6306:                                             ; preds = %6282
@@ -10008,7 +10002,7 @@ pm_location_new.exit4453.thread:                  ; preds = %6344, %6347
   br label %6368
 
 6351:                                             ; preds = %pm_location_new.exit4450
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %324) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %324)
   store i64 %3, ptr %324, align 16, !tbaa !16
   %6352 = load ptr, ptr %546, align 8, !tbaa !18
   %6353 = ptrtoint ptr %6330 to i64
@@ -10025,7 +10019,7 @@ pm_location_new.exit4453.thread:                  ; preds = %6344, %6347
   %6362 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6363 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %324, i64 noundef %6362) #5
   %6364 = call i64 @rb_obj_freeze(i64 noundef %6363) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %324) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %324)
   store i64 %6364, ptr %1989, align 16, !tbaa !16
   %6365 = load i64, ptr @rb_cPrismCapturePatternNode, align 8, !tbaa !16
   %6366 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %406, i64 noundef %6365) #5
@@ -10035,11 +10029,11 @@ pm_location_new.exit4453.thread:                  ; preds = %6344, %6347
 6368:                                             ; preds = %pm_location_new.exit4453.thread, %6351
   %6369 = phi i64 [ %6350, %pm_location_new.exit4453.thread ], [ %6366, %6351 ]
   %6370 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6369) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %406) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %406)
   br label %.backedge
 
 6371:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %407) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %407)
   store i64 %3, ptr %407, align 16, !tbaa !16
   %6372 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6373 = load i32, ptr %6372, align 4, !tbaa !447
@@ -10054,7 +10048,7 @@ pm_location_new.exit4453.thread:                  ; preds = %6344, %6347
   br i1 %4, label %6381, label %6395
 
 6381:                                             ; preds = %6371
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %323) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %323)
   store i64 %3, ptr %323, align 16, !tbaa !16
   %6382 = load ptr, ptr %546, align 8, !tbaa !18
   %6383 = ptrtoint ptr %6378 to i64
@@ -10071,7 +10065,7 @@ pm_location_new.exit4453.thread:                  ; preds = %6344, %6347
   %6392 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6393 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %323, i64 noundef %6392) #5
   %6394 = call i64 @rb_obj_freeze(i64 noundef %6393) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %323) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %323)
   br label %pm_location_new.exit4456
 
 6395:                                             ; preds = %6371
@@ -10201,7 +10195,7 @@ pm_location_new.exit4461.thread:                  ; preds = %6465, %6468
   br label %6506
 
 6472:                                             ; preds = %6430
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %322) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %322)
   store i64 %3, ptr %322, align 16, !tbaa !16
   %6473 = load ptr, ptr %546, align 8, !tbaa !18
   %6474 = ptrtoint ptr %6433 to i64
@@ -10218,13 +10212,13 @@ pm_location_new.exit4461.thread:                  ; preds = %6465, %6468
   %6483 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6484 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %322, i64 noundef %6483) #5
   %6485 = call i64 @rb_obj_freeze(i64 noundef %6484) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %322) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %322)
   store i64 %6485, ptr %1976, align 8, !tbaa !16
   %6486 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %6487 = load ptr, ptr %6486, align 8, !tbaa !549
   %6488 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %6489 = load ptr, ptr %6488, align 8, !tbaa !550
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %321) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %321)
   store i64 %3, ptr %321, align 16, !tbaa !16
   %6490 = load ptr, ptr %546, align 8, !tbaa !18
   %6491 = ptrtoint ptr %6487 to i64
@@ -10241,7 +10235,7 @@ pm_location_new.exit4461.thread:                  ; preds = %6465, %6468
   %6500 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6501 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %321, i64 noundef %6500) #5
   %6502 = call i64 @rb_obj_freeze(i64 noundef %6501) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %321) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %321)
   store i64 %6502, ptr %1977, align 16, !tbaa !16
   %6503 = load i64, ptr @rb_cPrismCaseMatchNode, align 8, !tbaa !16
   %6504 = call i64 @rb_class_new_instance(i32 noundef 9, ptr noundef nonnull %407, i64 noundef %6503) #5
@@ -10251,11 +10245,11 @@ pm_location_new.exit4461.thread:                  ; preds = %6465, %6468
 6506:                                             ; preds = %pm_location_new.exit4461.thread, %6472
   %6507 = phi i64 [ %6471, %pm_location_new.exit4461.thread ], [ %6504, %6472 ]
   %6508 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6507) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %407) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %407)
   br label %.backedge
 
 6509:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %408) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %408)
   store i64 %3, ptr %408, align 16, !tbaa !16
   %6510 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6511 = load i32, ptr %6510, align 4, !tbaa !447
@@ -10270,7 +10264,7 @@ pm_location_new.exit4461.thread:                  ; preds = %6465, %6468
   br i1 %4, label %6519, label %6533
 
 6519:                                             ; preds = %6509
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %320) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %320)
   store i64 %3, ptr %320, align 16, !tbaa !16
   %6520 = load ptr, ptr %546, align 8, !tbaa !18
   %6521 = ptrtoint ptr %6516 to i64
@@ -10287,7 +10281,7 @@ pm_location_new.exit4461.thread:                  ; preds = %6465, %6468
   %6530 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6531 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %320, i64 noundef %6530) #5
   %6532 = call i64 @rb_obj_freeze(i64 noundef %6531) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %320) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %320)
   br label %pm_location_new.exit4464
 
 6533:                                             ; preds = %6509
@@ -10417,7 +10411,7 @@ pm_location_new.exit4469.thread:                  ; preds = %6603, %6606
   br label %6644
 
 6610:                                             ; preds = %6568
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %319) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %319)
   store i64 %3, ptr %319, align 16, !tbaa !16
   %6611 = load ptr, ptr %546, align 8, !tbaa !18
   %6612 = ptrtoint ptr %6571 to i64
@@ -10434,13 +10428,13 @@ pm_location_new.exit4469.thread:                  ; preds = %6603, %6606
   %6621 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6622 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %319, i64 noundef %6621) #5
   %6623 = call i64 @rb_obj_freeze(i64 noundef %6622) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %319) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %319)
   store i64 %6623, ptr %1962, align 8, !tbaa !16
   %6624 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %6625 = load ptr, ptr %6624, align 8, !tbaa !554
   %6626 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %6627 = load ptr, ptr %6626, align 8, !tbaa !555
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %318) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %318)
   store i64 %3, ptr %318, align 16, !tbaa !16
   %6628 = load ptr, ptr %546, align 8, !tbaa !18
   %6629 = ptrtoint ptr %6625 to i64
@@ -10457,7 +10451,7 @@ pm_location_new.exit4469.thread:                  ; preds = %6603, %6606
   %6638 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6639 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %318, i64 noundef %6638) #5
   %6640 = call i64 @rb_obj_freeze(i64 noundef %6639) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %318) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %318)
   store i64 %6640, ptr %1963, align 16, !tbaa !16
   %6641 = load i64, ptr @rb_cPrismCaseNode, align 8, !tbaa !16
   %6642 = call i64 @rb_class_new_instance(i32 noundef 9, ptr noundef nonnull %408, i64 noundef %6641) #5
@@ -10467,11 +10461,11 @@ pm_location_new.exit4469.thread:                  ; preds = %6603, %6606
 6644:                                             ; preds = %pm_location_new.exit4469.thread, %6610
   %6645 = phi i64 [ %6609, %pm_location_new.exit4469.thread ], [ %6642, %6610 ]
   %6646 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6645) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %408) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %408)
   br label %.backedge
 
 6647:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %409) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %409)
   store i64 %3, ptr %409, align 16, !tbaa !16
   %6648 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6649 = load i32, ptr %6648, align 4, !tbaa !447
@@ -10486,7 +10480,7 @@ pm_location_new.exit4469.thread:                  ; preds = %6603, %6606
   br i1 %4, label %6657, label %6671
 
 6657:                                             ; preds = %6647
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %317) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %317)
   store i64 %3, ptr %317, align 16, !tbaa !16
   %6658 = load ptr, ptr %546, align 8, !tbaa !18
   %6659 = ptrtoint ptr %6654 to i64
@@ -10503,7 +10497,7 @@ pm_location_new.exit4469.thread:                  ; preds = %6603, %6606
   %6668 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6669 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %317, i64 noundef %6668) #5
   %6670 = call i64 @rb_obj_freeze(i64 noundef %6669) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %317) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %317)
   br label %pm_location_new.exit4472
 
 6671:                                             ; preds = %6647
@@ -10586,7 +10580,7 @@ rb_array_const_ptr.exit4476:                      ; preds = %6697, %6701
   %6718 = load ptr, ptr %6717, align 8, !tbaa !559
   %6719 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %6720 = load ptr, ptr %6719, align 8, !tbaa !560
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %316) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %316)
   store i64 %3, ptr %316, align 16, !tbaa !16
   %6721 = load ptr, ptr %546, align 8, !tbaa !18
   %6722 = ptrtoint ptr %6718 to i64
@@ -10603,7 +10597,7 @@ rb_array_const_ptr.exit4476:                      ; preds = %6697, %6701
   %6731 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6732 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %316, i64 noundef %6731) #5
   %6733 = call i64 @rb_obj_freeze(i64 noundef %6732) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %316) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %316)
   br label %pm_location_new.exit4478
 
 6734:                                             ; preds = %._crit_edge6268
@@ -10648,7 +10642,7 @@ pm_location_new.exit4478:                         ; preds = %6714, %6749, %6752
   br i1 %4, label %6761, label %6775
 
 6761:                                             ; preds = %6758
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %315) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %315)
   store i64 %3, ptr %315, align 16, !tbaa !16
   %6762 = load ptr, ptr %546, align 8, !tbaa !18
   %6763 = ptrtoint ptr %6756 to i64
@@ -10665,7 +10659,7 @@ pm_location_new.exit4478:                         ; preds = %6714, %6749, %6752
   %6772 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6773 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %315, i64 noundef %6772) #5
   %6774 = call i64 @rb_obj_freeze(i64 noundef %6773) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %315) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %315)
   br label %pm_location_new.exit4480
 
 6775:                                             ; preds = %6758
@@ -10704,7 +10698,7 @@ pm_location_new.exit4480:                         ; preds = %6789, %6786, %6761,
   br i1 %4, label %6798, label %6812
 
 6798:                                             ; preds = %pm_location_new.exit4480
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %314) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %314)
   store i64 %3, ptr %314, align 16, !tbaa !16
   %6799 = load ptr, ptr %546, align 8, !tbaa !18
   %6800 = ptrtoint ptr %6795 to i64
@@ -10721,7 +10715,7 @@ pm_location_new.exit4480:                         ; preds = %6789, %6786, %6761,
   %6809 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6810 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %314, i64 noundef %6809) #5
   %6811 = call i64 @rb_obj_freeze(i64 noundef %6810) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %314) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %314)
   br label %pm_location_new.exit4482
 
 6812:                                             ; preds = %pm_location_new.exit4480
@@ -10777,11 +10771,11 @@ rb_array_const_ptr.exit4485:                      ; preds = %pm_location_new.exi
 
 6842:                                             ; preds = %6840, %rb_array_const_ptr.exit4485
   %6843 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6839) #5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %409) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %409)
   br label %.backedge
 
 6844:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %410) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %410)
   store i64 %3, ptr %410, align 16, !tbaa !16
   %6845 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6846 = load i32, ptr %6845, align 4, !tbaa !447
@@ -10796,7 +10790,7 @@ rb_array_const_ptr.exit4485:                      ; preds = %pm_location_new.exi
   br i1 %4, label %6854, label %6868
 
 6854:                                             ; preds = %6844
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %313) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %313)
   store i64 %3, ptr %313, align 16, !tbaa !16
   %6855 = load ptr, ptr %546, align 8, !tbaa !18
   %6856 = ptrtoint ptr %6851 to i64
@@ -10813,7 +10807,7 @@ rb_array_const_ptr.exit4485:                      ; preds = %pm_location_new.exi
   %6865 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6866 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %313, i64 noundef %6865) #5
   %6867 = call i64 @rb_obj_freeze(i64 noundef %6866) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %313) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %313)
   br label %pm_location_new.exit4488
 
 6868:                                             ; preds = %6844
@@ -10896,7 +10890,7 @@ rb_array_const_ptr.exit4492:                      ; preds = %pm_location_new.exi
   br label %6950
 
 6919:                                             ; preds = %rb_array_const_ptr.exit4492
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %312) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %312)
   store i64 %3, ptr %312, align 16, !tbaa !16
   %6920 = load ptr, ptr %546, align 8, !tbaa !18
   %6921 = ptrtoint ptr %6900 to i64
@@ -10913,13 +10907,13 @@ rb_array_const_ptr.exit4492:                      ; preds = %pm_location_new.exi
   %6930 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6931 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %312, i64 noundef %6930) #5
   %6932 = call i64 @rb_obj_freeze(i64 noundef %6931) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %312) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %312)
   store i64 %6932, ptr %1928, align 8, !tbaa !16
   %6933 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %6934 = load ptr, ptr %6933, align 8, !tbaa !569
   %6935 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %6936 = load ptr, ptr %6935, align 8, !tbaa !570
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %311) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %311)
   store i64 %3, ptr %311, align 16, !tbaa !16
   %6937 = load ptr, ptr %546, align 8, !tbaa !18
   %6938 = ptrtoint ptr %6934 to i64
@@ -10936,7 +10930,7 @@ rb_array_const_ptr.exit4492:                      ; preds = %pm_location_new.exi
   %6947 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6948 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %311, i64 noundef %6947) #5
   %6949 = call i64 @rb_obj_freeze(i64 noundef %6948) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %311) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %311)
   br label %pm_location_new.exit4496
 
 6950:                                             ; preds = %6914, %6917
@@ -10981,11 +10975,11 @@ pm_location_new.exit4496:                         ; preds = %6919, %6963, %6966
 
 6973:                                             ; preds = %6971, %pm_location_new.exit4496
   %6974 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %6970) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %410) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %410)
   br label %.backedge
 
 6975:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %411) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %411)
   store i64 %3, ptr %411, align 16, !tbaa !16
   %6976 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %6977 = load i32, ptr %6976, align 4, !tbaa !447
@@ -11000,7 +10994,7 @@ pm_location_new.exit4496:                         ; preds = %6919, %6963, %6966
   br i1 %4, label %6985, label %6999
 
 6985:                                             ; preds = %6975
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %310) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %310)
   store i64 %3, ptr %310, align 16, !tbaa !16
   %6986 = load ptr, ptr %546, align 8, !tbaa !18
   %6987 = ptrtoint ptr %6982 to i64
@@ -11017,7 +11011,7 @@ pm_location_new.exit4496:                         ; preds = %6919, %6963, %6966
   %6996 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %6997 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %310, i64 noundef %6996) #5
   %6998 = call i64 @rb_obj_freeze(i64 noundef %6997) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %310) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %310)
   br label %pm_location_new.exit4499
 
 6999:                                             ; preds = %6975
@@ -11100,7 +11094,7 @@ rb_array_const_ptr.exit4503:                      ; preds = %pm_location_new.exi
   br label %7081
 
 7050:                                             ; preds = %rb_array_const_ptr.exit4503
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %309) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %309)
   store i64 %3, ptr %309, align 16, !tbaa !16
   %7051 = load ptr, ptr %546, align 8, !tbaa !18
   %7052 = ptrtoint ptr %7031 to i64
@@ -11117,13 +11111,13 @@ rb_array_const_ptr.exit4503:                      ; preds = %pm_location_new.exi
   %7061 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7062 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %309, i64 noundef %7061) #5
   %7063 = call i64 @rb_obj_freeze(i64 noundef %7062) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %309) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %309)
   store i64 %7063, ptr %1914, align 8, !tbaa !16
   %7064 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %7065 = load ptr, ptr %7064, align 8, !tbaa !574
   %7066 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %7067 = load ptr, ptr %7066, align 8, !tbaa !575
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %308) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %308)
   store i64 %3, ptr %308, align 16, !tbaa !16
   %7068 = load ptr, ptr %546, align 8, !tbaa !18
   %7069 = ptrtoint ptr %7065 to i64
@@ -11140,7 +11134,7 @@ rb_array_const_ptr.exit4503:                      ; preds = %pm_location_new.exi
   %7078 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7079 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %308, i64 noundef %7078) #5
   %7080 = call i64 @rb_obj_freeze(i64 noundef %7079) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %308) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %308)
   br label %pm_location_new.exit4507
 
 7081:                                             ; preds = %7045, %7048
@@ -11203,11 +11197,11 @@ rb_array_const_ptr.exit4510:                      ; preds = %pm_location_new.exi
 
 7114:                                             ; preds = %7112, %rb_array_const_ptr.exit4510
   %7115 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7111) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %411) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %411)
   br label %.backedge
 
 7116:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %412) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %412)
   store i64 %3, ptr %412, align 16, !tbaa !16
   %7117 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7118 = load i32, ptr %7117, align 4, !tbaa !447
@@ -11222,7 +11216,7 @@ rb_array_const_ptr.exit4510:                      ; preds = %pm_location_new.exi
   br i1 %4, label %7126, label %7140
 
 7126:                                             ; preds = %7116
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %307) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %307)
   store i64 %3, ptr %307, align 16, !tbaa !16
   %7127 = load ptr, ptr %546, align 8, !tbaa !18
   %7128 = ptrtoint ptr %7123 to i64
@@ -11239,7 +11233,7 @@ rb_array_const_ptr.exit4510:                      ; preds = %pm_location_new.exi
   %7137 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7138 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %307, i64 noundef %7137) #5
   %7139 = call i64 @rb_obj_freeze(i64 noundef %7138) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %307) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %307)
   br label %pm_location_new.exit4513
 
 7140:                                             ; preds = %7116
@@ -11322,7 +11316,7 @@ rb_array_const_ptr.exit4517:                      ; preds = %pm_location_new.exi
   br label %7222
 
 7191:                                             ; preds = %rb_array_const_ptr.exit4517
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %306) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %306)
   store i64 %3, ptr %306, align 16, !tbaa !16
   %7192 = load ptr, ptr %546, align 8, !tbaa !18
   %7193 = ptrtoint ptr %7172 to i64
@@ -11339,13 +11333,13 @@ rb_array_const_ptr.exit4517:                      ; preds = %pm_location_new.exi
   %7202 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7203 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %306, i64 noundef %7202) #5
   %7204 = call i64 @rb_obj_freeze(i64 noundef %7203) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %306) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %306)
   store i64 %7204, ptr %1901, align 8, !tbaa !16
   %7205 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %7206 = load ptr, ptr %7205, align 8, !tbaa !580
   %7207 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %7208 = load ptr, ptr %7207, align 8, !tbaa !581
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %305) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %305)
   store i64 %3, ptr %305, align 16, !tbaa !16
   %7209 = load ptr, ptr %546, align 8, !tbaa !18
   %7210 = ptrtoint ptr %7206 to i64
@@ -11362,7 +11356,7 @@ rb_array_const_ptr.exit4517:                      ; preds = %pm_location_new.exi
   %7219 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7220 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %305, i64 noundef %7219) #5
   %7221 = call i64 @rb_obj_freeze(i64 noundef %7220) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %305) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %305)
   br label %pm_location_new.exit4521
 
 7222:                                             ; preds = %7186, %7189
@@ -11407,11 +11401,11 @@ pm_location_new.exit4521:                         ; preds = %7191, %7235, %7238
 
 7245:                                             ; preds = %7243, %pm_location_new.exit4521
   %7246 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7242) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %412) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %412)
   br label %.backedge
 
 7247:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %413) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %413)
   store i64 %3, ptr %413, align 16, !tbaa !16
   %7248 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7249 = load i32, ptr %7248, align 4, !tbaa !447
@@ -11426,7 +11420,7 @@ pm_location_new.exit4521:                         ; preds = %7191, %7235, %7238
   br i1 %4, label %7257, label %7271
 
 7257:                                             ; preds = %7247
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %304) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %304)
   store i64 %3, ptr %304, align 16, !tbaa !16
   %7258 = load ptr, ptr %546, align 8, !tbaa !18
   %7259 = ptrtoint ptr %7254 to i64
@@ -11443,7 +11437,7 @@ pm_location_new.exit4521:                         ; preds = %7191, %7235, %7238
   %7268 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7269 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %304, i64 noundef %7268) #5
   %7270 = call i64 @rb_obj_freeze(i64 noundef %7269) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %304) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %304)
   br label %pm_location_new.exit4524
 
 7271:                                             ; preds = %7247
@@ -11505,11 +11499,11 @@ rb_array_const_ptr.exit4528:                      ; preds = %pm_location_new.exi
 
 7306:                                             ; preds = %7304, %rb_array_const_ptr.exit4528
   %7307 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7303) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %413) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %413)
   br label %.backedge
 
 7308:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %414) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %414)
   store i64 %3, ptr %414, align 16, !tbaa !16
   %7309 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7310 = load i32, ptr %7309, align 4, !tbaa !447
@@ -11524,7 +11518,7 @@ rb_array_const_ptr.exit4528:                      ; preds = %pm_location_new.exi
   br i1 %4, label %7318, label %7332
 
 7318:                                             ; preds = %7308
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %303) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %303)
   store i64 %3, ptr %303, align 16, !tbaa !16
   %7319 = load ptr, ptr %546, align 8, !tbaa !18
   %7320 = ptrtoint ptr %7315 to i64
@@ -11541,7 +11535,7 @@ rb_array_const_ptr.exit4528:                      ; preds = %pm_location_new.exi
   %7329 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7330 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %303, i64 noundef %7329) #5
   %7331 = call i64 @rb_obj_freeze(i64 noundef %7330) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %303) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %303)
   br label %pm_location_new.exit4531
 
 7332:                                             ; preds = %7308
@@ -11603,11 +11597,11 @@ rb_array_const_ptr.exit4535:                      ; preds = %pm_location_new.exi
 
 7367:                                             ; preds = %7365, %rb_array_const_ptr.exit4535
   %7368 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7364) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %414) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %414)
   br label %.backedge
 
 7369:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %415) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %415)
   store i64 %3, ptr %415, align 16, !tbaa !16
   %7370 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7371 = load i32, ptr %7370, align 4, !tbaa !447
@@ -11622,7 +11616,7 @@ rb_array_const_ptr.exit4535:                      ; preds = %pm_location_new.exi
   br i1 %4, label %7379, label %7393
 
 7379:                                             ; preds = %7369
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %302) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %302)
   store i64 %3, ptr %302, align 16, !tbaa !16
   %7380 = load ptr, ptr %546, align 8, !tbaa !18
   %7381 = ptrtoint ptr %7376 to i64
@@ -11639,7 +11633,7 @@ rb_array_const_ptr.exit4535:                      ; preds = %pm_location_new.exi
   %7390 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7391 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %302, i64 noundef %7390) #5
   %7392 = call i64 @rb_obj_freeze(i64 noundef %7391) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %302) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %302)
   br label %pm_location_new.exit4538
 
 7393:                                             ; preds = %7369
@@ -11698,7 +11692,7 @@ rb_array_const_ptr.exit4542:                      ; preds = %pm_location_new.exi
   br i1 %4, label %7428, label %7442
 
 7428:                                             ; preds = %rb_array_const_ptr.exit4542
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %301) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %301)
   store i64 %3, ptr %301, align 16, !tbaa !16
   %7429 = load ptr, ptr %546, align 8, !tbaa !18
   %7430 = ptrtoint ptr %7425 to i64
@@ -11715,7 +11709,7 @@ rb_array_const_ptr.exit4542:                      ; preds = %pm_location_new.exi
   %7439 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7440 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %301, i64 noundef %7439) #5
   %7441 = call i64 @rb_obj_freeze(i64 noundef %7440) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %301) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %pm_location_new.exit4544
 
 7442:                                             ; preds = %rb_array_const_ptr.exit4542
@@ -11781,7 +11775,7 @@ pm_location_new.exit4546.thread:                  ; preds = %7474, %7477
   br label %7498
 
 7481:                                             ; preds = %pm_location_new.exit4544
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %300) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %300)
   store i64 %3, ptr %300, align 16, !tbaa !16
   %7482 = load ptr, ptr %546, align 8, !tbaa !18
   %7483 = ptrtoint ptr %7460 to i64
@@ -11798,7 +11792,7 @@ pm_location_new.exit4546.thread:                  ; preds = %7474, %7477
   %7492 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7493 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %300, i64 noundef %7492) #5
   %7494 = call i64 @rb_obj_freeze(i64 noundef %7493) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %300) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
   store i64 %7494, ptr %1880, align 8, !tbaa !16
   %7495 = load i64, ptr @rb_cPrismClassVariableWriteNode, align 8, !tbaa !16
   %7496 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %415, i64 noundef %7495) #5
@@ -11808,11 +11802,11 @@ pm_location_new.exit4546.thread:                  ; preds = %7474, %7477
 7498:                                             ; preds = %pm_location_new.exit4546.thread, %7481
   %7499 = phi i64 [ %7480, %pm_location_new.exit4546.thread ], [ %7496, %7481 ]
   %7500 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7499) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %415) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %415)
   br label %.backedge
 
 7501:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %416) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %416)
   store i64 %3, ptr %416, align 16, !tbaa !16
   %7502 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7503 = load i32, ptr %7502, align 4, !tbaa !447
@@ -11827,7 +11821,7 @@ pm_location_new.exit4546.thread:                  ; preds = %7474, %7477
   br i1 %4, label %7511, label %7525
 
 7511:                                             ; preds = %7501
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %299) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %299)
   store i64 %3, ptr %299, align 16, !tbaa !16
   %7512 = load ptr, ptr %546, align 8, !tbaa !18
   %7513 = ptrtoint ptr %7508 to i64
@@ -11844,7 +11838,7 @@ pm_location_new.exit4546.thread:                  ; preds = %7474, %7477
   %7522 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7523 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %299, i64 noundef %7522) #5
   %7524 = call i64 @rb_obj_freeze(i64 noundef %7523) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %299) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   br label %pm_location_new.exit4549
 
 7525:                                             ; preds = %7501
@@ -11927,7 +11921,7 @@ rb_array_const_ptr.exit4553:                      ; preds = %pm_location_new.exi
   br label %7607
 
 7576:                                             ; preds = %rb_array_const_ptr.exit4553
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %298) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %298)
   store i64 %3, ptr %298, align 16, !tbaa !16
   %7577 = load ptr, ptr %546, align 8, !tbaa !18
   %7578 = ptrtoint ptr %7557 to i64
@@ -11944,13 +11938,13 @@ rb_array_const_ptr.exit4553:                      ; preds = %pm_location_new.exi
   %7587 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7588 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %298, i64 noundef %7587) #5
   %7589 = call i64 @rb_obj_freeze(i64 noundef %7588) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %298) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
   store i64 %7589, ptr %1863, align 8, !tbaa !16
   %7590 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %7591 = load ptr, ptr %7590, align 8, !tbaa !594
   %7592 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %7593 = load ptr, ptr %7592, align 8, !tbaa !595
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %297) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %297)
   store i64 %3, ptr %297, align 16, !tbaa !16
   %7594 = load ptr, ptr %546, align 8, !tbaa !18
   %7595 = ptrtoint ptr %7591 to i64
@@ -11967,7 +11961,7 @@ rb_array_const_ptr.exit4553:                      ; preds = %pm_location_new.exi
   %7604 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7605 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %297, i64 noundef %7604) #5
   %7606 = call i64 @rb_obj_freeze(i64 noundef %7605) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %297) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   br label %pm_location_new.exit4557
 
 7607:                                             ; preds = %7571, %7574
@@ -12012,11 +12006,11 @@ pm_location_new.exit4557:                         ; preds = %7576, %7620, %7623
 
 7630:                                             ; preds = %7628, %pm_location_new.exit4557
   %7631 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7627) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %416) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %416)
   br label %.backedge
 
 7632:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %417) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %417)
   store i64 %3, ptr %417, align 16, !tbaa !16
   %7633 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7634 = load i32, ptr %7633, align 4, !tbaa !447
@@ -12031,7 +12025,7 @@ pm_location_new.exit4557:                         ; preds = %7576, %7620, %7623
   br i1 %4, label %7642, label %7656
 
 7642:                                             ; preds = %7632
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %296) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %296)
   store i64 %3, ptr %296, align 16, !tbaa !16
   %7643 = load ptr, ptr %546, align 8, !tbaa !18
   %7644 = ptrtoint ptr %7639 to i64
@@ -12048,7 +12042,7 @@ pm_location_new.exit4557:                         ; preds = %7576, %7620, %7623
   %7653 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7654 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %296, i64 noundef %7653) #5
   %7655 = call i64 @rb_obj_freeze(i64 noundef %7654) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %296) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
   br label %pm_location_new.exit4560
 
 7656:                                             ; preds = %7632
@@ -12131,7 +12125,7 @@ rb_array_const_ptr.exit4564:                      ; preds = %pm_location_new.exi
   br label %7738
 
 7707:                                             ; preds = %rb_array_const_ptr.exit4564
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %295) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %295)
   store i64 %3, ptr %295, align 16, !tbaa !16
   %7708 = load ptr, ptr %546, align 8, !tbaa !18
   %7709 = ptrtoint ptr %7688 to i64
@@ -12148,13 +12142,13 @@ rb_array_const_ptr.exit4564:                      ; preds = %pm_location_new.exi
   %7718 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7719 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %295, i64 noundef %7718) #5
   %7720 = call i64 @rb_obj_freeze(i64 noundef %7719) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %295) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
   store i64 %7720, ptr %1849, align 8, !tbaa !16
   %7721 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %7722 = load ptr, ptr %7721, align 8, !tbaa !599
   %7723 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %7724 = load ptr, ptr %7723, align 8, !tbaa !600
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %294) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %294)
   store i64 %3, ptr %294, align 16, !tbaa !16
   %7725 = load ptr, ptr %546, align 8, !tbaa !18
   %7726 = ptrtoint ptr %7722 to i64
@@ -12171,7 +12165,7 @@ rb_array_const_ptr.exit4564:                      ; preds = %pm_location_new.exi
   %7735 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7736 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %294, i64 noundef %7735) #5
   %7737 = call i64 @rb_obj_freeze(i64 noundef %7736) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %294) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
   br label %pm_location_new.exit4568
 
 7738:                                             ; preds = %7702, %7705
@@ -12234,11 +12228,11 @@ rb_array_const_ptr.exit4571:                      ; preds = %pm_location_new.exi
 
 7771:                                             ; preds = %7769, %rb_array_const_ptr.exit4571
   %7772 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7768) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %417) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %417)
   br label %.backedge
 
 7773:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %418) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %418)
   store i64 %3, ptr %418, align 16, !tbaa !16
   %7774 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7775 = load i32, ptr %7774, align 4, !tbaa !447
@@ -12253,7 +12247,7 @@ rb_array_const_ptr.exit4571:                      ; preds = %pm_location_new.exi
   br i1 %4, label %7783, label %7797
 
 7783:                                             ; preds = %7773
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %293) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
   store i64 %3, ptr %293, align 16, !tbaa !16
   %7784 = load ptr, ptr %546, align 8, !tbaa !18
   %7785 = ptrtoint ptr %7780 to i64
@@ -12270,7 +12264,7 @@ rb_array_const_ptr.exit4571:                      ; preds = %pm_location_new.exi
   %7794 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7795 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %293, i64 noundef %7794) #5
   %7796 = call i64 @rb_obj_freeze(i64 noundef %7795) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %293) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   br label %pm_location_new.exit4574
 
 7797:                                             ; preds = %7773
@@ -12353,7 +12347,7 @@ rb_array_const_ptr.exit4578:                      ; preds = %pm_location_new.exi
   br label %7879
 
 7848:                                             ; preds = %rb_array_const_ptr.exit4578
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %292) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
   store i64 %3, ptr %292, align 16, !tbaa !16
   %7849 = load ptr, ptr %546, align 8, !tbaa !18
   %7850 = ptrtoint ptr %7829 to i64
@@ -12370,13 +12364,13 @@ rb_array_const_ptr.exit4578:                      ; preds = %pm_location_new.exi
   %7859 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7860 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %292, i64 noundef %7859) #5
   %7861 = call i64 @rb_obj_freeze(i64 noundef %7860) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %292) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   store i64 %7861, ptr %1836, align 8, !tbaa !16
   %7862 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %7863 = load ptr, ptr %7862, align 8, !tbaa !605
   %7864 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %7865 = load ptr, ptr %7864, align 8, !tbaa !606
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %291) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
   store i64 %3, ptr %291, align 16, !tbaa !16
   %7866 = load ptr, ptr %546, align 8, !tbaa !18
   %7867 = ptrtoint ptr %7863 to i64
@@ -12393,7 +12387,7 @@ rb_array_const_ptr.exit4578:                      ; preds = %pm_location_new.exi
   %7876 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7877 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %291, i64 noundef %7876) #5
   %7878 = call i64 @rb_obj_freeze(i64 noundef %7877) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %291) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
   br label %pm_location_new.exit4582
 
 7879:                                             ; preds = %7843, %7846
@@ -12438,11 +12432,11 @@ pm_location_new.exit4582:                         ; preds = %7848, %7892, %7895
 
 7902:                                             ; preds = %7900, %pm_location_new.exit4582
   %7903 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7899) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %418) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %418)
   br label %.backedge
 
 7904:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %419) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %419)
   store i64 %3, ptr %419, align 16, !tbaa !16
   %7905 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7906 = load i32, ptr %7905, align 4, !tbaa !447
@@ -12457,7 +12451,7 @@ pm_location_new.exit4582:                         ; preds = %7848, %7892, %7895
   br i1 %4, label %7914, label %7928
 
 7914:                                             ; preds = %7904
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %290) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
   store i64 %3, ptr %290, align 16, !tbaa !16
   %7915 = load ptr, ptr %546, align 8, !tbaa !18
   %7916 = ptrtoint ptr %7911 to i64
@@ -12474,7 +12468,7 @@ pm_location_new.exit4582:                         ; preds = %7848, %7892, %7895
   %7925 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7926 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %290, i64 noundef %7925) #5
   %7927 = call i64 @rb_obj_freeze(i64 noundef %7926) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %290) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
   br label %pm_location_new.exit4585
 
 7928:                                             ; preds = %7904
@@ -12517,7 +12511,7 @@ pm_location_new.exit4585:                         ; preds = %7914, %7939, %7942
   br i1 %4, label %7954, label %7968
 
 7954:                                             ; preds = %pm_location_new.exit4585
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %289) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
   store i64 %3, ptr %289, align 16, !tbaa !16
   %7955 = load ptr, ptr %546, align 8, !tbaa !18
   %7956 = ptrtoint ptr %7951 to i64
@@ -12534,7 +12528,7 @@ pm_location_new.exit4585:                         ; preds = %7914, %7939, %7942
   %7965 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %7966 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %289, i64 noundef %7965) #5
   %7967 = call i64 @rb_obj_freeze(i64 noundef %7966) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %289) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
   br label %pm_location_new.exit4588
 
 7968:                                             ; preds = %pm_location_new.exit4585
@@ -12574,11 +12568,11 @@ pm_location_new.exit4588:                         ; preds = %7954, %7979, %7982
 
 7989:                                             ; preds = %7987, %pm_location_new.exit4588
   %7990 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %7986) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %419) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %419)
   br label %.backedge
 
 7991:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %420) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %420)
   store i64 %3, ptr %420, align 16, !tbaa !16
   %7992 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %7993 = load i32, ptr %7992, align 4, !tbaa !447
@@ -12593,7 +12587,7 @@ pm_location_new.exit4588:                         ; preds = %7954, %7979, %7982
   br i1 %4, label %8001, label %8015
 
 8001:                                             ; preds = %7991
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %288) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
   store i64 %3, ptr %288, align 16, !tbaa !16
   %8002 = load ptr, ptr %546, align 8, !tbaa !18
   %8003 = ptrtoint ptr %7998 to i64
@@ -12610,7 +12604,7 @@ pm_location_new.exit4588:                         ; preds = %7954, %7979, %7982
   %8012 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8013 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %288, i64 noundef %8012) #5
   %8014 = call i64 @rb_obj_freeze(i64 noundef %8013) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %288) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %pm_location_new.exit4591
 
 8015:                                             ; preds = %7991
@@ -12737,7 +12731,7 @@ pm_location_new.exit4599.thread:                  ; preds = %8084, %8087
   br label %8125
 
 8091:                                             ; preds = %8049
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %287) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
   store i64 %3, ptr %287, align 16, !tbaa !16
   %8092 = load ptr, ptr %546, align 8, !tbaa !18
   %8093 = ptrtoint ptr %8052 to i64
@@ -12754,13 +12748,13 @@ pm_location_new.exit4599.thread:                  ; preds = %8084, %8087
   %8102 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8103 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %287, i64 noundef %8102) #5
   %8104 = call i64 @rb_obj_freeze(i64 noundef %8103) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %287) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
   store i64 %8104, ptr %1814, align 16, !tbaa !16
   %8105 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %8106 = load ptr, ptr %8105, align 8, !tbaa !612
   %8107 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %8108 = load ptr, ptr %8107, align 8, !tbaa !613
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %286) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
   store i64 %3, ptr %286, align 16, !tbaa !16
   %8109 = load ptr, ptr %546, align 8, !tbaa !18
   %8110 = ptrtoint ptr %8106 to i64
@@ -12777,7 +12771,7 @@ pm_location_new.exit4599.thread:                  ; preds = %8084, %8087
   %8119 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8120 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %286, i64 noundef %8119) #5
   %8121 = call i64 @rb_obj_freeze(i64 noundef %8120) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %286) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
   store i64 %8121, ptr %1815, align 8, !tbaa !16
   %8122 = load i64, ptr @rb_cPrismConstantPathNode, align 8, !tbaa !16
   %8123 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %420, i64 noundef %8122) #5
@@ -12787,11 +12781,11 @@ pm_location_new.exit4599.thread:                  ; preds = %8084, %8087
 8125:                                             ; preds = %pm_location_new.exit4599.thread, %8091
   %8126 = phi i64 [ %8090, %pm_location_new.exit4599.thread ], [ %8123, %8091 ]
   %8127 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8126) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %420) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %420)
   br label %.backedge
 
 8128:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %421) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %421)
   store i64 %3, ptr %421, align 16, !tbaa !16
   %8129 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8130 = load i32, ptr %8129, align 4, !tbaa !447
@@ -12806,7 +12800,7 @@ pm_location_new.exit4599.thread:                  ; preds = %8084, %8087
   br i1 %4, label %8138, label %8152
 
 8138:                                             ; preds = %8128
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %285) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
   store i64 %3, ptr %285, align 16, !tbaa !16
   %8139 = load ptr, ptr %546, align 8, !tbaa !18
   %8140 = ptrtoint ptr %8135 to i64
@@ -12823,7 +12817,7 @@ pm_location_new.exit4599.thread:                  ; preds = %8084, %8087
   %8149 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8150 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %285, i64 noundef %8149) #5
   %8151 = call i64 @rb_obj_freeze(i64 noundef %8150) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %285) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
   br label %pm_location_new.exit4602
 
 8152:                                             ; preds = %8128
@@ -12866,7 +12860,7 @@ pm_location_new.exit4602:                         ; preds = %8138, %8163, %8166
   br i1 %4, label %8178, label %8192
 
 8178:                                             ; preds = %pm_location_new.exit4602
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %284) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
   store i64 %3, ptr %284, align 16, !tbaa !16
   %8179 = load ptr, ptr %546, align 8, !tbaa !18
   %8180 = ptrtoint ptr %8175 to i64
@@ -12883,7 +12877,7 @@ pm_location_new.exit4602:                         ; preds = %8138, %8163, %8166
   %8189 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8190 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %284, i64 noundef %8189) #5
   %8191 = call i64 @rb_obj_freeze(i64 noundef %8190) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %284) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %pm_location_new.exit4605
 
 8192:                                             ; preds = %pm_location_new.exit4602
@@ -12941,11 +12935,11 @@ rb_array_const_ptr.exit4608:                      ; preds = %pm_location_new.exi
 
 8223:                                             ; preds = %8221, %rb_array_const_ptr.exit4608
   %8224 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8220) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %421) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %421)
   br label %.backedge
 
 8225:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %422) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %422)
   store i64 %3, ptr %422, align 16, !tbaa !16
   %8226 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8227 = load i32, ptr %8226, align 4, !tbaa !447
@@ -12960,7 +12954,7 @@ rb_array_const_ptr.exit4608:                      ; preds = %pm_location_new.exi
   br i1 %4, label %8235, label %8249
 
 8235:                                             ; preds = %8225
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %283) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
   store i64 %3, ptr %283, align 16, !tbaa !16
   %8236 = load ptr, ptr %546, align 8, !tbaa !18
   %8237 = ptrtoint ptr %8232 to i64
@@ -12977,7 +12971,7 @@ rb_array_const_ptr.exit4608:                      ; preds = %pm_location_new.exi
   %8246 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8247 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %283, i64 noundef %8246) #5
   %8248 = call i64 @rb_obj_freeze(i64 noundef %8247) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %283) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
   br label %pm_location_new.exit4611
 
 8249:                                             ; preds = %8225
@@ -13020,7 +13014,7 @@ pm_location_new.exit4611:                         ; preds = %8235, %8260, %8263
   br i1 %4, label %8275, label %8289
 
 8275:                                             ; preds = %pm_location_new.exit4611
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %282) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
   store i64 %3, ptr %282, align 16, !tbaa !16
   %8276 = load ptr, ptr %546, align 8, !tbaa !18
   %8277 = ptrtoint ptr %8272 to i64
@@ -13037,7 +13031,7 @@ pm_location_new.exit4611:                         ; preds = %8235, %8260, %8263
   %8286 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8287 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %282, i64 noundef %8286) #5
   %8288 = call i64 @rb_obj_freeze(i64 noundef %8287) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %282) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
   br label %pm_location_new.exit4614
 
 8289:                                             ; preds = %pm_location_new.exit4611
@@ -13077,11 +13071,11 @@ pm_location_new.exit4614:                         ; preds = %8275, %8300, %8303
 
 8310:                                             ; preds = %8308, %pm_location_new.exit4614
   %8311 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8307) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %422) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %422)
   br label %.backedge
 
 8312:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %423) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %423)
   store i64 %3, ptr %423, align 16, !tbaa !16
   %8313 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8314 = load i32, ptr %8313, align 4, !tbaa !447
@@ -13096,7 +13090,7 @@ pm_location_new.exit4614:                         ; preds = %8275, %8300, %8303
   br i1 %4, label %8322, label %8336
 
 8322:                                             ; preds = %8312
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %281) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
   store i64 %3, ptr %281, align 16, !tbaa !16
   %8323 = load ptr, ptr %546, align 8, !tbaa !18
   %8324 = ptrtoint ptr %8319 to i64
@@ -13113,7 +13107,7 @@ pm_location_new.exit4614:                         ; preds = %8275, %8300, %8303
   %8333 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8334 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %281, i64 noundef %8333) #5
   %8335 = call i64 @rb_obj_freeze(i64 noundef %8334) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %281) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %pm_location_new.exit4617
 
 8336:                                             ; preds = %8312
@@ -13240,7 +13234,7 @@ pm_location_new.exit4625.thread:                  ; preds = %8405, %8408
   br label %8446
 
 8412:                                             ; preds = %8370
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %280) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
   store i64 %3, ptr %280, align 16, !tbaa !16
   %8413 = load ptr, ptr %546, align 8, !tbaa !18
   %8414 = ptrtoint ptr %8373 to i64
@@ -13257,13 +13251,13 @@ pm_location_new.exit4625.thread:                  ; preds = %8405, %8408
   %8423 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8424 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %280, i64 noundef %8423) #5
   %8425 = call i64 @rb_obj_freeze(i64 noundef %8424) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %280) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
   store i64 %8425, ptr %1780, align 16, !tbaa !16
   %8426 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %8427 = load ptr, ptr %8426, align 8, !tbaa !622
   %8428 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %8429 = load ptr, ptr %8428, align 8, !tbaa !623
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %279) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
   store i64 %3, ptr %279, align 16, !tbaa !16
   %8430 = load ptr, ptr %546, align 8, !tbaa !18
   %8431 = ptrtoint ptr %8427 to i64
@@ -13280,7 +13274,7 @@ pm_location_new.exit4625.thread:                  ; preds = %8405, %8408
   %8440 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8441 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %279, i64 noundef %8440) #5
   %8442 = call i64 @rb_obj_freeze(i64 noundef %8441) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %279) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
   store i64 %8442, ptr %1781, align 8, !tbaa !16
   %8443 = load i64, ptr @rb_cPrismConstantPathTargetNode, align 8, !tbaa !16
   %8444 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %423, i64 noundef %8443) #5
@@ -13290,11 +13284,11 @@ pm_location_new.exit4625.thread:                  ; preds = %8405, %8408
 8446:                                             ; preds = %pm_location_new.exit4625.thread, %8412
   %8447 = phi i64 [ %8411, %pm_location_new.exit4625.thread ], [ %8444, %8412 ]
   %8448 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8447) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %423) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %423)
   br label %.backedge
 
 8449:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %424) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %424)
   store i64 %3, ptr %424, align 16, !tbaa !16
   %8450 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8451 = load i32, ptr %8450, align 4, !tbaa !447
@@ -13309,7 +13303,7 @@ pm_location_new.exit4625.thread:                  ; preds = %8405, %8408
   br i1 %4, label %8459, label %8473
 
 8459:                                             ; preds = %8449
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %278) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
   store i64 %3, ptr %278, align 16, !tbaa !16
   %8460 = load ptr, ptr %546, align 8, !tbaa !18
   %8461 = ptrtoint ptr %8456 to i64
@@ -13326,7 +13320,7 @@ pm_location_new.exit4625.thread:                  ; preds = %8405, %8408
   %8470 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8471 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %278, i64 noundef %8470) #5
   %8472 = call i64 @rb_obj_freeze(i64 noundef %8471) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %278) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
   br label %pm_location_new.exit4628
 
 8473:                                             ; preds = %8449
@@ -13369,7 +13363,7 @@ pm_location_new.exit4628:                         ; preds = %8459, %8484, %8487
   br i1 %4, label %8499, label %8513
 
 8499:                                             ; preds = %pm_location_new.exit4628
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %277) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
   store i64 %3, ptr %277, align 16, !tbaa !16
   %8500 = load ptr, ptr %546, align 8, !tbaa !18
   %8501 = ptrtoint ptr %8496 to i64
@@ -13386,7 +13380,7 @@ pm_location_new.exit4628:                         ; preds = %8459, %8484, %8487
   %8510 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8511 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %277, i64 noundef %8510) #5
   %8512 = call i64 @rb_obj_freeze(i64 noundef %8511) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %277) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
   br label %pm_location_new.exit4631
 
 8513:                                             ; preds = %pm_location_new.exit4628
@@ -13426,11 +13420,11 @@ pm_location_new.exit4631:                         ; preds = %8499, %8524, %8527
 
 8534:                                             ; preds = %8532, %pm_location_new.exit4631
   %8535 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8531) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %424) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %424)
   br label %.backedge
 
 8536:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %425) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %425)
   store i64 %3, ptr %425, align 16, !tbaa !16
   %8537 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8538 = load i32, ptr %8537, align 4, !tbaa !447
@@ -13445,7 +13439,7 @@ pm_location_new.exit4631:                         ; preds = %8499, %8524, %8527
   br i1 %4, label %8546, label %8560
 
 8546:                                             ; preds = %8536
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %276) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %276)
   store i64 %3, ptr %276, align 16, !tbaa !16
   %8547 = load ptr, ptr %546, align 8, !tbaa !18
   %8548 = ptrtoint ptr %8543 to i64
@@ -13462,7 +13456,7 @@ pm_location_new.exit4631:                         ; preds = %8499, %8524, %8527
   %8557 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8558 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %276, i64 noundef %8557) #5
   %8559 = call i64 @rb_obj_freeze(i64 noundef %8558) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %276) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
   br label %pm_location_new.exit4634
 
 8560:                                             ; preds = %8536
@@ -13524,11 +13518,11 @@ rb_array_const_ptr.exit4638:                      ; preds = %pm_location_new.exi
 
 8595:                                             ; preds = %8593, %rb_array_const_ptr.exit4638
   %8596 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8592) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %425) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %425)
   br label %.backedge
 
 8597:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %426) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %426)
   store i64 %3, ptr %426, align 16, !tbaa !16
   %8598 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8599 = load i32, ptr %8598, align 4, !tbaa !447
@@ -13543,7 +13537,7 @@ rb_array_const_ptr.exit4638:                      ; preds = %pm_location_new.exi
   br i1 %4, label %8607, label %8621
 
 8607:                                             ; preds = %8597
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %275) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
   store i64 %3, ptr %275, align 16, !tbaa !16
   %8608 = load ptr, ptr %546, align 8, !tbaa !18
   %8609 = ptrtoint ptr %8604 to i64
@@ -13560,7 +13554,7 @@ rb_array_const_ptr.exit4638:                      ; preds = %pm_location_new.exi
   %8618 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8619 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %275, i64 noundef %8618) #5
   %8620 = call i64 @rb_obj_freeze(i64 noundef %8619) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %275) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %pm_location_new.exit4641
 
 8621:                                             ; preds = %8597
@@ -13622,11 +13616,11 @@ rb_array_const_ptr.exit4645:                      ; preds = %pm_location_new.exi
 
 8656:                                             ; preds = %8654, %rb_array_const_ptr.exit4645
   %8657 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8653) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %426) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %426)
   br label %.backedge
 
 8658:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %427) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %427)
   store i64 %3, ptr %427, align 16, !tbaa !16
   %8659 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8660 = load i32, ptr %8659, align 4, !tbaa !447
@@ -13641,7 +13635,7 @@ rb_array_const_ptr.exit4645:                      ; preds = %pm_location_new.exi
   br i1 %4, label %8668, label %8682
 
 8668:                                             ; preds = %8658
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %274) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
   store i64 %3, ptr %274, align 16, !tbaa !16
   %8669 = load ptr, ptr %546, align 8, !tbaa !18
   %8670 = ptrtoint ptr %8665 to i64
@@ -13658,7 +13652,7 @@ rb_array_const_ptr.exit4645:                      ; preds = %pm_location_new.exi
   %8679 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8680 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %274, i64 noundef %8679) #5
   %8681 = call i64 @rb_obj_freeze(i64 noundef %8680) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %274) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
   br label %pm_location_new.exit4648
 
 8682:                                             ; preds = %8658
@@ -13717,7 +13711,7 @@ rb_array_const_ptr.exit4652:                      ; preds = %pm_location_new.exi
   br i1 %4, label %8717, label %8731
 
 8717:                                             ; preds = %rb_array_const_ptr.exit4652
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %273) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
   store i64 %3, ptr %273, align 16, !tbaa !16
   %8718 = load ptr, ptr %546, align 8, !tbaa !18
   %8719 = ptrtoint ptr %8714 to i64
@@ -13734,7 +13728,7 @@ rb_array_const_ptr.exit4652:                      ; preds = %pm_location_new.exi
   %8728 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8729 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %273, i64 noundef %8728) #5
   %8730 = call i64 @rb_obj_freeze(i64 noundef %8729) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %273) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
   br label %pm_location_new.exit4654
 
 8731:                                             ; preds = %rb_array_const_ptr.exit4652
@@ -13800,7 +13794,7 @@ pm_location_new.exit4656.thread:                  ; preds = %8763, %8766
   br label %8787
 
 8770:                                             ; preds = %pm_location_new.exit4654
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %272) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
   store i64 %3, ptr %272, align 16, !tbaa !16
   %8771 = load ptr, ptr %546, align 8, !tbaa !18
   %8772 = ptrtoint ptr %8749 to i64
@@ -13817,7 +13811,7 @@ pm_location_new.exit4656.thread:                  ; preds = %8763, %8766
   %8781 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8782 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %272, i64 noundef %8781) #5
   %8783 = call i64 @rb_obj_freeze(i64 noundef %8782) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %272) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   store i64 %8783, ptr %1748, align 8, !tbaa !16
   %8784 = load i64, ptr @rb_cPrismConstantWriteNode, align 8, !tbaa !16
   %8785 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %427, i64 noundef %8784) #5
@@ -13827,11 +13821,11 @@ pm_location_new.exit4656.thread:                  ; preds = %8763, %8766
 8787:                                             ; preds = %pm_location_new.exit4656.thread, %8770
   %8788 = phi i64 [ %8769, %pm_location_new.exit4656.thread ], [ %8785, %8770 ]
   %8789 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %8788) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %427) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %427)
   br label %.backedge
 
 8790:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %428) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %428)
   store i64 %3, ptr %428, align 16, !tbaa !16
   %8791 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %8792 = load i32, ptr %8791, align 4, !tbaa !447
@@ -13846,7 +13840,7 @@ pm_location_new.exit4656.thread:                  ; preds = %8763, %8766
   br i1 %4, label %8800, label %8814
 
 8800:                                             ; preds = %8790
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %271) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
   store i64 %3, ptr %271, align 16, !tbaa !16
   %8801 = load ptr, ptr %546, align 8, !tbaa !18
   %8802 = ptrtoint ptr %8797 to i64
@@ -13863,7 +13857,7 @@ pm_location_new.exit4656.thread:                  ; preds = %8763, %8766
   %8811 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8812 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %271, i64 noundef %8811) #5
   %8813 = call i64 @rb_obj_freeze(i64 noundef %8812) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %271) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
   br label %pm_location_new.exit4659
 
 8814:                                             ; preds = %8790
@@ -13922,7 +13916,7 @@ rb_array_const_ptr.exit4663:                      ; preds = %pm_location_new.exi
   br i1 %4, label %8849, label %8863
 
 8849:                                             ; preds = %rb_array_const_ptr.exit4663
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %270) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
   store i64 %3, ptr %270, align 16, !tbaa !16
   %8850 = load ptr, ptr %546, align 8, !tbaa !18
   %8851 = ptrtoint ptr %8846 to i64
@@ -13939,7 +13933,7 @@ rb_array_const_ptr.exit4663:                      ; preds = %pm_location_new.exi
   %8860 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8861 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %270, i64 noundef %8860) #5
   %8862 = call i64 @rb_obj_freeze(i64 noundef %8861) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %270) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
   br label %pm_location_new.exit4665
 
 8863:                                             ; preds = %rb_array_const_ptr.exit4663
@@ -14056,7 +14050,7 @@ pm_location_new.exit4670.thread:                  ; preds = %._crit_edge6265
   %8930 = load ptr, ptr %8929, align 8, !tbaa !641
   %8931 = getelementptr inbounds nuw i8, ptr %2279, i64 104
   %8932 = load ptr, ptr %8931, align 8, !tbaa !642
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %269) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
   store i64 %3, ptr %269, align 16, !tbaa !16
   %8933 = load ptr, ptr %546, align 8, !tbaa !18
   %8934 = ptrtoint ptr %8930 to i64
@@ -14073,7 +14067,7 @@ pm_location_new.exit4670.thread:                  ; preds = %._crit_edge6265
   %8943 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8944 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %269, i64 noundef %8943) #5
   %8945 = call i64 @rb_obj_freeze(i64 noundef %8944) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %269) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
   store i64 %8945, ptr %1720, align 16, !tbaa !16
   %8946 = getelementptr inbounds nuw i8, ptr %2279, i64 112
   %8947 = load ptr, ptr %8946, align 8, !tbaa !643
@@ -14085,7 +14079,7 @@ pm_location_new.exit4670.thread:                  ; preds = %._crit_edge6265
   %8950 = load ptr, ptr %8949, align 8, !tbaa !644
   %8951 = ptrtoint ptr %8947 to i64
   %8952 = ptrtoint ptr %8950 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %268) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
   store i64 %3, ptr %268, align 16, !tbaa !16
   %8953 = load ptr, ptr %546, align 8, !tbaa !18
   %8954 = ptrtoint ptr %8953 to i64
@@ -14100,7 +14094,7 @@ pm_location_new.exit4670.thread:                  ; preds = %._crit_edge6265
   %8961 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %8962 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %268, i64 noundef %8961) #5
   %8963 = call i64 @rb_obj_freeze(i64 noundef %8962) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %268) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %pm_location_new.exit4672
 
 8964:                                             ; preds = %pm_location_new.exit4670
@@ -14171,7 +14165,7 @@ pm_location_new.exit4674:                         ; preds = %9003, %9000, %pm_lo
   br i1 %9008, label %pm_location_new.exit4676, label %9027
 
 pm_location_new.exit4674.thread:                  ; preds = %8986
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %267) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
   store i64 %3, ptr %267, align 16, !tbaa !16
   %9009 = load ptr, ptr %546, align 8, !tbaa !18
   %9010 = ptrtoint ptr %8984 to i64
@@ -14188,7 +14182,7 @@ pm_location_new.exit4674.thread:                  ; preds = %8986
   %9019 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9020 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %267, i64 noundef %9019) #5
   %9021 = call i64 @rb_obj_freeze(i64 noundef %9020) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %267) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
   store i64 %9021, ptr %1728, align 16, !tbaa !16
   %9022 = getelementptr inbounds nuw i8, ptr %2279, i64 144
   %9023 = load ptr, ptr %9022, align 8, !tbaa !647
@@ -14211,7 +14205,7 @@ pm_location_new.exit4674.thread:                  ; preds = %8986
   %9031 = phi ptr [ %.pre6456, %.thread5829 ], [ %.pre6457, %9027 ]
   %9032 = phi ptr [ %9026, %.thread5829 ], [ %9029, %9027 ]
   %9033 = phi ptr [ %9023, %.thread5829 ], [ %9007, %9027 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %266) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
   store i64 %3, ptr %266, align 16, !tbaa !16
   %9034 = ptrtoint ptr %9033 to i64
   %9035 = ptrtoint ptr %9031 to i64
@@ -14227,7 +14221,7 @@ pm_location_new.exit4674.thread:                  ; preds = %8986
   %9043 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9044 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %266, i64 noundef %9043) #5
   %9045 = call i64 @rb_obj_freeze(i64 noundef %9044) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %266) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %pm_location_new.exit4676
 
 9046:                                             ; preds = %9027
@@ -14295,7 +14289,7 @@ pm_location_new.exit4678:                         ; preds = %9082, %9079, %pm_lo
   br i1 %9087, label %pm_location_new.exit4680, label %9106
 
 pm_location_new.exit4678.thread:                  ; preds = %9065
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %265) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   store i64 %3, ptr %265, align 16, !tbaa !16
   %9088 = load ptr, ptr %546, align 8, !tbaa !18
   %9089 = ptrtoint ptr %9063 to i64
@@ -14312,7 +14306,7 @@ pm_location_new.exit4678.thread:                  ; preds = %9065
   %9098 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9099 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %265, i64 noundef %9098) #5
   %9100 = call i64 @rb_obj_freeze(i64 noundef %9099) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %265) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
   store i64 %9100, ptr %1734, align 16, !tbaa !16
   %9101 = getelementptr inbounds nuw i8, ptr %2279, i64 176
   %9102 = load ptr, ptr %9101, align 8, !tbaa !651
@@ -14335,7 +14329,7 @@ pm_location_new.exit4678.thread:                  ; preds = %9065
   %9110 = phi ptr [ %.pre6458, %.thread5830 ], [ %.pre6459, %9106 ]
   %9111 = phi ptr [ %9105, %.thread5830 ], [ %9108, %9106 ]
   %9112 = phi ptr [ %9102, %.thread5830 ], [ %9086, %9106 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %264) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
   store i64 %3, ptr %264, align 16, !tbaa !16
   %9113 = ptrtoint ptr %9112 to i64
   %9114 = ptrtoint ptr %9110 to i64
@@ -14351,7 +14345,7 @@ pm_location_new.exit4678.thread:                  ; preds = %9065
   %9122 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9123 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %264, i64 noundef %9122) #5
   %9124 = call i64 @rb_obj_freeze(i64 noundef %9123) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %264) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %pm_location_new.exit4680.thread
 
 9125:                                             ; preds = %9106
@@ -14403,11 +14397,11 @@ pm_location_new.exit4680:                         ; preds = %pm_location_new.exi
 9149:                                             ; preds = %pm_location_new.exit4680.thread5834, %9146, %pm_location_new.exit4680
   %9150 = phi i64 [ %9147, %9146 ], [ %9145, %pm_location_new.exit4680 ], [ %9143, %pm_location_new.exit4680.thread5834 ]
   %9151 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9150) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %428) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %428)
   br label %.backedge
 
 9152:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %429) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %429)
   store i64 %3, ptr %429, align 16, !tbaa !16
   %9153 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9154 = load i32, ptr %9153, align 4, !tbaa !447
@@ -14422,7 +14416,7 @@ pm_location_new.exit4680:                         ; preds = %pm_location_new.exi
   br i1 %4, label %9162, label %9176
 
 9162:                                             ; preds = %9152
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %263) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   store i64 %3, ptr %263, align 16, !tbaa !16
   %9163 = load ptr, ptr %546, align 8, !tbaa !18
   %9164 = ptrtoint ptr %9159 to i64
@@ -14439,7 +14433,7 @@ pm_location_new.exit4680:                         ; preds = %pm_location_new.exi
   %9173 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9174 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %263, i64 noundef %9173) #5
   %9175 = call i64 @rb_obj_freeze(i64 noundef %9174) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %263) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %pm_location_new.exit4683
 
 9176:                                             ; preds = %9152
@@ -14484,7 +14478,7 @@ pm_location_new.exit4683:                         ; preds = %9162, %9187, %9190
   br i1 %4, label %9203, label %9217
 
 9203:                                             ; preds = %9200
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %262) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
   store i64 %3, ptr %262, align 16, !tbaa !16
   %9204 = load ptr, ptr %546, align 8, !tbaa !18
   %9205 = ptrtoint ptr %9198 to i64
@@ -14501,7 +14495,7 @@ pm_location_new.exit4683:                         ; preds = %9162, %9187, %9190
   %9214 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9215 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %262, i64 noundef %9214) #5
   %9216 = call i64 @rb_obj_freeze(i64 noundef %9215) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %262) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
   br label %pm_location_new.exit4686
 
 9217:                                             ; preds = %9200
@@ -14542,7 +14536,7 @@ pm_location_new.exit4686:                         ; preds = %9231, %9228, %9203,
   br i1 %4, label %pm_location_new.exit4688.thread5836, label %9258
 
 pm_location_new.exit4688.thread5836:              ; preds = %9238
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %261) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   store i64 %3, ptr %261, align 16, !tbaa !16
   %9241 = load ptr, ptr %546, align 8, !tbaa !18
   %9242 = ptrtoint ptr %9236 to i64
@@ -14559,7 +14553,7 @@ pm_location_new.exit4688.thread5836:              ; preds = %9238
   %9251 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9252 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %261, i64 noundef %9251) #5
   %9253 = call i64 @rb_obj_freeze(i64 noundef %9252) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %261) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   store i64 %9253, ptr %1701, align 16, !tbaa !16
   %9254 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %9255 = load ptr, ptr %9254, align 8, !tbaa !657
@@ -14640,7 +14634,7 @@ pm_location_new.exit4690.thread:                  ; preds = %9295, %9298
 9302:                                             ; preds = %pm_location_new.exit4688.thread5836, %pm_location_new.exit4688
   %9303 = phi ptr [ %9257, %pm_location_new.exit4688.thread5836 ], [ %9281, %pm_location_new.exit4688 ]
   %9304 = phi ptr [ %9255, %pm_location_new.exit4688.thread5836 ], [ %9279, %pm_location_new.exit4688 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %260) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
   store i64 %3, ptr %260, align 16, !tbaa !16
   %9305 = load ptr, ptr %546, align 8, !tbaa !18
   %9306 = ptrtoint ptr %9304 to i64
@@ -14657,7 +14651,7 @@ pm_location_new.exit4690.thread:                  ; preds = %9295, %9298
   %9315 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9316 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %260, i64 noundef %9315) #5
   %9317 = call i64 @rb_obj_freeze(i64 noundef %9316) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %260) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   store i64 %9317, ptr %1704, align 8, !tbaa !16
   %9318 = load i64, ptr @rb_cPrismDefinedNode, align 8, !tbaa !16
   %9319 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %429, i64 noundef %9318) #5
@@ -14667,11 +14661,11 @@ pm_location_new.exit4690.thread:                  ; preds = %9295, %9298
 9321:                                             ; preds = %pm_location_new.exit4690.thread, %9302
   %9322 = phi i64 [ %9301, %pm_location_new.exit4690.thread ], [ %9319, %9302 ]
   %9323 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9322) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %429) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %429)
   br label %.backedge
 
 9324:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %430) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %430)
   store i64 %3, ptr %430, align 16, !tbaa !16
   %9325 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9326 = load i32, ptr %9325, align 4, !tbaa !447
@@ -14686,7 +14680,7 @@ pm_location_new.exit4690.thread:                  ; preds = %9295, %9298
   br i1 %4, label %9334, label %9348
 
 9334:                                             ; preds = %9324
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %259) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   store i64 %3, ptr %259, align 16, !tbaa !16
   %9335 = load ptr, ptr %546, align 8, !tbaa !18
   %9336 = ptrtoint ptr %9331 to i64
@@ -14703,7 +14697,7 @@ pm_location_new.exit4690.thread:                  ; preds = %9295, %9298
   %9345 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9346 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %259, i64 noundef %9345) #5
   %9347 = call i64 @rb_obj_freeze(i64 noundef %9346) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %259) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   br label %pm_location_new.exit4693
 
 9348:                                             ; preds = %9324
@@ -14744,7 +14738,7 @@ pm_location_new.exit4693:                         ; preds = %9334, %9359, %9362
   br i1 %4, label %9373, label %9387
 
 9373:                                             ; preds = %pm_location_new.exit4693
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %258) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
   store i64 %3, ptr %258, align 16, !tbaa !16
   %9374 = load ptr, ptr %546, align 8, !tbaa !18
   %9375 = ptrtoint ptr %9370 to i64
@@ -14761,7 +14755,7 @@ pm_location_new.exit4693:                         ; preds = %9334, %9359, %9362
   %9384 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9385 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %258, i64 noundef %9384) #5
   %9386 = call i64 @rb_obj_freeze(i64 noundef %9385) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %258) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
   br label %pm_location_new.exit4696
 
 9387:                                             ; preds = %pm_location_new.exit4693
@@ -14802,7 +14796,7 @@ pm_location_new.exit4696:                         ; preds = %9373, %9398, %9401
   br i1 %4, label %pm_location_new.exit4698.thread5839, label %9425
 
 pm_location_new.exit4698.thread5839:              ; preds = %9407
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %257) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   store i64 %3, ptr %257, align 16, !tbaa !16
   %9410 = load ptr, ptr %546, align 8, !tbaa !18
   %9411 = ptrtoint ptr %9405 to i64
@@ -14819,7 +14813,7 @@ pm_location_new.exit4698.thread5839:              ; preds = %9407
   %9420 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9421 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %257, i64 noundef %9420) #5
   %9422 = call i64 @rb_obj_freeze(i64 noundef %9421) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %257) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   store i64 %9422, ptr %1689, align 16, !tbaa !16
   %9423 = load i64, ptr @rb_cPrismElseNode, align 8, !tbaa !16
   %9424 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %430, i64 noundef %9423) #5
@@ -14868,11 +14862,11 @@ pm_location_new.exit4698:                         ; preds = %pm_location_new.exi
 9448:                                             ; preds = %pm_location_new.exit4698.thread, %9445, %pm_location_new.exit4698
   %9449 = phi i64 [ %9442, %pm_location_new.exit4698.thread ], [ %9446, %9445 ], [ %9444, %pm_location_new.exit4698 ]
   %9450 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9449) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %430) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %430)
   br label %.backedge
 
 9451:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %431) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %431)
   store i64 %3, ptr %431, align 16, !tbaa !16
   %9452 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9453 = load i32, ptr %9452, align 4, !tbaa !447
@@ -14887,7 +14881,7 @@ pm_location_new.exit4698:                         ; preds = %pm_location_new.exi
   br i1 %4, label %9461, label %9475
 
 9461:                                             ; preds = %9451
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %256) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
   store i64 %3, ptr %256, align 16, !tbaa !16
   %9462 = load ptr, ptr %546, align 8, !tbaa !18
   %9463 = ptrtoint ptr %9458 to i64
@@ -14904,7 +14898,7 @@ pm_location_new.exit4698:                         ; preds = %pm_location_new.exi
   %9472 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9473 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %256, i64 noundef %9472) #5
   %9474 = call i64 @rb_obj_freeze(i64 noundef %9473) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %256) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
   br label %pm_location_new.exit4701
 
 9475:                                             ; preds = %9451
@@ -14945,7 +14939,7 @@ pm_location_new.exit4701:                         ; preds = %9461, %9486, %9489
   br i1 %4, label %9500, label %9514
 
 9500:                                             ; preds = %pm_location_new.exit4701
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %255) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
   store i64 %3, ptr %255, align 16, !tbaa !16
   %9501 = load ptr, ptr %546, align 8, !tbaa !18
   %9502 = ptrtoint ptr %9497 to i64
@@ -14962,7 +14956,7 @@ pm_location_new.exit4701:                         ; preds = %9461, %9486, %9489
   %9511 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9512 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %255, i64 noundef %9511) #5
   %9513 = call i64 @rb_obj_freeze(i64 noundef %9512) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %255) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
   br label %pm_location_new.exit4704
 
 9514:                                             ; preds = %pm_location_new.exit4701
@@ -15028,7 +15022,7 @@ pm_location_new.exit4706.thread:                  ; preds = %9546, %9549
   br label %9570
 
 9553:                                             ; preds = %pm_location_new.exit4704
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %254) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
   store i64 %3, ptr %254, align 16, !tbaa !16
   %9554 = load ptr, ptr %546, align 8, !tbaa !18
   %9555 = ptrtoint ptr %9532 to i64
@@ -15045,7 +15039,7 @@ pm_location_new.exit4706.thread:                  ; preds = %9546, %9549
   %9564 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9565 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %254, i64 noundef %9564) #5
   %9566 = call i64 @rb_obj_freeze(i64 noundef %9565) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %254) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   store i64 %9566, ptr %1677, align 16, !tbaa !16
   %9567 = load i64, ptr @rb_cPrismEmbeddedStatementsNode, align 8, !tbaa !16
   %9568 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %431, i64 noundef %9567) #5
@@ -15055,11 +15049,11 @@ pm_location_new.exit4706.thread:                  ; preds = %9546, %9549
 9570:                                             ; preds = %pm_location_new.exit4706.thread, %9553
   %9571 = phi i64 [ %9552, %pm_location_new.exit4706.thread ], [ %9568, %9553 ]
   %9572 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9571) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %431) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %431)
   br label %.backedge
 
 9573:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %432) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %432)
   store i64 %3, ptr %432, align 16, !tbaa !16
   %9574 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9575 = load i32, ptr %9574, align 4, !tbaa !447
@@ -15074,7 +15068,7 @@ pm_location_new.exit4706.thread:                  ; preds = %9546, %9549
   br i1 %4, label %9583, label %9597
 
 9583:                                             ; preds = %9573
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %253) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   store i64 %3, ptr %253, align 16, !tbaa !16
   %9584 = load ptr, ptr %546, align 8, !tbaa !18
   %9585 = ptrtoint ptr %9580 to i64
@@ -15091,7 +15085,7 @@ pm_location_new.exit4706.thread:                  ; preds = %9546, %9549
   %9594 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9595 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %253, i64 noundef %9594) #5
   %9596 = call i64 @rb_obj_freeze(i64 noundef %9595) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %253) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
   br label %pm_location_new.exit4709
 
 9597:                                             ; preds = %9573
@@ -15132,7 +15126,7 @@ pm_location_new.exit4709:                         ; preds = %9583, %9608, %9611
   br i1 %4, label %9622, label %9636
 
 9622:                                             ; preds = %pm_location_new.exit4709
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %252) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
   store i64 %3, ptr %252, align 16, !tbaa !16
   %9623 = load ptr, ptr %546, align 8, !tbaa !18
   %9624 = ptrtoint ptr %9619 to i64
@@ -15149,7 +15143,7 @@ pm_location_new.exit4709:                         ; preds = %9583, %9608, %9611
   %9633 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9634 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %252, i64 noundef %9633) #5
   %9635 = call i64 @rb_obj_freeze(i64 noundef %9634) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %252) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %pm_location_new.exit4712
 
 9636:                                             ; preds = %pm_location_new.exit4709
@@ -15189,11 +15183,11 @@ pm_location_new.exit4712:                         ; preds = %9622, %9647, %9650
 
 9657:                                             ; preds = %9655, %pm_location_new.exit4712
   %9658 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9654) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %432) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %432)
   br label %.backedge
 
 9659:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %433) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %433)
   store i64 %3, ptr %433, align 16, !tbaa !16
   %9660 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9661 = load i32, ptr %9660, align 4, !tbaa !447
@@ -15208,7 +15202,7 @@ pm_location_new.exit4712:                         ; preds = %9622, %9647, %9650
   br i1 %4, label %9669, label %9683
 
 9669:                                             ; preds = %9659
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %251) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
   store i64 %3, ptr %251, align 16, !tbaa !16
   %9670 = load ptr, ptr %546, align 8, !tbaa !18
   %9671 = ptrtoint ptr %9666 to i64
@@ -15225,7 +15219,7 @@ pm_location_new.exit4712:                         ; preds = %9622, %9647, %9650
   %9680 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9681 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %251, i64 noundef %9680) #5
   %9682 = call i64 @rb_obj_freeze(i64 noundef %9681) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %251) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %pm_location_new.exit4715
 
 9683:                                             ; preds = %9659
@@ -15266,7 +15260,7 @@ pm_location_new.exit4715:                         ; preds = %9669, %9694, %9697
   br i1 %4, label %9708, label %9722
 
 9708:                                             ; preds = %pm_location_new.exit4715
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %250) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
   store i64 %3, ptr %250, align 16, !tbaa !16
   %9709 = load ptr, ptr %546, align 8, !tbaa !18
   %9710 = ptrtoint ptr %9705 to i64
@@ -15283,7 +15277,7 @@ pm_location_new.exit4715:                         ; preds = %9669, %9694, %9697
   %9719 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9720 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %250, i64 noundef %9719) #5
   %9721 = call i64 @rb_obj_freeze(i64 noundef %9720) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %250) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %pm_location_new.exit4718
 
 9722:                                             ; preds = %pm_location_new.exit4715
@@ -15349,7 +15343,7 @@ pm_location_new.exit4720.thread:                  ; preds = %9754, %9757
   br label %9778
 
 9761:                                             ; preds = %pm_location_new.exit4718
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %249) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
   store i64 %3, ptr %249, align 16, !tbaa !16
   %9762 = load ptr, ptr %546, align 8, !tbaa !18
   %9763 = ptrtoint ptr %9740 to i64
@@ -15366,7 +15360,7 @@ pm_location_new.exit4720.thread:                  ; preds = %9754, %9757
   %9772 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9773 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %249, i64 noundef %9772) #5
   %9774 = call i64 @rb_obj_freeze(i64 noundef %9773) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %249) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
   store i64 %9774, ptr %1656, align 16, !tbaa !16
   %9775 = load i64, ptr @rb_cPrismEnsureNode, align 8, !tbaa !16
   %9776 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %433, i64 noundef %9775) #5
@@ -15376,11 +15370,11 @@ pm_location_new.exit4720.thread:                  ; preds = %9754, %9757
 9778:                                             ; preds = %pm_location_new.exit4720.thread, %9761
   %9779 = phi i64 [ %9760, %pm_location_new.exit4720.thread ], [ %9776, %9761 ]
   %9780 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9779) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %433) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %433)
   br label %.backedge
 
 9781:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %434) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %434)
   store i64 %3, ptr %434, align 16, !tbaa !16
   %9782 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9783 = load i32, ptr %9782, align 4, !tbaa !447
@@ -15395,7 +15389,7 @@ pm_location_new.exit4720.thread:                  ; preds = %9754, %9757
   br i1 %4, label %9791, label %9805
 
 9791:                                             ; preds = %9781
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %248) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
   store i64 %3, ptr %248, align 16, !tbaa !16
   %9792 = load ptr, ptr %546, align 8, !tbaa !18
   %9793 = ptrtoint ptr %9788 to i64
@@ -15412,7 +15406,7 @@ pm_location_new.exit4720.thread:                  ; preds = %9754, %9757
   %9802 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9803 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %248, i64 noundef %9802) #5
   %9804 = call i64 @rb_obj_freeze(i64 noundef %9803) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %248) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %pm_location_new.exit4723
 
 9805:                                             ; preds = %9781
@@ -15456,11 +15450,11 @@ pm_location_new.exit4723:                         ; preds = %9791, %9816, %9819
 
 9830:                                             ; preds = %9828, %pm_location_new.exit4723
   %9831 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9827) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %434) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %434)
   br label %.backedge
 
 9832:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %435) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %435)
   store i64 %3, ptr %435, align 16, !tbaa !16
   %9833 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9834 = load i32, ptr %9833, align 4, !tbaa !447
@@ -15475,7 +15469,7 @@ pm_location_new.exit4723:                         ; preds = %9791, %9816, %9819
   br i1 %4, label %9842, label %9856
 
 9842:                                             ; preds = %9832
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %247) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   store i64 %3, ptr %247, align 16, !tbaa !16
   %9843 = load ptr, ptr %546, align 8, !tbaa !18
   %9844 = ptrtoint ptr %9839 to i64
@@ -15492,7 +15486,7 @@ pm_location_new.exit4723:                         ; preds = %9791, %9816, %9819
   %9853 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9854 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %247, i64 noundef %9853) #5
   %9855 = call i64 @rb_obj_freeze(i64 noundef %9854) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %247) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
   br label %pm_location_new.exit4727
 
 9856:                                             ; preds = %9832
@@ -15600,7 +15594,7 @@ pm_location_new.exit4730:                         ; preds = %9914, %9911, %9892
   br i1 %9919, label %pm_location_new.exit4732, label %9938
 
 pm_location_new.exit4730.thread:                  ; preds = %9897
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %246) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
   store i64 %3, ptr %246, align 16, !tbaa !16
   %9920 = load ptr, ptr %546, align 8, !tbaa !18
   %9921 = ptrtoint ptr %9895 to i64
@@ -15617,7 +15611,7 @@ pm_location_new.exit4730.thread:                  ; preds = %9897
   %9930 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9931 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %246, i64 noundef %9930) #5
   %9932 = call i64 @rb_obj_freeze(i64 noundef %9931) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %246) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
   store i64 %9932, ptr %1638, align 16, !tbaa !16
   %9933 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %9934 = load ptr, ptr %9933, align 8, !tbaa !676
@@ -15640,7 +15634,7 @@ pm_location_new.exit4730.thread:                  ; preds = %9897
   %9942 = phi ptr [ %.pre6454, %.thread5842 ], [ %.pre6455, %9938 ]
   %9943 = phi ptr [ %9937, %.thread5842 ], [ %9940, %9938 ]
   %9944 = phi ptr [ %9934, %.thread5842 ], [ %9918, %9938 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %245) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   store i64 %3, ptr %245, align 16, !tbaa !16
   %9945 = ptrtoint ptr %9944 to i64
   %9946 = ptrtoint ptr %9942 to i64
@@ -15656,7 +15650,7 @@ pm_location_new.exit4730.thread:                  ; preds = %9897
   %9954 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %9955 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %245, i64 noundef %9954) #5
   %9956 = call i64 @rb_obj_freeze(i64 noundef %9955) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %245) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %pm_location_new.exit4732.thread
 
 9957:                                             ; preds = %9938
@@ -15708,11 +15702,11 @@ pm_location_new.exit4732:                         ; preds = %pm_location_new.exi
 9981:                                             ; preds = %pm_location_new.exit4732.thread5846, %9978, %pm_location_new.exit4732
   %9982 = phi i64 [ %9979, %9978 ], [ %9977, %pm_location_new.exit4732 ], [ %9975, %pm_location_new.exit4732.thread5846 ]
   %9983 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %9982) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %435) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %435)
   br label %.backedge
 
 9984:                                             ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %436) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %436)
   store i64 %3, ptr %436, align 16, !tbaa !16
   %9985 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %9986 = load i32, ptr %9985, align 4, !tbaa !447
@@ -15727,7 +15721,7 @@ pm_location_new.exit4732:                         ; preds = %pm_location_new.exi
   br i1 %4, label %9994, label %10008
 
 9994:                                             ; preds = %9984
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %244) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
   store i64 %3, ptr %244, align 16, !tbaa !16
   %9995 = load ptr, ptr %546, align 8, !tbaa !18
   %9996 = ptrtoint ptr %9991 to i64
@@ -15744,7 +15738,7 @@ pm_location_new.exit4732:                         ; preds = %pm_location_new.exi
   %10005 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10006 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %244, i64 noundef %10005) #5
   %10007 = call i64 @rb_obj_freeze(i64 noundef %10006) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %244) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %pm_location_new.exit4735
 
 10008:                                            ; preds = %9984
@@ -15818,7 +15812,7 @@ pm_location_new.exit4738.thread:                  ; preds = %10046, %10049
   br label %10070
 
 10053:                                            ; preds = %pm_location_new.exit4735
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %243) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   store i64 %3, ptr %243, align 16, !tbaa !16
   %10054 = load ptr, ptr %546, align 8, !tbaa !18
   %10055 = ptrtoint ptr %10032 to i64
@@ -15835,7 +15829,7 @@ pm_location_new.exit4738.thread:                  ; preds = %10046, %10049
   %10064 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10065 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %243, i64 noundef %10064) #5
   %10066 = call i64 @rb_obj_freeze(i64 noundef %10065) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %243) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   store i64 %10066, ptr %1624, align 16, !tbaa !16
   %10067 = load i64, ptr @rb_cPrismFlipFlopNode, align 8, !tbaa !16
   %10068 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %436, i64 noundef %10067) #5
@@ -15845,11 +15839,11 @@ pm_location_new.exit4738.thread:                  ; preds = %10046, %10049
 10070:                                            ; preds = %pm_location_new.exit4738.thread, %10053
   %10071 = phi i64 [ %10052, %pm_location_new.exit4738.thread ], [ %10068, %10053 ]
   %10072 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10071) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %436) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %436)
   br label %.backedge
 
 10073:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %437) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %437)
   store i64 %3, ptr %437, align 16, !tbaa !16
   %10074 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10075 = load i32, ptr %10074, align 4, !tbaa !447
@@ -15864,7 +15858,7 @@ pm_location_new.exit4738.thread:                  ; preds = %10046, %10049
   br i1 %4, label %10083, label %10097
 
 10083:                                            ; preds = %10073
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %242) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   store i64 %3, ptr %242, align 16, !tbaa !16
   %10084 = load ptr, ptr %546, align 8, !tbaa !18
   %10085 = ptrtoint ptr %10080 to i64
@@ -15881,7 +15875,7 @@ pm_location_new.exit4738.thread:                  ; preds = %10046, %10049
   %10094 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10095 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %242, i64 noundef %10094) #5
   %10096 = call i64 @rb_obj_freeze(i64 noundef %10095) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %242) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   br label %pm_location_new.exit4741
 
 10097:                                            ; preds = %10073
@@ -15929,11 +15923,11 @@ pm_location_new.exit4741:                         ; preds = %10083, %10108, %101
 
 10125:                                            ; preds = %10123, %pm_location_new.exit4741
   %10126 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10122) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %437) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %437)
   br label %.backedge
 
 10127:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %438) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %438)
   store i64 %3, ptr %438, align 16, !tbaa !16
   %10128 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10129 = load i32, ptr %10128, align 4, !tbaa !447
@@ -15948,7 +15942,7 @@ pm_location_new.exit4741:                         ; preds = %10083, %10108, %101
   br i1 %4, label %10137, label %10151
 
 10137:                                            ; preds = %10127
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %241) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   store i64 %3, ptr %241, align 16, !tbaa !16
   %10138 = load ptr, ptr %546, align 8, !tbaa !18
   %10139 = ptrtoint ptr %10134 to i64
@@ -15965,7 +15959,7 @@ pm_location_new.exit4741:                         ; preds = %10083, %10108, %101
   %10148 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10149 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %241, i64 noundef %10148) #5
   %10150 = call i64 @rb_obj_freeze(i64 noundef %10149) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %241) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   br label %pm_location_new.exit4745
 
 10151:                                            ; preds = %10127
@@ -16071,7 +16065,7 @@ pm_location_new.exit4750:                         ; preds = %10208, %10211
   br i1 %10215, label %pm_location_new.exit4752.thread5854, label %10264
 
 pm_location_new.exit4750.thread:                  ; preds = %pm_location_new.exit4745
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %240) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
   store i64 %3, ptr %240, align 16, !tbaa !16
   %10216 = load ptr, ptr %546, align 8, !tbaa !18
   %10217 = ptrtoint ptr %10176 to i64
@@ -16088,13 +16082,13 @@ pm_location_new.exit4750.thread:                  ; preds = %pm_location_new.exi
   %10226 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10227 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %240, i64 noundef %10226) #5
   %10228 = call i64 @rb_obj_freeze(i64 noundef %10227) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %240) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   store i64 %10228, ptr %1599, align 8, !tbaa !16
   %10229 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %10230 = load ptr, ptr %10229, align 8, !tbaa !685
   %10231 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %10232 = load ptr, ptr %10231, align 8, !tbaa !686
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %239) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   store i64 %3, ptr %239, align 16, !tbaa !16
   %10233 = load ptr, ptr %546, align 8, !tbaa !18
   %10234 = ptrtoint ptr %10230 to i64
@@ -16111,7 +16105,7 @@ pm_location_new.exit4750.thread:                  ; preds = %pm_location_new.exi
   %10243 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10244 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %239, i64 noundef %10243) #5
   %10245 = call i64 @rb_obj_freeze(i64 noundef %10244) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %239) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   store i64 %10245, ptr %1600, align 16, !tbaa !16
   %10246 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %10247 = load ptr, ptr %10246, align 8, !tbaa !687
@@ -16123,7 +16117,7 @@ pm_location_new.exit4750.thread:                  ; preds = %pm_location_new.exi
   %10250 = load ptr, ptr %10249, align 8, !tbaa !688
   %10251 = ptrtoint ptr %10247 to i64
   %10252 = ptrtoint ptr %10250 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %238) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   store i64 %3, ptr %238, align 16, !tbaa !16
   %10253 = load ptr, ptr %546, align 8, !tbaa !18
   %10254 = ptrtoint ptr %10253 to i64
@@ -16138,7 +16132,7 @@ pm_location_new.exit4750.thread:                  ; preds = %pm_location_new.exi
   %10261 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10262 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %238, i64 noundef %10261) #5
   %10263 = call i64 @rb_obj_freeze(i64 noundef %10262) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %238) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %pm_location_new.exit4752.thread
 
 10264:                                            ; preds = %pm_location_new.exit4750
@@ -16174,7 +16168,7 @@ pm_location_new.exit4752.thread:                  ; preds = %.thread5850, %pm_lo
   %10285 = load ptr, ptr %10284, align 8, !tbaa !690
   %10286 = ptrtoint ptr %10283 to i64
   %10287 = ptrtoint ptr %10285 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %237) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
   store i64 %3, ptr %237, align 16, !tbaa !16
   %10288 = load ptr, ptr %546, align 8, !tbaa !18
   %10289 = ptrtoint ptr %10288 to i64
@@ -16189,7 +16183,7 @@ pm_location_new.exit4752.thread:                  ; preds = %.thread5850, %pm_lo
   %10296 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10297 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %237, i64 noundef %10296) #5
   %10298 = call i64 @rb_obj_freeze(i64 noundef %10297) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %237) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   store i64 %10298, ptr %1602, align 16, !tbaa !16
   %10299 = load i64, ptr @rb_cPrismForNode, align 8, !tbaa !16
   %10300 = call i64 @rb_class_new_instance(i32 noundef 11, ptr noundef nonnull %438, i64 noundef %10299) #5
@@ -16234,11 +16228,11 @@ pm_location_new.exit4754.thread:                  ; preds = %10314, %10317
 10321:                                            ; preds = %pm_location_new.exit4754.thread, %pm_location_new.exit4752.thread
   %10322 = phi i64 [ %10320, %pm_location_new.exit4754.thread ], [ %10300, %pm_location_new.exit4752.thread ]
   %10323 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10322) #5
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %438) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %438)
   br label %.backedge
 
 10324:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %439) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %439)
   store i64 %3, ptr %439, align 16, !tbaa !16
   %10325 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10326 = load i32, ptr %10325, align 4, !tbaa !447
@@ -16253,7 +16247,7 @@ pm_location_new.exit4754.thread:                  ; preds = %10314, %10317
   br i1 %4, label %10334, label %10348
 
 10334:                                            ; preds = %10324
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %236) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   store i64 %3, ptr %236, align 16, !tbaa !16
   %10335 = load ptr, ptr %546, align 8, !tbaa !18
   %10336 = ptrtoint ptr %10331 to i64
@@ -16270,7 +16264,7 @@ pm_location_new.exit4754.thread:                  ; preds = %10314, %10317
   %10345 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10346 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %236, i64 noundef %10345) #5
   %10347 = call i64 @rb_obj_freeze(i64 noundef %10346) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %236) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %pm_location_new.exit4757
 
 10348:                                            ; preds = %10324
@@ -16314,11 +16308,11 @@ pm_location_new.exit4757:                         ; preds = %10334, %10359, %103
 
 10373:                                            ; preds = %10371, %pm_location_new.exit4757
   %10374 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10370) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %439) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %439)
   br label %.backedge
 
 10375:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %440) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %440)
   store i64 %3, ptr %440, align 16, !tbaa !16
   %10376 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10377 = load i32, ptr %10376, align 4, !tbaa !447
@@ -16333,7 +16327,7 @@ pm_location_new.exit4757:                         ; preds = %10334, %10359, %103
   br i1 %4, label %10385, label %10399
 
 10385:                                            ; preds = %10375
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %235) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   store i64 %3, ptr %235, align 16, !tbaa !16
   %10386 = load ptr, ptr %546, align 8, !tbaa !18
   %10387 = ptrtoint ptr %10382 to i64
@@ -16350,7 +16344,7 @@ pm_location_new.exit4757:                         ; preds = %10334, %10359, %103
   %10396 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10397 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %235, i64 noundef %10396) #5
   %10398 = call i64 @rb_obj_freeze(i64 noundef %10397) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %235) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   br label %pm_location_new.exit4761
 
 10399:                                            ; preds = %10375
@@ -16394,11 +16388,11 @@ pm_location_new.exit4761:                         ; preds = %10385, %10410, %104
 
 10424:                                            ; preds = %10422, %pm_location_new.exit4761
   %10425 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10421) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %440) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %440)
   br label %.backedge
 
 10426:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %441) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %441)
   store i64 %3, ptr %441, align 16, !tbaa !16
   %10427 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10428 = load i32, ptr %10427, align 4, !tbaa !447
@@ -16413,7 +16407,7 @@ pm_location_new.exit4761:                         ; preds = %10385, %10410, %104
   br i1 %4, label %10436, label %10450
 
 10436:                                            ; preds = %10426
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %234) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   store i64 %3, ptr %234, align 16, !tbaa !16
   %10437 = load ptr, ptr %546, align 8, !tbaa !18
   %10438 = ptrtoint ptr %10433 to i64
@@ -16430,7 +16424,7 @@ pm_location_new.exit4761:                         ; preds = %10385, %10410, %104
   %10447 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10448 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %234, i64 noundef %10447) #5
   %10449 = call i64 @rb_obj_freeze(i64 noundef %10448) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %234) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %pm_location_new.exit4765
 
 10450:                                            ; preds = %10426
@@ -16476,11 +16470,11 @@ pm_location_new.exit4765:                         ; preds = %10436, %10461, %104
 
 10476:                                            ; preds = %10474, %pm_location_new.exit4765
   %10477 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10473) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %441) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %441)
   br label %.backedge
 
 10478:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %442) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %442)
   store i64 %3, ptr %442, align 16, !tbaa !16
   %10479 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10480 = load i32, ptr %10479, align 4, !tbaa !447
@@ -16495,7 +16489,7 @@ pm_location_new.exit4765:                         ; preds = %10436, %10461, %104
   br i1 %4, label %10488, label %10502
 
 10488:                                            ; preds = %10478
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %233) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   store i64 %3, ptr %233, align 16, !tbaa !16
   %10489 = load ptr, ptr %546, align 8, !tbaa !18
   %10490 = ptrtoint ptr %10485 to i64
@@ -16512,7 +16506,7 @@ pm_location_new.exit4765:                         ; preds = %10436, %10461, %104
   %10499 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10500 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %233, i64 noundef %10499) #5
   %10501 = call i64 @rb_obj_freeze(i64 noundef %10500) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %233) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %pm_location_new.exit4769
 
 10502:                                            ; preds = %10478
@@ -16595,7 +16589,7 @@ rb_array_const_ptr.exit4773:                      ; preds = %pm_location_new.exi
   br label %10584
 
 10553:                                            ; preds = %rb_array_const_ptr.exit4773
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %232) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   store i64 %3, ptr %232, align 16, !tbaa !16
   %10554 = load ptr, ptr %546, align 8, !tbaa !18
   %10555 = ptrtoint ptr %10534 to i64
@@ -16612,13 +16606,13 @@ rb_array_const_ptr.exit4773:                      ; preds = %pm_location_new.exi
   %10564 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10565 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %232, i64 noundef %10564) #5
   %10566 = call i64 @rb_obj_freeze(i64 noundef %10565) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %232) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   store i64 %10566, ptr %1568, align 8, !tbaa !16
   %10567 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %10568 = load ptr, ptr %10567, align 8, !tbaa !694
   %10569 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %10570 = load ptr, ptr %10569, align 8, !tbaa !695
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %231) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
   store i64 %3, ptr %231, align 16, !tbaa !16
   %10571 = load ptr, ptr %546, align 8, !tbaa !18
   %10572 = ptrtoint ptr %10568 to i64
@@ -16635,7 +16629,7 @@ rb_array_const_ptr.exit4773:                      ; preds = %pm_location_new.exi
   %10581 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10582 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %231, i64 noundef %10581) #5
   %10583 = call i64 @rb_obj_freeze(i64 noundef %10582) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %231) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
   br label %pm_location_new.exit4777
 
 10584:                                            ; preds = %10548, %10551
@@ -16680,11 +16674,11 @@ pm_location_new.exit4777:                         ; preds = %10553, %10597, %106
 
 10607:                                            ; preds = %10605, %pm_location_new.exit4777
   %10608 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10604) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %442) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %442)
   br label %.backedge
 
 10609:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %443) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %443)
   store i64 %3, ptr %443, align 16, !tbaa !16
   %10610 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10611 = load i32, ptr %10610, align 4, !tbaa !447
@@ -16699,7 +16693,7 @@ pm_location_new.exit4777:                         ; preds = %10553, %10597, %106
   br i1 %4, label %10619, label %10633
 
 10619:                                            ; preds = %10609
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %230) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   store i64 %3, ptr %230, align 16, !tbaa !16
   %10620 = load ptr, ptr %546, align 8, !tbaa !18
   %10621 = ptrtoint ptr %10616 to i64
@@ -16716,7 +16710,7 @@ pm_location_new.exit4777:                         ; preds = %10553, %10597, %106
   %10630 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10631 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %230, i64 noundef %10630) #5
   %10632 = call i64 @rb_obj_freeze(i64 noundef %10631) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %230) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %pm_location_new.exit4780
 
 10633:                                            ; preds = %10609
@@ -16799,7 +16793,7 @@ rb_array_const_ptr.exit4784:                      ; preds = %pm_location_new.exi
   br label %10715
 
 10684:                                            ; preds = %rb_array_const_ptr.exit4784
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %229) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   store i64 %3, ptr %229, align 16, !tbaa !16
   %10685 = load ptr, ptr %546, align 8, !tbaa !18
   %10686 = ptrtoint ptr %10665 to i64
@@ -16816,13 +16810,13 @@ rb_array_const_ptr.exit4784:                      ; preds = %pm_location_new.exi
   %10695 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10696 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %229, i64 noundef %10695) #5
   %10697 = call i64 @rb_obj_freeze(i64 noundef %10696) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %229) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
   store i64 %10697, ptr %1554, align 8, !tbaa !16
   %10698 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %10699 = load ptr, ptr %10698, align 8, !tbaa !699
   %10700 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %10701 = load ptr, ptr %10700, align 8, !tbaa !700
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %228) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   store i64 %3, ptr %228, align 16, !tbaa !16
   %10702 = load ptr, ptr %546, align 8, !tbaa !18
   %10703 = ptrtoint ptr %10699 to i64
@@ -16839,7 +16833,7 @@ rb_array_const_ptr.exit4784:                      ; preds = %pm_location_new.exi
   %10712 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10713 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %228, i64 noundef %10712) #5
   %10714 = call i64 @rb_obj_freeze(i64 noundef %10713) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %228) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   br label %pm_location_new.exit4788
 
 10715:                                            ; preds = %10679, %10682
@@ -16902,11 +16896,11 @@ rb_array_const_ptr.exit4791:                      ; preds = %pm_location_new.exi
 
 10748:                                            ; preds = %10746, %rb_array_const_ptr.exit4791
   %10749 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10745) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %443) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %443)
   br label %.backedge
 
 10750:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %444) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %444)
   store i64 %3, ptr %444, align 16, !tbaa !16
   %10751 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10752 = load i32, ptr %10751, align 4, !tbaa !447
@@ -16921,7 +16915,7 @@ rb_array_const_ptr.exit4791:                      ; preds = %pm_location_new.exi
   br i1 %4, label %10760, label %10774
 
 10760:                                            ; preds = %10750
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %227) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   store i64 %3, ptr %227, align 16, !tbaa !16
   %10761 = load ptr, ptr %546, align 8, !tbaa !18
   %10762 = ptrtoint ptr %10757 to i64
@@ -16938,7 +16932,7 @@ rb_array_const_ptr.exit4791:                      ; preds = %pm_location_new.exi
   %10771 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10772 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %227, i64 noundef %10771) #5
   %10773 = call i64 @rb_obj_freeze(i64 noundef %10772) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %227) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %pm_location_new.exit4794
 
 10774:                                            ; preds = %10750
@@ -17021,7 +17015,7 @@ rb_array_const_ptr.exit4798:                      ; preds = %pm_location_new.exi
   br label %10856
 
 10825:                                            ; preds = %rb_array_const_ptr.exit4798
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %226) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   store i64 %3, ptr %226, align 16, !tbaa !16
   %10826 = load ptr, ptr %546, align 8, !tbaa !18
   %10827 = ptrtoint ptr %10806 to i64
@@ -17038,13 +17032,13 @@ rb_array_const_ptr.exit4798:                      ; preds = %pm_location_new.exi
   %10836 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10837 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %226, i64 noundef %10836) #5
   %10838 = call i64 @rb_obj_freeze(i64 noundef %10837) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %226) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   store i64 %10838, ptr %1541, align 8, !tbaa !16
   %10839 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %10840 = load ptr, ptr %10839, align 8, !tbaa !705
   %10841 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %10842 = load ptr, ptr %10841, align 8, !tbaa !706
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %225) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   store i64 %3, ptr %225, align 16, !tbaa !16
   %10843 = load ptr, ptr %546, align 8, !tbaa !18
   %10844 = ptrtoint ptr %10840 to i64
@@ -17061,7 +17055,7 @@ rb_array_const_ptr.exit4798:                      ; preds = %pm_location_new.exi
   %10853 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10854 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %225, i64 noundef %10853) #5
   %10855 = call i64 @rb_obj_freeze(i64 noundef %10854) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %225) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %pm_location_new.exit4802
 
 10856:                                            ; preds = %10820, %10823
@@ -17106,11 +17100,11 @@ pm_location_new.exit4802:                         ; preds = %10825, %10869, %108
 
 10879:                                            ; preds = %10877, %pm_location_new.exit4802
   %10880 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10876) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %444) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %444)
   br label %.backedge
 
 10881:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %445) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %445)
   store i64 %3, ptr %445, align 16, !tbaa !16
   %10882 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10883 = load i32, ptr %10882, align 4, !tbaa !447
@@ -17125,7 +17119,7 @@ pm_location_new.exit4802:                         ; preds = %10825, %10869, %108
   br i1 %4, label %10891, label %10905
 
 10891:                                            ; preds = %10881
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %224) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   store i64 %3, ptr %224, align 16, !tbaa !16
   %10892 = load ptr, ptr %546, align 8, !tbaa !18
   %10893 = ptrtoint ptr %10888 to i64
@@ -17142,7 +17136,7 @@ pm_location_new.exit4802:                         ; preds = %10825, %10869, %108
   %10902 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10903 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %224, i64 noundef %10902) #5
   %10904 = call i64 @rb_obj_freeze(i64 noundef %10903) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %224) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %pm_location_new.exit4805
 
 10905:                                            ; preds = %10881
@@ -17204,11 +17198,11 @@ rb_array_const_ptr.exit4809:                      ; preds = %pm_location_new.exi
 
 10940:                                            ; preds = %10938, %rb_array_const_ptr.exit4809
   %10941 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10937) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %445) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %445)
   br label %.backedge
 
 10942:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %446) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %446)
   store i64 %3, ptr %446, align 16, !tbaa !16
   %10943 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %10944 = load i32, ptr %10943, align 4, !tbaa !447
@@ -17223,7 +17217,7 @@ rb_array_const_ptr.exit4809:                      ; preds = %pm_location_new.exi
   br i1 %4, label %10952, label %10966
 
 10952:                                            ; preds = %10942
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %223) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   store i64 %3, ptr %223, align 16, !tbaa !16
   %10953 = load ptr, ptr %546, align 8, !tbaa !18
   %10954 = ptrtoint ptr %10949 to i64
@@ -17240,7 +17234,7 @@ rb_array_const_ptr.exit4809:                      ; preds = %pm_location_new.exi
   %10963 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %10964 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %223, i64 noundef %10963) #5
   %10965 = call i64 @rb_obj_freeze(i64 noundef %10964) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %223) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %pm_location_new.exit4812
 
 10966:                                            ; preds = %10942
@@ -17302,11 +17296,11 @@ rb_array_const_ptr.exit4816:                      ; preds = %pm_location_new.exi
 
 11001:                                            ; preds = %10999, %rb_array_const_ptr.exit4816
   %11002 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %10998) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %446) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %446)
   br label %.backedge
 
 11003:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %447) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %447)
   store i64 %3, ptr %447, align 16, !tbaa !16
   %11004 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11005 = load i32, ptr %11004, align 4, !tbaa !447
@@ -17321,7 +17315,7 @@ rb_array_const_ptr.exit4816:                      ; preds = %pm_location_new.exi
   br i1 %4, label %11013, label %11027
 
 11013:                                            ; preds = %11003
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %222) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   store i64 %3, ptr %222, align 16, !tbaa !16
   %11014 = load ptr, ptr %546, align 8, !tbaa !18
   %11015 = ptrtoint ptr %11010 to i64
@@ -17338,7 +17332,7 @@ rb_array_const_ptr.exit4816:                      ; preds = %pm_location_new.exi
   %11024 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11025 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %222, i64 noundef %11024) #5
   %11026 = call i64 @rb_obj_freeze(i64 noundef %11025) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %222) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %pm_location_new.exit4819
 
 11027:                                            ; preds = %11003
@@ -17397,7 +17391,7 @@ rb_array_const_ptr.exit4823:                      ; preds = %pm_location_new.exi
   br i1 %4, label %11062, label %11076
 
 11062:                                            ; preds = %rb_array_const_ptr.exit4823
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %221) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   store i64 %3, ptr %221, align 16, !tbaa !16
   %11063 = load ptr, ptr %546, align 8, !tbaa !18
   %11064 = ptrtoint ptr %11059 to i64
@@ -17414,7 +17408,7 @@ rb_array_const_ptr.exit4823:                      ; preds = %pm_location_new.exi
   %11073 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11074 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %221, i64 noundef %11073) #5
   %11075 = call i64 @rb_obj_freeze(i64 noundef %11074) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %221) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %pm_location_new.exit4825
 
 11076:                                            ; preds = %rb_array_const_ptr.exit4823
@@ -17480,7 +17474,7 @@ pm_location_new.exit4827.thread:                  ; preds = %11108, %11111
   br label %11132
 
 11115:                                            ; preds = %pm_location_new.exit4825
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %220) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
   store i64 %3, ptr %220, align 16, !tbaa !16
   %11116 = load ptr, ptr %546, align 8, !tbaa !18
   %11117 = ptrtoint ptr %11094 to i64
@@ -17497,7 +17491,7 @@ pm_location_new.exit4827.thread:                  ; preds = %11108, %11111
   %11126 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11127 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %220, i64 noundef %11126) #5
   %11128 = call i64 @rb_obj_freeze(i64 noundef %11127) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %220) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   store i64 %11128, ptr %1520, align 8, !tbaa !16
   %11129 = load i64, ptr @rb_cPrismGlobalVariableWriteNode, align 8, !tbaa !16
   %11130 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %447, i64 noundef %11129) #5
@@ -17507,11 +17501,11 @@ pm_location_new.exit4827.thread:                  ; preds = %11108, %11111
 11132:                                            ; preds = %pm_location_new.exit4827.thread, %11115
   %11133 = phi i64 [ %11114, %pm_location_new.exit4827.thread ], [ %11130, %11115 ]
   %11134 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11133) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %447) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %447)
   br label %.backedge
 
 11135:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %448) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %448)
   store i64 %3, ptr %448, align 16, !tbaa !16
   %11136 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11137 = load i32, ptr %11136, align 4, !tbaa !447
@@ -17526,7 +17520,7 @@ pm_location_new.exit4827.thread:                  ; preds = %11108, %11111
   br i1 %4, label %11145, label %11159
 
 11145:                                            ; preds = %11135
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %219) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   store i64 %3, ptr %219, align 16, !tbaa !16
   %11146 = load ptr, ptr %546, align 8, !tbaa !18
   %11147 = ptrtoint ptr %11142 to i64
@@ -17543,7 +17537,7 @@ pm_location_new.exit4827.thread:                  ; preds = %11108, %11111
   %11156 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11157 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %219, i64 noundef %11156) #5
   %11158 = call i64 @rb_obj_freeze(i64 noundef %11157) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %219) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   br label %pm_location_new.exit4830
 
 11159:                                            ; preds = %11135
@@ -17584,7 +17578,7 @@ pm_location_new.exit4830:                         ; preds = %11145, %11170, %111
   br i1 %4, label %11184, label %11198
 
 11184:                                            ; preds = %pm_location_new.exit4830
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %218) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   store i64 %3, ptr %218, align 16, !tbaa !16
   %11185 = load ptr, ptr %546, align 8, !tbaa !18
   %11186 = ptrtoint ptr %11181 to i64
@@ -17601,7 +17595,7 @@ pm_location_new.exit4830:                         ; preds = %11145, %11170, %111
   %11195 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11196 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %218, i64 noundef %11195) #5
   %11197 = call i64 @rb_obj_freeze(i64 noundef %11196) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %218) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   br label %pm_location_new.exit4833
 
 11198:                                            ; preds = %pm_location_new.exit4830
@@ -17690,7 +17684,7 @@ pm_location_new.exit4835.thread:                  ; preds = %11239, %11242
   %11250 = load ptr, ptr %11249, align 8, !tbaa !719
   %11251 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %11252 = load ptr, ptr %11251, align 8, !tbaa !720
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %217) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   store i64 %3, ptr %217, align 16, !tbaa !16
   %11253 = load ptr, ptr %546, align 8, !tbaa !18
   %11254 = ptrtoint ptr %11250 to i64
@@ -17707,7 +17701,7 @@ pm_location_new.exit4835.thread:                  ; preds = %11239, %11242
   %11263 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11264 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %217, i64 noundef %11263) #5
   %11265 = call i64 @rb_obj_freeze(i64 noundef %11264) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %217) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   store i64 %11265, ptr %1507, align 16, !tbaa !16
   %11266 = load i64, ptr @rb_cPrismHashNode, align 8, !tbaa !16
   %11267 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %448, i64 noundef %11266) #5
@@ -17717,11 +17711,11 @@ pm_location_new.exit4835.thread:                  ; preds = %11239, %11242
 11269:                                            ; preds = %pm_location_new.exit4835.thread, %11246
   %11270 = phi i64 [ %11245, %pm_location_new.exit4835.thread ], [ %11267, %11246 ]
   %11271 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11270) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %448) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %448)
   br label %.backedge
 
 11272:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %449) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %449)
   store i64 %3, ptr %449, align 16, !tbaa !16
   %11273 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11274 = load i32, ptr %11273, align 4, !tbaa !447
@@ -17736,7 +17730,7 @@ pm_location_new.exit4835.thread:                  ; preds = %11239, %11242
   br i1 %4, label %11282, label %11296
 
 11282:                                            ; preds = %11272
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %216) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
   store i64 %3, ptr %216, align 16, !tbaa !16
   %11283 = load ptr, ptr %546, align 8, !tbaa !18
   %11284 = ptrtoint ptr %11279 to i64
@@ -17753,7 +17747,7 @@ pm_location_new.exit4835.thread:                  ; preds = %11239, %11242
   %11293 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11294 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %216, i64 noundef %11293) #5
   %11295 = call i64 @rb_obj_freeze(i64 noundef %11294) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %216) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %pm_location_new.exit4838
 
 11296:                                            ; preds = %11272
@@ -17859,7 +17853,7 @@ pm_location_new.exit4841:                         ; preds = %11353, %11350, %113
   br i1 %11358, label %pm_location_new.exit4843, label %11377
 
 pm_location_new.exit4841.thread:                  ; preds = %11336
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %215) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   store i64 %3, ptr %215, align 16, !tbaa !16
   %11359 = load ptr, ptr %546, align 8, !tbaa !18
   %11360 = ptrtoint ptr %11334 to i64
@@ -17876,7 +17870,7 @@ pm_location_new.exit4841.thread:                  ; preds = %11336
   %11369 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11370 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %215, i64 noundef %11369) #5
   %11371 = call i64 @rb_obj_freeze(i64 noundef %11370) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %215) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   store i64 %11371, ptr %1494, align 8, !tbaa !16
   %11372 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %11373 = load ptr, ptr %11372, align 8, !tbaa !724
@@ -17899,7 +17893,7 @@ pm_location_new.exit4841.thread:                  ; preds = %11336
   %11381 = phi ptr [ %.pre6448, %.thread5862 ], [ %.pre6449, %11377 ]
   %11382 = phi ptr [ %11376, %.thread5862 ], [ %11379, %11377 ]
   %11383 = phi ptr [ %11373, %.thread5862 ], [ %11357, %11377 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %214) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
   store i64 %3, ptr %214, align 16, !tbaa !16
   %11384 = ptrtoint ptr %11383 to i64
   %11385 = ptrtoint ptr %11381 to i64
@@ -17915,7 +17909,7 @@ pm_location_new.exit4841.thread:                  ; preds = %11336
   %11393 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11394 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %214, i64 noundef %11393) #5
   %11395 = call i64 @rb_obj_freeze(i64 noundef %11394) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %214) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
   br label %pm_location_new.exit4843.thread
 
 11396:                                            ; preds = %11377
@@ -17967,11 +17961,11 @@ pm_location_new.exit4843:                         ; preds = %pm_location_new.exi
 11420:                                            ; preds = %pm_location_new.exit4843.thread5866, %11417, %pm_location_new.exit4843
   %11421 = phi i64 [ %11418, %11417 ], [ %11416, %pm_location_new.exit4843 ], [ %11414, %pm_location_new.exit4843.thread5866 ]
   %11422 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11421) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %449) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %449)
   br label %.backedge
 
 11423:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %450) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %450)
   store i64 %3, ptr %450, align 16, !tbaa !16
   %11424 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11425 = load i32, ptr %11424, align 4, !tbaa !447
@@ -17986,7 +17980,7 @@ pm_location_new.exit4843:                         ; preds = %pm_location_new.exi
   br i1 %4, label %11433, label %11447
 
 11433:                                            ; preds = %11423
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %213) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
   store i64 %3, ptr %213, align 16, !tbaa !16
   %11434 = load ptr, ptr %546, align 8, !tbaa !18
   %11435 = ptrtoint ptr %11430 to i64
@@ -18003,7 +17997,7 @@ pm_location_new.exit4843:                         ; preds = %pm_location_new.exi
   %11444 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11445 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %213, i64 noundef %11444) #5
   %11446 = call i64 @rb_obj_freeze(i64 noundef %11445) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %213) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
   br label %pm_location_new.exit4846
 
 11447:                                            ; preds = %11423
@@ -18048,7 +18042,7 @@ pm_location_new.exit4846:                         ; preds = %11433, %11458, %114
   br i1 %4, label %11474, label %11488
 
 11474:                                            ; preds = %11471
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %212) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
   store i64 %3, ptr %212, align 16, !tbaa !16
   %11475 = load ptr, ptr %546, align 8, !tbaa !18
   %11476 = ptrtoint ptr %11469 to i64
@@ -18065,7 +18059,7 @@ pm_location_new.exit4846:                         ; preds = %11433, %11458, %114
   %11485 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11486 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %212, i64 noundef %11485) #5
   %11487 = call i64 @rb_obj_freeze(i64 noundef %11486) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %212) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %pm_location_new.exit4849
 
 11488:                                            ; preds = %11471
@@ -18106,7 +18100,7 @@ pm_location_new.exit4849:                         ; preds = %11502, %11499, %114
   br i1 %4, label %11512, label %11526
 
 11512:                                            ; preds = %11509
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %211) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   store i64 %3, ptr %211, align 16, !tbaa !16
   %11513 = load ptr, ptr %546, align 8, !tbaa !18
   %11514 = ptrtoint ptr %11507 to i64
@@ -18123,7 +18117,7 @@ pm_location_new.exit4849:                         ; preds = %11502, %11499, %114
   %11523 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11524 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %211, i64 noundef %11523) #5
   %11525 = call i64 @rb_obj_freeze(i64 noundef %11524) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %211) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
   br label %pm_location_new.exit4851
 
 11526:                                            ; preds = %11509
@@ -18166,7 +18160,7 @@ pm_location_new.exit4851:                         ; preds = %11540, %11537, %115
   br i1 %4, label %pm_location_new.exit4853.thread5868, label %11566
 
 pm_location_new.exit4853.thread5868:              ; preds = %11548
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %210) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   store i64 %3, ptr %210, align 16, !tbaa !16
   %11551 = load ptr, ptr %546, align 8, !tbaa !18
   %11552 = ptrtoint ptr %11546 to i64
@@ -18183,7 +18177,7 @@ pm_location_new.exit4853.thread5868:              ; preds = %11548
   %11561 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11562 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %210, i64 noundef %11561) #5
   %11563 = call i64 @rb_obj_freeze(i64 noundef %11562) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %210) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   store i64 %11563, ptr %1481, align 8, !tbaa !16
   %11564 = load i64, ptr @rb_cPrismIfNode, align 8, !tbaa !16
   %11565 = call i64 @rb_class_new_instance(i32 noundef 10, ptr noundef nonnull %450, i64 noundef %11564) #5
@@ -18232,11 +18226,11 @@ pm_location_new.exit4853:                         ; preds = %pm_location_new.exi
 11589:                                            ; preds = %pm_location_new.exit4853.thread, %11586, %pm_location_new.exit4853
   %11590 = phi i64 [ %11583, %pm_location_new.exit4853.thread ], [ %11587, %11586 ], [ %11585, %pm_location_new.exit4853 ]
   %11591 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11590) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %450) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %450)
   br label %.backedge
 
 11592:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %451) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %451)
   store i64 %3, ptr %451, align 16, !tbaa !16
   %11593 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11594 = load i32, ptr %11593, align 4, !tbaa !447
@@ -18251,7 +18245,7 @@ pm_location_new.exit4853:                         ; preds = %pm_location_new.exi
   br i1 %4, label %11602, label %11616
 
 11602:                                            ; preds = %11592
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %209) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   store i64 %3, ptr %209, align 16, !tbaa !16
   %11603 = load ptr, ptr %546, align 8, !tbaa !18
   %11604 = ptrtoint ptr %11599 to i64
@@ -18268,7 +18262,7 @@ pm_location_new.exit4853:                         ; preds = %pm_location_new.exi
   %11613 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11614 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %209, i64 noundef %11613) #5
   %11615 = call i64 @rb_obj_freeze(i64 noundef %11614) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %209) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %pm_location_new.exit4856
 
 11616:                                            ; preds = %11592
@@ -18314,11 +18308,11 @@ pm_location_new.exit4856:                         ; preds = %11602, %11627, %116
 
 11642:                                            ; preds = %11640, %pm_location_new.exit4856
   %11643 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11639) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %451) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %451)
   br label %.backedge
 
 11644:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %452) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %452)
   store i64 %3, ptr %452, align 16, !tbaa !16
   %11645 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11646 = load i32, ptr %11645, align 4, !tbaa !447
@@ -18333,7 +18327,7 @@ pm_location_new.exit4856:                         ; preds = %11602, %11627, %116
   br i1 %4, label %11654, label %11668
 
 11654:                                            ; preds = %11644
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %208) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   store i64 %3, ptr %208, align 16, !tbaa !16
   %11655 = load ptr, ptr %546, align 8, !tbaa !18
   %11656 = ptrtoint ptr %11651 to i64
@@ -18350,7 +18344,7 @@ pm_location_new.exit4856:                         ; preds = %11602, %11627, %116
   %11665 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11666 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %208, i64 noundef %11665) #5
   %11667 = call i64 @rb_obj_freeze(i64 noundef %11666) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %208) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %pm_location_new.exit4860
 
 11668:                                            ; preds = %11644
@@ -18396,11 +18390,11 @@ pm_location_new.exit4860:                         ; preds = %11654, %11679, %116
 
 11694:                                            ; preds = %11692, %pm_location_new.exit4860
   %11695 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11691) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %452) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %452)
   br label %.backedge
 
 11696:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %453) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %453)
   store i64 %3, ptr %453, align 16, !tbaa !16
   %11697 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11698 = load i32, ptr %11697, align 4, !tbaa !447
@@ -18415,7 +18409,7 @@ pm_location_new.exit4860:                         ; preds = %11654, %11679, %116
   br i1 %4, label %11706, label %11720
 
 11706:                                            ; preds = %11696
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %207) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   store i64 %3, ptr %207, align 16, !tbaa !16
   %11707 = load ptr, ptr %546, align 8, !tbaa !18
   %11708 = ptrtoint ptr %11703 to i64
@@ -18432,7 +18426,7 @@ pm_location_new.exit4860:                         ; preds = %11654, %11679, %116
   %11717 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11718 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %207, i64 noundef %11717) #5
   %11719 = call i64 @rb_obj_freeze(i64 noundef %11718) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %207) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
   br label %pm_location_new.exit4864
 
 11720:                                            ; preds = %11696
@@ -18476,11 +18470,11 @@ pm_location_new.exit4864:                         ; preds = %11706, %11731, %117
 
 11745:                                            ; preds = %11743, %pm_location_new.exit4864
   %11746 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11742) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %453) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %453)
   br label %.backedge
 
 11747:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %454) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %454)
   store i64 %3, ptr %454, align 16, !tbaa !16
   %11748 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11749 = load i32, ptr %11748, align 4, !tbaa !447
@@ -18495,7 +18489,7 @@ pm_location_new.exit4864:                         ; preds = %11706, %11731, %117
   br i1 %4, label %11757, label %11771
 
 11757:                                            ; preds = %11747
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %206) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   store i64 %3, ptr %206, align 16, !tbaa !16
   %11758 = load ptr, ptr %546, align 8, !tbaa !18
   %11759 = ptrtoint ptr %11754 to i64
@@ -18512,7 +18506,7 @@ pm_location_new.exit4864:                         ; preds = %11706, %11731, %117
   %11768 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11769 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %206, i64 noundef %11768) #5
   %11770 = call i64 @rb_obj_freeze(i64 noundef %11769) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %206) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %pm_location_new.exit4868
 
 11771:                                            ; preds = %11747
@@ -18587,7 +18581,7 @@ pm_location_new.exit4871:                         ; preds = %11809, %11812
   br i1 %11816, label %pm_location_new.exit4873, label %11848
 
 pm_location_new.exit4871.thread:                  ; preds = %pm_location_new.exit4868
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %205) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   store i64 %3, ptr %205, align 16, !tbaa !16
   %11817 = load ptr, ptr %546, align 8, !tbaa !18
   %11818 = ptrtoint ptr %11795 to i64
@@ -18604,7 +18598,7 @@ pm_location_new.exit4871.thread:                  ; preds = %pm_location_new.exi
   %11827 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11828 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %205, i64 noundef %11827) #5
   %11829 = call i64 @rb_obj_freeze(i64 noundef %11828) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %205) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
   store i64 %11829, ptr %1444, align 16, !tbaa !16
   %11830 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %11831 = load ptr, ptr %11830, align 8, !tbaa !734
@@ -18616,7 +18610,7 @@ pm_location_new.exit4871.thread:                  ; preds = %pm_location_new.exi
   %11834 = load ptr, ptr %11833, align 8, !tbaa !735
   %11835 = ptrtoint ptr %11831 to i64
   %11836 = ptrtoint ptr %11834 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %204) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   store i64 %3, ptr %204, align 16, !tbaa !16
   %11837 = load ptr, ptr %546, align 8, !tbaa !18
   %11838 = ptrtoint ptr %11837 to i64
@@ -18631,7 +18625,7 @@ pm_location_new.exit4871.thread:                  ; preds = %pm_location_new.exi
   %11845 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11846 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %204, i64 noundef %11845) #5
   %11847 = call i64 @rb_obj_freeze(i64 noundef %11846) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %204) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %pm_location_new.exit4873.thread
 
 11848:                                            ; preds = %pm_location_new.exit4871
@@ -18682,11 +18676,11 @@ pm_location_new.exit4873:                         ; preds = %pm_location_new.exi
 11873:                                            ; preds = %pm_location_new.exit4873, %pm_location_new.exit4873.thread5874, %pm_location_new.exit4873.thread
   %11874 = phi i64 [ %11867, %pm_location_new.exit4873.thread ], [ %11872, %pm_location_new.exit4873 ], [ %11870, %pm_location_new.exit4873.thread5874 ]
   %11875 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %11874) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %454) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %454)
   br label %.backedge
 
 11876:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %455) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %455)
   store i64 %3, ptr %455, align 16, !tbaa !16
   %11877 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %11878 = load i32, ptr %11877, align 4, !tbaa !447
@@ -18701,7 +18695,7 @@ pm_location_new.exit4873:                         ; preds = %pm_location_new.exi
   br i1 %4, label %11886, label %11900
 
 11886:                                            ; preds = %11876
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %203) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
   store i64 %3, ptr %203, align 16, !tbaa !16
   %11887 = load ptr, ptr %546, align 8, !tbaa !18
   %11888 = ptrtoint ptr %11883 to i64
@@ -18718,7 +18712,7 @@ pm_location_new.exit4873:                         ; preds = %pm_location_new.exi
   %11897 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11898 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %203, i64 noundef %11897) #5
   %11899 = call i64 @rb_obj_freeze(i64 noundef %11898) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %203) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   br label %pm_location_new.exit4876
 
 11900:                                            ; preds = %11876
@@ -18765,7 +18759,7 @@ pm_location_new.exit4876:                         ; preds = %11886, %11911, %119
   br i1 %4, label %pm_location_new.exit4879.thread5876, label %11945
 
 pm_location_new.exit4879.thread5876:              ; preds = %11925
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %202) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   store i64 %3, ptr %202, align 16, !tbaa !16
   %11928 = load ptr, ptr %546, align 8, !tbaa !18
   %11929 = ptrtoint ptr %11923 to i64
@@ -18782,7 +18776,7 @@ pm_location_new.exit4879.thread5876:              ; preds = %11925
   %11938 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11939 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %202, i64 noundef %11938) #5
   %11940 = call i64 @rb_obj_freeze(i64 noundef %11939) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %202) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   store i64 %11940, ptr %1422, align 8, !tbaa !16
   %11941 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %11942 = load ptr, ptr %11941, align 8, !tbaa !738
@@ -18832,7 +18826,7 @@ pm_location_new.exit4879:                         ; preds = %pm_location_new.exi
 11969:                                            ; preds = %pm_location_new.exit4879.thread5876, %pm_location_new.exit4879
   %11970 = phi ptr [ %11944, %pm_location_new.exit4879.thread5876 ], [ %11968, %pm_location_new.exit4879 ]
   %11971 = phi ptr [ %11942, %pm_location_new.exit4879.thread5876 ], [ %11966, %pm_location_new.exit4879 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %201) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   store i64 %3, ptr %201, align 16, !tbaa !16
   %11972 = load ptr, ptr %546, align 8, !tbaa !18
   %11973 = ptrtoint ptr %11971 to i64
@@ -18849,7 +18843,7 @@ pm_location_new.exit4879:                         ; preds = %pm_location_new.exi
   %11982 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %11983 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %201, i64 noundef %11982) #5
   %11984 = call i64 @rb_obj_freeze(i64 noundef %11983) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %201) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
   br label %pm_location_new.exit4881
 
 11985:                                            ; preds = %pm_location_new.exit4879.thread, %pm_location_new.exit4879
@@ -18888,7 +18882,7 @@ pm_location_new.exit4881:                         ; preds = %11969, %11998, %120
   br i1 %4, label %12008, label %12022
 
 12008:                                            ; preds = %pm_location_new.exit4881
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %200) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   store i64 %3, ptr %200, align 16, !tbaa !16
   %12009 = load ptr, ptr %546, align 8, !tbaa !18
   %12010 = ptrtoint ptr %12005 to i64
@@ -18905,7 +18899,7 @@ pm_location_new.exit4881:                         ; preds = %11969, %11998, %120
   %12019 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12020 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %200, i64 noundef %12019) #5
   %12021 = call i64 @rb_obj_freeze(i64 noundef %12020) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %200) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %pm_location_new.exit4883
 
 12022:                                            ; preds = %pm_location_new.exit4881
@@ -18942,7 +18936,7 @@ pm_location_new.exit4883:                         ; preds = %12008, %12033, %120
   br i1 %4, label %12043, label %12057
 
 12043:                                            ; preds = %pm_location_new.exit4883
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %199) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   store i64 %3, ptr %199, align 16, !tbaa !16
   %12044 = load ptr, ptr %546, align 8, !tbaa !18
   %12045 = ptrtoint ptr %12040 to i64
@@ -18959,7 +18953,7 @@ pm_location_new.exit4883:                         ; preds = %12008, %12033, %120
   %12054 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12055 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %199, i64 noundef %12054) #5
   %12056 = call i64 @rb_obj_freeze(i64 noundef %12055) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %199) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
   br label %pm_location_new.exit4885
 
 12057:                                            ; preds = %pm_location_new.exit4883
@@ -18999,11 +18993,11 @@ pm_location_new.exit4885:                         ; preds = %12043, %12068, %120
 
 12078:                                            ; preds = %12076, %pm_location_new.exit4885
   %12079 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %12075) #5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %455) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %455)
   br label %.backedge
 
 12080:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %456) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %456)
   store i64 %3, ptr %456, align 16, !tbaa !16
   %12081 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %12082 = load i32, ptr %12081, align 4, !tbaa !447
@@ -19018,7 +19012,7 @@ pm_location_new.exit4885:                         ; preds = %12043, %12068, %120
   br i1 %4, label %12090, label %12104
 
 12090:                                            ; preds = %12080
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %198) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   store i64 %3, ptr %198, align 16, !tbaa !16
   %12091 = load ptr, ptr %546, align 8, !tbaa !18
   %12092 = ptrtoint ptr %12087 to i64
@@ -19035,7 +19029,7 @@ pm_location_new.exit4885:                         ; preds = %12043, %12068, %120
   %12101 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12102 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %198, i64 noundef %12101) #5
   %12103 = call i64 @rb_obj_freeze(i64 noundef %12102) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %198) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   br label %pm_location_new.exit4888
 
 12104:                                            ; preds = %12080
@@ -19082,7 +19076,7 @@ pm_location_new.exit4888:                         ; preds = %12090, %12115, %121
   br i1 %4, label %pm_location_new.exit4891.thread5878, label %12149
 
 pm_location_new.exit4891.thread5878:              ; preds = %12129
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %197) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   store i64 %3, ptr %197, align 16, !tbaa !16
   %12132 = load ptr, ptr %546, align 8, !tbaa !18
   %12133 = ptrtoint ptr %12127 to i64
@@ -19099,7 +19093,7 @@ pm_location_new.exit4891.thread5878:              ; preds = %12129
   %12142 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12143 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %197, i64 noundef %12142) #5
   %12144 = call i64 @rb_obj_freeze(i64 noundef %12143) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %197) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   store i64 %12144, ptr %1400, align 8, !tbaa !16
   %12145 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %12146 = load ptr, ptr %12145, align 8, !tbaa !746
@@ -19149,7 +19143,7 @@ pm_location_new.exit4891:                         ; preds = %pm_location_new.exi
 12173:                                            ; preds = %pm_location_new.exit4891.thread5878, %pm_location_new.exit4891
   %12174 = phi ptr [ %12148, %pm_location_new.exit4891.thread5878 ], [ %12172, %pm_location_new.exit4891 ]
   %12175 = phi ptr [ %12146, %pm_location_new.exit4891.thread5878 ], [ %12170, %pm_location_new.exit4891 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %196) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   store i64 %3, ptr %196, align 16, !tbaa !16
   %12176 = load ptr, ptr %546, align 8, !tbaa !18
   %12177 = ptrtoint ptr %12175 to i64
@@ -19166,7 +19160,7 @@ pm_location_new.exit4891:                         ; preds = %pm_location_new.exi
   %12186 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12187 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %196, i64 noundef %12186) #5
   %12188 = call i64 @rb_obj_freeze(i64 noundef %12187) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %196) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %pm_location_new.exit4893
 
 12189:                                            ; preds = %pm_location_new.exit4891.thread, %pm_location_new.exit4891
@@ -19205,7 +19199,7 @@ pm_location_new.exit4893:                         ; preds = %12173, %12202, %122
   br i1 %4, label %12212, label %12226
 
 12212:                                            ; preds = %pm_location_new.exit4893
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %195) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   store i64 %3, ptr %195, align 16, !tbaa !16
   %12213 = load ptr, ptr %546, align 8, !tbaa !18
   %12214 = ptrtoint ptr %12209 to i64
@@ -19222,7 +19216,7 @@ pm_location_new.exit4893:                         ; preds = %12173, %12202, %122
   %12223 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12224 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %195, i64 noundef %12223) #5
   %12225 = call i64 @rb_obj_freeze(i64 noundef %12224) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %195) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %pm_location_new.exit4895
 
 12226:                                            ; preds = %pm_location_new.exit4893
@@ -19277,7 +19271,7 @@ rb_array_const_ptr.exit4898:                      ; preds = %pm_location_new.exi
   br i1 %4, label %12257, label %12271
 
 12257:                                            ; preds = %rb_array_const_ptr.exit4898
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %194) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   store i64 %3, ptr %194, align 16, !tbaa !16
   %12258 = load ptr, ptr %546, align 8, !tbaa !18
   %12259 = ptrtoint ptr %12254 to i64
@@ -19294,7 +19288,7 @@ rb_array_const_ptr.exit4898:                      ; preds = %pm_location_new.exi
   %12268 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12269 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %194, i64 noundef %12268) #5
   %12270 = call i64 @rb_obj_freeze(i64 noundef %12269) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %194) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %pm_location_new.exit4900
 
 12271:                                            ; preds = %rb_array_const_ptr.exit4898
@@ -19334,11 +19328,11 @@ pm_location_new.exit4900:                         ; preds = %12257, %12282, %122
 
 12292:                                            ; preds = %12290, %pm_location_new.exit4900
   %12293 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %12289) #5
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %456) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %456)
   br label %.backedge
 
 12294:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %457) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %457)
   store i64 %3, ptr %457, align 16, !tbaa !16
   %12295 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %12296 = load i32, ptr %12295, align 4, !tbaa !447
@@ -19353,7 +19347,7 @@ pm_location_new.exit4900:                         ; preds = %12257, %12282, %122
   br i1 %4, label %12304, label %12318
 
 12304:                                            ; preds = %12294
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %193) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   store i64 %3, ptr %193, align 16, !tbaa !16
   %12305 = load ptr, ptr %546, align 8, !tbaa !18
   %12306 = ptrtoint ptr %12301 to i64
@@ -19370,7 +19364,7 @@ pm_location_new.exit4900:                         ; preds = %12257, %12282, %122
   %12315 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12316 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %193, i64 noundef %12315) #5
   %12317 = call i64 @rb_obj_freeze(i64 noundef %12316) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %193) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   br label %pm_location_new.exit4903
 
 12318:                                            ; preds = %12294
@@ -19417,7 +19411,7 @@ pm_location_new.exit4903:                         ; preds = %12304, %12329, %123
   br i1 %4, label %pm_location_new.exit4906.thread5880, label %12363
 
 pm_location_new.exit4906.thread5880:              ; preds = %12343
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %192) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   store i64 %3, ptr %192, align 16, !tbaa !16
   %12346 = load ptr, ptr %546, align 8, !tbaa !18
   %12347 = ptrtoint ptr %12341 to i64
@@ -19434,7 +19428,7 @@ pm_location_new.exit4906.thread5880:              ; preds = %12343
   %12356 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12357 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %192, i64 noundef %12356) #5
   %12358 = call i64 @rb_obj_freeze(i64 noundef %12357) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %192) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   store i64 %12358, ptr %1379, align 8, !tbaa !16
   %12359 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %12360 = load ptr, ptr %12359, align 8, !tbaa !755
@@ -19484,7 +19478,7 @@ pm_location_new.exit4906:                         ; preds = %pm_location_new.exi
 12387:                                            ; preds = %pm_location_new.exit4906.thread5880, %pm_location_new.exit4906
   %12388 = phi ptr [ %12362, %pm_location_new.exit4906.thread5880 ], [ %12386, %pm_location_new.exit4906 ]
   %12389 = phi ptr [ %12360, %pm_location_new.exit4906.thread5880 ], [ %12384, %pm_location_new.exit4906 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %191) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   store i64 %3, ptr %191, align 16, !tbaa !16
   %12390 = load ptr, ptr %546, align 8, !tbaa !18
   %12391 = ptrtoint ptr %12389 to i64
@@ -19501,7 +19495,7 @@ pm_location_new.exit4906:                         ; preds = %pm_location_new.exi
   %12400 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12401 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %191, i64 noundef %12400) #5
   %12402 = call i64 @rb_obj_freeze(i64 noundef %12401) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %191) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   br label %pm_location_new.exit4908
 
 12403:                                            ; preds = %pm_location_new.exit4906.thread, %pm_location_new.exit4906
@@ -19540,7 +19534,7 @@ pm_location_new.exit4908:                         ; preds = %12387, %12416, %124
   br i1 %4, label %12426, label %12440
 
 12426:                                            ; preds = %pm_location_new.exit4908
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %190) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   store i64 %3, ptr %190, align 16, !tbaa !16
   %12427 = load ptr, ptr %546, align 8, !tbaa !18
   %12428 = ptrtoint ptr %12423 to i64
@@ -19557,7 +19551,7 @@ pm_location_new.exit4908:                         ; preds = %12387, %12416, %124
   %12437 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12438 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %190, i64 noundef %12437) #5
   %12439 = call i64 @rb_obj_freeze(i64 noundef %12438) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %190) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %pm_location_new.exit4910
 
 12440:                                            ; preds = %pm_location_new.exit4908
@@ -19594,7 +19588,7 @@ pm_location_new.exit4910:                         ; preds = %12426, %12451, %124
   br i1 %4, label %12461, label %12475
 
 12461:                                            ; preds = %pm_location_new.exit4910
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %189) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   store i64 %3, ptr %189, align 16, !tbaa !16
   %12462 = load ptr, ptr %546, align 8, !tbaa !18
   %12463 = ptrtoint ptr %12458 to i64
@@ -19611,7 +19605,7 @@ pm_location_new.exit4910:                         ; preds = %12426, %12451, %124
   %12472 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12473 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %189, i64 noundef %12472) #5
   %12474 = call i64 @rb_obj_freeze(i64 noundef %12473) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %189) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   br label %pm_location_new.exit4912
 
 12475:                                            ; preds = %pm_location_new.exit4910
@@ -19651,11 +19645,11 @@ pm_location_new.exit4912:                         ; preds = %12461, %12486, %124
 
 12496:                                            ; preds = %12494, %pm_location_new.exit4912
   %12497 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %12493) #5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %457) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %457)
   br label %.backedge
 
 12498:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %458) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %458)
   store i64 %3, ptr %458, align 16, !tbaa !16
   %12499 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %12500 = load i32, ptr %12499, align 4, !tbaa !447
@@ -19670,7 +19664,7 @@ pm_location_new.exit4912:                         ; preds = %12461, %12486, %124
   br i1 %4, label %12508, label %12522
 
 12508:                                            ; preds = %12498
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %188) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   store i64 %3, ptr %188, align 16, !tbaa !16
   %12509 = load ptr, ptr %546, align 8, !tbaa !18
   %12510 = ptrtoint ptr %12505 to i64
@@ -19687,7 +19681,7 @@ pm_location_new.exit4912:                         ; preds = %12461, %12486, %124
   %12519 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12520 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %188, i64 noundef %12519) #5
   %12521 = call i64 @rb_obj_freeze(i64 noundef %12520) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %188) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %pm_location_new.exit4915
 
 12522:                                            ; preds = %12498
@@ -19730,7 +19724,7 @@ pm_location_new.exit4915:                         ; preds = %12508, %12533, %125
   br i1 %4, label %12548, label %12562
 
 12548:                                            ; preds = %pm_location_new.exit4915
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %187) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   store i64 %3, ptr %187, align 16, !tbaa !16
   %12549 = load ptr, ptr %546, align 8, !tbaa !18
   %12550 = ptrtoint ptr %12545 to i64
@@ -19747,7 +19741,7 @@ pm_location_new.exit4915:                         ; preds = %12508, %12533, %125
   %12559 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12560 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %187, i64 noundef %12559) #5
   %12561 = call i64 @rb_obj_freeze(i64 noundef %12560) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %187) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   br label %pm_location_new.exit4918
 
 12562:                                            ; preds = %pm_location_new.exit4915
@@ -19784,7 +19778,7 @@ pm_location_new.exit4918:                         ; preds = %12548, %12573, %125
   br i1 %4, label %12583, label %12597
 
 12583:                                            ; preds = %pm_location_new.exit4918
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %186) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   store i64 %3, ptr %186, align 16, !tbaa !16
   %12584 = load ptr, ptr %546, align 8, !tbaa !18
   %12585 = ptrtoint ptr %12580 to i64
@@ -19801,7 +19795,7 @@ pm_location_new.exit4918:                         ; preds = %12548, %12573, %125
   %12594 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12595 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %186, i64 noundef %12594) #5
   %12596 = call i64 @rb_obj_freeze(i64 noundef %12595) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %186) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %pm_location_new.exit4920
 
 12597:                                            ; preds = %pm_location_new.exit4918
@@ -19841,11 +19835,11 @@ pm_location_new.exit4920:                         ; preds = %12583, %12608, %126
 
 12618:                                            ; preds = %12616, %pm_location_new.exit4920
   %12619 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %12615) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %458) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %458)
   br label %.backedge
 
 12620:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %459) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %459)
   store i64 %3, ptr %459, align 16, !tbaa !16
   %12621 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %12622 = load i32, ptr %12621, align 4, !tbaa !447
@@ -19860,7 +19854,7 @@ pm_location_new.exit4920:                         ; preds = %12583, %12608, %126
   br i1 %4, label %12630, label %12644
 
 12630:                                            ; preds = %12620
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %185) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   store i64 %3, ptr %185, align 16, !tbaa !16
   %12631 = load ptr, ptr %546, align 8, !tbaa !18
   %12632 = ptrtoint ptr %12627 to i64
@@ -19877,7 +19871,7 @@ pm_location_new.exit4920:                         ; preds = %12583, %12608, %126
   %12641 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12642 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %185, i64 noundef %12641) #5
   %12643 = call i64 @rb_obj_freeze(i64 noundef %12642) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %185) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %pm_location_new.exit4923
 
 12644:                                            ; preds = %12620
@@ -19960,7 +19954,7 @@ rb_array_const_ptr.exit4927:                      ; preds = %pm_location_new.exi
   br label %12726
 
 12695:                                            ; preds = %rb_array_const_ptr.exit4927
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %184) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   store i64 %3, ptr %184, align 16, !tbaa !16
   %12696 = load ptr, ptr %546, align 8, !tbaa !18
   %12697 = ptrtoint ptr %12676 to i64
@@ -19977,13 +19971,13 @@ rb_array_const_ptr.exit4927:                      ; preds = %pm_location_new.exi
   %12706 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12707 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %184, i64 noundef %12706) #5
   %12708 = call i64 @rb_obj_freeze(i64 noundef %12707) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %184) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   store i64 %12708, ptr %1352, align 8, !tbaa !16
   %12709 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %12710 = load ptr, ptr %12709, align 8, !tbaa !768
   %12711 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %12712 = load ptr, ptr %12711, align 8, !tbaa !769
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %183) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   store i64 %3, ptr %183, align 16, !tbaa !16
   %12713 = load ptr, ptr %546, align 8, !tbaa !18
   %12714 = ptrtoint ptr %12710 to i64
@@ -20000,7 +19994,7 @@ rb_array_const_ptr.exit4927:                      ; preds = %pm_location_new.exi
   %12723 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12724 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %183, i64 noundef %12723) #5
   %12725 = call i64 @rb_obj_freeze(i64 noundef %12724) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %183) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %pm_location_new.exit4931
 
 12726:                                            ; preds = %12690, %12693
@@ -20045,11 +20039,11 @@ pm_location_new.exit4931:                         ; preds = %12695, %12739, %127
 
 12749:                                            ; preds = %12747, %pm_location_new.exit4931
   %12750 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %12746) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %459) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %459)
   br label %.backedge
 
 12751:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %460) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %460)
   store i64 %3, ptr %460, align 16, !tbaa !16
   %12752 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %12753 = load i32, ptr %12752, align 4, !tbaa !447
@@ -20064,7 +20058,7 @@ pm_location_new.exit4931:                         ; preds = %12695, %12739, %127
   br i1 %4, label %12761, label %12775
 
 12761:                                            ; preds = %12751
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %182) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   store i64 %3, ptr %182, align 16, !tbaa !16
   %12762 = load ptr, ptr %546, align 8, !tbaa !18
   %12763 = ptrtoint ptr %12758 to i64
@@ -20081,7 +20075,7 @@ pm_location_new.exit4931:                         ; preds = %12695, %12739, %127
   %12772 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12773 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %182, i64 noundef %12772) #5
   %12774 = call i64 @rb_obj_freeze(i64 noundef %12773) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %182) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %pm_location_new.exit4934
 
 12775:                                            ; preds = %12751
@@ -20164,7 +20158,7 @@ rb_array_const_ptr.exit4938:                      ; preds = %pm_location_new.exi
   br label %12857
 
 12826:                                            ; preds = %rb_array_const_ptr.exit4938
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %181) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   store i64 %3, ptr %181, align 16, !tbaa !16
   %12827 = load ptr, ptr %546, align 8, !tbaa !18
   %12828 = ptrtoint ptr %12807 to i64
@@ -20181,13 +20175,13 @@ rb_array_const_ptr.exit4938:                      ; preds = %pm_location_new.exi
   %12837 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12838 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %181, i64 noundef %12837) #5
   %12839 = call i64 @rb_obj_freeze(i64 noundef %12838) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %181) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   store i64 %12839, ptr %1338, align 8, !tbaa !16
   %12840 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %12841 = load ptr, ptr %12840, align 8, !tbaa !773
   %12842 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %12843 = load ptr, ptr %12842, align 8, !tbaa !774
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %180) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   store i64 %3, ptr %180, align 16, !tbaa !16
   %12844 = load ptr, ptr %546, align 8, !tbaa !18
   %12845 = ptrtoint ptr %12841 to i64
@@ -20204,7 +20198,7 @@ rb_array_const_ptr.exit4938:                      ; preds = %pm_location_new.exi
   %12854 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12855 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %180, i64 noundef %12854) #5
   %12856 = call i64 @rb_obj_freeze(i64 noundef %12855) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %180) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %pm_location_new.exit4942
 
 12857:                                            ; preds = %12821, %12824
@@ -20267,11 +20261,11 @@ rb_array_const_ptr.exit4945:                      ; preds = %pm_location_new.exi
 
 12890:                                            ; preds = %12888, %rb_array_const_ptr.exit4945
   %12891 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %12887) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %460) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %460)
   br label %.backedge
 
 12892:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %461) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %461)
   store i64 %3, ptr %461, align 16, !tbaa !16
   %12893 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %12894 = load i32, ptr %12893, align 4, !tbaa !447
@@ -20286,7 +20280,7 @@ rb_array_const_ptr.exit4945:                      ; preds = %pm_location_new.exi
   br i1 %4, label %12902, label %12916
 
 12902:                                            ; preds = %12892
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %179) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   store i64 %3, ptr %179, align 16, !tbaa !16
   %12903 = load ptr, ptr %546, align 8, !tbaa !18
   %12904 = ptrtoint ptr %12899 to i64
@@ -20303,7 +20297,7 @@ rb_array_const_ptr.exit4945:                      ; preds = %pm_location_new.exi
   %12913 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12914 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %179, i64 noundef %12913) #5
   %12915 = call i64 @rb_obj_freeze(i64 noundef %12914) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %179) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %pm_location_new.exit4948
 
 12916:                                            ; preds = %12892
@@ -20386,7 +20380,7 @@ rb_array_const_ptr.exit4952:                      ; preds = %pm_location_new.exi
   br label %12998
 
 12967:                                            ; preds = %rb_array_const_ptr.exit4952
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %178) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   store i64 %3, ptr %178, align 16, !tbaa !16
   %12968 = load ptr, ptr %546, align 8, !tbaa !18
   %12969 = ptrtoint ptr %12948 to i64
@@ -20403,13 +20397,13 @@ rb_array_const_ptr.exit4952:                      ; preds = %pm_location_new.exi
   %12978 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12979 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %178, i64 noundef %12978) #5
   %12980 = call i64 @rb_obj_freeze(i64 noundef %12979) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %178) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   store i64 %12980, ptr %1325, align 8, !tbaa !16
   %12981 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %12982 = load ptr, ptr %12981, align 8, !tbaa !779
   %12983 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %12984 = load ptr, ptr %12983, align 8, !tbaa !780
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %177) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   store i64 %3, ptr %177, align 16, !tbaa !16
   %12985 = load ptr, ptr %546, align 8, !tbaa !18
   %12986 = ptrtoint ptr %12982 to i64
@@ -20426,7 +20420,7 @@ rb_array_const_ptr.exit4952:                      ; preds = %pm_location_new.exi
   %12995 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %12996 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %177, i64 noundef %12995) #5
   %12997 = call i64 @rb_obj_freeze(i64 noundef %12996) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %177) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %pm_location_new.exit4956
 
 12998:                                            ; preds = %12962, %12965
@@ -20471,11 +20465,11 @@ pm_location_new.exit4956:                         ; preds = %12967, %13011, %130
 
 13021:                                            ; preds = %13019, %pm_location_new.exit4956
   %13022 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13018) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %461) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %461)
   br label %.backedge
 
 13023:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %462) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %462)
   store i64 %3, ptr %462, align 16, !tbaa !16
   %13024 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13025 = load i32, ptr %13024, align 4, !tbaa !447
@@ -20490,7 +20484,7 @@ pm_location_new.exit4956:                         ; preds = %12967, %13011, %130
   br i1 %4, label %13033, label %13047
 
 13033:                                            ; preds = %13023
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %176) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   store i64 %3, ptr %176, align 16, !tbaa !16
   %13034 = load ptr, ptr %546, align 8, !tbaa !18
   %13035 = ptrtoint ptr %13030 to i64
@@ -20507,7 +20501,7 @@ pm_location_new.exit4956:                         ; preds = %12967, %13011, %130
   %13044 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13045 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %176, i64 noundef %13044) #5
   %13046 = call i64 @rb_obj_freeze(i64 noundef %13045) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %176) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %pm_location_new.exit4959
 
 13047:                                            ; preds = %13023
@@ -20569,11 +20563,11 @@ rb_array_const_ptr.exit4963:                      ; preds = %pm_location_new.exi
 
 13082:                                            ; preds = %13080, %rb_array_const_ptr.exit4963
   %13083 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13079) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %462) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %462)
   br label %.backedge
 
 13084:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %463) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %463)
   store i64 %3, ptr %463, align 16, !tbaa !16
   %13085 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13086 = load i32, ptr %13085, align 4, !tbaa !447
@@ -20588,7 +20582,7 @@ rb_array_const_ptr.exit4963:                      ; preds = %pm_location_new.exi
   br i1 %4, label %13094, label %13108
 
 13094:                                            ; preds = %13084
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %175) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   store i64 %3, ptr %175, align 16, !tbaa !16
   %13095 = load ptr, ptr %546, align 8, !tbaa !18
   %13096 = ptrtoint ptr %13091 to i64
@@ -20605,7 +20599,7 @@ rb_array_const_ptr.exit4963:                      ; preds = %pm_location_new.exi
   %13105 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13106 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %175, i64 noundef %13105) #5
   %13107 = call i64 @rb_obj_freeze(i64 noundef %13106) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %175) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %pm_location_new.exit4966
 
 13108:                                            ; preds = %13084
@@ -20667,11 +20661,11 @@ rb_array_const_ptr.exit4970:                      ; preds = %pm_location_new.exi
 
 13143:                                            ; preds = %13141, %rb_array_const_ptr.exit4970
   %13144 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13140) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %463) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %463)
   br label %.backedge
 
 13145:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %464) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %464)
   store i64 %3, ptr %464, align 16, !tbaa !16
   %13146 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13147 = load i32, ptr %13146, align 4, !tbaa !447
@@ -20686,7 +20680,7 @@ rb_array_const_ptr.exit4970:                      ; preds = %pm_location_new.exi
   br i1 %4, label %13155, label %13169
 
 13155:                                            ; preds = %13145
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %174) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   store i64 %3, ptr %174, align 16, !tbaa !16
   %13156 = load ptr, ptr %546, align 8, !tbaa !18
   %13157 = ptrtoint ptr %13152 to i64
@@ -20703,7 +20697,7 @@ rb_array_const_ptr.exit4970:                      ; preds = %pm_location_new.exi
   %13166 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13167 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %174, i64 noundef %13166) #5
   %13168 = call i64 @rb_obj_freeze(i64 noundef %13167) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %174) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %pm_location_new.exit4973
 
 13169:                                            ; preds = %13145
@@ -20762,7 +20756,7 @@ rb_array_const_ptr.exit4977:                      ; preds = %pm_location_new.exi
   br i1 %4, label %13204, label %13218
 
 13204:                                            ; preds = %rb_array_const_ptr.exit4977
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %173) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   store i64 %3, ptr %173, align 16, !tbaa !16
   %13205 = load ptr, ptr %546, align 8, !tbaa !18
   %13206 = ptrtoint ptr %13201 to i64
@@ -20779,7 +20773,7 @@ rb_array_const_ptr.exit4977:                      ; preds = %pm_location_new.exi
   %13215 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13216 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %173, i64 noundef %13215) #5
   %13217 = call i64 @rb_obj_freeze(i64 noundef %13216) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %173) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %pm_location_new.exit4979
 
 13218:                                            ; preds = %rb_array_const_ptr.exit4977
@@ -20845,7 +20839,7 @@ pm_location_new.exit4981.thread:                  ; preds = %13250, %13253
   br label %13274
 
 13257:                                            ; preds = %pm_location_new.exit4979
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %172) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   store i64 %3, ptr %172, align 16, !tbaa !16
   %13258 = load ptr, ptr %546, align 8, !tbaa !18
   %13259 = ptrtoint ptr %13236 to i64
@@ -20862,7 +20856,7 @@ pm_location_new.exit4981.thread:                  ; preds = %13250, %13253
   %13268 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13269 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %172, i64 noundef %13268) #5
   %13270 = call i64 @rb_obj_freeze(i64 noundef %13269) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %172) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   store i64 %13270, ptr %1304, align 8, !tbaa !16
   %13271 = load i64, ptr @rb_cPrismInstanceVariableWriteNode, align 8, !tbaa !16
   %13272 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %464, i64 noundef %13271) #5
@@ -20872,11 +20866,11 @@ pm_location_new.exit4981.thread:                  ; preds = %13250, %13253
 13274:                                            ; preds = %pm_location_new.exit4981.thread, %13257
   %13275 = phi i64 [ %13256, %pm_location_new.exit4981.thread ], [ %13272, %13257 ]
   %13276 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13275) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %464) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %464)
   br label %.backedge
 
 13277:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %465) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %465)
   store i64 %3, ptr %465, align 16, !tbaa !16
   %13278 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13279 = load i32, ptr %13278, align 4, !tbaa !447
@@ -20891,7 +20885,7 @@ pm_location_new.exit4981.thread:                  ; preds = %13250, %13253
   br i1 %4, label %13287, label %13301
 
 13287:                                            ; preds = %13277
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %171) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   store i64 %3, ptr %171, align 16, !tbaa !16
   %13288 = load ptr, ptr %546, align 8, !tbaa !18
   %13289 = ptrtoint ptr %13284 to i64
@@ -20908,7 +20902,7 @@ pm_location_new.exit4981.thread:                  ; preds = %13250, %13253
   %13298 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13299 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %171, i64 noundef %13298) #5
   %13300 = call i64 @rb_obj_freeze(i64 noundef %13299) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %171) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %pm_location_new.exit4984
 
 13301:                                            ; preds = %13277
@@ -21065,11 +21059,11 @@ pm_integer_new.exit:                              ; preds = %13364, %rbimpl_inte
 
 13375:                                            ; preds = %13373, %pm_integer_new.exit
   %13376 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13372) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %465) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %465)
   br label %.backedge
 
 13377:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %466) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %466)
   store i64 %3, ptr %466, align 16, !tbaa !16
   %13378 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13379 = load i32, ptr %13378, align 4, !tbaa !447
@@ -21084,7 +21078,7 @@ pm_integer_new.exit:                              ; preds = %13364, %rbimpl_inte
   br i1 %4, label %13387, label %13401
 
 13387:                                            ; preds = %13377
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %170) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   store i64 %3, ptr %170, align 16, !tbaa !16
   %13388 = load ptr, ptr %546, align 8, !tbaa !18
   %13389 = ptrtoint ptr %13384 to i64
@@ -21101,7 +21095,7 @@ pm_integer_new.exit:                              ; preds = %13364, %rbimpl_inte
   %13398 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13399 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %170, i64 noundef %13398) #5
   %13400 = call i64 @rb_obj_freeze(i64 noundef %13399) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %170) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %pm_location_new.exit4990
 
 13401:                                            ; preds = %13377
@@ -21142,7 +21136,7 @@ pm_location_new.exit4990:                         ; preds = %13387, %13412, %134
   br i1 %4, label %13426, label %13440
 
 13426:                                            ; preds = %pm_location_new.exit4990
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %169) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   store i64 %3, ptr %169, align 16, !tbaa !16
   %13427 = load ptr, ptr %546, align 8, !tbaa !18
   %13428 = ptrtoint ptr %13423 to i64
@@ -21159,7 +21153,7 @@ pm_location_new.exit4990:                         ; preds = %13387, %13412, %134
   %13437 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13438 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %169, i64 noundef %13437) #5
   %13439 = call i64 @rb_obj_freeze(i64 noundef %13438) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %169) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %pm_location_new.exit4993
 
 13440:                                            ; preds = %pm_location_new.exit4990
@@ -21248,7 +21242,7 @@ pm_location_new.exit4995.thread:                  ; preds = %13481, %13484
   %13492 = load ptr, ptr %13491, align 8, !tbaa !796
   %13493 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %13494 = load ptr, ptr %13493, align 8, !tbaa !797
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %168) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   store i64 %3, ptr %168, align 16, !tbaa !16
   %13495 = load ptr, ptr %546, align 8, !tbaa !18
   %13496 = ptrtoint ptr %13492 to i64
@@ -21265,7 +21259,7 @@ pm_location_new.exit4995.thread:                  ; preds = %13481, %13484
   %13505 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13506 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %168, i64 noundef %13505) #5
   %13507 = call i64 @rb_obj_freeze(i64 noundef %13506) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %168) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   store i64 %13507, ptr %1285, align 16, !tbaa !16
   %13508 = load i64, ptr @rb_cPrismInterpolatedMatchLastLineNode, align 8, !tbaa !16
   %13509 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %466, i64 noundef %13508) #5
@@ -21275,11 +21269,11 @@ pm_location_new.exit4995.thread:                  ; preds = %13481, %13484
 13511:                                            ; preds = %pm_location_new.exit4995.thread, %13488
   %13512 = phi i64 [ %13487, %pm_location_new.exit4995.thread ], [ %13509, %13488 ]
   %13513 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13512) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %466) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %466)
   br label %.backedge
 
 13514:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %467) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %467)
   store i64 %3, ptr %467, align 16, !tbaa !16
   %13515 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13516 = load i32, ptr %13515, align 4, !tbaa !447
@@ -21294,7 +21288,7 @@ pm_location_new.exit4995.thread:                  ; preds = %13481, %13484
   br i1 %4, label %13524, label %13538
 
 13524:                                            ; preds = %13514
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %167) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   store i64 %3, ptr %167, align 16, !tbaa !16
   %13525 = load ptr, ptr %546, align 8, !tbaa !18
   %13526 = ptrtoint ptr %13521 to i64
@@ -21311,7 +21305,7 @@ pm_location_new.exit4995.thread:                  ; preds = %13481, %13484
   %13535 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13536 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %167, i64 noundef %13535) #5
   %13537 = call i64 @rb_obj_freeze(i64 noundef %13536) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %167) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %pm_location_new.exit4998
 
 13538:                                            ; preds = %13514
@@ -21352,7 +21346,7 @@ pm_location_new.exit4998:                         ; preds = %13524, %13549, %135
   br i1 %4, label %13563, label %13577
 
 13563:                                            ; preds = %pm_location_new.exit4998
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %166) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   store i64 %3, ptr %166, align 16, !tbaa !16
   %13564 = load ptr, ptr %546, align 8, !tbaa !18
   %13565 = ptrtoint ptr %13560 to i64
@@ -21369,7 +21363,7 @@ pm_location_new.exit4998:                         ; preds = %13524, %13549, %135
   %13574 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13575 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %166, i64 noundef %13574) #5
   %13576 = call i64 @rb_obj_freeze(i64 noundef %13575) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %166) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %pm_location_new.exit5001
 
 13577:                                            ; preds = %pm_location_new.exit4998
@@ -21458,7 +21452,7 @@ pm_location_new.exit5003.thread:                  ; preds = %13618, %13621
   %13629 = load ptr, ptr %13628, align 8, !tbaa !801
   %13630 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %13631 = load ptr, ptr %13630, align 8, !tbaa !802
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %165) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   store i64 %3, ptr %165, align 16, !tbaa !16
   %13632 = load ptr, ptr %546, align 8, !tbaa !18
   %13633 = ptrtoint ptr %13629 to i64
@@ -21475,7 +21469,7 @@ pm_location_new.exit5003.thread:                  ; preds = %13618, %13621
   %13642 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13643 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %165, i64 noundef %13642) #5
   %13644 = call i64 @rb_obj_freeze(i64 noundef %13643) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %165) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   store i64 %13644, ptr %1273, align 16, !tbaa !16
   %13645 = load i64, ptr @rb_cPrismInterpolatedRegularExpressionNode, align 8, !tbaa !16
   %13646 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %467, i64 noundef %13645) #5
@@ -21485,11 +21479,11 @@ pm_location_new.exit5003.thread:                  ; preds = %13618, %13621
 13648:                                            ; preds = %pm_location_new.exit5003.thread, %13625
   %13649 = phi i64 [ %13624, %pm_location_new.exit5003.thread ], [ %13646, %13625 ]
   %13650 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13649) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %467) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %467)
   br label %.backedge
 
 13651:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %468) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %468)
   store i64 %3, ptr %468, align 16, !tbaa !16
   %13652 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13653 = load i32, ptr %13652, align 4, !tbaa !447
@@ -21504,7 +21498,7 @@ pm_location_new.exit5003.thread:                  ; preds = %13618, %13621
   br i1 %4, label %13661, label %13675
 
 13661:                                            ; preds = %13651
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %164) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   store i64 %3, ptr %164, align 16, !tbaa !16
   %13662 = load ptr, ptr %546, align 8, !tbaa !18
   %13663 = ptrtoint ptr %13658 to i64
@@ -21521,7 +21515,7 @@ pm_location_new.exit5003.thread:                  ; preds = %13618, %13621
   %13672 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13673 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %164, i64 noundef %13672) #5
   %13674 = call i64 @rb_obj_freeze(i64 noundef %13673) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %164) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %pm_location_new.exit5006
 
 13675:                                            ; preds = %13651
@@ -21566,7 +21560,7 @@ pm_location_new.exit5006:                         ; preds = %13661, %13686, %136
   br i1 %4, label %13702, label %13716
 
 13702:                                            ; preds = %13699
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %163) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   store i64 %3, ptr %163, align 16, !tbaa !16
   %13703 = load ptr, ptr %546, align 8, !tbaa !18
   %13704 = ptrtoint ptr %13697 to i64
@@ -21583,7 +21577,7 @@ pm_location_new.exit5006:                         ; preds = %13661, %13686, %136
   %13713 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13714 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %163, i64 noundef %13713) #5
   %13715 = call i64 @rb_obj_freeze(i64 noundef %13714) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %163) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %pm_location_new.exit5009
 
 13716:                                            ; preds = %13699
@@ -21649,7 +21643,7 @@ pm_location_new.exit5009:                         ; preds = %13730, %13727, %137
 pm_location_new.exit5011.thread5892:              ; preds = %13743
   %13752 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %13753 = load ptr, ptr %13752, align 8, !tbaa !807
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %162) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   store i64 %3, ptr %162, align 16, !tbaa !16
   %13754 = load ptr, ptr %546, align 8, !tbaa !18
   %13755 = ptrtoint ptr %13747 to i64
@@ -21666,7 +21660,7 @@ pm_location_new.exit5011.thread5892:              ; preds = %13743
   %13764 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13765 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %162, i64 noundef %13764) #5
   %13766 = call i64 @rb_obj_freeze(i64 noundef %13765) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %162) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %pm_location_new.exit5011
 
 13767:                                            ; preds = %.thread5889
@@ -21711,11 +21705,11 @@ pm_location_new.exit5011:                         ; preds = %13743, %pm_location
 13790:                                            ; preds = %pm_location_new.exit5011.thread, %pm_location_new.exit5011
   %13791 = phi i64 [ %13786, %pm_location_new.exit5011.thread ], [ %13788, %pm_location_new.exit5011 ]
   %13792 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13791) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %468) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %468)
   br label %.backedge
 
 13793:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %469) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %469)
   store i64 %3, ptr %469, align 16, !tbaa !16
   %13794 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13795 = load i32, ptr %13794, align 4, !tbaa !447
@@ -21730,7 +21724,7 @@ pm_location_new.exit5011:                         ; preds = %13743, %pm_location
   br i1 %4, label %13803, label %13817
 
 13803:                                            ; preds = %13793
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %161) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   store i64 %3, ptr %161, align 16, !tbaa !16
   %13804 = load ptr, ptr %546, align 8, !tbaa !18
   %13805 = ptrtoint ptr %13800 to i64
@@ -21747,7 +21741,7 @@ pm_location_new.exit5011:                         ; preds = %13743, %pm_location
   %13814 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13815 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %161, i64 noundef %13814) #5
   %13816 = call i64 @rb_obj_freeze(i64 noundef %13815) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %161) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %pm_location_new.exit5014
 
 13817:                                            ; preds = %13793
@@ -21792,7 +21786,7 @@ pm_location_new.exit5014:                         ; preds = %13803, %13828, %138
   br i1 %4, label %13844, label %13858
 
 13844:                                            ; preds = %13841
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %160) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   store i64 %3, ptr %160, align 16, !tbaa !16
   %13845 = load ptr, ptr %546, align 8, !tbaa !18
   %13846 = ptrtoint ptr %13839 to i64
@@ -21809,7 +21803,7 @@ pm_location_new.exit5014:                         ; preds = %13803, %13828, %138
   %13855 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13856 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %160, i64 noundef %13855) #5
   %13857 = call i64 @rb_obj_freeze(i64 noundef %13856) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %160) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %pm_location_new.exit5017
 
 13858:                                            ; preds = %13841
@@ -21875,7 +21869,7 @@ pm_location_new.exit5017:                         ; preds = %13872, %13869, %138
 pm_location_new.exit5019.thread5896:              ; preds = %13885
   %13894 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %13895 = load ptr, ptr %13894, align 8, !tbaa !812
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %159) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   store i64 %3, ptr %159, align 16, !tbaa !16
   %13896 = load ptr, ptr %546, align 8, !tbaa !18
   %13897 = ptrtoint ptr %13889 to i64
@@ -21892,7 +21886,7 @@ pm_location_new.exit5019.thread5896:              ; preds = %13885
   %13906 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13907 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %159, i64 noundef %13906) #5
   %13908 = call i64 @rb_obj_freeze(i64 noundef %13907) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %159) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %pm_location_new.exit5019
 
 13909:                                            ; preds = %.thread5893
@@ -21937,11 +21931,11 @@ pm_location_new.exit5019:                         ; preds = %13885, %pm_location
 13932:                                            ; preds = %pm_location_new.exit5019.thread, %pm_location_new.exit5019
   %13933 = phi i64 [ %13928, %pm_location_new.exit5019.thread ], [ %13930, %pm_location_new.exit5019 ]
   %13934 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %13933) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %469) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %469)
   br label %.backedge
 
 13935:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %470) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %470)
   store i64 %3, ptr %470, align 16, !tbaa !16
   %13936 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %13937 = load i32, ptr %13936, align 4, !tbaa !447
@@ -21956,7 +21950,7 @@ pm_location_new.exit5019:                         ; preds = %13885, %pm_location
   br i1 %4, label %13945, label %13959
 
 13945:                                            ; preds = %13935
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %158) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   store i64 %3, ptr %158, align 16, !tbaa !16
   %13946 = load ptr, ptr %546, align 8, !tbaa !18
   %13947 = ptrtoint ptr %13942 to i64
@@ -21973,7 +21967,7 @@ pm_location_new.exit5019:                         ; preds = %13885, %pm_location
   %13956 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13957 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %158, i64 noundef %13956) #5
   %13958 = call i64 @rb_obj_freeze(i64 noundef %13957) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %158) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %pm_location_new.exit5022
 
 13959:                                            ; preds = %13935
@@ -22014,7 +22008,7 @@ pm_location_new.exit5022:                         ; preds = %13945, %13970, %139
   br i1 %4, label %13984, label %13998
 
 13984:                                            ; preds = %pm_location_new.exit5022
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %157) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   store i64 %3, ptr %157, align 16, !tbaa !16
   %13985 = load ptr, ptr %546, align 8, !tbaa !18
   %13986 = ptrtoint ptr %13981 to i64
@@ -22031,7 +22025,7 @@ pm_location_new.exit5022:                         ; preds = %13945, %13970, %139
   %13995 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %13996 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %157, i64 noundef %13995) #5
   %13997 = call i64 @rb_obj_freeze(i64 noundef %13996) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %157) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   br label %pm_location_new.exit5025
 
 13998:                                            ; preds = %pm_location_new.exit5022
@@ -22120,7 +22114,7 @@ pm_location_new.exit5027.thread:                  ; preds = %14039, %14042
   %14050 = load ptr, ptr %14049, align 8, !tbaa !816
   %14051 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %14052 = load ptr, ptr %14051, align 8, !tbaa !817
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %156) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   store i64 %3, ptr %156, align 16, !tbaa !16
   %14053 = load ptr, ptr %546, align 8, !tbaa !18
   %14054 = ptrtoint ptr %14050 to i64
@@ -22137,7 +22131,7 @@ pm_location_new.exit5027.thread:                  ; preds = %14039, %14042
   %14063 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14064 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %156, i64 noundef %14063) #5
   %14065 = call i64 @rb_obj_freeze(i64 noundef %14064) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %156) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   store i64 %14065, ptr %1237, align 16, !tbaa !16
   %14066 = load i64, ptr @rb_cPrismInterpolatedXStringNode, align 8, !tbaa !16
   %14067 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %470, i64 noundef %14066) #5
@@ -22147,11 +22141,11 @@ pm_location_new.exit5027.thread:                  ; preds = %14039, %14042
 14069:                                            ; preds = %pm_location_new.exit5027.thread, %14046
   %14070 = phi i64 [ %14045, %pm_location_new.exit5027.thread ], [ %14067, %14046 ]
   %14071 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14070) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %470) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %470)
   br label %.backedge
 
 14072:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %471) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %471)
   store i64 %3, ptr %471, align 16, !tbaa !16
   %14073 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14074 = load i32, ptr %14073, align 4, !tbaa !447
@@ -22166,7 +22160,7 @@ pm_location_new.exit5027.thread:                  ; preds = %14039, %14042
   br i1 %4, label %14082, label %14096
 
 14082:                                            ; preds = %14072
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %155) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   store i64 %3, ptr %155, align 16, !tbaa !16
   %14083 = load ptr, ptr %546, align 8, !tbaa !18
   %14084 = ptrtoint ptr %14079 to i64
@@ -22183,7 +22177,7 @@ pm_location_new.exit5027.thread:                  ; preds = %14039, %14042
   %14093 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14094 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %155, i64 noundef %14093) #5
   %14095 = call i64 @rb_obj_freeze(i64 noundef %14094) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %155) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %pm_location_new.exit5030
 
 14096:                                            ; preds = %14072
@@ -22227,11 +22221,11 @@ pm_location_new.exit5030:                         ; preds = %14082, %14107, %141
 
 14121:                                            ; preds = %14119, %pm_location_new.exit5030
   %14122 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14118) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %471) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %471)
   br label %.backedge
 
 14123:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %472) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %472)
   store i64 %3, ptr %472, align 16, !tbaa !16
   %14124 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14125 = load i32, ptr %14124, align 4, !tbaa !447
@@ -22246,7 +22240,7 @@ pm_location_new.exit5030:                         ; preds = %14082, %14107, %141
   br i1 %4, label %14133, label %14147
 
 14133:                                            ; preds = %14123
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %154) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   store i64 %3, ptr %154, align 16, !tbaa !16
   %14134 = load ptr, ptr %546, align 8, !tbaa !18
   %14135 = ptrtoint ptr %14130 to i64
@@ -22263,7 +22257,7 @@ pm_location_new.exit5030:                         ; preds = %14082, %14107, %141
   %14144 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14145 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %154, i64 noundef %14144) #5
   %14146 = call i64 @rb_obj_freeze(i64 noundef %14145) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %154) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   br label %pm_location_new.exit5034
 
 14147:                                            ; preds = %14123
@@ -22307,11 +22301,11 @@ pm_location_new.exit5034:                         ; preds = %14133, %14158, %141
 
 14172:                                            ; preds = %14170, %pm_location_new.exit5034
   %14173 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14169) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %472) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %472)
   br label %.backedge
 
 14174:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %473) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %473)
   store i64 %3, ptr %473, align 16, !tbaa !16
   %14175 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14176 = load i32, ptr %14175, align 4, !tbaa !447
@@ -22326,7 +22320,7 @@ pm_location_new.exit5034:                         ; preds = %14133, %14158, %141
   br i1 %4, label %14184, label %14198
 
 14184:                                            ; preds = %14174
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %153) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   store i64 %3, ptr %153, align 16, !tbaa !16
   %14185 = load ptr, ptr %546, align 8, !tbaa !18
   %14186 = ptrtoint ptr %14181 to i64
@@ -22343,7 +22337,7 @@ pm_location_new.exit5034:                         ; preds = %14133, %14158, %141
   %14195 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14196 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %153, i64 noundef %14195) #5
   %14197 = call i64 @rb_obj_freeze(i64 noundef %14196) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %153) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %pm_location_new.exit5038
 
 14198:                                            ; preds = %14174
@@ -22414,11 +22408,11 @@ pm_location_new.exit5038:                         ; preds = %14184, %14209, %142
 14238:                                            ; preds = %14229, %14232
   %14239 = phi i64 [ %14236, %14232 ], [ %14231, %14229 ]
   %14240 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14239) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %473) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %473)
   br label %.backedge
 
 14241:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %474) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %474)
   store i64 %3, ptr %474, align 16, !tbaa !16
   %14242 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14243 = load i32, ptr %14242, align 4, !tbaa !447
@@ -22433,7 +22427,7 @@ pm_location_new.exit5038:                         ; preds = %14184, %14209, %142
   br i1 %4, label %14251, label %14265
 
 14251:                                            ; preds = %14241
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %152) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store i64 %3, ptr %152, align 16, !tbaa !16
   %14252 = load ptr, ptr %546, align 8, !tbaa !18
   %14253 = ptrtoint ptr %14248 to i64
@@ -22450,7 +22444,7 @@ pm_location_new.exit5038:                         ; preds = %14184, %14209, %142
   %14262 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14263 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %152, i64 noundef %14262) #5
   %14264 = call i64 @rb_obj_freeze(i64 noundef %14263) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %152) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %pm_location_new.exit5042
 
 14265:                                            ; preds = %14241
@@ -22521,7 +22515,7 @@ rb_array_const_ptr.exit5046:                      ; preds = %14289, %14292
   br i1 %4, label %pm_location_new.exit5048.thread5901, label %14323
 
 pm_location_new.exit5048.thread5901:              ; preds = %14303
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %151) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store i64 %3, ptr %151, align 16, !tbaa !16
   %14306 = load ptr, ptr %546, align 8, !tbaa !18
   %14307 = ptrtoint ptr %14301 to i64
@@ -22538,7 +22532,7 @@ pm_location_new.exit5048.thread5901:              ; preds = %14303
   %14316 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14317 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %151, i64 noundef %14316) #5
   %14318 = call i64 @rb_obj_freeze(i64 noundef %14317) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %151) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   store i64 %14318, ptr %1206, align 8, !tbaa !16
   %14319 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %14320 = load ptr, ptr %14319, align 8, !tbaa !823
@@ -22619,7 +22613,7 @@ pm_location_new.exit5050.thread:                  ; preds = %14360, %14363
 14367:                                            ; preds = %pm_location_new.exit5048.thread5901, %pm_location_new.exit5048
   %14368 = phi ptr [ %14322, %pm_location_new.exit5048.thread5901 ], [ %14346, %pm_location_new.exit5048 ]
   %14369 = phi ptr [ %14320, %pm_location_new.exit5048.thread5901 ], [ %14344, %pm_location_new.exit5048 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %150) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store i64 %3, ptr %150, align 16, !tbaa !16
   %14370 = load ptr, ptr %546, align 8, !tbaa !18
   %14371 = ptrtoint ptr %14369 to i64
@@ -22636,7 +22630,7 @@ pm_location_new.exit5050.thread:                  ; preds = %14360, %14363
   %14380 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14381 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %150, i64 noundef %14380) #5
   %14382 = call i64 @rb_obj_freeze(i64 noundef %14381) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %150) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   store i64 %14382, ptr %1209, align 16, !tbaa !16
   %14383 = load i64, ptr @rb_cPrismKeywordRestParameterNode, align 8, !tbaa !16
   %14384 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %474, i64 noundef %14383) #5
@@ -22646,11 +22640,11 @@ pm_location_new.exit5050.thread:                  ; preds = %14360, %14363
 14386:                                            ; preds = %pm_location_new.exit5050.thread, %14367
   %14387 = phi i64 [ %14366, %pm_location_new.exit5050.thread ], [ %14384, %14367 ]
   %14388 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14387) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %474) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %474)
   br label %.backedge
 
 14389:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %475) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %475)
   store i64 %3, ptr %475, align 16, !tbaa !16
   %14390 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14391 = load i32, ptr %14390, align 4, !tbaa !447
@@ -22665,7 +22659,7 @@ pm_location_new.exit5050.thread:                  ; preds = %14360, %14363
   br i1 %4, label %14399, label %14413
 
 14399:                                            ; preds = %14389
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %149) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store i64 %3, ptr %149, align 16, !tbaa !16
   %14400 = load ptr, ptr %546, align 8, !tbaa !18
   %14401 = ptrtoint ptr %14396 to i64
@@ -22682,7 +22676,7 @@ pm_location_new.exit5050.thread:                  ; preds = %14360, %14363
   %14410 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14411 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %149, i64 noundef %14410) #5
   %14412 = call i64 @rb_obj_freeze(i64 noundef %14411) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %149) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %pm_location_new.exit5053
 
 14413:                                            ; preds = %14389
@@ -22822,7 +22816,7 @@ rb_array_const_ptr.exit5057:                      ; preds = %14439, %14443
   %14498 = load ptr, ptr %14497, align 8, !tbaa !828
   %14499 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %14500 = load ptr, ptr %14499, align 8, !tbaa !829
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %148) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store i64 %3, ptr %148, align 16, !tbaa !16
   %14501 = load ptr, ptr %546, align 8, !tbaa !18
   %14502 = ptrtoint ptr %14498 to i64
@@ -22839,13 +22833,13 @@ rb_array_const_ptr.exit5057:                      ; preds = %14439, %14443
   %14511 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14512 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %148, i64 noundef %14511) #5
   %14513 = call i64 @rb_obj_freeze(i64 noundef %14512) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %148) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   store i64 %14513, ptr %1189, align 8, !tbaa !16
   %14514 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %14515 = load ptr, ptr %14514, align 8, !tbaa !830
   %14516 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %14517 = load ptr, ptr %14516, align 8, !tbaa !831
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %147) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   store i64 %3, ptr %147, align 16, !tbaa !16
   %14518 = load ptr, ptr %546, align 8, !tbaa !18
   %14519 = ptrtoint ptr %14515 to i64
@@ -22862,13 +22856,13 @@ rb_array_const_ptr.exit5057:                      ; preds = %14439, %14443
   %14528 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14529 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %147, i64 noundef %14528) #5
   %14530 = call i64 @rb_obj_freeze(i64 noundef %14529) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %147) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   store i64 %14530, ptr %1190, align 16, !tbaa !16
   %14531 = getelementptr inbounds nuw i8, ptr %2279, i64 80
   %14532 = load ptr, ptr %14531, align 8, !tbaa !832
   %14533 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %14534 = load ptr, ptr %14533, align 8, !tbaa !833
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %146) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store i64 %3, ptr %146, align 16, !tbaa !16
   %14535 = load ptr, ptr %546, align 8, !tbaa !18
   %14536 = ptrtoint ptr %14532 to i64
@@ -22885,7 +22879,7 @@ rb_array_const_ptr.exit5057:                      ; preds = %14439, %14443
   %14545 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14546 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %146, i64 noundef %14545) #5
   %14547 = call i64 @rb_obj_freeze(i64 noundef %14546) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %146) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %pm_location_new.exit5063
 
 14548:                                            ; preds = %14489, %14492
@@ -22932,11 +22926,11 @@ pm_location_new.exit5063:                         ; preds = %14494, %14561, %145
 
 14572:                                            ; preds = %14570, %pm_location_new.exit5063
   %14573 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14569) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %475) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %475)
   br label %.backedge
 
 14574:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %476) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %476)
   store i64 %3, ptr %476, align 16, !tbaa !16
   %14575 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14576 = load i32, ptr %14575, align 4, !tbaa !447
@@ -22951,7 +22945,7 @@ pm_location_new.exit5063:                         ; preds = %14494, %14561, %145
   br i1 %4, label %14584, label %14598
 
 14584:                                            ; preds = %14574
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %145) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store i64 %3, ptr %145, align 16, !tbaa !16
   %14585 = load ptr, ptr %546, align 8, !tbaa !18
   %14586 = ptrtoint ptr %14581 to i64
@@ -22968,7 +22962,7 @@ pm_location_new.exit5063:                         ; preds = %14494, %14561, %145
   %14595 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14596 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %145, i64 noundef %14595) #5
   %14597 = call i64 @rb_obj_freeze(i64 noundef %14596) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %145) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %pm_location_new.exit5066
 
 14598:                                            ; preds = %14574
@@ -23033,7 +23027,7 @@ pm_location_new.exit5066:                         ; preds = %14584, %14609, %146
   br label %14670
 
 14639:                                            ; preds = %pm_location_new.exit5066
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %144) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store i64 %3, ptr %144, align 16, !tbaa !16
   %14640 = load ptr, ptr %546, align 8, !tbaa !18
   %14641 = ptrtoint ptr %14620 to i64
@@ -23050,13 +23044,13 @@ pm_location_new.exit5066:                         ; preds = %14584, %14609, %146
   %14650 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14651 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %144, i64 noundef %14650) #5
   %14652 = call i64 @rb_obj_freeze(i64 noundef %14651) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %144) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   store i64 %14652, ptr %1174, align 16, !tbaa !16
   %14653 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %14654 = load ptr, ptr %14653, align 8, !tbaa !836
   %14655 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %14656 = load ptr, ptr %14655, align 8, !tbaa !837
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %143) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store i64 %3, ptr %143, align 16, !tbaa !16
   %14657 = load ptr, ptr %546, align 8, !tbaa !18
   %14658 = ptrtoint ptr %14654 to i64
@@ -23073,7 +23067,7 @@ pm_location_new.exit5066:                         ; preds = %14584, %14609, %146
   %14667 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14668 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %143, i64 noundef %14667) #5
   %14669 = call i64 @rb_obj_freeze(i64 noundef %14668) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %143) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %pm_location_new.exit5071
 
 14670:                                            ; preds = %14634, %14637
@@ -23142,11 +23136,11 @@ rb_array_const_ptr.exit5074:                      ; preds = %pm_location_new.exi
 
 14708:                                            ; preds = %14706, %rb_array_const_ptr.exit5074
   %14709 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14705) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %476) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %476)
   br label %.backedge
 
 14710:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %477) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %477)
   store i64 %3, ptr %477, align 16, !tbaa !16
   %14711 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14712 = load i32, ptr %14711, align 4, !tbaa !447
@@ -23161,7 +23155,7 @@ rb_array_const_ptr.exit5074:                      ; preds = %pm_location_new.exi
   br i1 %4, label %14720, label %14734
 
 14720:                                            ; preds = %14710
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %142) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store i64 %3, ptr %142, align 16, !tbaa !16
   %14721 = load ptr, ptr %546, align 8, !tbaa !18
   %14722 = ptrtoint ptr %14717 to i64
@@ -23178,7 +23172,7 @@ rb_array_const_ptr.exit5074:                      ; preds = %pm_location_new.exi
   %14731 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14732 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %142, i64 noundef %14731) #5
   %14733 = call i64 @rb_obj_freeze(i64 noundef %14732) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %142) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %pm_location_new.exit5078
 
 14734:                                            ; preds = %14710
@@ -23243,7 +23237,7 @@ pm_location_new.exit5078:                         ; preds = %14720, %14745, %147
   br label %14806
 
 14775:                                            ; preds = %pm_location_new.exit5078
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %141) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store i64 %3, ptr %141, align 16, !tbaa !16
   %14776 = load ptr, ptr %546, align 8, !tbaa !18
   %14777 = ptrtoint ptr %14756 to i64
@@ -23260,13 +23254,13 @@ pm_location_new.exit5078:                         ; preds = %14720, %14745, %147
   %14786 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14787 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %141, i64 noundef %14786) #5
   %14788 = call i64 @rb_obj_freeze(i64 noundef %14787) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %141) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   store i64 %14788, ptr %1159, align 16, !tbaa !16
   %14789 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %14790 = load ptr, ptr %14789, align 8, !tbaa !842
   %14791 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %14792 = load ptr, ptr %14791, align 8, !tbaa !843
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %140) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store i64 %3, ptr %140, align 16, !tbaa !16
   %14793 = load ptr, ptr %546, align 8, !tbaa !18
   %14794 = ptrtoint ptr %14790 to i64
@@ -23283,7 +23277,7 @@ pm_location_new.exit5078:                         ; preds = %14720, %14745, %147
   %14803 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14804 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %140, i64 noundef %14803) #5
   %14805 = call i64 @rb_obj_freeze(i64 noundef %14804) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %140) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %pm_location_new.exit5083
 
 14806:                                            ; preds = %14770, %14773
@@ -23370,11 +23364,11 @@ rb_array_const_ptr.exit5089:                      ; preds = %rb_array_const_ptr.
 
 14854:                                            ; preds = %14852, %rb_array_const_ptr.exit5089
   %14855 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14851) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %477) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %477)
   br label %.backedge
 
 14856:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %478) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %478)
   store i64 %3, ptr %478, align 16, !tbaa !16
   %14857 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14858 = load i32, ptr %14857, align 4, !tbaa !447
@@ -23389,7 +23383,7 @@ rb_array_const_ptr.exit5089:                      ; preds = %rb_array_const_ptr.
   br i1 %4, label %14866, label %14880
 
 14866:                                            ; preds = %14856
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %139) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store i64 %3, ptr %139, align 16, !tbaa !16
   %14867 = load ptr, ptr %546, align 8, !tbaa !18
   %14868 = ptrtoint ptr %14863 to i64
@@ -23406,7 +23400,7 @@ rb_array_const_ptr.exit5089:                      ; preds = %rb_array_const_ptr.
   %14877 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14878 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %139, i64 noundef %14877) #5
   %14879 = call i64 @rb_obj_freeze(i64 noundef %14878) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %139) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %pm_location_new.exit5093
 
 14880:                                            ; preds = %14856
@@ -23471,7 +23465,7 @@ pm_location_new.exit5093:                         ; preds = %14866, %14891, %148
   br label %14952
 
 14921:                                            ; preds = %pm_location_new.exit5093
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %138) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   store i64 %3, ptr %138, align 16, !tbaa !16
   %14922 = load ptr, ptr %546, align 8, !tbaa !18
   %14923 = ptrtoint ptr %14902 to i64
@@ -23488,13 +23482,13 @@ pm_location_new.exit5093:                         ; preds = %14866, %14891, %148
   %14932 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14933 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %138, i64 noundef %14932) #5
   %14934 = call i64 @rb_obj_freeze(i64 noundef %14933) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %138) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   store i64 %14934, ptr %1145, align 16, !tbaa !16
   %14935 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %14936 = load ptr, ptr %14935, align 8, !tbaa !849
   %14937 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %14938 = load ptr, ptr %14937, align 8, !tbaa !850
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %137) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   store i64 %3, ptr %137, align 16, !tbaa !16
   %14939 = load ptr, ptr %546, align 8, !tbaa !18
   %14940 = ptrtoint ptr %14936 to i64
@@ -23511,7 +23505,7 @@ pm_location_new.exit5093:                         ; preds = %14866, %14891, %148
   %14949 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %14950 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %137, i64 noundef %14949) #5
   %14951 = call i64 @rb_obj_freeze(i64 noundef %14950) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %137) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %pm_location_new.exit5098
 
 14952:                                            ; preds = %14916, %14919
@@ -23580,11 +23574,11 @@ rb_array_const_ptr.exit5101:                      ; preds = %pm_location_new.exi
 
 14990:                                            ; preds = %14988, %rb_array_const_ptr.exit5101
   %14991 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %14987) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %478) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %478)
   br label %.backedge
 
 14992:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %479) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %479)
   store i64 %3, ptr %479, align 16, !tbaa !16
   %14993 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %14994 = load i32, ptr %14993, align 4, !tbaa !447
@@ -23599,7 +23593,7 @@ rb_array_const_ptr.exit5101:                      ; preds = %pm_location_new.exi
   br i1 %4, label %15002, label %15016
 
 15002:                                            ; preds = %14992
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %136) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   store i64 %3, ptr %136, align 16, !tbaa !16
   %15003 = load ptr, ptr %546, align 8, !tbaa !18
   %15004 = ptrtoint ptr %14999 to i64
@@ -23616,7 +23610,7 @@ rb_array_const_ptr.exit5101:                      ; preds = %pm_location_new.exi
   %15013 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15014 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %136, i64 noundef %15013) #5
   %15015 = call i64 @rb_obj_freeze(i64 noundef %15014) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %136) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %pm_location_new.exit5105
 
 15016:                                            ; preds = %14992
@@ -23684,11 +23678,11 @@ rb_array_const_ptr.exit5109:                      ; preds = %pm_location_new.exi
 
 15056:                                            ; preds = %15054, %rb_array_const_ptr.exit5109
   %15057 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15053) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %479) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %479)
   br label %.backedge
 
 15058:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %480) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %480)
   store i64 %3, ptr %480, align 16, !tbaa !16
   %15059 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15060 = load i32, ptr %15059, align 4, !tbaa !447
@@ -23703,7 +23697,7 @@ rb_array_const_ptr.exit5109:                      ; preds = %pm_location_new.exi
   br i1 %4, label %15068, label %15082
 
 15068:                                            ; preds = %15058
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %135) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   store i64 %3, ptr %135, align 16, !tbaa !16
   %15069 = load ptr, ptr %546, align 8, !tbaa !18
   %15070 = ptrtoint ptr %15065 to i64
@@ -23720,7 +23714,7 @@ rb_array_const_ptr.exit5109:                      ; preds = %pm_location_new.exi
   %15079 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15080 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %135, i64 noundef %15079) #5
   %15081 = call i64 @rb_obj_freeze(i64 noundef %15080) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %135) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   br label %pm_location_new.exit5113
 
 15082:                                            ; preds = %15058
@@ -23788,11 +23782,11 @@ rb_array_const_ptr.exit5117:                      ; preds = %pm_location_new.exi
 
 15122:                                            ; preds = %15120, %rb_array_const_ptr.exit5117
   %15123 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15119) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %480) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %480)
   br label %.backedge
 
 15124:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %481) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %481)
   store i64 %3, ptr %481, align 16, !tbaa !16
   %15125 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15126 = load i32, ptr %15125, align 4, !tbaa !447
@@ -23807,7 +23801,7 @@ rb_array_const_ptr.exit5117:                      ; preds = %pm_location_new.exi
   br i1 %4, label %15134, label %15148
 
 15134:                                            ; preds = %15124
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %134) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store i64 %3, ptr %134, align 16, !tbaa !16
   %15135 = load ptr, ptr %546, align 8, !tbaa !18
   %15136 = ptrtoint ptr %15131 to i64
@@ -23824,7 +23818,7 @@ rb_array_const_ptr.exit5117:                      ; preds = %pm_location_new.exi
   %15145 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15146 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %134, i64 noundef %15145) #5
   %15147 = call i64 @rb_obj_freeze(i64 noundef %15146) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %134) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %pm_location_new.exit5121
 
 15148:                                            ; preds = %15124
@@ -23889,7 +23883,7 @@ rb_array_const_ptr.exit5125:                      ; preds = %pm_location_new.exi
   br i1 %4, label %15188, label %15202
 
 15188:                                            ; preds = %rb_array_const_ptr.exit5125
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %133) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   store i64 %3, ptr %133, align 16, !tbaa !16
   %15189 = load ptr, ptr %546, align 8, !tbaa !18
   %15190 = ptrtoint ptr %15185 to i64
@@ -23906,7 +23900,7 @@ rb_array_const_ptr.exit5125:                      ; preds = %pm_location_new.exi
   %15199 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15200 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %133, i64 noundef %15199) #5
   %15201 = call i64 @rb_obj_freeze(i64 noundef %15200) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %133) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   br label %pm_location_new.exit5128
 
 15202:                                            ; preds = %rb_array_const_ptr.exit5125
@@ -23972,7 +23966,7 @@ pm_location_new.exit5130.thread:                  ; preds = %15234, %15237
   br label %15258
 
 15241:                                            ; preds = %pm_location_new.exit5128
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %132) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   store i64 %3, ptr %132, align 16, !tbaa !16
   %15242 = load ptr, ptr %546, align 8, !tbaa !18
   %15243 = ptrtoint ptr %15220 to i64
@@ -23989,7 +23983,7 @@ pm_location_new.exit5130.thread:                  ; preds = %15234, %15237
   %15252 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15253 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %132, i64 noundef %15252) #5
   %15254 = call i64 @rb_obj_freeze(i64 noundef %15253) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %132) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   store i64 %15254, ptr %1123, align 16, !tbaa !16
   %15255 = load i64, ptr @rb_cPrismLocalVariableWriteNode, align 8, !tbaa !16
   %15256 = call i64 @rb_class_new_instance(i32 noundef 9, ptr noundef nonnull %481, i64 noundef %15255) #5
@@ -23999,11 +23993,11 @@ pm_location_new.exit5130.thread:                  ; preds = %15234, %15237
 15258:                                            ; preds = %pm_location_new.exit5130.thread, %15241
   %15259 = phi i64 [ %15240, %pm_location_new.exit5130.thread ], [ %15256, %15241 ]
   %15260 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15259) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %481) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %481)
   br label %.backedge
 
 15261:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %482) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %482)
   store i64 %3, ptr %482, align 16, !tbaa !16
   %15262 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15263 = load i32, ptr %15262, align 4, !tbaa !447
@@ -24018,7 +24012,7 @@ pm_location_new.exit5130.thread:                  ; preds = %15234, %15237
   br i1 %4, label %15271, label %15285
 
 15271:                                            ; preds = %15261
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %131) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store i64 %3, ptr %131, align 16, !tbaa !16
   %15272 = load ptr, ptr %546, align 8, !tbaa !18
   %15273 = ptrtoint ptr %15268 to i64
@@ -24035,7 +24029,7 @@ pm_location_new.exit5130.thread:                  ; preds = %15234, %15237
   %15282 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15283 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %131, i64 noundef %15282) #5
   %15284 = call i64 @rb_obj_freeze(i64 noundef %15283) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %131) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %pm_location_new.exit5133
 
 15285:                                            ; preds = %15261
@@ -24129,7 +24123,7 @@ pm_location_new.exit5133:                         ; preds = %15271, %15296, %152
   br label %15392
 
 15344:                                            ; preds = %pm_location_new.exit5133
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %130) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   store i64 %3, ptr %130, align 16, !tbaa !16
   %15345 = load ptr, ptr %546, align 8, !tbaa !18
   %15346 = ptrtoint ptr %15307 to i64
@@ -24146,13 +24140,13 @@ pm_location_new.exit5133:                         ; preds = %15271, %15296, %152
   %15355 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15356 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %130, i64 noundef %15355) #5
   %15357 = call i64 @rb_obj_freeze(i64 noundef %15356) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %130) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   store i64 %15357, ptr %1102, align 16, !tbaa !16
   %15358 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %15359 = load ptr, ptr %15358, align 8, !tbaa !868
   %15360 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %15361 = load ptr, ptr %15360, align 8, !tbaa !869
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store i64 %3, ptr %129, align 16, !tbaa !16
   %15362 = load ptr, ptr %546, align 8, !tbaa !18
   %15363 = ptrtoint ptr %15359 to i64
@@ -24169,13 +24163,13 @@ pm_location_new.exit5133:                         ; preds = %15271, %15296, %152
   %15372 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15373 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %129, i64 noundef %15372) #5
   %15374 = call i64 @rb_obj_freeze(i64 noundef %15373) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %129) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   store i64 %15374, ptr %1103, align 8, !tbaa !16
   %15375 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %15376 = load ptr, ptr %15375, align 8, !tbaa !870
   %15377 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %15378 = load ptr, ptr %15377, align 8, !tbaa !871
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %128) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store i64 %3, ptr %128, align 16, !tbaa !16
   %15379 = load ptr, ptr %546, align 8, !tbaa !18
   %15380 = ptrtoint ptr %15376 to i64
@@ -24192,7 +24186,7 @@ pm_location_new.exit5133:                         ; preds = %15271, %15296, %152
   %15389 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15390 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %128, i64 noundef %15389) #5
   %15391 = call i64 @rb_obj_freeze(i64 noundef %15390) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %128) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %pm_location_new.exit5140
 
 15392:                                            ; preds = %15339, %15342
@@ -24241,11 +24235,11 @@ pm_location_new.exit5140:                         ; preds = %15344, %15405, %154
 
 15419:                                            ; preds = %15417, %pm_location_new.exit5140
   %15420 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15416) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %482) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %482)
   br label %.backedge
 
 15421:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %483) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %483)
   store i64 %3, ptr %483, align 16, !tbaa !16
   %15422 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15423 = load i32, ptr %15422, align 4, !tbaa !447
@@ -24260,7 +24254,7 @@ pm_location_new.exit5140:                         ; preds = %15344, %15405, %154
   br i1 %4, label %15431, label %15445
 
 15431:                                            ; preds = %15421
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %127) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store i64 %3, ptr %127, align 16, !tbaa !16
   %15432 = load ptr, ptr %546, align 8, !tbaa !18
   %15433 = ptrtoint ptr %15428 to i64
@@ -24277,7 +24271,7 @@ pm_location_new.exit5140:                         ; preds = %15344, %15405, %154
   %15442 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15443 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %127, i64 noundef %15442) #5
   %15444 = call i64 @rb_obj_freeze(i64 noundef %15443) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %127) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %pm_location_new.exit5143
 
 15445:                                            ; preds = %15421
@@ -24351,7 +24345,7 @@ pm_location_new.exit5146.thread:                  ; preds = %15483, %15486
   br label %15507
 
 15490:                                            ; preds = %pm_location_new.exit5143
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %126) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store i64 %3, ptr %126, align 16, !tbaa !16
   %15491 = load ptr, ptr %546, align 8, !tbaa !18
   %15492 = ptrtoint ptr %15469 to i64
@@ -24368,7 +24362,7 @@ pm_location_new.exit5146.thread:                  ; preds = %15483, %15486
   %15501 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15502 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %126, i64 noundef %15501) #5
   %15503 = call i64 @rb_obj_freeze(i64 noundef %15502) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   store i64 %15503, ptr %1094, align 16, !tbaa !16
   %15504 = load i64, ptr @rb_cPrismMatchPredicateNode, align 8, !tbaa !16
   %15505 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %483, i64 noundef %15504) #5
@@ -24378,11 +24372,11 @@ pm_location_new.exit5146.thread:                  ; preds = %15483, %15486
 15507:                                            ; preds = %pm_location_new.exit5146.thread, %15490
   %15508 = phi i64 [ %15489, %pm_location_new.exit5146.thread ], [ %15505, %15490 ]
   %15509 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15508) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %483) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %483)
   br label %.backedge
 
 15510:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %484) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %484)
   store i64 %3, ptr %484, align 16, !tbaa !16
   %15511 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15512 = load i32, ptr %15511, align 4, !tbaa !447
@@ -24397,7 +24391,7 @@ pm_location_new.exit5146.thread:                  ; preds = %15483, %15486
   br i1 %4, label %15520, label %15534
 
 15520:                                            ; preds = %15510
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %125) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store i64 %3, ptr %125, align 16, !tbaa !16
   %15521 = load ptr, ptr %546, align 8, !tbaa !18
   %15522 = ptrtoint ptr %15517 to i64
@@ -24414,7 +24408,7 @@ pm_location_new.exit5146.thread:                  ; preds = %15483, %15486
   %15531 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15532 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %125, i64 noundef %15531) #5
   %15533 = call i64 @rb_obj_freeze(i64 noundef %15532) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %125) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %pm_location_new.exit5149
 
 15534:                                            ; preds = %15510
@@ -24488,7 +24482,7 @@ pm_location_new.exit5152.thread:                  ; preds = %15572, %15575
   br label %15596
 
 15579:                                            ; preds = %pm_location_new.exit5149
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %124) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   store i64 %3, ptr %124, align 16, !tbaa !16
   %15580 = load ptr, ptr %546, align 8, !tbaa !18
   %15581 = ptrtoint ptr %15558 to i64
@@ -24505,7 +24499,7 @@ pm_location_new.exit5152.thread:                  ; preds = %15572, %15575
   %15590 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15591 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %124, i64 noundef %15590) #5
   %15592 = call i64 @rb_obj_freeze(i64 noundef %15591) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %124) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   store i64 %15592, ptr %1084, align 16, !tbaa !16
   %15593 = load i64, ptr @rb_cPrismMatchRequiredNode, align 8, !tbaa !16
   %15594 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %484, i64 noundef %15593) #5
@@ -24515,11 +24509,11 @@ pm_location_new.exit5152.thread:                  ; preds = %15572, %15575
 15596:                                            ; preds = %pm_location_new.exit5152.thread, %15579
   %15597 = phi i64 [ %15578, %pm_location_new.exit5152.thread ], [ %15594, %15579 ]
   %15598 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15597) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %484) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %484)
   br label %.backedge
 
 15599:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %485) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %485)
   store i64 %3, ptr %485, align 16, !tbaa !16
   %15600 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15601 = load i32, ptr %15600, align 4, !tbaa !447
@@ -24534,7 +24528,7 @@ pm_location_new.exit5152.thread:                  ; preds = %15572, %15575
   br i1 %4, label %15609, label %15623
 
 15609:                                            ; preds = %15599
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %123) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store i64 %3, ptr %123, align 16, !tbaa !16
   %15610 = load ptr, ptr %546, align 8, !tbaa !18
   %15611 = ptrtoint ptr %15606 to i64
@@ -24551,7 +24545,7 @@ pm_location_new.exit5152.thread:                  ; preds = %15572, %15575
   %15620 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15621 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %123, i64 noundef %15620) #5
   %15622 = call i64 @rb_obj_freeze(i64 noundef %15621) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %123) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   br label %pm_location_new.exit5155
 
 15623:                                            ; preds = %15599
@@ -24624,11 +24618,11 @@ pm_location_new.exit5155:                         ; preds = %15609, %15634, %156
 15664:                                            ; preds = %15655, %15658
   %15665 = phi i64 [ %15662, %15658 ], [ %15657, %15655 ]
   %15666 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15665) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %485) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %485)
   br label %.backedge
 
 15667:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %486) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %486)
   store i64 %3, ptr %486, align 16, !tbaa !16
   %15668 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15669 = load i32, ptr %15668, align 4, !tbaa !447
@@ -24643,7 +24637,7 @@ pm_location_new.exit5155:                         ; preds = %15609, %15634, %156
   br i1 %4, label %15677, label %15691
 
 15677:                                            ; preds = %15667
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %122) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   store i64 %3, ptr %122, align 16, !tbaa !16
   %15678 = load ptr, ptr %546, align 8, !tbaa !18
   %15679 = ptrtoint ptr %15674 to i64
@@ -24660,7 +24654,7 @@ pm_location_new.exit5155:                         ; preds = %15609, %15634, %156
   %15688 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15689 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %122, i64 noundef %15688) #5
   %15690 = call i64 @rb_obj_freeze(i64 noundef %15689) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %122) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %pm_location_new.exit5159
 
 15691:                                            ; preds = %15667
@@ -24704,11 +24698,11 @@ pm_location_new.exit5159:                         ; preds = %15677, %15702, %157
 
 15716:                                            ; preds = %15714, %pm_location_new.exit5159
   %15717 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15713) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %486) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %486)
   br label %.backedge
 
 15718:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %487) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %487)
   store i64 %3, ptr %487, align 16, !tbaa !16
   %15719 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15720 = load i32, ptr %15719, align 4, !tbaa !447
@@ -24723,7 +24717,7 @@ pm_location_new.exit5159:                         ; preds = %15677, %15702, %157
   br i1 %4, label %15728, label %15742
 
 15728:                                            ; preds = %15718
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %121) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store i64 %3, ptr %121, align 16, !tbaa !16
   %15729 = load ptr, ptr %546, align 8, !tbaa !18
   %15730 = ptrtoint ptr %15725 to i64
@@ -24740,7 +24734,7 @@ pm_location_new.exit5159:                         ; preds = %15677, %15702, %157
   %15739 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15740 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %121, i64 noundef %15739) #5
   %15741 = call i64 @rb_obj_freeze(i64 noundef %15740) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %121) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %pm_location_new.exit5163
 
 15742:                                            ; preds = %15718
@@ -24823,7 +24817,7 @@ rb_array_const_ptr.exit5167:                      ; preds = %15768, %15772
   %15789 = load ptr, ptr %15788, align 8, !tbaa !880
   %15790 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %15791 = load ptr, ptr %15790, align 8, !tbaa !881
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %120) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store i64 %3, ptr %120, align 16, !tbaa !16
   %15792 = load ptr, ptr %546, align 8, !tbaa !18
   %15793 = ptrtoint ptr %15789 to i64
@@ -24840,7 +24834,7 @@ rb_array_const_ptr.exit5167:                      ; preds = %15768, %15772
   %15802 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15803 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %120, i64 noundef %15802) #5
   %15804 = call i64 @rb_obj_freeze(i64 noundef %15803) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %120) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %pm_location_new.exit5169
 
 15805:                                            ; preds = %._crit_edge6229
@@ -24883,7 +24877,7 @@ pm_location_new.exit5169:                         ; preds = %15785, %15820, %158
   br i1 %4, label %15831, label %15845
 
 15831:                                            ; preds = %pm_location_new.exit5169
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %119) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store i64 %3, ptr %119, align 16, !tbaa !16
   %15832 = load ptr, ptr %546, align 8, !tbaa !18
   %15833 = ptrtoint ptr %15828 to i64
@@ -24900,7 +24894,7 @@ pm_location_new.exit5169:                         ; preds = %15785, %15820, %158
   %15842 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15843 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %119, i64 noundef %15842) #5
   %15844 = call i64 @rb_obj_freeze(i64 noundef %15843) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %119) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %pm_location_new.exit5171
 
 15845:                                            ; preds = %pm_location_new.exit5169
@@ -24956,11 +24950,11 @@ rb_array_const_ptr.exit5174:                      ; preds = %pm_location_new.exi
 
 15875:                                            ; preds = %15873, %rb_array_const_ptr.exit5174
   %15876 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %15872) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %487) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %487)
   br label %.backedge
 
 15877:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %488) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %488)
   store i64 %3, ptr %488, align 16, !tbaa !16
   %15878 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %15879 = load i32, ptr %15878, align 4, !tbaa !447
@@ -24975,7 +24969,7 @@ rb_array_const_ptr.exit5174:                      ; preds = %pm_location_new.exi
   br i1 %4, label %15887, label %15901
 
 15887:                                            ; preds = %15877
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %118) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store i64 %3, ptr %118, align 16, !tbaa !16
   %15888 = load ptr, ptr %546, align 8, !tbaa !18
   %15889 = ptrtoint ptr %15884 to i64
@@ -24992,7 +24986,7 @@ rb_array_const_ptr.exit5174:                      ; preds = %pm_location_new.exi
   %15898 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15899 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %118, i64 noundef %15898) #5
   %15900 = call i64 @rb_obj_freeze(i64 noundef %15899) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %118) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %pm_location_new.exit5177
 
 15901:                                            ; preds = %15877
@@ -25132,7 +25126,7 @@ pm_location_new.exit5180.thread5992:              ; preds = %15947
 pm_location_new.exit5180.thread:                  ; preds = %15947
   %15981 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %15982 = load ptr, ptr %15981, align 8, !tbaa !888
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %117) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store i64 %3, ptr %117, align 16, !tbaa !16
   %15983 = load ptr, ptr %546, align 8, !tbaa !18
   %15984 = ptrtoint ptr %15951 to i64
@@ -25149,7 +25143,7 @@ pm_location_new.exit5180.thread:                  ; preds = %15947
   %15993 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %15994 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %117, i64 noundef %15993) #5
   %15995 = call i64 @rb_obj_freeze(i64 noundef %15994) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %117) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   store i64 %15995, ptr %1044, align 8, !tbaa !16
   %15996 = getelementptr inbounds nuw i8, ptr %2279, i64 96
   %15997 = load ptr, ptr %15996, align 8, !tbaa !889
@@ -25160,7 +25154,7 @@ pm_location_new.exit5180.thread:                  ; preds = %15947
   %15999 = phi ptr [ %15979, %pm_location_new.exit5180.thread5992 ], [ %15997, %pm_location_new.exit5180.thread ]
   %.in6342 = getelementptr inbounds nuw i8, ptr %2279, i64 104
   %16000 = load ptr, ptr %.in6342, align 8, !tbaa !890
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %116) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i64 %3, ptr %116, align 16, !tbaa !16
   %16001 = load ptr, ptr %546, align 8, !tbaa !18
   %16002 = ptrtoint ptr %15999 to i64
@@ -25177,7 +25171,7 @@ pm_location_new.exit5180.thread:                  ; preds = %15947
   %16011 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16012 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %116, i64 noundef %16011) #5
   %16013 = call i64 @rb_obj_freeze(i64 noundef %16012) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %116) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %pm_location_new.exit5182.thread5994
 
 16014:                                            ; preds = %pm_location_new.exit5180
@@ -25228,11 +25222,11 @@ pm_location_new.exit5182.thread5994:              ; preds = %pm_location_new.exi
 16039:                                            ; preds = %pm_location_new.exit5182, %pm_location_new.exit5182.thread5922, %pm_location_new.exit5182.thread5994
   %16040 = phi i64 [ %16037, %pm_location_new.exit5182.thread5994 ], [ %16035, %pm_location_new.exit5182 ], [ %16033, %pm_location_new.exit5182.thread5922 ]
   %16041 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16040) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %488) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %488)
   br label %.backedge
 
 16042:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %489) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %489)
   store i64 %3, ptr %489, align 16, !tbaa !16
   %16043 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16044 = load i32, ptr %16043, align 4, !tbaa !447
@@ -25247,7 +25241,7 @@ pm_location_new.exit5182.thread5994:              ; preds = %pm_location_new.exi
   br i1 %4, label %16052, label %16066
 
 16052:                                            ; preds = %16042
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %115) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   store i64 %3, ptr %115, align 16, !tbaa !16
   %16053 = load ptr, ptr %546, align 8, !tbaa !18
   %16054 = ptrtoint ptr %16049 to i64
@@ -25264,7 +25258,7 @@ pm_location_new.exit5182.thread5994:              ; preds = %pm_location_new.exi
   %16063 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16064 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %115, i64 noundef %16063) #5
   %16065 = call i64 @rb_obj_freeze(i64 noundef %16064) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %pm_location_new.exit5185
 
 16066:                                            ; preds = %16042
@@ -25404,7 +25398,7 @@ pm_location_new.exit5188.thread5995:              ; preds = %16112
 pm_location_new.exit5188.thread:                  ; preds = %16112
   %16146 = getelementptr inbounds nuw i8, ptr %2279, i64 88
   %16147 = load ptr, ptr %16146, align 8, !tbaa !894
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %114) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   store i64 %3, ptr %114, align 16, !tbaa !16
   %16148 = load ptr, ptr %546, align 8, !tbaa !18
   %16149 = ptrtoint ptr %16116 to i64
@@ -25421,7 +25415,7 @@ pm_location_new.exit5188.thread:                  ; preds = %16112
   %16158 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16159 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %114, i64 noundef %16158) #5
   %16160 = call i64 @rb_obj_freeze(i64 noundef %16159) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %114) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   store i64 %16160, ptr %1026, align 8, !tbaa !16
   %16161 = getelementptr inbounds nuw i8, ptr %2279, i64 96
   %16162 = load ptr, ptr %16161, align 8, !tbaa !895
@@ -25432,7 +25426,7 @@ pm_location_new.exit5188.thread:                  ; preds = %16112
   %16164 = phi ptr [ %16144, %pm_location_new.exit5188.thread5995 ], [ %16162, %pm_location_new.exit5188.thread ]
   %.in6337 = getelementptr inbounds nuw i8, ptr %2279, i64 104
   %16165 = load ptr, ptr %.in6337, align 8, !tbaa !896
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %113) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store i64 %3, ptr %113, align 16, !tbaa !16
   %16166 = load ptr, ptr %546, align 8, !tbaa !18
   %16167 = ptrtoint ptr %16164 to i64
@@ -25449,7 +25443,7 @@ pm_location_new.exit5188.thread:                  ; preds = %16112
   %16176 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16177 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %113, i64 noundef %16176) #5
   %16178 = call i64 @rb_obj_freeze(i64 noundef %16177) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %113) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %pm_location_new.exit5190.thread5997
 
 16179:                                            ; preds = %pm_location_new.exit5188
@@ -25483,7 +25477,7 @@ pm_location_new.exit5190.thread5997:              ; preds = %pm_location_new.exi
   %16197 = load ptr, ptr %.in6339, align 8, !tbaa !897
   %.in6338 = getelementptr inbounds nuw i8, ptr %2279, i64 120
   %16198 = load ptr, ptr %.in6338, align 8, !tbaa !898
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %112) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store i64 %3, ptr %112, align 16, !tbaa !16
   %16199 = load ptr, ptr %546, align 8, !tbaa !18
   %16200 = ptrtoint ptr %16197 to i64
@@ -25500,7 +25494,7 @@ pm_location_new.exit5190.thread5997:              ; preds = %pm_location_new.exi
   %16209 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16210 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %112, i64 noundef %16209) #5
   %16211 = call i64 @rb_obj_freeze(i64 noundef %16210) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %112) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %pm_location_new.exit5192
 
 pm_location_new.exit5190.thread5929:              ; preds = %pm_location_new.exit5188, %16192, %16195
@@ -25546,11 +25540,11 @@ pm_location_new.exit5192:                         ; preds = %pm_location_new.exi
 
 16234:                                            ; preds = %16232, %pm_location_new.exit5192
   %16235 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16231) #5
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %489) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %489)
   br label %.backedge
 
 16236:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %490) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %490)
   store i64 %3, ptr %490, align 16, !tbaa !16
   %16237 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16238 = load i32, ptr %16237, align 4, !tbaa !447
@@ -25565,7 +25559,7 @@ pm_location_new.exit5192:                         ; preds = %pm_location_new.exi
   br i1 %4, label %16246, label %16260
 
 16246:                                            ; preds = %16236
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %111) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store i64 %3, ptr %111, align 16, !tbaa !16
   %16247 = load ptr, ptr %546, align 8, !tbaa !18
   %16248 = ptrtoint ptr %16243 to i64
@@ -25582,7 +25576,7 @@ pm_location_new.exit5192:                         ; preds = %pm_location_new.exi
   %16257 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16258 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %111, i64 noundef %16257) #5
   %16259 = call i64 @rb_obj_freeze(i64 noundef %16258) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %111) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %pm_location_new.exit5195
 
 16260:                                            ; preds = %16236
@@ -25654,7 +25648,7 @@ pm_location_new.exit5198.thread:                  ; preds = %16297, %16300
   br label %16321
 
 16304:                                            ; preds = %pm_location_new.exit5195
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %110) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store i64 %3, ptr %110, align 16, !tbaa !16
   %16305 = load ptr, ptr %546, align 8, !tbaa !18
   %16306 = ptrtoint ptr %16283 to i64
@@ -25671,7 +25665,7 @@ pm_location_new.exit5198.thread:                  ; preds = %16297, %16300
   %16315 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16316 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %110, i64 noundef %16315) #5
   %16317 = call i64 @rb_obj_freeze(i64 noundef %16316) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %110) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   store i64 %16317, ptr %1015, align 8, !tbaa !16
   %16318 = load i64, ptr @rb_cPrismNextNode, align 8, !tbaa !16
   %16319 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %490, i64 noundef %16318) #5
@@ -25681,11 +25675,11 @@ pm_location_new.exit5198.thread:                  ; preds = %16297, %16300
 16321:                                            ; preds = %pm_location_new.exit5198.thread, %16304
   %16322 = phi i64 [ %16303, %pm_location_new.exit5198.thread ], [ %16319, %16304 ]
   %16323 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16322) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %490) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %490)
   br label %.backedge
 
 16324:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %491) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %491)
   store i64 %3, ptr %491, align 16, !tbaa !16
   %16325 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16326 = load i32, ptr %16325, align 4, !tbaa !447
@@ -25700,7 +25694,7 @@ pm_location_new.exit5198.thread:                  ; preds = %16297, %16300
   br i1 %4, label %16334, label %16348
 
 16334:                                            ; preds = %16324
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %109) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store i64 %3, ptr %109, align 16, !tbaa !16
   %16335 = load ptr, ptr %546, align 8, !tbaa !18
   %16336 = ptrtoint ptr %16331 to i64
@@ -25717,7 +25711,7 @@ pm_location_new.exit5198.thread:                  ; preds = %16297, %16300
   %16345 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16346 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %109, i64 noundef %16345) #5
   %16347 = call i64 @rb_obj_freeze(i64 noundef %16346) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %109) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %pm_location_new.exit5201
 
 16348:                                            ; preds = %16324
@@ -25761,11 +25755,11 @@ pm_location_new.exit5201:                         ; preds = %16334, %16359, %163
 
 16373:                                            ; preds = %16371, %pm_location_new.exit5201
   %16374 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16370) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %491) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %491)
   br label %.backedge
 
 16375:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %492) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %492)
   store i64 %3, ptr %492, align 16, !tbaa !16
   %16376 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16377 = load i32, ptr %16376, align 4, !tbaa !447
@@ -25780,7 +25774,7 @@ pm_location_new.exit5201:                         ; preds = %16334, %16359, %163
   br i1 %4, label %16385, label %16399
 
 16385:                                            ; preds = %16375
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %108) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store i64 %3, ptr %108, align 16, !tbaa !16
   %16386 = load ptr, ptr %546, align 8, !tbaa !18
   %16387 = ptrtoint ptr %16382 to i64
@@ -25797,7 +25791,7 @@ pm_location_new.exit5201:                         ; preds = %16334, %16359, %163
   %16396 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16397 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %108, i64 noundef %16396) #5
   %16398 = call i64 @rb_obj_freeze(i64 noundef %16397) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %108) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %pm_location_new.exit5205
 
 16399:                                            ; preds = %16375
@@ -25896,7 +25890,7 @@ pm_location_new.exit5210.thread:                  ; preds = %16453, %16456
   br label %16494
 
 16460:                                            ; preds = %pm_location_new.exit5205
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %107) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store i64 %3, ptr %107, align 16, !tbaa !16
   %16461 = load ptr, ptr %546, align 8, !tbaa !18
   %16462 = ptrtoint ptr %16421 to i64
@@ -25913,13 +25907,13 @@ pm_location_new.exit5210.thread:                  ; preds = %16453, %16456
   %16471 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16472 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %107, i64 noundef %16471) #5
   %16473 = call i64 @rb_obj_freeze(i64 noundef %16472) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   store i64 %16473, ptr %998, align 16, !tbaa !16
   %16474 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %16475 = load ptr, ptr %16474, align 8, !tbaa !904
   %16476 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %16477 = load ptr, ptr %16476, align 8, !tbaa !905
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %106) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   store i64 %3, ptr %106, align 16, !tbaa !16
   %16478 = load ptr, ptr %546, align 8, !tbaa !18
   %16479 = ptrtoint ptr %16475 to i64
@@ -25936,7 +25930,7 @@ pm_location_new.exit5210.thread:                  ; preds = %16453, %16456
   %16488 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16489 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %106, i64 noundef %16488) #5
   %16490 = call i64 @rb_obj_freeze(i64 noundef %16489) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %106) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   store i64 %16490, ptr %999, align 8, !tbaa !16
   %16491 = load i64, ptr @rb_cPrismNoKeywordsParameterNode, align 8, !tbaa !16
   %16492 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %492, i64 noundef %16491) #5
@@ -25946,11 +25940,11 @@ pm_location_new.exit5210.thread:                  ; preds = %16453, %16456
 16494:                                            ; preds = %pm_location_new.exit5210.thread, %16460
   %16495 = phi i64 [ %16459, %pm_location_new.exit5210.thread ], [ %16492, %16460 ]
   %16496 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16495) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %492) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %492)
   br label %.backedge
 
 16497:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %493) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %493)
   store i64 %3, ptr %493, align 16, !tbaa !16
   %16498 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16499 = load i32, ptr %16498, align 4, !tbaa !447
@@ -25965,7 +25959,7 @@ pm_location_new.exit5210.thread:                  ; preds = %16453, %16456
   br i1 %4, label %16507, label %16521
 
 16507:                                            ; preds = %16497
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %105) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   store i64 %3, ptr %105, align 16, !tbaa !16
   %16508 = load ptr, ptr %546, align 8, !tbaa !18
   %16509 = ptrtoint ptr %16504 to i64
@@ -25982,7 +25976,7 @@ pm_location_new.exit5210.thread:                  ; preds = %16453, %16456
   %16518 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16519 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %105, i64 noundef %16518) #5
   %16520 = call i64 @rb_obj_freeze(i64 noundef %16519) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %105) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %pm_location_new.exit5213
 
 16521:                                            ; preds = %16497
@@ -26032,11 +26026,11 @@ pm_location_new.exit5213:                         ; preds = %16507, %16532, %165
 
 16551:                                            ; preds = %16549, %pm_location_new.exit5213
   %16552 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16548) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %493) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %493)
   br label %.backedge
 
 16553:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %494) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %494)
   store i64 %3, ptr %494, align 16, !tbaa !16
   %16554 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16555 = load i32, ptr %16554, align 4, !tbaa !447
@@ -26051,7 +26045,7 @@ pm_location_new.exit5213:                         ; preds = %16507, %16532, %165
   br i1 %4, label %16563, label %16577
 
 16563:                                            ; preds = %16553
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %104) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i64 %3, ptr %104, align 16, !tbaa !16
   %16564 = load ptr, ptr %546, align 8, !tbaa !18
   %16565 = ptrtoint ptr %16560 to i64
@@ -26068,7 +26062,7 @@ pm_location_new.exit5213:                         ; preds = %16507, %16532, %165
   %16574 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16575 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %104, i64 noundef %16574) #5
   %16576 = call i64 @rb_obj_freeze(i64 noundef %16575) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %104) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %pm_location_new.exit5217
 
 16577:                                            ; preds = %16553
@@ -26118,11 +26112,11 @@ pm_location_new.exit5217:                         ; preds = %16563, %16588, %165
 
 16607:                                            ; preds = %16605, %pm_location_new.exit5217
   %16608 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16604) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %494) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %494)
   br label %.backedge
 
 16609:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %495) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %495)
   store i64 %3, ptr %495, align 16, !tbaa !16
   %16610 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16611 = load i32, ptr %16610, align 4, !tbaa !447
@@ -26137,7 +26131,7 @@ pm_location_new.exit5217:                         ; preds = %16563, %16588, %165
   br i1 %4, label %16619, label %16633
 
 16619:                                            ; preds = %16609
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %103) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store i64 %3, ptr %103, align 16, !tbaa !16
   %16620 = load ptr, ptr %546, align 8, !tbaa !18
   %16621 = ptrtoint ptr %16616 to i64
@@ -26154,7 +26148,7 @@ pm_location_new.exit5217:                         ; preds = %16563, %16588, %165
   %16630 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16631 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %103, i64 noundef %16630) #5
   %16632 = call i64 @rb_obj_freeze(i64 noundef %16631) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %103) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %pm_location_new.exit5222
 
 16633:                                            ; preds = %16609
@@ -26213,7 +26207,7 @@ rb_array_const_ptr.exit5226:                      ; preds = %pm_location_new.exi
   br i1 %4, label %16668, label %16682
 
 16668:                                            ; preds = %rb_array_const_ptr.exit5226
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %102) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store i64 %3, ptr %102, align 16, !tbaa !16
   %16669 = load ptr, ptr %546, align 8, !tbaa !18
   %16670 = ptrtoint ptr %16665 to i64
@@ -26230,7 +26224,7 @@ rb_array_const_ptr.exit5226:                      ; preds = %pm_location_new.exi
   %16679 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16680 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %102, i64 noundef %16679) #5
   %16681 = call i64 @rb_obj_freeze(i64 noundef %16680) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %102) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %pm_location_new.exit5228
 
 16682:                                            ; preds = %rb_array_const_ptr.exit5226
@@ -26270,11 +26264,11 @@ pm_location_new.exit5228:                         ; preds = %16668, %16693, %166
 
 16703:                                            ; preds = %16701, %pm_location_new.exit5228
   %16704 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16700) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %495) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %495)
   br label %.backedge
 
 16705:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %496) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %496)
   store i64 %3, ptr %496, align 16, !tbaa !16
   %16706 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16707 = load i32, ptr %16706, align 4, !tbaa !447
@@ -26289,7 +26283,7 @@ pm_location_new.exit5228:                         ; preds = %16668, %16693, %166
   br i1 %4, label %16715, label %16729
 
 16715:                                            ; preds = %16705
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %101) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store i64 %3, ptr %101, align 16, !tbaa !16
   %16716 = load ptr, ptr %546, align 8, !tbaa !18
   %16717 = ptrtoint ptr %16712 to i64
@@ -26306,7 +26300,7 @@ pm_location_new.exit5228:                         ; preds = %16668, %16693, %166
   %16726 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16727 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %101, i64 noundef %16726) #5
   %16728 = call i64 @rb_obj_freeze(i64 noundef %16727) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %101) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %pm_location_new.exit5231
 
 16729:                                            ; preds = %16705
@@ -26389,7 +26383,7 @@ rb_array_const_ptr.exit5235:                      ; preds = %pm_location_new.exi
   br label %16811
 
 16780:                                            ; preds = %rb_array_const_ptr.exit5235
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %100) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store i64 %3, ptr %100, align 16, !tbaa !16
   %16781 = load ptr, ptr %546, align 8, !tbaa !18
   %16782 = ptrtoint ptr %16761 to i64
@@ -26406,13 +26400,13 @@ rb_array_const_ptr.exit5235:                      ; preds = %pm_location_new.exi
   %16791 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16792 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %100, i64 noundef %16791) #5
   %16793 = call i64 @rb_obj_freeze(i64 noundef %16792) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %100) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   store i64 %16793, ptr %964, align 8, !tbaa !16
   %16794 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %16795 = load ptr, ptr %16794, align 8, !tbaa !916
   %16796 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %16797 = load ptr, ptr %16796, align 8, !tbaa !917
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %99) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store i64 %3, ptr %99, align 16, !tbaa !16
   %16798 = load ptr, ptr %546, align 8, !tbaa !18
   %16799 = ptrtoint ptr %16795 to i64
@@ -26429,7 +26423,7 @@ rb_array_const_ptr.exit5235:                      ; preds = %pm_location_new.exi
   %16808 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16809 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %99, i64 noundef %16808) #5
   %16810 = call i64 @rb_obj_freeze(i64 noundef %16809) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %99) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %pm_location_new.exit5239
 
 16811:                                            ; preds = %16775, %16778
@@ -26474,11 +26468,11 @@ pm_location_new.exit5239:                         ; preds = %16780, %16824, %168
 
 16834:                                            ; preds = %16832, %pm_location_new.exit5239
   %16835 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16831) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %496) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %496)
   br label %.backedge
 
 16836:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %497) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %497)
   store i64 %3, ptr %497, align 16, !tbaa !16
   %16837 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16838 = load i32, ptr %16837, align 4, !tbaa !447
@@ -26493,7 +26487,7 @@ pm_location_new.exit5239:                         ; preds = %16780, %16824, %168
   br i1 %4, label %16846, label %16860
 
 16846:                                            ; preds = %16836
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %98) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i64 %3, ptr %98, align 16, !tbaa !16
   %16847 = load ptr, ptr %546, align 8, !tbaa !18
   %16848 = ptrtoint ptr %16843 to i64
@@ -26510,7 +26504,7 @@ pm_location_new.exit5239:                         ; preds = %16780, %16824, %168
   %16857 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16858 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %98, i64 noundef %16857) #5
   %16859 = call i64 @rb_obj_freeze(i64 noundef %16858) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %pm_location_new.exit5242
 
 16860:                                            ; preds = %16836
@@ -26584,7 +26578,7 @@ pm_location_new.exit5245.thread:                  ; preds = %16898, %16901
   br label %16922
 
 16905:                                            ; preds = %pm_location_new.exit5242
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %97) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store i64 %3, ptr %97, align 16, !tbaa !16
   %16906 = load ptr, ptr %546, align 8, !tbaa !18
   %16907 = ptrtoint ptr %16884 to i64
@@ -26601,7 +26595,7 @@ pm_location_new.exit5245.thread:                  ; preds = %16898, %16901
   %16916 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16917 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %97, i64 noundef %16916) #5
   %16918 = call i64 @rb_obj_freeze(i64 noundef %16917) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %97) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   store i64 %16918, ptr %955, align 16, !tbaa !16
   %16919 = load i64, ptr @rb_cPrismOrNode, align 8, !tbaa !16
   %16920 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %497, i64 noundef %16919) #5
@@ -26611,11 +26605,11 @@ pm_location_new.exit5245.thread:                  ; preds = %16898, %16901
 16922:                                            ; preds = %pm_location_new.exit5245.thread, %16905
   %16923 = phi i64 [ %16904, %pm_location_new.exit5245.thread ], [ %16920, %16905 ]
   %16924 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %16923) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %497) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %497)
   br label %.backedge
 
 16925:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %498) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %498)
   store i64 %3, ptr %498, align 16, !tbaa !16
   %16926 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %16927 = load i32, ptr %16926, align 4, !tbaa !447
@@ -26630,7 +26624,7 @@ pm_location_new.exit5245.thread:                  ; preds = %16898, %16901
   br i1 %4, label %16935, label %16949
 
 16935:                                            ; preds = %16925
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %96) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store i64 %3, ptr %96, align 16, !tbaa !16
   %16936 = load ptr, ptr %546, align 8, !tbaa !18
   %16937 = ptrtoint ptr %16932 to i64
@@ -26647,7 +26641,7 @@ pm_location_new.exit5245.thread:                  ; preds = %16898, %16901
   %16946 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %16947 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %96, i64 noundef %16946) #5
   %16948 = call i64 @rb_obj_freeze(i64 noundef %16947) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %96) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %pm_location_new.exit5248
 
 16949:                                            ; preds = %16925
@@ -26805,11 +26799,11 @@ pm_location_new.exit5248:                         ; preds = %16935, %16960, %169
 
 17033:                                            ; preds = %17031, %17026
   %17034 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17030) #5
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %498) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %498)
   br label %.backedge
 
 17035:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %499) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %499)
   store i64 %3, ptr %499, align 16, !tbaa !16
   %17036 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17037 = load i32, ptr %17036, align 4, !tbaa !447
@@ -26824,7 +26818,7 @@ pm_location_new.exit5248:                         ; preds = %16935, %16960, %169
   br i1 %4, label %17045, label %17059
 
 17045:                                            ; preds = %17035
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %95) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store i64 %3, ptr %95, align 16, !tbaa !16
   %17046 = load ptr, ptr %546, align 8, !tbaa !18
   %17047 = ptrtoint ptr %17042 to i64
@@ -26841,7 +26835,7 @@ pm_location_new.exit5248:                         ; preds = %16935, %16960, %169
   %17056 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17057 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %95, i64 noundef %17056) #5
   %17058 = call i64 @rb_obj_freeze(i64 noundef %17057) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %95) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %pm_location_new.exit5252
 
 17059:                                            ; preds = %17035
@@ -26942,7 +26936,7 @@ pm_location_new.exit5257.thread:                  ; preds = %17114, %17117
   br label %17155
 
 17121:                                            ; preds = %pm_location_new.exit5252
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %94) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store i64 %3, ptr %94, align 16, !tbaa !16
   %17122 = load ptr, ptr %546, align 8, !tbaa !18
   %17123 = ptrtoint ptr %17082 to i64
@@ -26959,13 +26953,13 @@ pm_location_new.exit5257.thread:                  ; preds = %17114, %17117
   %17132 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17133 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %94, i64 noundef %17132) #5
   %17134 = call i64 @rb_obj_freeze(i64 noundef %17133) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %94) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   store i64 %17134, ptr %930, align 8, !tbaa !16
   %17135 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %17136 = load ptr, ptr %17135, align 8, !tbaa !926
   %17137 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %17138 = load ptr, ptr %17137, align 8, !tbaa !927
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %93) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   store i64 %3, ptr %93, align 16, !tbaa !16
   %17139 = load ptr, ptr %546, align 8, !tbaa !18
   %17140 = ptrtoint ptr %17136 to i64
@@ -26982,7 +26976,7 @@ pm_location_new.exit5257.thread:                  ; preds = %17114, %17117
   %17149 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17150 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %93, i64 noundef %17149) #5
   %17151 = call i64 @rb_obj_freeze(i64 noundef %17150) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   store i64 %17151, ptr %931, align 16, !tbaa !16
   %17152 = load i64, ptr @rb_cPrismParenthesesNode, align 8, !tbaa !16
   %17153 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %499, i64 noundef %17152) #5
@@ -26992,11 +26986,11 @@ pm_location_new.exit5257.thread:                  ; preds = %17114, %17117
 17155:                                            ; preds = %pm_location_new.exit5257.thread, %17121
   %17156 = phi i64 [ %17120, %pm_location_new.exit5257.thread ], [ %17153, %17121 ]
   %17157 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17156) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %499) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %499)
   br label %.backedge
 
 17158:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %500) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %500)
   store i64 %3, ptr %500, align 16, !tbaa !16
   %17159 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17160 = load i32, ptr %17159, align 4, !tbaa !447
@@ -27011,7 +27005,7 @@ pm_location_new.exit5257.thread:                  ; preds = %17114, %17117
   br i1 %4, label %17168, label %17182
 
 17168:                                            ; preds = %17158
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store i64 %3, ptr %92, align 16, !tbaa !16
   %17169 = load ptr, ptr %546, align 8, !tbaa !18
   %17170 = ptrtoint ptr %17165 to i64
@@ -27028,7 +27022,7 @@ pm_location_new.exit5257.thread:                  ; preds = %17114, %17117
   %17179 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17180 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %92, i64 noundef %17179) #5
   %17181 = call i64 @rb_obj_freeze(i64 noundef %17180) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %pm_location_new.exit5260
 
 17182:                                            ; preds = %17158
@@ -27158,7 +27152,7 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
   br label %17313
 
 17262:                                            ; preds = %pm_location_new.exit5260
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %91) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store i64 %3, ptr %91, align 16, !tbaa !16
   %17263 = load ptr, ptr %546, align 8, !tbaa !18
   %17264 = ptrtoint ptr %17205 to i64
@@ -27175,13 +27169,13 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
   %17273 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17274 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %91, i64 noundef %17273) #5
   %17275 = call i64 @rb_obj_freeze(i64 noundef %17274) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   store i64 %17275, ptr %915, align 8, !tbaa !16
   %17276 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %17277 = load ptr, ptr %17276, align 8, !tbaa !930
   %17278 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %17279 = load ptr, ptr %17278, align 8, !tbaa !931
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %90) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store i64 %3, ptr %90, align 16, !tbaa !16
   %17280 = load ptr, ptr %546, align 8, !tbaa !18
   %17281 = ptrtoint ptr %17277 to i64
@@ -27198,13 +27192,13 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
   %17290 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17291 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %90, i64 noundef %17290) #5
   %17292 = call i64 @rb_obj_freeze(i64 noundef %17291) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   store i64 %17292, ptr %916, align 16, !tbaa !16
   %17293 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %17294 = load ptr, ptr %17293, align 8, !tbaa !932
   %17295 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %17296 = load ptr, ptr %17295, align 8, !tbaa !933
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %89) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store i64 %3, ptr %89, align 16, !tbaa !16
   %17297 = load ptr, ptr %546, align 8, !tbaa !18
   %17298 = ptrtoint ptr %17294 to i64
@@ -27221,7 +27215,7 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
   %17307 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17308 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %89, i64 noundef %17307) #5
   %17309 = call i64 @rb_obj_freeze(i64 noundef %17308) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   store i64 %17309, ptr %917, align 8, !tbaa !16
   %17310 = load i64, ptr @rb_cPrismPinnedExpressionNode, align 8, !tbaa !16
   %17311 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %500, i64 noundef %17310) #5
@@ -27231,11 +27225,11 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
 17313:                                            ; preds = %pm_location_new.exit5267.thread, %17262
   %17314 = phi i64 [ %17261, %pm_location_new.exit5267.thread ], [ %17311, %17262 ]
   %17315 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17314) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %500) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %500)
   br label %.backedge
 
 17316:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %501) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %501)
   store i64 %3, ptr %501, align 16, !tbaa !16
   %17317 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17318 = load i32, ptr %17317, align 4, !tbaa !447
@@ -27250,7 +27244,7 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
   br i1 %4, label %17326, label %17340
 
 17326:                                            ; preds = %17316
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store i64 %3, ptr %88, align 16, !tbaa !16
   %17327 = load ptr, ptr %546, align 8, !tbaa !18
   %17328 = ptrtoint ptr %17323 to i64
@@ -27267,7 +27261,7 @@ pm_location_new.exit5267.thread:                  ; preds = %17255, %17258
   %17337 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17338 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %88, i64 noundef %17337) #5
   %17339 = call i64 @rb_obj_freeze(i64 noundef %17338) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %pm_location_new.exit5270
 
 17340:                                            ; preds = %17316
@@ -27339,7 +27333,7 @@ pm_location_new.exit5273.thread:                  ; preds = %17377, %17380
   br label %17401
 
 17384:                                            ; preds = %pm_location_new.exit5270
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %87) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store i64 %3, ptr %87, align 16, !tbaa !16
   %17385 = load ptr, ptr %546, align 8, !tbaa !18
   %17386 = ptrtoint ptr %17363 to i64
@@ -27356,7 +27350,7 @@ pm_location_new.exit5273.thread:                  ; preds = %17377, %17380
   %17395 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17396 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %87, i64 noundef %17395) #5
   %17397 = call i64 @rb_obj_freeze(i64 noundef %17396) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   store i64 %17397, ptr %906, align 8, !tbaa !16
   %17398 = load i64, ptr @rb_cPrismPinnedVariableNode, align 8, !tbaa !16
   %17399 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %501, i64 noundef %17398) #5
@@ -27366,11 +27360,11 @@ pm_location_new.exit5273.thread:                  ; preds = %17377, %17380
 17401:                                            ; preds = %pm_location_new.exit5273.thread, %17384
   %17402 = phi i64 [ %17383, %pm_location_new.exit5273.thread ], [ %17399, %17384 ]
   %17403 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17402) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %501) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %501)
   br label %.backedge
 
 17404:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %502) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %502)
   store i64 %3, ptr %502, align 16, !tbaa !16
   %17405 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17406 = load i32, ptr %17405, align 4, !tbaa !447
@@ -27385,7 +27379,7 @@ pm_location_new.exit5273.thread:                  ; preds = %17377, %17380
   br i1 %4, label %17414, label %17428
 
 17414:                                            ; preds = %17404
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %86) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store i64 %3, ptr %86, align 16, !tbaa !16
   %17415 = load ptr, ptr %546, align 8, !tbaa !18
   %17416 = ptrtoint ptr %17411 to i64
@@ -27402,7 +27396,7 @@ pm_location_new.exit5273.thread:                  ; preds = %17377, %17380
   %17425 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17426 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %86, i64 noundef %17425) #5
   %17427 = call i64 @rb_obj_freeze(i64 noundef %17426) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %pm_location_new.exit5276
 
 17428:                                            ; preds = %17404
@@ -27532,7 +27526,7 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
   br label %17559
 
 17508:                                            ; preds = %pm_location_new.exit5276
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %85) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store i64 %3, ptr %85, align 16, !tbaa !16
   %17509 = load ptr, ptr %546, align 8, !tbaa !18
   %17510 = ptrtoint ptr %17451 to i64
@@ -27549,13 +27543,13 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
   %17519 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17520 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %85, i64 noundef %17519) #5
   %17521 = call i64 @rb_obj_freeze(i64 noundef %17520) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   store i64 %17521, ptr %891, align 8, !tbaa !16
   %17522 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %17523 = load ptr, ptr %17522, align 8, !tbaa !938
   %17524 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %17525 = load ptr, ptr %17524, align 8, !tbaa !939
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store i64 %3, ptr %84, align 16, !tbaa !16
   %17526 = load ptr, ptr %546, align 8, !tbaa !18
   %17527 = ptrtoint ptr %17523 to i64
@@ -27572,13 +27566,13 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
   %17536 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17537 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %84, i64 noundef %17536) #5
   %17538 = call i64 @rb_obj_freeze(i64 noundef %17537) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   store i64 %17538, ptr %892, align 16, !tbaa !16
   %17539 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %17540 = load ptr, ptr %17539, align 8, !tbaa !940
   %17541 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %17542 = load ptr, ptr %17541, align 8, !tbaa !941
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store i64 %3, ptr %83, align 16, !tbaa !16
   %17543 = load ptr, ptr %546, align 8, !tbaa !18
   %17544 = ptrtoint ptr %17540 to i64
@@ -27595,7 +27589,7 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
   %17553 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17554 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %83, i64 noundef %17553) #5
   %17555 = call i64 @rb_obj_freeze(i64 noundef %17554) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   store i64 %17555, ptr %893, align 8, !tbaa !16
   %17556 = load i64, ptr @rb_cPrismPostExecutionNode, align 8, !tbaa !16
   %17557 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %502, i64 noundef %17556) #5
@@ -27605,11 +27599,11 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
 17559:                                            ; preds = %pm_location_new.exit5283.thread, %17508
   %17560 = phi i64 [ %17507, %pm_location_new.exit5283.thread ], [ %17557, %17508 ]
   %17561 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17560) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %502) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %502)
   br label %.backedge
 
 17562:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %503) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %503)
   store i64 %3, ptr %503, align 16, !tbaa !16
   %17563 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17564 = load i32, ptr %17563, align 4, !tbaa !447
@@ -27624,7 +27618,7 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
   br i1 %4, label %17572, label %17586
 
 17572:                                            ; preds = %17562
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store i64 %3, ptr %82, align 16, !tbaa !16
   %17573 = load ptr, ptr %546, align 8, !tbaa !18
   %17574 = ptrtoint ptr %17569 to i64
@@ -27641,7 +27635,7 @@ pm_location_new.exit5283.thread:                  ; preds = %17501, %17504
   %17583 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17584 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %82, i64 noundef %17583) #5
   %17585 = call i64 @rb_obj_freeze(i64 noundef %17584) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %pm_location_new.exit5286
 
 17586:                                            ; preds = %17562
@@ -27771,7 +27765,7 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
   br label %17717
 
 17666:                                            ; preds = %pm_location_new.exit5286
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store i64 %3, ptr %81, align 16, !tbaa !16
   %17667 = load ptr, ptr %546, align 8, !tbaa !18
   %17668 = ptrtoint ptr %17609 to i64
@@ -27788,13 +27782,13 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
   %17677 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17678 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %81, i64 noundef %17677) #5
   %17679 = call i64 @rb_obj_freeze(i64 noundef %17678) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %81) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   store i64 %17679, ptr %876, align 8, !tbaa !16
   %17680 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %17681 = load ptr, ptr %17680, align 8, !tbaa !944
   %17682 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %17683 = load ptr, ptr %17682, align 8, !tbaa !945
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i64 %3, ptr %80, align 16, !tbaa !16
   %17684 = load ptr, ptr %546, align 8, !tbaa !18
   %17685 = ptrtoint ptr %17681 to i64
@@ -27811,13 +27805,13 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
   %17694 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17695 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %80, i64 noundef %17694) #5
   %17696 = call i64 @rb_obj_freeze(i64 noundef %17695) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   store i64 %17696, ptr %877, align 16, !tbaa !16
   %17697 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %17698 = load ptr, ptr %17697, align 8, !tbaa !946
   %17699 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %17700 = load ptr, ptr %17699, align 8, !tbaa !947
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store i64 %3, ptr %79, align 16, !tbaa !16
   %17701 = load ptr, ptr %546, align 8, !tbaa !18
   %17702 = ptrtoint ptr %17698 to i64
@@ -27834,7 +27828,7 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
   %17711 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17712 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %79, i64 noundef %17711) #5
   %17713 = call i64 @rb_obj_freeze(i64 noundef %17712) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %79) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   store i64 %17713, ptr %878, align 8, !tbaa !16
   %17714 = load i64, ptr @rb_cPrismPreExecutionNode, align 8, !tbaa !16
   %17715 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %503, i64 noundef %17714) #5
@@ -27844,11 +27838,11 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
 17717:                                            ; preds = %pm_location_new.exit5293.thread, %17666
   %17718 = phi i64 [ %17665, %pm_location_new.exit5293.thread ], [ %17715, %17666 ]
   %17719 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17718) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %503) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %503)
   br label %.backedge
 
 17720:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %504) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %504)
   store i64 %3, ptr %504, align 16, !tbaa !16
   %17721 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17722 = load i32, ptr %17721, align 4, !tbaa !447
@@ -27863,7 +27857,7 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
   br i1 %4, label %17730, label %17744
 
 17730:                                            ; preds = %17720
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %78) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i64 %3, ptr %78, align 16, !tbaa !16
   %17731 = load ptr, ptr %546, align 8, !tbaa !18
   %17732 = ptrtoint ptr %17727 to i64
@@ -27880,7 +27874,7 @@ pm_location_new.exit5293.thread:                  ; preds = %17659, %17662
   %17741 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17742 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %78, i64 noundef %17741) #5
   %17743 = call i64 @rb_obj_freeze(i64 noundef %17742) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %78) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %pm_location_new.exit5296
 
 17744:                                            ; preds = %17720
@@ -27974,11 +27968,11 @@ rb_array_const_ptr.exit5300:                      ; preds = %17770, %17774
 
 17796:                                            ; preds = %17794, %17790
   %17797 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17793) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %504) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %504)
   br label %.backedge
 
 17798:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %505) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %505)
   store i64 %3, ptr %505, align 16, !tbaa !16
   %17799 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17800 = load i32, ptr %17799, align 4, !tbaa !447
@@ -27993,7 +27987,7 @@ rb_array_const_ptr.exit5300:                      ; preds = %17770, %17774
   br i1 %4, label %17808, label %17822
 
 17808:                                            ; preds = %17798
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store i64 %3, ptr %77, align 16, !tbaa !16
   %17809 = load ptr, ptr %546, align 8, !tbaa !18
   %17810 = ptrtoint ptr %17805 to i64
@@ -28010,7 +28004,7 @@ rb_array_const_ptr.exit5300:                      ; preds = %17770, %17774
   %17819 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17820 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %77, i64 noundef %17819) #5
   %17821 = call i64 @rb_obj_freeze(i64 noundef %17820) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %pm_location_new.exit5303
 
 17822:                                            ; preds = %17798
@@ -28084,7 +28078,7 @@ pm_location_new.exit5306.thread:                  ; preds = %17860, %17863
   br label %17884
 
 17867:                                            ; preds = %pm_location_new.exit5303
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %76) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i64 %3, ptr %76, align 16, !tbaa !16
   %17868 = load ptr, ptr %546, align 8, !tbaa !18
   %17869 = ptrtoint ptr %17846 to i64
@@ -28101,7 +28095,7 @@ pm_location_new.exit5306.thread:                  ; preds = %17860, %17863
   %17878 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17879 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %76, i64 noundef %17878) #5
   %17880 = call i64 @rb_obj_freeze(i64 noundef %17879) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   store i64 %17880, ptr %860, align 16, !tbaa !16
   %17881 = load i64, ptr @rb_cPrismRangeNode, align 8, !tbaa !16
   %17882 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %505, i64 noundef %17881) #5
@@ -28111,11 +28105,11 @@ pm_location_new.exit5306.thread:                  ; preds = %17860, %17863
 17884:                                            ; preds = %pm_location_new.exit5306.thread, %17867
   %17885 = phi i64 [ %17866, %pm_location_new.exit5306.thread ], [ %17882, %17867 ]
   %17886 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %17885) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %505) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %505)
   br label %.backedge
 
 17887:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %506) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %506)
   store i64 %3, ptr %506, align 16, !tbaa !16
   %17888 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %17889 = load i32, ptr %17888, align 4, !tbaa !447
@@ -28130,7 +28124,7 @@ pm_location_new.exit5306.thread:                  ; preds = %17860, %17863
   br i1 %4, label %17897, label %17911
 
 17897:                                            ; preds = %17887
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i64 %3, ptr %75, align 16, !tbaa !16
   %17898 = load ptr, ptr %546, align 8, !tbaa !18
   %17899 = ptrtoint ptr %17894 to i64
@@ -28147,7 +28141,7 @@ pm_location_new.exit5306.thread:                  ; preds = %17860, %17863
   %17908 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %17909 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %75, i64 noundef %17908) #5
   %17910 = call i64 @rb_obj_freeze(i64 noundef %17909) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %pm_location_new.exit5309
 
 17911:                                            ; preds = %17887
@@ -28417,11 +28411,11 @@ pm_integer_new.exit5366:                          ; preds = %18023, %rbimpl_inte
 
 18034:                                            ; preds = %18032, %pm_integer_new.exit5366
   %18035 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18031) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %506) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %506)
   br label %.backedge
 
 18036:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %507) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %507)
   store i64 %3, ptr %507, align 16, !tbaa !16
   %18037 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18038 = load i32, ptr %18037, align 4, !tbaa !447
@@ -28436,7 +28430,7 @@ pm_integer_new.exit5366:                          ; preds = %18023, %rbimpl_inte
   br i1 %4, label %18046, label %18060
 
 18046:                                            ; preds = %18036
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store i64 %3, ptr %74, align 16, !tbaa !16
   %18047 = load ptr, ptr %546, align 8, !tbaa !18
   %18048 = ptrtoint ptr %18043 to i64
@@ -28453,7 +28447,7 @@ pm_integer_new.exit5366:                          ; preds = %18023, %rbimpl_inte
   %18057 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18058 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %74, i64 noundef %18057) #5
   %18059 = call i64 @rb_obj_freeze(i64 noundef %18058) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %pm_location_new.exit5369
 
 18060:                                            ; preds = %18036
@@ -28497,11 +28491,11 @@ pm_location_new.exit5369:                         ; preds = %18046, %18071, %180
 
 18085:                                            ; preds = %18083, %pm_location_new.exit5369
   %18086 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18082) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %507) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %507)
   br label %.backedge
 
 18087:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %508) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %508)
   store i64 %3, ptr %508, align 16, !tbaa !16
   %18088 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18089 = load i32, ptr %18088, align 4, !tbaa !447
@@ -28516,7 +28510,7 @@ pm_location_new.exit5369:                         ; preds = %18046, %18071, %180
   br i1 %4, label %18097, label %18111
 
 18097:                                            ; preds = %18087
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %73) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store i64 %3, ptr %73, align 16, !tbaa !16
   %18098 = load ptr, ptr %546, align 8, !tbaa !18
   %18099 = ptrtoint ptr %18094 to i64
@@ -28533,7 +28527,7 @@ pm_location_new.exit5369:                         ; preds = %18046, %18071, %180
   %18108 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18109 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %73, i64 noundef %18108) #5
   %18110 = call i64 @rb_obj_freeze(i64 noundef %18109) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %pm_location_new.exit5373
 
 18111:                                            ; preds = %18087
@@ -28627,7 +28621,7 @@ pm_location_new.exit5373:                         ; preds = %18097, %18122, %181
   br label %18218
 
 18170:                                            ; preds = %pm_location_new.exit5373
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i64 %3, ptr %72, align 16, !tbaa !16
   %18171 = load ptr, ptr %546, align 8, !tbaa !18
   %18172 = ptrtoint ptr %18133 to i64
@@ -28644,13 +28638,13 @@ pm_location_new.exit5373:                         ; preds = %18097, %18122, %181
   %18181 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18182 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %72, i64 noundef %18181) #5
   %18183 = call i64 @rb_obj_freeze(i64 noundef %18182) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   store i64 %18183, ptr %831, align 16, !tbaa !16
   %18184 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %18185 = load ptr, ptr %18184, align 8, !tbaa !962
   %18186 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %18187 = load ptr, ptr %18186, align 8, !tbaa !963
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i64 %3, ptr %71, align 16, !tbaa !16
   %18188 = load ptr, ptr %546, align 8, !tbaa !18
   %18189 = ptrtoint ptr %18185 to i64
@@ -28667,13 +28661,13 @@ pm_location_new.exit5373:                         ; preds = %18097, %18122, %181
   %18198 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18199 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %71, i64 noundef %18198) #5
   %18200 = call i64 @rb_obj_freeze(i64 noundef %18199) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   store i64 %18200, ptr %832, align 8, !tbaa !16
   %18201 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %18202 = load ptr, ptr %18201, align 8, !tbaa !964
   %18203 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %18204 = load ptr, ptr %18203, align 8, !tbaa !965
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i64 %3, ptr %70, align 16, !tbaa !16
   %18205 = load ptr, ptr %546, align 8, !tbaa !18
   %18206 = ptrtoint ptr %18202 to i64
@@ -28690,7 +28684,7 @@ pm_location_new.exit5373:                         ; preds = %18097, %18122, %181
   %18215 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18216 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %70, i64 noundef %18215) #5
   %18217 = call i64 @rb_obj_freeze(i64 noundef %18216) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %pm_location_new.exit5380
 
 18218:                                            ; preds = %18165, %18168
@@ -28739,11 +28733,11 @@ pm_location_new.exit5380:                         ; preds = %18170, %18231, %182
 
 18245:                                            ; preds = %18243, %pm_location_new.exit5380
   %18246 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18242) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %508) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %508)
   br label %.backedge
 
 18247:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %509) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %509)
   store i64 %3, ptr %509, align 16, !tbaa !16
   %18248 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18249 = load i32, ptr %18248, align 4, !tbaa !447
@@ -28758,7 +28752,7 @@ pm_location_new.exit5380:                         ; preds = %18170, %18231, %182
   br i1 %4, label %18257, label %18271
 
 18257:                                            ; preds = %18247
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %69) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i64 %3, ptr %69, align 16, !tbaa !16
   %18258 = load ptr, ptr %546, align 8, !tbaa !18
   %18259 = ptrtoint ptr %18254 to i64
@@ -28775,7 +28769,7 @@ pm_location_new.exit5380:                         ; preds = %18170, %18231, %182
   %18268 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18269 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %69, i64 noundef %18268) #5
   %18270 = call i64 @rb_obj_freeze(i64 noundef %18269) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %pm_location_new.exit5383
 
 18271:                                            ; preds = %18247
@@ -28863,7 +28857,7 @@ pm_location_new.exit5389.thread:                  ; preds = %18317, %18320
   br label %18341
 
 18324:                                            ; preds = %rb_array_const_ptr.exit5387
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i64 %3, ptr %68, align 16, !tbaa !16
   %18325 = load ptr, ptr %546, align 8, !tbaa !18
   %18326 = ptrtoint ptr %18303 to i64
@@ -28880,7 +28874,7 @@ pm_location_new.exit5389.thread:                  ; preds = %18317, %18320
   %18335 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18336 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %68, i64 noundef %18335) #5
   %18337 = call i64 @rb_obj_freeze(i64 noundef %18336) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   store i64 %18337, ptr %823, align 8, !tbaa !16
   %18338 = load i64, ptr @rb_cPrismRequiredKeywordParameterNode, align 8, !tbaa !16
   %18339 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %509, i64 noundef %18338) #5
@@ -28890,11 +28884,11 @@ pm_location_new.exit5389.thread:                  ; preds = %18317, %18320
 18341:                                            ; preds = %pm_location_new.exit5389.thread, %18324
   %18342 = phi i64 [ %18323, %pm_location_new.exit5389.thread ], [ %18339, %18324 ]
   %18343 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18342) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %509) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %509)
   br label %.backedge
 
 18344:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %510) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %510)
   store i64 %3, ptr %510, align 16, !tbaa !16
   %18345 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18346 = load i32, ptr %18345, align 4, !tbaa !447
@@ -28909,7 +28903,7 @@ pm_location_new.exit5389.thread:                  ; preds = %18317, %18320
   br i1 %4, label %18354, label %18368
 
 18354:                                            ; preds = %18344
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i64 %3, ptr %67, align 16, !tbaa !16
   %18355 = load ptr, ptr %546, align 8, !tbaa !18
   %18356 = ptrtoint ptr %18351 to i64
@@ -28926,7 +28920,7 @@ pm_location_new.exit5389.thread:                  ; preds = %18317, %18320
   %18365 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18366 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %67, i64 noundef %18365) #5
   %18367 = call i64 @rb_obj_freeze(i64 noundef %18366) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %pm_location_new.exit5392
 
 18368:                                            ; preds = %18344
@@ -28988,11 +28982,11 @@ rb_array_const_ptr.exit5396:                      ; preds = %pm_location_new.exi
 
 18403:                                            ; preds = %18401, %rb_array_const_ptr.exit5396
   %18404 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18400) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %510) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %510)
   br label %.backedge
 
 18405:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %511) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %511)
   store i64 %3, ptr %511, align 16, !tbaa !16
   %18406 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18407 = load i32, ptr %18406, align 4, !tbaa !447
@@ -29007,7 +29001,7 @@ rb_array_const_ptr.exit5396:                      ; preds = %pm_location_new.exi
   br i1 %4, label %18415, label %18429
 
 18415:                                            ; preds = %18405
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i64 %3, ptr %66, align 16, !tbaa !16
   %18416 = load ptr, ptr %546, align 8, !tbaa !18
   %18417 = ptrtoint ptr %18412 to i64
@@ -29024,7 +29018,7 @@ rb_array_const_ptr.exit5396:                      ; preds = %pm_location_new.exi
   %18426 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18427 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %66, i64 noundef %18426) #5
   %18428 = call i64 @rb_obj_freeze(i64 noundef %18427) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %pm_location_new.exit5399
 
 18429:                                            ; preds = %18405
@@ -29067,7 +29061,7 @@ pm_location_new.exit5399:                         ; preds = %18415, %18440, %184
   br i1 %4, label %18455, label %18469
 
 18455:                                            ; preds = %pm_location_new.exit5399
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i64 %3, ptr %65, align 16, !tbaa !16
   %18456 = load ptr, ptr %546, align 8, !tbaa !18
   %18457 = ptrtoint ptr %18452 to i64
@@ -29084,7 +29078,7 @@ pm_location_new.exit5399:                         ; preds = %18415, %18440, %184
   %18466 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18467 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %65, i64 noundef %18466) #5
   %18468 = call i64 @rb_obj_freeze(i64 noundef %18467) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %pm_location_new.exit5402
 
 18469:                                            ; preds = %pm_location_new.exit5399
@@ -29124,11 +29118,11 @@ pm_location_new.exit5402:                         ; preds = %18455, %18480, %184
 
 18490:                                            ; preds = %18488, %pm_location_new.exit5402
   %18491 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18487) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %511) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %511)
   br label %.backedge
 
 18492:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %512) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %512)
   store i64 %3, ptr %512, align 16, !tbaa !16
   %18493 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18494 = load i32, ptr %18493, align 4, !tbaa !447
@@ -29143,7 +29137,7 @@ pm_location_new.exit5402:                         ; preds = %18455, %18480, %184
   br i1 %4, label %18502, label %18516
 
 18502:                                            ; preds = %18492
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i64 %3, ptr %64, align 16, !tbaa !16
   %18503 = load ptr, ptr %546, align 8, !tbaa !18
   %18504 = ptrtoint ptr %18499 to i64
@@ -29160,7 +29154,7 @@ pm_location_new.exit5402:                         ; preds = %18455, %18480, %184
   %18513 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18514 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %64, i64 noundef %18513) #5
   %18515 = call i64 @rb_obj_freeze(i64 noundef %18514) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %pm_location_new.exit5405
 
 18516:                                            ; preds = %18492
@@ -29201,7 +29195,7 @@ pm_location_new.exit5405:                         ; preds = %18502, %18527, %185
   br i1 %4, label %18541, label %18555
 
 18541:                                            ; preds = %pm_location_new.exit5405
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store i64 %3, ptr %63, align 16, !tbaa !16
   %18542 = load ptr, ptr %546, align 8, !tbaa !18
   %18543 = ptrtoint ptr %18538 to i64
@@ -29218,7 +29212,7 @@ pm_location_new.exit5405:                         ; preds = %18502, %18527, %185
   %18552 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18553 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %63, i64 noundef %18552) #5
   %18554 = call i64 @rb_obj_freeze(i64 noundef %18553) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %pm_location_new.exit5408
 
 18555:                                            ; preds = %pm_location_new.exit5405
@@ -29284,7 +29278,7 @@ pm_location_new.exit5408:                         ; preds = %18541, %18566, %185
 18590:                                            ; preds = %18581
   %18591 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %18592 = load ptr, ptr %18591, align 8, !tbaa !978
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i64 %3, ptr %62, align 16, !tbaa !16
   %18593 = load ptr, ptr %546, align 8, !tbaa !18
   %18594 = ptrtoint ptr %18585 to i64
@@ -29301,7 +29295,7 @@ pm_location_new.exit5408:                         ; preds = %18541, %18566, %185
   %18603 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18604 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %62, i64 noundef %18603) #5
   %18605 = call i64 @rb_obj_freeze(i64 noundef %18604) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %pm_location_new.exit5410
 
 18606:                                            ; preds = %.thread5951
@@ -29347,11 +29341,11 @@ pm_location_new.exit5410:                         ; preds = %18622, %18619, %185
 
 18632:                                            ; preds = %18630, %pm_location_new.exit5410
   %18633 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18629) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %512) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %512)
   br label %.backedge
 
 18634:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %513) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %513)
   store i64 %3, ptr %513, align 16, !tbaa !16
   %18635 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18636 = load i32, ptr %18635, align 4, !tbaa !447
@@ -29366,7 +29360,7 @@ pm_location_new.exit5410:                         ; preds = %18622, %18619, %185
   br i1 %4, label %18644, label %18658
 
 18644:                                            ; preds = %18634
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store i64 %3, ptr %61, align 16, !tbaa !16
   %18645 = load ptr, ptr %546, align 8, !tbaa !18
   %18646 = ptrtoint ptr %18641 to i64
@@ -29383,7 +29377,7 @@ pm_location_new.exit5410:                         ; preds = %18622, %18619, %185
   %18655 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18656 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %61, i64 noundef %18655) #5
   %18657 = call i64 @rb_obj_freeze(i64 noundef %18656) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %pm_location_new.exit5413
 
 18658:                                            ; preds = %18634
@@ -29454,7 +29448,7 @@ rb_array_const_ptr.exit5417:                      ; preds = %18682, %18685
   br i1 %4, label %pm_location_new.exit5419.thread5954, label %18716
 
 pm_location_new.exit5419.thread5954:              ; preds = %18696
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i64 %3, ptr %60, align 16, !tbaa !16
   %18699 = load ptr, ptr %546, align 8, !tbaa !18
   %18700 = ptrtoint ptr %18694 to i64
@@ -29471,7 +29465,7 @@ pm_location_new.exit5419.thread5954:              ; preds = %18696
   %18709 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18710 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %60, i64 noundef %18709) #5
   %18711 = call i64 @rb_obj_freeze(i64 noundef %18710) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   store i64 %18711, ptr %780, align 8, !tbaa !16
   %18712 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %18713 = load ptr, ptr %18712, align 8, !tbaa !983
@@ -29552,7 +29546,7 @@ pm_location_new.exit5421.thread:                  ; preds = %18753, %18756
 18760:                                            ; preds = %pm_location_new.exit5419.thread5954, %pm_location_new.exit5419
   %18761 = phi ptr [ %18715, %pm_location_new.exit5419.thread5954 ], [ %18739, %pm_location_new.exit5419 ]
   %18762 = phi ptr [ %18713, %pm_location_new.exit5419.thread5954 ], [ %18737, %pm_location_new.exit5419 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i64 %3, ptr %59, align 16, !tbaa !16
   %18763 = load ptr, ptr %546, align 8, !tbaa !18
   %18764 = ptrtoint ptr %18762 to i64
@@ -29569,7 +29563,7 @@ pm_location_new.exit5421.thread:                  ; preds = %18753, %18756
   %18773 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18774 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %59, i64 noundef %18773) #5
   %18775 = call i64 @rb_obj_freeze(i64 noundef %18774) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   store i64 %18775, ptr %783, align 16, !tbaa !16
   %18776 = load i64, ptr @rb_cPrismRestParameterNode, align 8, !tbaa !16
   %18777 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %513, i64 noundef %18776) #5
@@ -29579,11 +29573,11 @@ pm_location_new.exit5421.thread:                  ; preds = %18753, %18756
 18779:                                            ; preds = %pm_location_new.exit5421.thread, %18760
   %18780 = phi i64 [ %18759, %pm_location_new.exit5421.thread ], [ %18777, %18760 ]
   %18781 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18780) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %513) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %513)
   br label %.backedge
 
 18782:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %514) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %514)
   store i64 %3, ptr %514, align 16, !tbaa !16
   %18783 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18784 = load i32, ptr %18783, align 4, !tbaa !447
@@ -29598,7 +29592,7 @@ pm_location_new.exit5421.thread:                  ; preds = %18753, %18756
   br i1 %4, label %18792, label %18806
 
 18792:                                            ; preds = %18782
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store i64 %3, ptr %58, align 16, !tbaa !16
   %18793 = load ptr, ptr %546, align 8, !tbaa !18
   %18794 = ptrtoint ptr %18789 to i64
@@ -29615,7 +29609,7 @@ pm_location_new.exit5421.thread:                  ; preds = %18753, %18756
   %18803 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18804 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %58, i64 noundef %18803) #5
   %18805 = call i64 @rb_obj_freeze(i64 noundef %18804) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %pm_location_new.exit5424
 
 18806:                                            ; preds = %18782
@@ -29659,11 +29653,11 @@ pm_location_new.exit5424:                         ; preds = %18792, %18817, %188
 
 18831:                                            ; preds = %18829, %pm_location_new.exit5424
   %18832 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18828) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %514) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %514)
   br label %.backedge
 
 18833:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %515) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %515)
   store i64 %3, ptr %515, align 16, !tbaa !16
   %18834 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18835 = load i32, ptr %18834, align 4, !tbaa !447
@@ -29678,7 +29672,7 @@ pm_location_new.exit5424:                         ; preds = %18792, %18817, %188
   br i1 %4, label %18843, label %18857
 
 18843:                                            ; preds = %18833
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i64 %3, ptr %57, align 16, !tbaa !16
   %18844 = load ptr, ptr %546, align 8, !tbaa !18
   %18845 = ptrtoint ptr %18840 to i64
@@ -29695,7 +29689,7 @@ pm_location_new.exit5424:                         ; preds = %18792, %18817, %188
   %18854 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18855 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %57, i64 noundef %18854) #5
   %18856 = call i64 @rb_obj_freeze(i64 noundef %18855) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %pm_location_new.exit5428
 
 18857:                                            ; preds = %18833
@@ -29736,7 +29730,7 @@ pm_location_new.exit5428:                         ; preds = %18843, %18868, %188
   br i1 %4, label %18882, label %18896
 
 18882:                                            ; preds = %pm_location_new.exit5428
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i64 %3, ptr %56, align 16, !tbaa !16
   %18883 = load ptr, ptr %546, align 8, !tbaa !18
   %18884 = ptrtoint ptr %18879 to i64
@@ -29753,7 +29747,7 @@ pm_location_new.exit5428:                         ; preds = %18843, %18868, %188
   %18893 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18894 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %56, i64 noundef %18893) #5
   %18895 = call i64 @rb_obj_freeze(i64 noundef %18894) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %pm_location_new.exit5431
 
 18896:                                            ; preds = %pm_location_new.exit5428
@@ -29793,11 +29787,11 @@ pm_location_new.exit5431:                         ; preds = %18882, %18907, %189
 
 18917:                                            ; preds = %18915, %pm_location_new.exit5431
   %18918 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18914) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %515) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %515)
   br label %.backedge
 
 18919:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %516) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %516)
   store i64 %3, ptr %516, align 16, !tbaa !16
   %18920 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18921 = load i32, ptr %18920, align 4, !tbaa !447
@@ -29812,7 +29806,7 @@ pm_location_new.exit5431:                         ; preds = %18882, %18907, %189
   br i1 %4, label %18929, label %18943
 
 18929:                                            ; preds = %18919
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i64 %3, ptr %55, align 16, !tbaa !16
   %18930 = load ptr, ptr %546, align 8, !tbaa !18
   %18931 = ptrtoint ptr %18926 to i64
@@ -29829,7 +29823,7 @@ pm_location_new.exit5431:                         ; preds = %18882, %18907, %189
   %18940 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18941 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %55, i64 noundef %18940) #5
   %18942 = call i64 @rb_obj_freeze(i64 noundef %18941) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %pm_location_new.exit5434
 
 18943:                                            ; preds = %18919
@@ -29873,11 +29867,11 @@ pm_location_new.exit5434:                         ; preds = %18929, %18954, %189
 
 18968:                                            ; preds = %18966, %pm_location_new.exit5434
   %18969 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %18965) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %516) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %516)
   br label %.backedge
 
 18970:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %517) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %517)
   store i64 %3, ptr %517, align 16, !tbaa !16
   %18971 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %18972 = load i32, ptr %18971, align 4, !tbaa !447
@@ -29892,7 +29886,7 @@ pm_location_new.exit5434:                         ; preds = %18929, %18954, %189
   br i1 %4, label %18980, label %18994
 
 18980:                                            ; preds = %18970
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i64 %3, ptr %54, align 16, !tbaa !16
   %18981 = load ptr, ptr %546, align 8, !tbaa !18
   %18982 = ptrtoint ptr %18977 to i64
@@ -29909,7 +29903,7 @@ pm_location_new.exit5434:                         ; preds = %18929, %18954, %189
   %18991 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %18992 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %54, i64 noundef %18991) #5
   %18993 = call i64 @rb_obj_freeze(i64 noundef %18992) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %pm_location_new.exit5438
 
 18994:                                            ; preds = %18970
@@ -29955,11 +29949,11 @@ pm_location_new.exit5438:                         ; preds = %18980, %19005, %190
 
 19020:                                            ; preds = %19018, %pm_location_new.exit5438
   %19021 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19017) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %517) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %517)
   br label %.backedge
 
 19022:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %518) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %518)
   store i64 %3, ptr %518, align 16, !tbaa !16
   %19023 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19024 = load i32, ptr %19023, align 4, !tbaa !447
@@ -29974,7 +29968,7 @@ pm_location_new.exit5438:                         ; preds = %18980, %19005, %190
   br i1 %4, label %19032, label %19046
 
 19032:                                            ; preds = %19022
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i64 %3, ptr %53, align 16, !tbaa !16
   %19033 = load ptr, ptr %546, align 8, !tbaa !18
   %19034 = ptrtoint ptr %19029 to i64
@@ -29991,7 +29985,7 @@ pm_location_new.exit5438:                         ; preds = %18980, %19005, %190
   %19043 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19044 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %53, i64 noundef %19043) #5
   %19045 = call i64 @rb_obj_freeze(i64 noundef %19044) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %pm_location_new.exit5442
 
 19046:                                            ; preds = %19022
@@ -30102,7 +30096,7 @@ rb_array_const_ptr.exit5446:                      ; preds = %19072, %19076
   %19113 = load ptr, ptr %19112, align 8, !tbaa !990
   %19114 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %19115 = load ptr, ptr %19114, align 8, !tbaa !991
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i64 %3, ptr %52, align 16, !tbaa !16
   %19116 = load ptr, ptr %546, align 8, !tbaa !18
   %19117 = ptrtoint ptr %19113 to i64
@@ -30119,13 +30113,13 @@ rb_array_const_ptr.exit5446:                      ; preds = %19072, %19076
   %19126 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19127 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %52, i64 noundef %19126) #5
   %19128 = call i64 @rb_obj_freeze(i64 noundef %19127) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   store i64 %19128, ptr %738, align 8, !tbaa !16
   %19129 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %19130 = load ptr, ptr %19129, align 8, !tbaa !992
   %19131 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %19132 = load ptr, ptr %19131, align 8, !tbaa !993
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i64 %3, ptr %51, align 16, !tbaa !16
   %19133 = load ptr, ptr %546, align 8, !tbaa !18
   %19134 = ptrtoint ptr %19130 to i64
@@ -30142,7 +30136,7 @@ rb_array_const_ptr.exit5446:                      ; preds = %19072, %19076
   %19143 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19144 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %51, i64 noundef %19143) #5
   %19145 = call i64 @rb_obj_freeze(i64 noundef %19144) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %pm_location_new.exit5450
 
 19146:                                            ; preds = %19104, %19107
@@ -30215,7 +30209,7 @@ pm_location_new.exit5452.thread:                  ; preds = %19181, %19184
   br label %19205
 
 19188:                                            ; preds = %pm_location_new.exit5450
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i64 %3, ptr %50, align 16, !tbaa !16
   %19189 = load ptr, ptr %546, align 8, !tbaa !18
   %19190 = ptrtoint ptr %19167 to i64
@@ -30232,7 +30226,7 @@ pm_location_new.exit5452.thread:                  ; preds = %19181, %19184
   %19199 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19200 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %50, i64 noundef %19199) #5
   %19201 = call i64 @rb_obj_freeze(i64 noundef %19200) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   store i64 %19201, ptr %746, align 8, !tbaa !16
   %19202 = load i64, ptr @rb_cPrismSingletonClassNode, align 8, !tbaa !16
   %19203 = call i64 @rb_class_new_instance(i32 noundef 10, ptr noundef nonnull %518, i64 noundef %19202) #5
@@ -30242,11 +30236,11 @@ pm_location_new.exit5452.thread:                  ; preds = %19181, %19184
 19205:                                            ; preds = %pm_location_new.exit5452.thread, %19188
   %19206 = phi i64 [ %19187, %pm_location_new.exit5452.thread ], [ %19203, %19188 ]
   %19207 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19206) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %518) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %518)
   br label %.backedge
 
 19208:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %519) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %519)
   store i64 %3, ptr %519, align 16, !tbaa !16
   %19209 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19210 = load i32, ptr %19209, align 4, !tbaa !447
@@ -30261,7 +30255,7 @@ pm_location_new.exit5452.thread:                  ; preds = %19181, %19184
   br i1 %4, label %19218, label %19232
 
 19218:                                            ; preds = %19208
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 %3, ptr %49, align 16, !tbaa !16
   %19219 = load ptr, ptr %546, align 8, !tbaa !18
   %19220 = ptrtoint ptr %19215 to i64
@@ -30278,7 +30272,7 @@ pm_location_new.exit5452.thread:                  ; preds = %19181, %19184
   %19229 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19230 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %49, i64 noundef %19229) #5
   %19231 = call i64 @rb_obj_freeze(i64 noundef %19230) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %pm_location_new.exit5455
 
 19232:                                            ; preds = %19208
@@ -30322,11 +30316,11 @@ pm_location_new.exit5455:                         ; preds = %19218, %19243, %192
 
 19257:                                            ; preds = %19255, %pm_location_new.exit5455
   %19258 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19254) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %519) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %519)
   br label %.backedge
 
 19259:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %520) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %520)
   store i64 %3, ptr %520, align 16, !tbaa !16
   %19260 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19261 = load i32, ptr %19260, align 4, !tbaa !447
@@ -30341,7 +30335,7 @@ pm_location_new.exit5455:                         ; preds = %19218, %19243, %192
   br i1 %4, label %19269, label %19283
 
 19269:                                            ; preds = %19259
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 %3, ptr %48, align 16, !tbaa !16
   %19270 = load ptr, ptr %546, align 8, !tbaa !18
   %19271 = ptrtoint ptr %19266 to i64
@@ -30358,7 +30352,7 @@ pm_location_new.exit5455:                         ; preds = %19218, %19243, %192
   %19280 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19281 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %48, i64 noundef %19280) #5
   %19282 = call i64 @rb_obj_freeze(i64 noundef %19281) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %pm_location_new.exit5459
 
 19283:                                            ; preds = %19259
@@ -30408,11 +30402,11 @@ pm_location_new.exit5459:                         ; preds = %19269, %19294, %192
 
 19313:                                            ; preds = %19311, %pm_location_new.exit5459
   %19314 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19310) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %520) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %520)
   br label %.backedge
 
 19315:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %521) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %521)
   store i64 %3, ptr %521, align 16, !tbaa !16
   %19316 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19317 = load i32, ptr %19316, align 4, !tbaa !447
@@ -30427,7 +30421,7 @@ pm_location_new.exit5459:                         ; preds = %19269, %19294, %192
   br i1 %4, label %19325, label %19339
 
 19325:                                            ; preds = %19315
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 %3, ptr %47, align 16, !tbaa !16
   %19326 = load ptr, ptr %546, align 8, !tbaa !18
   %19327 = ptrtoint ptr %19322 to i64
@@ -30444,7 +30438,7 @@ pm_location_new.exit5459:                         ; preds = %19269, %19294, %192
   %19336 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19337 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %47, i64 noundef %19336) #5
   %19338 = call i64 @rb_obj_freeze(i64 noundef %19337) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %pm_location_new.exit5463
 
 19339:                                            ; preds = %19315
@@ -30488,11 +30482,11 @@ pm_location_new.exit5463:                         ; preds = %19325, %19350, %193
 
 19364:                                            ; preds = %19362, %pm_location_new.exit5463
   %19365 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19361) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %521) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %521)
   br label %.backedge
 
 19366:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %522) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %522)
   store i64 %3, ptr %522, align 16, !tbaa !16
   %19367 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19368 = load i32, ptr %19367, align 4, !tbaa !447
@@ -30507,7 +30501,7 @@ pm_location_new.exit5463:                         ; preds = %19325, %19350, %193
   br i1 %4, label %19376, label %19390
 
 19376:                                            ; preds = %19366
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i64 %3, ptr %46, align 16, !tbaa !16
   %19377 = load ptr, ptr %546, align 8, !tbaa !18
   %19378 = ptrtoint ptr %19373 to i64
@@ -30524,7 +30518,7 @@ pm_location_new.exit5463:                         ; preds = %19325, %19350, %193
   %19387 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19388 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %46, i64 noundef %19387) #5
   %19389 = call i64 @rb_obj_freeze(i64 noundef %19388) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %pm_location_new.exit5467
 
 19390:                                            ; preds = %19366
@@ -30565,7 +30559,7 @@ pm_location_new.exit5467:                         ; preds = %19376, %19401, %194
   br i1 %4, label %19415, label %19429
 
 19415:                                            ; preds = %pm_location_new.exit5467
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 %3, ptr %45, align 16, !tbaa !16
   %19416 = load ptr, ptr %546, align 8, !tbaa !18
   %19417 = ptrtoint ptr %19412 to i64
@@ -30582,7 +30576,7 @@ pm_location_new.exit5467:                         ; preds = %19376, %19401, %194
   %19426 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19427 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %45, i64 noundef %19426) #5
   %19428 = call i64 @rb_obj_freeze(i64 noundef %19427) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %pm_location_new.exit5470
 
 19429:                                            ; preds = %pm_location_new.exit5467
@@ -30622,11 +30616,11 @@ pm_location_new.exit5470:                         ; preds = %19415, %19440, %194
 
 19450:                                            ; preds = %19448, %pm_location_new.exit5470
   %19451 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19447) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %522) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %522)
   br label %.backedge
 
 19452:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %523) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %523)
   store i64 %3, ptr %523, align 16, !tbaa !16
   %19453 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19454 = load i32, ptr %19453, align 4, !tbaa !447
@@ -30641,7 +30635,7 @@ pm_location_new.exit5470:                         ; preds = %19415, %19440, %194
   br i1 %4, label %19462, label %19476
 
 19462:                                            ; preds = %19452
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 %3, ptr %44, align 16, !tbaa !16
   %19463 = load ptr, ptr %546, align 8, !tbaa !18
   %19464 = ptrtoint ptr %19459 to i64
@@ -30658,7 +30652,7 @@ pm_location_new.exit5470:                         ; preds = %19415, %19440, %194
   %19473 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19474 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %44, i64 noundef %19473) #5
   %19475 = call i64 @rb_obj_freeze(i64 noundef %19474) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %pm_location_new.exit5473
 
 19476:                                            ; preds = %19452
@@ -30729,11 +30723,11 @@ pm_location_new.exit5473:                         ; preds = %19462, %19487, %194
 19516:                                            ; preds = %19507, %19510
   %19517 = phi i64 [ %19514, %19510 ], [ %19509, %19507 ]
   %19518 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19517) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %523) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %523)
   br label %.backedge
 
 19519:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %524) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %524)
   store i64 %3, ptr %524, align 16, !tbaa !16
   %19520 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19521 = load i32, ptr %19520, align 4, !tbaa !447
@@ -30748,7 +30742,7 @@ pm_location_new.exit5473:                         ; preds = %19462, %19487, %194
   br i1 %4, label %19529, label %19543
 
 19529:                                            ; preds = %19519
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i64 %3, ptr %43, align 16, !tbaa !16
   %19530 = load ptr, ptr %546, align 8, !tbaa !18
   %19531 = ptrtoint ptr %19526 to i64
@@ -30765,7 +30759,7 @@ pm_location_new.exit5473:                         ; preds = %19462, %19487, %194
   %19540 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19541 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %43, i64 noundef %19540) #5
   %19542 = call i64 @rb_obj_freeze(i64 noundef %19541) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %pm_location_new.exit5477
 
 19543:                                            ; preds = %19519
@@ -30810,7 +30804,7 @@ pm_location_new.exit5477:                         ; preds = %19529, %19554, %195
   br i1 %4, label %pm_location_new.exit5480.thread5961, label %19587
 
 pm_location_new.exit5480.thread5961:              ; preds = %19567
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i64 %3, ptr %42, align 16, !tbaa !16
   %19570 = load ptr, ptr %546, align 8, !tbaa !18
   %19571 = ptrtoint ptr %19565 to i64
@@ -30827,7 +30821,7 @@ pm_location_new.exit5480.thread5961:              ; preds = %19567
   %19580 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19581 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %42, i64 noundef %19580) #5
   %19582 = call i64 @rb_obj_freeze(i64 noundef %19581) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   store i64 %19582, ptr %688, align 16, !tbaa !16
   %19583 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %19584 = load ptr, ptr %19583, align 8, !tbaa !1002
@@ -30909,7 +30903,7 @@ pm_location_new.exit5482:                         ; preds = %19624, %19627
 pm_location_new.exit5482.thread:                  ; preds = %pm_location_new.exit5480, %pm_location_new.exit5480.thread5961
   %19632 = phi ptr [ %19586, %pm_location_new.exit5480.thread5961 ], [ %19610, %pm_location_new.exit5480 ]
   %19633 = phi ptr [ %19584, %pm_location_new.exit5480.thread5961 ], [ %19608, %pm_location_new.exit5480 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 %3, ptr %41, align 16, !tbaa !16
   %19634 = load ptr, ptr %546, align 8, !tbaa !18
   %19635 = ptrtoint ptr %19633 to i64
@@ -30926,7 +30920,7 @@ pm_location_new.exit5482.thread:                  ; preds = %pm_location_new.exi
   %19644 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19645 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %41, i64 noundef %19644) #5
   %19646 = call i64 @rb_obj_freeze(i64 noundef %19645) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   store i64 %19646, ptr %691, align 8, !tbaa !16
   %19647 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %19648 = load ptr, ptr %19647, align 8, !tbaa !1004
@@ -30937,7 +30931,7 @@ pm_location_new.exit5482.thread:                  ; preds = %pm_location_new.exi
   %19651 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %19652 = load ptr, ptr %19651, align 8, !tbaa !1005
   %.pre6424 = load ptr, ptr %546, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 %3, ptr %40, align 16, !tbaa !16
   %19653 = ptrtoint ptr %19648 to i64
   %19654 = ptrtoint ptr %.pre6424 to i64
@@ -30953,7 +30947,7 @@ pm_location_new.exit5482.thread:                  ; preds = %pm_location_new.exi
   %19662 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19663 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %40, i64 noundef %19662) #5
   %19664 = call i64 @rb_obj_freeze(i64 noundef %19663) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %pm_location_new.exit5484
 
 19665:                                            ; preds = %pm_location_new.exit5482
@@ -30999,11 +30993,11 @@ pm_location_new.exit5484:                         ; preds = %19680, %19677, %196
 
 19692:                                            ; preds = %19690, %pm_location_new.exit5484
   %19693 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19689) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %524) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %524)
   br label %.backedge
 
 19694:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %525) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %525)
   store i64 %3, ptr %525, align 16, !tbaa !16
   %19695 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19696 = load i32, ptr %19695, align 4, !tbaa !447
@@ -31018,7 +31012,7 @@ pm_location_new.exit5484:                         ; preds = %19680, %19677, %196
   br i1 %4, label %19704, label %19718
 
 19704:                                            ; preds = %19694
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 %3, ptr %39, align 16, !tbaa !16
   %19705 = load ptr, ptr %546, align 8, !tbaa !18
   %19706 = ptrtoint ptr %19701 to i64
@@ -31035,7 +31029,7 @@ pm_location_new.exit5484:                         ; preds = %19680, %19677, %196
   %19715 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19716 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %39, i64 noundef %19715) #5
   %19717 = call i64 @rb_obj_freeze(i64 noundef %19716) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %pm_location_new.exit5487
 
 19718:                                            ; preds = %19694
@@ -31106,7 +31100,7 @@ pm_location_new.exit5490:                         ; preds = %19754, %19757
   br i1 %19761, label %pm_location_new.exit5492, label %19793
 
 pm_location_new.exit5490.thread:                  ; preds = %pm_location_new.exit5487
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 %3, ptr %38, align 16, !tbaa !16
   %19762 = load ptr, ptr %546, align 8, !tbaa !18
   %19763 = ptrtoint ptr %19740 to i64
@@ -31123,7 +31117,7 @@ pm_location_new.exit5490.thread:                  ; preds = %pm_location_new.exi
   %19772 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19773 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %38, i64 noundef %19772) #5
   %19774 = call i64 @rb_obj_freeze(i64 noundef %19773) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   store i64 %19774, ptr %672, align 16, !tbaa !16
   %19775 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %19776 = load ptr, ptr %19775, align 8, !tbaa !1008
@@ -31135,7 +31129,7 @@ pm_location_new.exit5490.thread:                  ; preds = %pm_location_new.exi
   %19779 = load ptr, ptr %19778, align 8, !tbaa !1009
   %19780 = ptrtoint ptr %19776 to i64
   %19781 = ptrtoint ptr %19779 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 %3, ptr %37, align 16, !tbaa !16
   %19782 = load ptr, ptr %546, align 8, !tbaa !18
   %19783 = ptrtoint ptr %19782 to i64
@@ -31150,7 +31144,7 @@ pm_location_new.exit5490.thread:                  ; preds = %pm_location_new.exi
   %19790 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19791 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %37, i64 noundef %19790) #5
   %19792 = call i64 @rb_obj_freeze(i64 noundef %19791) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %pm_location_new.exit5492
 
 19793:                                            ; preds = %pm_location_new.exit5490
@@ -31193,7 +31187,7 @@ pm_location_new.exit5492:                         ; preds = %19809, %19806, %.th
   br i1 %4, label %19819, label %19833
 
 19819:                                            ; preds = %19816
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 %3, ptr %36, align 16, !tbaa !16
   %19820 = load ptr, ptr %546, align 8, !tbaa !18
   %19821 = ptrtoint ptr %19814 to i64
@@ -31210,7 +31204,7 @@ pm_location_new.exit5492:                         ; preds = %19809, %19806, %.th
   %19830 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19831 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %36, i64 noundef %19830) #5
   %19832 = call i64 @rb_obj_freeze(i64 noundef %19831) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %pm_location_new.exit5494
 
 19833:                                            ; preds = %19816
@@ -31250,11 +31244,11 @@ pm_location_new.exit5494:                         ; preds = %19847, %19844, %198
 
 19855:                                            ; preds = %19853, %pm_location_new.exit5494
   %19856 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %19852) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %525) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %525)
   br label %.backedge
 
 19857:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %526) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %526)
   store i64 %3, ptr %526, align 16, !tbaa !16
   %19858 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %19859 = load i32, ptr %19858, align 4, !tbaa !447
@@ -31269,7 +31263,7 @@ pm_location_new.exit5494:                         ; preds = %19847, %19844, %198
   br i1 %4, label %19867, label %19881
 
 19867:                                            ; preds = %19857
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 %3, ptr %35, align 16, !tbaa !16
   %19868 = load ptr, ptr %546, align 8, !tbaa !18
   %19869 = ptrtoint ptr %19864 to i64
@@ -31286,7 +31280,7 @@ pm_location_new.exit5494:                         ; preds = %19847, %19844, %198
   %19878 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19879 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %35, i64 noundef %19878) #5
   %19880 = call i64 @rb_obj_freeze(i64 noundef %19879) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %pm_location_new.exit5497
 
 19881:                                            ; preds = %19857
@@ -31361,7 +31355,7 @@ pm_location_new.exit5500:                         ; preds = %19922, %19919, %pm_
   br i1 %19927, label %pm_location_new.exit5502, label %19946
 
 pm_location_new.exit5500.thread:                  ; preds = %19905
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 %3, ptr %34, align 16, !tbaa !16
   %19928 = load ptr, ptr %546, align 8, !tbaa !18
   %19929 = ptrtoint ptr %19903 to i64
@@ -31378,7 +31372,7 @@ pm_location_new.exit5500.thread:                  ; preds = %19905
   %19938 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19939 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %34, i64 noundef %19938) #5
   %19940 = call i64 @rb_obj_freeze(i64 noundef %19939) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   store i64 %19940, ptr %659, align 16, !tbaa !16
   %19941 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %19942 = load ptr, ptr %19941, align 8, !tbaa !1015
@@ -31401,7 +31395,7 @@ pm_location_new.exit5500.thread:                  ; preds = %19905
   %19950 = phi ptr [ %.pre6422, %.thread5966 ], [ %.pre6423, %19946 ]
   %19951 = phi ptr [ %19945, %.thread5966 ], [ %19948, %19946 ]
   %19952 = phi ptr [ %19942, %.thread5966 ], [ %19926, %19946 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 %3, ptr %33, align 16, !tbaa !16
   %19953 = ptrtoint ptr %19952 to i64
   %19954 = ptrtoint ptr %19950 to i64
@@ -31417,7 +31411,7 @@ pm_location_new.exit5500.thread:                  ; preds = %19905
   %19962 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19963 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %33, i64 noundef %19962) #5
   %19964 = call i64 @rb_obj_freeze(i64 noundef %19963) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %pm_location_new.exit5502
 
 19965:                                            ; preds = %19946
@@ -31455,7 +31449,7 @@ pm_location_new.exit5502:                         ; preds = %19978, %19975, %199
   br i1 %4, label %19987, label %20001
 
 19987:                                            ; preds = %19984
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 %3, ptr %32, align 16, !tbaa !16
   %19988 = load ptr, ptr %546, align 8, !tbaa !18
   %19989 = ptrtoint ptr %19982 to i64
@@ -31472,7 +31466,7 @@ pm_location_new.exit5502:                         ; preds = %19978, %19975, %199
   %19998 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %19999 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %32, i64 noundef %19998) #5
   %20000 = call i64 @rb_obj_freeze(i64 noundef %19999) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %pm_location_new.exit5504
 
 20001:                                            ; preds = %19984
@@ -31516,11 +31510,11 @@ pm_location_new.exit5504:                         ; preds = %20015, %20012, %199
 
 20027:                                            ; preds = %20025, %pm_location_new.exit5504
   %20028 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20024) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %526) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %526)
   br label %.backedge
 
 20029:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %527) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %527)
   store i64 %3, ptr %527, align 16, !tbaa !16
   %20030 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20031 = load i32, ptr %20030, align 4, !tbaa !447
@@ -31535,7 +31529,7 @@ pm_location_new.exit5504:                         ; preds = %20015, %20012, %199
   br i1 %4, label %20039, label %20053
 
 20039:                                            ; preds = %20029
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 %3, ptr %31, align 16, !tbaa !16
   %20040 = load ptr, ptr %546, align 8, !tbaa !18
   %20041 = ptrtoint ptr %20036 to i64
@@ -31552,7 +31546,7 @@ pm_location_new.exit5504:                         ; preds = %20015, %20012, %199
   %20050 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20051 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %31, i64 noundef %20050) #5
   %20052 = call i64 @rb_obj_freeze(i64 noundef %20051) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %pm_location_new.exit5507
 
 20053:                                            ; preds = %20029
@@ -31596,11 +31590,11 @@ pm_location_new.exit5507:                         ; preds = %20039, %20064, %200
 
 20078:                                            ; preds = %20076, %pm_location_new.exit5507
   %20079 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20075) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %527) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %527)
   br label %.backedge
 
 20080:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %528) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %528)
   store i64 %3, ptr %528, align 16, !tbaa !16
   %20081 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20082 = load i32, ptr %20081, align 4, !tbaa !447
@@ -31615,7 +31609,7 @@ pm_location_new.exit5507:                         ; preds = %20039, %20064, %200
   br i1 %4, label %20090, label %20104
 
 20090:                                            ; preds = %20080
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 %3, ptr %30, align 16, !tbaa !16
   %20091 = load ptr, ptr %546, align 8, !tbaa !18
   %20092 = ptrtoint ptr %20087 to i64
@@ -31632,7 +31626,7 @@ pm_location_new.exit5507:                         ; preds = %20039, %20064, %200
   %20101 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20102 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %30, i64 noundef %20101) #5
   %20103 = call i64 @rb_obj_freeze(i64 noundef %20102) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %pm_location_new.exit5511
 
 20104:                                            ; preds = %20080
@@ -31727,7 +31721,7 @@ pm_location_new.exit5514.thread:                  ; preds = %20150, %20153
   %20161 = load ptr, ptr %20160, align 8, !tbaa !1020
   %20162 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %20163 = load ptr, ptr %20162, align 8, !tbaa !1021
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 %3, ptr %29, align 16, !tbaa !16
   %20164 = load ptr, ptr %546, align 8, !tbaa !18
   %20165 = ptrtoint ptr %20161 to i64
@@ -31744,7 +31738,7 @@ pm_location_new.exit5514.thread:                  ; preds = %20150, %20153
   %20174 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20175 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %29, i64 noundef %20174) #5
   %20176 = call i64 @rb_obj_freeze(i64 noundef %20175) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   store i64 %20176, ptr %644, align 8, !tbaa !16
   %20177 = load i64, ptr @rb_cPrismUndefNode, align 8, !tbaa !16
   %20178 = call i64 @rb_class_new_instance(i32 noundef 6, ptr noundef nonnull %528, i64 noundef %20177) #5
@@ -31754,11 +31748,11 @@ pm_location_new.exit5514.thread:                  ; preds = %20150, %20153
 20180:                                            ; preds = %pm_location_new.exit5514.thread, %20157
   %20181 = phi i64 [ %20156, %pm_location_new.exit5514.thread ], [ %20178, %20157 ]
   %20182 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20181) #5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %528) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %528)
   br label %.backedge
 
 20183:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %529) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %529)
   store i64 %3, ptr %529, align 16, !tbaa !16
   %20184 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20185 = load i32, ptr %20184, align 4, !tbaa !447
@@ -31773,7 +31767,7 @@ pm_location_new.exit5514.thread:                  ; preds = %20150, %20153
   br i1 %4, label %20193, label %20207
 
 20193:                                            ; preds = %20183
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 %3, ptr %28, align 16, !tbaa !16
   %20194 = load ptr, ptr %546, align 8, !tbaa !18
   %20195 = ptrtoint ptr %20190 to i64
@@ -31790,7 +31784,7 @@ pm_location_new.exit5514.thread:                  ; preds = %20150, %20153
   %20204 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20205 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %28, i64 noundef %20204) #5
   %20206 = call i64 @rb_obj_freeze(i64 noundef %20205) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %pm_location_new.exit5517
 
 20207:                                            ; preds = %20183
@@ -31831,7 +31825,7 @@ pm_location_new.exit5517:                         ; preds = %20193, %20218, %202
   br i1 %4, label %20232, label %20246
 
 20232:                                            ; preds = %pm_location_new.exit5517
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 %3, ptr %27, align 16, !tbaa !16
   %20233 = load ptr, ptr %546, align 8, !tbaa !18
   %20234 = ptrtoint ptr %20229 to i64
@@ -31848,7 +31842,7 @@ pm_location_new.exit5517:                         ; preds = %20193, %20218, %202
   %20243 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20244 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %27, i64 noundef %20243) #5
   %20245 = call i64 @rb_obj_freeze(i64 noundef %20244) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %pm_location_new.exit5520
 
 20246:                                            ; preds = %pm_location_new.exit5517
@@ -31889,7 +31883,7 @@ pm_location_new.exit5520:                         ; preds = %20232, %20257, %202
   br i1 %4, label %20269, label %20283
 
 20269:                                            ; preds = %20266
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 %3, ptr %26, align 16, !tbaa !16
   %20270 = load ptr, ptr %546, align 8, !tbaa !18
   %20271 = ptrtoint ptr %20264 to i64
@@ -31906,7 +31900,7 @@ pm_location_new.exit5520:                         ; preds = %20232, %20257, %202
   %20280 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20281 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %26, i64 noundef %20280) #5
   %20282 = call i64 @rb_obj_freeze(i64 noundef %20281) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %pm_location_new.exit5522
 
 20283:                                            ; preds = %20266
@@ -31949,7 +31943,7 @@ pm_location_new.exit5522:                         ; preds = %20297, %20294, %202
   br i1 %4, label %pm_location_new.exit5524.thread5970, label %20323
 
 pm_location_new.exit5524.thread5970:              ; preds = %20305
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 %3, ptr %25, align 16, !tbaa !16
   %20308 = load ptr, ptr %546, align 8, !tbaa !18
   %20309 = ptrtoint ptr %20303 to i64
@@ -31966,7 +31960,7 @@ pm_location_new.exit5524.thread5970:              ; preds = %20305
   %20318 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20319 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %25, i64 noundef %20318) #5
   %20320 = call i64 @rb_obj_freeze(i64 noundef %20319) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store i64 %20320, ptr %635, align 8, !tbaa !16
   %20321 = load i64, ptr @rb_cPrismUnlessNode, align 8, !tbaa !16
   %20322 = call i64 @rb_class_new_instance(i32 noundef 10, ptr noundef nonnull %529, i64 noundef %20321) #5
@@ -32015,11 +32009,11 @@ pm_location_new.exit5524:                         ; preds = %pm_location_new.exi
 20346:                                            ; preds = %pm_location_new.exit5524.thread, %20343, %pm_location_new.exit5524
   %20347 = phi i64 [ %20340, %pm_location_new.exit5524.thread ], [ %20344, %20343 ], [ %20342, %pm_location_new.exit5524 ]
   %20348 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20347) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %529) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %529)
   br label %.backedge
 
 20349:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %530) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %530)
   store i64 %3, ptr %530, align 16, !tbaa !16
   %20350 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20351 = load i32, ptr %20350, align 4, !tbaa !447
@@ -32034,7 +32028,7 @@ pm_location_new.exit5524:                         ; preds = %pm_location_new.exi
   br i1 %4, label %20359, label %20373
 
 20359:                                            ; preds = %20349
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %3, ptr %24, align 16, !tbaa !16
   %20360 = load ptr, ptr %546, align 8, !tbaa !18
   %20361 = ptrtoint ptr %20356 to i64
@@ -32051,7 +32045,7 @@ pm_location_new.exit5524:                         ; preds = %pm_location_new.exi
   %20370 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20371 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %24, i64 noundef %20370) #5
   %20372 = call i64 @rb_obj_freeze(i64 noundef %20371) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %pm_location_new.exit5527
 
 20373:                                            ; preds = %20349
@@ -32122,7 +32116,7 @@ pm_location_new.exit5530:                         ; preds = %20409, %20412
   br i1 %20416, label %pm_location_new.exit5532, label %20448
 
 pm_location_new.exit5530.thread:                  ; preds = %pm_location_new.exit5527
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %3, ptr %23, align 16, !tbaa !16
   %20417 = load ptr, ptr %546, align 8, !tbaa !18
   %20418 = ptrtoint ptr %20395 to i64
@@ -32139,7 +32133,7 @@ pm_location_new.exit5530.thread:                  ; preds = %pm_location_new.exi
   %20427 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20428 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %23, i64 noundef %20427) #5
   %20429 = call i64 @rb_obj_freeze(i64 noundef %20428) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   store i64 %20429, ptr %610, align 16, !tbaa !16
   %20430 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %20431 = load ptr, ptr %20430, align 8, !tbaa !1030
@@ -32151,7 +32145,7 @@ pm_location_new.exit5530.thread:                  ; preds = %pm_location_new.exi
   %20434 = load ptr, ptr %20433, align 8, !tbaa !1031
   %20435 = ptrtoint ptr %20431 to i64
   %20436 = ptrtoint ptr %20434 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %3, ptr %22, align 16, !tbaa !16
   %20437 = load ptr, ptr %546, align 8, !tbaa !18
   %20438 = ptrtoint ptr %20437 to i64
@@ -32166,7 +32160,7 @@ pm_location_new.exit5530.thread:                  ; preds = %pm_location_new.exi
   %20445 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20446 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %22, i64 noundef %20445) #5
   %20447 = call i64 @rb_obj_freeze(i64 noundef %20446) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %pm_location_new.exit5532
 
 20448:                                            ; preds = %pm_location_new.exit5530
@@ -32207,7 +32201,7 @@ pm_location_new.exit5532:                         ; preds = %20464, %20461, %.th
   br i1 %4, label %20473, label %20487
 
 20473:                                            ; preds = %20470
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %3, ptr %21, align 16, !tbaa !16
   %20474 = load ptr, ptr %546, align 8, !tbaa !18
   %20475 = ptrtoint ptr %20468 to i64
@@ -32224,7 +32218,7 @@ pm_location_new.exit5532:                         ; preds = %20464, %20461, %.th
   %20484 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20485 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %21, i64 noundef %20484) #5
   %20486 = call i64 @rb_obj_freeze(i64 noundef %20485) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %pm_location_new.exit5534
 
 20487:                                            ; preds = %20470
@@ -32266,11 +32260,11 @@ pm_location_new.exit5534:                         ; preds = %20501, %20498, %204
 
 20510:                                            ; preds = %20508, %pm_location_new.exit5534
   %20511 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20507) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %530) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %530)
   br label %.backedge
 
 20512:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %531) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %531)
   store i64 %3, ptr %531, align 16, !tbaa !16
   %20513 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20514 = load i32, ptr %20513, align 4, !tbaa !447
@@ -32285,7 +32279,7 @@ pm_location_new.exit5534:                         ; preds = %20501, %20498, %204
   br i1 %4, label %20522, label %20536
 
 20522:                                            ; preds = %20512
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %3, ptr %20, align 16, !tbaa !16
   %20523 = load ptr, ptr %546, align 8, !tbaa !18
   %20524 = ptrtoint ptr %20519 to i64
@@ -32302,7 +32296,7 @@ pm_location_new.exit5534:                         ; preds = %20501, %20498, %204
   %20533 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20534 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %20, i64 noundef %20533) #5
   %20535 = call i64 @rb_obj_freeze(i64 noundef %20534) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %pm_location_new.exit5537
 
 20536:                                            ; preds = %20512
@@ -32343,7 +32337,7 @@ pm_location_new.exit5537:                         ; preds = %20522, %20547, %205
   br i1 %4, label %20561, label %20575
 
 20561:                                            ; preds = %pm_location_new.exit5537
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %3, ptr %19, align 16, !tbaa !16
   %20562 = load ptr, ptr %546, align 8, !tbaa !18
   %20563 = ptrtoint ptr %20558 to i64
@@ -32360,7 +32354,7 @@ pm_location_new.exit5537:                         ; preds = %20522, %20547, %205
   %20572 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20573 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %19, i64 noundef %20572) #5
   %20574 = call i64 @rb_obj_freeze(i64 noundef %20573) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %pm_location_new.exit5540
 
 20575:                                            ; preds = %pm_location_new.exit5537
@@ -32426,7 +32420,7 @@ pm_location_new.exit5540:                         ; preds = %20561, %20586, %205
 20610:                                            ; preds = %20601
   %20611 = getelementptr inbounds nuw i8, ptr %2279, i64 72
   %20612 = load ptr, ptr %20611, align 8, !tbaa !1038
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %3, ptr %18, align 16, !tbaa !16
   %20613 = load ptr, ptr %546, align 8, !tbaa !18
   %20614 = ptrtoint ptr %20605 to i64
@@ -32443,7 +32437,7 @@ pm_location_new.exit5540:                         ; preds = %20561, %20586, %205
   %20623 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20624 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %18, i64 noundef %20623) #5
   %20625 = call i64 @rb_obj_freeze(i64 noundef %20624) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %pm_location_new.exit5542
 
 20626:                                            ; preds = %.thread5973
@@ -32485,11 +32479,11 @@ pm_location_new.exit5542:                         ; preds = %20642, %20639, %206
 
 20650:                                            ; preds = %20648, %pm_location_new.exit5542
   %20651 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20647) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %531) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %531)
   br label %.backedge
 
 20652:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %532) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %532)
   store i64 %3, ptr %532, align 16, !tbaa !16
   %20653 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20654 = load i32, ptr %20653, align 4, !tbaa !447
@@ -32504,7 +32498,7 @@ pm_location_new.exit5542:                         ; preds = %20642, %20639, %206
   br i1 %4, label %20662, label %20676
 
 20662:                                            ; preds = %20652
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %3, ptr %17, align 16, !tbaa !16
   %20663 = load ptr, ptr %546, align 8, !tbaa !18
   %20664 = ptrtoint ptr %20659 to i64
@@ -32521,7 +32515,7 @@ pm_location_new.exit5542:                         ; preds = %20642, %20639, %206
   %20673 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20674 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %17, i64 noundef %20673) #5
   %20675 = call i64 @rb_obj_freeze(i64 noundef %20674) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %pm_location_new.exit5545
 
 20676:                                            ; preds = %20652
@@ -32592,7 +32586,7 @@ pm_location_new.exit5548:                         ; preds = %20712, %20715
   br i1 %20719, label %pm_location_new.exit5550, label %20751
 
 pm_location_new.exit5548.thread:                  ; preds = %pm_location_new.exit5545
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %3, ptr %16, align 16, !tbaa !16
   %20720 = load ptr, ptr %546, align 8, !tbaa !18
   %20721 = ptrtoint ptr %20698 to i64
@@ -32609,7 +32603,7 @@ pm_location_new.exit5548.thread:                  ; preds = %pm_location_new.exi
   %20730 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20731 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %16, i64 noundef %20730) #5
   %20732 = call i64 @rb_obj_freeze(i64 noundef %20731) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i64 %20732, ptr %581, align 16, !tbaa !16
   %20733 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %20734 = load ptr, ptr %20733, align 8, !tbaa !1041
@@ -32621,7 +32615,7 @@ pm_location_new.exit5548.thread:                  ; preds = %pm_location_new.exi
   %20737 = load ptr, ptr %20736, align 8, !tbaa !1042
   %20738 = ptrtoint ptr %20734 to i64
   %20739 = ptrtoint ptr %20737 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %3, ptr %15, align 16, !tbaa !16
   %20740 = load ptr, ptr %546, align 8, !tbaa !18
   %20741 = ptrtoint ptr %20740 to i64
@@ -32636,7 +32630,7 @@ pm_location_new.exit5548.thread:                  ; preds = %pm_location_new.exi
   %20748 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20749 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %15, i64 noundef %20748) #5
   %20750 = call i64 @rb_obj_freeze(i64 noundef %20749) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %pm_location_new.exit5550
 
 20751:                                            ; preds = %pm_location_new.exit5548
@@ -32677,7 +32671,7 @@ pm_location_new.exit5550:                         ; preds = %20767, %20764, %.th
   br i1 %4, label %20776, label %20790
 
 20776:                                            ; preds = %20773
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %3, ptr %14, align 16, !tbaa !16
   %20777 = load ptr, ptr %546, align 8, !tbaa !18
   %20778 = ptrtoint ptr %20771 to i64
@@ -32694,7 +32688,7 @@ pm_location_new.exit5550:                         ; preds = %20767, %20764, %.th
   %20787 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20788 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %14, i64 noundef %20787) #5
   %20789 = call i64 @rb_obj_freeze(i64 noundef %20788) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %pm_location_new.exit5552
 
 20790:                                            ; preds = %20773
@@ -32736,11 +32730,11 @@ pm_location_new.exit5552:                         ; preds = %20804, %20801, %207
 
 20813:                                            ; preds = %20811, %pm_location_new.exit5552
   %20814 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20810) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %532) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %532)
   br label %.backedge
 
 20815:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %533) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %533)
   store i64 %3, ptr %533, align 16, !tbaa !16
   %20816 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20817 = load i32, ptr %20816, align 4, !tbaa !447
@@ -32755,7 +32749,7 @@ pm_location_new.exit5552:                         ; preds = %20804, %20801, %207
   br i1 %4, label %20825, label %20839
 
 20825:                                            ; preds = %20815
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %3, ptr %13, align 16, !tbaa !16
   %20826 = load ptr, ptr %546, align 8, !tbaa !18
   %20827 = ptrtoint ptr %20822 to i64
@@ -32772,7 +32766,7 @@ pm_location_new.exit5552:                         ; preds = %20804, %20801, %207
   %20836 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20837 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %13, i64 noundef %20836) #5
   %20838 = call i64 @rb_obj_freeze(i64 noundef %20837) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %pm_location_new.exit5555
 
 20839:                                            ; preds = %20815
@@ -32866,7 +32860,7 @@ pm_location_new.exit5555:                         ; preds = %20825, %20850, %208
   br label %20946
 
 20898:                                            ; preds = %pm_location_new.exit5555
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %3, ptr %12, align 16, !tbaa !16
   %20899 = load ptr, ptr %546, align 8, !tbaa !18
   %20900 = ptrtoint ptr %20861 to i64
@@ -32883,13 +32877,13 @@ pm_location_new.exit5555:                         ; preds = %20825, %20850, %208
   %20909 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20910 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %12, i64 noundef %20909) #5
   %20911 = call i64 @rb_obj_freeze(i64 noundef %20910) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i64 %20911, ptr %566, align 16, !tbaa !16
   %20912 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %20913 = load ptr, ptr %20912, align 8, !tbaa !1048
   %20914 = getelementptr inbounds nuw i8, ptr %2279, i64 48
   %20915 = load ptr, ptr %20914, align 8, !tbaa !1049
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %3, ptr %11, align 16, !tbaa !16
   %20916 = load ptr, ptr %546, align 8, !tbaa !18
   %20917 = ptrtoint ptr %20913 to i64
@@ -32906,13 +32900,13 @@ pm_location_new.exit5555:                         ; preds = %20825, %20850, %208
   %20926 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20927 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %11, i64 noundef %20926) #5
   %20928 = call i64 @rb_obj_freeze(i64 noundef %20927) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i64 %20928, ptr %567, align 8, !tbaa !16
   %20929 = getelementptr inbounds nuw i8, ptr %2279, i64 56
   %20930 = load ptr, ptr %20929, align 8, !tbaa !1050
   %20931 = getelementptr inbounds nuw i8, ptr %2279, i64 64
   %20932 = load ptr, ptr %20931, align 8, !tbaa !1051
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %3, ptr %10, align 16, !tbaa !16
   %20933 = load ptr, ptr %546, align 8, !tbaa !18
   %20934 = ptrtoint ptr %20930 to i64
@@ -32929,7 +32923,7 @@ pm_location_new.exit5555:                         ; preds = %20825, %20850, %208
   %20943 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20944 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %10, i64 noundef %20943) #5
   %20945 = call i64 @rb_obj_freeze(i64 noundef %20944) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %pm_location_new.exit5562
 
 20946:                                            ; preds = %20893, %20896
@@ -32978,11 +32972,11 @@ pm_location_new.exit5562:                         ; preds = %20898, %20959, %209
 
 20973:                                            ; preds = %20971, %pm_location_new.exit5562
   %20974 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %20970) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %533) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %533)
   br label %.backedge
 
 20975:                                            ; preds = %3561
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %534) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %534)
   store i64 %3, ptr %534, align 16, !tbaa !16
   %20976 = getelementptr inbounds nuw i8, ptr %2279, i64 4
   %20977 = load i32, ptr %20976, align 4, !tbaa !447
@@ -32997,7 +32991,7 @@ pm_location_new.exit5562:                         ; preds = %20898, %20959, %209
   br i1 %4, label %20985, label %20999
 
 20985:                                            ; preds = %20975
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %3, ptr %9, align 16, !tbaa !16
   %20986 = load ptr, ptr %546, align 8, !tbaa !18
   %20987 = ptrtoint ptr %20982 to i64
@@ -33014,7 +33008,7 @@ pm_location_new.exit5562:                         ; preds = %20898, %20959, %209
   %20996 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %20997 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %9, i64 noundef %20996) #5
   %20998 = call i64 @rb_obj_freeze(i64 noundef %20997) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %pm_location_new.exit5565
 
 20999:                                            ; preds = %20975
@@ -33085,7 +33079,7 @@ pm_location_new.exit5568:                         ; preds = %21035, %21038
   br i1 %21042, label %pm_location_new.exit5570, label %21074
 
 pm_location_new.exit5568.thread:                  ; preds = %pm_location_new.exit5565
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %3, ptr %8, align 16, !tbaa !16
   %21043 = load ptr, ptr %546, align 8, !tbaa !18
   %21044 = ptrtoint ptr %21021 to i64
@@ -33102,7 +33096,7 @@ pm_location_new.exit5568.thread:                  ; preds = %pm_location_new.exi
   %21053 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %21054 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %8, i64 noundef %21053) #5
   %21055 = call i64 @rb_obj_freeze(i64 noundef %21054) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 %21055, ptr %551, align 16, !tbaa !16
   %21056 = getelementptr inbounds nuw i8, ptr %2279, i64 40
   %21057 = load ptr, ptr %21056, align 8, !tbaa !1054
@@ -33114,7 +33108,7 @@ pm_location_new.exit5568.thread:                  ; preds = %pm_location_new.exi
   %21060 = load ptr, ptr %21059, align 8, !tbaa !1055
   %21061 = ptrtoint ptr %21057 to i64
   %21062 = ptrtoint ptr %21060 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %3, ptr %7, align 16, !tbaa !16
   %21063 = load ptr, ptr %546, align 8, !tbaa !18
   %21064 = ptrtoint ptr %21063 to i64
@@ -33129,7 +33123,7 @@ pm_location_new.exit5568.thread:                  ; preds = %pm_location_new.exi
   %21071 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %21072 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %7, i64 noundef %21071) #5
   %21073 = call i64 @rb_obj_freeze(i64 noundef %21072) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %pm_location_new.exit5570
 
 21074:                                            ; preds = %pm_location_new.exit5568
@@ -33172,7 +33166,7 @@ pm_location_new.exit5570:                         ; preds = %21090, %21087, %.th
   br i1 %4, label %pm_location_new.exit5572.thread5982, label %21115
 
 pm_location_new.exit5572.thread5982:              ; preds = %21097
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %3, ptr %6, align 16, !tbaa !16
   %21100 = load ptr, ptr %546, align 8, !tbaa !18
   %21101 = ptrtoint ptr %21095 to i64
@@ -33189,7 +33183,7 @@ pm_location_new.exit5572.thread5982:              ; preds = %21097
   %21110 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !16
   %21111 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %6, i64 noundef %21110) #5
   %21112 = call i64 @rb_obj_freeze(i64 noundef %21111) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %21112, ptr %558, align 8, !tbaa !16
   %21113 = load i64, ptr @rb_cPrismYieldNode, align 8, !tbaa !16
   %21114 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %534, i64 noundef %21113) #5
@@ -33238,7 +33232,7 @@ pm_location_new.exit5572:                         ; preds = %pm_location_new.exi
 21138:                                            ; preds = %pm_location_new.exit5572.thread, %21135, %pm_location_new.exit5572
   %21139 = phi i64 [ %21132, %pm_location_new.exit5572.thread ], [ %21136, %21135 ], [ %21134, %pm_location_new.exit5572 ]
   %21140 = call i64 @rb_ary_push(i64 noundef %544, i64 noundef %21139) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %534) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %534)
   br label %.backedge
 
 21141:                                            ; preds = %3561
@@ -33252,20 +33246,20 @@ pm_location_new.exit5572:                         ; preds = %pm_location_new.exi
   ret i64 %21145
 }
 
-declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_intern(i64 noundef) #2
+declare i64 @rb_str_intern(i64 noundef) #1
 
-declare void @rb_set_errinfo(i64 noundef) local_unnamed_addr #2
+declare void @rb_set_errinfo(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_new() local_unnamed_addr #2
+declare i64 @rb_ary_new() local_unnamed_addr #1
 
-declare i64 @rb_ary_pop(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_pop(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_float_new(double noundef) local_unnamed_addr #2
+declare i64 @rb_float_new(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_prism_api_node() local_unnamed_addr #0 {
@@ -33876,28 +33870,34 @@ define hidden void @Init_prism_api_node() local_unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #4
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #3
 
-declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
+declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pm_string_source(ptr noundef) local_unnamed_addr #2
+declare ptr @pm_string_source(ptr noundef) local_unnamed_addr #1
 
-declare i64 @pm_string_length(ptr noundef) local_unnamed_addr #2
+declare i64 @pm_string_length(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 attributes #7 = { noreturn nounwind }

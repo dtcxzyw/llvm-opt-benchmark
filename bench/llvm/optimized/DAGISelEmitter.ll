@@ -211,8 +211,8 @@ define internal void @_ZN4llvm8TableGen7Emitter8OptClassIN12_GLOBAL__N_114DAGISe
   %9 = alloca %"class.std::unique_ptr.144", align 8
   %10 = alloca %"class.std::function", align 8
   %11 = alloca %"class.(anonymous namespace)::DAGISelEmitter", align 8
-  call void @llvm.lifetime.start.p0(i64 1264, ptr nonnull %11) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
@@ -227,14 +227,14 @@ define internal void @_ZN4llvm8TableGen7Emitter8OptClassIN12_GLOBAL__N_114DAGISe
   br label %_ZN12_GLOBAL__N_114DAGISelEmitterC2ERKN4llvm12RecordKeeperE.exit
 
 _ZN12_GLOBAL__N_114DAGISelEmitterC2ERKN4llvm12RecordKeeperE.exit: ; preds = %2, %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %17 = load ptr, ptr %11, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %19 = load ptr, ptr %18, align 8, !tbaa !118
   call void @_ZN4llvm7TGTimer10startTimerENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(17) %19, ptr nonnull @.str.2, i64 14) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = call { ptr, i64 } @_ZNK4llvm13CodeGenTarget7getNameEv(ptr noundef nonnull align 8 dereferenceable(764) %20) #18
   %22 = extractvalue { ptr, i64 } %21, 0
@@ -252,7 +252,7 @@ _ZN12_GLOBAL__N_114DAGISelEmitterC2ERKN4llvm12RecordKeeperE.exit: ; preds = %2, 
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
 
 27:                                               ; preds = %_ZN12_GLOBAL__N_114DAGISelEmitterC2ERKN4llvm12RecordKeeperE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18, !noalias !120
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !120
   store i64 %23, ptr %3, align 8, !tbaa !128, !noalias !120
   %28 = icmp ugt i64 %23, 15
   br i1 %28, label %29, label %._crit_edge.i.i.i.i
@@ -287,7 +287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; pr
   %38 = load ptr, ptr %6, align 8, !tbaa !129, !alias.scope !120
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %36
   store i8 0, ptr %39, align 1, !tbaa !127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18, !noalias !120
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !120
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
 
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i, %25
@@ -371,11 +371,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   store i8 0, ptr %61, align 8, !tbaa !127
   %72 = load ptr, ptr %4, align 8, !tbaa !129
   %73 = load i64, ptr %71, align 8, !tbaa !125
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm12RecordKeeperC1Ev(ptr noundef nonnull align 8 dereferenceable(240) %7) #18
   call void @_ZN4llvm20emitSourceFileHeaderENS_9StringRefERNS_11raw_ostreamERKNS_12RecordKeeperE(ptr %72, i64 %73, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(240) %7) #18
   call void @_ZN4llvm12RecordKeeperD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %7) #18
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %74 = load ptr, ptr %4, align 8, !tbaa !129
   %75 = icmp eq ptr %74, %59
   br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26.i
@@ -428,9 +428,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !136
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -577,7 +577,7 @@ _ZN4llvm11stable_sortIRSt6vectorIPKNS_14PatternToMatchESaIS4_EEN12_GLOBAL__N_123
   %.sroa.8.0.lcssa116.i = phi ptr [ %.sroa.067.1.i, %._crit_edge.i ], [ %.sroa.8.1.i, %157 ], [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i ]
   %.sroa.13.0.lcssa115.i = phi i64 [ %147, %._crit_edge.i ], [ %147, %157 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i ]
   call void @_ZN4llvm7TGTimer10startTimerENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(17) %19, ptr nonnull @.str.10, i64 19) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %159, ptr %8, align 8, !tbaa !144
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -656,7 +656,7 @@ _ZNSt6vectorIPKN4llvm14PatternToMatchESaIS3_EE9push_backEOS3_.exit.i: ; preds = 
 
 ._crit_edge102.i:                                 ; preds = %._crit_edge102.loopexit.i, %_ZN4llvm11stable_sortIRSt6vectorIPKNS_14PatternToMatchESaIS4_EEN12_GLOBAL__N_123PatternSortingPredicateEEEvOT_T0_.exit.i
   %182 = phi i32 [ %.pre109.i, %._crit_edge102.loopexit.i ], [ 0, %_ZN4llvm11stable_sortIRSt6vectorIPKNS_14PatternToMatchESaIS4_EEN12_GLOBAL__N_123PatternSortingPredicateEEEvOT_T0_.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %183 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !147
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %184, i8 0, i64 20, i1 false), !noalias !147
@@ -737,7 +737,7 @@ _ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i: ; preds = %_ZNSt10uniqu
   br label %_ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN4llvm12ScopeMatcherESt14default_deleteIS1_EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %203 = load ptr, ptr %8, align 8, !tbaa !144
   %204 = icmp eq ptr %203, %159
   br i1 %204, label %_ZN4llvm11SmallVectorIPNS_7MatcherELj0EED2Ev.exit.i, label %205
@@ -747,7 +747,7 @@ _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit.i: ; preds = 
   br label %_ZN4llvm11SmallVectorIPNS_7MatcherELj0EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIPNS_7MatcherELj0EED2Ev.exit.i: ; preds = %205, %_ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i.i.i.i = icmp eq ptr %.sroa.067.0.lcssa117.i, null
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_114DAGISelEmitter3runERN4llvm11raw_ostreamE.exit, label %206
 
@@ -801,22 +801,16 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7MatcherELb1EE9push_backES2_.exit.i: ; pre
 
 _ZN12_GLOBAL__N_114DAGISelEmitter3runERN4llvm11raw_ostreamE.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_7MatcherELj0EED2Ev.exit.i, %206
   call void @_ZN4llvm18CodeGenDAGPatternsD2Ev(ptr noundef nonnull align 8 dereferenceable(1252) %12) #18
-  call void @llvm.lifetime.end.p0(i64 1264, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
 declare void @_ZN4llvm8TableGen7Emitter3OptC2ENS_9StringRefENS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEES3_b(ptr noundef nonnull align 1 dereferenceable(1), ptr, i64, ptr, i64, ptr noundef byval(%"class.llvm::StringRef") align 8, i1 noundef zeroext) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @_ZN4llvm18CodeGenDAGPatternsC1ERKNS_12RecordKeeperESt8functionIFvPNS_11TreePatternEEE(ptr noundef nonnull align 8 dereferenceable(1252), ptr noundef nonnull align 8 dereferenceable(240), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_ZN4llvm7TGTimer10startTimerENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(17), ptr, i64) local_unnamed_addr #2
 
@@ -827,7 +821,7 @@ declare { ptr, i64 } @_ZNK4llvm13CodeGenTarget7getNameEv(ptr noundef nonnull ali
 declare void @_ZN4llvm12RecordKeeperC1Ev(ptr noundef nonnull align 8 dereferenceable(240)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN4llvm12RecordKeeperD1Ev(ptr noundef nonnull align 8 dereferenceable(240)) unnamed_addr #5
+declare void @_ZN4llvm12RecordKeeperD1Ev(ptr noundef nonnull align 8 dereferenceable(240)) unnamed_addr #4
 
 declare noundef ptr @_ZN4llvm23ConvertPatternToMatcherERKNS_14PatternToMatchEjRKNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(100), i32 noundef, ptr noundef nonnull align 8 dereferenceable(1252)) local_unnamed_addr #2
 
@@ -838,19 +832,19 @@ declare void @_ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsE
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #0
@@ -867,7 +861,7 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_i
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %12 = icmp eq ptr %0, %1
   %.sroa.0.017.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -896,7 +890,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
   br label %30
 
 23:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   %24 = load ptr, ptr %.sroa.0.020.i, align 8, !tbaa !141
   %25 = load ptr, ptr %.pn19.i, align 8, !tbaa !141
@@ -916,7 +910,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %23
   %.sroa.03.0.lcssa.i.i = phi ptr [ %.sroa.0.020.i, %23 ], [ %.sroa.0.08.i.i, %.lr.ph.i.i ]
   store ptr %24, ptr %.sroa.03.0.lcssa.i.i, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
@@ -925,7 +919,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14Patter
   br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit, label %.lr.ph.i, !llvm.loop !159
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit: ; preds = %30, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.ret22
 
 common.ret22:                                     ; preds = %31, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit
@@ -975,7 +969,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
 }
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #9
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_SG_T0_SH_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #1 {
@@ -1022,7 +1016,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %23
   %26 = sdiv i64 %.tr7484, 2
   %27 = getelementptr inbounds ptr, ptr %.tr80, i64 %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8
   %28 = sub i64 %12, %25
   %29 = ashr exact i64 %28, 3
@@ -1052,7 +1046,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %25, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.011.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %.tr7282, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %39 = sub i64 %.pre-phi, %25
   %40 = ashr exact i64 %39, 3
   br label %tailrecurse
@@ -1060,7 +1054,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55: ; preds = %23
   %41 = sdiv i64 %.tr7585, 2
   %42 = getelementptr inbounds ptr, ptr %.tr7282, i64 %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8
   %43 = ptrtoint ptr %.tr80 to i64
   %44 = sub i64 %25, %43
@@ -1091,7 +1085,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55
   %.pre-phi89 = phi i64 [ %.pre88, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %43, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55 ]
   %.sroa.011.0.lcssa.i56 = phi ptr [ %.sroa.011.1.i63, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %.tr80, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %55 = sub i64 %.pre-phi89, %43
   %56 = ashr exact i64 %55, 3
   br label %tailrecurse
@@ -1451,7 +1445,7 @@ define internal fastcc noundef i32 @_ZL20getResultPatternSizeRKN4llvm15TreePatte
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %1, i64 %2) local_unnamed_addr #1 comdat align 2 {
@@ -1501,7 +1495,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %23
   br i1 %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
 
 25:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load ptr, ptr %17, align 8, !tbaa !150, !noalias !227
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8, !noalias !227
@@ -1535,7 +1529,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.i29, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -1735,7 +1729,7 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norma
 .lr.ph.i.i:                                       ; preds = %4, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i
   %19 = phi i64 [ %40, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i ], [ %14, %4 ]
   %.sroa.025.028.i = phi ptr [ %39, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i ], [ %0, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %3, ptr %12, align 8
   br label %20
 
@@ -1761,7 +1755,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
   br label %38
 
 31:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %3, ptr %11, align 8
   %32 = load ptr, ptr %.sroa.0.020.i.ptr.i, align 8, !tbaa !141
   %33 = load ptr, ptr %.pn19.i.i, align 8, !tbaa !141
@@ -1781,7 +1775,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i, %31
   %.sroa.03.0.lcssa.i.i.i = phi ptr [ %.sroa.0.020.i.ptr.i, %31 ], [ %.sroa.0.08.i.i.i, %.lr.ph.i.i.i ]
   store ptr %32, ptr %.sroa.03.0.lcssa.i.i.i, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %38
 
 38:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_T0_.exit.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i
@@ -1791,7 +1785,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14Patter
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i: ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.025.028.i, i64 56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %13, %40
   %42 = icmp sgt i64 %41, 48
@@ -1800,7 +1794,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchE
 ._crit_edge.i:                                    ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i, %4
   %.sroa.025.0.lcssa.i = phi ptr [ %0, %4 ], [ %39, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i ]
   %.lcssa.i = phi i64 [ %14, %4 ], [ %40, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8
   %43 = icmp eq ptr %.sroa.025.0.lcssa.i, %1
   %.sroa.0.017.i10.i = getelementptr inbounds nuw i8, ptr %.sroa.025.0.lcssa.i, i64 8
@@ -1829,7 +1823,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
   br label %61
 
 54:                                               ; preds = %.lr.ph.i12.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %3, ptr %9, align 8
   %55 = load ptr, ptr %.sroa.0.020.i13.i, align 8, !tbaa !141
   %56 = load ptr, ptr %.pn19.i14.i, align 8, !tbaa !141
@@ -1849,7 +1843,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_T0_.exit.i15.i: ; preds = %.lr.ph.i.i19.i, %54
   %.sroa.03.0.lcssa.i.i16.i = phi ptr [ %.sroa.0.020.i13.i, %54 ], [ %.sroa.0.08.i.i20.i, %.lr.ph.i.i19.i ]
   store ptr %55, ptr %.sroa.03.0.lcssa.i.i16.i, align 8, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %61
 
 61:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_T0_.exit.i15.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i23.i
@@ -1858,7 +1852,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14Patter
   br i1 %.not.i18.i, label %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_T1_.exit, label %.lr.ph.i12.i, !llvm.loop !159
 
 _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_T1_.exit: ; preds = %61, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %62 = icmp sgt i64 %16, 7
   br i1 %62, label %.lr.ph, label %._crit_edge
 
@@ -1886,7 +1880,7 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternTo
   %.058.us.i = phi ptr [ %69, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.us.i ], [ %2, %.critedge.i.us.preheader.i ]
   %.sroa.042.057.us.i = phi ptr [ %66, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.us.i ], [ %0, %.critedge.i.us.preheader.i ]
   %66 = getelementptr inbounds i8, ptr %.sroa.042.057.us.i, i64 %.idx.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.us.i, label %67
 
 67:                                               ; preds = %.critedge.i.us.i
@@ -1896,7 +1890,7 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternTo
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.us.i: ; preds = %67, %.critedge.i.us.i
   %68 = getelementptr inbounds i8, ptr %.058.us.i, i64 %.idx.i
   %69 = getelementptr inbounds i8, ptr %68, i64 %.idx.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %70 = ptrtoint ptr %66 to i64
   %71 = sub i64 %13, %70
   %72 = ashr exact i64 %71, 3
@@ -1908,7 +1902,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6v
   %.sroa.042.057.i = phi ptr [ %74, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.i ], [ %0, %.lr.ph.i ]
   %73 = getelementptr inbounds i8, ptr %.sroa.042.057.i, i64 %.idx.i
   %74 = getelementptr inbounds i8, ptr %.sroa.042.057.i, i64 %.idx50.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %3, ptr %8, align 8
   br label %.lr.ph.i.i19
 
@@ -1957,7 +1951,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.i: ; preds = %89, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
   %90 = getelementptr inbounds i8, ptr %85, i64 %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %91 = sub i64 %13, %86
   %92 = ashr exact i64 %91, 3
   %.not.i = icmp slt i64 %92, %65
@@ -1970,7 +1964,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6v
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.055, i64 %.lcssa54.i)
   %.idx52.i = shl nsw i64 %.sroa.speculated.i, 3
   %93 = getelementptr inbounds i8, ptr %.sroa.042.0.lcssa.i, i64 %.idx52.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8
   %94 = icmp ne i64 %.sroa.speculated.i, 0
   %95 = icmp ne ptr %93, %1
@@ -2023,7 +2017,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_
   br label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_T1_T2_.exit
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_T1_T2_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i21.i, %106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %110 = shl nsw i64 %.055, 2
   %.not54.i = icmp slt i64 %16, %110
   br i1 %.not54.i, label %._crit_edge.i29, label %.lr.ph.i21
@@ -2038,11 +2032,11 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatch
   %.sroa.021.056.us.i = phi ptr [ %113, %._crit_edge.i.us.i ], [ %0, %.lr.ph.i21 ]
   %.055.us.i = phi ptr [ %111, %._crit_edge.i.us.i ], [ %2, %.lr.ph.i21 ]
   %111 = getelementptr inbounds i8, ptr %.055.us.i, i64 %.idx.i22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.021.056.us.i, ptr align 8 %.055.us.i, i64 %.idx.i22, i1 false)
   %112 = getelementptr inbounds i8, ptr %.sroa.021.056.us.i, i64 %.idx.i22
   %113 = getelementptr inbounds i8, ptr %112, i64 %.idx.i22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %114 = ptrtoint ptr %111 to i64
   %115 = sub i64 %63, %114
   %116 = ashr exact i64 %115, 3
@@ -2054,7 +2048,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatch
   %.055.i = phi ptr [ %118, %_ZSt12__move_mergeIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.i ], [ %2, %.lr.ph.i21 ]
   %117 = getelementptr inbounds i8, ptr %.055.i, i64 %.idx.i22
   %118 = getelementptr inbounds i8, ptr %.055.i, i64 %.idx48.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   br label %.lr.ph.i.i24
 
@@ -2103,7 +2097,7 @@ _ZSt4moveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorI
 
 _ZSt12__move_mergeIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET0_T_SH_SH_SH_SG_T1_.exit.i: ; preds = %132, %_ZSt4moveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
   %133 = getelementptr inbounds i8, ptr %128, i64 %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %134 = sub i64 %63, %129
   %135 = ashr exact i64 %134, 3
   %.not.i28 = icmp slt i64 %135, %110
@@ -2116,7 +2110,7 @@ _ZSt12__move_mergeIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_S
   %.sroa.speculated.i31 = tail call i64 @llvm.smin.i64(i64 %65, i64 %.lcssa52.i)
   %.idx50.i32 = shl nsw i64 %.sroa.speculated.i31, 3
   %136 = getelementptr inbounds i8, ptr %.0.lcssa.i30, i64 %.idx50.i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
   %137 = icmp ne i64 %.sroa.speculated.i31, 0
   %138 = icmp ne ptr %136, %17
@@ -2169,7 +2163,7 @@ _ZSt4moveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorI
   br label %_ZSt17__merge_sort_loopIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_T1_T2_.exit
 
 _ZSt17__merge_sort_loopIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_T1_T2_.exit: ; preds = %_ZSt4moveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i29.i, %149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %153 = icmp slt i64 %110, %16
   br i1 %153, label %64, label %._crit_edge, !llvm.loop !242
 
@@ -2200,7 +2194,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.thread, label %.lr.ph.i.preheader
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.thread: ; preds = %tailrecurse._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %_ZSt21__move_merge_adaptiveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_SH_T1_T2_.exit
 
 .lr.ph.i.preheader:                               ; preds = %tailrecurse._crit_edge
@@ -2209,7 +2203,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_
   %17 = sub i64 %15, %16
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr.lcssa, i64 %17, i1 false)
   %18 = getelementptr inbounds i8, ptr %5, i64 %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8
   br label %.lr.ph.i
 
@@ -2243,7 +2237,7 @@ _ZSt4moveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorI
   br label %_ZSt21__move_merge_adaptiveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_SH_T1_T2_.exit
 
 _ZSt21__move_merge_adaptiveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_SH_T1_T2_.exit: ; preds = %19, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.thread, %_ZSt4moveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %122
 
 26:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
@@ -2260,7 +2254,7 @@ _ZSt21__move_merge_adaptiveIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iter
   br i1 %.not.i.i.i.i.i79, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit80, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit80.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit80: ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_SA_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_SH_T1_T2_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit80.thread: ; preds = %27
@@ -2268,7 +2262,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_
   %29 = sub i64 %14, %28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr107126, i64 %29, i1 false)
   %30 = getelementptr inbounds i8, ptr %5, i64 %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %13, ptr %11, align 8
   %31 = icmp eq ptr %.tr124, %.tr107126
   br i1 %31, label %_ZSt13move_backwardIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.sink.split.i, label %32
@@ -2327,7 +2321,7 @@ _ZSt13move_backwardIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_SA_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_SH_T1_T2_.exit
 
 _ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_SA_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEEvT_SG_T0_SH_T1_T2_.exit: ; preds = %43, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit80, %41, %_ZSt13move_backwardIPPKN4llvm14PatternToMatchEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %122
 
 54:                                               ; preds = %26
@@ -2337,7 +2331,7 @@ _ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14P
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %54
   %56 = sdiv i64 %.tr109128, 2
   %57 = getelementptr inbounds ptr, ptr %.tr124, i64 %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %13, ptr %10, align 8
   %58 = sub i64 %14, %55
   %59 = ashr exact i64 %58, 3
@@ -2367,7 +2361,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.011.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %.tr107126, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %69 = sub i64 %.pre-phi, %55
   %70 = ashr exact i64 %69, 3
   br label %87
@@ -2375,7 +2369,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit87: ; preds = %54
   %71 = sdiv i64 %.tr110129, 2
   %72 = getelementptr inbounds ptr, ptr %.tr107126, i64 %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %13, ptr %9, align 8
   %73 = ptrtoint ptr %.tr124 to i64
   %74 = sub i64 %55, %73
@@ -2406,7 +2400,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit87
   %.pre-phi140 = phi i64 [ %.pre139, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit87 ]
   %.sroa.011.0.lcssa.i88 = phi ptr [ %.sroa.011.1.i95, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIN12_GLOBAL__N_123PatternSortingPredicateEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %.tr124, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %85 = sub i64 %.pre-phi140, %73
   %86 = ashr exact i64 %85, 3
   br label %87
@@ -2525,10 +2519,10 @@ _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatch
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm18CodeGenDAGPatternsD2Ev(ptr noundef nonnull align 8 dereferenceable(1252) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm18CodeGenDAGPatternsD2Ev(ptr noundef nonnull align 8 dereferenceable(1252) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %3 = load ptr, ptr %2, align 8, !tbaa !8
   %.not.i = icmp eq ptr %3, null
@@ -2641,7 +2635,7 @@ _ZN4llvm21CodeGenIntrinsicTableD2Ev.exit:         ; preds = %_ZNSt6vectorIN4llvm
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4llvm13CodeGenTargetD1Ev(ptr noundef nonnull align 8 dereferenceable(764)) unnamed_addr #5
+declare void @_ZN4llvm13CodeGenTargetD1Ev(ptr noundef nonnull align 8 dereferenceable(764)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm19MachineValueTypeSetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
@@ -2664,7 +2658,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm19MachineValueTypeSetE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm14PatternToMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm14PatternToMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !129
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2740,7 +2734,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit4: ; preds = %_ZN4ll
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm15TreePatternNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm15TreePatternNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !262
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2953,7 +2947,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_14DAGIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm14DAGInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm14DAGInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !162
   %.not.i.i = icmp eq ptr %3, null
@@ -3138,7 +3132,7 @@ _ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St10unique_ptrINS0_11TreePatternESt14
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm11TreePatternD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm11TreePatternD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !245
@@ -3627,16 +3621,22 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFvRKNS_12RecordKeeperERN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_GLOBAL__sub_I_DAGISelEmitter.cpp() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_DAGISelEmitter.cpp() #12 section ".text.startup" {
   %1 = alloca %"class.llvm::StringRef", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @.str.1, ptr %1, align 8, !tbaa !226
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 35, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !128
   tail call void @_ZN4llvm8TableGen7Emitter3OptC2ENS_9StringRefENS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEES3_b(ptr noundef nonnull align 1 dereferenceable(1) @_ZL1X, ptr nonnull @.str, i64 12, ptr nonnull @_ZN4llvm12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEE11callback_fnIS6_EEvlS3_S5_, i64 ptrtoint (ptr @_ZN4llvm8TableGen7Emitter8OptClassIN12_GLOBAL__N_114DAGISelEmitterEE3runERKNS_12RecordKeeperERNS_11raw_ostreamE to i64), ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %1, i1 noundef zeroext false) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -3659,17 +3659,17 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

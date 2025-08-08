@@ -203,14 +203,14 @@ $_ZTSSt10logical_orIxE = comdat any
 define void @_ZN5boost6locale11gnu_gettext6lambda7compileEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::locale::gnu_gettext::lambda::plural_expr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.boost::locale::gnu_gettext::lambda::(anonymous namespace)::parser", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8, !tbaa !11
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15, !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !12
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4), !noalias !12
   %7 = load ptr, ptr %3, align 8, !noalias !12
   %8 = icmp eq ptr %7, null
@@ -232,22 +232,16 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i, %.thread.i
   %.sroa.0.0 = phi i64 [ %9, %.thread.i ], [ 0, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12
   store i64 %.sroa.0.0, ptr %0, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   %.promoted = load ptr, ptr %0, align 8, !tbaa !3
   br label %3
@@ -365,7 +359,7 @@ sub_031.thread60.thread:                          ; preds = %3
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %sub_031.thread60.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %50 = call i64 @strtoul(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 10) #15
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %50, i64 9223372036854775807)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -374,7 +368,7 @@ sub_031.thread60.thread:                          ; preds = %3
   store ptr %52, ptr %0, align 8, !tbaa !3
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 262, ptr %53, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %61
 
 54:                                               ; preds = %sub_031.thread60.thread
@@ -399,7 +393,7 @@ sub_031.thread60.thread:                          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -408,7 +402,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15, !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !21
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l2Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %6 = load ptr, ptr %2, align 8
   %.not145 = icmp eq ptr %6, null
@@ -425,7 +419,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %.pr90 = phi ptr [ %13, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit58 ], [ %6, %.preheader ]
   %9 = phi i64 [ %17, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit58 ], [ %7, %.preheader ]
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15, !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !21
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l2Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i45
 
@@ -447,7 +441,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   store i64 %14, ptr %16, align 8, !tbaa !17, !noalias !24
   %17 = ptrtoint ptr %13 to i64
   %.val.i.pre = load i32, ptr %8, align 8, !noalias !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   %.not14.i = icmp eq i32 %.val.i.pre, 261
   br i1 %.not14.i, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
@@ -463,13 +457,13 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit46
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i45: ; preds = %.lr.ph
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   %27 = load ptr, ptr %.pr90, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -478,11 +472,11 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i45
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit46: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit55, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i45
   %.pn.i160 = phi { ptr, i32 } [ %18, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit55 ], [ %26, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !21
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit40
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i42: ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   %30 = load ptr, ptr %.pr90, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
@@ -490,7 +484,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i42
   br label %33
 
 33:                                               ; preds = %.noexc, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !21
   store ptr null, ptr %0, align 8, !tbaa !28
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit37
 
@@ -498,7 +492,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i42
   %.val = phi i32 [ %.val.i150, %.preheader ], [ %.val.i.pre, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit58 ]
   %34 = phi i64 [ %7, %.preheader ], [ %17, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit58 ]
   %35 = inttoptr i64 %34 to ptr
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !21
   %.not = icmp eq i32 %.val, 63
   br i1 %.not, label %37, label %36
 
@@ -508,20 +502,20 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i42
 
 37:                                               ; preds = %.loopexit
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14 unwind label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14: ; preds = %37
   %38 = load ptr, ptr %4, align 8, !tbaa !17
   %.not147 = icmp eq ptr %38, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not147, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28, label %40
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116: ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i39
 
 40:                                               ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14
@@ -531,14 +525,14 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   br i1 %.not4, label %41, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28.thread122
 
 41:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21 unwind label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21: ; preds = %41
   %42 = load ptr, ptr %5, align 8, !tbaa !17
   %.not148 = icmp eq ptr %42, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not148, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28.thread122, label %43
 
 43:                                               ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
@@ -579,7 +573,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31: ; preds = %41
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread
@@ -621,7 +615,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l2Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l3Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
@@ -642,7 +636,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %.pr35 = phi ptr [ %13, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18 ], [ %5, %.preheader ]
   %9 = phi i64 [ %17, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18 ], [ %6, %.preheader ]
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l3Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
@@ -664,7 +658,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   store i64 %14, ptr %16, align 8, !tbaa !17, !noalias !33
   %17 = ptrtoint ptr %13 to i64
   %.val.pre = load i32, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not14.i = icmp eq i32 %.val.pre, 260
   br i1 %.not14.i, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
@@ -680,13 +674,13 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29: ; preds = %.lr.ph
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = load ptr, ptr %.pr35, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -695,7 +689,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
   %.pn46 = phi { ptr, i32 } [ %18, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21 ], [ %26, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn46
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18, %.preheader
@@ -705,7 +699,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32: ; preds = %10
   store ptr null, ptr %0, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = load ptr, ptr %.pr35, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -713,7 +707,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33: ; preds = %8, %._crit_edge, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -809,7 +803,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l4Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %8 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %8, null
@@ -844,7 +838,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l4Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %16 unwind label %39
 
@@ -855,7 +849,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
@@ -889,8 +883,8 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11, !llvm.loop !39
 
 29:                                               ; preds = %18
@@ -920,14 +914,14 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
 
 39:                                               ; preds = %15
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i28 = icmp eq ptr %.pr35, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
@@ -940,7 +934,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30: ; preds = %.thread, %39, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
   %.pn41 = phi { ptr, i32 } [ %30, %.thread ], [ %40, %39 ], [ %40, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn41
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
@@ -949,7 +943,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 45:                                               ; preds = %16
   store ptr null, ptr %0, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i31 = icmp eq ptr %.pr35, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
 
@@ -961,7 +955,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33: ; preds = %10, %44, %45, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -972,7 +966,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l5Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %8 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %8, null
@@ -1007,7 +1001,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit: ;
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l5Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %16 unwind label %39
 
@@ -1018,7 +1012,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit: ;
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
@@ -1052,8 +1046,8 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11, !llvm.loop !40
 
 29:                                               ; preds = %18
@@ -1083,14 +1077,14 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
 
 39:                                               ; preds = %15
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i28 = icmp eq ptr %.pr35, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
@@ -1103,7 +1097,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30: ; preds = %.thread, %39, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
   %.pn41 = phi { ptr, i32 } [ %30, %.thread ], [ %40, %39 ], [ %40, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn41
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit
@@ -1112,7 +1106,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 45:                                               ; preds = %16
   store ptr null, ptr %0, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i31 = icmp eq ptr %.pr35, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
 
@@ -1124,7 +1118,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33: ; preds = %10, %44, %45, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1135,7 +1129,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l6Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %8 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %8, null
@@ -1170,7 +1164,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l6Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %16 unwind label %39
 
@@ -1181,7 +1175,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
@@ -1215,8 +1209,8 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11, !llvm.loop !41
 
 29:                                               ; preds = %18
@@ -1246,14 +1240,14 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
 
 39:                                               ; preds = %15
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i28 = icmp eq ptr %.pr35, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
@@ -1266,7 +1260,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30: ; preds = %.thread, %39, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
   %.pn41 = phi { ptr, i32 } [ %30, %.thread ], [ %40, %39 ], [ %40, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn41
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
@@ -1275,7 +1269,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 45:                                               ; preds = %16
   store ptr null, ptr %0, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i31 = icmp eq ptr %.pr35, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
 
@@ -1287,7 +1281,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33: ; preds = %10, %44, %45, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1298,7 +1292,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser10unary_exprEv(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %8 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %8, null
@@ -1333,7 +1327,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit: ;
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser10unary_exprEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %16 unwind label %39
 
@@ -1344,7 +1338,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit: ;
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
@@ -1378,8 +1372,8 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11, !llvm.loop !42
 
 29:                                               ; preds = %18
@@ -1409,14 +1403,14 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
 
 39:                                               ; preds = %15
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i28 = icmp eq ptr %.pr35, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
@@ -1429,7 +1423,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30: ; preds = %.thread, %39, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
   %.pn41 = phi { ptr, i32 } [ %30, %.thread ], [ %40, %39 ], [ %40, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn41
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit
@@ -1438,7 +1432,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 45:                                               ; preds = %16
   store ptr null, ptr %0, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i31 = icmp eq ptr %.pr35, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33, label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
 
@@ -1450,7 +1444,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33: ; preds = %10, %44, %45, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1459,7 +1453,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca [2 x i32], align 8
   %5 = alloca %"class.std::unique_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 193273528353, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %6, align 8
@@ -1481,7 +1475,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 
 10:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser10unary_exprEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %11 = load ptr, ptr %5, align 8
   %.not32 = icmp eq ptr %11, null
@@ -1507,8 +1501,8 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %17
 
 21:                                               ; preds = %13
@@ -1528,7 +1522,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6.sink.split, %10
   %.sink = phi ptr [ null, %10 ], [ %.sink34, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6.sink.split ]
   store ptr %.sink, ptr %0, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14
 
 24:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
@@ -1540,11 +1534,11 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit23: ; preds = %24
   tail call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15, !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !50
   call fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !50
   %25 = load ptr, ptr %3, align 8, !tbaa !17, !noalias !50
   %.not = icmp eq ptr %25, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   br i1 %.not, label %26, label %27
 
 26:                                               ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit23
@@ -1594,15 +1588,15 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i13
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14
 
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14: ; preds = %34, %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_8identityEJEEESt10unique_ptrINS2_4exprESt14default_deleteIS7_EEDpOT0_.exit, %30, %26, %28, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i13, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
@@ -1617,7 +1611,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1636,7 +1630,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1666,7 +1660,7 @@ define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1685,7 +1679,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1704,45 +1698,45 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !56
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityclEx(ptr nonnull readnone align 8 captures(none) %0, i64 noundef returned %1) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityclEx(ptr nonnull readnone align 8 captures(none) %0, i64 noundef returned %1) unnamed_addr #7 align 2 {
   ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext6lambda4exprD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext6lambda4exprD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #18
   ret void
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #10
+declare void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #9
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
+declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
@@ -1769,7 +1763,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1802,7 +1796,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1851,7 +1845,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1884,7 +1878,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1941,7 +1935,7 @@ define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1974,7 +1968,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2023,7 +2017,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2056,7 +2050,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2105,7 +2099,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2138,7 +2132,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2188,7 +2182,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2221,7 +2215,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2271,7 +2265,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2304,7 +2298,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2354,7 +2348,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2387,7 +2381,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2437,7 +2431,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2470,7 +2464,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2520,7 +2514,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2553,7 +2547,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2603,7 +2597,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2636,7 +2630,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2688,7 +2682,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2721,7 +2715,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2772,7 +2766,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2805,7 +2799,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2855,7 +2849,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2902,7 +2896,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit6: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2948,6 +2942,12 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD2Ev.exit: ; pred
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
@@ -2955,18 +2955,18 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn }
+attributes #1 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nounwind }

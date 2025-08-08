@@ -75,7 +75,7 @@ define internal range(i32 0, 27) i32 @argo_cvg_probe(ptr noundef readonly captur
 define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_header(ptr noundef %0) #0 {
   %2 = alloca [4 x i8], align 4
   %3 = alloca [12 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = tail call ptr @av_basename(ptr noundef %5) #4
@@ -113,7 +113,7 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_header(ptr noundef 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %11, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %29 = load i32, ptr %28, align 8, !tbaa !36
   %30 = and i32 %29, 1
@@ -150,14 +150,14 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_header(ptr noundef 
 
 argo_cvg_read_checksum.exit.thread:               ; preds = %31, %37, %40, %41
   %.0.i.ph = phi i32 [ %43, %41 ], [ -5, %40 ], [ %38, %37 ], [ %35, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %110
 
 47:                                               ; preds = %45, %25
   %48 = phi i32 [ %.pre, %45 ], [ %19, %25 ]
   %.sink.i = phi i32 [ %46, %45 ], [ 0, %25 ]
   store i32 %.sink.i, ptr %27, align 4, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %50 = zext i32 %48 to i64
   %51 = call i32 @av_dict_set_int(ptr noundef nonnull %49, ptr noundef nonnull @.str.3, i64 noundef %50, i32 noundef 0) #4
@@ -279,7 +279,7 @@ argo_cvg_read_checksum.exit.thread:               ; preds = %31, %37, %40, %41
 
 110:                                              ; preds = %argo_cvg_read_checksum.exit.thread, %58, %53, %47, %16, %15, %10, %1, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ %13, %10 ], [ -5, %15 ], [ -1094995529, %16 ], [ %51, %47 ], [ %56, %53 ], [ %61, %58 ], [ %.0.i.ph, %argo_cvg_read_checksum.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -567,44 +567,44 @@ define internal range(i32 -22, 1) i32 @argo_cvg_write_init(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
+declare i32 @av_match_ext(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @av_basename(ptr noundef) local_unnamed_addr #1
+
+declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @av_default_item_name(ptr noundef) #1
+
+declare void @avio_wl32(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @av_match_ext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @av_basename(ptr noundef) local_unnamed_addr #2
-
-declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @av_default_item_name(ptr noundef) #2
-
-declare void @avio_wl32(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

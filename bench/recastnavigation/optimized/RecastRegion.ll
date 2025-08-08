@@ -1255,14 +1255,14 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit271: ; preds = %._crit_ed
   %.0168 = phi i16 [ 1, %49 ], [ 5, %.preheader.lr.ph.i ], [ 5, %51 ], [ 5, %._crit_edge28.us.i268 ]
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %2, ptr %143, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZN10rcIntArrayC2Ei.exit unwind label %47
 
 _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit271
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %144 = sub nsw i32 %23, %2
   %145 = icmp slt i32 %2, %144
   br i1 %145, label %.lr.ph390, label %._crit_edge391
@@ -2819,22 +2819,22 @@ _ZN8rcRegionD2Ev.exit:                            ; preds = %_ZN10rcIntArrayD2Ev
   br label %_ZN10rcIntArrayD2Ev.exit477
 
 ._crit_edge756:                                   ; preds = %._crit_edge754.us, %.preheader702.lr.ph, %.preheader703
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %400 unwind label %.loopexit.split-lp684.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 400:                                              ; preds = %._crit_edge756
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZN10rcIntArrayC2Ei.exit297 unwind label %417
 
 _ZN10rcIntArrayC2Ei.exit297:                      ; preds = %400
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %401 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %402 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %403 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4015,13 +4015,13 @@ _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %_ZN12rcVectorBaseIi
 852:                                              ; preds = %851, %.noexc76.i
   %853 = getelementptr inbounds nuw i32, ptr %.sroa.12.2.i, i64 %847
   %854 = load i32, ptr %853, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %854, ptr %11, align 4
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %775, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %855 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 855:                                              ; preds = %852
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %856 = add nuw nsw i32 %.057165.i, 1
   %exitcond188.not.i = icmp eq i32 %.057165.i, %843
   br i1 %exitcond188.not.i, label %._crit_edge168.i, label %844, !llvm.loop !52
@@ -4060,13 +4060,13 @@ _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %_ZN12rcVectorBaseIi
   %872 = load ptr, ptr %822, align 8
   %873 = getelementptr inbounds nuw i32, ptr %872, i64 %865
   %874 = load i32, ptr %873, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %874, ptr %10, align 4
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %775, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %875 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 875:                                              ; preds = %871
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %876 = add nuw nsw i32 %.055169.i, 1
   %exitcond189.not.i = icmp eq i32 %.055169.i, %861
   br i1 %exitcond189.not.i, label %._crit_edge172.i, label %862, !llvm.loop !53
@@ -4145,13 +4145,13 @@ _ZN10rcIntArrayixEi.exit.i.i:                     ; preds = %905, %.noexc90.i
   br i1 %909, label %_ZL20addUniqueFloorRegionR8rcRegioni.exit.i, label %897
 
 ._crit_edge.i.i:                                  ; preds = %897, %890
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %893, ptr %9, align 4
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %882, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %.noexc92.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc92.i:                                       ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL20addUniqueFloorRegionR8rcRegioni.exit.i
 
 _ZL20addUniqueFloorRegionR8rcRegioni.exit.i:      ; preds = %_ZN10rcIntArrayixEi.exit.i.i, %.noexc92.i
@@ -4756,13 +4756,13 @@ _ZL25isRegionConnectedToBorderRK8rcRegion.exit:   ; preds = %_ZNK10rcIntArrayixE
   %1157 = getelementptr inbounds nuw %struct.rcRegion, ptr %1156, i64 %indvars.iv878, i32 1
   %1158 = load i16, ptr %1157, align 4
   %1159 = zext i16 %1158 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %1159, ptr %8, align 4
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN10rcIntArray4pushEi.exit474 unwind label %.loopexit
 
 _ZN10rcIntArray4pushEi.exit474:                   ; preds = %1155
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1160
 
 1160:                                             ; preds = %_ZN10rcIntArray4pushEi.exit474, %1144
@@ -7479,14 +7479,14 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit267: ; preds = %._crit_ed
   %.0167 = phi i16 [ 1, %53 ], [ 5, %.preheader.lr.ph.i ], [ 5, %55 ], [ 5, %._crit_edge28.us.i264 ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %2, ptr %147, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %_ZN10rcIntArrayC2Ei.exit unwind label %51
 
 _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit267
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %148 = sub nsw i32 %27, %2
   %149 = icmp slt i32 %2, %148
   br i1 %149, label %.lr.ph399, label %._crit_edge400
@@ -7931,10 +7931,10 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %164, %.sink.split.i
 _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit276: ; preds = %._crit_edge400, %333
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 26
   store i16 %.1168.lcssa, ptr %337, align 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %338 = load i32, ptr %1, align 8
   %339 = load i32, ptr %26, align 4
   %340 = zext i16 %.1168.lcssa to i32
@@ -8012,14 +8012,14 @@ _ZN8rcRegionD2Ev.exit.i:                          ; preds = %_ZN10rcIntArrayD2Ev
   br label %_ZN10rcIntArrayD2Ev.exit422.i
 
 368:                                              ; preds = %_ZN8rcRegionD2Ev.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZN10rcIntArrayC2Ei.exit.i unwind label %352
 
 _ZN10rcIntArrayC2Ei.exit.i:                       ; preds = %368
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %369 = icmp sgt i32 %339, 0
   br i1 %369, label %.preheader679.lr.ph.i, label %.preheader656.i
 
@@ -8906,14 +8906,14 @@ _ZL19addUniqueConnectionR8rcRegioni.exit.us.i:    ; preds = %_ZN10rcIntArrayixEi
   br i1 %exitcond766.not.i, label %742, label %733, !llvm.loop !101
 
 742:                                              ; preds = %739
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN10rcIntArrayC2Ei.exit303.i unwind label %.loopexit.split-lp658.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN10rcIntArrayC2Ei.exit303.i:                    ; preds = %742
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not220718.i = icmp eq i16 %.1168.lcssa, 0
   br i1 %.not220718.i, label %.preheader634.i.preheader, label %.lr.ph722.i
 
@@ -10283,10 +10283,10 @@ _ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE13destroy_rangeEll.exit.i.i423.i: ; 
   unreachable
 
 1282:                                             ; preds = %_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE13destroy_rangeEll.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1283 = load i8, ptr %18, align 1
   %1284 = trunc i8 %1283 to i1
   br i1 %1284, label %1285, label %_ZN13rcScopedTimerD2Ev.exit284
@@ -11428,10 +11428,10 @@ declare i16 @llvm.umin.i16(i16, i16) #7
 declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

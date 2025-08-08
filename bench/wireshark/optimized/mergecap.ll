@@ -77,7 +77,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %3 = alloca i32, align 4
   %4 = alloca %struct.merge_progress_callback_t, align 8
   store i32 %0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @g_set_prgname(ptr noundef nonnull @.str.3)
   tail call void @cmdarg_err_init(ptr noundef nonnull @stderr_cmdarg_err, ptr noundef nonnull @stderr_cmdarg_err_cont)
   tail call void @ws_log_init(ptr noundef nonnull @vcmdarg_err)
@@ -311,7 +311,7 @@ list_output_compression_types.exit83:             ; preds = %.lr.ph.i80, %68
   br i1 %93, label %94, label %.thread86
 
 94:                                               ; preds = %92
-  %95 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.053, i32 noundef 46) #5
+  %95 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.053, i32 noundef 46) #4
   %.not73 = icmp eq ptr %95, null
   br i1 %.not73, label %.thread89, label %96
 
@@ -408,60 +408,57 @@ list_idb_merge_modes.exit:                        ; preds = %63, %31, %59, %list
 
 135:                                              ; preds = %list_idb_merge_modes.exit, %91
   %.0 = phi i32 [ 1, %91 ], [ %spec.select, %list_idb_merge_modes.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_set_prgname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_set_prgname(ptr noundef) local_unnamed_addr #2
+declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @stderr_cmdarg_err(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stderr_cmdarg_err(ptr noundef, ptr noundef) #2
+declare void @stderr_cmdarg_err_cont(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stderr_cmdarg_err_cont(ptr noundef, ptr noundef) #2
+declare void @ws_log_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_log_init(ptr noundef) local_unnamed_addr #2
+declare void @vcmdarg_err(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @vcmdarg_err(ptr noundef, ptr noundef) #2
+declare i32 @ws_log_parse_args(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ws_log_parse_args(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @init_process_policies() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @init_process_policies() local_unnamed_addr #2
+declare ptr @configuration_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @configuration_init(ptr noundef) local_unnamed_addr #2
+declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @ws_init_version_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_init_version_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @init_report_failure_message(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @init_report_failure_message(ptr noundef) local_unnamed_addr #2
+declare void @wtap_init(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_init(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @ws_getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ws_getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_name_to_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_name_to_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @list_capture_types() unnamed_addr #0 {
@@ -494,7 +491,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @show_help_header(ptr noundef) local_unnamed_addr #2
+declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @print_usage(ptr noundef %0) unnamed_addr #0 {
@@ -521,19 +518,19 @@ define internal fastcc void @print_usage(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @merge_string_to_idb_merge_mode(ptr noundef) local_unnamed_addr #2
+declare i32 @merge_string_to_idb_merge_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_nonzero_uint32(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @get_nonzero_uint32(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @show_version() local_unnamed_addr #2
+declare void @show_version() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_name_to_compression_type(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_name_to_compression_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_pcapng_file_type_subtype() local_unnamed_addr #2
+declare i32 @wtap_pcapng_file_type_subtype() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @merge_callback(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4) #0 {
@@ -640,86 +637,88 @@ define internal noundef zeroext i1 @merge_callback(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @cmdarg_err_cont(ptr noundef, ...) local_unnamed_addr #2
+declare void @cmdarg_err_cont(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_extension_to_compression_type(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_extension_to_compression_type(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_can_write_compression_type(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_compression_type_description(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_dump_can_compress(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_file_type_subtype_name(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_file_type_subtype_supports_block(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @merge_files_to_stdout(i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_appname_and_version() local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @merge_files(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_cleanup() local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @free_progdirs() local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_get_writable_file_types_subtypes(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @merge_idb_merge_mode_to_string(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_get_all_output_compression_type_names_list() local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_file_type_subtype(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_file_encap(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_encap_description(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_can_write_compression_type(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_compression_type_description(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_dump_can_compress(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_file_type_subtype_name(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_file_type_subtype_supports_block(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @merge_files_to_stdout(i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @get_appname_and_version() local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @merge_files(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @wtap_cleanup() local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @free_progdirs() local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_get_writable_file_types_subtypes(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @merge_idb_merge_mode_to_string(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_get_all_output_compression_type_names_list() local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @g_slist_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_file_type_subtype(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_file_encap(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_encap_description(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

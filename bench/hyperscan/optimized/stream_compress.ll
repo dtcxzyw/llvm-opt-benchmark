@@ -1356,7 +1356,7 @@ mmbit_iterate.exit312.i:                          ; preds = %797, %774, %737, %.
   %819 = getelementptr inbounds nuw i8, ptr %1, i64 %818
   %820 = zext i32 %810 to i64
   %821 = getelementptr inbounds nuw i8, ptr %1, i64 %820
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %822 = icmp ugt i32 %815, 256
   br i1 %822, label %911, label %823
 
@@ -1969,7 +1969,7 @@ mmbit_sparse_iter_next.exit.i:                    ; preds = %._crit_edge.i6, %11
 
 .critedge.i:                                      ; preds = %908, %955, %mmbit_sparse_iter_next.exit.i, %.lr.ph, %1115, %.lr.ph.i7, %mmbit_sparse_iter_next.exit.loopexit.us.i, %990, %.lr.ph146.split.us.i, %1057, %.lr.ph146.split.i, %mmbit_sparse_iter_begin.exit.i, %911, %856, %mmbit_get_flat_block.exit63.i.i
   %.3.i = phi i64 [ %.7184.lcssa.i, %mmbit_sparse_iter_begin.exit.i ], [ %.7184.lcssa.i, %mmbit_get_flat_block.exit63.i.i ], [ %.7184.lcssa.i, %911 ], [ %.7184.lcssa.i, %856 ], [ 0, %.lr.ph146.split.i ], [ %999, %1057 ], [ %999, %mmbit_sparse_iter_next.exit.loopexit.us.i ], [ 0, %990 ], [ 0, %.lr.ph146.split.us.i ], [ %1102, %.lr.ph.i7 ], [ 0, %mmbit_sparse_iter_next.exit.i ], [ 0, %.lr.ph ], [ %1102, %1115 ], [ %.7184.lcssa.i, %955 ], [ %.7184.lcssa.i, %908 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %sc_left_expand.exit
 
 sc_left_expand.exit:                              ; preds = %._crit_edge589.i, %.critedge.i
@@ -3388,7 +3388,7 @@ mmbit_iterate.exit.i:                             ; preds = %717, %657
   %758 = getelementptr inbounds nuw i8, ptr %2, i64 %757
   %759 = zext i32 %749 to i64
   %760 = getelementptr inbounds nuw i8, ptr %2, i64 %759
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %761 = icmp ugt i32 %754, 256
   br i1 %761, label %852, label %762
 
@@ -4024,7 +4024,7 @@ mmbit_sparse_iter_next.exit.i.i:                  ; preds = %mmbit_get_flat_bloc
 
 ._crit_edge137.i.i:                               ; preds = %849, %896, %mmbit_sparse_iter_next.exit.loopexit.us.i.i, %999, %._crit_edge137.split.i.i, %mmbit_sparse_iter_begin.exit.i.i, %852, %797, %mmbit_get_flat_block.exit63.i.i.i
   %.039.lcssa.i.i = phi i64 [ %.7159.lcssa.i, %mmbit_sparse_iter_begin.exit.i.i ], [ %.us-phi157.i.i, %._crit_edge137.split.i.i ], [ %.7159.lcssa.i, %mmbit_get_flat_block.exit63.i.i.i ], [ %.7159.lcssa.i, %852 ], [ %.7159.lcssa.i, %797 ], [ %957, %999 ], [ %957, %mmbit_sparse_iter_next.exit.loopexit.us.i.i ], [ %.7159.lcssa.i, %896 ], [ %.7159.lcssa.i, %849 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %sc_left_compress.exit.i
 
 sc_left_compress.exit.i:                          ; preds = %._crit_edge137.i.i, %._crit_edge748.i
@@ -6131,7 +6131,7 @@ mmbit_iterate.exit.i:                             ; preds = %461, %401
 497:                                              ; preds = %._crit_edge140.i
   %498 = zext i32 %496 to i64
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 %498
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %500 = icmp ugt i32 %124, 256
   br i1 %500, label %593, label %501
 
@@ -6701,7 +6701,7 @@ mmbit_sparse_iter_next.exit.i.i:                  ; preds = %mmbit_get_flat_bloc
 
 ._crit_edge70.i.i:                                ; preds = %590, %637, %mmbit_sparse_iter_next.exit.loopexit.us.i.i, %723, %._crit_edge70.split.i.i, %mmbit_sparse_iter_begin.exit.i.i, %593, %538, %mmbit_get_flat_block.exit63.i.i.i
   %.029.lcssa.i.i = phi i64 [ %.1.lcssa.i, %mmbit_sparse_iter_begin.exit.i.i ], [ %.us-phi90.i.i, %._crit_edge70.split.i.i ], [ %.1.lcssa.i, %mmbit_get_flat_block.exit63.i.i.i ], [ %.1.lcssa.i, %593 ], [ %.1.lcssa.i, %538 ], [ %681, %723 ], [ %681, %mmbit_sparse_iter_next.exit.loopexit.us.i.i ], [ %.1.lcssa.i, %637 ], [ %.1.lcssa.i, %590 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sc_left_size.exit.i
 
 sc_left_size.exit.i:                              ; preds = %._crit_edge70.i.i, %._crit_edge140.i
@@ -7735,14 +7735,8 @@ sc_size.exit:                                     ; preds = %.thread20.i.i, %.lr
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0, i64 noundef range(i64 1, 0) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef range(i64 9, 0) %4) unnamed_addr #0 {
@@ -8561,24 +8555,29 @@ mmbit_decompress.exit81:                          ; preds = %52, %123, %.thread1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
+declare i64 @llvm.ctpop.i64(i64) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

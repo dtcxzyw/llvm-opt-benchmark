@@ -4478,13 +4478,13 @@ for.inc187:                                       ; preds = %invoke.cont177.invo
   br i1 %exitcond.not, label %for.end189, label %for.body156, !llvm.loop !233
 
 for.end189:                                       ; preds = %for.inc187
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 4, !noalias !234
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %result, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102, ptr noundef nonnull @.str.16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i)
           to label %invoke.cont190 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont190:                                   ; preds = %for.end189
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %second191 = getelementptr inbounds nuw i8, ptr %result, i64 16
   %151 = load i8, ptr %second191, align 8
   %tobool = trunc i8 %151 to i1
@@ -4492,13 +4492,13 @@ invoke.cont190:                                   ; preds = %for.end189
           to label %invoke.cont193 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont193:                                   ; preds = %invoke.cont190
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i470)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i470)
   store i32 0, ptr %ref.tmp.i470, align 4, !noalias !237
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %ref.tmp195, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102, ptr noundef nonnull @.str.16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i470)
           to label %invoke.cont196 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont196:                                   ; preds = %invoke.cont193
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i470)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i470)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %result, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp195, i64 17, i1 false)
   %152 = load i8, ptr %second191, align 8
   %153 = and i8 %152, 1
@@ -4844,13 +4844,13 @@ lpad280.loopexit.split-lp:                        ; preds = %invoke.cont285, %fo
   br label %ehcleanup333
 
 for.end284:                                       ; preds = %for.inc282
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %allocator.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %allocator.i)
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #12
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef nonnull align 1 dereferenceable(1) %allocator.i)
           to label %invoke.cont285 unwind label %lpad280.loopexit.split-lp
 
 invoke.cont285:                                   ; preds = %for.end284
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %allocator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %allocator.i)
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap3, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp287)
           to label %invoke.cont289 unwind label %lpad280.loopexit.split-lp
 
@@ -9660,10 +9660,10 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

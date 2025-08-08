@@ -75,9 +75,9 @@ entry:
   store ptr %agg.tmp2.sroa.2.0.copyload, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i, align 8, !alias.scope !4
   %delimiter_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i8 47, ptr %delimiter_.i.i, align 8, !alias.scope !4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_(ptr sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -147,7 +147,7 @@ lpad:                                             ; preds = %cond.false
   unreachable
 
 cleanup.done:                                     ; preds = %entry, %_ZNK6google8protobuf8compiler4rust12RelativePath11IsDirectoryEv.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %this, align 8, !noalias !7
   %agg.tmp2.sroa.2.0.path_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp2.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp2.sroa.2.0.path_.sroa_idx.i, align 8, !noalias !7
@@ -156,10 +156,10 @@ cleanup.done:                                     ; preds = %entry, %_ZNK6google
   store ptr %agg.tmp2.sroa.2.0.copyload.i, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i.i, align 8, !alias.scope !10, !noalias !7
   %delimiter_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i8 47, ptr %delimiter_.i.i.i, align 8, !alias.scope !10, !noalias !7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !7
   call void @_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_(ptr nonnull sret(%"class.std::vector") align 8 %current_segments, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %2 = load ptr, ptr %current_segments, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %current_segments, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -185,7 +185,7 @@ if.then:                                          ; preds = %land.lhs.true, %_ZN
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK6google8protobuf8compiler4rust12RelativePath11IsDirectoryEv.exit15, %cleanup.done
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i17)
   %agg.tmp2.sroa.0.0.copyload.i18 = load i64, ptr %dest, align 8, !noalias !13
   %agg.tmp2.sroa.2.0.path_.sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   %agg.tmp2.sroa.2.0.copyload.i20 = load ptr, ptr %agg.tmp2.sroa.2.0.path_.sroa_idx.i19, align 8, !noalias !13
@@ -194,13 +194,13 @@ if.end:                                           ; preds = %if.then, %_ZNK6goog
   store ptr %agg.tmp2.sroa.2.0.copyload.i20, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i.i21, align 8, !alias.scope !16, !noalias !13
   %delimiter_.i.i.i22 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 16
   store i8 47, ptr %delimiter_.i.i.i22, align 8, !alias.scope !16, !noalias !13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i16), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i16), !noalias !13
   invoke void @_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_(ptr nonnull sret(%"class.std::vector") align 8 %dest_segments, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i17)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i16), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i16), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i17)
   %5 = load ptr, ptr %current_segments, align 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %5, %6
@@ -212,11 +212,11 @@ invoke.cont14:                                    ; preds = %if.end
 while.body.i.i.i:                                 ; preds = %invoke.cont14, %while.body.i.i.i
   %__last.sroa.0.012.i.i.i = phi ptr [ %__last.sroa.0.0.i.i.i, %while.body.i.i.i ], [ %__last.sroa.0.09.i.i.i, %invoke.cont14 ]
   %__first.sroa.0.011.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i, %while.body.i.i.i ], [ %5, %invoke.cont14 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.011.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.012.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i)
   %incdec.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.011.i.i.i, i64 16
   %__last.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i.i, i64 -16
   %cmp.i1.i.i.i = icmp ult ptr %incdec.ptr.i2.i.i.i, %__last.sroa.0.0.i.i.i
@@ -235,11 +235,11 @@ invoke.cont16:                                    ; preds = %while.body.i.i.i, %
 while.body.i.i.i29:                               ; preds = %invoke.cont16, %while.body.i.i.i29
   %__last.sroa.0.012.i.i.i30 = phi ptr [ %__last.sroa.0.0.i.i.i33, %while.body.i.i.i29 ], [ %__last.sroa.0.09.i.i.i26, %invoke.cont16 ]
   %__first.sroa.0.011.i.i.i31 = phi ptr [ %incdec.ptr.i2.i.i.i32, %while.body.i.i.i29 ], [ %7, %invoke.cont16 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.011.i.i.i31, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.011.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.012.i.i.i30, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.012.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i23, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i23)
   %incdec.ptr.i2.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.011.i.i.i31, i64 16
   %__last.sroa.0.0.i.i.i33 = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i.i30, i64 -16
   %cmp.i1.i.i.i34 = icmp ult ptr %incdec.ptr.i2.i.i.i32, %__last.sroa.0.0.i.i.i33
@@ -554,11 +554,11 @@ for.end48:                                        ; preds = %for.inc47, %for.con
 while.body.i.i.i94:                               ; preds = %for.end48, %while.body.i.i.i94
   %__last.sroa.0.012.i.i.i95 = phi ptr [ %__last.sroa.0.0.i.i.i98, %while.body.i.i.i94 ], [ %__last.sroa.0.09.i.i.i91, %for.end48 ]
   %__first.sroa.0.011.i.i.i96 = phi ptr [ %incdec.ptr.i2.i.i.i97, %while.body.i.i.i94 ], [ %result.sroa.0.2.lcssa, %for.end48 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i88)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i88, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.011.i.i.i96, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.011.i.i.i96, ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.012.i.i.i95, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.012.i.i.i95, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i88, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i88)
   %incdec.ptr.i2.i.i.i97 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.011.i.i.i96, i64 16
   %__last.sroa.0.0.i.i.i98 = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i.i95, i64 -16
   %cmp.i1.i.i.i99 = icmp ult ptr %incdec.ptr.i2.i.i.i97, %__last.sroa.0.0.i.i.i98
@@ -1707,10 +1707,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17

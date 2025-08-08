@@ -46,7 +46,7 @@ define internal range(i32 -2147483648, 1) i32 @rcwt_read_header(ptr noundef %0) 
   %2 = alloca [11 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = call i32 @ffio_read_size(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 11) #4
@@ -128,7 +128,7 @@ define internal range(i32 -2147483648, 1) i32 @rcwt_read_header(ptr noundef %0) 
 
 .thread:                                          ; preds = %36, %34, %13, %1, %._crit_edge, %12
   %.0 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ %7, %1 ], [ -12, %13 ], [ -12, %34 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -137,9 +137,6 @@ declare i32 @ff_subtitles_read_packet(ptr noundef, ptr noundef) #2
 declare i32 @ff_subtitles_read_close(ptr noundef) #2
 
 declare i32 @ff_subtitles_read_seek(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @ffio_read_size(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -159,12 +156,15 @@ declare ptr @ff_subtitles_queue_insert(ptr noundef, ptr noundef, i64 noundef, i3
 
 declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @ff_subtitles_queue_finalize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

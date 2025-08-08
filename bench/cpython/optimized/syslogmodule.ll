@@ -97,7 +97,7 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @syslog_openlog(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -191,7 +191,7 @@ define internal noundef ptr @syslog_openlog(ptr readnone captures(none) %0, ptr 
 
 43:                                               ; preds = %39, %31, %11, %41, %22
   %.037 = phi ptr [ null, %31 ], [ null, %39 ], [ %42, %41 ], [ null, %22 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.037
 }
 
@@ -251,9 +251,9 @@ syslog_closelog_impl.exit:                        ; preds = %5, %7, %10, %Py_DEC
 define internal noundef ptr @syslog_syslog(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 6, ptr %3, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !3
   switch i64 %.val, label %10 [
@@ -363,8 +363,8 @@ Py_DECREF.exit.critedge.i:                        ; preds = %Py_DECREF.exit.thre
 
 syslog_syslog_impl.exit:                          ; preds = %Py_DECREF.exit.critedge.i, %43, %40, %_Py_XNewRef.exit.i, %23, %21, %12, %8, %6, %10
   %.05 = phi ptr [ null, %10 ], [ null, %6 ], [ null, %8 ], [ null, %21 ], [ null, %12 ], [ null, %23 ], [ @_Py_NoneStruct, %_Py_XNewRef.exit.i ], [ @_Py_NoneStruct, %40 ], [ @_Py_NoneStruct, %43 ], [ @_Py_NoneStruct, %Py_DECREF.exit.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.05
 }
 
@@ -472,9 +472,6 @@ define internal ptr @syslog_LOG_UPTO(ptr readnone captures(none) %0, ptr noundef
   %.0 = phi ptr [ null, %9 ], [ %12, %11 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -649,9 +646,6 @@ Py_DECREF.exit:                                   ; preds = %43, %.thread, %65, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
@@ -691,7 +685,7 @@ declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @setlogmask(i32 noundef) local_unnamed_addr #3
+declare i32 @setlogmask(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @syslog_exec(ptr noundef %0) #0 {
@@ -871,13 +865,19 @@ define internal range(i32 -1, 1) i32 @syslog_exec(ptr noundef %0) #0 {
 
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 

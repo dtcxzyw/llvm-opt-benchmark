@@ -554,7 +554,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   br i1 %76, label %77, label %122
 
 77:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %78 = load i32, ptr %12, align 4
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %79, align 4
@@ -673,7 +673,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   %.sroa.0.0.copyload.i = load i64, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.0.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift to i32
@@ -2056,10 +2056,10 @@ define internal void @_GLOBAL__sub_I_ABsearch.cpp() #8 section ".text.startup" {
 declare i16 @llvm.umax.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

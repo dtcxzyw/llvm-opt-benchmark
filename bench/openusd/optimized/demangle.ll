@@ -38,7 +38,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEP
 
 4:                                                ; preds = %1
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_FixupStringNamesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %2, ptr noundef nonnull align 16 dereferenceable(35) @__const._ZN32pxrInternal_v0_24__pxrReserved__L26_StripPxrInternalNamespaceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.nsQualifier, i64 35, i1 false)
   %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2, i64 noundef 0) #14
   %.not4.i = icmp eq i64 %5, -1
@@ -52,7 +52,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEP
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L26_StripPxrInternalNamespaceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZN32pxrInternal_v0_24__pxrReserved__L26_StripPxrInternalNamespaceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %4
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_DemangleNewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_DemangleNewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__L26_StripPxrInternalNamespaceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -81,9 +81,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25Arch_DemangleFunctionNameEPN
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %17 = call ptr @__cxa_demangle(ptr noundef %16, ptr noundef null, ptr noundef null, ptr noundef nonnull %2)
   %.not.i.not = icmp eq ptr %17, null
@@ -129,9 +129,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_DemangleOldEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 27:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_DemangleOldEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %11, %7, %1
@@ -159,7 +159,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledERKNSt7__cxx
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %3, ptr noundef nonnull align 16 dereferenceable(35) @__const._ZN32pxrInternal_v0_24__pxrReserved__L26_StripPxrInternalNamespaceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.nsQualifier, i64 35, i1 false)
   %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3, i64 noundef 0) #14
   %.not4.i.i = icmp eq i64 %7, -1
@@ -176,7 +176,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledERKNSt7__cxx
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4: ; preds = %.noexc3, %.noexc2
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   br label %11
 
@@ -258,14 +258,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc12 unwind label %.loopexit.split-lp
 
 .noexc12:                                         ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %3, ptr noundef nonnull align 16 dereferenceable(35) @__const._ZN32pxrInternal_v0_24__pxrReserved__L26_StripPxrInternalNamespaceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.nsQualifier, i64 35, i1 false)
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, i64 noundef 0) #14
   %.not4.i.i = icmp eq i64 %13, -1
   br i1 %.not4.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread14, label %.lr.ph.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread14: ; preds = %.noexc12
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 .lr.ph.i.i:                                       ; preds = %.noexc12, %.noexc13
@@ -304,7 +304,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIc
   br label %20
 
 _ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc13
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__12ArchDemangleEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.noexc11
@@ -787,10 +787,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

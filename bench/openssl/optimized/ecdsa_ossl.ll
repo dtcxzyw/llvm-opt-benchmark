@@ -132,9 +132,6 @@ define range(i32 0, 2) i32 @ossl_ecdsa_sign(i32 noundef %0, ptr noundef %1, i32 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ECDSA_size(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ECDSA_do_sign_ex(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -143,18 +140,15 @@ declare i32 @i2d_ECDSA_SIG(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ecdsa_deterministic_sign(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   store ptr %2, ptr %10, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !30
   %13 = icmp eq ptr %2, null
   br i1 %13, label %14, label %15
@@ -202,8 +196,8 @@ define range(i32 0, 2) i32 @ossl_ecdsa_deterministic_sign(ptr noundef %0, i32 no
 
 28:                                               ; preds = %18, %27, %17, %14
   %.017 = phi i32 [ 0, %14 ], [ 0, %17 ], [ %.0, %27 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.017
 }
 
@@ -472,7 +466,7 @@ define range(i32 0, 2) i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !30
   %7 = tail call ptr @EC_KEY_get0_group(ptr noundef %4) #4
   %8 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %4) #4
@@ -742,7 +736,7 @@ define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr nound
 
 106:                                              ; preds = %.loopexit, %20, %16, %13, %10
   %.0 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %20 ], [ %.069, %.loopexit ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -785,10 +779,10 @@ define i32 @ossl_ecdsa_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %3, ptr %8, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !28
   %10 = tail call ptr @ECDSA_SIG_new() #4
   store ptr %10, ptr %7, align 8, !tbaa !41
@@ -829,9 +823,9 @@ define i32 @ossl_ecdsa_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 26:                                               ; preds = %6, %23
   %.011 = phi i32 [ %.0, %23 ], [ -1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.011
 }
 
@@ -1134,6 +1128,12 @@ declare i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef, ptr noundef, ptr nound
 declare i32 @ossl_bn_priv_rand_range_fixed_top(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ossl_bn_is_word_fixed_top(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3

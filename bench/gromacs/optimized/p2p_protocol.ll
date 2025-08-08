@@ -723,19 +723,19 @@ define internal fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr nounde
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 3, ptr %42, align 4, !tbaa !73
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i32 1, ptr %4, align 4, !tbaa !75
   %.0..0..0..0..0..0..i = load volatile i32, ptr %4, align 4, !tbaa !75
   %44 = atomicrmw add ptr %43, i32 %.0..0..0..0..0..0..i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   fence seq_cst
   %45 = load ptr, ptr %7, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 288
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i32 1, ptr %3, align 4, !tbaa !75
   %.0..0..0..0..0..0..i35 = load volatile i32, ptr %3, align 4, !tbaa !75
   %47 = atomicrmw add ptr %46, i32 %.0..0..0..0..0..0..i35 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %49 = load ptr, ptr %48, align 8, !tbaa !10
   %.not.i = icmp eq ptr %49, null
@@ -902,11 +902,11 @@ _ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exi
   fence seq_cst
   %64 = load ptr, ptr %39, align 8, !tbaa !64
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 288
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 1, ptr %9, align 4, !tbaa !75
   %.0..0..0..0..0..0..0..0..i.i = load volatile i32, ptr %9, align 4, !tbaa !75
   %66 = atomicrmw add ptr %65, i32 %.0..0..0..0..0..0..0..0..i.i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %67
 
 67:                                               ; preds = %_ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_PviP14tmpi_datatype_ii.exit, %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit
@@ -924,11 +924,11 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !88
   %9 = sub nsw i32 0, %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i32 %9, ptr %4, align 4, !tbaa !75
   %.0..0..0..0..0..0..i = load volatile i32, ptr %4, align 4, !tbaa !75
   %10 = atomicrmw add ptr %7, i32 %.0..0..0..0..0..0..i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = icmp sgt i32 %6, %8
   %12 = load i32, ptr @Nthreads, align 4
   %13 = icmp sgt i32 %12, 0
@@ -1110,19 +1110,19 @@ _ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit: ; preds 
   store i32 3, ptr %70, align 4, !tbaa !73
   store i32 3, ptr %34, align 4, !tbaa !73
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 224
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i32 1, ptr %3, align 4, !tbaa !75
   %.0..0..0..0..0..0..0..0..i.i = load volatile i32, ptr %3, align 4, !tbaa !75
   %98 = atomicrmw add ptr %97, i32 %.0..0..0..0..0..0..0..0..i.i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   fence seq_cst
   %99 = load ptr, ptr %69, align 8, !tbaa !47
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 288
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile i32 1, ptr %2, align 4, !tbaa !75
   %.0..0..0..0..0..0..0..0..i35.i = load volatile i32, ptr %2, align 4, !tbaa !75
   %101 = atomicrmw add ptr %100, i32 %.0..0..0..0..0..0..0..0..i35.i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %102 = getelementptr inbounds nuw i8, ptr %.06.i, i64 136
   %103 = load ptr, ptr %102, align 8, !tbaa !10
   %.not.i.i45 = icmp eq ptr %103, null
@@ -1526,10 +1526,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -1463,7 +1463,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19CheckInsertionPoint, i64 16), ptr %3, align 8
   store ptr %236, ptr %9, align 8
   store i8 1, ptr %10, align 8
@@ -1473,7 +1473,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
   call void %239(ptr noundef nonnull align 8 dereferenceable(96) %.05177, ptr noundef nonnull %3) #7
   %240 = load i8, ptr %10, align 8
   %241 = trunc i8 %240 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %241, label %242, label %.thread
 
 242:                                              ; preds = %235
@@ -4451,10 +4451,10 @@ declare i32 @llvm.ctpop.i32(i32) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

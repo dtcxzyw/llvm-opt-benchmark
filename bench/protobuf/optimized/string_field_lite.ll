@@ -572,7 +572,7 @@ _ZN6google8protobuf8internal10WireFormat7MakeTagEPKNS0_15FieldDescriptorE.exit: 
   store i64 %sub.ptr.sub.i, ptr %ref.tmp28, align 8
   %_M_str.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23, !noalias !24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull %digits_.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit unwind label %lpad.i107
@@ -585,7 +585,7 @@ lpad.i107:                                        ; preds = %_ZN6google8protobuf
 
 _ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit: ; preds = %_ZN6google8protobuf8internal10WireFormat7MakeTagEPKNS0_15FieldDescriptorE.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i.i.i108118 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIA4_cEESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables, ptr noundef nonnull align 1 dereferenceable(4) @.str.74)
           to label %call.i.i.i108.noexc unwind label %lpad30
 
@@ -631,7 +631,7 @@ invoke.cont31:                                    ; preds = %if.then.i.i.i112, %
   store i64 %sub.ptr.sub.i125, ptr %ref.tmp36, align 8
   %_M_str.i.i126 = getelementptr inbounds nuw i8, ptr %ref.tmp36, i64 8
   store ptr %digits_.i121, ptr %_M_str.i.i126, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i127)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i127) #23, !noalias !32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull %digits_.i121, i64 noundef %sub.ptr.sub.i125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i127)
           to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit130 unwind label %lpad.i129
@@ -644,7 +644,7 @@ lpad.i129:                                        ; preds = %invoke.cont31
 
 _ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit130: ; preds = %invoke.cont31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i127) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i127)
   %call.i.i.i131141 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIA9_cEESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables, ptr noundef nonnull align 1 dereferenceable(9) @.str.75)
           to label %call.i.i.i131.noexc unwind label %lpad40
 
@@ -984,7 +984,7 @@ if.then86:                                        ; preds = %if.then82
   store i64 %sub.ptr.sub.i224, ptr %ref.tmp88, align 8
   %_M_str.i.i225 = getelementptr inbounds nuw i8, ptr %ref.tmp88, i64 8
   store ptr %digits_.i220, ptr %_M_str.i.i225, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i226)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i226) #23, !noalias !80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87, ptr noundef nonnull %digits_.i220, i64 noundef %sub.ptr.sub.i224, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i226)
           to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit229 unwind label %lpad.i228
@@ -997,7 +997,7 @@ lpad.i228:                                        ; preds = %if.then86
 
 _ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit229: ; preds = %if.then86
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i226) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i226)
   %call.i.i.i230240 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIA13_cEESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables, ptr noundef nonnull align 1 dereferenceable(13) @.str.89)
           to label %call.i.i.i230.noexc unwind label %lpad89
 
@@ -1057,7 +1057,7 @@ invoke.cont96:                                    ; preds = %if.then.i.i.i246, %
   store i64 %sub.ptr.sub.i257, ptr %ref.tmp101, align 8
   %_M_str.i.i258 = getelementptr inbounds nuw i8, ptr %ref.tmp101, i64 8
   store ptr %digits_.i253, ptr %_M_str.i.i258, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i259)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i259) #23, !noalias !93
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100, ptr noundef nonnull %digits_.i253, i64 noundef %sub.ptr.sub.i257, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i259)
           to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit262 unwind label %lpad.i261
@@ -1070,7 +1070,7 @@ lpad.i261:                                        ; preds = %invoke.cont96
 
 _ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit262: ; preds = %invoke.cont96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i259) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i259)
   %call.i.i.i263273 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIA15_cEESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables, ptr noundef nonnull align 1 dereferenceable(15) @.str.91)
           to label %call.i.i.i263.noexc unwind label %lpad102
 
@@ -1645,8 +1645,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 52, ptr nonnull @.str)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -1692,8 +1692,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i16
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %.pre = load ptr, ptr %descriptor_, align 8
   br label %if.end
 
@@ -1739,8 +1739,8 @@ invoke.cont16:                                    ; preds = %_ZN6google8protobuf
   %variables_17 = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 61, ptr nonnull @.str.3)
   %19 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i39)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i40)
   %annotation_collector.i41 = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %20 = load ptr, ptr %annotation_collector.i41, align 8
   %cmp.i42 = icmp eq ptr %20, null
@@ -1786,8 +1786,8 @@ if.then.i.i.i3.i46:                               ; preds = %lpad.i44
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit55: ; preds = %invoke.cont16, %invoke.cont11.i52, %if.then.i.i.i.i54
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i39)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i40)
   %29 = load ptr, ptr %descriptor_, align 8
   %30 = load ptr, ptr %context_13, align 8
   %options_.i56 = getelementptr inbounds nuw i8, ptr %30, i64 72
@@ -1820,8 +1820,8 @@ invoke.cont31:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i57) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 84, ptr nonnull @.str.4)
   %33 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i76)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i77)
   %34 = load ptr, ptr %annotation_collector.i41, align 8
   %cmp.i79 = icmp eq ptr %34, null
   br i1 %cmp.i79, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit92, label %if.end.i80
@@ -1866,8 +1866,8 @@ if.then.i.i.i3.i83:                               ; preds = %lpad.i81
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit92: ; preds = %invoke.cont31, %invoke.cont11.i89, %if.then.i.i.i.i91
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i76)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i77)
   ret void
 
 lpad15:                                           ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit29
@@ -1896,7 +1896,7 @@ entry:
   %pop = alloca %"class.absl::lts_20230802::Cleanup", align 8
   %agg.tmp3 = alloca %"struct.google::protobuf::io::Printer::PrintOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %vars, ptr %ref.tmp.i, align 8, !noalias !163
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !163
@@ -1928,7 +1928,7 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   %callback_buffer_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pop, i64 8
   store ptr %this, ptr %callback_buffer_.i.i.i.i.i, align 8, !alias.scope !166
   store i8 1, ptr %pop, align 8, !alias.scope !166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %opts.sroa.1.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 1
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx, align 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 5
@@ -2054,8 +2054,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_7, i64 120, ptr nonnull @.str.8)
   %7 = load ptr, ptr %descriptor_10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %8 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %8, null
@@ -2101,8 +2101,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i35
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %.pre = load ptr, ptr %descriptor_10, align 8
   br label %if.end25
 
@@ -2146,8 +2146,8 @@ invoke.cont31:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i39) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_7, i64 109, ptr nonnull @.str.9)
   %22 = load ptr, ptr %descriptor_10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i58)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i59)
   %annotation_collector.i60 = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %23 = load ptr, ptr %annotation_collector.i60, align 8
   %cmp.i61 = icmp eq ptr %23, null
@@ -2193,8 +2193,8 @@ if.then.i.i.i3.i65:                               ; preds = %lpad.i63
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit74: ; preds = %invoke.cont31, %invoke.cont11.i71, %if.then.i.i.i.i73
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i58)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i59)
   %32 = load ptr, ptr %descriptor_10, align 8
   %33 = load ptr, ptr %context_, align 8
   %options_.i75 = getelementptr inbounds nuw i8, ptr %33, i64 72
@@ -2227,8 +2227,8 @@ invoke.cont46:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i76) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_7, i64 177, ptr nonnull @.str.10)
   %36 = load ptr, ptr %descriptor_10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i95)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i96)
   %37 = load ptr, ptr %annotation_collector.i60, align 8
   %cmp.i98 = icmp eq ptr %37, null
   br i1 %cmp.i98, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit111, label %if.end.i99
@@ -2273,8 +2273,8 @@ if.then.i.i.i3.i102:                              ; preds = %lpad.i100
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit111: ; preds = %invoke.cont46, %invoke.cont11.i108, %if.then.i.i.i.i110
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i95)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i96)
   %46 = load ptr, ptr %descriptor_10, align 8
   %47 = load ptr, ptr %context_, align 8
   %options_.i112 = getelementptr inbounds nuw i8, ptr %47, i64 72
@@ -2508,8 +2508,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 125, ptr nonnull @.str.16)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -2555,8 +2555,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i25
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %.pre = load ptr, ptr %descriptor_, align 8
   br label %if.end
 
@@ -2602,8 +2602,8 @@ invoke.cont16:                                    ; preds = %_ZN6google8protobuf
   %variables_17 = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 134, ptr nonnull @.str.17)
   %19 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i48)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i49)
   %annotation_collector.i50 = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %20 = load ptr, ptr %annotation_collector.i50, align 8
   %cmp.i51 = icmp eq ptr %20, null
@@ -2649,8 +2649,8 @@ if.then.i.i.i3.i55:                               ; preds = %lpad.i53
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit64: ; preds = %invoke.cont16, %invoke.cont11.i61, %if.then.i.i.i.i63
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i48)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i49)
   %29 = load ptr, ptr %descriptor_, align 8
   %30 = load ptr, ptr %context_13, align 8
   %options_.i65 = getelementptr inbounds nuw i8, ptr %30, i64 72
@@ -2683,8 +2683,8 @@ invoke.cont31:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i66) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 162, ptr nonnull @.str.18)
   %33 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i85)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i86)
   %34 = load ptr, ptr %annotation_collector.i50, align 8
   %cmp.i88 = icmp eq ptr %34, null
   br i1 %cmp.i88, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit101, label %if.end.i89
@@ -2729,8 +2729,8 @@ if.then.i.i.i3.i92:                               ; preds = %lpad.i90
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit101: ; preds = %invoke.cont31, %invoke.cont11.i98, %if.then.i.i.i.i100
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i85)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i86)
   %43 = load ptr, ptr %descriptor_, align 8
   %44 = load ptr, ptr %context_13, align 8
   %options_.i102 = getelementptr inbounds nuw i8, ptr %44, i64 72
@@ -2763,8 +2763,8 @@ invoke.cont46:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i103) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 162, ptr nonnull @.str.19)
   %47 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i123)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i124)
   %48 = load ptr, ptr %annotation_collector.i50, align 8
   %cmp.i126 = icmp eq ptr %48, null
   br i1 %cmp.i126, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit139, label %if.end.i127
@@ -2809,8 +2809,8 @@ if.then.i.i.i3.i130:                              ; preds = %lpad.i128
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit139: ; preds = %invoke.cont46, %invoke.cont11.i136, %if.then.i.i.i.i138
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i123)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i124)
   %57 = load ptr, ptr %descriptor_, align 8
   %58 = load ptr, ptr %context_13, align 8
   %options_.i140 = getelementptr inbounds nuw i8, ptr %58, i64 72
@@ -2843,8 +2843,8 @@ invoke.cont60:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i141) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 134, ptr nonnull @.str.20)
   %61 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i161)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i162)
   %62 = load ptr, ptr %annotation_collector.i50, align 8
   %cmp.i164 = icmp eq ptr %62, null
   br i1 %cmp.i164, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit177, label %if.end.i165
@@ -2889,8 +2889,8 @@ if.then.i.i.i3.i168:                              ; preds = %lpad.i166
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit177: ; preds = %invoke.cont60, %invoke.cont11.i174, %if.then.i.i.i.i176
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i161)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i162)
   %71 = load ptr, ptr %descriptor_, align 8
   %72 = load ptr, ptr %context_13, align 8
   %options_.i178 = getelementptr inbounds nuw i8, ptr %72, i64 72
@@ -2923,8 +2923,8 @@ invoke.cont75:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i179) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_17, i64 186, ptr nonnull @.str.21)
   %75 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i199)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i200)
   %76 = load ptr, ptr %annotation_collector.i50, align 8
   %cmp.i202 = icmp eq ptr %76, null
   br i1 %cmp.i202, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit215, label %if.end.i203
@@ -2969,8 +2969,8 @@ if.then.i.i.i3.i206:                              ; preds = %lpad.i204
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit215: ; preds = %invoke.cont75, %invoke.cont11.i212, %if.then.i.i.i.i214
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i199)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i200)
   ret void
 
 lpad15:                                           ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit38
@@ -3444,8 +3444,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 117, ptr nonnull @.str.28)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -3491,8 +3491,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i28
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %14 = load ptr, ptr %descriptor_, align 8
   %15 = load ptr, ptr %context_, align 8
   %options_.i29 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -3525,8 +3525,8 @@ invoke.cont15:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i30) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 226, ptr nonnull @.str.29)
   %18 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i50)
   %19 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i52 = icmp eq ptr %19, null
   br i1 %cmp.i52, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit65, label %if.end.i53
@@ -3571,8 +3571,8 @@ if.then.i.i.i3.i56:                               ; preds = %lpad.i54
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit65: ; preds = %invoke.cont15, %invoke.cont11.i62, %if.then.i.i.i.i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i50)
   %28 = load ptr, ptr %descriptor_, align 8
   %29 = load ptr, ptr %context_, align 8
   %options_.i66 = getelementptr inbounds nuw i8, ptr %29, i64 72
@@ -3605,8 +3605,8 @@ invoke.cont30:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i67) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 294, ptr nonnull @.str.30)
   %32 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i86)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i87)
   %33 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i89 = icmp eq ptr %33, null
   br i1 %cmp.i89, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit102, label %if.end.i90
@@ -3651,8 +3651,8 @@ if.then.i.i.i3.i93:                               ; preds = %lpad.i91
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit102: ; preds = %invoke.cont30, %invoke.cont11.i99, %if.then.i.i.i.i101
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i86)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i87)
   %42 = load ptr, ptr %descriptor_, align 8
   %43 = load ptr, ptr %context_, align 8
   %options_.i103 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -3685,8 +3685,8 @@ invoke.cont45:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i104) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 139, ptr nonnull @.str.31)
   %46 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i124)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i125)
   %47 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i127 = icmp eq ptr %47, null
   br i1 %cmp.i127, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit140, label %if.end.i128
@@ -3731,8 +3731,8 @@ if.then.i.i.i3.i131:                              ; preds = %lpad.i129
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit140: ; preds = %invoke.cont45, %invoke.cont11.i137, %if.then.i.i.i.i139
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i124)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i125)
   %56 = load ptr, ptr %descriptor_, align 8
   %57 = load ptr, ptr %context_, align 8
   %options_.i141 = getelementptr inbounds nuw i8, ptr %57, i64 72
@@ -3765,8 +3765,8 @@ invoke.cont59:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i142) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 145, ptr nonnull @.str.32)
   %60 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i162)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i163)
   %61 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i165 = icmp eq ptr %61, null
   br i1 %cmp.i165, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit178, label %if.end.i166
@@ -3811,8 +3811,8 @@ if.then.i.i.i3.i169:                              ; preds = %lpad.i167
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit178: ; preds = %invoke.cont59, %invoke.cont11.i175, %if.then.i.i.i.i177
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i162)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i163)
   %70 = load ptr, ptr %descriptor_, align 8
   %71 = load ptr, ptr %context_, align 8
   %options_.i179 = getelementptr inbounds nuw i8, ptr %71, i64 72
@@ -3845,8 +3845,8 @@ invoke.cont74:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i180) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 91, ptr nonnull @.str.33)
   %74 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i200)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i201)
   %75 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i203 = icmp eq ptr %75, null
   br i1 %cmp.i203, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit216, label %if.end.i204
@@ -3891,8 +3891,8 @@ if.then.i.i.i3.i207:                              ; preds = %lpad.i205
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit216: ; preds = %invoke.cont74, %invoke.cont11.i213, %if.then.i.i.i.i215
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i200)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i201)
   %84 = load ptr, ptr %descriptor_, align 8
   %merged_features_.i.i.i.i = getelementptr inbounds nuw i8, ptr %84, i64 72
   %85 = load ptr, ptr %merged_features_.i.i.i.i, align 8
@@ -4065,8 +4065,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 125, ptr nonnull @.str.16)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -4112,8 +4112,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i25
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %14 = load ptr, ptr %descriptor_, align 8
   %15 = load ptr, ptr %context_, align 8
   %options_.i26 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -4146,8 +4146,8 @@ invoke.cont14:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i27) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 134, ptr nonnull @.str.17)
   %18 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i46)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i47)
   %19 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i49 = icmp eq ptr %19, null
   br i1 %cmp.i49, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit62, label %if.end.i50
@@ -4192,8 +4192,8 @@ if.then.i.i.i3.i53:                               ; preds = %lpad.i51
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit62: ; preds = %invoke.cont14, %invoke.cont11.i59, %if.then.i.i.i.i61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i47)
   %28 = load ptr, ptr %descriptor_, align 8
   %29 = load ptr, ptr %context_, align 8
   %options_.i63 = getelementptr inbounds nuw i8, ptr %29, i64 72
@@ -4226,8 +4226,8 @@ invoke.cont29:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i64) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 162, ptr nonnull @.str.18)
   %32 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i83)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i84)
   %33 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i86 = icmp eq ptr %33, null
   br i1 %cmp.i86, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit99, label %if.end.i87
@@ -4272,8 +4272,8 @@ if.then.i.i.i3.i90:                               ; preds = %lpad.i88
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit99: ; preds = %invoke.cont29, %invoke.cont11.i96, %if.then.i.i.i.i98
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i83)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i84)
   %42 = load ptr, ptr %descriptor_, align 8
   %43 = load ptr, ptr %context_, align 8
   %options_.i100 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -4306,8 +4306,8 @@ invoke.cont44:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i101) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 162, ptr nonnull @.str.19)
   %46 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i121)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i122)
   %47 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i124 = icmp eq ptr %47, null
   br i1 %cmp.i124, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit137, label %if.end.i125
@@ -4352,8 +4352,8 @@ if.then.i.i.i3.i128:                              ; preds = %lpad.i126
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit137: ; preds = %invoke.cont44, %invoke.cont11.i134, %if.then.i.i.i.i136
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i121)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i122)
   %56 = load ptr, ptr %descriptor_, align 8
   %57 = load ptr, ptr %context_, align 8
   %options_.i138 = getelementptr inbounds nuw i8, ptr %57, i64 72
@@ -4386,8 +4386,8 @@ invoke.cont58:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i139) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 134, ptr nonnull @.str.20)
   %60 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i159)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i160)
   %61 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i162 = icmp eq ptr %61, null
   br i1 %cmp.i162, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit175, label %if.end.i163
@@ -4432,8 +4432,8 @@ if.then.i.i.i3.i166:                              ; preds = %lpad.i164
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit175: ; preds = %invoke.cont58, %invoke.cont11.i172, %if.then.i.i.i.i174
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i159)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i160)
   %70 = load ptr, ptr %descriptor_, align 8
   %71 = load ptr, ptr %context_, align 8
   %options_.i176 = getelementptr inbounds nuw i8, ptr %71, i64 72
@@ -4466,8 +4466,8 @@ invoke.cont73:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i177) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 186, ptr nonnull @.str.21)
   %74 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i197)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i198)
   %75 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i200 = icmp eq ptr %75, null
   br i1 %cmp.i200, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit213, label %if.end.i201
@@ -4512,8 +4512,8 @@ if.then.i.i.i3.i204:                              ; preds = %lpad.i202
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit213: ; preds = %invoke.cont73, %invoke.cont11.i210, %if.then.i.i.i.i212
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i197)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i198)
   ret void
 
 lpad:                                             ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -4745,8 +4745,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 85, ptr nonnull @.str.35)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -4792,8 +4792,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i19
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %14 = load ptr, ptr %descriptor_, align 8
   %15 = load ptr, ptr %context_, align 8
   %options_.i20 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -4826,8 +4826,8 @@ invoke.cont14:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i21) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 53, ptr nonnull @.str.36)
   %18 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i40)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i41)
   %19 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i43 = icmp eq ptr %19, null
   br i1 %cmp.i43, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit56, label %if.end.i44
@@ -4872,8 +4872,8 @@ if.then.i.i.i3.i47:                               ; preds = %lpad.i45
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit56: ; preds = %invoke.cont14, %invoke.cont11.i53, %if.then.i.i.i.i55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i40)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i41)
   %28 = load ptr, ptr %descriptor_, align 8
   %29 = load ptr, ptr %context_, align 8
   %options_.i57 = getelementptr inbounds nuw i8, ptr %29, i64 72
@@ -4906,8 +4906,8 @@ invoke.cont29:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i58) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 70, ptr nonnull @.str.37)
   %32 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i77)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i78)
   %33 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i80 = icmp eq ptr %33, null
   br i1 %cmp.i80, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit93, label %if.end.i81
@@ -4952,8 +4952,8 @@ if.then.i.i.i3.i84:                               ; preds = %lpad.i82
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit93: ; preds = %invoke.cont29, %invoke.cont11.i90, %if.then.i.i.i.i92
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i77)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i78)
   %42 = load ptr, ptr %descriptor_, align 8
   %43 = load ptr, ptr %context_, align 8
   %options_.i94 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -4986,8 +4986,8 @@ invoke.cont44:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i95) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 93, ptr nonnull @.str.38)
   %46 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i114)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i115)
   %47 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i117 = icmp eq ptr %47, null
   br i1 %cmp.i117, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit130, label %if.end.i118
@@ -5032,8 +5032,8 @@ if.then.i.i.i3.i121:                              ; preds = %lpad.i119
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit130: ; preds = %invoke.cont44, %invoke.cont11.i127, %if.then.i.i.i.i129
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i114)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i115)
   ret void
 
 lpad:                                             ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -5126,8 +5126,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 129, ptr nonnull @.str.40)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -5173,8 +5173,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i36
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %14 = load ptr, ptr %descriptor_, align 8
   %15 = load ptr, ptr %context_, align 8
   %options_.i37 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -5207,8 +5207,8 @@ invoke.cont17:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i38) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 108, ptr nonnull @.str.41)
   %18 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i57)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i58)
   %19 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i60 = icmp eq ptr %19, null
   br i1 %cmp.i60, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit73, label %if.end.i61
@@ -5253,8 +5253,8 @@ if.then.i.i.i3.i64:                               ; preds = %lpad.i62
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit73: ; preds = %invoke.cont17, %invoke.cont11.i70, %if.then.i.i.i.i72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i57)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i58)
   %28 = load ptr, ptr %descriptor_, align 8
   %29 = load ptr, ptr %context_, align 8
   %options_.i74 = getelementptr inbounds nuw i8, ptr %29, i64 72
@@ -5287,8 +5287,8 @@ invoke.cont32:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i75) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 129, ptr nonnull @.str.42)
   %32 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i94)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i95)
   %33 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i97 = icmp eq ptr %33, null
   br i1 %cmp.i97, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit110, label %if.end.i98
@@ -5333,8 +5333,8 @@ if.then.i.i.i3.i101:                              ; preds = %lpad.i99
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit110: ; preds = %invoke.cont32, %invoke.cont11.i107, %if.then.i.i.i.i109
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i94)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i95)
   %42 = load ptr, ptr %descriptor_, align 8
   %43 = load ptr, ptr %context_, align 8
   %options_.i111 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -5367,8 +5367,8 @@ invoke.cont47:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i112) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 204, ptr nonnull @.str.43)
   %46 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i131)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i132)
   %47 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i134 = icmp eq ptr %47, null
   br i1 %cmp.i134, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit147, label %if.end.i135
@@ -5413,8 +5413,8 @@ if.then.i.i.i3.i138:                              ; preds = %lpad.i136
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit147: ; preds = %invoke.cont47, %invoke.cont11.i144, %if.then.i.i.i.i146
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i131)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i132)
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 250, ptr nonnull @.str.44)
   %56 = load ptr, ptr %descriptor_, align 8
   %57 = load ptr, ptr %context_, align 8
@@ -5741,8 +5741,8 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 209, ptr nonnull @.str.51)
   %4 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   %annotation_collector.i = getelementptr inbounds nuw i8, ptr %printer, i64 48
   %5 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -5788,8 +5788,8 @@ if.then.i.i.i3.i:                                 ; preds = %lpad.i34
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit: ; preds = %invoke.cont, %invoke.cont11.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   %14 = load ptr, ptr %descriptor_, align 8
   %15 = load ptr, ptr %context_, align 8
   %options_.i35 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -5822,8 +5822,8 @@ invoke.cont14:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i36) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 131, ptr nonnull @.str.52)
   %18 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i55)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i56)
   %19 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i58 = icmp eq ptr %19, null
   br i1 %cmp.i58, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit71, label %if.end.i59
@@ -5868,8 +5868,8 @@ if.then.i.i.i3.i62:                               ; preds = %lpad.i60
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit71: ; preds = %invoke.cont14, %invoke.cont11.i68, %if.then.i.i.i.i70
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i55)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i56)
   %28 = load ptr, ptr %descriptor_, align 8
   %29 = load ptr, ptr %context_, align 8
   %options_.i72 = getelementptr inbounds nuw i8, ptr %29, i64 72
@@ -5902,8 +5902,8 @@ invoke.cont29:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i73) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 148, ptr nonnull @.str.53)
   %32 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i92)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i93)
   %33 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i95 = icmp eq ptr %33, null
   br i1 %cmp.i95, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit108, label %if.end.i96
@@ -5948,8 +5948,8 @@ if.then.i.i.i3.i99:                               ; preds = %lpad.i97
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit108: ; preds = %invoke.cont29, %invoke.cont11.i105, %if.then.i.i.i.i107
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i92)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i93)
   %42 = load ptr, ptr %descriptor_, align 8
   %43 = load ptr, ptr %context_, align 8
   %options_.i109 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -5982,8 +5982,8 @@ invoke.cont44:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i110) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 176, ptr nonnull @.str.54)
   %46 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i129)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i130)
   %47 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i132 = icmp eq ptr %47, null
   br i1 %cmp.i132, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit145, label %if.end.i133
@@ -6028,8 +6028,8 @@ if.then.i.i.i3.i136:                              ; preds = %lpad.i134
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit145: ; preds = %invoke.cont44, %invoke.cont11.i142, %if.then.i.i.i.i144
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i129)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i130)
   %56 = load ptr, ptr %descriptor_, align 8
   %57 = load ptr, ptr %context_, align 8
   %options_.i146 = getelementptr inbounds nuw i8, ptr %57, i64 72
@@ -6062,8 +6062,8 @@ invoke.cont59:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i147) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 180, ptr nonnull @.str.55)
   %60 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i167)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i168)
   %61 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i170 = icmp eq ptr %61, null
   br i1 %cmp.i170, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit183, label %if.end.i171
@@ -6108,8 +6108,8 @@ if.then.i.i.i3.i174:                              ; preds = %lpad.i172
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit183: ; preds = %invoke.cont59, %invoke.cont11.i180, %if.then.i.i.i.i182
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i167)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i168)
   %70 = load ptr, ptr %descriptor_, align 8
   %71 = load ptr, ptr %context_, align 8
   %options_.i184 = getelementptr inbounds nuw i8, ptr %71, i64 72
@@ -6142,8 +6142,8 @@ invoke.cont73:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i185) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 162, ptr nonnull @.str.56)
   %74 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i205)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i206)
   %75 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i208 = icmp eq ptr %75, null
   br i1 %cmp.i208, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit221, label %if.end.i209
@@ -6188,8 +6188,8 @@ if.then.i.i.i3.i212:                              ; preds = %lpad.i210
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit221: ; preds = %invoke.cont73, %invoke.cont11.i218, %if.then.i.i.i.i220
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i205)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i206)
   %84 = load ptr, ptr %descriptor_, align 8
   %85 = load ptr, ptr %context_, align 8
   %options_.i222 = getelementptr inbounds nuw i8, ptr %85, i64 72
@@ -6222,8 +6222,8 @@ invoke.cont88:                                    ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i223) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 190, ptr nonnull @.str.57)
   %88 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i243)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i243)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i244)
   %89 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i246 = icmp eq ptr %89, null
   br i1 %cmp.i246, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit259, label %if.end.i247
@@ -6268,8 +6268,8 @@ if.then.i.i.i3.i250:                              ; preds = %lpad.i248
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit259: ; preds = %invoke.cont88, %invoke.cont11.i256, %if.then.i.i.i.i258
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i243)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i244)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i243)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i244)
   %98 = load ptr, ptr %descriptor_, align 8
   %99 = load ptr, ptr %context_, align 8
   %options_.i260 = getelementptr inbounds nuw i8, ptr %99, i64 72
@@ -6302,8 +6302,8 @@ invoke.cont103:                                   ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i261) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 134, ptr nonnull @.str.20)
   %102 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i281)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i282)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i282)
   %103 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i284 = icmp eq ptr %103, null
   br i1 %cmp.i284, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit297, label %if.end.i285
@@ -6348,8 +6348,8 @@ if.then.i.i.i3.i288:                              ; preds = %lpad.i286
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit297: ; preds = %invoke.cont103, %invoke.cont11.i294, %if.then.i.i.i.i296
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i281)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i282)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i282)
   %112 = load ptr, ptr %descriptor_, align 8
   %113 = load ptr, ptr %context_, align 8
   %options_.i298 = getelementptr inbounds nuw i8, ptr %113, i64 72
@@ -6382,8 +6382,8 @@ invoke.cont118:                                   ; preds = %_ZN6google8protobuf
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i299) #23
   call void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 186, ptr nonnull @.str.58)
   %116 = load ptr, ptr %descriptor_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i319)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i320)
+  call void @llvm.lifetime.start.p0(ptr nonnull %path.i319)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i320)
   %117 = load ptr, ptr %annotation_collector.i, align 8
   %cmp.i322 = icmp eq ptr %117, null
   br i1 %cmp.i322, label %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit335, label %if.end.i323
@@ -6428,8 +6428,8 @@ if.then.i.i.i3.i326:                              ; preds = %lpad.i324
   br label %common.resume
 
 _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit335: ; preds = %invoke.cont118, %invoke.cont11.i332, %if.then.i.i.i.i334
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i319)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i320)
+  call void @llvm.lifetime.end.p0(ptr nonnull %path.i319)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i320)
   ret void
 
 lpad:                                             ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -7030,9 +7030,9 @@ land.lhs.true.i:                                  ; preds = %if.then13
   br i1 %cmp4.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   call void @_ZN4absl12lts_2023080218container_internal24DropDeletesWithoutResizeERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE18GetPolicyFunctionsEvE5value, ptr noundef nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then13
@@ -7213,7 +7213,7 @@ entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %sub.i.i.i.i = add i64 %new_capacity, 31
   %mul.i.i.i = mul i64 %new_capacity, 48
   %add.i.i.i = add i64 %sub.i.i.i.i, %mul.i.i.i
@@ -7255,7 +7255,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %sub.i.i20.i.i = sub i64 %new_capacity, %5
   store i64 %sub.i.i20.i.i, ptr %call5.i.i2.i.i1.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %6 = load ptr, ptr %slots_.i.i, align 8
   %cmp.not20 = icmp eq i64 %2, 0
   br i1 %cmp.not20, label %if.end23, label %for.body
@@ -9273,10 +9273,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

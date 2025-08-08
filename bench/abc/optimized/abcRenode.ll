@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_NtkRenode(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca %struct.If_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
@@ -164,17 +164,14 @@ Vec_IntFree.exit57:                               ; preds = %Vec_IntFree.exit, %
   %70 = phi ptr [ %60, %Vec_IntFree.exit57 ], [ %48, %43 ]
   store ptr null, ptr %s_vMemory.sink, align 8, !tbaa !42
   store ptr null, ptr %s_vMemory2.sink, align 8, !tbaa !42
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %70
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
@@ -185,7 +182,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr
   %7 = lshr i64 %6, 24
   %8 = and i64 %7, 255
   %9 = getelementptr i32, ptr %4, i64 %8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = and i64 %6, 4278190080
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -331,7 +328,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   call void @Cudd_RecursiveDeref(ptr noundef %70, ptr noundef %57) #8
   %71 = load ptr, ptr @s_pDd, align 8, !tbaa !30
   call void @Cudd_RecursiveDeref(ptr noundef %71, ptr noundef %54) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %69
 }
 
@@ -1681,44 +1678,47 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   ret i32 %.0
 }
 
-declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @Extra_ReorderInit(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Extra_ReorderInit(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkIf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkIf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #2
+declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #1
 
-declare void @Extra_ReorderQuit(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @Extra_ReorderQuit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare ptr @Kit_TruthToGraph(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Kit_TruthToGraph(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Kit_GraphLeafDepth_rec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Kit_GraphLeafDepth_rec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Kit_GraphFree(ptr noundef) local_unnamed_addr #2
+declare void @Kit_GraphFree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Kit_TruthToBdd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Kit_TruthToBdd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #2
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Extra_Reorder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Extra_Reorder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #2
+declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #1
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Abc_NodeEvalMvCost(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_NodeEvalMvCost(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
@@ -1730,11 +1730,11 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

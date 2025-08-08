@@ -36,17 +36,11 @@ define dso_local void @pgstat_report_autovac(i32 noundef %0) local_unnamed_addr 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @pgstat_get_entry_ref_locked(i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
 declare void @pgstat_unlock_entry(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_recovery_conflict(i32 noundef %0) local_unnamed_addr #0 {
@@ -243,7 +237,7 @@ define dso_local ptr @pgstat_fetch_stat_dbentry(i32 noundef %0) local_unnamed_ad
 declare ptr @pgstat_fetch_entry(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @AtEOXact_PgStat_Database(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define dso_local void @AtEOXact_PgStat_Database(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   br i1 %1, label %5, label %.sink.split
 
 .sink.split:                                      ; preds = %2
@@ -319,8 +313,8 @@ define dso_local void @pgstat_update_dbstats(i64 noundef %0) local_unnamed_addr 
   br i1 %27, label %28, label %46
 
 28:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = load i64, ptr @pgLastSessionReportTime, align 8
   call void @TimestampDifference(i64 noundef %29, i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   store i64 %0, ptr @pgLastSessionReportTime, align 8
@@ -343,8 +337,8 @@ define dso_local void @pgstat_update_dbstats(i64 noundef %0) local_unnamed_addr 
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %42
   store i64 %45, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %46
 
 46:                                               ; preds = %28, %5
@@ -570,21 +564,27 @@ define dso_local noundef zeroext i1 @pgstat_database_flush_cb(ptr noundef %0, i1
 declare zeroext i1 @pgstat_lock_entry(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pgstat_database_reset_timestamp_cb(ptr noundef writeonly captures(none) initializes((280, 288)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local void @pgstat_database_reset_timestamp_cb(ptr noundef writeonly captures(none) initializes((280, 288)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 %1, ptr %3, align 8
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

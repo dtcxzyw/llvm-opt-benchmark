@@ -54,11 +54,11 @@ define hidden void @zif_iptcembed(ptr noundef %0, ptr noundef writeonly captures
   %17 = alloca i64, align 8
   %18 = alloca ptr, align 8
   %19 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 144, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !11
@@ -72,7 +72,7 @@ define hidden void @zif_iptcembed(ptr noundef %0, ptr noundef writeonly captures
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load i8, ptr %26, align 8, !tbaa !11
   %28 = icmp eq i8 %27, 6
@@ -83,7 +83,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %24
   br i1 %29, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !14
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_ex.exit, %24
@@ -92,9 +92,9 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %36 = load i8, ptr %35, align 8, !tbaa !11
   %37 = icmp eq i8 %36, 6
@@ -127,12 +127,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %47, label %zend_parse_arg_path.exit, !prof !13
 
 zend_parse_arg_path.exit:                         ; preds = %42, %zend_parse_arg_str_ex.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread
 
 47:                                               ; preds = %40, %42
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %49 = icmp eq i32 %21, 2
   br i1 %49, label %.critedge, label %50, !prof !21
 
@@ -239,13 +239,13 @@ thread-pre-split257:                              ; preds = %70
   %93 = phi i64 [ %71, %thread-pre-split257 ], [ %.pre339, %78 ]
   %.not133 = phi i1 [ %90, %thread-pre-split257 ], [ false, %78 ]
   %.0122 = phi ptr [ null, %thread-pre-split257 ], [ %84, %78 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %94 = call i32 @getc(ptr noundef nonnull %66)
   %95 = icmp eq i32 %94, -1
   br i1 %95, label %php_iptc_get1.exit.thread, label %96
 
 php_iptc_get1.exit.thread:                        ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %107
 
 96:                                               ; preds = %91
@@ -271,7 +271,7 @@ php_iptc_get1.exit.thread:                        ; preds = %91
 
 php_iptc_get1.exit:                               ; preds = %102, %103
   %106 = phi ptr [ %92, %102 ], [ %105, %103 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not134 = icmp eq i32 %94, 255
   br i1 %.not134, label %112, label %107
 
@@ -292,13 +292,13 @@ php_iptc_get1.exit:                               ; preds = %102, %103
 112:                                              ; preds = %php_iptc_get1.exit
   %113 = load i64, ptr %17, align 8, !tbaa !4
   %.not135 = icmp eq ptr %106, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %114 = call i32 @getc(ptr noundef nonnull %66)
   %115 = icmp eq i32 %114, -1
   br i1 %115, label %php_iptc_get1.exit161.thread, label %116
 
 php_iptc_get1.exit161.thread:                     ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %130
 
 116:                                              ; preds = %112
@@ -323,14 +323,14 @@ php_iptc_get1.exit161.thread:                     ; preds = %112
   br label %php_iptc_get1.exit161
 
 php_iptc_get1.exit161:                            ; preds = %122, %123
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not136 = icmp eq i32 %114, 216
   br i1 %.not136, label %.preheader.preheader, label %130
 
 .preheader.preheader:                             ; preds = %php_iptc_get1.exit161
   %126 = load i64, ptr %17, align 8, !tbaa !4
   %127 = load ptr, ptr %18, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %128 = call i32 @getc(ptr noundef nonnull %66)
   %129 = icmp eq i32 %128, -1
   br i1 %129, label %php_iptc_get1.exit.thread.i, label %.lr.ph415
@@ -350,7 +350,7 @@ php_iptc_get1.exit161:                            ; preds = %122, %123
   br label %357
 
 php_iptc_get1.exit.thread.i:                      ; preds = %.preheader, %.preheader.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %php_iptc_next_marker.exit.thread
 
 .lr.ph415:                                        ; preds = %.preheader.preheader, %.preheader
@@ -382,7 +382,7 @@ php_iptc_get1.exit.thread.i:                      ; preds = %.preheader, %.prehe
 
 php_iptc_get1.exit.i:                             ; preds = %144, %143
   %.promoted283 = phi ptr [ %146, %144 ], [ null, %143 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not26.i = icmp eq i32 %135, 255
   br i1 %.not26.i, label %php_iptc_get1.exit23.preheader.i, label %.lr.ph.i
 
@@ -391,7 +391,7 @@ php_iptc_get1.exit.i:                             ; preds = %144, %143
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %php_iptc_get1.exit22.us.i
   %147 = phi ptr [ %155, %php_iptc_get1.exit22.us.i ], [ %.promoted283, %.lr.ph.i ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %148 = call i32 @getc(ptr noundef nonnull %66)
   %149 = icmp eq i32 %148, -1
   br i1 %149, label %php_iptc_get1.exit22.thread.i.sink.split, label %150
@@ -409,7 +409,7 @@ php_iptc_get1.exit.i:                             ; preds = %144, %143
 
 php_iptc_get1.exit22.us.i:                        ; preds = %153, %150
   %155 = phi ptr [ %154, %153 ], [ %147, %150 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.us.i = icmp eq i32 %148, 255
   br i1 %.not.us.i, label %php_iptc_get1.exit23.preheader.i.sink.split, label %.lr.ph.split.us.i, !llvm.loop !58
 
@@ -417,13 +417,13 @@ php_iptc_get1.exit22.us.i:                        ; preds = %153, %150
   br i1 %.not138413, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %php_iptc_get1.exit22.us27.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %156 = call i32 @getc(ptr noundef nonnull %66)
   %157 = icmp eq i32 %156, -1
   br i1 %157, label %php_iptc_get1.exit22.thread.i, label %php_iptc_get1.exit22.us27.i
 
 php_iptc_get1.exit22.us27.i:                      ; preds = %.lr.ph.split.split.us.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.us28.i = icmp eq i32 %156, 255
   br i1 %.not.us28.i, label %php_iptc_get1.exit23.preheader.i, label %.lr.ph.split.split.us.i, !llvm.loop !60
 
@@ -446,7 +446,7 @@ php_iptc_get1.exit23.us.i:                        ; preds = %php_iptc_get1.exit2
   ]
 
 160:                                              ; preds = %php_iptc_get1.exit23.us.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -1, ptr %10, align 1, !tbaa !11
   %161 = call i64 @php_output_write(ptr noundef nonnull %10, i64 noundef 1) #10
   br i1 %.not138414, label %php_iptc_put1.exit.us.i, label %162
@@ -459,7 +459,7 @@ php_iptc_get1.exit23.us.i:                        ; preds = %php_iptc_get1.exit2
 
 php_iptc_put1.exit.us.i:                          ; preds = %162, %160
   %164 = phi ptr [ %163, %162 ], [ %158, %160 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %php_iptc_get1.exit23.us.i, !llvm.loop !61
 
 php_iptc_get1.exit23.preheader.split.i:           ; preds = %php_iptc_get1.exit23.preheader.i
@@ -474,7 +474,7 @@ php_iptc_get1.exit23.us29.i:                      ; preds = %php_iptc_get1.exit2
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %php_iptc_get1.exit22.i
   %166 = phi ptr [ %170, %php_iptc_get1.exit22.i ], [ %.promoted283, %.lr.ph.split.i ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %167 = call i32 @getc(ptr noundef nonnull %66)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %php_iptc_get1.exit22.thread.i.sink.split, label %php_iptc_get1.exit22.i
@@ -485,14 +485,14 @@ php_iptc_get1.exit22.thread.i.sink.split:         ; preds = %.lr.ph.split.split.
   br label %php_iptc_get1.exit22.thread.i
 
 php_iptc_get1.exit22.thread.i:                    ; preds = %.lr.ph.split.split.us.i, %php_iptc_get1.exit22.thread.i.sink.split
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %php_iptc_next_marker.exit.thread
 
 php_iptc_get1.exit22.i:                           ; preds = %.lr.ph.split.split.i
   %169 = trunc i32 %167 to i8
   %170 = getelementptr inbounds nuw i8, ptr %166, i64 1
   store i8 %169, ptr %166, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i162 = icmp eq i32 %167, 255
   br i1 %.not.i162, label %php_iptc_get1.exit23.preheader.i.sink.split, label %.lr.ph.split.split.i
 
@@ -505,10 +505,10 @@ php_iptc_get1.exit23.i:                           ; preds = %php_iptc_get1.exit2
   ]
 
 php_iptc_put1.exit.i:                             ; preds = %php_iptc_get1.exit23.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 1
   store i8 -1, ptr %171, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %php_iptc_get1.exit23.i
 
 php_iptc_next_marker.exit.sink.split:             ; preds = %php_iptc_get1.exit23.i, %php_iptc_get1.exit23.us.i
@@ -530,7 +530,7 @@ php_iptc_next_marker.exit:                        ; preds = %php_iptc_get1.exit2
   %177 = trunc i64 %176 to i32
   %178 = trunc i32 %.017.i to i8
   %.not140 = icmp eq ptr %174, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %178, ptr %9, align 1, !tbaa !11
   %179 = icmp sgt i32 %177, 0
   br i1 %179, label %180, label %182
@@ -551,7 +551,7 @@ php_iptc_next_marker.exit:                        ; preds = %php_iptc_get1.exit2
   br label %php_iptc_put1.exit
 
 php_iptc_put1.exit:                               ; preds = %182, %183
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   switch i32 %.017.i, label %305 [
     i32 218, label %281
     i32 224, label %223
@@ -590,7 +590,7 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   %200 = call i32 @fgetc(ptr noundef nonnull %66)
   %201 = load i64, ptr %17, align 8, !tbaa !4
   %.not148 = icmp eq ptr %174, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %202 = call i32 @getc(ptr noundef nonnull %66)
   %203 = icmp eq i32 %202, -1
   br i1 %203, label %php_iptc_read_remaining.exit, label %.lr.ph.i169
@@ -615,8 +615,8 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
 
 php_iptc_get1.exit.us.i:                          ; preds = %210, %.lr.ph.split.us.i172
   %212 = phi ptr [ %211, %210 ], [ %206, %.lr.ph.split.us.i172 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %213 = call i32 @getc(ptr noundef nonnull %66)
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %php_iptc_read_remaining.exit.sink.split, label %.lr.ph.split.us.i172, !llvm.loop !64
@@ -625,8 +625,8 @@ php_iptc_get1.exit.us.i:                          ; preds = %210, %.lr.ph.split.
   br i1 %.not148, label %php_iptc_get1.exit.us2.i, label %php_iptc_get1.exit.i171
 
 php_iptc_get1.exit.us2.i:                         ; preds = %.lr.ph.split.i170, %php_iptc_get1.exit.us2.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %215 = call i32 @getc(ptr noundef nonnull %66)
   %216 = icmp eq i32 %215, -1
   br i1 %216, label %php_iptc_read_remaining.exit, label %php_iptc_get1.exit.us2.i, !llvm.loop !65
@@ -637,8 +637,8 @@ php_iptc_get1.exit.i171:                          ; preds = %.lr.ph.split.i170, 
   %219 = trunc i32 %218 to i8
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 1
   store i8 %219, ptr %217, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %221 = call i32 @getc(ptr noundef nonnull %66)
   %222 = icmp eq i32 %221, -1
   br i1 %222, label %php_iptc_read_remaining.exit.sink.split, label %php_iptc_get1.exit.i171
@@ -649,7 +649,7 @@ php_iptc_read_remaining.exit.sink.split:          ; preds = %php_iptc_get1.exit.
   br label %php_iptc_read_remaining.exit
 
 php_iptc_read_remaining.exit:                     ; preds = %php_iptc_get1.exit.us2.i, %php_iptc_read_remaining.exit.sink.split, %php_iptc_skip_variable.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %php_iptc_next_marker.exit.thread
 
 223:                                              ; preds = %php_iptc_put1.exit, %php_iptc_put1.exit
@@ -682,7 +682,7 @@ php_iptc_read_remaining.exit:                     ; preds = %php_iptc_get1.exit.
   %238 = getelementptr inbounds nuw [29 x i8], ptr @psheader, i64 0, i64 %.0118298
   %239 = load i8, ptr %238, align 1, !tbaa !11
   %.not147 = icmp eq ptr %235, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %239, ptr %7, align 1, !tbaa !11
   %240 = icmp sgt i32 %237, 0
   br i1 %240, label %241, label %243
@@ -703,7 +703,7 @@ php_iptc_read_remaining.exit:                     ; preds = %php_iptc_get1.exit.
 
 php_iptc_put1.exit176:                            ; preds = %243, %244
   %246 = phi ptr [ null, %243 ], [ %245, %244 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %247 = add nuw nsw i64 %.0118298, 1
   %exitcond.not = icmp eq i64 %247, 28
   br i1 %exitcond.not, label %248, label %234
@@ -714,7 +714,7 @@ php_iptc_put1.exit176:                            ; preds = %243, %244
   %251 = lshr i64 %spec.select, 8
   %252 = trunc i64 %251 to i8
   %.not144 = icmp eq ptr %246, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %252, ptr %6, align 1, !tbaa !11
   %253 = icmp sgt i32 %250, 0
   br i1 %253, label %254, label %256
@@ -737,11 +737,11 @@ php_iptc_put1.exit176:                            ; preds = %243, %244
 
 php_iptc_put1.exit180:                            ; preds = %256, %257
   %259 = phi ptr [ null, %256 ], [ %.pre342, %257 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %260 = load i64, ptr %17, align 8, !tbaa !4
   %261 = trunc i64 %260 to i32
   %.not145 = icmp eq ptr %259, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %232, ptr %5, align 1, !tbaa !11
   %262 = icmp sgt i32 %261, 0
   br i1 %262, label %263, label %265
@@ -762,7 +762,7 @@ php_iptc_put1.exit180:                            ; preds = %256, %257
 
 php_iptc_put1.exit184:                            ; preds = %265, %266
   %.promoted299 = phi ptr [ null, %265 ], [ %267, %266 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not309 = icmp eq i64 %spec.select, 0
   br i1 %.not309, label %.loopexit, label %.lr.ph
 
@@ -774,7 +774,7 @@ php_iptc_put1.exit184:                            ; preds = %265, %266
   %271 = getelementptr inbounds nuw i8, ptr %31, i64 %.1119301
   %272 = load i8, ptr %271, align 1, !tbaa !11
   %.not146 = icmp eq ptr %268, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %272, ptr %4, align 1, !tbaa !11
   %273 = icmp sgt i32 %270, 0
   br i1 %273, label %274, label %276
@@ -795,7 +795,7 @@ php_iptc_put1.exit184:                            ; preds = %265, %266
 
 php_iptc_put1.exit188:                            ; preds = %276, %277
   %279 = phi ptr [ null, %276 ], [ %278, %277 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %280 = add nuw i64 %.1119301, 1
   %exitcond338.not = icmp eq i64 %280, %spec.select
   br i1 %exitcond338.not, label %.loopexit, label %.lr.ph
@@ -804,7 +804,7 @@ php_iptc_put1.exit188:                            ; preds = %276, %277
   %282 = load i64, ptr %17, align 8, !tbaa !4
   %283 = load ptr, ptr %18, align 8, !tbaa !8
   %.not141 = icmp eq ptr %283, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %284 = call i32 @getc(ptr noundef nonnull %66)
   %285 = icmp eq i32 %284, -1
   br i1 %285, label %php_iptc_read_remaining.exit195, label %.lr.ph.i189
@@ -829,8 +829,8 @@ php_iptc_put1.exit188:                            ; preds = %276, %277
 
 php_iptc_get1.exit.us.i194:                       ; preds = %292, %.lr.ph.split.us.i193
   %294 = phi ptr [ %293, %292 ], [ %288, %.lr.ph.split.us.i193 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %295 = call i32 @getc(ptr noundef nonnull %66)
   %296 = icmp eq i32 %295, -1
   br i1 %296, label %php_iptc_read_remaining.exit195.sink.split, label %.lr.ph.split.us.i193, !llvm.loop !64
@@ -839,8 +839,8 @@ php_iptc_get1.exit.us.i194:                       ; preds = %292, %.lr.ph.split.
   br i1 %.not141, label %php_iptc_get1.exit.us2.i192, label %php_iptc_get1.exit.i191
 
 php_iptc_get1.exit.us2.i192:                      ; preds = %.lr.ph.split.i190, %php_iptc_get1.exit.us2.i192
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %297 = call i32 @getc(ptr noundef nonnull %66)
   %298 = icmp eq i32 %297, -1
   br i1 %298, label %php_iptc_read_remaining.exit195, label %php_iptc_get1.exit.us2.i192, !llvm.loop !65
@@ -851,8 +851,8 @@ php_iptc_get1.exit.i191:                          ; preds = %.lr.ph.split.i190, 
   %301 = trunc i32 %300 to i8
   %302 = getelementptr inbounds nuw i8, ptr %299, i64 1
   store i8 %301, ptr %299, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %303 = call i32 @getc(ptr noundef nonnull %66)
   %304 = icmp eq i32 %303, -1
   br i1 %304, label %php_iptc_read_remaining.exit195.sink.split, label %php_iptc_get1.exit.i191
@@ -863,7 +863,7 @@ php_iptc_read_remaining.exit195.sink.split:       ; preds = %php_iptc_get1.exit.
   br label %php_iptc_read_remaining.exit195
 
 php_iptc_read_remaining.exit195:                  ; preds = %php_iptc_get1.exit.us2.i192, %php_iptc_read_remaining.exit195.sink.split, %281
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %php_iptc_next_marker.exit.thread
 
 305:                                              ; preds = %php_iptc_put1.exit
@@ -885,7 +885,7 @@ php_iptc_read_remaining.exit195:                  ; preds = %php_iptc_get1.exit.
   %.1127 = phi i1 [ %.0126307411, %305 ], [ true, %223 ], [ true, %.loopexit ]
   %309 = load i64, ptr %17, align 8, !tbaa !4
   %310 = load ptr, ptr %18, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %311 = call i32 @getc(ptr noundef nonnull %66)
   %312 = icmp eq i32 %311, -1
   br i1 %312, label %php_iptc_get1.exit.thread.i, label %.lr.ph415
@@ -979,52 +979,46 @@ zend_string_truncate.exit:                        ; preds = %331, %zend_string_a
   br label %357
 
 357:                                              ; preds = %.thread, %355, %zend_string_truncate.exit, %133, %110, %76, %68, %62, %58
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %19) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #3
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 
-declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #3
-
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
-declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_iptc_skip_variable(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @getc(ptr noundef nonnull %0)
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %php_iptc_get1.exit, label %9
@@ -1052,12 +1046,12 @@ define internal fastcc void @php_iptc_skip_variable(ptr noundef nonnull captures
   br label %19
 
 php_iptc_get1.exit:                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 19:                                               ; preds = %14, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call i32 @getc(ptr noundef nonnull %0)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %php_iptc_get1.exit17, label %22
@@ -1083,11 +1077,11 @@ php_iptc_get1.exit:                               ; preds = %3
   br label %31
 
 php_iptc_get1.exit17:                             ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 31:                                               ; preds = %26, %27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = shl i32 %7, 8
   %33 = and i32 %32, 65280
   %34 = and i32 %20, 255
@@ -1102,7 +1096,7 @@ php_iptc_get1.exit17:                             ; preds = %19
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %php_iptc_get1.exit19.us
   %.01321.us = phi i32 [ %37, %php_iptc_get1.exit19.us ], [ %36, %.lr.ph ]
   %37 = add i32 %.01321.us, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = call i32 @getc(ptr noundef nonnull %0)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %php_iptc_get1.exit19.thread, label %40
@@ -1121,7 +1115,7 @@ php_iptc_get1.exit17:                             ; preds = %19
   br label %php_iptc_get1.exit19.us
 
 php_iptc_get1.exit19.us:                          ; preds = %43, %40
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us = icmp eq i32 %37, 0
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !66
 
@@ -1130,26 +1124,26 @@ php_iptc_get1.exit19.us:                          ; preds = %43, %40
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %php_iptc_get1.exit19.us23
   %.01321.us22 = phi i32 [ %48, %php_iptc_get1.exit19.us23 ], [ %36, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = call i32 @getc(ptr noundef nonnull %0)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %php_iptc_get1.exit19.thread, label %php_iptc_get1.exit19.us23
 
 php_iptc_get1.exit19.us23:                        ; preds = %.lr.ph.split.split.us
   %48 = add i32 %.01321.us22, -1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us24 = icmp eq i32 %48, 0
   br i1 %.not.us24, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !63
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %php_iptc_get1.exit19
   %.01321 = phi i32 [ %51, %php_iptc_get1.exit19 ], [ %36, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = call i32 @getc(ptr noundef nonnull %0)
   %50 = icmp eq i32 %49, -1
   br i1 %50, label %php_iptc_get1.exit19.thread, label %php_iptc_get1.exit19
 
 php_iptc_get1.exit19.thread:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 php_iptc_get1.exit19:                             ; preds = %.lr.ph.split.split
@@ -1159,7 +1153,7 @@ php_iptc_get1.exit19:                             ; preds = %.lr.ph.split.split
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %54, ptr %2, align 8, !tbaa !8
   store i8 %52, ptr %53, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.split.split
 
@@ -1168,15 +1162,15 @@ php_iptc_get1.exit19:                             ; preds = %.lr.ph.split.split
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_iptcparse(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %cond = icmp eq i32 %7, 1
@@ -1188,7 +1182,7 @@ define hidden void @zif_iptcparse(ptr noundef %0, ptr noundef captures(none) %1)
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !11
   %12 = icmp eq i8 %11, 6
@@ -1199,7 +1193,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %14, %.thread
@@ -1216,7 +1210,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1365,56 +1359,62 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   br label %95
 
 95:                                               ; preds = %15, %._crit_edge146, %._crit_edge146.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @_zend_new_array_0() local_unnamed_addr #3
+declare ptr @_zend_new_array_0() local_unnamed_addr #2
 
-declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @add_next_index_stringl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @add_next_index_stringl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @_efree(ptr noundef) local_unnamed_addr #3
+declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nounwind allocsize(1) }

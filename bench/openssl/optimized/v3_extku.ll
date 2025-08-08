@@ -27,7 +27,7 @@ define internal ptr @i2v_EXTENDED_KEY_USAGE(ptr readnone captures(none) %0, ptr 
   %4 = alloca ptr, align 8
   %5 = alloca [80 x i8], align 16
   store ptr %2, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -48,7 +48,7 @@ define internal ptr @i2v_EXTENDED_KEY_USAGE(ptr readnone captures(none) %0, ptr 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %14 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %14
 }
 
@@ -141,9 +141,6 @@ declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @ASN1_OBJECT_it() #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -151,9 +148,6 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @i2t_ASN1_OBJECT(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @X509V3_add_value(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -172,6 +166,12 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @ASN1_OBJECT_free(ptr noundef) #2
 
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

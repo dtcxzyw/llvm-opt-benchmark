@@ -50,14 +50,8 @@ define hidden ptr @ChunkRelease(ptr noundef captures(address_is_null) %0) local_
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #5 {
+define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %1, %5
@@ -83,7 +77,7 @@ define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #5 {
+define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq i32 %0, 1480085590
   br i1 %2, label %._crit_edge, label %.lr.ph
 
@@ -111,7 +105,7 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !tbaa !21
   %3 = sext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -133,7 +127,7 @@ define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !tbaa !21
   %3 = sext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -176,7 +170,7 @@ ChunkGetIndexFromTag.exit:                        ; preds = %22, %.split.loop.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @ChunkSearchList(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define hidden noundef ptr @ChunkSearchList(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not5.i = icmp eq ptr %0, null
   br i1 %.not5.i, label %ChunkSearchNextInList.exit.thread, label %.lr.ph.i
 
@@ -321,7 +315,7 @@ WebPDataCopy.exit:                                ; preds = %22, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
@@ -348,7 +342,7 @@ define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr noundef captures(none) %0, 
   ret i32 %.0
 }
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -3, 2) i32 @ChunkAppend(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
@@ -428,7 +422,7 @@ ChunkRelease.exit:                                ; preds = %1, %9
   ret ptr %.0.i
 }
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #10
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ChunkListDelete(ptr noundef captures(none) %0) local_unnamed_addr #3 {
@@ -463,7 +457,7 @@ ChunkDelete.exit:                                 ; preds = %.lr.ph, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #11 {
+define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #10 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -508,7 +502,7 @@ ChunkEmit.exit:                                   ; preds = %.lr.ph, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @ChunkListDiskSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define hidden i64 @ChunkListDiskSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -665,7 +659,7 @@ ChunkListDelete.exit30:                           ; preds = %ChunkDelete.exit.i2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not19 = icmp eq ptr %0, null
   br i1 %.not19, label %._crit_edge25, label %.lr.ph24
 
@@ -849,7 +843,7 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #11 {
   %4 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
   %.not19.i.i = icmp eq ptr %.pre.i, null
@@ -899,7 +893,7 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !tbaa !46
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -975,7 +969,7 @@ ChunkListDiskSize.exit:                           ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #11 {
+define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8, !tbaa !46
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %52, label %4
@@ -1193,7 +1187,7 @@ ChunkListEmit.exit:                               ; preds = %ChunkEmit.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -1256,15 +1250,15 @@ define hidden i32 @MuxValidate(ptr noundef %0) local_unnamed_addr #3 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %.critedge81, label %12
 
@@ -1464,39 +1458,45 @@ MuxHasAlpha.exit.thread:                          ; preds = %92, %88, %96, %101
 
 .critedge81:                                      ; preds = %79, %.critedge78, %46, %ValidateChunk.exit89, %41, %38, %ValidateChunk.exit85, %32, %29, %ValidateChunk.exit, %23, %20, %17, %ValidateChunk.exit98, %ValidateChunk.exit92, %55, %.critedge, %70, %73, %60, %63, %101, %99, %96, %83, %15, %12, %1, %MuxHasAlpha.exit.thread
   %.0 = phi i32 [ 1, %MuxHasAlpha.exit.thread ], [ -1, %1 ], [ -1, %12 ], [ %16, %15 ], [ -1, %83 ], [ -1, %96 ], [ %100, %99 ], [ -1, %101 ], [ -1, %63 ], [ -1, %60 ], [ -1, %73 ], [ -1, %70 ], [ -1, %.critedge ], [ -1, %55 ], [ %49, %ValidateChunk.exit92 ], [ %82, %ValidateChunk.exit98 ], [ -1, %23 ], [ -1, %20 ], [ %19, %17 ], [ -1, %32 ], [ -1, %29 ], [ %28, %ValidateChunk.exit ], [ -1, %41 ], [ -1, %38 ], [ %37, %ValidateChunk.exit85 ], [ -1, %46 ], [ %45, %ValidateChunk.exit89 ], [ -1, %79 ], [ %78, %.critedge78 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare i32 @WebPMuxNumChunks(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @WebPMuxNumChunks(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @WebPFree(ptr noundef) local_unnamed_addr #10
+declare void @WebPFree(ptr noundef) local_unnamed_addr #9
 
-declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #10
+declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

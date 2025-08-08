@@ -76,7 +76,7 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
 
 16:                                               ; preds = %9, %13
   %17 = phi i32 [ %15, %13 ], [ 0, %9 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %19 = load i32, ptr %18, align 4, !tbaa !29
   store i32 %19, ptr %3, align 4, !tbaa !29
@@ -122,7 +122,7 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   br label %45
 
 45:                                               ; preds = %33, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 46:                                               ; preds = %5
@@ -393,18 +393,12 @@ define noundef ptr @lv_slider_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -425,7 +419,7 @@ define void @lv_slider_set_value(ptr noundef %0, i32 noundef %1, i1 noundef zero
   ret void
 }
 
-declare void @lv_bar_set_value(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_bar_set_value(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_start_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -433,7 +427,7 @@ define void @lv_slider_set_start_value(ptr noundef %0, i32 noundef %1, i1 nounde
   ret void
 }
 
-declare void @lv_bar_set_start_value(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_bar_set_start_value(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -441,7 +435,7 @@ define void @lv_slider_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   ret void
 }
 
-declare void @lv_bar_set_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_bar_set_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -449,7 +443,7 @@ define void @lv_slider_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   ret void
 }
 
-declare void @lv_bar_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_bar_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_orientation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -457,7 +451,7 @@ define void @lv_slider_set_orientation(ptr noundef %0, i32 noundef %1) local_unn
   ret void
 }
 
-declare void @lv_bar_set_orientation(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_bar_set_orientation(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_value(ptr noundef %0) local_unnamed_addr #0 {
@@ -465,7 +459,7 @@ define i32 @lv_slider_get_value(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @lv_bar_get_value(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_bar_get_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_left_value(ptr noundef %0) local_unnamed_addr #0 {
@@ -473,7 +467,7 @@ define i32 @lv_slider_get_left_value(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @lv_bar_get_start_value(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_bar_get_start_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_min_value(ptr noundef %0) local_unnamed_addr #0 {
@@ -481,7 +475,7 @@ define i32 @lv_slider_get_min_value(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @lv_bar_get_min_value(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_bar_get_min_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_max_value(ptr noundef %0) local_unnamed_addr #0 {
@@ -489,7 +483,7 @@ define i32 @lv_slider_get_max_value(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @lv_bar_get_max_value(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_bar_get_max_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @lv_slider_get_mode(ptr noundef %0) local_unnamed_addr #0 {
@@ -501,7 +495,7 @@ define range(i32 0, 3) i32 @lv_slider_get_mode(ptr noundef %0) local_unnamed_add
   ret i32 %switch.select5
 }
 
-declare i32 @lv_bar_get_mode(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_bar_get_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @lv_slider_get_orientation(ptr noundef %0) local_unnamed_addr #0 {
@@ -513,7 +507,7 @@ define range(i32 0, 3) i32 @lv_slider_get_orientation(ptr noundef %0) local_unna
   ret i32 %switch.select5
 }
 
-declare i32 @lv_bar_get_orientation(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_bar_get_orientation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_slider_is_symmetrical(ptr noundef %0) local_unnamed_addr #0 {
@@ -521,33 +515,33 @@ define zeroext i1 @lv_slider_is_symmetrical(ptr noundef %0) local_unnamed_addr #
   ret i1 %2
 }
 
-declare zeroext i1 @lv_bar_is_symmetrical(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_bar_is_symmetrical(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_ext_click_area(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_ext_click_area(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_display_get_dpi(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_display_get_dpi(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_area_increase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_increase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_area_is_point_on(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_area_is_point_on(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_indev_get_point(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_indev_get_point(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare void @lv_obj_transform_point(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_transform_point(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -564,7 +558,7 @@ define internal fastcc void @update_knob_pos(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not97, label %9, label %243
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_indev_get_point(ptr noundef %5, ptr noundef nonnull %4) #5
   call void @lv_obj_transform_point(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 3) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -632,7 +626,7 @@ is_slider_horizontal.exit:                        ; preds = %9, %14, %18
 44:                                               ; preds = %41
   %45 = call i32 @lv_bar_get_mode(ptr noundef nonnull %0) #5
   %switch.selectcmp.i.not.i = icmp eq i32 %45, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %47 = load i8, ptr %46, align 8
   %48 = or i8 %47, 1
@@ -863,7 +857,7 @@ is_slider_horizontal.exit.i:                      ; preds = %51
   br label %drag_start.exit
 
 drag_start.exit:                                  ; preds = %49, %82, %90, %109, %113, %129, %137, %156, %160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %164
 
 164:                                              ; preds = %drag_start.exit, %41
@@ -999,22 +993,22 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
   br label %242
 
 242:                                              ; preds = %240, %232, %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %243
 
 243:                                              ; preds = %7, %2, %242
   ret void
 }
 
-declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_group_get_editing(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_group_get_editing(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_group_set_editing(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_group_set_editing(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @is_slider_horizontal(ptr noundef %0) unnamed_addr #0 {
@@ -1041,19 +1035,19 @@ define internal fastcc zeroext i1 @is_slider_horizontal(ptr noundef %0) unnamed_
   ret i1 %.0
 }
 
-declare void @lv_obj_refresh_ext_draw_size(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_refresh_ext_draw_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_calculate_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_obj_calculate_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_key(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_key(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_rotary_diff(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_rotary_diff(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @draw_knob(ptr noundef %0) unnamed_addr #0 {
@@ -1091,7 +1085,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   %22 = select i1 %10, i1 %.0.i, i1 false
   %23 = zext i1 %22 to i8
   %.not = icmp eq i8 %21, %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = tail call zeroext i1 @lv_bar_is_symmetrical(ptr noundef nonnull %5) #5
   br i1 %.0.i, label %25, label %35
 
@@ -1147,7 +1141,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
 
 47:                                               ; preds = %41, %44, %31, %33
   %.0 = phi i32 [ %26, %31 ], [ %26, %33 ], [ %36, %41 ], [ %36, %44 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #5
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %6, ptr %48, align 8, !tbaa !65
@@ -1177,7 +1171,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   br label %78
 
 62:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = call ptr @lv_memcpy(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 144) #5
   call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %49) #5
   br i1 %.0.i, label %64, label %66
@@ -1212,24 +1206,24 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   store i32 %75, ptr %76, align 4, !tbaa !32
   %77 = call ptr @lv_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 144) #5
   call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %69) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
 78:                                               ; preds = %68, %61
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @lv_indev_get_scroll_obj(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_indev_get_scroll_obj(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @position_knob(ptr noundef %0, ptr noundef nonnull captures(none) initializes((8, 16)) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -1311,9 +1305,15 @@ define internal fastcc void @position_knob(ptr noundef %0, ptr noundef nonnull c
   ret void
 }
 
-declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
@@ -1325,9 +1325,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

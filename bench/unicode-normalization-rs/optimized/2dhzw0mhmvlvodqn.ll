@@ -228,19 +228,19 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups26canonical_fully_decompo
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit: ; preds = %1
   %19 = lshr i64 %.sroa.03.0.copyload.i, 32
-  %.sroa.47.0.extract.trunc = trunc i64 %19 to i16
+  %.2.extract.trunc = trunc i64 %19 to i16
   %20 = and i64 %19, 65535
-  %21 = icmp ugt i16 %.sroa.47.0.extract.trunc, 3406
+  %21 = icmp ugt i16 %.2.extract.trunc, 3406
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  %.sroa.58.0.extract.shift12 = lshr i64 %.sroa.03.0.copyload.i, 48
+  %.4.extract.shift9 = lshr i64 %.sroa.03.0.copyload.i, 48
   %23 = sub nuw nsw i64 3406, %20
-  %24 = icmp samesign ult i64 %23, %.sroa.58.0.extract.shift12
+  %24 = icmp samesign ult i64 %23, %.4.extract.shift9
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit"
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.sroa.58.0.extract.shift12, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.8.llvm.3355593342274400970) #6, !noalias !21
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.4.extract.shift9, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.8.llvm.3355593342274400970) #6, !noalias !21
   unreachable
 
 26:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
@@ -252,7 +252,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   br label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread: ; preds = %1, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit"
-  %.sroa.3.0 = phi i64 [ %.sroa.58.0.extract.shift12, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit" ], [ undef, %1 ]
+  %.sroa.3.0 = phi i64 [ %.4.extract.shift9, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit" ], [ undef, %1 ]
   %.sroa.0.0 = phi ptr [ %27, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit" ], [ null, %1 ]
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, i64 } %28, i64 %.sroa.3.0, 1
@@ -313,19 +313,19 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups30compatibility_fully_dec
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit: ; preds = %1
   %19 = lshr i64 %.sroa.03.0.copyload.i, 32
-  %.sroa.47.0.extract.trunc = trunc i64 %19 to i16
+  %.2.extract.trunc = trunc i64 %19 to i16
   %20 = and i64 %19, 65535
-  %21 = icmp ugt i16 %.sroa.47.0.extract.trunc, 5735
+  %21 = icmp ugt i16 %.2.extract.trunc, 5735
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  %.sroa.58.0.extract.shift12 = lshr i64 %.sroa.03.0.copyload.i, 48
+  %.4.extract.shift9 = lshr i64 %.sroa.03.0.copyload.i, 48
   %23 = sub nuw nsw i64 5735, %20
-  %24 = icmp samesign ult i64 %23, %.sroa.58.0.extract.shift12
+  %24 = icmp samesign ult i64 %23, %.4.extract.shift9
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit"
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.sroa.58.0.extract.shift12, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.13.llvm.3355593342274400970) #6, !noalias !32
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.4.extract.shift9, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.13.llvm.3355593342274400970) #6, !noalias !32
   unreachable
 
 26:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
@@ -337,7 +337,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   br label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread: ; preds = %1, %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit"
-  %.sroa.3.0 = phi i64 [ %.sroa.58.0.extract.shift12, %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit" ], [ undef, %1 ]
+  %.sroa.3.0 = phi i64 [ %.4.extract.shift9, %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit" ], [ undef, %1 ]
   %.sroa.0.0 = phi ptr [ %27, %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit" ], [ null, %1 ]
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, i64 } %28, i64 %.sroa.3.0, 1
@@ -398,19 +398,19 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups36cjk_compat_variants_ful
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit: ; preds = %1
   %19 = lshr i64 %.sroa.03.0.copyload.i, 32
-  %.sroa.47.0.extract.trunc = trunc i64 %19 to i16
+  %.2.extract.trunc = trunc i64 %19 to i16
   %20 = and i64 %19, 65535
-  %21 = icmp ugt i16 %.sroa.47.0.extract.trunc, 2004
+  %21 = icmp ugt i16 %.2.extract.trunc, 2004
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  %.sroa.58.0.extract.shift12 = lshr i64 %.sroa.03.0.copyload.i, 48
+  %.4.extract.shift9 = lshr i64 %.sroa.03.0.copyload.i, 48
   %23 = sub nuw nsw i64 2004, %20
-  %24 = icmp samesign ult i64 %23, %.sroa.58.0.extract.shift12
+  %24 = icmp samesign ult i64 %23, %.4.extract.shift9
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit"
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.sroa.58.0.extract.shift12, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.18) #6, !noalias !43
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.4.extract.shift9, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.18) #6, !noalias !43
   unreachable
 
 26:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
@@ -422,7 +422,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   br label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread: ; preds = %1, %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit"
-  %.sroa.3.0 = phi i64 [ %.sroa.58.0.extract.shift12, %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit" ], [ undef, %1 ]
+  %.sroa.3.0 = phi i64 [ %.4.extract.shift9, %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit" ], [ undef, %1 ]
   %.sroa.0.0 = phi ptr [ %27, %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit" ], [ null, %1 ]
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, i64 } %28, i64 %.sroa.3.0, 1

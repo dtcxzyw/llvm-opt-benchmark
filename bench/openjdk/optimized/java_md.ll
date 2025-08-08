@@ -71,7 +71,7 @@ define hidden void @CreateExecutionEnvironment(ptr noundef %0, ptr noundef %1, p
   %15 = alloca %struct.stat, align 8
   %16 = alloca [4097 x i8], align 16
   %17 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %18 = call i64 @readlink(ptr noundef nonnull @.str.22, ptr noundef nonnull %16, i64 noundef 4096) #12
   %19 = and i64 %18, 2147483648
   %20 = icmp eq i64 %19, 0
@@ -93,7 +93,7 @@ define hidden void @CreateExecutionEnvironment(ptr noundef %0, ptr noundef %1, p
 SetExecname.exit:                                 ; preds = %21, %.thread.i
   %.1.i = phi ptr [ %27, %.thread.i ], [ %24, %21 ]
   store ptr %.1.i, ptr @execname, align 8
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %28 = call fastcc zeroext i8 @GetJREPath(ptr noundef %2, i32 noundef %3)
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %29, label %30
@@ -128,7 +128,7 @@ SetExecname.exit:                                 ; preds = %21, %.thread.i
   unreachable
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 47) #14
   %.not.i = icmp eq ptr %42, null
   %43 = sext i32 %5 to i64
@@ -148,7 +148,7 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   %.not74 = icmp eq i32 %48, 0
   %.str.31..str.32.i = select i1 %.not74, ptr @.str.31, ptr @.str.32
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull %.str.31..str.32.i) #12
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not74, label %50, label %49
 
 49:                                               ; preds = %GetJVMPath.exit
@@ -157,7 +157,7 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   unreachable
 
 50:                                               ; preds = %GetJVMPath.exit
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %51 = call ptr @getenv(ptr noundef nonnull @.str.10) #12
   %52 = icmp eq ptr %51, null
   br i1 %52, label %RequiresSetenv.exit.thread, label %53
@@ -184,7 +184,7 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   br i1 %64, label %RequiresSetenv.exit.thread, label %65
 
 65:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %66 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.clientPattern) #14
   %67 = icmp ne ptr %66, null
@@ -194,8 +194,8 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   br i1 %70, label %71, label %RequiresSetenv.exit.thread71
 
 RequiresSetenv.exit.thread71:                     ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
   br label %136
 
@@ -215,13 +215,13 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
   br i1 %.not21.us.i.i, label %78, label %75
 
 75:                                               ; preds = %.lr.ph.split.us.i.i
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.i.i, ptr noundef nonnull @.str.27) #12
   %77 = call i32 @stat64(ptr noundef nonnull %11, ptr noundef nonnull %12) #12
   %.not26.us.i.i = icmp eq i32 %77, 0
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not26.us.i.i, label %RequiresSetenv.exit, label %78
 
 78:                                               ; preds = %75, %.lr.ph.split.us.i.i
@@ -233,13 +233,13 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
   br i1 %.not23.us.i.i, label %84, label %81
 
 81:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.i.i, ptr noundef nonnull @.str.27) #12
   %83 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #12
   %.not27.us.i.i = icmp eq i32 %83, 0
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not27.us.i.i, label %RequiresSetenv.exit, label %84
 
 84:                                               ; preds = %81, %79, %78
@@ -257,13 +257,13 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
   br i1 %.not23.us33.i.i, label %90, label %87
 
 87:                                               ; preds = %.lr.ph.split.split.us.i.i
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us32.i.i, ptr noundef nonnull @.str.27) #12
   %89 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #12
   %.not27.us34.i.i = icmp eq i32 %89, 0
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not27.us34.i.i, label %RequiresSetenv.exit, label %90
 
 90:                                               ; preds = %87, %.lr.ph.split.split.us.i.i
@@ -277,14 +277,14 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
   br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !10
 
 RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
   br label %136
 
 RequiresSetenv.exit:                              ; preds = %87, %75, %81
   call void @JLI_MemFree(ptr noundef %72) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #12
   %93 = call ptr @getenv(ptr noundef nonnull @.str.10) #12
   %94 = call ptr @JLI_StringDup(ptr noundef nonnull %4) #12
@@ -378,8 +378,8 @@ RequiresSetenv.exit:                              ; preds = %87, %75, %81
 
 .critedge75:                                      ; preds = %.lr.ph.split.split.i.i, %90, %84, %71
   call void @JLI_MemFree(ptr noundef %72) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
   br label %136
 
@@ -767,10 +767,10 @@ declare zeroext i8 @GetApplicationHomeFromDll(ptr noundef, i32 noundef) local_un
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

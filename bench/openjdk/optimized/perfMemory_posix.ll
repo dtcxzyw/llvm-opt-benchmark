@@ -127,11 +127,11 @@ define hidden void @_ZN10PerfMemory20create_memory_regionEm(i64 noundef %0) loca
   br label %_ZL22create_standard_memorym.exit.thread
 
 22:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %23 = tail call noundef i32 @_ZN2os18current_process_idEv() #13
   %24 = tail call i32 @geteuid() #13
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = tail call i64 @sysconf(i32 noundef 70) #13
   %26 = icmp eq i64 %25, -1
   %spec.store.select.i.i.i = select i1 %26, i64 1024, i64 %25
@@ -156,8 +156,8 @@ define hidden void @_ZN10PerfMemory20create_memory_regionEm(i64 noundef %0) loca
 
 _ZL13get_user_namej.exit.thread.i.i:              ; preds = %35, %32, %22
   call void @_Z8FreeHeapPv(ptr noundef %27) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL20create_shared_memorym.exit.thread
 
 38:                                               ; preds = %35
@@ -168,8 +168,8 @@ _ZL13get_user_namej.exit.thread.i.i:              ; preds = %35, %32, %22
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %43) #13
   call void @_Z8FreeHeapPv(ptr noundef %27) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %45 = call noundef ptr @_ZN2os18get_temp_directoryEv() #13
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #14
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @PERFDATA_NAME) #14
@@ -187,7 +187,7 @@ _ZL13get_user_namej.exit.thread.i.i:              ; preds = %35, %32, %22
   %59 = icmp eq ptr %58, null
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %.0.i.i = select i1 %59, ptr %56, ptr %60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef nonnull %52, ptr noundef %9)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZL23cleanup_sharedmem_filesPKc.exit.i.i, label %63
@@ -202,7 +202,7 @@ _ZL13get_user_namej.exit.thread.i.i:              ; preds = %35, %32, %22
 .lr.ph.i.i.i:                                     ; preds = %63, %.backedge.i.i.i
   %66 = phi ptr [ %86, %.backedge.i.i.i ], [ %65, %63 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %68 = load i8, ptr %67, align 1
   %69 = sext i8 %68 to i32
   %isdigittmp.i.i.i.i = add nsw i32 %69, -48
@@ -229,11 +229,11 @@ _ZL13get_user_namej.exit.thread.i.i:              ; preds = %35, %32, %22
   br i1 %.not5.i.i.i.i, label %_ZL15filename_to_pidPKc.exit.i.i.i, label %_ZL15filename_to_pidPKc.exit.thread.i.i.i
 
 _ZL15filename_to_pidPKc.exit.thread.i.i.i:        ; preds = %76, %70, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %sub_0.i.i.i
 
 _ZL15filename_to_pidPKc.exit.i.i.i:               ; preds = %76, %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %78 = icmp eq i32 %72, 0
   br i1 %78, label %sub_0.i.i.i, label %.preheader.i.i.i
 
@@ -359,7 +359,7 @@ _ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i: ; preds = %117, %._cr
   br label %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
 
 _ZL23cleanup_sharedmem_filesPKc.exit.i.i:         ; preds = %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %121 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i, label %123, label %122
@@ -369,8 +369,8 @@ _ZL23cleanup_sharedmem_filesPKc.exit.i.i:         ; preds = %_ZL26close_director
   br label %123
 
 123:                                              ; preds = %122, %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %124 = call i32 @mkdir(ptr noundef nonnull readonly %52, i32 noundef 493) #13
   %125 = icmp eq i32 %124, -1
   br i1 %125, label %126, label %_ZL17make_user_tmp_dirPKc.exit.i.i.i
@@ -382,7 +382,7 @@ _ZL23cleanup_sharedmem_filesPKc.exit.i.i:         ; preds = %_ZL26close_director
   br i1 %129, label %130, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 130:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %131
 
 131:                                              ; preds = %134, %130
@@ -403,7 +403,7 @@ _ZL23cleanup_sharedmem_filesPKc.exit.i.i:         ; preds = %_ZL26close_director
   br i1 %or.cond.i.i.i.i.i.i, label %_ZL19is_directory_securePKc.exit.i.i.i.i, label %_ZL19is_directory_securePKc.exit.thread.i.i.i.i
 
 _ZL19is_directory_securePKc.exit.thread.i.i.i.i:  ; preds = %134, %.critedge3.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 _ZL19is_directory_securePKc.exit.i.i.i.i:         ; preds = %.critedge3.i.i.i.i.i
@@ -413,7 +413,7 @@ _ZL19is_directory_securePKc.exit.i.i.i.i:         ; preds = %.critedge3.i.i.i.i.
   %.not8.i.i.i.i.i.i = icmp eq i32 %140, 0
   %.not9.i.i.i.i.i.i = icmp eq i32 %.val4.i.i.i.i.i, %140
   %or.cond1.i.i.i.i.i.i = select i1 %.not8.i.i.i.i.i.i, i1 true, i1 %.not9.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %or.cond1.i.i.i.i.i.i, label %_ZL17make_user_tmp_dirPKc.exit.i.i.i, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 _ZL17make_user_tmp_dirPKc.exit.i.i.i:             ; preds = %_ZL19is_directory_securePKc.exit.i.i.i.i, %123
@@ -458,7 +458,7 @@ _ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i: ; preds = %150, %.c
 
 _ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i: ; preds = %155, %.critedge50.i.i.i
   %158 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %141) #13
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %159
 
 159:                                              ; preds = %162, %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i
@@ -473,14 +473,14 @@ _ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i: ; preds = %155, %.c
   br i1 %165, label %159, label %_ZL14is_file_secureiPKc.exit.thread.i.i.i, !llvm.loop !12
 
 _ZL14is_file_secureiPKc.exit.thread.i.i.i:        ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %169
 
 _ZL14is_file_secureiPKc.exit.i.i.i:               ; preds = %159
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %167 = load i64, ptr %166, align 8
   %168 = icmp ult i64 %167, 2
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %168, label %.preheader61.i.i.i, label %169
 
 169:                                              ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %_ZL14is_file_secureiPKc.exit.thread.i.i.i
@@ -585,8 +585,8 @@ _ZL14is_file_secureiPKc.exit.i.i.i:               ; preds = %159
 
 _ZL21create_sharedmem_filePKcS0_m.exit.i.i:       ; preds = %205, %.thread.i.i.i, %.critedge6.i.i.i, %.preheader.i37.i.i, %.critedge4.i.i.i, %182, %169, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i, %_ZL17make_user_tmp_dirPKc.exit.i.i.i, %_ZL19is_directory_securePKc.exit.i.i.i.i, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i, %126
   %.044.i.i.i = phi i32 [ -1, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i ], [ -1, %182 ], [ -1, %.critedge4.i.i.i ], [ -1, %.critedge6.i.i.i ], [ -1, %.thread.i.i.i ], [ -1, %169 ], [ -1, %_ZL17make_user_tmp_dirPKc.exit.i.i.i ], [ -1, %_ZL19is_directory_securePKc.exit.i.i.i.i ], [ -1, %126 ], [ -1, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i ], [ %143, %.preheader.i37.i.i ], [ %143, %205 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z8FreeHeapPv(ptr noundef nonnull %41) #13
   call void @_Z8FreeHeapPv(ptr noundef nonnull %52) #13
   %210 = icmp eq i32 %.044.i.i.i, -1
@@ -631,7 +631,7 @@ _ZL11remove_filePKc.exit.i.i:                     ; preds = %218, %.preheader.i.
 
 226:                                              ; preds = %225, %222
   %227 = phi i32 [ %223, %222 ], [ %.pre.i.i, %225 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %228 = icmp sgt i32 %227, 1
   %229 = icmp ne ptr %213, null
   %or.cond.i45.i.i = and i1 %229, %228
@@ -645,7 +645,7 @@ _ZL11remove_filePKc.exit.i.i:                     ; preds = %218, %.preheader.i.
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i
 
 _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i: ; preds = %230, %226
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %233 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not47.i.i = icmp eq ptr %233, null
   br i1 %.not47.i.i, label %_ZL20create_shared_memorym.exit, label %234
@@ -655,21 +655,21 @@ _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack
   br label %_ZL20create_shared_memorym.exit
 
 _ZL20create_shared_memorym.exit.thread:           ; preds = %211, %_ZL11remove_filePKc.exit.i.i, %_ZL13get_user_namej.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr null, ptr @_ZN10PerfMemory6_startE, align 8
   br label %236
 
 _ZL20create_shared_memorym.exit:                  ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i, %234
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr %213, ptr @_ZN10PerfMemory6_startE, align 8
   %235 = icmp eq ptr %213, null
   br i1 %235, label %236, label %.thread
 
 236:                                              ; preds = %_ZL20create_shared_memorym.exit.thread, %_ZL20create_shared_memorym.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 1
   %237 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 858, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 5) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %238 = call noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %0, i1 noundef zeroext false, i8 noundef zeroext 27) #13
   %239 = icmp eq ptr %238, null
   br i1 %239, label %_ZL22create_standard_memorym.exit.thread, label %240
@@ -810,7 +810,7 @@ define hidden void @_ZN10PerfMemory6attachEiPPcPmP10JavaThread(i32 noundef %0, p
   br label %129
 
 18:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %19 = tail call noundef i32 @_ZN2os5Linux17get_namespace_pidEi(i32 noundef range(i32 1, 0) %0) #13
   %20 = tail call fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef range(i32 1, 0) %0, i32 noundef %19, ptr noundef %3)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -842,7 +842,7 @@ _ZL13get_user_nameiPiP10JavaThread.exit.i:        ; preds = %25
 31:                                               ; preds = %25, %23
   %.053.ph.i = phi i32 [ %19, %23 ], [ %0, %25 ]
   %.013.i.ph.i = phi ptr [ %20, %23 ], [ %26, %25 ]
-  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = tail call noundef ptr @_ZN2os18get_temp_directoryEv() #13
   %.not.i45.i = icmp eq i32 %.053.ph.i, -1
   br i1 %.not.i45.i, label %_ZL16get_user_tmp_dirPKcii.exit.i, label %33
@@ -861,8 +861,8 @@ _ZL16get_user_tmp_dirPKcii.exit.i:                ; preds = %33, %31
   %40 = add i64 %39, %37
   %41 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %40, i8 noundef zeroext 9, i32 noundef 0) #13
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef %40, ptr noundef nonnull @.str.12, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @PERFDATA_NAME, ptr noundef nonnull %.013.i.ph.i) #13
-  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %43
 
 43:                                               ; preds = %46, %_ZL16get_user_tmp_dirPKcii.exit.i
@@ -884,7 +884,7 @@ _ZL16get_user_tmp_dirPKcii.exit.i:                ; preds = %33, %31
   br i1 %or.cond.i.i.i, label %_ZL19is_directory_securePKc.exit.i, label %_ZL19is_directory_securePKc.exit.thread.i
 
 _ZL19is_directory_securePKc.exit.thread.i:        ; preds = %46, %.critedge3.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
@@ -894,7 +894,7 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
   %.not8.i.i.i = icmp eq i32 %53, 0
   %.not9.i.i.i = icmp eq i32 %.val4.i.i, %53
   %or.cond1.i.i.i = select i1 %.not8.i.i.i, i1 true, i1 %.not9.i.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %or.cond1.i.i.i, label %56, label %54
 
 54:                                               ; preds = %_ZL19is_directory_securePKc.exit.i, %_ZL19is_directory_securePKc.exit.thread.i
@@ -943,7 +943,7 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
 .critedge14.i.i:                                  ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %75
 
 75:                                               ; preds = %78, %.critedge14.i.i
@@ -958,14 +958,14 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
   br i1 %81, label %75, label %_ZL14is_file_secureiPKc.exit.thread.i.i, !llvm.loop !12
 
 _ZL14is_file_secureiPKc.exit.thread.i.i:          ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 _ZL14is_file_secureiPKc.exit.i.i:                 ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = icmp ult i64 %83, 2
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %84, label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i, label %85
 
 85:                                               ; preds = %_ZL14is_file_secureiPKc.exit.i.i, %_ZL14is_file_secureiPKc.exit.thread.i.i
@@ -986,7 +986,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
   br i1 %90, label %91, label %109
 
 91:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %92
 
 92:                                               ; preds = %95, %91
@@ -1024,7 +1024,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
 
 _ZL18sharedmem_filesizeiP10JavaThread.exit.i:     ; preds = %106, %103, %.critedge.i.i
   %.0.i49.i = phi i64 [ 0, %.critedge.i.i ], [ 0, %106 ], [ %101, %103 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %108 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %108, null
   br i1 %.not.i, label %109, label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
@@ -1053,7 +1053,7 @@ _ZL18sharedmem_filesizeiP10JavaThread.exit.i:     ; preds = %106, %103, %.crited
 
 119:                                              ; preds = %118, %115
   %120 = phi i32 [ %116, %115 ], [ %.pre.i, %118 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = icmp sgt i32 %120, 1
   %122 = icmp ne ptr %110, null
   %or.cond.i50.i = and i1 %122, %121
@@ -1067,7 +1067,7 @@ _ZL18sharedmem_filesizeiP10JavaThread.exit.i:     ; preds = %106, %103, %.crited
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i
 
 _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i: ; preds = %123, %119
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %110, ptr %1, align 8
   store i64 %.0.i, ptr %2, align 8
   %126 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1080,7 +1080,7 @@ _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack
   br label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
 
 _ZL18mmap_attach_sharediPPcPmP10JavaThread.exit:  ; preds = %18, %_ZL13get_user_nameiPiP10JavaThread.exit.i, %29, %54, %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i, %_ZL18sharedmem_filesizeiP10JavaThread.exit.i, %113, %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i, %127
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %129
 
 129:                                              ; preds = %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit, %15
@@ -1111,7 +1111,7 @@ _ZN10PerfMemory8containsEPc.exit.thread:          ; preds = %2
   br i1 %or.cond11.not, label %_ZN10PerfMemory8containsEPc.exit7.thread, label %28
 
 _ZN10PerfMemory8containsEPc.exit7.thread:         ; preds = %_ZN10PerfMemory8containsEPc.exit.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %11 = icmp sgt i32 %10, 1
   br i1 %11, label %12, label %21
@@ -1157,7 +1157,7 @@ _ZN10MemTracker29record_virtual_memory_releaseEPhm.exit.i: ; preds = %19, %15, %
   br label %_ZL12unmap_sharedPcm.exit
 
 _ZL12unmap_sharedPcm.exit:                        ; preds = %23, %24, %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %_ZN10PerfMemory8containsEPc.exit.thread, %2, %_ZL12unmap_sharedPcm.exit
@@ -1433,7 +1433,7 @@ define internal fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef re
   br i1 %11, label %5, label %.critedge, !llvm.loop !21
 
 .critedge21:                                      ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %12
 
 12:                                               ; preds = %15, %.critedge21
@@ -1455,7 +1455,7 @@ define internal fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef re
   br i1 %or.cond.i.i, label %_ZL15is_dirfd_securei.exit, label %_ZL15is_dirfd_securei.exit.thread
 
 _ZL15is_dirfd_securei.exit.thread:                ; preds = %15, %.critedge3.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
@@ -1465,7 +1465,7 @@ _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
   %.not8.i.i = icmp eq i32 %22, 0
   %.not9.i.i = icmp eq i32 %.val4.i, %22
   %or.cond1.i.i = select i1 %.not8.i.i, i1 true, i1 %.not9.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %or.cond1.i.i, label %25, label %23
 
 23:                                               ; preds = %_ZL15is_dirfd_securei.exit.thread, %_ZL15is_dirfd_securei.exit
@@ -1483,8 +1483,8 @@ _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
 
 30:                                               ; preds = %25
   %31 = tail call i32 @dirfd(ptr noundef nonnull %26) #13
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %35, %30
@@ -1524,15 +1524,15 @@ _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
   br i1 %53, label %56, label %.loopexit
 
 .loopexit:                                        ; preds = %35, %41, %.critedge9.i, %50
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = tail call i32 @close(i32 noundef %6) #13
   %55 = tail call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %26) #13
   br label %.critedge
 
 56:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = tail call i32 @close(i32 noundef %6) #13
   br label %.critedge
 
@@ -1709,7 +1709,7 @@ define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 n
   br i1 %.not, label %.outer71._crit_edge, label %36, !llvm.loop !25
 
 53:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %54
 
 54:                                               ; preds = %57, %53
@@ -1729,7 +1729,7 @@ define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 n
   br i1 %or.cond.i.i, label %_ZL19is_directory_securePKc.exit, label %_ZL19is_directory_securePKc.exit.thread
 
 _ZL19is_directory_securePKc.exit.thread:          ; preds = %57, %.critedge3.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
@@ -1738,7 +1738,7 @@ _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
   %.not8.i.i = icmp eq i32 %61, 0
   %.not9.i.i = icmp eq i32 %.val4.i, %61
   %or.cond1.i.i = select i1 %.not8.i.i, i1 true, i1 %.not9.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %or.cond1.i.i, label %64, label %62
 
 62:                                               ; preds = %_ZL19is_directory_securePKc.exit.thread, %_ZL19is_directory_securePKc.exit
@@ -1761,7 +1761,7 @@ _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
 67:                                               ; preds = %.lr.ph79, %.backedge
   %68 = phi ptr [ %66, %.lr.ph79 ], [ %96, %.backedge ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = load i8, ptr %69, align 1
   %71 = sext i8 %70 to i32
   %isdigittmp.i = add nsw i32 %71, -48
@@ -1792,7 +1792,7 @@ _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
 
 _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   %.0.i69 = phi i32 [ %74, %80 ], [ 0, %67 ], [ 0, %72 ], [ 0, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %81 = icmp eq i32 %.0.i69, %.057
   br i1 %81, label %82, label %.outer
 
@@ -1910,10 +1910,10 @@ declare noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEPh
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

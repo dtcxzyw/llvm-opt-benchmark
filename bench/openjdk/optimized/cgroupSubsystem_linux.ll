@@ -919,7 +919,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %or.cond, label %225, label %.loopexit229
 
 225:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %22, ptr %11, align 8
   %226 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i247.not = icmp eq ptr %226, null
@@ -950,7 +950,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge.i, %225
   %.not.not.not.not.i.lcssa = phi i1 [ false, %225 ], [ false, %.backedge.i ], [ true, %sub_2.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %235
 
 235:                                              ; preds = %_ZL11find_ro_optPc.exit, %235
@@ -986,7 +986,7 @@ _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge
   br i1 %244, label %245, label %255
 
 245:                                              ; preds = %.lr.ph273
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %22, ptr %10, align 8
   %246 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i169267.not = icmp eq ptr %246, null
@@ -1017,7 +1017,7 @@ sub_2.i175:                                       ; preds = %sub_1.i173
 
 _ZL11find_ro_optPc.exit176:                       ; preds = %sub_2.i175, %.backedge.i172, %245
   %.not.not.not.not.i169.lcssa = phi i1 [ false, %245 ], [ false, %.backedge.i172 ], [ true, %sub_2.i175 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %242, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i169.lcssa)
   store i8 1, ptr %204, align 2
   br label %307
@@ -1028,7 +1028,7 @@ _ZL11find_ro_optPc.exit176:                       ; preds = %sub_2.i175, %.backe
   br i1 %257, label %258, label %268
 
 258:                                              ; preds = %255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %22, ptr %9, align 8
   %259 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i177263.not = icmp eq ptr %259, null
@@ -1059,7 +1059,7 @@ sub_2.i183:                                       ; preds = %sub_1.i181
 
 _ZL11find_ro_optPc.exit184:                       ; preds = %sub_2.i183, %.backedge.i180, %258
   %.not.not.not.not.i177.lcssa = phi i1 [ false, %258 ], [ false, %.backedge.i180 ], [ true, %sub_2.i183 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %242, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i177.lcssa)
   store i8 1, ptr %203, align 2
   br label %307
@@ -1070,7 +1070,7 @@ _ZL11find_ro_optPc.exit184:                       ; preds = %sub_2.i183, %.backe
   br i1 %270, label %271, label %281
 
 271:                                              ; preds = %268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %22, ptr %8, align 8
   %272 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i185259.not = icmp eq ptr %272, null
@@ -1101,7 +1101,7 @@ sub_2.i191:                                       ; preds = %sub_1.i189
 
 _ZL11find_ro_optPc.exit192:                       ; preds = %sub_2.i191, %.backedge.i188, %271
   %.not.not.not.not.i185.lcssa = phi i1 [ false, %271 ], [ false, %.backedge.i188 ], [ true, %sub_2.i191 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %242, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i185.lcssa)
   store i8 1, ptr %202, align 2
   br label %307
@@ -1112,7 +1112,7 @@ _ZL11find_ro_optPc.exit192:                       ; preds = %sub_2.i191, %.backe
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %281
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %22, ptr %7, align 8
   %285 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i193255.not = icmp eq ptr %285, null
@@ -1143,7 +1143,7 @@ sub_2.i199:                                       ; preds = %sub_1.i197
 
 _ZL11find_ro_optPc.exit200:                       ; preds = %sub_2.i199, %.backedge.i196, %284
   %.not.not.not.not.i193.lcssa = phi i1 [ false, %284 ], [ false, %.backedge.i196 ], [ true, %sub_2.i199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %242, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i193.lcssa)
   store i8 1, ptr %201, align 2
   br label %307
@@ -1154,7 +1154,7 @@ _ZL11find_ro_optPc.exit200:                       ; preds = %sub_2.i199, %.backe
   br i1 %296, label %297, label %307
 
 297:                                              ; preds = %294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %22, ptr %6, align 8
   %298 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i201251.not = icmp eq ptr %298, null
@@ -1185,7 +1185,7 @@ sub_2.i207:                                       ; preds = %sub_1.i205
 
 _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backedge.i204, %297
   %.not.not.not.not.i201.lcssa = phi i1 [ false, %297 ], [ false, %.backedge.i204 ], [ true, %sub_2.i207 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %242, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i201.lcssa)
   store i8 1, ptr %200, align 2
   br label %307
@@ -1729,13 +1729,13 @@ define hidden noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxE
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %rhsv = load i32, ptr %5, align 16
   %.not = icmp eq i32 %rhsv, 7889261
   br i1 %.not, label %_ZN16CgroupController14limit_from_strEPc.exit.thread8, label %8
 
 _ZN16CgroupController14limit_from_strEPc.exit.thread8: ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %12
 
 8:                                                ; preds = %7
@@ -1744,12 +1744,12 @@ _ZN16CgroupController14limit_from_strEPc.exit.thread8: ; preds = %7
   br i1 %.not.i, label %_ZN16CgroupController14limit_from_strEPc.exit, label %_ZN16CgroupController14limit_from_strEPc.exit.thread
 
 _ZN16CgroupController14limit_from_strEPc.exit.thread: ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 _ZN16CgroupController14limit_from_strEPc.exit:    ; preds = %8
   %10 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = icmp eq i64 %10, -2
   br i1 %11, label %13, label %12
 
@@ -1933,13 +1933,13 @@ define hidden noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_va
   br i1 %.not, label %11, label %17
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %rhsv = load i32, ptr %7, align 16
   %.not14 = icmp eq i32 %rhsv, 7889261
   br i1 %.not14, label %_ZN16CgroupController14limit_from_strEPc.exit.thread10, label %12
 
 _ZN16CgroupController14limit_from_strEPc.exit.thread10: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 12:                                               ; preds = %11
@@ -1948,12 +1948,12 @@ _ZN16CgroupController14limit_from_strEPc.exit.thread10: ; preds = %11
   br i1 %.not.i, label %_ZN16CgroupController14limit_from_strEPc.exit, label %_ZN16CgroupController14limit_from_strEPc.exit.thread
 
 _ZN16CgroupController14limit_from_strEPc.exit.thread: ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %17
 
 _ZN16CgroupController14limit_from_strEPc.exit:    ; preds = %12
   %14 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = icmp eq i64 %14, -2
   br i1 %15, label %17, label %16
 
@@ -2203,10 +2203,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -59,7 +59,7 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %or.cond102, label %370, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %35 = fcmp olt float %26, %28
   %. = select i1 %35, float %26, float %28
   %36 = fptosi float %. to i32
@@ -104,7 +104,7 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %66 = add nsw i32 %65, -1
   %67 = ashr i32 %66, 1
   %68 = and i32 %66, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %69 = load float, ptr %25, align 8, !tbaa !17
   %70 = load float, ptr %27, align 8, !tbaa !18
   %71 = fcmp olt float %69, %70
@@ -137,7 +137,7 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %89 = load i32, ptr %88, align 8, !tbaa !27
   %.not63.i = icmp eq i32 %89, 0
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @lv_memset(ptr noundef nonnull %13, i8 noundef zeroext 0, i64 noundef 72) #6
   store ptr %12, ptr %13, align 8, !tbaa !28
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 33
@@ -149,7 +149,7 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not63.i, label %98, label %99
 
 .critedge.i:                                      ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @lv_memset(ptr noundef nonnull %13, i8 noundef zeroext 0, i64 noundef 72) #6
   store ptr %12, ptr %13, align 8, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %13, i64 33
@@ -263,11 +263,11 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %143
 
 143:                                              ; preds = %._crit_edge72.i, %98
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %draw_line_hor.exit
 
 draw_line_hor.exit:                               ; preds = %64, %143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %324
 
 144:                                              ; preds = %58
@@ -283,7 +283,7 @@ draw_line_hor.exit:                               ; preds = %64, %143
   %152 = add nsw i32 %151, -1
   %153 = ashr i32 %152, 1
   %154 = and i32 %152, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %155 = add nsw i32 %154, %153
   %156 = sub i32 %146, %155
   store i32 %156, ptr %10, align 4, !tbaa !21
@@ -314,7 +314,7 @@ draw_line_hor.exit:                               ; preds = %64, %143
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %173 = load i32, ptr %172, align 8, !tbaa !27
   %.not49.i = icmp eq i32 %173, 0
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @lv_memset(ptr noundef nonnull %11, i8 noundef zeroext 0, i64 noundef 72) #6
   store ptr %10, ptr %11, align 8, !tbaa !28
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -326,7 +326,7 @@ draw_line_hor.exit:                               ; preds = %64, %143
   br i1 %.not49.i, label %182, label %183
 
 .critedge.i82:                                    ; preds = %168
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @lv_memset(ptr noundef nonnull %11, i8 noundef zeroext 0, i64 noundef 72) #6
   store ptr %10, ptr %11, align 8, !tbaa !28
   %178 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -394,11 +394,11 @@ draw_line_hor.exit:                               ; preds = %64, %143
   br label %208
 
 208:                                              ; preds = %._crit_edge.i, %182
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %draw_line_ver.exit
 
 draw_line_ver.exit:                               ; preds = %150, %208
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %324
 
 209:                                              ; preds = %144
@@ -433,7 +433,7 @@ draw_line_ver.exit:                               ; preds = %150, %208
   %228 = ashr i32 %226, 8
   %229 = and i32 %227, 1
   %230 = add nsw i32 %229, %228
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %231 = call i32 @llvm.smin.i32(i32 %.sroa.0101.0.i, i32 %.sroa.073.0.i)
   %232 = sub nsw i32 %231, %227
   store i32 %232, ptr %3, align 4, !tbaa !21
@@ -454,11 +454,11 @@ draw_line_ver.exit:                               ; preds = %150, %208
 
 243:                                              ; preds = %209
   %244 = icmp samesign ugt i32 %216, %217
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %4, ptr %8, align 16, !tbaa !43
   %245 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %245, align 8, !tbaa !43
@@ -535,7 +535,7 @@ draw_line_ver.exit:                               ; preds = %150, %208
   %286 = load i32, ptr %238, align 4, !tbaa !24
   store i32 %286, ptr %241, align 4, !tbaa !25
   call void @lv_memset(ptr noundef %284, i8 noundef zeroext -1, i64 noundef %283) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @lv_memset(ptr noundef nonnull %9, i8 noundef zeroext 0, i64 noundef 72) #6
   store ptr %3, ptr %9, align 8, !tbaa !28
   %287 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -634,16 +634,16 @@ draw_line_ver.exit:                               ; preds = %150, %208
   br label %323
 
 323:                                              ; preds = %322, %319
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %draw_line_skew.exit
 
 draw_line_skew.exit:                              ; preds = %209, %323
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %324
 
 324:                                              ; preds = %draw_line_ver.exit, %draw_line_skew.exit, %draw_line_hor.exit
@@ -654,7 +654,7 @@ draw_line_skew.exit:                              ; preds = %209, %323
   br i1 %or.cond, label %369, label %328
 
 328:                                              ; preds = %324
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @lv_draw_fill_dsc_init(ptr noundef nonnull %15) #6
   %329 = getelementptr inbounds nuw i8, ptr %15, i64 53
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -668,7 +668,7 @@ draw_line_skew.exit:                              ; preds = %209, %323
   %335 = ashr i32 %334, 1
   %336 = or i32 %334, -2
   %.neg96 = add nsw i32 %336, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %337 = load i8, ptr %325, align 1
   %338 = and i8 %337, 8
   %.not77 = icmp eq i8 %338, 0
@@ -722,56 +722,56 @@ draw_line_skew.exit:                              ; preds = %209, %323
   br label %368
 
 368:                                              ; preds = %355, %352
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %369
 
 369:                                              ; preds = %368, %324, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %370
 
 370:                                              ; preds = %24, %20, %2, %369
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_draw_fill_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_fill_dsc_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @lv_draw_sw_fill(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_fill(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
+
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
+
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
+
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
+
+declare i64 @lv_point_from_precise(ptr noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_mask_line_points_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @lv_display_get_horizontal_resolution(ptr noundef) local_unnamed_addr #1
+
+declare ptr @lv_refr_get_disp_refreshing() local_unnamed_addr #1
+
+declare i32 @lv_area_get_size(ptr noundef) local_unnamed_addr #1
+
+declare i32 @lv_draw_sw_mask_apply(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_mask_free_param(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare void @lv_draw_sw_blend(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
-
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
-
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
-
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
-
-declare i64 @lv_point_from_precise(ptr noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_mask_line_points_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @lv_display_get_horizontal_resolution(ptr noundef) local_unnamed_addr #2
-
-declare ptr @lv_refr_get_disp_refreshing() local_unnamed_addr #2
-
-declare i32 @lv_area_get_size(ptr noundef) local_unnamed_addr #2
-
-declare i32 @lv_draw_sw_mask_apply(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_mask_free_param(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
@@ -792,9 +792,9 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

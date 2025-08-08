@@ -36,8 +36,8 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not, label %245, label %13
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 2560, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %12, align 8, !tbaa !32
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %16, label %22
@@ -555,8 +555,8 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %244, label %.lr.ph282.i, label %validate_script.exit, !llvm.loop !61
 
 validate_script.exit:                             ; preds = %230, %241, %.preheader243.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 2560, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre97 = load ptr, ptr %5, align 8, !tbaa !3
   br label %247
 
@@ -1098,9 +1098,6 @@ using_std_huff_tables.exit.thread:                ; preds = %.preheader.i70, %47
   store ptr @.str, ptr %514, align 8, !tbaa !93
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @prepare_for_pass(ptr noundef %0) #0 {
@@ -1734,10 +1731,7 @@ define internal void @finish_pass_master(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @jpeg_default_colorspace(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @jpeg_default_colorspace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @per_scan_setup(ptr noundef %0) unnamed_addr #0 {
@@ -1934,7 +1928,13 @@ define internal fastcc void @per_scan_setup(ptr noundef %0) unnamed_addr #0 {
   ret void
 }
 
-declare i64 @jdiv_round_up(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @jdiv_round_up(i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
@@ -1949,8 +1949,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }

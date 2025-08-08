@@ -225,11 +225,8 @@ _ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit: ; preds
   ret ptr %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %0, ptr noundef %1) local_unnamed_addr #4 section "malloc_hook" align 2 {
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %0, ptr noundef %1) local_unnamed_addr #3 section "malloc_hook" align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4, !prof !27
 
@@ -241,9 +238,6 @@ define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithA
   %5 = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef %0, ptr noundef nonnull %1)
   ret ptr %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaEPNS1_5ArenaE(ptr noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -283,7 +277,7 @@ _ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit: ; preds = %7, %9
   unreachable
 
 11:                                               ; preds = %_ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %12, align 1, !tbaa !32
@@ -296,14 +290,14 @@ _ZN4absl13base_internal12_GLOBAL__N_113UnhookedArenaEv.exit: ; preds = %7, %9
   br i1 %.not.i, label %23, label %17
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call i32 @sigfillset(ptr noundef nonnull %2) #12
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %19) #12
   %21 = icmp eq i32 %20, 0
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %12, align 1, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i = load ptr, ptr %13, align 8, !tbaa !33
   br label %23
 
@@ -537,7 +531,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i49: ; preds = %103, %98
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %43, %111
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not34
 
 118:                                              ; preds = %60, %67, %74, %80, %96, %46
@@ -561,7 +555,7 @@ _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13b
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit54: ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn42
 }
 
@@ -570,13 +564,13 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %0) local_unnamed_addr #4 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %0) local_unnamed_addr #3 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.__sigset_t, align 8
   %3 = alloca %"class.absl::base_internal::(anonymous namespace)::ArenaLock", align 8
   %.not = icmp eq ptr %0, null
@@ -585,7 +579,7 @@ define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr nounde
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load ptr, ptr %5, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %7, align 1, !tbaa !32
@@ -598,14 +592,14 @@ define dso_local void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr nounde
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = call i32 @sigfillset(ptr noundef nonnull %2) #12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %14) #12
   %16 = icmp eq i32 %15, 0
   %17 = zext i1 %16 to i8
   store i8 %17, ptr %7, align 1, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !33
   br label %18
 
@@ -688,14 +682,14 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %42, %36
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %45
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
 49:                                               ; preds = %34, %32
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
   %.val12 = load i8, ptr %3, align 8, !tbaa !28, !range !34, !noundef !35
   call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.val12) #12
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 50:                                               ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, %1
@@ -703,7 +697,7 @@ _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.0.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.0.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %1 = trunc nuw i8 %.0.val to i1
   br i1 %1, label %4, label %2, !prof !4
 
@@ -799,7 +793,7 @@ _ZN4absl13base_internalL6RandomEPj.exit.i:        ; preds = %26
 _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
   %36 = tail call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
   store i32 %36, ptr %0, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !47
@@ -882,12 +876,12 @@ _ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS
   tail call fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef nonnull %4)
   %69 = load ptr, ptr %3, align 16, !tbaa !36
   tail call fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %69)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %0) local_unnamed_addr #4 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %0) local_unnamed_addr #3 section "malloc_hook" align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE acquire, align 4
   %.not.i.i = icmp eq i32 %2, 221
   br i1 %.not.i.i, label %_ZN4absl13base_internal13LowLevelAlloc12DefaultArenaEv.exit, label %3, !prof !4
@@ -910,7 +904,7 @@ define internal fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEm
   br i1 %.not, label %209, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %7, align 1, !tbaa !32
@@ -923,14 +917,14 @@ define internal fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEm
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call i32 @sigfillset(ptr noundef nonnull %3) #12
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %14) #12
   %16 = icmp eq i32 %15, 0
   %17 = zext i1 %16 to i8
   store i8 %17, ptr %7, align 1, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !33
   br label %18
 
@@ -1209,7 +1203,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
 .critedge:                                        ; preds = %78
   %127 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %128 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %129 = icmp sgt i32 %52, 0
   br i1 %129, label %.preheader.preheader.i.i, label %._crit_edge.i.i
 
@@ -1404,20 +1398,20 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %200, %192
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %203
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %209
 
 207:                                              ; preds = %190, %183, %181
   %.pn = phi { ptr, i32 } [ %191, %190 ], [ %182, %181 ], [ %184, %183 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %208
 
 208:                                              ; preds = %.loopexit, %.loopexit.split-lp, %83, %111, %125, %101, %207, %81
   %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn, %207 ], [ %82, %81 ], [ %84, %83 ], [ %102, %101 ], [ %112, %111 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val = load i8, ptr %4, align 8, !tbaa !28, !range !34, !noundef !35
   call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.val) #12
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn82.pn.pn.pn
 
 209:                                              ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, %2
@@ -1426,19 +1420,19 @@ _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13b
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigfillset(ptr noundef) local_unnamed_addr #5
+declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #7
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
   tail call void @_ZSt9terminatev() #15
   unreachable
@@ -1447,13 +1441,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #8
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #5
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %0) unnamed_addr #0 {
@@ -1477,7 +1471,7 @@ define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N
   store i64 %13, ptr %0, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load i32, ptr %16, align 8, !tbaa !47
@@ -1807,7 +1801,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
   br i1 %.not.i44, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %140, !llvm.loop !51
 
 _ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %140, %.preheader.i43
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %147
 
 147:                                              ; preds = %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, %5, %1
@@ -1815,7 +1809,7 @@ _ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS
 }
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -1846,6 +1840,12 @@ declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_2
 
 declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
@@ -1855,14 +1855,14 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
+attributes #3 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { cold }

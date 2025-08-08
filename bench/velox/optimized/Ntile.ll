@@ -2483,10 +2483,10 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #23, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %argBuckets.i.i.i.i.i), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp28.i.i.i.i.i), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp29.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %argBuckets.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i.i.i.i.i), !noalias !22
   invoke void @_ZN8facebook5velox6BIGINTEv(ptr nonnull sret(%"class.std::shared_ptr.86") align 8 %ref.tmp.i.i.i.i.i)
           to label %.noexc.i.i.i.i unwind label %lpad.i.i.i.i, !noalias !22
 
@@ -2678,7 +2678,7 @@ invoke.cont31.i.i.i.i.i:                          ; preds = %_ZNSt8optionalIjEaS
   store ptr null, ptr %_M_refcount4.i.i81.i.i.i.i.i, align 8, !noalias !22
   store ptr %27, ptr %_M_refcount.i.i80.i.i.i.i.i, align 8, !noalias !22
   store ptr null, ptr %ref.tmp29.i.i.i.i.i, align 8, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !22
   invoke void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.83") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28.i.i.i.i.i, i32 noundef 0, ptr noundef %__args5.val)
           to label %.noexc87.i.i.i.i.i unwind label %lpad32.i.i.i.i.i, !noalias !22
 
@@ -2779,7 +2779,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont33.i.i.i.i.i
 
 invoke.cont33.i.i.i.i.i:                          ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZSt19static_pointer_castIN8facebook5velox10BaseVectorES2_ESt10shared_ptrIT_ERKS3_IT0_E.exit.i.i.i.i.i.i, %.noexc87.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !22
   store ptr %28, ptr %bucketVector_.i.i.i.i.i, align 8, !noalias !22
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 168
   %43 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !22
@@ -3037,10 +3037,10 @@ lpad.body.i.i.i.i:                                ; preds = %lpad.i.i.i.i, %ehcl
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i
 
 "_ZSt10__invoke_rISt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14default_deleteIS4_EERZNS2_6window9prestosql13registerNtileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKSt6vectorINS3_17WindowFunctionArgESaISL_EERKSt10shared_ptrIKNS2_4TypeEEbPNS2_6memory10MemoryPoolEPNS2_19HashStringAllocatorERKNS2_4core11QueryConfigEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES16_E4typeEOS17_DpOS18_.exit": ; preds = %if.end22.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i56.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i66.i.i.i.i.i, %if.end8.sink.split.i.i.i.i69.i.i.i.i.i, %_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev.exit214.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %argBuckets.i.i.i.i.i), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp28.i.i.i.i.i), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp29.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %argBuckets.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28.i.i.i.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i.i.i.i.i), !noalias !22
   store ptr %call.i.i.i.i, ptr %agg.result, align 8, !alias.scope !31
   ret void
 }
@@ -4486,7 +4486,7 @@ declare void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef
 define internal void @_GLOBAL__sub_I_Ntile.cpp() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22
   %call.i1.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction18kBucketErrorStringB5cxx11E)
           to label %call.i.noexc.i unwind label %lpad.i
@@ -4518,7 +4518,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 __cxx_global_var_init.exit:                       ; preds = %.noexc.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction18kBucketErrorStringB5cxx11E, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -4529,10 +4529,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

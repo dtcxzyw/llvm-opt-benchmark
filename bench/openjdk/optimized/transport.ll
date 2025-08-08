@@ -156,8 +156,8 @@ define hidden zeroext i16 @transport_startTransport(i8 noundef zeroext %0, ptr n
   br i1 %24, label %25, label %125
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = icmp eq ptr %1, null
   %27 = load ptr, ptr @gdata, align 8
   br i1 %26, label %28, label %34
@@ -201,8 +201,8 @@ define hidden zeroext i16 @transport_startTransport(i8 noundef zeroext %0, ptr n
   br label %freeTransportInfo.exit
 
 44:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8292, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4098, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #7
   %46 = trunc i64 %45 to i32
   %47 = call i32 @utf8ToPlatform(ptr noundef nonnull %36, i32 noundef %46, ptr noundef nonnull %8, i32 noundef 8292) #6
@@ -212,20 +212,20 @@ define hidden zeroext i16 @transport_startTransport(i8 noundef zeroext %0, ptr n
   br i1 %48, label %loadTransportLibrary.exit.thread.i, label %loadTransportLibrary.exit.i
 
 loadTransportLibrary.exit.thread.i:               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 8292, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4098, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
 loadTransportLibrary.exit.i:                      ; preds = %44
   %49 = call ptr @dbgsysLoadLibrary(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 8292) #6
-  call void @llvm.lifetime.end.p0(i64 8292, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4098, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %.thread.i
 
 51:                                               ; preds = %loadTransportLibrary.exit.i, %loadTransportLibrary.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 8292, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4098, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = call i32 @utf8ToPlatform(ptr noundef nonnull @.str.8, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 8292) #6
   call void @dbgsysBuildLibName(ptr noundef nonnull %7, i32 noundef 4098, ptr noundef nonnull %6, ptr noundef nonnull %1) #6
   %char0.i53.i = load i8, ptr %7, align 16
@@ -233,14 +233,14 @@ loadTransportLibrary.exit.i:                      ; preds = %44
   br i1 %53, label %.thread59.i, label %54
 
 .thread59.i:                                      ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 8292, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4098, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
 
 54:                                               ; preds = %51
   %55 = call ptr @dbgsysLoadLibrary(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 8292) #6
-  call void @llvm.lifetime.end.p0(i64 8292, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4098, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %.thread.i
 
@@ -404,14 +404,14 @@ loadTransport.exit:                               ; preds = %93
   store i32 %91, ptr @transportVersion, align 4
   %121 = load ptr, ptr %10, align 8
   store ptr %121, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %125
 
 freeTransportInfo.exit:                           ; preds = %33, %43, %63, %72, %120, %113, %106, %100, %73
   %.031.i.ph = phi i16 [ 509, %73 ], [ 510, %100 ], [ 510, %106 ], [ 510, %113 ], [ 510, %120 ], [ 509, %72 ], [ 509, %63 ], [ 509, %43 ], [ 509, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %122 = load ptr, ptr %15, align 8
   call void @jvmtiDeallocate(ptr noundef %122) #6
   %123 = load ptr, ptr %22, align 8
@@ -1103,10 +1103,10 @@ declare void @debugLoop_run() local_unnamed_addr #1
 declare i32 @dbgsysExec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

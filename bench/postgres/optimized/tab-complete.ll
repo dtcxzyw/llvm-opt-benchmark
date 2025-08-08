@@ -3335,7 +3335,7 @@ HeadMatchesArray.exit:                            ; preds = %.preheader151
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @completion_charp, align 8
   %6 = load i8, ptr %5, align 1
   %.b18 = load i1, ptr @completion_force_quote, align 1
@@ -3404,7 +3404,7 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
   br label %36
 
 36:                                               ; preds = %35, %33, %32
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3442,17 +3442,11 @@ define internal ptr @dequote_file_name(ptr noundef %0, i32 noundef %1) #0 {
   ret ptr %20
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @rl_completion_matches(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rl_completion_matches(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @complete_from_list(ptr noundef %0, i32 noundef %1) #0 {
@@ -4813,11 +4807,11 @@ ends_with.exit:                                   ; preds = %156
 ends_with.exit.thread:                            ; preds = %156, %ends_with.exit
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %166 = load ptr, ptr %165, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %132) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %133) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call fastcc void @parse_identifier(ptr noundef %166, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %132, ptr noundef nonnull %133)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %133) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %132) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   store ptr @Query_for_list_of_arguments, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -4846,11 +4840,11 @@ ends_with.exit1091:                               ; preds = %168
 ends_with.exit1091.thread:                        ; preds = %168, %ends_with.exit1091
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %178 = load ptr, ptr %177, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %130) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %131) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   call fastcc void @parse_identifier(ptr noundef %178, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %130, ptr noundef nonnull %131)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %131) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %130) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   store ptr @Query_for_list_of_arguments, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -4879,11 +4873,11 @@ ends_with.exit1093:                               ; preds = %180
 ends_with.exit1093.thread:                        ; preds = %180, %ends_with.exit1093
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %190 = load ptr, ptr %189, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %128) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %129) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   call fastcc void @parse_identifier(ptr noundef %190, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %128, ptr noundef nonnull %129)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %129) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %128) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   store ptr @Query_for_list_of_arguments, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -4912,11 +4906,11 @@ ends_with.exit1095:                               ; preds = %192
 ends_with.exit1095.thread:                        ; preds = %192, %ends_with.exit1095
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %202 = load ptr, ptr %201, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %126) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %127) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call fastcc void @parse_identifier(ptr noundef %202, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %126, ptr noundef nonnull %127)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %127) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %126) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   store ptr @Query_for_list_of_arguments, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -4997,11 +4991,11 @@ ends_with.exit1097:                               ; preds = %218
 229:                                              ; preds = %5
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %231 = load ptr, ptr %230, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %124) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %125) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call fastcc void @parse_identifier(ptr noundef %231, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %124, ptr noundef nonnull %125)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %125) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %124) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5124,11 +5118,11 @@ ends_with.exit1097:                               ; preds = %218
 271:                                              ; preds = %5
   %272 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %273 = load ptr, ptr %272, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %122) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %123) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   call fastcc void @parse_identifier(ptr noundef %273, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %122, ptr noundef nonnull %123)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %123) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %122) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   store ptr @.str.1458, ptr @completion_charp, align 8
   store ptr @match_previous_words.list.1457, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5200,11 +5194,11 @@ ends_with.exit1097:                               ; preds = %218
 295:                                              ; preds = %5
   %296 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %297 = load ptr, ptr %296, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %120) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %121) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call fastcc void @parse_identifier(ptr noundef %297, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %120, ptr noundef nonnull %121)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %121) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %120) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   store ptr @.str.1478, ptr @completion_charp, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5270,11 +5264,11 @@ ends_with.exit1097:                               ; preds = %218
 317:                                              ; preds = %5
   %318 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %319 = load ptr, ptr %318, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %118) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %119) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   call fastcc void @parse_identifier(ptr noundef %319, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %118, ptr noundef nonnull %119)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %119) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %118) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   store ptr @Query_for_list_of_attribute_numbers, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -5428,11 +5422,11 @@ ends_with.exit1097:                               ; preds = %218
 369:                                              ; preds = %5
   %370 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %371 = load ptr, ptr %370, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %116) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %117) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call fastcc void @parse_identifier(ptr noundef %371, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %116, ptr noundef nonnull %117)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %117) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %116) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   store ptr @Query_for_constraint_of_type, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5521,11 +5515,11 @@ ends_with.exit1097:                               ; preds = %218
 399:                                              ; preds = %5
   %400 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %401 = load ptr, ptr %400, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %114) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %115) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   call fastcc void @parse_identifier(ptr noundef %401, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %114, ptr noundef nonnull %115)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %115) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %114) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr @match_previous_words.list.1577, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5535,11 +5529,11 @@ ends_with.exit1097:                               ; preds = %218
 403:                                              ; preds = %5
   %404 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %405 = load ptr, ptr %404, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %112) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %113) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   call fastcc void @parse_identifier(ptr noundef %405, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %112, ptr noundef nonnull %113)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %113) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %112) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5609,11 +5603,11 @@ ends_with.exit1097:                               ; preds = %218
 427:                                              ; preds = %5
   %428 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %429 = load ptr, ptr %428, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %110) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %111) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   call fastcc void @parse_identifier(ptr noundef %429, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %110, ptr noundef nonnull %111)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %111) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %110) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr @match_previous_words.list.1595, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5623,11 +5617,11 @@ ends_with.exit1097:                               ; preds = %218
 431:                                              ; preds = %5
   %432 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %433 = load ptr, ptr %432, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %108) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %109) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   call fastcc void @parse_identifier(ptr noundef %433, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %108, ptr noundef nonnull %109)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %109) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %108) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5675,11 +5669,11 @@ ends_with.exit1097:                               ; preds = %218
 447:                                              ; preds = %5
   %448 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %449 = load ptr, ptr %448, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %106) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %107) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   call fastcc void @parse_identifier(ptr noundef %449, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %106, ptr noundef nonnull %107)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %107) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %106) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   store ptr @Query_for_list_of_tables_for_policy, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5720,11 +5714,11 @@ ends_with.exit1097:                               ; preds = %218
 461:                                              ; preds = %5
   %462 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %463 = load ptr, ptr %462, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %104) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %105) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call fastcc void @parse_identifier(ptr noundef %463, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %104, ptr noundef nonnull %105)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %105) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %104) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   store ptr @Query_for_list_of_tables_for_rule, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5758,11 +5752,11 @@ ends_with.exit1097:                               ; preds = %218
 473:                                              ; preds = %5
   %474 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %475 = load ptr, ptr %474, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %102) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %103) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   call fastcc void @parse_identifier(ptr noundef %475, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %102, ptr noundef nonnull %103)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %103) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %102) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   store ptr @Query_for_list_of_tables_for_trigger, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5809,11 +5803,11 @@ ends_with.exit1097:                               ; preds = %218
 489:                                              ; preds = %5
   %490 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %491 = load ptr, ptr %490, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %100) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %101) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call fastcc void @parse_identifier(ptr noundef %491, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %100, ptr noundef nonnull %101)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %101) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %100) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   store ptr @Query_for_unique_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5823,11 +5817,11 @@ ends_with.exit1097:                               ; preds = %218
 493:                                              ; preds = %5
   %494 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %495 = load ptr, ptr %494, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %98) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %99) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   call fastcc void @parse_identifier(ptr noundef %495, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %98, ptr noundef nonnull %99)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %99) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %98) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   store ptr @Query_for_unique_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5837,11 +5831,11 @@ ends_with.exit1097:                               ; preds = %218
 497:                                              ; preds = %5
   %498 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %499 = load ptr, ptr %498, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %96) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %97) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call fastcc void @parse_identifier(ptr noundef %499, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %96, ptr noundef nonnull %97)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %97) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %96) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   store ptr @Query_for_unique_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5851,11 +5845,11 @@ ends_with.exit1097:                               ; preds = %218
 501:                                              ; preds = %5
   %502 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %503 = load ptr, ptr %502, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %94) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %95) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call fastcc void @parse_identifier(ptr noundef %503, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %94, ptr noundef nonnull %95)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %95) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %94) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   store ptr @Query_for_unique_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5877,11 +5871,11 @@ ends_with.exit1097:                               ; preds = %218
 509:                                              ; preds = %5
   %510 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %511 = load ptr, ptr %510, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %92) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %93) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call fastcc void @parse_identifier(ptr noundef %511, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %92, ptr noundef nonnull %93)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %93) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %92) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   store ptr @Query_for_rule_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5891,11 +5885,11 @@ ends_with.exit1097:                               ; preds = %218
 513:                                              ; preds = %5
   %514 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %515 = load ptr, ptr %514, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %90) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %91) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   call fastcc void @parse_identifier(ptr noundef %515, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %90, ptr noundef nonnull %91)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %90) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   store ptr @Query_for_rule_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5905,11 +5899,11 @@ ends_with.exit1097:                               ; preds = %218
 517:                                              ; preds = %5
   %518 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %519 = load ptr, ptr %518, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %88) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %89) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call fastcc void @parse_identifier(ptr noundef %519, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %88, ptr noundef nonnull %89)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %89) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %88) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   store ptr @Query_for_trigger_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5919,11 +5913,11 @@ ends_with.exit1097:                               ; preds = %218
 521:                                              ; preds = %5
   %522 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %523 = load ptr, ptr %522, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %86) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %87) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   call fastcc void @parse_identifier(ptr noundef %523, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %86, ptr noundef nonnull %87)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %87) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %86) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   store ptr @Query_for_trigger_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5959,11 +5953,11 @@ ends_with.exit1097:                               ; preds = %218
 533:                                              ; preds = %5
   %534 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %535 = load ptr, ptr %534, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %84) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %85) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call fastcc void @parse_identifier(ptr noundef %535, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %84, ptr noundef nonnull %85)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %85) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %84) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   store ptr @Query_for_rule_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5973,11 +5967,11 @@ ends_with.exit1097:                               ; preds = %218
 537:                                              ; preds = %5
   %538 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %539 = load ptr, ptr %538, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %82) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %83) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   call fastcc void @parse_identifier(ptr noundef %539, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %82, ptr noundef nonnull %83)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %83) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %82) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   store ptr @Query_for_trigger_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -5987,11 +5981,11 @@ ends_with.exit1097:                               ; preds = %218
 541:                                              ; preds = %5
   %542 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %543 = load ptr, ptr %542, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %80) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %81) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call fastcc void @parse_identifier(ptr noundef %543, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %80, ptr noundef nonnull %81)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %81) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %80) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr @match_previous_words.list.1636, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6001,11 +5995,11 @@ ends_with.exit1097:                               ; preds = %218
 545:                                              ; preds = %5
   %546 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %547 = load ptr, ptr %546, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %78) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %79) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   call fastcc void @parse_identifier(ptr noundef %547, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %78, ptr noundef nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %79) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %78) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr @match_previous_words.list.1637, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6015,11 +6009,11 @@ ends_with.exit1097:                               ; preds = %218
 549:                                              ; preds = %5
   %550 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %551 = load ptr, ptr %550, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %76) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %77) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call fastcc void @parse_identifier(ptr noundef %551, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %76, ptr noundef nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %77) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %76) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6047,11 +6041,11 @@ ends_with.exit1097:                               ; preds = %218
 559:                                              ; preds = %5
   %560 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %561 = load ptr, ptr %560, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %74) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %75) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call fastcc void @parse_identifier(ptr noundef %561, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %74, ptr noundef nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %75) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %74) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6061,11 +6055,11 @@ ends_with.exit1097:                               ; preds = %218
 563:                                              ; preds = %5
   %564 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %565 = load ptr, ptr %564, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %72) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %73) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call fastcc void @parse_identifier(ptr noundef %565, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %72, ptr noundef nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %73) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %72) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   store ptr @Query_for_constraint_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6075,11 +6069,11 @@ ends_with.exit1097:                               ; preds = %218
 567:                                              ; preds = %5
   %568 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %569 = load ptr, ptr %568, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %70) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %71) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call fastcc void @parse_identifier(ptr noundef %569, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %70, ptr noundef nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %71) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %70) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   store ptr @Query_for_constraint_of_table_not_validated, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6173,11 +6167,11 @@ ends_with.exit1097:                               ; preds = %218
 599:                                              ; preds = %5
   %600 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %601 = load ptr, ptr %600, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %68) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %69) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   call fastcc void @parse_identifier(ptr noundef %601, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %68, ptr noundef nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %68) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   store ptr @Query_for_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6225,11 +6219,11 @@ ends_with.exit1097:                               ; preds = %218
 615:                                              ; preds = %5
   %616 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %617 = load ptr, ptr %616, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %67) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   call fastcc void @parse_identifier(ptr noundef %617, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %66, ptr noundef nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %67) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   store ptr @Query_for_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6276,11 +6270,11 @@ ends_with.exit1097:                               ; preds = %218
 631:                                              ; preds = %5
   %632 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %633 = load ptr, ptr %632, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %64) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %65) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call fastcc void @parse_identifier(ptr noundef %633, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %64, ptr noundef nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   store ptr @Query_for_partition_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6375,11 +6369,11 @@ ends_with.exit1097:                               ; preds = %218
 663:                                              ; preds = %5
   %664 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %665 = load ptr, ptr %664, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %62) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %63) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call fastcc void @parse_identifier(ptr noundef %665, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %62, ptr noundef nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6420,11 +6414,11 @@ ends_with.exit1097:                               ; preds = %218
 677:                                              ; preds = %5
   %678 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %679 = load ptr, ptr %678, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %60) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %61) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call fastcc void @parse_identifier(ptr noundef %679, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %60, ptr noundef nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %61) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %680 = load i8, ptr %1, align 1
   %681 = icmp eq i8 %680, 39
   %682 = icmp eq i32 %2, 0
@@ -6525,11 +6519,11 @@ ends_with.exit1101.thread:                        ; preds = %ends_with.exit1099,
 716:                                              ; preds = %5
   %717 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %718 = load ptr, ptr %717, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %58) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %59) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call fastcc void @parse_identifier(ptr noundef %718, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %58, ptr noundef nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %59) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6628,11 +6622,11 @@ ends_with.exit1101.thread:                        ; preds = %ends_with.exit1099,
 748:                                              ; preds = %5
   %749 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %750 = load ptr, ptr %749, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %56) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %57) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call fastcc void @parse_identifier(ptr noundef %750, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %56, ptr noundef nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   store ptr @Query_for_index_of_table, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6699,11 +6693,11 @@ ends_with.exit1103:                               ; preds = %754
 772:                                              ; preds = %5
   %773 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %774 = load ptr, ptr %773, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %54) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call fastcc void @parse_identifier(ptr noundef %774, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %54, ptr noundef nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %54) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   store ptr @Query_for_list_of_tables_for_constraint, ptr @completion_squery, align 8
   store ptr @match_previous_words.list.1756, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6760,11 +6754,11 @@ ends_with.exit1103:                               ; preds = %754
 790:                                              ; preds = %5
   %791 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %792 = load ptr, ptr %791, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %52) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call fastcc void @parse_identifier(ptr noundef %792, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %52, ptr noundef nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %52) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   store ptr @Query_for_list_of_tables_for_policy, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6787,11 +6781,11 @@ ends_with.exit1103:                               ; preds = %754
 798:                                              ; preds = %5
   %799 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %800 = load ptr, ptr %799, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %50) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call fastcc void @parse_identifier(ptr noundef %800, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %50, ptr noundef nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   store ptr @Query_for_list_of_tables_for_rule, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6848,11 +6842,11 @@ ends_with.exit1103:                               ; preds = %754
 816:                                              ; preds = %5
   %817 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %818 = load ptr, ptr %817, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %49) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call fastcc void @parse_identifier(ptr noundef %818, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %48, ptr noundef nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   store ptr @.str.1759, ptr @completion_charp, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -6868,11 +6862,11 @@ ends_with.exit1103:                               ; preds = %754
 822:                                              ; preds = %5
   %823 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %824 = load ptr, ptr %823, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call fastcc void @parse_identifier(ptr noundef %824, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %46, ptr noundef nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   store ptr @Query_for_list_of_tables_for_trigger, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -7080,11 +7074,11 @@ ends_with.exit1103:                               ; preds = %754
 892:                                              ; preds = %5
   %893 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %894 = load ptr, ptr %893, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %44) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %45) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call fastcc void @parse_identifier(ptr noundef %894, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %44, ptr noundef nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %45) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   store ptr @.str.1478, ptr @completion_charp, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -7151,11 +7145,11 @@ ends_with.exit1103:                               ; preds = %754
 914:                                              ; preds = %5
   %915 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %916 = load ptr, ptr %915, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call fastcc void @parse_identifier(ptr noundef %916, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %42, ptr noundef nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -7165,11 +7159,11 @@ ends_with.exit1103:                               ; preds = %754
 918:                                              ; preds = %5
   %919 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %920 = load ptr, ptr %919, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call fastcc void @parse_identifier(ptr noundef %920, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %40, ptr noundef nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -7373,11 +7367,11 @@ ends_with.exit1107.thread:                        ; preds = %976, %ends_with.exi
 988:                                              ; preds = %5
   %989 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %990 = load ptr, ptr %989, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call fastcc void @parse_identifier(ptr noundef %990, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %38, ptr noundef nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -7655,11 +7649,11 @@ ends_with.exit1109.thread:                        ; preds = %996, %ends_with.exi
 1080:                                             ; preds = %5
   %1081 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1082 = load ptr, ptr %1081, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %36) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call fastcc void @parse_identifier(ptr noundef %1082, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %36, ptr noundef nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   store ptr @.str.1759, ptr @completion_charp, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -8264,11 +8258,11 @@ ends_with.exit1111:                               ; preds = %1294
 1305:                                             ; preds = %5
   %1306 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1307 = load ptr, ptr %1306, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call fastcc void @parse_identifier(ptr noundef %1307, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %34, ptr noundef nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   store ptr @Query_for_list_of_arguments, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -8385,11 +8379,11 @@ ends_with.exit1113:                               ; preds = %1313
 1346:                                             ; preds = %5
   %1347 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1348 = load ptr, ptr %1347, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call fastcc void @parse_identifier(ptr noundef %1348, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %32, ptr noundef nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   store ptr @Query_for_list_of_tables_for_trigger, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -8444,11 +8438,11 @@ ends_with.exit1113:                               ; preds = %1313
 1364:                                             ; preds = %5
   %1365 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1366 = load ptr, ptr %1365, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call fastcc void @parse_identifier(ptr noundef %1366, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %30, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   store ptr @Query_for_list_of_tables_for_policy, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -8470,11 +8464,11 @@ ends_with.exit1113:                               ; preds = %1313
 1372:                                             ; preds = %5
   %1373 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1374 = load ptr, ptr %1373, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call fastcc void @parse_identifier(ptr noundef %1374, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %28, ptr noundef nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   store ptr @Query_for_list_of_tables_for_rule, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -8509,11 +8503,11 @@ ends_with.exit1113:                               ; preds = %1313
 1384:                                             ; preds = %5
   %1385 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1386 = load ptr, ptr %1385, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call fastcc void @parse_identifier(ptr noundef %1386, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %26, ptr noundef nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store ptr @.str.1759, ptr @completion_charp, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -9145,11 +9139,11 @@ ends_with.exit1117.thread:                        ; preds = %ends_with.exit1115,
 1608:                                             ; preds = %5
   %1609 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1610 = load ptr, ptr %1609, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call fastcc void @parse_identifier(ptr noundef %1610, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %24, ptr noundef nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -9301,11 +9295,11 @@ ends_with.exit1119:                               ; preds = %1614
 1661:                                             ; preds = %5
   %1662 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %1663 = load ptr, ptr %1662, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call fastcc void @parse_identifier(ptr noundef %1663, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %22, ptr noundef nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -9315,11 +9309,11 @@ ends_with.exit1119:                               ; preds = %1614
 1665:                                             ; preds = %5
   %1666 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %1667 = load ptr, ptr %1666, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call fastcc void @parse_identifier(ptr noundef %1667, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -9329,11 +9323,11 @@ ends_with.exit1119:                               ; preds = %1614
 1669:                                             ; preds = %5
   %1670 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %1671 = load ptr, ptr %1670, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call fastcc void @parse_identifier(ptr noundef %1671, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %18, ptr noundef nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -9411,11 +9405,11 @@ ends_with.exit1119:                               ; preds = %1614
 1695:                                             ; preds = %5
   %1696 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1697 = load ptr, ptr %1696, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call fastcc void @parse_identifier(ptr noundef %1697, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %16, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -9957,11 +9951,11 @@ ends_with.exit1123.thread:                        ; preds = %ends_with.exit1121,
 1880:                                             ; preds = %5
   %1881 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1882 = load ptr, ptr %1881, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call fastcc void @parse_identifier(ptr noundef %1882, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -10082,11 +10076,11 @@ ends_with.exit1127.thread:                        ; preds = %ends_with.exit1125,
 1921:                                             ; preds = %5
   %1922 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1923 = load ptr, ptr %1922, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call fastcc void @parse_identifier(ptr noundef %1923, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -10109,11 +10103,11 @@ ends_with.exit1127.thread:                        ; preds = %ends_with.exit1125,
 1929:                                             ; preds = %5
   %1930 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1931 = load ptr, ptr %1930, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call fastcc void @parse_identifier(ptr noundef %1931, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -10185,11 +10179,11 @@ ends_with.exit1127.thread:                        ; preds = %ends_with.exit1125,
 1957:                                             ; preds = %5
   %1958 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1959 = load ptr, ptr %1958, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call fastcc void @parse_identifier(ptr noundef %1959, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -10199,11 +10193,11 @@ ends_with.exit1127.thread:                        ; preds = %ends_with.exit1125,
 1961:                                             ; preds = %5
   %1962 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %1963 = load ptr, ptr %1962, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @parse_identifier(ptr noundef %1963, ptr noundef nonnull @completion_ref_schema, ptr noundef nonnull @completion_ref_object, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr @Query_for_list_of_attributes, ptr @completion_squery, align 8
   store ptr null, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
@@ -10871,7 +10865,7 @@ ends_with.exit1097.thread:                        ; preds = %ends_with.exit1103,
   ret ptr %.0
 }
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @complete_from_query(ptr noundef %0, i32 noundef %1) #0 {
@@ -11020,31 +11014,31 @@ pg_strdup_keyword_case.exit:                      ; preds = %.lr.ph.i, %.lr.ph6.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #5
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i8 @pg_toupper(i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i8 @pg_toupper(i8 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @word_matches(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -11216,8 +11210,8 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
 define internal noundef zeroext i1 @HeadMatchesImpl(i1 zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 2, 4) %3, ...) unnamed_addr #0 {
   %5 = alloca [64 x ptr], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp slt i32 %1, %3
   br i1 %7, label %HeadMatchesArray.exit, label %8
 
@@ -11283,8 +11277,8 @@ define internal noundef zeroext i1 @HeadMatchesImpl(i1 zeroext %0, i32 noundef %
 
 HeadMatchesArray.exit:                            ; preds = %.lr.ph.i, %4
   %.010 = phi i1 [ false, %4 ], [ %20, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.010
 }
 
@@ -11319,8 +11313,8 @@ define internal ptr @alter_command_generator(ptr noundef %0, i32 noundef %1) #0 
 define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 9) %3, ...) unnamed_addr #0 {
   %5 = alloca [64 x ptr], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp slt i32 %1, %3
   br i1 %7, label %TailMatchesArray.exit, label %8
 
@@ -11386,8 +11380,8 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
 
 TailMatchesArray.exit:                            ; preds = %.lr.ph.i, %4
   %.010 = phi i1 [ false, %4 ], [ %20, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.010
 }
 
@@ -11410,7 +11404,7 @@ define internal ptr @complete_from_files(ptr noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_guctype(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %4 = shl i64 %3, 1
   %5 = or disjoint i64 %4, 1
@@ -11463,19 +11457,19 @@ exec_query.exit:                                  ; preds = %1, %13, %15, %19
 28:                                               ; preds = %25, %22, %exec_query.exit
   %.0 = phi ptr [ %27, %25 ], [ null, %22 ], [ null, %exec_query.exit ]
   call void @PQclear(ptr noundef %.07.i) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 %3, ...) unnamed_addr #0 {
   %5 = alloca [64 x ptr], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp slt i32 %1, 2
   br i1 %7, label %30, label %8
 
@@ -11525,18 +11519,18 @@ define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, p
 
 30:                                               ; preds = %4, %12
   %.010 = phi i1 [ %13, %12 ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.010
 }
 
-declare zeroext i1 @recognized_connection_string(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @recognized_connection_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #7
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #7
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
@@ -11662,9 +11656,9 @@ define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef rea
   br i1 %10, label %11, label %193
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr @_complete_from_query.list_index, align 4
   store i32 0, ptr @_complete_from_query.num_schema_only, align 4
   store i32 0, ptr @_complete_from_query.num_query_other, align 4
@@ -12075,9 +12069,9 @@ exec_query.exit:                                  ; preds = %179, %185, %187, %1
   call void @free(ptr noundef %.0110) #11
   call void @free(ptr noundef %.0125) #11
   call void @free(ptr noundef %.0124) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %193
 
 193:                                              ; preds = %exec_query.exit, %6
@@ -12735,7 +12729,7 @@ pg_strdup_keyword_case.exit200:                   ; preds = %444, %.lr.ph257
   ret ptr %.11
 }
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #2
+declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef captures(none) initializes((0, 1)) %4) unnamed_addr #0 {
@@ -12887,67 +12881,73 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   ret void
 }
 
-declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
+declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
-declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #2
+declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
+declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQntuples(ptr noundef) local_unnamed_addr #2
+declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PQnfields(ptr noundef) local_unnamed_addr #2
+declare i32 @PQnfields(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_encoding_max_length(i32 noundef) local_unnamed_addr #2
+declare i32 @pg_encoding_max_length(i32 noundef) local_unnamed_addr #1
 
-declare i32 @PQmblenBounded(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQmblenBounded(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_tolower_loc() local_unnamed_addr #5
+declare ptr @__ctype_tolower_loc() local_unnamed_addr #4
 
-declare i64 @PQescapeStringConn(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @PQescapeStringConn(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQstatus(ptr noundef) local_unnamed_addr #2
+declare i32 @PQstatus(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @rl_filename_completion_function(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @rl_filename_completion_function(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @quote_if_needed(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare ptr @quote_if_needed(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
-declare ptr @strtokx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare ptr @strtokx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

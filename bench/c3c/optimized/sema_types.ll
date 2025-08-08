@@ -780,8 +780,8 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %553
 
 343:                                              ; preds = %329, %327, %68, %68, %68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %345 = load ptr, ptr %344, align 8
   %346 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %345, i32 noundef %.0229)
@@ -1002,8 +1002,8 @@ sema_resolve_array_type.exit:                     ; preds = %406, %417, %428, %4
   %464 = and i16 %463, -8
   %465 = or disjoint i16 %464, 2
   store i16 %465, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %sema_resolve_type_identifier.exit.thread
 
 466:                                              ; preds = %343, %453, %433, %373, %402, %413, %424, %437, %449
@@ -1012,8 +1012,8 @@ sema_resolve_array_type.exit:                     ; preds = %406, %417, %428, %4
   store i16 %468, ptr %1, align 8
   %469 = and i16 %467, -512
   %470 = or disjoint i16 %469, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i16 %470, ptr %1, align 8
   %471 = load ptr, ptr @poisoned_type, align 8
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1461,10 +1461,10 @@ declare ptr @type_get_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

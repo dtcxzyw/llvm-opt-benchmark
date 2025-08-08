@@ -389,50 +389,44 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @EnterParallelMode() local_unnamed_addr #1
 
-declare void @EnterParallelMode() local_unnamed_addr #2
+declare ptr @CreateParallelContext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @CreateParallelContext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @InitializeParallelDSM(ptr noundef) local_unnamed_addr #2
+declare void @InitializeParallelDSM(ptr noundef) local_unnamed_addr #1
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @pgstat_get_my_query_id() local_unnamed_addr #2
+declare i64 @pgstat_get_my_query_id() local_unnamed_addr #1
 
-declare ptr @TidStoreCreateShared(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @TidStoreCreateShared(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @TidStoreGetHandle(ptr noundef) local_unnamed_addr #2
+declare i64 @TidStoreGetHandle(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dsa_get_handle(ptr noundef) local_unnamed_addr #2
+declare i32 @dsa_get_handle(ptr noundef) local_unnamed_addr #1
 
-declare ptr @TidStoreGetDSA(ptr noundef) local_unnamed_addr #2
+declare ptr @TidStoreGetDSA(ptr noundef) local_unnamed_addr #1
 
-declare i32 @GetAccessStrategyBufferCount(ptr noundef) local_unnamed_addr #2
+declare i32 @GetAccessStrategyBufferCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -488,14 +482,14 @@ define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr noundef writeonly
   br i1 %27, label %12, label %._crit_edge, !llvm.loop !9
 }
 
-declare void @TidStoreDestroy(ptr noundef) local_unnamed_addr #2
+declare void @TidStoreDestroy(ptr noundef) local_unnamed_addr #1
 
-declare void @DestroyParallelContext(ptr noundef) local_unnamed_addr #2
+declare void @DestroyParallelContext(ptr noundef) local_unnamed_addr #1
 
-declare void @ExitParallelMode() local_unnamed_addr #2
+declare void @ExitParallelMode() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @parallel_vacuum_get_dead_items(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #6 {
+define dso_local ptr @parallel_vacuum_get_dead_items(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1037,10 +1031,10 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %7, label %8, label %10
 
@@ -1204,41 +1198,41 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %._crit_edge.i, %83
   call void @table_close(ptr noundef %16, i32 noundef 4) #10
   %99 = load ptr, ptr %54, align 8
   call void @FreeAccessStrategy(ptr noundef %99) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @pgstat_report_activity(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pgstat_report_activity(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pgstat_report_query_id(i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @pgstat_report_query_id(i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @vac_open_indexes(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @vac_open_indexes(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @TidStoreAttach(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @TidStoreAttach(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @VacuumUpdateCosts() local_unnamed_addr #2
+declare void @VacuumUpdateCosts() local_unnamed_addr #1
 
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetAccessStrategyWithSize(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @GetAccessStrategyWithSize(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @parallel_vacuum_error_callback(ptr noundef readonly captures(none) %0) #0 {
@@ -1268,38 +1262,38 @@ define internal void @parallel_vacuum_error_callback(ptr noundef readonly captur
   ret void
 }
 
-declare void @InstrStartParallelQuery() local_unnamed_addr #2
+declare void @InstrStartParallelQuery() local_unnamed_addr #1
 
-declare void @InstrEndParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InstrEndParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pgstat_progress_parallel_incr_param(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @pgstat_progress_parallel_incr_param(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @TidStoreDetach(ptr noundef) local_unnamed_addr #2
+declare void @TidStoreDetach(ptr noundef) local_unnamed_addr #1
 
-declare void @vac_close_indexes(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @vac_close_indexes(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #2
+declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ReinitializeParallelDSM(ptr noundef) local_unnamed_addr #2
+declare void @ReinitializeParallelDSM(ptr noundef) local_unnamed_addr #1
 
-declare void @ReinitializeParallelWorkers(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ReinitializeParallelWorkers(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LaunchParallelWorkers(ptr noundef) local_unnamed_addr #2
+declare void @LaunchParallelWorkers(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @WaitForParallelWorkersToFinish(ptr noundef) local_unnamed_addr #2
+declare void @WaitForParallelWorkersToFinish(ptr noundef) local_unnamed_addr #1
 
-declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captures(none) initializes((120, 132)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.IndexVacuumInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %6 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %7 = trunc nuw i8 %6 to i1
@@ -1387,17 +1381,23 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captu
   call void @pfree(ptr noundef %53) #10
   store ptr null, ptr %30, align 8
   call void @pgstat_progress_parallel_incr_param(i32 noundef 9, i64 noundef 1) #10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare ptr @vac_bulkdel_one_index(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @vac_bulkdel_one_index(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @vac_cleanup_one_index(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @vac_cleanup_one_index(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -1415,13 +1415,13 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

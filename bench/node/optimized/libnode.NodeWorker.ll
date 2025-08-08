@@ -632,7 +632,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i)
   store i8 0, ptr %result.i, align 1
   %tobool.not.i23 = icmp eq ptr %call16, null
   br i1 %tobool.not.i23, label %if.then.i28, label %cond.true.i24
@@ -650,7 +650,7 @@ if.then.i28:                                      ; preds = %cond.true.i24, %_ZN
 
 _ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit: ; preds = %cond.true.i24, %if.then.i28
   %6 = load i8, ptr %result.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i)
   %frombool = and i8 %6, 1
   store i8 %frombool, ptr %m_waitingForDebugger.i, align 8
   call void @_ZN4node9inspector8protocol12ErrorSupport3popEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
@@ -1424,7 +1424,7 @@ entry:
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %notification) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12, !noalias !104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #11, !noalias !104
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i64 16), ptr %call.i, align 8, !noalias !104
@@ -1433,7 +1433,7 @@ entry:
   %m_binaryNotification.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_binaryNotification.i.i, i8 0, i64 24, i1 false), !noalias !104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #11, !noalias !104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   store ptr %call.i, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -1771,7 +1771,7 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
 
 cleanup.done11.thread:                            ; preds = %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.13) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i)
   store i8 0, ptr %result.i, align 1
   br label %if.then.i
 
@@ -1784,7 +1784,7 @@ cleanup.done11:                                   ; preds = %_ZN4node9inspector8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.13) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i)
   store i8 0, ptr %result.i, align 1
   %tobool.not.i12 = icmp eq ptr %call8, null
   br i1 %tobool.not.i12, label %if.then.i, label %cond.true.i
@@ -1802,7 +1802,7 @@ if.then.i:                                        ; preds = %cleanup.done11.thre
 
 _ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit: ; preds = %cond.true.i, %if.then.i
   %3 = load i8, ptr %result.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i)
   call void @_ZN4node9inspector8protocol12ErrorSupport3popEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   %call13 = call noundef zeroext i1 @_ZN4node9inspector8protocol12ErrorSupport9hasErrorsEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   br i1 %call13, label %if.then, label %if.end
@@ -2975,10 +2975,10 @@ declare void @_ZN4node9inspector8protocol14DispatcherBase7WeakPtrD1Ev(ptr nounde
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10

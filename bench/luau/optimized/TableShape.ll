@@ -1478,7 +1478,7 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" comd
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7Compile18predictTableShapesERNS_12DenseHashMapIPNS_12AstExprTableENS0_10TableShapeENS_16DenseHashPointerESt8equal_toIS3_EEEPNS_7AstNodeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::Compile::ShapeVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau7Compile12ShapeVisitorE, i64 16), ptr %3, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !10
@@ -1524,19 +1524,16 @@ _ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12Shap
   br label %_ZN4Luau7Compile12ShapeVisitorD2Ev.exit
 
 _ZN4Luau7Compile12ShapeVisitorD2Ev.exit:          ; preds = %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit.i, %16
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 17:                                               ; preds = %2
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7Compile12ShapeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #11
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %18
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1578,9 +1575,6 @@ _ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12Shap
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit, %10
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7Compile12ShapeVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2911,7 +2905,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile12ShapeVisitor11assignFieldE
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = load ptr, ptr %39, align 8, !tbaa !67
   store ptr %40, ptr %4, align 8, !tbaa !115
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2982,7 +2976,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile12ShapeVisitor11assignFieldE
   br label %_ZNK4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EE8containsERKS5_.exit
 
 _ZNK4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EE8containsERKS5_.exit: ; preds = %65, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %33, %35, %14, %9, %_ZNK4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EE8containsERKS5_.exit, %3
@@ -3643,6 +3637,12 @@ _ZN4Luau6detail14DenseHashTableIPNS_12AstExprTableESt4pairIS3_NS_7Compile10Table
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

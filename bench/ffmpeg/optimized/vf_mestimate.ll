@@ -86,7 +86,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %19 = load i64, ptr %18, align 8, !tbaa !31
   %20 = icmp eq i64 %19, -9223372036854775808
@@ -333,7 +333,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %132 = load i32, ptr %71, align 8, !tbaa !58
   %133 = shl i32 %.0507689, %132
   %134 = shl i32 %.0508694, %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %133, ptr %4, align 4, !tbaa !52
   store i32 %134, ptr %96, align 4, !tbaa !52
   %135 = call i64 @ff_me_search_ds(ptr noundef nonnull %17, i32 noundef %133, i32 noundef %134, ptr noundef nonnull %4) #6
@@ -368,7 +368,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %127, ptr %137, align 8, !tbaa !70
   %157 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i64 0, ptr %157, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %158 = add nuw nsw i32 %.0507689, 1
   %159 = load i32, ptr %70, align 4, !tbaa !57
   %160 = icmp slt i32 %158, %159
@@ -405,7 +405,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %170 = load i32, ptr %71, align 8, !tbaa !58
   %171 = shl i32 %.1681, %170
   %172 = shl i32 %.1509686, %170
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %171, ptr %5, align 4, !tbaa !52
   store i32 %172, ptr %95, align 4, !tbaa !52
   %173 = call i64 @ff_me_search_esa(ptr noundef nonnull %17, i32 noundef %171, i32 noundef %172, ptr noundef nonnull %5) #6
@@ -440,7 +440,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %124, ptr %175, align 8, !tbaa !70
   %195 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i64 0, ptr %195, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %196 = add nuw nsw i32 %.1681, 1
   %197 = load i32, ptr %70, align 4, !tbaa !57
   %198 = icmp slt i32 %196, %197
@@ -477,7 +477,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %208 = load i32, ptr %71, align 8, !tbaa !58
   %209 = shl i32 %.2673, %208
   %210 = shl i32 %.2510678, %208
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %209, ptr %6, align 4, !tbaa !52
   store i32 %210, ptr %94, align 4, !tbaa !52
   %211 = call i64 @ff_me_search_fss(ptr noundef nonnull %17, i32 noundef %209, i32 noundef %210, ptr noundef nonnull %6) #6
@@ -512,7 +512,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %121, ptr %213, align 8, !tbaa !70
   %233 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store i64 0, ptr %233, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %234 = add nuw nsw i32 %.2673, 1
   %235 = load i32, ptr %70, align 4, !tbaa !57
   %236 = icmp slt i32 %234, %235
@@ -549,7 +549,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %246 = load i32, ptr %71, align 8, !tbaa !58
   %247 = shl i32 %.3665, %246
   %248 = shl i32 %.3511670, %246
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %247, ptr %7, align 4, !tbaa !52
   store i32 %248, ptr %93, align 4, !tbaa !52
   %249 = call i64 @ff_me_search_ntss(ptr noundef nonnull %17, i32 noundef %247, i32 noundef %248, ptr noundef nonnull %7) #6
@@ -584,7 +584,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %118, ptr %251, align 8, !tbaa !70
   %271 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 0, ptr %271, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %272 = add nuw nsw i32 %.3665, 1
   %273 = load i32, ptr %70, align 4, !tbaa !57
   %274 = icmp slt i32 %272, %273
@@ -621,7 +621,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %284 = load i32, ptr %71, align 8, !tbaa !58
   %285 = shl i32 %.4657, %284
   %286 = shl i32 %.4512662, %284
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %285, ptr %8, align 4, !tbaa !52
   store i32 %286, ptr %92, align 4, !tbaa !52
   %287 = call i64 @ff_me_search_tdls(ptr noundef nonnull %17, i32 noundef %285, i32 noundef %286, ptr noundef nonnull %8) #6
@@ -656,7 +656,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %115, ptr %289, align 8, !tbaa !70
   %309 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i64 0, ptr %309, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %310 = add nuw nsw i32 %.4657, 1
   %311 = load i32, ptr %70, align 4, !tbaa !57
   %312 = icmp slt i32 %310, %311
@@ -693,7 +693,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %322 = load i32, ptr %71, align 8, !tbaa !58
   %323 = shl i32 %.5649, %322
   %324 = shl i32 %.5513654, %322
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %323, ptr %9, align 4, !tbaa !52
   store i32 %324, ptr %91, align 4, !tbaa !52
   %325 = call i64 @ff_me_search_tss(ptr noundef nonnull %17, i32 noundef %323, i32 noundef %324, ptr noundef nonnull %9) #6
@@ -728,7 +728,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %112, ptr %327, align 8, !tbaa !70
   %347 = getelementptr inbounds nuw i8, ptr %327, i64 16
   store i64 0, ptr %347, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %348 = add nuw nsw i32 %.5649, 1
   %349 = load i32, ptr %70, align 4, !tbaa !57
   %350 = icmp slt i32 %348, %349
@@ -765,7 +765,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %360 = load i32, ptr %71, align 8, !tbaa !58
   %361 = shl i32 %.6641, %360
   %362 = shl i32 %.6514646, %360
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %361, ptr %10, align 4, !tbaa !52
   store i32 %362, ptr %90, align 4, !tbaa !52
   %363 = call i64 @ff_me_search_hexbs(ptr noundef nonnull %17, i32 noundef %361, i32 noundef %362, ptr noundef nonnull %10) #6
@@ -800,7 +800,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %109, ptr %365, align 8, !tbaa !70
   %385 = getelementptr inbounds nuw i8, ptr %365, i64 16
   store i64 0, ptr %385, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %386 = add nuw nsw i32 %.6641, 1
   %387 = load i32, ptr %70, align 4, !tbaa !57
   %388 = icmp slt i32 %386, %387
@@ -841,7 +841,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %402 = load i32, ptr %71, align 8, !tbaa !58
   %403 = shl i32 %.7633, %402
   %404 = shl i32 %.7515638, %402
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %403, ptr %11, align 4, !tbaa !52
   store i32 %404, ptr %88, align 4, !tbaa !52
   store i32 0, ptr %73, align 4, !tbaa !52
@@ -1088,7 +1088,7 @@ mid_pred.exit569:                                 ; preds = %494, %492, %491, %4
   store i32 %106, ptr %510, align 8, !tbaa !70
   %530 = getelementptr inbounds nuw i8, ptr %510, i64 16
   store i64 0, ptr %530, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %531 = add nuw nsw i32 %.7633, 1
   %532 = load i32, ptr %70, align 4, !tbaa !57
   %533 = icmp slt i32 %531, %532
@@ -1134,7 +1134,7 @@ mid_pred.exit569:                                 ; preds = %494, %492, %491, %4
   %548 = load i32, ptr %71, align 8, !tbaa !58
   %549 = shl i32 %.8628, %548
   %550 = shl i32 %.8516630, %548
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %549, ptr %12, align 4, !tbaa !52
   store i32 %550, ptr %72, align 4, !tbaa !52
   store i32 0, ptr %76, align 4, !tbaa !86
@@ -1506,7 +1506,7 @@ mid_pred.exit586:                                 ; preds = %630, %628, %627, %6
   store i32 %103, ptr %749, align 8, !tbaa !70
   %769 = getelementptr inbounds nuw i8, ptr %749, i64 16
   store i64 0, ptr %769, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %770 = load i32, ptr %70, align 4, !tbaa !57
   %771 = icmp slt i32 %701, %770
   br i1 %771, label %544, label %._crit_edge.loopexit, !llvm.loop !93
@@ -1537,7 +1537,7 @@ mid_pred.exit586:                                 ; preds = %630, %628, %627, %6
 
 781:                                              ; preds = %52, %49, %47, %776, %60, %21
   %.0 = phi i32 [ %25, %21 ], [ %780, %776 ], [ -12, %60 ], [ -12, %47 ], [ 0, %49 ], [ -12, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1626,48 +1626,48 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   ret i32 %.031
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #3
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare ptr @av_frame_clone(ptr noundef) local_unnamed_addr #3
+declare ptr @av_frame_clone(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_frame_new_side_data(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @av_frame_new_side_data(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @ff_me_search_ds(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @ff_me_search_ds(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_esa(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_fss(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_ntss(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_tdls(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_tss(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_hexbs(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_umh(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @ff_me_search_epzs(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @ff_me_init_context(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @av_default_item_name(ptr noundef) #2
+
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
-declare i64 @ff_me_search_esa(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_fss(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_ntss(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_tdls(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_tss(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_hexbs(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_umh(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @ff_me_search_epzs(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
-
-declare void @ff_me_init_context(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare ptr @av_default_item_name(ptr noundef) #3
-
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -1677,9 +1677,9 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

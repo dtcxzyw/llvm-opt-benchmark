@@ -72,7 +72,7 @@ define range(i32 -12, 1) i32 @ff_mov_cenc_write_packet(ptr noundef %0, ptr nound
   br label %34
 
 34:                                               ; preds = %22, %7
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = icmp sgt i32 %3, 0
   br i1 %35, label %.lr.ph.i, label %mov_cenc_write_encrypted.exit
 
@@ -90,7 +90,7 @@ define range(i32 -12, 1) i32 @ff_mov_cenc_write_packet(ptr noundef %0, ptr nound
   br i1 %41, label %.lr.ph.i, label %mov_cenc_write_encrypted.exit, !llvm.loop !25
 
 mov_cenc_write_encrypted.exit:                    ; preds = %.lr.ph.i, %34
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = load ptr, ptr %0, align 8, !tbaa !24
   call void @av_aes_ctr_increment_iv(ptr noundef %42) #5
   %43 = load i32, ptr %8, align 4, !tbaa !4
@@ -156,9 +156,6 @@ auxiliary_info_add_subsample.exit:                ; preds = %59, %52, %46, %17, 
   %.0 = phi i32 [ %6, %4 ], [ -12, %17 ], [ 0, %59 ], [ 0, %46 ], [ -12, %52 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -12, 1) i32 @mov_cenc_start_packet(ptr noundef %0) unnamed_addr #0 {
@@ -239,9 +236,6 @@ auxiliary_info_write.exit:                        ; preds = %35, %31, %10, %15
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
@@ -292,7 +286,7 @@ define i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef %0, ptr noundef %1, ptr 
   %30 = zext i8 %29 to i32
   call void @avio_w8(ptr noundef %1, i32 noundef %30) #5
   %31 = add i32 %28, -1
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.i.preheader, label %mov_cenc_write_encrypted.exit
 
@@ -314,7 +308,7 @@ define i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %39, label %.lr.ph.i, label %mov_cenc_write_encrypted.exit, !llvm.loop !25
 
 mov_cenc_write_encrypted.exit:                    ; preds = %.lr.ph.i, %23
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = load i32, ptr %11, align 4, !tbaa !4
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %auxiliary_info_add_subsample.exit, label %41
@@ -426,11 +420,11 @@ mov_cenc_end_packet.exit:                         ; preds = %76, %83, %70, %4
   ret i32 %.0
 }
 
-declare ptr @ff_nal_find_startcode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ff_nal_find_startcode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @avio_wb32(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @avio_wb32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @avio_w8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @avio_w8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 1) i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -505,7 +499,7 @@ define range(i32 -12, 1) i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef %0, pt
 
 36:                                               ; preds = %._crit_edge
   %37 = add nsw i32 %29, -1
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not54 = icmp eq i32 %37, 0
   br i1 %.not54, label %mov_cenc_write_encrypted.exit, label %.lr.ph.i.preheader
 
@@ -527,7 +521,7 @@ define range(i32 -12, 1) i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef %0, pt
   br i1 %44, label %.lr.ph.i, label %mov_cenc_write_encrypted.exit, !llvm.loop !25
 
 mov_cenc_write_encrypted.exit:                    ; preds = %.lr.ph.i, %36
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = zext nneg i32 %29 to i64
   %46 = getelementptr inbounds nuw i8, ptr %scevgep, i64 %45
   %47 = sub nsw i32 %32, %29
@@ -642,9 +636,9 @@ mov_cenc_end_packet.exit:                         ; preds = %87, %80, %74, %6, %
   ret i32 %.042
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ff_mov_cenc_av1_write_obus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -966,7 +960,7 @@ bytestream2_init.exit138.i:                       ; preds = %.critedge135.i, %by
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.345.i, i64 %168
   %170 = load i32, ptr %164, align 4, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %.lr.ph.i.i, label %mov_cenc_write_encrypted.exit.i
 
@@ -984,7 +978,7 @@ bytestream2_init.exit138.i:                       ; preds = %.critedge135.i, %by
   br i1 %177, label %.lr.ph.i.i, label %mov_cenc_write_encrypted.exit.i, !llvm.loop !25
 
 mov_cenc_write_encrypted.exit.i:                  ; preds = %.lr.ph.i.i, %162
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %178 = load i32, ptr %164, align 4, !tbaa !66
   %179 = zext i32 %178 to i64
   %180 = getelementptr inbounds nuw i8, ptr %169, i64 %179
@@ -1257,12 +1251,12 @@ mov_cenc_end_packet.exit:                         ; preds = %63, %write_tiles.ex
   ret i32 %.065
 }
 
-declare i32 @ff_lavf_cbs_read_packet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_lavf_cbs_read_packet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
-declare void @ff_lavf_cbs_fragment_reset(ptr noundef) local_unnamed_addr #2
+declare void @ff_lavf_cbs_fragment_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_mov_cenc_write_stbl_atoms(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1387,7 +1381,7 @@ define noundef i32 @ff_mov_cenc_write_sinf_tag(ptr noundef readonly captures(non
   ret i32 %16
 }
 
-declare void @avio_wl32(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @avio_wl32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ff_mov_cenc_init(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1435,13 +1429,13 @@ define i32 @ff_mov_cenc_init(ptr noundef initializes((0, 8)) %0, ptr noundef %1,
   ret i32 %.0
 }
 
-declare ptr @av_aes_ctr_alloc() local_unnamed_addr #2
+declare ptr @av_aes_ctr_alloc() local_unnamed_addr #1
 
-declare i32 @av_aes_ctr_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_aes_ctr_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_aes_ctr_set_random_iv(ptr noundef) local_unnamed_addr #2
+declare void @av_aes_ctr_set_random_iv(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_lavf_cbs_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_lavf_cbs_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_mov_cenc_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -1460,29 +1454,35 @@ define void @ff_mov_cenc_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @av_aes_ctr_free(ptr noundef) local_unnamed_addr #2
+declare void @av_aes_ctr_free(ptr noundef) local_unnamed_addr #1
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
-declare void @ff_lavf_cbs_fragment_free(ptr noundef) local_unnamed_addr #2
+declare void @ff_lavf_cbs_fragment_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ff_lavf_cbs_close(ptr noundef) local_unnamed_addr #2
+declare void @ff_lavf_cbs_close(ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_aes_ctr_get_iv(ptr noundef) local_unnamed_addr #2
+declare ptr @av_aes_ctr_get_iv(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @av_aes_ctr_crypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @av_aes_ctr_crypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @av_aes_ctr_increment_iv(ptr noundef) local_unnamed_addr #2
+declare void @av_aes_ctr_increment_iv(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_reallocp_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_reallocp_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @avio_wb24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @avio_wb24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @avio_wb64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @avio_wb64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -1497,9 +1497,9 @@ declare i32 @llvm.bswap.i32(i32) #4
 declare i64 @llvm.umax.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }

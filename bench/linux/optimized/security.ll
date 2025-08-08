@@ -291,9 +291,6 @@ define dso_local noundef i32 @early_security_init() local_unnamed_addr #0 sectio
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @prepare_lsm(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call fastcc zeroext i1 @lsm_allowed(ptr noundef %0) #15
@@ -408,9 +405,6 @@ define internal fastcc void @initialize_lsm(ptr noundef readonly captures(none) 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef i32 @security_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i1, ptr @debug, align 1
@@ -485,10 +479,10 @@ define dso_local noundef i32 @security_init() local_unnamed_addr #0 section ".in
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @lsm_append(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @lsm_append(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr @lsm_names, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %7
@@ -697,19 +691,19 @@ define internal fastcc void @ordered_lsm_init() unnamed_addr #0 section ".init.t
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @choose_major_lsm(ptr noundef %0) #4 section ".init.text" align 16 {
+define internal noundef i32 @choose_major_lsm(ptr noundef %0) #3 section ".init.text" align 16 {
   store ptr %0, ptr @chosen_major_lsm, align 8
   ret i32 1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @choose_lsm_order(ptr noundef %0) #4 section ".init.text" align 16 {
+define internal noundef i32 @choose_lsm_order(ptr noundef %0) #3 section ".init.text" align 16 {
   store ptr %0, ptr @chosen_lsm_order, align 8
   ret i32 1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @enable_debug(ptr readnone captures(none) %0) #4 section ".init.text" align 16 {
+define internal noundef i32 @enable_debug(ptr readnone captures(none) %0) #3 section ".init.text" align 16 {
   store i1 true, ptr @debug, align 1
   ret i32 1
 }
@@ -822,41 +816,41 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: cold noreturn null_pointer_is_valid
-declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #5
+declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @slab_is_available() local_unnamed_addr #6
+declare dso_local zeroext i1 @slab_is_available() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @call_blocking_lsm_notifier(i32 noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @call_blocking_lsm_notifier(i32 noundef %0, ptr noundef %1) #2 align 16 {
   %3 = zext i32 %0 to i64
   %4 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @blocking_lsm_notifier_chain, i64 noundef %3, ptr noundef %1) #17
   ret i32 %4
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @blocking_notifier_call_chain(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local i32 @blocking_notifier_call_chain(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @register_blocking_lsm_notifier(ptr noundef %0) #3 align 16 {
+define dso_local i32 @register_blocking_lsm_notifier(ptr noundef %0) #2 align 16 {
   %2 = tail call i32 @blocking_notifier_chain_register(ptr noundef nonnull @blocking_lsm_notifier_chain, ptr noundef %0) #17
   ret i32 %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @blocking_notifier_chain_register(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local i32 @blocking_notifier_chain_register(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @unregister_blocking_lsm_notifier(ptr noundef %0) #3 align 16 {
+define dso_local i32 @unregister_blocking_lsm_notifier(ptr noundef %0) #2 align 16 {
   %2 = tail call i32 @blocking_notifier_chain_unregister(ptr noundef nonnull @blocking_lsm_notifier_chain, ptr noundef %0) #17
   ret i32 %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @lsm_inode_alloc(ptr noundef writeonly captures(none) initializes((56, 64)) %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -12, 1) i32 @lsm_inode_alloc(ptr noundef writeonly captures(none) initializes((56, 64)) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr @lsm_inode_cache, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
@@ -876,7 +870,7 @@ define dso_local range(i32 -12, 1) i32 @lsm_inode_alloc(ptr noundef writeonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -14, 1) i32 @lsm_fill_user_ctx(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -14, 1) i32 @lsm_fill_user_ctx(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #2 align 16 {
   %7 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %3, i64 32)
   %8 = add i64 %7, 7
   %9 = and i64 %8, -8
@@ -923,13 +917,13 @@ define dso_local range(i32 -14, 1) i32 @lsm_fill_user_ctx(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_binder_set_context_mgr(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_binder_set_context_mgr(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -951,7 +945,7 @@ define dso_local i32 @security_binder_set_context_mgr(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_binder_transaction(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_binder_transaction(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -973,7 +967,7 @@ define dso_local i32 @security_binder_transaction(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -995,7 +989,7 @@ define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -1017,7 +1011,7 @@ define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1039,7 +1033,7 @@ define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1061,7 +1055,7 @@ define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -1083,7 +1077,7 @@ define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 16 {
   br label %6
 
 6:                                                ; preds = %10, %5
@@ -1105,7 +1099,7 @@ define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_capable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_capable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -1127,7 +1121,7 @@ define dso_local i32 @security_capable(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_quotactl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_quotactl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -1149,7 +1143,7 @@ define dso_local i32 @security_quotactl(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_quota_on(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_quota_on(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1171,7 +1165,7 @@ define dso_local i32 @security_quota_on(ptr noundef %0) local_unnamed_addr #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1193,7 +1187,7 @@ define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #3 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1215,7 +1209,7 @@ define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1238,10 +1232,10 @@ define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__vm_enough_memory(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local i32 @__vm_enough_memory(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_bprm_creds_for_exec(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_bprm_creds_for_exec(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1263,7 +1257,7 @@ define dso_local i32 @security_bprm_creds_for_exec(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1285,7 +1279,7 @@ define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1307,7 +1301,7 @@ define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 136), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -1326,7 +1320,7 @@ define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_bprm_committed_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_bprm_committed_creds(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 144), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -1345,7 +1339,7 @@ define dso_local void @security_bprm_committed_creds(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_fs_context_submount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_fs_context_submount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1367,7 +1361,7 @@ define dso_local i32 @security_fs_context_submount(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1389,7 +1383,7 @@ define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_fs_context_parse_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_fs_context_parse_param(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 168), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1420,7 +1414,7 @@ define dso_local i32 @security_fs_context_parse_param(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_alloc(ptr noundef initializes((160, 168)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_alloc(ptr noundef initializes((160, 168)) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr @blob_sizes.3, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -1464,7 +1458,7 @@ define dso_local i32 @security_sb_alloc(ptr noundef initializes((160, 168)) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 192), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -1487,7 +1481,7 @@ define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 184), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -1506,7 +1500,7 @@ define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_free_mnt_opts(ptr noundef captures(none) %0) #3 align 16 {
+define dso_local void @security_free_mnt_opts(ptr noundef captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %13, label %4
@@ -1535,7 +1529,7 @@ define dso_local void @security_free_mnt_opts(ptr noundef captures(none) %0) #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_eat_lsm_opts(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_sb_eat_lsm_opts(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1557,7 +1551,7 @@ define dso_local i32 @security_sb_eat_lsm_opts(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1579,7 +1573,7 @@ define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1601,7 +1595,7 @@ define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #3 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1623,7 +1617,7 @@ define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1645,7 +1639,7 @@ define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1667,7 +1661,7 @@ define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #2 align 16 {
   br label %6
 
 6:                                                ; preds = %10, %5
@@ -1689,7 +1683,7 @@ define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1711,7 +1705,7 @@ define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1733,7 +1727,7 @@ define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
+define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #2 align 16 {
   %5 = icmp eq ptr %1, null
   %6 = select i1 %5, i32 0, i32 -95
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 280), align 8
@@ -1759,7 +1753,7 @@ define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3 align 16 {
+define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -1781,7 +1775,7 @@ define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -1803,7 +1797,7 @@ define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -1825,7 +1819,7 @@ define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_alloc(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_alloc(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr @lsm_inode_cache, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -1868,7 +1862,7 @@ define dso_local i32 @security_inode_alloc(ptr noundef initializes((56, 64)) %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inode_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_inode_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   tail call void @integrity_inode_free(ptr noundef %0) #17
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 336), align 8
   %3 = icmp eq ptr %2, null
@@ -1898,20 +1892,20 @@ define dso_local void @security_inode_free(ptr noundef %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @integrity_inode_free(ptr noundef) local_unnamed_addr #6
+declare dso_local void @integrity_inode_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @inode_free_by_rcu(ptr noundef %0) #3 align 16 {
+define internal void @inode_free_by_rcu(ptr noundef %0) #2 align 16 {
   %2 = load ptr, ptr @lsm_inode_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %2, ptr noundef %0) #17
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 align 16 {
+define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 align 16 {
   br label %7
 
 7:                                                ; preds = %11, %6
@@ -1933,7 +1927,7 @@ define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
+define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 align 16 {
   br label %6
 
 6:                                                ; preds = %10, %5
@@ -1955,9 +1949,9 @@ define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #3 align 16 {
+define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #2 align 16 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
@@ -2052,12 +2046,12 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
 
 .thread:                                          ; preds = %50, %.thread5, %16, %21, %11, %5
   %51 = phi i32 [ 0, %5 ], [ 0, %11 ], [ -12, %21 ], [ -12, %16 ], [ 0, %50 ], [ %.fr, %.thread5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_init_security_anon(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_init_security_anon(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -2079,7 +2073,7 @@ define dso_local i32 @security_inode_init_security_anon(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #3 align 16 {
+define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
@@ -2105,7 +2099,7 @@ define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2133,7 +2127,7 @@ define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2161,7 +2155,7 @@ define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
@@ -2187,7 +2181,7 @@ define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #3 align 16 {
+define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
@@ -2213,7 +2207,7 @@ define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2241,7 +2235,7 @@ define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
@@ -2267,7 +2261,7 @@ define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -2331,7 +2325,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2359,7 +2353,7 @@ define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
@@ -2385,7 +2379,7 @@ define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 512
@@ -2411,7 +2405,7 @@ define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_setattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_inode_setattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2439,7 +2433,7 @@ define dso_local i32 @security_inode_setattr(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2469,7 +2463,7 @@ define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -2508,10 +2502,10 @@ define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @cap_inode_setxattr(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local i32 @cap_inode_setxattr(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -2539,7 +2533,7 @@ define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2567,7 +2561,7 @@ define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2595,7 +2589,7 @@ define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -2621,7 +2615,7 @@ define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2649,7 +2643,7 @@ define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2677,7 +2671,7 @@ define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2716,10 +2710,10 @@ define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @cap_inode_removexattr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local i32 @cap_inode_removexattr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_need_killpriv(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_need_killpriv(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -2741,7 +2735,7 @@ define dso_local i32 @security_inode_need_killpriv(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -2763,7 +2757,7 @@ define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
@@ -2789,7 +2783,7 @@ define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
@@ -2815,7 +2809,7 @@ define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
@@ -2841,7 +2835,7 @@ define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inode_getsecid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @security_inode_getsecid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 568), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -2860,7 +2854,7 @@ define dso_local void @security_inode_getsecid(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_copy_up(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_inode_copy_up(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -2882,7 +2876,7 @@ define dso_local i32 @security_inode_copy_up(ptr noundef %0, ptr noundef %1) #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -94, -95) i32 @security_inode_copy_up_xattr(ptr noundef %0) #3 align 16 {
+define dso_local range(i32 -94, -95) i32 @security_inode_copy_up_xattr(ptr noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -2904,7 +2898,7 @@ define dso_local range(i32 -94, -95) i32 @security_inode_copy_up_xattr(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernfs_init_security(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_kernfs_init_security(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -2926,7 +2920,7 @@ define dso_local i32 @security_kernfs_init_security(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_permission(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_permission(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -2948,7 +2942,7 @@ define dso_local i32 @security_file_permission(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_alloc(ptr noundef initializes((192, 200)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_alloc(ptr noundef initializes((192, 200)) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr @lsm_file_cache, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -2991,7 +2985,7 @@ define dso_local i32 @security_file_alloc(ptr noundef initializes((192, 200)) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_file_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_file_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 616), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -3022,10 +3016,10 @@ define dso_local void @security_file_free(ptr noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local i32 @security_file_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3047,7 +3041,7 @@ define dso_local i32 @security_file_ioctl(ptr noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local i32 @security_file_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3069,7 +3063,7 @@ define dso_local i32 @security_file_ioctl_compat(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = and i64 %1, 5
   %5 = icmp eq i64 %4, 1
   br i1 %5, label %6, label %22
@@ -3121,7 +3115,7 @@ define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_mmap_addr(i64 noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_mmap_addr(i64 noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3143,7 +3137,7 @@ define dso_local i32 @security_mmap_addr(i64 noundef %0) local_unnamed_addr #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3165,7 +3159,7 @@ define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3187,7 +3181,7 @@ define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3209,7 +3203,7 @@ define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 680), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -3228,7 +3222,7 @@ define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3250,7 +3244,7 @@ define dso_local i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_receive(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_receive(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3272,7 +3266,7 @@ define dso_local i32 @security_file_receive(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_open(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_open(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3294,7 +3288,7 @@ define dso_local i32 @security_file_open(ptr noundef %0) local_unnamed_addr #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_file_truncate(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_file_truncate(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3316,7 +3310,7 @@ define dso_local i32 @security_file_truncate(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_alloc(ptr noundef initializes((2696, 2704)) %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_alloc(ptr noundef initializes((2696, 2704)) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr @blob_sizes.6, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
@@ -3360,7 +3354,7 @@ define dso_local i32 @security_task_alloc(ptr noundef initializes((2696, 2704)) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_task_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_task_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 728), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -3383,7 +3377,7 @@ define dso_local void @security_task_free(ptr noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_cred_alloc_blank(ptr noundef initializes((128, 136)) %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_cred_alloc_blank(ptr noundef initializes((128, 136)) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr @blob_sizes.0, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
@@ -3428,7 +3422,7 @@ define dso_local i32 @security_cred_alloc_blank(ptr noundef initializes((128, 13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3463,7 +3457,7 @@ define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_prepare_creds(ptr noundef initializes((128, 136)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_prepare_creds(ptr noundef initializes((128, 136)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = load i32, ptr @blob_sizes.0, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
@@ -3508,7 +3502,7 @@ define dso_local i32 @security_prepare_creds(ptr noundef initializes((128, 136))
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 760), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -3527,7 +3521,7 @@ define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_cred_getsecid(ptr noundef %0, ptr noundef initializes((0, 4)) %1) #3 align 16 {
+define dso_local void @security_cred_getsecid(ptr noundef %0, ptr noundef initializes((0, 4)) %1) #2 align 16 {
   store i32 0, ptr %1, align 4
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 768), align 8
   %4 = icmp eq ptr %3, null
@@ -3547,7 +3541,7 @@ define dso_local void @security_cred_getsecid(ptr noundef %0, ptr noundef initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_act_as(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_kernel_act_as(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3569,7 +3563,7 @@ define dso_local i32 @security_kernel_act_as(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_create_files_as(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_kernel_create_files_as(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3591,7 +3585,7 @@ define dso_local i32 @security_kernel_create_files_as(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_module_request(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_kernel_module_request(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3613,7 +3607,7 @@ define dso_local i32 @security_kernel_module_request(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #3 align 16 {
+define dso_local i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3635,7 +3629,7 @@ define dso_local i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -3657,7 +3651,7 @@ define dso_local i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_load_data(i32 noundef %0, i1 noundef zeroext %1) #3 align 16 {
+define dso_local i32 @security_kernel_load_data(i32 noundef %0, i1 noundef zeroext %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3679,7 +3673,7 @@ define dso_local i32 @security_kernel_load_data(i32 noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #3 align 16 {
+define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -3701,7 +3695,7 @@ define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3723,7 +3717,7 @@ define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_fix_setgid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_fix_setgid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3745,7 +3739,7 @@ define dso_local i32 @security_task_fix_setgid(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_fix_setgroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_fix_setgroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3767,7 +3761,7 @@ define dso_local i32 @security_task_fix_setgroups(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3789,7 +3783,7 @@ define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3811,7 +3805,7 @@ define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3833,7 +3827,7 @@ define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_current_getsecid_subj(ptr noundef initializes((0, 4)) %0) #3 align 16 {
+define dso_local void @security_current_getsecid_subj(ptr noundef initializes((0, 4)) %0) #2 align 16 {
   store i32 0, ptr %0, align 4
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 880), align 8
   %3 = icmp eq ptr %2, null
@@ -3853,7 +3847,7 @@ define dso_local void @security_current_getsecid_subj(ptr noundef initializes((0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_task_getsecid_obj(ptr noundef %0, ptr noundef initializes((0, 4)) %1) #3 align 16 {
+define dso_local void @security_task_getsecid_obj(ptr noundef %0, ptr noundef initializes((0, 4)) %1) #2 align 16 {
   store i32 0, ptr %1, align 4
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 888), align 8
   %4 = icmp eq ptr %3, null
@@ -3873,7 +3867,7 @@ define dso_local void @security_task_getsecid_obj(ptr noundef %0, ptr noundef in
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setnice(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_setnice(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3895,7 +3889,7 @@ define dso_local i32 @security_task_setnice(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -3917,7 +3911,7 @@ define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -3939,7 +3933,7 @@ define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_prlimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_prlimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3961,7 +3955,7 @@ define dso_local i32 @security_task_prlimit(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -3983,7 +3977,7 @@ define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -4005,7 +3999,7 @@ define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -4027,7 +4021,7 @@ define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -4049,7 +4043,7 @@ define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -4071,7 +4065,7 @@ define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 968), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -4102,7 +4096,7 @@ define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 976), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -4121,7 +4115,7 @@ define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -4143,7 +4137,7 @@ define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signext %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signext %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4165,7 +4159,7 @@ define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_ipc_getsecid(ptr noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #3 align 16 {
+define dso_local void @security_ipc_getsecid(ptr noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
   store i32 0, ptr %1, align 4
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1000), align 8
   %4 = icmp eq ptr %3, null
@@ -4185,7 +4179,7 @@ define dso_local void @security_ipc_getsecid(ptr noundef %0, ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_msg_alloc(ptr noundef initializes((40, 48)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_msg_msg_alloc(ptr noundef initializes((40, 48)) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr @blob_sizes.5, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -4229,7 +4223,7 @@ define dso_local i32 @security_msg_msg_alloc(ptr noundef initializes((40, 48)) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_msg_msg_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_msg_msg_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1016), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -4252,7 +4246,7 @@ define dso_local void @security_msg_msg_free(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_alloc(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_msg_queue_alloc(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr @blob_sizes.4, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -4296,7 +4290,7 @@ define dso_local i32 @security_msg_queue_alloc(ptr noundef initializes((48, 56))
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_msg_queue_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_msg_queue_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1032), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -4319,7 +4313,7 @@ define dso_local void @security_msg_queue_free(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_msg_queue_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4341,7 +4335,7 @@ define dso_local i32 @security_msg_queue_associate(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4363,7 +4357,7 @@ define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -4385,7 +4379,7 @@ define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_msg_queue_msgrcv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_msg_queue_msgrcv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   br label %6
 
 6:                                                ; preds = %10, %5
@@ -4407,7 +4401,7 @@ define dso_local i32 @security_msg_queue_msgrcv(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_shm_alloc(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_shm_alloc(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr @blob_sizes.4, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -4451,7 +4445,7 @@ define dso_local i32 @security_shm_alloc(ptr noundef initializes((48, 56)) %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_shm_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_shm_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1080), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -4474,7 +4468,7 @@ define dso_local void @security_shm_free(ptr noundef %0) local_unnamed_addr #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_shm_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_shm_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4496,7 +4490,7 @@ define dso_local i32 @security_shm_associate(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4518,7 +4512,7 @@ define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -4540,7 +4534,7 @@ define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sem_alloc(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sem_alloc(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr @blob_sizes.4, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -4584,7 +4578,7 @@ define dso_local i32 @security_sem_alloc(ptr noundef initializes((48, 56)) %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sem_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_sem_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1120), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -4607,7 +4601,7 @@ define dso_local void @security_sem_free(ptr noundef %0) local_unnamed_addr #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sem_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sem_associate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4629,7 +4623,7 @@ define dso_local i32 @security_sem_associate(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sem_semctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sem_semctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -4651,7 +4645,7 @@ define dso_local i32 @security_sem_semctl(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sem_semop(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sem_semop(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -4673,7 +4667,7 @@ define dso_local i32 @security_sem_semop(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %12, label %4
 
@@ -4710,12 +4704,12 @@ define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = alloca %struct.lsm_ctx, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i32 %0, 0
   %8 = icmp eq ptr %2, null
   %9 = or i1 %7, %8
@@ -4882,22 +4876,22 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
 
 .loopexit:                                        ; preds = %48, %78, %100, %87, %28, %25, %21, %10, %4
   %103 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %99, %87 ], [ %102, %100 ], [ %77, %78 ], [ %47, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %103
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #9
+declare i64 @llvm.read_register.i64(metadata) #8
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #10
+declare void @llvm.write_register.i64(metadata, i64) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_setselfattr(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_setselfattr(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = icmp ne i32 %3, 0
   %6 = icmp ult i64 %2, 32
   %7 = or i1 %6, %5
@@ -4965,13 +4959,13 @@ define dso_local i32 @security_setselfattr(i32 noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #11
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_getprocattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_getprocattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = icmp eq i32 %1, 0
   %6 = sext i32 %1 to i64
   br i1 %5, label %.split.us, label %.split
@@ -5008,7 +5002,7 @@ define dso_local i32 @security_getprocattr(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_setprocattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_setprocattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = icmp eq i32 %0, 0
   %6 = sext i32 %0 to i64
   br i1 %5, label %.split.us, label %.split
@@ -5045,7 +5039,7 @@ define dso_local i32 @security_setprocattr(i32 noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_netlink_send(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_netlink_send(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5067,7 +5061,7 @@ define dso_local i32 @security_netlink_send(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_ismaclabel(ptr noundef %0) #3 align 16 {
+define dso_local i32 @security_ismaclabel(ptr noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -5089,7 +5083,7 @@ define dso_local i32 @security_ismaclabel(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5111,7 +5105,7 @@ define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2) #3 align 16 {
+define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2) #2 align 16 {
   store i32 0, ptr %2, align 4
   br label %4
 
@@ -5134,7 +5128,7 @@ define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #3 align 16 {
+define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1224), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -5153,7 +5147,7 @@ define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #3 align 16 {
+define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1232), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -5172,7 +5166,7 @@ define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #3 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5194,7 +5188,7 @@ define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5216,7 +5210,7 @@ define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5238,7 +5232,7 @@ define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5260,7 +5254,7 @@ define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5282,7 +5276,7 @@ define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -5304,7 +5298,7 @@ define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   br label %6
 
 6:                                                ; preds = %10, %5
@@ -5326,7 +5320,7 @@ define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5348,7 +5342,7 @@ define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5370,7 +5364,7 @@ define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5392,7 +5386,7 @@ define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5414,7 +5408,7 @@ define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5436,7 +5430,7 @@ define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5458,7 +5452,7 @@ define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -5480,7 +5474,7 @@ define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -5502,7 +5496,7 @@ define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -5524,7 +5518,7 @@ define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5546,7 +5540,7 @@ define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5568,7 +5562,7 @@ define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5590,7 +5584,7 @@ define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -5612,7 +5606,7 @@ define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) local_unnamed_addr #2 align 16 {
   br label %7
 
 7:                                                ; preds = %11, %6
@@ -5634,7 +5628,7 @@ define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5656,7 +5650,7 @@ define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5678,7 +5672,7 @@ define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1424), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -5697,7 +5691,7 @@ define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1432), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -5716,7 +5710,7 @@ define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #3 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1440), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -5739,7 +5733,7 @@ define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1504), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -5758,7 +5752,7 @@ define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sock_graft(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local void @security_sock_graft(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1448), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -5777,7 +5771,7 @@ define dso_local void @security_sock_graft(ptr noundef %0, ptr noundef %1) #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -5799,7 +5793,7 @@ define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1464), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -5818,7 +5812,7 @@ define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_inet_conn_established(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local void @security_inet_conn_established(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1472), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -5837,7 +5831,7 @@ define dso_local void @security_inet_conn_established(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #3 align 16 {
+define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -5859,7 +5853,7 @@ define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_secmark_refcount_inc() #3 align 16 {
+define dso_local void @security_secmark_refcount_inc() #2 align 16 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1488), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit, label %.preheader
@@ -5878,7 +5872,7 @@ define dso_local void @security_secmark_refcount_inc() #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_secmark_refcount_dec() #3 align 16 {
+define dso_local void @security_secmark_refcount_dec() #2 align 16 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1496), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit, label %.preheader
@@ -5897,7 +5891,7 @@ define dso_local void @security_secmark_refcount_dec() #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #3 align 16 {
+define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -5919,7 +5913,7 @@ define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_tun_dev_free_security(ptr noundef %0) #3 align 16 {
+define dso_local void @security_tun_dev_free_security(ptr noundef %0) #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1520), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -5938,7 +5932,7 @@ define dso_local void @security_tun_dev_free_security(ptr noundef %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_tun_dev_create() #3 align 16 {
+define dso_local i32 @security_tun_dev_create() #2 align 16 {
   br label %1
 
 1:                                                ; preds = %5, %0
@@ -5960,7 +5954,7 @@ define dso_local i32 @security_tun_dev_create() #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_tun_dev_attach_queue(ptr noundef %0) #3 align 16 {
+define dso_local i32 @security_tun_dev_attach_queue(ptr noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -5982,7 +5976,7 @@ define dso_local i32 @security_tun_dev_attach_queue(ptr noundef %0) #3 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_tun_dev_attach(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_tun_dev_attach(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -6004,7 +5998,7 @@ define dso_local i32 @security_tun_dev_attach(ptr noundef %0, ptr noundef %1) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_tun_dev_open(ptr noundef %0) #3 align 16 {
+define dso_local i32 @security_tun_dev_open(ptr noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6026,7 +6020,7 @@ define dso_local i32 @security_tun_dev_open(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -6048,7 +6042,7 @@ define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -6070,7 +6064,7 @@ define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_sctp_sk_clone(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local void @security_sctp_sk_clone(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1576), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -6089,7 +6083,7 @@ define dso_local void @security_sctp_sk_clone(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_sctp_assoc_established(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @security_sctp_assoc_established(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -6111,7 +6105,7 @@ define dso_local i32 @security_sctp_assoc_established(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -6133,7 +6127,7 @@ define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -6155,7 +6149,7 @@ define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1608), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -6174,7 +6168,7 @@ define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #3 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -6196,7 +6190,7 @@ define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #2 align 16 {
   store ptr null, ptr %1, align 8
   br label %3
 
@@ -6219,7 +6213,7 @@ define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef initi
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -6241,7 +6235,7 @@ define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6263,7 +6257,7 @@ define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_audit_rule_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_audit_rule_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1656), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -6282,7 +6276,7 @@ define dso_local void @security_audit_rule_free(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_audit_rule_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_audit_rule_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -6304,7 +6298,7 @@ define dso_local i32 @security_audit_rule_match(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_locked_down(i32 noundef %0) #3 align 16 {
+define dso_local i32 @security_locked_down(i32 noundef %0) #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6326,7 +6320,7 @@ define dso_local i32 @security_locked_down(i32 noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -6348,7 +6342,7 @@ define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6370,7 +6364,7 @@ define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @security_perf_event_free(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @security_perf_event_free(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1688), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -6389,7 +6383,7 @@ define dso_local void @security_perf_event_free(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_perf_event_read(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_perf_event_read(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6411,7 +6405,7 @@ define dso_local i32 @security_perf_event_read(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_perf_event_write(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_perf_event_write(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6433,7 +6427,7 @@ define dso_local i32 @security_perf_event_write(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_uring_override_creds(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_uring_override_creds(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6455,7 +6449,7 @@ define dso_local i32 @security_uring_override_creds(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_uring_sqpoll() local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_uring_sqpoll() local_unnamed_addr #2 align 16 {
   br label %1
 
 1:                                                ; preds = %5, %0
@@ -6477,7 +6471,7 @@ define dso_local i32 @security_uring_sqpoll() local_unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -6535,7 +6529,7 @@ define internal fastcc noundef zeroext i1 @lsm_allowed(ptr noundef readonly capt
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @lsm_set_blob_sizes(ptr noundef captures(address_is_null) %0) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc void @lsm_set_blob_sizes(ptr noundef captures(address_is_null) %0) unnamed_addr #11 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %80, label %3
 
@@ -6674,12 +6668,12 @@ define internal fastcc void @lsm_set_blob_sizes(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp ult ptr @__start_lsm_info, @__end_lsm_info
   br i1 %4, label %.preheader18, label %.loopexit19
 
@@ -6944,7 +6938,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
 
 .loopexit:                                        ; preds = %129, %.loopexit12, %74
   call void @kfree(ptr noundef %46) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -7023,7 +7017,7 @@ define internal fastcc void @report_lsm_order() unnamed_addr #0 section ".init.t
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @lsm_early_cred(ptr noundef writeonly captures(none) initializes((128, 136)) %0) unnamed_addr #0 section ".init.text" align 16 {
@@ -7152,56 +7146,62 @@ define internal fastcc void @append_ordered_lsm(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #13
+declare dso_local ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #14
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @path_noexec(ptr noundef) local_unnamed_addr #6
+declare dso_local zeroext i1 @path_noexec(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #11
+declare i64 @llvm.uadd.sat.i64(i64, i64) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #10 = { nocallback nounwind }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #9 = { nocallback nounwind }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { cold }
 attributes #16 = { cold nounwind }
 attributes #17 = { nounwind }

@@ -132,19 +132,19 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10get_result17ha3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !25
   %13 = load i64, ptr %12, align 8, !range !26, !alias.scope !27, !noundef !4
   %14 = icmp ult i64 %13, 16
   br i1 %14, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit.i.i", label %15
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !27
   call void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3eac40fa4aaf00f6E.llvm.5870598909725602671"(ptr noalias noundef nonnull sret({ { ptr, i32, i32 }, i8, [3 x i8], i32 }) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !27
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i8, ptr %16, align 8, !range !28, !noalias !27, !noundef !4
   %18 = trunc nuw i8 %17 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !27
   br i1 %18, label %19, label %.sink.split.i.i.i.i
 
 19:                                               ; preds = %15
@@ -162,7 +162,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10get_result17ha3
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit.i.i"
 
 "_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit.i.i": ; preds = %.sink.split.i.i.i.i, %19, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25
   br label %"_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$17h778e0c1583b192d9E.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$17h778e0c1583b192d9E.exit": ; preds = %8, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17h53f0d835b390e662E.llvm.5870598909725602671.exit.i.i"
@@ -254,7 +254,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN9html5ever9tokenizer8char_ref16Char
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14unconsume_name17h02fe2050626ce0e4E(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { i64, { { [2 x i32] } }, {}, {} }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   store i64 0, ptr %0, align 8
   %switch = icmp eq i64 %.sroa.0.0.copyload, 0
@@ -268,7 +268,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14unconsume_name1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
   call void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033ed3972f1f0b0bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -296,20 +296,20 @@ declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef n
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033ed3972f1f0b0bE(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(16)) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3eac40fa4aaf00f6E.llvm.5870598909725602671"(ptr noalias noundef sret({ { ptr, i32, i32 }, i8, [3 x i8], i32 }) align 8 captures(none) dereferenceable(24), ptr noundef nonnull align 8) unnamed_addr #10
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h3eac40fa4aaf00f6E.llvm.5870598909725602671"(ptr noalias noundef sret({ { ptr, i32, i32 }, i8, [3 x i8], i32 }) align 8 captures(none) dereferenceable(24), ptr noundef nonnull align 8) unnamed_addr #11
-
-; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hd505a36fae32e83aE.llvm.5870598909725602671"(ptr noalias noundef align 8 captures(none) dereferenceable(16)) unnamed_addr #11
+declare hidden void @"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hd505a36fae32e83aE.llvm.5870598909725602671"(ptr noalias noundef align 8 captures(none) dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_ref..CharRefTokenizer$GT$17h778e0c1583b192d9E"(ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
@@ -330,8 +330,8 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { noreturn }

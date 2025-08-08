@@ -87,9 +87,6 @@ define dso_local noundef range(i32 0, 3) i32 @_Z10luaB_inextP9lua_State(ptr noun
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @_Z15lua_pushintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -97,9 +94,6 @@ declare void @_Z15lua_pushintegerP9lua_Statei(ptr noundef, i32 noundef) local_un
 declare noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z12luaopen_baseP9lua_State(ptr noundef %0) local_unnamed_addr #0 {
@@ -354,7 +348,7 @@ define internal noundef i32 @_ZL11luaB_assertP9lua_State(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i32 @_ZL10luaB_errorP9lua_State(ptr noundef %0) #3 {
+define internal noundef i32 @_ZL10luaB_errorP9lua_State(ptr noundef %0) #2 {
   %2 = tail call noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 1)
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %3 = tail call noundef i32 @_Z12lua_isstringP9lua_Statei(ptr noundef %0, i32 noundef 1)
@@ -460,7 +454,7 @@ define internal noundef i32 @_ZL10luaB_printP9lua_State(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %1, %9
   %.010 = phi i32 [ %13, %9 ], [ 1, %1 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call noundef ptr @_Z14luaL_tolstringP9lua_StateiPm(ptr noundef %0, i32 noundef %.010, ptr noundef nonnull %2)
   %6 = icmp samesign ugt i32 %.010, 1
   br i1 %6, label %7, label %9
@@ -475,7 +469,7 @@ define internal noundef i32 @_ZL10luaB_printP9lua_State(ptr noundef %0) #0 {
   %11 = load ptr, ptr @stdout, align 8, !tbaa !28
   %12 = call i64 @fwrite(ptr noundef readonly %5, i64 noundef 1, i64 noundef %10, ptr noundef %11)
   call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = add nuw i32 %.010, 1
   %exitcond.not = icmp eq i32 %.010, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
@@ -643,7 +637,7 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !35
   %7 = call noundef double @_Z13lua_tonumberxP9lua_StateiPi(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %8 = load i32, ptr %2, align 4, !tbaa !35
@@ -652,12 +646,12 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %6
   call void @_Z13luaL_checkanyP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %31
 
 9:                                                ; preds = %6
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 10:                                               ; preds = %1
@@ -671,7 +665,7 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i64 @strtoull(ptr noundef %11, ptr noundef nonnull %3, i32 noundef %4) #11
   %16 = load ptr, ptr %3, align 8, !tbaa !36
   %.not = icmp eq ptr %11, %16
@@ -700,11 +694,11 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
 .critedge:                                        ; preds = %27
   %29 = uitofp i64 %15 to double
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 30:                                               ; preds = %14, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 31:                                               ; preds = %.thread, %30
@@ -744,7 +738,7 @@ declare void @_Z13luaL_checkanyP9lua_Statei(ptr noundef, i32 noundef) local_unna
 declare noundef i32 @_Z13lua_tobooleanP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -759,7 +753,7 @@ declare void @_Z10luaL_whereP9lua_Statei(ptr noundef, i32 noundef) local_unnamed
 declare void @_Z10lua_concatP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z9lua_errorP9lua_State(ptr noundef) local_unnamed_addr #4
+declare void @_Z9lua_errorP9lua_State(ptr noundef) local_unnamed_addr #3
 
 declare noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -775,7 +769,7 @@ define internal fastcc void @_ZL7getfuncP9lua_Statei(ptr noundef %0, i32 noundef
   br label %25
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %10, label %8
 
@@ -815,7 +809,7 @@ define internal fastcc void @_ZL7getfuncP9lua_Statei(ptr noundef %0, i32 noundef
   unreachable
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 25:                                               ; preds = %24, %6
@@ -829,7 +823,7 @@ declare void @_Z11lua_getfenvP9lua_Statei(ptr noundef, i32 noundef) local_unname
 declare void @_Z14lua_setsafeenvP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -838,7 +832,7 @@ declare noundef i32 @_Z16lua_getmetatableP9lua_Statei(ptr noundef, i32 noundef) 
 declare noundef i32 @_Z17luaL_getmetafieldP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_Z15luaL_typeerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -849,7 +843,7 @@ declare noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef, i32 noundef) 
 declare noundef ptr @_Z14luaL_tolstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -878,10 +872,10 @@ declare void @_Z14lua_pushnumberP9lua_Stated(ptr noundef, double noundef) local_
 declare noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 declare void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -909,6 +903,12 @@ define internal void @_ZL14luaB_xpcallerrP9lua_StatePv(ptr noundef %0, ptr nound
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
@@ -917,12 +917,12 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { noreturn }

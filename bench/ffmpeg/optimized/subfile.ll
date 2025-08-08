@@ -66,7 +66,7 @@ define internal range(i32 -2147483648, 1) i32 @subfile_open(ptr noundef %0, ptr 
   %29 = load i64, ptr %14, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %29, ptr %30, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load ptr, ptr %7, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !23
@@ -78,7 +78,7 @@ define internal range(i32 -2147483648, 1) i32 @subfile_open(ptr noundef %0, ptr 
   br i1 %.not.i, label %slave_seek.exit.thread, label %slave_seek.exit
 
 slave_seek.exit.thread:                           ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 slave_seek.exit:                                  ; preds = %28
@@ -88,7 +88,7 @@ slave_seek.exit:                                  ; preds = %28
   %40 = select i1 %38, i32 -558323010, i32 %39
   %41 = call i32 @av_strerror(i32 noundef %40, ptr noundef nonnull %5, i64 noundef 64) #6
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = icmp slt i32 %40, 0
   br i1 %42, label %43, label %45
 
@@ -198,7 +198,7 @@ define internal i64 @subfile_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %.026, ptr %30, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = load ptr, ptr %5, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !23
@@ -210,7 +210,7 @@ define internal i64 @subfile_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %.not.i, label %slave_seek.exit.thread, label %slave_seek.exit
 
 slave_seek.exit.thread:                           ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 slave_seek.exit:                                  ; preds = %29
@@ -220,7 +220,7 @@ slave_seek.exit:                                  ; preds = %29
   %40 = select i1 %38, i32 -558323010, i32 %39
   %41 = call i32 @av_strerror(i32 noundef %40, ptr noundef nonnull %4, i64 noundef 64) #6
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = icmp slt i32 %40, 0
   br i1 %42, label %43, label %45
 
@@ -274,10 +274,10 @@ declare ptr @av_default_item_name(ptr noundef) #1
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

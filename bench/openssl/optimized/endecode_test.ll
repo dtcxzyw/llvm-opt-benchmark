@@ -437,9 +437,9 @@ define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %1 = alloca [3 x %struct.ossl_param_st], align 16
   %2 = alloca [2 x %struct.ossl_param_st], align 16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %1, ptr noundef nonnull align 16 dereferenceable(120) @__const.setup_tests.DSA_params, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %2, ptr noundef nonnull align 16 dereferenceable(80) @__const.setup_tests.EC_params, i64 80, i1 false)
   br label %3
 
@@ -1102,53 +1102,50 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 .loopexit:                                        ; preds = %3, %179, %191, %189, %.critedge97, %45, %49, %52, %55, %58, %61, %65, %69, %72, %75, %78, %81, %85, %41, %38, %34, %21, %19
   %.0 = phi i32 [ 0, %19 ], [ 0, %21 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %85 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %65 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 0, %45 ], [ 1, %.critedge97 ], [ 1, %189 ], [ 1, %191 ], [ 1, %179 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @opt_next() local_unnamed_addr #4
+declare i32 @opt_next() local_unnamed_addr #3
 
-declare ptr @opt_arg() local_unnamed_addr #4
+declare ptr @opt_arg() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @fips_provider_version_eq(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @fips_provider_version_eq(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @fips_provider_version_lt(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @fips_provider_version_lt(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_legacy_provider_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @ossl_legacy_provider_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #4
+declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #3
 
-declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #4
+declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #4
+declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #3
 
-declare ptr @OSSL_PARAM_BLD_to_param(ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_PARAM_BLD_to_param(ptr noundef) local_unnamed_addr #3
 
-declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @make_template(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
 sub_0:
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
   %3 = load i8, ptr %0, align 1
   %.not12 = icmp eq i8 %3, 68
@@ -1211,14 +1208,14 @@ sub_1:                                            ; preds = %sub_0
 
 31:                                               ; preds = %29, %15, %9
   %.0 = phi ptr [ %11, %9 ], [ %16, %15 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @make_key(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
   %.not = icmp eq ptr %1, null
   %4 = load ptr, ptr @keyctx, align 8, !tbaa !10
@@ -1249,13 +1246,13 @@ define internal fastcc ptr @make_key(ptr noundef %0, ptr noundef %1) unnamed_add
 16:                                               ; preds = %14, %11, %9
   call void @EVP_PKEY_CTX_free(ptr noundef %10) #8
   %17 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %17
 }
 
-declare ptr @load_pkey_pem(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @load_pkey_pem(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DH_via_DER() #1 {
@@ -2575,9 +2572,6 @@ define internal range(i32 0, 2) i32 @test_public_ML_DSA_87_via_PEM() #1 {
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
   %1 = load ptr, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !19
@@ -2685,17 +2679,17 @@ define dso_local void @cleanup_tests() local_unnamed_addr #1 {
   ret void
 }
 
-declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #3
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #4
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_create_ec_explicit_prime_params(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
@@ -2821,19 +2815,19 @@ define internal fastcc range(i32 0, 2) i32 @do_create_ec_explicit_prime_params(p
   ret i32 %74
 }
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #4
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_BLD_push_BN(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_BLD_push_BN(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @BN_value_one() local_unnamed_addr #4
+declare ptr @BN_value_one() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_create_ec_explicit_trinomial_params(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
@@ -2963,25 +2957,25 @@ define internal fastcc range(i32 0, 2) i32 @do_create_ec_explicit_trinomial_para
   ret i32 %75
 }
 
-declare ptr @get_dh512(ptr noundef) local_unnamed_addr #4
+declare ptr @get_dh512(ptr noundef) local_unnamed_addr #3
 
-declare ptr @get_dhx512(ptr noundef) local_unnamed_addr #4
+declare ptr @get_dhx512(ptr noundef) local_unnamed_addr #3
 
-declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_paramgen_init(ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_paramgen_init(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_generate(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_generate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range(i32 560, 876) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 136) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(none) %10, ptr noundef readonly captures(none) %11, i32 noundef range(i32 0, 3) %12) unnamed_addr #1 {
@@ -2991,17 +2985,17 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
   %19 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8, !tbaa !24
   %20 = call i32 %8(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #8, !callees !26
   %21 = icmp ne i32 %20, 0
@@ -3159,19 +3153,19 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   call void @EVP_PKEY_free(ptr noundef %100) #8
   %101 = load ptr, ptr %17, align 8, !tbaa !21
   call void @EVP_PKEY_free(ptr noundef %101) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.03
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !29
   %12 = tail call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null) #8
   %13 = tail call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.296, ptr noundef %12) #8
@@ -3259,14 +3253,14 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %0, i32 no
   %.0 = phi i32 [ 1, %53 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %30 ], [ 0, %25 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ]
   %56 = call i32 @BIO_free(ptr noundef %.039) #8
   call void @OSSL_ENCODER_CTX_free(ptr noundef %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !21
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @.str.281) #9
   %13 = icmp eq i32 %12, 0
@@ -3366,7 +3360,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   call void @EVP_PKEY_free(ptr noundef %54) #8
   %55 = call i32 @BIO_free(ptr noundef %15) #8
   call void @OSSL_DECODER_CTX_free(ptr noundef %.052) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.050
 }
 
@@ -3380,7 +3374,7 @@ define internal i32 @test_mem(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
 define internal range(i32 0, 2) i32 @check_unprotected_PKCS8_DER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !36
   %8 = call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef nonnull %6, i64 noundef %4) #8
   %9 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.316, ptr noundef %8) #8
@@ -3390,7 +3384,7 @@ define internal range(i32 0, 2) i32 @check_unprotected_PKCS8_DER(ptr noundef %0,
 10:                                               ; preds = %5
   %11 = load ptr, ptr @testctx, align 8, !tbaa !10
   %12 = call ptr @EVP_PKCS82PKEY_ex(ptr noundef %8, ptr noundef %11, ptr noundef null) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !36
   %13 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %12) #8
   %.not22 = icmp eq i32 %13, 0
@@ -3437,13 +3431,13 @@ define internal range(i32 0, 2) i32 @check_unprotected_PKCS8_DER(ptr noundef %0,
 
 34:                                               ; preds = %32, %10
   %.1 = phi i32 [ %33, %32 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %34, %5
   %.0 = phi i32 [ %.1, %34 ], [ 0, %5 ]
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3453,62 +3447,62 @@ define internal void @dump_der(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
   ret void
 }
 
-declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_parameters_eq(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_parameters_eq(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @OSSL_ENCODER_CTX_set_cipher(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_ENCODER_CTX_set_cipher(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #4
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BIO_s_mem() local_unnamed_addr #4
+declare ptr @BIO_s_mem() local_unnamed_addr #3
 
-declare i32 @OSSL_ENCODER_to_bio(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_ENCODER_to_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @test_long_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @test_long_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_ENCODER_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_ENCODER_CTX_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_DECODER_CTX_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @OSSL_DECODER_CTX_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_DECODER_from_bio(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_DECODER_from_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_DECODER_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_DECODER_CTX_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @EVP_PKCS82PKEY_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_PKCS82PKEY_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_type_names_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_type_names_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @collect_name(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #1 {
@@ -3554,19 +3548,19 @@ define internal void @collect_name(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-declare void @test_note(ptr noundef, ...) local_unnamed_addr #4
+declare void @test_note(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #4
+declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
-declare void @test_output_memory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
+
+declare void @test_output_memory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_text(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #1 {
@@ -3587,25 +3581,25 @@ define internal void @dump_pem(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
   ret void
 }
 
-declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @test_output_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @test_output_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_protected_PKCS8_DER(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = call ptr @d2i_X509_SIG(ptr noundef null, ptr noundef nonnull %6, i64 noundef %4) #8
   %8 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.327, ptr noundef %7) #8
   call void @X509_SIG_free(ptr noundef %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %8
 }
 
-declare ptr @d2i_X509_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_X509_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #4
+declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_protected_PKCS8_PEM(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 %4) #1 {
@@ -3616,7 +3610,7 @@ define internal i32 @check_protected_PKCS8_PEM(ptr noundef %0, i32 noundef %1, p
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @check_public_DER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = load ptr, ptr @testctx, align 8, !tbaa !10
   %8 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %6, i64 noundef %4, ptr noundef %7, ptr noundef null) #8
@@ -3636,11 +3630,11 @@ define internal range(i32 0, 2) i32 @check_public_DER(ptr noundef %0, i32 nounde
 17:                                               ; preds = %10, %5
   %18 = phi i32 [ 0, %5 ], [ %16, %10 ]
   call void @EVP_PKEY_free(ptr noundef %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %18
 }
 
-declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_public_PEM(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 %4) #1 {
@@ -3652,7 +3646,7 @@ define internal i32 @check_public_PEM(ptr noundef %0, i32 noundef %1, ptr readno
 define internal range(i32 0, 2) i32 @check_params_DER(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
 sub_0:
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !36
   %6 = load i8, ptr %2, align 1
   %.not20 = icmp eq i8 %6, 68
@@ -3706,11 +3700,11 @@ sub_117:                                          ; preds = %sub_016
 
 .thread26:                                        ; preds = %sub_117, %sub_016, %.tail15, %.thread
   %.010 = phi i32 [ %24, %.thread ], [ 0, %.tail15 ], [ 0, %sub_016 ], [ 0, %sub_117 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.010
 }
 
-declare ptr @d2i_KeyParams(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_KeyParams(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @check_params_PEM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 %4) #1 {
@@ -3731,14 +3725,14 @@ define internal range(i32 0, 2) i32 @check_params_PEM(ptr noundef %0, i32 nounde
   ret i32 %14
 }
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !29
   %12 = icmp ne ptr %9, null
   %13 = icmp ne ptr %8, null
@@ -3807,7 +3801,7 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %0, 
   %.0 = phi i32 [ 1, %43 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %23 ], [ 0, %19 ], [ 0, %14 ]
   %46 = call i32 @BIO_free(ptr noundef %.031) #8
   call void @EVP_CIPHER_free(ptr noundef %.1) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
@@ -3830,11 +3824,11 @@ define internal range(i32 0, 2) i32 @check_unprotected_legacy_PEM(ptr noundef %0
   ret i32 %14
 }
 
-declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #4
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @check_protected_legacy_PEM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 %4) #1 {
@@ -3862,12 +3856,12 @@ define internal range(i32 0, 2) i32 @check_protected_legacy_PEM(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #1 {
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !29
   %12 = tail call ptr @BIO_s_mem() #8
   %13 = tail call ptr @BIO_new(ptr noundef %12) #8
@@ -3925,48 +3919,48 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %0, i32 
 39:                                               ; preds = %23, %28, %33, %20, %17, %10, %37
   %.0 = phi i32 [ 1, %37 ], [ 0, %33 ], [ 0, %28 ], [ 0, %23 ], [ 0, %17 ], [ 0, %20 ], [ 0, %10 ]
   %40 = call i32 @BIO_free(ptr noundef %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_MSBLOB(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = call ptr @b2i_PrivateKey(ptr noundef nonnull %6, i64 noundef %4) #8
   %8 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %7) #8
   call void @EVP_PKEY_free(ptr noundef %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %8
 }
 
-declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @i2b_PrivateKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2b_PrivateKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @i2b_PublicKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2b_PublicKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @b2i_PrivateKey(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @b2i_PrivateKey(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_public_MSBLOB(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = call ptr @b2i_PublicKey(ptr noundef nonnull %6, i64 noundef %4) #8
   %8 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %7) #8
   call void @EVP_PKEY_free(ptr noundef %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %8
 }
 
-declare ptr @b2i_PublicKey(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @b2i_PublicKey(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8, ptr readnone captures(none) %9) #1 {
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !29
   %12 = icmp ne ptr %8, null
   %13 = zext i1 %12 to i32
@@ -4023,7 +4017,7 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %0, i32 nou
   %.023 = phi ptr [ %18, %38 ], [ %18, %34 ], [ %18, %29 ], [ %18, %24 ], [ %18, %20 ], [ %18, %16 ], [ null, %10 ]
   %.0 = phi i32 [ 1, %38 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %20 ], [ 0, %16 ], [ 0, %10 ]
   %41 = call i32 @BIO_free(ptr noundef %.023) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
@@ -4032,21 +4026,21 @@ define internal i32 @check_PVK(ptr readnone captures(none) %0, i32 %1, ptr readn
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !6
   %9 = trunc i64 %4 to i32
   %10 = call i32 @ossl_do_PVK_header(ptr noundef nonnull %6, i32 noundef %9, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %10
 }
 
-declare i32 @i2b_PVK_bio_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2b_PVK_bio_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pass_pw(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3) #1 {
@@ -4057,20 +4051,26 @@ define internal i32 @pass_pw(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef
   ret i32 %8
 }
 
-declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_do_PVK_header(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_do_PVK_header(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

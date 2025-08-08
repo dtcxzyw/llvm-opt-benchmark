@@ -198,7 +198,7 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #0 {
   %55 = add i64 %54, -51
   %56 = load ptr, ptr %3, align 8, !tbaa !17
   %57 = load ptr, ptr %35, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %58 = tail call i64 @avio_seek(ptr noundef %57, i64 noundef %55, i32 noundef 0) #4
   %59 = tail call i32 @avio_r8(ptr noundef %57) #4
   %.not.i = icmp eq i32 %59, 26
@@ -248,7 +248,7 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #0 {
   br label %efi_read.exit
 
 efi_read.exit:                                    ; preds = %53, %60, %71, %82
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %efi_read.exit, %43
@@ -328,12 +328,6 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @av_match_ext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -355,6 +349,12 @@ declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @avio_feof(ptr noundef) local_unnamed_addr #1
 
 declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3

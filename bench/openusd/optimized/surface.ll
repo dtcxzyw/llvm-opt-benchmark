@@ -566,7 +566,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18PreparePatchPoints
   %6 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CombineConsecutive<float>::Parameters", align 8
   %7 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::SplitFace<float>::Parameters", align 8
   %8 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CopyConsecutive<float, float>::Parameters", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %9 = load i32, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -589,7 +589,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18PreparePatchPoints
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %21, ptr %22, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5ApplyERKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(48) %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 4
@@ -602,7 +602,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18PreparePatchPoints
   br i1 %.not5.i, label %39, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = load i32, ptr %14, align 8
   store ptr %3, ptr %7, align 8
   %30 = load i32, ptr %4, align 4
@@ -619,11 +619,11 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18PreparePatchPoints
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %37, ptr %38, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5ApplyERKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18ComputePatchPointsEPfRKNS3_15PointDescriptorE.exit
 
 39:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %14, align 8
@@ -661,7 +661,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18PreparePatchPoints
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE27computeIrregularPatchPointsEPfRKNS3_15PointDescriptorE.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE27computeIrregularPatchPointsEPfRKNS3_15PointDescriptorE.exit.i: ; preds = %49, %39
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18ComputePatchPointsEPfRKNS3_15PointDescriptorE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18ComputePatchPointsEPfRKNS3_15PointDescriptorE.exit: ; preds = %5, %28, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE27computeIrregularPatchPointsEPfRKNS3_15PointDescriptorE.exit.i
@@ -712,7 +712,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18ComputePatchPoints
   br i1 %.not5, label %24, label %11
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   store ptr %1, ptr %5, align 8
@@ -731,11 +731,11 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18ComputePatchPoints
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %22, ptr %23, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5ApplyERKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 24:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -775,7 +775,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18ComputePatchPoints
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE27computeIrregularPatchPointsEPfRKNS3_15PointDescriptorE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE27computeIrregularPatchPointsEPfRKNS3_15PointDescriptorE.exit: ; preds = %24, %35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %11, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE27computeIrregularPatchPointsEPfRKNS3_15PointDescriptorE.exit, %3
@@ -2012,7 +2012,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %38 = phi ptr [ %18, %28 ], [ %18, %25 ], [ %18, %22 ], [ %18, %16 ], [ null, %13 ], [ null, %5 ]
   %39 = phi ptr [ %17, %28 ], [ %17, %25 ], [ %17, %22 ], [ %17, %16 ], [ null, %13 ], [ null, %5 ]
   %.0.i = phi i32 [ 6, %28 ], [ 3, %25 ], [ 3, %22 ], [ 3, %16 ], [ 1, %13 ], [ 1, %5 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i64
@@ -2028,7 +2028,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %51 = load float, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %53 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(8) %6, float noundef %49, float noundef %51, ptr noundef nonnull %7, ptr noundef %39, ptr noundef %38, ptr noundef %37, ptr noundef %36, ptr noundef %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %2, ptr %9, align 8
   %54 = load i32, ptr %3, align 4
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4933,7 +4933,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   br i1 %.not.i, label %27, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
@@ -4950,7 +4950,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   %24 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(8) %6, float noundef %21, float noundef %23, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 27:                                               ; preds = %3
@@ -4963,8 +4963,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 31:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %32, align 8
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %4, align 4
@@ -4996,8 +4996,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalIrregularStencilsEPKfPPf.exit: ; pre
   %49 = load float, ptr %5, align 4
   %50 = load float, ptr %34, align 4
   %51 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20EvalSubPatchStencilsIfEEiiT_S4_PS4_S5_S5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(176) %45, i32 noundef %48, float noundef %49, float noundef %50, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit: ; preds = %11, %29, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalIrregularStencilsEPKfPPf.exit
@@ -5015,7 +5015,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateSte
   br i1 %.not, label %35, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
@@ -5043,7 +5043,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateSte
   %32 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(8) %4, float noundef %18, float noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %29, ptr noundef %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 35:                                               ; preds = %3
@@ -5438,7 +5438,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   br i1 %.not.i, label %32, label %16
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i64
@@ -5455,7 +5455,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   %29 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(8) %8, float noundef %26, float noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 32:                                               ; preds = %5
@@ -5468,8 +5468,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %37, align 8
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %6, align 4
@@ -5501,8 +5501,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalIrregularStencilsEPKfPPf.exit: ; pre
   %54 = load float, ptr %7, align 4
   %55 = load float, ptr %39, align 4
   %56 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20EvalSubPatchStencilsIfEEiiT_S4_PS4_S5_S5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(176) %50, i32 noundef %53, float noundef %54, float noundef %55, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit: ; preds = %16, %34, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalIrregularStencilsEPKfPPf.exit
@@ -5534,7 +5534,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   br i1 %.not.i, label %37, label %21
 
 21:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i64
@@ -5551,7 +5551,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   %34 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(8) %11, float noundef %31, float noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 37:                                               ; preds = %8
@@ -5564,8 +5564,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE15EvaluateSte
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %42, align 8
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %9, align 4
@@ -5597,8 +5597,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalIrregularStencilsEPKfPPf.exit: ; pre
   %59 = load float, ptr %10, align 4
   %60 = load float, ptr %44, align 4
   %61 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20EvalSubPatchStencilsIfEEiiT_S4_PS4_S5_S5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(176) %55, i32 noundef %58, float noundef %59, float noundef %60, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE16evaluateStencilsEPKfPPf.exit: ; preds = %21, %39, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalIrregularStencilsEPKfPPf.exit
@@ -5953,7 +5953,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18PreparePatchPoints
   %6 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CombineConsecutive<double>::Parameters", align 8
   %7 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::SplitFace<double>::Parameters", align 8
   %8 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CopyConsecutive<double, double>::Parameters", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %9 = load i32, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5976,7 +5976,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18PreparePatchPoints
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %21, ptr %22, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5ApplyERKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(48) %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 4
@@ -5989,7 +5989,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18PreparePatchPoints
   br i1 %.not5.i, label %39, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = load i32, ptr %14, align 8
   store ptr %3, ptr %7, align 8
   %30 = load i32, ptr %4, align 4
@@ -6006,11 +6006,11 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18PreparePatchPoints
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %37, ptr %38, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5ApplyERKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18ComputePatchPointsEPdRKNS3_15PointDescriptorE.exit
 
 39:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %14, align 8
@@ -6048,7 +6048,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18PreparePatchPoints
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE27computeIrregularPatchPointsEPdRKNS3_15PointDescriptorE.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE27computeIrregularPatchPointsEPdRKNS3_15PointDescriptorE.exit.i: ; preds = %49, %39
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18ComputePatchPointsEPdRKNS3_15PointDescriptorE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18ComputePatchPointsEPdRKNS3_15PointDescriptorE.exit: ; preds = %5, %28, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE27computeIrregularPatchPointsEPdRKNS3_15PointDescriptorE.exit.i
@@ -6099,7 +6099,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18ComputePatchPoints
   br i1 %.not5, label %24, label %11
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   store ptr %1, ptr %5, align 8
@@ -6118,11 +6118,11 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18ComputePatchPoints
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %22, ptr %23, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5ApplyERKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 24:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6162,7 +6162,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18ComputePatchPoints
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE27computeIrregularPatchPointsEPdRKNS3_15PointDescriptorE.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE27computeIrregularPatchPointsEPdRKNS3_15PointDescriptorE.exit: ; preds = %24, %35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %11, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE27computeIrregularPatchPointsEPdRKNS3_15PointDescriptorE.exit, %3
@@ -7396,7 +7396,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %38 = phi ptr [ %18, %28 ], [ %18, %25 ], [ %18, %22 ], [ %18, %16 ], [ null, %13 ], [ null, %5 ]
   %39 = phi ptr [ %17, %28 ], [ %17, %25 ], [ %17, %22 ], [ %17, %16 ], [ null, %13 ], [ null, %5 ]
   %.0.i = phi i32 [ 6, %28 ], [ 3, %25 ], [ 3, %22 ], [ 3, %16 ], [ 1, %13 ], [ 1, %5 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i64
@@ -7412,7 +7412,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %51 = load double, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %53 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(8) %6, double noundef %49, double noundef %51, ptr noundef nonnull %7, ptr noundef %39, ptr noundef %38, ptr noundef %37, ptr noundef %36, ptr noundef %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %2, ptr %9, align 8
   %54 = load i32, ptr %3, align 4
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -10311,7 +10311,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   br i1 %.not.i, label %27, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
@@ -10328,7 +10328,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   %24 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(8) %6, double noundef %21, double noundef %23, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 27:                                               ; preds = %3
@@ -10341,8 +10341,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 31:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %32, align 8
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %4, align 4
@@ -10372,8 +10372,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalIrregularStencilsEPKdPPd.exit: ; pre
   %47 = load double, ptr %5, align 16
   %48 = load double, ptr %34, align 8
   %49 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20EvalSubPatchStencilsIdEEiiT_S4_PS4_S5_S5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(176) %45, i32 noundef %46, double noundef %47, double noundef %48, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit: ; preds = %11, %29, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalIrregularStencilsEPKdPPd.exit
@@ -10391,7 +10391,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateSte
   br i1 %.not, label %35, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
@@ -10419,7 +10419,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateSte
   %32 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(8) %4, double noundef %18, double noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %29, ptr noundef %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 35:                                               ; preds = %3
@@ -10812,7 +10812,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   br i1 %.not.i, label %32, label %16
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i64
@@ -10829,7 +10829,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   %29 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(8) %8, double noundef %26, double noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 32:                                               ; preds = %5
@@ -10842,8 +10842,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %37, align 8
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %6, align 4
@@ -10873,8 +10873,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalIrregularStencilsEPKdPPd.exit: ; pre
   %52 = load double, ptr %7, align 16
   %53 = load double, ptr %39, align 8
   %54 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20EvalSubPatchStencilsIdEEiiT_S4_PS4_S5_S5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(176) %50, i32 noundef %51, double noundef %52, double noundef %53, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit: ; preds = %16, %34, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalIrregularStencilsEPKdPPd.exit
@@ -10906,7 +10906,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   br i1 %.not.i, label %37, label %21
 
 21:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i64
@@ -10923,7 +10923,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   %34 = call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchBasisNormalizedIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %31, double noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 37:                                               ; preds = %8
@@ -10936,8 +10936,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE15EvaluateSte
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %42, align 8
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %9, align 4
@@ -10967,8 +10967,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalIrregularStencilsEPKdPPd.exit: ; pre
   %57 = load double, ptr %10, align 16
   %58 = load double, ptr %44, align 8
   %59 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20EvalSubPatchStencilsIdEEiiT_S4_PS4_S5_S5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(176) %55, i32 noundef %56, double noundef %57, double noundef %58, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE16evaluateStencilsEPKdPPd.exit: ; preds = %21, %39, %_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalIrregularStencilsEPKdPPd.exit
@@ -11726,10 +11726,10 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr7SurfaceIdEC2Ev(ptr noundef nonnull align
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

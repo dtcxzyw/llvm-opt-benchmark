@@ -614,9 +614,6 @@ define hidden void @proto_register_ecat_mailbox() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -952,7 +949,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   br label %dissect_ecat_eoe.exit
 
 205:                                              ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %206 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %.not.i59 = icmp eq ptr %23, null
   br i1 %.not.i59, label %211, label %207
@@ -1420,11 +1417,11 @@ CANopenSdoReqFormatter.exit.i:                    ; preds = %253, %251, %249, %2
   br label %dissect_ecat_coe.exit
 
 dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopenSdoReqFormatter.exit.i, %257, %283, %287, %295, %298, %301, %304, %315, %329, %336, %341, %344, %352, %357, %382, %386, %393, %396, %399, %402, %409, %425, %437, %438, %443, %446, %452, %455, %467, %474, %489, %492
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_ecat_eoe.exit
 
 495:                                              ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %496 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %.not.i60 = icmp eq ptr %23, null
   br i1 %.not.i60, label %501, label %497
@@ -1610,11 +1607,11 @@ FoeFormatter.exit.i:                              ; preds = %539, %537, %532, %5
   br label %dissect_ecat_foe.exit
 
 dissect_ecat_foe.exit:                            ; preds = %FoeFormatter.exit.i, %542, %550, %561, %577, %580, %583, %589, %594
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_ecat_eoe.exit
 
 597:                                              ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %598 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %.not.i62 = icmp eq ptr %23, null
   br i1 %.not.i62, label %603, label %599
@@ -1633,8 +1630,8 @@ dissect_ecat_foe.exit:                            ; preds = %FoeFormatter.exit.i
   br i1 %604, label %605, label %734
 
 605:                                              ; preds = %603
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %5, i8 noundef 0, i64 noundef 50, i1 noundef false) #6
   %606 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
   %.sroa.0.0.insert.ext.i.i = zext i8 %606 to i16
@@ -1784,8 +1781,8 @@ SoEIdToString.exit.i.i:                           ; preds = %619, %615
   br label %SoeFormatter.exit.i
 
 SoeFormatter.exit.i:                              ; preds = %670, %668, %666, %664, %661, %658, %656, %653, %651
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %674 = load ptr, ptr %16, align 8
   call void @col_append_str(ptr noundef %674, i32 noundef 25, ptr noundef nonnull %7)
   br i1 %.not.i62, label %dissect_ecat_soe.exit, label %675
@@ -1881,7 +1878,7 @@ SoeFormatter.exit.i:                              ; preds = %670, %668, %666, %6
   br label %dissect_ecat_soe.exit
 
 dissect_ecat_soe.exit:                            ; preds = %SoeFormatter.exit.i, %712, %714, %717, %723, %729, %734
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_ecat_eoe.exit
 
 737:                                              ; preds = %42
@@ -1905,9 +1902,6 @@ dissect_ecat_eoe.exit:                            ; preds = %202, %.loopexit.i, 
   %747 = call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %747
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ecat_mailbox() local_unnamed_addr #0 {
@@ -1995,13 +1989,19 @@ declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -2011,8 +2011,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

@@ -46,7 +46,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_hexstr_sep_to_from(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %3
@@ -86,14 +86,14 @@ define internal range(i32 0, 2) i32 @test_hexstr_sep_to_from(i32 noundef %0) #0 
   %.0 = phi i32 [ 0, %17 ], [ 0, %10 ], [ 0, %1 ], [ %spec.select, %21 ]
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.3, i32 noundef 78) #4
   call void @CRYPTO_free(ptr noundef %.012, ptr noundef nonnull @.str.3, i32 noundef 79) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %3
@@ -154,7 +154,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %0) #0 {
   %.0 = phi i32 [ 1, %30 ], [ 0, %24 ], [ 0, %26 ], [ 0, %18 ], [ 0, %11 ], [ 0, %9 ], [ 0, %28 ]
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.3, i32 noundef 108) #4
   call void @CRYPTO_free(ptr noundef %.015, ptr noundef nonnull @.str.3, i32 noundef 109) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -163,10 +163,10 @@ define internal range(i32 0, 2) i32 @test_hexstr_ex_to_from(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !8
@@ -229,14 +229,11 @@ define internal range(i32 0, 2) i32 @test_hexstr_ex_to_from(i32 noundef %0) #0 {
 
 45:                                               ; preds = %40, %35, %33, %27, %19, %12, %1
   %46 = phi i32 [ 0, %35 ], [ 0, %33 ], [ 0, %27 ], [ 0, %19 ], [ 0, %12 ], [ 0, %1 ], [ %44, %40 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %46
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -249,9 +246,6 @@ declare ptr @ossl_buf2hexstr_sep(ptr noundef, i64 noundef, i8 noundef signext) l
 declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -272,12 +266,18 @@ declare i32 @OPENSSL_buf2hexstr_ex(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

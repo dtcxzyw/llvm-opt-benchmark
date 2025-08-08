@@ -388,15 +388,15 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 define internal i64 @lex(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %6 = call fastcc i64 @parse_lex_input(ptr noundef %4, ptr noundef %5, i1 noundef zeroext false)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %6
 }
 
@@ -405,17 +405,17 @@ define internal i64 @lex_file(i32 noundef %0, ptr noundef readonly captures(none
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %7 = call fastcc i64 @parse_lex_input(ptr noundef %4, ptr noundef %5, i1 noundef zeroext false)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %7
 }
 
@@ -423,15 +423,15 @@ define internal i64 @lex_file(i32 noundef %0, ptr noundef readonly captures(none
 define internal i64 @parse(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %6 = call fastcc i64 @parse_input(ptr noundef %4, ptr noundef %5)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %6
 }
 
@@ -440,17 +440,17 @@ define internal i64 @parse_file(i32 noundef %0, ptr noundef readonly captures(no
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %7 = call fastcc i64 @parse_input(ptr noundef %4, ptr noundef %5)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %7
 }
 
@@ -459,22 +459,22 @@ define internal noundef i64 @profile(i32 noundef %0, ptr noundef readonly captur
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %8 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %6) #9
   %9 = call ptr @pm_parse(ptr noundef nonnull %4) #9
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %9) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 4
 }
 
@@ -484,24 +484,24 @@ define internal noundef i64 @profile_file(i32 noundef %0, ptr noundef readonly c
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %9 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %6) #9
   %10 = call ptr @pm_parse(ptr noundef nonnull %4) #9
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %10) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 4
 }
 
@@ -541,7 +541,7 @@ define internal i64 @parse_stream(i32 noundef %0, ptr noundef readonly captures(
 
 rb_scan_args_set.exit.thread:                     ; preds = %.thread21
   %24 = load i64, ptr %1, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 1, ptr %25, align 8, !tbaa !13
@@ -553,7 +553,7 @@ rb_scan_args_set.exit.thread:                     ; preds = %.thread21
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 1, ptr %26, align 8, !tbaa !13
@@ -561,11 +561,11 @@ rb_scan_args_set.exit:                            ; preds = %20
   br i1 %27, label %extract_options.exit, label %28
 
 28:                                               ; preds = %rb_scan_args_set.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %17, ptr %29, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !25
   %30 = ptrtoint ptr %4 to i64
   %31 = call i64 @rb_protect(ptr noundef nonnull @build_options, i64 noundef %30, ptr noundef nonnull %5) #9
@@ -580,14 +580,14 @@ rb_scan_args_set.exit:                            ; preds = %20
   unreachable
 
 35:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %extract_options.exit
 
 extract_options.exit:                             ; preds = %rb_scan_args_set.exit.thread, %rb_scan_args_set.exit, %35
   %36 = phi i64 [ %24, %rb_scan_args_set.exit.thread ], [ %21, %rb_scan_args_set.exit ], [ %21, %35 ]
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = inttoptr i64 %36 to ptr
   %38 = call ptr @pm_parse_stream(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %37, ptr noundef nonnull @parse_stream_fgets, ptr noundef nonnull %6) #9
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 520
@@ -609,9 +609,9 @@ extract_options.exit:                             ; preds = %rb_scan_args_set.ex
   call void @pm_node_destroy(ptr noundef nonnull %7, ptr noundef %38) #9
   call void @pm_buffer_free(ptr noundef nonnull %8) #9
   call void @pm_parser_free(ptr noundef nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %54
 }
 
@@ -620,11 +620,11 @@ define internal i64 @parse_comments(i32 noundef %0, ptr noundef readonly capture
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %8 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %6) #9
@@ -643,11 +643,11 @@ define internal i64 @parse_comments(i32 noundef %0, ptr noundef readonly capture
   %21 = call fastcc i64 @parser_comments(ptr noundef %4, i64 noundef %18, i1 noundef zeroext %20)
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %9) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %21
 }
 
@@ -657,12 +657,12 @@ define internal i64 @parse_file_comments(i32 noundef %0, ptr noundef readonly ca
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %9 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %6) #9
@@ -681,12 +681,12 @@ define internal i64 @parse_file_comments(i32 noundef %0, ptr noundef readonly ca
   %22 = call fastcc i64 @parser_comments(ptr noundef %4, i64 noundef %19, i1 noundef zeroext %21)
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %10) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %22
 }
 
@@ -694,15 +694,15 @@ define internal i64 @parse_file_comments(i32 noundef %0, ptr noundef readonly ca
 define internal i64 @parse_lex(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %6 = call fastcc i64 @parse_lex_input(ptr noundef %4, ptr noundef %5, i1 noundef zeroext true)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %6
 }
 
@@ -711,17 +711,17 @@ define internal i64 @parse_lex_file(i32 noundef %0, ptr noundef readonly capture
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %7 = call fastcc i64 @parse_lex_input(ptr noundef %4, ptr noundef %5, i1 noundef zeroext true)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %7
 }
 
@@ -730,11 +730,11 @@ define internal range(i64 0, 21) i64 @parse_success_p(i32 noundef %0, ptr nounde
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %8 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %6) #9
@@ -745,11 +745,11 @@ define internal range(i64 0, 21) i64 @parse_success_p(i32 noundef %0, ptr nounde
   %12 = icmp eq i64 %11, 0
   %13 = select i1 %12, i64 20, i64 0
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %13
 }
 
@@ -758,11 +758,11 @@ define internal range(i64 0, 21) i64 @parse_failure_p(i32 noundef %0, ptr nounde
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %8 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %6) #9
@@ -772,11 +772,11 @@ define internal range(i64 0, 21) i64 @parse_failure_p(i32 noundef %0, ptr nounde
   %11 = load i64, ptr %10, align 8, !tbaa !46
   %12 = icmp eq i64 %11, 0
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = select i1 %12, i64 0, i64 20
   ret i64 %13
 }
@@ -787,12 +787,12 @@ define internal range(i64 0, 21) i64 @parse_file_success_p(i32 noundef %0, ptr n
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %9 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %6) #9
@@ -803,12 +803,12 @@ define internal range(i64 0, 21) i64 @parse_file_success_p(i32 noundef %0, ptr n
   %13 = icmp eq i64 %12, 0
   %14 = select i1 %13, i64 20, i64 0
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %14
 }
 
@@ -818,12 +818,12 @@ define internal range(i64 0, 21) i64 @parse_file_failure_p(i32 noundef %0, ptr n
   %5 = alloca %struct.pm_string_t, align 8
   %6 = alloca %struct.pm_options, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @file_options(i32 noundef %0, ptr noundef readonly %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call ptr @pm_string_source(ptr noundef nonnull %5) #9
   %9 = call i64 @pm_string_length(ptr noundef nonnull %5) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %6) #9
@@ -833,12 +833,12 @@ define internal range(i64 0, 21) i64 @parse_file_failure_p(i32 noundef %0, ptr n
   %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = icmp eq i64 %12, 0
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pm_string_free(ptr noundef nonnull %5) #9
   call void @pm_options_free(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = select i1 %13, i64 0, i64 20
   ret i64 %14
 }
@@ -847,8 +847,8 @@ define internal range(i64 0, 21) i64 @parse_file_failure_p(i32 noundef %0, ptr n
 define internal i64 @dump(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %6 = call fastcc i64 @dump_input(ptr noundef %4, ptr noundef %5)
@@ -864,8 +864,8 @@ define internal i64 @dump(i32 noundef %0, ptr noundef readonly captures(none) %1
 12:                                               ; preds = %10, %3
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %6
 }
 
@@ -874,17 +874,17 @@ define internal i64 @dump_file(i32 noundef %0, ptr noundef readonly captures(non
   %4 = alloca %struct.pm_string_t, align 8
   %5 = alloca %struct.pm_options, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @file_options(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %7 = call fastcc i64 @dump_input(ptr noundef %4, ptr noundef %5)
   call void @pm_string_free(ptr noundef nonnull %4) #9
   call void @pm_options_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %7
 }
 
@@ -1063,21 +1063,15 @@ declare void @Init_prism_api_node() local_unnamed_addr #2
 
 declare void @Init_prism_pack() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @string_options(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
@@ -1128,11 +1122,11 @@ rb_scan_args_set.exit:                            ; preds = %18
   br i1 %25, label %extract_options.exit, label %26
 
 26:                                               ; preds = %rb_scan_args_set.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %15, ptr %27, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !25
   %28 = ptrtoint ptr %5 to i64
   %29 = call i64 @rb_protect(ptr noundef nonnull @build_options, i64 noundef %28, ptr noundef nonnull %6) #9
@@ -1147,8 +1141,8 @@ rb_scan_args_set.exit:                            ; preds = %18
   unreachable
 
 33:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %extract_options.exit
 
 extract_options.exit:                             ; preds = %rb_scan_args_set.exit.thread, %rb_scan_args_set.exit, %33
@@ -1195,7 +1189,7 @@ define internal fastcc i64 @parse_lex_input(ptr noundef nonnull %0, ptr noundef 
   %4 = alloca %struct.pm_parser, align 8
   %5 = alloca %struct.parse_lex_data_t, align 8
   %6 = alloca %struct.pm_lex_callback_t, align 8
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call ptr @pm_string_source(ptr noundef nonnull %0) #9
   %8 = tail call i64 @pm_string_length(ptr noundef nonnull %0) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %1) #9
@@ -1214,7 +1208,7 @@ define internal fastcc i64 @parse_lex_input(ptr noundef nonnull %0, ptr noundef 
   %20 = shl nsw i64 %19, 1
   %21 = or disjoint i64 %20, 1
   %22 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %15, i64 noundef %16, i32 noundef 3, i64 noundef %11, i64 noundef %21, i64 noundef %14) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %22, ptr %5, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = call i64 @rb_ary_new() #9
@@ -1228,7 +1222,7 @@ define internal fastcc i64 @parse_lex_input(ptr noundef nonnull %0, ptr noundef 
   store i8 %29, ptr %27, align 8, !tbaa !60
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %30, i8 0, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !61
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @parse_lex_token, ptr %31, align 8, !tbaa !63
@@ -1329,9 +1323,9 @@ rb_ulong2num_inline.exit:                         ; preds = %49, %52
   %.034 = phi i64 [ %83, %79 ], [ %90, %84 ]
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %33) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.034
 }
 
@@ -1349,11 +1343,11 @@ define internal fastcc void @extract_options(ptr noundef nonnull initializes((40
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !25
   %10 = ptrtoint ptr %4 to i64
   %11 = call i64 @rb_protect(ptr noundef nonnull @build_options, i64 noundef %10, ptr noundef nonnull %5) #9
@@ -1368,8 +1362,8 @@ define internal fastcc void @extract_options(ptr noundef nonnull initializes((40
   unreachable
 
 15:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %15, %3
@@ -2091,7 +2085,7 @@ declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
 declare zeroext i1 @pm_options_scopes_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2191,7 +2185,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %33
   br label %45
 
 45:                                               ; preds = %43, %rbimpl_intern_const.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %46 = load i64, ptr %5, align 8, !tbaa !55
   store i64 %46, ptr %2, align 16, !tbaa !7
   %.pr.i32 = load i64, ptr @parse_lex_encoding_changed_callback.rbimpl_id.73, align 8, !tbaa !7
@@ -2238,7 +2232,7 @@ rbimpl_intern_const.exit43:                       ; preds = %.lr.ph.i41, %rbimpl
 
 60:                                               ; preds = %57, %rbimpl_intern_const.exit43
   %61 = call i64 @rb_ary_push(i64 noundef %14, i64 noundef %54) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %62 = add nuw nsw i64 %.0, 1
   br label %21, !llvm.loop !75
 }
@@ -2308,7 +2302,7 @@ define internal fastcc i64 @parse_result_create(i64 noundef %0, ptr noundef nonn
   %13 = alloca [3 x i64], align 16
   %14 = alloca [2 x i64], align 16
   %15 = alloca [7 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %2, ptr %15, align 16, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = tail call fastcc i64 @parser_comments(ptr noundef %1, i64 noundef %4, i1 noundef zeroext %5)
@@ -2342,7 +2336,7 @@ define internal fastcc i64 @parse_result_create(i64 noundef %0, ptr noundef nonn
   %33 = load i32, ptr %32, align 8, !tbaa !82
   %34 = zext i32 %33 to i64
   %.val12.i.i = load ptr, ptr %23, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %4, ptr %13, align 16, !tbaa !7
   %35 = ptrtoint ptr %31 to i64
   %36 = ptrtoint ptr %.val12.i.i to i64
@@ -2362,14 +2356,14 @@ define internal fastcc i64 @parse_result_create(i64 noundef %0, ptr noundef nonn
   br label %parser_location.exit.i.i
 
 parser_location.exit.i.i:                         ; preds = %44, %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %46 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !84
   %48 = getelementptr inbounds nuw i8, ptr %.014.i, i64 28
   %49 = load i32, ptr %48, align 4, !tbaa !85
   %50 = zext i32 %49 to i64
   %.val.i.i = load ptr, ptr %23, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %4, ptr %12, align 16, !tbaa !7
   %51 = ptrtoint ptr %47 to i64
   %52 = ptrtoint ptr %.val.i.i to i64
@@ -2389,8 +2383,8 @@ parser_location.exit.i.i:                         ; preds = %44, %29
   br label %parser_location.exit13.i.i
 
 parser_location.exit13.i.i:                       ; preds = %60, %parser_location.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %43, ptr %14, align 16, !tbaa !7
   store i64 %59, ptr %28, align 8, !tbaa !7
   %62 = load i64, ptr @rb_cPrismMagicComment, align 8, !tbaa !7
@@ -2402,7 +2396,7 @@ parser_location.exit13.i.i:                       ; preds = %60, %parser_locatio
   br label %parser_magic_comment.exit.i
 
 parser_magic_comment.exit.i:                      ; preds = %64, %parser_location.exit13.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %66 = call i64 @rb_ary_push(i64 noundef %21, i64 noundef %63) #9
   %.0.i = load ptr, ptr %.014.i, align 8, !tbaa !78
   %.not.i = icmp eq ptr %.0.i, null
@@ -2428,7 +2422,7 @@ parser_magic_comments.exit:                       ; preds = %._crit_edge.i, %67
   %78 = sub i64 %76, %77
   %79 = getelementptr i8, ptr %1, i64 304
   %.val.i = load ptr, ptr %79, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %4, ptr %11, align 16, !tbaa !7
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %81 = ptrtoint ptr %.val.i to i64
@@ -2449,7 +2443,7 @@ parser_magic_comments.exit:                       ; preds = %._crit_edge.i, %67
   br label %parser_location.exit.i
 
 parser_location.exit.i:                           ; preds = %90, %73
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %parser_data_loc.exit
 
 parser_data_loc.exit:                             ; preds = %parser_magic_comments.exit, %parser_location.exit.i
@@ -2495,7 +2489,7 @@ parser_data_loc.exit:                             ; preds = %parser_magic_commen
   %118 = ptrtoint ptr %114 to i64
   %119 = sub i64 %117, %118
   %.val.i22 = load ptr, ptr %97, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %4, ptr %9, align 16, !tbaa !7
   %120 = ptrtoint ptr %.val.i22 to i64
   %121 = sub i64 %118, %120
@@ -2514,7 +2508,7 @@ parser_data_loc.exit:                             ; preds = %parser_magic_commen
   br label %parser_location.exit.i23
 
 parser_location.exit.i23:                         ; preds = %128, %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %130 = getelementptr inbounds nuw i8, ptr %.045.i, i64 41
   %131 = load i8, ptr %130, align 1, !tbaa !94
   switch i8 %131, label %138 [
@@ -2565,7 +2559,7 @@ parser_location.exit.i23:                         ; preds = %128, %103
 rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i37.i, %.lr.ph.i31.i, %.lr.ph.i.i, %136, %134, %132
   %.lcssa.i36.sink.i = phi i64 [ %.pr.i.i, %132 ], [ %.pr.i28.i, %134 ], [ %.pr.i34.i, %136 ], [ %133, %.lr.ph.i.i ], [ %135, %.lr.ph.i31.i ], [ %137, %.lr.ph.i37.i ]
   %141 = call i64 @rb_id2sym(i64 noundef %.lcssa.i36.sink.i) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %108, ptr %10, align 16, !tbaa !7
   store i64 %112, ptr %100, align 8, !tbaa !7
   store i64 %127, ptr %101, align 16, !tbaa !7
@@ -2580,7 +2574,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i37.i, %.lr.
 
 rb_class_new_instance_freeze.exit.i:              ; preds = %144, %rbimpl_intern_const.exit.i
   %146 = call i64 @rb_ary_push(i64 noundef %95, i64 noundef %143) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.0.i24 = load ptr, ptr %.045.i, align 8, !tbaa !78
   %.not.i25 = icmp eq ptr %.0.i24, null
   br i1 %.not.i25, label %._crit_edge.i26, label %103, !llvm.loop !95
@@ -2631,7 +2625,7 @@ parser_errors.exit:                               ; preds = %._crit_edge.i26, %1
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
   %.val.i28 = load ptr, ptr %154, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %4, ptr %7, align 16, !tbaa !7
   %177 = ptrtoint ptr %.val.i28 to i64
   %178 = sub i64 %175, %177
@@ -2650,7 +2644,7 @@ parser_errors.exit:                               ; preds = %._crit_edge.i26, %1
   br label %parser_location.exit.i29
 
 parser_location.exit.i29:                         ; preds = %185, %160
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %187 = getelementptr inbounds nuw i8, ptr %.037.i, i64 41
   %188 = load i8, ptr %187, align 1, !tbaa !94
   switch i8 %188, label %193 [
@@ -2689,7 +2683,7 @@ parser_location.exit.i29:                         ; preds = %185, %160
 rbimpl_intern_const.exit.i30:                     ; preds = %.lr.ph.i30.i, %.lr.ph.i.i37, %191, %189
   %.lcssa.i29.sink.i = phi i64 [ %.pr.i.i35, %189 ], [ %.pr.i27.i, %191 ], [ %190, %.lr.ph.i.i37 ], [ %192, %.lr.ph.i30.i ]
   %196 = call i64 @rb_id2sym(i64 noundef %.lcssa.i29.sink.i) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %165, ptr %8, align 16, !tbaa !7
   store i64 %169, ptr %157, align 8, !tbaa !7
   store i64 %184, ptr %158, align 16, !tbaa !7
@@ -2704,7 +2698,7 @@ rbimpl_intern_const.exit.i30:                     ; preds = %.lr.ph.i30.i, %.lr.
 
 rb_class_new_instance_freeze.exit.i31:            ; preds = %199, %rbimpl_intern_const.exit.i30
   %201 = call i64 @rb_ary_push(i64 noundef %152, i64 noundef %198) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.0.i32 = load ptr, ptr %.037.i, align 8, !tbaa !78
   %.not.i33 = icmp eq ptr %.0.i32, null
   br i1 %.not.i33, label %._crit_edge.i34, label %160, !llvm.loop !97
@@ -2727,7 +2721,7 @@ parser_warnings.exit:                             ; preds = %._crit_edge.i34
 
 rb_class_new_instance_freeze.exit:                ; preds = %parser_warnings.exit, %204
   %209 = phi i64 [ %203, %parser_warnings.exit ], [ %207, %204 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i64 %209
 }
 
@@ -2768,7 +2762,7 @@ define internal fastcc i64 @parser_comments(ptr noundef nonnull readonly capture
 parser_location.exit.i.us:                        ; preds = %.lr.ph, %parser_location.exit.i.us
   %.014.us = phi ptr [ %.0.us, %parser_location.exit.i.us ], [ %.012, %.lr.ph ]
   %.val.us = load ptr, ptr %10, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %.014.us, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !99
   %15 = getelementptr inbounds nuw i8, ptr %.014.us, i64 16
@@ -2776,7 +2770,7 @@ parser_location.exit.i.us:                        ; preds = %.lr.ph, %parser_loc
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %14 to i64
   %19 = sub i64 %17, %18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 16, !tbaa !7
   %20 = ptrtoint ptr %.val.us to i64
   %21 = sub i64 %18, %20
@@ -2789,7 +2783,7 @@ parser_location.exit.i.us:                        ; preds = %.lr.ph, %parser_loc
   %26 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !7
   %27 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %4, i64 noundef %26) #9
   %28 = call i64 @rb_obj_freeze(i64 noundef %27) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %27, ptr %5, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %.014.us, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !102
@@ -2799,7 +2793,7 @@ parser_location.exit.i.us:                        ; preds = %.lr.ph, %parser_loc
   %34 = select i1 %31, i64 %32, i64 %33
   %35 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %34) #9
   %36 = call i64 @rb_obj_freeze(i64 noundef %35) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = call i64 @rb_ary_push(i64 noundef %8, i64 noundef %35) #9
   %.0.us = load ptr, ptr %.014.us, align 8, !tbaa !78
   %.not.us = icmp eq ptr %.0.us, null
@@ -2811,7 +2805,7 @@ parser_location.exit.i.us:                        ; preds = %.lr.ph, %parser_loc
 parser_location.exit.i:                           ; preds = %.lr.ph, %parser_location.exit.i
   %.014 = phi ptr [ %.0, %parser_location.exit.i ], [ %.012, %.lr.ph ]
   %.val = load ptr, ptr %10, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !99
   %40 = getelementptr inbounds nuw i8, ptr %.014, i64 16
@@ -2819,7 +2813,7 @@ parser_location.exit.i:                           ; preds = %.lr.ph, %parser_loc
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %39 to i64
   %44 = sub i64 %42, %43
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 16, !tbaa !7
   %45 = ptrtoint ptr %.val to i64
   %46 = sub i64 %43, %45
@@ -2831,7 +2825,7 @@ parser_location.exit.i:                           ; preds = %.lr.ph, %parser_loc
   store i64 %50, ptr %12, align 16, !tbaa !7
   %51 = load i64, ptr @rb_cPrismLocation, align 8, !tbaa !7
   %52 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %4, i64 noundef %51) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %52, ptr %5, align 8, !tbaa !7
   %53 = getelementptr inbounds nuw i8, ptr %.014, i64 24
   %54 = load i32, ptr %53, align 8, !tbaa !102
@@ -2840,7 +2834,7 @@ parser_location.exit.i:                           ; preds = %.lr.ph, %parser_loc
   %57 = load i64, ptr @rb_cPrismInlineComment, align 8
   %58 = select i1 %55, i64 %56, i64 %57
   %59 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %58) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = call i64 @rb_ary_push(i64 noundef %8, i64 noundef %59) #9
   %.0 = load ptr, ptr %.014, align 8, !tbaa !78
   %.not = icmp eq ptr %.0, null
@@ -2957,12 +2951,12 @@ declare ptr @rb_errno_ptr() local_unnamed_addr #2
 declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @parse_input(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.pm_parser, align 8
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @pm_string_source(ptr noundef nonnull %0) #9
   %5 = tail call i64 @pm_string_length(ptr noundef nonnull %0) #9
   call void @pm_parser_init(ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %1) #9
@@ -2994,7 +2988,7 @@ define internal fastcc i64 @parse_input(ptr noundef nonnull %0, ptr noundef nonn
 27:                                               ; preds = %25, %2
   call void @pm_node_destroy(ptr noundef nonnull %3, ptr noundef %6) #9
   call void @pm_parser_free(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %22
 }
 
@@ -3057,7 +3051,7 @@ declare void @pm_buffer_free(ptr noundef) local_unnamed_addr #2
 define internal fastcc i64 @dump_input(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.pm_buffer_t, align 8
   %4 = alloca %struct.pm_parser, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call zeroext i1 @pm_buffer_init(ptr noundef nonnull %3) #9
   br i1 %5, label %8, label %6
 
@@ -3067,7 +3061,7 @@ define internal fastcc i64 @dump_input(ptr noundef nonnull %0, ptr noundef nonnu
   unreachable
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 712, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call ptr @pm_string_source(ptr noundef nonnull %0) #9
   %10 = call i64 @pm_string_length(ptr noundef nonnull %0) #9
   call void @pm_parser_init(ptr noundef nonnull %4, ptr noundef %9, i64 noundef %10, ptr noundef nonnull %1) #9
@@ -3079,8 +3073,8 @@ define internal fastcc i64 @dump_input(ptr noundef nonnull %0, ptr noundef nonnu
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %11) #9
   call void @pm_buffer_free(ptr noundef nonnull %3) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %14
 }
 
@@ -3100,6 +3094,12 @@ declare i32 @pm_string_query_constant(ptr noundef, i64 noundef, ptr noundef) loc
 
 declare i32 @pm_string_query_method_name(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
@@ -3107,10 +3107,10 @@ attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-tr
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }

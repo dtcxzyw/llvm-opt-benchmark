@@ -437,9 +437,6 @@ define hidden void @proto_register_q932() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -503,10 +500,10 @@ proto_item_set_hidden.exit:                       ; preds = %4, %14, %17
 
 34:                                               ; preds = %33
   %35 = zext i8 %22 to i32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %36 = add nuw nsw i32 %35, 2
   %37 = load i32, ptr @hf_q932_pp, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %37, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
@@ -544,27 +541,27 @@ proto_item_set_hidden.exit:                       ; preds = %4, %14, %17
   ]
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %50 = load i32, ptr @hf_q932_NetworkFacilityExtension_PDU, align 4
   %51 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %26, ptr noundef %45, i32 noundef 0, i32 noundef %50, i8 noundef signext 2, i32 noundef 10, i1 noundef zeroext true, ptr noundef nonnull @dissect_q932_NetworkFacilityExtension_U)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 52:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %53 = load i32, ptr @hf_q932_NetworkProtocolProfile_PDU, align 4
   %54 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef %26, ptr noundef %45, i32 noundef 0, i32 noundef %53, i8 noundef signext 2, i32 noundef 18, i1 noundef zeroext true, ptr noundef nonnull @dissect_q932_NetworkProtocolProfile_U)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %85
 
 55:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %56 = load i32, ptr @hf_q932_InterpretationComponent_PDU, align 4
   %57 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %26, ptr noundef %45, i32 noundef 0, i32 noundef %56, i8 noundef signext 2, i32 noundef 11, i1 noundef zeroext true, ptr noundef nonnull @dissect_q932_InterpretationComponent_U)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 58:                                               ; preds = %47, %47, %47, %47
@@ -615,10 +612,10 @@ proto_item_set_hidden.exit:                       ; preds = %4, %14, %17
   br i1 %86, label %.lr.ph.i, label %dissect_q932_facility_ie.exit, !llvm.loop !6
 
 dissect_q932_facility_ie.exit:                    ; preds = %85, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_q932_ni_ie.exit
 
 87:                                               ; preds = %33
@@ -735,9 +732,6 @@ define hidden void @proto_reg_handoff_q932() #0 {
 
 ; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -923,10 +917,15 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

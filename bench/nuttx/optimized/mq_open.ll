@@ -123,10 +123,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   %66 = xor i32 %3, -1
   %67 = and i32 %.039, %66
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %.042) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !8
   %69 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   store ptr %11, ptr %10, align 8
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -261,8 +261,8 @@ define i32 @nxmq_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 @getumask() #8
   %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
@@ -292,8 +292,8 @@ define i32 @nxmq_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0
 
 nxmq_vopen.exit:                                  ; preds = %2, %9, %19, %22
   %.0.i = phi i32 [ %7, %2 ], [ %17, %19 ], [ %17, %22 ], [ %17, %9 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -304,8 +304,8 @@ define range(i32 -1, -2147483648) i32 @mq_open(ptr noundef %0, i32 noundef %1, .
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 @getumask() #8
   %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
@@ -334,15 +334,15 @@ define range(i32 -1, -2147483648) i32 @mq_open(ptr noundef %0, i32 noundef %1, .
   br label %24
 
 nxmq_vopen.exit:                                  ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   br label %27
 
 24:                                               ; preds = %2, %19, %22
   %.0.i.ph = phi i32 [ %17, %22 ], [ %17, %19 ], [ %7, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %25 = sub nsw i32 0, %.0.i.ph
   %26 = call ptr @__errno() #8
@@ -420,10 +420,10 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #8, !srcloc !8
   %10 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   br i1 %2, label %.preheader, label %29
 
@@ -526,10 +526,10 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

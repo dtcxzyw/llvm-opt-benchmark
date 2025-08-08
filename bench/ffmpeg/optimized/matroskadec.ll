@@ -330,8 +330,8 @@ define internal range(i32 -2147483648, 1) i32 @webm_dash_manifest_read_header(pt
   %63 = load ptr, ptr %62, align 8, !tbaa !52
   %64 = load ptr, ptr %44, align 8, !tbaa !40
   %65 = load ptr, ptr %64, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %66 = load i32, ptr %61, align 8, !tbaa !53
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph.preheader.i, label %webm_dash_manifest_cues.exit.thread
@@ -372,8 +372,8 @@ define internal range(i32 -2147483648, 1) i32 @webm_dash_manifest_read_header(pt
   br i1 %88, label %89, label %117
 
 89:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %90 = load ptr, ptr %73, align 8, !tbaa !58
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !43
@@ -420,8 +420,8 @@ ebml_read_length.exit.thread.i:                   ; preds = %ebml_read_length.ex
   %114 = add i64 %83, 3
   %115 = add i64 %114, %113
   %116 = add i64 %115, %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %117
 
 117:                                              ; preds = %ebml_read_length.exit.thread.i, %72
@@ -1210,8 +1210,8 @@ webm_dash_manifest_compute_bandwidth.exit.thread156.i: ; preds = %webm_dash_mani
 
 501:                                              ; preds = %541, %487
   %.035.i.i = phi i64 [ %492, %487 ], [ %546, %541 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %502 = load ptr, ptr %493, align 8, !tbaa !43
   %503 = tail call i64 @avio_seek(ptr noundef %502, i64 noundef %.035.i.i, i32 noundef 0) #15
   %504 = load ptr, ptr %496, align 8, !tbaa !58
@@ -1291,14 +1291,14 @@ matroska_reset_status.exit.i.i:                   ; preds = %531, %529
   %544 = zext nneg i32 %543 to i64
   %545 = add i64 %.035.i.i, %544
   %546 = add i64 %545, %542
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %501
 
 select.unfold.i.i:                                ; preds = %537, %535, %matroska_reset_status.exit.i.i, %ebml_read_length.exit.i.i, %501
   %.1.ph.i.i = phi i64 [ 1, %matroska_reset_status.exit.i.i ], [ 1, %535 ], [ 1, %ebml_read_length.exit.i.i ], [ 1, %501 ], [ 0, %537 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %547 = icmp sgt i64 %495, -1
   %548 = load ptr, ptr %496, align 8, !tbaa !58
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 32
@@ -1400,20 +1400,20 @@ webm_dash_manifest_cues.exit.thread45:            ; preds = %584
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 80
   %594 = load ptr, ptr %5, align 8, !tbaa !127
   %595 = call i32 @av_dict_set(ptr noundef nonnull %593, ptr noundef nonnull @.str.26, ptr noundef %594, i32 noundef 8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %596
 
 webm_dash_manifest_cues.exit:                     ; preds = %97, %ebml_read_length.exit.i
   %.1.ph.i = phi i32 [ %102, %ebml_read_length.exit.i ], [ %spec.select, %97 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %webm_dash_manifest_cues.exit.thread
 
 webm_dash_manifest_cues.exit.thread:              ; preds = %71, %get_cue_desc.exit.i.i, %260, %265, %263, %286, %._crit_edge.i.i.i.i, %get_cue_desc.exit.i.i.i, %278, %59, %584, %webm_dash_manifest_compute_bandwidth.exit.i, %matroska_parse_cues.exit.i, %117, %582, %webm_dash_manifest_cues.exit
   %.063.i44 = phi i32 [ %.1.ph.i, %webm_dash_manifest_cues.exit ], [ -1, %59 ], [ %589, %584 ], [ -1, %webm_dash_manifest_compute_bandwidth.exit.i ], [ -1094995529, %matroska_parse_cues.exit.i ], [ -1, %117 ], [ -12, %582 ], [ -1, %278 ], [ -1, %get_cue_desc.exit.i.i.i ], [ -1, %._crit_edge.i.i.i.i ], [ -1, %286 ], [ -1, %263 ], [ -1, %265 ], [ -1, %260 ], [ -1, %get_cue_desc.exit.i.i ], [ -1, %71 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #15
   br label %606
 
@@ -1635,7 +1635,7 @@ define internal range(i32 -2147483648, 1) i32 @matroska_read_header(ptr noundef 
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 376
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 392
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %0, ptr %25, align 8, !tbaa !58
@@ -2456,7 +2456,7 @@ matroska_parse_content_encodings.exit.i:          ; preds = %340, %281, %280
   ]
 
 441:                                              ; preds = %429
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %442 = load ptr, ptr %194, align 8, !tbaa !156
   %443 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %442, ptr noundef nonnull dereferenceable(9) @.str.134) #16
   %.not.i.i.i = icmp eq i32 %443, 0
@@ -2469,7 +2469,7 @@ matroska_parse_content_encodings.exit.i:          ; preds = %340, %281, %280
   br i1 %447, label %448, label %455
 
 448:                                              ; preds = %444
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %449 = getelementptr inbounds nuw i8, ptr %188, i64 56
   %450 = load ptr, ptr %449, align 8, !tbaa !183
   call void @ffio_init_read_context(ptr noundef nonnull %19, ptr noundef %450, i32 noundef %446) #15
@@ -2481,7 +2481,7 @@ matroska_parse_content_encodings.exit.i:          ; preds = %340, %281, %280
 mka_parse_audio_codec.exit.thread56.i.i:          ; preds = %448
   %454 = load i32, ptr %445, align 8, !tbaa !182
   %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %454, i32 18)
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %mka_parse_audio_codec.exit.thread53.i.i
 
 455:                                              ; preds = %444, %441
@@ -3026,7 +3026,7 @@ matroska_aac_sri.exit180.i.i.i:                   ; preds = %562, %.split.loop.e
   br i1 %731, label %732, label %747
 
 732:                                              ; preds = %728
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !225
   %733 = call i32 @ff_vorbis_comment(ptr noundef %0, ptr noundef nonnull %17, ptr noundef nonnull %726, i32 noundef %725, i32 noundef 0) #15
   %734 = load ptr, ptr %17, align 8, !tbaa !225
@@ -3054,7 +3054,7 @@ matroska_aac_sri.exit180.i.i.i:                   ; preds = %562, %.split.loop.e
 
 746:                                              ; preds = %742, %741, %732
   call void @av_dict_free(ptr noundef nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %747
 
 747:                                              ; preds = %746, %728
@@ -3090,13 +3090,13 @@ matroska_parse_flac.exit.i.i.i:                   ; preds = %756, %605, %matrosk
   br label %mka_parse_audio_codec.exit.thread53.i.i
 
 mka_parse_audio_codec.exit.i.i:                   ; preds = %448
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %matroska_convert_tags.exit
 
 mka_parse_audio_codec.exit.thread53.i.i:          ; preds = %747, %712, %760, %752, %707, %706, %694, %690, %682, %620, %617, %574, %566, %524, %523, %519, %518, %517, %516, %513, %512, %511, %510, %507, %506, %504, %mka_parse_audio_codec.exit.thread56.i.i
   %.1257.i = phi i32 [ %spec.select.i.i.i, %mka_parse_audio_codec.exit.thread56.i.i ], [ 0, %504 ], [ 0, %506 ], [ 0, %507 ], [ 0, %510 ], [ 0, %511 ], [ 0, %512 ], [ 0, %513 ], [ 0, %516 ], [ 0, %517 ], [ 0, %518 ], [ 0, %523 ], [ 0, %519 ], [ 0, %760 ], [ 0, %524 ], [ 0, %574 ], [ 0, %566 ], [ 0, %617 ], [ 0, %620 ], [ %.3259.i, %682 ], [ 0, %690 ], [ 0, %694 ], [ 0, %706 ], [ 8, %707 ], [ 0, %752 ], [ 8, %712 ], [ 8, %747 ]
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store i32 1, ptr %356, align 8, !tbaa !229
   %764 = getelementptr inbounds nuw i8, ptr %188, i64 416
   %765 = load double, ptr %764, align 8, !tbaa !171
@@ -3199,17 +3199,17 @@ mka_parse_audio_codec.exit.thread53.i.i:          ; preds = %747, %712, %760, %7
 
 mka_parse_audio.exit.thread275.i:                 ; preds = %matroska_parse_flac.exit.i.i.i, %686, %682, %677, %675, %664, %656, %654, %627, %625, %600, %._crit_edge.i.i.i, %570, %468
   %.1.i.ph.i.ph.i = phi i32 [ -12, %682 ], [ %572, %570 ], [ -1094995529, %686 ], [ %758, %matroska_parse_flac.exit.i.i.i ], [ %473, %468 ], [ -1094995529, %600 ], [ -1094995529, %._crit_edge.i.i.i ], [ -1094995529, %625 ], [ -1094995529, %627 ], [ -1094995529, %656 ], [ -1094995529, %654 ], [ -1094995529, %664 ], [ -1094995529, %677 ], [ -1094995529, %675 ]
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %matroska_convert_tags.exit
 
 .thread278.i:                                     ; preds = %._crit_edge.i.i.i
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %mkv_parse_block_addition_mappings.exit.i
 
 811:                                              ; preds = %429
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 4, !tbaa !213
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 1, ptr %15, align 4, !tbaa !213
   %812 = getelementptr inbounds nuw i8, ptr %188, i64 224
   %813 = load i32, ptr %812, align 8, !tbaa !238
@@ -3225,7 +3225,7 @@ mka_parse_audio.exit.thread275.i:                 ; preds = %matroska_parse_flac
   br label %820
 
 820:                                              ; preds = %815, %811
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %821 = load ptr, ptr %194, align 8, !tbaa !156
   %822 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %821, ptr noundef nonnull dereferenceable(16) @.str.149) #16
   %.not.i.i227.i = icmp eq i32 %822, 0
@@ -3354,7 +3354,7 @@ mka_parse_audio.exit.thread275.i:                 ; preds = %matroska_parse_flac
   br i1 %892, label %893, label %906
 
 893:                                              ; preds = %890
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %894 = load ptr, ptr %851, align 8, !tbaa !183
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 82
   %896 = load i16, ptr %895, align 1, !tbaa !121
@@ -3376,7 +3376,7 @@ mka_parse_audio.exit.thread275.i:                 ; preds = %matroska_parse_flac
   %.0.i.i.i = phi i32 [ %902, %901 ], [ %898, %893 ]
   %905 = getelementptr inbounds nuw i8, ptr %356, i64 56
   store i32 %.0.i.i.i, ptr %905, align 8, !tbaa !233
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %906
 
 906:                                              ; preds = %904, %890
@@ -3417,12 +3417,12 @@ mka_parse_audio.exit.thread275.i:                 ; preds = %matroska_parse_flac
   br label %921
 
 mkv_parse_video_codec.exit.i.i:                   ; preds = %855
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %mkv_parse_video.exit.thread.i
 
 921:                                              ; preds = %919, %914, %910, %909, %908, %906, %839, %827
   %.5.i = phi i32 [ 0, %906 ], [ 0, %908 ], [ 26, %909 ], [ 0, %914 ], [ 0, %910 ], [ 0, %919 ], [ 40, %839 ], [ 40, %827 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i32 0, ptr %356, align 8, !tbaa !229
   %922 = getelementptr inbounds nuw i8, ptr %188, i64 192
   %923 = load i64, ptr %922, align 8, !tbaa !164
@@ -3445,8 +3445,8 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
   %933 = getelementptr inbounds nuw i8, ptr %188, i64 304
   %934 = load i64, ptr %933, align 8, !tbaa !245
   %.val.i233.i = load ptr, ptr %184, align 8, !tbaa !153
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i158.i.i = icmp eq ptr %.val.i233.i, null
   br i1 %.not.i158.i.i, label %944, label %935
 
@@ -3493,8 +3493,8 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
 
 mkv_field_order.exit.i.i:                         ; preds = %951, %949, %947, %946, %945, %944
   %.06.i.i.i = phi i32 [ 0, %951 ], [ 2, %945 ], [ 3, %946 ], [ %948, %947 ], [ %950, %949 ], [ 1, %944 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %mkv_field_order.exit.i.i, %921
@@ -3721,7 +3721,7 @@ switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
 1067:                                             ; preds = %.loopexit.i.i, %.lr.ph188.i.i
   %indvars.iv190.i.i = phi i64 [ 0, %.lr.ph188.i.i ], [ %indvars.iv.next191.i.i, %.loopexit.i.i ]
   %1068 = load ptr, ptr %178, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1069 = getelementptr inbounds nuw %struct.MatroskaTrackPlane, ptr %1061, i64 %indvars.iv190.i.i
   %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 8
   %1071 = load i64, ptr %1070, align 8, !tbaa !255
@@ -3767,7 +3767,7 @@ switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %1081, !llvm.loop !260
 
 .loopexit.i.i:                                    ; preds = %1092, %1089, %1073, %1067
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next191.i.i = add nuw nsw i64 %indvars.iv190.i.i, 1
   %1093 = load i32, ptr %1059, align 8, !tbaa !254
   %1094 = sext i32 %1093 to i64
@@ -3775,8 +3775,8 @@ switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
   br i1 %1095, label %1067, label %._crit_edge.i.i, !llvm.loop !261
 
 1096:                                             ; preds = %switch.early.test155.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1097 = call ptr @av_stereo3d_alloc_size(ptr noundef nonnull %9) #15
   store ptr %1097, ptr %8, align 8, !tbaa !262
   %.not.i160.i.i = icmp eq ptr %1097, null
@@ -3805,13 +3805,13 @@ switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
   br label %mkv_stereo3d_conv.exit.thread.i.i
 
 mkv_stereo3d_conv.exit.thread.i.i:                ; preds = %1096, %1111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %mkv_parse_video.exit.thread.i
 
 mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1112
 
 1112:                                             ; preds = %mkv_stereo3d_conv.exit.i.i, %switch.early.test155.i.i, %switch.early.test155.i.i, %._crit_edge.i.i
@@ -3985,9 +3985,9 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br i1 %.not93.i.i.i, label %1225, label %1211
 
 1211:                                             ; preds = %1208
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1212 = call ptr @av_content_light_metadata_alloc(ptr noundef nonnull %4) #15
   store ptr %1212, ptr %5, align 8, !tbaa !297
   %.not94.i.i.i = icmp eq ptr %1212, null
@@ -4014,13 +4014,13 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   %1223 = trunc i64 %1222 to i32
   %1224 = getelementptr inbounds nuw i8, ptr %1212, i64 4
   store i32 %1223, ptr %1224, align 4, !tbaa !301
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %1225
 
 .loopexit.i:                                      ; preds = %1211, %1219
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mkv_parse_video.exit.thread.i
 
 1225:                                             ; preds = %.critedge.i.i.i, %1208, %1205
@@ -4028,9 +4028,9 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br i1 %or.cond.i163.i.i, label %1226, label %1278
 
 1226:                                             ; preds = %1225
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1227 = call ptr @av_mastering_display_metadata_alloc_size(ptr noundef nonnull %6) #15
   store ptr %1227, ptr %7, align 8, !tbaa !302
   %.not96.i.i.i = icmp eq ptr %1227, null
@@ -4112,23 +4112,23 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %1277
 
 1277:                                             ; preds = %1269, %1268
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1278
 
 .critedge103.i.i.i:                               ; preds = %1226, %1234
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mkv_parse_video.exit.thread.i
 
 1278:                                             ; preds = %1277, %1225, %1112
   %1279 = load ptr, ptr %182, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1280 = getelementptr inbounds nuw i8, ptr %188, i64 344
   %1281 = getelementptr inbounds nuw i8, ptr %188, i64 352
   %1282 = getelementptr inbounds nuw i8, ptr %188, i64 368
   %1283 = load ptr, ptr %1282, align 8, !tbaa !307
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1284 = load i32, ptr %1281, align 8, !tbaa !308
   %.not.i165.i.i = icmp eq i32 %1284, 0
   br i1 %.not.i165.i.i, label %1288, label %1285
@@ -4344,21 +4344,21 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
 
 .loopexit295.i:                                   ; preds = %1359, %1311, %1387, %1357, %1346, %1338, %1337
   %.0.i166.ph.i.i = phi i32 [ -1094995529, %1357 ], [ -1094995529, %1346 ], [ -1094995529, %1338 ], [ -12, %1387 ], [ -1094995529, %1337 ], [ -12, %1311 ], [ -12, %1359 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mkv_parse_video.exit.thread.i
 
 mkv_parse_video.exit.thread.i:                    ; preds = %999, %.loopexit295.i, %.critedge103.i.i.i, %.loopexit.i, %mkv_stereo3d_conv.exit.thread.i.i, %mkv_parse_video_codec.exit.i.i
   %.0.i229.ph.i = phi i32 [ %.0.i166.ph.i.i, %.loopexit295.i ], [ -12, %.critedge103.i.i.i ], [ -12, %.loopexit.i ], [ -12, %mkv_stereo3d_conv.exit.thread.i.i ], [ %860, %mkv_parse_video_codec.exit.i.i ], [ -12, %999 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %matroska_convert_tags.exit
 
 mkv_parse_video.exit.i:                           ; preds = %1361, %1358, %1355, %1316, %1308, %1290, %1287
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %thread-pre-split.i
 
 1388:                                             ; preds = %429
@@ -5038,7 +5038,7 @@ matroska_parse_tracks.exit:                       ; preds = %mkv_parse_block_add
 
 matroska_convert_tags.exit:                       ; preds = %82, %79, %770, %289, %1452, %423, %230, %236, %242, %246, %1495, %1476, %1483, %1555, %._crit_edge.thread128.i, %mka_parse_audio_codec.exit.i.i, %327, %353, %mka_parse_audio.exit.thread275.i, %mkv_parse_video.exit.thread.i, %._crit_edge, %65, %46, %32
   %.0 = phi i32 [ -1163346256, %46 ], [ -1094995529, %65 ], [ -1094995529, %32 ], [ 0, %._crit_edge ], [ %452, %mka_parse_audio_codec.exit.i.i ], [ -12, %327 ], [ -12, %353 ], [ %.1.i.ph.i.ph.i, %mka_parse_audio.exit.thread275.i ], [ %.0.i229.ph.i, %mkv_parse_video.exit.thread.i ], [ 0, %._crit_edge.thread128.i ], [ %1557, %1555 ], [ %1487, %1483 ], [ -1094995529, %1476 ], [ -1094995529, %1495 ], [ -1094995529, %246 ], [ -1094995529, %242 ], [ -1094995529, %236 ], [ -1094995529, %230 ], [ -1094995529, %423 ], [ %1456, %1452 ], [ -12, %289 ], [ -1163346256, %770 ], [ -5, %82 ], [ %80, %79 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i32 %.0
 }
 
@@ -5411,9 +5411,6 @@ matroska_reset_status.exit77:                     ; preds = %110, %112
 
 declare ptr @av_default_item_name(ptr noundef) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare ptr @av_asprintf(ptr noundef, ...) local_unnamed_addr #3
@@ -5423,10 +5420,7 @@ declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -5750,7 +5744,7 @@ matroska_find_track_by_num.exit:                  ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ebml_parse(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -5760,7 +5754,7 @@ define internal fastcc i32 @ebml_parse(ptr noundef captures(address) %0, ptr nou
   %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef 0, i32 noundef 1) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = load i32, ptr %11, align 8, !tbaa !116
@@ -5775,7 +5769,7 @@ define internal fastcc i32 @ebml_parse(ptr noundef captures(address) %0, ptr nou
   br i1 %.not281, label %19, label %50
 
 19:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call fastcc i32 @ebml_read_num(ptr noundef nonnull %0, ptr noundef %9, i32 noundef 4, ptr noundef %5, i32 noundef 0)
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %42, label %22
@@ -5820,7 +5814,7 @@ define internal fastcc i32 @ebml_parse(ptr noundef captures(address) %0, ptr nou
 
 .thread:                                          ; preds = %27, %22, %40, %30, %37
   %.0.ph = phi i32 [ %20, %22 ], [ -541478725, %40 ], [ -541478725, %30 ], [ %.mux, %27 ], [ 3, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 42:                                               ; preds = %19
@@ -5832,7 +5826,7 @@ define internal fastcc i32 @ebml_parse(ptr noundef captures(address) %0, ptr nou
   store i32 %47, ptr %17, align 4, !tbaa !115
   %48 = zext nneg i32 %20 to i64
   %49 = add nsw i64 %10, %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %63
 
 50:                                               ; preds = %3
@@ -6623,14 +6617,14 @@ ebml_read_uint.exit.thread:                       ; preds = %341, %340, %267, %2
 
 .critedge:                                        ; preds = %330, %341, %.lr.ph400, %388, %377, %246, %248, %110, %95, %90, %344, %ebml_read_master.exit.thread, %188, %140, %.thread, %373, %375, %ebml_read_uint.exit.thread371.thread382, %.thread375, %361, %ebml_read_uint.exit.thread371, %199, %159, %164, %163, %ebml_read_length.exit, %143, %79
   %.1 = phi i32 [ 3, %79 ], [ -1094995529, %188 ], [ -1094995529, %140 ], [ -1094995529, %143 ], [ %114, %ebml_read_length.exit ], [ -1094995529, %163 ], [ -1094995529, %164 ], [ -1094995529, %159 ], [ 1, %199 ], [ -1094995529, %ebml_read_uint.exit.thread371.thread382 ], [ -5, %361 ], [ -5, %.thread375 ], [ %.6230, %ebml_read_uint.exit.thread371 ], [ 3, %375 ], [ %.3243, %373 ], [ %.0.ph, %.thread ], [ -38, %ebml_read_master.exit.thread ], [ -5, %344 ], [ -12, %90 ], [ -12, %95 ], [ 1, %110 ], [ -12, %248 ], [ -12, %246 ], [ 3, %377 ], [ 3, %388 ], [ 3, %.lr.ph400 ], [ %342, %341 ], [ -12, %330 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
 declare ptr @av_fast_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @matroska_find_level1_elem(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -6764,7 +6758,7 @@ declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #3
 declare i32 @av_add_index_entry(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 declare i32 @av_index_search_timestamp(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -6869,9 +6863,9 @@ thread-pre-split:                                 ; preds = %22, %19
   %65 = load i64, ptr %64, align 8, !tbaa !420
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %67 = load i64, ptr %66, align 8, !tbaa !431
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @ffio_init_read_context(ptr noundef nonnull %7, ptr noundef %54, i32 noundef %39) #15
   %68 = call fastcc i32 @ebml_read_num(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %9, i32 noundef 1)
   %69 = icmp slt i32 %68, 0
@@ -7136,7 +7130,7 @@ matroska_find_track_by_num.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %exitcond323.not.i, label %matroska_parse_laces.exit.i, label %.lr.ph150.i.i, !llvm.loop !435
 
 186:                                              ; preds = %159
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %187 = call i64 @avio_skip(ptr noundef nonnull %7, i64 noundef 4) #15
   %188 = call fastcc i32 @ebml_read_num(ptr noundef nonnull readonly %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %6, i32 noundef 1)
   %189 = icmp slt i32 %188, 0
@@ -7161,13 +7155,13 @@ matroska_find_track_by_num.exit.i:                ; preds = %.lr.ph.i.i
   %indvars.iv.i186.i = phi i64 [ %indvars.iv.next.i187.i, %211 ], [ 1, %.lr.ph.i185.preheader.i ]
   %.084146.i.i = phi i32 [ %214, %211 ], [ %188, %.lr.ph.i185.preheader.i ]
   %.086145.i.i = phi i64 [ %213, %211 ], [ %191, %.lr.ph.i185.preheader.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %197 = call fastcc i32 @ebml_read_num(ptr noundef nonnull readonly %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %5, i32 noundef 1)
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %matroska_ebmlnum_sint.exit.thread.i.i, label %199
 
 matroska_ebmlnum_sint.exit.thread.i.i:            ; preds = %.lr.ph.i185.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread124.i.i
 
 199:                                              ; preds = %.lr.ph.i185.i
@@ -7178,7 +7172,7 @@ matroska_ebmlnum_sint.exit.thread.i.i:            ; preds = %.lr.ph.i185.i
   %notmask.i.i.i = shl nsw i64 -1, %203
   %.neg.i.i.i = add nsw i64 %notmask.i.i.i, 1
   %204 = add i64 %.neg.i.i.i, %200
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %205 = getelementptr i32, ptr %8, i64 %indvars.iv.i186.i
   %206 = getelementptr i8, ptr %205, i64 -4
   %207 = load i32, ptr %206, align 4, !tbaa !213
@@ -7206,7 +7200,7 @@ matroska_ebmlnum_sint.exit.thread.i.i:            ; preds = %.lr.ph.i185.i
 
 .thread124.i.i:                                   ; preds = %199, %._crit_edge.i184.i, %matroska_ebmlnum_sint.exit.thread.i.i, %190, %186
   %.2.ph.i.i = phi i32 [ -1094995529, %._crit_edge.i184.i ], [ -1094995529, %190 ], [ %188, %186 ], [ %197, %matroska_ebmlnum_sint.exit.thread.i.i ], [ -1094995529, %199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit252.i
 
 218:                                              ; preds = %._crit_edge.i184.i
@@ -7217,7 +7211,7 @@ matroska_ebmlnum_sint.exit.thread.i.i:            ; preds = %.lr.ph.i185.i
   %223 = zext i8 %160 to i64
   %224 = getelementptr inbounds nuw i32, ptr %8, i64 %223
   store i32 %222, ptr %224, align 4, !tbaa !213
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %matroska_parse_laces.exit.i
 
 default.unreachable.i.i:                          ; preds = %159
@@ -7335,9 +7329,9 @@ matroska_parse_laces.exit.i:                      ; preds = %.lr.ph150.i.i, %218
   %287 = mul i64 %indvars.iv.i, %.0133.i
   %288 = udiv i64 %287, %262
   %289 = sub i64 %286, %288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.0225282.i, ptr %10, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %290 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %indvars.iv.i
   %291 = load i32, ptr %290, align 4, !tbaa !213
   store i32 %291, ptr %11, align 4, !tbaa !213
@@ -7759,14 +7753,14 @@ matroska_parse_webvtt.exit.i:                     ; preds = %460, %.thread4.sink
   br i1 %.not175.i, label %690, label %.thread244.i
 
 491:                                              ; preds = %411
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %416, ptr %4, align 8, !tbaa !127
   %492 = load ptr, ptr %275, align 8, !tbaa !145
   %493 = icmp eq i32 %414, 86041
   br i1 %493, label %494, label %549
 
 494:                                              ; preds = %491
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !127
   %495 = icmp slt i32 %417, 12
   br i1 %495, label %544, label %.lr.ph.preheader.i.i.i
@@ -7860,14 +7854,14 @@ matroska_parse_webvtt.exit.i:                     ; preds = %460, %.thread4.sink
 
 544:                                              ; preds = %543, %494
   %.0.i.ph.i.i = phi i32 [ -1094995529, %494 ], [ %.167.ph.i.i.i, %543 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split.i.i
 
 545:                                              ; preds = %523
   %546 = sext i32 %525 to i64
   %547 = getelementptr inbounds i8, ptr %522, i64 %546
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %547, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i214.i = icmp eq ptr %.1128.i, null
   br i1 %.not.i214.i, label %548, label %549
 
@@ -8067,7 +8061,7 @@ matroska_parse_webvtt.exit.i:                     ; preds = %460, %.thread4.sink
   br i1 %cond1.i.i.i, label %634, label %661
 
 634:                                              ; preds = %633
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %635 = icmp slt i32 %600, 6
   br i1 %635, label %.thread.i119.i.i, label %636
 
@@ -8115,7 +8109,7 @@ matroska_parse_webvtt.exit.i:                     ; preds = %460, %.thread4.sink
   br label %matroska_parse_block_additional.exit.thread156.i.i
 
 .thread.i119.i.i:                                 ; preds = %642, %636, %634
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %661
 
 661:                                              ; preds = %.thread.i119.i.i, %633
@@ -8134,11 +8128,11 @@ matroska_parse_webvtt.exit.i:                     ; preds = %460, %.thread4.sink
 
 matroska_parse_block_additional.exit.thread156.i.i: ; preds = %650, %660
   %.3.i.ph.i.i = phi i32 [ %.062.i.i.i, %660 ], [ -12, %650 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %matroska_parse_frame.exit.thread.i
 
 matroska_parse_block_additional.exit.i.i:         ; preds = %656
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %matroska_parse_block_additional.exit.thread153.i.i
 
 matroska_parse_block_additional.exit.thread153.i.i: ; preds = %matroska_parse_block_additional.exit.i.i, %665, %627, %.lr.ph.i208.i
@@ -8191,7 +8185,7 @@ matroska_parse_block_additional.exit.thread153.i.i: ; preds = %matroska_parse_bl
   br i1 %686, label %matroska_parse_frame.exit.thread.i, label %matroska_parse_frame.exit.thread241.i
 
 matroska_parse_frame.exit.thread241.i:            ; preds = %.thread165.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %690
 
 .sink.split.i.i:                                  ; preds = %557, %544
@@ -8217,18 +8211,18 @@ matroska_parse_frame.exit.thread241.i:            ; preds = %.thread165.i.i
 matroska_parse_frame.exit.thread.i:               ; preds = %.thread165.i.i, %668, %661, %610, %matroska_parse_block_additional.exit.thread156.i.i
   %.0.i207.ph.i = phi i32 [ %.3.i.ph.i.i, %matroska_parse_block_additional.exit.thread156.i.i ], [ -12, %661 ], [ -1094995529, %610 ], [ -12, %668 ], [ -12, %.thread165.i.i ]
   call void @av_packet_unref(ptr noundef nonnull %492) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread244.i
 
 matroska_parse_frame.exit.i:                      ; preds = %689, %688
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not173.i = icmp eq i32 %.186.i.i, 0
   br i1 %.not173.i, label %690, label %.thread244.i
 
 .thread244.i:                                     ; preds = %matroska_parse_frame.exit.i, %490, %410, %293, %matroska_parse_frame.exit.thread.i
   %.2.ph.i = phi i32 [ %.0.i207.ph.i, %matroska_parse_frame.exit.thread.i ], [ %.186.i.i, %matroska_parse_frame.exit.i ], [ %.0.i200.i, %490 ], [ %.0.i189.i, %410 ], [ %294, %293 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %matroska_parse_block.exit
 
 690:                                              ; preds = %matroska_parse_frame.exit.i, %matroska_parse_frame.exit.thread241.i, %490, %410
@@ -8240,16 +8234,16 @@ matroska_parse_frame.exit.i:                      ; preds = %689, %688
   %693 = load i32, ptr %290, align 4, !tbaa !213
   %694 = zext i32 %693 to i64
   %695 = getelementptr inbounds nuw i8, ptr %.0225282.i, i64 %694
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %exitcond326.not.i = icmp eq i64 %indvars.iv.next.i, %262
   br i1 %exitcond326.not.i, label %matroska_parse_block.exit, label %284, !llvm.loop !456
 
 matroska_parse_block.exit:                        ; preds = %690, %49, %matroska_find_track_by_num.exit.thread.i, %matroska_find_track_by_num.exit.i, %90, %93, %142, %.loopexit252.i, %.thread244.i
   %.0.i = phi i32 [ %.0.i.ph.i, %.loopexit252.i ], [ 0, %90 ], [ %68, %49 ], [ -1094995529, %matroska_find_track_by_num.exit.i ], [ 0, %93 ], [ 0, %142 ], [ -1094995529, %matroska_find_track_by_num.exit.thread.i ], [ %.2.ph.i, %.thread244.i ], [ 0, %690 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %696
 
 696:                                              ; preds = %matroska_parse_block.exit, %37, %34
@@ -8297,7 +8291,7 @@ matroska_parse_block.exit:                        ; preds = %690, %49, %matroska
 declare void @avpriv_packet_list_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ebml_free(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
@@ -8397,7 +8391,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
   %6 = alloca %struct.bz_stream, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !127
   %8 = load i32, ptr %1, align 4, !tbaa !213
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = icmp ugt i32 %8, 9999999
   br i1 %9, label %.thread, label %10
 
@@ -8447,7 +8441,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
 .preheader:                                       ; preds = %10, %36
   %.291 = phi i32 [ %31, %36 ], [ %8, %10 ]
   %.277 = phi ptr [ %34, %36 ], [ null, %10 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %8, ptr %4, align 4, !tbaa !213
   %31 = mul nuw nsw i32 %.291, 3
   store i32 %31, ptr %3, align 4, !tbaa !213
@@ -8458,12 +8452,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
   br i1 %.not117, label %35, label %36
 
 35:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
 36:                                               ; preds = %.preheader
   %37 = call i32 @av_lzo1x_decode(ptr noundef nonnull %34, ptr noundef nonnull %3, ptr noundef %7, ptr noundef nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = icmp eq i32 %37, 2
   %39 = icmp samesign ult i32 %.291, 3333334
   %40 = and i1 %39, %38
@@ -8479,7 +8473,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
   br label %104
 
 45:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   %.not113 = icmp eq i32 %8, 0
   br i1 %.not113, label %.thread18, label %46
@@ -8539,20 +8533,20 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
 .thread12:                                        ; preds = %58, %69, %72
   %.285.ph = phi i32 [ -12, %69 ], [ -1094995529, %72 ], [ -12, %58 ]
   %.5.ph = phi ptr [ %57, %69 ], [ %57, %72 ], [ %.6, %58 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
 
 .thread18:                                        ; preds = %46, %45
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 73:                                               ; preds = %69
   %74 = trunc i64 %70 to i32
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %104
 
 75:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.thread30, label %76
@@ -8612,15 +8606,15 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
 .thread24:                                        ; preds = %88, %99, %102
   %.487.ph = phi i32 [ -12, %99 ], [ -1094995529, %102 ], [ -12, %88 ]
   %.7.ph = phi ptr [ %87, %99 ], [ %87, %102 ], [ %.8, %88 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %107
 
 .thread30:                                        ; preds = %76, %75
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 103:                                              ; preds = %99
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %104
 
 104:                                              ; preds = %103, %73, %27, %42
@@ -8641,7 +8635,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
 
 .thread:                                          ; preds = %22, %21, %20, %.thread30, %.thread18, %10, %2, %107, %104
   %.0 = phi i32 [ 0, %104 ], [ %.184, %107 ], [ -1094995529, %2 ], [ -1094995529, %10 ], [ -1, %.thread18 ], [ -1, %.thread30 ], [ -12, %22 ], [ 0, %21 ], [ -1, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -8678,7 +8672,7 @@ declare ptr @av_buffer_create(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #10
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #9
 
 declare ptr @av_dynamic_hdr_plus_alloc(ptr noundef) local_unnamed_addr #3
 
@@ -8687,12 +8681,12 @@ declare i32 @av_dynamic_hdr_plus_from_t35(ptr noundef, ptr noundef, i64 noundef)
 declare i32 @av_packet_add_side_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @avpriv_report_missing_feature(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @matroska_resync(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
@@ -8829,22 +8823,22 @@ declare i32 @ff_get_wav_header(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare i32 @ff_codec_get_id(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
+declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @ff_vorbis_comment(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @av_dict_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare i32 @av_channel_layout_from_mask(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -8855,14 +8849,14 @@ declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 n
 declare ptr @av_packet_side_data_new(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare ptr @av_fourcc_make_string(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @ff_get_qtpalette(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare ptr @av_stereo3d_alloc_size(ptr noundef) local_unnamed_addr #3
 
@@ -8875,7 +8869,7 @@ declare ptr @av_content_light_metadata_alloc(ptr noundef) local_unnamed_addr #3
 declare ptr @av_mastering_display_metadata_alloc_size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_d2q(double noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @av_d2q(double noundef, i32 noundef) local_unnamed_addr #9
 
 declare ptr @av_spherical_alloc(ptr noundef) local_unnamed_addr #3
 
@@ -8890,7 +8884,7 @@ define internal fastcc void @matroska_convert_tag(ptr noundef %0, ptr noundef re
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load i32, ptr %1, align 8, !tbaa !53
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -8982,7 +8976,7 @@ define internal fastcc void @matroska_convert_tag(ptr noundef %0, ptr noundef re
 
 ._crit_edge:                                      ; preds = %46, %4
   call void @ff_metadata_conv(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ff_mkv_metadata_conv) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -8995,6 +8989,12 @@ declare void @ff_metadata_conv(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @avpriv_packet_list_get(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @avpriv_update_cur_dts(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
@@ -9027,15 +9027,15 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }

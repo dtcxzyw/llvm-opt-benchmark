@@ -146,7 +146,7 @@ entry:
   store ptr %stats, ptr %stats_, align 8
   %lastUseTime_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %lastUseTime_, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %call.i.i.i.i.i.i.i = call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
   %call.i8.i.i.i.i.i.i = call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
   %div.i.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i.i, %call.i8.i.i.i.i.i.i
@@ -182,7 +182,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i.i
 invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
   %__ret.0.i.i.i.i.i.i = phi double [ %call20.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %div17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %3 = call noundef double @llvm.fmuladd.f64(double %__ret.0.i.i.i.i.i.i, double 6.000000e-01, double -3.000000e-01)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %jitter_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store double %3, ptr %jitter_, align 8
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -2043,10 +2043,10 @@ declare x86_fp80 @llvm.log.f80(x86_fp80) #19
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2577,9 +2577,6 @@ define hidden range(i32 2, 258) i32 @proto_mpeg_descriptor_dissect(ptr noundef %
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -2909,7 +2906,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_avc_vid(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_network_name(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
   %7 = load i32, ptr @hf_mpeg_descr_network_name_encoding, align 4
   %8 = load i32, ptr %5, align 4
@@ -2920,7 +2917,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_network_name(ptr noun
   %12 = load i32, ptr %5, align 4
   %13 = call i32 @dvb_enc_to_item_enc(i32 noundef %12)
   %14 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3255,7 +3252,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_bouquet_name(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
   %7 = load i32, ptr @hf_mpeg_descr_bouquet_name_encoding, align 4
   %8 = load i32, ptr %5, align 4
@@ -3266,14 +3263,14 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_bouquet_name(ptr noun
   %12 = load i32, ptr %5, align 4
   %13 = call i32 @dvb_enc_to_item_enc(i32 noundef %12)
   %14 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_service(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @hf_mpeg_descr_service_type, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %7 = add i32 %1, 1
@@ -3322,7 +3319,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_service(ptr noundef %
   br label %40
 
 40:                                               ; preds = %28, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3509,7 +3506,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_nvod_reference(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_short_event(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @hf_mpeg_descr_short_event_lang_code, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
   %7 = add i32 %1, 3
@@ -3558,14 +3555,14 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_short_event(ptr nound
   br label %40
 
 40:                                               ; preds = %28, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_extended_event(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @hf_mpeg_descr_extended_event_descriptor_number, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %7 = load i32, ptr @hf_mpeg_descr_extended_event_last_descriptor_number, align 4
@@ -3630,7 +3627,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_extended_event(ptr no
   br label %54
 
 54:                                               ; preds = %42, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3723,7 +3720,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_component(ptr noundef
   br i1 %64, label %65, label %76
 
 65:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %66 = add nsw i32 %2, -6
   %67 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %63, i32 noundef %66, ptr noundef nonnull %5)
   %68 = load i32, ptr @hf_mpeg_descr_component_text_encoding, align 4
@@ -3735,7 +3732,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_component(ptr noundef
   %73 = load i32, ptr %5, align 4
   %74 = call i32 @dvb_enc_to_item_enc(i32 noundef %73)
   %75 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %70, ptr noundef %0, i32 noundef %71, i32 noundef %72, i32 noundef %74)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %76
 
 76:                                               ; preds = %57, %65, %4
@@ -3955,11 +3952,11 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_telephone(ptr noundef
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_mpeg_descr_telephone_reserved_future_use1, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %11 = load i32, ptr @hf_mpeg_descr_telephone_foreign_availability, align 4
@@ -4062,11 +4059,11 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_telephone(ptr noundef
   br label %80
 
 80:                                               ; preds = %74, %3, %77
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4076,9 +4073,9 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = add i32 %2, %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp ult i32 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -4161,9 +4158,9 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %47, %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4246,8 +4243,8 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_network_name
 8:                                                ; preds = %4, %proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit
   %.059 = phi i32 [ %1, %4 ], [ %43, %proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit ]
   %.04658 = phi i32 [ %2, %4 ], [ %42, %proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp ult i32 %.04658, 3
   br i1 %9, label %.loopexit.sink.split, label %10
 
@@ -4278,7 +4275,7 @@ proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit: ;
   %30 = add i32 %.04658, -4
   %31 = call i32 @llvm.umin.i32(i32 %30, i32 %29)
   %32 = add i32 %.059, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %32, i32 noundef %31, ptr noundef nonnull %7)
   %34 = load i32, ptr @hf_mpeg_descr_multilng_network_name_desc_name_encoding, align 4
   %35 = load i32, ptr %7, align 4
@@ -4289,11 +4286,11 @@ proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit: ;
   %39 = load i32, ptr %7, align 4
   %40 = call i32 @dvb_enc_to_item_enc(i32 noundef %39)
   %41 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef %40)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %42 = sub i32 %30, %31
   %43 = add i32 %31, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !22
 
@@ -4309,8 +4306,8 @@ proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit: ;
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %8, %.critedge56.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit, %.loopexit.sink.split
@@ -4327,8 +4324,8 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_bouquet_name
 8:                                                ; preds = %4, %proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit
   %.059 = phi i32 [ %1, %4 ], [ %43, %proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit ]
   %.04658 = phi i32 [ %2, %4 ], [ %42, %proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp ult i32 %.04658, 3
   br i1 %9, label %.loopexit.sink.split, label %10
 
@@ -4359,7 +4356,7 @@ proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit: ;
   %30 = add i32 %.04658, -4
   %31 = call i32 @llvm.umin.i32(i32 %30, i32 %29)
   %32 = add i32 %.059, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %32, i32 noundef %31, ptr noundef nonnull %7)
   %34 = load i32, ptr @hf_mpeg_descr_multilng_bouquet_name_desc_name_encoding, align 4
   %35 = load i32, ptr %7, align 4
@@ -4370,11 +4367,11 @@ proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit: ;
   %39 = load i32, ptr %7, align 4
   %40 = call i32 @dvb_enc_to_item_enc(i32 noundef %39)
   %41 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef %40)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %42 = sub i32 %30, %31
   %43 = add i32 %31, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !23
 
@@ -4390,8 +4387,8 @@ proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit: ;
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %8, %.critedge56.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit, %.loopexit.sink.split
@@ -4408,8 +4405,8 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_srv_name_des
 8:                                                ; preds = %4, %52
   %.096 = phi i32 [ %1, %4 ], [ %72, %52 ]
   %.08295 = phi i32 [ %2, %4 ], [ %71, %52 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp ult i32 %.08295, 3
   br i1 %9, label %.loopexit.sink.split, label %10
 
@@ -4457,7 +4454,7 @@ proto_mpeg_descriptor_dissect_multilng_srv_name_desc_measure_lng_len.exit: ; pre
   %40 = add i32 %.08295, -4
   %41 = call i32 @llvm.umin.i32(i32 %40, i32 %39)
   %42 = add i32 %.096, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %42, i32 noundef %41, ptr noundef nonnull %7)
   %44 = load i32, ptr @hf_mpeg_descr_multilng_srv_name_desc_service_provider_name_encoding, align 4
   %45 = load i32, ptr %7, align 4
@@ -4493,9 +4490,9 @@ proto_mpeg_descriptor_dissect_multilng_srv_name_desc_measure_lng_len.exit: ; pre
   %70 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef %67, i32 noundef %69)
   %71 = sub i32 %59, %60
   %72 = add i32 %60, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !24
 
@@ -4511,12 +4508,12 @@ proto_mpeg_descriptor_dissect_multilng_srv_name_desc_measure_lng_len.exit: ; pre
   br label %.loopexit.sink.split
 
 .critedge94:                                      ; preds = %proto_mpeg_descriptor_dissect_multilng_srv_name_desc_measure_lng_len.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %8, %.critedge.critedge, %.critedge94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %.loopexit.sink.split
@@ -4541,8 +4538,8 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_component_de
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit
   %.067 = phi i32 [ %46, %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit ], [ %11, %.lr.ph.preheader ]
   %.05266 = phi i32 [ %45, %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit ], [ %10, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = icmp ult i32 %.05266, 3
   br i1 %12, label %.loopexit.sink.split, label %13
 
@@ -4573,7 +4570,7 @@ proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit: ; pr
   %33 = add i32 %.05266, -4
   %34 = call i32 @llvm.umin.i32(i32 %33, i32 %32)
   %35 = add i32 %.067, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %35, i32 noundef %34, ptr noundef nonnull %7)
   %37 = load i32, ptr @hf_mpeg_descr_multilng_component_desc_text_encoding, align 4
   %38 = load i32, ptr %7, align 4
@@ -4584,11 +4581,11 @@ proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit: ; pr
   %42 = load i32, ptr %7, align 4
   %43 = call i32 @dvb_enc_to_item_enc(i32 noundef %42)
   %44 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef %41, i32 noundef %43)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = sub i32 %33, %34
   %46 = add i32 %34, %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
@@ -4604,8 +4601,8 @@ proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit: ; pr
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.critedge63.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit, %.loopexit.sink.split, %4
@@ -5297,7 +5294,7 @@ proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit: ; preds = %7, 
   %37 = add i32 %.096131, -2
   %38 = zext i8 %33 to i32
   %39 = call i32 @llvm.umin.i32(i32 %37, i32 %38)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %5)
   %41 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name_encoding, align 4
   %42 = load i32, ptr %5, align 4
@@ -5371,12 +5368,12 @@ proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit: ; preds = %7, 
 ._crit_edge:                                      ; preds = %75, %56
   %.399.lcssa = phi i32 [ %61, %56 ], [ %83, %75 ]
   %.3.lcssa = phi i32 [ %.3124, %56 ], [ %.3, %75 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %.399.lcssa, 0
   br i1 %.not, label %.critedge, label %7, !llvm.loop !32
 
 .critedge.critedge:                               ; preds = %52, %31, %66, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, %._crit_edge, %.critedge.critedge
@@ -5524,9 +5521,6 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_rcs_content(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
@@ -5555,7 +5549,7 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   br i1 %or.cond, label %14, label %.sink.split
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.033)
   %16 = zext i8 %15 to i32
   %17 = call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @mpeg_descriptor_ciplus_tag_vals)
@@ -5563,7 +5557,7 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   br i1 %.not.i, label %.thread29, label %18
 
 .thread29:                                        ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 18:                                               ; preds = %14
@@ -5673,7 +5667,7 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   %92 = load ptr, ptr %5, align 8
   %93 = sub i32 %.0115.i, %.033
   call void @proto_item_set_len(ptr noundef %92, i32 noundef %93)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %.sink.split, label %96
 
@@ -5735,13 +5729,13 @@ declare void @dvb_add_chartbl(ptr noundef, i32 noundef, ptr noundef, i32 noundef
 declare i32 @dvb_enc_to_item_enc(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #0
@@ -5806,15 +5800,20 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

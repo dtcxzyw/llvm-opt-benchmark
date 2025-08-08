@@ -117,14 +117,14 @@ define internal i32 @dissect_oxid_simple_ping_rqst(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_simple_ping_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.43)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -135,11 +135,11 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @hf_oxid_setid, align 4
   %13 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef null)
   %14 = load i32, ptr @hf_oxid_seqnum, align 4
@@ -205,11 +205,11 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
 
 .loopexit:                                        ; preds = %.lr.ph69, %38, %.loopexit64
   %.2 = phi i32 [ %36, %.loopexit64 ], [ %39, %38 ], [ %43, %.lr.ph69 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2
 }
 
@@ -217,8 +217,8 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
 define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_oxid_setid, align 4
   %10 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef null)
   %11 = load i32, ptr @hf_oxid_ping_backoff_factor, align 4
@@ -229,22 +229,22 @@ define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef 
   %16 = load i32, ptr %8, align 4
   %17 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.43)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef %17)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_server_alive_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.43)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -252,8 +252,8 @@ define internal i32 @dissect_oxid_server_alive_resp(ptr noundef %0, i32 noundef 
 define internal i32 @dissect_oxid_resolve_oxid2_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_oxid_oxid, align 4
   %10 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef null)
   %11 = load i32, ptr @hf_oxid_requested_protseqs, align 4
@@ -277,8 +277,8 @@ define internal i32 @dissect_oxid_resolve_oxid2_rqst(ptr noundef %0, i32 noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %13, %6 ], [ %17, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.lcssa
 }
 
@@ -291,13 +291,13 @@ define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
   %15 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %15, 0
@@ -322,13 +322,13 @@ define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef
   %29 = load i32, ptr %13, align 4
   %30 = call ptr @val_to_str(i32 noundef %29, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.43)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef %30)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %26
 }
 
@@ -336,8 +336,8 @@ define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef
 define internal noundef i32 @dissect_oxid_server_alive2_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @dissect_dcom_COMVERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = load i32, ptr @hf_oxid_Unknown1, align 4
   %11 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef null)
@@ -347,16 +347,13 @@ define internal noundef i32 @dissect_oxid_server_alive2_resp(ptr noundef %0, i32
   %15 = load i32, ptr @hf_oxid_Unknown2, align 4
   %16 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef null)
   %17 = add i32 %14, 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_HRESULT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -366,9 +363,6 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -394,10 +388,15 @@ declare i32 @dissect_dcom_COMVERSION(ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcerpc_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

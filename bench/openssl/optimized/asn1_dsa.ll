@@ -52,7 +52,7 @@ declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_un
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_encode_der_integer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @BN_is_negative(ptr noundef %1) #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %ossl_encode_der_length.exit.thread
@@ -126,12 +126,9 @@ ossl_encode_der_length.exit:                      ; preds = %24, %18
 
 ossl_encode_der_length.exit.thread:               ; preds = %24, %22, %16, %18, %31, %5, %11, %ossl_encode_der_length.exit, %27, %2, %33
   %.0 = phi i32 [ 1, %33 ], [ 0, %2 ], [ 0, %27 ], [ 0, %ossl_encode_der_length.exit ], [ 0, %11 ], [ 0, %5 ], [ 0, %31 ], [ 0, %18 ], [ 0, %16 ], [ 0, %22 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
@@ -145,15 +142,12 @@ declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_encode_der_dsa_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.wpacket_st, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @WPACKET_is_null_buf(ptr noundef %0) #4
   %7 = tail call i32 @WPACKET_start_sub_packet(ptr noundef %0) #4
   %.not = icmp eq i32 %7, 0
@@ -258,8 +252,8 @@ ossl_encode_der_length.exit:                      ; preds = %36, %30
 
 ossl_encode_der_length.exit.thread:               ; preds = %36, %34, %28, %30, %23, %.critedge, %21, %38, %40, %20, %.thread, %9, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %.thread ], [ 0, %20 ], [ 0, %40 ], [ 0, %38 ], [ 0, %21 ], [ %spec.select, %.critedge ], [ 0, %23 ], [ 0, %30 ], [ 0, %28 ], [ 0, %34 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -274,7 +268,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_decode_der_length(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_decode_der_length(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i.i = load i64, ptr %3, align 8, !tbaa !10
   %.not.i.i = icmp eq i64 %.val.i.i, 0
@@ -494,7 +488,7 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_decode_der_dsa_sig(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PACKET, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %or.cond31 = icmp slt i64 %3, 1
   br i1 %or.cond31, label %PACKET_buf_init.exit.thread, label %PACKET_get_1.exit
 
@@ -601,14 +595,20 @@ ossl_decode_der_length.exit:                      ; preds = %44, %28, %18
 
 PACKET_buf_init.exit.thread:                      ; preds = %34, %32, %23, %22, %15, %21, %4, %PACKET_get_1.exit, %ossl_decode_der_length.exit, %49, %52
   %.0 = phi i64 [ %56, %52 ], [ 0, %49 ], [ 0, %ossl_decode_der_length.exit ], [ 0, %PACKET_get_1.exit ], [ 0, %4 ], [ 0, %21 ], [ 0, %15 ], [ 0, %22 ], [ 0, %23 ], [ 0, %32 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -181,11 +181,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stri
   ret i1 %.023
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111ParseOffsetEPKciiiPl(ptr noundef readonly captures(address, ret: address, provenance) %0, i32 noundef range(i32 -167, 1) %1, i32 noundef range(i32 24, 168) %2, i32 noundef range(i32 -1, 2) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111ParseOffsetEPKciiiPl(ptr noundef readonly captures(address, ret: address, provenance) %0, i32 noundef range(i32 -167, 1) %1, i32 noundef range(i32 24, 168) %2, i32 noundef range(i32 -1, 2) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #1 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread, label %7
 
@@ -380,7 +377,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113ParseDateTimeEPKcPNS1_15PosixTransitionE(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113ParseDateTimeEPKcPNS1_15PosixTransitionE(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
@@ -505,7 +502,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51: ; preds = %.
   br i1 %52, label %53, label %.thread104
 
 53:                                               ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !24
   %54 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i48.ptr, i64 1
   %55 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi(ptr noundef %54, i32 noundef 0, i32 noundef 6, ptr noundef %3)
@@ -513,7 +510,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51: ; preds = %.
   br i1 %.not36, label %.thread108, label %98
 
 .thread108:                                       ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 56:                                               ; preds = %7
@@ -635,7 +632,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   %104 = trunc i32 %103 to i8
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %104, ptr %105, align 2, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread104
 
 .thread104:                                       ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit, %4, %98
@@ -656,13 +653,10 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   ret ptr %.3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi(ptr noundef nonnull readonly captures(address, ret: address, provenance) %0, i32 noundef range(i32 -167, 2) %1, i32 noundef range(i32 5, 366) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi(ptr noundef nonnull readonly captures(address, ret: address, provenance) %0, i32 noundef range(i32 -167, 2) %1, i32 noundef range(i32 5, 366) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #1 {
   %5 = load i8, ptr %0, align 1, !tbaa !12
   %6 = sext i8 %5 to i32
   %memchr62 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i32 %6, i64 11)
@@ -719,16 +713,21 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18P
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

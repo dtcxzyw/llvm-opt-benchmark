@@ -43,7 +43,7 @@ define dso_local i64 @gingetbitmap(ptr noundef %0, ptr noundef %1) local_unnamed
   %13 = alloca %struct.ItemPointerData, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @ginFreeScanKeys(ptr noundef %15) #9
   tail call void @ginNewScanKey(ptr noundef %0) #9
   %16 = load ptr, ptr %14, align 8
@@ -53,7 +53,7 @@ define dso_local i64 @gingetbitmap(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %19, label %scanGetItem.exit, label %20
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @ReadBuffer(ptr noundef %22, i32 noundef 0) #9
@@ -159,9 +159,9 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   br label %81
 
 81:                                               ; preds = %372, %._crit_edge.i.i
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %82 = load i16, ptr %47, align 4
   %83 = zext i16 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 %83
@@ -561,15 +561,15 @@ matchPartialInPendingList.exit138.i.i:            ; preds = %274, %257, %254, %2
   br i1 %.not.i89.i, label %311, label %.critedge.i.thread.i
 
 .critedge.i.thread.i:                             ; preds = %._crit_edge174.i.thread.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit.i
 
 311:                                              ; preds = %._crit_edge174.i.i._crit_edge, %._crit_edge174.i.thread.i
   %.pr.i.i = phi i32 [ %89, %._crit_edge174.i.thread.i ], [ %.pr.i.i.pre, %._crit_edge174.i.i._crit_edge ]
   %312 = phi i16 [ %86, %._crit_edge174.i.thread.i ], [ %.pre194.i.i, %._crit_edge174.i.i._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %11, ptr noundef nonnull align 8 dereferenceable(6) %55, i64 6, i1 false)
   store i16 -1, ptr %55, align 8
   store i16 -1, ptr %56, align 2
@@ -691,16 +691,16 @@ scanGetCandidate.exit.i:                          ; preds = %360, %.preheader.i,
   unreachable
 
 372:                                              ; preds = %scanGetCandidate.exit.i
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %81
 
 .critedge.i.i:                                    ; preds = %._crit_edge174.i.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %373 = icmp eq i32 %294, 0
   br i1 %373, label %.loopexit.i, label %.lr.ph176.i.i
 
@@ -788,7 +788,7 @@ collectMatchesForHeapRow.exit._crit_edge.i:       ; preds = %collectMatchesForHe
 
 scanPendingInsert.exit:                           ; preds = %43, %collectMatchesForHeapRow.exit._crit_edge.i
   %.4 = phi i64 [ 0, %43 ], [ %.158, %collectMatchesForHeapRow.exit._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %409 = load ptr, ptr %14, align 8
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %411 = getelementptr inbounds nuw i8, ptr %409, i64 9688
@@ -809,7 +809,7 @@ scanPendingInsert.exit:                           ; preds = %43, %collectMatches
   %419 = getelementptr inbounds nuw ptr, ptr %418, i64 %indvars.iv.i
   %420 = load ptr, ptr %419, align 8
   %421 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %422 = getelementptr inbounds nuw i8, ptr %420, i64 36
   %423 = getelementptr inbounds nuw i8, ptr %420, i64 84
   %424 = getelementptr inbounds nuw i8, ptr %420, i64 72
@@ -918,7 +918,7 @@ BufferGetPage.exit.i.i19:                         ; preds = %455, %449
   br label %492
 
 492:                                              ; preds = %moveRightIfItNeeded.exit.i.i.i, %477
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %493 = load i32, ptr %446, align 4
   %494 = icmp slt i32 %493, 0
   br i1 %494, label %495, label %501
@@ -1085,7 +1085,7 @@ BufferGetPage.exit.i.i.i:                         ; preds = %536, %530
   %600 = load ptr, ptr %416, align 8
   call void @PredicateLockPage(ptr noundef %600, i32 noundef %589, ptr noundef %421) #9
   %601 = load ptr, ptr %416, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %602 = call ptr @ginScanBeginPostingTree(ptr noundef nonnull %3, ptr noundef %601, i32 noundef %589) #9
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 4
   %604 = load i32, ptr %603, align 4
@@ -1149,7 +1149,7 @@ BufferGetPage.exit.i104.i.i.i:                    ; preds = %613, %607
 
 scanPostingTree.exit.i.i.i:                       ; preds = %632
   call void @UnlockReleaseBuffer(i32 noundef %.0.i103.i.i.i) #9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %638 = load i32, ptr %446, align 4
   call void @LockBuffer(i32 noundef %638, i32 noundef 1) #9
   %639 = load i32, ptr %446, align 4
@@ -1290,7 +1290,7 @@ BufferGetPage.exit115.i.i.i:                      ; preds = %710, %704
   br i1 %726, label %727, label %735
 
 727:                                              ; preds = %BufferGetPage.exit115.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %728 = load ptr, ptr %415, align 8
   %729 = call i64 @gintuple_get_key(ptr noundef %728, ptr noundef nonnull %723, ptr noundef nonnull %5) #9
   %730 = load ptr, ptr %415, align 8
@@ -1298,7 +1298,7 @@ BufferGetPage.exit115.i.i.i:                      ; preds = %710, %704
   %732 = load i8, ptr %4, align 1
   %733 = call i32 @ginCompareEntries(ptr noundef %730, i16 noundef zeroext %478, i64 noundef %729, i8 noundef signext %731, i64 noundef %.091.i.i.i, i8 noundef signext %732) #9
   %734 = icmp eq i32 %733, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %734, label %738, label %735
 
 735:                                              ; preds = %727, %BufferGetPage.exit115.i.i.i
@@ -1324,7 +1324,7 @@ BufferGetPage.exit115.i.i.i:                      ; preds = %710, %704
   br label %moveRightIfItNeeded.exit.i.i.i
 
 746:                                              ; preds = %581
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %747 = load ptr, ptr %415, align 8
   %748 = load i16, ptr %430, align 8
   %749 = call ptr @ginReadTuple(ptr noundef %747, i16 noundef zeroext %748, ptr noundef nonnull %549, ptr noundef nonnull %6) #9
@@ -1337,23 +1337,23 @@ BufferGetPage.exit115.i.i.i:                      ; preds = %710, %704
   %754 = add i32 %753, %752
   store i32 %754, ptr %429, align 8
   call void @pfree(ptr noundef %749) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %moveRightIfItNeeded.exit.i.i.i
 
 moveRightIfItNeeded.exit.i.i.i:                   ; preds = %746, %744, %741, %738, %574
   %storemerge.in.i.i.i = load i16, ptr %489, align 8
   %storemerge.i.i.i = add i16 %storemerge.in.i.i.i, 1
   store i16 %storemerge.i.i.i, ptr %489, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %492
 
 collectMatchBitmap.exit.thread94.i.i:             ; preds = %576, %559, %557, %BufferGetPage.exit.i.i.i, %515
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre148.i.i = load ptr, ptr %426, align 8
   br label %collectMatchBitmap.exit.thread.i.i
 
 755:                                              ; preds = %BufferGetPage.exit107.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %756 = load ptr, ptr %426, align 8
   %.not85.i.i = icmp eq ptr %756, null
   br i1 %.not85.i.i, label %762, label %757
@@ -1505,7 +1505,7 @@ collectMatchBitmap.exit.thread.i.i:               ; preds = %475, %collectMatchB
 
 startScanEntry.exit.i:                            ; preds = %.critedge.i.i21, %823
   call void @freeGinBtreeStack(ptr noundef nonnull %445) #9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %831 = load i32, ptr %411, align 8
   %832 = zext i32 %831 to i64
@@ -2612,38 +2612,32 @@ keyGetItem.exit.i:                                ; preds = %1257, %1195, %1076,
 
 scanGetItem.exit:                                 ; preds = %keyGetItem.exit.i, %2
   %.0 = phi i64 [ 0, %2 ], [ %.057, %keyGetItem.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ginFreeScanKeys(ptr noundef) local_unnamed_addr #1
 
-declare void @ginFreeScanKeys(ptr noundef) local_unnamed_addr #2
+declare void @ginNewScanKey(ptr noundef) local_unnamed_addr #1
 
-declare void @ginNewScanKey(ptr noundef) local_unnamed_addr #2
-
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @tbm_add_page(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @tbm_add_page(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PredicateLockPage(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PredicateLockPage(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
-declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
-
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr noundef readonly captures(none) %0, ptr noundef nonnull initializes((8, 14)) %1) unnamed_addr #0 {
@@ -2770,72 +2764,72 @@ BufferGetPage.exit:                               ; preds = %11, %17
   ret i1 %.not55.not.not.not.not
 }
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare zeroext i16 @gintuple_get_attrnum(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @gintuple_get_attrnum(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @gintuple_get_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @gintuple_get_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ginCompareEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i64 noundef, i8 noundef signext) local_unnamed_addr #2
+declare i32 @ginCompareEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ginPrepareEntryScan(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
+declare void @ginPrepareEntryScan(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ginFindLeafPage(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @ginFindLeafPage(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @tbm_end_private_iterate(ptr noundef) local_unnamed_addr #2
+declare void @tbm_end_private_iterate(ptr noundef) local_unnamed_addr #1
 
-declare void @tbm_free(ptr noundef) local_unnamed_addr #2
+declare void @tbm_free(ptr noundef) local_unnamed_addr #1
 
-declare void @freeGinBtreeStack(ptr noundef) local_unnamed_addr #2
+declare void @freeGinBtreeStack(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @tbm_is_empty(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @tbm_is_empty(ptr noundef) local_unnamed_addr #1
 
-declare ptr @tbm_begin_private_iterate(ptr noundef) local_unnamed_addr #2
+declare ptr @tbm_begin_private_iterate(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ginScanBeginPostingTree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ginScanBeginPostingTree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @IncrBufferRefCount(i32 noundef) local_unnamed_addr #2
+declare void @IncrBufferRefCount(i32 noundef) local_unnamed_addr #1
 
-declare ptr @GinDataLeafPageGetItems(ptr noundef, ptr noundef, i48) local_unnamed_addr #2
+declare ptr @GinDataLeafPageGetItems(ptr noundef, ptr noundef, i48) local_unnamed_addr #1
 
-declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
-declare ptr @ginReadTuple(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ginReadTuple(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @tbm_create(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @tbm_create(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @ginStepRight(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ginStepRight(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @GinDataLeafPageGetItemsToTbm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @GinDataLeafPageGetItemsToTbm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
+define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3520,11 +3514,17 @@ entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %2
   ret void
 }
 
-declare ptr @tbm_private_iterate(ptr noundef) local_unnamed_addr #2
+declare ptr @tbm_private_iterate(ptr noundef) local_unnamed_addr #1
 
-declare double @pg_prng_double(ptr noundef) local_unnamed_addr #2
+declare double @pg_prng_double(ptr noundef) local_unnamed_addr #1
 
-declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #2
+declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
@@ -3536,12 +3536,12 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

@@ -13,21 +13,21 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
   %10 = alloca [4 x i8], align 1
   %11 = alloca [32 x i8], align 16
   %12 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp ugt i64 %6, 137438953440
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void @sodium_misuse() #7
+  tail call void @sodium_misuse() #6
   unreachable
 
 15:                                               ; preds = %7
-  %16 = call i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %8, ptr noundef %0, i64 noundef %1) #6
-  %17 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3) #6
+  %16 = call i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %8, ptr noundef %0, i64 noundef %1) #7
+  %17 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3) #7
   %.not34 = icmp eq i64 %6, 0
   br i1 %.not34, label %._crit_edge33, label %.lr.ph32
 
@@ -53,13 +53,13 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
   %28 = lshr i64 %22, 24
   %29 = trunc i64 %28 to i8
   store i8 %29, ptr %10, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(208) %8, i64 noundef 208, i1 noundef false) #6
-  %30 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 4) #6
-  %31 = call i32 @crypto_auth_hmacsha256_final(ptr noundef nonnull %9, ptr noundef nonnull %11) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(208) %8, i64 noundef 208, i1 noundef false) #7
+  %30 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 4) #7
+  %31 = call i32 @crypto_auth_hmacsha256_final(ptr noundef nonnull %9, ptr noundef nonnull %11) #7
   %32 = sub nsw i64 %6, %21
   %spec.store.select.us = call i64 @llvm.umin.i64(i64 %32, i64 32)
   %33 = getelementptr i8, ptr %5, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull align 16 %11, i64 noundef range(i64 -137438953439, 137438953441) %spec.store.select.us, i1 noundef false) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull align 16 %11, i64 noundef range(i64 -137438953439, 137438953441) %spec.store.select.us, i1 noundef false) #7
   %34 = shl i64 %22, 5
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph32.split.us, label %._crit_edge33, !llvm.loop !4
@@ -79,17 +79,17 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
   %43 = lshr i64 %37, 24
   %44 = trunc i64 %43 to i8
   store i8 %44, ptr %10, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(208) %8, i64 noundef 208, i1 noundef false) #6
-  %45 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 4) #6
-  %46 = call i32 @crypto_auth_hmacsha256_final(ptr noundef nonnull %9, ptr noundef nonnull %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 noundef 32, i1 noundef false) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(208) %8, i64 noundef 208, i1 noundef false) #7
+  %45 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 4) #7
+  %46 = call i32 @crypto_auth_hmacsha256_final(ptr noundef nonnull %9, ptr noundef nonnull %11) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 noundef 32, i1 noundef false) #7
   br label %47
 
 47:                                               ; preds = %.lr.ph, %57
   %.02429 = phi i64 [ 2, %.lr.ph ], [ %58, %57 ]
-  %48 = call i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %9, ptr noundef %0, i64 noundef %1) #6
-  %49 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef 32) #6
-  %50 = call i32 @crypto_auth_hmacsha256_final(ptr noundef nonnull %9, ptr noundef nonnull %11) #6
+  %48 = call i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %9, ptr noundef %0, i64 noundef %1) #7
+  %49 = call i32 @crypto_auth_hmacsha256_update(ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef 32) #7
+  %50 = call i32 @crypto_auth_hmacsha256_final(ptr noundef nonnull %9, ptr noundef nonnull %11) #7
   br label %51
 
 51:                                               ; preds = %47, %51
@@ -113,37 +113,37 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
   %59 = sub nsw i64 %6, %36
   %spec.store.select = call i64 @llvm.umin.i64(i64 %59, i64 32)
   %60 = getelementptr i8, ptr %5, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %60, ptr noundef nonnull align 16 %12, i64 noundef range(i64 -137438953439, 137438953441) %spec.store.select, i1 noundef false) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %60, ptr noundef nonnull align 16 %12, i64 noundef range(i64 -137438953439, 137438953441) %spec.store.select, i1 noundef false) #7
   %61 = shl i64 %37, 5
   %62 = icmp ult i64 %61, %6
   br i1 %62, label %.lr.ph, label %._crit_edge33, !llvm.loop !9
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %.lr.ph32.split.us, %15
-  call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 208) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #6
+  call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 208) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: noreturn
-declare void @sodium_misuse() local_unnamed_addr #2
+declare void @sodium_misuse() local_unnamed_addr #1
 
-declare i32 @crypto_auth_hmacsha256_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @crypto_auth_hmacsha256_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @crypto_auth_hmacsha256_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @crypto_auth_hmacsha256_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @crypto_auth_hmacsha256_final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @crypto_auth_hmacsha256_final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
@@ -152,13 +152,13 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

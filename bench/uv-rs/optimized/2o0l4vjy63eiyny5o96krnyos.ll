@@ -35,7 +35,7 @@ define hidden { i64, i64 } @_ZN4core5error5Error7type_id17ha2475d019b3ca88eE(ptr
 define noundef i64 @"_ZN95_$LT$fs_err..file..File$u20$as$u20$uv_extract..vendor..cloneable_seekable_reader..HasLength$GT$3len17h1fab736a93ff7ae9E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   %3 = alloca [176 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6fs_err4file4File8metadata17ha9650d22259025e8E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -44,7 +44,7 @@ define noundef i64 @"_ZN95_$LT$fs_err..file..File$u20$as$u20$uv_extract..vendor.
   br i1 %5, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb4f8ec9289791b35E.exit"
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !14
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !11, !noalias !8, !nonnull !7, !noundef !7
   store ptr %8, ptr %2, align 8, !noalias !14
@@ -72,7 +72,7 @@ define noundef i64 @"_ZN95_$LT$fs_err..file..File$u20$as$u20$uv_extract..vendor.
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb4f8ec9289791b35E.exit": ; preds = %1
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !14
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.3.0.copyload
 }
 
@@ -128,14 +128,14 @@ declare void @_ZN6fs_err4file4File8metadata17ha9650d22259025e8E(ptr dead_on_unwi
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcb55bbe819ff21e2E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

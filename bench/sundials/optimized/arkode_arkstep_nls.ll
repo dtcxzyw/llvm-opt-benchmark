@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %52
@@ -139,29 +139,26 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
 
 52:                                               ; preds = %2, %50, %49, %44, %36, %21, %7
   %.0 = phi i32 [ -22, %7 ], [ -22, %21 ], [ -22, %36 ], [ -22, %44 ], [ 0, %50 ], [ -22, %49 ], [ %4, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @arkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
-
-declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %5, ptr noundef nonnull @__func__.arkStep_NlsConvTest, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %49
@@ -230,21 +227,18 @@ define i32 @arkStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
 
 49:                                               ; preds = %.thread, %41, %21, %15, %11, %6, %.thread21
   %.0 = phi i32 [ 901, %.thread21 ], [ %10, %6 ], [ 0, %11 ], [ -21, %15 ], [ 0, %21 ], [ 902, %41 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNlsRhsFn, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %11
@@ -266,14 +260,14 @@ define i32 @arkStep_SetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %11
 
 11:                                               ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %63
@@ -400,13 +394,13 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %58, %1, %62, %57, %56, %30
   %.08 = phi i32 [ -22, %62 ], [ -22, %30 ], [ -22, %56 ], [ -22, %57 ], [ %3, %1 ], [ 0, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.08
 }
 
-declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -415,11 +409,11 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %6 = alloca i32, align 4
   %7 = alloca [3 x double], align 16
   %8 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %78
@@ -524,11 +518,11 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
 
 78:                                               ; preds = %59, %58, %35, %10, %3
   %.0 = phi i32 [ %9, %3 ], [ -32, %10 ], [ -8, %35 ], [ 9, %58 ], [ %., %59 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -538,10 +532,10 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca [3 x double], align 16
   %7 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %58
@@ -614,10 +608,10 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
 
 58:                                               ; preds = %40, %39, %9, %3
   %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ %., %40 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -628,11 +622,11 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %6 = alloca i32, align 4
   %7 = alloca [3 x double], align 16
   %8 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %84
@@ -746,11 +740,11 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
 
 84:                                               ; preds = %65, %59, %58, %35, %10, %3
   %.0 = phi i32 [ %9, %3 ], [ -32, %10 ], [ -8, %35 ], [ 9, %58 ], [ -18, %59 ], [ %., %65 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -760,10 +754,10 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca [3 x double], align 16
   %7 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %64
@@ -845,10 +839,10 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
 
 64:                                               ; preds = %45, %40, %39, %9, %3
   %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ -18, %40 ], [ %., %45 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -856,8 +850,8 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
 define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassTDep, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %72
@@ -943,8 +937,8 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
 
 72:                                               ; preds = %60, %36, %7, %3, %61
   %.0 = phi i32 [ 0, %61 ], [ %6, %3 ], [ -18, %7 ], [ -8, %36 ], [ 9, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -953,9 +947,9 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %70
@@ -1047,9 +1041,9 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
 
 70:                                               ; preds = %56, %33, %8, %3, %57
   %.0 = phi i32 [ 0, %57 ], [ %7, %3 ], [ -32, %8 ], [ -8, %33 ], [ 9, %56 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1057,8 +1051,8 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
 define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %50
@@ -1118,8 +1112,8 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
 
 50:                                               ; preds = %37, %7, %3, %38
   %.0 = phi i32 [ 0, %38 ], [ %6, %3 ], [ -8, %7 ], [ 9, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1128,9 +1122,9 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %79
@@ -1235,9 +1229,9 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
 
 79:                                               ; preds = %78, %57, %56, %33, %8, %3
   %.0 = phi i32 [ %7, %3 ], [ -32, %8 ], [ -8, %33 ], [ 9, %56 ], [ -8, %57 ], [ %., %78 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1245,8 +1239,8 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
 define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %59
@@ -1319,8 +1313,8 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
 
 59:                                               ; preds = %58, %38, %37, %7, %3
   %.0 = phi i32 [ %6, %3 ], [ -8, %7 ], [ 9, %37 ], [ -8, %38 ], [ %., %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1328,8 +1322,8 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
 define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassTDep, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %61
@@ -1406,15 +1400,15 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
 
 61:                                               ; preds = %56, %38, %37, %7, %3, %57
   %.0 = phi i32 [ 0, %57 ], [ %6, %3 ], [ -8, %7 ], [ 9, %37 ], [ -8, %38 ], [ 9, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetNonlinearSystemData(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNonlinearSystemData, ptr noundef nonnull %9) #5
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %32
@@ -1450,7 +1444,7 @@ define i32 @arkStep_GetNonlinearSystemData(ptr noundef %0, ptr noundef writeonly
   br label %32
 
 32:                                               ; preds = %8, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %10
 }
 
@@ -1522,14 +1516,14 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
   ret i32 %.021
 }
 
-declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsLSetup, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %51
@@ -1605,21 +1599,21 @@ define i32 @arkStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
 
 51:                                               ; preds = %50, %9, %3
   %.0 = phi i32 [ %6, %3 ], [ -6, %9 ], [ %., %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %1, ptr noundef nonnull @__func__.arkStep_NlsLSolve, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %34
@@ -1662,21 +1656,21 @@ define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
 
 34:                                               ; preds = %33, %12, %7, %2
   %.0 = phi i32 [ %6, %2 ], [ -32, %7 ], [ -7, %12 ], [ %., %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8, !tbaa !62
@@ -1821,44 +1815,50 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
 
 93:                                               ; preds = %59, %92, %86, %8
   %.0 = phi i32 [ -21, %8 ], [ 0, %86 ], [ %73, %92 ], [ 4, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #3
+declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolGetNumIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolGetNumIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolGetNumConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolGetNumConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 

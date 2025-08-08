@@ -40,7 +40,7 @@ define hidden zeroext i1 @Wayland_ShowMessageBox(ptr noundef readonly captures(n
   %3 = alloca ptr, align 8
   %4 = alloca [3 x ptr], align 16
   %5 = alloca [28 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %5, ptr noundef nonnull align 16 dereferenceable(224) @__const.Wayland_ShowMessageBox.argv, i64 224, i1 false)
   %6 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.5) #4
   %.not = icmp eq ptr %6, null
@@ -74,14 +74,14 @@ define hidden zeroext i1 @Wayland_ShowMessageBox(ptr noundef readonly captures(n
   br label %141
 
 18:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const.get_zenity_version.argv, i64 24, i1 false)
   %19 = call ptr @SDL_CreateProcess_REAL(ptr noundef nonnull %4, i1 noundef zeroext true) #4
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %get_zenity_version.exit.thread, label %20
 
 get_zenity_version.exit.thread:                   ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %141
 
 20:                                               ; preds = %18
@@ -91,11 +91,11 @@ get_zenity_version.exit.thread:                   ; preds = %18
 
 get_zenity_version.exit.thread115:                ; preds = %20
   call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %19) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %141
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %23 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %21, ptr noundef nonnull %3, i32 noundef 10) #4
   %24 = trunc i64 %23 to i32
@@ -128,10 +128,10 @@ get_zenity_version.exit.sink.split:               ; preds = %31, %22
 get_zenity_version.exit:                          ; preds = %get_zenity_version.exit.sink.split, %31, %28
   %.0105 = phi i32 [ %34, %31 ], [ 0, %28 ], [ 0, %get_zenity_version.exit.sink.split ]
   %.0.i.i = phi i1 [ true, %31 ], [ true, %28 ], [ %38, %get_zenity_version.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @SDL_free_REAL(ptr noundef nonnull %21) #4
   call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %19) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.i.i, label %39, label %141
 
 39:                                               ; preds = %get_zenity_version.exit
@@ -356,55 +356,55 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 
 141:                                              ; preds = %get_zenity_version.exit.thread115, %get_zenity_version.exit.thread, %11, %140, %106, %110, %get_zenity_version.exit, %16
   %.1 = phi i1 [ %17, %16 ], [ %12, %11 ], [ false, %get_zenity_version.exit ], [ true, %140 ], [ false, %106 ], [ false, %110 ], [ false, %get_zenity_version.exit.thread ], [ false, %get_zenity_version.exit.thread115 ]
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
+
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef) local_unnamed_addr #2
+
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
+
+declare ptr @SDL_ReadProcess_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+
+declare void @SDL_DestroyProcess_REAL(ptr noundef) local_unnamed_addr #2
+
+declare ptr @SDL_CreateProcess_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+
+declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
-
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #3
-
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef) local_unnamed_addr #3
-
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #3
-
-declare ptr @SDL_ReadProcess_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
-
-declare void @SDL_DestroyProcess_REAL(ptr noundef) local_unnamed_addr #3
-
-declare ptr @SDL_CreateProcess_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
-
-declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

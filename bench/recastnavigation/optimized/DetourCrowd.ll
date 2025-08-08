@@ -1804,12 +1804,12 @@ _ZN7dtCrowd15getActiveAgentsEPP12dtCrowdAgenti.exit: ; preds = %29, %11
   %.09.lcssa.i = phi i32 [ 0, %11 ], [ %.1.i, %29 ]
   tail call void @_ZN7dtCrowd17checkPathValidityEPP12dtCrowdAgentif(ptr noundef nonnull align 8 dereferenceable(5072) %0, ptr noundef %14, i32 noundef %.09.lcssa.i, float noundef %1)
   tail call void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 dereferenceable(5072) %0, float poison)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = icmp sgt i32 %.09.lcssa.i, 0
   br i1 %33, label %.lr.ph.preheader.i, label %_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit.thread
 
 _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit.thread: ; preds = %_ZN7dtCrowd15getActiveAgentsEPP12dtCrowdAgenti.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %35 = load ptr, ptr %34, align 8
   tail call void @_ZN15dtProximityGrid5clearEv(ptr noundef nonnull align 8 dereferenceable(52) %35)
@@ -1948,7 +1948,7 @@ _ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i.thread: ; preds = %51, %.loopexit
   br i1 %exitcond34.not.i, label %_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit, label %86, !llvm.loop !20
 
 _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit: ; preds = %86, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %94 = load ptr, ptr %93, align 8
   tail call void @_ZN15dtProximityGrid5clearEv(ptr noundef nonnull align 8 dereferenceable(52) %94)
@@ -2062,7 +2062,7 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit:        ; preds = %150, %153
   %167 = load float, ptr %126, align 8
   %168 = getelementptr inbounds nuw i8, ptr %122, i64 360
   %169 = load ptr, ptr %93, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %170 = load float, ptr %129, align 4
   %171 = fsub float %170, %167
   %172 = load float, ptr %136, align 4
@@ -2074,7 +2074,7 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit:        ; preds = %150, %153
   br i1 %177, label %.lr.ph.i388, label %_ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit.thread
 
 _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit.thread: ; preds = %164
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %178 = getelementptr inbounds nuw i8, ptr %122, i64 408
   store i32 0, ptr %178, align 8
   br label %.loopexit
@@ -2211,7 +2211,7 @@ _ZL12addNeighbourifP16dtCrowdNeighbourii.exit.i:  ; preds = %243, %220, %199, %1
   br i1 %exitcond.not.i393, label %_ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit, label %181, !llvm.loop !23
 
 _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit: ; preds = %_ZL12addNeighbourifP16dtCrowdNeighbourii.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %247 = getelementptr inbounds nuw i8, ptr %122, i64 408
   store i32 %.1.i391, ptr %247, align 8
   %248 = icmp sgt i32 %.1.i391, 0
@@ -3420,10 +3420,10 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 declare float @llvm.sqrt.f32(float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

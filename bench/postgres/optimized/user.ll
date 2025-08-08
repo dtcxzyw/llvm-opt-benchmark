@@ -138,12 +138,12 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
   %5 = alloca %struct.GrantRoleOptions, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.GrantRoleOptions, align 4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %3, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %8 = tail call i32 @GetUserId() #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %cond = icmp eq i32 %10, 1
@@ -747,7 +747,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %252, label %273, label %294
 
 273:                                              ; preds = %256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %274 = load i8, ptr %.0215632648685703738758791813844868897923, align 1
   %275 = icmp eq i8 %274, 0
@@ -784,7 +784,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
   br label %293
 
 293:                                              ; preds = %286, %284
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %296
 
 294:                                              ; preds = %256
@@ -913,7 +913,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
 354:                                              ; preds = %.critedge297
   %355 = call noundef ptr @palloc0(i64 noundef 24) #11
   store i32 75, ptr %355, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.06.0.insert.ext = zext i32 %8 to i64
   %356 = inttoptr i64 %.sroa.06.0.insert.ext to ptr
   %357 = call ptr @list_make1_impl(i32 noundef 471, ptr %356) #11
@@ -942,7 +942,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
   br label %369
 
 369:                                              ; preds = %367, %354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %370
 
 370:                                              ; preds = %369, %.critedge297
@@ -1014,87 +1014,81 @@ roleSpecsToIds.exit305:                           ; preds = %.lr.ph19.i301, %rol
 
 399:                                              ; preds = %398, %roleSpecsToIds.exit305
   call void @table_close(ptr noundef nonnull %235, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare i32 @GetUserId() local_unnamed_addr #3
+declare i32 @GetUserId() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @has_createrole_privilege(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @has_createrole_privilege(i32 noundef) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @have_createdb_privilege() local_unnamed_addr #2
 
-declare zeroext i1 @have_createdb_privilege() local_unnamed_addr #3
+declare zeroext i1 @has_rolreplication(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @has_rolreplication(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @has_bypassrls_privilege(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @has_bypassrls_privilege(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @IsReservedName(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @IsReservedName(ptr noundef) local_unnamed_addr #3
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @timestamptz_in(ptr noundef) #2
 
-declare i64 @timestamptz_in(ptr noundef) #3
+declare i32 @get_password_type(ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_password_type(ptr noundef) local_unnamed_addr #3
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @namein(ptr noundef) #2
 
-declare i64 @namein(ptr noundef) #3
+declare i32 @plain_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @plain_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @encrypt_password(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @encrypt_password(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #3
+declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #2
 
-declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #3
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CommandCounterIncrement() local_unnamed_addr #2
 
-declare void @CommandCounterIncrement() local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
-
-declare ptr @get_rolespec_tuple(ptr noundef) local_unnamed_addr #3
+declare ptr @get_rolespec_tuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_role_membership_authorization(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -1461,11 +1455,11 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   %165 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv206
   %166 = load ptr, ptr %155, align 8
   %167 = load i32, ptr %165, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %8, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %9, i8 0, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %10, i8 0, i64 7, i1 false)
   store i64 %39, ptr %135, align 8
   %168 = zext i32 %167 to i64
@@ -1623,16 +1617,16 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   br label %239
 
 239:                                              ; preds = %208, %238
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   br label %.split196, !llvm.loop !12
 }
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @superuser() local_unnamed_addr #3
+declare zeroext i1 @superuser() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @roleSpecsToIds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1665,9 +1659,9 @@ define dso_local ptr @roleSpecsToIds(ptr noundef readonly captures(address_is_nu
   ret ptr %.0.lcssa
 }
 
-declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1677,15 +1671,15 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(no
   %6 = alloca i8, align 1
   %7 = alloca %struct.GrantRoleOptions, align 4
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %3, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call i32 @GetUserId() #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @check_rolespec_name(ptr noundef %11, ptr noundef nonnull @.str.32) #11
@@ -2294,7 +2288,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %208, label %281, label %301
 
 281:                                              ; preds = %280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %282 = load i8, ptr %.0182504519, align 1
   %283 = icmp eq i8 %282, 0
@@ -2331,7 +2325,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(no
 299:                                              ; preds = %293, %291
   %300 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 1, ptr %300, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %301
 
 301:                                              ; preds = %299, %280
@@ -2470,29 +2464,29 @@ roleSpecsToIds.exit249:                           ; preds = %.lr.ph19.i245, %349
 
 362:                                              ; preds = %roleSpecsToIds.exit, %roleSpecsToIds.exit249, %331, %327
   call void @table_close(ptr noundef nonnull %111, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %123
 }
 
-declare void @check_rolespec_name(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @check_rolespec_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @is_admin_of_role(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @is_admin_of_role(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #3
+declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
@@ -2695,11 +2689,11 @@ plan_single_revoke.exit.thread:                   ; preds = %88, %94, %92, %plan
   br label %131
 
 121:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %10, i8 0, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false)
   switch i32 %106, label %125 [
     i32 1, label %122
@@ -2733,9 +2727,9 @@ plan_single_revoke.exit.thread:                   ; preds = %88, %94, %92, %plan
   %129 = call ptr @heap_modify_tuple(ptr noundef nonnull %111, ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %130, ptr noundef %129) #11
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %131
 
 131:                                              ; preds = %113, %128, %104
@@ -2873,15 +2867,15 @@ define dso_local noundef i32 @AlterRoleSet(ptr noundef readonly captures(none) %
   ret i32 %.0
 }
 
-declare void @shdepLockAndCheckObject(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @shdepLockAndCheckObject(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @get_database_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_database_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @AlterSetting(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @AlterSetting(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2923,7 +2917,7 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   %22 = load ptr, ptr %18, align 8
   %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv194
   %24 = load ptr, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %.not76 = icmp eq i32 %26, 0
@@ -3126,7 +3120,7 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
 
 126:                                              ; preds = %49, %47, %._crit_edge110
   %.165 = phi ptr [ %125, %._crit_edge110 ], [ %.064112195, %47 ], [ %.064112195, %49 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv194, 1
   %127 = load i32, ptr %17, align 4
   %128 = sext i32 %127 to i64
@@ -3138,8 +3132,8 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   %130 = load ptr, ptr %28, align 8
   %131 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv143
   %132 = load i32, ptr %131, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %133 = zext i32 %132 to i64
   %134 = call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %133) #11
   %.not75 = icmp eq ptr %134, null
@@ -3187,8 +3181,8 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   call void @DeleteSharedComments(i32 noundef %132, i32 noundef 1260) #11
   call void @DeleteSharedSecurityLabel(i32 noundef %132, i32 noundef 1260) #11
   call void @DropSetting(i32 noundef 0, i32 noundef %132) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %154 = load i32, ptr %27, align 4
   %155 = sext i32 %154 to i64
@@ -3196,41 +3190,41 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   br i1 %156, label %.lr.ph125, label %.critedge82
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @GetOuterUserId() local_unnamed_addr #3
+declare i32 @GetOuterUserId() local_unnamed_addr #2
 
-declare i32 @GetSessionUserId() local_unnamed_addr #3
+declare i32 @GetSessionUserId() local_unnamed_addr #2
 
-declare void @RunObjectDropHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @RunObjectDropHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #3
+declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #2
 
-declare void @deleteSharedDependencyRecordsFor(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @deleteSharedDependencyRecordsFor(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @systable_endscan(ptr noundef) local_unnamed_addr #3
+declare void @systable_endscan(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_append_unique_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @list_append_unique_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @checkSharedDependencies(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @checkSharedDependencies(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail_log(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail_log(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @DeleteSharedComments(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @DeleteSharedComments(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @DeleteSharedSecurityLabel(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @DeleteSharedSecurityLabel(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @DropSetting(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @DropSetting(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3238,10 +3232,10 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   %4 = alloca [12 x i64], align 16
   %5 = alloca [12 x i8], align 1
   %6 = alloca [12 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @table_open(i32 noundef 1260, i32 noundef 3) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -3513,10 +3507,10 @@ heap_getattr.exit.thread:                         ; preds = %125, %119, %116, %1
 151:                                              ; preds = %146, %150
   call void @ReleaseSysCache(ptr noundef nonnull %11) #11
   call void @table_close(ptr noundef nonnull %7, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.233.0.insert.ext = zext i32 %22 to i64
   %.sroa.233.0.insert.shift = shl nuw i64 %.sroa.233.0.insert.ext, 32
   %.sroa.032.0.insert.insert = or disjoint i64 %.sroa.233.0.insert.shift, 1260
@@ -3525,14 +3519,14 @@ heap_getattr.exit.thread:                         ; preds = %125, %119, %116, %1
   ret { i64, i32 } %.fca.1.insert
 }
 
-declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @GrantRole(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.GrantRoleOptions, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @GetUserId() #11
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3696,7 +3690,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i, %64, %.
 
 .critedge64:                                      ; preds = %110, %.lr.ph84, %roleSpecsToIds.exit
   call void @table_close(ptr noundef %79, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 94:                                               ; preds = %.lr.ph89
@@ -3740,13 +3734,13 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i, %64, %.
   br i1 %113, label %.lr.ph89, label %.critedge64
 }
 
-declare ptr @defGetString(ptr noundef) local_unnamed_addr #3
+declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @parse_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @parse_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @get_rolespec_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_rolespec_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DropOwnedObjects(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3821,11 +3815,11 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i
   unreachable
 }
 
-declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @shdepDropOwned(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @shdepDropOwned(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReassignOwnedObjects(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3916,14 +3910,14 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i
   ret void
 }
 
-declare void @shdepReassignOwned(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @shdepReassignOwned(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @pstrdup(ptr noundef %5) #11
   %7 = call zeroext i1 @SplitIdentifierString(ptr noundef %6, i8 noundef signext 44, ptr noundef nonnull %4) #11
@@ -3999,29 +3993,29 @@ define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr noundef rea
 
 38:                                               ; preds = %.split, %._crit_edge, %8
   %.0 = phi i1 [ true, %._crit_edge ], [ false, %.split ], [ false, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare zeroext i1 @SplitIdentifierString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SplitIdentifierString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
-declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
-declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @list_free(ptr noundef) local_unnamed_addr #3
+declare void @list_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @guc_malloc(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @guc_malloc(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @assign_createrole_self_grant(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define dso_local void @assign_createrole_self_grant(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i8
@@ -4038,11 +4032,11 @@ define dso_local void @assign_createrole_self_grant(ptr noundef readnone capture
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 1, 0) i32 @check_role_grantor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -4122,21 +4116,21 @@ define internal fastcc range(i32 1, 0) i32 @check_role_grantor(i32 noundef %0, i
   ret i32 %.0
 }
 
-declare ptr @get_rolespec_name(ptr noundef) local_unnamed_addr #3
+declare ptr @get_rolespec_name(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @is_member_of_role_nosuper(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @is_member_of_role_nosuper(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCache3(i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache3(i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare void @updateAclDependencies(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @updateAclDependencies(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @select_best_admin(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @select_best_admin(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
@@ -4307,7 +4301,13 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   ret void
 }
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -4316,14 +4316,14 @@ declare void @llvm.assume(i1 noundef) #9
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

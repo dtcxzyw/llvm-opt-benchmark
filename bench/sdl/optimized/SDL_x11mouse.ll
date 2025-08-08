@@ -77,10 +77,7 @@ switch.lookup:                                    ; preds = %1, %switch.lookup
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @SDL_GetMouse() local_unnamed_addr #2
+declare ptr @SDL_GetMouse() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @X11_CreateCursor(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -138,8 +135,8 @@ X11_CreateXCursorCursor.exit.thread:              ; preds = %18, %3, %X11_Create
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1656
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add nsw i32 %42, 7
@@ -362,8 +359,8 @@ X11_CreateXCursorCursor.exit.thread:              ; preds = %18, %3, %X11_Create
 
 X11_CreatePixmapCursor.exit:                      ; preds = %X11_CreateXCursorCursor.exit.thread, %104, %132
   %.0.i8 = phi i64 [ %155, %132 ], [ 0, %104 ], [ 0, %X11_CreateXCursorCursor.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %160
 
 160:                                              ; preds = %X11_CreatePixmapCursor.exit, %X11_CreateXCursorCursor.exit
@@ -475,8 +472,8 @@ define internal noundef zeroext i1 @X11_ShowCursor(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1656
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %2, align 1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i16 0, ptr %17, align 4
@@ -505,8 +502,8 @@ define internal noundef zeroext i1 @X11_ShowCursor(ptr noundef readonly captures
   br label %34
 
 34:                                               ; preds = %29, %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i = load i64, ptr @x11_empty_cursor, align 8
   br label %X11_CreateEmptyCursor.exit
 
@@ -811,13 +808,13 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   br i1 %.not34, label %57, label %29
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %30 = load ptr, ptr @X11_XQueryPointer, align 8
   %31 = load ptr, ptr %25, align 8
   %32 = load i32, ptr %28, align 8
@@ -829,17 +826,17 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   br i1 %.not35, label %.thread, label %37
 
 .thread:                                          ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 37:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %38 = load i32, ptr %9, align 4
   %39 = lshr i32 %38, 8
   %40 = and i32 %39, 7
@@ -863,14 +860,14 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 1668
   store i32 %43, ptr %56, align 4
   store i8 0, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 57:                                               ; preds = %.thread, %26
@@ -898,10 +895,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   ret i32 %68
 }
 
-declare void @SDL_SetDefaultCursor(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_SetDefaultCursor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_QuitMouse(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -973,7 +967,7 @@ X11_DestroyEmptyCursor.exit:                      ; preds = %._crit_edge, %24
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_SetHitTestCursor(i32 noundef %0) local_unnamed_addr #0 {
@@ -995,21 +989,21 @@ define hidden void @X11_SetHitTestCursor(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_RedrawCursor() local_unnamed_addr #2
+declare void @SDL_RedrawCursor() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_OutOfMemory_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_OutOfMemory_REAL() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @SDL_GetCSSCursorName(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetCSSCursorName(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @X11_WarpMouseXTest(ptr noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare zeroext i1 @X11_WarpMouseXTest(ptr noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @X11_WarpMouseInternal(i64 noundef %0, float noundef %1, float noundef %2) unnamed_addr #0 {
@@ -1031,7 +1025,7 @@ define internal fastcc void @X11_WarpMouseInternal(i64 noundef %0, float noundef
   br label %16
 
 16:                                               ; preds = %14, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %17 = tail call zeroext i1 @X11_Xinput2IsInitialized() #5
   br i1 %17, label %18, label %.thread
@@ -1076,33 +1070,39 @@ define internal fastcc void @X11_WarpMouseInternal(i64 noundef %0, float noundef
   %40 = call i32 %39(ptr noundef %8, i32 noundef 0) #5
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 1656
   store i8 1, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare zeroext i1 @X11_Xinput2IsInitialized() local_unnamed_addr #2
+declare zeroext i1 @X11_Xinput2IsInitialized() local_unnamed_addr #1
 
-declare ptr @SDL_GetCursor_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetCursor_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #1
 
-declare void @SDL_UpdateWindowGrab(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UpdateWindowGrab(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetDisplays_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetDisplays_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetDisplayDriverData(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetDisplayDriverData(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetMouseState_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetMouseState_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetDefaultSystemCursor() local_unnamed_addr #2
+declare i32 @SDL_GetDefaultSystemCursor() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0,1) }
 

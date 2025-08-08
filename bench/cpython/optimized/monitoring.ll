@@ -257,7 +257,7 @@ Py_XDECREF.exit48:                                ; preds = %4, %1, %52, %49, %P
 ; Function Attrs: nounwind uwtable
 define internal ptr @CodeLike_new(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %6
@@ -292,14 +292,11 @@ define internal ptr @CodeLike_new(ptr noundef %0, ptr noundef %1, ptr readnone c
 
 21:                                               ; preds = %6, %20, %15, %3
   %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %20 ], [ %14, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
@@ -308,9 +305,6 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyUnicode_Join(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -324,8 +318,8 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 define internal ptr @fire_event_py_start(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %40, label %6
@@ -413,8 +407,8 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FirePy
 
 40:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %37, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %39, %37 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -422,8 +416,8 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FirePy
 define internal ptr @fire_event_py_resume(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %40, label %6
@@ -511,8 +505,8 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FirePy
 
 40:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %37, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %39, %37 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -521,9 +515,9 @@ define internal ptr @fire_event_py_return(ptr readnone captures(none) %0, ptr no
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -612,9 +606,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FirePy
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -623,9 +617,9 @@ define internal ptr @fire_event_c_return(ptr readnone captures(none) %0, ptr nou
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -714,9 +708,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireCR
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -725,9 +719,9 @@ define internal ptr @fire_event_py_yield(ptr readnone captures(none) %0, ptr nou
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -816,9 +810,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FirePy
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -828,10 +822,10 @@ define internal ptr @fire_event_call(ptr readnone captures(none) %0, ptr noundef
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.36, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %44, label %8
@@ -921,10 +915,10 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireCa
 
 44:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %41, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %43, %41 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -933,9 +927,9 @@ define internal ptr @fire_event_line(ptr readnone captures(none) %0, ptr noundef
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.37, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -1024,9 +1018,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireLi
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1035,9 +1029,9 @@ define internal ptr @fire_event_jump(ptr readnone captures(none) %0, ptr noundef
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -1126,9 +1120,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireJu
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1137,9 +1131,9 @@ define internal ptr @fire_event_branch_left(ptr readnone captures(none) %0, ptr 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -1228,9 +1222,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireBr
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1239,9 +1233,9 @@ define internal ptr @fire_event_branch_right(ptr readnone captures(none) %0, ptr
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %42, label %7
@@ -1330,9 +1324,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireBr
 
 42:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %39, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %41, %39 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1341,9 +1335,9 @@ define internal ptr @fire_event_py_throw(ptr readnone captures(none) %0, ptr nou
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %55, label %7
@@ -1454,9 +1448,9 @@ PyMonitoring_FirePyThrowEvent.exit:               ; preds = %38, %40
 
 55:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %48, %52, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %54, %52 ], [ null, %48 ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1465,9 +1459,9 @@ define internal ptr @fire_event_raise(ptr readnone captures(none) %0, ptr nounde
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %55, label %7
@@ -1578,9 +1572,9 @@ PyMonitoring_FireRaiseEvent.exit:                 ; preds = %38, %40
 
 55:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %48, %52, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %54, %52 ], [ null, %48 ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1589,9 +1583,9 @@ define internal ptr @fire_event_c_raise(ptr readnone captures(none) %0, ptr noun
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %55, label %7
@@ -1702,9 +1696,9 @@ PyMonitoring_FireCRaiseEvent.exit:                ; preds = %38, %40
 
 55:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %48, %52, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %54, %52 ], [ null, %48 ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1713,9 +1707,9 @@ define internal ptr @fire_event_reraise(ptr readnone captures(none) %0, ptr noun
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %55, label %7
@@ -1826,9 +1820,9 @@ PyMonitoring_FireReraiseEvent.exit:               ; preds = %38, %40
 
 55:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %48, %52, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %54, %52 ], [ null, %48 ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1837,9 +1831,9 @@ define internal ptr @fire_event_exception_handled(ptr readnone captures(none) %0
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %55, label %7
@@ -1950,9 +1944,9 @@ PyMonitoring_FireExceptionHandledEvent.exit:      ; preds = %38, %40
 
 55:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %48, %52, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %54, %52 ], [ null, %48 ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1961,9 +1955,9 @@ define internal ptr @fire_event_py_unwind(ptr readnone captures(none) %0, ptr no
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %55, label %7
@@ -2074,9 +2068,9 @@ PyMonitoring_FirePyUnwindEvent.exit:              ; preds = %38, %40
 
 55:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %48, %52, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %54, %52 ], [ null, %48 ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -2085,9 +2079,9 @@ define internal ptr @fire_event_stop_iteration(ptr readnone captures(none) %0, p
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %46, label %7
@@ -2185,9 +2179,9 @@ teardown_fire.exit.thread:                        ; preds = %PyMonitoring_FireSt
 
 46:                                               ; preds = %setup_fire.exit.thread, %setup_fire.exit, %teardown_fire.exit.thread, %43, %2
   %.0 = phi ptr [ null, %2 ], [ null, %setup_fire.exit ], [ %45, %43 ], [ null, %teardown_fire.exit.thread ], [ null, %setup_fire.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -2197,9 +2191,9 @@ define internal noundef ptr @enter_scope(ptr readnone captures(none) %0, ptr nou
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !29
   %7 = tail call i64 @PyTuple_Size(ptr noundef %1) #4
   %8 = add i64 %7, -1
@@ -2237,7 +2231,7 @@ define internal noundef ptr @enter_scope(ptr readnone captures(none) %0, ptr nou
   br label %32
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = load i32, ptr %4, align 4, !tbaa !29
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %6, align 1, !tbaa !3
@@ -2249,14 +2243,14 @@ define internal noundef ptr @enter_scope(ptr readnone captures(none) %0, ptr nou
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %31 = call i32 @PyMonitoring_EnterScope(ptr noundef %29, ptr noundef nonnull %30, ptr noundef nonnull %6, i64 noundef %8) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 32:                                               ; preds = %12, %9, %22, %17
   %.0 = phi ptr [ @_Py_NoneStruct, %22 ], [ null, %17 ], [ null, %9 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -2316,7 +2310,7 @@ define internal fastcc range(i32 -1, 256) i32 @teardown_fire(i32 noundef %0, ptr
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
@@ -2366,10 +2360,16 @@ declare i32 @PyMonitoring_EnterScope(ptr noundef, ptr noundef, ptr noundef, i64 
 
 declare i32 @PyMonitoring_ExitScope() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 

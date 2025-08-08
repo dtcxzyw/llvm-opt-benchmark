@@ -117,7 +117,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.Context, align 8
-  call void @llvm.lifetime.start.p0(i64 488, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 11, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %6, align 4, !tbaa !16
@@ -165,15 +165,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %36 = load ptr, ptr %1, align 8, !tbaa !26
-  %37 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %36, i32 noundef 47) #22
+  %37 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %36, i32 noundef 47) #21
   %.not.i.i.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %36, ptr %38
-  %39 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i.i.i, i32 noundef 92) #22
+  %39 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i.i.i, i32 noundef 92) #21
   %.not9.i.i.i = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %.1.i.i.i = select i1 %.not9.i.i.i, ptr %spec.select.i.i.i, ptr %40
-  %41 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.1.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #22
+  %41 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.1.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #21
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %CheckAlias.exit.i, label %CheckAlias.exit.thread.i
 
@@ -191,7 +191,7 @@ CheckAlias.exit.i:                                ; preds = %2
   br label %50
 
 CheckAlias.exit.thread.i:                         ; preds = %CheckAlias.exit.i, %2
-  %46 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.1.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #22
+  %46 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.1.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #21
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %CheckAlias.exit469.i, label %CheckAlias.exit469.thread.i
 
@@ -240,7 +240,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
   br i1 %.not408.i, label %.thread.i, label %57
 
 57:                                               ; preds = %53
-  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #22
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #21
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %.thread.i, label %63
 
@@ -257,7 +257,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 24, i64 1, ptr %66) #23
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 24, i64 1, ptr %66) #22
   br label %ParseParams.exit.thread.thread
 
 68:                                               ; preds = %63
@@ -325,7 +325,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %92) #23
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %92) #22
   br label %ParseParams.exit.thread.thread
 
 94:                                               ; preds = %90
@@ -347,7 +347,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %100 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 37, i64 1, ptr %99) #23
+  %100 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 37, i64 1, ptr %99) #22
   br label %ParseParams.exit.thread.thread
 
 101:                                              ; preds = %97
@@ -360,7 +360,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %105 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 36, i64 1, ptr %104) #23
+  %105 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 36, i64 1, ptr %104) #22
   br label %ParseParams.exit.thread.thread
 
 106:                                              ; preds = %96
@@ -370,7 +370,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 108:                                              ; preds = %106
   %109 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %110 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 35, i64 1, ptr %109) #23
+  %110 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 35, i64 1, ptr %109) #22
   br label %ParseParams.exit.thread.thread
 
 111:                                              ; preds = %106
@@ -389,7 +389,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 116:                                              ; preds = %115
   %117 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %118 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %117) #23
+  %118 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %117) #22
   br label %ParseParams.exit.thread.thread
 
 119:                                              ; preds = %115
@@ -421,7 +421,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %126 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 41, i64 1, ptr %125) #23
+  %126 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 41, i64 1, ptr %125) #22
   br label %ParseParams.exit.thread.thread
 
 127:                                              ; preds = %122
@@ -434,7 +434,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 129:                                              ; preds = %128
   %130 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 35, i64 1, ptr %130) #23
+  %131 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 35, i64 1, ptr %130) #22
   br label %ParseParams.exit.thread.thread
 
 132:                                              ; preds = %128
@@ -447,7 +447,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 134:                                              ; preds = %133
   %135 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %136 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 36, i64 1, ptr %135) #23
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 36, i64 1, ptr %135) #22
   br label %ParseParams.exit.thread.thread
 
 137:                                              ; preds = %121
@@ -457,7 +457,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %142 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 36, i64 1, ptr %141) #23
+  %142 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 36, i64 1, ptr %141) #22
   br label %ParseParams.exit.thread.thread
 
 143:                                              ; preds = %137
@@ -470,7 +470,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 145:                                              ; preds = %144
   %146 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %147 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 41, i64 1, ptr %146) #23
+  %147 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 41, i64 1, ptr %146) #22
   br label %ParseParams.exit.thread.thread
 
 148:                                              ; preds = %144
@@ -483,7 +483,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 150:                                              ; preds = %149
   %151 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %152 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %151) #23
+  %152 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %151) #22
   br label %ParseParams.exit.thread.thread
 
 153:                                              ; preds = %149
@@ -492,7 +492,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 154:                                              ; preds = %121
   %155 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.15, i32 noundef %88) #24
+  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.15, i32 noundef %88) #23
   br label %ParseParams.exit.thread.thread
 
 157:                                              ; preds = %121, %121, %121, %121, %121, %121
@@ -502,7 +502,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 159:                                              ; preds = %157
   %160 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.16, i32 noundef %88) #24
+  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.16, i32 noundef %88) #23
   br label %ParseParams.exit.thread.thread
 
 162:                                              ; preds = %157
@@ -524,7 +524,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 172:                                              ; preds = %169, %165, %162
   %173 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.16, i32 noundef %88) #24
+  %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.16, i32 noundef %88) #23
   br label %ParseParams.exit.thread.thread
 
 175:                                              ; preds = %169
@@ -547,7 +547,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %182 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 42, i64 1, ptr %181) #23
+  %182 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 42, i64 1, ptr %181) #22
   br label %ParseParams.exit.thread.thread
 
 183:                                              ; preds = %179
@@ -560,7 +560,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 
 185:                                              ; preds = %184
   %186 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %187 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %186) #23
+  %187 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %186) #22
   br label %ParseParams.exit.thread.thread
 
 .preheader.i:                                     ; preds = %184, %193
@@ -616,7 +616,7 @@ ParseInt.exit.i:                                  ; preds = %201
 
 .loopexit.i:                                      ; preds = %201, %.thread43.i.i, %197, %191
   %205 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.18, ptr noundef nonnull %168) #24
+  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.18, ptr noundef nonnull %168) #23
   br label %ParseParams.exit.thread.thread
 
 207:                                              ; preds = %175
@@ -625,7 +625,7 @@ ParseInt.exit.i:                                  ; preds = %201
 
 208:                                              ; preds = %207
   %209 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %210 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %209) #23
+  %210 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %209) #22
   br label %ParseParams.exit.thread.thread
 
 .preheader1263.i:                                 ; preds = %207, %216
@@ -677,7 +677,7 @@ ParseInt.exit.i:                                  ; preds = %201
 
 .loopexit557.i:                                   ; preds = %224, %.thread43.i476.i, %220, %214
   %228 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.20, ptr noundef nonnull %168) #24
+  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.20, ptr noundef nonnull %168) #23
   br label %ParseParams.exit.thread.thread
 
 230:                                              ; preds = %224
@@ -688,7 +688,7 @@ ParseInt.exit.i:                                  ; preds = %201
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.21, i32 noundef %.025.lcssa46.i480.i, i32 noundef 10) #24
+  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.21, i32 noundef %.025.lcssa46.i480.i, i32 noundef 10) #23
   br label %ParseParams.exit.thread.thread
 
 235:                                              ; preds = %175
@@ -697,12 +697,12 @@ ParseInt.exit.i:                                  ; preds = %201
 
 236:                                              ; preds = %235
   %237 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %238 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 20, i64 1, ptr %237) #23
+  %238 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 20, i64 1, ptr %237) #22
   br label %ParseParams.exit.thread.thread
 
 239:                                              ; preds = %235
   store i64 80, ptr %8, align 8, !tbaa !17
-  %240 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %168) #22
+  %240 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %168) #21
   %.not98.i.i = icmp eq i64 %240, 0
   br i1 %.not98.i.i, label %ParseBase64.exit.i, label %.lr.ph.i.i
 
@@ -811,7 +811,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 .loopexit558.i:                                   ; preds = %._crit_edge.i.i, %265, %256, %246
   %277 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %278 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 31, i64 1, ptr %277) #23
+  %278 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 31, i64 1, ptr %277) #22
   br label %ParseParams.exit.thread.thread
 
 279:                                              ; preds = %175
@@ -820,7 +820,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 280:                                              ; preds = %279
   %281 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %282 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 28, i64 1, ptr %281) #23
+  %282 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 28, i64 1, ptr %281) #22
   br label %ParseParams.exit.thread.thread
 
 283:                                              ; preds = %279
@@ -833,7 +833,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 285:                                              ; preds = %284
   %286 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %287 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 19, i64 1, ptr %286) #23
+  %287 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 19, i64 1, ptr %286) #22
   br label %ParseParams.exit.thread.thread
 
 288:                                              ; preds = %284
@@ -860,7 +860,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 292:                                              ; preds = %84
   %293 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  %294 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.26, ptr noundef nonnull dereferenceable(1) %293) #22
+  %294 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.26, ptr noundef nonnull dereferenceable(1) %293) #21
   %295 = icmp eq i32 %294, 0
   br i1 %295, label %296, label %301
 
@@ -870,7 +870,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 297:                                              ; preds = %296
   %298 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %299 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %298) #23
+  %299 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %298) #22
   br label %ParseParams.exit.thread.thread
 
 300:                                              ; preds = %296
@@ -878,7 +878,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
   br label %.thread514.i
 
 301:                                              ; preds = %292
-  %302 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(13) @.str.27, ptr noundef nonnull dereferenceable(1) %293) #22
+  %302 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(13) @.str.27, ptr noundef nonnull dereferenceable(1) %293) #21
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %304, label %309
 
@@ -888,7 +888,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 305:                                              ; preds = %304
   %306 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %307 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 41, i64 1, ptr %306) #23
+  %307 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 41, i64 1, ptr %306) #22
   br label %ParseParams.exit.thread.thread
 
 308:                                              ; preds = %304
@@ -896,7 +896,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
   br label %.thread514.i
 
 309:                                              ; preds = %301
-  %310 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.28, ptr noundef nonnull dereferenceable(1) %293) #22
+  %310 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.28, ptr noundef nonnull dereferenceable(1) %293) #21
   %311 = icmp eq i32 %310, 0
   br i1 %311, label %312, label %316
 
@@ -906,11 +906,11 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 313:                                              ; preds = %312
   %314 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %315 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 46, i64 1, ptr %314) #23
+  %315 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 46, i64 1, ptr %314) #22
   br label %ParseParams.exit.thread.thread
 
 316:                                              ; preds = %309
-  %317 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.30, ptr noundef nonnull dereferenceable(1) %293) #22
+  %317 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.30, ptr noundef nonnull dereferenceable(1) %293) #21
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %319, label %325
 
@@ -921,7 +921,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 321:                                              ; preds = %319
   %322 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %323 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 35, i64 1, ptr %322) #23
+  %323 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 35, i64 1, ptr %322) #22
   br label %ParseParams.exit.thread.thread
 
 324:                                              ; preds = %319
@@ -929,12 +929,12 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
   br label %.thread514.i
 
 325:                                              ; preds = %316
-  %326 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.31, ptr noundef nonnull dereferenceable(1) %293) #22
+  %326 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.31, ptr noundef nonnull dereferenceable(1) %293) #21
   %327 = icmp eq i32 %326, 0
   br i1 %327, label %ParseParams.exit.thread.thread, label %328
 
 328:                                              ; preds = %325
-  %329 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.32, ptr noundef nonnull dereferenceable(1) %293) #22
+  %329 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.32, ptr noundef nonnull dereferenceable(1) %293) #21
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %331, label %336
 
@@ -944,7 +944,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 332:                                              ; preds = %331
   %333 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %334 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %333) #23
+  %334 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %333) #22
   br label %ParseParams.exit.thread.thread
 
 335:                                              ; preds = %331
@@ -952,7 +952,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
   br label %.thread514.i
 
 336:                                              ; preds = %328
-  %337 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(13) @.str.33, ptr noundef nonnull dereferenceable(1) %293) #22
+  %337 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(13) @.str.33, ptr noundef nonnull dereferenceable(1) %293) #21
   %338 = icmp eq i32 %337, 0
   br i1 %338, label %339, label %sub_0.i
 
@@ -963,7 +963,7 @@ ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 341:                                              ; preds = %339
   %342 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %343 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 41, i64 1, ptr %342) #23
+  %343 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 41, i64 1, ptr %342) #22
   br label %ParseParams.exit.thread.thread
 
 344:                                              ; preds = %339
@@ -1003,7 +1003,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 359:                                              ; preds = %358
   %360 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %361 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %360) #23
+  %361 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %360) #22
   br label %ParseParams.exit.thread.thread
 
 362:                                              ; preds = %358
@@ -1011,7 +1011,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread514.i
 
 363:                                              ; preds = %.tail.i
-  %364 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.35, ptr noundef nonnull dereferenceable(1) %293) #22
+  %364 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.35, ptr noundef nonnull dereferenceable(1) %293) #21
   %365 = icmp eq i32 %364, 0
   br i1 %365, label %366, label %371
 
@@ -1021,7 +1021,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 367:                                              ; preds = %366
   %368 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %369 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 35, i64 1, ptr %368) #23
+  %369 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 35, i64 1, ptr %368) #22
   br label %ParseParams.exit.thread.thread
 
 370:                                              ; preds = %366
@@ -1029,7 +1029,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread514.i
 
 371:                                              ; preds = %363
-  %372 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.36, ptr noundef nonnull dereferenceable(1) %293) #22
+  %372 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.36, ptr noundef nonnull dereferenceable(1) %293) #21
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %374, label %379
 
@@ -1039,7 +1039,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 375:                                              ; preds = %374
   %376 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %377 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 37, i64 1, ptr %376) #23
+  %377 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 37, i64 1, ptr %376) #22
   br label %ParseParams.exit.thread.thread
 
 378:                                              ; preds = %374
@@ -1047,7 +1047,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread514.i
 
 379:                                              ; preds = %371
-  %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.37, ptr noundef nonnull dereferenceable(1) %293) #22
+  %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.37, ptr noundef nonnull dereferenceable(1) %293) #21
   %381 = icmp eq i32 %380, 0
   br i1 %381, label %382, label %386
 
@@ -1057,11 +1057,11 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 383:                                              ; preds = %382
   %384 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %385 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 40, i64 1, ptr %384) #23
+  %385 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 40, i64 1, ptr %384) #22
   br label %ParseParams.exit.thread.thread
 
 386:                                              ; preds = %379
-  %387 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.39, ptr noundef nonnull dereferenceable(1) %293) #22
+  %387 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.39, ptr noundef nonnull dereferenceable(1) %293) #21
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %389, label %396
 
@@ -1072,7 +1072,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 392:                                              ; preds = %389
   %393 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %394 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 36, i64 1, ptr %393) #23
+  %394 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 36, i64 1, ptr %393) #22
   br label %ParseParams.exit.thread.thread
 
 395:                                              ; preds = %389
@@ -1080,12 +1080,12 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread514.i
 
 396:                                              ; preds = %386
-  %397 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.40, ptr noundef nonnull dereferenceable(1) %293) #22
+  %397 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.40, ptr noundef nonnull dereferenceable(1) %293) #21
   %398 = icmp eq i32 %397, 0
   br i1 %398, label %ParseParams.exit.thread.thread101, label %399
 
 399:                                              ; preds = %396
-  %400 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %293, i32 noundef 61) #22
+  %400 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %293, i32 noundef 61) #21
   %.not411.i = icmp eq ptr %400, null
   br i1 %.not411.i, label %405, label %401
 
@@ -1097,14 +1097,14 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 405:                                              ; preds = %401, %399
   %406 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %407 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef nonnull @.str.41, ptr noundef nonnull %293) #24
+  %407 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef nonnull @.str.41, ptr noundef nonnull %293) #23
   br label %ParseParams.exit.thread.thread
 
 408:                                              ; preds = %401
   %409 = ptrtoint ptr %400 to i64
   %410 = ptrtoint ptr %293 to i64
   %411 = sub i64 %409, %410
-  %412 = tail call i32 @strncmp(ptr noundef nonnull @.str.42, ptr noundef nonnull %293, i64 noundef %411) #22
+  %412 = tail call i32 @strncmp(ptr noundef nonnull @.str.42, ptr noundef nonnull %293, i64 noundef %411) #21
   %413 = icmp eq i32 %412, 0
   br i1 %413, label %414, label %423
 
@@ -1114,7 +1114,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 415:                                              ; preds = %414
   %416 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %417 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 20, i64 1, ptr %416) #23
+  %417 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 20, i64 1, ptr %416) #22
   br label %ParseParams.exit.thread.thread
 
 418:                                              ; preds = %414
@@ -1125,11 +1125,11 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 420:                                              ; preds = %418
   %421 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %422 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 31, i64 1, ptr %421) #23
+  %422 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 31, i64 1, ptr %421) #22
   br label %ParseParams.exit.thread.thread
 
 423:                                              ; preds = %408
-  %424 = tail call i32 @strncmp(ptr noundef nonnull @.str.43, ptr noundef nonnull %293, i64 noundef %411) #22
+  %424 = tail call i32 @strncmp(ptr noundef nonnull @.str.43, ptr noundef nonnull %293, i64 noundef %411) #21
   %425 = icmp eq i32 %424, 0
   br i1 %425, label %426, label %432
 
@@ -1140,7 +1140,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 428:                                              ; preds = %426
   %429 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %430 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 28, i64 1, ptr %429) #23
+  %430 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 28, i64 1, ptr %429) #22
   br label %ParseParams.exit.thread.thread
 
 431:                                              ; preds = %426
@@ -1148,7 +1148,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread514.i
 
 432:                                              ; preds = %423
-  %433 = tail call i32 @strncmp(ptr noundef nonnull @.str.44, ptr noundef nonnull %293, i64 noundef %411) #22
+  %433 = tail call i32 @strncmp(ptr noundef nonnull @.str.44, ptr noundef nonnull %293, i64 noundef %411) #21
   %434 = icmp eq i32 %433, 0
   br i1 %434, label %435, label %450
 
@@ -1158,7 +1158,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 436:                                              ; preds = %435
   %437 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %438 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %437) #23
+  %438 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %437) #22
   br label %ParseParams.exit.thread.thread
 
 439:                                              ; preds = %435
@@ -1168,7 +1168,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 441:                                              ; preds = %439
   %442 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %443 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %442, ptr noundef nonnull @.str.20, ptr noundef nonnull %402) #24
+  %443 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %442, ptr noundef nonnull @.str.20, ptr noundef nonnull %402) #23
   br label %ParseParams.exit.thread.thread
 
 444:                                              ; preds = %439
@@ -1180,11 +1180,11 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 447:                                              ; preds = %444
   %448 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %449 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %448, ptr noundef nonnull @.str.21, i32 noundef %445, i32 noundef 10) #24
+  %449 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %448, ptr noundef nonnull @.str.21, i32 noundef %445, i32 noundef 10) #23
   br label %ParseParams.exit.thread.thread
 
 450:                                              ; preds = %432
-  %451 = tail call i32 @strncmp(ptr noundef nonnull @.str.45, ptr noundef nonnull %293, i64 noundef %411) #22
+  %451 = tail call i32 @strncmp(ptr noundef nonnull @.str.45, ptr noundef nonnull %293, i64 noundef %411) #21
   %452 = icmp eq i32 %451, 0
   br i1 %452, label %453, label %468
 
@@ -1194,7 +1194,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 454:                                              ; preds = %453
   %455 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %456 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %455) #23
+  %456 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %455) #22
   br label %ParseParams.exit.thread.thread
 
 457:                                              ; preds = %453
@@ -1204,7 +1204,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 459:                                              ; preds = %457
   %460 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %461 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %460, ptr noundef nonnull @.str.20, ptr noundef nonnull %402) #24
+  %461 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %460, ptr noundef nonnull @.str.20, ptr noundef nonnull %402) #23
   br label %ParseParams.exit.thread.thread
 
 462:                                              ; preds = %457
@@ -1216,11 +1216,11 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 465:                                              ; preds = %462
   %466 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %467 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef nonnull @.str.21, i32 noundef %463, i32 noundef 10) #24
+  %467 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef nonnull @.str.21, i32 noundef %463, i32 noundef 10) #23
   br label %ParseParams.exit.thread.thread
 
 468:                                              ; preds = %450
-  %469 = tail call i32 @strncmp(ptr noundef nonnull @.str.46, ptr noundef nonnull %293, i64 noundef %411) #22
+  %469 = tail call i32 @strncmp(ptr noundef nonnull @.str.46, ptr noundef nonnull %293, i64 noundef %411) #21
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %476
 
@@ -1230,7 +1230,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 472:                                              ; preds = %471
   %473 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %474 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 48, i64 1, ptr %473) #23
+  %474 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 48, i64 1, ptr %473) #22
   br label %ParseParams.exit.thread.thread
 
 475:                                              ; preds = %471
@@ -1238,7 +1238,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread514.i
 
 476:                                              ; preds = %468
-  %477 = tail call i32 @strncmp(ptr noundef nonnull @.str.48, ptr noundef nonnull %293, i64 noundef %411) #22
+  %477 = tail call i32 @strncmp(ptr noundef nonnull @.str.48, ptr noundef nonnull %293, i64 noundef %411) #21
   %478 = icmp eq i32 %477, 0
   br i1 %478, label %479, label %488
 
@@ -1248,7 +1248,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 480:                                              ; preds = %479
   %481 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %482 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %481) #23
+  %482 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %481) #22
   br label %ParseParams.exit.thread.thread
 
 483:                                              ; preds = %479
@@ -1258,11 +1258,11 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 485:                                              ; preds = %483
   %486 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %487 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %486, ptr noundef nonnull @.str.18, ptr noundef nonnull %402) #24
+  %487 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %486, ptr noundef nonnull @.str.18, ptr noundef nonnull %402) #23
   br label %ParseParams.exit.thread.thread
 
 488:                                              ; preds = %476
-  %489 = tail call i32 @strncmp(ptr noundef nonnull @.str.49, ptr noundef nonnull %293, i64 noundef %411) #22
+  %489 = tail call i32 @strncmp(ptr noundef nonnull @.str.49, ptr noundef nonnull %293, i64 noundef %411) #21
   %490 = icmp eq i32 %489, 0
   br i1 %490, label %491, label %496
 
@@ -1272,7 +1272,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 492:                                              ; preds = %491
   %493 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %494 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 19, i64 1, ptr %493) #23
+  %494 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 19, i64 1, ptr %493) #22
   br label %ParseParams.exit.thread.thread
 
 495:                                              ; preds = %491
@@ -1281,7 +1281,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 496:                                              ; preds = %488
   %497 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %498 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %497, ptr noundef nonnull @.str.50, ptr noundef nonnull %293) #24
+  %498 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %497, ptr noundef nonnull @.str.50, ptr noundef nonnull %293) #23
   br label %ParseParams.exit.thread.thread
 
 .thread514.i:                                     ; preds = %289, %495, %483, %475, %462, %444, %431, %418, %395, %382, %378, %370, %362, %344, %335, %324, %312, %308, %300, %83, %73, %.thread.i
@@ -1341,12 +1341,12 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .thread:                                          ; preds = %509, %511
   %513 = load ptr, ptr %19, align 8, !tbaa !19
-  %514 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %513, i32 noundef 47) #22
+  %514 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %513, i32 noundef 47) #21
   %.not402.i = icmp eq ptr %514, null
   br i1 %.not402.i, label %515, label %ParseParams.exit.thread.thread
 
 515:                                              ; preds = %.thread
-  %516 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %513, i32 noundef 92) #22
+  %516 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %513, i32 noundef 92) #21
   %.not403.i = icmp eq ptr %516, null
   br i1 %.not403.i, label %517, label %ParseParams.exit.thread.thread
 
@@ -1382,10 +1382,10 @@ ParseParams.exit.thread80:                        ; preds = %ParseParams.exit, %
 
 527:                                              ; preds = %524
   %528 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %529 = tail call ptr @__errno_location() #25
+  %529 = tail call ptr @__errno_location() #24
   %530 = load i32, ptr %529, align 4, !tbaa !20
-  %531 = tail call ptr @strerror(i32 noundef %530) #21
-  %532 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %528, ptr noundef nonnull @.str.52, ptr noundef nonnull %522, ptr noundef %531) #24
+  %531 = tail call ptr @strerror(i32 noundef %530) #25
+  %532 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %528, ptr noundef nonnull @.str.52, ptr noundef nonnull %522, ptr noundef %531) #23
   br label %CompressFiles.exit
 
 533:                                              ; preds = %524
@@ -1412,7 +1412,7 @@ ParseParams.exit.thread80:                        ; preds = %ParseParams.exit, %
 
 FileSize.exit.thread.i:                           ; preds = %540, %538, %533
   %544 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %545 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %544, ptr noundef nonnull @.str.53, ptr noundef nonnull %522) #24
+  %545 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %544, ptr noundef nonnull @.str.53, ptr noundef nonnull %522) #23
   %546 = tail call i32 @fclose(ptr noundef nonnull %525)
   br label %CompressFiles.exit
 
@@ -1422,7 +1422,7 @@ FileSize.exit.thread.i:                           ; preds = %540, %538, %533
 
 549:                                              ; preds = %547
   %550 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %551 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %550, ptr noundef nonnull @.str.54, ptr noundef nonnull %522, i32 noundef 50331660) #24
+  %551 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %550, ptr noundef nonnull @.str.54, ptr noundef nonnull %522, i32 noundef 50331660) #23
   %552 = tail call i32 @fclose(ptr noundef nonnull %525)
   br label %CompressFiles.exit
 
@@ -1434,7 +1434,7 @@ FileSize.exit.thread.i:                           ; preds = %540, %538, %533
 
 555:                                              ; preds = %553
   %556 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %557 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 41, i64 1, ptr %556) #23
+  %557 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 41, i64 1, ptr %556) #22
   %558 = tail call i32 @fclose(ptr noundef nonnull %525)
   br label %CompressFiles.exit
 
@@ -1444,12 +1444,12 @@ FileSize.exit.thread.i:                           ; preds = %540, %538, %533
   br i1 %.not37.i, label %568, label %561
 
 561:                                              ; preds = %559
-  tail call void @free(ptr noundef nonnull %554) #21
+  tail call void @free(ptr noundef nonnull %554) #25
   %562 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %563 = tail call ptr @__errno_location() #25
+  %563 = tail call ptr @__errno_location() #24
   %564 = load i32, ptr %563, align 4, !tbaa !20
-  %565 = tail call ptr @strerror(i32 noundef %564) #21
-  %566 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %562, ptr noundef nonnull @.str.56, ptr noundef nonnull %522, ptr noundef %565) #24
+  %565 = tail call ptr @strerror(i32 noundef %564) #25
+  %566 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %562, ptr noundef nonnull @.str.56, ptr noundef nonnull %522, ptr noundef %565) #23
   %567 = tail call i32 @fclose(ptr noundef nonnull %525)
   br label %CompressFiles.exit
 
@@ -1460,18 +1460,18 @@ FileSize.exit.thread.i:                           ; preds = %540, %538, %533
   br i1 %570, label %571, label %ReadDictionary.exit
 
 571:                                              ; preds = %568
-  %572 = tail call ptr @BrotliEncoderPrepareDictionary(i32 noundef 0, i64 noundef %541, ptr noundef nonnull %554, i32 noundef 11, ptr noundef null, ptr noundef null, ptr noundef null) #21
+  %572 = tail call ptr @BrotliEncoderPrepareDictionary(i32 noundef 0, i64 noundef %541, ptr noundef nonnull %554, i32 noundef 11, ptr noundef null, ptr noundef null, ptr noundef null) #25
   store ptr %572, ptr %28, align 8, !tbaa !47
   %573 = icmp eq ptr %572, null
   br i1 %573, label %574, label %ReadDictionary.exit
 
 574:                                              ; preds = %571
   %575 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %576 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %575, ptr noundef nonnull @.str.57, ptr noundef nonnull %522) #24
+  %576 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %575, ptr noundef nonnull @.str.57, ptr noundef nonnull %522) #23
   br label %CompressFiles.exit
 
 ReadDictionary.exit:                              ; preds = %571, %568, %ParseParams.exit.thread80
-  %577 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %513) #22
+  %577 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %513) #21
   %578 = add i64 %501, 1
   %579 = add i64 %578, %577
   %580 = tail call noalias ptr @malloc(i64 noundef %579) #26
@@ -1485,7 +1485,7 @@ ReadDictionary.exit:                              ; preds = %571, %568, %ParsePa
 
 584:                                              ; preds = %ReadDictionary.exit
   %585 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %586 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %585) #23
+  %586 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %585) #22
   br label %CompressFiles.exit
 
 ParseParams.exit.thread:                          ; preds = %ReadDictionary.exit
@@ -1502,7 +1502,7 @@ ParseParams.exit.thread:                          ; preds = %ReadDictionary.exit
 
 ParseParams.exit.thread.thread101:                ; preds = %396, %121
   %590 = load ptr, ptr @stdout, align 8, !tbaa !30
-  %591 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %590, ptr noundef nonnull @.str.59, i32 noundef 1, i32 noundef 1, i32 noundef 0) #21
+  %591 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %590, ptr noundef nonnull @.str.59, i32 noundef 1, i32 noundef 1, i32 noundef 0) #25
   br label %CompressFiles.exit
 
 592:                                              ; preds = %ParseParams.exit.thread
@@ -1524,18 +1524,18 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
   br i1 %.not.i33.not.not, label %605, label %CompressFiles.exit
 
 605:                                              ; preds = %603
-  %606 = call ptr @BrotliEncoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #21
+  %606 = call ptr @BrotliEncoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #25
   %.not61.i = icmp eq ptr %606, null
   br i1 %.not61.i, label %.thread.i39, label %609
 
 .thread.i39:                                      ; preds = %605
   %607 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %608 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %607) #23
+  %608 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %607) #22
   br label %CompressFiles.exit
 
 609:                                              ; preds = %605
   %610 = load i32, ptr %5, align 8, !tbaa !4
-  %611 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 1, i32 noundef %610) #21
+  %611 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 1, i32 noundef %610) #25
   %612 = load i32, ptr %6, align 4, !tbaa !16
   %613 = icmp sgt i32 %612, 0
   br i1 %613, label %614, label %618
@@ -1545,7 +1545,7 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
   br i1 %615, label %616, label %.loopexit.i34
 
 616:                                              ; preds = %614
-  %617 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 6, i32 noundef 1) #21
+  %617 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 6, i32 noundef 1) #25
   %.pre.i = load i32, ptr %6, align 4, !tbaa !16
   br label %.loopexit.i34
 
@@ -1572,7 +1572,7 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
 
 .loopexit.i34:                                    ; preds = %624, %.loopexit.i34.loopexit.split.loop.exit, %618, %616, %614
   %.045.sink.i = phi i32 [ %.pre.i, %616 ], [ %612, %614 ], [ 24, %618 ], [ %626, %.loopexit.i34.loopexit.split.loop.exit ], [ 24, %624 ]
-  %627 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 2, i32 noundef %.045.sink.i) #21
+  %627 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 2, i32 noundef %.045.sink.i) #25
   %628 = load i64, ptr %593, align 8, !tbaa !51
   %629 = icmp sgt i64 %628, 0
   br i1 %629, label %630, label %632
@@ -1580,7 +1580,7 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
 630:                                              ; preds = %.loopexit.i34
   %spec.select87.i = call i64 @llvm.umin.i64(i64 %628, i64 1073741824)
   %spec.select.i = trunc nuw nsw i64 %spec.select87.i to i32
-  %631 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 5, i32 noundef %spec.select.i) #21
+  %631 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 5, i32 noundef %spec.select.i) #25
   br label %632
 
 632:                                              ; preds = %630, %.loopexit.i34
@@ -1590,7 +1590,7 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
 
 634:                                              ; preds = %632
   %635 = load ptr, ptr %28, align 8, !tbaa !47
-  %636 = call i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef nonnull %606, ptr noundef %635) #21
+  %636 = call i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef nonnull %606, ptr noundef %635) #25
   br label %637
 
 637:                                              ; preds = %634, %632
@@ -1607,13 +1607,13 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
   br i1 %or.cond105, label %642, label %.critedge.i
 
 642:                                              ; preds = %639
-  %643 = call i32 @isatty(i32 noundef 1) #21
+  %643 = call i32 @isatty(i32 noundef 1) #25
   %.not66.i = icmp eq i32 %643, 0
   br i1 %.not66.i, label %.critedge.i, label %644
 
 644:                                              ; preds = %642
   %645 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %646 = call i64 @fwrite(ptr nonnull @.str.60, i64 51, i64 1, ptr %645) #23
+  %646 = call i64 @fwrite(ptr nonnull @.str.60, i64 51, i64 1, ptr %645) #22
   br label %CompressFile.exit.thread.i
 
 .critedge.i:                                      ; preds = %642, %639
@@ -1629,7 +1629,7 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
   br i1 %650, label %651, label %InitializeBuffers.exit.i.i.preheader
 
 651:                                              ; preds = %.critedge.i
-  %652 = call i64 @clock() #21
+  %652 = call i64 @clock() #25
   store i64 %652, ptr %598, align 8, !tbaa !56
   br label %InitializeBuffers.exit.i.i.preheader
 
@@ -1656,7 +1656,7 @@ InitializeBuffers.exit.i.i:                       ; preds = %InitializeBuffers.e
   %662 = load ptr, ptr %587, align 8, !tbaa !49
   store ptr %662, ptr %599, align 8, !tbaa !60
   %663 = load ptr, ptr %34, align 8, !tbaa !58
-  %664 = call i32 @ferror(ptr noundef %663) #21
+  %664 = call i32 @ferror(ptr noundef %663) #25
   %.not.i.i.i36 = icmp eq i32 %664, 0
   br i1 %.not.i.i.i36, label %ProvideInput.exit.i.i, label %ProvideInput.exit.thread.i.i
 
@@ -1665,14 +1665,14 @@ ProvideInput.exit.thread.i.i:                     ; preds = %656
   %666 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i.i.i.i = icmp eq ptr %666, null
   %667 = select i1 %.not.i.i.i.i, ptr @.str.58, ptr %666
-  %668 = tail call ptr @__errno_location() #25
+  %668 = tail call ptr @__errno_location() #24
   %669 = load i32, ptr %668, align 4, !tbaa !20
-  %670 = call ptr @strerror(i32 noundef %669) #21
-  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %665, ptr noundef nonnull @.str.71, ptr noundef nonnull %667, ptr noundef %670) #24
+  %670 = call ptr @strerror(i32 noundef %669) #25
+  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %665, ptr noundef nonnull @.str.71, ptr noundef nonnull %667, ptr noundef %670) #23
   br label %CompressFile.exit.thread.i
 
 ProvideInput.exit.i.i:                            ; preds = %656
-  %672 = call i32 @feof(ptr noundef %663) #21
+  %672 = call i32 @feof(ptr noundef %663) #25
   %.not.i45.i.i = icmp ne i32 %672, 0
   %673 = zext i1 %.not.i45.i.i to i32
   br label %674
@@ -1682,12 +1682,12 @@ ProvideInput.exit.i.i:                            ; preds = %656
   br i1 %.030.i.i, label %680, label %675
 
 675:                                              ; preds = %674
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %600, ptr %3, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %676 = load i64, ptr %8, align 8, !tbaa !17
   store i64 %676, ptr %4, align 8, !tbaa !39
-  %677 = call i32 @BrotliEncoderCompressStream(ptr noundef nonnull %606, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %595, ptr noundef nonnull %596, ptr noundef null) #21
+  %677 = call i32 @BrotliEncoderCompressStream(ptr noundef nonnull %606, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %595, ptr noundef nonnull %596, ptr noundef null) #25
   %.not40.i.i = icmp ne i32 %677, 0
   %678 = load i64, ptr %4, align 8
   %.not41.i.i = icmp eq i64 %678, 0
@@ -1695,14 +1695,14 @@ ProvideInput.exit.i.i:                            ; preds = %656
   br i1 %or.cond63.i.i, label %679, label %.critedge.i.i
 
 679:                                              ; preds = %675
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %688
 
 680:                                              ; preds = %674
   %.not38.i.i = icmp eq i32 %.132.i.i, 0
   %681 = select i1 %.not38.i.i, i32 0, i32 2
-  %682 = call i32 @BrotliEncoderCompressStream(ptr noundef nonnull %606, i32 noundef %681, ptr noundef nonnull %594, ptr noundef nonnull %599, ptr noundef nonnull %595, ptr noundef nonnull %596, ptr noundef null) #21
+  %682 = call i32 @BrotliEncoderCompressStream(ptr noundef nonnull %606, i32 noundef %681, ptr noundef nonnull %594, ptr noundef nonnull %599, ptr noundef nonnull %595, ptr noundef nonnull %596, ptr noundef null) #25
   %.not39.i.i = icmp eq i32 %682, 0
   br i1 %.not39.i.i, label %683, label %688
 
@@ -1711,7 +1711,7 @@ ProvideInput.exit.i.i:                            ; preds = %656
   %685 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i48.i.i = icmp eq ptr %685, null
   %686 = select i1 %.not.i48.i.i, ptr @.str.58, ptr %685
-  %687 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %684, ptr noundef nonnull @.str.68, ptr noundef nonnull %686) #24
+  %687 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %684, ptr noundef nonnull @.str.68, ptr noundef nonnull %686) #23
   br label %CompressFile.exit.thread.i
 
 688:                                              ; preds = %680, %679
@@ -1738,7 +1738,7 @@ ProvideInput.exit.i.i:                            ; preds = %656
   %702 = load ptr, ptr %35, align 8, !tbaa !63
   %703 = call i64 @fwrite(ptr noundef %693, i64 noundef 1, i64 noundef %696, ptr noundef %702)
   %704 = load ptr, ptr %35, align 8, !tbaa !63
-  %705 = call i32 @ferror(ptr noundef %704) #21
+  %705 = call i32 @ferror(ptr noundef %704) #25
   %.not12.i.i = icmp eq i32 %705, 0
   br i1 %.not12.i.i, label %.ProvideOutput.exit.i_crit_edge.i, label %WriteOutput.exit.i
 
@@ -1751,10 +1751,10 @@ WriteOutput.exit.i:                               ; preds = %701
   %707 = load ptr, ptr %33, align 8, !tbaa !53
   %.not.i.i78.i = icmp eq ptr %707, null
   %708 = select i1 %.not.i.i78.i, ptr @.str.58, ptr %707
-  %709 = tail call ptr @__errno_location() #25
+  %709 = tail call ptr @__errno_location() #24
   %710 = load i32, ptr %709, align 4, !tbaa !20
-  %711 = call ptr @strerror(i32 noundef %710) #21
-  %712 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %706, ptr noundef nonnull @.str.72, ptr noundef nonnull %708, ptr noundef %711) #24
+  %711 = call ptr @strerror(i32 noundef %710) #25
+  %712 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %706, ptr noundef nonnull @.str.72, ptr noundef nonnull %708, ptr noundef %711) #23
   br label %CompressFile.exit.thread.i
 
 ProvideOutput.exit.i.i:                           ; preds = %.ProvideOutput.exit.i_crit_edge.i, %691
@@ -1764,7 +1764,7 @@ ProvideOutput.exit.i.i:                           ; preds = %.ProvideOutput.exit
   br label %714
 
 714:                                              ; preds = %ProvideOutput.exit.i.i, %688
-  %715 = call i32 @BrotliEncoderIsFinished(ptr noundef nonnull %606) #21
+  %715 = call i32 @BrotliEncoderIsFinished(ptr noundef nonnull %606) #25
   %.not43.i.i = icmp eq i32 %715, 0
   br i1 %.not43.i.i, label %InitializeBuffers.exit.i.i, label %716
 
@@ -1787,7 +1787,7 @@ ProvideOutput.exit.i.i:                           ; preds = %.ProvideOutput.exit
   %727 = load ptr, ptr %35, align 8, !tbaa !63
   %728 = call i64 @fwrite(ptr noundef %718, i64 noundef 1, i64 noundef %721, ptr noundef %727)
   %729 = load ptr, ptr %35, align 8, !tbaa !63
-  %730 = call i32 @ferror(ptr noundef %729) #21
+  %730 = call i32 @ferror(ptr noundef %729) #25
   %.not12.i = icmp eq i32 %730, 0
   br i1 %.not12.i, label %._crit_edge346, label %WriteOutput.exit
 
@@ -1800,10 +1800,10 @@ WriteOutput.exit:                                 ; preds = %726
   %732 = load ptr, ptr %33, align 8, !tbaa !53
   %.not.i.i61 = icmp eq ptr %732, null
   %733 = select i1 %.not.i.i61, ptr @.str.58, ptr %732
-  %734 = tail call ptr @__errno_location() #25
+  %734 = tail call ptr @__errno_location() #24
   %735 = load i32, ptr %734, align 4, !tbaa !20
-  %736 = call ptr @strerror(i32 noundef %735) #21
-  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %731, ptr noundef nonnull @.str.72, ptr noundef nonnull %733, ptr noundef %736) #24
+  %736 = call ptr @strerror(i32 noundef %735) #25
+  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %731, ptr noundef nonnull @.str.72, ptr noundef nonnull %733, ptr noundef %736) #23
   br label %CompressFile.exit.thread.i
 
 738:                                              ; preds = %._crit_edge346, %716
@@ -1815,10 +1815,10 @@ WriteOutput.exit:                                 ; preds = %726
   br i1 %741, label %742, label %751
 
 742:                                              ; preds = %738
-  %743 = call i64 @clock() #21
+  %743 = call i64 @clock() #25
   store i64 %743, ptr %602, align 8, !tbaa !64
   %744 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %745 = call i64 @fwrite(ptr nonnull @.str.69, i64 11, i64 1, ptr %744) #23
+  %745 = call i64 @fwrite(ptr nonnull @.str.69, i64 11, i64 1, ptr %744) #22
   call fastcc void @PrintFileProcessingProgress(ptr noundef nonnull %5)
   %746 = load ptr, ptr @stderr, align 8, !tbaa !30
   %fputc.i.i = call i32 @fputc(i32 10, ptr %746)
@@ -1829,17 +1829,17 @@ WriteOutput.exit:                                 ; preds = %726
   %748 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i46.i.i = icmp eq ptr %748, null
   %749 = select i1 %.not.i46.i.i, ptr @.str.58, ptr %748
-  %750 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %747, ptr noundef nonnull @.str.67, ptr noundef nonnull %749) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  %750 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %747, ptr noundef nonnull @.str.67, ptr noundef nonnull %749) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %CompressFile.exit.thread.i
 
 CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %.critedge.i.i, %WriteOutput.exit.i, %683, %ProvideInput.exit.thread.i.i, %644, %637
-  call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %606) #21
+  call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %606) #25
   br label %.split.i
 
 751:                                              ; preds = %742, %738
-  call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %606) #21
+  call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %606) #25
   %752 = load i32, ptr %11, align 4, !tbaa !33
   %.not69.i = icmp eq i32 %752, 0
   br i1 %.not69.i, label %.split53.i, label %753
@@ -1857,7 +1857,7 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
 
 759:                                              ; preds = %756
   %760 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %761 = call i64 @fwrite(ptr nonnull @.str.61, i64 28, i64 1, ptr %760) #23
+  %761 = call i64 @fwrite(ptr nonnull @.str.61, i64 28, i64 1, ptr %760) #22
   br label %.split.i
 
 .split.i:                                         ; preds = %759, %756, %CompressFile.exit.thread.i
@@ -1899,13 +1899,13 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
   br i1 %.not.i40.not.not, label %783, label %CompressFiles.exit
 
 783:                                              ; preds = %781
-  %784 = call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #21
+  %784 = call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #25
   store ptr %784, ptr %27, align 8, !tbaa !65
   %.not.i.i41 = icmp eq ptr %784, null
   br i1 %.not.i.i41, label %.thread.i55, label %785
 
 785:                                              ; preds = %783
-  %786 = call i32 @BrotliDecoderSetParameter(ptr noundef nonnull %784, i32 noundef 1, i32 noundef 1) #21
+  %786 = call i32 @BrotliDecoderSetParameter(ptr noundef nonnull %784, i32 noundef 1, i32 noundef 1) #25
   %787 = load ptr, ptr %25, align 8, !tbaa !46
   %.not9.i.i = icmp eq ptr %787, null
   br i1 %.not9.i.i, label %794, label %788
@@ -1913,12 +1913,12 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
 788:                                              ; preds = %785
   %789 = load ptr, ptr %27, align 8, !tbaa !65
   %790 = load i64, ptr %26, align 8, !tbaa !45
-  %791 = call i32 @BrotliDecoderAttachDictionary(ptr noundef %789, i32 noundef 0, i64 noundef %790, ptr noundef nonnull %787) #21
+  %791 = call i32 @BrotliDecoderAttachDictionary(ptr noundef %789, i32 noundef 0, i64 noundef %790, ptr noundef nonnull %787) #25
   br label %794
 
 .thread.i55:                                      ; preds = %783
   %792 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %793 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %792) #23
+  %793 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %792) #22
   br label %CompressFiles.exit
 
 794:                                              ; preds = %788, %785
@@ -1935,13 +1935,13 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
   br i1 %or.cond108, label %799, label %.critedge.i42
 
 799:                                              ; preds = %796
-  %800 = call i32 @isatty(i32 noundef 0) #21
+  %800 = call i32 @isatty(i32 noundef 0) #25
   %.not30.i = icmp eq i32 %800, 0
   br i1 %.not30.i, label %.critedge.i42, label %801
 
 801:                                              ; preds = %799
   %802 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %803 = call i64 @fwrite(ptr nonnull @.str.84, i64 52, i64 1, ptr %802) #23
+  %803 = call i64 @fwrite(ptr nonnull @.str.84, i64 52, i64 1, ptr %802) #22
   br label %DecompressFile.exit.i
 
 .critedge.i42:                                    ; preds = %799, %796
@@ -1952,7 +1952,7 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
 
 806:                                              ; preds = %.critedge.i42
   store i32 0, ptr %770, align 8, !tbaa !66
-  call void @BrotliDecoderSetMetadataCallbacks(ptr noundef %804, ptr noundef nonnull @OnMetadataStart, ptr noundef nonnull @OnMetadataChunk, ptr noundef nonnull %5) #21
+  call void @BrotliDecoderSetMetadataCallbacks(ptr noundef %804, ptr noundef nonnull @OnMetadataStart, ptr noundef nonnull @OnMetadataChunk, ptr noundef nonnull %5) #25
   br label %808
 
 807:                                              ; preds = %.critedge.i42
@@ -1970,7 +1970,7 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
   br i1 %811, label %812, label %InitializeBuffers.exit.i.i43
 
 812:                                              ; preds = %808
-  %813 = call i64 @clock() #21
+  %813 = call i64 @clock() #25
   store i64 %813, ptr %776, align 8, !tbaa !56
   br label %InitializeBuffers.exit.i.i43
 
@@ -1984,14 +1984,14 @@ InitializeBuffers.exit.i.i43:                     ; preds = %812, %808
   %817 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i.i.i48 = icmp eq ptr %817, null
   %818 = select i1 %.not.i.i.i48, ptr @.str.58, ptr %817
-  %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %816, ptr noundef nonnull @.str.85, ptr noundef nonnull %818) #24
+  %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %816, ptr noundef nonnull @.str.85, ptr noundef nonnull %818) #23
   %820 = load i32, ptr %7, align 8, !tbaa !34
   %821 = icmp sgt i32 %820, 0
   br i1 %821, label %822, label %DecompressFile.exit.i
 
 822:                                              ; preds = %._crit_edge.i.i47
   %823 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %824 = call i64 @fwrite(ptr nonnull @.str.86, i64 25, i64 1, ptr %823) #23
+  %824 = call i64 @fwrite(ptr nonnull @.str.86, i64 25, i64 1, ptr %823) #22
   br label %DecompressFile.exit.i
 
 .lr.ph.i.i44:                                     ; preds = %InitializeBuffers.exit.i.i43, %ProvideInput.exit.i.i46
@@ -2005,7 +2005,7 @@ InitializeBuffers.exit.i.i43:                     ; preds = %812, %808
 
 825:                                              ; preds = %.lr.ph.i.i44
   %.val.i.i = load ptr, ptr %34, align 8, !tbaa !58
-  %826 = call i32 @feof(ptr noundef %.val.i.i) #21
+  %826 = call i32 @feof(ptr noundef %.val.i.i) #25
   %.not.i74.not.i.i = icmp eq i32 %826, 0
   br i1 %.not.i74.not.i.i, label %837, label %827
 
@@ -2014,14 +2014,14 @@ InitializeBuffers.exit.i.i43:                     ; preds = %812, %808
   %829 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i75.i.i = icmp eq ptr %829, null
   %830 = select i1 %.not.i75.i.i, ptr @.str.58, ptr %829
-  %831 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %828, ptr noundef nonnull @.str.85, ptr noundef nonnull %830) #24
+  %831 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %828, ptr noundef nonnull @.str.85, ptr noundef nonnull %830) #23
   %832 = load i32, ptr %7, align 8, !tbaa !34
   %833 = icmp sgt i32 %832, 0
   br i1 %833, label %834, label %DecompressFile.exit.i
 
 834:                                              ; preds = %827
   %835 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %836 = call i64 @fwrite(ptr nonnull @.str.87, i64 24, i64 1, ptr %835) #23
+  %836 = call i64 @fwrite(ptr nonnull @.str.87, i64 24, i64 1, ptr %835) #22
   br label %DecompressFile.exit.i
 
 837:                                              ; preds = %825
@@ -2035,7 +2035,7 @@ InitializeBuffers.exit.i.i43:                     ; preds = %812, %808
   %843 = load ptr, ptr %777, align 8, !tbaa !49
   store ptr %843, ptr %778, align 8, !tbaa !60
   %844 = load ptr, ptr %34, align 8, !tbaa !58
-  %845 = call i32 @ferror(ptr noundef %844) #21
+  %845 = call i32 @ferror(ptr noundef %844) #25
   %.not.i76.i.i = icmp eq i32 %845, 0
   br i1 %.not.i76.i.i, label %ProvideInput.exit.i.i46, label %ProvideInput.exit.thread.i.i53
 
@@ -2044,10 +2044,10 @@ ProvideInput.exit.thread.i.i53:                   ; preds = %837
   %847 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i.i.i.i54 = icmp eq ptr %847, null
   %848 = select i1 %.not.i.i.i.i54, ptr @.str.58, ptr %847
-  %849 = tail call ptr @__errno_location() #25
+  %849 = tail call ptr @__errno_location() #24
   %850 = load i32, ptr %849, align 4, !tbaa !20
-  %851 = call ptr @strerror(i32 noundef %850) #21
-  %852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %846, ptr noundef nonnull @.str.71, ptr noundef nonnull %848, ptr noundef %851) #24
+  %851 = call ptr @strerror(i32 noundef %850) #25
+  %852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %846, ptr noundef nonnull @.str.71, ptr noundef nonnull %848, ptr noundef %851) #23
   br label %DecompressFile.exit.i
 
 853:                                              ; preds = %.lr.ph.i.i44
@@ -2069,7 +2069,7 @@ ProvideInput.exit.thread.i.i53:                   ; preds = %837
   %864 = load ptr, ptr %35, align 8, !tbaa !63
   %865 = call i64 @fwrite(ptr noundef %855, i64 noundef 1, i64 noundef %858, ptr noundef %864)
   %866 = load ptr, ptr %35, align 8, !tbaa !63
-  %867 = call i32 @ferror(ptr noundef %866) #21
+  %867 = call i32 @ferror(ptr noundef %866) #25
   %.not12.i74 = icmp eq i32 %867, 0
   br i1 %.not12.i74, label %.ProvideOutput.exit.i.i52_crit_edge, label %WriteOutput.exit76
 
@@ -2082,10 +2082,10 @@ WriteOutput.exit76:                               ; preds = %863
   %869 = load ptr, ptr %33, align 8, !tbaa !53
   %.not.i.i75 = icmp eq ptr %869, null
   %870 = select i1 %.not.i.i75, ptr @.str.58, ptr %869
-  %871 = tail call ptr @__errno_location() #25
+  %871 = tail call ptr @__errno_location() #24
   %872 = load i32, ptr %871, align 4, !tbaa !20
-  %873 = call ptr @strerror(i32 noundef %872) #21
-  %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %868, ptr noundef nonnull @.str.72, ptr noundef nonnull %870, ptr noundef %873) #24
+  %873 = call ptr @strerror(i32 noundef %872) #25
+  %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %868, ptr noundef nonnull @.str.72, ptr noundef nonnull %870, ptr noundef %873) #23
   br label %DecompressFile.exit.i
 
 ProvideOutput.exit.i.i52:                         ; preds = %.ProvideOutput.exit.i.i52_crit_edge, %853
@@ -2113,7 +2113,7 @@ ProvideOutput.exit.i.i52:                         ; preds = %.ProvideOutput.exit
   %887 = load ptr, ptr %35, align 8, !tbaa !63
   %888 = call i64 @fwrite(ptr noundef %878, i64 noundef 1, i64 noundef %881, ptr noundef %887)
   %889 = load ptr, ptr %35, align 8, !tbaa !63
-  %890 = call i32 @ferror(ptr noundef %889) #21
+  %890 = call i32 @ferror(ptr noundef %889) #25
   %.not12.i69 = icmp eq i32 %890, 0
   br i1 %.not12.i69, label %._crit_edge, label %WriteOutput.exit71
 
@@ -2126,10 +2126,10 @@ WriteOutput.exit71:                               ; preds = %886
   %892 = load ptr, ptr %33, align 8, !tbaa !53
   %.not.i.i70 = icmp eq ptr %892, null
   %893 = select i1 %.not.i.i70, ptr @.str.58, ptr %892
-  %894 = tail call ptr @__errno_location() #25
+  %894 = tail call ptr @__errno_location() #24
   %895 = load i32, ptr %894, align 4, !tbaa !20
-  %896 = call ptr @strerror(i32 noundef %895) #21
-  %897 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %891, ptr noundef nonnull @.str.72, ptr noundef nonnull %893, ptr noundef %896) #24
+  %896 = call ptr @strerror(i32 noundef %895) #25
+  %897 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %891, ptr noundef nonnull @.str.72, ptr noundef nonnull %893, ptr noundef %896) #23
   br label %DecompressFile.exit.i
 
 898:                                              ; preds = %._crit_edge, %876
@@ -2167,7 +2167,7 @@ WriteOutput.exit71:                               ; preds = %886
 
 911:                                              ; preds = %908
   %912 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %913 = call i64 @fwrite(ptr nonnull @.str.88, i64 12, i64 1, ptr %912) #23
+  %913 = call i64 @fwrite(ptr nonnull @.str.88, i64 12, i64 1, ptr %912) #22
   br label %914
 
 914:                                              ; preds = %911, %908
@@ -2189,7 +2189,7 @@ WriteOutput.exit71:                               ; preds = %886
   %925 = load ptr, ptr %35, align 8, !tbaa !63
   %926 = call i64 @fwrite(ptr noundef %916, i64 noundef 1, i64 noundef %919, ptr noundef %925)
   %927 = load ptr, ptr %35, align 8, !tbaa !63
-  %928 = call i32 @ferror(ptr noundef %927) #21
+  %928 = call i32 @ferror(ptr noundef %927) #25
   %.not12.i64 = icmp eq i32 %928, 0
   br i1 %.not12.i64, label %._crit_edge343, label %WriteOutput.exit66
 
@@ -2202,10 +2202,10 @@ WriteOutput.exit66:                               ; preds = %924
   %930 = load ptr, ptr %33, align 8, !tbaa !53
   %.not.i.i65 = icmp eq ptr %930, null
   %931 = select i1 %.not.i.i65, ptr @.str.58, ptr %930
-  %932 = tail call ptr @__errno_location() #25
+  %932 = tail call ptr @__errno_location() #24
   %933 = load i32, ptr %932, align 4, !tbaa !20
-  %934 = call ptr @strerror(i32 noundef %933) #21
-  %935 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %929, ptr noundef nonnull @.str.72, ptr noundef nonnull %931, ptr noundef %934) #24
+  %934 = call ptr @strerror(i32 noundef %933) #25
+  %935 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %929, ptr noundef nonnull @.str.72, ptr noundef nonnull %931, ptr noundef %934) #23
   br label %DecompressFile.exit.i
 
 936:                                              ; preds = %._crit_edge343, %914
@@ -2213,15 +2213,15 @@ WriteOutput.exit66:                               ; preds = %924
   store i64 524288, ptr %772, align 8, !tbaa !54
   store ptr %937, ptr %774, align 8, !tbaa !55
   %938 = load ptr, ptr %27, align 8, !tbaa !65
-  call void @BrotliDecoderDestroyInstance(ptr noundef %938) #21
+  call void @BrotliDecoderDestroyInstance(ptr noundef %938) #25
   store ptr null, ptr %27, align 8, !tbaa !65
-  %939 = call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #21
+  %939 = call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #25
   store ptr %939, ptr %27, align 8, !tbaa !65
   %.not.i84.i.i = icmp eq ptr %939, null
   br i1 %.not.i84.i.i, label %InitDecoder.exit.i.i, label %940
 
 940:                                              ; preds = %936
-  %941 = call i32 @BrotliDecoderSetParameter(ptr noundef nonnull %939, i32 noundef 1, i32 noundef 1) #21
+  %941 = call i32 @BrotliDecoderSetParameter(ptr noundef nonnull %939, i32 noundef 1, i32 noundef 1) #25
   %942 = load ptr, ptr %25, align 8, !tbaa !46
   %.not9.i.i.i45 = icmp eq ptr %942, null
   br i1 %.not9.i.i.i45, label %979, label %943
@@ -2229,12 +2229,12 @@ WriteOutput.exit66:                               ; preds = %924
 943:                                              ; preds = %940
   %944 = load ptr, ptr %27, align 8, !tbaa !65
   %945 = load i64, ptr %26, align 8, !tbaa !45
-  %946 = call i32 @BrotliDecoderAttachDictionary(ptr noundef %944, i32 noundef 0, i64 noundef %945, ptr noundef nonnull %942) #21
+  %946 = call i32 @BrotliDecoderAttachDictionary(ptr noundef %944, i32 noundef 0, i64 noundef %945, ptr noundef nonnull %942) #25
   br label %979
 
 InitDecoder.exit.i.i:                             ; preds = %936
   %947 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %948 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %947) #23
+  %948 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %947) #22
   br label %DecompressFile.exit.i
 
 949:                                              ; preds = %.critedge73.i.i
@@ -2242,14 +2242,14 @@ InitDecoder.exit.i.i:                             ; preds = %936
   %951 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i86.i.i = icmp eq ptr %951, null
   %952 = select i1 %.not.i86.i.i, ptr @.str.58, ptr %951
-  %953 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %950, ptr noundef nonnull @.str.85, ptr noundef nonnull %952) #24
+  %953 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %950, ptr noundef nonnull @.str.85, ptr noundef nonnull %952) #23
   %954 = load i32, ptr %7, align 8, !tbaa !34
   %955 = icmp sgt i32 %954, 0
   br i1 %955, label %956, label %DecompressFile.exit.i
 
 956:                                              ; preds = %949
   %957 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %958 = call i64 @fwrite(ptr nonnull @.str.89, i64 20, i64 1, ptr %957) #23
+  %958 = call i64 @fwrite(ptr nonnull @.str.89, i64 20, i64 1, ptr %957) #22
   br label %DecompressFile.exit.i
 
 959:                                              ; preds = %901
@@ -2258,10 +2258,10 @@ InitDecoder.exit.i.i:                             ; preds = %936
   br i1 %961, label %962, label %967
 
 962:                                              ; preds = %959
-  %963 = call i64 @clock() #21
+  %963 = call i64 @clock() #25
   store i64 %963, ptr %779, align 8, !tbaa !64
   %964 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %965 = call i64 @fwrite(ptr nonnull @.str.90, i64 13, i64 1, ptr %964) #23
+  %965 = call i64 @fwrite(ptr nonnull @.str.90, i64 13, i64 1, ptr %964) #22
   call fastcc void @PrintFileProcessingProgress(ptr noundef nonnull %5)
   %966 = load ptr, ptr @stderr, align 8, !tbaa !30
   %fputc.i.i51 = call i32 @fputc(i32 10, ptr %966)
@@ -2277,14 +2277,14 @@ InitDecoder.exit.i.i:                             ; preds = %936
   %971 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i87.i.i = icmp eq ptr %971, null
   %972 = select i1 %.not.i87.i.i, ptr @.str.58, ptr %971
-  %973 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %970, ptr noundef nonnull @.str.85, ptr noundef nonnull %972) #24
+  %973 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %970, ptr noundef nonnull @.str.85, ptr noundef nonnull %972) #23
   %974 = load i32, ptr %7, align 8, !tbaa !34
   %975 = icmp sgt i32 %974, 0
   br i1 %975, label %976, label %DecompressFile.exit.i
 
 976:                                              ; preds = %969
   %977 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %978 = call i64 @fwrite(ptr nonnull @.str.86, i64 25, i64 1, ptr %977) #23
+  %978 = call i64 @fwrite(ptr nonnull @.str.86, i64 25, i64 1, ptr %977) #22
   br label %DecompressFile.exit.i
 
 979:                                              ; preds = %943, %940
@@ -2296,21 +2296,21 @@ InitDecoder.exit.i.i:                             ; preds = %936
   %983 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i88.i.i = icmp eq ptr %983, null
   %984 = select i1 %.not.i88.i.i, ptr @.str.58, ptr %983
-  %985 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %982, ptr noundef nonnull @.str.85, ptr noundef nonnull %984) #24
+  %985 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %982, ptr noundef nonnull @.str.85, ptr noundef nonnull %984) #23
   %986 = load i32, ptr %7, align 8, !tbaa !34
   %987 = icmp sgt i32 %986, 0
   br i1 %987, label %988, label %DecompressFile.exit.i
 
 988:                                              ; preds = %981
-  %989 = call i32 @BrotliDecoderGetErrorCode(ptr noundef %.056118.i.i) #21
+  %989 = call i32 @BrotliDecoderGetErrorCode(ptr noundef %.056118.i.i) #25
   %990 = call fastcc ptr @PrettyDecoderErrorString(i32 noundef %989)
   %991 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %992 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %991, ptr noundef nonnull @.str.91, ptr noundef %990, i32 noundef %989) #24
+  %992 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %991, ptr noundef nonnull @.str.91, ptr noundef %990, i32 noundef %989) #23
   br label %DecompressFile.exit.i
 
 ProvideInput.exit.i.i46:                          ; preds = %979, %ProvideOutput.exit.i.i52, %837
   %.157.i.i = phi ptr [ %.056118.i.i, %ProvideOutput.exit.i.i52 ], [ %980, %979 ], [ %.056118.i.i, %837 ]
-  %993 = call i32 @BrotliDecoderDecompressStream(ptr noundef %.157.i.i, ptr noundef nonnull %771, ptr noundef nonnull %778, ptr noundef nonnull %772, ptr noundef nonnull %774, ptr noundef null) #21
+  %993 = call i32 @BrotliDecoderDecompressStream(ptr noundef %.157.i.i, ptr noundef nonnull %771, ptr noundef nonnull %778, ptr noundef nonnull %772, ptr noundef nonnull %774, ptr noundef null) #25
   %994 = load i32, ptr %770, align 8, !tbaa !66
   %995 = icmp eq i32 %994, 3
   br i1 %995, label %._crit_edge.i.i47, label %.lr.ph.i.i44
@@ -2322,7 +2322,7 @@ DecompressFile.exit.i:                            ; preds = %WriteOutput.exit66,
   br i1 %.not32.i, label %998, label %997
 
 997:                                              ; preds = %DecompressFile.exit.i
-  call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %996) #21
+  call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %996) #25
   br label %998
 
 998:                                              ; preds = %997, %DecompressFile.exit.i
@@ -2346,27 +2346,27 @@ ParseParams.exit.thread.thread:                   ; preds = %325, %96, %ParsePar
   %.7.i78.ph99 = phi i32 [ %.1295.lcssa.i, %ParseParams.exit.thread ], [ 3, %._crit_edge.i ], [ 3, %509 ], [ 3, %515 ], [ 3, %.thread ], [ 3, %519 ], [ 3, %91 ], [ 3, %98 ], [ 3, %103 ], [ 3, %108 ], [ 3, %116 ], [ 3, %124 ], [ 3, %129 ], [ 3, %134 ], [ 3, %140 ], [ 3, %145 ], [ 3, %150 ], [ 3, %154 ], [ 3, %159 ], [ 3, %172 ], [ 3, %180 ], [ 3, %185 ], [ 3, %.loopexit.i ], [ 3, %208 ], [ 3, %232 ], [ 3, %.loopexit557.i ], [ 3, %236 ], [ 3, %.loopexit558.i ], [ 3, %280 ], [ 3, %285 ], [ 3, %392 ], [ 3, %383 ], [ 3, %375 ], [ 3, %367 ], [ 3, %359 ], [ 3, %341 ], [ 3, %332 ], [ 3, %321 ], [ 3, %313 ], [ 3, %305 ], [ 3, %297 ], [ 3, %65 ], [ 3, %405 ], [ 3, %415 ], [ 3, %420 ], [ 3, %428 ], [ 3, %436 ], [ 3, %447 ], [ 3, %441 ], [ 3, %454 ], [ 3, %465 ], [ 3, %459 ], [ 3, %472 ], [ 3, %480 ], [ 3, %485 ], [ 3, %492 ], [ 3, %496 ], [ 3, %511 ], [ 3, %520 ], [ %.1295.lcssa.i, %ParseParams.exit ], [ 2, %96 ], [ 2, %325 ]
   %1006 = icmp ne i32 %.7.i78.ph99, 2
   %1007 = load ptr, ptr %1, align 8, !tbaa !26
-  %1008 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1007, i32 noundef 47) #22
+  %1008 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1007, i32 noundef 47) #21
   %.not.i56 = icmp eq ptr %1008, null
   %1009 = getelementptr inbounds nuw i8, ptr %1008, i64 1
   %spec.select.i57 = select i1 %.not.i56, ptr %1007, ptr %1009
-  %1010 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i57, i32 noundef 92) #22
+  %1010 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i57, i32 noundef 92) #21
   %.not9.i = icmp eq ptr %1010, null
   %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 1
   %.1.i = select i1 %.not9.i, ptr %spec.select.i57, ptr %1011
   %1012 = load ptr, ptr @stderr, align 8
   %1013 = load ptr, ptr @stdout, align 8
   %1014 = select i1 %1006, ptr %1013, ptr %1012
-  %1015 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.93, ptr noundef nonnull %.1.i) #21
+  %1015 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.93, ptr noundef nonnull %.1.i) #25
   %1016 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 274, i64 1, ptr %1014)
   %1017 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 321, i64 1, ptr %1014)
-  %1018 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 11) #21
+  %1018 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 11) #25
   %1019 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 104, i64 1, ptr %1014)
-  %1020 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.98, i32 noundef 10, i32 noundef 24) #21
-  %1021 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.99, i32 noundef 10, i32 noundef 30) #21
-  %1022 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.100, i32 noundef 80) #21
+  %1020 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.98, i32 noundef 10, i32 noundef 24) #25
+  %1021 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.99, i32 noundef 10, i32 noundef 30) #25
+  %1022 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.100, i32 noundef 80) #25
   %1023 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 138, i64 1, ptr %1014)
-  %1024 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str) #21
+  %1024 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1014, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str) #25
   %1025 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 304, i64 1, ptr %1014)
   br label %CompressFiles.exit
 
@@ -2375,13 +2375,13 @@ CompressFiles.exit:                               ; preds = %768, %603, %1001, %
   %1026 = load i32, ptr %30, align 8, !tbaa !67
   %.not27 = icmp ne i32 %1026, 0
   %1027 = load ptr, ptr %28, align 8, !tbaa !47
-  call void @BrotliEncoderDestroyPreparedDictionary(ptr noundef %1027) #21
+  call void @BrotliEncoderDestroyPreparedDictionary(ptr noundef %1027) #25
   %1028 = load ptr, ptr %25, align 8, !tbaa !46
-  call void @free(ptr noundef %1028) #21
+  call void @free(ptr noundef %1028) #25
   %1029 = load ptr, ptr %29, align 8, !tbaa !48
-  call void @free(ptr noundef %1029) #21
+  call void @free(ptr noundef %1029) #25
   %1030 = load ptr, ptr %31, align 8, !tbaa !25
-  call void @free(ptr noundef %1030) #21
+  call void @free(ptr noundef %1030) #25
   %.not28 = or i1 %.3, %.not27
   br i1 %.not28, label %1031, label %1032
 
@@ -2390,35 +2390,29 @@ CompressFiles.exit:                               ; preds = %768, %603, %1001, %
   unreachable
 
 1032:                                             ; preds = %CompressFiles.exit
-  call void @llvm.lifetime.end.p0(i64 488, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @BrotliEncoderDestroyPreparedDictionary(ptr noundef) local_unnamed_addr #5
+declare void @BrotliEncoderDestroyPreparedDictionary(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseInt(ptr noundef readonly captures(none) %0, i32 noundef range(i32 11, 31) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @ParseInt(ptr noundef readonly captures(none) %0, i32 noundef range(i32 11, 31) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #7 {
   br label %4
 
 4:                                                ; preds = %3, %10
@@ -2478,8 +2472,8 @@ define internal fastcc range(i32 0, 2) i32 @ParseInt(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseBase64(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
+define internal fastcc range(i32 0, 2) i32 @ParseBase64(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #8 {
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %5 = load i64, ptr %2, align 8, !tbaa !39
   %.not98 = icmp eq i64 %4, 0
   br i1 %.not98, label %._crit_edge.thread, label %.lr.ph
@@ -2593,39 +2587,39 @@ define internal fastcc range(i32 0, 2) i32 @ParseBase64(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @BrotliEncoderPrepareDictionary(i32 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @BrotliEncoderPrepareDictionary(i32 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @NextFile(ptr noundef nonnull captures(none) initializes((400, 408)) %0) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @NextFile(ptr noundef nonnull captures(none) initializes((400, 408)) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load i32, ptr %2, align 8, !tbaa !68
   %4 = add nsw i32 %3, 1
@@ -2686,7 +2680,7 @@ define internal fastcc range(i32 0, 2) i32 @NextFile(ptr noundef nonnull capture
   %33 = sext i32 %.lcssa to i64
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !26
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #22
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #21
   %37 = icmp eq i64 %36, 1
   br i1 %37, label %38, label %46
 
@@ -2746,7 +2740,7 @@ FileSize.exit:                                    ; preds = %46, %52, %54
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %65 = load ptr, ptr %64, align 8, !tbaa !48
-  %66 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %35) #21
+  %66 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %35) #25
   %67 = load ptr, ptr %64, align 8, !tbaa !48
   store ptr %67, ptr %59, align 8, !tbaa !53
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2757,23 +2751,23 @@ FileSize.exit:                                    ; preds = %46, %52, %54
 70:                                               ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %72 = load ptr, ptr %71, align 8, !tbaa !19
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #22
-  %74 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %67, i32 noundef 47) #22
+  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #21
+  %74 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %67, i32 noundef 47) #21
   %.not.i60 = icmp eq ptr %74, null
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %spec.select.i = select i1 %.not.i60, ptr %67, ptr %75
-  %76 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #22
+  %76 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #21
   %.not9.i = icmp eq ptr %76, null
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   %.1.i = select i1 %.not9.i, ptr %spec.select.i, ptr %77
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.i) #22
+  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.i) #21
   %79 = add i64 %73, 1
   %80 = icmp ult i64 %78, %79
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %70
   %82 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.62, ptr noundef nonnull %35) #24
+  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.62, ptr noundef nonnull %35) #23
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %84, align 8, !tbaa !67
   br label %100
@@ -2782,13 +2776,13 @@ FileSize.exit:                                    ; preds = %46, %52, %54
   %86 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %78
   %87 = sub i64 0, %73
   %88 = getelementptr inbounds i8, ptr %86, i64 %87
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %88) #22
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %88) #21
   %.not59 = icmp eq i32 %89, 0
   br i1 %.not59, label %94, label %90
 
 90:                                               ; preds = %85
   %91 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.63, ptr noundef nonnull %35) #24
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.63, ptr noundef nonnull %35) #23
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %93, align 8, !tbaa !67
   br label %100
@@ -2801,7 +2795,7 @@ FileSize.exit:                                    ; preds = %46, %52, %54
   %96 = getelementptr inbounds nuw i8, ptr %67, i64 %36
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %98 = load ptr, ptr %97, align 8, !tbaa !19
-  %99 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) %98) #21
+  %99 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) %98) #25
   br label %100
 
 100:                                              ; preds = %81, %90, %94, %60, %FileSize.exit, %._crit_edge, %15, %95, %41, %17
@@ -2809,11 +2803,11 @@ FileSize.exit:                                    ; preds = %46, %52, %54
   ret i32 %.0
 }
 
-declare ptr @BrotliEncoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @BrotliEncoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @BrotliEncoderSetParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @BrotliEncoderSetParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr noundef nonnull captures(none) initializes((408, 416)) %0) unnamed_addr #0 {
@@ -2825,7 +2819,7 @@ define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr noundef nonnull captur
   br i1 %.not.i, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noalias ptr @fdopen(i32 noundef 0, ptr noundef nonnull @.str.51) #21
+  %6 = tail call noalias ptr @fdopen(i32 noundef 0, ptr noundef nonnull @.str.51) #25
   store ptr %6, ptr %4, align 8, !tbaa !30
   br label %OpenInputFile.exit
 
@@ -2837,10 +2831,10 @@ define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr noundef nonnull captur
 
 OpenInputFile.exit.thread:                        ; preds = %7
   %9 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %10 = tail call ptr @__errno_location() #25
+  %10 = tail call ptr @__errno_location() #24
   %11 = load i32, ptr %10, align 4, !tbaa !20
-  %12 = tail call ptr @strerror(i32 noundef %11) #21
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.64, ptr noundef nonnull %3, ptr noundef %12) #24
+  %12 = tail call ptr @strerror(i32 noundef %11) #25
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.64, ptr noundef nonnull %3, ptr noundef %12) #23
   br label %OpenOutputFile.exit
 
 OpenInputFile.exit:                               ; preds = %5, %7
@@ -2860,37 +2854,37 @@ OpenInputFile.exit:                               ; preds = %5, %7
   br i1 %.not.i8, label %23, label %25
 
 23:                                               ; preds = %17
-  %24 = tail call noalias ptr @fdopen(i32 noundef 1, ptr noundef nonnull @.str.65) #21
+  %24 = tail call noalias ptr @fdopen(i32 noundef 1, ptr noundef nonnull @.str.65) #25
   store ptr %24, ptr %20, align 8, !tbaa !30
   br label %OpenOutputFile.exit
 
 25:                                               ; preds = %17
   %.not13.i = icmp eq i32 %22, 0
   %26 = select i1 %.not13.i, i32 705, i32 577
-  %27 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %19, i32 noundef %26, i32 noundef 384) #21
+  %27 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %19, i32 noundef %26, i32 noundef 384) #25
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %31 = tail call ptr @__errno_location() #25
+  %31 = tail call ptr @__errno_location() #24
   %32 = load i32, ptr %31, align 4, !tbaa !20
-  %33 = tail call ptr @strerror(i32 noundef %32) #21
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.66, ptr noundef nonnull %19, ptr noundef %33) #24
+  %33 = tail call ptr @strerror(i32 noundef %32) #25
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.66, ptr noundef nonnull %19, ptr noundef %33) #23
   br label %OpenOutputFile.exit
 
 35:                                               ; preds = %25
-  %36 = tail call noalias ptr @fdopen(i32 noundef %27, ptr noundef nonnull @.str.65) #21
+  %36 = tail call noalias ptr @fdopen(i32 noundef %27, ptr noundef nonnull @.str.65) #25
   store ptr %36, ptr %20, align 8, !tbaa !30
   %.not14.i = icmp eq ptr %36, null
   br i1 %.not14.i, label %37, label %OpenOutputFile.exit
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %39 = tail call ptr @__errno_location() #25
+  %39 = tail call ptr @__errno_location() #24
   %40 = load i32, ptr %39, align 4, !tbaa !20
-  %41 = tail call ptr @strerror(i32 noundef %40) #21
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.66, ptr noundef nonnull %19, ptr noundef %41) #24
+  %41 = tail call ptr @strerror(i32 noundef %40) #25
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.66, ptr noundef nonnull %19, ptr noundef %41) #23
   br label %OpenOutputFile.exit
 
 OpenOutputFile.exit:                              ; preds = %37, %35, %29, %23, %OpenInputFile.exit.thread, %OpenInputFile.exit
@@ -2899,9 +2893,9 @@ OpenOutputFile.exit:                              ; preds = %37, %35, %29, %23, 
 }
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #10
+declare i32 @isatty(i32 noundef) local_unnamed_addr #9
 
-declare void @BrotliEncoderDestroyInstance(ptr noundef) local_unnamed_addr #5
+declare void @BrotliEncoderDestroyInstance(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -2929,10 +2923,10 @@ define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr noundef nonnull captu
   %16 = load ptr, ptr %15, align 8, !tbaa !53
   %.not.i = icmp eq ptr %16, null
   %17 = select i1 %.not.i, ptr @.str.58, ptr %16
-  %18 = tail call ptr @__errno_location() #25
+  %18 = tail call ptr @__errno_location() #24
   %19 = load i32, ptr %18, align 4, !tbaa !20
-  %20 = tail call ptr @strerror(i32 noundef %19) #21
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.80, ptr noundef nonnull %17, ptr noundef %20) #24
+  %20 = tail call ptr @strerror(i32 noundef %19) #25
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.80, ptr noundef nonnull %17, ptr noundef %20) #23
   br label %22
 
 22:                                               ; preds = %13, %11
@@ -2947,7 +2941,7 @@ define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr noundef nonnull captu
   br i1 %.not30, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @unlink(ptr noundef nonnull %25) #21
+  %27 = tail call i32 @unlink(ptr noundef nonnull %25) #25
   br label %28
 
 28:                                               ; preds = %26, %23, %22
@@ -2966,19 +2960,19 @@ define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr noundef nonnull captu
   %35 = load ptr, ptr %34, align 8, !tbaa !61
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %37 = load ptr, ptr %36, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = icmp eq ptr %35, null
   %39 = icmp eq ptr %37, null
   %or.cond.i = or i1 %38, %39
   br i1 %or.cond.i, label %CopyStat.exit, label %40
 
 40:                                               ; preds = %33
-  %41 = call i32 @stat(ptr noundef nonnull readonly %35, ptr noundef nonnull %5) #21
+  %41 = call i32 @stat(ptr noundef nonnull readonly %35, ptr noundef nonnull %5) #25
   %.not.i37 = icmp eq i32 %41, 0
   br i1 %.not.i37, label %42, label %CopyStat.exit
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !71
   store i64 %44, ptr %4, align 16, !tbaa !74
@@ -2994,55 +2988,55 @@ define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr noundef nonnull captu
   %52 = load i64, ptr %51, align 8, !tbaa !78
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %52, ptr %53, align 8, !tbaa !76
-  %54 = call i32 @utimensat(i32 noundef -100, ptr noundef nonnull %37, ptr noundef nonnull %4, i32 noundef 256) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
+  %54 = call i32 @utimensat(i32 noundef -100, ptr noundef nonnull %37, ptr noundef nonnull %4, i32 noundef 256) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !79
   %57 = and i32 %56, 511
-  %58 = call i32 @chmod(ptr noundef nonnull %37, i32 noundef %57) #21
+  %58 = call i32 @chmod(ptr noundef nonnull %37, i32 noundef %57) #25
   %.not14.i = icmp eq i32 %58, 0
   br i1 %.not14.i, label %65, label %59
 
 59:                                               ; preds = %42
   %60 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %61 = tail call ptr @__errno_location() #25
+  %61 = tail call ptr @__errno_location() #24
   %62 = load i32, ptr %61, align 4, !tbaa !20
-  %63 = call ptr @strerror(i32 noundef %62) #21
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.81, ptr noundef nonnull %37, ptr noundef %63) #24
+  %63 = call ptr @strerror(i32 noundef %62) #25
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.81, ptr noundef nonnull %37, ptr noundef %63) #23
   br label %65
 
 65:                                               ; preds = %59, %42
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !80
-  %68 = call i32 @chown(ptr noundef nonnull %37, i32 noundef -1, i32 noundef %67) #21
+  %68 = call i32 @chown(ptr noundef nonnull %37, i32 noundef -1, i32 noundef %67) #25
   %.not15.i = icmp eq i32 %68, 0
   br i1 %.not15.i, label %75, label %69
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %71 = tail call ptr @__errno_location() #25
+  %71 = tail call ptr @__errno_location() #24
   %72 = load i32, ptr %71, align 4, !tbaa !20
-  %73 = call ptr @strerror(i32 noundef %72) #21
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.82, ptr noundef nonnull %37, ptr noundef %73) #24
+  %73 = call ptr @strerror(i32 noundef %72) #25
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.82, ptr noundef nonnull %37, ptr noundef %73) #23
   br label %75
 
 75:                                               ; preds = %69, %65
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %77 = load i32, ptr %76, align 4, !tbaa !81
-  %78 = call i32 @chown(ptr noundef nonnull %37, i32 noundef %77, i32 noundef -1) #21
+  %78 = call i32 @chown(ptr noundef nonnull %37, i32 noundef %77, i32 noundef -1) #25
   %.not16.i = icmp eq i32 %78, 0
   br i1 %.not16.i, label %CopyStat.exit, label %79
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %81 = tail call ptr @__errno_location() #25
+  %81 = tail call ptr @__errno_location() #24
   %82 = load i32, ptr %81, align 4, !tbaa !20
-  %83 = call ptr @strerror(i32 noundef %82) #21
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.83, ptr noundef nonnull %37, ptr noundef %83) #24
+  %83 = call ptr @strerror(i32 noundef %82) #25
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.83, ptr noundef nonnull %37, ptr noundef %83) #23
   br label %CopyStat.exit
 
 CopyStat.exit:                                    ; preds = %33, %40, %75, %79
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 85:                                               ; preds = %28, %30, %CopyStat.exit, %8, %3
@@ -3067,10 +3061,10 @@ CopyStat.exit:                                    ; preds = %33, %40, %75, %79
   %94 = load ptr, ptr %93, align 8, !tbaa !61
   %.not.i38 = icmp eq ptr %94, null
   %95 = select i1 %.not.i38, ptr @.str.58, ptr %94
-  %96 = tail call ptr @__errno_location() #25
+  %96 = tail call ptr @__errno_location() #24
   %97 = load i32, ptr %96, align 4, !tbaa !20
-  %98 = call ptr @strerror(i32 noundef %97) #21
-  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.80, ptr noundef nonnull %95, ptr noundef %98) #24
+  %98 = call ptr @strerror(i32 noundef %97) #25
+  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.80, ptr noundef nonnull %95, ptr noundef %98) #23
   br label %100
 
 100:                                              ; preds = %90, %91, %88, %85
@@ -3085,7 +3079,7 @@ CopyStat.exit:                                    ; preds = %33, %40, %75, %79
   br i1 %.not36, label %106, label %104
 
 104:                                              ; preds = %101
-  %105 = call i32 @unlink(ptr noundef nonnull %103) #21
+  %105 = call i32 @unlink(ptr noundef nonnull %103) #25
   br label %106
 
 106:                                              ; preds = %104, %101, %100
@@ -3094,34 +3088,34 @@ CopyStat.exit:                                    ; preds = %33, %40, %75, %79
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #14
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
 
-declare i32 @BrotliEncoderCompressStream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @BrotliEncoderCompressStream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @BrotliEncoderIsFinished(ptr noundef) local_unnamed_addr #5
+declare i32 @BrotliEncoderIsFinished(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i64 @clock() local_unnamed_addr #10
+declare i64 @clock() local_unnamed_addr #9
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintFileProcessingProgress(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #15 {
+define internal fastcc void @PrintFileProcessingProgress(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #14 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %.not.i = icmp eq ptr %4, null
   %5 = select i1 %.not.i, ptr @.str.58, ptr %4
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.73, ptr noundef nonnull %5) #24
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.73, ptr noundef nonnull %5) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %8 = load i64, ptr %7, align 8, !tbaa !59
   tail call fastcc void @PrintBytes(i64 noundef %8)
   %9 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 4, i64 1, ptr %9) #23
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 4, i64 1, ptr %9) #22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %12 = load i64, ptr %11, align 8, !tbaa !62
   tail call fastcc void @PrintBytes(i64 noundef %12)
@@ -3133,28 +3127,28 @@ define internal fastcc void @PrintFileProcessingProgress(ptr noundef nonnull rea
   %18 = sub nsw i64 %15, %17
   %19 = sitofp i64 %18 to double
   %20 = fdiv double %19, 1.000000e+06
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.75, double noundef %20) #24
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.75, double noundef %20) #23
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #15 {
+define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #14 {
   %2 = icmp ult i64 %0, 1024
   br i1 %2, label %3, label %7
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8, !tbaa !30
   %5 = trunc nuw nsw i64 %0 to i32
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.76, i32 noundef %5) #24
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.76, i32 noundef %5) #23
   br label %24
 
 7:                                                ; preds = %1
@@ -3165,7 +3159,7 @@ define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #15 {
   %10 = load ptr, ptr @stderr, align 8, !tbaa !30
   %11 = uitofp nneg i64 %0 to double
   %12 = fmul double %11, 0x3F50000000000000
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.77, double noundef %12) #24
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.77, double noundef %12) #23
   br label %24
 
 14:                                               ; preds = %7
@@ -3176,12 +3170,12 @@ define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #15 {
 
 18:                                               ; preds = %14
   %19 = fmul double %17, 0x3EB0000000000000
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.78, double noundef %19) #24
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.78, double noundef %19) #23
   br label %24
 
 21:                                               ; preds = %14
   %22 = fmul double %17, 0x3E10000000000000
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.79, double noundef %22) #24
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.79, double noundef %22) #23
   br label %24
 
 24:                                               ; preds = %9, %21, %18, %3
@@ -3189,32 +3183,32 @@ define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #15 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @BrotliDecoderDestroyInstance(ptr noundef) local_unnamed_addr #5
+declare void @BrotliDecoderDestroyInstance(ptr noundef) local_unnamed_addr #4
 
-declare ptr @BrotliDecoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @BrotliDecoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @BrotliDecoderSetParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @BrotliDecoderSetParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @BrotliDecoderAttachDictionary(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @BrotliDecoderAttachDictionary(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @BrotliDecoderSetMetadataCallbacks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @BrotliDecoderSetMetadataCallbacks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @OnMetadataStart(ptr noundef captures(none) %0, i64 noundef %1) #17 {
+define internal void @OnMetadataStart(ptr noundef captures(none) %0, i64 noundef %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8, !tbaa !66
   %5 = icmp eq i32 %4, 0
@@ -3241,7 +3235,7 @@ define internal void @OnMetadataStart(ptr noundef captures(none) %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @OnMetadataChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #8 {
+define internal void @OnMetadataChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i32, ptr %4, align 8, !tbaa !66
   %6 = icmp eq i32 %5, 1
@@ -3302,19 +3296,19 @@ define internal void @OnMetadataChunk(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @BrotliDecoderGetErrorCode(ptr noundef) local_unnamed_addr #5
+declare i32 @BrotliDecoderGetErrorCode(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @PrettyDecoderErrorString(i32 noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @BrotliDecoderErrorString(i32 noundef %0) #21
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
+  %2 = tail call ptr @BrotliDecoderErrorString(i32 noundef %0) #25
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   %4 = icmp ugt i64 %3, 7
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.92, i64 noundef 7) #22
+  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.92, i64 noundef 7) #21
   %7 = icmp eq i32 %6, 0
   %spec.select.idx = select i1 %7, i64 7, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx
@@ -3325,12 +3319,18 @@ define internal fastcc ptr @PrettyDecoderErrorString(i32 noundef %0) unnamed_add
   ret ptr %.0
 }
 
-declare i32 @BrotliDecoderDecompressStream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @BrotliDecoderDecompressStream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @BrotliDecoderErrorString(i32 noundef) local_unnamed_addr #5
+declare ptr @BrotliDecoderErrorString(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
@@ -3345,31 +3345,31 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { cold }
-attributes #24 = { cold nounwind }
-attributes #25 = { nounwind willreturn memory(none) }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { cold }
+attributes #23 = { cold nounwind }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { nounwind }
 attributes #26 = { nounwind allocsize(0) }
 attributes #27 = { cold noreturn nounwind }
 

@@ -2375,7 +2375,7 @@ llvm_optimize.exit:                               ; preds = %19
   br i1 %28, label %29, label %46
 
 29:                                               ; preds = %llvm_optimize.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %30 = load ptr, ptr %20, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2390,8 +2390,8 @@ llvm_optimize.exit:                               ; preds = %19
   unreachable
 
 gencontext_print_llvm_ir.exit:                    ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %36 = load ptr, ptr %20, align 8
   %37 = call i32 @LLVMVerifyModule(ptr noundef %36, i32 noundef 1, ptr noundef nonnull %4) #10
@@ -2417,7 +2417,7 @@ gencontext_print_llvm_ir.exit:                    ; preds = %29
   unreachable
 
 gencontext_verify_ir.exit:                        ; preds = %gencontext_print_llvm_ir.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %46
 
 46:                                               ; preds = %gencontext_verify_ir.exit, %llvm_optimize.exit
@@ -2426,7 +2426,7 @@ gencontext_verify_ir.exit:                        ; preds = %gencontext_print_ll
   br i1 %48, label %49, label %73
 
 49:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.35, ptr %3, align 8
   %50 = load ptr, ptr %20, align 8
   %51 = load ptr, ptr @platform_target, align 8
@@ -2469,7 +2469,7 @@ gencontext_verify_ir.exit:                        ; preds = %gencontext_print_ll
   unreachable
 
 gencontext_emit_object_file.exit:                 ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = load ptr, ptr %67, align 8
   br label %73
 
@@ -2480,7 +2480,7 @@ gencontext_emit_object_file.exit:                 ; preds = %64
   br i1 %75, label %76, label %90
 
 76:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str.35, ptr %2, align 8
   %77 = load ptr, ptr %20, align 8
   %78 = load ptr, ptr @platform_target, align 8
@@ -2505,7 +2505,7 @@ gencontext_emit_object_file.exit:                 ; preds = %64
   unreachable
 
 llvm_emit_asm_file.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %90
 
 90:                                               ; preds = %llvm_emit_asm_file.exit, %73
@@ -6393,8 +6393,8 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   %353 = getelementptr inbounds nuw i8, ptr %43, i64 440
   %354 = load ptr, ptr %353, align 8
   tail call void @llvm_emit_dynamic_functions(ptr noundef nonnull %43, ptr noundef %354) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %355 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   %356 = icmp eq i32 %355, 4
   %357 = getelementptr inbounds nuw i8, ptr %43, i64 104
@@ -6523,8 +6523,8 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   br label %llvm_emit_constructors_and_destructors.exit
 
 llvm_emit_constructors_and_destructors.exit:      ; preds = %359, %365, %400, %419, %422
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %432 = getelementptr inbounds nuw i8, ptr %43, i64 304
   %433 = load ptr, ptr %432, align 8
   %.not298 = icmp eq ptr %433, null
@@ -6545,7 +6545,7 @@ llvm_emit_constructors_and_destructors.exit:      ; preds = %359, %365, %400, %4
   br i1 %or.cond336, label %441, label %459
 
 441:                                              ; preds = %436
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %442 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %443 = load ptr, ptr %442, align 8
@@ -6561,8 +6561,8 @@ llvm_emit_constructors_and_destructors.exit:      ; preds = %359, %365, %400, %4
   unreachable
 
 gencontext_print_llvm_ir.exit:                    ; preds = %441
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %449 = load ptr, ptr %442, align 8
   %450 = call i32 @LLVMVerifyModule(ptr noundef %449, i32 noundef 1, ptr noundef nonnull %3) #10
@@ -6588,7 +6588,7 @@ gencontext_print_llvm_ir.exit:                    ; preds = %441
   unreachable
 
 gencontext_verify_ir.exit:                        ; preds = %gencontext_print_llvm_ir.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %459
 
 459:                                              ; preds = %436, %gencontext_verify_ir.exit
@@ -7125,10 +7125,10 @@ declare ptr @LLVMGetFirstBasicBlock(ptr noundef) local_unnamed_addr #1
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

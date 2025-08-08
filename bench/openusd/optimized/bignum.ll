@@ -146,7 +146,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6V
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 19
   %16 = add nsw i32 %.032, -19
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %0, i32 noundef 19)
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit, label %.lr.ph.i.i
 
@@ -173,7 +173,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt6
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit.i
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = icmp samesign ugt i32 %.032, 37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 19
   br i1 %23, label %9, label %._crit_edge.loopexit, !llvm.loop !8
@@ -190,7 +190,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17.thread: ; preds = %._crit_edge
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %0, i32 noundef %.0.lcssa)
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit25
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -214,7 +214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6V
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17: ; preds = %.lr.ph.i13
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %0, i32 noundef %.0.lcssa)
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = icmp eq i64 %34, 0
   br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit25, label %.lr.ph.i.i18
 
@@ -242,7 +242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt6
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit25
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9AddUInt64Em.exit25: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit.i23
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr.i = load i16, ptr %0, align 4
   %43 = icmp sgt i16 %.pr.i, 0
   br i1 %43, label %.lr.ph.i26, label %.critedge.i
@@ -2781,10 +2781,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8

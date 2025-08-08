@@ -3064,8 +3064,8 @@ for.body3.i:                                      ; preds = %_ZN7msdfgenL18edgeT
   %89 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds ptr, ptr %edgeSegments.sroa.0.0.lcssa1667, i64 %indvars.iv.i
   %90 = load ptr, ptr %arrayidx5.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t59.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t59.i.i)
   %vtable.i.i = load ptr, ptr %89, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 40
   %91 = load ptr, ptr %vfn.i.i, align 8
@@ -3249,8 +3249,8 @@ call70.i.i.noexc:                                 ; preds = %call67.i.i.noexc
 
 _ZN7msdfgenL18edgeToEdgeDistanceERKNS_11EdgeSegmentES2_i.exit.i: ; preds = %call70.i.i.noexc, %call33.i.i.noexc, %call23.i.i.noexc, %call13.i.i.noexc, %call4.i.i.noexc
   %retval.0.i.i = phi double [ 0.000000e+00, %call33.i.i.noexc ], [ 0.000000e+00, %call23.i.i.noexc ], [ 0.000000e+00, %call13.i.i.noexc ], [ 0.000000e+00, %call4.i.i.noexc ], [ %cond.i30.i.i, %call70.i.i.noexc ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t59.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t59.i.i)
   %cmp.i.i697 = fcmp olt double %retval.0.i.i, %minDistance.111.i
   %cond.i.i = select i1 %cmp.i.i697, double %retval.0.i.i, double %minDistance.111.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -3682,7 +3682,7 @@ for.body439:                                      ; preds = %for.body439.lr.ph, 
   %conv447 = trunc i64 %sub.ptr.div446 to i32
   %div450 = sdiv i32 %conv447, %sub284
   %rem451 = srem i32 %conv447, %sub284
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %uncolored.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uncolored.i)
   %idxprom.i = sext i32 %div450 to i64
   %arrayidx.i844 = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i800, i64 %idxprom.i
   %160 = load ptr, ptr %arrayidx.i844, align 8
@@ -3925,7 +3925,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i.i.i: ; preds = %_ZN
   br label %for.inc456
 
 for.inc456:                                       ; preds = %_ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i.i.i, %cleanup.i, %if.then13.i, %for.body439
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %uncolored.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uncolored.i)
   %indvars.iv.next1638 = add nuw nsw i64 %indvars.iv1637, 1
   %198 = trunc nuw i64 %indvars.iv.next1638 to i32
   %cmp438 = icmp slt i32 %198, %conv378
@@ -4845,10 +4845,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

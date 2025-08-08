@@ -10,10 +10,10 @@ define hidden i32 @SDL_GetPowerInfo_REAL(ptr noundef %0, ptr noundef %1) local_u
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   %spec.store.select = select i1 %.not, ptr %4, ptr %0
   %.not11 = icmp eq ptr %1, null
@@ -43,29 +43,29 @@ define hidden i32 @SDL_GetPowerInfo_REAL(ptr noundef %0, ptr noundef %1) local_u
 
 14:                                               ; preds = %13, %11
   %.010 = phi i32 [ %12, %11 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.010
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare zeroext i1 @SDL_GetPowerInfo_Linux_sys_class_power_supply(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare zeroext i1 @SDL_GetPowerInfo_Linux_proc_acpi(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare zeroext i1 @SDL_GetPowerInfo_Linux_proc_apm(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare zeroext i1 @SDL_GetPowerInfo_Linux_sys_class_power_supply(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare zeroext i1 @SDL_GetPowerInfo_Linux_proc_acpi(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare zeroext i1 @SDL_GetPowerInfo_Linux_proc_apm(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

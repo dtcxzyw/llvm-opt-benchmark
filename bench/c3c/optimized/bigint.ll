@@ -51,8 +51,8 @@ i128_neg.exit:                                    ; preds = %13, %12, %4
   %.026 = phi ptr [ %9, %i128_neg.exit ], [ %63, %i128_udiv.exit ]
   %.sroa.018.1 = phi i64 [ %.sroa.018.0, %i128_neg.exit ], [ %.sroa.03.0.i38, %i128_udiv.exit ]
   %.sroa.8.1 = phi i64 [ %.sroa.8.0, %i128_neg.exit ], [ %.sroa.3.0.i39, %i128_udiv.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.018.1, ptr %7, align 8
   store i64 %.sroa.8.1, ptr %20, align 8
   store i64 0, ptr %8, align 8
@@ -130,14 +130,14 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
 
 i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %24
   %.sroa.3.0.i = phi i64 [ %.sroa.8.1, %24 ], [ %56, %i128_ucomp.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %61 = getelementptr inbounds [16 x i8], ptr @i128_to_string.digits, i64 0, i64 %.sroa.3.0.i
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   store i8 %62, ptr %.026, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.018.1, ptr %5, align 8
   store i64 %.sroa.8.1, ptr %22, align 8
   store i64 0, ptr %6, align 8
@@ -222,8 +222,8 @@ i128_ucomp.exit.i.i36:                            ; preds = %select.unfold.i.i34
 i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i36, %i128_urem.exit
   %.sroa.03.0.i38 = phi i64 [ 0, %i128_urem.exit ], [ %90, %i128_ucomp.exit.i.i36 ]
   %.sroa.3.0.i39 = phi i64 [ 0, %i128_urem.exit ], [ %102, %i128_ucomp.exit.i.i36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %106 = icmp eq i64 %.sroa.03.0.i38, 0
   %107 = icmp eq i64 %.sroa.3.0.i39, 0
   %108 = select i1 %106, i1 %107, i1 false
@@ -292,8 +292,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 {
   %5 = alloca %struct.Int128_, align 8
   %6 = alloca %struct.Int128_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %7, align 8
@@ -376,8 +376,8 @@ i128_ucomp.exit.i:                                ; preds = %select.unfold.i, %3
 i128_udivrem.exit:                                ; preds = %i128_ucomp.exit.i, %4
   %.sroa.3.0 = phi i64 [ %1, %4 ], [ %42, %i128_ucomp.exit.i ]
   %.sroa.03.0 = phi i64 [ %0, %4 ], [ %43, %i128_ucomp.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -387,8 +387,8 @@ i128_udivrem.exit:                                ; preds = %i128_ucomp.exit.i, 
 define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 {
   %5 = alloca %struct.Int128_, align 8
   %6 = alloca %struct.Int128_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %7, align 8
@@ -477,8 +477,8 @@ i128_ucomp.exit.i:                                ; preds = %select.unfold.i, %4
 i128_udivrem.exit:                                ; preds = %i128_ucomp.exit.i, %4
   %.sroa.03.0 = phi i64 [ 0, %4 ], [ %37, %i128_ucomp.exit.i ]
   %.sroa.3.0 = phi i64 [ 0, %4 ], [ %49, %i128_ucomp.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1935,8 +1935,8 @@ i128_neg.exit:                                    ; preds = %10, %9, %4
 i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.exit
   %.sroa.07.0 = phi i64 [ %2, %i128_neg.exit ], [ %24, %18 ], [ %2, %17 ]
   %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.011.0, ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.514.0, ptr %25, align 8
@@ -2019,8 +2019,8 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
 i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %i128_neg.exit25
   %.sroa.3.0.i = phi i64 [ %.sroa.514.0, %i128_neg.exit25 ], [ %60, %i128_ucomp.exit.i.i ]
   %.sroa.03.0.i = phi i64 [ %.sroa.011.0, %i128_neg.exit25 ], [ %61, %i128_ucomp.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not19 = icmp eq i64 %8, %7
   br i1 %.not19, label %i128_neg.exit31, label %65
 
@@ -2103,8 +2103,8 @@ i128_neg.exit:                                    ; preds = %10, %9, %4
 i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.exit
   %.sroa.07.0 = phi i64 [ %2, %i128_neg.exit ], [ %24, %18 ], [ %2, %17 ]
   %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.011.0, ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.514.0, ptr %25, align 8
@@ -2191,16 +2191,16 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
 i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %55, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %67, 1
   %.not19 = icmp eq i64 %8, %7
   br i1 %.not19, label %79, label %71
 
 i128_udiv.exit.thread:                            ; preds = %i128_neg.exit25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not1936 = icmp eq i64 %8, %7
   br i1 %.not1936, label %79, label %i128_neg.exit31
 
@@ -3156,8 +3156,8 @@ define dso_local void @int_div(ptr dead_on_unwind noalias writable writeonly sre
   br label %65
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %10, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %19, align 8
@@ -3246,8 +3246,8 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
 i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i, %18
   %.sroa.03.0.i = phi i64 [ 0, %18 ], [ %49, %i128_ucomp.exit.i.i ]
   %.sroa.3.0.i = phi i64 [ 0, %18 ], [ %61, %i128_ucomp.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.3.0.i, 1
   br label %65
@@ -3285,8 +3285,8 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias writable writeonly sre
   br label %59
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %10, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %19, align 8
@@ -3369,8 +3369,8 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
 i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %18
   %.sroa.3.0.i = phi i64 [ %12, %18 ], [ %54, %i128_ucomp.exit.i.i ]
   %.sroa.03.0.i = phi i64 [ %10, %18 ], [ %55, %i128_ucomp.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.3.0.i, 1
   br label %59
@@ -3843,10 +3843,10 @@ declare double @llvm.fabs.f64(double) #17
 declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #17

@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZNK15btReducedVector4projERKS_(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btReducedVector, align 8
   %5 = alloca %class.btReducedVector, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load i32, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -153,7 +153,7 @@ _ZNK15btReducedVector7length2Ev.exit.thread:      ; preds = %3, %_ZNK15btReduced
   br label %141
 
 59:                                               ; preds = %_ZNK15btReducedVector7length2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !19
   %62 = icmp sgt i32 %61, 0
@@ -256,7 +256,7 @@ _ZdvRK15btReducedVectorf.exit:                    ; preds = %99
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #16
+  call void @__clang_call_terminate(ptr %109) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %106, %_ZdvRK15btReducedVectorf.exit
@@ -283,11 +283,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %106, %_ZdvRK15btRed
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #16
+  call void @__clang_call_terminate(ptr %120) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %117
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %126
 
 121:                                              ; preds = %_ZNK15btReducedVector3dotERKS_.exit
@@ -298,12 +298,12 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
 123:                                              ; preds = %99
   %124 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5) #15
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %5) #16
   br label %125
 
 125:                                              ; preds = %123, %121
   %.pn = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %141
 
 126:                                              ; preds = %_ZNK15btReducedVector7length2Ev.exit.thread, %_ZN15btReducedVectorD2Ev.exit
@@ -322,7 +322,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #16
+  call void @__clang_call_terminate(ptr %133) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i15: ; preds = %130, %126
@@ -345,27 +345,24 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i15: ; preds = %130, %126
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #16
+  call void @__clang_call_terminate(ptr %140) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit18:                  ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i15, %137
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 141:                                              ; preds = %125, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %125 ]
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %4) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #15
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn11
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %3, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -525,12 +522,12 @@ _ZN20btAlignedObjectArrayI9btVector3EC2ERKS1_.exit: ; preds = %48, %_ZN20btAlign
 55:                                               ; preds = %46, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #15
+  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #16
   resume { ptr, i32 } %56
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZmlRK15btReducedVectorf(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, float noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZmlRK15btReducedVectorf(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, float noundef %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -765,12 +762,12 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %84, %_Z
 
 102:                                              ; preds = %95, %97, %99
   %.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %98, %97 ], [ %96, %95 ]
-  tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #15
+  tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #16
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not.i.i.i = icmp ne ptr %3, null
@@ -788,7 +785,7 @@ define linkonce_odr dso_local void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  tail call void @__clang_call_terminate(ptr %10) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %1, %7
@@ -815,7 +812,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %1, %7
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #16
+  tail call void @__clang_call_terminate(ptr %21) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %18
@@ -827,9 +824,6 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %23, align 8, !tbaa !20
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15btReducedVector9normalizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1015,8 +1009,8 @@ _ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit: ; preds = %_ZN20btAlignedObj
   br i1 %exitcond34.not.i.i14, label %_ZNK15btReducedVector7length2Ev.exit21, label %.preheader.i.i6, !llvm.loop !30
 
 _ZNK15btReducedVector7length2Ev.exit21:           ; preds = %.critedge.i.i10
-  %89 = tail call noundef float @sqrtf(float noundef %.120.i.i12) #15, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #15
+  %89 = tail call noundef float @sqrtf(float noundef %.120.i.i12) #16, !tbaa !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %90 = fdiv float 1.000000e+00, %89
   call void @_ZmlRK15btReducedVectorf(ptr dead_on_unwind nonnull writable sret(%class.btReducedVector) align 8 %2, ptr noundef nonnull align 8 dereferenceable(68) %0, float noundef %90)
   %91 = invoke noundef nonnull align 8 dereferenceable(68) ptr @_ZN15btReducedVectoraSERKS_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %2)
@@ -1040,7 +1034,7 @@ _ZNK15btReducedVector7length2Ev.exit21:           ; preds = %.critedge.i.i10
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #16
+  call void @__clang_call_terminate(ptr %101) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i: ; preds = %98, %92
@@ -1067,18 +1061,18 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i: ; preds = %98, %92
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #16
+  call void @__clang_call_terminate(ptr %112) #15
   unreachable
 
 113:                                              ; preds = %_ZNK15btReducedVector7length2Ev.exit21
   %114 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #15
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %114
 
 _ZdVR15btReducedVectorf.exit:                     ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i, %109
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %115
 
 115:                                              ; preds = %_ZdVR15btReducedVectorf.exit, %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit
@@ -1098,7 +1092,7 @@ define dso_local noundef zeroext i1 @_ZNK15btReducedVector7testAddEv(ptr nonnull
   %10 = alloca %class.btReducedVector, align 8
   %11 = alloca %class.btReducedVector, align 8
   %12 = alloca %class.btReducedVector, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %13, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1238,7 +1232,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i56: ; preds = %.noexc64, %_ZN
   %58 = load i32, ptr %15, align 4, !tbaa !19
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %15, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %60, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1383,7 +1377,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i87: ; preds = %._ZN2
   %101 = load i32, ptr %62, align 4, !tbaa !23
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %62, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %103, align 8, !tbaa !17
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1603,7 +1597,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i144: ; preds = %.noexc152, %_
   %176 = load i32, ptr %105, align 4, !tbaa !19
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr %105, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %178, align 8, !tbaa !21
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1830,7 +1824,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i198: ; preds = %._ZN
   %245 = load i32, ptr %180, align 4, !tbaa !23
   %246 = add nsw i32 %245, 1
   store i32 %246, ptr %180, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %247 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %247, align 8, !tbaa !17
   %248 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2130,7 +2124,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i274: ; preds = %.noexc282, %_
   %348 = load i32, ptr %249, align 4, !tbaa !19
   %349 = add nsw i32 %348, 1
   store i32 %349, ptr %249, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 1, ptr %350, align 8, !tbaa !21
   %351 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2439,22 +2433,22 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i346: ; preds = %._ZN
   %443 = load i32, ptr %352, align 4, !tbaa !23
   %444 = add nsw i32 %443, 1
   store i32 %444, ptr %352, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %8, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull align 8 dereferenceable(25) %3)
           to label %445 unwind label %620
 
 445:                                              ; preds = %438
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %9, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %4, ptr noundef nonnull align 8 dereferenceable(25) %5)
           to label %446 unwind label %622
 
 446:                                              ; preds = %445
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %10, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull align 8 dereferenceable(25) %7)
           to label %447 unwind label %624
 
 447:                                              ; preds = %446
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN15btReducedVectorplERKS_(ptr dead_on_unwind nonnull writable sret(%class.btReducedVector) align 8 %11, ptr noundef nonnull align 8 dereferenceable(68) %8, ptr noundef nonnull align 8 dereferenceable(68) %9)
           to label %448 unwind label %626
 
@@ -2537,7 +2531,7 @@ _ZNK9btVector3neERKS_.exit.i:                     ; preds = %487
   br i1 %495, label %.critedge, label %467
 
 _ZNK15btReducedVectoreqERKS_.exit:                ; preds = %467, %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN15btReducedVectorplERKS_(ptr dead_on_unwind nonnull writable sret(%class.btReducedVector) align 8 %12, ptr noundef nonnull align 8 dereferenceable(68) %9, ptr noundef nonnull align 8 dereferenceable(68) %8)
           to label %496 unwind label %628
 
@@ -2636,7 +2630,7 @@ _ZNK9btVector3neERKS_.exit.i364:                  ; preds = %533
   %549 = landingpad { ptr, i32 }
           catch ptr null
   %550 = extractvalue { ptr, i32 } %549, 0
-  call void @__clang_call_terminate(ptr %550) #16
+  call void @__clang_call_terminate(ptr %550) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %547, %.loopexit
@@ -2663,11 +2657,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %547, %.loopexit
   %560 = landingpad { ptr, i32 }
           catch ptr null
   %561 = extractvalue { ptr, i32 } %560, 0
-  call void @__clang_call_terminate(ptr %561) #16
+  call void @__clang_call_terminate(ptr %561) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %558
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK9btVector3neERKS_.exit.i, %468, %487, %481, %473, %453, %448, %_ZN15btReducedVectorD2Ev.exit
@@ -2689,7 +2683,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %570 = landingpad { ptr, i32 }
           catch ptr null
   %571 = extractvalue { ptr, i32 } %570, 0
-  call void @__clang_call_terminate(ptr %571) #16
+  call void @__clang_call_terminate(ptr %571) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i370: ; preds = %568, %.critedge
@@ -2716,11 +2710,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i370: ; preds = %568, %.critedge
   %581 = landingpad { ptr, i32 }
           catch ptr null
   %582 = extractvalue { ptr, i32 } %581, 0
-  call void @__clang_call_terminate(ptr %582) #16
+  call void @__clang_call_terminate(ptr %582) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit373:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i370, %579
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %562, label %631, label %583
 
 583:                                              ; preds = %_ZN15btReducedVectorD2Ev.exit373
@@ -2840,14 +2834,14 @@ _ZN15btReducedVectorD2Ev.exit373:                 ; preds = %_ZN20btAlignedObjec
 628:                                              ; preds = %_ZNK15btReducedVectoreqERKS_.exit
   %629 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %11) #16
   br label %630
 
 630:                                              ; preds = %628, %626
   %.pn.pn.pn = phi { ptr, i32 } [ %629, %628 ], [ %627, %626 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %10) #16
   br label %734
 
 631:                                              ; preds = %583, %_ZN15btReducedVectorD2Ev.exit373
@@ -2868,7 +2862,7 @@ _ZN15btReducedVectorD2Ev.exit373:                 ; preds = %_ZN20btAlignedObjec
   %639 = landingpad { ptr, i32 }
           catch ptr null
   %640 = extractvalue { ptr, i32 } %639, 0
-  call void @__clang_call_terminate(ptr %640) #16
+  call void @__clang_call_terminate(ptr %640) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i376: ; preds = %637, %631
@@ -2895,11 +2889,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i376: ; preds = %637, %631
   %650 = landingpad { ptr, i32 }
           catch ptr null
   %651 = extractvalue { ptr, i32 } %650, 0
-  call void @__clang_call_terminate(ptr %651) #16
+  call void @__clang_call_terminate(ptr %651) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit379:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i376, %648
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %652 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %653 = load ptr, ptr %652, align 8, !tbaa !22
   %.not.i.i.i.i380 = icmp ne ptr %653, null
@@ -2917,7 +2911,7 @@ _ZN15btReducedVectorD2Ev.exit379:                 ; preds = %_ZN20btAlignedObjec
   %659 = landingpad { ptr, i32 }
           catch ptr null
   %660 = extractvalue { ptr, i32 } %659, 0
-  call void @__clang_call_terminate(ptr %660) #16
+  call void @__clang_call_terminate(ptr %660) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i382: ; preds = %657, %_ZN15btReducedVectorD2Ev.exit379
@@ -2944,11 +2938,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i382: ; preds = %657, %_ZN15btRed
   %670 = landingpad { ptr, i32 }
           catch ptr null
   %671 = extractvalue { ptr, i32 } %670, 0
-  call void @__clang_call_terminate(ptr %671) #16
+  call void @__clang_call_terminate(ptr %671) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit385:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i382, %668
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %672 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %673 = load ptr, ptr %672, align 8, !tbaa !22
   %.not.i.i.i.i386 = icmp ne ptr %673, null
@@ -2966,7 +2960,7 @@ _ZN15btReducedVectorD2Ev.exit385:                 ; preds = %_ZN20btAlignedObjec
   %679 = landingpad { ptr, i32 }
           catch ptr null
   %680 = extractvalue { ptr, i32 } %679, 0
-  call void @__clang_call_terminate(ptr %680) #16
+  call void @__clang_call_terminate(ptr %680) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i388: ; preds = %677, %_ZN15btReducedVectorD2Ev.exit385
@@ -2993,11 +2987,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i388: ; preds = %677, %_ZN15btRed
   %690 = landingpad { ptr, i32 }
           catch ptr null
   %691 = extractvalue { ptr, i32 } %690, 0
-  call void @__clang_call_terminate(ptr %691) #16
+  call void @__clang_call_terminate(ptr %691) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit391:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i388, %688
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %692 = load ptr, ptr %351, align 8, !tbaa !22
   %.not.i.i.i392 = icmp ne ptr %692, null
   %693 = load i8, ptr %350, align 8, !range !31
@@ -3013,11 +3007,11 @@ _ZN15btReducedVectorD2Ev.exit391:                 ; preds = %_ZN20btAlignedObjec
   %697 = landingpad { ptr, i32 }
           catch ptr null
   %698 = extractvalue { ptr, i32 } %697, 0
-  call void @__clang_call_terminate(ptr %698) #16
+  call void @__clang_call_terminate(ptr %698) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVectorD2Ev.exit391, %695
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %699 = load ptr, ptr %248, align 8, !tbaa !18
   %.not.i.i.i394 = icmp ne ptr %699, null
   %700 = load i8, ptr %247, align 8, !range !31
@@ -3033,11 +3027,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVecto
   %704 = landingpad { ptr, i32 }
           catch ptr null
   %705 = extractvalue { ptr, i32 } %704, 0
-  call void @__clang_call_terminate(ptr %705) #16
+  call void @__clang_call_terminate(ptr %705) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %702
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %706 = load ptr, ptr %179, align 8, !tbaa !22
   %.not.i.i.i396 = icmp ne ptr %706, null
   %707 = load i8, ptr %178, align 8, !range !31
@@ -3053,11 +3047,11 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   %711 = landingpad { ptr, i32 }
           catch ptr null
   %712 = extractvalue { ptr, i32 } %711, 0
-  call void @__clang_call_terminate(ptr %712) #16
+  call void @__clang_call_terminate(ptr %712) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit398: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %709
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %713 = load ptr, ptr %104, align 8, !tbaa !18
   %.not.i.i.i399 = icmp ne ptr %713, null
   %714 = load i8, ptr %103, align 8, !range !31
@@ -3073,11 +3067,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit398: ; preds = %_ZN20btAlignedObje
   %718 = landingpad { ptr, i32 }
           catch ptr null
   %719 = extractvalue { ptr, i32 } %718, 0
-  call void @__clang_call_terminate(ptr %719) #16
+  call void @__clang_call_terminate(ptr %719) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit401:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit398, %716
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %720 = load ptr, ptr %61, align 8, !tbaa !22
   %.not.i.i.i402 = icmp ne ptr %720, null
   %721 = load i8, ptr %60, align 8, !range !31
@@ -3093,11 +3087,11 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit401:         ; preds = %_ZN20btAlignedObjec
   %725 = landingpad { ptr, i32 }
           catch ptr null
   %726 = extractvalue { ptr, i32 } %725, 0
-  call void @__clang_call_terminate(ptr %726) #16
+  call void @__clang_call_terminate(ptr %726) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit404: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit401, %723
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %727 = load ptr, ptr %14, align 8, !tbaa !18
   %.not.i.i.i405 = icmp ne ptr %727, null
   %728 = load i8, ptr %13, align 8, !range !31
@@ -3113,64 +3107,64 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit404: ; preds = %_ZN20btAlignedObje
   %732 = landingpad { ptr, i32 }
           catch ptr null
   %733 = extractvalue { ptr, i32 } %732, 0
-  call void @__clang_call_terminate(ptr %733) #16
+  call void @__clang_call_terminate(ptr %733) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit407:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit404, %730
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %562
 
 734:                                              ; preds = %630, %624
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %630 ], [ %625, %624 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #16
   br label %735
 
 735:                                              ; preds = %734, %622
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %734 ], [ %623, %622 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %8) #16
   br label %736
 
 736:                                              ; preds = %735, %620
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %735 ], [ %621, %620 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %737
 
 737:                                              ; preds = %736, %618, %616, %614, %612
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %736 ], [ %619, %618 ], [ %617, %616 ], [ %615, %614 ], [ %613, %612 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %738
 
 738:                                              ; preds = %737, %610, %608, %606, %604
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %737 ], [ %611, %610 ], [ %609, %608 ], [ %607, %606 ], [ %605, %604 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %739
 
 739:                                              ; preds = %738, %602, %600, %598
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %738 ], [ %603, %602 ], [ %601, %600 ], [ %599, %598 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %740
 
 740:                                              ; preds = %739, %596, %594, %592
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %739 ], [ %597, %596 ], [ %595, %594 ], [ %593, %592 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %741
 
 741:                                              ; preds = %740, %590, %588
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %740 ], [ %591, %590 ], [ %589, %588 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %742
 
 742:                                              ; preds = %741, %586, %584
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %741 ], [ %587, %586 ], [ %585, %584 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -3333,12 +3327,12 @@ _ZN20btAlignedObjectArrayI9btVector3EC2ERKS1_.exit: ; preds = %50, %_ZN20btAlign
 55:                                               ; preds = %48, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #15
+  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #16
   resume { ptr, i32 } %56
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN15btReducedVectorplERKS_(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN15btReducedVectorplERKS_(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4301,7 +4295,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i196: ; preds = %379,
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %245
   %.pn = phi { ptr, i32 } [ %246, %245 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit208, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit211, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #15
+  tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #16
   resume { ptr, i32 } %.pn
 
 390:                                              ; preds = %._crit_edge
@@ -4309,7 +4303,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i196: ; preds = %379,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not.i.i = icmp ne ptr %3, null
@@ -4336,12 +4330,12 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(pt
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #16
+  tail call void @__clang_call_terminate(ptr %13) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %.not.i.i = icmp ne ptr %3, null
@@ -4368,7 +4362,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #16
+  tail call void @__clang_call_terminate(ptr %13) #15
   unreachable
 }
 
@@ -4384,7 +4378,7 @@ define dso_local noundef zeroext i1 @_ZNK15btReducedVector9testMinusEv(ptr nonnu
   %9 = alloca %class.btReducedVector, align 8
   %10 = alloca %class.btReducedVector, align 8
   %11 = alloca %class.btReducedVector, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %12, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4524,7 +4518,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i46: ; preds = %.noexc54, %_ZN
   %57 = load i32, ptr %14, align 4, !tbaa !19
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %14, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %59, align 8, !tbaa !21
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4669,7 +4663,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i77: ; preds = %._ZN2
   %100 = load i32, ptr %61, align 4, !tbaa !23
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %61, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %102, align 8, !tbaa !17
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4889,7 +4883,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i134: ; preds = %.noexc142, %_
   %175 = load i32, ptr %104, align 4, !tbaa !19
   %176 = add nsw i32 %175, 1
   store i32 %176, ptr %104, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %177, align 8, !tbaa !21
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5116,7 +5110,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i188: ; preds = %._ZN
   %244 = load i32, ptr %179, align 4, !tbaa !23
   %245 = add nsw i32 %244, 1
   store i32 %245, ptr %179, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %246 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %246, align 8, !tbaa !17
   %247 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5416,7 +5410,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i264: ; preds = %.noexc272, %_
   %347 = load i32, ptr %248, align 4, !tbaa !19
   %348 = add nsw i32 %347, 1
   store i32 %348, ptr %248, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %349 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 1, ptr %349, align 8, !tbaa !21
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -5725,22 +5719,22 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i336: ; preds = %._ZN
   %442 = load i32, ptr %351, align 4, !tbaa !23
   %443 = add nsw i32 %442, 1
   store i32 %443, ptr %351, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %8, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull align 8 dereferenceable(25) %3)
           to label %444 unwind label %552
 
 444:                                              ; preds = %437
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %9, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %4, ptr noundef nonnull align 8 dereferenceable(25) %5)
           to label %445 unwind label %554
 
 445:                                              ; preds = %444
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %10, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull align 8 dereferenceable(25) %7)
           to label %446 unwind label %556
 
 446:                                              ; preds = %445
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN15btReducedVectormiERKS_(ptr dead_on_unwind nonnull writable sret(%class.btReducedVector) align 8 %11, ptr noundef nonnull align 8 dereferenceable(68) %9, ptr noundef nonnull align 8 dereferenceable(68) %8)
           to label %447 unwind label %558
 
@@ -5841,7 +5835,7 @@ _ZNK15btReducedVectoreqERKS_.exit:                ; preds = %_ZNK9btVector3neERK
   %502 = landingpad { ptr, i32 }
           catch ptr null
   %503 = extractvalue { ptr, i32 } %502, 0
-  call void @__clang_call_terminate(ptr %503) #16
+  call void @__clang_call_terminate(ptr %503) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %500, %_ZNK15btReducedVectoreqERKS_.exit
@@ -5868,11 +5862,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %500, %_ZNK15btReduc
   %513 = landingpad { ptr, i32 }
           catch ptr null
   %514 = extractvalue { ptr, i32 } %513, 0
-  call void @__clang_call_terminate(ptr %514) #16
+  call void @__clang_call_terminate(ptr %514) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %511
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.013.i, label %560, label %515
 
 515:                                              ; preds = %_ZN15btReducedVectorD2Ev.exit
@@ -5987,8 +5981,8 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
 558:                                              ; preds = %446
   %559 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %10) #16
   br label %663
 
 560:                                              ; preds = %515, %_ZN15btReducedVectorD2Ev.exit
@@ -6009,7 +6003,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %568 = landingpad { ptr, i32 }
           catch ptr null
   %569 = extractvalue { ptr, i32 } %568, 0
-  call void @__clang_call_terminate(ptr %569) #16
+  call void @__clang_call_terminate(ptr %569) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i348: ; preds = %566, %560
@@ -6036,11 +6030,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i348: ; preds = %566, %560
   %579 = landingpad { ptr, i32 }
           catch ptr null
   %580 = extractvalue { ptr, i32 } %579, 0
-  call void @__clang_call_terminate(ptr %580) #16
+  call void @__clang_call_terminate(ptr %580) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit351:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i348, %577
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %581 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %582 = load ptr, ptr %581, align 8, !tbaa !22
   %.not.i.i.i.i352 = icmp ne ptr %582, null
@@ -6058,7 +6052,7 @@ _ZN15btReducedVectorD2Ev.exit351:                 ; preds = %_ZN20btAlignedObjec
   %588 = landingpad { ptr, i32 }
           catch ptr null
   %589 = extractvalue { ptr, i32 } %588, 0
-  call void @__clang_call_terminate(ptr %589) #16
+  call void @__clang_call_terminate(ptr %589) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i354: ; preds = %586, %_ZN15btReducedVectorD2Ev.exit351
@@ -6085,11 +6079,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i354: ; preds = %586, %_ZN15btRed
   %599 = landingpad { ptr, i32 }
           catch ptr null
   %600 = extractvalue { ptr, i32 } %599, 0
-  call void @__clang_call_terminate(ptr %600) #16
+  call void @__clang_call_terminate(ptr %600) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit357:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i354, %597
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %601 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %602 = load ptr, ptr %601, align 8, !tbaa !22
   %.not.i.i.i.i358 = icmp ne ptr %602, null
@@ -6107,7 +6101,7 @@ _ZN15btReducedVectorD2Ev.exit357:                 ; preds = %_ZN20btAlignedObjec
   %608 = landingpad { ptr, i32 }
           catch ptr null
   %609 = extractvalue { ptr, i32 } %608, 0
-  call void @__clang_call_terminate(ptr %609) #16
+  call void @__clang_call_terminate(ptr %609) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i360: ; preds = %606, %_ZN15btReducedVectorD2Ev.exit357
@@ -6134,11 +6128,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i360: ; preds = %606, %_ZN15btRed
   %619 = landingpad { ptr, i32 }
           catch ptr null
   %620 = extractvalue { ptr, i32 } %619, 0
-  call void @__clang_call_terminate(ptr %620) #16
+  call void @__clang_call_terminate(ptr %620) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit363:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i360, %617
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %621 = load ptr, ptr %350, align 8, !tbaa !22
   %.not.i.i.i364 = icmp ne ptr %621, null
   %622 = load i8, ptr %349, align 8, !range !31
@@ -6154,11 +6148,11 @@ _ZN15btReducedVectorD2Ev.exit363:                 ; preds = %_ZN20btAlignedObjec
   %626 = landingpad { ptr, i32 }
           catch ptr null
   %627 = extractvalue { ptr, i32 } %626, 0
-  call void @__clang_call_terminate(ptr %627) #16
+  call void @__clang_call_terminate(ptr %627) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVectorD2Ev.exit363, %624
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %628 = load ptr, ptr %247, align 8, !tbaa !18
   %.not.i.i.i366 = icmp ne ptr %628, null
   %629 = load i8, ptr %246, align 8, !range !31
@@ -6174,11 +6168,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVecto
   %633 = landingpad { ptr, i32 }
           catch ptr null
   %634 = extractvalue { ptr, i32 } %633, 0
-  call void @__clang_call_terminate(ptr %634) #16
+  call void @__clang_call_terminate(ptr %634) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %631
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %635 = load ptr, ptr %178, align 8, !tbaa !22
   %.not.i.i.i368 = icmp ne ptr %635, null
   %636 = load i8, ptr %177, align 8, !range !31
@@ -6194,11 +6188,11 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   %640 = landingpad { ptr, i32 }
           catch ptr null
   %641 = extractvalue { ptr, i32 } %640, 0
-  call void @__clang_call_terminate(ptr %641) #16
+  call void @__clang_call_terminate(ptr %641) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit370: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %638
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %642 = load ptr, ptr %103, align 8, !tbaa !18
   %.not.i.i.i371 = icmp ne ptr %642, null
   %643 = load i8, ptr %102, align 8, !range !31
@@ -6214,11 +6208,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit370: ; preds = %_ZN20btAlignedObje
   %647 = landingpad { ptr, i32 }
           catch ptr null
   %648 = extractvalue { ptr, i32 } %647, 0
-  call void @__clang_call_terminate(ptr %648) #16
+  call void @__clang_call_terminate(ptr %648) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit373:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit370, %645
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %649 = load ptr, ptr %60, align 8, !tbaa !22
   %.not.i.i.i374 = icmp ne ptr %649, null
   %650 = load i8, ptr %59, align 8, !range !31
@@ -6234,11 +6228,11 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit373:         ; preds = %_ZN20btAlignedObjec
   %654 = landingpad { ptr, i32 }
           catch ptr null
   %655 = extractvalue { ptr, i32 } %654, 0
-  call void @__clang_call_terminate(ptr %655) #16
+  call void @__clang_call_terminate(ptr %655) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit376: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit373, %652
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %656 = load ptr, ptr %13, align 8, !tbaa !18
   %.not.i.i.i377 = icmp ne ptr %656, null
   %657 = load i8, ptr %12, align 8, !range !31
@@ -6254,69 +6248,69 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit376: ; preds = %_ZN20btAlignedObje
   %661 = landingpad { ptr, i32 }
           catch ptr null
   %662 = extractvalue { ptr, i32 } %661, 0
-  call void @__clang_call_terminate(ptr %662) #16
+  call void @__clang_call_terminate(ptr %662) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit379:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit376, %659
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.013.i
 
 663:                                              ; preds = %558, %556
   %.pn.pn = phi { ptr, i32 } [ %559, %558 ], [ %557, %556 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #16
   br label %664
 
 664:                                              ; preds = %663, %554
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %663 ], [ %555, %554 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %8) #16
   br label %665
 
 665:                                              ; preds = %664, %552
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %664 ], [ %553, %552 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %666
 
 666:                                              ; preds = %665, %550, %548, %546, %544
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %665 ], [ %551, %550 ], [ %549, %548 ], [ %547, %546 ], [ %545, %544 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %667
 
 667:                                              ; preds = %666, %542, %540, %538, %536
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %666 ], [ %543, %542 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %668
 
 668:                                              ; preds = %667, %534, %532, %530
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %667 ], [ %535, %534 ], [ %533, %532 ], [ %531, %530 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %669
 
 669:                                              ; preds = %668, %528, %526, %524
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %668 ], [ %529, %528 ], [ %527, %526 ], [ %525, %524 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %670
 
 670:                                              ; preds = %669, %522, %520
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %669 ], [ %523, %522 ], [ %521, %520 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %671
 
 671:                                              ; preds = %670, %518, %516
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %670 ], [ %519, %518 ], [ %517, %516 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN15btReducedVectormiERKS_(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN15btReducedVectormiERKS_(ptr dead_on_unwind noalias writable sret(%class.btReducedVector) align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7315,7 +7309,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
   %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #15
+  tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #16
   resume { ptr, i32 } %.pn
 
 410:                                              ; preds = %._crit_edge
@@ -7330,7 +7324,7 @@ define dso_local noundef zeroext i1 @_ZNK15btReducedVector7testDotEv(ptr nonnull
   %5 = alloca %class.btAlignedObjectArray.0, align 8
   %6 = alloca %class.btReducedVector, align 8
   %7 = alloca %class.btReducedVector, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %8, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7470,7 +7464,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i35: ; preds = %.noexc43, %_ZN
   %53 = load i32, ptr %10, align 4, !tbaa !19
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %10, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %55, align 8, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7615,7 +7609,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i66: ; preds = %._ZN2
   %96 = load i32, ptr %57, align 4, !tbaa !23
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %57, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %98, align 8, !tbaa !17
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7835,7 +7829,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i123: ; preds = %.noexc131, %_
   %171 = load i32, ptr %100, align 4, !tbaa !19
   %172 = add nsw i32 %171, 1
   store i32 %172, ptr %100, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %173, align 8, !tbaa !21
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8062,12 +8056,12 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i177: ; preds = %._ZN
   %240 = load i32, ptr %175, align 4, !tbaa !23
   %241 = add nsw i32 %240, 1
   store i32 %241, ptr %175, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %6, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull align 8 dereferenceable(25) %3)
           to label %242 unwind label %379
 
 242:                                              ; preds = %235
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %7, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %4, ptr noundef nonnull align 8 dereferenceable(25) %5)
           to label %243 unwind label %381
 
@@ -8361,8 +8355,8 @@ _ZNK15btReducedVector3dotERKS_.exit224.thread:    ; preds = %243, %_ZNK15btReduc
 381:                                              ; preds = %242
   %382 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #16
   br label %453
 
 383:                                              ; preds = %_ZNK15btReducedVector3dotERKS_.exit224.thread, %_ZNK15btReducedVector3dotERKS_.exit224
@@ -8384,7 +8378,7 @@ _ZNK15btReducedVector3dotERKS_.exit224.thread:    ; preds = %243, %_ZNK15btReduc
   %392 = landingpad { ptr, i32 }
           catch ptr null
   %393 = extractvalue { ptr, i32 } %392, 0
-  call void @__clang_call_terminate(ptr %393) #16
+  call void @__clang_call_terminate(ptr %393) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %390, %383
@@ -8411,11 +8405,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %390, %383
   %403 = landingpad { ptr, i32 }
           catch ptr null
   %404 = extractvalue { ptr, i32 } %403, 0
-  call void @__clang_call_terminate(ptr %404) #16
+  call void @__clang_call_terminate(ptr %404) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %401
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %405 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %406 = load ptr, ptr %405, align 8, !tbaa !22
   %.not.i.i.i.i225 = icmp ne ptr %406, null
@@ -8433,7 +8427,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %412 = landingpad { ptr, i32 }
           catch ptr null
   %413 = extractvalue { ptr, i32 } %412, 0
-  call void @__clang_call_terminate(ptr %413) #16
+  call void @__clang_call_terminate(ptr %413) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i227: ; preds = %410, %_ZN15btReducedVectorD2Ev.exit
@@ -8460,11 +8454,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i227: ; preds = %410, %_ZN15btRed
   %423 = landingpad { ptr, i32 }
           catch ptr null
   %424 = extractvalue { ptr, i32 } %423, 0
-  call void @__clang_call_terminate(ptr %424) #16
+  call void @__clang_call_terminate(ptr %424) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit230:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i227, %421
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %425 = load ptr, ptr %174, align 8, !tbaa !22
   %.not.i.i.i231 = icmp ne ptr %425, null
   %426 = load i8, ptr %173, align 8, !range !31
@@ -8480,11 +8474,11 @@ _ZN15btReducedVectorD2Ev.exit230:                 ; preds = %_ZN20btAlignedObjec
   %430 = landingpad { ptr, i32 }
           catch ptr null
   %431 = extractvalue { ptr, i32 } %430, 0
-  call void @__clang_call_terminate(ptr %431) #16
+  call void @__clang_call_terminate(ptr %431) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVectorD2Ev.exit230, %428
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %432 = load ptr, ptr %99, align 8, !tbaa !18
   %.not.i.i.i233 = icmp ne ptr %432, null
   %433 = load i8, ptr %98, align 8, !range !31
@@ -8500,11 +8494,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVecto
   %437 = landingpad { ptr, i32 }
           catch ptr null
   %438 = extractvalue { ptr, i32 } %437, 0
-  call void @__clang_call_terminate(ptr %438) #16
+  call void @__clang_call_terminate(ptr %438) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %435
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %439 = load ptr, ptr %56, align 8, !tbaa !22
   %.not.i.i.i235 = icmp ne ptr %439, null
   %440 = load i8, ptr %55, align 8, !range !31
@@ -8520,11 +8514,11 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   %444 = landingpad { ptr, i32 }
           catch ptr null
   %445 = extractvalue { ptr, i32 } %444, 0
-  call void @__clang_call_terminate(ptr %445) #16
+  call void @__clang_call_terminate(ptr %445) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit237: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %442
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %446 = load ptr, ptr %9, align 8, !tbaa !18
   %.not.i.i.i238 = icmp ne ptr %446, null
   %447 = load i8, ptr %8, align 8, !range !31
@@ -8540,40 +8534,40 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit237: ; preds = %_ZN20btAlignedObje
   %451 = landingpad { ptr, i32 }
           catch ptr null
   %452 = extractvalue { ptr, i32 } %451, 0
-  call void @__clang_call_terminate(ptr %452) #16
+  call void @__clang_call_terminate(ptr %452) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit240:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit237, %449
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %385
 
 453:                                              ; preds = %381, %379
   %.pn = phi { ptr, i32 } [ %382, %381 ], [ %380, %379 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %454
 
 454:                                              ; preds = %453, %377, %375, %373
   %.pn.pn = phi { ptr, i32 } [ %.pn, %453 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %455
 
 455:                                              ; preds = %454, %371, %369, %367
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %454 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %456
 
 456:                                              ; preds = %455, %365, %363
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %455 ], [ %366, %365 ], [ %364, %363 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %457
 
 457:                                              ; preds = %456, %361, %359
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %456 ], [ %362, %361 ], [ %360, %359 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -8586,7 +8580,7 @@ define dso_local noundef zeroext i1 @_ZNK15btReducedVector12testMultiplyEv(ptr n
   %6 = alloca %class.btAlignedObjectArray.0, align 8
   %7 = alloca %class.btReducedVector, align 8
   %8 = alloca %class.btReducedVector, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %9, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8726,7 +8720,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i36: ; preds = %.noexc44, %_ZN
   %54 = load i32, ptr %11, align 4, !tbaa !19
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %11, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %56, align 8, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8871,12 +8865,12 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i67: ; preds = %._ZN2
   %97 = load i32, ptr %58, align 4, !tbaa !23
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %58, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull align 8 dereferenceable(25) %3)
           to label %99 unwind label %272
 
 99:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %100, align 8, !tbaa !17
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9016,7 +9010,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i105: ; preds = %.noexc113, %_
   %145 = load i32, ptr %102, align 4, !tbaa !19
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %102, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %147, align 8, !tbaa !21
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9155,12 +9149,12 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i141: ; preds = %186,
   %192 = load i32, ptr %149, align 4, !tbaa !23
   %193 = add nsw i32 %192, 1
   store i32 %193, ptr %149, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %7, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 8 dereferenceable(25) %6)
           to label %194 unwind label %282
 
 194:                                              ; preds = %187
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZmlRK15btReducedVectorf(ptr dead_on_unwind nonnull writable sret(%class.btReducedVector) align 8 %8, ptr noundef nonnull align 8 dereferenceable(68) %4, float noundef 2.000000e+00)
           to label %195 unwind label %284
 
@@ -9261,7 +9255,7 @@ _ZNK15btReducedVectoreqERKS_.exit:                ; preds = %_ZNK9btVector3neERK
   %250 = landingpad { ptr, i32 }
           catch ptr null
   %251 = extractvalue { ptr, i32 } %250, 0
-  call void @__clang_call_terminate(ptr %251) #16
+  call void @__clang_call_terminate(ptr %251) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %248, %_ZNK15btReducedVectoreqERKS_.exit
@@ -9288,11 +9282,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %248, %_ZNK15btReduc
   %261 = landingpad { ptr, i32 }
           catch ptr null
   %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #16
+  call void @__clang_call_terminate(ptr %262) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %259
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.013.i, label %286, label %263
 
 263:                                              ; preds = %_ZN15btReducedVectorD2Ev.exit
@@ -9352,8 +9346,8 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
 284:                                              ; preds = %194
   %285 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %7) #16
   br label %355
 
 286:                                              ; preds = %263, %_ZN15btReducedVectorD2Ev.exit
@@ -9374,7 +9368,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %294 = landingpad { ptr, i32 }
           catch ptr null
   %295 = extractvalue { ptr, i32 } %294, 0
-  call void @__clang_call_terminate(ptr %295) #16
+  call void @__clang_call_terminate(ptr %295) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i153: ; preds = %292, %286
@@ -9401,11 +9395,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i153: ; preds = %292, %286
   %305 = landingpad { ptr, i32 }
           catch ptr null
   %306 = extractvalue { ptr, i32 } %305, 0
-  call void @__clang_call_terminate(ptr %306) #16
+  call void @__clang_call_terminate(ptr %306) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit156:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i153, %303
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %307 = load ptr, ptr %148, align 8, !tbaa !22
   %.not.i.i.i157 = icmp ne ptr %307, null
   %308 = load i8, ptr %147, align 8, !range !31
@@ -9421,11 +9415,11 @@ _ZN15btReducedVectorD2Ev.exit156:                 ; preds = %_ZN20btAlignedObjec
   %312 = landingpad { ptr, i32 }
           catch ptr null
   %313 = extractvalue { ptr, i32 } %312, 0
-  call void @__clang_call_terminate(ptr %313) #16
+  call void @__clang_call_terminate(ptr %313) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVectorD2Ev.exit156, %310
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %314 = load ptr, ptr %101, align 8, !tbaa !18
   %.not.i.i.i159 = icmp ne ptr %314, null
   %315 = load i8, ptr %100, align 8, !range !31
@@ -9441,11 +9435,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN15btReducedVecto
   %319 = landingpad { ptr, i32 }
           catch ptr null
   %320 = extractvalue { ptr, i32 } %319, 0
-  call void @__clang_call_terminate(ptr %320) #16
+  call void @__clang_call_terminate(ptr %320) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %317
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %321 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %322 = load ptr, ptr %321, align 8, !tbaa !22
   %.not.i.i.i.i161 = icmp ne ptr %322, null
@@ -9463,7 +9457,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   %328 = landingpad { ptr, i32 }
           catch ptr null
   %329 = extractvalue { ptr, i32 } %328, 0
-  call void @__clang_call_terminate(ptr %329) #16
+  call void @__clang_call_terminate(ptr %329) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i163: ; preds = %326, %_ZN20btAlignedObjectArrayIiED2Ev.exit
@@ -9490,11 +9484,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i163: ; preds = %326, %_ZN20btAli
   %339 = landingpad { ptr, i32 }
           catch ptr null
   %340 = extractvalue { ptr, i32 } %339, 0
-  call void @__clang_call_terminate(ptr %340) #16
+  call void @__clang_call_terminate(ptr %340) #15
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit166:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i163, %337
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %341 = load ptr, ptr %57, align 8, !tbaa !22
   %.not.i.i.i167 = icmp ne ptr %341, null
   %342 = load i8, ptr %56, align 8, !range !31
@@ -9510,11 +9504,11 @@ _ZN15btReducedVectorD2Ev.exit166:                 ; preds = %_ZN20btAlignedObjec
   %346 = landingpad { ptr, i32 }
           catch ptr null
   %347 = extractvalue { ptr, i32 } %346, 0
-  call void @__clang_call_terminate(ptr %347) #16
+  call void @__clang_call_terminate(ptr %347) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit169: ; preds = %_ZN15btReducedVectorD2Ev.exit166, %344
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %348 = load ptr, ptr %10, align 8, !tbaa !18
   %.not.i.i.i170 = icmp ne ptr %348, null
   %349 = load i8, ptr %9, align 8, !range !31
@@ -9530,46 +9524,46 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit169: ; preds = %_ZN15btReducedVect
   %353 = landingpad { ptr, i32 }
           catch ptr null
   %354 = extractvalue { ptr, i32 } %353, 0
-  call void @__clang_call_terminate(ptr %354) #16
+  call void @__clang_call_terminate(ptr %354) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit172:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit169, %351
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.013.i
 
 355:                                              ; preds = %284, %282
   %.pn.pn = phi { ptr, i32 } [ %285, %284 ], [ %283, %282 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %356
 
 356:                                              ; preds = %355, %280, %278
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %355 ], [ %281, %280 ], [ %279, %278 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %357
 
 357:                                              ; preds = %356, %276, %274
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %356 ], [ %277, %276 ], [ %275, %274 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %4) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %4) #16
   br label %358
 
 358:                                              ; preds = %357, %272
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %357 ], [ %273, %272 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %359
 
 359:                                              ; preds = %358, %270, %268
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %358 ], [ %271, %270 ], [ %269, %268 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %360
 
 360:                                              ; preds = %359, %266, %264
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %359 ], [ %267, %266 ], [ %265, %264 ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -9599,18 +9593,18 @@ define dso_local void @_ZNK15btReducedVector4testEv(ptr noundef nonnull readnone
   ret void
 }
 
-declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #7
+declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVector8simplifyEv(ptr noundef nonnull align 8 dereferenceable(68) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.btAlignedObjectArray, align 8
   %3 = alloca %class.btAlignedObjectArray.0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9652,7 +9646,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %1
 
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %16, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
   %20 = phi ptr [ null, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i ], [ %13, %16 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %21, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9824,11 +9818,11 @@ _ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit: ; preds = %78, %71
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #16
+  tail call void @__clang_call_terminate(ptr %83) #15
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %._crit_edge, %._crit_edge.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i.i.i41.not = icmp eq ptr %20, null
   br i1 %.not.i.i.i41.not, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %84
 
@@ -9840,11 +9834,11 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %._crit_edge, %._cri
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #16
+  tail call void @__clang_call_terminate(ptr %87) #15
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %84
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 88:                                               ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i
@@ -10053,19 +10047,19 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %130, %142
 
 171:                                              ; preds = %167, %94, %92, %90
   %.pn = phi { ptr, i32 } [ %168, %167 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ]
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #15
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #16
   br label %172
 
 172:                                              ; preds = %171, %88
   %.pn.pn = phi { ptr, i32 } [ %.pn, %171 ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(68) ptr @_ZN15btReducedVectoraSERKS_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #0 comdat align 2 {
@@ -10290,19 +10284,25 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit:     ; preds = %39, %_ZN20btAligned
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #10
+declare float @sqrtf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #12
+declare void @_ZSt9terminatev() local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
@@ -10311,22 +10311,22 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn }
+attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

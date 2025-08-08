@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fdrExec(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.FDR_Runtime_Args, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %9, align 8
@@ -114,20 +114,14 @@ nextFloodDetect.exit:                             ; preds = %17, %32, %49, %51
 
 74:                                               ; preds = %nextFloodDetect.exit, %68
   %.0 = phi i32 [ %73, %68 ], [ 0, %nextFloodDetect.exit ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fdrExecStreaming(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.FDR_Runtime_Args, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %4, ptr %11, align 8
@@ -237,12 +231,12 @@ nextFloodDetect.exit:                             ; preds = %19, %34, %51, %53
 
 82:                                               ; preds = %74, %76
   %.0 = phi i32 [ %81, %76 ], [ 0, %74 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal range(i32 0, 2) i32 @fdr_engine_exec(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @fdr_engine_exec(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [3 x %struct.zone], align 64
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -261,7 +255,7 @@ define internal range(i32 0, 2) i32 @fdr_engine_exec(ptr noundef readonly %0, pt
   %19 = load i32, ptr %18, align 16
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
@@ -1263,8 +1257,8 @@ floodDetect.exit.us:                              ; preds = %567, %565, %.crited
   %.1116.us = phi ptr [ %.0371.i.us, %floodDetect.exit.us ], [ %.0115.us, %208 ]
   %581 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 16
   call void @llvm.prefetch.p0(ptr nonnull %581, i32 0, i32 3, i32 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %582 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0473.us) #9, !srcloc !7
   %583 = getelementptr inbounds nuw i8, ptr %.0473.us, i64 1
   %584 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %583) #9, !srcloc !7
@@ -1700,8 +1694,8 @@ do_confirm_fdr.exit258.us:                        ; preds = %confWithBit.exit308
   %.125.us = phi i64 [ %.122.us, %do_confirm_fdr.exit.us ], [ %.124.us, %confWithBit.exit308.us ]
   %.14.us = phi i32 [ %.11.us, %do_confirm_fdr.exit.us ], [ %.13.us, %confWithBit.exit308.us ]
   %.not128.us = icmp eq i64 %.125.us, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not128.us, label %.thread577, label %206
 
 .preheader.us:                                    ; preds = %294
@@ -2489,8 +2483,8 @@ floodDetect.exit192.us:                           ; preds = %1311, %1309, %.crit
   %.1118.us = phi ptr [ %.0371.i136.us, %floodDetect.exit192.us ], [ %.0117.us, %952 ]
   %1325 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 16
   call void @llvm.prefetch.p0(ptr nonnull %1325, i32 0, i32 3, i32 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1326 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0472.us) #9, !srcloc !7
   %1327 = getelementptr inbounds nuw i8, ptr %.0472.us, i64 2
   %1328 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %1327) #9, !srcloc !7
@@ -2862,8 +2856,8 @@ do_confirm_fdr.exit268.us:                        ; preds = %confWithBit.exit294
   %.131.us = phi i64 [ %.128.us, %do_confirm_fdr.exit263.us ], [ %.130.us, %confWithBit.exit294.us ]
   %.20.us = phi i32 [ %.17.us, %do_confirm_fdr.exit263.us ], [ %.19.us, %confWithBit.exit294.us ]
   %.not125.us = icmp eq i64 %.131.us, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not125.us, label %.thread577, label %950
 
 .preheader595.us:                                 ; preds = %1038
@@ -3651,8 +3645,8 @@ floodDetect.exit252.us:                           ; preds = %1991, %1989, %.crit
   %.1106.us = phi ptr [ %.0371.i196.us, %floodDetect.exit252.us ], [ %.0105.us, %1632 ]
   %2005 = getelementptr inbounds nuw i8, ptr %.0.us, i64 16
   call void @llvm.prefetch.p0(ptr nonnull %2005, i32 0, i32 3, i32 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %2006 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr elementtype(i32) %.0.us) #9, !srcloc !7
   %2007 = getelementptr inbounds nuw i8, ptr %.0.us, i64 4
   %2008 = call i64 asm "andn\09$2,$1,${0:k}", "=r,r,*m,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -65536, 0) %14, ptr nonnull elementtype(i32) %2007) #9, !srcloc !7
@@ -3988,8 +3982,8 @@ do_confirm_fdr.exit278.us:                        ; preds = %confWithBit.exit.us
   %.137.us = phi i64 [ %.134.us, %do_confirm_fdr.exit273.us ], [ %.136.us, %confWithBit.exit.us ]
   %.26.us = phi i32 [ %.23.us, %do_confirm_fdr.exit273.us ], [ %.25.us, %confWithBit.exit.us ]
   %.not122.us = icmp eq i64 %.137.us, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not122.us, label %.thread577, label %1630
 
 .preheader602.us:                                 ; preds = %1718
@@ -4066,50 +4060,56 @@ do_confirm_fdr.exit278.us:                        ; preds = %confWithBit.exit.us
 
 .thread577:                                       ; preds = %.thread546.loopexit611.us, %do_confirm_fdr.exit278.us, %floodDetect.exit252.us, %.thread546.loopexit609.us, %do_confirm_fdr.exit268.us, %floodDetect.exit192.us, %.thread546.loopexit.us, %do_confirm_fdr.exit258.us, %floodDetect.exit.us, %getInitState.exit
   %.not129629 = phi i32 [ 0, %getInitState.exit ], [ 1, %floodDetect.exit.us ], [ 1, %do_confirm_fdr.exit258.us ], [ 0, %.thread546.loopexit.us ], [ 1, %floodDetect.exit192.us ], [ 1, %do_confirm_fdr.exit268.us ], [ 0, %.thread546.loopexit609.us ], [ 1, %floodDetect.exit252.us ], [ 1, %do_confirm_fdr.exit278.us ], [ 0, %.thread546.loopexit611.us ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.not129629
 }
 
-declare i32 @fdr_exec_fat_teddy_msks1(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks1(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks1_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks1_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks2(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks2(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks2_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks2_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks3(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks3(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks3_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks3_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks4(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks4(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_fat_teddy_msks4_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_fat_teddy_msks4_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks1(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks1(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks1_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks1_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks2(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks2(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks2_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks2_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks3(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks3(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks3_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks3_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks4(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks4(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @fdr_exec_teddy_msks4_pck(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @fdr_exec_teddy_msks4_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #4
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #5
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7
@@ -4121,12 +4121,12 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind memory(read) }

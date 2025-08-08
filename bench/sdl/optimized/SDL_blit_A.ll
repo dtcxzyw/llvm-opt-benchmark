@@ -220,11 +220,8 @@ define hidden ptr @SDL_CalculateBlitA(ptr noundef readonly captures(none) %0) lo
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1332,7 +1329,7 @@ default.unreachable482:                           ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3314,7 +3311,7 @@ default.unreachable994:                           ; preds = %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %.not131 = icmp eq i32 %3, 0
@@ -3600,7 +3597,7 @@ default.unreachable134:                           ; preds = %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %.not131 = icmp eq i32 %3, 0
@@ -3886,7 +3883,7 @@ default.unreachable134:                           ; preds = %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit8888to8888PixelAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @Blit8888to8888PixelAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3974,7 +3971,7 @@ define internal void @Blit8888to8888PixelAlpha(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Blit8888to8888PixelAlphaSwizzle(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit8888to8888PixelAlphaSwizzle(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3996,8 +3993,8 @@ define internal void @Blit8888to8888PixelAlphaSwizzle(ptr noundef readonly captu
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @SDL_Get8888AlphaMaskAndShift(ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not5964 = icmp eq i32 %7, 0
   br i1 %.not5964, label %._crit_edge67, label %.preheader.lr.ph
@@ -4096,13 +4093,13 @@ define internal void @Blit8888to8888PixelAlphaSwizzle(ptr noundef readonly captu
   br i1 %.not59.us, label %._crit_edge67, label %.preheader.us, !llvm.loop !16
 
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5058,7 +5055,7 @@ default.unreachable431:                           ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7268,7 +7265,7 @@ default.unreachable842:                           ; preds = %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit565to565SurfaceAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @Blit565to565SurfaceAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, -128
@@ -7442,7 +7439,7 @@ default.unreachable88:                            ; preds = %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit555to555SurfaceAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @Blit555to555SurfaceAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, -128
@@ -7616,7 +7613,7 @@ default.unreachable88:                            ; preds = %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitRGBtoRGBSurfaceAlpha(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitRGBtoRGBSurfaceAlpha(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, -128
@@ -7931,7 +7928,7 @@ BlitRGBtoRGBSurfaceAlpha128.exit:                 ; preds = %211, %81, %84, %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -8921,7 +8918,7 @@ default.unreachable445:                           ; preds = %45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none) %0) #2 {
+define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -10821,13 +10818,10 @@ default.unreachable756:                           ; preds = %55
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @SDL_Get8888AlphaMaskAndShift(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @SDL_Get8888AlphaMaskAndShift(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly captures(none) %0, i16 noundef zeroext range(i16 -2082, -1057) %1) unnamed_addr #2 {
+define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly captures(none) %0, i16 noundef zeroext range(i16 -2082, -1057) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -11049,14 +11043,20 @@ define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly capt
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

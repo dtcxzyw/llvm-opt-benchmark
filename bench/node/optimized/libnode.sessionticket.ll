@@ -1097,7 +1097,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit53: ; preds
 define dso_local noundef i32 @_ZN4node4quic13SessionTicket16GenerateCallbackEP6ssl_stPv(ptr noundef %ssl, ptr noundef readnone captures(none) %arg) local_unnamed_addr #4 align 2 {
 entry:
   %app_data.i = alloca %"class.node::quic::SessionTicket::AppData", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %app_data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %app_data.i)
   %call.i.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #17
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit, label %land.lhs.true.i.i
@@ -1118,7 +1118,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   br label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit
 
 _ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %app_data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %app_data.i)
   ret i32 1
 }
 
@@ -1164,7 +1164,7 @@ sw.bb1:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb3:                                           ; preds = %entry, %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %app_data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %app_data.i)
   %call.i.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #17
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, label %land.lhs.true.i.i
@@ -1187,7 +1187,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
 
 _ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit: ; preds = %sw.bb3, %land.lhs.true.i.i, %if.then.i
   %retval.0.i = phi i32 [ %call1.i, %if.then.i ], [ 1, %sw.bb3 ], [ 1, %land.lhs.true.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %app_data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %app_data.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, %sw.bb1
@@ -1457,7 +1457,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1483,7 +1483,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -2646,10 +2646,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

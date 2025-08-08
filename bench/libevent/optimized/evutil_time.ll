@@ -60,7 +60,7 @@ define void @evutil_usleep_(ptr noundef readonly captures(address_is_null) %0) l
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load i64, ptr %0, align 8
   store i64 %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -69,29 +69,23 @@ define void @evutil_usleep_(ptr noundef readonly captures(address_is_null) %0) l
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %7, ptr %8, align 8
   %9 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %10
 
 10:                                               ; preds = %1, %3
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i64 @time(ptr noundef null) #8
   store i64 %6, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp eq ptr %2, null
   br i1 %7, label %8, label %10
 
@@ -122,18 +116,18 @@ define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef read
   %23 = load i32, ptr %.0.sroa.phi25.sroa.phi73, align 4
   %24 = load i32, ptr %.0.sroa.phi25, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.19, ptr noundef %14, i32 noundef %15, ptr noundef %19, i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %25
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @evutil_monotonic_timer_new() local_unnamed_addr #1 {
@@ -149,10 +143,10 @@ define ptr @evutil_monotonic_timer_new() local_unnamed_addr #1 {
   ret ptr %1
 }
 
-declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #3
+declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @evutil_monotonic_timer_free(ptr noundef %0) local_unnamed_addr #1 {
@@ -167,13 +161,13 @@ define void @evutil_monotonic_timer_free(ptr noundef %0) local_unnamed_addr #1 {
   ret void
 }
 
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #3
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @evutil_configure_monotonic_time(ptr noundef writeonly captures(none) initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = and i32 %1, 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not.i = icmp eq i32 %4, 0
   %5 = and i32 %1, 3
@@ -199,7 +193,7 @@ define noundef i32 @evutil_configure_monotonic_time(ptr noundef writeonly captur
 evutil_configure_monotonic_time_.exit:            ; preds = %6, %10, %13
   %.sink.i = phi i32 [ -1, %13 ], [ 6, %6 ], [ 1, %10 ]
   store i32 %.sink.i, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -207,7 +201,7 @@ evutil_configure_monotonic_time_.exit:            ; preds = %6, %10, %13
 define noundef i32 @evutil_configure_monotonic_time_(ptr noundef writeonly captures(none) initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = and i32 %1, 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq i32 %4, 0
   %5 = and i32 %1, 3
@@ -233,7 +227,7 @@ define noundef i32 @evutil_configure_monotonic_time_(ptr noundef writeonly captu
 14:                                               ; preds = %10, %6, %13
   %.sink = phi i32 [ -1, %13 ], [ 6, %6 ], [ 1, %10 ]
   store i32 %.sink, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -246,7 +240,7 @@ define range(i32 -1, 1) i32 @evutil_gettime_monotonic(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evutil_gettime_monotonic_(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 8
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %50
@@ -351,27 +345,33 @@ adjust_monotonic_time.exit:                       ; preds = %29, %33, %49
 
 59:                                               ; preds = %50, %6, %53, %adjust_monotonic_time.exit
   %.0 = phi i32 [ 0, %adjust_monotonic_time.exit ], [ 0, %53 ], [ -1, %6 ], [ -1, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

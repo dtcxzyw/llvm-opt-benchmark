@@ -1547,15 +1547,15 @@ define hidden noundef ptr @_ZN12JVMCIRuntime24exception_handler_for_pcEP10JavaTh
   %11 = tail call noundef ptr @_ZNK10JavaThread13exception_oopEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %13 = load volatile ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1304
@@ -1937,15 +1937,15 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 203:                                              ; preds = %202, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
   store volatile i32 8, ptr %14, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %204 = call fastcc noundef zeroext i1 @_ZL17caller_is_deoptedv()
   br i1 %204, label %205, label %215
 
@@ -3125,7 +3125,7 @@ define hidden void @_ZN12JVMCIRuntime10vm_messageEhllll(i8 noundef zeroext %0, i
   br label %61
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = inttoptr i64 %2 to ptr
   %29 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %28) #16
   %.not.i = icmp eq ptr %29, null
@@ -3180,7 +3180,7 @@ define hidden void @_ZN12JVMCIRuntime10vm_messageEhllll(i8 noundef zeroext %0, i
   br label %_ZL8decipherlb.exit
 
 _ZL8decipherlb.exit:                              ; preds = %35, %45, %56, %57
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 61:                                               ; preds = %25, %_ZL8decipherlb.exit
@@ -3395,9 +3395,9 @@ define hidden noundef i32 @_ZN12JVMCIRuntime24test_deoptimize_call_intEP10JavaTh
   %5 = alloca %class.frame, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call fastcc noundef zeroext i1 @_ZL17caller_is_deoptedv()
   br i1 %7, label %_ZL12deopt_callerv.exit, label %8
 
@@ -3438,9 +3438,9 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
   br label %_ZL12deopt_callerv.exit
 
 _ZL12deopt_callerv.exit:                          ; preds = %2, %_ZNK5frame6senderEP11RegisterMap.exit.i
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -12731,10 +12731,10 @@ declare i32 @jio_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) l
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

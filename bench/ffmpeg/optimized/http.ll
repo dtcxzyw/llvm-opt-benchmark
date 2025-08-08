@@ -277,14 +277,14 @@ define range(i32 -2147483648, 1) i32 @ff_http_do_new_request2(ptr noundef %0, pt
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %.not = icmp eq ptr %14, null
@@ -292,26 +292,26 @@ define range(i32 -2147483648, 1) i32 @ff_http_do_new_request2(ptr noundef %0, pt
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %14, align 8, !tbaa !18
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str) #16
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str) #15
   %.not37 = icmp eq i32 %17, 0
   br i1 %.not37, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.1) #16
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.1) #15
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %20, label %61
 
 20:                                               ; preds = %18, %15
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8280
   %22 = load ptr, ptr %21, align 8, !tbaa !20
-  call void @av_url_split(ptr noundef nonnull %7, i32 noundef 10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, ptr noundef %22) #15
-  call void @av_url_split(ptr noundef nonnull %8, i32 noundef 10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0, ptr noundef %1) #15
-  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #16
+  call void @av_url_split(ptr noundef nonnull %7, i32 noundef 10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, ptr noundef %22) #16
+  call void @av_url_split(ptr noundef nonnull %8, i32 noundef 10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0, ptr noundef %1) #16
+  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #15
   %.not39 = icmp eq i32 %23, 0
   br i1 %.not39, label %25, label %24
 
 24:                                               ; preds = %20
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef nonnull %8) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   br label %61
 
 25:                                               ; preds = %20
@@ -321,12 +321,12 @@ define range(i32 -2147483648, 1) i32 @ff_http_do_new_request2(ptr noundef %0, pt
   br i1 %.not40, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024) #16
+  %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024) #15
   %.not41 = icmp eq i32 %29, 0
   br i1 %.not41, label %31, label %30
 
 30:                                               ; preds = %28, %25
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, i32 noundef %26, ptr noundef nonnull %6, i32 noundef %27) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, i32 noundef %26, ptr noundef nonnull %6, i32 noundef %27) #16
   br label %61
 
 31:                                               ; preds = %28
@@ -357,8 +357,8 @@ define range(i32 -2147483648, 1) i32 @ff_http_do_new_request2(ptr noundef %0, pt
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 10144
   store i64 0, ptr %45, align 8, !tbaa !33
   %46 = load ptr, ptr %21, align 8, !tbaa !20
-  call void @av_free(ptr noundef %46) #15
-  %47 = call noalias ptr @av_strdup(ptr noundef %1) #15
+  call void @av_free(ptr noundef %46) #16
+  %47 = call noalias ptr @av_strdup(ptr noundef %1) #16
   store ptr %47, ptr %21, align 8, !tbaa !20
   %.not44 = icmp eq ptr %47, null
   br i1 %.not44, label %61, label %48
@@ -366,14 +366,14 @@ define range(i32 -2147483648, 1) i32 @ff_http_do_new_request2(ptr noundef %0, pt
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 8272
   %50 = load ptr, ptr %49, align 8, !tbaa !34
-  call void @av_free(ptr noundef %50) #15
-  %51 = call noalias ptr @av_strdup(ptr noundef %1) #15
+  call void @av_free(ptr noundef %50) #16
+  %51 = call noalias ptr @av_strdup(ptr noundef %1) #16
   store ptr %51, ptr %49, align 8, !tbaa !34
   %.not45 = icmp eq ptr %51, null
   br i1 %.not45, label %61, label %52
 
 52:                                               ; preds = %48
-  %53 = call i32 @av_opt_set_dict(ptr noundef nonnull %12, ptr noundef %2) #15
+  %53 = call i32 @av_opt_set_dict(ptr noundef nonnull %12, ptr noundef %2) #16
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %61, label %55
 
@@ -383,42 +383,39 @@ define range(i32 -2147483648, 1) i32 @ff_http_do_new_request2(ptr noundef %0, pt
   %58 = and i32 %57, 2
   %.not46 = icmp eq i32 %58, 0
   %59 = select i1 %.not46, ptr @.str.6, ptr @.str.5
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %12, i32 noundef 32, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %59) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %12, i32 noundef 32, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %59) #16
   %60 = call fastcc i32 @http_open_cnx(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  call void @av_dict_free(ptr noundef nonnull %4) #15
+  call void @av_dict_free(ptr noundef nonnull %4) #16
   br label %61
 
 61:                                               ; preds = %52, %48, %42, %39, %34, %3, %18, %55, %30, %24
   %.0 = phi i32 [ -22, %24 ], [ -22, %30 ], [ %60, %55 ], [ -22, %18 ], [ -22, %3 ], [ %37, %34 ], [ -541478725, %39 ], [ -12, %42 ], [ -12, %48 ], [ %53, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+
+declare void @av_url_split(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
-
-declare void @av_url_split(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @http_shutdown(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca [6 x i8], align 1
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [64 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, ptr noundef nonnull align 1 dereferenceable(6) @__const.http_shutdown.footer, i64 6, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -458,18 +455,18 @@ define internal range(i32 -2147483648, 1) i32 @http_shutdown(ptr noundef %0, i32
   %.pre-phi = phi i1 [ %12, %._crit_edge ], [ false, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !37
-  %24 = call i32 @ffurl_write2(ptr noundef %23, ptr noundef nonnull %3, i32 noundef 5) #15
+  %24 = call i32 @ffurl_write2(ptr noundef %23, ptr noundef nonnull %3, i32 noundef 5) #16
   %25 = call i32 @llvm.smin.i32(i32 %24, i32 0)
   br i1 %.pre-phi, label %26, label %41
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load ptr, ptr %22, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i32, ptr %28, align 8, !tbaa !29
   %30 = or i32 %29, 8
   store i32 %30, ptr %28, align 8, !tbaa !29
-  %31 = call i32 @ffurl_read2(ptr noundef %27, ptr noundef nonnull %4, i32 noundef 1024) #15
+  %31 = call i32 @ffurl_read2(ptr noundef %27, ptr noundef nonnull %4, i32 noundef 1024) #16
   %32 = load ptr, ptr %22, align 8, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8, !tbaa !29
@@ -482,13 +479,13 @@ define internal range(i32 -2147483648, 1) i32 @http_shutdown(ptr noundef %0, i32
 
 38:                                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  %39 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %31, ptr noundef nonnull %5, i64 noundef 64) #15
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.117, ptr noundef nonnull %5) #15
+  %39 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %31, ptr noundef nonnull %5, i64 noundef 64) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.117, ptr noundef nonnull %5) #16
   br label %40
 
 40:                                               ; preds = %38, %26
   %.2 = phi i32 [ %31, %38 ], [ %25, %26 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %40, %21
@@ -499,15 +496,15 @@ define internal range(i32 -2147483648, 1) i32 @http_shutdown(ptr noundef %0, i32
 
 43:                                               ; preds = %41, %18, %15, %13
   %.0 = phi i32 [ %.1, %41 ], [ 0, %18 ], [ 0, %15 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @av_free(ptr noundef) local_unnamed_addr #5
+declare void @av_free(ptr noundef) local_unnamed_addr #4
 
-declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #5
+declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #4
 
-declare i32 @av_opt_set_dict(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @av_opt_set_dict(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @http_open_cnx(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
@@ -582,68 +579,68 @@ define internal fastcc range(i32 -2147483648, 1) i32 @http_open_cnx(ptr noundef 
 50:                                               ; preds = %.outer132, %redirect_cache_get.exit
   %.val = phi ptr [ %.val.pre, %.outer132 ], [ %62, %redirect_cache_get.exit ]
   %.val114 = load ptr, ptr %25, align 8, !tbaa !38
-  %51 = call ptr @av_dict_get(ptr noundef %.val114, ptr noundef %.val, ptr noundef null, i32 noundef 1) #15
+  %51 = call ptr @av_dict_get(ptr noundef %.val114, ptr noundef %.val, ptr noundef null, i32 noundef 1) #16
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %select.unfold, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !39
-  %55 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 59) #16
+  %55 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 59) #15
   %.not10.i = icmp eq ptr %55, null
   br i1 %.not10.i, label %select.unfold, label %56
 
 56:                                               ; preds = %52
-  %57 = call i64 @strtoll(ptr noundef nonnull captures(none) %54, ptr noundef null, i32 noundef 10) #15
-  %58 = call i64 @time(ptr noundef null) #15
+  %57 = call i64 @strtoll(ptr noundef nonnull captures(none) %54, ptr noundef null, i32 noundef 10) #16
+  %58 = call i64 @time(ptr noundef null) #16
   %59 = icmp sgt i64 %58, %57
   br i1 %59, label %select.unfold, label %redirect_cache_get.exit
 
 redirect_cache_get.exit:                          ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %61 = load ptr, ptr %24, align 8, !tbaa !20
-  call void @av_free(ptr noundef %61) #15
-  %62 = call noalias ptr @av_strdup(ptr noundef nonnull %60) #15
+  call void @av_free(ptr noundef %61) #16
+  %62 = call noalias ptr @av_strdup(ptr noundef nonnull %60) #16
   store ptr %62, ptr %24, align 8, !tbaa !20
   %.not111 = icmp eq ptr %62, null
   br i1 %.not111, label %.loopexit, label %50
 
 select.unfold:                                    ; preds = %56, %50, %52
   %63 = load ptr, ptr %26, align 8, !tbaa !41
-  %64 = call i32 @av_dict_copy(ptr noundef %1, ptr noundef %63, i32 noundef 0) #15
+  %64 = call i32 @av_dict_copy(ptr noundef %1, ptr noundef %63, i32 noundef 0) #16
   %65 = load i32, ptr %27, align 8, !tbaa !42
   %66 = load i64, ptr %28, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %16, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %17) #15
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %18) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %19) #15
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %20) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %67 = load ptr, ptr %22, align 8, !tbaa !4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8280
   %69 = load ptr, ptr %68, align 8, !tbaa !20
-  call void @av_url_split(ptr noundef nonnull %14, i32 noundef 10, ptr noundef nonnull %15, i32 noundef 1024, ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %21, ptr noundef nonnull %17, i32 noundef 4096, ptr noundef %69) #15
+  call void @av_url_split(ptr noundef nonnull %14, i32 noundef 10, ptr noundef nonnull %15, i32 noundef 1024, ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %21, ptr noundef nonnull %17, i32 noundef 4096, ptr noundef %69) #16
   %70 = load i32, ptr %21, align 4, !tbaa !27
-  %71 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, i32 noundef %70, ptr noundef null) #15
-  %72 = call noundef ptr @getenv(ptr noundef nonnull @.str.11) #15
+  %71 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, i32 noundef %70, ptr noundef null) #16
+  %72 = call noundef ptr @getenv(ptr noundef nonnull @.str.11) #16
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 10016
   %74 = load ptr, ptr %73, align 8, !tbaa !43
   %.not.i115 = icmp eq ptr %74, null
   %..i = select i1 %.not.i115, ptr %72, ptr %74
-  %75 = call noundef ptr @getenv(ptr noundef nonnull @.str.12) #15
-  %76 = call i32 @ff_http_match_no_proxy(ptr noundef %75, ptr noundef nonnull %12) #15
+  %75 = call noundef ptr @getenv(ptr noundef nonnull @.str.12) #16
+  %76 = call i32 @ff_http_match_no_proxy(ptr noundef %75, ptr noundef nonnull %12) #16
   %77 = icmp eq i32 %76, 0
   %78 = icmp ne ptr %..i, null
   %or.cond.i = select i1 %77, i1 %78, i1 false
   br i1 %or.cond.i, label %79, label %83
 
 79:                                               ; preds = %select.unfold
-  %80 = call i32 @av_strstart(ptr noundef nonnull %..i, ptr noundef nonnull @.str.13, ptr noundef null) #15
+  %80 = call i32 @av_strstart(ptr noundef nonnull %..i, ptr noundef nonnull @.str.13, ptr noundef null) #16
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i32
   br label %83
@@ -669,7 +666,7 @@ select.unfold:                                    ; preds = %56, %50, %52
   br i1 %.not45.i, label %.thread61.i, label %90
 
 90:                                               ; preds = %88
-  %91 = call i32 @av_dict_set(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %89, i32 noundef 0) #15
+  %91 = call i32 @av_dict_set(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %89, i32 noundef 0) #16
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %http_open_cnx_internal.exit.thread, label %._crit_edge.i
 
@@ -691,7 +688,7 @@ select.unfold:                                    ; preds = %56, %50, %52
 .thread61.i:                                      ; preds = %96, %93, %88
   %.03465.i = phi i32 [ %.034.i, %96 ], [ %.034.i, %93 ], [ 0, %88 ]
   %.03564.i = phi ptr [ %.035.i, %96 ], [ %.035.i, %93 ], [ @.str.14, %88 ]
-  %97 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 35) #16
+  %97 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 35) #15
   %.not46.i = icmp eq ptr %97, null
   br i1 %.not46.i, label %99, label %98
 
@@ -707,7 +704,7 @@ select.unfold:                                    ; preds = %56, %50, %52
   ]
 
 101:                                              ; preds = %99
-  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4097, ptr noundef nonnull @.str.16, ptr noundef nonnull %17) #15
+  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4097, ptr noundef nonnull @.str.16, ptr noundef nonnull %17) #16
   br label %104
 
 103:                                              ; preds = %99
@@ -720,15 +717,15 @@ select.unfold:                                    ; preds = %56, %50, %52
   br i1 %.not47.i, label %107, label %105
 
 105:                                              ; preds = %104
-  %106 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %20, i32 noundef 4096, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %12, i32 noundef %.pre60.i, ptr noundef nonnull @.str.17, ptr noundef nonnull %17) #15
-  call void @av_url_split(ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 1024, ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %21, ptr noundef null, i32 noundef 0, ptr noundef %..i) #15
+  %106 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %20, i32 noundef 4096, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %12, i32 noundef %.pre60.i, ptr noundef nonnull @.str.17, ptr noundef nonnull %17) #16
+  call void @av_url_split(ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 1024, ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %21, ptr noundef null, i32 noundef 0, ptr noundef %..i) #16
   %.pre59.i = load i32, ptr %21, align 4, !tbaa !27
   br label %107
 
 107:                                              ; preds = %105, %104
   %108 = phi i32 [ %.pre59.i, %105 ], [ %.pre60.i, %104 ]
   %.2.i = phi ptr [ %20, %105 ], [ %.1.i, %104 ]
-  %109 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %19, i32 noundef 1024, ptr noundef nonnull %.03564.i, ptr noundef null, ptr noundef nonnull %12, i32 noundef %108, ptr noundef null) #15
+  %109 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %19, i32 noundef 1024, ptr noundef nonnull %.03564.i, ptr noundef null, ptr noundef nonnull %12, i32 noundef %108, ptr noundef null) #16
   %110 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !37
   %.not48.i = icmp eq ptr %111, null
@@ -737,19 +734,19 @@ select.unfold:                                    ; preds = %56, %50, %52
 112:                                              ; preds = %107
   %113 = load ptr, ptr %30, align 8, !tbaa !45
   %114 = load ptr, ptr %31, align 8, !tbaa !46
-  %115 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %110, ptr noundef nonnull %19, i32 noundef 3, ptr noundef nonnull %29, ptr noundef %1, ptr noundef %113, ptr noundef %114, ptr noundef nonnull %0) #15
+  %115 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %110, ptr noundef nonnull %19, i32 noundef 3, ptr noundef nonnull %29, ptr noundef %1, ptr noundef %113, ptr noundef %114, ptr noundef nonnull %0) #16
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %http_open_cnx_internal.exit.thread, label %.thread52.i
 
 .thread52.i:                                      ; preds = %112, %107
   %117 = load ptr, ptr %22, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8248
   %119 = load i64, ptr %118, align 8, !tbaa !32
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  call void @av_bprint_init_for_buffer(ptr noundef nonnull %9, ptr noundef nonnull %120, i32 noundef 8192) #15
+  call void @av_bprint_init_for_buffer(ptr noundef nonnull %9, ptr noundef nonnull %120, i32 noundef 8192) #16
   %121 = load i32, ptr %32, align 8, !tbaa !29
   %122 = and i32 %121, 2
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 10096
@@ -771,10 +768,10 @@ select.unfold:                                    ; preds = %56, %50, %52
   %130 = select i1 %.not116.i.i, ptr @.str.19, ptr @.str.18
   %.099.i.i = select i1 %.not115.i.i, ptr %130, ptr %129
   %131 = getelementptr inbounds nuw i8, ptr %117, i64 8288
-  %132 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %131, ptr noundef nonnull %15, ptr noundef nonnull %.1.i, ptr noundef nonnull %.099.i.i) #15
+  %132 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %131, ptr noundef nonnull %15, ptr noundef nonnull %.1.i, ptr noundef nonnull %.099.i.i) #16
   store ptr %132, ptr %10, align 8, !tbaa !49
   %133 = getelementptr inbounds nuw i8, ptr %117, i64 9152
-  %134 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %133, ptr noundef nonnull %16, ptr noundef nonnull %.1.i, ptr noundef nonnull %.099.i.i) #15
+  %134 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %133, ptr noundef nonnull %16, ptr noundef nonnull %.1.i, ptr noundef nonnull %.099.i.i) #16
   store ptr %134, ptr %11, align 8, !tbaa !49
   br i1 %.not116.i.i, label %150, label %135
 
@@ -811,7 +808,7 @@ select.unfold:                                    ; preds = %56, %50, %52
 
 150:                                              ; preds = %147, %144, %142, %140, %135, %127
   %.0.i.i = phi i1 [ false, %135 ], [ %141, %140 ], [ false, %144 ], [ false, %142 ], [ false, %127 ], [ %.not120.i.i, %147 ]
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.20, ptr noundef nonnull %.099.i.i) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.20, ptr noundef nonnull %.099.i.i) #16
   %151 = load i8, ptr %.2.i, align 1, !tbaa !44
   %.not59.i.i.i = icmp eq i8 %151, 0
   br i1 %.not59.i.i.i, label %bprint_escaped_path.exit.i.i, label %.lr.ph.preheader.i.i.i
@@ -819,7 +816,7 @@ select.unfold:                                    ; preds = %56, %50, %52
 .lr.ph.preheader.i.i.i:                           ; preds = %150, %._crit_edge.i.i.i
   %152 = phi i8 [ %199, %._crit_edge.i.i.i ], [ %151, %150 ]
   %.03160.i.i.i = phi ptr [ %.2.i.i.i, %._crit_edge.i.i.i ], [ %.2.i, %150 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.fr54.i.i.i = freeze i8 %152
   br label %.lr.ph.i.i.i
 
@@ -894,7 +891,7 @@ switch.early.test.i.i.i:                          ; preds = %181
 switch.early.test.thread.i.i.i:                   ; preds = %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %181, %164, %154
   %183 = getelementptr inbounds nuw i8, ptr %.13255.i.i.i, i64 1
   %184 = zext i8 %.fr57.i.i.i to i32
-  %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.056.i.i.i, i64 noundef 4, ptr noundef nonnull @.str.52, i32 noundef %184) #15
+  %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.056.i.i.i, i64 noundef 4, ptr noundef nonnull @.str.52, i32 noundef %184) #16
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds i8, ptr %.056.i.i.i, i64 %186
   br label %191
@@ -919,14 +916,14 @@ switch.early.test.thread.i.i.i:                   ; preds = %switch.early.test.i
 
 ._crit_edge.i.i.i:                                ; preds = %191
   %198 = trunc i64 %195 to i32
-  call void @av_bprint_append_data(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %198) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #15
+  call void @av_bprint_append_data(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %198) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %199 = load i8, ptr %.2.i.i.i, align 1, !tbaa !44
   %.not.i.i.i = icmp eq i8 %199, 0
   br i1 %.not.i.i.i, label %bprint_escaped_path.exit.i.i, label %.lr.ph.preheader.i.i.i, !llvm.loop !54
 
 bprint_escaped_path.exit.i.i:                     ; preds = %._crit_edge.i.i.i, %150
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.21) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.21) #16
   br i1 %.not116.i.i, label %204, label %200
 
 200:                                              ; preds = %bprint_escaped_path.exit.i.i
@@ -936,7 +933,7 @@ bprint_escaped_path.exit.i.i:                     ; preds = %._crit_edge.i.i.i, 
   br i1 %.not121.i.i, label %204, label %203
 
 203:                                              ; preds = %200
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.22) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.22) #16
   br label %204
 
 204:                                              ; preds = %203, %200, %bprint_escaped_path.exit.i.i
@@ -946,19 +943,19 @@ bprint_escaped_path.exit.i.i:                     ; preds = %._crit_edge.i.i.i, 
   br i1 %.not.i150.i.i, label %has_header.exit.thread.i.i, label %207
 
 207:                                              ; preds = %204
-  %208 = call i32 @av_stristart(ptr noundef nonnull %206, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 2), ptr noundef null) #15
+  %208 = call i32 @av_stristart(ptr noundef nonnull %206, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 2), ptr noundef null) #16
   %.not6.i.i.i = icmp eq i32 %208, 0
   br i1 %.not6.i.i.i, label %has_header.exit.i.i, label %has_header.exit.thread202.i.i
 
 has_header.exit.i.i:                              ; preds = %207
-  %209 = call ptr @av_stristr(ptr noundef nonnull %206, ptr noundef nonnull @.str.23) #15
+  %209 = call ptr @av_stristr(ptr noundef nonnull %206, ptr noundef nonnull @.str.23) #16
   %.not253.i.i = icmp eq ptr %209, null
   br i1 %.not253.i.i, label %has_header.exit.thread.i.i, label %has_header.exit.thread202.i.i
 
 has_header.exit.thread.i.i:                       ; preds = %has_header.exit.i.i, %204
   %210 = getelementptr inbounds nuw i8, ptr %117, i64 10048
   %211 = load ptr, ptr %210, align 8, !tbaa !56
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.24, ptr noundef %211) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.24, ptr noundef %211) #16
   br label %has_header.exit.thread202.i.i
 
 has_header.exit.thread202.i.i:                    ; preds = %has_header.exit.thread.i.i, %has_header.exit.i.i, %207
@@ -973,12 +970,12 @@ has_header.exit.thread202.i.i:                    ; preds = %has_header.exit.thr
   br i1 %.not.i151.i.i, label %has_header.exit154.thread.i.i, label %216
 
 216:                                              ; preds = %214
-  %217 = call i32 @av_stristart(ptr noundef nonnull %215, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.25, i64 2), ptr noundef null) #15
+  %217 = call i32 @av_stristart(ptr noundef nonnull %215, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.25, i64 2), ptr noundef null) #16
   %.not6.i152.i.i = icmp eq i32 %217, 0
   br i1 %.not6.i152.i.i, label %has_header.exit154.i.i, label %has_header.exit154.thread207.i.i
 
 has_header.exit154.i.i:                           ; preds = %216
-  %218 = call ptr @av_stristr(ptr noundef nonnull %215, ptr noundef nonnull @.str.25) #15
+  %218 = call ptr @av_stristr(ptr noundef nonnull %215, ptr noundef nonnull @.str.25) #16
   %.not254.i.i = icmp eq ptr %218, null
   br i1 %.not254.i.i, label %has_header.exit154.has_header.exit154.thread_crit_edge.i.i, label %has_header.exit154.thread207.i.i
 
@@ -988,7 +985,7 @@ has_header.exit154.has_header.exit154.thread_crit_edge.i.i: ; preds = %has_heade
 
 has_header.exit154.thread.i.i:                    ; preds = %has_header.exit154.has_header.exit154.thread_crit_edge.i.i, %214
   %219 = phi ptr [ %.pre.i.i, %has_header.exit154.has_header.exit154.thread_crit_edge.i.i ], [ %213, %214 ]
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.26, ptr noundef %219) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.26, ptr noundef %219) #16
   br label %has_header.exit154.thread207.i.i
 
 has_header.exit154.thread207.i.i:                 ; preds = %has_header.exit154.thread.i.i, %has_header.exit154.i.i, %216, %has_header.exit.thread202.i.i
@@ -997,17 +994,17 @@ has_header.exit154.thread207.i.i:                 ; preds = %has_header.exit154.
   br i1 %.not.i155.i.i, label %has_header.exit158.thread.i.i, label %221
 
 221:                                              ; preds = %has_header.exit154.thread207.i.i
-  %222 = call i32 @av_stristart(ptr noundef nonnull %220, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.27, i64 2), ptr noundef null) #15
+  %222 = call i32 @av_stristart(ptr noundef nonnull %220, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.27, i64 2), ptr noundef null) #16
   %.not6.i156.i.i = icmp eq i32 %222, 0
   br i1 %.not6.i156.i.i, label %has_header.exit158.i.i, label %has_header.exit158.thread212.i.i
 
 has_header.exit158.i.i:                           ; preds = %221
-  %223 = call ptr @av_stristr(ptr noundef nonnull %220, ptr noundef nonnull @.str.27) #15
+  %223 = call ptr @av_stristr(ptr noundef nonnull %220, ptr noundef nonnull @.str.27) #16
   %.not255.i.i = icmp eq ptr %223, null
   br i1 %.not255.i.i, label %has_header.exit158.thread.i.i, label %has_header.exit158.thread212.i.i
 
 has_header.exit158.thread.i.i:                    ; preds = %has_header.exit158.i.i, %has_header.exit154.thread207.i.i
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.28) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.28) #16
   br label %has_header.exit158.thread212.i.i
 
 has_header.exit158.thread212.i.i:                 ; preds = %has_header.exit158.thread.i.i, %has_header.exit158.i.i, %221
@@ -1016,12 +1013,12 @@ has_header.exit158.thread212.i.i:                 ; preds = %has_header.exit158.
   br i1 %.not.i159.i.i, label %has_header.exit162.i.i, label %225
 
 225:                                              ; preds = %has_header.exit158.thread212.i.i
-  %226 = call i32 @av_stristart(ptr noundef nonnull %224, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 2), ptr noundef null) #15
+  %226 = call i32 @av_stristart(ptr noundef nonnull %224, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 2), ptr noundef null) #16
   %.not6.i160.i.i = icmp eq i32 %226, 0
   br i1 %.not6.i160.i.i, label %227, label %has_header.exit162.i.i
 
 227:                                              ; preds = %225
-  %228 = call ptr @av_stristr(ptr noundef nonnull %224, ptr noundef nonnull @.str.29) #15
+  %228 = call ptr @av_stristr(ptr noundef nonnull %224, ptr noundef nonnull @.str.29) #16
   %229 = icmp ne ptr %228, null
   %230 = zext i1 %229 to i32
   br label %has_header.exit162.i.i
@@ -1050,7 +1047,7 @@ has_header.exit162.i.i:                           ; preds = %227, %225, %has_hea
   br i1 %.not129.i.i, label %246, label %240
 
 240:                                              ; preds = %237, %234, %232
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.30, i64 noundef %233) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.30, i64 noundef %233) #16
   %241 = getelementptr inbounds nuw i8, ptr %117, i64 8256
   %242 = load i64, ptr %241, align 8, !tbaa !58
   %.not130.i.i = icmp eq i64 %242, 0
@@ -1058,11 +1055,11 @@ has_header.exit162.i.i:                           ; preds = %227, %225, %has_hea
 
 243:                                              ; preds = %240
   %244 = add i64 %242, -1
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.31, i64 noundef %244) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.31, i64 noundef %244) #16
   br label %245
 
 245:                                              ; preds = %243, %240
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @__const.http_write.crlf) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @__const.http_write.crlf) #16
   br label %246
 
 246:                                              ; preds = %245, %237, %has_header.exit162.i.i
@@ -1074,17 +1071,17 @@ has_header.exit162.i.i:                           ; preds = %227, %225, %has_hea
   br i1 %.not.i163.i.i, label %has_header.exit166.thread.i.i, label %249
 
 249:                                              ; preds = %247
-  %250 = call i32 @av_stristart(ptr noundef nonnull %248, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.33, i64 2), ptr noundef null) #15
+  %250 = call i32 @av_stristart(ptr noundef nonnull %248, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.33, i64 2), ptr noundef null) #16
   %.not6.i164.i.i = icmp eq i32 %250, 0
   br i1 %.not6.i164.i.i, label %has_header.exit166.i.i, label %has_header.exit166.thread217.i.i
 
 has_header.exit166.i.i:                           ; preds = %249
-  %251 = call ptr @av_stristr(ptr noundef nonnull %248, ptr noundef nonnull @.str.33) #15
+  %251 = call ptr @av_stristr(ptr noundef nonnull %248, ptr noundef nonnull @.str.33) #16
   %.not256.i.i = icmp eq ptr %251, null
   br i1 %.not256.i.i, label %has_header.exit166.thread.i.i, label %has_header.exit166.thread217.i.i
 
 has_header.exit166.thread.i.i:                    ; preds = %has_header.exit166.i.i, %247
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.34) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.34) #16
   br label %has_header.exit166.thread217.i.i
 
 has_header.exit166.thread217.i.i:                 ; preds = %has_header.exit166.thread.i.i, %has_header.exit166.i.i, %249, %246
@@ -1093,12 +1090,12 @@ has_header.exit166.thread217.i.i:                 ; preds = %has_header.exit166.
   br i1 %.not.i167.i.i, label %has_header.exit170.thread.i.i, label %253
 
 253:                                              ; preds = %has_header.exit166.thread217.i.i
-  %254 = call i32 @av_stristart(ptr noundef nonnull %252, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 2), ptr noundef null) #15
+  %254 = call i32 @av_stristart(ptr noundef nonnull %252, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 2), ptr noundef null) #16
   %.not6.i168.i.i = icmp eq i32 %254, 0
   br i1 %.not6.i168.i.i, label %has_header.exit170.i.i, label %has_header.exit170.thread222.i.i
 
 has_header.exit170.i.i:                           ; preds = %253
-  %255 = call ptr @av_stristr(ptr noundef nonnull %252, ptr noundef nonnull @.str.35) #15
+  %255 = call ptr @av_stristr(ptr noundef nonnull %252, ptr noundef nonnull @.str.35) #16
   %.not257.i.i = icmp eq ptr %255, null
   br i1 %.not257.i.i, label %has_header.exit170.thread.i.i, label %has_header.exit170.thread222.i.i
 
@@ -1107,7 +1104,7 @@ has_header.exit170.thread.i.i:                    ; preds = %has_header.exit170.
   %257 = load i32, ptr %256, align 4, !tbaa !60
   %.not133.i.i = icmp eq i32 %257, 0
   %258 = select i1 %.not133.i.i, ptr @.str.38, ptr @.str.37
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.36, ptr noundef nonnull %258) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.36, ptr noundef nonnull %258) #16
   br label %has_header.exit170.thread222.i.i
 
 has_header.exit170.thread222.i.i:                 ; preds = %has_header.exit170.thread.i.i, %has_header.exit170.i.i, %253
@@ -1116,17 +1113,17 @@ has_header.exit170.thread222.i.i:                 ; preds = %has_header.exit170.
   br i1 %.not.i171.i.i, label %has_header.exit174.thread.i.i, label %260
 
 260:                                              ; preds = %has_header.exit170.thread222.i.i
-  %261 = call i32 @av_stristart(ptr noundef nonnull %259, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.39, i64 2), ptr noundef null) #15
+  %261 = call i32 @av_stristart(ptr noundef nonnull %259, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.39, i64 2), ptr noundef null) #16
   %.not6.i172.i.i = icmp eq i32 %261, 0
   br i1 %.not6.i172.i.i, label %has_header.exit174.i.i, label %has_header.exit174.thread227.i.i
 
 has_header.exit174.i.i:                           ; preds = %260
-  %262 = call ptr @av_stristr(ptr noundef nonnull %259, ptr noundef nonnull @.str.39) #15
+  %262 = call ptr @av_stristr(ptr noundef nonnull %259, ptr noundef nonnull @.str.39) #16
   %.not258.i.i = icmp eq ptr %262, null
   br i1 %.not258.i.i, label %has_header.exit174.thread.i.i, label %has_header.exit174.thread227.i.i
 
 has_header.exit174.thread.i.i:                    ; preds = %has_header.exit174.i.i, %has_header.exit170.thread222.i.i
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.40, ptr noundef nonnull %13) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.40, ptr noundef nonnull %13) #16
   br label %has_header.exit174.thread227.i.i
 
 has_header.exit174.thread227.i.i:                 ; preds = %has_header.exit174.thread.i.i, %has_header.exit174.i.i, %260
@@ -1135,12 +1132,12 @@ has_header.exit174.thread227.i.i:                 ; preds = %has_header.exit174.
   br i1 %.not.i175.i.i, label %has_header.exit178.thread.i.i, label %264
 
 264:                                              ; preds = %has_header.exit174.thread227.i.i
-  %265 = call i32 @av_stristart(ptr noundef nonnull %263, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 2), ptr noundef null) #15
+  %265 = call i32 @av_stristart(ptr noundef nonnull %263, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 2), ptr noundef null) #16
   %.not6.i176.i.i = icmp eq i32 %265, 0
   br i1 %.not6.i176.i.i, label %has_header.exit178.i.i, label %has_header.exit178.thread232.i.i
 
 has_header.exit178.i.i:                           ; preds = %264
-  %266 = call ptr @av_stristr(ptr noundef nonnull %263, ptr noundef nonnull @.str.41) #15
+  %266 = call ptr @av_stristr(ptr noundef nonnull %263, ptr noundef nonnull @.str.41) #16
   %.not259.i.i = icmp eq ptr %266, null
   br i1 %.not259.i.i, label %has_header.exit178.thread.i.i, label %has_header.exit178.thread232.i.i
 
@@ -1152,7 +1149,7 @@ has_header.exit178.thread.i.i:                    ; preds = %has_header.exit178.
 268:                                              ; preds = %has_header.exit178.thread.i.i
   %269 = getelementptr inbounds nuw i8, ptr %117, i64 10104
   %270 = load i32, ptr %269, align 8, !tbaa !61
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.42, i32 noundef %270) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.42, i32 noundef %270) #16
   br label %has_header.exit178.thread232.i.i
 
 has_header.exit178.thread232.i.i:                 ; preds = %268, %has_header.exit178.thread.i.i, %has_header.exit178.i.i, %264
@@ -1161,12 +1158,12 @@ has_header.exit178.thread232.i.i:                 ; preds = %268, %has_header.ex
   br i1 %.not.i179.i.i, label %has_header.exit182.thread.i.i, label %272
 
 272:                                              ; preds = %has_header.exit178.thread232.i.i
-  %273 = call i32 @av_stristart(ptr noundef nonnull %271, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.43, i64 2), ptr noundef null) #15
+  %273 = call i32 @av_stristart(ptr noundef nonnull %271, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.43, i64 2), ptr noundef null) #16
   %.not6.i180.i.i = icmp eq i32 %273, 0
   br i1 %.not6.i180.i.i, label %has_header.exit182.i.i, label %has_header.exit182.thread237.i.i
 
 has_header.exit182.i.i:                           ; preds = %272
-  %274 = call ptr @av_stristr(ptr noundef nonnull %271, ptr noundef nonnull @.str.43) #15
+  %274 = call ptr @av_stristr(ptr noundef nonnull %271, ptr noundef nonnull @.str.43) #16
   %.not260.i.i = icmp eq ptr %274, null
   br i1 %.not260.i.i, label %has_header.exit182.thread.i.i, label %has_header.exit182.thread237.i.i
 
@@ -1177,7 +1174,7 @@ has_header.exit182.thread.i.i:                    ; preds = %has_header.exit182.
   br i1 %.not138.i.i, label %has_header.exit182.thread237.i.i, label %277
 
 277:                                              ; preds = %has_header.exit182.thread.i.i
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.44, ptr noundef nonnull %276) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.44, ptr noundef nonnull %276) #16
   br label %has_header.exit182.thread237.i.i
 
 has_header.exit182.thread237.i.i:                 ; preds = %277, %has_header.exit182.thread.i.i, %has_header.exit182.i.i, %272
@@ -1186,12 +1183,12 @@ has_header.exit182.thread237.i.i:                 ; preds = %277, %has_header.ex
   br i1 %.not.i183.i.i, label %has_header.exit186.thread.i.i, label %279
 
 279:                                              ; preds = %has_header.exit182.thread237.i.i
-  %280 = call i32 @av_stristart(ptr noundef nonnull %278, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 2), ptr noundef null) #15
+  %280 = call i32 @av_stristart(ptr noundef nonnull %278, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 2), ptr noundef null) #16
   %.not6.i184.i.i = icmp eq i32 %280, 0
   br i1 %.not6.i184.i.i, label %has_header.exit186.i.i, label %has_header.exit186.thread242.i.i
 
 has_header.exit186.i.i:                           ; preds = %279
-  %281 = call ptr @av_stristr(ptr noundef nonnull %278, ptr noundef nonnull @.str.45) #15
+  %281 = call ptr @av_stristr(ptr noundef nonnull %278, ptr noundef nonnull @.str.45) #16
   %.not261.i.i = icmp eq ptr %281, null
   br i1 %.not261.i.i, label %has_header.exit186.thread.i.i, label %has_header.exit186.thread242.i.i
 
@@ -1202,40 +1199,40 @@ has_header.exit186.thread.i.i:                    ; preds = %has_header.exit186.
   br i1 %.not140.i.i, label %has_header.exit186.thread242.i.i, label %284
 
 284:                                              ; preds = %has_header.exit186.thread.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !49
   %285 = getelementptr inbounds nuw i8, ptr %117, i64 10128
-  call void @av_dict_free(ptr noundef nonnull %285) #15
+  call void @av_dict_free(ptr noundef nonnull %285) #16
   %286 = load ptr, ptr %282, align 8, !tbaa !63
   %.not.i187.i.i = icmp eq ptr %286, null
   br i1 %.not.i187.i.i, label %get_cookies.exit.thread.i.i, label %287
 
 287:                                              ; preds = %284
-  %288 = call noalias ptr @av_strdup(ptr noundef nonnull %286) #15
+  %288 = call noalias ptr @av_strdup(ptr noundef nonnull %286) #16
   %.not57.i.i.i = icmp eq ptr %288, null
   br i1 %.not57.i.i.i, label %get_cookies.exit.thread.i.i, label %289
 
 289:                                              ; preds = %287
-  %290 = call ptr @av_strtok(ptr noundef nonnull %288, ptr noundef nonnull @.str.53, ptr noundef nonnull %5) #15
+  %290 = call ptr @av_strtok(ptr noundef nonnull %288, ptr noundef nonnull @.str.53, ptr noundef nonnull %5) #16
   %.not82.i.i.i = icmp eq ptr %290, null
   br i1 %.not82.i.i.i, label %get_cookies.exit.thread265.i.i, label %.lr.ph.i188.i.i
 
 get_cookies.exit.thread265.i.i:                   ; preds = %289
-  call void @av_free(ptr noundef nonnull %288) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @av_free(ptr noundef nonnull %288) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %has_header.exit186.thread242.i.i
 
 .lr.ph.i188.i.i:                                  ; preds = %289, %.thread78.i.i.i
   %.0199.i.i = phi ptr [ %.1.i.i, %.thread78.i.i.i ], [ null, %289 ]
   %291 = phi ptr [ %370, %.thread78.i.i.i ], [ %290, %289 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !15
   %292 = call fastcc i32 @parse_cookie(ptr noundef nonnull %291, ptr noundef nonnull %285)
   %.not59.i189.i.i = icmp eq i32 %292, 0
   br i1 %.not59.i189.i.i, label %294, label %293
 
 293:                                              ; preds = %.lr.ph.i188.i.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %117, i32 noundef 24, ptr noundef nonnull @.str.54, ptr noundef nonnull %291) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %117, i32 noundef 24, ptr noundef nonnull @.str.54, ptr noundef nonnull %291) #16
   br label %294
 
 294:                                              ; preds = %293, %.lr.ph.i188.i.i
@@ -1245,7 +1242,7 @@ get_cookies.exit.thread265.i.i:                   ; preds = %289
 
 296:                                              ; preds = %294
   %297 = load ptr, ptr %6, align 8, !tbaa !15
-  %298 = call ptr @av_dict_iterate(ptr noundef %297, ptr noundef null) #15
+  %298 = call ptr @av_dict_iterate(ptr noundef %297, ptr noundef null) #16
   %.not61.i.i.i = icmp eq ptr %298, null
   br i1 %.not61.i.i.i, label %.thread78.i.i.i, label %299
 
@@ -1257,7 +1254,7 @@ get_cookies.exit.thread265.i.i:                   ; preds = %289
 
 302:                                              ; preds = %299
   %303 = load ptr, ptr %6, align 8, !tbaa !15
-  %304 = call ptr @av_dict_get(ptr noundef %303, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef 0) #15
+  %304 = call ptr @av_dict_get(ptr noundef %303, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef 0) #16
   %.not63.i.i.i = icmp eq ptr %304, null
   br i1 %.not63.i.i.i, label %339, label %305
 
@@ -1268,10 +1265,10 @@ get_cookies.exit.thread265.i.i:                   ; preds = %289
   br i1 %.not64.i.i.i, label %339, label %308
 
 308:                                              ; preds = %305
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %309 = load ptr, ptr %306, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %310 = load i8, ptr %309, align 1, !tbaa !44
   %.not42.i.i.i.i = icmp eq i8 %310, 0
   br i1 %.not42.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
@@ -1326,29 +1323,29 @@ get_cookies.exit.thread265.i.i:                   ; preds = %289
   br i1 %or.cond37.i.i.i.i, label %parse_http_date.exit.i.i.i, label %328, !llvm.loop !65
 
 parse_http_date.exit.i.i.i:                       ; preds = %328
-  %332 = call ptr @av_small_strptime(ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull @.str.63, ptr noundef nonnull %7) #15
+  %332 = call ptr @av_small_strptime(ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull @.str.63, ptr noundef nonnull %7) #16
   %.not33.i.not.i.i.i = icmp eq ptr %332, null
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not33.i.not.i.i.i, label %.thread.i.i.i, label %333
 
 333:                                              ; preds = %parse_http_date.exit.i.i.i
-  %334 = call i64 @av_timegm(ptr noundef nonnull %7) #15
-  %335 = call i64 @av_gettime() #15
+  %334 = call i64 @av_timegm(ptr noundef nonnull %7) #16
+  %335 = call i64 @av_gettime() #16
   %336 = sdiv i64 %335, 1000000
   %337 = icmp slt i64 %334, %336
   br i1 %337, label %338, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %333, %parse_http_date.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %339
 
 338:                                              ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread78.i.i.i
 
 339:                                              ; preds = %.thread.i.i.i, %305, %302
   %340 = load ptr, ptr %6, align 8, !tbaa !15
-  %341 = call ptr @av_dict_get(ptr noundef %340, ptr noundef nonnull @.str.56, ptr noundef null, i32 noundef 0) #15
+  %341 = call ptr @av_dict_get(ptr noundef %340, ptr noundef nonnull @.str.56, ptr noundef null, i32 noundef 0) #16
   %.not66.i.i.i = icmp eq ptr %341, null
   br i1 %.not66.i.i.i, label %354, label %342
 
@@ -1359,8 +1356,8 @@ parse_http_date.exit.i.i.i:                       ; preds = %328
   br i1 %.not67.i.i.i, label %354, label %345
 
 345:                                              ; preds = %342
-  %346 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #16
-  %347 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %344) #16
+  %346 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
+  %347 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %344) #15
   %348 = sub i64 %346, %347
   %349 = and i64 %348, 2147483648
   %.not68.i.i.i = icmp eq i64 %349, 0
@@ -1369,21 +1366,21 @@ parse_http_date.exit.i.i.i:                       ; preds = %328
 350:                                              ; preds = %345
   %351 = and i64 %348, 2147483647
   %352 = getelementptr inbounds nuw i8, ptr %13, i64 %351
-  %353 = call i32 @av_strcasecmp(ptr noundef nonnull %352, ptr noundef nonnull %344) #15
+  %353 = call i32 @av_strcasecmp(ptr noundef nonnull %352, ptr noundef nonnull %344) #16
   %.not69.i.i.i = icmp eq i32 %353, 0
   br i1 %.not69.i.i.i, label %354, label %.thread78.i.i.i
 
 354:                                              ; preds = %350, %342, %339
   %355 = load ptr, ptr %6, align 8, !tbaa !15
-  %356 = call ptr @av_dict_get(ptr noundef %355, ptr noundef nonnull @.str.57, ptr noundef null, i32 noundef 0) #15
+  %356 = call ptr @av_dict_get(ptr noundef %355, ptr noundef nonnull @.str.57, ptr noundef null, i32 noundef 0) #16
   %.not70.i.i.i = icmp eq ptr %356, null
   br i1 %.not70.i.i.i, label %362, label %357
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %359 = load ptr, ptr %358, align 8, !tbaa !39
-  %360 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %359) #16
-  %361 = call i32 @av_strncasecmp(ptr noundef nonnull %.2.i, ptr noundef nonnull %359, i64 noundef %360) #15
+  %360 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %359) #15
+  %361 = call i32 @av_strncasecmp(ptr noundef nonnull %.2.i, ptr noundef nonnull %359, i64 noundef %360) #16
   %.not71.i.i.i = icmp eq i32 %361, 0
   br i1 %.not71.i.i.i, label %362, label %.thread78.i.i.i
 
@@ -1394,12 +1391,12 @@ parse_http_date.exit.i.i.i:                       ; preds = %328
   br i1 %.not72.i.i.i, label %365, label %367
 
 365:                                              ; preds = %362
-  %366 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.58, ptr noundef %363, ptr noundef %364) #15
+  %366 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.58, ptr noundef %363, ptr noundef %364) #16
   br label %369
 
 367:                                              ; preds = %362
-  %368 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.59, ptr noundef nonnull %.0199.i.i, ptr noundef %363, ptr noundef %364) #15
-  call void @av_free(ptr noundef nonnull %.0199.i.i) #15
+  %368 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.59, ptr noundef nonnull %.0199.i.i, ptr noundef %363, ptr noundef %364) #16
+  call void @av_free(ptr noundef nonnull %.0199.i.i) #16
   br label %369
 
 369:                                              ; preds = %367, %365
@@ -1410,27 +1407,27 @@ parse_http_date.exit.i.i.i:                       ; preds = %328
 .thread78.i.i.i:                                  ; preds = %369, %357, %350, %345, %338, %299, %296, %294
   %.1.i.i = phi ptr [ %.0199.i.i, %296 ], [ %.0199.i.i, %299 ], [ %.3.i.i, %369 ], [ %.0199.i.i, %357 ], [ %.0199.i.i, %350 ], [ %.0199.i.i, %345 ], [ %.0199.i.i, %338 ], [ %.0199.i.i, %294 ]
   %.1.i190.i.i = phi i1 [ true, %296 ], [ true, %299 ], [ %.not73.i.i.i, %369 ], [ true, %357 ], [ true, %350 ], [ true, %345 ], [ true, %338 ], [ true, %294 ]
-  call void @av_dict_free(ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  %370 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.53, ptr noundef nonnull %5) #15
+  call void @av_dict_free(ptr noundef nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %370 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.53, ptr noundef nonnull %5) #16
   %371 = icmp ne ptr %370, null
   %372 = select i1 %371, i1 %.1.i190.i.i, i1 false
   br i1 %372, label %.lr.ph.i188.i.i, label %get_cookies.exit.i.i, !llvm.loop !67
 
 get_cookies.exit.thread.i.i:                      ; preds = %287, %284
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %has_header.exit186.thread242.i.i
 
 get_cookies.exit.i.i:                             ; preds = %.thread78.i.i.i
-  call void @av_free(ptr noundef nonnull %288) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @av_free(ptr noundef nonnull %288) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %373 = icmp ne ptr %.1.i.i, null
   %or.cond3.i.i = select i1 %.1.i190.i.i, i1 %373, i1 false
   br i1 %or.cond3.i.i, label %374, label %has_header.exit186.thread242.i.i
 
 374:                                              ; preds = %get_cookies.exit.i.i
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.46, ptr noundef nonnull %.1.i.i) #15
-  call void @av_free(ptr noundef nonnull %.1.i.i) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.46, ptr noundef nonnull %.1.i.i) #16
+  call void @av_free(ptr noundef nonnull %.1.i.i) #16
   br label %has_header.exit186.thread242.i.i
 
 has_header.exit186.thread242.i.i:                 ; preds = %374, %get_cookies.exit.i.i, %get_cookies.exit.thread.i.i, %get_cookies.exit.thread265.i.i, %has_header.exit186.thread.i.i, %has_header.exit186.i.i, %279
@@ -1439,12 +1436,12 @@ has_header.exit186.thread242.i.i:                 ; preds = %374, %get_cookies.e
   br i1 %.not.i193.i.i, label %has_header.exit196.thread.i.i, label %376
 
 376:                                              ; preds = %has_header.exit186.thread242.i.i
-  %377 = call i32 @av_stristart(ptr noundef nonnull %375, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 2), ptr noundef null) #15
+  %377 = call i32 @av_stristart(ptr noundef nonnull %375, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 2), ptr noundef null) #16
   %.not6.i194.i.i = icmp eq i32 %377, 0
   br i1 %.not6.i194.i.i, label %has_header.exit196.i.i, label %has_header.exit196.thread250.i.i
 
 has_header.exit196.i.i:                           ; preds = %376
-  %378 = call ptr @av_stristr(ptr noundef nonnull %375, ptr noundef nonnull @.str.47) #15
+  %378 = call ptr @av_stristr(ptr noundef nonnull %375, ptr noundef nonnull @.str.47) #16
   %.not262.i.i = icmp eq ptr %378, null
   br i1 %.not262.i.i, label %has_header.exit196.thread.i.i, label %has_header.exit196.thread250.i.i
 
@@ -1455,7 +1452,7 @@ has_header.exit196.thread.i.i:                    ; preds = %has_header.exit196.
   br i1 %.not142.i.i, label %has_header.exit196.thread250.i.i, label %381
 
 381:                                              ; preds = %has_header.exit196.thread.i.i
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.48) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.48) #16
   br label %has_header.exit196.thread250.i.i
 
 has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.exit196.thread.i.i, %has_header.exit196.i.i, %376
@@ -1464,7 +1461,7 @@ has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.ex
   br i1 %.not143.i.i, label %384, label %383
 
 383:                                              ; preds = %has_header.exit196.thread250.i.i
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %382) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %382) #16
   br label %384
 
 384:                                              ; preds = %383, %has_header.exit196.thread250.i.i
@@ -1473,7 +1470,7 @@ has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.ex
   br i1 %.not144.i.i, label %387, label %386
 
 386:                                              ; preds = %384
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %385) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %385) #16
   br label %387
 
 387:                                              ; preds = %386, %384
@@ -1482,27 +1479,27 @@ has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.ex
   br i1 %.not145.i.i, label %390, label %389
 
 389:                                              ; preds = %387
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.49, ptr noundef nonnull %388) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.49, ptr noundef nonnull %388) #16
   br label %390
 
 390:                                              ; preds = %389, %387
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @__const.http_write.crlf) #15
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @__const.http_write.crlf) #16
   %391 = load ptr, ptr %9, align 8, !tbaa !69
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.50, ptr noundef %391) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.50, ptr noundef %391) #16
   %.val.i.i = load i32, ptr %34, align 8, !tbaa !71
   %.val149.i.i = load i32, ptr %35, align 4, !tbaa !72
   %.not263.i.i = icmp ult i32 %.val.i.i, %.val149.i.i
   br i1 %.not263.i.i, label %393, label %392
 
 392:                                              ; preds = %390
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.51) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.51) #16
   br label %http_open_cnx_internal.exit
 
 393:                                              ; preds = %390
   %394 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %395 = load ptr, ptr %394, align 8, !tbaa !37
   %396 = load ptr, ptr %9, align 8, !tbaa !69
-  %397 = call i32 @ffurl_write2(ptr noundef %395, ptr noundef %396, i32 noundef %.val.i.i) #15
+  %397 = call i32 @ffurl_write2(ptr noundef %395, ptr noundef %396, i32 noundef %.val.i.i) #16
   %398 = icmp slt i32 %397, 0
   br i1 %398, label %http_open_cnx_internal.exit, label %399
 
@@ -1515,7 +1512,7 @@ has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.ex
   %402 = load ptr, ptr %394, align 8, !tbaa !37
   %403 = getelementptr inbounds nuw i8, ptr %117, i64 10104
   %404 = load i32, ptr %403, align 8, !tbaa !61
-  %405 = call i32 @ffurl_write2(ptr noundef %402, ptr noundef nonnull %400, i32 noundef %404) #15
+  %405 = call i32 @ffurl_write2(ptr noundef %402, ptr noundef nonnull %400, i32 noundef %404) #16
   %406 = icmp slt i32 %405, 0
   br i1 %406, label %http_open_cnx_internal.exit, label %407
 
@@ -1575,41 +1572,41 @@ has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.ex
 
 http_open_cnx_internal.exit.thread:               ; preds = %112, %90
   %.ph = phi i32 [ %91, %90 ], [ %115, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit131
 
 http_open_cnx_internal.exit:                      ; preds = %392, %393, %401, %420, %422, %._crit_edge.i.i, %430
   %.0101.i.i = phi i32 [ %397, %393 ], [ %405, %401 ], [ %423, %422 ], [ 0, %420 ], [ -22, %392 ], [ %429, %._crit_edge.i.i ], [ 0, %430 ]
-  call void @av_freep(ptr noundef nonnull %10) #15
-  call void @av_freep(ptr noundef nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #15
+  call void @av_freep(ptr noundef nonnull %10) #16
+  call void @av_freep(ptr noundef nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %431 = icmp slt i32 %.0101.i.i, 0
   br i1 %431, label %.loopexit131, label %474
 
 .loopexit131:                                     ; preds = %http_open_cnx_internal.exit, %http_open_cnx_internal.exit.thread
   %432 = phi i32 [ %.ph, %http_open_cnx_internal.exit.thread ], [ %.0101.i.i, %http_open_cnx_internal.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   switch i32 %432, label %434 [
     i32 -808465656, label %437
     i32 -825242872, label %437
@@ -1626,7 +1623,7 @@ http_open_cnx_internal.exit:                      ; preds = %392, %393, %401, %4
 434:                                              ; preds = %.loopexit131
   %435 = load i32, ptr %44, align 8, !tbaa !80
   %436 = icmp eq i32 %435, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %436, label %.loopexit, label %447
 
 437:                                              ; preds = %433, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131
@@ -1636,25 +1633,25 @@ http_open_cnx_internal.exit:                      ; preds = %392, %393, %401, %4
   br i1 %.not.i117, label %http_should_reconnect.exit.thread, label %439
 
 http_should_reconnect.exit.thread:                ; preds = %437
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 439:                                              ; preds = %437
-  %440 = call i32 @av_match_list(ptr noundef nonnull %.0.i116, ptr noundef nonnull %438, i8 noundef signext 44) #15
+  %440 = call i32 @av_match_list(ptr noundef nonnull %.0.i116, ptr noundef nonnull %438, i8 noundef signext 44) #16
   %441 = icmp sgt i32 %440, 0
   br i1 %441, label %http_should_reconnect.exit.thread128, label %http_should_reconnect.exit
 
 http_should_reconnect.exit.thread128:             ; preds = %439
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %447
 
 http_should_reconnect.exit:                       ; preds = %439
   %442 = load i32, ptr %36, align 4, !tbaa !51
-  %443 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4, ptr noundef nonnull @.str.115, i32 noundef %442) #15
+  %443 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4, ptr noundef nonnull @.str.115, i32 noundef %442) #16
   %444 = load ptr, ptr %43, align 8, !tbaa !81
-  %445 = call i32 @av_match_list(ptr noundef nonnull %3, ptr noundef %444, i8 noundef signext 44) #15
+  %445 = call i32 @av_match_list(ptr noundef nonnull %3, ptr noundef %444, i8 noundef signext 44) #16
   %446 = icmp slt i32 %445, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %446, label %.loopexit, label %447
 
 447:                                              ; preds = %434, %http_should_reconnect.exit.thread128, %http_should_reconnect.exit
@@ -1694,10 +1691,10 @@ http_should_reconnect.exit:                       ; preds = %439
 
 464:                                              ; preds = %463, %459, %457
   %.1 = phi i32 [ %460, %463 ], [ %.089.ph, %459 ], [ %.089.ph, %457 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.9, i64 noundef %66, i32 noundef %.1) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.9, i64 noundef %66, i32 noundef %.1) #16
   %465 = mul i32 %.1, 1000000
   %466 = zext i32 %465 to i64
-  %467 = call i32 @ff_network_sleep_interruptible(i64 noundef %466, ptr noundef nonnull %29) #15
+  %467 = call i32 @ff_network_sleep_interruptible(i64 noundef %466, ptr noundef nonnull %29) #16
   %.not110 = icmp eq i32 %467, -110
   br i1 %.not110, label %468, label %.loopexit
 
@@ -1707,7 +1704,7 @@ http_should_reconnect.exit:                       ; preds = %439
   %471 = or disjoint i32 %470, 1
   %472 = add nuw nsw i32 %.092.ph, 1
   store i64 %66, ptr %28, align 8, !tbaa !32
-  %473 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  %473 = call i32 @ffurl_closep(ptr noundef nonnull %39) #16
   br label %.outer
 
 474:                                              ; preds = %http_open_cnx_internal.exit
@@ -1740,7 +1737,7 @@ http_should_reconnect.exit:                       ; preds = %439
   br i1 %or.cond, label %.outer132.backedge, label %.loopexit
 
 .outer132.backedge:                               ; preds = %481, %490
-  %485 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  %485 = call i32 @ffurl_closep(ptr noundef nonnull %39) #16
   br label %.outer132
 
 486:                                              ; preds = %474
@@ -1765,7 +1762,7 @@ http_should_reconnect.exit:                       ; preds = %439
   br i1 %.not103, label %ff_http_averror.exit, label %496
 
 496:                                              ; preds = %494
-  %497 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  %497 = call i32 @ffurl_closep(ptr noundef nonnull %39) #16
   %498 = add i32 %.090.ph134.ph, 1
   %exitcond = icmp eq i32 %.090.ph134.ph, %smax
   br i1 %exitcond, label %ff_http_averror.exit, label %499
@@ -1786,13 +1783,13 @@ http_should_reconnect.exit:                       ; preds = %439
 
 507:                                              ; preds = %501, %499
   %508 = phi i64 [ %506, %501 ], [ %500, %499 ]
-  %509 = call i64 @time(ptr noundef null) #15
+  %509 = call i64 @time(ptr noundef null) #16
   %510 = icmp sgt i64 %508, %509
   br i1 %510, label %511, label %redirect_cache_set.exit
 
 511:                                              ; preds = %507
   %512 = load ptr, ptr %25, align 8, !tbaa !38
-  %513 = call i32 @av_dict_count(ptr noundef %512) #15
+  %513 = call i32 @av_dict_count(ptr noundef %512) #16
   %514 = icmp slt i32 %513, 32
   br i1 %514, label %515, label %redirect_cache_set.exit
 
@@ -1800,17 +1797,17 @@ http_should_reconnect.exit:                       ; preds = %439
   %516 = load ptr, ptr %24, align 8, !tbaa !20
   %517 = load ptr, ptr %41, align 8, !tbaa !79
   %518 = load i64, ptr %42, align 8, !tbaa !90
-  %519 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.116, i64 noundef %518, ptr noundef %517) #15
+  %519 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.116, i64 noundef %518, ptr noundef %517) #16
   %.not.i118 = icmp eq ptr %519, null
   br i1 %.not.i118, label %redirect_cache_set.exit, label %520
 
 520:                                              ; preds = %515
-  %521 = call i32 @av_dict_set(ptr noundef nonnull %25, ptr noundef %516, ptr noundef nonnull %519, i32 noundef 9) #15
+  %521 = call i32 @av_dict_set(ptr noundef nonnull %25, ptr noundef %516, ptr noundef nonnull %519, i32 noundef 9) #16
   br label %redirect_cache_set.exit
 
 redirect_cache_set.exit:                          ; preds = %520, %515, %511, %507
   %522 = load ptr, ptr %24, align 8, !tbaa !20
-  call void @av_free(ptr noundef %522) #15
+  call void @av_free(ptr noundef %522) #16
   %523 = load ptr, ptr %41, align 8, !tbaa !79
   store ptr %523, ptr %24, align 8, !tbaa !20
   store ptr null, ptr %41, align 8, !tbaa !79
@@ -1824,7 +1821,7 @@ redirect_cache_set.exit:                          ; preds = %520, %515, %511, %5
   br i1 %.not112, label %527, label %525
 
 525:                                              ; preds = %.loopexit
-  %526 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  %526 = call i32 @ffurl_closep(ptr noundef nonnull %39) #16
   br label %527
 
 527:                                              ; preds = %525, %.loopexit
@@ -1868,13 +1865,10 @@ ff_http_averror.exit:                             ; preds = %494, %496, %474, %5
   ret i32 %.0
 }
 
-declare void @av_dict_free(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @av_dict_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ff_http_averror(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef i32 @ff_http_averror(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   switch i32 %0, label %7 [
     i32 400, label %11
     i32 401, label %3
@@ -1926,14 +1920,14 @@ define internal i32 @http_open(ptr noundef initializes((40, 44)) %0, ptr noundef
   store i32 %spec.select, ptr %14, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8264
   store i64 -1, ptr %15, align 8, !tbaa !76
-  %16 = tail call noalias ptr @av_strdup(ptr noundef %1) #15
+  %16 = tail call noalias ptr @av_strdup(ptr noundef %1) #16
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8280
   store ptr %16, ptr %17, align 8, !tbaa !20
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %100, label %18
 
 18:                                               ; preds = %4
-  %19 = tail call noalias ptr @av_strdup(ptr noundef %1) #15
+  %19 = tail call noalias ptr @av_strdup(ptr noundef %1) #16
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8272
   store ptr %19, ptr %20, align 8, !tbaa !34
   %.not51 = icmp eq ptr %19, null
@@ -1946,7 +1940,7 @@ define internal i32 @http_open(ptr noundef initializes((40, 44)) %0, ptr noundef
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 10312
   %24 = load ptr, ptr %3, align 8, !tbaa !15
-  %25 = tail call i32 @av_dict_copy(ptr noundef nonnull %23, ptr noundef %24, i32 noundef 0) #15
+  %25 = tail call i32 @av_dict_copy(ptr noundef nonnull %23, ptr noundef %24, i32 noundef 0) #16
   br label %26
 
 26:                                               ; preds = %22, %21
@@ -1956,7 +1950,7 @@ define internal i32 @http_open(ptr noundef initializes((40, 44)) %0, ptr noundef
   br i1 %.not53, label %.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #16
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #15
   %31 = trunc i64 %30 to i32
   %32 = icmp slt i32 %31, 2
   br i1 %32, label %47, label %sub_0
@@ -1991,11 +1985,11 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not54, label %.thread, label %47
 
 47:                                               ; preds = %.tail, %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.118) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.118) #16
   %48 = shl i64 %30, 32
   %sext = add i64 %48, 12884901888
   %49 = ashr exact i64 %sext, 32
-  %50 = tail call i32 @av_reallocp(ptr noundef nonnull %27, i64 noundef %49) #15
+  %50 = tail call i32 @av_reallocp(ptr noundef nonnull %27, i64 noundef %49) #16
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %.thread63, label %52
 
@@ -2024,20 +2018,20 @@ sub_2:                                            ; preds = %sub_1
 
 64:                                               ; preds = %.thread
   %65 = load ptr, ptr %9, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
-  call void @av_url_split(ptr noundef nonnull %6, i32 noundef 10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @av_url_split(ptr noundef nonnull %6, i32 noundef 10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef %1) #16
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %.not.i = icmp eq i32 %bcmp.i, 0
   %spec.select.i = select i1 %.not.i, ptr @.str.14, ptr @.str.10
   %66 = load i32, ptr %8, align 4, !tbaa !27
-  %67 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %7, i32 noundef 100, ptr noundef nonnull %spec.select.i, ptr noundef null, ptr noundef nonnull %5, i32 noundef %66, ptr noundef null) #15
+  %67 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %7, i32 noundef 100, ptr noundef nonnull %spec.select.i, ptr noundef null, ptr noundef nonnull %5, i32 noundef %66, ptr noundef null) #16
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 10368
   %69 = load i32, ptr %68, align 8, !tbaa !36
   %70 = sext i32 %69 to i64
-  %71 = call i32 @av_dict_set_int(ptr noundef %3, ptr noundef nonnull @.str.119, i64 noundef %70, i32 noundef 0) #15
+  %71 = call i32 @av_dict_set_int(ptr noundef %3, ptr noundef nonnull @.str.119, i64 noundef %70, i32 noundef 0) #16
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %http_listen.exit, label %73
 
@@ -2048,7 +2042,7 @@ sub_2:                                            ; preds = %sub_1
   %77 = load ptr, ptr %76, align 8, !tbaa !45
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %79 = load ptr, ptr %78, align 8, !tbaa !46
-  %80 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %74, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull %75, ptr noundef %3, ptr noundef %77, ptr noundef %79, ptr noundef nonnull %0) #15
+  %80 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %74, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull %75, ptr noundef %3, ptr noundef %77, ptr noundef %79, ptr noundef nonnull %0) #16
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %http_listen.exit, label %82
 
@@ -2072,13 +2066,13 @@ sub_2:                                            ; preds = %sub_1
 http_listen.exit:                                 ; preds = %88, %64, %73, %82
   %.017.i = phi i32 [ %71, %64 ], [ %80, %73 ], [ %80, %82 ], [ %89, %88 ]
   %91 = getelementptr inbounds nuw i8, ptr %65, i64 10312
-  call void @av_dict_free(ptr noundef nonnull %91) #15
+  call void @av_dict_free(ptr noundef nonnull %91) #16
   %92 = getelementptr inbounds nuw i8, ptr %65, i64 10128
-  call void @av_dict_free(ptr noundef nonnull %92) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
+  call void @av_dict_free(ptr noundef nonnull %92) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 
 93:                                               ; preds = %.thread
@@ -2089,14 +2083,14 @@ http_listen.exit:                                 ; preds = %88, %64, %73, %82
 .thread63:                                        ; preds = %47, %93
   %.265 = phi i32 [ %94, %93 ], [ %50, %47 ]
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 10312
-  tail call void @av_dict_free(ptr noundef nonnull %96) #15
+  tail call void @av_dict_free(ptr noundef nonnull %96) #16
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 10128
-  tail call void @av_dict_free(ptr noundef nonnull %97) #15
+  tail call void @av_dict_free(ptr noundef nonnull %97) #16
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 10424
-  tail call void @av_dict_free(ptr noundef nonnull %98) #15
+  tail call void @av_dict_free(ptr noundef nonnull %98) #16
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 10416
-  tail call void @av_freep(ptr noundef nonnull %99) #15
-  tail call void @av_freep(ptr noundef nonnull %20) #15
+  tail call void @av_freep(ptr noundef nonnull %99) #16
+  tail call void @av_freep(ptr noundef nonnull %20) #16
   br label %100
 
 100:                                              ; preds = %93, %.thread63, %18, %4, %http_listen.exit
@@ -2111,7 +2105,7 @@ define internal range(i32 -2147483648, 1) i32 @http_accept(ptr noundef readonly 
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 10368
   %9 = load i32, ptr %8, align 8, !tbaa !36
@@ -2119,7 +2113,7 @@ define internal range(i32 -2147483648, 1) i32 @http_accept(ptr noundef readonly 
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, i32 noundef 779) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, i32 noundef 779) #16
   tail call void @abort() #17
   unreachable
 
@@ -2129,7 +2123,7 @@ define internal range(i32 -2147483648, 1) i32 @http_accept(ptr noundef readonly 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %17 = tail call i32 @ffurl_alloc(ptr noundef %1, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %16) #15
+  %17 = tail call i32 @ffurl_alloc(ptr noundef %1, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %16) #16
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %29, label %19
 
@@ -2137,7 +2131,7 @@ define internal range(i32 -2147483648, 1) i32 @http_accept(ptr noundef readonly 
   %20 = load ptr, ptr %1, align 8, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !4
-  %23 = call i32 @ffurl_accept(ptr noundef nonnull %7, ptr noundef nonnull %3) #15
+  %23 = call i32 @ffurl_accept(ptr noundef nonnull %7, ptr noundef nonnull %3) #16
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
 
@@ -2155,12 +2149,12 @@ define internal range(i32 -2147483648, 1) i32 @http_accept(ptr noundef readonly 
 
 .thread:                                          ; preds = %19, %29
   %.01421 = phi i32 [ %17, %29 ], [ %23, %19 ]
-  %30 = call i32 @ffurl_closep(ptr noundef nonnull %1) #15
+  %30 = call i32 @ffurl_closep(ptr noundef nonnull %1) #16
   br label %31
 
 31:                                               ; preds = %29, %.thread, %25
   %.0 = phi i32 [ 0, %25 ], [ %.01421, %.thread ], [ %17, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2180,8 +2174,8 @@ define internal i32 @http_handshake(ptr noundef %0) #2 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !37
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.123) #15
-  %9 = tail call i32 @ffurl_handshake(ptr noundef %8) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.123) #16
+  %9 = tail call i32 @ffurl_handshake(ptr noundef %8) #16
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %13
 
@@ -2200,7 +2194,7 @@ define internal i32 @http_handshake(ptr noundef %0) #2 {
   br label %31
 
 17:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.124) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.124) #16
   %18 = tail call fastcc i32 @http_read_header(ptr noundef nonnull %0)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %22
@@ -2216,7 +2210,7 @@ define internal i32 @http_handshake(ptr noundef %0) #2 {
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 10384
   %25 = load i32, ptr %24, align 8, !tbaa !93
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.125, i32 noundef %25) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.125, i32 noundef %25) #16
   %26 = load i32, ptr %24, align 8, !tbaa !93
   %27 = tail call fastcc i32 @http_write_reply(ptr noundef nonnull %0, i32 noundef %26)
   %28 = icmp slt i32 %27, 0
@@ -2257,7 +2251,7 @@ define internal i32 @http_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not.i, label %16, label %store_icy.exit
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %19, %16
@@ -2280,7 +2274,7 @@ http_read_stream_all.exit.i:                      ; preds = %17
   br i1 %.not37.i, label %59, label %27
 
 27:                                               ; preds = %http_read_stream_all.exit.i
-  call void @llvm.lifetime.start.p0(i64 4081, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = zext i8 %26 to i32
   %29 = shl nuw nsw i32 %28, 4
   br label %30
@@ -2308,7 +2302,7 @@ http_read_stream_all.exit40.i:                    ; preds = %30
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw [4081 x i8], ptr %5, i64 0, i64 %42
   store i8 0, ptr %43, align 1, !tbaa !44
-  %44 = call i32 @av_opt_set(ptr noundef %7, ptr noundef nonnull @.str.139, ptr noundef nonnull %5, i32 noundef 0) #15
+  %44 = call i32 @av_opt_set(ptr noundef %7, ptr noundef nonnull @.str.139, ptr noundef nonnull %5, i32 noundef 0) #16
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %update_metadata.exit.i, label %46
 
@@ -2324,12 +2318,12 @@ http_read_stream_all.exit40.i:                    ; preds = %30
 
 50:                                               ; preds = %54, %.lr.ph.i.i
   %.023.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %57, %54 ]
-  %51 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.023.i.i, ptr noundef nonnull dereferenceable(1) @.str.140) #16
+  %51 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.023.i.i, ptr noundef nonnull dereferenceable(1) @.str.140) #15
   %.not20.i.i = icmp eq ptr %51, null
   br i1 %.not20.i.i, label %update_metadata.exit.thread.i, label %52
 
 52:                                               ; preds = %50
-  %53 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.141) #16
+  %53 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.141) #15
   %.not21.i.i = icmp eq ptr %53, null
   br i1 %.not21.i.i, label %update_metadata.exit.thread.i, label %54
 
@@ -2337,31 +2331,31 @@ http_read_stream_all.exit40.i:                    ; preds = %30
   store i8 0, ptr %51, align 1, !tbaa !44
   store i8 0, ptr %53, align 1, !tbaa !44
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  %56 = call i32 @av_dict_set(ptr noundef nonnull %49, ptr noundef nonnull %.023.i.i, ptr noundef nonnull %55, i32 noundef 0) #15
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.142, ptr noundef nonnull %.023.i.i, ptr noundef nonnull %55) #15
+  %56 = call i32 @av_dict_set(ptr noundef nonnull %49, ptr noundef nonnull %.023.i.i, ptr noundef nonnull %55, i32 noundef 0) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.142, ptr noundef nonnull %.023.i.i, ptr noundef nonnull %55) #16
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %58 = load i8, ptr %57, align 1, !tbaa !44
   %.not.i.i = icmp eq i8 %58, 0
   br i1 %.not.i.i, label %update_metadata.exit.thread.i, label %50, !llvm.loop !101
 
 update_metadata.exit.thread.i:                    ; preds = %54, %52, %50, %46
-  call void @llvm.lifetime.end.p0(i64 4081, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 update_metadata.exit.i:                           ; preds = %32, %40, %http_read_stream_all.exit40.i
   %.3.i = phi i32 [ %.014.i38.i, %http_read_stream_all.exit40.i ], [ %44, %40 ], [ %36, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4081, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %19, %update_metadata.exit.i
   %.129.ph.i = phi i32 [ %.3.i, %update_metadata.exit.i ], [ %23, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %store_icy.exit.thread
 
 59:                                               ; preds = %update_metadata.exit.thread.i, %http_read_stream_all.exit.i
   store i64 0, ptr %11, align 8, !tbaa !33
   %60 = load i64, ptr %8, align 8, !tbaa !99
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %store_icy.exit
 
 store_icy.exit:                                   ; preds = %14, %59
@@ -2395,9 +2389,9 @@ store_icy.exit.thread:                            ; preds = %.thread.i, %10, %65
 define internal i32 @http_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = alloca [11 x i8], align 1
   %5 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4, i8 0, i64 11, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const.http_write.crlf, i64 3, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -2409,7 +2403,7 @@ define internal i32 @http_write(ptr noundef readonly captures(none) %0, ptr noun
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !37
-  %13 = tail call i32 @ffurl_write2(ptr noundef %12, ptr noundef %1, i32 noundef %2) #15
+  %13 = tail call i32 @ffurl_write2(ptr noundef %12, ptr noundef %1, i32 noundef %2) #16
   br label %33
 
 14:                                               ; preds = %3
@@ -2417,24 +2411,24 @@ define internal i32 @http_write(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %15, label %16, label %32
 
 16:                                               ; preds = %14
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 11, ptr noundef nonnull @.str.146, i32 noundef %2) #15
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 11, ptr noundef nonnull @.str.146, i32 noundef %2) #16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !37
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %21 = trunc i64 %20 to i32
-  %22 = call i32 @ffurl_write2(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %21) #15
+  %22 = call i32 @ffurl_write2(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %21) #16
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr %18, align 8, !tbaa !37
-  %26 = call i32 @ffurl_write2(ptr noundef %25, ptr noundef %1, i32 noundef %2) #15
+  %26 = call i32 @ffurl_write2(ptr noundef %25, ptr noundef %1, i32 noundef %2) #16
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %18, align 8, !tbaa !37
-  %30 = call i32 @ffurl_write2(ptr noundef %29, ptr noundef nonnull %5, i32 noundef 2) #15
+  %30 = call i32 @ffurl_write2(ptr noundef %29, ptr noundef nonnull %5, i32 noundef 2) #16
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %33, label %32
 
@@ -2443,8 +2437,8 @@ define internal i32 @http_write(ptr noundef readonly captures(none) %0, ptr noun
 
 33:                                               ; preds = %16, %24, %28, %32, %10
   %.0 = phi i32 [ %2, %32 ], [ %13, %10 ], [ %22, %16 ], [ %26, %24 ], [ %30, %28 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2459,9 +2453,9 @@ define internal range(i32 -2147483648, 1) i32 @http_close(ptr noundef %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 10192
-  %5 = tail call i32 @inflateEnd(ptr noundef nonnull %4) #15
+  %5 = tail call i32 @inflateEnd(ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 10304
-  tail call void @av_freep(ptr noundef nonnull %6) #15
+  tail call void @av_freep(ptr noundef nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !37
   %.not = icmp eq ptr %8, null
@@ -2483,21 +2477,21 @@ define internal range(i32 -2147483648, 1) i32 @http_close(ptr noundef %0) #2 {
 
 .thread20:                                        ; preds = %9, %12
   %.0.ph23 = phi i32 [ %15, %12 ], [ 0, %9 ]
-  %17 = tail call i32 @ffurl_closep(ptr noundef nonnull %7) #15
+  %17 = tail call i32 @ffurl_closep(ptr noundef nonnull %7) #16
   br label %.thread
 
 .thread:                                          ; preds = %1, %.thread20, %12
   %.018 = phi i32 [ %.0.ph23, %.thread20 ], [ %15, %12 ], [ 0, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 10312
-  tail call void @av_dict_free(ptr noundef nonnull %18) #15
+  tail call void @av_dict_free(ptr noundef nonnull %18) #16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 10128
-  tail call void @av_dict_free(ptr noundef nonnull %19) #15
+  tail call void @av_dict_free(ptr noundef nonnull %19) #16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 10424
-  tail call void @av_dict_free(ptr noundef nonnull %20) #15
+  tail call void @av_dict_free(ptr noundef nonnull %20) #16
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 10416
-  tail call void @av_freep(ptr noundef nonnull %21) #15
+  tail call void @av_freep(ptr noundef nonnull %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8272
-  tail call void @av_freep(ptr noundef nonnull %22) #15
+  tail call void @av_freep(ptr noundef nonnull %22) #16
   ret i32 %.018
 }
 
@@ -2507,7 +2501,7 @@ define internal i32 @http_get_file_handle(ptr noundef readonly captures(none) %0
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  %6 = tail call i32 @ffurl_get_file_handle(ptr noundef %5) #15
+  %6 = tail call i32 @ffurl_get_file_handle(ptr noundef %5) #16
   ret i32 %6
 }
 
@@ -2523,7 +2517,7 @@ define internal i32 @http_get_short_seek(ptr noundef readonly captures(none) %0)
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !37
-  %10 = tail call i32 @ffurl_get_short_seek(ptr noundef %9) #15
+  %10 = tail call i32 @ffurl_get_short_seek(ptr noundef %9) #16
   br label %11
 
 11:                                               ; preds = %1, %7
@@ -2542,35 +2536,35 @@ define internal range(i32 -2147483648, 1) i32 @http_proxy_open(ptr noundef initi
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 10076
   %14 = load i32, ptr %13, align 4, !tbaa !59
   %15 = icmp ne i32 %14, 1
   %spec.select = zext i1 %15 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %spec.select, ptr %16, align 8, !tbaa !91
-  call void @av_url_split(ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef 1024, ptr noundef %1) #15
+  call void @av_url_split(ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef 1024, ptr noundef %1) #16
   %17 = load i32, ptr %9, align 4, !tbaa !27
-  %18 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef %17, ptr noundef null) #15
+  %18 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef %17, ptr noundef null) #16
   %19 = load i8, ptr %7, align 16, !tbaa !44
   %20 = icmp eq i8 %19, 47
   %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %20 to i64
   %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
   %21 = load i32, ptr %9, align 4, !tbaa !27
-  %22 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %8, i32 noundef 100, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %4, i32 noundef %21, ptr noundef null) #15
+  %22 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %8, i32 noundef 100, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %4, i32 noundef %21, ptr noundef null) #16
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %25, align 8, !tbaa !45
   %28 = load ptr, ptr %26, align 8, !tbaa !46
-  %29 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %23, ptr noundef nonnull %8, i32 noundef 3, ptr noundef nonnull %24, ptr noundef null, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %0) #15
+  %29 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %23, ptr noundef nonnull %8, i32 noundef 3, ptr noundef nonnull %24, ptr noundef null, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %0) #16
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %http_proxy_close.exit, label %.lr.ph
 
@@ -2587,17 +2581,17 @@ define internal range(i32 -2147483648, 1) i32 @http_proxy_open(ptr noundef initi
 
 39:                                               ; preds = %.lr.ph, %64
   %40 = phi i1 [ true, %.lr.ph ], [ false, %64 ]
-  %41 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull @.str.221) #15
+  %41 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull @.str.221) #16
   store ptr %41, ptr %10, align 8, !tbaa !49
   %.not = icmp eq ptr %41, null
   %42 = select i1 %.not, ptr @.str.136, ptr @.str.223
   %43 = select i1 %.not, ptr @.str.136, ptr %41
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 8192, ptr noundef nonnull @.str.222, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull %5, ptr noundef nonnull %42, ptr noundef nonnull %43) #15
-  call void @av_freep(ptr noundef nonnull %10) #15
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 8192, ptr noundef nonnull @.str.222, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull %5, ptr noundef nonnull %42, ptr noundef nonnull %43) #16
+  call void @av_freep(ptr noundef nonnull %10) #16
   %45 = load ptr, ptr %23, align 8, !tbaa !37
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #16
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #15
   %47 = trunc i64 %46 to i32
-  %48 = call i32 @ffurl_write2(ptr noundef %45, ptr noundef nonnull %32, i32 noundef %47) #15
+  %48 = call i32 @ffurl_write2(ptr noundef %45, ptr noundef nonnull %32, i32 noundef %47) #16
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %ff_http_averror.exit, label %50
 
@@ -2632,10 +2626,10 @@ define internal range(i32 -2147483648, 1) i32 @http_proxy_open(ptr noundef initi
   br i1 %or.cond, label %64, label %ff_http_averror.exit
 
 64:                                               ; preds = %61
-  %65 = call i32 @ffurl_closep(ptr noundef nonnull %23) #15
+  %65 = call i32 @ffurl_closep(ptr noundef nonnull %23) #16
   %66 = load ptr, ptr %25, align 8, !tbaa !45
   %67 = load ptr, ptr %26, align 8, !tbaa !46
-  %68 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %23, ptr noundef nonnull %8, i32 noundef 3, ptr noundef nonnull %24, ptr noundef null, ptr noundef %66, ptr noundef %67, ptr noundef nonnull %0) #15
+  %68 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %23, ptr noundef nonnull %8, i32 noundef 3, ptr noundef nonnull %24, ptr noundef null, ptr noundef %66, ptr noundef %67, ptr noundef nonnull %0) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %http_proxy_close.exit, label %39
 
@@ -2679,18 +2673,18 @@ ff_http_averror.exit:                             ; preds = %59, %61, %50, %39, 
   br i1 %.not.i, label %http_proxy_close.exit, label %82
 
 82:                                               ; preds = %ff_http_averror.exit
-  %83 = call i32 @ffurl_closep(ptr noundef nonnull %80) #15
+  %83 = call i32 @ffurl_closep(ptr noundef nonnull %80) #16
   br label %http_proxy_close.exit
 
 http_proxy_close.exit:                            ; preds = %64, %3, %82, %ff_http_averror.exit, %70
   %.0 = phi i32 [ 0, %70 ], [ %.043, %ff_http_averror.exit ], [ %.043, %82 ], [ %29, %3 ], [ %68, %64 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2715,7 +2709,7 @@ define internal i32 @http_buf_read(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not86, label %13, label %59
 
 13:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8216
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2738,7 +2732,7 @@ define internal i32 @http_buf_read(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %16, align 8, !tbaa !37
-  %27 = call i32 @ffurl_read2(ptr noundef %26, ptr noundef nonnull %17, i32 noundef 8192) #15
+  %27 = call i32 @ffurl_read2(ptr noundef %26, ptr noundef nonnull %17, i32 noundef 8192) #16
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.thread99, label %29
 
@@ -2791,9 +2785,9 @@ http_getc.exit.i:                                 ; preds = %31, %22
   br label %.outer, !llvm.loop !104
 
 49:                                               ; preds = %47
-  %50 = call i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #15
+  %50 = call i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #16
   store i64 %50, ptr %7, align 8, !tbaa !103
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.224, i64 noundef %50) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.224, i64 noundef %50) #16
   %51 = load i64, ptr %7, align 8, !tbaa !103
   switch i64 %51, label %58 [
     i64 0, label %52
@@ -2812,21 +2806,21 @@ http_getc.exit.i:                                 ; preds = %31, %22
   br label %.thread99
 
 .thread:                                          ; preds = %52
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.225) #15
-  %56 = call i32 @ffurl_closep(ptr noundef nonnull %16) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.225) #16
+  %56 = call i32 @ffurl_closep(ptr noundef nonnull %16) #16
   br label %.thread99
 
 57:                                               ; preds = %49
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.226, i64 noundef -1) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.226, i64 noundef -1) #16
   br label %.thread99
 
 .thread99:                                        ; preds = %25, %29, %57, %.thread, %55
   %.3.ph = phi i32 [ 0, %55 ], [ 0, %.thread ], [ -22, %57 ], [ %27, %25 ], [ -541478725, %29 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread103.thread
 
 58:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 59:                                               ; preds = %58, %12
@@ -2886,7 +2880,7 @@ http_getc.exit.i:                                 ; preds = %31, %22
 91:                                               ; preds = %84, %88
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !37
-  %94 = call i32 @ffurl_read2(ptr noundef %93, ptr noundef %1, i32 noundef %.067) #15
+  %94 = call i32 @ffurl_read2(ptr noundef %93, ptr noundef %1, i32 noundef %.067) #16
   switch i32 %94, label %.thread103 [
     i32 -541478725, label %95
     i32 0, label %95
@@ -2909,7 +2903,7 @@ http_getc.exit.i:                                 ; preds = %31, %22
   br i1 %103, label %104, label %.thread103.thread
 
 104:                                              ; preds = %100
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.227, i64 noundef %102, i64 noundef %85) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.227, i64 noundef %102, i64 noundef %85) #16
   br label %.thread103.thread
 
 .thread103:                                       ; preds = %91, %74
@@ -2934,7 +2928,7 @@ http_getc.exit.i:                                 ; preds = %31, %22
   br i1 %.not97, label %113, label %114
 
 113:                                              ; preds = %112
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.122, i32 noundef 1690) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.122, i32 noundef 1690) #16
   call void @abort() #17
   unreachable
 
@@ -2954,7 +2948,7 @@ define internal i32 @http_proxy_write(ptr noundef readonly captures(none) %0, pt
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !37
-  %8 = tail call i32 @ffurl_write2(ptr noundef %7, ptr noundef %1, i32 noundef %2) #15
+  %8 = tail call i32 @ffurl_write2(ptr noundef %7, ptr noundef %1, i32 noundef %2) #16
   ret i32 %8
 }
 
@@ -2968,56 +2962,56 @@ define internal noundef i32 @http_proxy_close(ptr noundef readonly captures(none
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @ffurl_closep(ptr noundef nonnull %4) #15
+  %7 = tail call i32 @ffurl_closep(ptr noundef nonnull %4) #16
   br label %8
 
 8:                                                ; preds = %6, %1
   ret i32 0
 }
 
-declare i32 @av_dict_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @av_dict_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ff_network_sleep_interruptible(i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ff_network_sleep_interruptible(i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #7
+declare i64 @time(ptr noundef) local_unnamed_addr #6
 
-declare i32 @av_dict_count(ptr noundef) local_unnamed_addr #5
+declare i32 @av_dict_count(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare ptr @av_dict_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @av_dict_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
-declare i32 @ff_url_join(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @ff_url_join(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @ff_http_match_no_proxy(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ff_http_match_no_proxy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @av_strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @av_strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
-declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #10
 
-declare void @av_bprint_init_for_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @av_bprint_init_for_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @ff_http_auth_create_response(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @ff_http_auth_create_response(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @av_bprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @av_bprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @http_read_header(ptr noundef %0) unnamed_addr #2 {
@@ -3028,9 +3022,9 @@ define internal fastcc i32 @http_read_header(ptr noundef %0) unnamed_addr #2 {
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 10416
-  tail call void @av_freep(ptr noundef nonnull %9) #15
+  tail call void @av_freep(ptr noundef nonnull %9) #16
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 10408
   store i64 0, ptr %10, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8232
@@ -3066,7 +3060,7 @@ define internal fastcc i32 @http_read_header(ptr noundef %0) unnamed_addr #2 {
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %15, align 8, !tbaa !37
-  %30 = call i32 @ffurl_read2(ptr noundef %29, ptr noundef nonnull %16, i32 noundef 8192) #15
+  %30 = call i32 @ffurl_read2(ptr noundef %29, ptr noundef nonnull %16, i32 noundef 8192) #16
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.thread73, label %32
 
@@ -3110,15 +3104,15 @@ http_getc.exit.i:                                 ; preds = %34, %25
 50:                                               ; preds = %43, %41
   %.1.i = phi ptr [ %.0.i.ph, %41 ], [ %spec.select.i, %43 ]
   store i8 0, ptr %.1.i, align 1, !tbaa !44
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.64, ptr noundef nonnull %6) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.64, ptr noundef nonnull %6) #16
   %51 = load i32, ptr %18, align 8, !tbaa !75
   %52 = load ptr, ptr %7, align 8, !tbaa !4
   %53 = load i32, ptr %19, align 8, !tbaa !29
   %54 = and i32 %53, 1
   %.not.i = icmp eq i32 %54, 0
   %55 = select i1 %.not.i, ptr @.str.19, ptr @.str.18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %56 = load i8, ptr %6, align 16, !tbaa !44
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %290, label %58
@@ -3156,34 +3150,34 @@ http_getc.exit.i:                                 ; preds = %34, %25
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store ptr %67, ptr %3, align 8, !tbaa !49
   store i8 0, ptr %64, align 1, !tbaa !44
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.65, ptr noundef nonnull %6) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.65, ptr noundef nonnull %6) #16
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 10328
   %69 = load ptr, ptr %68, align 8, !tbaa !48
   %.not158.i = icmp eq ptr %69, null
   br i1 %.not158.i, label %74, label %70
 
 70:                                               ; preds = %.critedge.i
-  %71 = call i32 @av_strcasecmp(ptr noundef nonnull %69, ptr noundef nonnull %6) #15
+  %71 = call i32 @av_strcasecmp(ptr noundef nonnull %69, ptr noundef nonnull %6) #16
   %.not161.i = icmp eq i32 %71, 0
   br i1 %.not161.i, label %.preheader, label %72
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %68, align 8, !tbaa !48
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.66, ptr noundef %73, ptr noundef nonnull %6) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.66, ptr noundef %73, ptr noundef nonnull %6) #16
   br label %.loopexit
 
 74:                                               ; preds = %.critedge.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.67, ptr noundef nonnull %55) #15
-  %75 = call i32 @av_strcasecmp(ptr noundef nonnull %55, ptr noundef nonnull %6) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.67, ptr noundef nonnull %55) #16
+  %75 = call i32 @av_strcasecmp(ptr noundef nonnull %55, ptr noundef nonnull %6) #16
   %.not159.i = icmp eq i32 %75, 0
   br i1 %.not159.i, label %77, label %76
 
 76:                                               ; preds = %74
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.68, ptr noundef nonnull %55, ptr noundef nonnull %6) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.68, ptr noundef nonnull %55, ptr noundef nonnull %6) #16
   br label %.loopexit
 
 77:                                               ; preds = %74
-  %78 = call noalias ptr @av_strdup(ptr noundef nonnull %6) #15
+  %78 = call noalias ptr @av_strdup(ptr noundef nonnull %6) #16
   store ptr %78, ptr %68, align 8, !tbaa !48
   %.not160.i = icmp eq ptr %78, null
   br i1 %.not160.i, label %.loopexit, label %.preheader
@@ -3231,8 +3225,8 @@ av_isspace.exit170.thread.i:                      ; preds = %79, %79, %79, %79, 
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %86, ptr %3, align 8, !tbaa !49
   store i8 0, ptr %83, align 1, !tbaa !44
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.69, ptr noundef nonnull %.promoted207.i) #15
-  %87 = call noalias ptr @av_strdup(ptr noundef nonnull %.promoted207.i) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.69, ptr noundef nonnull %.promoted207.i) #16
+  %87 = call noalias ptr @av_strdup(ptr noundef nonnull %.promoted207.i) #16
   %88 = getelementptr inbounds nuw i8, ptr %52, i64 10376
   store ptr %87, ptr %88, align 8, !tbaa !109
   %.not165.i = icmp eq ptr %87, null
@@ -3278,20 +3272,20 @@ av_isspace.exit172.thread.i:                      ; preds = %89, %89, %89, %89, 
 
 .critedge4.i:                                     ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
   store i8 0, ptr %93, align 1, !tbaa !44
-  %96 = call i32 @av_strncasecmp(ptr noundef nonnull %.promoted209.i, ptr noundef nonnull @.str.70, i64 noundef 5) #15
+  %96 = call i32 @av_strncasecmp(ptr noundef nonnull %.promoted209.i, ptr noundef nonnull @.str.70, i64 noundef 5) #16
   %.not169.i = icmp eq i32 %96, 0
   br i1 %.not169.i, label %98, label %97
 
 97:                                               ; preds = %.critedge4.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.71) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.71) #16
   br label %.loopexit
 
 98:                                               ; preds = %.critedge4.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.72, ptr noundef nonnull %.promoted209.i) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.72, ptr noundef nonnull %.promoted209.i) #16
   br label %.thread62
 
 99:                                               ; preds = %60
-  %100 = call i32 @av_strncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.73, i64 noundef 8) #15
+  %100 = call i32 @av_strncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.73, i64 noundef 8) #16
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %104
 
@@ -3336,8 +3330,8 @@ av_isspace.exit172.thread.i:                      ; preds = %89, %89, %89, %89, 
 .split.i:                                         ; preds = %.split.loopexit.i, %.critedge6.i
   %115 = phi ptr [ %.promoted211.i, %.critedge6.i ], [ %112, %.split.loopexit.i ]
   %116 = getelementptr inbounds nuw i8, ptr %52, i64 10040
-  call void @av_freep(ptr noundef nonnull %116) #15
-  %117 = call noalias ptr @av_strndup(ptr noundef nonnull %115, i64 noundef 3) #15
+  call void @av_freep(ptr noundef nonnull %116) #16
+  %117 = call noalias ptr @av_strndup(ptr noundef nonnull %115, i64 noundef 3) #16
   store ptr %117, ptr %116, align 8, !tbaa !114
   %118 = load i8, ptr %115, align 1, !tbaa !44
   switch i8 %118, label %.split110.i [
@@ -3389,11 +3383,11 @@ av_isspace.exit176.thread.i:                      ; preds = %.critedge8.i, %.cri
   br label %.critedge8.i, !llvm.loop !115
 
 125:                                              ; preds = %.critedge8.i
-  %126 = call i64 @strtol(ptr noundef nonnull %123, ptr noundef nonnull %4, i32 noundef 10) #15
+  %126 = call i64 @strtol(ptr noundef nonnull %123, ptr noundef nonnull %4, i32 noundef 10) #16
   %127 = trunc i64 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %52, i64 8228
   store i32 %127, ptr %128, align 4, !tbaa !51
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.74, i32 noundef %127) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.74, i32 noundef %127) #16
   %129 = load i32, ptr %128, align 4, !tbaa !51
   %130 = load ptr, ptr %4, align 8, !tbaa !49
   %131 = load ptr, ptr %7, align 8, !tbaa !4
@@ -3414,9 +3408,9 @@ av_isspace.exit176.thread.i:                      ; preds = %.critedge8.i, %.cri
   br i1 %.not15.i.i, label %.thread62, label %.thread18.i.i
 
 .thread18.i.i:                                    ; preds = %134
-  %137 = call i64 @strspn(ptr noundef %130, ptr noundef nonnull @.str.97) #16
+  %137 = call i64 @strspn(ptr noundef %130, ptr noundef nonnull @.str.97) #15
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 %137
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.98, i32 noundef 401, ptr noundef %138) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.98, i32 noundef 401, ptr noundef %138) #16
   br label %.thread62
 
 139:                                              ; preds = %133
@@ -3426,15 +3420,15 @@ av_isspace.exit176.thread.i:                      ; preds = %.critedge8.i, %.cri
   br i1 %.not17.i.i, label %.thread62, label %.thread19.i.i
 
 .thread19.i.i:                                    ; preds = %139
-  %142 = call i64 @strspn(ptr noundef %130, ptr noundef nonnull @.str.97) #16
+  %142 = call i64 @strspn(ptr noundef %130, ptr noundef nonnull @.str.97) #15
   %143 = getelementptr inbounds nuw i8, ptr %130, i64 %142
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.98, i32 noundef 407, ptr noundef %143) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.98, i32 noundef 407, ptr noundef %143) #16
   br label %.thread62
 
 144:                                              ; preds = %133
-  %145 = call i64 @strspn(ptr noundef %130, ptr noundef nonnull @.str.97) #16
+  %145 = call i64 @strspn(ptr noundef %130, ptr noundef nonnull @.str.97) #15
   %146 = getelementptr inbounds nuw i8, ptr %130, i64 %145
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.98, i32 noundef %129, ptr noundef %146) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.98, i32 noundef %129, ptr noundef %146) #16
   switch i32 %129, label %150 [
     i32 400, label %.thread62
     i32 429, label %149
@@ -3491,25 +3485,25 @@ av_isspace.exit176.thread.i:                      ; preds = %.critedge8.i, %.cri
 
 av_isspace.exit177.i:                             ; preds = %.critedge193.i
   store ptr %storemerge.i, ptr %3, align 8, !tbaa !49
-  %157 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.75) #15
+  %157 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.75) #16
   %.not125.i = icmp eq i32 %157, 0
   br i1 %.not125.i, label %158, label %164
 
 158:                                              ; preds = %av_isspace.exit177.i
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %159 = getelementptr inbounds nuw i8, ptr %52, i64 8280
   %160 = load ptr, ptr %159, align 8, !tbaa !20
-  %161 = call i32 @ff_make_absolute_url(ptr noundef nonnull %2, i32 noundef 4096, ptr noundef %160, ptr noundef nonnull %storemerge.i) #15
+  %161 = call i32 @ff_make_absolute_url(ptr noundef nonnull %2, i32 noundef 4096, ptr noundef %160, ptr noundef nonnull %storemerge.i) #16
   %162 = getelementptr inbounds nuw i8, ptr %52, i64 10416
-  call void @av_freep(ptr noundef nonnull %162) #15
-  %163 = call noalias ptr @av_strdup(ptr noundef nonnull %2) #15
+  call void @av_freep(ptr noundef nonnull %162) #16
+  %163 = call noalias ptr @av_strdup(ptr noundef nonnull %2) #16
   store ptr %163, ptr %162, align 8, !tbaa !79
   %.not.i.i47 = icmp eq ptr %163, null
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i47, label %.loopexit, label %.thread62
 
 164:                                              ; preds = %av_isspace.exit177.i
-  %165 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.76) #15
+  %165 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.76) #16
   %.not126.i = icmp eq i32 %165, 0
   br i1 %.not126.i, label %166, label %172
 
@@ -3520,27 +3514,27 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %166
-  %171 = call i64 @strtoull(ptr noundef nonnull captures(none) %storemerge.i, ptr noundef null, i32 noundef 10) #15
+  %171 = call i64 @strtoull(ptr noundef nonnull captures(none) %storemerge.i, ptr noundef null, i32 noundef 10) #16
   store i64 %171, ptr %167, align 8, !tbaa !76
   br label %.thread62
 
 172:                                              ; preds = %166, %164
-  %173 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.77) #15
+  %173 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.77) #16
   %.not127.i = icmp eq i32 %173, 0
   br i1 %.not127.i, label %174, label %198
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %7, align 8, !tbaa !4
-  %176 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %storemerge.i, ptr noundef nonnull dereferenceable(7) @.str.99, i64 noundef 6) #16
+  %176 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %storemerge.i, ptr noundef nonnull dereferenceable(7) @.str.99, i64 noundef 6) #15
   %.not.i178.i = icmp eq i32 %176, 0
   br i1 %.not.i178.i, label %177, label %187
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 7
-  %179 = call i64 @strtoull(ptr noundef nonnull readonly captures(none) %178, ptr noundef null, i32 noundef 10) #15
+  %179 = call i64 @strtoull(ptr noundef nonnull readonly captures(none) %178, ptr noundef null, i32 noundef 10) #16
   %180 = getelementptr inbounds nuw i8, ptr %175, i64 8248
   store i64 %179, ptr %180, align 8, !tbaa !32
-  %181 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %178, i32 noundef 47) #16
+  %181 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %178, i32 noundef 47) #15
   %.not13.i.i = icmp eq ptr %181, null
   br i1 %.not13.i.i, label %187, label %182
 
@@ -3551,7 +3545,7 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 1
-  %185 = call i64 @strtoull(ptr noundef nonnull captures(none) %184, ptr noundef null, i32 noundef 10) #15
+  %185 = call i64 @strtoull(ptr noundef nonnull captures(none) %184, ptr noundef null, i32 noundef 10) #16
   %186 = getelementptr inbounds nuw i8, ptr %175, i64 10432
   store i64 %185, ptr %186, align 8, !tbaa !105
   br label %187
@@ -3579,12 +3573,12 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 198:                                              ; preds = %172
-  %199 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.78) #15
+  %199 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.78) #16
   %.not128.i = icmp eq i32 %199, 0
   br i1 %.not128.i, label %200, label %207
 
 200:                                              ; preds = %198
-  %201 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %storemerge.i, ptr noundef nonnull dereferenceable(6) @.str.79, i64 noundef 5) #16
+  %201 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %storemerge.i, ptr noundef nonnull dereferenceable(6) @.str.79, i64 noundef 5) #15
   %.not129.i = icmp eq i32 %201, 0
   br i1 %.not129.i, label %202, label %207
 
@@ -3599,12 +3593,12 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 207:                                              ; preds = %202, %200, %198
-  %208 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.80) #15
+  %208 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.80) #16
   %.not130.i = icmp eq i32 %208, 0
   br i1 %.not130.i, label %209, label %214
 
 209:                                              ; preds = %207
-  %210 = call i32 @av_strncasecmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull @.str.81, i64 noundef 7) #15
+  %210 = call i32 @av_strncasecmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull @.str.81, i64 noundef 7) #16
   %.not131.i = icmp eq i32 %210, 0
   br i1 %.not131.i, label %211, label %214
 
@@ -3616,42 +3610,42 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 214:                                              ; preds = %209, %207
-  %215 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.82) #15
+  %215 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.82) #16
   %.not132.i = icmp eq i32 %215, 0
   br i1 %.not132.i, label %216, label %218
 
 216:                                              ; preds = %214
   %217 = getelementptr inbounds nuw i8, ptr %52, i64 8288
-  call void @ff_http_auth_handle_header(ptr noundef nonnull %217, ptr noundef nonnull %6, ptr noundef nonnull %storemerge.i) #15
+  call void @ff_http_auth_handle_header(ptr noundef nonnull %217, ptr noundef nonnull %6, ptr noundef nonnull %storemerge.i) #16
   br label %.thread62
 
 218:                                              ; preds = %214
-  %219 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.83) #15
+  %219 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.83) #16
   %.not133.i = icmp eq i32 %219, 0
   br i1 %.not133.i, label %220, label %222
 
 220:                                              ; preds = %218
   %221 = getelementptr inbounds nuw i8, ptr %52, i64 8288
-  call void @ff_http_auth_handle_header(ptr noundef nonnull %221, ptr noundef nonnull %6, ptr noundef nonnull %storemerge.i) #15
+  call void @ff_http_auth_handle_header(ptr noundef nonnull %221, ptr noundef nonnull %6, ptr noundef nonnull %storemerge.i) #16
   br label %.thread62
 
 222:                                              ; preds = %218
-  %223 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.84) #15
+  %223 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.84) #16
   %.not134.i = icmp eq i32 %223, 0
   br i1 %.not134.i, label %224, label %226
 
 224:                                              ; preds = %222
   %225 = getelementptr inbounds nuw i8, ptr %52, i64 9152
-  call void @ff_http_auth_handle_header(ptr noundef nonnull %225, ptr noundef nonnull %6, ptr noundef nonnull %storemerge.i) #15
+  call void @ff_http_auth_handle_header(ptr noundef nonnull %225, ptr noundef nonnull %6, ptr noundef nonnull %storemerge.i) #16
   br label %.thread62
 
 226:                                              ; preds = %222
-  %227 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.85) #15
+  %227 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.85) #16
   %.not135.i = icmp eq i32 %227, 0
   br i1 %.not135.i, label %228, label %232
 
 228:                                              ; preds = %226
-  %229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge.i, ptr noundef nonnull dereferenceable(6) @.str.38) #16
+  %229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge.i, ptr noundef nonnull dereferenceable(6) @.str.38) #15
   %.not136.i = icmp eq i32 %229, 0
   br i1 %.not136.i, label %230, label %.thread62
 
@@ -3661,12 +3655,12 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 232:                                              ; preds = %226
-  %233 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.86) #15
+  %233 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.86) #16
   %.not137.i = icmp eq i32 %233, 0
   br i1 %.not137.i, label %234, label %242
 
 234:                                              ; preds = %232
-  %235 = call i32 @av_strcasecmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull @.str.87) #15
+  %235 = call i32 @av_strcasecmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull @.str.87) #16
   %.not138.i = icmp eq i32 %235, 0
   br i1 %.not138.i, label %236, label %238
 
@@ -3676,7 +3670,7 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 238:                                              ; preds = %234
-  %239 = call i32 @av_strncasecmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull @.str.88, i64 noundef 12) #15
+  %239 = call i32 @av_strncasecmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull @.str.88, i64 noundef 12) #16
   %.not139.i = icmp eq i32 %239, 0
   br i1 %.not139.i, label %240, label %.thread62
 
@@ -3686,20 +3680,20 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 242:                                              ; preds = %232
-  %243 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.89) #15
+  %243 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.89) #16
   %.not140.i = icmp eq i32 %243, 0
   br i1 %.not140.i, label %244, label %248
 
 244:                                              ; preds = %242
   %245 = getelementptr inbounds nuw i8, ptr %52, i64 10032
   %246 = load ptr, ptr %245, align 8, !tbaa !119
-  call void @av_free(ptr noundef %246) #15
-  %247 = call ptr @av_get_token(ptr noundef nonnull %3, ptr noundef nonnull @.str.61) #15
+  call void @av_free(ptr noundef %246) #16
+  %247 = call ptr @av_get_token(ptr noundef nonnull %3, ptr noundef nonnull @.str.61) #16
   store ptr %247, ptr %245, align 8, !tbaa !119
   br label %.thread62
 
 248:                                              ; preds = %242
-  %249 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.90) #15
+  %249 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.90) #16
   %.not141.i = icmp eq i32 %249, 0
   br i1 %.not141.i, label %250, label %254
 
@@ -3710,22 +3704,22 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br i1 %.not142.i, label %.thread62, label %253
 
 253:                                              ; preds = %250
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.54, ptr noundef nonnull %storemerge.i) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.54, ptr noundef nonnull %storemerge.i) #16
   br label %.thread62
 
 254:                                              ; preds = %248
-  %255 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.91) #15
+  %255 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.91) #16
   %.not143.i = icmp eq i32 %255, 0
   br i1 %.not143.i, label %256, label %259
 
 256:                                              ; preds = %254
-  %257 = call i64 @strtoull(ptr noundef nonnull captures(none) %storemerge.i, ptr noundef null, i32 noundef 10) #15
+  %257 = call i64 @strtoull(ptr noundef nonnull captures(none) %storemerge.i, ptr noundef null, i32 noundef 10) #16
   %258 = getelementptr inbounds nuw i8, ptr %52, i64 10152
   store i64 %257, ptr %258, align 8, !tbaa !99
   br label %.thread62
 
 259:                                              ; preds = %254
-  %260 = call i32 @av_strncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.92, i64 noundef 4) #15
+  %260 = call i32 @av_strncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.92, i64 noundef 4) #16
   %.not144.i = icmp eq i32 %260, 0
   br i1 %.not144.i, label %261, label %264
 
@@ -3735,7 +3729,7 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br i1 %263, label %.loopexit, label %.thread62
 
 264:                                              ; preds = %259
-  %265 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.93) #15
+  %265 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.93) #16
   %.not145.i = icmp eq i32 %265, 0
   br i1 %.not145.i, label %266, label %269
 
@@ -3745,7 +3739,7 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br i1 %268, label %.loopexit, label %.thread62
 
 269:                                              ; preds = %264
-  %270 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.94) #15
+  %270 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.94) #16
   %.not146.i = icmp eq i32 %270, 0
   br i1 %.not146.i, label %271, label %272
 
@@ -3754,7 +3748,7 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 272:                                              ; preds = %269
-  %273 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.95) #15
+  %273 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.95) #16
   %.not147.i = icmp eq i32 %273, 0
   br i1 %.not147.i, label %274, label %275
 
@@ -3763,26 +3757,26 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   br label %.thread62
 
 275:                                              ; preds = %272
-  %276 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.96) #15
+  %276 = call i32 @av_strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.96) #16
   %.not148.i = icmp eq i32 %276, 0
   br i1 %.not148.i, label %277, label %.thread62
 
 277:                                              ; preds = %275
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %278 = call fastcc i32 @parse_http_date(ptr noundef nonnull %storemerge.i, ptr noundef %5)
   %.not149.i = icmp eq i32 %278, 0
   br i1 %.not149.i, label %279, label %284
 
 279:                                              ; preds = %277
-  %280 = call i64 @av_timegm(ptr noundef nonnull %5) #15
-  %281 = call i64 @av_gettime() #15
+  %280 = call i64 @av_timegm(ptr noundef nonnull %5) #16
+  %281 = call i64 @av_gettime() #16
   %.neg.i = sdiv i64 %281, -1000000
   %282 = add i64 %.neg.i, %280
   %283 = call i64 @llvm.smax.i64(i64 %282, i64 0)
   br label %286
 
 284:                                              ; preds = %277
-  %285 = call i64 @strtoul(ptr noundef nonnull captures(none) %storemerge.i, ptr noundef null, i32 noundef 10) #15
+  %285 = call i64 @strtoul(ptr noundef nonnull captures(none) %storemerge.i, ptr noundef null, i32 noundef 10) #16
   br label %286
 
 286:                                              ; preds = %284, %279
@@ -3790,7 +3784,7 @@ av_isspace.exit177.i:                             ; preds = %.critedge193.i
   %.sink.i = trunc i64 %.sink.in.i to i32
   %287 = getelementptr inbounds nuw i8, ptr %52, i64 10444
   store i32 %.sink.i, ptr %287, align 4, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread62
 
 check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
@@ -3799,16 +3793,16 @@ check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
 
 .loopexit:                                        ; preds = %266, %261, %158, %.critedge2.i, %77, %72, %76, %97
   %.0.i46.ph.ph = phi i32 [ -808465656, %72 ], [ -808465656, %97 ], [ -808465656, %76 ], [ %267, %266 ], [ %262, %261 ], [ -12, %158 ], [ -12, %.critedge2.i ], [ -12, %77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not41 = icmp eq i32 %.031, 0
   %..031 = select i1 %.not41, i32 %.0.i46.ph.ph, i32 %.031
   br label %.thread73
 
 .thread62:                                        ; preds = %98, %125, %134, %139, %158, %170, %187, %194, %197, %206, %211, %216, %220, %224, %228, %230, %236, %238, %240, %244, %250, %253, %256, %261, %266, %271, %274, %275, %286, %check_http_code.exit.thread.loopexit.i, %150, %.thread19.i.i, %144, %149, %148, %147, %.thread18.i.i
   %.266 = phi i32 [ -825242872, %.thread18.i.i ], [ -858797304, %147 ], [ -875574520, %148 ], [ -959591672, %149 ], [ -808465656, %144 ], [ -1482175736, %.thread19.i.i ], [ %spec.select.i.i, %150 ], [ %.031, %check_http_code.exit.thread.loopexit.i ], [ %.031, %286 ], [ %.031, %275 ], [ %.031, %274 ], [ %.031, %271 ], [ %.031, %266 ], [ %.031, %261 ], [ %.031, %256 ], [ %.031, %253 ], [ %.031, %250 ], [ %.031, %244 ], [ %.031, %240 ], [ %.031, %238 ], [ %.031, %236 ], [ %.031, %230 ], [ %.031, %228 ], [ %.031, %224 ], [ %.031, %220 ], [ %.031, %216 ], [ %.031, %211 ], [ %.031, %206 ], [ %.031, %197 ], [ %.031, %194 ], [ %.031, %187 ], [ %.031, %170 ], [ %.031, %158 ], [ %.031, %139 ], [ %.031, %134 ], [ %.031, %125 ], [ %.031, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %288 = load i32, ptr %18, align 8, !tbaa !75
   %289 = add nsw i32 %288, 1
   store i32 %289, ptr %18, align 8, !tbaa !75
@@ -3817,8 +3811,8 @@ check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
 290:                                              ; preds = %50
   %291 = getelementptr inbounds nuw i8, ptr %52, i64 10088
   store i32 1, ptr %291, align 8, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not42 = icmp eq i32 %.031, 0
   br i1 %.not42, label %292, label %.thread73
 
@@ -3858,7 +3852,7 @@ check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
   %309 = getelementptr inbounds nuw i8, ptr %8, i64 10128
   %310 = load ptr, ptr %309, align 8, !tbaa !120
   %311 = getelementptr inbounds nuw i8, ptr %8, i64 10120
-  %312 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef null) #15
+  %312 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef null) #16
   %.not26.i = icmp eq ptr %312, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i48
 
@@ -3866,15 +3860,15 @@ check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
   %313 = phi ptr [ %323, %.lr.ph.i48 ], [ %312, %308 ]
   %.027.i = phi i32 [ %322, %.lr.ph.i48 ], [ 1, %308 ]
   %314 = load ptr, ptr %313, align 8, !tbaa !66
-  %315 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %314) #16
+  %315 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %314) #15
   %316 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %317 = load ptr, ptr %316, align 8, !tbaa !39
-  %318 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #16
+  %318 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #15
   %319 = add i64 %318, %315
   %320 = trunc i64 %319 to i32
   %321 = add i32 %.027.i, 1
   %322 = add i32 %321, %320
-  %323 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef nonnull %313) #15
+  %323 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef nonnull %313) #16
   %.not.i49 = icmp eq ptr %323, null
   br i1 %.not.i49, label %._crit_edge.loopexit.i, label %.lr.ph.i48, !llvm.loop !121
 
@@ -3889,18 +3883,18 @@ check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
   br i1 %.not23.i, label %327, label %326
 
 326:                                              ; preds = %._crit_edge.i
-  call void @av_free(ptr noundef nonnull %325) #15
+  call void @av_free(ptr noundef nonnull %325) #16
   br label %327
 
 327:                                              ; preds = %326, %._crit_edge.i
-  %328 = call noalias ptr @av_malloc(i64 noundef %.0.lcssa.i) #15
+  %328 = call noalias ptr @av_malloc(i64 noundef %.0.lcssa.i) #16
   store ptr %328, ptr %311, align 8, !tbaa !49
   %.not24.i = icmp eq ptr %328, null
   br i1 %.not24.i, label %cookie_string.exit, label %329
 
 329:                                              ; preds = %327
   store i8 0, ptr %328, align 1, !tbaa !44
-  %330 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef null) #15
+  %330 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef null) #16
   %.not2528.i = icmp eq ptr %330, null
   br i1 %.not2528.i, label %cookie_string.exit, label %.lr.ph30.i
 
@@ -3910,30 +3904,30 @@ check_http_code.exit.thread.loopexit.i:           ; preds = %.preheader197.i
   %333 = load ptr, ptr %331, align 8, !tbaa !66
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %335 = load ptr, ptr %334, align 8, !tbaa !39
-  %336 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef %332, i64 noundef %.0.lcssa.i, ptr noundef nonnull @.str.112, ptr noundef %333, ptr noundef %335) #15
-  %337 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef nonnull %331) #15
+  %336 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef %332, i64 noundef %.0.lcssa.i, ptr noundef nonnull @.str.112, ptr noundef %333, ptr noundef %335) #16
+  %337 = call ptr @av_dict_iterate(ptr noundef %310, ptr noundef nonnull %331) #16
   %.not25.i = icmp eq ptr %337, null
   br i1 %.not25.i, label %cookie_string.exit, label %.lr.ph30.i, !llvm.loop !122
 
 cookie_string.exit:                               ; preds = %.lr.ph30.i, %327, %329
-  call void @av_dict_free(ptr noundef nonnull %309) #15
+  call void @av_dict_free(ptr noundef nonnull %309) #16
   br label %.thread73
 
 .thread73:                                        ; preds = %32, %28, %.loopexit, %290, %cookie_string.exit
   %.235 = phi i32 [ 0, %cookie_string.exit ], [ %.031, %290 ], [ %..031, %.loopexit ], [ %30, %28 ], [ -541478725, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.235
 }
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #5
+declare void @av_freep(ptr noundef) local_unnamed_addr #4
 
-declare void @av_bprint_append_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @av_bprint_append_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @av_stristart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @av_stristart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_stristr(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @av_stristr(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_strtok(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @av_strtok(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
@@ -3942,7 +3936,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
   %5 = alloca %struct.tm, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !15
   %8 = call fastcc i32 @parse_set_cookie(ptr noundef %0, ptr noundef %4)
   %.not = icmp eq i32 %8, 0
@@ -3950,7 +3944,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %4, align 8, !tbaa !15
-  %11 = call ptr @av_dict_iterate(ptr noundef %10, ptr noundef null) #15
+  %11 = call ptr @av_dict_iterate(ptr noundef %10, ptr noundef null) #16
   %.not37 = icmp eq ptr %11, null
   br i1 %.not37, label %15, label %12
 
@@ -3961,12 +3955,12 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
   br i1 %.not38, label %15, label %16
 
 15:                                               ; preds = %12, %9
-  call void @av_dict_free(ptr noundef nonnull %4) #15
+  call void @av_dict_free(ptr noundef nonnull %4) #16
   br label %85
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %4, align 8, !tbaa !15
-  %18 = call ptr @av_dict_get(ptr noundef %17, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef 0) #15
+  %18 = call ptr @av_dict_get(ptr noundef %17, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef 0) #16
   %.not39 = icmp eq ptr %18, null
   br i1 %.not39, label %76, label %19
 
@@ -3977,9 +3971,9 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
   br i1 %.not40, label %76, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load i8, ptr %21, align 1, !tbaa !44
   %.not42.i = icmp eq i8 %23, 0
   br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i
@@ -4034,26 +4028,26 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
   br i1 %or.cond37.i, label %parse_http_date.exit, label %41, !llvm.loop !65
 
 parse_http_date.exit:                             ; preds = %41
-  %45 = call ptr @av_small_strptime(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.63, ptr noundef nonnull %5) #15
+  %45 = call ptr @av_small_strptime(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.63, ptr noundef nonnull %5) #16
   %.not33.i.not = icmp eq ptr %45, null
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not33.i.not, label %.thread, label %46
 
 46:                                               ; preds = %parse_http_date.exit
-  %47 = call i64 @av_timegm(ptr noundef nonnull %5) #15
-  %48 = call i64 @av_gettime() #15
+  %47 = call i64 @av_timegm(ptr noundef nonnull %5) #16
+  %48 = call i64 @av_gettime() #16
   %49 = sdiv i64 %48, 1000000
   %50 = icmp slt i64 %47, %49
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %46
-  call void @av_dict_free(ptr noundef nonnull %4) #15
+  call void @av_dict_free(ptr noundef nonnull %4) #16
   br label %75
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %1, align 8, !tbaa !15
   %54 = load ptr, ptr %11, align 8, !tbaa !66
-  %55 = call ptr @av_dict_get(ptr noundef %53, ptr noundef %54, ptr noundef null, i32 noundef 0) #15
+  %55 = call ptr @av_dict_get(ptr noundef %53, ptr noundef %54, ptr noundef null, i32 noundef 0) #16
   %.not42 = icmp eq ptr %55, null
   br i1 %.not42, label %.thread, label %56
 
@@ -4064,7 +4058,7 @@ parse_http_date.exit:                             ; preds = %41
   br i1 %.not43, label %.thread, label %59
 
 59:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !15
   %60 = call fastcc i32 @parse_set_cookie(ptr noundef %0, ptr noundef %6)
   %.not44 = icmp eq i32 %60, 0
@@ -4072,7 +4066,7 @@ parse_http_date.exit:                             ; preds = %41
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %6, align 8, !tbaa !15
-  %63 = call ptr @av_dict_get(ptr noundef %62, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef 0) #15
+  %63 = call ptr @av_dict_get(ptr noundef %62, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef 0) #16
   %.not45 = icmp eq ptr %63, null
   br i1 %.not45, label %.critedge51, label %64
 
@@ -4083,7 +4077,7 @@ parse_http_date.exit:                             ; preds = %41
   br i1 %.not46, label %.critedge51, label %67
 
 67:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %68 = load ptr, ptr %20, align 8, !tbaa !39
   %69 = call fastcc i32 @parse_http_date(ptr noundef %68, ptr noundef %7)
@@ -4091,39 +4085,39 @@ parse_http_date.exit:                             ; preds = %41
   br i1 %.not47, label %70, label %74
 
 70:                                               ; preds = %67
-  %71 = call i64 @av_timegm(ptr noundef nonnull %5) #15
-  %72 = call i64 @av_timegm(ptr noundef nonnull %7) #15
+  %71 = call i64 @av_timegm(ptr noundef nonnull %5) #16
+  %72 = call i64 @av_timegm(ptr noundef nonnull %7) #16
   %73 = icmp slt i64 %71, %72
   br i1 %73, label %.critedge, label %74
 
 .critedge:                                        ; preds = %70
-  call void @av_dict_free(ptr noundef nonnull %4) #15
-  call void @av_dict_free(ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @av_dict_free(ptr noundef nonnull %4) #16
+  call void @av_dict_free(ptr noundef nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 74:                                               ; preds = %67, %70
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge51
 
 .critedge51:                                      ; preds = %74, %61, %64, %59
-  call void @av_dict_free(ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @av_dict_free(ptr noundef nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 .thread:                                          ; preds = %parse_http_date.exit, %.critedge51, %56, %52
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %76
 
 75:                                               ; preds = %51, %.critedge
   %.7 = phi i32 [ 0, %51 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 76:                                               ; preds = %.thread, %19, %16
-  call void @av_dict_free(ptr noundef nonnull %4) #15
-  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #16
+  call void @av_dict_free(ptr noundef nonnull %4) #16
+  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #15
   %.not48 = icmp eq ptr %77, null
   br i1 %.not48, label %85, label %78
 
@@ -4131,17 +4125,17 @@ parse_http_date.exit:                             ; preds = %41
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %0 to i64
   %81 = sub i64 %79, %80
-  %82 = call noalias ptr @av_strndup(ptr noundef nonnull %0, i64 noundef %81) #15
+  %82 = call noalias ptr @av_strndup(ptr noundef nonnull %0, i64 noundef %81) #16
   %.not49 = icmp eq ptr %82, null
   br i1 %.not49, label %85, label %83
 
 83:                                               ; preds = %78
-  %84 = call i32 @av_dict_set(ptr noundef %1, ptr noundef nonnull %82, ptr noundef nonnull %77, i32 noundef 4) #15
+  %84 = call i32 @av_dict_set(ptr noundef %1, ptr noundef nonnull %82, ptr noundef nonnull %77, i32 noundef 4) #16
   br label %85
 
 85:                                               ; preds = %75, %78, %76, %2, %83, %15
   %.027 = phi i32 [ 0, %83 ], [ %.7, %75 ], [ -1, %15 ], [ -1, %2 ], [ -22, %76 ], [ -12, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }
 
@@ -4149,19 +4143,19 @@ parse_http_date.exit:                             ; preds = %41
 define internal fastcc range(i32 -22, 1) i32 @parse_set_cookie(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !49
   %5 = load i8, ptr %0, align 1, !tbaa !44
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %30, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noalias ptr @av_strdup(ptr noundef nonnull %0) #15
+  %7 = tail call noalias ptr @av_strdup(ptr noundef nonnull %0) #16
   %.not25 = icmp eq ptr %7, null
   br i1 %.not25, label %30, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #15
   %10 = getelementptr i8, ptr %7, i64 %9
   br label %11
 
@@ -4183,52 +4177,52 @@ define internal fastcc range(i32 -22, 1) i32 @parse_set_cookie(ptr noundef %0, p
   br i1 %17, label %18, label %11, !llvm.loop !123
 
 18:                                               ; preds = %16, %11
-  %19 = call ptr @av_strtok(ptr noundef nonnull %7, ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #15
+  %19 = call ptr @av_strtok(ptr noundef nonnull %7, ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #16
   %.not2830 = icmp eq ptr %19, null
   br i1 %.not2830, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %28
   %20 = phi ptr [ %29, %28 ], [ %19, %18 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  %21 = call i64 @strspn(ptr noundef nonnull %20, ptr noundef nonnull @.str.60) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %21 = call i64 @strspn(ptr noundef nonnull %20, ptr noundef nonnull @.str.60) #15
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
-  %23 = call ptr @av_strtok(ptr noundef nonnull %22, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #15
+  %23 = call ptr @av_strtok(ptr noundef nonnull %22, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #16
   %.not29 = icmp eq ptr %23, null
   br i1 %.not29, label %28, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr %4, align 8, !tbaa !49
-  %26 = call i32 @av_dict_set(ptr noundef nonnull %1, ptr noundef nonnull %23, ptr noundef %25, i32 noundef 0) #15
+  %26 = call i32 @av_dict_set(ptr noundef nonnull %1, ptr noundef nonnull %23, ptr noundef %25, i32 noundef 0) #16
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.critedge, label %28
 
 .critedge:                                        ; preds = %24
-  call void @av_free(ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @av_free(ptr noundef nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 28:                                               ; preds = %.lr.ph, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  %29 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %29 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #16
   %.not28 = icmp eq ptr %29, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %28, %18
-  call void @av_free(ptr noundef nonnull %7) #15
+  call void @av_free(ptr noundef nonnull %7) #16
   br label %30
 
 30:                                               ; preds = %.critedge, %6, %2, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -22, %6 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @av_dict_iterate(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @av_dict_iterate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -22, 1) i32 @parse_http_date(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca [19 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr %0, align 1, !tbaa !44
   %.not42 = icmp eq i8 %4, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
@@ -4283,34 +4277,34 @@ define internal fastcc range(i32 -22, 1) i32 @parse_http_date(ptr noundef readon
   br i1 %or.cond37, label %.critedge, label %22, !llvm.loop !65
 
 .critedge:                                        ; preds = %22
-  %26 = call ptr @av_small_strptime(ptr noundef nonnull %.0, ptr noundef nonnull @.str.63, ptr noundef nonnull %1) #15
+  %26 = call ptr @av_small_strptime(ptr noundef nonnull %.0, ptr noundef nonnull @.str.63, ptr noundef nonnull %1) #16
   %.not33 = icmp eq ptr %26, null
   %27 = select i1 %.not33, i32 -22, i32 0
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %27
 }
 
-declare i64 @av_timegm(ptr noundef) local_unnamed_addr #5
+declare i64 @av_timegm(ptr noundef) local_unnamed_addr #4
 
-declare i64 @av_gettime() local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
-
-declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
-
-declare i32 @av_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
-
-declare ptr @av_asprintf(ptr noundef, ...) local_unnamed_addr #5
-
-declare noalias ptr @av_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @av_gettime() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @av_small_strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_write2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @av_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare ptr @av_asprintf(ptr noundef, ...) local_unnamed_addr #4
+
+declare noalias ptr @av_strndup(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+
+declare ptr @av_small_strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @ffurl_write2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @http_get_line(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 32, 4097) %2) unnamed_addr #2 {
@@ -4338,7 +4332,7 @@ define internal fastcc void @http_get_line(ptr noundef %0, ptr noundef nonnull %
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %6, align 8, !tbaa !37
-  %19 = tail call i32 @ffurl_read2(ptr noundef %18, ptr noundef nonnull %7, i32 noundef 8192) #15
+  %19 = tail call i32 @ffurl_read2(ptr noundef %18, ptr noundef nonnull %7, i32 noundef 8192) #16
   %or.cond = icmp slt i32 %19, 1
   br i1 %or.cond, label %http_getc.exit.thread, label %20
 
@@ -4384,35 +4378,35 @@ http_getc.exit.thread:                            ; preds = %17, %33
   ret void
 }
 
-declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
-declare void @ff_http_auth_handle_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @ff_http_auth_handle_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_get_token(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @av_get_token(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @parse_icy(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #2 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %5 = add i64 %4, 4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %7 = add i64 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 10160
   %9 = load ptr, ptr %8, align 8, !tbaa !125
   %.not = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 10176
-  %11 = tail call i32 @av_dict_set(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #15
+  %11 = tail call i32 @av_dict_set(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #16
   %12 = load ptr, ptr %8, align 8, !tbaa !125
   %.not21 = icmp eq ptr %12, null
   br i1 %.not21, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #16
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #15
   %15 = add i64 %14, %7
   br label %16
 
@@ -4420,7 +4414,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_icy(ptr noundef %0, 
   %.018.in = phi i64 [ %15, %13 ], [ %7, %3 ]
   %sext = shl i64 %.018.in, 32
   %17 = ashr exact i64 %sext, 32
-  %18 = tail call i32 @av_reallocp(ptr noundef nonnull %8, i64 noundef %17) #15
+  %18 = tail call i32 @av_reallocp(ptr noundef nonnull %8, i64 noundef %17) #16
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %26, label %20
 
@@ -4434,7 +4428,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_icy(ptr noundef %0, 
 
 23:                                               ; preds = %21, %20
   %24 = load ptr, ptr %8, align 8, !tbaa !125
-  %25 = tail call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef %24, i64 noundef %17, ptr noundef nonnull @.str.100, ptr noundef nonnull %1, ptr noundef nonnull %2) #15
+  %25 = tail call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef %24, i64 noundef %17, ptr noundef nonnull @.str.100, ptr noundef nonnull %1, ptr noundef nonnull %2) #16
   br label %26
 
 26:                                               ; preds = %16, %23
@@ -4444,12 +4438,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_icy(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -38, 1) i32 @parse_content_encoding(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
-  %3 = tail call i32 @av_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.101, i64 noundef 4) #15
+  %3 = tail call i32 @av_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.101, i64 noundef 4) #16
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @av_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.102, i64 noundef 7) #15
+  %5 = tail call i32 @av_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.102, i64 noundef 7) #16
   %.not14 = icmp eq i32 %5, 0
   br i1 %.not14, label %6, label %20
 
@@ -4459,34 +4453,34 @@ define internal fastcc range(i32 -38, 1) i32 @parse_content_encoding(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 10184
   store i32 1, ptr %9, align 8, !tbaa !78
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 10192
-  %11 = tail call i32 @inflateEnd(ptr noundef nonnull %10) #15
-  %12 = tail call i32 @inflateInit2_(ptr noundef nonnull %10, i32 noundef 47, ptr noundef nonnull @.str.103, i32 noundef 112) #15
+  %11 = tail call i32 @inflateEnd(ptr noundef nonnull %10) #16
+  %12 = tail call i32 @inflateInit2_(ptr noundef nonnull %10, i32 noundef 47, ptr noundef nonnull @.str.103, i32 noundef 112) #16
   %.not15 = icmp eq i32 %12, 0
   br i1 %.not15, label %16, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 10240
   %15 = load ptr, ptr %14, align 8, !tbaa !126
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.104, ptr noundef %15) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.104, ptr noundef %15) #16
   br label %.thread
 
 16:                                               ; preds = %6
-  %17 = tail call i64 @zlibCompileFlags() #15
+  %17 = tail call i64 @zlibCompileFlags() #16
   %18 = and i64 %17, 131072
   %.not16 = icmp eq i64 %18, 0
   br i1 %.not16, label %.thread, label %19
 
 19:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.105) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.105) #16
   br label %.thread
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @av_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.106, i64 noundef 8) #15
+  %21 = tail call i32 @av_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.106, i64 noundef 8) #16
   %.not17 = icmp eq i32 %21, 0
   br i1 %.not17, label %.thread, label %22
 
 22:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.107, ptr noundef %1) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.107, ptr noundef %1) #16
   br label %.thread
 
 .thread:                                          ; preds = %19, %13, %20, %22, %16
@@ -4498,8 +4492,8 @@ define internal fastcc range(i32 -38, 1) i32 @parse_content_encoding(ptr noundef
 define internal fastcc void @parse_expires(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca [19 x i8], align 16
   %4 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %1, align 1, !tbaa !44
   %.not42.i = icmp eq i8 %5, 0
   br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i
@@ -4554,19 +4548,19 @@ define internal fastcc void @parse_expires(ptr noundef writeonly captures(none) 
   br i1 %or.cond37.i, label %parse_http_date.exit, label %23, !llvm.loop !65
 
 parse_http_date.exit:                             ; preds = %23
-  %27 = call ptr @av_small_strptime(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.63, ptr noundef nonnull %4) #15
+  %27 = call ptr @av_small_strptime(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.63, ptr noundef nonnull %4) #16
   %.not33.i.not = icmp eq ptr %27, null
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not33.i.not, label %31, label %28
 
 28:                                               ; preds = %parse_http_date.exit
-  %29 = call i64 @av_timegm(ptr noundef nonnull %4) #15
+  %29 = call i64 @av_timegm(ptr noundef nonnull %4) #16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 10408
   store i64 %29, ptr %30, align 8, !tbaa !90
   br label %31
 
 31:                                               ; preds = %28, %parse_http_date.exit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4578,30 +4572,30 @@ define internal fastcc void @parse_cache_control(ptr noundef captures(none) %0, 
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.108) #15
+  %6 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.108) #16
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %7, label %.sink.split
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.109) #15
+  %8 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.109) #16
   %.not13 = icmp eq ptr %8, null
   br i1 %.not13, label %9, label %.sink.split
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.110) #15
+  %10 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.110) #16
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %11, label %.thread
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.111) #15
+  %12 = tail call ptr @av_stristr(ptr noundef %1, ptr noundef nonnull @.str.111) #16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %.thread
 
 .thread:                                          ; preds = %9, %11
   %.018 = phi i64 [ 8, %11 ], [ 9, %9 ]
-  %14 = tail call i64 @time(ptr noundef null) #15
+  %14 = tail call i64 @time(ptr noundef null) #16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.018
-  %16 = tail call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #15
+  %16 = tail call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #16
   %sext = shl i64 %16, 32
   %17 = ashr exact i64 %sext, 32
   %18 = add nsw i64 %17, %14
@@ -4617,43 +4611,43 @@ define internal fastcc void @parse_cache_control(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
-declare i32 @ff_make_absolute_url(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ff_make_absolute_url(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @av_strlcatf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i64 @av_strlcatf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #5
+declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #4
 
-declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i64 @zlibCompileFlags() local_unnamed_addr #5
+declare i64 @zlibCompileFlags() local_unnamed_addr #4
 
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #4
 
-declare i32 @av_match_list(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #5
+declare i32 @av_match_list(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare i32 @av_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @av_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #12
+declare void @abort() local_unnamed_addr #11
 
-declare i32 @ffurl_alloc(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_alloc(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_accept(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_accept(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_handshake(ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_handshake(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @http_write_reply(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca [8192 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp sgt i32 %1, -1
   switch i32 %1, label %30 [
     i32 -808465656, label %13
@@ -4696,13 +4690,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @http_write_reply(ptr nound
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 10080
   store i32 0, ptr %15, align 8, !tbaa !35
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.026) #16
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.026) #15
   %17 = add i64 %16, 6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 10024
   %19 = load ptr, ptr %18, align 8, !tbaa !55
   %.not36 = icmp eq ptr %19, null
   %spec.select37 = select i1 %.not36, ptr @.str.136, ptr %19
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 8192, ptr noundef nonnull @.str.135, i32 noundef %.028, ptr noundef nonnull %.026, ptr noundef nonnull @.str.127, i64 noundef %17, ptr noundef nonnull %spec.select37, i32 noundef %.028, ptr noundef nonnull %.026) #15
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 8192, ptr noundef nonnull @.str.135, i32 noundef %.028, ptr noundef nonnull %.026, ptr noundef nonnull @.str.127, i64 noundef %17, ptr noundef nonnull %spec.select37, i32 noundef %.028, ptr noundef nonnull %.026) #16
   br label %26
 
 21:                                               ; preds = %.thread, %13
@@ -4715,21 +4709,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @http_write_reply(ptr nound
   %24 = load ptr, ptr %23, align 8, !tbaa !55
   %.not35 = icmp eq ptr %24, null
   %spec.select38 = select i1 %.not35, ptr @.str.136, ptr %24
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 8192, ptr noundef nonnull @.str.137, i32 noundef %.02842, ptr noundef nonnull %.02643, ptr noundef nonnull %.02544, ptr noundef nonnull %spec.select38) #15
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 8192, ptr noundef nonnull @.str.137, i32 noundef %.02842, ptr noundef nonnull %.02643, ptr noundef nonnull %.02544, ptr noundef nonnull %spec.select38) #16
   br label %26
 
 26:                                               ; preds = %21, %14
   %.027 = phi i32 [ %20, %14 ], [ %25, %21 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.138, ptr noundef nonnull %3) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.138, ptr noundef nonnull %3) #16
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !37
-  %29 = call i32 @ffurl_write2(ptr noundef %28, ptr noundef nonnull %3, i32 noundef %.027) #15
+  %29 = call i32 @ffurl_write2(ptr noundef %28, ptr noundef nonnull %3, i32 noundef %.027) #16
   %. = call i32 @llvm.smin.i32(i32 %29, i32 0)
   br label %30
 
 30:                                               ; preds = %26, %2
   %.0 = phi i32 [ -22, %2 ], [ %., %26 ]
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -4774,7 +4768,7 @@ define internal fastcc i32 @http_read_stream(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not.i, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = tail call noalias ptr @av_malloc(i64 noundef 262144) #15
+  %26 = tail call noalias ptr @av_malloc(i64 noundef 262144) #16
   store ptr %26, ptr %23, align 8, !tbaa !127
   %.not30.i = icmp eq ptr %26, null
   br i1 %.not30.i, label %http_buf_read_compressed.exit, label %27
@@ -4803,14 +4797,14 @@ define internal fastcc i32 @http_read_stream(ptr noundef %0, ptr noundef %1, i32
   store i32 %2, ptr %39, align 8, !tbaa !130
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 10216
   store ptr %1, ptr %40, align 8, !tbaa !131
-  %41 = tail call i32 @inflate(ptr noundef nonnull %29, i32 noundef 2) #15
+  %41 = tail call i32 @inflate(ptr noundef nonnull %29, i32 noundef 2) #16
   %or.cond.i = icmp ugt i32 %41, 1
   br i1 %or.cond.i, label %42, label %45
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 10240
   %44 = load ptr, ptr %43, align 8, !tbaa !126
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.145, i32 noundef %41, ptr noundef %44) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.145, i32 noundef %41, ptr noundef %44) #16
   br label %45
 
 45:                                               ; preds = %42, %38
@@ -4910,11 +4904,11 @@ define internal fastcc i32 @http_read_stream(ptr noundef %0, ptr noundef %1, i32
 95:                                               ; preds = %92
   %96 = load i64, ptr %52, align 8, !tbaa !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %97 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.070111, ptr noundef nonnull %4, i64 noundef 64) #15
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.143, i64 noundef %96, i32 noundef %.068112, ptr noundef nonnull %4) #15
+  %97 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.070111, ptr noundef nonnull %4, i64 noundef 64) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.143, i64 noundef %96, i32 noundef %.068112, ptr noundef nonnull %4) #16
   %98 = mul i32 %.068112, 1000000
   %99 = zext i32 %98 to i64
-  %100 = call i32 @ff_network_sleep_interruptible(i64 noundef %99, ptr noundef nonnull %60) #15
+  %100 = call i32 @ff_network_sleep_interruptible(i64 noundef %99, ptr noundef nonnull %60) #16
   %.not86 = icmp eq i32 %100, -110
   br i1 %.not86, label %101, label %http_buf_read_compressed.exit
 
@@ -4926,7 +4920,7 @@ define internal fastcc i32 @http_read_stream(ptr noundef %0, ptr noundef %1, i32
   br i1 %or.cond89, label %105, label %104
 
 104:                                              ; preds = %101
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.144, i64 noundef %66) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.144, i64 noundef %66) #16
   br label %http_buf_read_compressed.exit
 
 105:                                              ; preds = %101
@@ -4943,10 +4937,10 @@ http_buf_read_compressed.exit:                    ; preds = %105, %71, %75, %88,
   ret i32 %.0
 }
 
-declare i32 @av_opt_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @av_opt_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @http_seek_internal(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
@@ -4958,8 +4952,8 @@ define internal fastcc i64 @http_seek_internal(ptr noundef %0, i64 noundef %1, i
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8248
   %12 = load i64, ptr %11, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !15
   %13 = icmp eq i32 %2, 65536
   br i1 %13, label %14, label %17
@@ -5053,18 +5047,18 @@ define internal fastcc i64 @http_seek_internal(ptr noundef %0, i64 noundef %1, i
   %54 = load ptr, ptr %53, align 8, !tbaa !34
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 8280
   %56 = load ptr, ptr %55, align 8, !tbaa !20
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %56) #16
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %56) #15
   %.not81 = icmp eq i32 %57, 0
   br i1 %.not81, label %62, label %58
 
 58:                                               ; preds = %52
-  %59 = tail call noalias ptr @av_strdup(ptr noundef nonnull %54) #15
+  %59 = tail call noalias ptr @av_strdup(ptr noundef nonnull %54) #16
   %.not82.not = icmp eq ptr %59, null
   br i1 %.not82.not, label %.thread88, label %60
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %55, align 8, !tbaa !20
-  tail call void @av_free(ptr noundef %61) #15
+  tail call void @av_free(ptr noundef %61) #16
   store ptr %59, ptr %55, align 8, !tbaa !20
   br label %62
 
@@ -5082,7 +5076,7 @@ define internal fastcc i64 @http_seek_internal(ptr noundef %0, i64 noundef %1, i
   store ptr null, ptr %9, align 8, !tbaa !37
   %71 = call fastcc i32 @http_open_cnx(ptr noundef nonnull %0, ptr noundef nonnull %6)
   %72 = icmp slt i32 %71, 0
-  call void @av_dict_free(ptr noundef nonnull %6) #15
+  call void @av_dict_free(ptr noundef nonnull %6) #16
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %62
@@ -5097,25 +5091,31 @@ define internal fastcc i64 @http_seek_internal(ptr noundef %0, i64 noundef %1, i
   br label %.thread88
 
 77:                                               ; preds = %62
-  %78 = call i32 @ffurl_close(ptr noundef %10) #15
+  %78 = call i32 @ffurl_close(ptr noundef %10) #16
   br label %.thread88
 
 .thread88:                                        ; preds = %49, %58, %23, %18, %46, %41, %40, %28, %77, %73, %14
   %.0 = phi i64 [ %16, %14 ], [ %76, %73 ], [ %.067, %77 ], [ -38, %28 ], [ -22, %40 ], [ -22, %41 ], [ -38, %46 ], [ %12, %18 ], [ %1, %23 ], [ -12, %58 ], [ %.067, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
-declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_close(ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_close(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_get_file_handle(ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_get_file_handle(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ffurl_get_short_seek(ptr noundef) local_unnamed_addr #5
+declare i32 @ffurl_get_short_seek(ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_default_item_name(ptr noundef) #5
+declare ptr @av_default_item_name(ptr noundef) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
@@ -5135,20 +5135,20 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

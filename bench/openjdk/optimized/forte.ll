@@ -583,11 +583,11 @@ define internal fastcc void @_ZL31forte_fill_call_trace_given_topP10JavaThreadP1
   %.sroa.0 = alloca { %union.anon, ptr, ptr }, align 8
   %.sroa.7 = alloca [19 x i8], align 1
   %11 = alloca %class.vframeStreamForte, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %3, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -801,11 +801,11 @@ _ZNK7nmethod16is_native_methodEv.exit.i:          ; preds = %99
   br i1 %.not42.i, label %_ZNK7nmethod16is_native_methodEv.exit.thread.i, label %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread46
 
 _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread46: ; preds = %_ZNK7nmethod16is_native_methodEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %187
 
 _ZNK7nmethod16is_native_methodEv.exit.thread.i:   ; preds = %_ZNK7nmethod16is_native_methodEv.exit.i, %99
@@ -957,11 +957,11 @@ _ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.threa
   br label %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit
 
 _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread: ; preds = %.lr.ph.split.i, %25, %66, %69, %_ZNK5frame6senderEP11RegisterMap.exit39.i, %58, %174, %89, %87, %_ZNK5frame6senderEP11RegisterMap.exit._crit_edge.thread.i, %.lr.ph.split.us.i, %_ZNK5frame6senderEP11RegisterMap.exit._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %233
 
 _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i
@@ -969,11 +969,11 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload23, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.5.0.copyload25, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
   %.sroa.4.0 = phi ptr [ %.sroa.4.0.copyload19, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.4.0.copyload21, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
   %.1 = phi ptr [ %101, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %101, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.041, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %101, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %186 = icmp eq ptr %.1, null
   br i1 %186, label %233, label %187
 
@@ -994,7 +994,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %.sroa.740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.740.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.7, i64 19, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %5, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   %192 = getelementptr inbounds nuw i8, ptr %11, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4984) %192, ptr noundef nonnull align 8 dereferenceable(4984) %5, i64 4984, i1 false)
@@ -1015,7 +1015,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   %.sroa.639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i8 %.sroa.6.051, ptr %.sroa.639.0..sroa_idx, align 4
   %199 = call noundef zeroext i1 @_ZN18vframeStreamCommon15fill_from_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %11)
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %200 = getelementptr inbounds nuw i8, ptr %11, i64 5048
   %201 = load i32, ptr %200, align 8
   %202 = icmp eq i32 %201, 2
@@ -1214,7 +1214,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   br label %84
 
 10:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.011.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -1282,10 +1282,10 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %41, ptr %.sroa.9.0..sroa_idx.i, align 8
   %46 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i6 = load ptr, ptr %4, align 8
   %47 = load ptr, ptr %.sroa.0.0.copyload.i6, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.011.0.copyload.i7 = load ptr, ptr %0, align 8
   %.sroa.2.0.copyload.i9 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -1349,7 +1349,7 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZN17sta
   %.sroa.9.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %78, ptr %.sroa.9.0..sroa_idx.i24, align 8
   %83 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
@@ -2051,10 +2051,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

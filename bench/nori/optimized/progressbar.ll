@@ -69,10 +69,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %30
 
 30:                                               ; preds = %30, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
@@ -95,7 +95,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %30, %_ZN7nano
   br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %38
 
 38:                                               ; preds = %38, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
@@ -115,14 +115,14 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %38
   %.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %46
 
 46:                                               ; preds = %46, %_ZN7nanogui5ColorC2Eii.exit
@@ -145,7 +145,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21: ; preds = %46, %_ZN7na
   br i1 %exitcond.not.i2.i.i23, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %54
 
 54:                                               ; preds = %54, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24
@@ -173,12 +173,12 @@ _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %54
   %.sroa.0.0.copyload.i.i.i27 = load <2 x float>, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i.i.i28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i.i.i29 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i28, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.0.0.vec.extract.i.i30 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i27, i64 0
   %.sroa.0.4.vec.extract.i.i31 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i27, i64 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store float %.sroa.0.0.vec.extract.i.i30, ptr %19, align 8
   %.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float %.sroa.0.4.vec.extract.i.i31, ptr %.sroa.287.0..sroa_idx, align 4
@@ -205,7 +205,7 @@ _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %54
   %80 = load i32, ptr %22, align 8
   %81 = load i32, ptr %24, align 4
   %82 = load i32, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %83
 
 83:                                               ; preds = %83, %_ZN7nanogui5ColorC2Eii.exit35
@@ -217,8 +217,8 @@ _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %54
   br i1 %exitcond.not.i.i38, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i39, label %83, !llvm.loop !9
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i39:            ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %86
 
 86:                                               ; preds = %86, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i39
@@ -241,7 +241,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42: ; preds = %86, %_ZN7na
   br i1 %exitcond.not.i2.i.i44, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %94
 
 94:                                               ; preds = %94, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45
@@ -261,11 +261,11 @@ _ZN7nanogui5ColorC2Eii.exit56:                    ; preds = %94
   %.sroa.0.0.copyload.i.i.i48 = load <2 x float>, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i.i50 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i49, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %102
 
 102:                                              ; preds = %102, %_ZN7nanogui5ColorC2Eii.exit56
@@ -277,8 +277,8 @@ _ZN7nanogui5ColorC2Eii.exit56:                    ; preds = %94
   br i1 %exitcond.not.i.i58, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i59, label %102, !llvm.loop !9
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i59:            ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %105
 
 105:                                              ; preds = %105, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i59
@@ -301,7 +301,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62: ; preds = %105, %_ZN7n
   br i1 %exitcond.not.i2.i.i64, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %113
 
 113:                                              ; preds = %113, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65
@@ -337,12 +337,12 @@ _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   %.sroa.0.0.copyload.i.i.i68 = load <2 x float>, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i70 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i69, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.0.0.vec.extract.i.i71 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i68, i64 0
   %.sroa.0.4.vec.extract.i.i72 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i68, i64 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store float %.sroa.0.0.vec.extract.i.i71, ptr %21, align 8
   %.sroa.2.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float %.sroa.0.4.vec.extract.i.i72, ptr %.sroa.2.0..sroa_idx78, align 4
@@ -428,10 +428,10 @@ declare void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

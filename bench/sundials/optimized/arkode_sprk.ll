@@ -79,11 +79,8 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %18, %ARKodeSPRKTabl
   ret ptr %.024
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias noundef ptr @ARKodeSPRKTable_Alloc(i32 noundef %0) local_unnamed_addr #2 {
+define noalias noundef ptr @ARKodeSPRKTable_Alloc(i32 noundef %0) local_unnamed_addr #1 {
   %calloc = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not = icmp eq ptr %calloc, null
   br i1 %.not, label %12, label %2
@@ -123,14 +120,11 @@ ARKodeSPRKTable_Free.exit19:                      ; preds = %7
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ARKodeSPRKTable_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define void @ARKodeSPRKTable_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -163,7 +157,7 @@ define void @ARKodeSPRKTable_Free(ptr noundef captures(address_is_null) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ARKodeSPRKTable_Load(i32 noundef %0) local_unnamed_addr #5 {
+define noalias noundef ptr @ARKodeSPRKTable_Load(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %arkodeSymplecticEuler.exit [
     i32 0, label %2
     i32 1, label %11
@@ -265,7 +259,7 @@ arkodeSymplecticEuler.exit:                       ; preds = %9, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticLeapfrog2() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticLeapfrog2() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -311,7 +305,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticPseudoLeapfrog2() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticPseudoLeapfrog2() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -357,7 +351,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticRuth3() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticRuth3() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -407,7 +401,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan2() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan2() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -453,7 +447,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan3() unnamed_addr #5 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan3() unnamed_addr #4 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -553,7 +547,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan4() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan4() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -607,7 +601,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticCandyRozmus4() unnamed_addr #5 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticCandyRozmus4() unnamed_addr #4 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -679,7 +673,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan5() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan5() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -741,7 +735,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticYoshida6() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticYoshida6() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -811,7 +805,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticSuzukiUmeno816() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticSuzukiUmeno816() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -913,7 +907,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc noalias noundef ptr @arkodeSymplecticSofroniou10() unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @arkodeSymplecticSofroniou10() unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
@@ -1095,7 +1089,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %12
@@ -1241,10 +1235,10 @@ arkodeSymplecticEuler.exit:                       ; preds = %10, %ARKodeSPRKTabl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !11
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
@@ -1321,7 +1315,7 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ARKodeSPRKTable_Space(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #7 {
+define void @ARKodeSPRKTable_Space(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
   store i64 2, ptr %1, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
@@ -1332,15 +1326,15 @@ define void @ARKodeSPRKTable_Space(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !18
   %5 = call i32 @ARKodeSPRKTable_ToButcher(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %6 = load ptr, ptr %3, align 8, !tbaa !18
@@ -1349,13 +1343,13 @@ define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr n
   tail call void @ARKodeButcherTable_Write(ptr noundef %7, ptr noundef %1) #14
   tail call void @ARKodeButcherTable_Free(ptr noundef %6) #14
   tail call void @ARKodeButcherTable_Free(ptr noundef %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
+define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %5, i32 noundef 0) #14
@@ -1536,35 +1530,41 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   ret i32 %.070
 }
 
-declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #9
+declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #8
 
-declare ptr @ARKodeButcherTable_Alloc(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @ARKodeButcherTable_Alloc(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #10
+declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #11
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
-declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #9
+declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 attributes #0 = { nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #13 = { nounwind allocsize(0) }
 attributes #14 = { nounwind }

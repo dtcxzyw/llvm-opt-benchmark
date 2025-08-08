@@ -196,16 +196,13 @@ define range(i32 -22, 1) i32 @IDAAdjInit(ptr noundef %0, i64 noundef %1, i32 nou
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @IDAAhermiteMalloc(ptr noundef readonly captures(none) %0) #0 {
@@ -527,9 +524,9 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
   %7 = alloca [4 x double], align 16
   %8 = alloca [4 x ptr], align 16
   %9 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
@@ -907,9 +904,9 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 
 IDAAfindIndex.exit:                               ; preds = %.loopexit, %200, %188, %179, %159, %155, %144, %137, %122, %99, %95, %208, %104
   %.0 = phi i32 [ 0, %104 ], [ 0, %208 ], [ -28, %95 ], [ -28, %99 ], [ -28, %122 ], [ -28, %137 ], [ -28, %144 ], [ -28, %155 ], [ -28, %159 ], [ -28, %179 ], [ -28, %188 ], [ -28, %200 ], [ -107, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -2196,9 +2193,6 @@ IDAAGettnSolutionYpS.exit:                        ; preds = %._crit_edge.i37, %.
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define range(i32 -101, 1) i32 @IDAAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
@@ -2432,7 +2426,7 @@ IDAAdataFree.exit:                                ; preds = %._crit_edge, %._cri
 
 .lr.ph15:                                         ; preds = %IDAAdataFree.exit, %IDAAbckpbDelete.exit
   %29 = phi ptr [ %47, %IDAAbckpbDelete.exit ], [ %28, %IDAAdataFree.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %31 = load ptr, ptr %30, align 8, !tbaa !88
   store ptr %31, ptr %27, align 8, !tbaa !91
@@ -2467,7 +2461,7 @@ IDAAbckpbDelete.exit:                             ; preds = %38, %41
   %46 = load ptr, ptr %45, align 8, !tbaa !97
   call void @N_VDestroy(ptr noundef %46) #9
   call void @free(ptr noundef nonnull %29) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %47 = load ptr, ptr %27, align 8, !tbaa !38
   %.not12 = icmp eq ptr %47, null
   br i1 %.not12, label %._crit_edge16, label %.lr.ph15
@@ -3046,9 +3040,9 @@ IDAAckpntNew.exit.thread:                         ; preds = %205, %302, %283, %1
   ret i32 %.0
 }
 
-declare i32 @IDAGetSolution(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAGetSolution(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @IDASolve(ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @IDASolve(ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -101, 1) i32 @IDACreateB(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -3116,9 +3110,9 @@ define range(i32 -101, 1) i32 @IDACreateB(ptr noundef %0, ptr noundef writeonly 
   ret i32 %.0
 }
 
-declare ptr @IDACreate(ptr noundef) local_unnamed_addr #2
+declare ptr @IDACreate(ptr noundef) local_unnamed_addr #1
 
-declare i32 @IDASetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDASetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -3209,7 +3203,7 @@ define i32 @IDAInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noun
   ret i32 %.0
 }
 
-declare i32 @IDAInit(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAInit(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAres(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -3290,9 +3284,9 @@ define internal i32 @IDAAres(double noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 %.041
 }
 
-declare ptr @N_VClone(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -3462,7 +3456,7 @@ define i32 @IDAReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
   ret i32 %.0
 }
 
-declare i32 @IDAReInit(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAReInit(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
@@ -3518,7 +3512,7 @@ define i32 @IDASStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
   ret i32 %.0
 }
 
-declare i32 @IDASStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @IDASStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3574,7 +3568,7 @@ define i32 @IDASVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
   ret i32 %.0
 }
 
-declare i32 @IDASVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDASVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
@@ -3630,7 +3624,7 @@ define i32 @IDAQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
   ret i32 %.0
 }
 
-declare i32 @IDAQuadSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @IDAQuadSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3686,7 +3680,7 @@ define i32 @IDAQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
   ret i32 %.0
 }
 
-declare i32 @IDAQuadSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAQuadSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3750,7 +3744,7 @@ define i32 @IDAQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   ret i32 %.0
 }
 
-declare i32 @IDAQuadInit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAQuadInit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAArhsQ(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -3947,7 +3941,7 @@ define i32 @IDAQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local
   ret i32 %.0
 }
 
-declare i32 @IDAQuadReInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAQuadReInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDACalcICB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -4021,7 +4015,7 @@ define i32 @IDACalcICB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
   ret i32 %.0
 }
 
-declare i32 @IDACalcIC(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare i32 @IDACalcIC(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDACalcICBS(ptr noundef %0, i32 noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -4152,12 +4146,12 @@ define i32 @IDACalcICBS(ptr noundef %0, i32 noundef %1, double noundef %2, ptr n
   ret i32 %.044
 }
 
-declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -4546,17 +4540,17 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
 
 .critedge164:                                     ; preds = %._crit_edge216, %154, %192, %150, %152, %.thread165, %94, %74, %70, %53, %47, %24, %18, %11, %6
   %.0129 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %178, %.thread165 ], [ -22, %94 ], [ -22, %70 ], [ %151, %150 ], [ 0, %152 ], [ %.5, %192 ], [ %.5, %._crit_edge216 ], [ %155, %154 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0129
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -4958,11 +4952,11 @@ IDAAckpntGet.exit:                                ; preds = %203, %42, %39
 
 IDAAckpntGet.exit.thread:                         ; preds = %224, %42, %31, %24, %11, %243
   %.0 = phi i32 [ 0, %243 ], [ -105, %11 ], [ -105, %24 ], [ -105, %31 ], [ -105, %42 ], [ -106, %224 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @IDASetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @IDASetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -101, 1) i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -5027,7 +5021,7 @@ define range(i32 -101, 1) i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -5097,13 +5091,13 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
 
 38:                                               ; preds = %30, %36, %._crit_edge, %18, %12, %7
   %.025 = phi i32 [ -20, %7 ], [ -101, %12 ], [ -22, %18 ], [ %26, %._crit_edge ], [ 0, %30 ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
 }
 
-declare i32 @IDAGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @IDAGetQuad(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAGetQuad(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAGetAdjY(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -5127,9 +5121,9 @@ define i32 @IDAGetAdjY(ptr noundef %0, double noundef %1, ptr noundef %2, ptr no
   ret i32 %.0
 }
 
-declare void @IDAFree(ptr noundef) local_unnamed_addr #2
+declare void @IDAFree(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
@@ -5700,24 +5694,30 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull %0, ptr no
   ret void
 }
 
-declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @IDASetInitStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @IDASetInitStep(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @IDASensReInit(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDASensReInit(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @IDAQuadSensReInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IDAQuadSensReInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VLinearCombinationVectorArray(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VLinearCombinationVectorArray(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
@@ -5735,11 +5735,11 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

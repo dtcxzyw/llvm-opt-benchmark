@@ -32,19 +32,19 @@ define void @_ZN4LIEF2PE13ExceptionInfo5parseERNS0_6ParserERNS_12BinaryStreamENS
   ]
 
 _ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit: ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4LIEF2PE18RuntimeFunctionX645parseERNS0_6ParserERNS_12BinaryStreamEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %5, ptr noundef nonnull align 8 dereferenceable(215) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false) #3
   %7 = load ptr, ptr %5, align 8, !tbaa !3
   store ptr %7, ptr %0, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %10
 
 _ZNSt10unique_ptrIN4LIEF2PE22RuntimeFunctionAArch64ESt14default_deleteIS2_EED2Ev.exit: ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4LIEF2PE22RuntimeFunctionAArch645parseERNS0_6ParserERNS_12BinaryStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.39") align 8 %6, ptr noundef nonnull align 8 dereferenceable(215) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   %8 = load ptr, ptr %6, align 8, !tbaa !11
   store ptr %8, ptr %0, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %10
 
 9:                                                ; preds = %4
@@ -55,15 +55,9 @@ _ZNSt10unique_ptrIN4LIEF2PE22RuntimeFunctionAArch64ESt14default_deleteIS2_EED2Ev
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare hidden void @_ZN4LIEF2PE18RuntimeFunctionX645parseERNS0_6ParserERNS_12BinaryStreamEb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8, ptr noundef nonnull align 8 dereferenceable(215), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #1
 
-declare hidden void @_ZN4LIEF2PE18RuntimeFunctionX645parseERNS0_6ParserERNS_12BinaryStreamEb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8, ptr noundef nonnull align 8 dereferenceable(215), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4LIEF2PE22RuntimeFunctionAArch645parseERNS0_6ParserERNS_12BinaryStreamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.39") align 8, ptr noundef nonnull align 8 dereferenceable(215), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZN4LIEF2PE22RuntimeFunctionAArch645parseERNS0_6ParserERNS_12BinaryStreamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.39") align 8, ptr noundef nonnull align 8 dereferenceable(215), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF2PE13ExceptionInfo5parseERNS0_6ParserERNS_12BinaryStreamE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(215) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
@@ -92,9 +86,15 @@ _ZN4LIEF2PE13ExceptionInfo5parseERNS0_6ParserERNS_12BinaryStreamENS0_6Header13MA
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -2763,9 +2763,6 @@ define hidden void @proto_register_bthci_evt() local_unnamed_addr #1 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @bluetooth_unit_0p625_ms(ptr noundef, i32 noundef) #0
 
@@ -2779,7 +2776,7 @@ declare void @bluetooth_unit_0p01_sec(ptr noundef, i32 noundef) #0
 declare void @bluetooth_unit_0p125_ms(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @freq_compensation(ptr noundef %0, i16 noundef signext %1) #3 {
+define internal void @freq_compensation(ptr noundef %0, i16 noundef signext %1) #2 {
   %.not = icmp eq i16 %1, -16384
   br i1 %.not, label %7, label %3
 
@@ -2798,7 +2795,7 @@ define internal void @freq_compensation(ptr noundef %0, i16 noundef signext %1) 
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ref_power_level(ptr noundef %0, i8 noundef signext %1) #3 {
+define internal void @ref_power_level(ptr noundef %0, i8 noundef signext %1) #2 {
   %.not = icmp eq i8 %1, 127
   br i1 %.not, label %6, label %3
 
@@ -2816,7 +2813,7 @@ define internal void @ref_power_level(ptr noundef %0, i8 noundef signext %1) #3 
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @convert_time_unit_0p5_ns(ptr noundef %0, i16 noundef signext %1) #3 {
+define internal void @convert_time_unit_0p5_ns(ptr noundef %0, i16 noundef signext %1) #2 {
   %.not = icmp eq i16 %1, -32768
   br i1 %.not, label %8, label %3
 
@@ -2836,7 +2833,7 @@ define internal void @convert_time_unit_0p5_ns(ptr noundef %0, i16 noundef signe
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @sint12_convert(ptr noundef %0, i16 noundef zeroext %1) #3 {
+define internal void @sint12_convert(ptr noundef %0, i16 noundef zeroext %1) #2 {
   %3 = icmp ugt i16 %1, 2048
   %4 = zext nneg i16 %1 to i32
   %5 = add i16 %1, -4096
@@ -2847,12 +2844,12 @@ define internal void @sint12_convert(ptr noundef %0, i16 noundef zeroext %1) #3 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noalias noundef ptr @bthci_evt_vendor_value(ptr readnone captures(none) %0) #4 {
+define internal noalias noundef ptr @bthci_evt_vendor_value(ptr readnone captures(none) %0) #3 {
   ret ptr null
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @bthci_evt_vendor_prompt(ptr readnone captures(none) %0, ptr noundef %1) #3 {
+define internal void @bthci_evt_vendor_prompt(ptr readnone captures(none) %0, ptr noundef %1) #2 {
   %3 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %1, i64 noundef 200, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1812)
   ret void
 }
@@ -2887,8 +2884,8 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4
   %18 = icmp eq ptr %3, null
   br i1 %18, label %._crit_edge.thread, label %19
@@ -2968,24 +2965,24 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 60:                                               ; preds = %19
   %61 = tail call ptr @wmem_file_scope()
-  %62 = tail call dereferenceable_or_null(24) ptr @wmem_memdup(ptr noundef %61, ptr noundef nonnull %47, i64 noundef 24) #10
+  %62 = tail call dereferenceable_or_null(24) ptr @wmem_memdup(ptr noundef %61, ptr noundef nonnull %47, i64 noundef 24) #9
   %63 = tail call ptr @wmem_file_scope()
   %64 = load ptr, ptr %49, align 8
   %65 = load i32, ptr %48, align 4
   %66 = sext i32 %65 to i64
-  %67 = tail call ptr @wmem_memdup(ptr noundef %63, ptr noundef %64, i64 noundef %66) #10
+  %67 = tail call ptr @wmem_memdup(ptr noundef %63, ptr noundef %64, i64 noundef %66) #9
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %67, ptr %68, align 8
   %69 = tail call ptr @wmem_file_scope()
   %70 = load i32, ptr @proto_bluetooth, align 4
   tail call void @p_add_proto_data(ptr noundef %69, ptr noundef %1, i32 noundef %70, i32 noundef 0, ptr noundef %62)
   %71 = tail call ptr @wmem_file_scope()
-  %72 = tail call dereferenceable_or_null(24) ptr @wmem_memdup(ptr noundef %71, ptr noundef nonnull %51, i64 noundef 24) #10
+  %72 = tail call dereferenceable_or_null(24) ptr @wmem_memdup(ptr noundef %71, ptr noundef nonnull %51, i64 noundef 24) #9
   %73 = tail call ptr @wmem_file_scope()
   %74 = load ptr, ptr %53, align 8
   %75 = load i32, ptr %52, align 4
   %76 = sext i32 %75 to i64
-  %77 = tail call ptr @wmem_memdup(ptr noundef %73, ptr noundef %74, i64 noundef %76) #10
+  %77 = tail call ptr @wmem_memdup(ptr noundef %73, ptr noundef %74, i64 noundef %76) #9
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %77, ptr %78, align 8
   %79 = tail call ptr @wmem_file_scope()
@@ -3006,7 +3003,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 89:                                               ; preds = %81
   %90 = load ptr, ptr %20, align 8
-  %91 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %90, i64 noundef 32) #11
+  %91 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %90, i64 noundef 32) #10
   %92 = load i32, ptr %3, align 8
   store i32 %92, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3356,7 +3353,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 210:                                              ; preds = %112
   %211 = call fastcc i32 @dissect_bthci_evt_inquire_result_with_rssi(ptr noundef %0, ptr noundef %1, ptr noundef %26, ptr noundef %3, ptr noundef nonnull %5)
   %212 = load ptr, ptr %20, align 8
-  %213 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %212, i64 noundef 16) #11
+  %213 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %212, i64 noundef 16) #10
   %214 = load i32, ptr %3, align 8
   store i32 %214, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3645,9 +3642,9 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %384, label %385, label %412
 
 385:                                              ; preds = %380
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %386 = load i32, ptr %3, align 8
   store i32 %386, ptr %8, align 4
   %387 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3693,9 +3690,9 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %411
 
 411:                                              ; preds = %397, %404, %407, %385
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %412
 
 412:                                              ; preds = %411, %380
@@ -3732,9 +3729,9 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 432:                                              ; preds = %.lr.ph, %.thread1053
   %.09421066 = phi ptr [ %422, %.lr.ph ], [ %486, %.thread1053 ]
   %.09451065 = phi ptr [ null, %.lr.ph ], [ %.us-phi, %.thread1053 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %433 = load i32, ptr %3, align 8
   store i32 %433, ptr %11, align 4
   %434 = load i32, ptr %423, align 4
@@ -3847,17 +3844,17 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond1060, label %.thread1053, label %.split, !llvm.loop !8
 
 ._crit_edge.thread1083:                           ; preds = %466, %455, %477, %.thread1040
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %487
 
 .thread1053:                                      ; preds = %.thread1036, %.split, %432
   %.us-phi = phi ptr [ %.09451065, %432 ], [ %.1946, %.split ], [ %.2947.ph, %.thread1036 ]
   %486 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.09421066)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not970 = icmp eq ptr %486, null
   br i1 %.not970, label %._crit_edge, label %432, !llvm.loop !10
 
@@ -3867,8 +3864,8 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 487:                                              ; preds = %._crit_edge.thread1083, %._crit_edge
   %.0945.lcssa1088 = phi ptr [ %442, %._crit_edge.thread1083 ], [ %.us-phi, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %489 = load i32, ptr %488, align 4
   store i32 %489, ptr %13, align 4
@@ -3909,7 +3906,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 502:                                              ; preds = %500
   %503 = load ptr, ptr %20, align 8
-  %504 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %503, i64 noundef 40) #11
+  %504 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %503, i64 noundef 40) #10
   %505 = load i32, ptr %3, align 8
   store i32 %505, ptr %504, align 8
   %506 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3928,7 +3925,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 513:                                              ; preds = %500
   %514 = load ptr, ptr %20, align 8
-  %515 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %514, i64 noundef 40) #11
+  %515 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %514, i64 noundef 40) #10
   %516 = load i32, ptr %3, align 8
   store i32 %516, ptr %515, align 8
   %517 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3955,9 +3952,9 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not973, label %531, label %685
 
 531:                                              ; preds = %513
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %532 = load i32, ptr %3, align 8
   store i32 %532, ptr %16, align 4
   %533 = load i32, ptr %517, align 4
@@ -3978,7 +3975,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %540 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr null, ptr %540, align 8
   %541 = call ptr @wmem_file_scope()
-  %542 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %541, i64 noundef 16) #11
+  %542 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %541, i64 noundef 16) #10
   %543 = load i32, ptr %16, align 4
   store i32 %543, ptr %542, align 8
   %544 = load i32, ptr %17, align 4
@@ -3990,14 +3987,14 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %548 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %549 = load ptr, ptr %548, align 8
   call void @wmem_tree_insert32_array(ptr noundef %549, ptr noundef nonnull %15, ptr noundef %542)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %685
 
 550:                                              ; preds = %500
   %551 = load ptr, ptr %20, align 8
-  %552 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %551, i64 noundef 40) #11
+  %552 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %551, i64 noundef 40) #10
   %553 = load i32, ptr %3, align 8
   store i32 %553, ptr %552, align 8
   %554 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4020,7 +4017,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 564:                                              ; preds = %500
   %565 = load ptr, ptr %20, align 8
-  %566 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %565, i64 noundef 40) #11
+  %566 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %565, i64 noundef 40) #10
   %567 = load i32, ptr %3, align 8
   store i32 %567, ptr %566, align 8
   %568 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4043,7 +4040,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 578:                                              ; preds = %500
   %579 = load ptr, ptr %20, align 8
-  %580 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %579, i64 noundef 40) #11
+  %580 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %579, i64 noundef 40) #10
   %581 = load i32, ptr %3, align 8
   store i32 %581, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4066,7 +4063,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 592:                                              ; preds = %500
   %593 = load ptr, ptr %20, align 8
-  %594 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %593, i64 noundef 40) #11
+  %594 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %593, i64 noundef 40) #10
   %595 = load i32, ptr %3, align 8
   store i32 %595, ptr %594, align 8
   %596 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4089,7 +4086,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 606:                                              ; preds = %500
   %607 = load ptr, ptr %20, align 8
-  %608 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %607, i64 noundef 40) #11
+  %608 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %607, i64 noundef 40) #10
   %609 = load i32, ptr %3, align 8
   store i32 %609, ptr %608, align 8
   %610 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4112,7 +4109,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 620:                                              ; preds = %500
   %621 = load ptr, ptr %20, align 8
-  %622 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %621, i64 noundef 40) #11
+  %622 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %621, i64 noundef 40) #10
   %623 = load i32, ptr %3, align 8
   store i32 %623, ptr %622, align 8
   %624 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4135,7 +4132,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 634:                                              ; preds = %500
   %635 = load ptr, ptr %20, align 8
-  %636 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %635, i64 noundef 40) #11
+  %636 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %635, i64 noundef 40) #10
   %637 = load i32, ptr %3, align 8
   store i32 %637, ptr %636, align 8
   %638 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4170,7 +4167,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 657:                                              ; preds = %500
   %658 = load ptr, ptr %20, align 8
-  %659 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %658, i64 noundef 40) #11
+  %659 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %658, i64 noundef 40) #10
   %660 = load i32, ptr %3, align 8
   store i32 %660, ptr %659, align 8
   %661 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4193,7 +4190,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 671:                                              ; preds = %500
   %672 = load ptr, ptr %20, align 8
-  %673 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %672, i64 noundef 40) #11
+  %673 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %672, i64 noundef 40) #10
   %674 = load i32, ptr %3, align 8
   store i32 %674, ptr %673, align 8
   %675 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4514,14 +4511,14 @@ proto_item_set_generated.exit1029:                ; preds = %834, %831, %proto_i
   br label %proto_item_set_generated.exit1032
 
 proto_item_set_generated.exit1032:                ; preds = %846, %843, %proto_item_set_generated.exit1029, %proto_item_set_generated.exit1020
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %421, %._crit_edge, %proto_item_set_generated.exit1032, %4, %412
   %.0 = phi i32 [ %415, %412 ], [ 0, %4 ], [ %.0939, %proto_item_set_generated.exit1032 ], [ %.0939, %._crit_edge ], [ %.0939, %421 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4548,9 +4545,6 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_bthci_evt() local_unnamed_addr #1 {
@@ -4590,7 +4584,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #0
@@ -4605,7 +4599,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #0
@@ -4626,7 +4620,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare zeroext i1 @have_tap_listener(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -4649,7 +4643,7 @@ define internal fastcc void @dissect_bthci_evt_inquire_complete(ptr noundef %0, 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4683,7 +4677,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @add_opcode(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #1 {
-  %5 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %0, i64 noundef 8) #11
+  %5 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %0, i64 noundef 8) #10
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -4750,7 +4744,7 @@ define internal fastcc i32 @dissect_bthci_evt_connect_complete(ptr noundef %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load i32, ptr @hf_bthci_evt_status, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -4761,7 +4755,7 @@ define internal fastcc i32 @dissect_bthci_evt_connect_complete(ptr noundef %0, p
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %18, i64 noundef 32) #11
+  %19 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %18, i64 noundef 32) #10
   %20 = load i32, ptr %3, align 8
   store i32 %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4811,11 +4805,11 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
 48:                                               ; preds = %send_hci_summary_status_tap.exit
   %49 = and i16 %33, 4095
   %50 = zext nneg i16 %49 to i32
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %51 = load i32, ptr %3, align 8
   store i32 %51, ptr %7, align 4
   %52 = load i32, ptr %38, align 4
@@ -4844,7 +4838,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %63, align 8
   %64 = call ptr @wmem_file_scope()
-  %65 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %64, i64 noundef 16) #11
+  %65 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %64, i64 noundef 16) #10
   %66 = load i32, ptr %3, align 8
   store i32 %66, ptr %65, align 4
   %67 = load i32, ptr %38, align 4
@@ -4853,12 +4847,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i16 %49, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %70, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %70, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 noundef 6, i1 noundef false) #11
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %72 = load ptr, ptr %71, align 8
   call void @wmem_tree_insert32_array(ptr noundef %72, ptr noundef nonnull %6, ptr noundef %65)
   %73 = call ptr @wmem_file_scope()
-  %74 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %73, i64 noundef 12) #11
+  %74 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %73, i64 noundef 12) #10
   %75 = load i32, ptr %10, align 4
   store i32 %75, ptr %74, align 4
   %76 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
@@ -4870,7 +4864,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %80 = load ptr, ptr %79, align 8
   call void @wmem_tree_insert32_array(ptr noundef %80, ptr noundef nonnull %6, ptr noundef %74)
   %81 = call ptr @wmem_file_scope()
-  %82 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %81, i64 noundef 8) #11
+  %82 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %81, i64 noundef 8) #10
   store i32 0, ptr %82, align 4
   %83 = load i32, ptr %10, align 4
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -4878,11 +4872,11 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %86 = load ptr, ptr %85, align 8
   call void @wmem_tree_insert32_array(ptr noundef %86, ptr noundef nonnull %6, ptr noundef %82)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %87
 
 87:                                               ; preds = %48, %send_hci_summary_status_tap.exit
@@ -4892,7 +4886,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %91 = load i32, ptr @hf_bthci_evt_encryption_mode, align 4
   %92 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef -2147483648)
   %93 = add i32 %40, 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %93
 }
 
@@ -4916,7 +4910,7 @@ define internal fastcc void @dissect_bthci_evt_disconnect_complete(ptr noundef %
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = load i32, ptr @hf_bthci_evt_status, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -4927,7 +4921,7 @@ define internal fastcc void @dissect_bthci_evt_disconnect_complete(ptr noundef %
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #11
+  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #10
   %18 = load i32, ptr %3, align 8
   store i32 %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4972,7 +4966,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
 41:                                               ; preds = %send_hci_summary_status_tap.exit
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %43, i64 noundef 32) #11
+  %44 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %43, i64 noundef 32) #10
   %45 = load i32, ptr %3, align 8
   store i32 %45, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5012,9 +5006,9 @@ send_hci_summary_reason_tap.exit:                 ; preds = %send_hci_summary_st
   br i1 %or.cond, label %65, label %89
 
 65:                                               ; preds = %send_hci_summary_reason_tap.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = load i32, ptr %3, align 8
   store i32 %66, ptr %7, align 4
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5060,13 +5054,13 @@ send_hci_summary_reason_tap.exit:                 ; preds = %send_hci_summary_st
   br label %.thread
 
 .thread:                                          ; preds = %65, %87, %83, %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %89
 
 89:                                               ; preds = %.thread, %send_hci_summary_reason_tap.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5082,7 +5076,7 @@ define internal fastcc void @dissect_bthci_evt_auth_complete(ptr noundef %0, ptr
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5125,7 +5119,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_remote_name_req_complete(p
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load i32, ptr @hf_bthci_evt_status, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -5136,7 +5130,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_remote_name_req_complete(p
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %19, i64 noundef 32) #11
+  %20 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %19, i64 noundef 32) #10
   %21 = load i32, ptr %3, align 8
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5181,12 +5175,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
   br i1 %.not, label %46, label %115
 
 46:                                               ; preds = %send_hci_summary_status_tap.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %47 = call ptr @wmem_file_scope()
   %48 = call ptr @tvb_get_string_enc(ptr noundef %47, ptr noundef %0, i32 noundef %38, i32 noundef 248, i32 noundef 2)
   %49 = load i32, ptr %3, align 8
@@ -5247,7 +5241,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr null, ptr %88, align 8
   %89 = call ptr @wmem_file_scope()
-  %90 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %89, i64 noundef 16) #11
+  %90 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %89, i64 noundef 16) #10
   %91 = load i8, ptr %5, align 1
   %92 = zext i8 %91 to i32
   %93 = shl nuw nsw i32 %92, 16
@@ -5276,12 +5270,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %114 = load ptr, ptr %113, align 8
   call void @wmem_tree_insert32_array(ptr noundef %114, ptr noundef nonnull %6, ptr noundef %90)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %115
 
 115:                                              ; preds = %46, %send_hci_summary_status_tap.exit
@@ -5292,14 +5286,14 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %120 = load ptr, ptr %119, align 8
-  %121 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %120, i64 noundef 40) #11
+  %121 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %120, i64 noundef 40) #10
   %122 = load i32, ptr %3, align 8
   store i32 %122, ptr %121, align 8
   %123 = load i32, ptr %36, align 4
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 %123, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %125, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %125, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 noundef 6, i1 noundef false) #11
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 9
   store i8 1, ptr %126, align 1
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -5316,7 +5310,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
 
 133:                                              ; preds = %118, %115
   %134 = add i32 %38, 248
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %134
 }
 
@@ -5332,7 +5326,7 @@ define internal fastcc range(i32 6, 8) i32 @dissect_bthci_evt_encryption_change(
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %13, i64 noundef 32) #11
+  %14 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %13, i64 noundef 32) #10
   %15 = load i32, ptr %3, align 8
   store i32 %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5389,7 +5383,7 @@ define internal fastcc void @dissect_bthci_evt_change_conn_link_key_complete(ptr
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5435,7 +5429,7 @@ define internal fastcc void @dissect_bthci_evt_link_key_type_changed(ptr noundef
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5483,7 +5477,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_support_featur
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5534,7 +5528,7 @@ define internal fastcc void @dissect_bthci_evt_read_remote_version_information_c
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #11
+  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #10
   %18 = load i32, ptr %2, align 8
   store i32 %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5576,10 +5570,10 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
   br i1 %40, label %41, label %85
 
 41:                                               ; preds = %send_hci_summary_status_tap.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %43 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
@@ -5623,7 +5617,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
   %66 = phi ptr [ %64, %61 ], [ null, %41 ]
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %68 = load ptr, ptr %67, align 8
-  %69 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %68, i64 noundef 40) #11
+  %69 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %68, i64 noundef 40) #10
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 4, ptr %70, align 8
   %71 = load i32, ptr %2, align 8
@@ -5639,7 +5633,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
   store i8 1, ptr %74, align 1
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 10
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %76, ptr noundef nonnull align 1 dereferenceable(6) %77, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %76, ptr noundef nonnull align 1 dereferenceable(6) %77, i64 noundef 6, i1 noundef false) #11
   br label %79
 
 78:                                               ; preds = %65
@@ -5657,10 +5651,10 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
   store i16 %43, ptr %83, align 4
   %84 = load i32, ptr @bluetooth_device_tap, align 4
   call void @tap_queue_packet(i32 noundef %84, ptr noundef %1, ptr noundef %69)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 85:                                               ; preds = %79, %send_hci_summary_status_tap.exit
@@ -5679,7 +5673,7 @@ define internal fastcc void @dissect_bthci_evt_qos_setup_complete(ptr noundef %0
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5732,11 +5726,11 @@ define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, p
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load i32, ptr @hf_bthci_evt_num_command_packets, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
@@ -5758,7 +5752,7 @@ define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, p
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %25, i64 noundef 32) #11
+  %26 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %25, i64 noundef 32) #10
   %27 = load i32, ptr %5, align 8
   store i32 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -6281,7 +6275,7 @@ define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, p
 110:                                              ; preds = %104
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %112, i64 noundef 32) #11
+  %113 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %112, i64 noundef 32) #10
   %114 = load i32, ptr %5, align 8
   store i32 %114, ptr %113, align 8
   %115 = load i32, ptr %44, align 4
@@ -6323,7 +6317,7 @@ define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, p
 133:                                              ; preds = %127
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %135, i64 noundef 32) #11
+  %136 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %135, i64 noundef 32) #10
   %137 = load i32, ptr %5, align 8
   store i32 %137, ptr %136, align 8
   %138 = load i32, ptr %44, align 4
@@ -6387,14 +6381,14 @@ send_hci_summary_status_tap.exit2570:             ; preds = %127, %146
   %169 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr null, ptr %169, align 8
   %170 = call ptr @wmem_file_scope()
-  %171 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %170, i64 noundef 16) #11
+  %171 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %170, i64 noundef 16) #10
   %172 = load i32, ptr %10, align 4
   store i32 %172, ptr %171, align 4
   %173 = load i32, ptr %11, align 4
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 4
   store i32 %173, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %175, ptr noundef nonnull align 1 dereferenceable(6) %8, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %175, ptr noundef nonnull align 1 dereferenceable(6) %8, i64 noundef 6, i1 noundef false) #11
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %177 = load ptr, ptr %176, align 8
   call void @wmem_tree_insert32_array(ptr noundef %177, ptr noundef nonnull %9, ptr noundef %171)
@@ -6411,14 +6405,14 @@ send_hci_summary_status_tap.exit2570:             ; preds = %127, %146
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %184 = load ptr, ptr %183, align 8
-  %185 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %184, i64 noundef 40) #11
+  %185 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %184, i64 noundef 40) #10
   %186 = load i32, ptr %5, align 8
   store i32 %186, ptr %185, align 8
   %187 = load i32, ptr %44, align 4
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 4
   store i32 %187, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %189, ptr noundef nonnull align 1 dereferenceable(6) %8, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %189, ptr noundef nonnull align 1 dereferenceable(6) %8, i64 noundef 6, i1 noundef false) #11
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 9
   store i8 1, ptr %190, align 1
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -6440,7 +6434,7 @@ send_hci_summary_status_tap.exit2570:             ; preds = %127, %146
 200:                                              ; preds = %194
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %202 = load ptr, ptr %201, align 8
-  %203 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %202, i64 noundef 32) #11
+  %203 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %202, i64 noundef 32) #10
   %204 = load i32, ptr %5, align 8
   store i32 %204, ptr %203, align 8
   %205 = load i32, ptr %44, align 4
@@ -6499,7 +6493,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %236 = load ptr, ptr %235, align 8
-  %237 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %236, i64 noundef 40) #11
+  %237 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %236, i64 noundef 40) #10
   %238 = load i32, ptr %5, align 8
   store i32 %238, ptr %237, align 8
   %239 = load i32, ptr %44, align 4
@@ -6682,7 +6676,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
   %362 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr null, ptr %362, align 8
   %363 = call ptr @wmem_file_scope()
-  %364 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %363, i64 noundef 16) #11
+  %364 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %363, i64 noundef 16) #10
   %365 = load i32, ptr %10, align 4
   store i32 %365, ptr %364, align 8
   %366 = load i32, ptr %11, align 4
@@ -6705,7 +6699,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 376:                                              ; preds = %373
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %378 = load ptr, ptr %377, align 8
-  %379 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %378, i64 noundef 40) #11
+  %379 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %378, i64 noundef 40) #10
   %380 = load i32, ptr %5, align 8
   store i32 %380, ptr %379, align 8
   %381 = load i32, ptr %44, align 4
@@ -6743,7 +6737,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 400:                                              ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %402 = load ptr, ptr %401, align 8
-  %403 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %402, i64 noundef 40) #11
+  %403 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %402, i64 noundef 40) #10
   %404 = load i32, ptr %5, align 8
   store i32 %404, ptr %403, align 8
   %405 = load i32, ptr %44, align 4
@@ -6780,7 +6774,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 423:                                              ; preds = %420
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %425 = load ptr, ptr %424, align 8
-  %426 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %425, i64 noundef 40) #11
+  %426 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %425, i64 noundef 40) #10
   %427 = load i32, ptr %5, align 8
   store i32 %427, ptr %426, align 8
   %428 = load i32, ptr %44, align 4
@@ -6818,7 +6812,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 447:                                              ; preds = %444
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %449 = load ptr, ptr %448, align 8
-  %450 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %449, i64 noundef 40) #11
+  %450 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %449, i64 noundef 40) #10
   %451 = load i32, ptr %5, align 8
   store i32 %451, ptr %450, align 8
   %452 = load i32, ptr %44, align 4
@@ -6857,7 +6851,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 472:                                              ; preds = %469
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %474 = load ptr, ptr %473, align 8
-  %475 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %474, i64 noundef 40) #11
+  %475 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %474, i64 noundef 40) #10
   %476 = load i32, ptr %5, align 8
   store i32 %476, ptr %475, align 8
   %477 = load i32, ptr %44, align 4
@@ -6904,7 +6898,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 505:                                              ; preds = %502
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %507 = load ptr, ptr %506, align 8
-  %508 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %507, i64 noundef 40) #11
+  %508 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %507, i64 noundef 40) #10
   %509 = load i32, ptr %5, align 8
   store i32 %509, ptr %508, align 8
   %510 = load i32, ptr %44, align 4
@@ -7041,7 +7035,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 594:                                              ; preds = %591
   %595 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %596 = load ptr, ptr %595, align 8
-  %597 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %596, i64 noundef 40) #11
+  %597 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %596, i64 noundef 40) #10
   %598 = load i32, ptr %5, align 8
   store i32 %598, ptr %597, align 8
   %599 = load i32, ptr %44, align 4
@@ -7072,7 +7066,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 613:                                              ; preds = %.critedge2588
   %614 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %615 = load ptr, ptr %614, align 8
-  %616 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %615, i64 noundef 16) #11
+  %616 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %615, i64 noundef 16) #10
   %617 = load i32, ptr %5, align 8
   store i32 %617, ptr %616, align 8
   %618 = load i32, ptr %44, align 4
@@ -7109,7 +7103,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
 639:                                              ; preds = %636
   %640 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %641 = load ptr, ptr %640, align 8
-  %642 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %641, i64 noundef 40) #11
+  %642 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %641, i64 noundef 40) #10
   %643 = load i32, ptr %5, align 8
   store i32 %643, ptr %642, align 8
   %644 = load i32, ptr %44, align 4
@@ -7279,7 +7273,7 @@ send_hci_summary_status_tap.exit2573:             ; preds = %194, %213
   %759 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
   %760 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %761 = load ptr, ptr %760, align 8
-  %762 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %761, i64 noundef 40) #11
+  %762 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %761, i64 noundef 40) #10
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 16
   store i32 3, ptr %763, align 8
   %764 = load i32, ptr %10, align 4
@@ -7409,7 +7403,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
 
 832:                                              ; preds = %proto_item_set_generated.exit2580
   %833 = call ptr @wmem_file_scope()
-  %834 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %833, i64 noundef 24) #11
+  %834 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %833, i64 noundef 24) #10
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 2
   store i16 %752, ptr %835, align 2
   store i16 %753, ptr %834, align 8
@@ -7491,7 +7485,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
 884:                                              ; preds = %881
   %885 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %886 = load ptr, ptr %885, align 8
-  %887 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %886, i64 noundef 40) #11
+  %887 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %886, i64 noundef 40) #10
   %888 = load i32, ptr %5, align 8
   store i32 %888, ptr %887, align 8
   %889 = load i32, ptr %44, align 4
@@ -7897,7 +7891,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
 1164:                                             ; preds = %1161
   %1165 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1166 = load ptr, ptr %1165, align 8
-  %1167 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %1166, i64 noundef 40) #11
+  %1167 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %1166, i64 noundef 40) #10
   %1168 = load i32, ptr %5, align 8
   store i32 %1168, ptr %1167, align 8
   %1169 = load i32, ptr %44, align 4
@@ -8587,7 +8581,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %.lr.ph, %1143, %.lr
   %.1 = phi i32 [ %1677, %1673 ], [ %152, %182 ], [ %152, %179 ], [ %152, %178 ], [ 8, %send_hci_summary_status_tap.exit2573 ], [ 8, %218 ], [ 8, %234 ], [ 8, %231 ], [ 8, %224 ], [ 10, %247 ], [ 10, %255 ], [ 13, %263 ], [ 8, %271 ], [ 9, %279 ], [ 10, %287 ], [ 8, %301 ], [ 7, %313 ], [ 10, %319 ], [ 7, %327 ], [ 8, %333 ], [ 7, %400 ], [ 7, %397 ], [ 7, %390 ], [ 7, %423 ], [ 7, %420 ], [ 7, %413 ], [ 7, %447 ], [ 7, %444 ], [ 7, %437 ], [ 9, %472 ], [ 9, %469 ], [ 9, %461 ], [ 8, %505 ], [ 8, %502 ], [ 8, %485 ], [ 7, %518 ], [ 7, %524 ], [ 9, %534 ], [ 7, %542 ], [ 7, %548 ], [ 7, %566 ], [ 7, %572 ], [ 7, %578 ], [ 7, %594 ], [ 7, %591 ], [ 7, %584 ], [ 7, %607 ], [ 247, %613 ], [ 7, %639 ], [ 7, %636 ], [ 7, %629 ], [ 38, %652 ], [ 7, %660 ], [ 7, %666 ], [ 8, %672 ], [ 11, %678 ], [ 7, %690 ], [ 11, %696 ], [ 10, %708 ], [ 8, %714 ], [ 7, %722 ], [ 70, %847 ], [ %857, %853 ], [ %867, %858 ], [ 13, %884 ], [ 13, %881 ], [ 13, %868 ], [ 12, %903 ], [ 8, %953 ], [ 7, %962 ], [ 10, %968 ], [ 9, %976 ], [ 9, %984 ], [ 19, %992 ], [ 14, %1002 ], [ 9, %1015 ], [ 36, %1023 ], [ %1058, %1047 ], [ 7, %1059 ], [ 7, %1150 ], [ 12, %1201 ], [ 9, %1197 ], [ 14, %1206 ], [ 7, %1213 ], [ 7, %1219 ], [ 13, %1225 ], [ 22, %1238 ], [ 14, %1244 ], [ 14, %1250 ], [ 8, %1316 ], [ 10, %1322 ], [ 7, %1332 ], [ 8, %1338 ], [ 7, %1344 ], [ 8, %1350 ], [ 9, %1356 ], [ %1374, %1364 ], [ 37, %1375 ], [ 13, %1408 ], [ 8, %1418 ], [ 7, %1424 ], [ 10, %1430 ], [ 70, %1438 ], [ 6, %1450 ], [ 6, %1456 ], [ 10, %1462 ], [ 7, %1470 ], [ 14, %1476 ], [ 7, %1488 ], [ 8, %1494 ], [ 10, %1502 ], [ 10, %1516 ], [ 17, %1529 ], [ 7, %1555 ], [ 8, %1561 ], [ 7, %1567 ], [ 8, %1573 ], [ 20, %1579 ], [ 36, %1591 ], [ 11, %1611 ], [ 7, %1623 ], [ 8, %1629 ], [ 255, %1635 ], [ %1653, %1649 ], [ 7, %1654 ], [ %1664, %1660 ], [ %1672, %1668 ], [ 5, %1665 ], [ 14, %proto_item_set_generated.exit2580 ], [ 14, %844 ], [ 14, %728 ], [ %100, %.thread2584 ], [ 6, %104 ], [ 6, %123 ], [ 254, %339 ], [ 254, %376 ], [ 254, %373 ], [ 7, %554 ], [ %934, %._crit_edge2617 ], [ %.6.lcssa, %._crit_edge2605 ], [ 8, %1541 ], [ %564, %.lr.ph2626 ], [ %951, %.lr.ph2621 ], [ %1146, %1143 ], [ %1553, %.lr.ph ]
   %1678 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1679 = load ptr, ptr %1678, align 8
-  %1680 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %1679, i64 noundef 8) #11
+  %1680 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %1679, i64 noundef 8) #10
   %.not.i2581 = icmp eq ptr %1680, null
   br i1 %.not.i2581, label %add_opcode.exit, label %1681
 
@@ -8599,11 +8593,11 @@ send_hci_summary_status_tap.exit:                 ; preds = %.lr.ph, %1143, %.lr
   br label %add_opcode.exit
 
 add_opcode.exit:                                  ; preds = %send_hci_summary_status_tap.exit, %1681
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
@@ -8627,7 +8621,7 @@ define internal fastcc i32 @dissect_bthci_evt_command_status(ptr noundef %0, ptr
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %19, i64 noundef 32) #11
+  %20 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %19, i64 noundef 32) #10
   %21 = load i32, ptr %5, align 8
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -8657,7 +8651,7 @@ define internal fastcc i32 @dissect_bthci_evt_command_status(ptr noundef %0, ptr
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %38, i64 noundef 32) #11
+  %39 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %38, i64 noundef 32) #10
   %40 = load i32, ptr %5, align 8
   store i32 %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -8693,7 +8687,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %send_hci_summary_st
   %56 = trunc nuw nsw i16 %52 to i8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %58, i64 noundef 32) #11
+  %59 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %58, i64 noundef 32) #10
   %60 = load i32, ptr %5, align 8
   store i32 %60, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -8728,7 +8722,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %send_hci_summary_st
 75:                                               ; preds = %72, %send_hci_summary_status_tap.exit
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %77, i64 noundef 8) #11
+  %78 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %77, i64 noundef 8) #10
   %.not.i114 = icmp eq ptr %78, null
   br i1 %.not.i114, label %add_opcode.exit, label %add_opcode.exit.sink.split
 
@@ -8802,9 +8796,9 @@ add_opcode.exit:                                  ; preds = %75, %add_opcode.exi
   br i1 %103, label %104, label %131
 
 104:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %105 = load i32, ptr %5, align 8
   store i32 %105, ptr %8, align 4
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -8851,9 +8845,9 @@ add_opcode.exit:                                  ; preds = %75, %add_opcode.exi
   br label %130
 
 130:                                              ; preds = %116, %123, %126, %104
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %131
 
 131:                                              ; preds = %130, %97
@@ -8883,7 +8877,7 @@ define internal fastcc void @dissect_bthci_evt_hardware_error(ptr noundef %0, pt
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %11, i64 noundef 32) #11
+  %12 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %11, i64 noundef 32) #10
   %13 = load i32, ptr %3, align 8
   store i32 %13, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8914,7 +8908,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_role_change(ptr noundef %0
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [6 x %struct._wmem_tree_key_t], align 16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load i32, ptr @hf_bthci_evt_status, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -8925,7 +8919,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_role_change(ptr noundef %0
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %19, i64 noundef 32) #11
+  %20 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %19, i64 noundef 32) #10
   %21 = load i32, ptr %3, align 8
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8973,12 +8967,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
   br i1 %or.cond, label %49, label %96
 
 49:                                               ; preds = %send_hci_summary_status_tap.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %50 = load i32, ptr %3, align 8
   store i32 %50, ptr %6, align 4
   %51 = load i32, ptr %36, align 4
@@ -9037,7 +9031,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store ptr null, ptr %89, align 8
   %90 = call ptr @wmem_file_scope()
-  %91 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %90, i64 noundef 8) #11
+  %91 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %90, i64 noundef 8) #10
   %92 = load i32, ptr %10, align 4
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 %92, ptr %93, align 4
@@ -9049,17 +9043,17 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %95 = load ptr, ptr %94, align 8
   call void @wmem_tree_insert32_array(ptr noundef %95, ptr noundef nonnull %11, ptr noundef %91)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
 96:                                               ; preds = %49, %send_hci_summary_status_tap.exit
   %97 = add i32 %38, 1
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %97
 }
 
@@ -9096,7 +9090,7 @@ define internal fastcc void @dissect_bthci_evt_mode_change(ptr noundef %0, ptr n
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i32, ptr @hf_bthci_evt_status, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -9107,7 +9101,7 @@ define internal fastcc void @dissect_bthci_evt_mode_change(ptr noundef %0, ptr n
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %17, i64 noundef 32) #11
+  %18 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %17, i64 noundef 32) #10
   %19 = load i32, ptr %3, align 8
   store i32 %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9158,10 +9152,10 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %29
   br i1 %or.cond, label %49, label %71
 
 49:                                               ; preds = %send_hci_summary_status_tap.exit
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = load i32, ptr %3, align 8
   store i32 %50, ptr %7, align 4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9190,7 +9184,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %29
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %63, align 8
   %64 = call ptr @wmem_file_scope()
-  %65 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %64, i64 noundef 8) #11
+  %65 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %64, i64 noundef 8) #10
   %66 = zext i8 %39 to i32
   store i32 %66, ptr %65, align 4
   %67 = load i32, ptr %9, align 4
@@ -9199,14 +9193,14 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %29
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %70 = load ptr, ptr %69, align 8
   call void @wmem_tree_insert32_array(ptr noundef %70, ptr noundef nonnull %6, ptr noundef %65)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 71:                                               ; preds = %49, %send_hci_summary_status_tap.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -9285,7 +9279,7 @@ define internal fastcc void @dissect_bthci_evt_read_clock_offset_complete(ptr no
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9332,10 +9326,10 @@ define internal fastcc void @dissect_bthci_evt_conn_packet_type_changed(ptr noun
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_bthci_evt_status, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -9346,7 +9340,7 @@ define internal fastcc void @dissect_bthci_evt_conn_packet_type_changed(ptr noun
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #11
+  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #10
   %18 = load i32, ptr %3, align 8
   store i32 %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9444,10 +9438,10 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
   %66 = load i32, ptr %hf_packet_type_sco.sink, align 4
   %67 = load i32, ptr @ett_ptype_subtree, align 4
   %68 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 5, i32 noundef %66, i32 noundef %67, ptr noundef nonnull %hfx_packet_type_sco.sink, i32 noundef -2147483648)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -9483,7 +9477,7 @@ define internal fastcc void @dissect_bthci_evt_flow_specification_complete(ptr n
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9589,7 +9583,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_ext_features_c
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9637,12 +9631,12 @@ define internal fastcc noundef i32 @dissect_bthci_evt_sync_connection_complete(p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_bthci_evt_status, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -9653,7 +9647,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_sync_connection_complete(p
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %18, i64 noundef 32) #11
+  %19 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %18, i64 noundef 32) #10
   %20 = load i32, ptr %3, align 8
   store i32 %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9748,7 +9742,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %80, align 8
   %81 = call ptr @wmem_file_scope()
-  %82 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %81, i64 noundef 16) #11
+  %82 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %81, i64 noundef 16) #10
   %83 = load i32, ptr %3, align 8
   store i32 %83, ptr %82, align 4
   %84 = load i32, ptr %40, align 4
@@ -9759,12 +9753,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i16 %87, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %89, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %89, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 noundef 6, i1 noundef false) #11
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %91 = load ptr, ptr %90, align 8
   call void @wmem_tree_insert32_array(ptr noundef %91, ptr noundef nonnull %7, ptr noundef %82)
   %92 = call ptr @wmem_file_scope()
-  %93 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %92, i64 noundef 12) #11
+  %93 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %92, i64 noundef 12) #10
   %94 = load i32, ptr %10, align 4
   store i32 %94, ptr %93, align 4
   %95 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
@@ -9800,7 +9794,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
   store i32 0, ptr %77, align 16
   store ptr null, ptr %78, align 8
   %108 = call ptr @wmem_file_scope()
-  %109 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %108, i64 noundef 4) #11
+  %109 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %108, i64 noundef 4) #10
   store i32 %.0, ptr %109, align 4
   %110 = load ptr, ptr @bthci_sco_stream_numbers, align 8
   call void @wmem_tree_insert32_array(ptr noundef %110, ptr noundef nonnull %7, ptr noundef %109)
@@ -9808,12 +9802,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
 
 111:                                              ; preds = %.thread, %send_hci_summary_status_tap.exit
   %112 = add i32 %42, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %112
 }
 
@@ -9829,7 +9823,7 @@ define internal fastcc void @dissect_bthci_evt_sync_connection_changed(ptr nound
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9883,7 +9877,7 @@ define internal fastcc void @dissect_bthci_evt_sniff_subrating(ptr noundef %0, p
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9926,7 +9920,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -9942,12 +9936,12 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 57
@@ -10047,7 +10041,7 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   store i32 0, ptr %41, align 16
   store ptr null, ptr %42, align 8
   %79 = call ptr @wmem_file_scope()
-  %80 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %79, i64 noundef 16) #11
+  %80 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %79, i64 noundef 16) #10
   %81 = load i8, ptr %4, align 1
   %82 = zext i8 %81 to i32
   %83 = shl nuw nsw i32 %82, 16
@@ -10086,12 +10080,12 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   br i1 %109, label %44, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %44, %106, %20, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -10107,7 +10101,7 @@ define internal fastcc void @dissect_bthci_evt_encryption_key_refresh_complete(p
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -10179,7 +10173,7 @@ define internal fastcc i32 @dissect_bthci_evt_simple_pairing_complete(ptr nounde
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -10287,7 +10281,7 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
   %35 = alloca i32, align 4
   %36 = alloca i32, align 4
   %37 = alloca [5 x %struct._wmem_tree_key_t], align 16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %39 = load i32, ptr @hf_bthci_evt_le_meta_subevent, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
@@ -10302,7 +10296,7 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
 43:                                               ; preds = %5
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %45, i64 noundef 32) #11
+  %46 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %45, i64 noundef 32) #10
   %47 = load i32, ptr %4, align 8
   store i32 %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -10434,11 +10428,11 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
 
 100:                                              ; preds = %65
   %101 = and i16 %71, 4095
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %102 = load i32, ptr %4, align 8
   store i32 %102, ptr %8, align 4
   %103 = load i32, ptr %78, align 4
@@ -10468,7 +10462,7 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %115, align 8
   %116 = call ptr @wmem_file_scope()
-  %117 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %116, i64 noundef 16) #11
+  %117 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %116, i64 noundef 16) #10
   %118 = load i32, ptr %4, align 8
   store i32 %118, ptr %117, align 4
   %119 = load i32, ptr %78, align 4
@@ -10477,12 +10471,12 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i16 %101, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %122, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %122, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 noundef 6, i1 noundef false) #11
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %124 = load ptr, ptr %123, align 8
   call void @wmem_tree_insert32_array(ptr noundef %124, ptr noundef nonnull %7, ptr noundef %117)
   %125 = call ptr @wmem_file_scope()
-  %126 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %125, i64 noundef 12) #11
+  %126 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %125, i64 noundef 12) #10
   %127 = load i32, ptr %11, align 4
   store i32 %127, ptr %126, align 4
   %128 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
@@ -10493,11 +10487,11 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %132 = load ptr, ptr %131, align 8
   call void @wmem_tree_insert32_array(ptr noundef %132, ptr noundef nonnull %7, ptr noundef %126)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %133
 
 133:                                              ; preds = %100, %65
@@ -10541,7 +10535,7 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
 157:                                              ; preds = %142
   %158 = zext i8 %153 to i32
   %159 = load ptr, ptr %141, align 8
-  %160 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %159, i64 noundef 16) #11
+  %160 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %159, i64 noundef 16) #10
   %161 = load i32, ptr %4, align 8
   store i32 %161, ptr %160, align 8
   %162 = load i32, ptr %140, align 4
@@ -10668,7 +10662,7 @@ define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr nounde
 250:                                              ; preds = %244
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %252 = load ptr, ptr %251, align 8
-  %253 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %252, i64 noundef 32) #11
+  %253 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %252, i64 noundef 32) #10
   %254 = load i32, ptr %4, align 8
   store i32 %254, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -10755,11 +10749,11 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
   br i1 %or.cond5, label %316, label %348
 
 316:                                              ; preds = %308
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %317 = load i32, ptr %4, align 8
   store i32 %317, ptr %13, align 4
   %318 = load i32, ptr %277, align 4
@@ -10789,7 +10783,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
   %330 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr null, ptr %330, align 8
   %331 = call ptr @wmem_file_scope()
-  %332 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %331, i64 noundef 16) #11
+  %332 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %331, i64 noundef 16) #10
   %333 = load i32, ptr %4, align 8
   store i32 %333, ptr %332, align 4
   %334 = load i32, ptr %277, align 4
@@ -10798,12 +10792,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store i16 %270, ptr %336, align 4
   %337 = getelementptr inbounds nuw i8, ptr %332, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %337, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 noundef 6, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %337, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 noundef 6, i1 noundef false) #11
   %338 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %339 = load ptr, ptr %338, align 8
   call void @wmem_tree_insert32_array(ptr noundef %339, ptr noundef nonnull %12, ptr noundef %332)
   %340 = call ptr @wmem_file_scope()
-  %341 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %340, i64 noundef 12) #11
+  %341 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %340, i64 noundef 12) #10
   %342 = load i32, ptr %16, align 4
   store i32 %342, ptr %341, align 4
   %343 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
@@ -10814,17 +10808,17 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
   %346 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %347 = load ptr, ptr %346, align 8
   call void @wmem_tree_insert32_array(ptr noundef %347, ptr noundef nonnull %12, ptr noundef %341)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %348
 
 348:                                              ; preds = %316, %308
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %350 = load ptr, ptr %349, align 8
-  %351 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %350, i64 noundef 8) #11
+  %351 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %350, i64 noundef 8) #10
   %.not.i1736 = icmp eq ptr %351, null
   br i1 %.not.i1736, label %add_opcode.exit, label %352
 
@@ -10990,7 +10984,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
 460:                                              ; preds = %447
   %461 = zext i8 %456 to i32
   %462 = load ptr, ptr %402, align 8
-  %463 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %462, i64 noundef 16) #11
+  %463 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %462, i64 noundef 16) #10
   %464 = load i32, ptr %4, align 8
   store i32 %464, ptr %463, align 8
   %465 = load i32, ptr %401, align 4
@@ -11022,7 +11016,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %244, %264
 480:                                              ; preds = %474
   %481 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %482 = load ptr, ptr %481, align 8
-  %483 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %482, i64 noundef 32) #11
+  %483 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %482, i64 noundef 32) #10
   %484 = load i32, ptr %4, align 8
   store i32 %484, ptr %483, align 8
   %485 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11248,7 +11242,7 @@ send_hci_summary_status_tap.exit1739:             ; preds = %474, %494
 648:                                              ; preds = %642
   %649 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %650 = load ptr, ptr %649, align 8
-  %651 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %650, i64 noundef 32) #11
+  %651 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %650, i64 noundef 32) #10
   %652 = load i32, ptr %4, align 8
   store i32 %652, ptr %651, align 8
   %653 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11292,7 +11286,7 @@ send_hci_summary_status_tap.exit1742:             ; preds = %642, %662
 673:                                              ; preds = %667
   %674 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %675 = load ptr, ptr %674, align 8
-  %676 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %675, i64 noundef 32) #11
+  %676 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %675, i64 noundef 32) #10
   %677 = load i32, ptr %4, align 8
   store i32 %677, ptr %676, align 8
   %678 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11374,7 +11368,7 @@ send_hci_summary_status_tap.exit1745:             ; preds = %667, %687
 734:                                              ; preds = %728
   %735 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %736 = load ptr, ptr %735, align 8
-  %737 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %736, i64 noundef 32) #11
+  %737 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %736, i64 noundef 32) #10
   %738 = load i32, ptr %4, align 8
   store i32 %738, ptr %737, align 8
   %739 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11418,11 +11412,11 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
 
 761:                                              ; preds = %send_hci_summary_status_tap.exit1748
   %762 = and i16 %753, 4095
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %763 = load i32, ptr %4, align 8
   store i32 %763, ptr %18, align 4
   %764 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11453,7 +11447,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %777 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr null, ptr %777, align 8
   %778 = call ptr @wmem_file_scope()
-  %779 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %778, i64 noundef 12) #11
+  %779 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %778, i64 noundef 12) #10
   %780 = load i32, ptr %21, align 4
   store i32 %780, ptr %779, align 4
   %781 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
@@ -11464,11 +11458,11 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %784 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %785 = load ptr, ptr %784, align 8
   call void @wmem_tree_insert32_array(ptr noundef %785, ptr noundef nonnull %17, ptr noundef %779)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %786
 
 786:                                              ; preds = %761, %send_hci_summary_status_tap.exit1748
@@ -11519,7 +11513,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   br label %add_opcode.exit
 
 829:                                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %830 = load i32, ptr @hf_bthci_evt_connection_handle, align 4
   %831 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %830, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %832 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
@@ -11544,10 +11538,10 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
 847:                                              ; preds = %829
   %848 = and i16 %832, 4095
   %849 = zext nneg i16 %848 to i32
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %850 = load i32, ptr %4, align 8
   store i32 %850, ptr %24, align 4
   %851 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11576,7 +11570,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %863 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store ptr null, ptr %863, align 8
   %864 = call ptr @wmem_file_scope()
-  %865 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %864, i64 noundef 8) #11
+  %865 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %864, i64 noundef 8) #10
   store i32 %849, ptr %865, align 4
   %866 = load i32, ptr %26, align 4
   %867 = getelementptr inbounds nuw i8, ptr %865, i64 4
@@ -11584,14 +11578,14 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %868 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %869 = load ptr, ptr %868, align 8
   call void @wmem_tree_insert32_array(ptr noundef %869, ptr noundef nonnull %23, ptr noundef %865)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %870
 
 870:                                              ; preds = %847, %829
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %add_opcode.exit
 
 871:                                              ; preds = %61
@@ -11648,7 +11642,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
 910:                                              ; preds = %902
   %911 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %912 = load ptr, ptr %911, align 8
-  %913 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %912, i64 noundef 32) #11
+  %913 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %912, i64 noundef 32) #10
   %914 = load i32, ptr %4, align 8
   store i32 %914, ptr %913, align 8
   %915 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11899,7 +11893,7 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
 1096:                                             ; preds = %1091
   %1097 = zext i8 %1094 to i32
   %1098 = load ptr, ptr %1058, align 8
-  %1099 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %1098, i64 noundef 16) #11
+  %1099 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %1098, i64 noundef 16) #10
   %1100 = load i32, ptr %4, align 8
   store i32 %1100, ptr %1099, align 8
   %1101 = load i32, ptr %1059, align 4
@@ -11962,8 +11956,8 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   br label %add_opcode.exit
 
 1143:                                             ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1144 = load i32, ptr @hf_bthci_evt_status, align 4
   %1145 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1144, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %1146 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
@@ -12035,10 +12029,10 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   br i1 %or.cond14, label %1207, label %1229
 
 1207:                                             ; preds = %1143
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %29) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1208 = load i32, ptr %4, align 8
   store i32 %1208, ptr %30, align 4
   %1209 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -12071,22 +12065,22 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   %1223 = getelementptr inbounds nuw i8, ptr %29, i64 88
   store ptr null, ptr %1223, align 8
   %1224 = call ptr @wmem_file_scope()
-  %1225 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %1224, i64 noundef 2) #11
+  %1225 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %1224, i64 noundef 2) #10
   store i8 %1173, ptr %1225, align 1
   %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 1
   store i8 %1176, ptr %1226, align 1
   %1227 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %1228 = load ptr, ptr %1227, align 8
   call void @wmem_tree_insert32_array(ptr noundef %1228, ptr noundef nonnull %29, ptr noundef %1225)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #9
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %29) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1229
 
 1229:                                             ; preds = %1207, %1143
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %add_opcode.exit
 
 1230:                                             ; preds = %61
@@ -12121,11 +12115,11 @@ send_hci_summary_status_tap.exit1748:             ; preds = %728, %748
   br label %add_opcode.exit
 
 1258:                                             ; preds = %61, %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1259 = load i32, ptr @hf_bthci_evt_connection_handle, align 4
   %1260 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1259, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %1261 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
@@ -12323,11 +12317,11 @@ dissect_bthci_evt_cs_result_steps.exit:           ; preds = %1342, %1361, %1369,
 
 ._crit_edge:                                      ; preds = %dissect_bthci_evt_cs_result_steps.exit, %.thread
   %.13.lcssa = phi i32 [ %1295, %.thread ], [ %.0.i, %dissect_bthci_evt_cs_result_steps.exit ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %37) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %add_opcode.exit
 
 1381:                                             ; preds = %61
@@ -12371,7 +12365,7 @@ dissect_bthci_evt_cs_result_steps.exit:           ; preds = %1342, %1361, %1369,
 
 add_opcode.exit:                                  ; preds = %1108, %.lr.ph1769, %.lr.ph1775, %472, %359, %169, %1047, %927, %871, %397, %354, %136, %924, %902, %352, %348, %61, %786, %816, %send_hci_summary_status_tap.exit1745, %715, %send_hci_summary_status_tap.exit1739, %518, %1396, %1385, %1381, %._crit_edge, %1230, %1229, %1135, %1128, %1110, %1040, %1019, %992, %986, %962, %954, %870, %send_hci_summary_status_tap.exit1742, %619, %598, %593, %583, %573, %570, %560, %387, %236, %228, %217, %206, %199, %188, %174, %133
   %.01711 = phi i32 [ 3, %61 ], [ %92, %133 ], [ 12, %174 ], [ 14, %188 ], [ 15, %199 ], [ 13, %206 ], [ 13, %217 ], [ 68, %228 ], [ 36, %236 ], [ 8, %387 ], [ %530, %518 ], [ %516, %send_hci_summary_status_tap.exit1739 ], [ %569, %560 ], [ 5, %570 ], [ 8, %573 ], [ %592, %583 ], [ 6, %593 ], [ %618, %598 ], [ %641, %619 ], [ 6, %send_hci_summary_status_tap.exit1742 ], [ %727, %715 ], [ %713, %send_hci_summary_status_tap.exit1745 ], [ 45, %816 ], [ 31, %786 ], [ 9, %870 ], [ 7, %954 ], [ 7, %962 ], [ 11, %986 ], [ 22, %992 ], [ 14, %1019 ], [ 6, %1040 ], [ 256, %1110 ], [ %1134, %1128 ], [ 78, %1135 ], [ 36, %1229 ], [ 24, %1230 ], [ %.13.lcssa, %._crit_edge ], [ 4, %1381 ], [ %1395, %1385 ], [ 12, %1396 ], [ %.3, %348 ], [ %.3, %352 ], [ 5, %902 ], [ 5, %924 ], [ 4, %136 ], [ 4, %354 ], [ 4, %397 ], [ 21, %871 ], [ 17, %927 ], [ 7, %1047 ], [ %172, %169 ], [ %384, %359 ], [ %.6, %472 ], [ %900, %.lr.ph1775 ], [ %952, %.lr.ph1769 ], [ %.11, %1108 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.01711
 }
 
@@ -12387,7 +12381,7 @@ define internal fastcc void @dissect_bthci_evt_physical_link_complete(ptr nounde
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12433,7 +12427,7 @@ define internal fastcc void @dissect_bthci_evt_disconnect_physical_link_complete
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12474,7 +12468,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 34:                                               ; preds = %send_hci_summary_status_tap.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %36, i64 noundef 32) #11
+  %37 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %36, i64 noundef 32) #10
   %38 = load i32, ptr %3, align 8
   store i32 %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12527,7 +12521,7 @@ define internal fastcc void @dissect_bthci_evt_logical_link_complete(ptr noundef
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12577,7 +12571,7 @@ define internal fastcc void @dissect_bthci_evt_disconnect_logical_link_complete(
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12618,7 +12612,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 34:                                               ; preds = %send_hci_summary_status_tap.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %36, i64 noundef 32) #11
+  %37 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %36, i64 noundef 32) #10
   %38 = load i32, ptr %3, align 8
   store i32 %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12662,7 +12656,7 @@ define internal fastcc void @dissect_bthci_evt_flow_spec_modify_complete(ptr nou
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12739,7 +12733,7 @@ define internal fastcc void @dissect_bthci_evt_amp_start_stop_test(ptr noundef %
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12804,7 +12798,7 @@ define internal fastcc void @dissect_bthci_evt_short_range_mode_change_complete(
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12852,7 +12846,7 @@ define internal fastcc void @dissect_bthci_evt_amp_status_change(ptr noundef %0,
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %12, i64 noundef 32) #10
   %14 = load i32, ptr %3, align 8
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12895,7 +12889,7 @@ define internal fastcc void @send_hci_summary_status_tap(i8 noundef zeroext %0, 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %8, i64 noundef 32) #11
+  %9 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %8, i64 noundef 32) #10
   %10 = load i32, ptr %2, align 8
   store i32 %10, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -12989,7 +12983,7 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #0
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -13499,18 +13493,24 @@ define internal fastcc noundef i32 @dissect_bthci_evt_cs_mode2_step(ptr noundef 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { allocsize(2) }
-attributes #11 = { allocsize(1) }
+attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { allocsize(2) }
+attributes #10 = { allocsize(1) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

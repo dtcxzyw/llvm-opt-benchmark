@@ -100,9 +100,9 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   %30 = alloca %"class.gmx::CommandLineModuleGroup", align 8
   %31 = alloca %"class.std::function", align 8
   %32 = tail call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %32, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -126,7 +126,7 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #6
+  call void @__clang_call_terminate(ptr %42) #5
   unreachable
 
 43:                                               ; preds = %1
@@ -144,7 +144,7 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #6
+  call void @__clang_call_terminate(ptr %50) #5
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit4.i71, %_ZNSt14_Function_baseD2Ev.exit4.i68, %_ZNSt14_Function_baseD2Ev.exit4.i65, %_ZNSt14_Function_baseD2Ev.exit4.i62, %_ZNSt14_Function_baseD2Ev.exit4.i59, %_ZNSt14_Function_baseD2Ev.exit4.i56, %_ZNSt14_Function_baseD2Ev.exit4.i53, %_ZNSt14_Function_baseD2Ev.exit4.i50, %_ZNSt14_Function_baseD2Ev.exit4.i47, %_ZNSt14_Function_baseD2Ev.exit4.i44, %_ZNSt14_Function_baseD2Ev.exit4.i41, %_ZNSt14_Function_baseD2Ev.exit4.i38, %_ZNSt14_Function_baseD2Ev.exit4.i35, %_ZNSt14_Function_baseD2Ev.exit4.i32, %_ZNSt14_Function_baseD2Ev.exit4.i
@@ -152,16 +152,16 @@ common.resume:                                    ; preds = %_ZNSt14_Function_ba
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %36, %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @_ZN3gmx15analysismodules9AngleInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %32, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -185,7 +185,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #6
+  call void @__clang_call_terminate(ptr %60) #5
   unreachable
 
 61:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -203,20 +203,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #6
+  call void @__clang_call_terminate(ptr %68) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i32:              ; preds = %64, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %54, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @_ZN3gmx15analysismodules14ConvertTrjInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %32, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %69 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -240,7 +240,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #6
+  call void @__clang_call_terminate(ptr %78) #5
   unreachable
 
 79:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -258,20 +258,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #6
+  call void @__clang_call_terminate(ptr %86) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i35:              ; preds = %82, %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %72, %74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @_ZN3gmx15analysismodules12DistanceInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %32, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %87 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -295,7 +295,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #6
+  call void @__clang_call_terminate(ptr %96) #5
   unreachable
 
 97:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -313,20 +313,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #6
+  call void @__clang_call_terminate(ptr %104) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i38:              ; preds = %100, %97
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %90, %92
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @_ZN3gmx15analysismodules8DsspInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %32, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %105 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -350,7 +350,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #6
+  call void @__clang_call_terminate(ptr %114) #5
   unreachable
 
 115:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -368,20 +368,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #6
+  call void @__clang_call_terminate(ptr %122) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i41:              ; preds = %118, %115
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %108, %110
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @_ZN3gmx15analysismodules18ExtractClusterInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -405,7 +405,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #6
+  call void @__clang_call_terminate(ptr %132) #5
   unreachable
 
 133:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -423,20 +423,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #6
+  call void @__clang_call_terminate(ptr %140) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i44:              ; preds = %136, %133
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %126, %128
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZN3gmx15analysismodules14FreeVolumeInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %32, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %141 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -460,7 +460,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #6
+  call void @__clang_call_terminate(ptr %150) #5
   unreachable
 
 151:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -478,20 +478,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #6
+  call void @__clang_call_terminate(ptr %158) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i47:              ; preds = %154, %151
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %144, %146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @_ZN3gmx15analysismodules9HbondInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %159 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -515,7 +515,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #6
+  call void @__clang_call_terminate(ptr %168) #5
   unreachable
 
 169:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -533,20 +533,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #6
+  call void @__clang_call_terminate(ptr %176) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i50:              ; preds = %172, %169
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %162, %164
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @_ZN3gmx15analysismodules7MsdInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %32, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -570,7 +570,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #6
+  call void @__clang_call_terminate(ptr %186) #5
   unreachable
 
 187:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -588,20 +588,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #6
+  call void @__clang_call_terminate(ptr %194) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i53:              ; preds = %190, %187
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %180, %182
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @_ZN3gmx15analysismodules16PairDistanceInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %32, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -625,7 +625,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #6
+  call void @__clang_call_terminate(ptr %204) #5
   unreachable
 
 205:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -643,20 +643,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #6
+  call void @__clang_call_terminate(ptr %212) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i56:              ; preds = %208, %205
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %198, %200
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @_ZN3gmx15analysismodules7RdfInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %32, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -680,7 +680,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   %221 = landingpad { ptr, i32 }
           catch ptr null
   %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #6
+  call void @__clang_call_terminate(ptr %222) #5
   unreachable
 
 223:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -698,20 +698,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   %229 = landingpad { ptr, i32 }
           catch ptr null
   %230 = extractvalue { ptr, i32 } %229, 0
-  call void @__clang_call_terminate(ptr %230) #6
+  call void @__clang_call_terminate(ptr %230) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i59:              ; preds = %226, %223
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %216, %218
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @_ZN3gmx15analysismodules8SasaInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %32, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %231 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -735,7 +735,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   %239 = landingpad { ptr, i32 }
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #6
+  call void @__clang_call_terminate(ptr %240) #5
   unreachable
 
 241:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -753,20 +753,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #6
+  call void @__clang_call_terminate(ptr %248) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i62:              ; preds = %244, %241
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %234, %236
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @_ZN3gmx15analysismodules14ScatteringInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %32, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %249 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -790,7 +790,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #6
+  call void @__clang_call_terminate(ptr %258) #5
   unreachable
 
 259:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -808,20 +808,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   %265 = landingpad { ptr, i32 }
           catch ptr null
   %266 = extractvalue { ptr, i32 } %265, 0
-  call void @__clang_call_terminate(ptr %266) #6
+  call void @__clang_call_terminate(ptr %266) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i65:              ; preds = %262, %259
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %252, %254
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @_ZN3gmx15analysismodules10SelectInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %32, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %267 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -845,7 +845,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   %275 = landingpad { ptr, i32 }
           catch ptr null
   %276 = extractvalue { ptr, i32 } %275, 0
-  call void @__clang_call_terminate(ptr %276) #6
+  call void @__clang_call_terminate(ptr %276) #5
   unreachable
 
 277:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -863,20 +863,20 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   %283 = landingpad { ptr, i32 }
           catch ptr null
   %284 = extractvalue { ptr, i32 } %283, 0
-  call void @__clang_call_terminate(ptr %284) #6
+  call void @__clang_call_terminate(ptr %284) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i68:              ; preds = %280, %277
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %270, %272
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @_ZN3gmx15analysismodules14TrajectoryInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %32, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %285 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -900,7 +900,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   %293 = landingpad { ptr, i32 }
           catch ptr null
   %294 = extractvalue { ptr, i32 } %293, 0
-  call void @__clang_call_terminate(ptr %294) #6
+  call void @__clang_call_terminate(ptr %294) #5
   unreachable
 
 295:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -918,35 +918,29 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   %301 = landingpad { ptr, i32 }
           catch ptr null
   %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #6
+  call void @__clang_call_terminate(ptr %302) #5
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i71:              ; preds = %298, %295
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10GyrateInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %288, %290
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @_ZN3gmx15analysismodules10GyrateInfo4nameE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
-declare ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
+declare void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEE(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEE(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
-
-declare void @_ZN3gmx15analysismodules9AngleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules9AngleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
+declare void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
@@ -980,52 +974,58 @@ _ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx24TrajectoryAnalysisM
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #5
-  tail call void @_ZSt9terminatev() #6
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
+  tail call void @_ZSt9terminatev() #5
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
-declare void @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules12DistanceInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules12DistanceInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules8DsspInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules8DsspInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules18ExtractClusterInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules18ExtractClusterInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules14FreeVolumeInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules14FreeVolumeInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules9HbondInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules9HbondInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules7MsdInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules7MsdInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules16PairDistanceInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules16PairDistanceInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules7RdfInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules7RdfInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules8SasaInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules8SasaInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules14ScatteringInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules14ScatteringInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules10SelectInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules10SelectInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules14TrajectoryInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules14TrajectoryInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
-declare void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #2
+declare void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn nounwind }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

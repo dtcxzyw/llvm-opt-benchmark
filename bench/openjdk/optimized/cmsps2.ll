@@ -169,16 +169,16 @@ define hidden i32 @cmsGetPostScriptColorResource(ptr noundef %0, i32 noundef %1,
   br i1 %cond, label %37, label %292
 
 37:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %38 = tail call i32 @cmsGetDeviceClass(ptr noundef %2) #9
   %39 = icmp eq i32 %38, 1852662636
   br i1 %39, label %40, label %72
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @cmsCreateLab4ProfileTHR(ptr noundef %42, ptr noundef null) #9
@@ -232,17 +232,17 @@ define hidden i32 @cmsGetPostScriptColorResource(ptr noundef %0, i32 noundef %1,
   br i1 %exitcond.not.i.i, label %.thread.i, label %59, !llvm.loop !6
 
 WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %GenerateCSA.exit
 
 .thread.i:                                        ; preds = %67, %51
   %69 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8) #9
   call void @cmsDeleteTransform(ptr noundef nonnull %44) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %71 = load i32, ptr %70, align 8
   br label %GenerateCSA.exit
@@ -271,8 +271,8 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 80:                                               ; preds = %78
   %81 = load ptr, ptr %35, align 8
   %82 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %83 = call i32 @cmsGetColorSpace(ptr noundef %2) #9
   %84 = call i32 @cmsDetectBlackPoint(ptr noundef nonnull %30, ptr noundef %2, i32 noundef 1, i32 noundef 0) #9
   switch i32 %83, label %WriteInputMatrixShaper.exit.i [
@@ -409,25 +409,25 @@ EmitCIEBasedABC.exit.i.i:                         ; preds = %125
   br label %WriteInputMatrixShaper.exit.thread.i
 
 WriteInputMatrixShaper.exit.thread.i:             ; preds = %EmitCIEBasedABC.exit.i.i, %85
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %288
 
 WriteInputMatrixShaper.exit.i:                    ; preds = %80
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %154 = load ptr, ptr %153, align 8
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %154, i32 noundef 9, ptr noundef nonnull @.str.9) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %291
 
 155:                                              ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 %4, ptr %24, align 4
   %156 = call i32 @cmsFormatterForColorspaceOfProfile(ptr noundef %2, i32 noundef 2, i32 noundef 0) #9
   store i32 %156, ptr %25, align 4
@@ -459,8 +459,8 @@ WriteInputMatrixShaper.exit.i:                    ; preds = %80
 
 170:                                              ; preds = %169
   %171 = load ptr, ptr %160, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %172 = call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %171, i32 noundef 256, ptr noundef null) #9
   %173 = call ptr @cmsCreateXYZProfile() #9
   %174 = call ptr @cmsCreateTransformTHR(ptr noundef %171, ptr noundef %2, i32 noundef 196617, ptr noundef %173, i32 noundef 4784152, i32 noundef %3, i32 noundef 256) #9
@@ -522,8 +522,8 @@ _cmsQuickSaturateWord.exit.i.i.i:                 ; preds = %187, %185, %179
   br label %ExtractGray2Y.exit.i.i
 
 ExtractGray2Y.exit.i.i:                           ; preds = %197, %196
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %172, ptr noundef %27)
   call void @cmsFreeToneCurve(ptr noundef %172) #9
   br label %WriteInputLUT.exit.i
@@ -697,22 +697,22 @@ EmitCIEBasedDEF.exit.i.i:                         ; preds = %251, %switch.lookup
   br label %WriteInputLUT.exit.thread.i
 
 WriteInputLUT.exit.thread.i:                      ; preds = %286, %EmitCIEBasedDEF.exit.thread.i.i, %199, %167
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %291
 
 WriteInputLUT.exit.i:                             ; preds = %EmitCIEBasedDEF.exit.i.i, %ExtractGray2Y.exit.i.i
   call void @cmsDeleteTransform(ptr noundef nonnull %164) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %288
 
 288:                                              ; preds = %WriteInputLUT.exit.i, %WriteInputMatrixShaper.exit.thread.i
@@ -727,8 +727,8 @@ WriteInputLUT.exit.i:                             ; preds = %EmitCIEBasedDEF.exi
 
 GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.exit.thread.i, %.thread.i, %74, %75, %288, %291
   %.0.i = phi i32 [ %290, %288 ], [ 0, %291 ], [ %71, %.thread.i ], [ 0, %74 ], [ 0, %75 ], [ 0, %WriteNamedColorCSA.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %GenerateCRD.exit
 
 292:                                              ; preds = %6
@@ -737,9 +737,9 @@ GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.
   br i1 %.not.i11, label %294, label %327
 
 294:                                              ; preds = %292
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %295 = call i64 @time(ptr noundef nonnull %19) #9
   %296 = call ptr @cmsReadTag(ptr noundef %2, i32 noundef 1684370275) #9
   %297 = call ptr @cmsReadTag(ptr noundef %2, i32 noundef 1668313716) #9
@@ -818,9 +818,9 @@ EmitHeader.exit.i:                                ; preds = %317
   %324 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.88, ptr noundef %323) #9
   %325 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.84) #9
   %326 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.89) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %327
 
 327:                                              ; preds = %EmitHeader.exit.i, %292
@@ -829,10 +829,10 @@ EmitHeader.exit.i:                                ; preds = %317
   br i1 %329, label %330, label %372
 
 330:                                              ; preds = %327
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %331 = call i32 @cmsFormatterForColorspaceOfProfile(ptr noundef %2, i32 noundef 2, i32 noundef 0) #9
   %332 = lshr i32 %331, 3
   %333 = and i32 %332, 15
@@ -876,9 +876,9 @@ EmitHeader.exit.i:                                ; preds = %317
 
 BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
   call void @cmsDoTransform(ptr noundef nonnull %334, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 1) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %16, align 16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %351 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.92, ptr noundef nonnull %15, ptr noundef nonnull %16) #9
   br label %352
 
@@ -897,7 +897,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.i.i
   call void @cmsDoTransform(ptr noundef nonnull %334, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 1) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %16, align 16
   br label %356
 
@@ -925,7 +925,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
   br i1 %exitcond.not.i.i.i17, label %BuildColorantList.exit.loopexit.i.i, label %356, !llvm.loop !16
 
 BuildColorantList.exit.loopexit.i.i:              ; preds = %365
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %366 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.92, ptr noundef nonnull %15, ptr noundef nonnull %16) #9
   br label %367
 
@@ -943,27 +943,27 @@ BuildColorantList.exit.loopexit.i.i:              ; preds = %365
   br label %WriteNamedColorCRD.exit.i
 
 WriteNamedColorCRD.exit.thread.i:                 ; preds = %339, %330
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %GenerateCRD.exit
 
 WriteNamedColorCRD.exit.i:                        ; preds = %370, %._crit_edge.i.i
   call void @cmsDeleteTransform(ptr noundef nonnull %334) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %471
 
 372:                                              ; preds = %327
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %373 = and i32 %4, 8192
   %374 = lshr i32 %4, 2
   %.lobit.i.i = and i32 %374, 1
@@ -1032,7 +1032,7 @@ WriteNamedColorCRD.exit.i:                        ; preds = %370, %._crit_edge.i
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
   %418 = load double, ptr %417, align 8
   %419 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.42, double noundef %412, double noundef %415, double noundef %418) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not53.i.i, label %420, label %430
 
 420:                                              ; preds = %398
@@ -1065,7 +1065,7 @@ WriteNamedColorCRD.exit.i:                        ; preds = %370, %._crit_edge.i
   br label %EmitPQRStage.exit.i.i
 
 EmitPQRStage.exit.i.i:                            ; preds = %435, %433, %420
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %440 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.111) #9
   %441 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.112) #9
   %442 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.113) #9
@@ -1126,24 +1126,24 @@ EmitIntent.exit.i.i:                              ; preds = %._crit_edge.i21.i, 
   br label %WriteOutputLUT.exit.i
 
 WriteOutputLUT.exit.thread.i:                     ; preds = %397, %390, %372
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %GenerateCRD.exit
 
 WriteOutputLUT.exit.i:                            ; preds = %468, %EmitIntent.exit.i.i
   %470 = load ptr, ptr %10, align 8
   call void @cmsPipelineFree(ptr noundef %470) #9
   call void @cmsDeleteTransform(ptr noundef nonnull %387) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %471
 
 471:                                              ; preds = %WriteOutputLUT.exit.i, %WriteNamedColorCRD.exit.i
@@ -1706,10 +1706,10 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

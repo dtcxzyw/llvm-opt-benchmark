@@ -300,7 +300,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr noundef captures(none) %0, ptr no
   br label %37
 
 37:                                               ; preds = %36, %32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i32, ptr %26, align 8
   %39 = tail call i64 @lseek64(i32 noundef %38, i64 noundef 0, i32 noundef 1) #22
   %40 = load i32, ptr %26, align 8
@@ -417,13 +417,13 @@ define hidden noundef ptr @add_lib_info_fd(ptr noundef captures(none) %0, ptr no
   br i1 %.not57.i, label %fill_addr_info.exit.thread, label %fill_addr_info.exit
 
 fill_addr_info.exit.thread:                       ; preds = %47, %104, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 fill_addr_info.exit:                              ; preds = %104
   %106 = load i64, ptr %53, align 8
   %.not43 = icmp eq i64 %106, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not43, label %.sink.split, label %107
 
 107:                                              ; preds = %fill_addr_info.exit
@@ -1025,10 +1025,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

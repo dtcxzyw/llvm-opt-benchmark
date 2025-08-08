@@ -2625,11 +2625,11 @@ define hidden void @hb_buffer_reverse(ptr noundef readonly captures(none) %0) lo
   %indvars.iv.i.i.i = phi i64 [ %8, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %9 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv.i.i.i
   %10 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv19.i.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %11 = and i64 %indvars.iv.next.i.i.i, 4294967295
@@ -2660,11 +2660,11 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.i12.i.i = phi i64 [ %20, %.lr.ph.preheader.i8.i.i ], [ %indvars.iv.next.i14.i.i, %.lr.ph.i10.i.i ]
   %21 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %18, i64 %indvars.iv.i12.i.i
   %22 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %18, i64 %indvars.iv19.i11.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %21, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %21, ptr noundef nonnull align 4 dereferenceable(20) %22, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %23 = and i64 %indvars.iv.next.i14.i.i, 4294967295
@@ -2702,11 +2702,11 @@ define hidden void @hb_buffer_reverse_range(ptr noundef readonly captures(none) 
   %indvars.iv.i.i = phi i64 [ %13, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %14 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv19.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %14, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %16 = and i64 %indvars.iv.next.i.i, 4294967295
@@ -2742,11 +2742,11 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i: ; preds = %.lr.ph.i.i, %3
   %indvars.iv.i12.i = phi i64 [ %28, %.lr.ph.preheader.i8.i ], [ %indvars.iv.next.i14.i, %.lr.ph.i10.i ]
   %29 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %23, i64 %indvars.iv.i12.i
   %30 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %23, i64 %indvars.iv19.i11.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %29, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %29, ptr noundef nonnull align 4 dereferenceable(20) %30, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %30, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next20.i13.i = add nuw nsw i64 %indvars.iv19.i11.i, 1
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i12.i, -1
   %31 = and i64 %indvars.iv.next.i14.i, 4294967295
@@ -2843,9 +2843,9 @@ define hidden void @hb_buffer_add_utf8(ptr noundef captures(none) %0, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3062,9 +3062,9 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   br label %_ZL17hb_buffer_add_utfI9hb_utf8_tEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
 
 _ZL17hb_buffer_add_utfI9hb_utf8_tEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit: ; preds = %5, %18, %_ZN11hb_buffer_t6ensureEj.exit.i, %.critedge5.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -4391,8 +4391,8 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit.split.loop.ex
   %55 = add i32 %.024.us, %54
   %56 = load ptr, ptr %25, align 8
   %57 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %56, i64 %29
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = icmp ugt i32 %55, 1
   br i1 %58, label %.preheader.lr.ph.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us
 
@@ -4502,8 +4502,8 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit.split.loop.ex
   br i1 %exitcond14.not.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us, label %.preheader.us.i.i.us, !llvm.loop !72
 
 _ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us: ; preds = %82, %103, %._crit_edge.i.us
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = load i32, ptr %10, align 8
   %105 = add i32 %.024.us, 1
   %umax39 = tail call i32 @llvm.umax.i32(i32 %104, i32 %105)
@@ -4626,8 +4626,8 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit15.us: ; preds
   %160 = load ptr, ptr %25, align 8
   %161 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %160, i64 %121
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 20
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %163 = icmp ugt i32 %159, 1
   br i1 %163, label %.preheader.lr.ph.i72.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i
 
@@ -4689,8 +4689,8 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit15.us: ; preds
   br i1 %exitcond.not.i83.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i, label %.preheader.i75.i, !llvm.loop !71
 
 _ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i: ; preds = %187, %._crit_edge110.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %188 = load i32, ptr %10, align 8
   %189 = add i32 %.024, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %188, i32 %189)
@@ -5709,11 +5709,11 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit:         ; preds = %24, %21
   %indvars.iv.i.i = phi i64 [ %30, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %31 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %25, i64 %indvars.iv.i.i
   %32 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %25, i64 %indvars.iv19.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %31, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %31, ptr noundef nonnull align 4 dereferenceable(20) %32, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %32, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %33 = and i64 %indvars.iv.next.i.i, 4294967295
@@ -5747,11 +5747,11 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i: ; preds = %.lr.ph.i.i, %_Z
   %indvars.iv.i12.i = phi i64 [ %43, %.lr.ph.preheader.i8.i ], [ %indvars.iv.next.i14.i, %.lr.ph.i10.i ]
   %44 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %38, i64 %indvars.iv.i12.i
   %45 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %38, i64 %indvars.iv19.i11.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %44, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %45, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %45, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next20.i13.i = add nuw nsw i64 %indvars.iv19.i11.i, 1
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i12.i, -1
   %46 = and i64 %indvars.iv.next.i14.i, 4294967295
@@ -5807,11 +5807,11 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit17:       ; preds = %55, %._crit_edge
   %indvars.iv.i.i38 = phi i64 [ %62, %.lr.ph.preheader.i.i34 ], [ %indvars.iv.next.i.i40, %.lr.ph.i.i36 ]
   %63 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %58, i64 %indvars.iv.i.i38
   %64 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %58, i64 %indvars.iv19.i.i37
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %63, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %63, ptr noundef nonnull align 4 dereferenceable(20) %64, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %64, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next20.i.i39 = add nuw nsw i64 %indvars.iv19.i.i37, 1
   %indvars.iv.next.i.i40 = add nsw i64 %indvars.iv.i.i38, -1
   %65 = and i64 %indvars.iv.next.i.i40, 4294967295
@@ -5851,11 +5851,11 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i22: ; preds = %_ZN10hb_array
   %indvars.iv.i12.i31 = phi i64 [ %76, %.lr.ph.preheader.i8.i27 ], [ %indvars.iv.next.i14.i33, %.lr.ph.i10.i29 ]
   %77 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %72, i64 %indvars.iv.i12.i31
   %78 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %72, i64 %indvars.iv19.i11.i30
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %77, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %77, ptr noundef nonnull align 4 dereferenceable(20) %78, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %78, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next20.i13.i32 = add nuw nsw i64 %indvars.iv19.i11.i30, 1
   %indvars.iv.next.i14.i33 = add nsw i64 %indvars.iv.i12.i31, -1
   %79 = and i64 %indvars.iv.next.i14.i33, 4294967295
@@ -5882,11 +5882,11 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit41:        ; preds = %_ZN11hb_buffer_t13r
   %indvars.iv.i.i.i = phi i64 [ %83, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %84 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %82, i64 %indvars.iv.i.i.i
   %85 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %82, i64 %indvars.iv19.i.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %84, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %84, ptr noundef nonnull align 4 dereferenceable(20) %85, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %85, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %86 = and i64 %indvars.iv.next.i.i.i, 4294967295
@@ -5916,11 +5916,11 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   %indvars.iv.i12.i.i = phi i64 [ %94, %.lr.ph.preheader.i8.i.i ], [ %indvars.iv.next.i14.i.i, %.lr.ph.i10.i.i ]
   %95 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %92, i64 %indvars.iv.i12.i.i
   %96 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %92, i64 %indvars.iv19.i11.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %95, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %95, ptr noundef nonnull align 4 dereferenceable(20) %96, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %96, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next20.i13.i.i = add nuw nsw i64 %indvars.iv19.i11.i.i, 1
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %97 = and i64 %indvars.iv.next.i14.i.i, 4294967295
@@ -6382,10 +6382,10 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #22

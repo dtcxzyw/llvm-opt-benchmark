@@ -126,7 +126,7 @@ define hidden void @_ZN9CardTable10initializeEPvS0_(ptr noundef nonnull align 8 
   %spec.select = select i1 %23, i64 0, i64 %15
   call void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %5, i64 noundef %19, i64 noundef %spec.select, i64 noundef %14, ptr noundef null) #15
   %24 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %26 = icmp sgt i32 %25, 1
   %27 = icmp ne ptr %24, null
@@ -142,7 +142,7 @@ define hidden void @_ZN9CardTable10initializeEPvS0_(ptr noundef nonnull align 8 
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %28
   %29 = phi ptr [ %24, %3 ], [ %.pre, %28 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %13, align 8
@@ -712,10 +712,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

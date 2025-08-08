@@ -87,8 +87,8 @@ define i32 @cli_parsejpeg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [50 x i8], align 16
   %4 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #6
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
@@ -714,7 +714,7 @@ fmap_readn.exit271:                               ; preds = %229
 
 238:                                              ; preds = %jpeg_check_photoshop_8bim.exit, %236
   %.0283 = phi i64 [ %237, %236 ], [ %273, %jpeg_check_photoshop_8bim.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %239 = load ptr, ptr %8, align 8, !tbaa !3
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 104
   %241 = load ptr, ptr %240, align 8, !tbaa !25
@@ -796,12 +796,12 @@ fmap_readn.exit.i:                                ; preds = %262
   br label %.thread322
 
 .thread322:                                       ; preds = %244, %fmap_readn.exit.i, %266, %262, %.thread322.sink.split
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %284
 
 jpeg_check_photoshop_8bim.exit:                   ; preds = %268, %275, %276
   %.0.i273 = phi i32 [ %279, %276 ], [ 0, %275 ], [ 0, %268 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %280 = icmp ugt i64 %273, %.0283
   %281 = icmp eq i32 %.0.i273, 0
   %or.cond25 = and i1 %280, %281
@@ -945,29 +945,29 @@ fmap_readn.exit279.thread:                        ; preds = %287, %285, %292, %f
 
 fmap_readn.exit.thread:                           ; preds = %39, %41, %12, %7, %6, %69, %125, %136, %140, %163, %169, %173, %214, %219, %223, %307, %328, %fmap_readn.exit, %17, %57, %55, %82, %80, %93, %91, %105, %103, %302, %300, %311, %309, %317, %312
   %.0 = phi i32 [ 3, %6 ], [ 0, %fmap_readn.exit ], [ 0, %17 ], [ %56, %55 ], [ %.1, %57 ], [ %70, %69 ], [ %81, %80 ], [ %.1, %82 ], [ %92, %91 ], [ %.1, %93 ], [ %104, %103 ], [ %.1, %105 ], [ %126, %125 ], [ %141, %140 ], [ %137, %136 ], [ %164, %163 ], [ %170, %169 ], [ %174, %173 ], [ %215, %214 ], [ %224, %223 ], [ %220, %219 ], [ %308, %307 ], [ %.1, %302 ], [ %.1, %300 ], [ %.1, %309 ], [ %.1, %311 ], [ %318, %317 ], [ %.1, %312 ], [ %329, %328 ], [ 0, %7 ], [ 0, %12 ], [ %.1, %41 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @cli_append_potentially_unwanted(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @cli_append_potentially_unwanted(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
@@ -982,9 +982,9 @@ declare i32 @llvm.bswap.i32(i32) #5
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }

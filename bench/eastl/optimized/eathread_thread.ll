@@ -721,7 +721,7 @@ if.end39:                                         ; preds = %cond.end30.thread, 
   store i8 0, ptr %arrayidx41, align 1
   %call42 = call i32 @pthread_attr_init(ptr noundef nonnull %creationAttribs) #24
   %call43 = call i32 @pthread_attr_setinheritsched(ptr noundef nonnull %creationAttribs, i32 noundef 1) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %param.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %param.i)
   br i1 %tobool25.not, label %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit, label %if.then.i97
 
 if.then.i97:                                      ; preds = %if.end39
@@ -751,7 +751,7 @@ if.end9.i:                                        ; preds = %if.then6.i, %if.els
   br label %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit
 
 _ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit: ; preds = %if.end39, %if.end9.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %param.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %param.i)
   %call45 = call i32 @pthread_create(ptr noundef nonnull %retval.0.i75, ptr noundef nonnull %creationAttribs, ptr noundef %InternalThreadFunction, ptr noundef nonnull %retval.0.i75) #24
   %cmp = icmp eq i32 %call45, 0
   br i1 %cmp, label %if.then46, label %if.then67
@@ -764,7 +764,7 @@ if.then46:                                        ; preds = %_ZN12_GLOBAL__N_121
   br i1 %switch, label %if.else, label %if.then57
 
 if.then57:                                        ; preds = %if.then46
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cpus.i)
   %27 = load i64, ptr %retval.0.i75, align 8
   %cmp.not.i = icmp eq i64 %27, 0
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit, label %do.body.i
@@ -790,7 +790,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %do.bo
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then57, %cond.end.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpus.i)
   br label %if.end64
 
 if.else:                                          ; preds = %if.then46
@@ -867,7 +867,7 @@ entry:
   br i1 %switch, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cpus.i)
   %3 = load i64, ptr %pContext, align 8
   %cmp.not.i = icmp eq i64 %3, 0
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit, label %do.body.i
@@ -893,7 +893,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %do.bo
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then, %cond.end.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpus.i)
   br label %if.end8
 
 if.else:                                          ; preds = %entry
@@ -1054,7 +1054,7 @@ entry:
   br i1 %switch, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cpus.i)
   %3 = load i64, ptr %pContext, align 8
   %cmp.not.i = icmp eq i64 %3, 0
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit, label %do.body.i
@@ -1080,7 +1080,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %do.bo
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then, %cond.end.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpus.i)
   br label %if.end8
 
 if.else:                                          ; preds = %entry
@@ -1399,7 +1399,7 @@ if.then:                                          ; preds = %entry
   %mStartupProcessor = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %nProcessor, ptr %mStartupProcessor, align 4
   %1 = load ptr, ptr %this, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cpus.i)
   %2 = load i64, ptr %1, align 8
   %cmp.not.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit, label %do.body.i
@@ -1427,7 +1427,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %do.bo
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then, %cond.end.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpus.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpus.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit, %entry
@@ -1780,10 +1780,10 @@ entry:
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

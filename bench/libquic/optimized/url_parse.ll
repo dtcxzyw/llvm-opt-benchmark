@@ -646,12 +646,6 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   ret i32 %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -810,7 +804,7 @@ _ZNK3url6Parsed6LengthEv.exit:                    ; preds = %52, %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader.i, label %.critedge.i
 
@@ -871,7 +865,7 @@ _ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader.i, label %.critedge.i
 
@@ -932,7 +926,7 @@ _ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %0) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = icmp eq i16 %0, 92
   %3 = and i16 %0, -17
   %4 = icmp eq i16 %3, 47
@@ -943,7 +937,7 @@ define noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url15ExtractFileNameEPKcRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define void @_ZN3url15ExtractFileNameEPKcRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !8
   %6 = icmp sgt i32 %5, 0
@@ -1007,7 +1001,7 @@ _ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url15ExtractFileNameEPKtRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define void @_ZN3url15ExtractFileNameEPKtRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !8
   %6 = icmp sgt i32 %5, 0
@@ -1071,7 +1065,7 @@ _ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKcPNS_9ComponentES3_S3_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
+define noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKcPNS_9ComponentES3_S3_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %7 = icmp sgt i32 %6, 0
@@ -1177,7 +1171,7 @@ _ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKtPNS_9ComponentES3_S3_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
+define noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKtPNS_9ComponentES3_S3_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %7 = icmp sgt i32 %6, 0
@@ -1277,13 +1271,13 @@ _ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueItEEbPKT_PNS_9ComponentES6_S6_.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url14ParseAuthorityEPKcRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 {
+define void @_ZN3url14ParseAuthorityEPKcRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 {
   tail call fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #6 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #5 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = icmp eq i32 %8, 0
@@ -1595,13 +1589,13 @@ _ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url14ParseAuthorityEPKtRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 {
+define void @_ZN3url14ParseAuthorityEPKtRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 {
   tail call fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #6 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #5 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = icmp eq i32 %8, 0
@@ -1913,7 +1907,7 @@ _ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
+define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
   %3 = alloca [6 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val2 = load i32, ptr %4, align 4, !tbaa !8
@@ -1948,7 +1942,7 @@ define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef readonly c
   br i1 %14, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit, label %15
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not297.i = icmp sgt i32 %13, 0
   br i1 %.not297.i, label %.lr.ph.preheader.i, label %.critedge30.i
 
@@ -1987,7 +1981,7 @@ define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef readonly c
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.critedge30.i
   %.5.i = phi i32 [ %..i, %.critedge30.i ], [ -2, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit: ; preds = %10, %2, %11, %.critedge.i
@@ -1996,7 +1990,7 @@ _ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit: ; preds = %10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
+define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
   %3 = alloca [6 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val2 = load i32, ptr %4, align 4, !tbaa !8
@@ -2031,7 +2025,7 @@ define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly c
   br i1 %14, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit, label %15
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not297.i = icmp sgt i32 %13, 0
   br i1 %.not297.i, label %.lr.ph.preheader.i, label %.critedge30.i
 
@@ -2070,7 +2064,7 @@ define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly c
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.critedge30.i
   %.5.i = phi i32 [ %..i, %.critedge30.i ], [ -2, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit: ; preds = %10, %2, %11, %.critedge.i
@@ -2079,7 +2073,7 @@ _ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit: ; preds = %10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.i.preheader.i, label %.critedge.i7.i
 
@@ -2217,7 +2211,7 @@ _ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.i.preheader, label %.critedge.i7
 
@@ -2357,7 +2351,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.i.preheader.i, label %.critedge.i7.i
 
@@ -2495,7 +2489,7 @@ _ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.i.preheader, label %.critedge.i7
 
@@ -2635,7 +2629,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((8, 64)) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((8, 64)) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2938,7 +2932,7 @@ _ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((8, 64)) %3) local_unnamed_addr #6 {
+define void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((8, 64)) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3420,7 +3414,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
 
 70:                                               ; preds = %63
   %71 = add nsw i32 %67, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = sub nsw i32 %.193.i, %71
@@ -3489,7 +3483,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   br i1 %93, label %_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE.exit80.thread.i, label %94
 
 94:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5)
   %95 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull @_ZN3url11kFileSchemeE)
           to label %96 unwind label %98
@@ -3505,8 +3499,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %99
 
 100:                                              ; preds = %96
@@ -3633,11 +3627,11 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
 
 162:                                              ; preds = %.critedge.i, %144, %135, %105, %102
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE.exit80.thread.i
 
 _ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE.exit80.thread.i: ; preds = %79, %85, %162, %88, %.critedge.i61.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit
 
 _ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, %63, %.loopexit.i, %_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE.exit80.thread.i
@@ -3826,7 +3820,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
 
 70:                                               ; preds = %63
   %71 = add nsw i32 %67, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i16, ptr %0, i64 %72
   %74 = sub nsw i32 %.193.i, %71
@@ -3895,7 +3889,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   br i1 %93, label %_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE.exit80.thread.i, label %94
 
 94:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5)
   %95 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull @_ZN3url11kFileSchemeE)
           to label %96 unwind label %98
@@ -3911,8 +3905,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %99
 
 100:                                              ; preds = %96
@@ -4039,11 +4033,11 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
 
 162:                                              ; preds = %.critedge.i, %144, %135, %105, %102
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE.exit80.thread.i
 
 _ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE.exit80.thread.i: ; preds = %79, %85, %162, %88, %.critedge.i61.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit
 
 _ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, %63, %.loopexit.i, %_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE.exit80.thread.i
@@ -4051,7 +4045,7 @@ _ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((8, 40), (48, 64)) %2) local_unnamed_addr #6 {
+define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((8, 40), (48, 64)) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -4286,7 +4280,7 @@ _ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((8, 40), (48, 64)) %2) local_unnamed_addr #6 {
+define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((8, 40), (48, 64)) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -4521,7 +4515,7 @@ _ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #6 {
+define void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = icmp eq i32 %7, -1
@@ -4651,7 +4645,7 @@ _ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #6 {
+define void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = icmp eq i32 %7, -1
@@ -4781,13 +4775,13 @@ _ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url16ParseAfterSchemeEPKciiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
+define void @_ZN3url16ParseAfterSchemeEPKciiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #6 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #5 {
   %5 = alloca %"struct.url::Component", align 8
   %6 = icmp slt i32 %2, %1
   br i1 %6, label %.lr.ph.preheader.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit
@@ -4820,7 +4814,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_i
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit: ; preds = %10, %4, %.critedge.loopexit.split.loop.exit.i
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %11, %.critedge.loopexit.split.loop.exit.i ], [ %8, %10 ]
   %12 = add nsw i32 %.0.lcssa.i, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not11.i = icmp slt i32 %12, %1
   br i1 %.not11.i, label %.lr.ph.preheader.i25, label %_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii.exit
 
@@ -4999,18 +4993,18 @@ _ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii.exit: ; preds = %1
   br label %_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
 _ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit: ; preds = %36, %68, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3url16ParseAfterSchemeEPKtiiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
+define void @_ZN3url16ParseAfterSchemeEPKtiiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #6 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #5 {
   %5 = alloca %"struct.url::Component", align 8
   %6 = icmp slt i32 %2, %1
   br i1 %6, label %.lr.ph.preheader.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit
@@ -5043,7 +5037,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_i
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit: ; preds = %10, %4, %.critedge.loopexit.split.loop.exit.i
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %11, %.critedge.loopexit.split.loop.exit.i ], [ %8, %10 ]
   %12 = add nsw i32 %.0.lcssa.i, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not11.i = icmp slt i32 %12, %1
   br i1 %.not11.i, label %.lr.ph.preheader.i25, label %_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii.exit
 
@@ -5222,29 +5216,35 @@ _ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii.exit: ; preds = %1
   br label %_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
 _ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit: ; preds = %36, %68, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #10
 
-declare void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
+declare void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #10
 
-declare void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
+declare void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12
@@ -5260,13 +5260,13 @@ attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { builtin allocsize(0) }
 attributes #14 = { builtin nounwind }

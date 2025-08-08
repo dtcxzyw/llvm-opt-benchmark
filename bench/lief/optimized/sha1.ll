@@ -67,7 +67,7 @@ define hidden noundef i32 @mbedtls_sha1_starts(ptr noundef writeonly captures(no
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_internal_sha1_process(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.anon, align 4
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.0.copyload.i = load i32, ptr %1, align 1
   %4 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1178,18 +1178,12 @@ define hidden noundef i32 @mbedtls_internal_sha1_process(ptr noundef captures(no
   %1057 = add i32 %1056, %1019
   store i32 %1057, ptr %63, align 4, !tbaa !7
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 88) #12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_sha1_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
@@ -1340,7 +1334,7 @@ mbedtls_sha1_free.exit:                           ; preds = %15, %12
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_sha1(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_sha1_context, align 4
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %5, align 4, !tbaa !7
@@ -1441,7 +1435,7 @@ mbedtls_sha1_finish.exit:                         ; preds = %26, %29
   store i32 %56, ptr %54, align 1
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #12
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #12
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -1450,9 +1444,9 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha1_self_test(i32 noundef %0) local_
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [20 x i8], align 16
   %4 = alloca %struct.mbedtls_sha1_context, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, i8 0, i64 92, i1 false)
   %.not24 = icmp eq i32 %0, 0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1653,14 +1647,20 @@ mbedtls_sha1_finish.exit:                         ; preds = %57, %60
 .loopexit:                                        ; preds = %83, %85, %86, %84
   %.2 = phi i32 [ 1, %86 ], [ 1, %85 ], [ 0, %84 ], [ 0, %83 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #12
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
@@ -1680,9 +1680,9 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }

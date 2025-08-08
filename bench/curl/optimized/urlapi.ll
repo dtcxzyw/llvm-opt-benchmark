@@ -132,18 +132,12 @@ switch.early.test:                                ; preds = %12
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @Curl_strntolower(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_strntolower(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 32) i32 @Curl_url_set_authority(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dynbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @Curl_dyn_init(ptr noundef nonnull %3, i64 noundef 8000000) #10
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %5 = load ptr, ptr %0, align 8, !tbaa !8
@@ -166,11 +160,11 @@ define hidden range(i32 0, 32) i32 @Curl_url_set_authority(ptr noundef captures(
   br label %14
 
 14:                                               ; preds = %9, %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %7
 }
 
-declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 32) i32 @parse_authority(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -180,11 +174,11 @@ define internal fastcc range(i32 0, 32) i32 @parse_authority(ptr noundef capture
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !16
   %13 = tail call ptr @memchr(ptr noundef %1, i32 noundef 64, i64 noundef %2) #11
   %.not.i = icmp eq ptr %13, null
@@ -274,9 +268,9 @@ define internal fastcc range(i32 0, 32) i32 @parse_authority(ptr noundef capture
   br label %parse_hostname_login.exit.thread
 
 parse_hostname_login.exit.thread:                 ; preds = %51, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %63
 
 parse_hostname_login.exit:                        ; preds = %6, %29, %35
@@ -292,9 +286,9 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   call void %60(ptr noundef %61) #10
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not.i, label %63, label %Curl_parse_port.exit.thread
 
 63:                                               ; preds = %parse_hostname_login.exit.thread, %parse_hostname_login.exit
@@ -336,7 +330,7 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
 
 .thread45.i:                                      ; preds = %79, %76
   %.02848.i = phi ptr [ %80, %79 ], [ %77, %76 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !16
   %81 = ptrtoint ptr %.02848.i to i64
   %82 = ptrtoint ptr %71 to i64
@@ -382,15 +376,15 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   %105 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.17, i64 noundef %92) #10
   store ptr %105, ptr %103, align 8, !tbaa !24
   %.not40.not.i = icmp eq ptr %105, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not40.not.i, label %Curl_parse_port.exit.thread, label %Curl_parse_port.exit.thread49
 
 Curl_parse_port.exit.thread53:                    ; preds = %90, %96, %88, %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Curl_parse_port.exit.thread
 
 Curl_parse_port.exit:                             ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Curl_parse_port.exit.thread49
 
 Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl_parse_port.exit
@@ -400,7 +394,7 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 
 107:                                              ; preds = %Curl_parse_port.exit.thread49
   %108 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %109 = load i8, ptr %108, align 1, !tbaa !3
   %110 = icmp eq i8 %109, 91
@@ -409,7 +403,7 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 111:                                              ; preds = %107
   %112 = tail call ptr @__errno_location() #12
   store i32 0, ptr %112, align 4, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !16
   %113 = load i8, ptr %108, align 1, !tbaa !3
   %114 = add i8 %113, -48
@@ -443,8 +437,8 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 124:                                              ; preds = %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !16
   %126 = load i8, ptr %125, align 1, !tbaa !3
   %127 = add i8 %126, -48
@@ -453,7 +447,7 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 
 128:                                              ; preds = %118
   %129 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %129, label %ipv4_normalize.exit.thread57 [
     i32 0, label %130
     i32 1, label %141
@@ -551,22 +545,22 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
   br i1 %.not.i39, label %ipv4_normalize.exit.thread57, label %200
 
 ipv4_normalize.exit.thread57:                     ; preds = %128, %189
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Curl_parse_port.exit.thread
 
 .critedge.i:                                      ; preds = %124, %.lr.ph, %118, %122, %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %194
 
 190:                                              ; preds = %107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %191 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #10
   %192 = call i64 @Curl_dyn_len(ptr noundef nonnull %4) #10
   %193 = call fastcc i32 @ipv6_parse(ptr noundef nonnull %0, ptr noundef %191, i64 noundef %192)
   br label %Curl_parse_port.exit.thread
 
 194:                                              ; preds = %.critedge.i, %141, %155, %171
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %195 = call fastcc i32 @urldecode_host(ptr noundef %4)
   %.not33 = icmp eq i32 %195, 0
   br i1 %.not33, label %196, label %Curl_parse_port.exit.thread
@@ -578,7 +572,7 @@ ipv4_normalize.exit.thread57:                     ; preds = %128, %189
   br label %Curl_parse_port.exit.thread
 
 200:                                              ; preds = %189
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Curl_parse_port.exit.thread
 
 Curl_parse_port.exit.thread:                      ; preds = %76, %74, %99, %ipv4_normalize.exit.thread57, %Curl_parse_port.exit.thread53, %67, %parse_hostname_login.exit, %194, %196, %200, %190, %Curl_parse_port.exit.thread49
@@ -587,11 +581,11 @@ Curl_parse_port.exit.thread:                      ; preds = %76, %74, %99, %ipv4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #2
+declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @curl_url() local_unnamed_addr #0 {
@@ -878,7 +872,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   %11 = alloca %struct.dynbuf, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = trunc i32 %3 to i8
   %15 = lshr i8 %14, 6
   %16 = and i32 %3, 128
@@ -1040,7 +1034,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   %89 = load ptr, ptr %88, align 8, !tbaa !21
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %91 = load ptr, ptr %90, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %93 = load ptr, ptr %92, align 8, !tbaa !31
@@ -1112,7 +1106,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br i1 %.not250, label %235, label %133
 
 133:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %134 = load ptr, ptr %0, align 8, !tbaa !8
   %.not251 = icmp eq ptr %134, null
   br i1 %.not251, label %135, label %137
@@ -1187,7 +1181,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br i1 %.not262, label %196, label %166
 
 166:                                              ; preds = %163
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %167 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %160) #11
   call void @Curl_dyn_init(ptr noundef nonnull %8, i64 noundef 8000000) #10
   %168 = trunc i64 %167 to i32
@@ -1201,7 +1195,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
 173:                                              ; preds = %166
   %174 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
   store ptr %174, ptr %6, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %196
 
 175:                                              ; preds = %.thread320
@@ -1293,12 +1287,12 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br label %220
 
 .critedge:                                        ; preds = %166
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread324
 
 .thread324:                                       ; preds = %181, %192, %135, %.critedge, %176
   %.2.ph = phi i32 [ 7, %176 ], [ 7, %.critedge ], [ 10, %135 ], [ %195, %192 ], [ %185, %181 ]
-  call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %235
 
 220:                                              ; preds = %218, %205
@@ -1320,7 +1314,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   %231 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
   %232 = load ptr, ptr %6, align 8, !tbaa !16
   call void %231(ptr noundef %232) #10
-  call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %233
 
 233:                                              ; preds = %220, %125
@@ -1334,7 +1328,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
 
 235:                                              ; preds = %.thread324, %233, %130, %234
   %.1 = phi i32 [ 0, %234 ], [ 14, %130 ], [ 7, %233 ], [ %.2.ph, %.thread324 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread348
 
 236:                                              ; preds = %19, %22, %42, %35, %32, %29, %26
@@ -1386,8 +1380,8 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br i1 %248, label %249, label %257
 
 249:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %250 = load ptr, ptr %2, align 8, !tbaa !16
   %251 = call i32 @Curl_urldecode(ptr noundef %250, i64 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 3) #10
   %252 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
@@ -1400,14 +1394,14 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   %254 = load ptr, ptr %9, align 8, !tbaa !16
   store ptr %254, ptr %2, align 8, !tbaa !16
   %255 = load i64, ptr %10, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %257
 
 256:                                              ; preds = %249
   store ptr null, ptr %2, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread348
 
 257:                                              ; preds = %.thread356, %.loopexit
@@ -1415,7 +1409,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br i1 %.not, label %266, label %258
 
 258:                                              ; preds = %257
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @Curl_dyn_init(ptr noundef nonnull %11, i64 noundef 8000000) #10
   %259 = load ptr, ptr %2, align 8, !tbaa !16
   %260 = icmp eq i32 %1, 8
@@ -1429,11 +1423,11 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   call void %262(ptr noundef %263) #10
   %264 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %11) #10
   store ptr %264, ptr %2, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread348
 
 265:                                              ; preds = %258
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread348
 
 266:                                              ; preds = %257
@@ -1446,7 +1440,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br i1 %270, label %.thread348, label %271
 
 271:                                              ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %272 = load ptr, ptr %2, align 8, !tbaa !16
   %273 = call i32 @Curl_idn_decode(ptr noundef %272, ptr noundef nonnull %12) #10
   %.not299 = icmp eq i32 %273, 0
@@ -1458,13 +1452,13 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   call void %274(ptr noundef %275) #10
   %276 = load ptr, ptr %12, align 8, !tbaa !16
   store ptr %276, ptr %2, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread348
 
 277:                                              ; preds = %271
   %278 = icmp eq i32 %273, 27
   %279 = select i1 %278, i32 7, i32 21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread348
 
 280:                                              ; preds = %266
@@ -1483,7 +1477,7 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   br i1 %.not297, label %288, label %.thread348
 
 288:                                              ; preds = %285
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %289 = load ptr, ptr %2, align 8, !tbaa !16
   %290 = call i32 @Curl_idn_encode(ptr noundef %289, ptr noundef nonnull %13) #10
   %.not298 = icmp eq i32 %290, 0
@@ -1495,45 +1489,45 @@ define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_
   call void %291(ptr noundef %292) #10
   %293 = load ptr, ptr %13, align 8, !tbaa !16
   store ptr %293, ptr %2, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread348
 
 294:                                              ; preds = %288
   %295 = icmp eq i32 %290, 27
   %296 = select i1 %295, i32 7, i32 21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread348
 
 .thread348:                                       ; preds = %82, %76, %49, %62, %18, %51, %73, %57, %280, %285, %281, %267, %.thread358, %.thread360, %.thread362, %294, %277, %265, %256, %236, %.thread332, %22, %17, %4, %235
   %.0 = phi i32 [ %.1, %235 ], [ 1, %4 ], [ 2, %17 ], [ 10, %22 ], [ %261, %265 ], [ %279, %277 ], [ %296, %294 ], [ 6, %256 ], [ 7, %.thread332 ], [ %.0185, %236 ], [ 0, %.thread362 ], [ 0, %.thread360 ], [ 0, %.thread358 ], [ 0, %267 ], [ 0, %281 ], [ 0, %285 ], [ 0, %280 ], [ 15, %62 ], [ 9, %18 ], [ 15, %51 ], [ 16, %73 ], [ 15, %57 ], [ 15, %49 ], [ 16, %76 ], [ 17, %82 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #1
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @curl_easy_escape(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @curl_easy_escape(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Curl_is_ASCII_name(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_is_ASCII_name(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_idn_decode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_idn_decode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_idn_encode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_idn_encode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 32) i32 @urlencode_str(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -1642,7 +1636,7 @@ switch.early.test.thread:                         ; preds = %switch.early.test
   br i1 %45, label %switch.early.test.thread.thread, label %46
 
 46:                                               ; preds = %switch.early.test.thread
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 37, ptr %6, align 1
   %47 = lshr i8 %33, 4
   %48 = zext nneg i8 %47 to i64
@@ -1655,7 +1649,7 @@ switch.early.test.thread:                         ; preds = %switch.early.test
   %54 = load i8, ptr %53, align 1, !tbaa !3
   store i8 %54, ptr %24, align 1, !tbaa !3
   %55 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 3) #10
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %57
 
 switch.early.test.thread.thread:                  ; preds = %32, %switch.early.test, %switch.early.test, %43, %switch.early.test.thread
@@ -1938,7 +1932,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   br i1 %or.cond316, label %122, label %.thread339
 
 122:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %123 = tail call ptr @__errno_location() #12
   store i32 0, ptr %123, align 4, !tbaa !22
   %124 = call i64 @strtoul(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef 10) #10
@@ -1973,7 +1967,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
 
 140:                                              ; preds = %131, %122, %128, %134
   %.2 = phi i32 [ 0, %134 ], [ 4, %128 ], [ 4, %122 ], [ 7, %131 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread339
 
 141:                                              ; preds = %81
@@ -1999,7 +1993,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   br label %169
 
 155:                                              ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not285 = icmp eq i64 %79, 0
   br i1 %.not285, label %168, label %156
 
@@ -2028,7 +2022,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
 
 168:                                              ; preds = %155, %164, %162
   %.3 = phi i32 [ %163, %162 ], [ %166, %164 ], [ 3, %155 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread339
 
 169:                                              ; preds = %._crit_edge, %106, %108, %110, %112, %117, %141, %143, %150
@@ -2037,7 +2031,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   %.0221 = phi i1 [ false, %._crit_edge ], [ false, %106 ], [ false, %108 ], [ false, %110 ], [ false, %112 ], [ false, %117 ], [ false, %141 ], [ %13, %143 ], [ false, %150 ]
   %.1220 = phi i1 [ false, %._crit_edge ], [ %13, %106 ], [ %13, %108 ], [ %13, %110 ], [ %13, %112 ], [ %13, %117 ], [ %13, %141 ], [ %13, %143 ], [ %13, %150 ]
   %.2218 = phi ptr [ %0, %._crit_edge ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %118, %117 ], [ %142, %141 ], [ %146, %143 ], [ %151, %150 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %170 = mul nuw nsw i64 %79, 3
   %171 = add nuw nsw i64 %170, 1
   %172 = zext i1 %.0222 to i64
@@ -2100,7 +2094,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   br i1 %or.cond321.us, label %204, label %194
 
 194:                                              ; preds = %190
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 37, ptr %8, align 1
   %195 = lshr i8 %184, 4
   %196 = zext nneg i8 %195 to i64
@@ -2114,7 +2108,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   store i8 %202, ptr %183, align 1, !tbaa !3
   %203 = call i32 @Curl_dyn_addn(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 3) #10
   %.not298.us = icmp eq i32 %203, 0
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not298.us, label %208, label %.thread371.loopexit.split.loop.exit392
 
 204:                                              ; preds = %190, %189, %189, %189, %189, %.lr.ph399.split.us
@@ -2187,7 +2181,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   br label %.thread371
 
 231:                                              ; preds = %221
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 37, ptr %8, align 1
   %232 = lshr i8 %211, 4
   %233 = zext nneg i8 %232 to i64
@@ -2201,7 +2195,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   store i8 %239, ptr %183, align 1, !tbaa !3
   %240 = call i32 @Curl_dyn_addn(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 3) #10
   %.not298 = icmp eq i32 %240, 0
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not298, label %241, label %.thread371.loopexit.split.loop.exit392
 
 241:                                              ; preds = %225, %231, %213
@@ -2324,7 +2318,7 @@ switch.early.test387:                             ; preds = %256
   %278 = getelementptr i8, ptr %274, i64 %276
   %279 = getelementptr i8, ptr %278, i64 -1
   %280 = load i8, ptr %279, align 1, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @Curl_dyn_init(ptr noundef nonnull %9, i64 noundef 8000000) #10
   %281 = load ptr, ptr %273, align 8, !tbaa !30
   %282 = call i32 @Curl_dyn_addn(ptr noundef nonnull %9, ptr noundef %281, i64 noundef %276) #10
@@ -2360,7 +2354,7 @@ switch.early.test387:                             ; preds = %256
 
 .critedge331:                                     ; preds = %288, %292
   %.15 = phi i32 [ 7, %292 ], [ 0, %288 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread371
 
 293:                                              ; preds = %.thread349
@@ -2382,8 +2376,8 @@ switch.early.test387:                             ; preds = %256
   br i1 %.1220, label %311, label %300
 
 300:                                              ; preds = %299
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !16
   %301 = call i32 @Curl_urldecode(ptr noundef %269, i64 noundef %296, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 3) #10
   %.not303 = icmp eq i32 %301, 0
@@ -2400,16 +2394,16 @@ switch.early.test387:                             ; preds = %256
   %306 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
   %307 = load ptr, ptr %11, align 8, !tbaa !16
   call void %306(ptr noundef %307) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread358
 
 308:                                              ; preds = %302
   %309 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
   %310 = load ptr, ptr %11, align 8, !tbaa !16
   call void %309(ptr noundef %310) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge331.thread
 
 311:                                              ; preds = %299
@@ -2429,7 +2423,7 @@ switch.early.test387:                             ; preds = %256
 
 .thread371:                                       ; preds = %213, %.thread371.loopexit.split.loop.exit392, %.critedge331, %.thread358, %176, %.split.us, %.thread351
   %.7.ph = phi i32 [ %247, %.thread351 ], [ %230, %.split.us ], [ %179, %176 ], [ 21, %.thread358 ], [ %.15, %.critedge331 ], [ %314, %.thread371.loopexit.split.loop.exit392 ], [ 7, %213 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread339
 
 .critedge331.thread:                              ; preds = %308, %311, %295, %272, %275, %293
@@ -2437,7 +2431,7 @@ switch.early.test387:                             ; preds = %256
   %316 = load ptr, ptr %.2218, align 8, !tbaa !16
   call void %315(ptr noundef %316) #10
   store ptr %269, ptr %.2218, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread339
 
 .thread339:                                       ; preds = %99, %88, %86, %82, %.critedge331.thread, %.thread371, %45, %81, %119, %78, %47, %.critedge, %15, %4, %168, %140
@@ -2446,13 +2440,13 @@ switch.early.test387:                             ; preds = %256
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 32) i32 @parseurl_and_replace(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
@@ -2463,10 +2457,10 @@ define internal fastcc range(i32 0, 32) i32 @parseurl_and_replace(ptr noundef %0
   %8 = alloca %struct.dynbuf, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.Curl_URL, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, i8 0, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Curl_dyn_init(ptr noundef nonnull %5, i64 noundef 8000000) #10
   %11 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %12 = icmp ugt i64 %11, 8000000
@@ -2832,7 +2826,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   br i1 %.not260.i, label %169, label %162
 
 162:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Curl_dyn_init(ptr noundef nonnull %6, i64 noundef 8000000) #10
   %163 = getelementptr inbounds nuw i8, ptr %150, i64 1
   %164 = add i64 %155, -1
@@ -2844,11 +2838,11 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %166 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %6) #10
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %166, ptr %167, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %174
 
 168:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %parseurl.exit
 
 169:                                              ; preds = %160
@@ -2887,7 +2881,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   br i1 %.not266.i, label %195, label %188
 
 188:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @Curl_dyn_init(ptr noundef nonnull %7, i64 noundef 8000000) #10
   %189 = getelementptr inbounds nuw i8, ptr %175, i64 1
   %190 = add i64 %180, -1
@@ -2899,11 +2893,11 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %192 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #10
   %193 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %192, ptr %193, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %204
 
 194:                                              ; preds = %188
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %parseurl.exit
 
 195:                                              ; preds = %186
@@ -2934,7 +2928,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   br i1 %.not270.i, label %213, label %207
 
 207:                                              ; preds = %205
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @Curl_dyn_init(ptr noundef nonnull %8, i64 noundef 8000000) #10
   %208 = call fastcc i32 @urlencode_str(ptr noundef %8, ptr noundef nonnull %.3.i, i64 noundef %.6183.i, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not271.i = icmp eq i32 %208, 0
@@ -2945,11 +2939,11 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %210 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %210, ptr %211, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %213
 
 212:                                              ; preds = %207
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %parseurl.exit
 
 213:                                              ; preds = %.thread359.i, %205
@@ -2986,7 +2980,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   br i1 %.not275.i, label %226, label %262
 
 226:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %227 = call fastcc i32 @dedotdotify(ptr noundef %.7.i, i64 noundef %.7184.i, ptr noundef %9)
   %.not276.i = icmp eq i32 %227, 0
   br i1 %.not276.i, label %228, label %232
@@ -3003,11 +2997,11 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   br label %.thread369.i
 
 .thread369.i:                                     ; preds = %230, %228
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %262
 
 232:                                              ; preds = %226
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %parseurl.exit
 
 parseurl.exit:                                    ; preds = %3, %13, %17, %41, %43, %69, %87, %87, %87, %96, %96, %96, %104, %107, %.critedge.i, %110, %121, %139, %146, %148, %168, %169, %194, %195, %200, %212, %218, %232
@@ -3052,16 +3046,16 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %41, %
   %260 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %261 = load ptr, ptr %260, align 8, !tbaa !31
   call void %259(ptr noundef %261) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %294
 
 262:                                              ; preds = %204, %213, %223, %.thread369.i
   %263 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %5) #10
   %264 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %263, ptr %264, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %265 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
   %266 = load ptr, ptr %1, align 8, !tbaa !8
   call void %265(ptr noundef %266) #10
@@ -3106,14 +3100,14 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %41, %
 
 294:                                              ; preds = %parseurl.exit, %262
   %.0.i7 = phi i32 [ 0, %262 ], [ %.0202.i, %parseurl.exit ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0.i7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 32) i32 @redirect_url(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.dynbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.22) #11
   %.not = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -3215,20 +3209,20 @@ define internal fastcc range(i32 0, 32) i32 @redirect_url(ptr noundef %0, ptr no
 
 45:                                               ; preds = %44, %34
   %.0 = phi i32 [ %36, %34 ], [ %.039, %44 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @Curl_raw_tolower(i8 noundef signext) local_unnamed_addr #2
+declare signext i8 @Curl_raw_tolower(i8 noundef signext) local_unnamed_addr #1
 
-declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #2
+declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 23) i32 @hostname_check(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -3276,7 +3270,7 @@ define internal fastcc range(i32 0, 23) i32 @ipv6_parse(ptr noundef writeonly ca
   br i1 %14, label %sub_0, label %50
 
 sub_0:                                            ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr i8, ptr %12, i64 1
   %16 = load i8, ptr %15, align 1
   %.not75 = icmp eq i8 %16, 50
@@ -3343,18 +3337,18 @@ sub_0:                                            ; preds = %11
 
 .thread66:                                        ; preds = %27, %.tail.thread, %.critedge, %31
   %.2.ph = phi i32 [ 7, %31 ], [ 22, %.critedge ], [ 22, %.tail.thread ], [ 22, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 36:                                               ; preds = %31
   store i8 93, ptr %12, align 1, !tbaa !3
   store i8 0, ptr %15, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 37:                                               ; preds = %36, %7
   %.048 = phi i64 [ %10, %36 ], [ %9, %7 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 %.048
   store i8 0, ptr %38, align 1, !tbaa !3
   %39 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %8, ptr noundef nonnull %5) #10
@@ -3382,7 +3376,7 @@ sub_0:                                            ; preds = %11
 
 49:                                               ; preds = %37, %47
   %spec.select = phi i32 [ 22, %37 ], [ 0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 50:                                               ; preds = %.thread66, %49, %11, %3
@@ -3400,8 +3394,8 @@ define internal fastcc range(i32 0, 32) i32 @urldecode_host(ptr noundef nonnull 
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @Curl_urldecode(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 3) #10
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %8, label %.sink.split
@@ -3424,8 +3418,8 @@ define internal fastcc range(i32 0, 32) i32 @urldecode_host(ptr noundef nonnull 
 
 .sink.split:                                      ; preds = %8, %6, %14
   %.010.ph = phi i32 [ 21, %6 ], [ %16, %14 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %.sink.split, %1
@@ -3434,36 +3428,36 @@ define internal fastcc range(i32 0, 32) i32 @urldecode_host(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_parse_login_details(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @Curl_dyn_setlen(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_parse_login_details(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @Curl_dyn_setlen(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %0, i64 noundef range(i64 2, 0) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
@@ -3746,20 +3740,26 @@ sub_2139:                                         ; preds = %sub_1138
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

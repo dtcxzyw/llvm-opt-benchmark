@@ -38,13 +38,7 @@ define hidden ptr @_mi_page_malloc(ptr noundef %0, ptr noundef captures(none) %1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @_mi_malloc_generic(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @_mi_malloc_generic(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
 define hidden noalias ptr @mi_heap_malloc_small(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -191,7 +185,7 @@ mi_heap_malloc.exit:                              ; preds = %14, %16, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_block_zero_init(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden void @_mi_block_zero_init(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %6 = load i8, ptr %5, align 1
@@ -239,13 +233,13 @@ define hidden void @_mi_block_zero_init(ptr noundef readonly captures(none) %0, 
   br label %mi_usable_size.exit
 
 34:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = ptrtoint ptr %25 to i64
   %36 = and i64 %35, -67108864
   %37 = inttoptr i64 %36 to ptr
   %38 = call ptr @_mi_segment_page_start(ptr noundef %37, ptr noundef nonnull %25, ptr noundef nonnull %4) #14
   %39 = load i64, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_usable_size.exit
 
 40:                                               ; preds = %16
@@ -262,7 +256,7 @@ mi_usable_size.exit:                              ; preds = %11, %32, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mi_usable_size(ptr noundef %0) local_unnamed_addr #3 {
+define hidden i64 @mi_usable_size(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -67108864
@@ -297,13 +291,13 @@ define hidden i64 @mi_usable_size(ptr noundef %0) local_unnamed_addr #3 {
   br label %_mi_usable_size.exit
 
 25:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = ptrtoint ptr %16 to i64
   %27 = and i64 %26, -67108864
   %28 = inttoptr i64 %27 to ptr
   %29 = call ptr @_mi_segment_page_start(ptr noundef %28, ptr noundef nonnull %16, ptr noundef nonnull %2) #14
   %30 = load i64, ptr %2, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_mi_usable_size.exit
 
 31:                                               ; preds = %7
@@ -316,10 +310,10 @@ _mi_usable_size.exit:                             ; preds = %1, %23, %25, %31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_zalloc_small(i64 noundef %0) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_zalloc_small(i64 noundef %0) local_unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
@@ -396,13 +390,13 @@ mi_malloc_small.exit:                             ; preds = %1
   br label %mi_usable_size.exit.i
 
 48:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %49 = ptrtoint ptr %30 to i64
   %50 = and i64 %49, -67108864
   %51 = inttoptr i64 %50 to ptr
   %52 = call ptr @_mi_segment_page_start(ptr noundef %51, ptr noundef nonnull %30, ptr noundef nonnull %2) #14
   %53 = load i64, ptr %2, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mi_usable_size.exit.i
 
 54:                                               ; preds = %39
@@ -420,7 +414,7 @@ _mi_block_zero_init.exit:                         ; preds = %mi_usable_size.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_heap_malloc_zero(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
+define hidden ptr @_mi_heap_malloc_zero(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = icmp ult i64 %1, 1025
   br i1 %5, label %6, label %22, !prof !20
@@ -507,13 +501,13 @@ mi_heap_malloc.exit:                              ; preds = %15, %17, %22
   br label %mi_usable_size.exit.i
 
 55:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %56 = ptrtoint ptr %37 to i64
   %57 = and i64 %56, -67108864
   %58 = inttoptr i64 %57 to ptr
   %59 = call ptr @_mi_segment_page_start(ptr noundef %58, ptr noundef nonnull %37, ptr noundef nonnull %4) #14
   %60 = load i64, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_usable_size.exit.i
 
 61:                                               ; preds = %46
@@ -536,7 +530,7 @@ define hidden noalias ptr @mi_heap_zalloc(ptr noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_zalloc(i64 noundef %0) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_zalloc(i64 noundef %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = tail call noalias ptr @_mi_heap_malloc_zero(ptr noundef %3, i64 noundef %0, i1 noundef zeroext true)
@@ -544,7 +538,7 @@ define hidden noalias ptr @mi_zalloc(i64 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_page_ptr_unalign(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden ptr @_mi_page_ptr_unalign(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = tail call ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef null) #14
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -557,13 +551,13 @@ define hidden ptr @_mi_page_ptr_unalign(ptr noundef %0, ptr noundef %1, ptr noun
   br label %mi_page_block_size.exit
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = ptrtoint ptr %1 to i64
   %13 = and i64 %12, -67108864
   %14 = inttoptr i64 %13 to ptr
   %15 = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull %4) #14
   %16 = load i64, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_page_block_size.exit
 
 mi_page_block_size.exit:                          ; preds = %9, %11
@@ -578,7 +572,7 @@ mi_page_block_size.exit:                          ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_free(ptr noundef %0) local_unnamed_addr #3 {
+define hidden void @mi_free(ptr noundef %0) local_unnamed_addr #2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -67108864
   %4 = inttoptr i64 %3 to ptr
@@ -635,10 +629,10 @@ define hidden void @mi_free(ptr noundef %0) local_unnamed_addr #3 {
   ret void
 }
 
-declare void @_mi_page_retire(ptr noundef) local_unnamed_addr #2
+declare void @_mi_page_retire(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @mi_free_generic(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @mi_free_generic(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %0 to i64
@@ -669,13 +663,13 @@ define internal fastcc void @mi_free_generic(ptr noundef nonnull %0, i1 noundef 
   br label %_mi_page_ptr_unalign.exit
 
 25:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = ptrtoint ptr %15 to i64
   %27 = and i64 %26, -67108864
   %28 = inttoptr i64 %27 to ptr
   %29 = call ptr @_mi_segment_page_start(ptr noundef %28, ptr noundef nonnull %15, ptr noundef nonnull %4) #14
   %30 = load i64, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_mi_page_ptr_unalign.exit
 
 _mi_page_ptr_unalign.exit:                        ; preds = %23, %25
@@ -727,7 +721,7 @@ _mi_free_block.exit:                              ; preds = %46, %47, %49, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_free_delayed_block(ptr noundef %0) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_mi_free_delayed_block(ptr noundef %0) local_unnamed_addr #2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -67108864
   %4 = inttoptr i64 %3 to ptr
@@ -773,12 +767,12 @@ _mi_free_block.exit:                              ; preds = %21, %22, %25
   ret i1 true
 }
 
-declare void @_mi_page_use_delayed_free(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_mi_page_use_delayed_free(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_free_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden void @mi_free_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -67108864
   %5 = inttoptr i64 %4 to ptr
@@ -836,7 +830,7 @@ mi_free.exit:                                     ; preds = %2, %26, %34, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_free_size_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden void @mi_free_size_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -67108864
   %6 = inttoptr i64 %5 to ptr
@@ -894,7 +888,7 @@ mi_free_size.exit:                                ; preds = %3, %27, %35, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_free_aligned(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden void @mi_free_aligned(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -67108864
   %5 = inttoptr i64 %4 to ptr
@@ -977,7 +971,7 @@ mi_count_size_overflow.exit:                      ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not.i = icmp eq i64 %0, 1
@@ -1004,7 +998,7 @@ mi_heap_calloc.exit:                              ; preds = %mi_count_size_overf
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_heap_mallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_heap_mallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq i64 %1, 1
   br i1 %.not, label %8, label %4
 
@@ -1058,7 +1052,7 @@ mi_heap_malloc.exit:                              ; preds = %26, %21, %19, %mi_c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_mallocn(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_mallocn(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not.i = icmp eq i64 %0, 1
@@ -1114,7 +1108,7 @@ mi_heap_mallocn.exit:                             ; preds = %mi_count_size_overf
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_expand(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @mi_expand(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %37, label %5
@@ -1153,13 +1147,13 @@ define hidden ptr @mi_expand(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br label %_mi_usable_size.exit
 
 28:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = ptrtoint ptr %19 to i64
   %30 = and i64 %29, -67108864
   %31 = inttoptr i64 %30 to ptr
   %32 = call ptr @_mi_segment_page_start(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %3) #14
   %33 = load i64, ptr %3, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_mi_usable_size.exit
 
 34:                                               ; preds = %10
@@ -1178,7 +1172,7 @@ _mi_usable_size.exit:                             ; preds = %5, %26, %28, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
+define hidden ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -67108864
@@ -1213,13 +1207,13 @@ define hidden ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 nou
   br label %_mi_usable_size.exit
 
 28:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = ptrtoint ptr %19 to i64
   %30 = and i64 %29, -67108864
   %31 = inttoptr i64 %30 to ptr
   %32 = call ptr @_mi_segment_page_start(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %5) #14
   %33 = load i64, ptr %5, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_mi_usable_size.exit
 
 34:                                               ; preds = %10
@@ -1340,13 +1334,13 @@ mi_free.exit:                                     ; preds = %.critedge.i, %92, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_heap_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @mi_heap_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_heap_reallocn(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden ptr @mi_heap_reallocn(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 1
   br i1 %.not, label %9, label %5
 
@@ -1371,7 +1365,7 @@ mi_count_size_overflow.exit:                      ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_heap_reallocf(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @mi_heap_reallocf(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   %6 = icmp ne ptr %1, null
@@ -1436,13 +1430,13 @@ mi_free.exit:                                     ; preds = %.critedge.i, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_heap_rezalloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @mi_heap_rezalloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_heap_recalloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden ptr @mi_heap_recalloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 1
   br i1 %.not, label %9, label %5
 
@@ -1467,7 +1461,7 @@ mi_count_size_overflow.exit:                      ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @mi_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
@@ -1475,7 +1469,7 @@ define hidden ptr @mi_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_reallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @mi_reallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %.not.i = icmp eq i64 %1, 1
@@ -1502,7 +1496,7 @@ mi_heap_reallocn.exit:                            ; preds = %mi_count_size_overf
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_reallocf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @mi_reallocf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
@@ -1569,7 +1563,7 @@ mi_heap_reallocf.exit:                            ; preds = %2, %8, %32, %40, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_rezalloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @mi_rezalloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext true)
@@ -1577,7 +1571,7 @@ define hidden ptr @mi_rezalloc(ptr noundef %0, i64 noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_recalloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @mi_recalloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %.not.i = icmp eq i64 %1, 1
@@ -1604,7 +1598,7 @@ mi_heap_recalloc.exit:                            ; preds = %mi_count_size_overf
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -1651,10 +1645,10 @@ mi_heap_malloc.exit:                              ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = icmp eq ptr %0, null
@@ -1703,7 +1697,7 @@ mi_heap_strdup.exit:                              ; preds = %1, %mi_heap_malloc.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_heap_strndup(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_heap_strndup(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %30, label %5
 
@@ -1757,10 +1751,10 @@ mi_heap_malloc.exit:                              ; preds = %5, %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_strndup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_strndup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = icmp eq ptr %0, null
@@ -1816,7 +1810,7 @@ mi_heap_strndup.exit:                             ; preds = %2, %mi_heap_malloc.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_heap_realpath(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_heap_realpath(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %4
 
@@ -1981,10 +1975,10 @@ mi_free.exit:                                     ; preds = %.critedge.i, %90, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_realpath(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_realpath(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call noalias ptr @mi_heap_realpath(ptr noundef %4, ptr noundef %0, ptr noundef %1)
@@ -1992,12 +1986,12 @@ define hidden noalias ptr @mi_realpath(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define weak hidden ptr @_ZSt15get_new_handlerv() local_unnamed_addr #3 {
+define weak hidden ptr @_ZSt15get_new_handlerv() local_unnamed_addr #2 {
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_new(i64 noundef %0) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_new(i64 noundef %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = icmp ult i64 %0, 1025
@@ -2039,7 +2033,7 @@ mi_malloc.exit:                                   ; preds = %1, %5
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @mi_try_new(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #5 {
+define internal fastcc ptr @mi_try_new(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = icmp ult i64 %0, 1025
   %5 = add nuw nsw i64 %0, 7
@@ -2114,7 +2108,7 @@ mi_malloc.exit:                                   ; preds = %.split, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_new_nothrow(i64 noundef %0) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_new_nothrow(i64 noundef %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = icmp ult i64 %0, 1025
@@ -2156,7 +2150,7 @@ mi_malloc.exit:                                   ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias nonnull ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias nonnull ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.lr.ph, label %.critedge
@@ -2182,10 +2176,10 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   ret ptr %.lcssa
 }
 
-declare noalias ptr @mi_malloc_aligned(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @mi_malloc_aligned(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_try_new_handler(i1 noundef zeroext %0) unnamed_addr #3 {
+define internal fastcc void @mi_try_new_handler(i1 noundef zeroext %0) unnamed_addr #2 {
   %2 = tail call ptr @_ZSt15get_new_handlerv()
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -2207,7 +2201,7 @@ define internal fastcc void @mi_try_new_handler(i1 noundef zeroext %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_new_aligned_nothrow(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_new_aligned_nothrow(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.lr.ph, label %.critedge
@@ -2233,7 +2227,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_new_n(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_new_n(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i64 %0, 1
   br i1 %.not, label %8, label %3
 
@@ -2291,7 +2285,7 @@ mi_new.exit:                                      ; preds = %27, %mi_malloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
@@ -2321,7 +2315,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_new_reallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden ptr @mi_new_reallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq i64 %1, 1
   br i1 %.not, label %9, label %4
 
@@ -2367,14 +2361,14 @@ mi_new_realloc.exit:                              ; preds = %mi_try_new_handler.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
-declare ptr @_mi_segment_page_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_mi_segment_page_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_mi_page_unfull(ptr noundef) local_unnamed_addr #2
+declare void @_mi_page_unfull(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -67108864
   %5 = inttoptr i64 %4 to ptr
@@ -2455,10 +2449,10 @@ define internal fastcc void @_mi_free_block_mt(ptr noundef %0, ptr noundef %1) u
   ret void
 }
 
-declare void @_mi_segment_huge_page_free(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_mi_segment_huge_page_free(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = tail call ptr @_mi_segment_page_start(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #14
@@ -2472,13 +2466,13 @@ _mi_page_ptr_unalign.exit.thread:                 ; preds = %3
   br label %17
 
 _mi_page_ptr_unalign.exit:                        ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = ptrtoint ptr %1 to i64
   %12 = and i64 %11, -67108864
   %13 = inttoptr i64 %12 to ptr
   %14 = call ptr @_mi_segment_page_start(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %5) #14
   %15 = load i64, ptr %5, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %7, align 4, !tbaa !22
   %16 = icmp sgt i32 %.pre, -1
   br i1 %16, label %17, label %20, !prof !45
@@ -2490,13 +2484,13 @@ _mi_page_ptr_unalign.exit:                        ; preds = %3
   br label %mi_page_usable_size_of.exit
 
 20:                                               ; preds = %_mi_page_ptr_unalign.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = ptrtoint ptr %1 to i64
   %22 = and i64 %21, -67108864
   %23 = inttoptr i64 %22 to ptr
   %24 = call ptr @_mi_segment_page_start(ptr noundef %23, ptr noundef nonnull %1, ptr noundef nonnull %4) #14
   %25 = load i64, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_page_usable_size_of.exit
 
 mi_page_usable_size_of.exit:                      ; preds = %17, %20
@@ -2510,22 +2504,28 @@ mi_page_usable_size_of.exit:                      ; preds = %17, %20
   ret i64 %30
 }
 
-declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
-declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #12
+declare void @abort() local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -2537,18 +2537,18 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind memory(read) }

@@ -2173,9 +2173,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc32VerifyLoadedHeapEmbeddedPointersEEvS2_PT0_.exit: ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc32VerifyLoadedHeapEmbeddedPointers14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2278,9 +2278,9 @@ _ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_
   br i1 %60, label %24, label %._crit_edge33, !llvm.loop !21
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop32VerifyLoadedHeapEmbeddedPointers14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4620,8 +4620,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %.idx = shl nsw i64 %28, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = icmp sgt i64 %.idx, %22
   br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEvP17stackChunkOopDescPT0_PlS7_.exit
 
@@ -4651,15 +4651,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %48 = ptrtoint ptr %35 to i64
   %49 = sub i64 %48, %32
   %50 = ashr exact i64 %49, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %51 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEEbPT_mmEUlmE_EEbS6_mm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %4, i64 noundef %47, i64 noundef %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEvP17stackChunkOopDescPT0_PlS7_.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %108
 
 52:                                               ; preds = %3
@@ -5308,10 +5308,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

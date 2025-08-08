@@ -151,23 +151,23 @@ define internal ptr @dialect_new(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !3
   %14 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef nonnull @dialect_kws, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %.not = icmp eq i32 %14, 0
@@ -203,7 +203,7 @@ _csv_state_from_type.exit:                        ; preds = %18
   br i1 %.not118, label %38, label %29
 
 29:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = call i32 @PyDict_GetItemRef(ptr noundef %31, ptr noundef nonnull %24, ptr noundef nonnull %4) #5
@@ -217,7 +217,7 @@ _csv_state_from_type.exit:                        ; preds = %18
 
 get_dialect_from_registry.exit:                   ; preds = %29, %34
   %36 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %36, ptr %5, align 8, !tbaa !3
   %37 = icmp eq ptr %36, null
   br i1 %37, label %Py_DECREF.exit, label %Py_INCREF.exit
@@ -1096,15 +1096,15 @@ Py_DECREF.exit165:                                ; preds = %403, %400, %398, %P
 
 Py_DECREF.exit:                                   ; preds = %21, %15, %410, %407, %405, %81, %78, %76, %67, %get_dialect_from_registry.exit, %74, %Py_DECREF.exit165, %3
   %.0 = phi ptr [ null, %3 ], [ %68, %67 ], [ null, %get_dialect_from_registry.exit ], [ null, %74 ], [ %.071235, %Py_DECREF.exit165 ], [ null, %76 ], [ null, %78 ], [ null, %81 ], [ %.071235, %405 ], [ %.071235, %407 ], [ %.071235, %410 ], [ null, %15 ], [ null, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1270,12 +1270,6 @@ define internal ptr @Dialect_get_quoting(ptr noundef readonly captures(none) %0,
   %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #5
   ret ptr %6
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 
@@ -3947,8 +3941,8 @@ define internal ptr @csv_reader(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
   %7 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4038,7 +4032,7 @@ Py_XDECREF.exit.i:                                ; preds = %3
   %46 = load ptr, ptr %6, align 8, !tbaa !3
   %47 = getelementptr i8, ptr %7, i64 16
   %.val = load ptr, ptr %47, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %46, ptr %4, align 8, !tbaa !3
   %.not.i35 = icmp eq ptr %46, null
   br i1 %.not.i35, label %50, label %48
@@ -4053,7 +4047,7 @@ Py_XDECREF.exit.i:                                ; preds = %3
 
 _call_dialect.exit:                               ; preds = %48, %50
   %.0.i36 = phi ptr [ %49, %48 ], [ %51, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i36, ptr %11, align 8, !tbaa !46
   %52 = icmp eq ptr %.0.i36, null
   br i1 %52, label %53, label %59
@@ -4079,8 +4073,8 @@ _call_dialect.exit:                               ; preds = %48, %50
 
 Py_DECREF.exit31:                                 ; preds = %58, %55, %53, %44, %41, %39, %34, %31, %29, %23, %20, %18, %3, %59
   %.0 = phi ptr [ %10, %59 ], [ null, %3 ], [ null, %18 ], [ null, %20 ], [ null, %23 ], [ null, %29 ], [ null, %31 ], [ null, %34 ], [ null, %39 ], [ null, %41 ], [ null, %44 ], [ null, %53 ], [ null, %55 ], [ null, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -4089,8 +4083,8 @@ define internal ptr @csv_writer(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
   %7 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -4189,7 +4183,7 @@ _Py_NewRef.exit:                                  ; preds = %11, %17
   %52 = load ptr, ptr %6, align 8, !tbaa !3
   %53 = getelementptr i8, ptr %7, i64 16
   %.val = load ptr, ptr %53, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %52, ptr %4, align 8, !tbaa !3
   %.not.i40 = icmp eq ptr %52, null
   br i1 %.not.i40, label %56, label %54
@@ -4204,7 +4198,7 @@ _Py_NewRef.exit:                                  ; preds = %11, %17
 
 _call_dialect.exit:                               ; preds = %54, %56
   %.0.i = phi ptr [ %55, %54 ], [ %57, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i, ptr %12, align 8, !tbaa !69
   %58 = icmp eq ptr %.0.i, null
   br i1 %58, label %59, label %65
@@ -4230,8 +4224,8 @@ _call_dialect.exit:                               ; preds = %54, %56
 
 Py_DECREF.exit36:                                 ; preds = %64, %61, %59, %50, %47, %44, %38, %35, %33, %26, %23, %21, %3, %65
   %.0 = phi ptr [ %10, %65 ], [ null, %3 ], [ null, %21 ], [ null, %23 ], [ null, %26 ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ null, %44 ], [ null, %47 ], [ null, %50 ], [ null, %59 ], [ null, %61 ], [ null, %64 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -4240,8 +4234,8 @@ define internal ptr @csv_register_dialect(ptr noundef %0, ptr noundef %1, ptr no
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
   %7 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
   %8 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.64, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
@@ -4267,7 +4261,7 @@ define internal ptr @csv_register_dialect(ptr noundef %0, ptr noundef %1, ptr no
   %17 = load ptr, ptr %6, align 8, !tbaa !3
   %18 = getelementptr i8, ptr %7, i64 16
   %.val13 = load ptr, ptr %18, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %17, ptr %4, align 8, !tbaa !3
   %.not.i14 = icmp eq ptr %17, null
   br i1 %.not.i14, label %21, label %19
@@ -4282,7 +4276,7 @@ define internal ptr @csv_register_dialect(ptr noundef %0, ptr noundef %1, ptr no
 
 _call_dialect.exit:                               ; preds = %19, %21
   %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = icmp eq ptr %.0.i, null
   br i1 %23, label %35, label %24
 
@@ -4312,8 +4306,8 @@ Py_DECREF.exit:                                   ; preds = %24, %31, %34
 
 35:                                               ; preds = %Py_DECREF.exit, %_call_dialect.exit, %3, %14
   %.0 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %_call_dialect.exit ], [ %._Py_NoneStruct, %Py_DECREF.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -4329,7 +4323,7 @@ define internal ptr @_csv_list_dialects(ptr noundef %0, ptr readnone captures(no
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_csv_unregister_dialect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
   %7 = icmp eq i64 %2, 1
   %or.cond3 = and i1 %7, %6
@@ -4363,7 +4357,7 @@ define internal noundef ptr @_csv_unregister_dialect(ptr noundef %0, ptr noundef
 
 _csv_unregister_dialect_impl.exit:                ; preds = %20, %18, %.thread, %9
   %.0 = phi ptr [ null, %9 ], [ null, %20 ], [ null, %.thread ], [ @_Py_NoneStruct, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -4371,7 +4365,7 @@ _csv_unregister_dialect_impl.exit:                ; preds = %20, %18, %.thread, 
 define internal ptr @_csv_get_dialect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %3, null
   %8 = icmp eq i64 %2, 1
   %or.cond3 = and i1 %8, %7
@@ -4388,7 +4382,7 @@ define internal ptr @_csv_get_dialect(ptr noundef %0, ptr noundef %1, i64 nounde
   %12 = phi ptr [ %11, %10 ], [ %1, %4 ]
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = call i32 @PyDict_GetItemRef(ptr noundef %16, ptr noundef %13, ptr noundef nonnull %5) #5
@@ -4402,19 +4396,19 @@ define internal ptr @_csv_get_dialect(ptr noundef %0, ptr noundef %1, i64 nounde
 
 _csv_get_dialect_impl.exit:                       ; preds = %.thread, %19
   %21 = load ptr, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
 22:                                               ; preds = %10, %_csv_get_dialect_impl.exit
   %.0 = phi ptr [ %21, %_csv_get_dialect_impl.exit ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_csv_field_size_limit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %.thread
 
@@ -4488,7 +4482,7 @@ define internal ptr @_csv_field_size_limit(ptr noundef %0, ptr noundef %1, i64 n
 
 _csv_field_size_limit_impl.exit:                  ; preds = %34, %32, %26, %10
   %.021 = phi ptr [ null, %10 ], [ %36, %34 ], [ null, %26 ], [ null, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.021
 }
 
@@ -4631,6 +4625,12 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #1
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4

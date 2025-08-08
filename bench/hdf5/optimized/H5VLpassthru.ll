@@ -130,9 +130,9 @@ define internal noundef i32 @H5VL_pass_through_info_free(ptr noundef captures(no
 define internal noundef i32 @H5VL_pass_through_info_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !12
   %5 = load i64, ptr %0, align 8, !tbaa !3
   %6 = call i32 @H5VLget_value(i64 noundef %5, ptr noundef nonnull %3) #10
@@ -158,8 +158,8 @@ define internal noundef i32 @H5VL_pass_through_info_to_str(ptr noundef readonly 
   %.not9 = icmp eq ptr %18, null
   %19 = select i1 %.not9, ptr @.str.4, ptr %18
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %.0, ptr noundef nonnull @.str.3, i32 noundef %17, ptr noundef nonnull %19) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -167,8 +167,8 @@ define internal noundef i32 @H5VL_pass_through_info_to_str(ptr noundef readonly 
 define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !14
   %5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #10
   %6 = load i32, ptr %3, align 4, !tbaa !10
@@ -200,8 +200,8 @@ define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr n
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8, !tbaa !9
   store ptr %21, ptr %1, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -633,7 +633,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp ugt i64 %0, 1
   br i1 %10, label %11, label %15
 
@@ -709,14 +709,14 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
   %.0 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp ugt i64 %0, 1
   br i1 %10, label %11, label %15
 
@@ -792,7 +792,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
   %.0 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -1123,7 +1123,7 @@ define internal i32 @H5VL_pass_through_datatype_close(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #1 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @H5Pget_vol_info(i64 noundef %3, ptr noundef nonnull %7) #10
   %9 = load ptr, ptr %7, align 8, !tbaa !25
   %.not = icmp eq ptr %9, null
@@ -1191,14 +1191,14 @@ H5VL_pass_through_info_free.exit:                 ; preds = %32, %38
 
 44:                                               ; preds = %6, %H5VL_pass_through_info_free.exit
   %.0 = phi ptr [ %.017, %H5VL_pass_through_info_free.exit ], [ null, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @H5Pget_vol_info(i64 noundef %2, ptr noundef nonnull %6) #10
   %8 = load ptr, ptr %6, align 8, !tbaa !25
   %.not = icmp eq ptr %8, null
@@ -1266,7 +1266,7 @@ H5VL_pass_through_info_free.exit:                 ; preds = %31, %37
 
 43:                                               ; preds = %5, %H5VL_pass_through_info_free.exit
   %.0 = phi ptr [ %.016, %H5VL_pass_through_info_free.exit ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -1302,8 +1302,8 @@ define internal i32 @H5VL_pass_through_file_get(ptr noundef readonly captures(no
 define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
   %5 = alloca %struct.H5VL_file_specific_args_t, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !25
   %7 = load i32, ptr %1, align 8, !tbaa !27
   switch i32 %7, label %38 [
@@ -1461,8 +1461,8 @@ H5VL_pass_through_info_free.exit47:               ; preds = %66, %74
 
 92:                                               ; preds = %H5VL_pass_through_info_free.exit, %80, %87, %83, %H5VL_pass_through_info_free.exit47, %23, %8
   %.0 = phi i32 [ -1, %8 ], [ -1, %23 ], [ %43, %H5VL_pass_through_info_free.exit47 ], [ %43, %83 ], [ %43, %87 ], [ %43, %80 ], [ %43, %H5VL_pass_through_info_free.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1649,7 +1649,7 @@ define internal i32 @H5VL_pass_through_group_specific(ptr noundef readonly captu
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
@@ -1668,7 +1668,7 @@ define internal i32 @H5VL_pass_through_group_specific(ptr noundef readonly captu
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = call i32 @H5VLgroup_specific(ptr noundef %22, i64 noundef %6, ptr noundef nonnull %5, i64 noundef %2, ptr noundef %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
 24:                                               ; preds = %4
@@ -2419,222 +2419,222 @@ define internal i32 @H5VL_pass_through_optional(ptr noundef readonly captures(no
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @H5Iis_valid(i64 noundef) local_unnamed_addr #4
+declare i32 @H5Iis_valid(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Iinc_ref(i64 noundef) local_unnamed_addr #4
+declare i32 @H5Iinc_ref(i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5VLcopy_connector_info(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLcopy_connector_info(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @H5VLcmp_connector_cls(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5VLcmp_connector_cls(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5VLcmp_connector_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLcmp_connector_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @H5Eget_current_stack() local_unnamed_addr #3
 
-declare i64 @H5Eget_current_stack() local_unnamed_addr #4
+declare i32 @H5VLfree_connector_info(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLfree_connector_info(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5Idec_ref(i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5Idec_ref(i64 noundef) local_unnamed_addr #4
-
-declare i32 @H5Eset_current_stack(i64 noundef) local_unnamed_addr #4
+declare i32 @H5Eset_current_stack(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @H5VLget_value(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLget_value(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLconnector_info_to_str(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLconnector_info_to_str(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare ptr @H5allocate_memory(i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @H5allocate_memory(i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i64 @H5VLregister_connector_by_value(i32 noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @H5VLregister_connector_by_value(i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare i32 @H5VLconnector_str_to_info(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLconnector_str_to_info(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLget_object(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @H5VLget_object(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5VLget_wrap_ctx(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLget_wrap_ctx(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLwrap_object(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLwrap_object(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLunwrap_object(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @H5VLunwrap_object(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5VLfree_wrap_ctx(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5VLfree_wrap_ctx(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @H5VLattr_create(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLattr_create(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLattr_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLattr_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLattr_read(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLattr_read(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLattr_write(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLattr_write(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLattr_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLattr_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLattr_specific(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLattr_specific(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLattr_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLattr_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLattr_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLattr_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLdataset_create(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLdataset_create(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLdataset_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLdataset_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdataset_read(i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdataset_read(i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdataset_write(i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdataset_write(i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdataset_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdataset_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdataset_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdataset_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdataset_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdataset_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdataset_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdataset_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLdatatype_commit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLdatatype_commit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLdatatype_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLdatatype_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdatatype_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdatatype_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdatatype_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdatatype_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdatatype_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdatatype_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLdatatype_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLdatatype_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5Pget_vol_info(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5Pget_vol_info(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @H5Pcopy(i64 noundef) local_unnamed_addr #4
+declare i64 @H5Pcopy(i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5Pset_vol(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5Pset_vol(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLfile_create(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLfile_create(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #4
+declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #3
 
-declare ptr @H5VLfile_open(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLfile_open(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLfile_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLfile_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLfile_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLfile_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLfile_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLfile_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLfile_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLfile_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLgroup_create(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLgroup_create(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLgroup_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLgroup_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLgroup_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLgroup_get(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLgroup_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLgroup_specific(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLgroup_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLgroup_optional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLgroup_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLgroup_close(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLlink_create(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLlink_create(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLlink_copy(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLlink_copy(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLlink_move(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLlink_move(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLlink_get(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLlink_get(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLlink_specific(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLlink_specific(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLlink_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLlink_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @H5VLobject_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @H5VLobject_open(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLobject_copy(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLobject_copy(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLobject_get(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLobject_get(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLobject_specific(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLobject_specific(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLobject_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLobject_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLintrospect_get_conn_cls(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLintrospect_get_conn_cls(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLintrospect_get_cap_flags(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLintrospect_get_cap_flags(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLintrospect_opt_query(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLintrospect_opt_query(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLrequest_wait(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLrequest_wait(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLrequest_notify(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLrequest_notify(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLrequest_cancel(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLrequest_cancel(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLrequest_specific(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLrequest_specific(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLrequest_optional(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLrequest_optional(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLrequest_free(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @H5VLrequest_free(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5VLblob_put(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLblob_put(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLblob_get(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLblob_get(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLblob_specific(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLblob_specific(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLblob_optional(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLblob_optional(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLtoken_cmp(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLtoken_cmp(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLtoken_to_str(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLtoken_to_str(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLtoken_from_str(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLtoken_from_str(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @H5VLoptional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @H5VLoptional(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind willreturn memory(read) }

@@ -528,7 +528,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._zebra_header_t, align 2
   %6 = alloca %struct._zebra_header_t, align 2
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call fastcc zeroext i1 @zebra_get_header(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5)
   %8 = load i16, ptr %5, align 2
   %9 = icmp ult i16 %8, 1025
@@ -571,11 +571,11 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not.i, label %test_zebra.exit.thread, label %26
 
 test_zebra.exit.thread:                           ; preds = %4, %17, %20, %22, %24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %262
 
 26:                                               ; preds = %24, %22, %20, %17
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   call void @col_set_str(ptr noundef %28, i32 noundef 35, ptr noundef nonnull @.str.214)
@@ -612,7 +612,7 @@ test_zebra.exit.thread:                           ; preds = %4, %17, %20, %22, %
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = call fastcc zeroext i1 @zebra_get_header(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6)
   br i1 %51, label %.lr.ph, label %._crit_edge
 
@@ -1144,13 +1144,13 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
 257:                                              ; preds = %256, %250, %247, %246, %245, %244, %243, %242, %239, %238, %237, %236, %235, %234, %233, %232, %226, %223, %222, %221, %220, %219, %218, %215, %214, %206, %205, %204, %203, %202, %201, %200, %197, %196, %195, %zebra_hello.exit, %187, %178, %177, %176, %175, %174, %173, %172, %169, %168, %166, %zebra_hello.exit.i, %161, %160, %151, %145, %143, %137, %135, %134, %133, %132, %131, %130, %129, %128, %.thread330.i, %.thread328.i
   %258 = add i32 %.04866, %.pre-phi
   %259 = sub i32 %.04963, %.pre-phi
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %260 = call fastcc zeroext i1 @zebra_get_header(ptr noundef %0, i32 noundef %258, ptr noundef nonnull %6)
   br i1 %260, label %54, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %257, %proto_item_set_hidden.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %261 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %262
 
@@ -1168,9 +1168,6 @@ define hidden void @proto_reg_handoff_zebra() local_unnamed_addr #0 {
 
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1267,9 +1264,6 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -1440,10 +1434,10 @@ define internal fastcc void @zebra_route(ptr noundef %0, i1 noundef zeroext %1, 
   %10 = alloca i32, align 4
   %11 = alloca [16 x i8], align 16
   %12 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp eq i8 %7, 0
   br i1 %13, label %27, label %14
 
@@ -1818,10 +1812,10 @@ zebra_route_ifindex.exit:                         ; preds = %.lr.ph.i, %154, %15
   br label %195
 
 195:                                              ; preds = %192, %191
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2392,6 +2386,12 @@ define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i1 noundef zeroe
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3

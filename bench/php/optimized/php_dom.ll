@@ -1046,16 +1046,10 @@ define hidden ptr @dom_get_doc_props(ptr noundef captures(address_is_null) %0) l
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare noalias ptr @_emalloc_16() local_unnamed_addr #3
+declare noalias ptr @_emalloc_16() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden nonnull ptr @dom_get_doc_props_read_only(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1119,12 +1113,12 @@ dom_get_doc_props.exit:                           ; preds = %5
   %15 = phi ptr [ %.pre15, %.thread ], [ %.pre, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 13, ptr %18, align 8, !tbaa !44
   %19 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %17, ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 20:                                               ; preds = %13
@@ -1137,11 +1131,11 @@ dom_get_doc_props.exit:                           ; preds = %5
   ret void
 }
 
-declare noalias ptr @_emalloc_56() local_unnamed_addr #3
+declare noalias ptr @_emalloc_56() local_unnamed_addr #2
 
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @dom_get_doc_classmap(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #1 {
@@ -1174,7 +1168,7 @@ zend_hash_find_ptr.exit:                          ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @dom_get_strict_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define hidden zeroext i1 @dom_get_strict_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %2
 
@@ -1196,7 +1190,7 @@ dom_get_doc_props_read_only.exit:                 ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @dom_object_get_node(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local ptr @dom_object_get_node(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1215,7 +1209,7 @@ define dso_local ptr @dom_object_get_node(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @php_dom_object_get_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local ptr @php_dom_object_get_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1298,7 +1292,7 @@ dom_get_prop_handler.exit.thread:                 ; preds = %5, %dom_get_prop_ha
   ret ptr %.1
 }
 
-declare ptr @zend_std_read_property(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_std_read_property(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dom_write_property(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
@@ -1407,7 +1401,7 @@ dom_get_prop_handler.exit.thread50.thread:        ; preds = %13
   %52 = and i32 %51, 33554431
   %53 = icmp ne i32 %52, 0
   tail call void @llvm.assume(i1 %53)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = load ptr, ptr %2, align 8, !tbaa !44
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !44
@@ -1442,7 +1436,7 @@ dom_get_prop_handler.exit.thread50.thread:        ; preds = %13
 73:                                               ; preds = %62, %70
   %.1 = phi ptr [ %2, %70 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %62 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 dom_get_prop_handler.exit.thread:                 ; preds = %4, %dom_get_prop_handler.exit
@@ -1454,21 +1448,21 @@ dom_get_prop_handler.exit.thread:                 ; preds = %4, %dom_get_prop_ha
   ret ptr %.0
 }
 
-declare void @zend_readonly_property_modification_error_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_readonly_property_modification_error_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
-declare ptr @zend_get_property_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @zend_get_property_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #3
+declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_std_write_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_std_write_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @php_dom_export_node(ptr noundef readonly captures(none) %0) #5 {
+define hidden ptr @php_dom_export_node(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !44
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load ptr, ptr %3, align 8, !tbaa !97
@@ -1495,7 +1489,7 @@ define hidden void @zif_dom_import_simplexml(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dom_import_simplexml_common(i32 %.44.val, ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %.44.val, ptr noundef nonnull @.str.284, ptr noundef nonnull %3) #17
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %9
@@ -1586,7 +1580,7 @@ define internal fastcc void @dom_import_simplexml_common(i32 %.44.val, ptr nound
   br label %52
 
 52:                                               ; preds = %32, %47, %49, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2388,7 +2382,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   store ptr @dom_token_list_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 88), align 8, !tbaa !123
   tail call void @_zend_hash_init(ptr noundef nonnull @classes, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %662 = tail call ptr @zend_register_internal_enum(ptr noundef nonnull @.str.300, i8 noundef zeroext 6, ptr noundef null) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %618) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %618)
   %663 = tail call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
   store i32 1, ptr %663, align 4, !tbaa !69
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 4
@@ -2405,7 +2399,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %669 = getelementptr inbounds nuw i8, ptr %618, i64 8
   store i32 262, ptr %669, align 8, !tbaa !44
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.302, ptr noundef nonnull %618) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %619) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %619)
   %670 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
   store i32 1, ptr %670, align 4, !tbaa !69
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 4
@@ -2422,7 +2416,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %676 = getelementptr inbounds nuw i8, ptr %619, i64 8
   store i32 262, ptr %676, align 8, !tbaa !44
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.304, ptr noundef nonnull %619) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %620) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %620)
   %677 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
   store i32 1, ptr %677, align 4, !tbaa !69
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 4
@@ -2439,7 +2433,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %683 = getelementptr inbounds nuw i8, ptr %620, i64 8
   store i32 262, ptr %683, align 8, !tbaa !44
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.306, ptr noundef nonnull %620) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %621) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %621)
   %684 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
   store i32 1, ptr %684, align 4, !tbaa !69
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 4
@@ -2456,14 +2450,14 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %690 = getelementptr inbounds nuw i8, ptr %621, i64 8
   store i32 262, ptr %690, align 8, !tbaa !44
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.308, ptr noundef nonnull %621) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %621) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %620) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %619) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %618) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %621)
+  call void @llvm.lifetime.end.p0(ptr nonnull %620)
+  call void @llvm.lifetime.end.p0(ptr nonnull %619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %618)
   store ptr %662, ptr @dom_adjacent_position_class_entry, align 8, !tbaa !127
   %691 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %617)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %615) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %617)
+  call void @llvm.lifetime.start.p0(ptr nonnull %615)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %615, i8 0, i64 520, i1 false)
   %692 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %693 = call ptr %692(ptr noundef nonnull @.str.309, i64 noundef 12, i1 noundef zeroext true) #17
@@ -2475,7 +2469,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   store ptr null, ptr %696, align 8, !tbaa !44
   %697 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %615, ptr noundef %691, i32 noundef 32) #17
   %698 = call i32 @zend_register_class_alias_ex(ptr noundef nonnull @.str.310, i64 noundef 16, ptr noundef %697, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %616) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %616)
   store i64 0, ptr %616, align 8, !tbaa !44
   %699 = getelementptr inbounds nuw i8, ptr %616, i64 8
   store i32 4, ptr %699, align 8, !tbaa !44
@@ -2484,11 +2478,11 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %702 = load ptr, ptr %701, align 8, !tbaa !131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %617, i8 0, i64 16, i1 false)
   %703 = call ptr @zend_declare_typed_property(ptr noundef %697, ptr noundef %702, ptr noundef nonnull %616, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %617) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %616) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %615) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %617)
+  call void @llvm.lifetime.end.p0(ptr nonnull %616)
+  call void @llvm.lifetime.end.p0(ptr nonnull %615)
+  call void @llvm.lifetime.end.p0(ptr nonnull %617)
   store ptr %697, ptr @dom_domexception_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %614) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %614)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %614, i8 0, i64 520, i1 false)
   %704 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %705 = call ptr %704(ptr noundef nonnull @.str.311, i64 noundef 13, i1 noundef zeroext true) #17
@@ -2499,9 +2493,9 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %708 = getelementptr inbounds nuw i8, ptr %614, i64 504
   store ptr @class_DOMParentNode_methods, ptr %708, align 8, !tbaa !44
   %709 = call ptr @zend_register_internal_interface(ptr noundef nonnull %614) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %614) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %614)
   store ptr %709, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %613) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %613)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %613, i8 0, i64 520, i1 false)
   %710 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %711 = call ptr %710(ptr noundef nonnull @.str.317, i64 noundef 14, i1 noundef zeroext true) #17
@@ -2512,9 +2506,9 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %714 = getelementptr inbounds nuw i8, ptr %613, i64 504
   store ptr @class_Dom_ParentNode_methods, ptr %714, align 8, !tbaa !44
   %715 = call ptr @zend_register_internal_interface(ptr noundef nonnull %613) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %613) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %613)
   store ptr %715, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %612) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %612)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %612, i8 0, i64 520, i1 false)
   %716 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %717 = call ptr %716(ptr noundef nonnull @.str.327, i64 noundef 12, i1 noundef zeroext true) #17
@@ -2525,9 +2519,9 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %720 = getelementptr inbounds nuw i8, ptr %612, i64 504
   store ptr @class_DOMChildNode_methods, ptr %720, align 8, !tbaa !44
   %721 = call ptr @zend_register_internal_interface(ptr noundef nonnull %612) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %612) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %612)
   store ptr %721, ptr @dom_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %611) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %611)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %611, i8 0, i64 520, i1 false)
   %722 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %723 = call ptr %722(ptr noundef nonnull @.str.333, i64 noundef 13, i1 noundef zeroext true) #17
@@ -2538,9 +2532,9 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %726 = getelementptr inbounds nuw i8, ptr %611, i64 504
   store ptr @class_Dom_ChildNode_methods, ptr %726, align 8, !tbaa !44
   %727 = call ptr @zend_register_internal_interface(ptr noundef nonnull %611) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %611) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %611)
   store ptr %727, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %610) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %610)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %610, i8 0, i64 520, i1 false)
   %728 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %729 = call ptr %728(ptr noundef nonnull @.str.334, i64 noundef 17, i1 noundef zeroext true) #17
@@ -2551,13 +2545,13 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %732 = getelementptr inbounds nuw i8, ptr %610, i64 504
   store ptr @class_DOMImplementation_methods, ptr %732, align 8, !tbaa !44
   %733 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %610, ptr noundef null, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %610) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %610)
   store ptr %733, ptr @dom_domimplementation_class_entry, align 8, !tbaa !127
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 384
   store ptr @dom_objects_new, ptr %734, align 8, !tbaa !44
   %735 = getelementptr inbounds nuw i8, ptr %733, i64 360
   store ptr @dom_object_handlers, ptr %735, align 8, !tbaa !128
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %609) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %609)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %609, i8 0, i64 520, i1 false)
   %736 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %737 = call ptr %736(ptr noundef nonnull @.str.348, i64 noundef 18, i1 noundef zeroext true) #17
@@ -2568,37 +2562,37 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %740 = getelementptr inbounds nuw i8, ptr %609, i64 504
   store ptr @class_Dom_Implementation_methods, ptr %740, align 8, !tbaa !44
   %741 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %609, ptr noundef null, i32 noundef 536879104) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %609) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %609)
   store ptr %741, ptr @dom_modern_domimplementation_class_entry, align 8, !tbaa !127
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 384
   store ptr @dom_objects_new, ptr %742, align 8, !tbaa !44
   %743 = getelementptr inbounds nuw i8, ptr %741, i64 360
   store ptr @dom_modern_domimplementation_object_handlers, ptr %743, align 8, !tbaa !128
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %562)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %564)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %566)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %568)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %570)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %572)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %574)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %576)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %578)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %580)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %582)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %584)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %586)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %588)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %590)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %592)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %594)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %596)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %598)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %600)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %602)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %604)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %606)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %608)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %560) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %562)
+  call void @llvm.lifetime.start.p0(ptr nonnull %564)
+  call void @llvm.lifetime.start.p0(ptr nonnull %566)
+  call void @llvm.lifetime.start.p0(ptr nonnull %568)
+  call void @llvm.lifetime.start.p0(ptr nonnull %570)
+  call void @llvm.lifetime.start.p0(ptr nonnull %572)
+  call void @llvm.lifetime.start.p0(ptr nonnull %574)
+  call void @llvm.lifetime.start.p0(ptr nonnull %576)
+  call void @llvm.lifetime.start.p0(ptr nonnull %578)
+  call void @llvm.lifetime.start.p0(ptr nonnull %580)
+  call void @llvm.lifetime.start.p0(ptr nonnull %582)
+  call void @llvm.lifetime.start.p0(ptr nonnull %584)
+  call void @llvm.lifetime.start.p0(ptr nonnull %586)
+  call void @llvm.lifetime.start.p0(ptr nonnull %588)
+  call void @llvm.lifetime.start.p0(ptr nonnull %590)
+  call void @llvm.lifetime.start.p0(ptr nonnull %592)
+  call void @llvm.lifetime.start.p0(ptr nonnull %594)
+  call void @llvm.lifetime.start.p0(ptr nonnull %596)
+  call void @llvm.lifetime.start.p0(ptr nonnull %598)
+  call void @llvm.lifetime.start.p0(ptr nonnull %600)
+  call void @llvm.lifetime.start.p0(ptr nonnull %602)
+  call void @llvm.lifetime.start.p0(ptr nonnull %604)
+  call void @llvm.lifetime.start.p0(ptr nonnull %606)
+  call void @llvm.lifetime.start.p0(ptr nonnull %608)
+  call void @llvm.lifetime.start.p0(ptr nonnull %560)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %560, i8 0, i64 520, i1 false)
   %744 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %745 = call ptr %744(ptr noundef nonnull @.str.356, i64 noundef 7, i1 noundef zeroext true) #17
@@ -2609,7 +2603,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %748 = getelementptr inbounds nuw i8, ptr %560, i64 504
   store ptr @class_DOMNode_methods, ptr %748, align 8, !tbaa !44
   %749 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %560, ptr noundef null, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %561) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %561)
   store i64 1, ptr %561, align 8, !tbaa !44
   %750 = getelementptr inbounds nuw i8, ptr %561, i64 8
   store i32 4, ptr %750, align 8, !tbaa !44
@@ -2650,7 +2644,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   br label %zend_string_release.exit.i
 
 zend_string_release.exit.i:                       ; preds = %767, %766, %759, %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %563) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %563)
   store i64 2, ptr %563, align 8, !tbaa !44
   %768 = getelementptr inbounds nuw i8, ptr %563, i64 8
   store i32 4, ptr %768, align 8, !tbaa !44
@@ -2691,7 +2685,7 @@ zend_string_release.exit.i:                       ; preds = %767, %766, %759, %2
   br label %zend_string_release.exit96.i
 
 zend_string_release.exit96.i:                     ; preds = %785, %784, %777, %zend_string_release.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %565) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %565)
   store i64 4, ptr %565, align 8, !tbaa !44
   %786 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store i32 4, ptr %786, align 8, !tbaa !44
@@ -2732,7 +2726,7 @@ zend_string_release.exit96.i:                     ; preds = %785, %784, %777, %z
   br label %zend_string_release.exit99.i
 
 zend_string_release.exit99.i:                     ; preds = %803, %802, %795, %zend_string_release.exit96.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %567) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %567)
   store i64 8, ptr %567, align 8, !tbaa !44
   %804 = getelementptr inbounds nuw i8, ptr %567, i64 8
   store i32 4, ptr %804, align 8, !tbaa !44
@@ -2773,7 +2767,7 @@ zend_string_release.exit99.i:                     ; preds = %803, %802, %795, %z
   br label %zend_string_release.exit102.i
 
 zend_string_release.exit102.i:                    ; preds = %821, %820, %813, %zend_string_release.exit99.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %569) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %569)
   store i64 16, ptr %569, align 8, !tbaa !44
   %822 = getelementptr inbounds nuw i8, ptr %569, i64 8
   store i32 4, ptr %822, align 8, !tbaa !44
@@ -2814,7 +2808,7 @@ zend_string_release.exit102.i:                    ; preds = %821, %820, %813, %z
   br label %zend_string_release.exit105.i
 
 zend_string_release.exit105.i:                    ; preds = %839, %838, %831, %zend_string_release.exit102.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %571) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %571)
   store i64 32, ptr %571, align 8, !tbaa !44
   %840 = getelementptr inbounds nuw i8, ptr %571, i64 8
   store i32 4, ptr %840, align 8, !tbaa !44
@@ -2855,7 +2849,7 @@ zend_string_release.exit105.i:                    ; preds = %839, %838, %831, %z
   br label %zend_string_release.exit108.i
 
 zend_string_release.exit108.i:                    ; preds = %857, %856, %849, %zend_string_release.exit105.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %573) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %573)
   %858 = getelementptr inbounds nuw i8, ptr %573, i64 8
   store i32 0, ptr %858, align 8, !tbaa !44
   %859 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -2904,7 +2898,7 @@ zend_string_release.exit108.i:                    ; preds = %857, %856, %849, %z
   br label %zend_string_release.exit111.i
 
 zend_string_release.exit111.i:                    ; preds = %878, %877, %870, %zend_string_release.exit108.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %575) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %575)
   %879 = getelementptr inbounds nuw i8, ptr %575, i64 8
   store i32 0, ptr %879, align 8, !tbaa !44
   %880 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -2953,7 +2947,7 @@ zend_string_release.exit111.i:                    ; preds = %878, %877, %870, %z
   br label %zend_string_release.exit114.i
 
 zend_string_release.exit114.i:                    ; preds = %899, %898, %891, %zend_string_release.exit111.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %577) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %577)
   %900 = getelementptr inbounds nuw i8, ptr %577, i64 8
   store i32 0, ptr %900, align 8, !tbaa !44
   %901 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3002,7 +2996,7 @@ zend_string_release.exit114.i:                    ; preds = %899, %898, %891, %z
   br label %zend_string_release.exit117.i
 
 zend_string_release.exit117.i:                    ; preds = %920, %919, %912, %zend_string_release.exit114.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %579) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %579)
   %921 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store i32 0, ptr %921, align 8, !tbaa !44
   %922 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3063,7 +3057,7 @@ zend_string_release.exit117.i:                    ; preds = %920, %919, %912, %z
   br label %zend_string_release.exit120.i
 
 zend_string_release.exit120.i:                    ; preds = %947, %946, %939, %zend_string_release.exit117.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %581) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %581)
   %948 = getelementptr inbounds nuw i8, ptr %581, i64 8
   store i32 0, ptr %948, align 8, !tbaa !44
   %949 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3124,7 +3118,7 @@ zend_string_release.exit120.i:                    ; preds = %947, %946, %939, %z
   br label %zend_string_release.exit123.i
 
 zend_string_release.exit123.i:                    ; preds = %974, %973, %966, %zend_string_release.exit120.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %583) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %583)
   %975 = getelementptr inbounds nuw i8, ptr %583, i64 8
   store i32 0, ptr %975, align 8, !tbaa !44
   %976 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3185,7 +3179,7 @@ zend_string_release.exit123.i:                    ; preds = %974, %973, %966, %z
   br label %zend_string_release.exit126.i
 
 zend_string_release.exit126.i:                    ; preds = %1001, %1000, %993, %zend_string_release.exit123.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %585) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %585)
   %1002 = getelementptr inbounds nuw i8, ptr %585, i64 8
   store i32 0, ptr %1002, align 8, !tbaa !44
   %1003 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3246,7 +3240,7 @@ zend_string_release.exit126.i:                    ; preds = %1001, %1000, %993, 
   br label %zend_string_release.exit129.i
 
 zend_string_release.exit129.i:                    ; preds = %1028, %1027, %1020, %zend_string_release.exit126.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %587) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %587)
   %1029 = getelementptr inbounds nuw i8, ptr %587, i64 8
   store i32 0, ptr %1029, align 8, !tbaa !44
   %1030 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3307,7 +3301,7 @@ zend_string_release.exit129.i:                    ; preds = %1028, %1027, %1020,
   br label %zend_string_release.exit132.i
 
 zend_string_release.exit132.i:                    ; preds = %1055, %1054, %1047, %zend_string_release.exit129.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %589) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %589)
   %1056 = getelementptr inbounds nuw i8, ptr %589, i64 8
   store i32 0, ptr %1056, align 8, !tbaa !44
   %1057 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3368,7 +3362,7 @@ zend_string_release.exit132.i:                    ; preds = %1055, %1054, %1047,
   br label %zend_string_release.exit135.i
 
 zend_string_release.exit135.i:                    ; preds = %1082, %1081, %1074, %zend_string_release.exit132.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %591) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %591)
   %1083 = getelementptr inbounds nuw i8, ptr %591, i64 8
   store i32 0, ptr %1083, align 8, !tbaa !44
   %1084 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3429,7 +3423,7 @@ zend_string_release.exit135.i:                    ; preds = %1082, %1081, %1074,
   br label %zend_string_release.exit138.i
 
 zend_string_release.exit138.i:                    ; preds = %1109, %1108, %1101, %zend_string_release.exit135.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %593) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %593)
   %1110 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store i32 0, ptr %1110, align 8, !tbaa !44
   %1111 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3490,7 +3484,7 @@ zend_string_release.exit138.i:                    ; preds = %1109, %1108, %1101,
   br label %zend_string_release.exit141.i
 
 zend_string_release.exit141.i:                    ; preds = %1136, %1135, %1128, %zend_string_release.exit138.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %595) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %595)
   %1137 = getelementptr inbounds nuw i8, ptr %595, i64 8
   store i32 0, ptr %1137, align 8, !tbaa !44
   %1138 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3539,7 +3533,7 @@ zend_string_release.exit141.i:                    ; preds = %1136, %1135, %1128,
   br label %zend_string_release.exit144.i
 
 zend_string_release.exit144.i:                    ; preds = %1157, %1156, %1149, %zend_string_release.exit141.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %597) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %597)
   %1158 = getelementptr inbounds nuw i8, ptr %597, i64 8
   store i32 0, ptr %1158, align 8, !tbaa !44
   %1159 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3600,7 +3594,7 @@ zend_string_release.exit144.i:                    ; preds = %1157, %1156, %1149,
   br label %zend_string_release.exit147.i
 
 zend_string_release.exit147.i:                    ; preds = %1184, %1183, %1176, %zend_string_release.exit144.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %599) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %599)
   %1185 = getelementptr inbounds nuw i8, ptr %599, i64 8
   store i32 0, ptr %1185, align 8, !tbaa !44
   %1186 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3649,7 +3643,7 @@ zend_string_release.exit147.i:                    ; preds = %1184, %1183, %1176,
   br label %zend_string_release.exit150.i
 
 zend_string_release.exit150.i:                    ; preds = %1205, %1204, %1197, %zend_string_release.exit147.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %601) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %601)
   %1206 = getelementptr inbounds nuw i8, ptr %601, i64 8
   store i32 0, ptr %1206, align 8, !tbaa !44
   %1207 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -3698,7 +3692,7 @@ zend_string_release.exit150.i:                    ; preds = %1205, %1204, %1197,
   br label %zend_string_release.exit153.i
 
 zend_string_release.exit153.i:                    ; preds = %1226, %1225, %1218, %zend_string_release.exit150.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %603) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %603)
   %1227 = getelementptr inbounds nuw i8, ptr %603, i64 8
   store i32 0, ptr %1227, align 8, !tbaa !44
   %1228 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3747,7 +3741,7 @@ zend_string_release.exit153.i:                    ; preds = %1226, %1225, %1218,
   br label %zend_string_release.exit156.i
 
 zend_string_release.exit156.i:                    ; preds = %1247, %1246, %1239, %zend_string_release.exit153.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %605) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %605)
   %1248 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store i32 0, ptr %1248, align 8, !tbaa !44
   %1249 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -3796,7 +3790,7 @@ zend_string_release.exit156.i:                    ; preds = %1247, %1246, %1239,
   br label %zend_string_release.exit159.i
 
 zend_string_release.exit159.i:                    ; preds = %1268, %1267, %1260, %zend_string_release.exit156.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %607) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %607)
   %1269 = getelementptr inbounds nuw i8, ptr %607, i64 8
   store i32 0, ptr %1269, align 8, !tbaa !44
   %1270 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -3845,55 +3839,55 @@ zend_string_release.exit159.i:                    ; preds = %1268, %1267, %1260,
   br label %register_class_DOMNode.exit
 
 register_class_DOMNode.exit:                      ; preds = %zend_string_release.exit159.i, %1281, %1288, %1289
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %607) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %605) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %603) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %601) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %599) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %597) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %595) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %593) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %591) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %589) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %587) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %585) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %583) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %581) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %579) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %577) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %575) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %573) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %571) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %569) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %567) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %565) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %563) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %561) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %560) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %562)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %564)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %566)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %568)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %570)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %572)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %574)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %576)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %578)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %580)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %582)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %584)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %586)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %588)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %590)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %592)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %594)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %596)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %598)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %600)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %602)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %604)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %606)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %608)
+  call void @llvm.lifetime.end.p0(ptr nonnull %607)
+  call void @llvm.lifetime.end.p0(ptr nonnull %605)
+  call void @llvm.lifetime.end.p0(ptr nonnull %603)
+  call void @llvm.lifetime.end.p0(ptr nonnull %601)
+  call void @llvm.lifetime.end.p0(ptr nonnull %599)
+  call void @llvm.lifetime.end.p0(ptr nonnull %597)
+  call void @llvm.lifetime.end.p0(ptr nonnull %595)
+  call void @llvm.lifetime.end.p0(ptr nonnull %593)
+  call void @llvm.lifetime.end.p0(ptr nonnull %591)
+  call void @llvm.lifetime.end.p0(ptr nonnull %589)
+  call void @llvm.lifetime.end.p0(ptr nonnull %587)
+  call void @llvm.lifetime.end.p0(ptr nonnull %585)
+  call void @llvm.lifetime.end.p0(ptr nonnull %583)
+  call void @llvm.lifetime.end.p0(ptr nonnull %581)
+  call void @llvm.lifetime.end.p0(ptr nonnull %579)
+  call void @llvm.lifetime.end.p0(ptr nonnull %577)
+  call void @llvm.lifetime.end.p0(ptr nonnull %575)
+  call void @llvm.lifetime.end.p0(ptr nonnull %573)
+  call void @llvm.lifetime.end.p0(ptr nonnull %571)
+  call void @llvm.lifetime.end.p0(ptr nonnull %569)
+  call void @llvm.lifetime.end.p0(ptr nonnull %567)
+  call void @llvm.lifetime.end.p0(ptr nonnull %565)
+  call void @llvm.lifetime.end.p0(ptr nonnull %563)
+  call void @llvm.lifetime.end.p0(ptr nonnull %561)
+  call void @llvm.lifetime.end.p0(ptr nonnull %560)
+  call void @llvm.lifetime.end.p0(ptr nonnull %562)
+  call void @llvm.lifetime.end.p0(ptr nonnull %564)
+  call void @llvm.lifetime.end.p0(ptr nonnull %566)
+  call void @llvm.lifetime.end.p0(ptr nonnull %568)
+  call void @llvm.lifetime.end.p0(ptr nonnull %570)
+  call void @llvm.lifetime.end.p0(ptr nonnull %572)
+  call void @llvm.lifetime.end.p0(ptr nonnull %574)
+  call void @llvm.lifetime.end.p0(ptr nonnull %576)
+  call void @llvm.lifetime.end.p0(ptr nonnull %578)
+  call void @llvm.lifetime.end.p0(ptr nonnull %580)
+  call void @llvm.lifetime.end.p0(ptr nonnull %582)
+  call void @llvm.lifetime.end.p0(ptr nonnull %584)
+  call void @llvm.lifetime.end.p0(ptr nonnull %586)
+  call void @llvm.lifetime.end.p0(ptr nonnull %588)
+  call void @llvm.lifetime.end.p0(ptr nonnull %590)
+  call void @llvm.lifetime.end.p0(ptr nonnull %592)
+  call void @llvm.lifetime.end.p0(ptr nonnull %594)
+  call void @llvm.lifetime.end.p0(ptr nonnull %596)
+  call void @llvm.lifetime.end.p0(ptr nonnull %598)
+  call void @llvm.lifetime.end.p0(ptr nonnull %600)
+  call void @llvm.lifetime.end.p0(ptr nonnull %602)
+  call void @llvm.lifetime.end.p0(ptr nonnull %604)
+  call void @llvm.lifetime.end.p0(ptr nonnull %606)
+  call void @llvm.lifetime.end.p0(ptr nonnull %608)
   store ptr %749, ptr @dom_node_class_entry, align 8, !tbaa !127
   %1290 = getelementptr inbounds nuw i8, ptr %749, i64 384
   store ptr @dom_objects_new, ptr %1290, align 8, !tbaa !44
@@ -3902,12 +3896,12 @@ register_class_DOMNode.exit:                      ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %1292 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1293 = call ptr %1292(ptr noundef nonnull @.str.3, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %559) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %559)
   store ptr @zm_startup_dom.hnd, ptr %559, align 8, !tbaa !44
   %1294 = getelementptr inbounds nuw i8, ptr %559, i64 8
   store i32 13, ptr %1294, align 8, !tbaa !44
   %1295 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1293, ptr noundef nonnull %559) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %559) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %559)
   %1296 = getelementptr inbounds nuw i8, ptr %1293, i64 4
   %1297 = load i32, ptr %1296, align 4, !tbaa !44
   %1298 = and i32 %1297, 64
@@ -3930,12 +3924,12 @@ register_class_DOMNode.exit:                      ; preds = %zend_string_release
 dom_register_prop_handler.exit:                   ; preds = %register_class_DOMNode.exit, %1299, %1304
   %1305 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1306 = call ptr %1305(ptr noundef nonnull @.str.5, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %558) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %558)
   store ptr @zm_startup_dom.hnd.4, ptr %558, align 8, !tbaa !44
   %1307 = getelementptr inbounds nuw i8, ptr %558, i64 8
   store i32 13, ptr %1307, align 8, !tbaa !44
   %1308 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1306, ptr noundef nonnull %558) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %558) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %558)
   %1309 = getelementptr inbounds nuw i8, ptr %1306, i64 4
   %1310 = load i32, ptr %1309, align 4, !tbaa !44
   %1311 = and i32 %1310, 64
@@ -3958,12 +3952,12 @@ dom_register_prop_handler.exit:                   ; preds = %register_class_DOMN
 dom_register_prop_handler.exit119:                ; preds = %dom_register_prop_handler.exit, %1312, %1317
   %1318 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1319 = call ptr %1318(ptr noundef nonnull @.str.7, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %557) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %557)
   store ptr @zm_startup_dom.hnd.6, ptr %557, align 8, !tbaa !44
   %1320 = getelementptr inbounds nuw i8, ptr %557, i64 8
   store i32 13, ptr %1320, align 8, !tbaa !44
   %1321 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1319, ptr noundef nonnull %557) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %557) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %557)
   %1322 = getelementptr inbounds nuw i8, ptr %1319, i64 4
   %1323 = load i32, ptr %1322, align 4, !tbaa !44
   %1324 = and i32 %1323, 64
@@ -3986,12 +3980,12 @@ dom_register_prop_handler.exit119:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit121:                ; preds = %dom_register_prop_handler.exit119, %1325, %1330
   %1331 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1332 = call ptr %1331(ptr noundef nonnull @.str.9, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %556) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %556)
   store ptr @zm_startup_dom.hnd.8, ptr %556, align 8, !tbaa !44
   %1333 = getelementptr inbounds nuw i8, ptr %556, i64 8
   store i32 13, ptr %1333, align 8, !tbaa !44
   %1334 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1332, ptr noundef nonnull %556) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %556) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %556)
   %1335 = getelementptr inbounds nuw i8, ptr %1332, i64 4
   %1336 = load i32, ptr %1335, align 4, !tbaa !44
   %1337 = and i32 %1336, 64
@@ -4014,12 +4008,12 @@ dom_register_prop_handler.exit121:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit123:                ; preds = %dom_register_prop_handler.exit121, %1338, %1343
   %1344 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1345 = call ptr %1344(ptr noundef nonnull @.str.11, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %555) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %555)
   store ptr @zm_startup_dom.hnd.10, ptr %555, align 8, !tbaa !44
   %1346 = getelementptr inbounds nuw i8, ptr %555, i64 8
   store i32 13, ptr %1346, align 8, !tbaa !44
   %1347 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1345, ptr noundef nonnull %555) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %555) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %555)
   %1348 = getelementptr inbounds nuw i8, ptr %1345, i64 4
   %1349 = load i32, ptr %1348, align 4, !tbaa !44
   %1350 = and i32 %1349, 64
@@ -4042,12 +4036,12 @@ dom_register_prop_handler.exit123:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit125:                ; preds = %dom_register_prop_handler.exit123, %1351, %1356
   %1357 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1358 = call ptr %1357(ptr noundef nonnull @.str.13, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %554) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %554)
   store ptr @zm_startup_dom.hnd.12, ptr %554, align 8, !tbaa !44
   %1359 = getelementptr inbounds nuw i8, ptr %554, i64 8
   store i32 13, ptr %1359, align 8, !tbaa !44
   %1360 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1358, ptr noundef nonnull %554) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %554) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %554)
   %1361 = getelementptr inbounds nuw i8, ptr %1358, i64 4
   %1362 = load i32, ptr %1361, align 4, !tbaa !44
   %1363 = and i32 %1362, 64
@@ -4070,12 +4064,12 @@ dom_register_prop_handler.exit125:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit127:                ; preds = %dom_register_prop_handler.exit125, %1364, %1369
   %1370 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1371 = call ptr %1370(ptr noundef nonnull @.str.15, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %553) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %553)
   store ptr @zm_startup_dom.hnd.14, ptr %553, align 8, !tbaa !44
   %1372 = getelementptr inbounds nuw i8, ptr %553, i64 8
   store i32 13, ptr %1372, align 8, !tbaa !44
   %1373 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1371, ptr noundef nonnull %553) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %553) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %553)
   %1374 = getelementptr inbounds nuw i8, ptr %1371, i64 4
   %1375 = load i32, ptr %1374, align 4, !tbaa !44
   %1376 = and i32 %1375, 64
@@ -4098,12 +4092,12 @@ dom_register_prop_handler.exit127:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit129:                ; preds = %dom_register_prop_handler.exit127, %1377, %1382
   %1383 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1384 = call ptr %1383(ptr noundef nonnull @.str.17, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %552) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %552)
   store ptr @zm_startup_dom.hnd.16, ptr %552, align 8, !tbaa !44
   %1385 = getelementptr inbounds nuw i8, ptr %552, i64 8
   store i32 13, ptr %1385, align 8, !tbaa !44
   %1386 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1384, ptr noundef nonnull %552) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %552) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %552)
   %1387 = getelementptr inbounds nuw i8, ptr %1384, i64 4
   %1388 = load i32, ptr %1387, align 4, !tbaa !44
   %1389 = and i32 %1388, 64
@@ -4126,12 +4120,12 @@ dom_register_prop_handler.exit129:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit131:                ; preds = %dom_register_prop_handler.exit129, %1390, %1395
   %1396 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1397 = call ptr %1396(ptr noundef nonnull @.str.19, i64 noundef 15, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %551) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %551)
   store ptr @zm_startup_dom.hnd.18, ptr %551, align 8, !tbaa !44
   %1398 = getelementptr inbounds nuw i8, ptr %551, i64 8
   store i32 13, ptr %1398, align 8, !tbaa !44
   %1399 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1397, ptr noundef nonnull %551) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %551) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %551)
   %1400 = getelementptr inbounds nuw i8, ptr %1397, i64 4
   %1401 = load i32, ptr %1400, align 4, !tbaa !44
   %1402 = and i32 %1401, 64
@@ -4154,12 +4148,12 @@ dom_register_prop_handler.exit131:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit133:                ; preds = %dom_register_prop_handler.exit131, %1403, %1408
   %1409 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1410 = call ptr %1409(ptr noundef nonnull @.str.21, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %550) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %550)
   store ptr @zm_startup_dom.hnd.20, ptr %550, align 8, !tbaa !44
   %1411 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store i32 13, ptr %1411, align 8, !tbaa !44
   %1412 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1410, ptr noundef nonnull %550) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %550) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %550)
   %1413 = getelementptr inbounds nuw i8, ptr %1410, i64 4
   %1414 = load i32, ptr %1413, align 4, !tbaa !44
   %1415 = and i32 %1414, 64
@@ -4182,12 +4176,12 @@ dom_register_prop_handler.exit133:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit135:                ; preds = %dom_register_prop_handler.exit133, %1416, %1421
   %1422 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1423 = call ptr %1422(ptr noundef nonnull @.str.23, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %549) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %549)
   store ptr @zm_startup_dom.hnd.22, ptr %549, align 8, !tbaa !44
   %1424 = getelementptr inbounds nuw i8, ptr %549, i64 8
   store i32 13, ptr %1424, align 8, !tbaa !44
   %1425 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1423, ptr noundef nonnull %549) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %549) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %549)
   %1426 = getelementptr inbounds nuw i8, ptr %1423, i64 4
   %1427 = load i32, ptr %1426, align 4, !tbaa !44
   %1428 = and i32 %1427, 64
@@ -4210,12 +4204,12 @@ dom_register_prop_handler.exit135:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit137:                ; preds = %dom_register_prop_handler.exit135, %1429, %1434
   %1435 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1436 = call ptr %1435(ptr noundef nonnull @.str.25, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %548) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %548)
   store ptr @zm_startup_dom.hnd.24, ptr %548, align 8, !tbaa !44
   %1437 = getelementptr inbounds nuw i8, ptr %548, i64 8
   store i32 13, ptr %1437, align 8, !tbaa !44
   %1438 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1436, ptr noundef nonnull %548) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %548) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %548)
   %1439 = getelementptr inbounds nuw i8, ptr %1436, i64 4
   %1440 = load i32, ptr %1439, align 4, !tbaa !44
   %1441 = and i32 %1440, 64
@@ -4238,12 +4232,12 @@ dom_register_prop_handler.exit137:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit139:                ; preds = %dom_register_prop_handler.exit137, %1442, %1447
   %1448 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1449 = call ptr %1448(ptr noundef nonnull @.str.27, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %547) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %547)
   store ptr @zm_startup_dom.hnd.26, ptr %547, align 8, !tbaa !44
   %1450 = getelementptr inbounds nuw i8, ptr %547, i64 8
   store i32 13, ptr %1450, align 8, !tbaa !44
   %1451 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1449, ptr noundef nonnull %547) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %547) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %547)
   %1452 = getelementptr inbounds nuw i8, ptr %1449, i64 4
   %1453 = load i32, ptr %1452, align 4, !tbaa !44
   %1454 = and i32 %1453, 64
@@ -4266,12 +4260,12 @@ dom_register_prop_handler.exit139:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit141:                ; preds = %dom_register_prop_handler.exit139, %1455, %1460
   %1461 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1462 = call ptr %1461(ptr noundef nonnull @.str.29, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %546) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %546)
   store ptr @zm_startup_dom.hnd.28, ptr %546, align 8, !tbaa !44
   %1463 = getelementptr inbounds nuw i8, ptr %546, i64 8
   store i32 13, ptr %1463, align 8, !tbaa !44
   %1464 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1462, ptr noundef nonnull %546) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %546) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %546)
   %1465 = getelementptr inbounds nuw i8, ptr %1462, i64 4
   %1466 = load i32, ptr %1465, align 4, !tbaa !44
   %1467 = and i32 %1466, 64
@@ -4294,12 +4288,12 @@ dom_register_prop_handler.exit141:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit143:                ; preds = %dom_register_prop_handler.exit141, %1468, %1473
   %1474 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1475 = call ptr %1474(ptr noundef nonnull @.str.31, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %545) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %545)
   store ptr @zm_startup_dom.hnd.30, ptr %545, align 8, !tbaa !44
   %1476 = getelementptr inbounds nuw i8, ptr %545, i64 8
   store i32 13, ptr %1476, align 8, !tbaa !44
   %1477 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1475, ptr noundef nonnull %545) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %545) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %545)
   %1478 = getelementptr inbounds nuw i8, ptr %1475, i64 4
   %1479 = load i32, ptr %1478, align 4, !tbaa !44
   %1480 = and i32 %1479, 64
@@ -4322,12 +4316,12 @@ dom_register_prop_handler.exit143:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit145:                ; preds = %dom_register_prop_handler.exit143, %1481, %1486
   %1487 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1488 = call ptr %1487(ptr noundef nonnull @.str.33, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %544) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %544)
   store ptr @zm_startup_dom.hnd.32, ptr %544, align 8, !tbaa !44
   %1489 = getelementptr inbounds nuw i8, ptr %544, i64 8
   store i32 13, ptr %1489, align 8, !tbaa !44
   %1490 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1488, ptr noundef nonnull %544) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %544) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %544)
   %1491 = getelementptr inbounds nuw i8, ptr %1488, i64 4
   %1492 = load i32, ptr %1491, align 4, !tbaa !44
   %1493 = and i32 %1492, 64
@@ -4350,12 +4344,12 @@ dom_register_prop_handler.exit145:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit147:                ; preds = %dom_register_prop_handler.exit145, %1494, %1499
   %1500 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1501 = call ptr %1500(ptr noundef nonnull @.str.35, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %543) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %543)
   store ptr @zm_startup_dom.hnd.34, ptr %543, align 8, !tbaa !44
   %1502 = getelementptr inbounds nuw i8, ptr %543, i64 8
   store i32 13, ptr %1502, align 8, !tbaa !44
   %1503 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1501, ptr noundef nonnull %543) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %543) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %543)
   %1504 = getelementptr inbounds nuw i8, ptr %1501, i64 4
   %1505 = load i32, ptr %1504, align 4, !tbaa !44
   %1506 = and i32 %1505, 64
@@ -4378,12 +4372,12 @@ dom_register_prop_handler.exit147:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit149:                ; preds = %dom_register_prop_handler.exit147, %1507, %1512
   %1513 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1514 = call ptr %1513(ptr noundef nonnull @.str.37, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %542) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %542)
   store ptr @zm_startup_dom.hnd.36, ptr %542, align 8, !tbaa !44
   %1515 = getelementptr inbounds nuw i8, ptr %542, i64 8
   store i32 13, ptr %1515, align 8, !tbaa !44
   %1516 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_node_prop_handlers, ptr noundef %1514, ptr noundef nonnull %542) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %542) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %542)
   %1517 = getelementptr inbounds nuw i8, ptr %1514, i64 4
   %1518 = load i32, ptr %1517, align 4, !tbaa !44
   %1519 = and i32 %1518, 64
@@ -4407,33 +4401,33 @@ dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_h
   %1526 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
   %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 8
   %1528 = load ptr, ptr %1527, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %661) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %661)
   store ptr @dom_node_prop_handlers, ptr %661, align 8, !tbaa !44
   %1529 = getelementptr inbounds nuw i8, ptr %661, i64 8
   store i32 13, ptr %1529, align 8, !tbaa !44
   %1530 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %1528, ptr noundef nonnull %661) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %661) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %503)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %505)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %507)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %509)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %511)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %513)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %515)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %517)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %519)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %521)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %523)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %525)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %527)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %529)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %531)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %533)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %535)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %537)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %539)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %541)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %501) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %661)
+  call void @llvm.lifetime.start.p0(ptr nonnull %503)
+  call void @llvm.lifetime.start.p0(ptr nonnull %505)
+  call void @llvm.lifetime.start.p0(ptr nonnull %507)
+  call void @llvm.lifetime.start.p0(ptr nonnull %509)
+  call void @llvm.lifetime.start.p0(ptr nonnull %511)
+  call void @llvm.lifetime.start.p0(ptr nonnull %513)
+  call void @llvm.lifetime.start.p0(ptr nonnull %515)
+  call void @llvm.lifetime.start.p0(ptr nonnull %517)
+  call void @llvm.lifetime.start.p0(ptr nonnull %519)
+  call void @llvm.lifetime.start.p0(ptr nonnull %521)
+  call void @llvm.lifetime.start.p0(ptr nonnull %523)
+  call void @llvm.lifetime.start.p0(ptr nonnull %525)
+  call void @llvm.lifetime.start.p0(ptr nonnull %527)
+  call void @llvm.lifetime.start.p0(ptr nonnull %529)
+  call void @llvm.lifetime.start.p0(ptr nonnull %531)
+  call void @llvm.lifetime.start.p0(ptr nonnull %533)
+  call void @llvm.lifetime.start.p0(ptr nonnull %535)
+  call void @llvm.lifetime.start.p0(ptr nonnull %537)
+  call void @llvm.lifetime.start.p0(ptr nonnull %539)
+  call void @llvm.lifetime.start.p0(ptr nonnull %541)
+  call void @llvm.lifetime.start.p0(ptr nonnull %501)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %501, i8 0, i64 520, i1 false)
   %1531 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1532 = call ptr %1531(ptr noundef nonnull @.str.320, i64 noundef 8, i1 noundef zeroext true) #17
@@ -4444,7 +4438,7 @@ dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_h
   %1535 = getelementptr inbounds nuw i8, ptr %501, i64 504
   store ptr @class_Dom_Node_methods, ptr %1535, align 8, !tbaa !44
   %1536 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %501, ptr noundef null, i32 noundef 8192) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %502) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %502)
   store i64 1, ptr %502, align 8, !tbaa !44
   %1537 = getelementptr inbounds nuw i8, ptr %502, i64 8
   store i32 4, ptr %1537, align 8, !tbaa !44
@@ -4485,7 +4479,7 @@ dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i153
 
 zend_string_release.exit.i153:                    ; preds = %1554, %1553, %1546, %dom_register_prop_handler.exit151
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %504) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %504)
   store i64 2, ptr %504, align 8, !tbaa !44
   %1555 = getelementptr inbounds nuw i8, ptr %504, i64 8
   store i32 4, ptr %1555, align 8, !tbaa !44
@@ -4526,7 +4520,7 @@ zend_string_release.exit.i153:                    ; preds = %1554, %1553, %1546,
   br label %zend_string_release.exit83.i
 
 zend_string_release.exit83.i:                     ; preds = %1572, %1571, %1564, %zend_string_release.exit.i153
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %506) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %506)
   store i64 4, ptr %506, align 8, !tbaa !44
   %1573 = getelementptr inbounds nuw i8, ptr %506, i64 8
   store i32 4, ptr %1573, align 8, !tbaa !44
@@ -4567,7 +4561,7 @@ zend_string_release.exit83.i:                     ; preds = %1572, %1571, %1564,
   br label %zend_string_release.exit86.i
 
 zend_string_release.exit86.i:                     ; preds = %1590, %1589, %1582, %zend_string_release.exit83.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %508) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %508)
   store i64 8, ptr %508, align 8, !tbaa !44
   %1591 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store i32 4, ptr %1591, align 8, !tbaa !44
@@ -4608,7 +4602,7 @@ zend_string_release.exit86.i:                     ; preds = %1590, %1589, %1582,
   br label %zend_string_release.exit89.i
 
 zend_string_release.exit89.i:                     ; preds = %1608, %1607, %1600, %zend_string_release.exit86.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %510) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %510)
   store i64 16, ptr %510, align 8, !tbaa !44
   %1609 = getelementptr inbounds nuw i8, ptr %510, i64 8
   store i32 4, ptr %1609, align 8, !tbaa !44
@@ -4649,7 +4643,7 @@ zend_string_release.exit89.i:                     ; preds = %1608, %1607, %1600,
   br label %zend_string_release.exit92.i
 
 zend_string_release.exit92.i:                     ; preds = %1626, %1625, %1618, %zend_string_release.exit89.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %512) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %512)
   store i64 32, ptr %512, align 8, !tbaa !44
   %1627 = getelementptr inbounds nuw i8, ptr %512, i64 8
   store i32 4, ptr %1627, align 8, !tbaa !44
@@ -4690,7 +4684,7 @@ zend_string_release.exit92.i:                     ; preds = %1626, %1625, %1618,
   br label %zend_string_release.exit95.i
 
 zend_string_release.exit95.i:                     ; preds = %1644, %1643, %1636, %zend_string_release.exit92.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %514) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %514)
   %1645 = getelementptr inbounds nuw i8, ptr %514, i64 8
   store i32 0, ptr %1645, align 8, !tbaa !44
   %1646 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -4739,7 +4733,7 @@ zend_string_release.exit95.i:                     ; preds = %1644, %1643, %1636,
   br label %zend_string_release.exit98.i
 
 zend_string_release.exit98.i:                     ; preds = %1665, %1664, %1657, %zend_string_release.exit95.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %516) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %516)
   %1666 = getelementptr inbounds nuw i8, ptr %516, i64 8
   store i32 0, ptr %1666, align 8, !tbaa !44
   %1667 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -4788,7 +4782,7 @@ zend_string_release.exit98.i:                     ; preds = %1665, %1664, %1657,
   br label %zend_string_release.exit101.i
 
 zend_string_release.exit101.i:                    ; preds = %1686, %1685, %1678, %zend_string_release.exit98.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %518) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %518)
   %1687 = getelementptr inbounds nuw i8, ptr %518, i64 8
   store i32 0, ptr %1687, align 8, !tbaa !44
   %1688 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -4837,7 +4831,7 @@ zend_string_release.exit101.i:                    ; preds = %1686, %1685, %1678,
   br label %zend_string_release.exit104.i
 
 zend_string_release.exit104.i:                    ; preds = %1707, %1706, %1699, %zend_string_release.exit101.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %520) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %520)
   %1708 = getelementptr inbounds nuw i8, ptr %520, i64 8
   store i32 0, ptr %1708, align 8, !tbaa !44
   %1709 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -4886,7 +4880,7 @@ zend_string_release.exit104.i:                    ; preds = %1707, %1706, %1699,
   br label %zend_string_release.exit107.i
 
 zend_string_release.exit107.i:                    ; preds = %1728, %1727, %1720, %zend_string_release.exit104.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %522) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %522)
   %1729 = getelementptr inbounds nuw i8, ptr %522, i64 8
   store i32 0, ptr %1729, align 8, !tbaa !44
   %1730 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -4947,7 +4941,7 @@ zend_string_release.exit107.i:                    ; preds = %1728, %1727, %1720,
   br label %zend_string_release.exit110.i
 
 zend_string_release.exit110.i:                    ; preds = %1755, %1754, %1747, %zend_string_release.exit107.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %524) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %524)
   %1756 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store i32 0, ptr %1756, align 8, !tbaa !44
   %1757 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5008,7 +5002,7 @@ zend_string_release.exit110.i:                    ; preds = %1755, %1754, %1747,
   br label %zend_string_release.exit113.i
 
 zend_string_release.exit113.i:                    ; preds = %1782, %1781, %1774, %zend_string_release.exit110.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %526) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %526)
   %1783 = getelementptr inbounds nuw i8, ptr %526, i64 8
   store i32 0, ptr %1783, align 8, !tbaa !44
   %1784 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5069,7 +5063,7 @@ zend_string_release.exit113.i:                    ; preds = %1782, %1781, %1774,
   br label %zend_string_release.exit116.i
 
 zend_string_release.exit116.i:                    ; preds = %1809, %1808, %1801, %zend_string_release.exit113.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %528) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %528)
   %1810 = getelementptr inbounds nuw i8, ptr %528, i64 8
   store i32 0, ptr %1810, align 8, !tbaa !44
   %1811 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5130,7 +5124,7 @@ zend_string_release.exit116.i:                    ; preds = %1809, %1808, %1801,
   br label %zend_string_release.exit119.i
 
 zend_string_release.exit119.i:                    ; preds = %1836, %1835, %1828, %zend_string_release.exit116.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %530) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %530)
   %1837 = getelementptr inbounds nuw i8, ptr %530, i64 8
   store i32 0, ptr %1837, align 8, !tbaa !44
   %1838 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5191,7 +5185,7 @@ zend_string_release.exit119.i:                    ; preds = %1836, %1835, %1828,
   br label %zend_string_release.exit122.i
 
 zend_string_release.exit122.i:                    ; preds = %1863, %1862, %1855, %zend_string_release.exit119.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %532) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %532)
   %1864 = getelementptr inbounds nuw i8, ptr %532, i64 8
   store i32 0, ptr %1864, align 8, !tbaa !44
   %1865 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5252,7 +5246,7 @@ zend_string_release.exit122.i:                    ; preds = %1863, %1862, %1855,
   br label %zend_string_release.exit125.i
 
 zend_string_release.exit125.i:                    ; preds = %1890, %1889, %1882, %zend_string_release.exit122.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %534) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %534)
   %1891 = getelementptr inbounds nuw i8, ptr %534, i64 8
   store i32 0, ptr %1891, align 8, !tbaa !44
   %1892 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5313,7 +5307,7 @@ zend_string_release.exit125.i:                    ; preds = %1890, %1889, %1882,
   br label %zend_string_release.exit128.i
 
 zend_string_release.exit128.i:                    ; preds = %1917, %1916, %1909, %zend_string_release.exit125.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %536) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %536)
   %1918 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store i32 0, ptr %1918, align 8, !tbaa !44
   %1919 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5374,7 +5368,7 @@ zend_string_release.exit128.i:                    ; preds = %1917, %1916, %1909,
   br label %zend_string_release.exit131.i
 
 zend_string_release.exit131.i:                    ; preds = %1944, %1943, %1936, %zend_string_release.exit128.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %538) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %538)
   %1945 = getelementptr inbounds nuw i8, ptr %538, i64 8
   store i32 0, ptr %1945, align 8, !tbaa !44
   %1946 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5423,7 +5417,7 @@ zend_string_release.exit131.i:                    ; preds = %1944, %1943, %1936,
   br label %zend_string_release.exit134.i
 
 zend_string_release.exit134.i:                    ; preds = %1965, %1964, %1957, %zend_string_release.exit131.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %540) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %540)
   %1966 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store i32 0, ptr %1966, align 8, !tbaa !44
   %1967 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5472,47 +5466,47 @@ zend_string_release.exit134.i:                    ; preds = %1965, %1964, %1957,
   br label %register_class_Dom_Node.exit
 
 register_class_Dom_Node.exit:                     ; preds = %zend_string_release.exit134.i, %1978, %1985, %1986
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %540) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %538) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %536) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %534) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %532) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %530) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %528) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %526) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %524) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %522) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %520) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %518) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %516) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %514) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %512) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %510) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %508) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %506) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %504) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %502) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %501) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %503)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %505)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %507)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %509)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %511)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %513)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %515)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %517)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %519)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %521)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %523)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %525)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %527)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %529)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %531)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %533)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %535)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %537)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %539)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %541)
+  call void @llvm.lifetime.end.p0(ptr nonnull %540)
+  call void @llvm.lifetime.end.p0(ptr nonnull %538)
+  call void @llvm.lifetime.end.p0(ptr nonnull %536)
+  call void @llvm.lifetime.end.p0(ptr nonnull %534)
+  call void @llvm.lifetime.end.p0(ptr nonnull %532)
+  call void @llvm.lifetime.end.p0(ptr nonnull %530)
+  call void @llvm.lifetime.end.p0(ptr nonnull %528)
+  call void @llvm.lifetime.end.p0(ptr nonnull %526)
+  call void @llvm.lifetime.end.p0(ptr nonnull %524)
+  call void @llvm.lifetime.end.p0(ptr nonnull %522)
+  call void @llvm.lifetime.end.p0(ptr nonnull %520)
+  call void @llvm.lifetime.end.p0(ptr nonnull %518)
+  call void @llvm.lifetime.end.p0(ptr nonnull %516)
+  call void @llvm.lifetime.end.p0(ptr nonnull %514)
+  call void @llvm.lifetime.end.p0(ptr nonnull %512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %510)
+  call void @llvm.lifetime.end.p0(ptr nonnull %508)
+  call void @llvm.lifetime.end.p0(ptr nonnull %506)
+  call void @llvm.lifetime.end.p0(ptr nonnull %504)
+  call void @llvm.lifetime.end.p0(ptr nonnull %502)
+  call void @llvm.lifetime.end.p0(ptr nonnull %501)
+  call void @llvm.lifetime.end.p0(ptr nonnull %503)
+  call void @llvm.lifetime.end.p0(ptr nonnull %505)
+  call void @llvm.lifetime.end.p0(ptr nonnull %507)
+  call void @llvm.lifetime.end.p0(ptr nonnull %509)
+  call void @llvm.lifetime.end.p0(ptr nonnull %511)
+  call void @llvm.lifetime.end.p0(ptr nonnull %513)
+  call void @llvm.lifetime.end.p0(ptr nonnull %515)
+  call void @llvm.lifetime.end.p0(ptr nonnull %517)
+  call void @llvm.lifetime.end.p0(ptr nonnull %519)
+  call void @llvm.lifetime.end.p0(ptr nonnull %521)
+  call void @llvm.lifetime.end.p0(ptr nonnull %523)
+  call void @llvm.lifetime.end.p0(ptr nonnull %525)
+  call void @llvm.lifetime.end.p0(ptr nonnull %527)
+  call void @llvm.lifetime.end.p0(ptr nonnull %529)
+  call void @llvm.lifetime.end.p0(ptr nonnull %531)
+  call void @llvm.lifetime.end.p0(ptr nonnull %533)
+  call void @llvm.lifetime.end.p0(ptr nonnull %535)
+  call void @llvm.lifetime.end.p0(ptr nonnull %537)
+  call void @llvm.lifetime.end.p0(ptr nonnull %539)
+  call void @llvm.lifetime.end.p0(ptr nonnull %541)
   store ptr %1536, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %1987 = getelementptr inbounds nuw i8, ptr %1536, i64 384
   store ptr @dom_objects_new, ptr %1987, align 8, !tbaa !44
@@ -5521,12 +5515,12 @@ register_class_Dom_Node.exit:                     ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %1989 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1990 = call ptr %1989(ptr noundef nonnull @.str.7, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %500) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %500)
   store ptr @zm_startup_dom.hnd.38, ptr %500, align 8, !tbaa !44
   %1991 = getelementptr inbounds nuw i8, ptr %500, i64 8
   store i32 13, ptr %1991, align 8, !tbaa !44
   %1992 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %1990, ptr noundef nonnull %500) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %500) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %500)
   %1993 = getelementptr inbounds nuw i8, ptr %1990, i64 4
   %1994 = load i32, ptr %1993, align 4, !tbaa !44
   %1995 = and i32 %1994, 64
@@ -5549,12 +5543,12 @@ register_class_Dom_Node.exit:                     ; preds = %zend_string_release
 dom_register_prop_handler.exit156:                ; preds = %register_class_Dom_Node.exit, %1996, %2001
   %2002 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2003 = call ptr %2002(ptr noundef nonnull @.str.3, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %499) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %499)
   store ptr @zm_startup_dom.hnd.39, ptr %499, align 8, !tbaa !44
   %2004 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store i32 13, ptr %2004, align 8, !tbaa !44
   %2005 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2003, ptr noundef nonnull %499) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %499) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %499)
   %2006 = getelementptr inbounds nuw i8, ptr %2003, i64 4
   %2007 = load i32, ptr %2006, align 4, !tbaa !44
   %2008 = and i32 %2007, 64
@@ -5577,12 +5571,12 @@ dom_register_prop_handler.exit156:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit158:                ; preds = %dom_register_prop_handler.exit156, %2009, %2014
   %2015 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2016 = call ptr %2015(ptr noundef nonnull @.str.35, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %498) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %498)
   store ptr @zm_startup_dom.hnd.40, ptr %498, align 8, !tbaa !44
   %2017 = getelementptr inbounds nuw i8, ptr %498, i64 8
   store i32 13, ptr %2017, align 8, !tbaa !44
   %2018 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2016, ptr noundef nonnull %498) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %498) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %498)
   %2019 = getelementptr inbounds nuw i8, ptr %2016, i64 4
   %2020 = load i32, ptr %2019, align 4, !tbaa !44
   %2021 = and i32 %2020, 64
@@ -5605,12 +5599,12 @@ dom_register_prop_handler.exit158:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit160:                ; preds = %dom_register_prop_handler.exit158, %2022, %2027
   %2028 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2029 = call ptr %2028(ptr noundef nonnull @.str.25, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %497) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %497)
   store ptr @zm_startup_dom.hnd.41, ptr %497, align 8, !tbaa !44
   %2030 = getelementptr inbounds nuw i8, ptr %497, i64 8
   store i32 13, ptr %2030, align 8, !tbaa !44
   %2031 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2029, ptr noundef nonnull %497) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %497) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %497)
   %2032 = getelementptr inbounds nuw i8, ptr %2029, i64 4
   %2033 = load i32, ptr %2032, align 4, !tbaa !44
   %2034 = and i32 %2033, 64
@@ -5633,12 +5627,12 @@ dom_register_prop_handler.exit160:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit162:                ; preds = %dom_register_prop_handler.exit160, %2035, %2040
   %2041 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2042 = call ptr %2041(ptr noundef nonnull @.str.27, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %496) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %496)
   store ptr @zm_startup_dom.hnd.42, ptr %496, align 8, !tbaa !44
   %2043 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store i32 13, ptr %2043, align 8, !tbaa !44
   %2044 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2042, ptr noundef nonnull %496) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %496) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %496)
   %2045 = getelementptr inbounds nuw i8, ptr %2042, i64 4
   %2046 = load i32, ptr %2045, align 4, !tbaa !44
   %2047 = and i32 %2046, 64
@@ -5661,12 +5655,12 @@ dom_register_prop_handler.exit162:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit164:                ; preds = %dom_register_prop_handler.exit162, %2048, %2053
   %2054 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2055 = call ptr %2054(ptr noundef nonnull @.str.9, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %495) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %495)
   store ptr @zm_startup_dom.hnd.43, ptr %495, align 8, !tbaa !44
   %2056 = getelementptr inbounds nuw i8, ptr %495, i64 8
   store i32 13, ptr %2056, align 8, !tbaa !44
   %2057 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2055, ptr noundef nonnull %495) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %495) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %495)
   %2058 = getelementptr inbounds nuw i8, ptr %2055, i64 4
   %2059 = load i32, ptr %2058, align 4, !tbaa !44
   %2060 = and i32 %2059, 64
@@ -5689,12 +5683,12 @@ dom_register_prop_handler.exit164:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit166:                ; preds = %dom_register_prop_handler.exit164, %2061, %2066
   %2067 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2068 = call ptr %2067(ptr noundef nonnull @.str.11, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %494) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %494)
   store ptr @zm_startup_dom.hnd.44, ptr %494, align 8, !tbaa !44
   %2069 = getelementptr inbounds nuw i8, ptr %494, i64 8
   store i32 13, ptr %2069, align 8, !tbaa !44
   %2070 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2068, ptr noundef nonnull %494) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %494) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %494)
   %2071 = getelementptr inbounds nuw i8, ptr %2068, i64 4
   %2072 = load i32, ptr %2071, align 4, !tbaa !44
   %2073 = and i32 %2072, 64
@@ -5717,12 +5711,12 @@ dom_register_prop_handler.exit166:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit168:                ; preds = %dom_register_prop_handler.exit166, %2074, %2079
   %2080 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2081 = call ptr %2080(ptr noundef nonnull @.str.13, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %493) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %493)
   store ptr @zm_startup_dom.hnd.45, ptr %493, align 8, !tbaa !44
   %2082 = getelementptr inbounds nuw i8, ptr %493, i64 8
   store i32 13, ptr %2082, align 8, !tbaa !44
   %2083 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2081, ptr noundef nonnull %493) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %493) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %493)
   %2084 = getelementptr inbounds nuw i8, ptr %2081, i64 4
   %2085 = load i32, ptr %2084, align 4, !tbaa !44
   %2086 = and i32 %2085, 64
@@ -5745,12 +5739,12 @@ dom_register_prop_handler.exit168:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit170:                ; preds = %dom_register_prop_handler.exit168, %2087, %2092
   %2093 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2094 = call ptr %2093(ptr noundef nonnull @.str.15, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %492) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %492)
   store ptr @zm_startup_dom.hnd.46, ptr %492, align 8, !tbaa !44
   %2095 = getelementptr inbounds nuw i8, ptr %492, i64 8
   store i32 13, ptr %2095, align 8, !tbaa !44
   %2096 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2094, ptr noundef nonnull %492) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %492) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %492)
   %2097 = getelementptr inbounds nuw i8, ptr %2094, i64 4
   %2098 = load i32, ptr %2097, align 4, !tbaa !44
   %2099 = and i32 %2098, 64
@@ -5773,12 +5767,12 @@ dom_register_prop_handler.exit170:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit172:                ; preds = %dom_register_prop_handler.exit170, %2100, %2105
   %2106 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2107 = call ptr %2106(ptr noundef nonnull @.str.17, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %491) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %491)
   store ptr @zm_startup_dom.hnd.47, ptr %491, align 8, !tbaa !44
   %2108 = getelementptr inbounds nuw i8, ptr %491, i64 8
   store i32 13, ptr %2108, align 8, !tbaa !44
   %2109 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2107, ptr noundef nonnull %491) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %491) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %491)
   %2110 = getelementptr inbounds nuw i8, ptr %2107, i64 4
   %2111 = load i32, ptr %2110, align 4, !tbaa !44
   %2112 = and i32 %2111, 64
@@ -5801,12 +5795,12 @@ dom_register_prop_handler.exit172:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit174:                ; preds = %dom_register_prop_handler.exit172, %2113, %2118
   %2119 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2120 = call ptr %2119(ptr noundef nonnull @.str.19, i64 noundef 15, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %490) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %490)
   store ptr @zm_startup_dom.hnd.48, ptr %490, align 8, !tbaa !44
   %2121 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store i32 13, ptr %2121, align 8, !tbaa !44
   %2122 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2120, ptr noundef nonnull %490) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %490) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %490)
   %2123 = getelementptr inbounds nuw i8, ptr %2120, i64 4
   %2124 = load i32, ptr %2123, align 4, !tbaa !44
   %2125 = and i32 %2124, 64
@@ -5829,12 +5823,12 @@ dom_register_prop_handler.exit174:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit176:                ; preds = %dom_register_prop_handler.exit174, %2126, %2131
   %2132 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2133 = call ptr %2132(ptr noundef nonnull @.str.21, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %489) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %489)
   store ptr @zm_startup_dom.hnd.49, ptr %489, align 8, !tbaa !44
   %2134 = getelementptr inbounds nuw i8, ptr %489, i64 8
   store i32 13, ptr %2134, align 8, !tbaa !44
   %2135 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2133, ptr noundef nonnull %489) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %489) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %489)
   %2136 = getelementptr inbounds nuw i8, ptr %2133, i64 4
   %2137 = load i32, ptr %2136, align 4, !tbaa !44
   %2138 = and i32 %2137, 64
@@ -5857,12 +5851,12 @@ dom_register_prop_handler.exit176:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit178:                ; preds = %dom_register_prop_handler.exit176, %2139, %2144
   %2145 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2146 = call ptr %2145(ptr noundef nonnull @.str.5, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %488) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %488)
   store ptr @zm_startup_dom.hnd.50, ptr %488, align 8, !tbaa !44
   %2147 = getelementptr inbounds nuw i8, ptr %488, i64 8
   store i32 13, ptr %2147, align 8, !tbaa !44
   %2148 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2146, ptr noundef nonnull %488) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %488) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %488)
   %2149 = getelementptr inbounds nuw i8, ptr %2146, i64 4
   %2150 = load i32, ptr %2149, align 4, !tbaa !44
   %2151 = and i32 %2150, 64
@@ -5885,12 +5879,12 @@ dom_register_prop_handler.exit178:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit180:                ; preds = %dom_register_prop_handler.exit178, %2152, %2157
   %2158 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2159 = call ptr %2158(ptr noundef nonnull @.str.37, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %487) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %487)
   store ptr @zm_startup_dom.hnd.51, ptr %487, align 8, !tbaa !44
   %2160 = getelementptr inbounds nuw i8, ptr %487, i64 8
   store i32 13, ptr %2160, align 8, !tbaa !44
   %2161 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef %2159, ptr noundef nonnull %487) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %487) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %487)
   %2162 = getelementptr inbounds nuw i8, ptr %2159, i64 4
   %2163 = load i32, ptr %2162, align 4, !tbaa !44
   %2164 = and i32 %2163, 64
@@ -5914,23 +5908,23 @@ dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_h
   %2171 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %2172 = getelementptr inbounds nuw i8, ptr %2171, i64 8
   %2173 = load ptr, ptr %2172, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %660) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %660)
   store ptr @dom_modern_node_prop_handlers, ptr %660, align 8, !tbaa !44
   %2174 = getelementptr inbounds nuw i8, ptr %660, i64 8
   store i32 13, ptr %2174, align 8, !tbaa !44
   %2175 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %2173, ptr noundef nonnull %660) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %660) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %468)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %470)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %472)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %474)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %476)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %478)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %480)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %482)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %484)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %486)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %466) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %660)
+  call void @llvm.lifetime.start.p0(ptr nonnull %468)
+  call void @llvm.lifetime.start.p0(ptr nonnull %470)
+  call void @llvm.lifetime.start.p0(ptr nonnull %472)
+  call void @llvm.lifetime.start.p0(ptr nonnull %474)
+  call void @llvm.lifetime.start.p0(ptr nonnull %476)
+  call void @llvm.lifetime.start.p0(ptr nonnull %478)
+  call void @llvm.lifetime.start.p0(ptr nonnull %480)
+  call void @llvm.lifetime.start.p0(ptr nonnull %482)
+  call void @llvm.lifetime.start.p0(ptr nonnull %484)
+  call void @llvm.lifetime.start.p0(ptr nonnull %486)
+  call void @llvm.lifetime.start.p0(ptr nonnull %466)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %466, i8 0, i64 520, i1 false)
   %2176 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2177 = call ptr %2176(ptr noundef nonnull @.str.441, i64 noundef 16, i1 noundef zeroext true) #17
@@ -5941,7 +5935,7 @@ dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_h
   %2180 = getelementptr inbounds nuw i8, ptr %466, i64 504
   store ptr @class_DOMNameSpaceNode_methods, ptr %2180, align 8, !tbaa !44
   %2181 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %466, ptr noundef null, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %467) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %467)
   %2182 = getelementptr inbounds nuw i8, ptr %467, i64 8
   store i32 0, ptr %2182, align 8, !tbaa !44
   %2183 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -5990,7 +5984,7 @@ dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i184
 
 zend_string_release.exit.i184:                    ; preds = %2202, %2201, %2194, %dom_register_prop_handler.exit182
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %469) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %469)
   %2203 = getelementptr inbounds nuw i8, ptr %469, i64 8
   store i32 0, ptr %2203, align 8, !tbaa !44
   %2204 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6039,7 +6033,7 @@ zend_string_release.exit.i184:                    ; preds = %2202, %2201, %2194,
   br label %zend_string_release.exit36.i
 
 zend_string_release.exit36.i:                     ; preds = %2223, %2222, %2215, %zend_string_release.exit.i184
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %471) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %471)
   %2224 = getelementptr inbounds nuw i8, ptr %471, i64 8
   store i32 0, ptr %2224, align 8, !tbaa !44
   %2225 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6088,7 +6082,7 @@ zend_string_release.exit36.i:                     ; preds = %2223, %2222, %2215,
   br label %zend_string_release.exit39.i
 
 zend_string_release.exit39.i:                     ; preds = %2244, %2243, %2236, %zend_string_release.exit36.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %473) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %473)
   %2245 = getelementptr inbounds nuw i8, ptr %473, i64 8
   store i32 0, ptr %2245, align 8, !tbaa !44
   %2246 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -6137,7 +6131,7 @@ zend_string_release.exit39.i:                     ; preds = %2244, %2243, %2236,
   br label %zend_string_release.exit42.i
 
 zend_string_release.exit42.i:                     ; preds = %2265, %2264, %2257, %zend_string_release.exit39.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %475) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %475)
   %2266 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store i32 0, ptr %2266, align 8, !tbaa !44
   %2267 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6186,7 +6180,7 @@ zend_string_release.exit42.i:                     ; preds = %2265, %2264, %2257,
   br label %zend_string_release.exit45.i
 
 zend_string_release.exit45.i:                     ; preds = %2286, %2285, %2278, %zend_string_release.exit42.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %477) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %477)
   %2287 = getelementptr inbounds nuw i8, ptr %477, i64 8
   store i32 0, ptr %2287, align 8, !tbaa !44
   %2288 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6235,7 +6229,7 @@ zend_string_release.exit45.i:                     ; preds = %2286, %2285, %2278,
   br label %zend_string_release.exit48.i
 
 zend_string_release.exit48.i:                     ; preds = %2307, %2306, %2299, %zend_string_release.exit45.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %479) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %479)
   %2308 = getelementptr inbounds nuw i8, ptr %479, i64 8
   store i32 0, ptr %2308, align 8, !tbaa !44
   %2309 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6284,7 +6278,7 @@ zend_string_release.exit48.i:                     ; preds = %2307, %2306, %2299,
   br label %zend_string_release.exit51.i
 
 zend_string_release.exit51.i:                     ; preds = %2328, %2327, %2320, %zend_string_release.exit48.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %481) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %481)
   %2329 = getelementptr inbounds nuw i8, ptr %481, i64 8
   store i32 0, ptr %2329, align 8, !tbaa !44
   %2330 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6345,7 +6339,7 @@ zend_string_release.exit51.i:                     ; preds = %2328, %2327, %2320,
   br label %zend_string_release.exit54.i
 
 zend_string_release.exit54.i:                     ; preds = %2355, %2354, %2347, %zend_string_release.exit51.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %483) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %483)
   %2356 = getelementptr inbounds nuw i8, ptr %483, i64 8
   store i32 0, ptr %2356, align 8, !tbaa !44
   %2357 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6406,7 +6400,7 @@ zend_string_release.exit54.i:                     ; preds = %2355, %2354, %2347,
   br label %zend_string_release.exit57.i
 
 zend_string_release.exit57.i:                     ; preds = %2382, %2381, %2374, %zend_string_release.exit54.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %485) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %485)
   %2383 = getelementptr inbounds nuw i8, ptr %485, i64 8
   store i32 0, ptr %2383, align 8, !tbaa !44
   %2384 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6467,27 +6461,27 @@ zend_string_release.exit57.i:                     ; preds = %2382, %2381, %2374,
   br label %register_class_DOMNameSpaceNode.exit
 
 register_class_DOMNameSpaceNode.exit:             ; preds = %zend_string_release.exit57.i, %2401, %2408, %2409
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %485) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %483) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %481) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %479) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %477) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %475) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %473) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %471) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %469) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %467) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %466) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %468)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %470)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %472)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %474)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %476)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %478)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %480)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %482)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %484)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %486)
+  call void @llvm.lifetime.end.p0(ptr nonnull %485)
+  call void @llvm.lifetime.end.p0(ptr nonnull %483)
+  call void @llvm.lifetime.end.p0(ptr nonnull %481)
+  call void @llvm.lifetime.end.p0(ptr nonnull %479)
+  call void @llvm.lifetime.end.p0(ptr nonnull %477)
+  call void @llvm.lifetime.end.p0(ptr nonnull %475)
+  call void @llvm.lifetime.end.p0(ptr nonnull %473)
+  call void @llvm.lifetime.end.p0(ptr nonnull %471)
+  call void @llvm.lifetime.end.p0(ptr nonnull %469)
+  call void @llvm.lifetime.end.p0(ptr nonnull %467)
+  call void @llvm.lifetime.end.p0(ptr nonnull %466)
+  call void @llvm.lifetime.end.p0(ptr nonnull %468)
+  call void @llvm.lifetime.end.p0(ptr nonnull %470)
+  call void @llvm.lifetime.end.p0(ptr nonnull %472)
+  call void @llvm.lifetime.end.p0(ptr nonnull %474)
+  call void @llvm.lifetime.end.p0(ptr nonnull %476)
+  call void @llvm.lifetime.end.p0(ptr nonnull %478)
+  call void @llvm.lifetime.end.p0(ptr nonnull %480)
+  call void @llvm.lifetime.end.p0(ptr nonnull %482)
+  call void @llvm.lifetime.end.p0(ptr nonnull %484)
+  call void @llvm.lifetime.end.p0(ptr nonnull %486)
   store ptr %2181, ptr @dom_namespace_node_class_entry, align 8, !tbaa !127
   %2410 = getelementptr inbounds nuw i8, ptr %2181, i64 384
   store ptr @dom_objects_namespace_node_new, ptr %2410, align 8, !tbaa !44
@@ -6496,12 +6490,12 @@ register_class_DOMNameSpaceNode.exit:             ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_namespace_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %2412 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2413 = call ptr %2412(ptr noundef nonnull @.str.3, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %465) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %465)
   store ptr @zm_startup_dom.hnd.52, ptr %465, align 8, !tbaa !44
   %2414 = getelementptr inbounds nuw i8, ptr %465, i64 8
   store i32 13, ptr %2414, align 8, !tbaa !44
   %2415 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2413, ptr noundef nonnull %465) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %465) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %465)
   %2416 = getelementptr inbounds nuw i8, ptr %2413, i64 4
   %2417 = load i32, ptr %2416, align 4, !tbaa !44
   %2418 = and i32 %2417, 64
@@ -6524,12 +6518,12 @@ register_class_DOMNameSpaceNode.exit:             ; preds = %zend_string_release
 dom_register_prop_handler.exit187:                ; preds = %register_class_DOMNameSpaceNode.exit, %2419, %2424
   %2425 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2426 = call ptr %2425(ptr noundef nonnull @.str.5, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %464) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %464)
   store ptr @zm_startup_dom.hnd.53, ptr %464, align 8, !tbaa !44
   %2427 = getelementptr inbounds nuw i8, ptr %464, i64 8
   store i32 13, ptr %2427, align 8, !tbaa !44
   %2428 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2426, ptr noundef nonnull %464) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %464) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %464)
   %2429 = getelementptr inbounds nuw i8, ptr %2426, i64 4
   %2430 = load i32, ptr %2429, align 4, !tbaa !44
   %2431 = and i32 %2430, 64
@@ -6552,12 +6546,12 @@ dom_register_prop_handler.exit187:                ; preds = %register_class_DOMN
 dom_register_prop_handler.exit189:                ; preds = %dom_register_prop_handler.exit187, %2432, %2437
   %2438 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2439 = call ptr %2438(ptr noundef nonnull @.str.7, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %463) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %463)
   store ptr @zm_startup_dom.hnd.54, ptr %463, align 8, !tbaa !44
   %2440 = getelementptr inbounds nuw i8, ptr %463, i64 8
   store i32 13, ptr %2440, align 8, !tbaa !44
   %2441 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2439, ptr noundef nonnull %463) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %463) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %463)
   %2442 = getelementptr inbounds nuw i8, ptr %2439, i64 4
   %2443 = load i32, ptr %2442, align 4, !tbaa !44
   %2444 = and i32 %2443, 64
@@ -6580,12 +6574,12 @@ dom_register_prop_handler.exit189:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit191:                ; preds = %dom_register_prop_handler.exit189, %2445, %2450
   %2451 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2452 = call ptr %2451(ptr noundef nonnull @.str.31, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %462) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %462)
   store ptr @zm_startup_dom.hnd.55, ptr %462, align 8, !tbaa !44
   %2453 = getelementptr inbounds nuw i8, ptr %462, i64 8
   store i32 13, ptr %2453, align 8, !tbaa !44
   %2454 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2452, ptr noundef nonnull %462) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %462) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %462)
   %2455 = getelementptr inbounds nuw i8, ptr %2452, i64 4
   %2456 = load i32, ptr %2455, align 4, !tbaa !44
   %2457 = and i32 %2456, 64
@@ -6608,12 +6602,12 @@ dom_register_prop_handler.exit191:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit193:                ; preds = %dom_register_prop_handler.exit191, %2458, %2463
   %2464 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2465 = call ptr %2464(ptr noundef nonnull @.str.33, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %461) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %461)
   store ptr @zm_startup_dom.hnd.56, ptr %461, align 8, !tbaa !44
   %2466 = getelementptr inbounds nuw i8, ptr %461, i64 8
   store i32 13, ptr %2466, align 8, !tbaa !44
   %2467 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2465, ptr noundef nonnull %461) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %461) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %461)
   %2468 = getelementptr inbounds nuw i8, ptr %2465, i64 4
   %2469 = load i32, ptr %2468, align 4, !tbaa !44
   %2470 = and i32 %2469, 64
@@ -6636,12 +6630,12 @@ dom_register_prop_handler.exit193:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit195:                ; preds = %dom_register_prop_handler.exit193, %2471, %2476
   %2477 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2478 = call ptr %2477(ptr noundef nonnull @.str.29, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %460) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %460)
   store ptr @zm_startup_dom.hnd.57, ptr %460, align 8, !tbaa !44
   %2479 = getelementptr inbounds nuw i8, ptr %460, i64 8
   store i32 13, ptr %2479, align 8, !tbaa !44
   %2480 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2478, ptr noundef nonnull %460) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %460) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %460)
   %2481 = getelementptr inbounds nuw i8, ptr %2478, i64 4
   %2482 = load i32, ptr %2481, align 4, !tbaa !44
   %2483 = and i32 %2482, 64
@@ -6664,12 +6658,12 @@ dom_register_prop_handler.exit195:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit197:                ; preds = %dom_register_prop_handler.exit195, %2484, %2489
   %2490 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2491 = call ptr %2490(ptr noundef nonnull @.str.25, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %459) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %459)
   store ptr @zm_startup_dom.hnd.58, ptr %459, align 8, !tbaa !44
   %2492 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store i32 13, ptr %2492, align 8, !tbaa !44
   %2493 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2491, ptr noundef nonnull %459) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %459) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %459)
   %2494 = getelementptr inbounds nuw i8, ptr %2491, i64 4
   %2495 = load i32, ptr %2494, align 4, !tbaa !44
   %2496 = and i32 %2495, 64
@@ -6692,12 +6686,12 @@ dom_register_prop_handler.exit197:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit199:                ; preds = %dom_register_prop_handler.exit197, %2497, %2502
   %2503 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2504 = call ptr %2503(ptr noundef nonnull @.str.27, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %458) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %458)
   store ptr @zm_startup_dom.hnd.59, ptr %458, align 8, !tbaa !44
   %2505 = getelementptr inbounds nuw i8, ptr %458, i64 8
   store i32 13, ptr %2505, align 8, !tbaa !44
   %2506 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2504, ptr noundef nonnull %458) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %458) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %458)
   %2507 = getelementptr inbounds nuw i8, ptr %2504, i64 4
   %2508 = load i32, ptr %2507, align 4, !tbaa !44
   %2509 = and i32 %2508, 64
@@ -6720,12 +6714,12 @@ dom_register_prop_handler.exit199:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit201:                ; preds = %dom_register_prop_handler.exit199, %2510, %2515
   %2516 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2517 = call ptr %2516(ptr noundef nonnull @.str.9, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %457) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %457)
   store ptr @zm_startup_dom.hnd.60, ptr %457, align 8, !tbaa !44
   %2518 = getelementptr inbounds nuw i8, ptr %457, i64 8
   store i32 13, ptr %2518, align 8, !tbaa !44
   %2519 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2517, ptr noundef nonnull %457) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %457) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %457)
   %2520 = getelementptr inbounds nuw i8, ptr %2517, i64 4
   %2521 = load i32, ptr %2520, align 4, !tbaa !44
   %2522 = and i32 %2521, 64
@@ -6748,12 +6742,12 @@ dom_register_prop_handler.exit201:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit203:                ; preds = %dom_register_prop_handler.exit201, %2523, %2528
   %2529 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2530 = call ptr %2529(ptr noundef nonnull @.str.11, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %456) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %456)
   store ptr @zm_startup_dom.hnd.61, ptr %456, align 8, !tbaa !44
   %2531 = getelementptr inbounds nuw i8, ptr %456, i64 8
   store i32 13, ptr %2531, align 8, !tbaa !44
   %2532 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namespace_node_prop_handlers, ptr noundef %2530, ptr noundef nonnull %456) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %456) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %456)
   %2533 = getelementptr inbounds nuw i8, ptr %2530, i64 4
   %2534 = load i32, ptr %2533, align 4, !tbaa !44
   %2535 = and i32 %2534, 64
@@ -6777,16 +6771,16 @@ dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_h
   %2542 = load ptr, ptr @dom_namespace_node_class_entry, align 8, !tbaa !127
   %2543 = getelementptr inbounds nuw i8, ptr %2542, i64 8
   %2544 = load ptr, ptr %2543, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %659) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %659)
   store ptr @dom_namespace_node_prop_handlers, ptr %659, align 8, !tbaa !44
   %2545 = getelementptr inbounds nuw i8, ptr %659, i64 8
   store i32 13, ptr %2545, align 8, !tbaa !44
   %2546 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %2544, ptr noundef nonnull %659) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %659) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %451)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %453)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %455)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %449) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %659)
+  call void @llvm.lifetime.start.p0(ptr nonnull %451)
+  call void @llvm.lifetime.start.p0(ptr nonnull %453)
+  call void @llvm.lifetime.start.p0(ptr nonnull %455)
+  call void @llvm.lifetime.start.p0(ptr nonnull %449)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %449, i8 0, i64 520, i1 false)
   %2547 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2548 = call ptr %2547(ptr noundef nonnull @.str.442, i64 noundef 17, i1 noundef zeroext true) #17
@@ -6797,7 +6791,7 @@ dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_h
   %2551 = getelementptr inbounds nuw i8, ptr %449, i64 504
   store ptr @class_Dom_NamespaceInfo_methods, ptr %2551, align 8, !tbaa !44
   %2552 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %449, ptr noundef null, i32 noundef 536944672) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %450) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %450)
   %2553 = getelementptr inbounds nuw i8, ptr %450, i64 8
   store i32 0, ptr %2553, align 8, !tbaa !44
   %2554 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -6846,7 +6840,7 @@ dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i207
 
 zend_string_release.exit.i207:                    ; preds = %2573, %2572, %2565, %dom_register_prop_handler.exit205
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %452) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %452)
   %2574 = getelementptr inbounds nuw i8, ptr %452, i64 8
   store i32 0, ptr %2574, align 8, !tbaa !44
   %2575 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -6895,7 +6889,7 @@ zend_string_release.exit.i207:                    ; preds = %2573, %2572, %2565,
   br label %zend_string_release.exit13.i
 
 zend_string_release.exit13.i:                     ; preds = %2594, %2593, %2586, %zend_string_release.exit.i207
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %454) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %454)
   %2595 = getelementptr inbounds nuw i8, ptr %454, i64 8
   store i32 0, ptr %2595, align 8, !tbaa !44
   %2596 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -6956,20 +6950,20 @@ zend_string_release.exit13.i:                     ; preds = %2594, %2593, %2586,
   br label %register_class_Dom_NamespaceInfo.exit
 
 register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release.exit13.i, %2613, %2620, %2621
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %454) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %452) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %450) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %449) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %451)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %453)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %455)
+  call void @llvm.lifetime.end.p0(ptr nonnull %454)
+  call void @llvm.lifetime.end.p0(ptr nonnull %452)
+  call void @llvm.lifetime.end.p0(ptr nonnull %450)
+  call void @llvm.lifetime.end.p0(ptr nonnull %449)
+  call void @llvm.lifetime.end.p0(ptr nonnull %451)
+  call void @llvm.lifetime.end.p0(ptr nonnull %453)
+  call void @llvm.lifetime.end.p0(ptr nonnull %455)
   store ptr %2552, ptr @dom_namespace_info_class_entry, align 8, !tbaa !127
   %2622 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
   %2623 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %444)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %446)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %448)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %442) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %444)
+  call void @llvm.lifetime.start.p0(ptr nonnull %446)
+  call void @llvm.lifetime.start.p0(ptr nonnull %448)
+  call void @llvm.lifetime.start.p0(ptr nonnull %442)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %442, i8 0, i64 520, i1 false)
   %2624 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2625 = call ptr %2624(ptr noundef nonnull @.str.444, i64 noundef 19, i1 noundef zeroext true) #17
@@ -6981,7 +6975,7 @@ register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release
   store ptr @class_DOMDocumentFragment_methods, ptr %2628, align 8, !tbaa !44
   %2629 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %442, ptr noundef %2622, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %2629, i32 noundef 1, ptr noundef %2623) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %443) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %443)
   %2630 = getelementptr inbounds nuw i8, ptr %443, i64 8
   store i32 0, ptr %2630, align 8, !tbaa !44
   %2631 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -7042,7 +7036,7 @@ register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release
   br label %zend_string_release.exit.i210
 
 zend_string_release.exit.i210:                    ; preds = %2656, %2655, %2648, %register_class_Dom_NamespaceInfo.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %445) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %445)
   %2657 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store i32 0, ptr %2657, align 8, !tbaa !44
   %2658 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -7103,7 +7097,7 @@ zend_string_release.exit.i210:                    ; preds = %2656, %2655, %2648,
   br label %zend_string_release.exit17.i
 
 zend_string_release.exit17.i:                     ; preds = %2683, %2682, %2675, %zend_string_release.exit.i210
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %447) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %447)
   %2684 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store i32 0, ptr %2684, align 8, !tbaa !44
   %2685 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -7152,13 +7146,13 @@ zend_string_release.exit17.i:                     ; preds = %2683, %2682, %2675,
   br label %register_class_DOMDocumentFragment.exit
 
 register_class_DOMDocumentFragment.exit:          ; preds = %zend_string_release.exit17.i, %2696, %2703, %2704
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %447) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %445) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %443) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %442) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %444)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %446)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %448)
+  call void @llvm.lifetime.end.p0(ptr nonnull %447)
+  call void @llvm.lifetime.end.p0(ptr nonnull %445)
+  call void @llvm.lifetime.end.p0(ptr nonnull %443)
+  call void @llvm.lifetime.end.p0(ptr nonnull %442)
+  call void @llvm.lifetime.end.p0(ptr nonnull %444)
+  call void @llvm.lifetime.end.p0(ptr nonnull %446)
+  call void @llvm.lifetime.end.p0(ptr nonnull %448)
   store ptr %2629, ptr @dom_documentfragment_class_entry, align 8, !tbaa !127
   %2705 = getelementptr inbounds nuw i8, ptr %2629, i64 384
   store ptr @dom_objects_new, ptr %2705, align 8, !tbaa !44
@@ -7167,12 +7161,12 @@ register_class_DOMDocumentFragment.exit:          ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_documentfragment_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %2707 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2708 = call ptr %2707(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %441) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %441)
   store ptr @zm_startup_dom.hnd.62, ptr %441, align 8, !tbaa !44
   %2709 = getelementptr inbounds nuw i8, ptr %441, i64 8
   store i32 13, ptr %2709, align 8, !tbaa !44
   %2710 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documentfragment_prop_handlers, ptr noundef %2708, ptr noundef nonnull %441) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %441) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %441)
   %2711 = getelementptr inbounds nuw i8, ptr %2708, i64 4
   %2712 = load i32, ptr %2711, align 4, !tbaa !44
   %2713 = and i32 %2712, 64
@@ -7195,12 +7189,12 @@ register_class_DOMDocumentFragment.exit:          ; preds = %zend_string_release
 dom_register_prop_handler.exit213:                ; preds = %register_class_DOMDocumentFragment.exit, %2714, %2719
   %2720 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2721 = call ptr %2720(ptr noundef nonnull @.str.65, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %440) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %440)
   store ptr @zm_startup_dom.hnd.64, ptr %440, align 8, !tbaa !44
   %2722 = getelementptr inbounds nuw i8, ptr %440, i64 8
   store i32 13, ptr %2722, align 8, !tbaa !44
   %2723 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documentfragment_prop_handlers, ptr noundef %2721, ptr noundef nonnull %440) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %440) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %440)
   %2724 = getelementptr inbounds nuw i8, ptr %2721, i64 4
   %2725 = load i32, ptr %2724, align 4, !tbaa !44
   %2726 = and i32 %2725, 64
@@ -7223,12 +7217,12 @@ dom_register_prop_handler.exit213:                ; preds = %register_class_DOMD
 dom_register_prop_handler.exit215:                ; preds = %dom_register_prop_handler.exit213, %2727, %2732
   %2733 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2734 = call ptr %2733(ptr noundef nonnull @.str.67, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %439) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %439)
   store ptr @zm_startup_dom.hnd.66, ptr %439, align 8, !tbaa !44
   %2735 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store i32 13, ptr %2735, align 8, !tbaa !44
   %2736 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documentfragment_prop_handlers, ptr noundef %2734, ptr noundef nonnull %439) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %439) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %439)
   %2737 = getelementptr inbounds nuw i8, ptr %2734, i64 4
   %2738 = load i32, ptr %2737, align 4, !tbaa !44
   %2739 = and i32 %2738, 64
@@ -7253,18 +7247,18 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   %2746 = load ptr, ptr @dom_documentfragment_class_entry, align 8, !tbaa !127
   %2747 = getelementptr inbounds nuw i8, ptr %2746, i64 8
   %2748 = load ptr, ptr %2747, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %658) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %658)
   store ptr @dom_documentfragment_prop_handlers, ptr %658, align 8, !tbaa !44
   %2749 = getelementptr inbounds nuw i8, ptr %658, i64 8
   store i32 13, ptr %2749, align 8, !tbaa !44
   %2750 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %2748, ptr noundef nonnull %658) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %658) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %658)
   %2751 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %2752 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %434)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %436)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %438)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %432) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %434)
+  call void @llvm.lifetime.start.p0(ptr nonnull %436)
+  call void @llvm.lifetime.start.p0(ptr nonnull %438)
+  call void @llvm.lifetime.start.p0(ptr nonnull %432)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %432, i8 0, i64 520, i1 false)
   %2753 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2754 = call ptr %2753(ptr noundef nonnull @.str.447, i64 noundef 20, i1 noundef zeroext true) #17
@@ -7276,7 +7270,7 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   store ptr @class_Dom_DocumentFragment_methods, ptr %2757, align 8, !tbaa !44
   %2758 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %432, ptr noundef %2751, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %2758, i32 noundef 1, ptr noundef %2752) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %433) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %433)
   %2759 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store i32 0, ptr %2759, align 8, !tbaa !44
   %2760 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -7337,7 +7331,7 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i219
 
 zend_string_release.exit.i219:                    ; preds = %2785, %2784, %2777, %dom_register_prop_handler.exit217
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %435) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %435)
   %2786 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i32 0, ptr %2786, align 8, !tbaa !44
   %2787 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -7398,7 +7392,7 @@ zend_string_release.exit.i219:                    ; preds = %2785, %2784, %2777,
   br label %zend_string_release.exit17.i221
 
 zend_string_release.exit17.i221:                  ; preds = %2812, %2811, %2804, %zend_string_release.exit.i219
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %437) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %437)
   %2813 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store i32 0, ptr %2813, align 8, !tbaa !44
   %2814 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -7447,13 +7441,13 @@ zend_string_release.exit17.i221:                  ; preds = %2812, %2811, %2804,
   br label %register_class_Dom_DocumentFragment.exit
 
 register_class_Dom_DocumentFragment.exit:         ; preds = %zend_string_release.exit17.i221, %2825, %2832, %2833
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %437) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %435) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %433) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %432) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %434)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %436)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %438)
+  call void @llvm.lifetime.end.p0(ptr nonnull %437)
+  call void @llvm.lifetime.end.p0(ptr nonnull %435)
+  call void @llvm.lifetime.end.p0(ptr nonnull %433)
+  call void @llvm.lifetime.end.p0(ptr nonnull %432)
+  call void @llvm.lifetime.end.p0(ptr nonnull %434)
+  call void @llvm.lifetime.end.p0(ptr nonnull %436)
+  call void @llvm.lifetime.end.p0(ptr nonnull %438)
   store ptr %2758, ptr @dom_modern_documentfragment_class_entry, align 8, !tbaa !127
   %2834 = getelementptr inbounds nuw i8, ptr %2758, i64 384
   store ptr @dom_objects_new, ptr %2834, align 8, !tbaa !44
@@ -7462,12 +7456,12 @@ register_class_Dom_DocumentFragment.exit:         ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %2836 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2837 = call ptr %2836(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %431) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %431)
   store ptr @zm_startup_dom.hnd.68, ptr %431, align 8, !tbaa !44
   %2838 = getelementptr inbounds nuw i8, ptr %431, i64 8
   store i32 13, ptr %2838, align 8, !tbaa !44
   %2839 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, ptr noundef %2837, ptr noundef nonnull %431) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %431) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %431)
   %2840 = getelementptr inbounds nuw i8, ptr %2837, i64 4
   %2841 = load i32, ptr %2840, align 4, !tbaa !44
   %2842 = and i32 %2841, 64
@@ -7490,12 +7484,12 @@ register_class_Dom_DocumentFragment.exit:         ; preds = %zend_string_release
 dom_register_prop_handler.exit227:                ; preds = %register_class_Dom_DocumentFragment.exit, %2843, %2848
   %2849 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2850 = call ptr %2849(ptr noundef nonnull @.str.65, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %430) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %430)
   store ptr @zm_startup_dom.hnd.69, ptr %430, align 8, !tbaa !44
   %2851 = getelementptr inbounds nuw i8, ptr %430, i64 8
   store i32 13, ptr %2851, align 8, !tbaa !44
   %2852 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, ptr noundef %2850, ptr noundef nonnull %430) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %430) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %430)
   %2853 = getelementptr inbounds nuw i8, ptr %2850, i64 4
   %2854 = load i32, ptr %2853, align 4, !tbaa !44
   %2855 = and i32 %2854, 64
@@ -7518,12 +7512,12 @@ dom_register_prop_handler.exit227:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit229:                ; preds = %dom_register_prop_handler.exit227, %2856, %2861
   %2862 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2863 = call ptr %2862(ptr noundef nonnull @.str.67, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %429) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %429)
   store ptr @zm_startup_dom.hnd.70, ptr %429, align 8, !tbaa !44
   %2864 = getelementptr inbounds nuw i8, ptr %429, i64 8
   store i32 13, ptr %2864, align 8, !tbaa !44
   %2865 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, ptr noundef %2863, ptr noundef nonnull %429) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %429) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %429)
   %2866 = getelementptr inbounds nuw i8, ptr %2863, i64 4
   %2867 = load i32, ptr %2866, align 4, !tbaa !44
   %2868 = and i32 %2867, 64
@@ -7545,38 +7539,38 @@ dom_register_prop_handler.exit229:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_handler.exit229, %2869, %2874
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %428) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %428)
   store ptr @zm_startup_dom.hnd.71, ptr %428, align 8, !tbaa !44
   %2875 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store i32 13, ptr %2875, align 8, !tbaa !44
   %2876 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %428) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %428) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %428)
   %2877 = load ptr, ptr @dom_modern_documentfragment_class_entry, align 8, !tbaa !127
   %2878 = getelementptr inbounds nuw i8, ptr %2877, i64 8
   %2879 = load ptr, ptr %2878, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %657) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %657)
   store ptr @dom_modern_documentfragment_prop_handlers, ptr %657, align 8, !tbaa !44
   %2880 = getelementptr inbounds nuw i8, ptr %657, i64 8
   store i32 13, ptr %2880, align 8, !tbaa !44
   %2881 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %2879, ptr noundef nonnull %657) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %657) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %657)
   %2882 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %2883 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %401)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %403)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %405)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %407)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %409)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %411)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %413)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %415)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %417)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %419)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %421)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %423)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %425)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %427)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %399) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %401)
+  call void @llvm.lifetime.start.p0(ptr nonnull %403)
+  call void @llvm.lifetime.start.p0(ptr nonnull %405)
+  call void @llvm.lifetime.start.p0(ptr nonnull %407)
+  call void @llvm.lifetime.start.p0(ptr nonnull %409)
+  call void @llvm.lifetime.start.p0(ptr nonnull %411)
+  call void @llvm.lifetime.start.p0(ptr nonnull %413)
+  call void @llvm.lifetime.start.p0(ptr nonnull %415)
+  call void @llvm.lifetime.start.p0(ptr nonnull %417)
+  call void @llvm.lifetime.start.p0(ptr nonnull %419)
+  call void @llvm.lifetime.start.p0(ptr nonnull %421)
+  call void @llvm.lifetime.start.p0(ptr nonnull %423)
+  call void @llvm.lifetime.start.p0(ptr nonnull %425)
+  call void @llvm.lifetime.start.p0(ptr nonnull %427)
+  call void @llvm.lifetime.start.p0(ptr nonnull %399)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %399, i8 0, i64 520, i1 false)
   %2884 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2885 = call ptr %2884(ptr noundef nonnull @.str.421, i64 noundef 12, i1 noundef zeroext true) #17
@@ -7588,7 +7582,7 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   store ptr @class_Dom_Document_methods, ptr %2888, align 8, !tbaa !44
   %2889 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %399, ptr noundef %2882, i32 noundef 64) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %2889, i32 noundef 1, ptr noundef %2883) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %400) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %400)
   %2890 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i32 0, ptr %2890, align 8, !tbaa !44
   %2891 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -7649,7 +7643,7 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i233
 
 zend_string_release.exit.i233:                    ; preds = %2916, %2915, %2908, %dom_register_prop_handler.exit231
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %402) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %402)
   %2917 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store i32 0, ptr %2917, align 8, !tbaa !44
   %2918 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -7698,7 +7692,7 @@ zend_string_release.exit.i233:                    ; preds = %2916, %2915, %2908,
   br label %zend_string_release.exit55.i
 
 zend_string_release.exit55.i:                     ; preds = %2937, %2936, %2929, %zend_string_release.exit.i233
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %404) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %404)
   %2938 = getelementptr inbounds nuw i8, ptr %404, i64 8
   store i32 0, ptr %2938, align 8, !tbaa !44
   %2939 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -7747,7 +7741,7 @@ zend_string_release.exit55.i:                     ; preds = %2937, %2936, %2929,
   br label %zend_string_release.exit58.i
 
 zend_string_release.exit58.i:                     ; preds = %2958, %2957, %2950, %zend_string_release.exit55.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %406) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %406)
   %2959 = getelementptr inbounds nuw i8, ptr %406, i64 8
   store i32 0, ptr %2959, align 8, !tbaa !44
   %2960 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -7796,7 +7790,7 @@ zend_string_release.exit58.i:                     ; preds = %2958, %2957, %2950,
   br label %zend_string_release.exit61.i
 
 zend_string_release.exit61.i:                     ; preds = %2979, %2978, %2971, %zend_string_release.exit58.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %408) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %408)
   %2980 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store i32 0, ptr %2980, align 8, !tbaa !44
   %2981 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -7845,7 +7839,7 @@ zend_string_release.exit61.i:                     ; preds = %2979, %2978, %2971,
   br label %zend_string_release.exit64.i
 
 zend_string_release.exit64.i:                     ; preds = %3000, %2999, %2992, %zend_string_release.exit61.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %410) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %410)
   %3001 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i32 0, ptr %3001, align 8, !tbaa !44
   %3002 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -7894,7 +7888,7 @@ zend_string_release.exit64.i:                     ; preds = %3000, %2999, %2992,
   br label %zend_string_release.exit67.i
 
 zend_string_release.exit67.i:                     ; preds = %3021, %3020, %3013, %zend_string_release.exit64.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %412) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %412)
   %3022 = getelementptr inbounds nuw i8, ptr %412, i64 8
   store i32 0, ptr %3022, align 8, !tbaa !44
   %3023 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -7955,7 +7949,7 @@ zend_string_release.exit67.i:                     ; preds = %3021, %3020, %3013,
   br label %zend_string_release.exit70.i
 
 zend_string_release.exit70.i:                     ; preds = %3048, %3047, %3040, %zend_string_release.exit67.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %414) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %414)
   %3049 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i32 0, ptr %3049, align 8, !tbaa !44
   %3050 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -8016,7 +8010,7 @@ zend_string_release.exit70.i:                     ; preds = %3048, %3047, %3040,
   br label %zend_string_release.exit73.i
 
 zend_string_release.exit73.i:                     ; preds = %3075, %3074, %3067, %zend_string_release.exit70.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %416) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %416)
   %3076 = getelementptr inbounds nuw i8, ptr %416, i64 8
   store i32 0, ptr %3076, align 8, !tbaa !44
   %3077 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -8077,7 +8071,7 @@ zend_string_release.exit73.i:                     ; preds = %3075, %3074, %3067,
   br label %zend_string_release.exit76.i
 
 zend_string_release.exit76.i:                     ; preds = %3102, %3101, %3094, %zend_string_release.exit73.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %418) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %418)
   %3103 = getelementptr inbounds nuw i8, ptr %418, i64 8
   store i32 0, ptr %3103, align 8, !tbaa !44
   %3104 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -8138,7 +8132,7 @@ zend_string_release.exit76.i:                     ; preds = %3102, %3101, %3094,
   br label %zend_string_release.exit79.i
 
 zend_string_release.exit79.i:                     ; preds = %3129, %3128, %3121, %zend_string_release.exit76.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %420) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %420)
   %3130 = getelementptr inbounds nuw i8, ptr %420, i64 8
   store i32 0, ptr %3130, align 8, !tbaa !44
   %3131 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -8187,7 +8181,7 @@ zend_string_release.exit79.i:                     ; preds = %3129, %3128, %3121,
   br label %zend_string_release.exit82.i
 
 zend_string_release.exit82.i:                     ; preds = %3150, %3149, %3142, %zend_string_release.exit79.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %422) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %422)
   %3151 = getelementptr inbounds nuw i8, ptr %422, i64 8
   store i32 0, ptr %3151, align 8, !tbaa !44
   %3152 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -8248,7 +8242,7 @@ zend_string_release.exit82.i:                     ; preds = %3150, %3149, %3142,
   br label %zend_string_release.exit85.i
 
 zend_string_release.exit85.i:                     ; preds = %3177, %3176, %3169, %zend_string_release.exit82.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %424) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %424)
   %3178 = getelementptr inbounds nuw i8, ptr %424, i64 8
   store i32 0, ptr %3178, align 8, !tbaa !44
   %3179 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -8309,7 +8303,7 @@ zend_string_release.exit85.i:                     ; preds = %3177, %3176, %3169,
   br label %zend_string_release.exit88.i
 
 zend_string_release.exit88.i:                     ; preds = %3204, %3203, %3196, %zend_string_release.exit85.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %426) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %426)
   %3205 = getelementptr inbounds nuw i8, ptr %426, i64 8
   store i32 0, ptr %3205, align 8, !tbaa !44
   %3206 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -8358,47 +8352,47 @@ zend_string_release.exit88.i:                     ; preds = %3204, %3203, %3196,
   br label %register_class_Dom_Document.exit
 
 register_class_Dom_Document.exit:                 ; preds = %zend_string_release.exit88.i, %3217, %3224, %3225
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %426) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %424) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %422) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %420) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %418) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %416) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %414) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %412) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %410) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %408) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %406) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %404) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %402) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %400) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %399) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %401)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %403)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %405)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %407)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %409)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %411)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %413)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %415)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %417)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %419)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %421)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %423)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %425)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %427)
+  call void @llvm.lifetime.end.p0(ptr nonnull %426)
+  call void @llvm.lifetime.end.p0(ptr nonnull %424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %422)
+  call void @llvm.lifetime.end.p0(ptr nonnull %420)
+  call void @llvm.lifetime.end.p0(ptr nonnull %418)
+  call void @llvm.lifetime.end.p0(ptr nonnull %416)
+  call void @llvm.lifetime.end.p0(ptr nonnull %414)
+  call void @llvm.lifetime.end.p0(ptr nonnull %412)
+  call void @llvm.lifetime.end.p0(ptr nonnull %410)
+  call void @llvm.lifetime.end.p0(ptr nonnull %408)
+  call void @llvm.lifetime.end.p0(ptr nonnull %406)
+  call void @llvm.lifetime.end.p0(ptr nonnull %404)
+  call void @llvm.lifetime.end.p0(ptr nonnull %402)
+  call void @llvm.lifetime.end.p0(ptr nonnull %400)
+  call void @llvm.lifetime.end.p0(ptr nonnull %399)
+  call void @llvm.lifetime.end.p0(ptr nonnull %401)
+  call void @llvm.lifetime.end.p0(ptr nonnull %403)
+  call void @llvm.lifetime.end.p0(ptr nonnull %405)
+  call void @llvm.lifetime.end.p0(ptr nonnull %407)
+  call void @llvm.lifetime.end.p0(ptr nonnull %409)
+  call void @llvm.lifetime.end.p0(ptr nonnull %411)
+  call void @llvm.lifetime.end.p0(ptr nonnull %413)
+  call void @llvm.lifetime.end.p0(ptr nonnull %415)
+  call void @llvm.lifetime.end.p0(ptr nonnull %417)
+  call void @llvm.lifetime.end.p0(ptr nonnull %419)
+  call void @llvm.lifetime.end.p0(ptr nonnull %421)
+  call void @llvm.lifetime.end.p0(ptr nonnull %423)
+  call void @llvm.lifetime.end.p0(ptr nonnull %425)
+  call void @llvm.lifetime.end.p0(ptr nonnull %427)
   store ptr %2889, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !127
   %3226 = getelementptr inbounds nuw i8, ptr %2889, i64 360
   store ptr @dom_object_handlers, ptr %3226, align 8, !tbaa !128
   call void @_zend_hash_init(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %3227 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3228 = call ptr %3227(ptr noundef nonnull @.str.73, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %398) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %398)
   store ptr @zm_startup_dom.hnd.72, ptr %398, align 8, !tbaa !44
   %3229 = getelementptr inbounds nuw i8, ptr %398, i64 8
   store i32 13, ptr %3229, align 8, !tbaa !44
   %3230 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3228, ptr noundef nonnull %398) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %398) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %398)
   %3231 = getelementptr inbounds nuw i8, ptr %3228, i64 4
   %3232 = load i32, ptr %3231, align 4, !tbaa !44
   %3233 = and i32 %3232, 64
@@ -8421,12 +8415,12 @@ register_class_Dom_Document.exit:                 ; preds = %zend_string_release
 dom_register_prop_handler.exit236:                ; preds = %register_class_Dom_Document.exit, %3234, %3239
   %3240 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3241 = call ptr %3240(ptr noundef nonnull @.str.75, i64 noundef 3, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %397) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %397)
   store ptr @zm_startup_dom.hnd.74, ptr %397, align 8, !tbaa !44
   %3242 = getelementptr inbounds nuw i8, ptr %397, i64 8
   store i32 13, ptr %3242, align 8, !tbaa !44
   %3243 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3241, ptr noundef nonnull %397) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %397) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %397)
   %3244 = getelementptr inbounds nuw i8, ptr %3241, i64 4
   %3245 = load i32, ptr %3244, align 4, !tbaa !44
   %3246 = and i32 %3245, 64
@@ -8449,12 +8443,12 @@ dom_register_prop_handler.exit236:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit238:                ; preds = %dom_register_prop_handler.exit236, %3247, %3252
   %3253 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3254 = call ptr %3253(ptr noundef nonnull @.str.77, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %396) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %396)
   store ptr @zm_startup_dom.hnd.76, ptr %396, align 8, !tbaa !44
   %3255 = getelementptr inbounds nuw i8, ptr %396, i64 8
   store i32 13, ptr %3255, align 8, !tbaa !44
   %3256 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3254, ptr noundef nonnull %396) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %396) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %396)
   %3257 = getelementptr inbounds nuw i8, ptr %3254, i64 4
   %3258 = load i32, ptr %3257, align 4, !tbaa !44
   %3259 = and i32 %3258, 64
@@ -8477,12 +8471,12 @@ dom_register_prop_handler.exit238:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit240:                ; preds = %dom_register_prop_handler.exit238, %3260, %3265
   %3266 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3267 = call ptr %3266(ptr noundef nonnull @.str.79, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %395) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %395)
   store ptr @zm_startup_dom.hnd.78, ptr %395, align 8, !tbaa !44
   %3268 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i32 13, ptr %3268, align 8, !tbaa !44
   %3269 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3267, ptr noundef nonnull %395) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %395) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %395)
   %3270 = getelementptr inbounds nuw i8, ptr %3267, i64 4
   %3271 = load i32, ptr %3270, align 4, !tbaa !44
   %3272 = and i32 %3271, 64
@@ -8505,12 +8499,12 @@ dom_register_prop_handler.exit240:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit242:                ; preds = %dom_register_prop_handler.exit240, %3273, %3278
   %3279 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3280 = call ptr %3279(ptr noundef nonnull @.str.81, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %394) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %394)
   store ptr @zm_startup_dom.hnd.80, ptr %394, align 8, !tbaa !44
   %3281 = getelementptr inbounds nuw i8, ptr %394, i64 8
   store i32 13, ptr %3281, align 8, !tbaa !44
   %3282 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3280, ptr noundef nonnull %394) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %394) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %394)
   %3283 = getelementptr inbounds nuw i8, ptr %3280, i64 4
   %3284 = load i32, ptr %3283, align 4, !tbaa !44
   %3285 = and i32 %3284, 64
@@ -8533,12 +8527,12 @@ dom_register_prop_handler.exit242:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit244:                ; preds = %dom_register_prop_handler.exit242, %3286, %3291
   %3292 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3293 = call ptr %3292(ptr noundef nonnull @.str.83, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %393) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %393)
   store ptr @zm_startup_dom.hnd.82, ptr %393, align 8, !tbaa !44
   %3294 = getelementptr inbounds nuw i8, ptr %393, i64 8
   store i32 13, ptr %3294, align 8, !tbaa !44
   %3295 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3293, ptr noundef nonnull %393) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %393) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %393)
   %3296 = getelementptr inbounds nuw i8, ptr %3293, i64 4
   %3297 = load i32, ptr %3296, align 4, !tbaa !44
   %3298 = and i32 %3297, 64
@@ -8561,12 +8555,12 @@ dom_register_prop_handler.exit244:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit246:                ; preds = %dom_register_prop_handler.exit244, %3299, %3304
   %3305 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3306 = call ptr %3305(ptr noundef nonnull @.str.85, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %392) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %392)
   store ptr @zm_startup_dom.hnd.84, ptr %392, align 8, !tbaa !44
   %3307 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i32 13, ptr %3307, align 8, !tbaa !44
   %3308 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3306, ptr noundef nonnull %392) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %392) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %392)
   %3309 = getelementptr inbounds nuw i8, ptr %3306, i64 4
   %3310 = load i32, ptr %3309, align 4, !tbaa !44
   %3311 = and i32 %3310, 64
@@ -8589,12 +8583,12 @@ dom_register_prop_handler.exit246:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit248:                ; preds = %dom_register_prop_handler.exit246, %3312, %3317
   %3318 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3319 = call ptr %3318(ptr noundef nonnull @.str.87, i64 noundef 15, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %391) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %391)
   store ptr @zm_startup_dom.hnd.86, ptr %391, align 8, !tbaa !44
   %3320 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store i32 13, ptr %3320, align 8, !tbaa !44
   %3321 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3319, ptr noundef nonnull %391) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %391) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %391)
   %3322 = getelementptr inbounds nuw i8, ptr %3319, i64 4
   %3323 = load i32, ptr %3322, align 4, !tbaa !44
   %3324 = and i32 %3323, 64
@@ -8617,12 +8611,12 @@ dom_register_prop_handler.exit248:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit250:                ; preds = %dom_register_prop_handler.exit248, %3325, %3330
   %3331 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3332 = call ptr %3331(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %390) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %390)
   store ptr @zm_startup_dom.hnd.88, ptr %390, align 8, !tbaa !44
   %3333 = getelementptr inbounds nuw i8, ptr %390, i64 8
   store i32 13, ptr %3333, align 8, !tbaa !44
   %3334 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3332, ptr noundef nonnull %390) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %390) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %390)
   %3335 = getelementptr inbounds nuw i8, ptr %3332, i64 4
   %3336 = load i32, ptr %3335, align 4, !tbaa !44
   %3337 = and i32 %3336, 64
@@ -8645,12 +8639,12 @@ dom_register_prop_handler.exit250:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit252:                ; preds = %dom_register_prop_handler.exit250, %3338, %3343
   %3344 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3345 = call ptr %3344(ptr noundef nonnull @.str.65, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %389) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %389)
   store ptr @zm_startup_dom.hnd.89, ptr %389, align 8, !tbaa !44
   %3346 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i32 13, ptr %3346, align 8, !tbaa !44
   %3347 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3345, ptr noundef nonnull %389) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %389) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %389)
   %3348 = getelementptr inbounds nuw i8, ptr %3345, i64 4
   %3349 = load i32, ptr %3348, align 4, !tbaa !44
   %3350 = and i32 %3349, 64
@@ -8673,12 +8667,12 @@ dom_register_prop_handler.exit252:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit254:                ; preds = %dom_register_prop_handler.exit252, %3351, %3356
   %3357 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3358 = call ptr %3357(ptr noundef nonnull @.str.67, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %388) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %388)
   store ptr @zm_startup_dom.hnd.90, ptr %388, align 8, !tbaa !44
   %3359 = getelementptr inbounds nuw i8, ptr %388, i64 8
   store i32 13, ptr %3359, align 8, !tbaa !44
   %3360 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3358, ptr noundef nonnull %388) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %388) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %388)
   %3361 = getelementptr inbounds nuw i8, ptr %3358, i64 4
   %3362 = load i32, ptr %3361, align 4, !tbaa !44
   %3363 = and i32 %3362, 64
@@ -8701,12 +8695,12 @@ dom_register_prop_handler.exit254:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit256:                ; preds = %dom_register_prop_handler.exit254, %3364, %3369
   %3370 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3371 = call ptr %3370(ptr noundef nonnull @.str.92, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %387) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %387)
   store ptr @zm_startup_dom.hnd.91, ptr %387, align 8, !tbaa !44
   %3372 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i32 13, ptr %3372, align 8, !tbaa !44
   %3373 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3371, ptr noundef nonnull %387) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %387) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %387)
   %3374 = getelementptr inbounds nuw i8, ptr %3371, i64 4
   %3375 = load i32, ptr %3374, align 4, !tbaa !44
   %3376 = and i32 %3375, 64
@@ -8729,12 +8723,12 @@ dom_register_prop_handler.exit256:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit258:                ; preds = %dom_register_prop_handler.exit256, %3377, %3382
   %3383 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3384 = call ptr %3383(ptr noundef nonnull @.str.94, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %386) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %386)
   store ptr @zm_startup_dom.hnd.93, ptr %386, align 8, !tbaa !44
   %3385 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i32 13, ptr %3385, align 8, !tbaa !44
   %3386 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3384, ptr noundef nonnull %386) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %386) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %386)
   %3387 = getelementptr inbounds nuw i8, ptr %3384, i64 4
   %3388 = load i32, ptr %3387, align 4, !tbaa !44
   %3389 = and i32 %3388, 64
@@ -8757,12 +8751,12 @@ dom_register_prop_handler.exit258:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit260:                ; preds = %dom_register_prop_handler.exit258, %3390, %3395
   %3396 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3397 = call ptr %3396(ptr noundef nonnull @.str.96, i64 noundef 5, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %385) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %385)
   store ptr @zm_startup_dom.hnd.95, ptr %385, align 8, !tbaa !44
   %3398 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i32 13, ptr %3398, align 8, !tbaa !44
   %3399 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef %3397, ptr noundef nonnull %385) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %385) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %385)
   %3400 = getelementptr inbounds nuw i8, ptr %3397, i64 4
   %3401 = load i32, ptr %3400, align 4, !tbaa !44
   %3402 = and i32 %3401, 64
@@ -8786,29 +8780,29 @@ dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_h
   call void @zend_hash_merge(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
   %3409 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
   %3410 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %342)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %344)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %346)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %348)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %350)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %352)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %354)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %356)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %358)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %360)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %362)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %364)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %366)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %368)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %370)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %372)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %374)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %376)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %378)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %380)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %382)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %384)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %340) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %342)
+  call void @llvm.lifetime.start.p0(ptr nonnull %344)
+  call void @llvm.lifetime.start.p0(ptr nonnull %346)
+  call void @llvm.lifetime.start.p0(ptr nonnull %348)
+  call void @llvm.lifetime.start.p0(ptr nonnull %350)
+  call void @llvm.lifetime.start.p0(ptr nonnull %352)
+  call void @llvm.lifetime.start.p0(ptr nonnull %354)
+  call void @llvm.lifetime.start.p0(ptr nonnull %356)
+  call void @llvm.lifetime.start.p0(ptr nonnull %358)
+  call void @llvm.lifetime.start.p0(ptr nonnull %360)
+  call void @llvm.lifetime.start.p0(ptr nonnull %362)
+  call void @llvm.lifetime.start.p0(ptr nonnull %364)
+  call void @llvm.lifetime.start.p0(ptr nonnull %366)
+  call void @llvm.lifetime.start.p0(ptr nonnull %368)
+  call void @llvm.lifetime.start.p0(ptr nonnull %370)
+  call void @llvm.lifetime.start.p0(ptr nonnull %372)
+  call void @llvm.lifetime.start.p0(ptr nonnull %374)
+  call void @llvm.lifetime.start.p0(ptr nonnull %376)
+  call void @llvm.lifetime.start.p0(ptr nonnull %378)
+  call void @llvm.lifetime.start.p0(ptr nonnull %380)
+  call void @llvm.lifetime.start.p0(ptr nonnull %382)
+  call void @llvm.lifetime.start.p0(ptr nonnull %384)
+  call void @llvm.lifetime.start.p0(ptr nonnull %340)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %340, i8 0, i64 520, i1 false)
   %3411 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3412 = call ptr %3411(ptr noundef nonnull @.str.343, i64 noundef 11, i1 noundef zeroext true) #17
@@ -8820,7 +8814,7 @@ dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_h
   store ptr @class_DOMDocument_methods, ptr %3415, align 8, !tbaa !44
   %3416 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %340, ptr noundef %3409, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %3416, i32 noundef 1, ptr noundef %3410) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %341) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %341)
   %3417 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store i32 0, ptr %3417, align 8, !tbaa !44
   %3418 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -8881,7 +8875,7 @@ dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i264
 
 zend_string_release.exit.i264:                    ; preds = %3443, %3442, %3435, %dom_register_prop_handler.exit262
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %343) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %343)
   %3444 = getelementptr inbounds nuw i8, ptr %343, i64 8
   store i32 0, ptr %3444, align 8, !tbaa !44
   %3445 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -8942,7 +8936,7 @@ zend_string_release.exit.i264:                    ; preds = %3443, %3442, %3435,
   br label %zend_string_release.exit77.i
 
 zend_string_release.exit77.i:                     ; preds = %3470, %3469, %3462, %zend_string_release.exit.i264
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %345) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %345)
   %3471 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i32 0, ptr %3471, align 8, !tbaa !44
   %3472 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9003,7 +8997,7 @@ zend_string_release.exit77.i:                     ; preds = %3470, %3469, %3462,
   br label %zend_string_release.exit80.i
 
 zend_string_release.exit80.i:                     ; preds = %3497, %3496, %3489, %zend_string_release.exit77.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %347) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %347)
   %3498 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i32 0, ptr %3498, align 8, !tbaa !44
   %3499 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9052,7 +9046,7 @@ zend_string_release.exit80.i:                     ; preds = %3497, %3496, %3489,
   br label %zend_string_release.exit83.i266
 
 zend_string_release.exit83.i266:                  ; preds = %3518, %3517, %3510, %zend_string_release.exit80.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %349) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %349)
   %3519 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i32 0, ptr %3519, align 8, !tbaa !44
   %3520 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9101,7 +9095,7 @@ zend_string_release.exit83.i266:                  ; preds = %3518, %3517, %3510,
   br label %zend_string_release.exit86.i268
 
 zend_string_release.exit86.i268:                  ; preds = %3539, %3538, %3531, %zend_string_release.exit83.i266
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %351) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %351)
   %3540 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i32 0, ptr %3540, align 8, !tbaa !44
   %3541 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9150,7 +9144,7 @@ zend_string_release.exit86.i268:                  ; preds = %3539, %3538, %3531,
   br label %zend_string_release.exit89.i270
 
 zend_string_release.exit89.i270:                  ; preds = %3560, %3559, %3552, %zend_string_release.exit86.i268
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %353) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %353)
   %3561 = getelementptr inbounds nuw i8, ptr %353, i64 8
   store i32 0, ptr %3561, align 8, !tbaa !44
   %3562 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9199,7 +9193,7 @@ zend_string_release.exit89.i270:                  ; preds = %3560, %3559, %3552,
   br label %zend_string_release.exit92.i272
 
 zend_string_release.exit92.i272:                  ; preds = %3581, %3580, %3573, %zend_string_release.exit89.i270
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %355) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %355)
   %3582 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store i32 0, ptr %3582, align 8, !tbaa !44
   %3583 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9248,7 +9242,7 @@ zend_string_release.exit92.i272:                  ; preds = %3581, %3580, %3573,
   br label %zend_string_release.exit95.i274
 
 zend_string_release.exit95.i274:                  ; preds = %3602, %3601, %3594, %zend_string_release.exit92.i272
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %357) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %357)
   %3603 = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i32 0, ptr %3603, align 8, !tbaa !44
   %3604 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -9297,7 +9291,7 @@ zend_string_release.exit95.i274:                  ; preds = %3602, %3601, %3594,
   br label %zend_string_release.exit98.i276
 
 zend_string_release.exit98.i276:                  ; preds = %3623, %3622, %3615, %zend_string_release.exit95.i274
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %359) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %359)
   %3624 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i32 0, ptr %3624, align 8, !tbaa !44
   %3625 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9346,7 +9340,7 @@ zend_string_release.exit98.i276:                  ; preds = %3623, %3622, %3615,
   br label %zend_string_release.exit101.i278
 
 zend_string_release.exit101.i278:                 ; preds = %3644, %3643, %3636, %zend_string_release.exit98.i276
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %361) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %361)
   %3645 = getelementptr inbounds nuw i8, ptr %361, i64 8
   store i32 0, ptr %3645, align 8, !tbaa !44
   %3646 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9395,7 +9389,7 @@ zend_string_release.exit101.i278:                 ; preds = %3644, %3643, %3636,
   br label %zend_string_release.exit104.i280
 
 zend_string_release.exit104.i280:                 ; preds = %3665, %3664, %3657, %zend_string_release.exit101.i278
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %363) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %363)
   %3666 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store i32 0, ptr %3666, align 8, !tbaa !44
   %3667 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9444,7 +9438,7 @@ zend_string_release.exit104.i280:                 ; preds = %3665, %3664, %3657,
   br label %zend_string_release.exit107.i282
 
 zend_string_release.exit107.i282:                 ; preds = %3686, %3685, %3678, %zend_string_release.exit104.i280
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %365) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %365)
   %3687 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i32 0, ptr %3687, align 8, !tbaa !44
   %3688 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -9493,7 +9487,7 @@ zend_string_release.exit107.i282:                 ; preds = %3686, %3685, %3678,
   br label %zend_string_release.exit110.i284
 
 zend_string_release.exit110.i284:                 ; preds = %3707, %3706, %3699, %zend_string_release.exit107.i282
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %367) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %367)
   %3708 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store i32 0, ptr %3708, align 8, !tbaa !44
   %3709 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9542,7 +9536,7 @@ zend_string_release.exit110.i284:                 ; preds = %3707, %3706, %3699,
   br label %zend_string_release.exit113.i286
 
 zend_string_release.exit113.i286:                 ; preds = %3728, %3727, %3720, %zend_string_release.exit110.i284
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %369) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %369)
   %3729 = getelementptr inbounds nuw i8, ptr %369, i64 8
   store i32 0, ptr %3729, align 8, !tbaa !44
   %3730 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -9591,7 +9585,7 @@ zend_string_release.exit113.i286:                 ; preds = %3728, %3727, %3720,
   br label %zend_string_release.exit116.i288
 
 zend_string_release.exit116.i288:                 ; preds = %3749, %3748, %3741, %zend_string_release.exit113.i286
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %371) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %371)
   %3750 = getelementptr inbounds nuw i8, ptr %371, i64 8
   store i32 0, ptr %3750, align 8, !tbaa !44
   %3751 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9640,7 +9634,7 @@ zend_string_release.exit116.i288:                 ; preds = %3749, %3748, %3741,
   br label %zend_string_release.exit119.i290
 
 zend_string_release.exit119.i290:                 ; preds = %3770, %3769, %3762, %zend_string_release.exit116.i288
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %373) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %373)
   %3771 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i32 0, ptr %3771, align 8, !tbaa !44
   %3772 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9689,7 +9683,7 @@ zend_string_release.exit119.i290:                 ; preds = %3770, %3769, %3762,
   br label %zend_string_release.exit122.i292
 
 zend_string_release.exit122.i292:                 ; preds = %3791, %3790, %3783, %zend_string_release.exit119.i290
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %375) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %375)
   %3792 = getelementptr inbounds nuw i8, ptr %375, i64 8
   store i32 0, ptr %3792, align 8, !tbaa !44
   %3793 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -9738,7 +9732,7 @@ zend_string_release.exit122.i292:                 ; preds = %3791, %3790, %3783,
   br label %zend_string_release.exit125.i294
 
 zend_string_release.exit125.i294:                 ; preds = %3812, %3811, %3804, %zend_string_release.exit122.i292
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %377) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %377)
   %3813 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i32 0, ptr %3813, align 8, !tbaa !44
   %3814 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9787,7 +9781,7 @@ zend_string_release.exit125.i294:                 ; preds = %3812, %3811, %3804,
   br label %zend_string_release.exit128.i296
 
 zend_string_release.exit128.i296:                 ; preds = %3833, %3832, %3825, %zend_string_release.exit125.i294
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %379) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %379)
   %3834 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i32 0, ptr %3834, align 8, !tbaa !44
   %3835 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9848,7 +9842,7 @@ zend_string_release.exit128.i296:                 ; preds = %3833, %3832, %3825,
   br label %zend_string_release.exit131.i298
 
 zend_string_release.exit131.i298:                 ; preds = %3860, %3859, %3852, %zend_string_release.exit128.i296
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %381) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %381)
   %3861 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store i32 0, ptr %3861, align 8, !tbaa !44
   %3862 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9909,7 +9903,7 @@ zend_string_release.exit131.i298:                 ; preds = %3860, %3859, %3852,
   br label %zend_string_release.exit134.i300
 
 zend_string_release.exit134.i300:                 ; preds = %3887, %3886, %3879, %zend_string_release.exit131.i298
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %383) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %383)
   %3888 = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i32 0, ptr %3888, align 8, !tbaa !44
   %3889 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -9958,51 +9952,51 @@ zend_string_release.exit134.i300:                 ; preds = %3887, %3886, %3879,
   br label %register_class_DOMDocument.exit
 
 register_class_DOMDocument.exit:                  ; preds = %zend_string_release.exit134.i300, %3900, %3907, %3908
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %383) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %381) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %379) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %377) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %375) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %373) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %371) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %369) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %367) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %365) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %363) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %361) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %359) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %357) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %355) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %353) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %351) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %349) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %347) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %345) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %343) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %341) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %340) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %342)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %344)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %346)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %348)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %350)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %352)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %354)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %356)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %358)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %360)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %362)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %364)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %366)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %368)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %370)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %372)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %374)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %376)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %378)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %380)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %382)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %384)
+  call void @llvm.lifetime.end.p0(ptr nonnull %383)
+  call void @llvm.lifetime.end.p0(ptr nonnull %381)
+  call void @llvm.lifetime.end.p0(ptr nonnull %379)
+  call void @llvm.lifetime.end.p0(ptr nonnull %377)
+  call void @llvm.lifetime.end.p0(ptr nonnull %375)
+  call void @llvm.lifetime.end.p0(ptr nonnull %373)
+  call void @llvm.lifetime.end.p0(ptr nonnull %371)
+  call void @llvm.lifetime.end.p0(ptr nonnull %369)
+  call void @llvm.lifetime.end.p0(ptr nonnull %367)
+  call void @llvm.lifetime.end.p0(ptr nonnull %365)
+  call void @llvm.lifetime.end.p0(ptr nonnull %363)
+  call void @llvm.lifetime.end.p0(ptr nonnull %361)
+  call void @llvm.lifetime.end.p0(ptr nonnull %359)
+  call void @llvm.lifetime.end.p0(ptr nonnull %357)
+  call void @llvm.lifetime.end.p0(ptr nonnull %355)
+  call void @llvm.lifetime.end.p0(ptr nonnull %353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %351)
+  call void @llvm.lifetime.end.p0(ptr nonnull %349)
+  call void @llvm.lifetime.end.p0(ptr nonnull %347)
+  call void @llvm.lifetime.end.p0(ptr nonnull %345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %343)
+  call void @llvm.lifetime.end.p0(ptr nonnull %341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %340)
+  call void @llvm.lifetime.end.p0(ptr nonnull %342)
+  call void @llvm.lifetime.end.p0(ptr nonnull %344)
+  call void @llvm.lifetime.end.p0(ptr nonnull %346)
+  call void @llvm.lifetime.end.p0(ptr nonnull %348)
+  call void @llvm.lifetime.end.p0(ptr nonnull %350)
+  call void @llvm.lifetime.end.p0(ptr nonnull %352)
+  call void @llvm.lifetime.end.p0(ptr nonnull %354)
+  call void @llvm.lifetime.end.p0(ptr nonnull %356)
+  call void @llvm.lifetime.end.p0(ptr nonnull %358)
+  call void @llvm.lifetime.end.p0(ptr nonnull %360)
+  call void @llvm.lifetime.end.p0(ptr nonnull %362)
+  call void @llvm.lifetime.end.p0(ptr nonnull %364)
+  call void @llvm.lifetime.end.p0(ptr nonnull %366)
+  call void @llvm.lifetime.end.p0(ptr nonnull %368)
+  call void @llvm.lifetime.end.p0(ptr nonnull %370)
+  call void @llvm.lifetime.end.p0(ptr nonnull %372)
+  call void @llvm.lifetime.end.p0(ptr nonnull %374)
+  call void @llvm.lifetime.end.p0(ptr nonnull %376)
+  call void @llvm.lifetime.end.p0(ptr nonnull %378)
+  call void @llvm.lifetime.end.p0(ptr nonnull %380)
+  call void @llvm.lifetime.end.p0(ptr nonnull %382)
+  call void @llvm.lifetime.end.p0(ptr nonnull %384)
   store ptr %3416, ptr @dom_document_class_entry, align 8, !tbaa !127
   %3909 = getelementptr inbounds nuw i8, ptr %3416, i64 384
   store ptr @dom_objects_new, ptr %3909, align 8, !tbaa !44
@@ -10011,12 +10005,12 @@ register_class_DOMDocument.exit:                  ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %3911 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3912 = call ptr %3911(ptr noundef nonnull @.str.85, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %339) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %339)
   store ptr @zm_startup_dom.hnd.97, ptr %339, align 8, !tbaa !44
   %3913 = getelementptr inbounds nuw i8, ptr %339, i64 8
   store i32 13, ptr %3913, align 8, !tbaa !44
   %3914 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3912, ptr noundef nonnull %339) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %339) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %339)
   %3915 = getelementptr inbounds nuw i8, ptr %3912, i64 4
   %3916 = load i32, ptr %3915, align 4, !tbaa !44
   %3917 = and i32 %3916, 64
@@ -10039,12 +10033,12 @@ register_class_DOMDocument.exit:                  ; preds = %zend_string_release
 dom_register_prop_handler.exit323:                ; preds = %register_class_DOMDocument.exit, %3918, %3923
   %3924 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3925 = call ptr %3924(ptr noundef nonnull @.str.73, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %338) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %338)
   store ptr @zm_startup_dom.hnd.98, ptr %338, align 8, !tbaa !44
   %3926 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i32 13, ptr %3926, align 8, !tbaa !44
   %3927 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3925, ptr noundef nonnull %338) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %338) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %338)
   %3928 = getelementptr inbounds nuw i8, ptr %3925, i64 4
   %3929 = load i32, ptr %3928, align 4, !tbaa !44
   %3930 = and i32 %3929, 64
@@ -10067,12 +10061,12 @@ dom_register_prop_handler.exit323:                ; preds = %register_class_DOMD
 dom_register_prop_handler.exit325:                ; preds = %dom_register_prop_handler.exit323, %3931, %3936
   %3937 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3938 = call ptr %3937(ptr noundef nonnull @.str.87, i64 noundef 15, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %337) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %337)
   store ptr @zm_startup_dom.hnd.99, ptr %337, align 8, !tbaa !44
   %3939 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store i32 13, ptr %3939, align 8, !tbaa !44
   %3940 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3938, ptr noundef nonnull %337) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %337) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %337)
   %3941 = getelementptr inbounds nuw i8, ptr %3938, i64 4
   %3942 = load i32, ptr %3941, align 4, !tbaa !44
   %3943 = and i32 %3942, 64
@@ -10095,12 +10089,12 @@ dom_register_prop_handler.exit325:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit327:                ; preds = %dom_register_prop_handler.exit325, %3944, %3949
   %3950 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3951 = call ptr %3950(ptr noundef nonnull @.str.101, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %336) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %336)
   store ptr @zm_startup_dom.hnd.100, ptr %336, align 8, !tbaa !44
   %3952 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i32 13, ptr %3952, align 8, !tbaa !44
   %3953 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3951, ptr noundef nonnull %336) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %336) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %336)
   %3954 = getelementptr inbounds nuw i8, ptr %3951, i64 4
   %3955 = load i32, ptr %3954, align 4, !tbaa !44
   %3956 = and i32 %3955, 64
@@ -10123,12 +10117,12 @@ dom_register_prop_handler.exit327:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit329:                ; preds = %dom_register_prop_handler.exit327, %3957, %3962
   %3963 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3964 = call ptr %3963(ptr noundef nonnull @.str.103, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %335) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %335)
   store ptr @zm_startup_dom.hnd.102, ptr %335, align 8, !tbaa !44
   %3965 = getelementptr inbounds nuw i8, ptr %335, i64 8
   store i32 13, ptr %3965, align 8, !tbaa !44
   %3966 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3964, ptr noundef nonnull %335) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %335) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %335)
   %3967 = getelementptr inbounds nuw i8, ptr %3964, i64 4
   %3968 = load i32, ptr %3967, align 4, !tbaa !44
   %3969 = and i32 %3968, 64
@@ -10151,12 +10145,12 @@ dom_register_prop_handler.exit329:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit331:                ; preds = %dom_register_prop_handler.exit329, %3970, %3975
   %3976 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3977 = call ptr %3976(ptr noundef nonnull @.str.105, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %334) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %334)
   store ptr @zm_startup_dom.hnd.104, ptr %334, align 8, !tbaa !44
   %3978 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store i32 13, ptr %3978, align 8, !tbaa !44
   %3979 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3977, ptr noundef nonnull %334) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %334) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %334)
   %3980 = getelementptr inbounds nuw i8, ptr %3977, i64 4
   %3981 = load i32, ptr %3980, align 4, !tbaa !44
   %3982 = and i32 %3981, 64
@@ -10179,12 +10173,12 @@ dom_register_prop_handler.exit331:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit333:                ; preds = %dom_register_prop_handler.exit331, %3983, %3988
   %3989 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3990 = call ptr %3989(ptr noundef nonnull @.str.107, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %333) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %333)
   store ptr @zm_startup_dom.hnd.106, ptr %333, align 8, !tbaa !44
   %3991 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i32 13, ptr %3991, align 8, !tbaa !44
   %3992 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %3990, ptr noundef nonnull %333) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %333) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %333)
   %3993 = getelementptr inbounds nuw i8, ptr %3990, i64 4
   %3994 = load i32, ptr %3993, align 4, !tbaa !44
   %3995 = and i32 %3994, 64
@@ -10207,12 +10201,12 @@ dom_register_prop_handler.exit333:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit335:                ; preds = %dom_register_prop_handler.exit333, %3996, %4001
   %4002 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4003 = call ptr %4002(ptr noundef nonnull @.str.109, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %332) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %332)
   store ptr @zm_startup_dom.hnd.108, ptr %332, align 8, !tbaa !44
   %4004 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store i32 13, ptr %4004, align 8, !tbaa !44
   %4005 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4003, ptr noundef nonnull %332) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %332) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %332)
   %4006 = getelementptr inbounds nuw i8, ptr %4003, i64 4
   %4007 = load i32, ptr %4006, align 4, !tbaa !44
   %4008 = and i32 %4007, 64
@@ -10235,12 +10229,12 @@ dom_register_prop_handler.exit335:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit337:                ; preds = %dom_register_prop_handler.exit335, %4009, %4014
   %4015 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4016 = call ptr %4015(ptr noundef nonnull @.str.111, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %331) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %331)
   store ptr @zm_startup_dom.hnd.110, ptr %331, align 8, !tbaa !44
   %4017 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store i32 13, ptr %4017, align 8, !tbaa !44
   %4018 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4016, ptr noundef nonnull %331) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %331) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %331)
   %4019 = getelementptr inbounds nuw i8, ptr %4016, i64 4
   %4020 = load i32, ptr %4019, align 4, !tbaa !44
   %4021 = and i32 %4020, 64
@@ -10263,12 +10257,12 @@ dom_register_prop_handler.exit337:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit339:                ; preds = %dom_register_prop_handler.exit337, %4022, %4027
   %4028 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4029 = call ptr %4028(ptr noundef nonnull @.str.113, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %330) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %330)
   store ptr @zm_startup_dom.hnd.112, ptr %330, align 8, !tbaa !44
   %4030 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i32 13, ptr %4030, align 8, !tbaa !44
   %4031 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4029, ptr noundef nonnull %330) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %330) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %330)
   %4032 = getelementptr inbounds nuw i8, ptr %4029, i64 4
   %4033 = load i32, ptr %4032, align 4, !tbaa !44
   %4034 = and i32 %4033, 64
@@ -10291,12 +10285,12 @@ dom_register_prop_handler.exit339:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit341:                ; preds = %dom_register_prop_handler.exit339, %4035, %4040
   %4041 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4042 = call ptr %4041(ptr noundef nonnull @.str.115, i64 noundef 19, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %329) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %329)
   store ptr @zm_startup_dom.hnd.114, ptr %329, align 8, !tbaa !44
   %4043 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i32 13, ptr %4043, align 8, !tbaa !44
   %4044 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4042, ptr noundef nonnull %329) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %329) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %329)
   %4045 = getelementptr inbounds nuw i8, ptr %4042, i64 4
   %4046 = load i32, ptr %4045, align 4, !tbaa !44
   %4047 = and i32 %4046, 64
@@ -10319,12 +10313,12 @@ dom_register_prop_handler.exit341:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit343:                ; preds = %dom_register_prop_handler.exit341, %4048, %4053
   %4054 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4055 = call ptr %4054(ptr noundef nonnull @.str.77, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %328) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %328)
   store ptr @zm_startup_dom.hnd.116, ptr %328, align 8, !tbaa !44
   %4056 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store i32 13, ptr %4056, align 8, !tbaa !44
   %4057 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4055, ptr noundef nonnull %328) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %328) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %328)
   %4058 = getelementptr inbounds nuw i8, ptr %4055, i64 4
   %4059 = load i32, ptr %4058, align 4, !tbaa !44
   %4060 = and i32 %4059, 64
@@ -10347,12 +10341,12 @@ dom_register_prop_handler.exit343:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit345:                ; preds = %dom_register_prop_handler.exit343, %4061, %4066
   %4067 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4068 = call ptr %4067(ptr noundef nonnull @.str.118, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %327) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %327)
   store ptr @zm_startup_dom.hnd.117, ptr %327, align 8, !tbaa !44
   %4069 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store i32 13, ptr %4069, align 8, !tbaa !44
   %4070 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4068, ptr noundef nonnull %327) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %327) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %327)
   %4071 = getelementptr inbounds nuw i8, ptr %4068, i64 4
   %4072 = load i32, ptr %4071, align 4, !tbaa !44
   %4073 = and i32 %4072, 64
@@ -10375,12 +10369,12 @@ dom_register_prop_handler.exit345:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit347:                ; preds = %dom_register_prop_handler.exit345, %4074, %4079
   %4080 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4081 = call ptr %4080(ptr noundef nonnull @.str.120, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %326) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %326)
   store ptr @zm_startup_dom.hnd.119, ptr %326, align 8, !tbaa !44
   %4082 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i32 13, ptr %4082, align 8, !tbaa !44
   %4083 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4081, ptr noundef nonnull %326) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %326) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %326)
   %4084 = getelementptr inbounds nuw i8, ptr %4081, i64 4
   %4085 = load i32, ptr %4084, align 4, !tbaa !44
   %4086 = and i32 %4085, 64
@@ -10403,12 +10397,12 @@ dom_register_prop_handler.exit347:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit349:                ; preds = %dom_register_prop_handler.exit347, %4087, %4092
   %4093 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4094 = call ptr %4093(ptr noundef nonnull @.str.122, i64 noundef 15, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %325) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %325)
   store ptr @zm_startup_dom.hnd.121, ptr %325, align 8, !tbaa !44
   %4095 = getelementptr inbounds nuw i8, ptr %325, i64 8
   store i32 13, ptr %4095, align 8, !tbaa !44
   %4096 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4094, ptr noundef nonnull %325) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %325) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %325)
   %4097 = getelementptr inbounds nuw i8, ptr %4094, i64 4
   %4098 = load i32, ptr %4097, align 4, !tbaa !44
   %4099 = and i32 %4098, 64
@@ -10431,12 +10425,12 @@ dom_register_prop_handler.exit349:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit351:                ; preds = %dom_register_prop_handler.exit349, %4100, %4105
   %4106 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4107 = call ptr %4106(ptr noundef nonnull @.str.124, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %324) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %324)
   store ptr @zm_startup_dom.hnd.123, ptr %324, align 8, !tbaa !44
   %4108 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i32 13, ptr %4108, align 8, !tbaa !44
   %4109 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4107, ptr noundef nonnull %324) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %324) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %324)
   %4110 = getelementptr inbounds nuw i8, ptr %4107, i64 4
   %4111 = load i32, ptr %4110, align 4, !tbaa !44
   %4112 = and i32 %4111, 64
@@ -10459,12 +10453,12 @@ dom_register_prop_handler.exit351:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit353:                ; preds = %dom_register_prop_handler.exit351, %4113, %4118
   %4119 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4120 = call ptr %4119(ptr noundef nonnull @.str.126, i64 noundef 18, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %323) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %323)
   store ptr @zm_startup_dom.hnd.125, ptr %323, align 8, !tbaa !44
   %4121 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i32 13, ptr %4121, align 8, !tbaa !44
   %4122 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4120, ptr noundef nonnull %323) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %323) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %323)
   %4123 = getelementptr inbounds nuw i8, ptr %4120, i64 4
   %4124 = load i32, ptr %4123, align 4, !tbaa !44
   %4125 = and i32 %4124, 64
@@ -10487,12 +10481,12 @@ dom_register_prop_handler.exit353:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit355:                ; preds = %dom_register_prop_handler.exit353, %4126, %4131
   %4132 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4133 = call ptr %4132(ptr noundef nonnull @.str.128, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %322) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %322)
   store ptr @zm_startup_dom.hnd.127, ptr %322, align 8, !tbaa !44
   %4134 = getelementptr inbounds nuw i8, ptr %322, i64 8
   store i32 13, ptr %4134, align 8, !tbaa !44
   %4135 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4133, ptr noundef nonnull %322) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %322) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %322)
   %4136 = getelementptr inbounds nuw i8, ptr %4133, i64 4
   %4137 = load i32, ptr %4136, align 4, !tbaa !44
   %4138 = and i32 %4137, 64
@@ -10515,12 +10509,12 @@ dom_register_prop_handler.exit355:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit357:                ; preds = %dom_register_prop_handler.exit355, %4139, %4144
   %4145 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4146 = call ptr %4145(ptr noundef nonnull @.str.130, i64 noundef 18, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %321) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %321)
   store ptr @zm_startup_dom.hnd.129, ptr %321, align 8, !tbaa !44
   %4147 = getelementptr inbounds nuw i8, ptr %321, i64 8
   store i32 13, ptr %4147, align 8, !tbaa !44
   %4148 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4146, ptr noundef nonnull %321) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %321) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %321)
   %4149 = getelementptr inbounds nuw i8, ptr %4146, i64 4
   %4150 = load i32, ptr %4149, align 4, !tbaa !44
   %4151 = and i32 %4150, 64
@@ -10543,12 +10537,12 @@ dom_register_prop_handler.exit357:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit359:                ; preds = %dom_register_prop_handler.exit357, %4152, %4157
   %4158 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4159 = call ptr %4158(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %320) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %320)
   store ptr @zm_startup_dom.hnd.131, ptr %320, align 8, !tbaa !44
   %4160 = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i32 13, ptr %4160, align 8, !tbaa !44
   %4161 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4159, ptr noundef nonnull %320) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %320) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %320)
   %4162 = getelementptr inbounds nuw i8, ptr %4159, i64 4
   %4163 = load i32, ptr %4162, align 4, !tbaa !44
   %4164 = and i32 %4163, 64
@@ -10571,12 +10565,12 @@ dom_register_prop_handler.exit359:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit361:                ; preds = %dom_register_prop_handler.exit359, %4165, %4170
   %4171 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4172 = call ptr %4171(ptr noundef nonnull @.str.65, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %319) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %319)
   store ptr @zm_startup_dom.hnd.132, ptr %319, align 8, !tbaa !44
   %4173 = getelementptr inbounds nuw i8, ptr %319, i64 8
   store i32 13, ptr %4173, align 8, !tbaa !44
   %4174 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4172, ptr noundef nonnull %319) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %319) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %319)
   %4175 = getelementptr inbounds nuw i8, ptr %4172, i64 4
   %4176 = load i32, ptr %4175, align 4, !tbaa !44
   %4177 = and i32 %4176, 64
@@ -10599,12 +10593,12 @@ dom_register_prop_handler.exit361:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit363:                ; preds = %dom_register_prop_handler.exit361, %4178, %4183
   %4184 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4185 = call ptr %4184(ptr noundef nonnull @.str.67, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %318) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %318)
   store ptr @zm_startup_dom.hnd.133, ptr %318, align 8, !tbaa !44
   %4186 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store i32 13, ptr %4186, align 8, !tbaa !44
   %4187 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef %4185, ptr noundef nonnull %318) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %318) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %318)
   %4188 = getelementptr inbounds nuw i8, ptr %4185, i64 4
   %4189 = load i32, ptr %4188, align 4, !tbaa !44
   %4190 = and i32 %4189, 64
@@ -10629,14 +10623,14 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   %4197 = load ptr, ptr @dom_document_class_entry, align 8, !tbaa !127
   %4198 = getelementptr inbounds nuw i8, ptr %4197, i64 8
   %4199 = load ptr, ptr %4198, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %656) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %656)
   store ptr @dom_document_prop_handlers, ptr %656, align 8, !tbaa !44
   %4200 = getelementptr inbounds nuw i8, ptr %656, i64 8
   store i32 13, ptr %4200, align 8, !tbaa !44
   %4201 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4199, ptr noundef nonnull %656) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %656) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %656)
   %4202 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %317) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %317)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %317, i8 0, i64 520, i1 false)
   %4203 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4204 = call ptr %4203(ptr noundef nonnull @.str.354, i64 noundef 16, i1 noundef zeroext true) #17
@@ -10647,24 +10641,24 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   %4207 = getelementptr inbounds nuw i8, ptr %317, i64 504
   store ptr @class_Dom_HTMLDocument_methods, ptr %4207, align 8, !tbaa !44
   %4208 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %317, ptr noundef %4202, i32 noundef 32) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %317) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %317)
   store ptr %4208, ptr @dom_html_document_class_entry, align 8, !tbaa !127
   %4209 = getelementptr inbounds nuw i8, ptr %4208, i64 360
   store ptr @dom_object_handlers, ptr %4209, align 8, !tbaa !128
   %4210 = getelementptr inbounds nuw i8, ptr %4208, i64 8
   %4211 = load ptr, ptr %4210, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %655) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %655)
   store ptr @dom_abstract_base_document_prop_handlers, ptr %655, align 8, !tbaa !44
   %4212 = getelementptr inbounds nuw i8, ptr %655, i64 8
   store i32 13, ptr %4212, align 8, !tbaa !44
   %4213 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4211, ptr noundef nonnull %655) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %655) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %655)
   %4214 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %310)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %312)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %314)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %316)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %308) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %310)
+  call void @llvm.lifetime.start.p0(ptr nonnull %312)
+  call void @llvm.lifetime.start.p0(ptr nonnull %314)
+  call void @llvm.lifetime.start.p0(ptr nonnull %316)
+  call void @llvm.lifetime.start.p0(ptr nonnull %308)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %308, i8 0, i64 520, i1 false)
   %4215 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4216 = call ptr %4215(ptr noundef nonnull @.str.352, i64 noundef 15, i1 noundef zeroext true) #17
@@ -10675,7 +10669,7 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   %4219 = getelementptr inbounds nuw i8, ptr %308, i64 504
   store ptr @class_Dom_XMLDocument_methods, ptr %4219, align 8, !tbaa !44
   %4220 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %308, ptr noundef %4214, i32 noundef 32) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %309) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %309)
   %4221 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i32 0, ptr %4221, align 8, !tbaa !44
   %4222 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -10724,7 +10718,7 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i367
 
 zend_string_release.exit.i367:                    ; preds = %4241, %4240, %4233, %dom_register_prop_handler.exit365
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %311) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %311)
   %4242 = getelementptr inbounds nuw i8, ptr %311, i64 8
   store i32 0, ptr %4242, align 8, !tbaa !44
   %4243 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -10773,7 +10767,7 @@ zend_string_release.exit.i367:                    ; preds = %4241, %4240, %4233,
   br label %zend_string_release.exit16.i
 
 zend_string_release.exit16.i:                     ; preds = %4262, %4261, %4254, %zend_string_release.exit.i367
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %313) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %313)
   %4263 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store i32 0, ptr %4263, align 8, !tbaa !44
   %4264 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -10822,7 +10816,7 @@ zend_string_release.exit16.i:                     ; preds = %4262, %4261, %4254,
   br label %zend_string_release.exit19.i
 
 zend_string_release.exit19.i:                     ; preds = %4283, %4282, %4275, %zend_string_release.exit16.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %315) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %315)
   %4284 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i32 0, ptr %4284, align 8, !tbaa !44
   %4285 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -10871,27 +10865,27 @@ zend_string_release.exit19.i:                     ; preds = %4283, %4282, %4275,
   br label %register_class_Dom_XMLDocument.exit
 
 register_class_Dom_XMLDocument.exit:              ; preds = %zend_string_release.exit19.i, %4296, %4303, %4304
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %315) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %313) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %311) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %309) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %308) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %310)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %312)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %314)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %316)
+  call void @llvm.lifetime.end.p0(ptr nonnull %315)
+  call void @llvm.lifetime.end.p0(ptr nonnull %313)
+  call void @llvm.lifetime.end.p0(ptr nonnull %311)
+  call void @llvm.lifetime.end.p0(ptr nonnull %309)
+  call void @llvm.lifetime.end.p0(ptr nonnull %308)
+  call void @llvm.lifetime.end.p0(ptr nonnull %310)
+  call void @llvm.lifetime.end.p0(ptr nonnull %312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %314)
+  call void @llvm.lifetime.end.p0(ptr nonnull %316)
   store ptr %4220, ptr @dom_xml_document_class_entry, align 8, !tbaa !127
   %4305 = getelementptr inbounds nuw i8, ptr %4220, i64 360
   store ptr @dom_object_handlers, ptr %4305, align 8, !tbaa !128
   call void @_zend_hash_init(ptr noundef nonnull @dom_xml_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4306 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4307 = call ptr %4306(ptr noundef nonnull @.str.105, i64 noundef 11, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %307) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %307)
   store ptr @zm_startup_dom.hnd.134, ptr %307, align 8, !tbaa !44
   %4308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store i32 13, ptr %4308, align 8, !tbaa !44
   %4309 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_xml_document_prop_handlers, ptr noundef %4307, ptr noundef nonnull %307) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %307) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %307)
   %4310 = getelementptr inbounds nuw i8, ptr %4307, i64 4
   %4311 = load i32, ptr %4310, align 4, !tbaa !44
   %4312 = and i32 %4311, 64
@@ -10914,12 +10908,12 @@ register_class_Dom_XMLDocument.exit:              ; preds = %zend_string_release
 dom_register_prop_handler.exit372:                ; preds = %register_class_Dom_XMLDocument.exit, %4313, %4318
   %4319 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4320 = call ptr %4319(ptr noundef nonnull @.str.109, i64 noundef 13, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %306) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %306)
   store ptr @zm_startup_dom.hnd.135, ptr %306, align 8, !tbaa !44
   %4321 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i32 13, ptr %4321, align 8, !tbaa !44
   %4322 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_xml_document_prop_handlers, ptr noundef %4320, ptr noundef nonnull %306) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %306) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %306)
   %4323 = getelementptr inbounds nuw i8, ptr %4320, i64 4
   %4324 = load i32, ptr %4323, align 4, !tbaa !44
   %4325 = and i32 %4324, 64
@@ -10942,12 +10936,12 @@ dom_register_prop_handler.exit372:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit374:                ; preds = %dom_register_prop_handler.exit372, %4326, %4331
   %4332 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4333 = call ptr %4332(ptr noundef nonnull @.str.113, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %305) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %305)
   store ptr @zm_startup_dom.hnd.136, ptr %305, align 8, !tbaa !44
   %4334 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i32 13, ptr %4334, align 8, !tbaa !44
   %4335 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_xml_document_prop_handlers, ptr noundef %4333, ptr noundef nonnull %305) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %305) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %305)
   %4336 = getelementptr inbounds nuw i8, ptr %4333, i64 4
   %4337 = load i32, ptr %4336, align 4, !tbaa !44
   %4338 = and i32 %4337, 64
@@ -10970,12 +10964,12 @@ dom_register_prop_handler.exit374:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit376:                ; preds = %dom_register_prop_handler.exit374, %4339, %4344
   %4345 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4346 = call ptr %4345(ptr noundef nonnull @.str.120, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %304) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %304)
   store ptr @zm_startup_dom.hnd.137, ptr %304, align 8, !tbaa !44
   %4347 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store i32 13, ptr %4347, align 8, !tbaa !44
   %4348 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_xml_document_prop_handlers, ptr noundef %4346, ptr noundef nonnull %304) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %304) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %304)
   %4349 = getelementptr inbounds nuw i8, ptr %4346, i64 4
   %4350 = load i32, ptr %4349, align 4, !tbaa !44
   %4351 = and i32 %4350, 64
@@ -11000,16 +10994,16 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   %4358 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !127
   %4359 = getelementptr inbounds nuw i8, ptr %4358, i64 8
   %4360 = load ptr, ptr %4359, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %654) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %654)
   store ptr @dom_xml_document_prop_handlers, ptr %654, align 8, !tbaa !44
   %4361 = getelementptr inbounds nuw i8, ptr %654, i64 8
   store i32 13, ptr %4361, align 8, !tbaa !44
   %4362 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4360, ptr noundef nonnull %654) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %654) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %654)
   %4363 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %4364 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %303)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %301) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %303)
+  call void @llvm.lifetime.start.p0(ptr nonnull %301)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %301, i8 0, i64 520, i1 false)
   %4365 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4366 = call ptr %4365(ptr noundef nonnull @.str.364, i64 noundef 11, i1 noundef zeroext true) #17
@@ -11021,7 +11015,7 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   store ptr @class_DOMNodeList_methods, ptr %4369, align 8, !tbaa !44
   %4370 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %301, ptr noundef null, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4370, i32 noundef 2, ptr noundef %4363, ptr noundef %4364) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %302) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %302)
   %4371 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i32 0, ptr %4371, align 8, !tbaa !44
   %4372 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11070,9 +11064,9 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   br label %register_class_DOMNodeList.exit
 
 register_class_DOMNodeList.exit:                  ; preds = %dom_register_prop_handler.exit378, %4383, %4390, %4391
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %302) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %301) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %303)
+  call void @llvm.lifetime.end.p0(ptr nonnull %302)
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
+  call void @llvm.lifetime.end.p0(ptr nonnull %303)
   store ptr %4370, ptr @dom_nodelist_class_entry, align 8, !tbaa !127
   %4392 = getelementptr inbounds nuw i8, ptr %4370, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4392, align 8, !tbaa !44
@@ -11083,12 +11077,12 @@ register_class_DOMNodeList.exit:                  ; preds = %dom_register_prop_h
   call void @_zend_hash_init(ptr noundef nonnull @dom_nodelist_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4395 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4396 = call ptr %4395(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %300) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %300)
   store ptr @zm_startup_dom.hnd.138, ptr %300, align 8, !tbaa !44
   %4397 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i32 13, ptr %4397, align 8, !tbaa !44
   %4398 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_nodelist_prop_handlers, ptr noundef %4396, ptr noundef nonnull %300) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
   %4399 = getelementptr inbounds nuw i8, ptr %4396, i64 4
   %4400 = load i32, ptr %4399, align 4, !tbaa !44
   %4401 = and i32 %4400, 64
@@ -11112,16 +11106,16 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   %4408 = load ptr, ptr @dom_nodelist_class_entry, align 8, !tbaa !127
   %4409 = getelementptr inbounds nuw i8, ptr %4408, i64 8
   %4410 = load ptr, ptr %4409, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %653) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %653)
   store ptr @dom_nodelist_prop_handlers, ptr %653, align 8, !tbaa !44
   %4411 = getelementptr inbounds nuw i8, ptr %653, i64 8
   store i32 13, ptr %4411, align 8, !tbaa !44
   %4412 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4410, ptr noundef nonnull %653) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %653) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %653)
   %4413 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %4414 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %299)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %297) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %297)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %297, i8 0, i64 520, i1 false)
   %4415 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4416 = call ptr %4415(ptr noundef nonnull @.str.325, i64 noundef 12, i1 noundef zeroext true) #17
@@ -11133,7 +11127,7 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   store ptr @class_Dom_NodeList_methods, ptr %4419, align 8, !tbaa !44
   %4420 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %297, ptr noundef null, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4420, i32 noundef 2, ptr noundef %4413, ptr noundef %4414) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %298) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %298)
   %4421 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i32 0, ptr %4421, align 8, !tbaa !44
   %4422 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11182,9 +11176,9 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   br label %register_class_Dom_NodeList.exit
 
 register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_handler.exit383, %4433, %4440, %4441
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %298) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %297) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %299)
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   store ptr %4420, ptr @dom_modern_nodelist_class_entry, align 8, !tbaa !127
   %4442 = getelementptr inbounds nuw i8, ptr %4420, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4442, align 8, !tbaa !44
@@ -11194,16 +11188,16 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   store ptr @php_dom_get_iterator, ptr %4444, align 8, !tbaa !134
   %4445 = getelementptr inbounds nuw i8, ptr %4420, i64 8
   %4446 = load ptr, ptr %4445, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %652) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %652)
   store ptr @dom_nodelist_prop_handlers, ptr %652, align 8, !tbaa !44
   %4447 = getelementptr inbounds nuw i8, ptr %652, i64 8
   store i32 13, ptr %4447, align 8, !tbaa !44
   %4448 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4446, ptr noundef nonnull %652) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %652) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %652)
   %4449 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %4450 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %296)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %294) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %296)
+  call void @llvm.lifetime.start.p0(ptr nonnull %294)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %294, i8 0, i64 520, i1 false)
   %4451 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4452 = call ptr %4451(ptr noundef nonnull @.str.365, i64 noundef 15, i1 noundef zeroext true) #17
@@ -11215,7 +11209,7 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   store ptr @class_DOMNamedNodeMap_methods, ptr %4455, align 8, !tbaa !44
   %4456 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %294, ptr noundef null, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4456, i32 noundef 2, ptr noundef %4449, ptr noundef %4450) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %295) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %295)
   %4457 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i32 0, ptr %4457, align 8, !tbaa !44
   %4458 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11264,9 +11258,9 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   br label %register_class_DOMNamedNodeMap.exit
 
 register_class_DOMNamedNodeMap.exit:              ; preds = %register_class_Dom_NodeList.exit, %4469, %4476, %4477
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %295) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %294) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296)
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
   store ptr %4456, ptr @dom_namednodemap_class_entry, align 8, !tbaa !127
   %4478 = getelementptr inbounds nuw i8, ptr %4456, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4478, align 8, !tbaa !44
@@ -11277,12 +11271,12 @@ register_class_DOMNamedNodeMap.exit:              ; preds = %register_class_Dom_
   call void @_zend_hash_init(ptr noundef nonnull @dom_namednodemap_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4481 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4482 = call ptr %4481(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %293) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
   store ptr @zm_startup_dom.hnd.140, ptr %293, align 8, !tbaa !44
   %4483 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store i32 13, ptr %4483, align 8, !tbaa !44
   %4484 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_namednodemap_prop_handlers, ptr noundef %4482, ptr noundef nonnull %293) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   %4485 = getelementptr inbounds nuw i8, ptr %4482, i64 4
   %4486 = load i32, ptr %4485, align 4, !tbaa !44
   %4487 = and i32 %4486, 64
@@ -11306,16 +11300,16 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   %4494 = load ptr, ptr @dom_namednodemap_class_entry, align 8, !tbaa !127
   %4495 = getelementptr inbounds nuw i8, ptr %4494, i64 8
   %4496 = load ptr, ptr %4495, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %651) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %651)
   store ptr @dom_namednodemap_prop_handlers, ptr %651, align 8, !tbaa !44
   %4497 = getelementptr inbounds nuw i8, ptr %651, i64 8
   store i32 13, ptr %4497, align 8, !tbaa !44
   %4498 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4496, ptr noundef nonnull %651) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %651) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %651)
   %4499 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %4500 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %292)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %290) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %290, i8 0, i64 520, i1 false)
   %4501 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4502 = call ptr %4501(ptr noundef nonnull @.str.586, i64 noundef 16, i1 noundef zeroext true) #17
@@ -11327,7 +11321,7 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   store ptr @class_Dom_NamedNodeMap_methods, ptr %4505, align 8, !tbaa !44
   %4506 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %290, ptr noundef null, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4506, i32 noundef 2, ptr noundef %4499, ptr noundef %4500) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %291) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
   %4507 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i32 0, ptr %4507, align 8, !tbaa !44
   %4508 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11376,9 +11370,9 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   br label %register_class_Dom_NamedNodeMap.exit
 
 register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_handler.exit391, %4519, %4526, %4527
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %291) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %290) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292)
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   store ptr %4506, ptr @dom_modern_namednodemap_class_entry, align 8, !tbaa !127
   %4528 = getelementptr inbounds nuw i8, ptr %4506, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4528, align 8, !tbaa !44
@@ -11388,16 +11382,16 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   store ptr @php_dom_get_iterator, ptr %4530, align 8, !tbaa !134
   %4531 = getelementptr inbounds nuw i8, ptr %4506, i64 8
   %4532 = load ptr, ptr %4531, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %650) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %650)
   store ptr @dom_namednodemap_prop_handlers, ptr %650, align 8, !tbaa !44
   %4533 = getelementptr inbounds nuw i8, ptr %650, i64 8
   store i32 13, ptr %4533, align 8, !tbaa !44
   %4534 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4532, ptr noundef nonnull %650) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %650) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %650)
   %4535 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %4536 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %289)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %287) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %287, i8 0, i64 520, i1 false)
   %4537 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4538 = call ptr %4537(ptr noundef nonnull @.str.590, i64 noundef 19, i1 noundef zeroext true) #17
@@ -11409,7 +11403,7 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   store ptr @class_Dom_DtdNamedNodeMap_methods, ptr %4541, align 8, !tbaa !44
   %4542 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %287, ptr noundef null, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4542, i32 noundef 2, ptr noundef %4535, ptr noundef %4536) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %288) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
   %4543 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i32 0, ptr %4543, align 8, !tbaa !44
   %4544 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11458,9 +11452,9 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   br label %register_class_Dom_DtdNamedNodeMap.exit
 
 register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_NamedNodeMap.exit, %4555, %4562, %4563
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %287) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
   store ptr %4542, ptr @dom_modern_dtd_namednodemap_class_entry, align 8, !tbaa !127
   %4564 = getelementptr inbounds nuw i8, ptr %4542, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4564, align 8, !tbaa !44
@@ -11470,16 +11464,16 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   store ptr @php_dom_get_iterator, ptr %4566, align 8, !tbaa !134
   %4567 = getelementptr inbounds nuw i8, ptr %4542, i64 8
   %4568 = load ptr, ptr %4567, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %649) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %649)
   store ptr @dom_namednodemap_prop_handlers, ptr %649, align 8, !tbaa !44
   %4569 = getelementptr inbounds nuw i8, ptr %649, i64 8
   store i32 13, ptr %4569, align 8, !tbaa !44
   %4570 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4568, ptr noundef nonnull %649) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %649) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %649)
   %4571 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %4572 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %286)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %284) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %284, i8 0, i64 520, i1 false)
   %4573 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4574 = call ptr %4573(ptr noundef nonnull @.str.471, i64 noundef 18, i1 noundef zeroext true) #17
@@ -11491,7 +11485,7 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   store ptr @class_Dom_HTMLCollection_methods, ptr %4577, align 8, !tbaa !44
   %4578 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %284, ptr noundef null, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4578, i32 noundef 2, ptr noundef %4571, ptr noundef %4572) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %285) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
   %4579 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 0, ptr %4579, align 8, !tbaa !44
   %4580 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11540,9 +11534,9 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   br label %register_class_Dom_HTMLCollection.exit
 
 register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_DtdNamedNodeMap.exit, %4591, %4598, %4599
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %284) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
   store ptr %4578, ptr @dom_html_collection_class_entry, align 8, !tbaa !127
   %4600 = getelementptr inbounds nuw i8, ptr %4578, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4600, align 8, !tbaa !44
@@ -11552,19 +11546,19 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   store ptr @php_dom_get_iterator, ptr %4602, align 8, !tbaa !134
   %4603 = getelementptr inbounds nuw i8, ptr %4578, i64 8
   %4604 = load ptr, ptr %4603, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %648) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %648)
   store ptr @dom_nodelist_prop_handlers, ptr %648, align 8, !tbaa !44
   %4605 = getelementptr inbounds nuw i8, ptr %648, i64 8
   store i32 13, ptr %4605, align 8, !tbaa !44
   %4606 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4604, ptr noundef nonnull %648) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %648) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %648)
   %4607 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
   %4608 = load ptr, ptr @dom_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %277)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %279)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %281)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %283)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %275) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %275, i8 0, i64 520, i1 false)
   %4609 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4610 = call ptr %4609(ptr noundef nonnull @.str.599, i64 noundef 16, i1 noundef zeroext true) #17
@@ -11576,7 +11570,7 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   store ptr @class_DOMCharacterData_methods, ptr %4613, align 8, !tbaa !44
   %4614 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %275, ptr noundef %4607, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4614, i32 noundef 1, ptr noundef %4608) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %276) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %276)
   %4615 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store i32 0, ptr %4615, align 8, !tbaa !44
   %4616 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11625,7 +11619,7 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   br label %zend_string_release.exit.i402
 
 zend_string_release.exit.i402:                    ; preds = %4635, %4634, %4627, %register_class_Dom_HTMLCollection.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %278) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
   %4636 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i32 0, ptr %4636, align 8, !tbaa !44
   %4637 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -11674,7 +11668,7 @@ zend_string_release.exit.i402:                    ; preds = %4635, %4634, %4627,
   br label %zend_string_release.exit20.i
 
 zend_string_release.exit20.i:                     ; preds = %4656, %4655, %4648, %zend_string_release.exit.i402
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %280) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
   %4657 = getelementptr inbounds nuw i8, ptr %280, i64 8
   store i32 0, ptr %4657, align 8, !tbaa !44
   %4658 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -11735,7 +11729,7 @@ zend_string_release.exit20.i:                     ; preds = %4656, %4655, %4648,
   br label %zend_string_release.exit23.i
 
 zend_string_release.exit23.i:                     ; preds = %4683, %4682, %4675, %zend_string_release.exit20.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %282) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
   %4684 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i32 0, ptr %4684, align 8, !tbaa !44
   %4685 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -11796,15 +11790,15 @@ zend_string_release.exit23.i:                     ; preds = %4683, %4682, %4675,
   br label %register_class_DOMCharacterData.exit
 
 register_class_DOMCharacterData.exit:             ; preds = %zend_string_release.exit23.i, %4702, %4709, %4710
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %282) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %280) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %278) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %275) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %279)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %281)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
   store ptr %4614, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
   %4711 = getelementptr inbounds nuw i8, ptr %4614, i64 384
   store ptr @dom_objects_new, ptr %4711, align 8, !tbaa !44
@@ -11813,12 +11807,12 @@ register_class_DOMCharacterData.exit:             ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_characterdata_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4713 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4714 = call ptr %4713(ptr noundef nonnull @.str.142, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %274) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
   store ptr @zm_startup_dom.hnd.141, ptr %274, align 8, !tbaa !44
   %4715 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i32 13, ptr %4715, align 8, !tbaa !44
   %4716 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_characterdata_prop_handlers, ptr noundef %4714, ptr noundef nonnull %274) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
   %4717 = getelementptr inbounds nuw i8, ptr %4714, i64 4
   %4718 = load i32, ptr %4717, align 4, !tbaa !44
   %4719 = and i32 %4718, 64
@@ -11841,12 +11835,12 @@ register_class_DOMCharacterData.exit:             ; preds = %zend_string_release
 dom_register_prop_handler.exit407:                ; preds = %register_class_DOMCharacterData.exit, %4720, %4725
   %4726 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4727 = call ptr %4726(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %273) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
   store ptr @zm_startup_dom.hnd.143, ptr %273, align 8, !tbaa !44
   %4728 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i32 13, ptr %4728, align 8, !tbaa !44
   %4729 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_characterdata_prop_handlers, ptr noundef %4727, ptr noundef nonnull %273) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
   %4730 = getelementptr inbounds nuw i8, ptr %4727, i64 4
   %4731 = load i32, ptr %4730, align 4, !tbaa !44
   %4732 = and i32 %4731, 64
@@ -11869,12 +11863,12 @@ dom_register_prop_handler.exit407:                ; preds = %register_class_DOMC
 dom_register_prop_handler.exit409:                ; preds = %dom_register_prop_handler.exit407, %4733, %4738
   %4739 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4740 = call ptr %4739(ptr noundef nonnull @.str.145, i64 noundef 22, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %272) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
   store ptr @zm_startup_dom.hnd.144, ptr %272, align 8, !tbaa !44
   %4741 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i32 13, ptr %4741, align 8, !tbaa !44
   %4742 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_characterdata_prop_handlers, ptr noundef %4740, ptr noundef nonnull %272) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   %4743 = getelementptr inbounds nuw i8, ptr %4740, i64 4
   %4744 = load i32, ptr %4743, align 4, !tbaa !44
   %4745 = and i32 %4744, 64
@@ -11897,12 +11891,12 @@ dom_register_prop_handler.exit409:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit411:                ; preds = %dom_register_prop_handler.exit409, %4746, %4751
   %4752 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4753 = call ptr %4752(ptr noundef nonnull @.str.147, i64 noundef 18, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %271) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
   store ptr @zm_startup_dom.hnd.146, ptr %271, align 8, !tbaa !44
   %4754 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i32 13, ptr %4754, align 8, !tbaa !44
   %4755 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_characterdata_prop_handlers, ptr noundef %4753, ptr noundef nonnull %271) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %271) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
   %4756 = getelementptr inbounds nuw i8, ptr %4753, i64 4
   %4757 = load i32, ptr %4756, align 4, !tbaa !44
   %4758 = and i32 %4757, 64
@@ -11927,19 +11921,19 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   %4765 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
   %4766 = getelementptr inbounds nuw i8, ptr %4765, i64 8
   %4767 = load ptr, ptr %4766, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %647) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %647)
   store ptr @dom_characterdata_prop_handlers, ptr %647, align 8, !tbaa !44
   %4768 = getelementptr inbounds nuw i8, ptr %647, i64 8
   store i32 13, ptr %4768, align 8, !tbaa !44
   %4769 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4767, ptr noundef nonnull %647) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %647) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %647)
   %4770 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %4771 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %264)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %266)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %268)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %270)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %262) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %262, i8 0, i64 520, i1 false)
   %4772 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4773 = call ptr %4772(ptr noundef nonnull @.str.611, i64 noundef 17, i1 noundef zeroext true) #17
@@ -11951,7 +11945,7 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   store ptr @class_Dom_CharacterData_methods, ptr %4776, align 8, !tbaa !44
   %4777 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %262, ptr noundef %4770, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %4777, i32 noundef 1, ptr noundef %4771) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %263) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   %4778 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i32 0, ptr %4778, align 8, !tbaa !44
   %4779 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -12012,7 +12006,7 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i415
 
 zend_string_release.exit.i415:                    ; preds = %4804, %4803, %4796, %dom_register_prop_handler.exit413
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %265) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   %4805 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i32 0, ptr %4805, align 8, !tbaa !44
   %4806 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -12073,7 +12067,7 @@ zend_string_release.exit.i415:                    ; preds = %4804, %4803, %4796,
   br label %zend_string_release.exit20.i417
 
 zend_string_release.exit20.i417:                  ; preds = %4831, %4830, %4823, %zend_string_release.exit.i415
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %267) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
   %4832 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i32 0, ptr %4832, align 8, !tbaa !44
   %4833 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -12122,7 +12116,7 @@ zend_string_release.exit20.i417:                  ; preds = %4831, %4830, %4823,
   br label %zend_string_release.exit23.i419
 
 zend_string_release.exit23.i419:                  ; preds = %4852, %4851, %4844, %zend_string_release.exit20.i417
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %269) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
   %4853 = getelementptr inbounds nuw i8, ptr %269, i64 8
   store i32 0, ptr %4853, align 8, !tbaa !44
   %4854 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -12171,15 +12165,15 @@ zend_string_release.exit23.i419:                  ; preds = %4852, %4851, %4844,
   br label %register_class_Dom_CharacterData.exit
 
 register_class_Dom_CharacterData.exit:            ; preds = %zend_string_release.exit23.i419, %4865, %4872, %4873
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %267) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %263) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %262) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %266)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
   store ptr %4777, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
   %4874 = getelementptr inbounds nuw i8, ptr %4777, i64 384
   store ptr @dom_objects_new, ptr %4874, align 8, !tbaa !44
@@ -12188,12 +12182,12 @@ register_class_Dom_CharacterData.exit:            ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4876 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4877 = call ptr %4876(ptr noundef nonnull @.str.142, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %261) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   store ptr @zm_startup_dom.hnd.148, ptr %261, align 8, !tbaa !44
   %4878 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i32 13, ptr %4878, align 8, !tbaa !44
   %4879 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef %4877, ptr noundef nonnull %261) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %261) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   %4880 = getelementptr inbounds nuw i8, ptr %4877, i64 4
   %4881 = load i32, ptr %4880, align 4, !tbaa !44
   %4882 = and i32 %4881, 64
@@ -12216,12 +12210,12 @@ register_class_Dom_CharacterData.exit:            ; preds = %zend_string_release
 dom_register_prop_handler.exit426:                ; preds = %register_class_Dom_CharacterData.exit, %4883, %4888
   %4889 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4890 = call ptr %4889(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %260) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
   store ptr @zm_startup_dom.hnd.149, ptr %260, align 8, !tbaa !44
   %4891 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store i32 13, ptr %4891, align 8, !tbaa !44
   %4892 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef %4890, ptr noundef nonnull %260) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   %4893 = getelementptr inbounds nuw i8, ptr %4890, i64 4
   %4894 = load i32, ptr %4893, align 4, !tbaa !44
   %4895 = and i32 %4894, 64
@@ -12244,12 +12238,12 @@ dom_register_prop_handler.exit426:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit428:                ; preds = %dom_register_prop_handler.exit426, %4896, %4901
   %4902 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4903 = call ptr %4902(ptr noundef nonnull @.str.145, i64 noundef 22, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %259) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   store ptr @zm_startup_dom.hnd.150, ptr %259, align 8, !tbaa !44
   %4904 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i32 13, ptr %4904, align 8, !tbaa !44
   %4905 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef %4903, ptr noundef nonnull %259) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   %4906 = getelementptr inbounds nuw i8, ptr %4903, i64 4
   %4907 = load i32, ptr %4906, align 4, !tbaa !44
   %4908 = and i32 %4907, 64
@@ -12272,12 +12266,12 @@ dom_register_prop_handler.exit428:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit430:                ; preds = %dom_register_prop_handler.exit428, %4909, %4914
   %4915 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4916 = call ptr %4915(ptr noundef nonnull @.str.147, i64 noundef 18, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %258) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
   store ptr @zm_startup_dom.hnd.151, ptr %258, align 8, !tbaa !44
   %4917 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store i32 13, ptr %4917, align 8, !tbaa !44
   %4918 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef %4916, ptr noundef nonnull %258) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %258) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
   %4919 = getelementptr inbounds nuw i8, ptr %4916, i64 4
   %4920 = load i32, ptr %4919, align 4, !tbaa !44
   %4921 = and i32 %4920, 64
@@ -12299,34 +12293,34 @@ dom_register_prop_handler.exit430:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_handler.exit430, %4922, %4927
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %257) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   store ptr @zm_startup_dom.hnd.152, ptr %257, align 8, !tbaa !44
   %4928 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i32 13, ptr %4928, align 8, !tbaa !44
   %4929 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef nonnull @.str.5, i64 noundef range(i64 9, 12) 9, ptr noundef nonnull %257) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %257) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %256) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
   store ptr @zm_startup_dom.hnd.153, ptr %256, align 8, !tbaa !44
   %4930 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i32 13, ptr %4930, align 8, !tbaa !44
   %4931 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %256) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %256) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
   %4932 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
   %4933 = getelementptr inbounds nuw i8, ptr %4932, i64 8
   %4934 = load ptr, ptr %4933, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %646) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %646)
   store ptr @dom_modern_characterdata_prop_handlers, ptr %646, align 8, !tbaa !44
   %4935 = getelementptr inbounds nuw i8, ptr %646, i64 8
   store i32 13, ptr %4935, align 8, !tbaa !44
   %4936 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4934, ptr noundef nonnull %646) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %646) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %646)
   %4937 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %247)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %249)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %251)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %253)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %255)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %245) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %245, i8 0, i64 520, i1 false)
   %4938 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4939 = call ptr %4938(ptr noundef nonnull @.str.617, i64 noundef 7, i1 noundef zeroext true) #17
@@ -12337,7 +12331,7 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   %4942 = getelementptr inbounds nuw i8, ptr %245, i64 504
   store ptr @class_DOMAttr_methods, ptr %4942, align 8, !tbaa !44
   %4943 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %245, ptr noundef %4937, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %246) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
   %4944 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i32 0, ptr %4944, align 8, !tbaa !44
   %4945 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -12349,7 +12343,7 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   %4949 = getelementptr inbounds nuw i8, ptr %247, i64 12
   store i32 0, ptr %4949, align 4
   %4950 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef %4947, ptr noundef nonnull %246, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %247) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %248) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
   %4951 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store i32 0, ptr %4951, align 8, !tbaa !44
   %4952 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12398,7 +12392,7 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i434
 
 zend_string_release.exit.i434:                    ; preds = %4971, %4970, %4963, %dom_register_prop_handler.exit432
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %250) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
   %4972 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i32 0, ptr %4972, align 8, !tbaa !44
   %4973 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -12410,7 +12404,7 @@ zend_string_release.exit.i434:                    ; preds = %4971, %4970, %4963,
   %4977 = getelementptr inbounds nuw i8, ptr %251, i64 12
   store i32 0, ptr %4977, align 4
   %4978 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef %4975, ptr noundef nonnull %250, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %251) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %252) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
   %4979 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store i32 0, ptr %4979, align 8, !tbaa !44
   %4980 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12471,7 +12465,7 @@ zend_string_release.exit.i434:                    ; preds = %4971, %4970, %4963,
   br label %zend_string_release.exit16.i436
 
 zend_string_release.exit16.i436:                  ; preds = %5005, %5004, %4997, %zend_string_release.exit.i434
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %254) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
   %5006 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i32 0, ptr %5006, align 8, !tbaa !44
   %5007 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12520,17 +12514,17 @@ zend_string_release.exit16.i436:                  ; preds = %5005, %5004, %4997,
   br label %register_class_DOMAttr.exit
 
 register_class_DOMAttr.exit:                      ; preds = %zend_string_release.exit16.i436, %5018, %5025, %5026
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %252) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %250) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %245) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %251)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %253)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
   store ptr %4943, ptr @dom_attr_class_entry, align 8, !tbaa !127
   %5027 = getelementptr inbounds nuw i8, ptr %4943, i64 384
   store ptr @dom_objects_new, ptr %5027, align 8, !tbaa !44
@@ -12539,12 +12533,12 @@ register_class_DOMAttr.exit:                      ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_attr_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %5029 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5030 = call ptr %5029(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
   store ptr @zm_startup_dom.hnd.154, ptr %244, align 8, !tbaa !44
   %5031 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store i32 13, ptr %5031, align 8, !tbaa !44
   %5032 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_attr_prop_handlers, ptr noundef %5030, ptr noundef nonnull %244) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   %5033 = getelementptr inbounds nuw i8, ptr %5030, i64 4
   %5034 = load i32, ptr %5033, align 4, !tbaa !44
   %5035 = and i32 %5034, 64
@@ -12567,12 +12561,12 @@ register_class_DOMAttr.exit:                      ; preds = %zend_string_release
 dom_register_prop_handler.exit443:                ; preds = %register_class_DOMAttr.exit, %5036, %5041
   %5042 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5043 = call ptr %5042(ptr noundef nonnull @.str.157, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   store ptr @zm_startup_dom.hnd.156, ptr %243, align 8, !tbaa !44
   %5044 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store i32 13, ptr %5044, align 8, !tbaa !44
   %5045 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_attr_prop_handlers, ptr noundef %5043, ptr noundef nonnull %243) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   %5046 = getelementptr inbounds nuw i8, ptr %5043, i64 4
   %5047 = load i32, ptr %5046, align 4, !tbaa !44
   %5048 = and i32 %5047, 64
@@ -12595,12 +12589,12 @@ dom_register_prop_handler.exit443:                ; preds = %register_class_DOMA
 dom_register_prop_handler.exit445:                ; preds = %dom_register_prop_handler.exit443, %5049, %5054
   %5055 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5056 = call ptr %5055(ptr noundef nonnull @.str.159, i64 noundef 5, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %242) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   store ptr @zm_startup_dom.hnd.158, ptr %242, align 8, !tbaa !44
   %5057 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store i32 13, ptr %5057, align 8, !tbaa !44
   %5058 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_attr_prop_handlers, ptr noundef %5056, ptr noundef nonnull %242) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   %5059 = getelementptr inbounds nuw i8, ptr %5056, i64 4
   %5060 = load i32, ptr %5059, align 4, !tbaa !44
   %5061 = and i32 %5060, 64
@@ -12623,12 +12617,12 @@ dom_register_prop_handler.exit445:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit447:                ; preds = %dom_register_prop_handler.exit445, %5062, %5067
   %5068 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5069 = call ptr %5068(ptr noundef nonnull @.str.161, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %241) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   store ptr @zm_startup_dom.hnd.160, ptr %241, align 8, !tbaa !44
   %5070 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i32 13, ptr %5070, align 8, !tbaa !44
   %5071 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_attr_prop_handlers, ptr noundef %5069, ptr noundef nonnull %241) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   %5072 = getelementptr inbounds nuw i8, ptr %5069, i64 4
   %5073 = load i32, ptr %5072, align 4, !tbaa !44
   %5074 = and i32 %5073, 64
@@ -12651,12 +12645,12 @@ dom_register_prop_handler.exit447:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit449:                ; preds = %dom_register_prop_handler.exit447, %5075, %5080
   %5081 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5082 = call ptr %5081(ptr noundef nonnull @.str.163, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %240) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
   store ptr @zm_startup_dom.hnd.162, ptr %240, align 8, !tbaa !44
   %5083 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store i32 13, ptr %5083, align 8, !tbaa !44
   %5084 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_attr_prop_handlers, ptr noundef %5082, ptr noundef nonnull %240) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   %5085 = getelementptr inbounds nuw i8, ptr %5082, i64 4
   %5086 = load i32, ptr %5085, align 4, !tbaa !44
   %5087 = and i32 %5086, 64
@@ -12681,21 +12675,21 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   %5094 = load ptr, ptr @dom_attr_class_entry, align 8, !tbaa !127
   %5095 = getelementptr inbounds nuw i8, ptr %5094, i64 8
   %5096 = load ptr, ptr %5095, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %645) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %645)
   store ptr @dom_attr_prop_handlers, ptr %645, align 8, !tbaa !44
   %5097 = getelementptr inbounds nuw i8, ptr %645, i64 8
   store i32 13, ptr %5097, align 8, !tbaa !44
   %5098 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %5096, ptr noundef nonnull %645) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %645) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %645)
   %5099 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %227)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %229)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %231)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %233)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %235)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %237)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %225) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %225, i8 0, i64 520, i1 false)
   %5100 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5101 = call ptr %5100(ptr noundef nonnull @.str.486, i64 noundef 8, i1 noundef zeroext true) #17
@@ -12706,7 +12700,7 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   %5104 = getelementptr inbounds nuw i8, ptr %225, i64 504
   store ptr @class_Dom_Attr_methods, ptr %5104, align 8, !tbaa !44
   %5105 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %225, ptr noundef %5099, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %226) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   %5106 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 0, ptr %5106, align 8, !tbaa !44
   %5107 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12755,7 +12749,7 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i453
 
 zend_string_release.exit.i453:                    ; preds = %5126, %5125, %5118, %dom_register_prop_handler.exit451
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %228) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   %5127 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i32 0, ptr %5127, align 8, !tbaa !44
   %5128 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -12804,7 +12798,7 @@ zend_string_release.exit.i453:                    ; preds = %5126, %5125, %5118,
   br label %zend_string_release.exit22.i
 
 zend_string_release.exit22.i:                     ; preds = %5147, %5146, %5139, %zend_string_release.exit.i453
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %230) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %5148 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i32 0, ptr %5148, align 8, !tbaa !44
   %5149 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12853,7 +12847,7 @@ zend_string_release.exit22.i:                     ; preds = %5147, %5146, %5139,
   br label %zend_string_release.exit25.i
 
 zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160, %zend_string_release.exit22.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %232) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   %5169 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store i32 0, ptr %5169, align 8, !tbaa !44
   %5170 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -12865,7 +12859,7 @@ zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160,
   %5174 = getelementptr inbounds nuw i8, ptr %233, i64 12
   store i32 0, ptr %5174, align 4
   %5175 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef %5172, ptr noundef nonnull %232, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %233) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %234) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   %5176 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store i32 0, ptr %5176, align 8, !tbaa !44
   %5177 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -12877,7 +12871,7 @@ zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160,
   %5181 = getelementptr inbounds nuw i8, ptr %235, i64 12
   store i32 0, ptr %5181, align 4
   %5182 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef %5179, ptr noundef nonnull %234, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %235) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   %5183 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i32 0, ptr %5183, align 8, !tbaa !44
   %5184 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12938,7 +12932,7 @@ zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160,
   br label %zend_string_release.exit28.i
 
 zend_string_release.exit28.i:                     ; preds = %5209, %5208, %5201, %zend_string_release.exit25.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %238) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   %5210 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i32 0, ptr %5210, align 8, !tbaa !44
   %5211 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -12987,21 +12981,21 @@ zend_string_release.exit28.i:                     ; preds = %5209, %5208, %5201,
   br label %register_class_Dom_Attr.exit
 
 register_class_Dom_Attr.exit:                     ; preds = %zend_string_release.exit28.i, %5222, %5229, %5230
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %232) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %226) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %225) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %229)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   store ptr %5105, ptr @dom_modern_attr_class_entry, align 8, !tbaa !127
   %5231 = getelementptr inbounds nuw i8, ptr %5105, i64 384
   store ptr @dom_objects_new, ptr %5231, align 8, !tbaa !44
@@ -13010,12 +13004,12 @@ register_class_Dom_Attr.exit:                     ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_attr_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %5233 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5234 = call ptr %5233(ptr noundef nonnull @.str.29, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   store ptr @zm_startup_dom.hnd.164, ptr %224, align 8, !tbaa !44
   %5235 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store i32 13, ptr %5235, align 8, !tbaa !44
   %5236 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5234, ptr noundef nonnull %224) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   %5237 = getelementptr inbounds nuw i8, ptr %5234, i64 4
   %5238 = load i32, ptr %5237, align 4, !tbaa !44
   %5239 = and i32 %5238, 64
@@ -13038,12 +13032,12 @@ register_class_Dom_Attr.exit:                     ; preds = %zend_string_release
 dom_register_prop_handler.exit458:                ; preds = %register_class_Dom_Attr.exit, %5240, %5245
   %5246 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5247 = call ptr %5246(ptr noundef nonnull @.str.31, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %223) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   store ptr @zm_startup_dom.hnd.165, ptr %223, align 8, !tbaa !44
   %5248 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i32 13, ptr %5248, align 8, !tbaa !44
   %5249 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5247, ptr noundef nonnull %223) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   %5250 = getelementptr inbounds nuw i8, ptr %5247, i64 4
   %5251 = load i32, ptr %5250, align 4, !tbaa !44
   %5252 = and i32 %5251, 64
@@ -13066,12 +13060,12 @@ dom_register_prop_handler.exit458:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit460:                ; preds = %dom_register_prop_handler.exit458, %5253, %5258
   %5259 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5260 = call ptr %5259(ptr noundef nonnull @.str.33, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %222) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   store ptr @zm_startup_dom.hnd.166, ptr %222, align 8, !tbaa !44
   %5261 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i32 13, ptr %5261, align 8, !tbaa !44
   %5262 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5260, ptr noundef nonnull %222) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   %5263 = getelementptr inbounds nuw i8, ptr %5260, i64 4
   %5264 = load i32, ptr %5263, align 4, !tbaa !44
   %5265 = and i32 %5264, 64
@@ -13094,12 +13088,12 @@ dom_register_prop_handler.exit460:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit462:                ; preds = %dom_register_prop_handler.exit460, %5266, %5271
   %5272 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5273 = call ptr %5272(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %221) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   store ptr @zm_startup_dom.hnd.167, ptr %221, align 8, !tbaa !44
   %5274 = getelementptr inbounds nuw i8, ptr %221, i64 8
   store i32 13, ptr %5274, align 8, !tbaa !44
   %5275 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5273, ptr noundef nonnull %221) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   %5276 = getelementptr inbounds nuw i8, ptr %5273, i64 4
   %5277 = load i32, ptr %5276, align 4, !tbaa !44
   %5278 = and i32 %5277, 64
@@ -13122,12 +13116,12 @@ dom_register_prop_handler.exit462:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit464:                ; preds = %dom_register_prop_handler.exit462, %5279, %5284
   %5285 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5286 = call ptr %5285(ptr noundef nonnull @.str.159, i64 noundef 5, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %220) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
   store ptr @zm_startup_dom.hnd.168, ptr %220, align 8, !tbaa !44
   %5287 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i32 13, ptr %5287, align 8, !tbaa !44
   %5288 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5286, ptr noundef nonnull %220) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   %5289 = getelementptr inbounds nuw i8, ptr %5286, i64 4
   %5290 = load i32, ptr %5289, align 4, !tbaa !44
   %5291 = and i32 %5290, 64
@@ -13150,12 +13144,12 @@ dom_register_prop_handler.exit464:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit466:                ; preds = %dom_register_prop_handler.exit464, %5292, %5297
   %5298 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5299 = call ptr %5298(ptr noundef nonnull @.str.161, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %219) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   store ptr @zm_startup_dom.hnd.169, ptr %219, align 8, !tbaa !44
   %5300 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i32 13, ptr %5300, align 8, !tbaa !44
   %5301 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5299, ptr noundef nonnull %219) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   %5302 = getelementptr inbounds nuw i8, ptr %5299, i64 4
   %5303 = load i32, ptr %5302, align 4, !tbaa !44
   %5304 = and i32 %5303, 64
@@ -13178,12 +13172,12 @@ dom_register_prop_handler.exit466:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit468:                ; preds = %dom_register_prop_handler.exit466, %5305, %5310
   %5311 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5312 = call ptr %5311(ptr noundef nonnull @.str.157, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %218) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   store ptr @zm_startup_dom.hnd.170, ptr %218, align 8, !tbaa !44
   %5313 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i32 13, ptr %5313, align 8, !tbaa !44
   %5314 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef %5312, ptr noundef nonnull %218) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   %5315 = getelementptr inbounds nuw i8, ptr %5312, i64 4
   %5316 = load i32, ptr %5315, align 4, !tbaa !44
   %5317 = and i32 %5316, 64
@@ -13205,40 +13199,40 @@ dom_register_prop_handler.exit468:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_handler.exit468, %5318, %5323
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   store ptr @zm_startup_dom.hnd.171, ptr %217, align 8, !tbaa !44
   %5324 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store i32 13, ptr %5324, align 8, !tbaa !44
   %5325 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef nonnull @.str.5, i64 noundef range(i64 9, 12) 9, ptr noundef nonnull %217) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %216) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
   store ptr @zm_startup_dom.hnd.172, ptr %216, align 8, !tbaa !44
   %5326 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i32 13, ptr %5326, align 8, !tbaa !44
   %5327 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %216) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   %5328 = load ptr, ptr @dom_modern_attr_class_entry, align 8, !tbaa !127
   %5329 = getelementptr inbounds nuw i8, ptr %5328, i64 8
   %5330 = load ptr, ptr %5329, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %644) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %644)
   store ptr @dom_modern_attr_prop_handlers, ptr %644, align 8, !tbaa !44
   %5331 = getelementptr inbounds nuw i8, ptr %644, i64 8
   store i32 13, ptr %5331, align 8, !tbaa !44
   %5332 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %5330, ptr noundef nonnull %644) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %644) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %644)
   %5333 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
   %5334 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
   %5335 = load ptr, ptr @dom_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %199)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %201)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %203)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %205)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %207)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %209)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %211)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %213)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %215)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %197) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %197, i8 0, i64 520, i1 false)
   %5336 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5337 = call ptr %5336(ptr noundef nonnull @.str.363, i64 noundef 10, i1 noundef zeroext true) #17
@@ -13250,7 +13244,7 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   store ptr @class_DOMElement_methods, ptr %5340, align 8, !tbaa !44
   %5341 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %197, ptr noundef %5333, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %5341, i32 noundef 2, ptr noundef %5334, ptr noundef %5335) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %198) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %5342 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i32 0, ptr %5342, align 8, !tbaa !44
   %5343 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -13299,7 +13293,7 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i472
 
 zend_string_release.exit.i472:                    ; preds = %5362, %5361, %5354, %dom_register_prop_handler.exit470
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %200) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   %5363 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i32 0, ptr %5363, align 8, !tbaa !44
   %5364 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -13348,7 +13342,7 @@ zend_string_release.exit.i472:                    ; preds = %5362, %5361, %5354,
   br label %zend_string_release.exit38.i
 
 zend_string_release.exit38.i:                     ; preds = %5383, %5382, %5375, %zend_string_release.exit.i472
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %202) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   %5384 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i32 0, ptr %5384, align 8, !tbaa !44
   %5385 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -13397,7 +13391,7 @@ zend_string_release.exit38.i:                     ; preds = %5383, %5382, %5375,
   br label %zend_string_release.exit41.i
 
 zend_string_release.exit41.i:                     ; preds = %5404, %5403, %5396, %zend_string_release.exit38.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %204) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   %5405 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 0, ptr %5405, align 8, !tbaa !44
   %5406 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -13446,7 +13440,7 @@ zend_string_release.exit41.i:                     ; preds = %5404, %5403, %5396,
   br label %zend_string_release.exit44.i
 
 zend_string_release.exit44.i:                     ; preds = %5425, %5424, %5417, %zend_string_release.exit41.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %206) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   %5426 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 0, ptr %5426, align 8, !tbaa !44
   %5427 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -13507,7 +13501,7 @@ zend_string_release.exit44.i:                     ; preds = %5425, %5424, %5417,
   br label %zend_string_release.exit47.i
 
 zend_string_release.exit47.i:                     ; preds = %5452, %5451, %5444, %zend_string_release.exit44.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %208) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   %5453 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i32 0, ptr %5453, align 8, !tbaa !44
   %5454 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -13568,7 +13562,7 @@ zend_string_release.exit47.i:                     ; preds = %5452, %5451, %5444,
   br label %zend_string_release.exit50.i
 
 zend_string_release.exit50.i:                     ; preds = %5479, %5478, %5471, %zend_string_release.exit47.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %210) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   %5480 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store i32 0, ptr %5480, align 8, !tbaa !44
   %5481 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -13617,7 +13611,7 @@ zend_string_release.exit50.i:                     ; preds = %5479, %5478, %5471,
   br label %zend_string_release.exit53.i
 
 zend_string_release.exit53.i:                     ; preds = %5500, %5499, %5492, %zend_string_release.exit50.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %212) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
   %5501 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i32 0, ptr %5501, align 8, !tbaa !44
   %5502 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -13678,7 +13672,7 @@ zend_string_release.exit53.i:                     ; preds = %5500, %5499, %5492,
   br label %zend_string_release.exit56.i
 
 zend_string_release.exit56.i:                     ; preds = %5527, %5526, %5519, %zend_string_release.exit53.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %214) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
   %5528 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 0, ptr %5528, align 8, !tbaa !44
   %5529 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -13739,25 +13733,25 @@ zend_string_release.exit56.i:                     ; preds = %5527, %5526, %5519,
   br label %register_class_DOMElement.exit
 
 register_class_DOMElement.exit:                   ; preds = %zend_string_release.exit56.i, %5546, %5553, %5554
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %208) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %204) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %202) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %198) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %197) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %201)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %205)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %213)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   store ptr %5341, ptr @dom_element_class_entry, align 8, !tbaa !127
   %5555 = getelementptr inbounds nuw i8, ptr %5341, i64 384
   store ptr @dom_objects_new, ptr %5555, align 8, !tbaa !44
@@ -13766,12 +13760,12 @@ register_class_DOMElement.exit:                   ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_element_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %5557 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5558 = call ptr %5557(ptr noundef nonnull @.str.174, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %196) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   store ptr @zm_startup_dom.hnd.173, ptr %196, align 8, !tbaa !44
   %5559 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i32 13, ptr %5559, align 8, !tbaa !44
   %5560 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5558, ptr noundef nonnull %196) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   %5561 = getelementptr inbounds nuw i8, ptr %5558, i64 4
   %5562 = load i32, ptr %5561, align 4, !tbaa !44
   %5563 = and i32 %5562, 64
@@ -13794,12 +13788,12 @@ register_class_DOMElement.exit:                   ; preds = %zend_string_release
 dom_register_prop_handler.exit475:                ; preds = %register_class_DOMElement.exit, %5564, %5569
   %5570 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5571 = call ptr %5570(ptr noundef nonnull @.str.176, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %195) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   store ptr @zm_startup_dom.hnd.175, ptr %195, align 8, !tbaa !44
   %5572 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store i32 13, ptr %5572, align 8, !tbaa !44
   %5573 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5571, ptr noundef nonnull %195) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   %5574 = getelementptr inbounds nuw i8, ptr %5571, i64 4
   %5575 = load i32, ptr %5574, align 4, !tbaa !44
   %5576 = and i32 %5575, 64
@@ -13822,12 +13816,12 @@ dom_register_prop_handler.exit475:                ; preds = %register_class_DOME
 dom_register_prop_handler.exit477:                ; preds = %dom_register_prop_handler.exit475, %5577, %5582
   %5583 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5584 = call ptr %5583(ptr noundef nonnull @.str.178, i64 noundef 2, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %194) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   store ptr @zm_startup_dom.hnd.177, ptr %194, align 8, !tbaa !44
   %5585 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i32 13, ptr %5585, align 8, !tbaa !44
   %5586 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5584, ptr noundef nonnull %194) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   %5587 = getelementptr inbounds nuw i8, ptr %5584, i64 4
   %5588 = load i32, ptr %5587, align 4, !tbaa !44
   %5589 = and i32 %5588, 64
@@ -13850,12 +13844,12 @@ dom_register_prop_handler.exit477:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit479:                ; preds = %dom_register_prop_handler.exit477, %5590, %5595
   %5596 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5597 = call ptr %5596(ptr noundef nonnull @.str.163, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %193) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   store ptr @zm_startup_dom.hnd.179, ptr %193, align 8, !tbaa !44
   %5598 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i32 13, ptr %5598, align 8, !tbaa !44
   %5599 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5597, ptr noundef nonnull %193) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   %5600 = getelementptr inbounds nuw i8, ptr %5597, i64 4
   %5601 = load i32, ptr %5600, align 4, !tbaa !44
   %5602 = and i32 %5601, 64
@@ -13878,12 +13872,12 @@ dom_register_prop_handler.exit479:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit481:                ; preds = %dom_register_prop_handler.exit479, %5603, %5608
   %5609 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5610 = call ptr %5609(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %192) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   store ptr @zm_startup_dom.hnd.180, ptr %192, align 8, !tbaa !44
   %5611 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store i32 13, ptr %5611, align 8, !tbaa !44
   %5612 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5610, ptr noundef nonnull %192) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   %5613 = getelementptr inbounds nuw i8, ptr %5610, i64 4
   %5614 = load i32, ptr %5613, align 4, !tbaa !44
   %5615 = and i32 %5614, 64
@@ -13906,12 +13900,12 @@ dom_register_prop_handler.exit481:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit483:                ; preds = %dom_register_prop_handler.exit481, %5616, %5621
   %5622 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5623 = call ptr %5622(ptr noundef nonnull @.str.65, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %191) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   store ptr @zm_startup_dom.hnd.181, ptr %191, align 8, !tbaa !44
   %5624 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 13, ptr %5624, align 8, !tbaa !44
   %5625 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5623, ptr noundef nonnull %191) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   %5626 = getelementptr inbounds nuw i8, ptr %5623, i64 4
   %5627 = load i32, ptr %5626, align 4, !tbaa !44
   %5628 = and i32 %5627, 64
@@ -13934,12 +13928,12 @@ dom_register_prop_handler.exit483:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit485:                ; preds = %dom_register_prop_handler.exit483, %5629, %5634
   %5635 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5636 = call ptr %5635(ptr noundef nonnull @.str.67, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %190) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   store ptr @zm_startup_dom.hnd.182, ptr %190, align 8, !tbaa !44
   %5637 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i32 13, ptr %5637, align 8, !tbaa !44
   %5638 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5636, ptr noundef nonnull %190) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %190) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   %5639 = getelementptr inbounds nuw i8, ptr %5636, i64 4
   %5640 = load i32, ptr %5639, align 4, !tbaa !44
   %5641 = and i32 %5640, 64
@@ -13962,12 +13956,12 @@ dom_register_prop_handler.exit485:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit487:                ; preds = %dom_register_prop_handler.exit485, %5642, %5647
   %5648 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5649 = call ptr %5648(ptr noundef nonnull @.str.145, i64 noundef 22, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %189) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   store ptr @zm_startup_dom.hnd.183, ptr %189, align 8, !tbaa !44
   %5650 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 13, ptr %5650, align 8, !tbaa !44
   %5651 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5649, ptr noundef nonnull %189) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %189) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   %5652 = getelementptr inbounds nuw i8, ptr %5649, i64 4
   %5653 = load i32, ptr %5652, align 4, !tbaa !44
   %5654 = and i32 %5653, 64
@@ -13990,12 +13984,12 @@ dom_register_prop_handler.exit487:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit489:                ; preds = %dom_register_prop_handler.exit487, %5655, %5660
   %5661 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5662 = call ptr %5661(ptr noundef nonnull @.str.147, i64 noundef 18, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %188) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   store ptr @zm_startup_dom.hnd.184, ptr %188, align 8, !tbaa !44
   %5663 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i32 13, ptr %5663, align 8, !tbaa !44
   %5664 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef %5662, ptr noundef nonnull %188) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   %5665 = getelementptr inbounds nuw i8, ptr %5662, i64 4
   %5666 = load i32, ptr %5665, align 4, !tbaa !44
   %5667 = and i32 %5666, 64
@@ -14020,32 +14014,32 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   %5674 = load ptr, ptr @dom_element_class_entry, align 8, !tbaa !127
   %5675 = getelementptr inbounds nuw i8, ptr %5674, i64 8
   %5676 = load ptr, ptr %5675, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %643) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %643)
   store ptr @dom_element_prop_handlers, ptr %643, align 8, !tbaa !44
   %5677 = getelementptr inbounds nuw i8, ptr %643, i64 8
   store i32 13, ptr %5677, align 8, !tbaa !44
   %5678 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %5676, ptr noundef nonnull %643) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %643) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %643)
   %5679 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %5680 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
   %5681 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %157)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %159)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %161)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %163)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %165)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %167)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %169)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %171)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %173)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %175)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %177)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %179)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %181)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %183)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %185)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %187)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %155) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %155, i8 0, i64 520, i1 false)
   %5682 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5683 = call ptr %5682(ptr noundef nonnull @.str.322, i64 noundef 11, i1 noundef zeroext true) #17
@@ -14057,7 +14051,7 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   store ptr @class_Dom_Element_methods, ptr %5686, align 8, !tbaa !44
   %5687 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %155, ptr noundef %5679, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %5687, i32 noundef 2, ptr noundef %5680, ptr noundef %5681) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %156) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   %5688 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i32 0, ptr %5688, align 8, !tbaa !44
   %5689 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14106,7 +14100,7 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i493
 
 zend_string_release.exit.i493:                    ; preds = %5708, %5707, %5700, %dom_register_prop_handler.exit491
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %158) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   %5709 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i32 0, ptr %5709, align 8, !tbaa !44
   %5710 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -14155,7 +14149,7 @@ zend_string_release.exit.i493:                    ; preds = %5708, %5707, %5700,
   br label %zend_string_release.exit61.i495
 
 zend_string_release.exit61.i495:                  ; preds = %5729, %5728, %5721, %zend_string_release.exit.i493
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %160) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   %5730 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i32 0, ptr %5730, align 8, !tbaa !44
   %5731 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14204,7 +14198,7 @@ zend_string_release.exit61.i495:                  ; preds = %5729, %5728, %5721,
   br label %zend_string_release.exit64.i497
 
 zend_string_release.exit64.i497:                  ; preds = %5750, %5749, %5742, %zend_string_release.exit61.i495
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %162) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   %5751 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i32 0, ptr %5751, align 8, !tbaa !44
   %5752 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -14253,7 +14247,7 @@ zend_string_release.exit64.i497:                  ; preds = %5750, %5749, %5742,
   br label %zend_string_release.exit67.i499
 
 zend_string_release.exit67.i499:                  ; preds = %5771, %5770, %5763, %zend_string_release.exit64.i497
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %164) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %5772 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i32 0, ptr %5772, align 8, !tbaa !44
   %5773 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -14302,7 +14296,7 @@ zend_string_release.exit67.i499:                  ; preds = %5771, %5770, %5763,
   br label %zend_string_release.exit70.i501
 
 zend_string_release.exit70.i501:                  ; preds = %5792, %5791, %5784, %zend_string_release.exit67.i499
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %166) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   %5793 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i32 0, ptr %5793, align 8, !tbaa !44
   %5794 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14351,7 +14345,7 @@ zend_string_release.exit70.i501:                  ; preds = %5792, %5791, %5784,
   br label %zend_string_release.exit73.i503
 
 zend_string_release.exit73.i503:                  ; preds = %5813, %5812, %5805, %zend_string_release.exit70.i501
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %168) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %5814 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i32 0, ptr %5814, align 8, !tbaa !44
   %5815 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14412,7 +14406,7 @@ zend_string_release.exit73.i503:                  ; preds = %5813, %5812, %5805,
   br label %zend_string_release.exit76.i505
 
 zend_string_release.exit76.i505:                  ; preds = %5840, %5839, %5832, %zend_string_release.exit73.i503
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %170) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   %5841 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 0, ptr %5841, align 8, !tbaa !44
   %5842 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14473,7 +14467,7 @@ zend_string_release.exit76.i505:                  ; preds = %5840, %5839, %5832,
   br label %zend_string_release.exit79.i507
 
 zend_string_release.exit79.i507:                  ; preds = %5867, %5866, %5859, %zend_string_release.exit76.i505
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %172) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %5868 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i32 0, ptr %5868, align 8, !tbaa !44
   %5869 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -14534,7 +14528,7 @@ zend_string_release.exit79.i507:                  ; preds = %5867, %5866, %5859,
   br label %zend_string_release.exit82.i509
 
 zend_string_release.exit82.i509:                  ; preds = %5894, %5893, %5886, %zend_string_release.exit79.i507
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %174) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %5895 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 0, ptr %5895, align 8, !tbaa !44
   %5896 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -14595,7 +14589,7 @@ zend_string_release.exit82.i509:                  ; preds = %5894, %5893, %5886,
   br label %zend_string_release.exit85.i511
 
 zend_string_release.exit85.i511:                  ; preds = %5921, %5920, %5913, %zend_string_release.exit82.i509
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %176) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %5922 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i32 0, ptr %5922, align 8, !tbaa !44
   %5923 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -14644,7 +14638,7 @@ zend_string_release.exit85.i511:                  ; preds = %5921, %5920, %5913,
   br label %zend_string_release.exit88.i513
 
 zend_string_release.exit88.i513:                  ; preds = %5942, %5941, %5934, %zend_string_release.exit85.i511
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %178) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %5943 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 0, ptr %5943, align 8, !tbaa !44
   %5944 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -14705,7 +14699,7 @@ zend_string_release.exit88.i513:                  ; preds = %5942, %5941, %5934,
   br label %zend_string_release.exit91.i
 
 zend_string_release.exit91.i:                     ; preds = %5969, %5968, %5961, %zend_string_release.exit88.i513
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %180) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   %5970 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i32 0, ptr %5970, align 8, !tbaa !44
   %5971 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -14766,7 +14760,7 @@ zend_string_release.exit91.i:                     ; preds = %5969, %5968, %5961,
   br label %zend_string_release.exit94.i
 
 zend_string_release.exit94.i:                     ; preds = %5996, %5995, %5988, %zend_string_release.exit91.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %182) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   %5997 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 0, ptr %5997, align 8, !tbaa !44
   %5998 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14815,7 +14809,7 @@ zend_string_release.exit94.i:                     ; preds = %5996, %5995, %5988,
   br label %zend_string_release.exit97.i
 
 zend_string_release.exit97.i:                     ; preds = %6017, %6016, %6009, %zend_string_release.exit94.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %184) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   %6018 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i32 0, ptr %6018, align 8, !tbaa !44
   %6019 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -14864,7 +14858,7 @@ zend_string_release.exit97.i:                     ; preds = %6017, %6016, %6009,
   br label %zend_string_release.exit100.i
 
 zend_string_release.exit100.i:                    ; preds = %6038, %6037, %6030, %zend_string_release.exit97.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %186) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %6039 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i32 0, ptr %6039, align 8, !tbaa !44
   %6040 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -14913,39 +14907,39 @@ zend_string_release.exit100.i:                    ; preds = %6038, %6037, %6030,
   br label %register_class_Dom_Element.exit
 
 register_class_Dom_Element.exit:                  ; preds = %zend_string_release.exit100.i, %6051, %6058, %6059
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %184) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %180) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %178) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %176) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %174) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %172) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %168) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %156) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %155) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %157)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %163)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %165)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %167)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %171)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %175)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   store ptr %5687, ptr @dom_modern_element_class_entry, align 8, !tbaa !127
   %6060 = getelementptr inbounds nuw i8, ptr %5687, i64 384
   store ptr @dom_objects_new, ptr %6060, align 8, !tbaa !44
@@ -14954,12 +14948,12 @@ register_class_Dom_Element.exit:                  ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_element_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6062 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6063 = call ptr %6062(ptr noundef nonnull @.str.29, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %154) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   store ptr @zm_startup_dom.hnd.185, ptr %154, align 8, !tbaa !44
   %6064 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i32 13, ptr %6064, align 8, !tbaa !44
   %6065 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6063, ptr noundef nonnull %154) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   %6066 = getelementptr inbounds nuw i8, ptr %6063, i64 4
   %6067 = load i32, ptr %6066, align 4, !tbaa !44
   %6068 = and i32 %6067, 64
@@ -14982,12 +14976,12 @@ register_class_Dom_Element.exit:                  ; preds = %zend_string_release
 dom_register_prop_handler.exit528:                ; preds = %register_class_Dom_Element.exit, %6069, %6074
   %6075 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6076 = call ptr %6075(ptr noundef nonnull @.str.31, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %153) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   store ptr @zm_startup_dom.hnd.186, ptr %153, align 8, !tbaa !44
   %6077 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i32 13, ptr %6077, align 8, !tbaa !44
   %6078 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6076, ptr noundef nonnull %153) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   %6079 = getelementptr inbounds nuw i8, ptr %6076, i64 4
   %6080 = load i32, ptr %6079, align 4, !tbaa !44
   %6081 = and i32 %6080, 64
@@ -15010,12 +15004,12 @@ dom_register_prop_handler.exit528:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit530:                ; preds = %dom_register_prop_handler.exit528, %6082, %6087
   %6088 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6089 = call ptr %6088(ptr noundef nonnull @.str.33, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %152) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store ptr @zm_startup_dom.hnd.187, ptr %152, align 8, !tbaa !44
   %6090 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i32 13, ptr %6090, align 8, !tbaa !44
   %6091 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6089, ptr noundef nonnull %152) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   %6092 = getelementptr inbounds nuw i8, ptr %6089, i64 4
   %6093 = load i32, ptr %6092, align 4, !tbaa !44
   %6094 = and i32 %6093, 64
@@ -15038,12 +15032,12 @@ dom_register_prop_handler.exit530:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit532:                ; preds = %dom_register_prop_handler.exit530, %6095, %6100
   %6101 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6102 = call ptr %6101(ptr noundef nonnull @.str.174, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %151) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store ptr @zm_startup_dom.hnd.188, ptr %151, align 8, !tbaa !44
   %6103 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i32 13, ptr %6103, align 8, !tbaa !44
   %6104 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6102, ptr noundef nonnull %151) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   %6105 = getelementptr inbounds nuw i8, ptr %6102, i64 4
   %6106 = load i32, ptr %6105, align 4, !tbaa !44
   %6107 = and i32 %6106, 64
@@ -15066,12 +15060,12 @@ dom_register_prop_handler.exit532:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit534:                ; preds = %dom_register_prop_handler.exit532, %6108, %6113
   %6114 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6115 = call ptr %6114(ptr noundef nonnull @.str.178, i64 noundef 2, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %150) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store ptr @zm_startup_dom.hnd.189, ptr %150, align 8, !tbaa !44
   %6116 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i32 13, ptr %6116, align 8, !tbaa !44
   %6117 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6115, ptr noundef nonnull %150) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   %6118 = getelementptr inbounds nuw i8, ptr %6115, i64 4
   %6119 = load i32, ptr %6118, align 4, !tbaa !44
   %6120 = and i32 %6119, 64
@@ -15094,12 +15088,12 @@ dom_register_prop_handler.exit534:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit536:                ; preds = %dom_register_prop_handler.exit534, %6121, %6126
   %6127 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6128 = call ptr %6127(ptr noundef nonnull @.str.176, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %149) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store ptr @zm_startup_dom.hnd.190, ptr %149, align 8, !tbaa !44
   %6129 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 13, ptr %6129, align 8, !tbaa !44
   %6130 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6128, ptr noundef nonnull %149) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %149) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   %6131 = getelementptr inbounds nuw i8, ptr %6128, i64 4
   %6132 = load i32, ptr %6131, align 4, !tbaa !44
   %6133 = and i32 %6132, 64
@@ -15122,12 +15116,12 @@ dom_register_prop_handler.exit536:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit538:                ; preds = %dom_register_prop_handler.exit536, %6134, %6139
   %6140 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6141 = call ptr %6140(ptr noundef nonnull @.str.192, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store ptr @zm_startup_dom.hnd.191, ptr %148, align 8, !tbaa !44
   %6142 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i32 13, ptr %6142, align 8, !tbaa !44
   %6143 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6141, ptr noundef nonnull %148) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %6144 = getelementptr inbounds nuw i8, ptr %6141, i64 4
   %6145 = load i32, ptr %6144, align 4, !tbaa !44
   %6146 = and i32 %6145, 64
@@ -15150,12 +15144,12 @@ dom_register_prop_handler.exit538:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit540:                ; preds = %dom_register_prop_handler.exit538, %6147, %6152
   %6153 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6154 = call ptr %6153(ptr noundef nonnull @.str.23, i64 noundef 10, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %147) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   store ptr @zm_startup_dom.hnd.193, ptr %147, align 8, !tbaa !44
   %6155 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i32 13, ptr %6155, align 8, !tbaa !44
   %6156 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6154, ptr noundef nonnull %147) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %147) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   %6157 = getelementptr inbounds nuw i8, ptr %6154, i64 4
   %6158 = load i32, ptr %6157, align 4, !tbaa !44
   %6159 = and i32 %6158, 64
@@ -15178,12 +15172,12 @@ dom_register_prop_handler.exit540:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit542:                ; preds = %dom_register_prop_handler.exit540, %6160, %6165
   %6166 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6167 = call ptr %6166(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %146) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store ptr @zm_startup_dom.hnd.194, ptr %146, align 8, !tbaa !44
   %6168 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i32 13, ptr %6168, align 8, !tbaa !44
   %6169 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6167, ptr noundef nonnull %146) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   %6170 = getelementptr inbounds nuw i8, ptr %6167, i64 4
   %6171 = load i32, ptr %6170, align 4, !tbaa !44
   %6172 = and i32 %6171, 64
@@ -15206,12 +15200,12 @@ dom_register_prop_handler.exit542:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit544:                ; preds = %dom_register_prop_handler.exit542, %6173, %6178
   %6179 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6180 = call ptr %6179(ptr noundef nonnull @.str.65, i64 noundef 16, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %145) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store ptr @zm_startup_dom.hnd.195, ptr %145, align 8, !tbaa !44
   %6181 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i32 13, ptr %6181, align 8, !tbaa !44
   %6182 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6180, ptr noundef nonnull %145) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   %6183 = getelementptr inbounds nuw i8, ptr %6180, i64 4
   %6184 = load i32, ptr %6183, align 4, !tbaa !44
   %6185 = and i32 %6184, 64
@@ -15234,12 +15228,12 @@ dom_register_prop_handler.exit544:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit546:                ; preds = %dom_register_prop_handler.exit544, %6186, %6191
   %6192 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6193 = call ptr %6192(ptr noundef nonnull @.str.67, i64 noundef 17, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %144) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store ptr @zm_startup_dom.hnd.196, ptr %144, align 8, !tbaa !44
   %6194 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i32 13, ptr %6194, align 8, !tbaa !44
   %6195 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6193, ptr noundef nonnull %144) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %6196 = getelementptr inbounds nuw i8, ptr %6193, i64 4
   %6197 = load i32, ptr %6196, align 4, !tbaa !44
   %6198 = and i32 %6197, 64
@@ -15262,12 +15256,12 @@ dom_register_prop_handler.exit546:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit548:                ; preds = %dom_register_prop_handler.exit546, %6199, %6204
   %6205 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6206 = call ptr %6205(ptr noundef nonnull @.str.145, i64 noundef 22, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %143) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store ptr @zm_startup_dom.hnd.197, ptr %143, align 8, !tbaa !44
   %6207 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 13, ptr %6207, align 8, !tbaa !44
   %6208 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6206, ptr noundef nonnull %143) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   %6209 = getelementptr inbounds nuw i8, ptr %6206, i64 4
   %6210 = load i32, ptr %6209, align 4, !tbaa !44
   %6211 = and i32 %6210, 64
@@ -15290,12 +15284,12 @@ dom_register_prop_handler.exit548:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit550:                ; preds = %dom_register_prop_handler.exit548, %6212, %6217
   %6218 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6219 = call ptr %6218(ptr noundef nonnull @.str.147, i64 noundef 18, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store ptr @zm_startup_dom.hnd.198, ptr %142, align 8, !tbaa !44
   %6220 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 13, ptr %6220, align 8, !tbaa !44
   %6221 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6219, ptr noundef nonnull %142) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %142) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   %6222 = getelementptr inbounds nuw i8, ptr %6219, i64 4
   %6223 = load i32, ptr %6222, align 4, !tbaa !44
   %6224 = and i32 %6223, 64
@@ -15318,12 +15312,12 @@ dom_register_prop_handler.exit550:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit552:                ; preds = %dom_register_prop_handler.exit550, %6225, %6230
   %6231 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6232 = call ptr %6231(ptr noundef nonnull @.str.200, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %141) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store ptr @zm_startup_dom.hnd.199, ptr %141, align 8, !tbaa !44
   %6233 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i32 13, ptr %6233, align 8, !tbaa !44
   %6234 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6232, ptr noundef nonnull %141) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %141) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   %6235 = getelementptr inbounds nuw i8, ptr %6232, i64 4
   %6236 = load i32, ptr %6235, align 4, !tbaa !44
   %6237 = and i32 %6236, 64
@@ -15346,12 +15340,12 @@ dom_register_prop_handler.exit552:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit554:                ; preds = %dom_register_prop_handler.exit552, %6238, %6243
   %6244 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6245 = call ptr %6244(ptr noundef nonnull @.str.202, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %140) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store ptr @zm_startup_dom.hnd.201, ptr %140, align 8, !tbaa !44
   %6246 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i32 13, ptr %6246, align 8, !tbaa !44
   %6247 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6245, ptr noundef nonnull %140) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %140) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %6248 = getelementptr inbounds nuw i8, ptr %6245, i64 4
   %6249 = load i32, ptr %6248, align 4, !tbaa !44
   %6250 = and i32 %6249, 64
@@ -15374,12 +15368,12 @@ dom_register_prop_handler.exit554:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit556:                ; preds = %dom_register_prop_handler.exit554, %6251, %6256
   %6257 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6258 = call ptr %6257(ptr noundef nonnull @.str.204, i64 noundef 20, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %139) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store ptr @zm_startup_dom.hnd.203, ptr %139, align 8, !tbaa !44
   %6259 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i32 13, ptr %6259, align 8, !tbaa !44
   %6260 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef %6258, ptr noundef nonnull %139) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %139) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   %6261 = getelementptr inbounds nuw i8, ptr %6258, i64 4
   %6262 = load i32, ptr %6261, align 4, !tbaa !44
   %6263 = and i32 %6262, 64
@@ -15401,23 +15395,23 @@ dom_register_prop_handler.exit556:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_handler.exit556, %6264, %6269
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %138) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   store ptr @zm_startup_dom.hnd.205, ptr %138, align 8, !tbaa !44
   %6270 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i32 13, ptr %6270, align 8, !tbaa !44
   %6271 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %138) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %138) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   %6272 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !127
   %6273 = getelementptr inbounds nuw i8, ptr %6272, i64 8
   %6274 = load ptr, ptr %6273, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %642) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %642)
   store ptr @dom_modern_element_prop_handlers, ptr %642, align 8, !tbaa !44
   %6275 = getelementptr inbounds nuw i8, ptr %642, i64 8
   store i32 13, ptr %6275, align 8, !tbaa !44
   %6276 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6274, ptr noundef nonnull %642) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %642) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %642)
   %6277 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %137) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %137, i8 0, i64 520, i1 false)
   %6278 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6279 = call ptr %6278(ptr noundef nonnull @.str.450, i64 noundef 15, i1 noundef zeroext true) #17
@@ -15428,7 +15422,7 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   %6282 = getelementptr inbounds nuw i8, ptr %137, i64 504
   store ptr null, ptr %6282, align 8, !tbaa !44
   %6283 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %137, ptr noundef %6277, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %137) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   store ptr %6283, ptr @dom_html_element_class_entry, align 8, !tbaa !127
   %6284 = getelementptr inbounds nuw i8, ptr %6283, i64 384
   store ptr @dom_objects_new, ptr %6284, align 8, !tbaa !44
@@ -15436,15 +15430,15 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   store ptr @dom_object_handlers, ptr %6285, align 8, !tbaa !128
   %6286 = getelementptr inbounds nuw i8, ptr %6283, i64 8
   %6287 = load ptr, ptr %6286, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %641) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %641)
   store ptr @dom_modern_element_prop_handlers, ptr %641, align 8, !tbaa !44
   %6288 = getelementptr inbounds nuw i8, ptr %641, i64 8
   store i32 13, ptr %6288, align 8, !tbaa !44
   %6289 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6287, ptr noundef nonnull %641) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %641) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %641)
   %6290 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %136)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %134) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %134, i8 0, i64 520, i1 false)
   %6291 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6292 = call ptr %6291(ptr noundef nonnull @.str.529, i64 noundef 7, i1 noundef zeroext true) #17
@@ -15455,7 +15449,7 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   %6295 = getelementptr inbounds nuw i8, ptr %134, i64 504
   store ptr @class_DOMText_methods, ptr %6295, align 8, !tbaa !44
   %6296 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %134, ptr noundef %6290, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %135) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %6297 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i32 0, ptr %6297, align 8, !tbaa !44
   %6298 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -15504,9 +15498,9 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   br label %register_class_DOMText.exit
 
 register_class_DOMText.exit:                      ; preds = %dom_register_prop_handler.exit558, %6309, %6316, %6317
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %134) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   store ptr %6296, ptr @dom_text_class_entry, align 8, !tbaa !127
   %6318 = getelementptr inbounds nuw i8, ptr %6296, i64 384
   store ptr @dom_objects_new, ptr %6318, align 8, !tbaa !44
@@ -15515,12 +15509,12 @@ register_class_DOMText.exit:                      ; preds = %dom_register_prop_h
   call void @_zend_hash_init(ptr noundef nonnull @dom_text_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6320 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6321 = call ptr %6320(ptr noundef nonnull @.str.207, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %133) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   store ptr @zm_startup_dom.hnd.206, ptr %133, align 8, !tbaa !44
   %6322 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i32 13, ptr %6322, align 8, !tbaa !44
   %6323 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_text_prop_handlers, ptr noundef %6321, ptr noundef nonnull %133) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   %6324 = getelementptr inbounds nuw i8, ptr %6321, i64 4
   %6325 = load i32, ptr %6324, align 4, !tbaa !44
   %6326 = and i32 %6325, 64
@@ -15545,15 +15539,15 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   %6333 = load ptr, ptr @dom_text_class_entry, align 8, !tbaa !127
   %6334 = getelementptr inbounds nuw i8, ptr %6333, i64 8
   %6335 = load ptr, ptr %6334, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %640) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %640)
   store ptr @dom_text_prop_handlers, ptr %640, align 8, !tbaa !44
   %6336 = getelementptr inbounds nuw i8, ptr %640, i64 8
   store i32 13, ptr %6336, align 8, !tbaa !44
   %6337 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6335, ptr noundef nonnull %640) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %640) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %640)
   %6338 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %132)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %130) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %130, i8 0, i64 520, i1 false)
   %6339 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6340 = call ptr %6339(ptr noundef nonnull @.str.477, i64 noundef 8, i1 noundef zeroext true) #17
@@ -15564,7 +15558,7 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   %6343 = getelementptr inbounds nuw i8, ptr %130, i64 504
   store ptr @class_Dom_Text_methods, ptr %6343, align 8, !tbaa !44
   %6344 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %130, ptr noundef %6338, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %131) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %6345 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i32 0, ptr %6345, align 8, !tbaa !44
   %6346 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -15613,9 +15607,9 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   br label %register_class_Dom_Text.exit
 
 register_class_Dom_Text.exit:                     ; preds = %dom_register_prop_handler.exit563, %6357, %6364, %6365
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %131) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %130) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   store ptr %6344, ptr @dom_modern_text_class_entry, align 8, !tbaa !127
   %6366 = getelementptr inbounds nuw i8, ptr %6344, i64 384
   store ptr @dom_objects_new, ptr %6366, align 8, !tbaa !44
@@ -15624,12 +15618,12 @@ register_class_Dom_Text.exit:                     ; preds = %dom_register_prop_h
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_text_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6368 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6369 = call ptr %6368(ptr noundef nonnull @.str.207, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %129) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store ptr @zm_startup_dom.hnd.208, ptr %129, align 8, !tbaa !44
   %6370 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i32 13, ptr %6370, align 8, !tbaa !44
   %6371 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_text_prop_handlers, ptr noundef %6369, ptr noundef nonnull %129) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   %6372 = getelementptr inbounds nuw i8, ptr %6369, i64 4
   %6373 = load i32, ptr %6372, align 4, !tbaa !44
   %6374 = and i32 %6373, 64
@@ -15654,14 +15648,14 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6381 = load ptr, ptr @dom_modern_text_class_entry, align 8, !tbaa !127
   %6382 = getelementptr inbounds nuw i8, ptr %6381, i64 8
   %6383 = load ptr, ptr %6382, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %639) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %639)
   store ptr @dom_modern_text_prop_handlers, ptr %639, align 8, !tbaa !44
   %6384 = getelementptr inbounds nuw i8, ptr %639, i64 8
   store i32 13, ptr %6384, align 8, !tbaa !44
   %6385 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6383, ptr noundef nonnull %639) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %639) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %639)
   %6386 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %128) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %128, i8 0, i64 520, i1 false)
   %6387 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6388 = call ptr %6387(ptr noundef nonnull @.str.522, i64 noundef 10, i1 noundef zeroext true) #17
@@ -15672,7 +15666,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6391 = getelementptr inbounds nuw i8, ptr %128, i64 504
   store ptr @class_DOMComment_methods, ptr %6391, align 8, !tbaa !44
   %6392 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %128, ptr noundef %6386, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %128) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   store ptr %6392, ptr @dom_comment_class_entry, align 8, !tbaa !127
   %6393 = getelementptr inbounds nuw i8, ptr %6392, i64 384
   store ptr @dom_objects_new, ptr %6393, align 8, !tbaa !44
@@ -15680,14 +15674,14 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store ptr @dom_object_handlers, ptr %6394, align 8, !tbaa !128
   %6395 = getelementptr inbounds nuw i8, ptr %6392, i64 8
   %6396 = load ptr, ptr %6395, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %638) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %638)
   store ptr @dom_characterdata_prop_handlers, ptr %638, align 8, !tbaa !44
   %6397 = getelementptr inbounds nuw i8, ptr %638, i64 8
   store i32 13, ptr %6397, align 8, !tbaa !44
   %6398 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6396, ptr noundef nonnull %638) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %638) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %638)
   %6399 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %127) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %127, i8 0, i64 520, i1 false)
   %6400 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6401 = call ptr %6400(ptr noundef nonnull @.str.481, i64 noundef 11, i1 noundef zeroext true) #17
@@ -15698,7 +15692,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6404 = getelementptr inbounds nuw i8, ptr %127, i64 504
   store ptr null, ptr %6404, align 8, !tbaa !44
   %6405 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %127, ptr noundef %6399, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %127) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   store ptr %6405, ptr @dom_modern_comment_class_entry, align 8, !tbaa !127
   %6406 = getelementptr inbounds nuw i8, ptr %6405, i64 384
   store ptr @dom_objects_new, ptr %6406, align 8, !tbaa !44
@@ -15706,14 +15700,14 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store ptr @dom_object_handlers, ptr %6407, align 8, !tbaa !128
   %6408 = getelementptr inbounds nuw i8, ptr %6405, i64 8
   %6409 = load ptr, ptr %6408, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %637) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %637)
   store ptr @dom_modern_characterdata_prop_handlers, ptr %637, align 8, !tbaa !44
   %6410 = getelementptr inbounds nuw i8, ptr %637, i64 8
   store i32 13, ptr %6410, align 8, !tbaa !44
   %6411 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6409, ptr noundef nonnull %637) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %637) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %637)
   %6412 = load ptr, ptr @dom_text_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %126) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %126, i8 0, i64 520, i1 false)
   %6413 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6414 = call ptr %6413(ptr noundef nonnull @.str.692, i64 noundef 15, i1 noundef zeroext true) #17
@@ -15724,7 +15718,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6417 = getelementptr inbounds nuw i8, ptr %126, i64 504
   store ptr @class_DOMCdataSection_methods, ptr %6417, align 8, !tbaa !44
   %6418 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %126, ptr noundef %6412, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %126) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   store ptr %6418, ptr @dom_cdatasection_class_entry, align 8, !tbaa !127
   %6419 = getelementptr inbounds nuw i8, ptr %6418, i64 384
   store ptr @dom_objects_new, ptr %6419, align 8, !tbaa !44
@@ -15732,14 +15726,14 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store ptr @dom_object_handlers, ptr %6420, align 8, !tbaa !128
   %6421 = getelementptr inbounds nuw i8, ptr %6418, i64 8
   %6422 = load ptr, ptr %6421, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %636) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %636)
   store ptr @dom_text_prop_handlers, ptr %636, align 8, !tbaa !44
   %6423 = getelementptr inbounds nuw i8, ptr %636, i64 8
   store i32 13, ptr %6423, align 8, !tbaa !44
   %6424 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6422, ptr noundef nonnull %636) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %636) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %636)
   %6425 = load ptr, ptr @dom_modern_text_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %125) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %125, i8 0, i64 520, i1 false)
   %6426 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6427 = call ptr %6426(ptr noundef nonnull @.str.479, i64 noundef 16, i1 noundef zeroext true) #17
@@ -15750,7 +15744,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6430 = getelementptr inbounds nuw i8, ptr %125, i64 504
   store ptr null, ptr %6430, align 8, !tbaa !44
   %6431 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %125, ptr noundef %6425, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %125) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   store ptr %6431, ptr @dom_modern_cdatasection_class_entry, align 8, !tbaa !127
   %6432 = getelementptr inbounds nuw i8, ptr %6431, i64 384
   store ptr @dom_objects_new, ptr %6432, align 8, !tbaa !44
@@ -15758,20 +15752,20 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store ptr @dom_object_handlers, ptr %6433, align 8, !tbaa !128
   %6434 = getelementptr inbounds nuw i8, ptr %6431, i64 8
   %6435 = load ptr, ptr %6434, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %635) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %635)
   store ptr @dom_modern_text_prop_handlers, ptr %635, align 8, !tbaa !44
   %6436 = getelementptr inbounds nuw i8, ptr %635, i64 8
   store i32 13, ptr %6436, align 8, !tbaa !44
   %6437 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6435, ptr noundef nonnull %635) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %635) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %635)
   %6438 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %114)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %116)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %122)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %124)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %112) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %112, i8 0, i64 520, i1 false)
   %6439 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6440 = call ptr %6439(ptr noundef nonnull @.str.346, i64 noundef 15, i1 noundef zeroext true) #17
@@ -15782,7 +15776,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6443 = getelementptr inbounds nuw i8, ptr %112, i64 504
   store ptr null, ptr %6443, align 8, !tbaa !44
   %6444 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %112, ptr noundef %6438, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %113) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %6445 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i32 0, ptr %6445, align 8, !tbaa !44
   %6446 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -15794,7 +15788,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6450 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i32 0, ptr %6450, align 4
   %6451 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef %6448, ptr noundef nonnull %113, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %114) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %115) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %6452 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 0, ptr %6452, align 8, !tbaa !44
   %6453 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -15855,7 +15849,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   br label %zend_string_release.exit.i570
 
 zend_string_release.exit.i570:                    ; preds = %6478, %6477, %6470, %dom_register_prop_handler.exit568
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %117) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %6479 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 0, ptr %6479, align 8, !tbaa !44
   %6480 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -15916,7 +15910,7 @@ zend_string_release.exit.i570:                    ; preds = %6478, %6477, %6470,
   br label %zend_string_release.exit22.i572
 
 zend_string_release.exit22.i572:                  ; preds = %6505, %6504, %6497, %zend_string_release.exit.i570
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %119) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %6506 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i32 0, ptr %6506, align 8, !tbaa !44
   %6507 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -15965,7 +15959,7 @@ zend_string_release.exit22.i572:                  ; preds = %6505, %6504, %6497,
   br label %zend_string_release.exit25.i574
 
 zend_string_release.exit25.i574:                  ; preds = %6526, %6525, %6518, %zend_string_release.exit22.i572
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %121) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %6527 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 0, ptr %6527, align 8, !tbaa !44
   %6528 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16014,7 +16008,7 @@ zend_string_release.exit25.i574:                  ; preds = %6526, %6525, %6518,
   br label %zend_string_release.exit28.i576
 
 zend_string_release.exit28.i576:                  ; preds = %6547, %6546, %6539, %zend_string_release.exit25.i574
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %123) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   %6548 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 0, ptr %6548, align 8, !tbaa !44
   %6549 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16063,19 +16057,19 @@ zend_string_release.exit28.i576:                  ; preds = %6547, %6546, %6539,
   br label %register_class_DOMDocumentType.exit
 
 register_class_DOMDocumentType.exit:              ; preds = %zend_string_release.exit28.i576, %6560, %6567, %6568
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %112) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   store ptr %6444, ptr @dom_documenttype_class_entry, align 8, !tbaa !127
   %6569 = getelementptr inbounds nuw i8, ptr %6444, i64 384
   store ptr @dom_objects_new, ptr %6569, align 8, !tbaa !44
@@ -16084,12 +16078,12 @@ register_class_DOMDocumentType.exit:              ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_documenttype_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6571 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6572 = call ptr %6571(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store ptr @zm_startup_dom.hnd.209, ptr %111, align 8, !tbaa !44
   %6573 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 13, ptr %6573, align 8, !tbaa !44
   %6574 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef %6572, ptr noundef nonnull %111) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   %6575 = getelementptr inbounds nuw i8, ptr %6572, i64 4
   %6576 = load i32, ptr %6575, align 4, !tbaa !44
   %6577 = and i32 %6576, 64
@@ -16112,12 +16106,12 @@ register_class_DOMDocumentType.exit:              ; preds = %zend_string_release
 dom_register_prop_handler.exit584:                ; preds = %register_class_DOMDocumentType.exit, %6578, %6583
   %6584 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6585 = call ptr %6584(ptr noundef nonnull @.str.211, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store ptr @zm_startup_dom.hnd.210, ptr %110, align 8, !tbaa !44
   %6586 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 13, ptr %6586, align 8, !tbaa !44
   %6587 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef %6585, ptr noundef nonnull %110) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   %6588 = getelementptr inbounds nuw i8, ptr %6585, i64 4
   %6589 = load i32, ptr %6588, align 4, !tbaa !44
   %6590 = and i32 %6589, 64
@@ -16140,12 +16134,12 @@ dom_register_prop_handler.exit584:                ; preds = %register_class_DOMD
 dom_register_prop_handler.exit586:                ; preds = %dom_register_prop_handler.exit584, %6591, %6596
   %6597 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6598 = call ptr %6597(ptr noundef nonnull @.str.213, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %109) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store ptr @zm_startup_dom.hnd.212, ptr %109, align 8, !tbaa !44
   %6599 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i32 13, ptr %6599, align 8, !tbaa !44
   %6600 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef %6598, ptr noundef nonnull %109) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %6601 = getelementptr inbounds nuw i8, ptr %6598, i64 4
   %6602 = load i32, ptr %6601, align 4, !tbaa !44
   %6603 = and i32 %6602, 64
@@ -16168,12 +16162,12 @@ dom_register_prop_handler.exit586:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit588:                ; preds = %dom_register_prop_handler.exit586, %6604, %6609
   %6610 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6611 = call ptr %6610(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %108) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store ptr @zm_startup_dom.hnd.214, ptr %108, align 8, !tbaa !44
   %6612 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 13, ptr %6612, align 8, !tbaa !44
   %6613 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef %6611, ptr noundef nonnull %108) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   %6614 = getelementptr inbounds nuw i8, ptr %6611, i64 4
   %6615 = load i32, ptr %6614, align 4, !tbaa !44
   %6616 = and i32 %6615, 64
@@ -16196,12 +16190,12 @@ dom_register_prop_handler.exit588:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit590:                ; preds = %dom_register_prop_handler.exit588, %6617, %6622
   %6623 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6624 = call ptr %6623(ptr noundef nonnull @.str.217, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %107) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store ptr @zm_startup_dom.hnd.216, ptr %107, align 8, !tbaa !44
   %6625 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i32 13, ptr %6625, align 8, !tbaa !44
   %6626 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef %6624, ptr noundef nonnull %107) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %107) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   %6627 = getelementptr inbounds nuw i8, ptr %6624, i64 4
   %6628 = load i32, ptr %6627, align 4, !tbaa !44
   %6629 = and i32 %6628, 64
@@ -16224,12 +16218,12 @@ dom_register_prop_handler.exit590:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit592:                ; preds = %dom_register_prop_handler.exit590, %6630, %6635
   %6636 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6637 = call ptr %6636(ptr noundef nonnull @.str.219, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   store ptr @zm_startup_dom.hnd.218, ptr %106, align 8, !tbaa !44
   %6638 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 13, ptr %6638, align 8, !tbaa !44
   %6639 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef %6637, ptr noundef nonnull %106) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   %6640 = getelementptr inbounds nuw i8, ptr %6637, i64 4
   %6641 = load i32, ptr %6640, align 4, !tbaa !44
   %6642 = and i32 %6641, 64
@@ -16254,21 +16248,21 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   %6649 = load ptr, ptr @dom_documenttype_class_entry, align 8, !tbaa !127
   %6650 = getelementptr inbounds nuw i8, ptr %6649, i64 8
   %6651 = load ptr, ptr %6650, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %634) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %634)
   store ptr @dom_documenttype_prop_handlers, ptr %634, align 8, !tbaa !44
   %6652 = getelementptr inbounds nuw i8, ptr %634, i64 8
   store i32 13, ptr %6652, align 8, !tbaa !44
   %6653 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6651, ptr noundef nonnull %634) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %634) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %634)
   %6654 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
   %6655 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %97)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %99)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %103)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %93) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %93, i8 0, i64 520, i1 false)
   %6656 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6657 = call ptr %6656(ptr noundef nonnull @.str.350, i64 noundef 16, i1 noundef zeroext true) #17
@@ -16280,7 +16274,7 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   store ptr @class_Dom_DocumentType_methods, ptr %6660, align 8, !tbaa !44
   %6661 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %93, ptr noundef %6654, i32 noundef 0) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %6661, i32 noundef 1, ptr noundef %6655) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %6662 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 0, ptr %6662, align 8, !tbaa !44
   %6663 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -16292,7 +16286,7 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   %6667 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 0, ptr %6667, align 4
   %6668 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef %6665, ptr noundef nonnull %94, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %95) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %6669 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 0, ptr %6669, align 8, !tbaa !44
   %6670 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16353,7 +16347,7 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i596
 
 zend_string_release.exit.i596:                    ; preds = %6695, %6694, %6687, %dom_register_prop_handler.exit594
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %6696 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 0, ptr %6696, align 8, !tbaa !44
   %6697 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16414,7 +16408,7 @@ zend_string_release.exit.i596:                    ; preds = %6695, %6694, %6687,
   br label %zend_string_release.exit24.i
 
 zend_string_release.exit24.i:                     ; preds = %6722, %6721, %6714, %zend_string_release.exit.i596
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %100) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %6723 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 0, ptr %6723, align 8, !tbaa !44
   %6724 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16463,7 +16457,7 @@ zend_string_release.exit24.i:                     ; preds = %6722, %6721, %6714,
   br label %zend_string_release.exit27.i
 
 zend_string_release.exit27.i:                     ; preds = %6743, %6742, %6735, %zend_string_release.exit24.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %6744 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 0, ptr %6744, align 8, !tbaa !44
   %6745 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16512,7 +16506,7 @@ zend_string_release.exit27.i:                     ; preds = %6743, %6742, %6735,
   br label %zend_string_release.exit30.i
 
 zend_string_release.exit30.i:                     ; preds = %6764, %6763, %6756, %zend_string_release.exit27.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %6765 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i32 0, ptr %6765, align 8, !tbaa !44
   %6766 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16561,19 +16555,19 @@ zend_string_release.exit30.i:                     ; preds = %6764, %6763, %6756,
   br label %register_class_Dom_DocumentType.exit
 
 register_class_Dom_DocumentType.exit:             ; preds = %zend_string_release.exit30.i, %6777, %6784, %6785
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %93) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   store ptr %6661, ptr @dom_modern_documenttype_class_entry, align 8, !tbaa !127
   %6786 = getelementptr inbounds nuw i8, ptr %6661, i64 384
   store ptr @dom_objects_new, ptr %6786, align 8, !tbaa !44
@@ -16582,12 +16576,12 @@ register_class_Dom_DocumentType.exit:             ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6788 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6789 = call ptr %6788(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store ptr @zm_startup_dom.hnd.220, ptr %92, align 8, !tbaa !44
   %6790 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 13, ptr %6790, align 8, !tbaa !44
   %6791 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef %6789, ptr noundef nonnull %92) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %6792 = getelementptr inbounds nuw i8, ptr %6789, i64 4
   %6793 = load i32, ptr %6792, align 4, !tbaa !44
   %6794 = and i32 %6793, 64
@@ -16610,12 +16604,12 @@ register_class_Dom_DocumentType.exit:             ; preds = %zend_string_release
 dom_register_prop_handler.exit599:                ; preds = %register_class_Dom_DocumentType.exit, %6795, %6800
   %6801 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6802 = call ptr %6801(ptr noundef nonnull @.str.211, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %91) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store ptr @zm_startup_dom.hnd.221, ptr %91, align 8, !tbaa !44
   %6803 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 13, ptr %6803, align 8, !tbaa !44
   %6804 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef %6802, ptr noundef nonnull %91) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %6805 = getelementptr inbounds nuw i8, ptr %6802, i64 4
   %6806 = load i32, ptr %6805, align 4, !tbaa !44
   %6807 = and i32 %6806, 64
@@ -16638,12 +16632,12 @@ dom_register_prop_handler.exit599:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit601:                ; preds = %dom_register_prop_handler.exit599, %6808, %6813
   %6814 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6815 = call ptr %6814(ptr noundef nonnull @.str.213, i64 noundef 9, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store ptr @zm_startup_dom.hnd.222, ptr %90, align 8, !tbaa !44
   %6816 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 13, ptr %6816, align 8, !tbaa !44
   %6817 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef %6815, ptr noundef nonnull %90) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %6818 = getelementptr inbounds nuw i8, ptr %6815, i64 4
   %6819 = load i32, ptr %6818, align 4, !tbaa !44
   %6820 = and i32 %6819, 64
@@ -16666,12 +16660,12 @@ dom_register_prop_handler.exit601:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit603:                ; preds = %dom_register_prop_handler.exit601, %6821, %6826
   %6827 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6828 = call ptr %6827(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %89) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store ptr @zm_startup_dom.hnd.223, ptr %89, align 8, !tbaa !44
   %6829 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 13, ptr %6829, align 8, !tbaa !44
   %6830 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef %6828, ptr noundef nonnull %89) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %6831 = getelementptr inbounds nuw i8, ptr %6828, i64 4
   %6832 = load i32, ptr %6831, align 4, !tbaa !44
   %6833 = and i32 %6832, 64
@@ -16694,12 +16688,12 @@ dom_register_prop_handler.exit603:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit605:                ; preds = %dom_register_prop_handler.exit603, %6834, %6839
   %6840 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6841 = call ptr %6840(ptr noundef nonnull @.str.217, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store ptr @zm_startup_dom.hnd.224, ptr %88, align 8, !tbaa !44
   %6842 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 13, ptr %6842, align 8, !tbaa !44
   %6843 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef %6841, ptr noundef nonnull %88) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %6844 = getelementptr inbounds nuw i8, ptr %6841, i64 4
   %6845 = load i32, ptr %6844, align 4, !tbaa !44
   %6846 = and i32 %6845, 64
@@ -16722,12 +16716,12 @@ dom_register_prop_handler.exit605:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit607:                ; preds = %dom_register_prop_handler.exit605, %6847, %6852
   %6853 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6854 = call ptr %6853(ptr noundef nonnull @.str.219, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store ptr @zm_startup_dom.hnd.225, ptr %87, align 8, !tbaa !44
   %6855 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 13, ptr %6855, align 8, !tbaa !44
   %6856 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef %6854, ptr noundef nonnull %87) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %6857 = getelementptr inbounds nuw i8, ptr %6854, i64 4
   %6858 = load i32, ptr %6857, align 4, !tbaa !44
   %6859 = and i32 %6858, 64
@@ -16752,16 +16746,16 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   %6866 = load ptr, ptr @dom_modern_documenttype_class_entry, align 8, !tbaa !127
   %6867 = getelementptr inbounds nuw i8, ptr %6866, i64 8
   %6868 = load ptr, ptr %6867, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %633) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %633)
   store ptr @dom_modern_documenttype_prop_handlers, ptr %633, align 8, !tbaa !44
   %6869 = getelementptr inbounds nuw i8, ptr %633, i64 8
   store i32 13, ptr %6869, align 8, !tbaa !44
   %6870 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6868, ptr noundef nonnull %633) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %633) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %633)
   %6871 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %82) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %82, i8 0, i64 520, i1 false)
   %6872 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6873 = call ptr %6872(ptr noundef nonnull @.str.693, i64 noundef 11, i1 noundef zeroext true) #17
@@ -16772,7 +16766,7 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   %6876 = getelementptr inbounds nuw i8, ptr %82, i64 504
   store ptr null, ptr %6876, align 8, !tbaa !44
   %6877 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %82, ptr noundef %6871, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %83) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %6878 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 0, ptr %6878, align 8, !tbaa !44
   %6879 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16821,7 +16815,7 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i611
 
 zend_string_release.exit.i611:                    ; preds = %6898, %6897, %6890, %dom_register_prop_handler.exit609
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %85) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %6899 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 0, ptr %6899, align 8, !tbaa !44
   %6900 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -16870,11 +16864,11 @@ zend_string_release.exit.i611:                    ; preds = %6898, %6897, %6890,
   br label %register_class_DOMNotation.exit
 
 register_class_DOMNotation.exit:                  ; preds = %zend_string_release.exit.i611, %6911, %6918, %6919
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %82) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   store ptr %6877, ptr @dom_notation_class_entry, align 8, !tbaa !127
   %6920 = getelementptr inbounds nuw i8, ptr %6877, i64 384
   store ptr @dom_objects_new, ptr %6920, align 8, !tbaa !44
@@ -16883,12 +16877,12 @@ register_class_DOMNotation.exit:                  ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_notation_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6922 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6923 = call ptr %6922(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store ptr @zm_startup_dom.hnd.226, ptr %81, align 8, !tbaa !44
   %6924 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 13, ptr %6924, align 8, !tbaa !44
   %6925 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_notation_prop_handlers, ptr noundef %6923, ptr noundef nonnull %81) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %6926 = getelementptr inbounds nuw i8, ptr %6923, i64 4
   %6927 = load i32, ptr %6926, align 4, !tbaa !44
   %6928 = and i32 %6927, 64
@@ -16911,12 +16905,12 @@ register_class_DOMNotation.exit:                  ; preds = %zend_string_release
 dom_register_prop_handler.exit614:                ; preds = %register_class_DOMNotation.exit, %6929, %6934
   %6935 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6936 = call ptr %6935(ptr noundef nonnull @.str.217, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store ptr @zm_startup_dom.hnd.227, ptr %80, align 8, !tbaa !44
   %6937 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 13, ptr %6937, align 8, !tbaa !44
   %6938 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_notation_prop_handlers, ptr noundef %6936, ptr noundef nonnull %80) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %6939 = getelementptr inbounds nuw i8, ptr %6936, i64 4
   %6940 = load i32, ptr %6939, align 4, !tbaa !44
   %6941 = and i32 %6940, 64
@@ -16941,16 +16935,16 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   %6948 = load ptr, ptr @dom_notation_class_entry, align 8, !tbaa !127
   %6949 = getelementptr inbounds nuw i8, ptr %6948, i64 8
   %6950 = load ptr, ptr %6949, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %632) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %632)
   store ptr @dom_notation_prop_handlers, ptr %632, align 8, !tbaa !44
   %6951 = getelementptr inbounds nuw i8, ptr %632, i64 8
   store i32 13, ptr %6951, align 8, !tbaa !44
   %6952 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6950, ptr noundef nonnull %632) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %632) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %632)
   %6953 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %75) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %75, i8 0, i64 520, i1 false)
   %6954 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6955 = call ptr %6954(ptr noundef nonnull @.str.694, i64 noundef 12, i1 noundef zeroext true) #17
@@ -16961,7 +16955,7 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   %6958 = getelementptr inbounds nuw i8, ptr %75, i64 504
   store ptr null, ptr %6958, align 8, !tbaa !44
   %6959 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %75, ptr noundef %6953, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %6960 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 0, ptr %6960, align 8, !tbaa !44
   %6961 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17010,7 +17004,7 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i618
 
 zend_string_release.exit.i618:                    ; preds = %6980, %6979, %6972, %dom_register_prop_handler.exit616
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %6981 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 0, ptr %6981, align 8, !tbaa !44
   %6982 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17059,11 +17053,11 @@ zend_string_release.exit.i618:                    ; preds = %6980, %6979, %6972,
   br label %register_class_Dom_Notation.exit
 
 register_class_Dom_Notation.exit:                 ; preds = %zend_string_release.exit.i618, %6993, %7000, %7001
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %75) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   store ptr %6959, ptr @dom_modern_notation_class_entry, align 8, !tbaa !127
   %7002 = getelementptr inbounds nuw i8, ptr %6959, i64 384
   store ptr @dom_objects_new, ptr %7002, align 8, !tbaa !44
@@ -17072,12 +17066,12 @@ register_class_Dom_Notation.exit:                 ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_notation_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7004 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7005 = call ptr %7004(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store ptr @zm_startup_dom.hnd.228, ptr %74, align 8, !tbaa !44
   %7006 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 13, ptr %7006, align 8, !tbaa !44
   %7007 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_notation_prop_handlers, ptr noundef %7005, ptr noundef nonnull %74) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %7008 = getelementptr inbounds nuw i8, ptr %7005, i64 4
   %7009 = load i32, ptr %7008, align 4, !tbaa !44
   %7010 = and i32 %7009, 64
@@ -17100,12 +17094,12 @@ register_class_Dom_Notation.exit:                 ; preds = %zend_string_release
 dom_register_prop_handler.exit623:                ; preds = %register_class_Dom_Notation.exit, %7011, %7016
   %7017 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7018 = call ptr %7017(ptr noundef nonnull @.str.217, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store ptr @zm_startup_dom.hnd.229, ptr %73, align 8, !tbaa !44
   %7019 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 13, ptr %7019, align 8, !tbaa !44
   %7020 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_notation_prop_handlers, ptr noundef %7018, ptr noundef nonnull %73) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %7021 = getelementptr inbounds nuw i8, ptr %7018, i64 4
   %7022 = load i32, ptr %7021, align 4, !tbaa !44
   %7023 = and i32 %7022, 64
@@ -17130,20 +17124,20 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   %7030 = load ptr, ptr @dom_modern_notation_class_entry, align 8, !tbaa !127
   %7031 = getelementptr inbounds nuw i8, ptr %7030, i64 8
   %7032 = load ptr, ptr %7031, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %631) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %631)
   store ptr @dom_modern_node_prop_handlers, ptr %631, align 8, !tbaa !44
   %7033 = getelementptr inbounds nuw i8, ptr %631, i64 8
   store i32 13, ptr %7033, align 8, !tbaa !44
   %7034 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7032, ptr noundef nonnull %631) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %631) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %631)
   %7035 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %60) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %60, i8 0, i64 520, i1 false)
   %7036 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7037 = call ptr %7036(ptr noundef nonnull @.str.695, i64 noundef 9, i1 noundef zeroext true) #17
@@ -17154,7 +17148,7 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   %7040 = getelementptr inbounds nuw i8, ptr %60, i64 504
   store ptr null, ptr %7040, align 8, !tbaa !44
   %7041 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %60, ptr noundef %7035, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %7042 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 0, ptr %7042, align 8, !tbaa !44
   %7043 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17203,7 +17197,7 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i627
 
 zend_string_release.exit.i627:                    ; preds = %7062, %7061, %7054, %dom_register_prop_handler.exit625
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %7063 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 0, ptr %7063, align 8, !tbaa !44
   %7064 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17252,7 +17246,7 @@ zend_string_release.exit.i627:                    ; preds = %7062, %7061, %7054,
   br label %zend_string_release.exit22.i629
 
 zend_string_release.exit22.i629:                  ; preds = %7083, %7082, %7075, %zend_string_release.exit.i627
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %7084 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 0, ptr %7084, align 8, !tbaa !44
   %7085 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17301,7 +17295,7 @@ zend_string_release.exit22.i629:                  ; preds = %7083, %7082, %7075,
   br label %zend_string_release.exit25.i631
 
 zend_string_release.exit25.i631:                  ; preds = %7104, %7103, %7096, %zend_string_release.exit22.i629
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %7105 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 0, ptr %7105, align 8, !tbaa !44
   %7106 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17350,7 +17344,7 @@ zend_string_release.exit25.i631:                  ; preds = %7104, %7103, %7096,
   br label %zend_string_release.exit28.i633
 
 zend_string_release.exit28.i633:                  ; preds = %7125, %7124, %7117, %zend_string_release.exit25.i631
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %7126 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 0, ptr %7126, align 8, !tbaa !44
   %7127 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17399,7 +17393,7 @@ zend_string_release.exit28.i633:                  ; preds = %7125, %7124, %7117,
   br label %zend_string_release.exit31.i
 
 zend_string_release.exit31.i:                     ; preds = %7146, %7145, %7138, %zend_string_release.exit28.i633
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %7147 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 0, ptr %7147, align 8, !tbaa !44
   %7148 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -17448,19 +17442,19 @@ zend_string_release.exit31.i:                     ; preds = %7146, %7145, %7138,
   br label %register_class_DOMEntity.exit
 
 register_class_DOMEntity.exit:                    ; preds = %zend_string_release.exit31.i, %7159, %7166, %7167
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %60) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   store ptr %7041, ptr @dom_entity_class_entry, align 8, !tbaa !127
   %7168 = getelementptr inbounds nuw i8, ptr %7041, i64 384
   store ptr @dom_objects_new, ptr %7168, align 8, !tbaa !44
@@ -17469,12 +17463,12 @@ register_class_DOMEntity.exit:                    ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_entity_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7170 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7171 = call ptr %7170(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store ptr @zm_startup_dom.hnd.230, ptr %59, align 8, !tbaa !44
   %7172 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 13, ptr %7172, align 8, !tbaa !44
   %7173 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef %7171, ptr noundef nonnull %59) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %7174 = getelementptr inbounds nuw i8, ptr %7171, i64 4
   %7175 = load i32, ptr %7174, align 4, !tbaa !44
   %7176 = and i32 %7175, 64
@@ -17497,12 +17491,12 @@ register_class_DOMEntity.exit:                    ; preds = %zend_string_release
 dom_register_prop_handler.exit641:                ; preds = %register_class_DOMEntity.exit, %7177, %7182
   %7183 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7184 = call ptr %7183(ptr noundef nonnull @.str.217, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store ptr @zm_startup_dom.hnd.231, ptr %58, align 8, !tbaa !44
   %7185 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 13, ptr %7185, align 8, !tbaa !44
   %7186 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef %7184, ptr noundef nonnull %58) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %7187 = getelementptr inbounds nuw i8, ptr %7184, i64 4
   %7188 = load i32, ptr %7187, align 4, !tbaa !44
   %7189 = and i32 %7188, 64
@@ -17525,12 +17519,12 @@ dom_register_prop_handler.exit641:                ; preds = %register_class_DOME
 dom_register_prop_handler.exit643:                ; preds = %dom_register_prop_handler.exit641, %7190, %7195
   %7196 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7197 = call ptr %7196(ptr noundef nonnull @.str.233, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr @zm_startup_dom.hnd.232, ptr %57, align 8, !tbaa !44
   %7198 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 13, ptr %7198, align 8, !tbaa !44
   %7199 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef %7197, ptr noundef nonnull %57) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %7200 = getelementptr inbounds nuw i8, ptr %7197, i64 4
   %7201 = load i32, ptr %7200, align 4, !tbaa !44
   %7202 = and i32 %7201, 64
@@ -17553,12 +17547,12 @@ dom_register_prop_handler.exit643:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit645:                ; preds = %dom_register_prop_handler.exit643, %7203, %7208
   %7209 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7210 = call ptr %7209(ptr noundef nonnull @.str.101, i64 noundef 14, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr @zm_startup_dom.hnd.234, ptr %56, align 8, !tbaa !44
   %7211 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 13, ptr %7211, align 8, !tbaa !44
   %7212 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef %7210, ptr noundef nonnull %56) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %7213 = getelementptr inbounds nuw i8, ptr %7210, i64 4
   %7214 = load i32, ptr %7213, align 4, !tbaa !44
   %7215 = and i32 %7214, 64
@@ -17581,12 +17575,12 @@ dom_register_prop_handler.exit645:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit647:                ; preds = %dom_register_prop_handler.exit645, %7216, %7221
   %7222 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7223 = call ptr %7222(ptr noundef nonnull @.str.103, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store ptr @zm_startup_dom.hnd.235, ptr %55, align 8, !tbaa !44
   %7224 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 13, ptr %7224, align 8, !tbaa !44
   %7225 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef %7223, ptr noundef nonnull %55) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %7226 = getelementptr inbounds nuw i8, ptr %7223, i64 4
   %7227 = load i32, ptr %7226, align 4, !tbaa !44
   %7228 = and i32 %7227, 64
@@ -17609,12 +17603,12 @@ dom_register_prop_handler.exit647:                ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit649:                ; preds = %dom_register_prop_handler.exit647, %7229, %7234
   %7235 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7236 = call ptr %7235(ptr noundef nonnull @.str.111, i64 noundef 7, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr @zm_startup_dom.hnd.236, ptr %54, align 8, !tbaa !44
   %7237 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 13, ptr %7237, align 8, !tbaa !44
   %7238 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef %7236, ptr noundef nonnull %54) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %7239 = getelementptr inbounds nuw i8, ptr %7236, i64 4
   %7240 = load i32, ptr %7239, align 4, !tbaa !44
   %7241 = and i32 %7240, 64
@@ -17639,17 +17633,17 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   %7248 = load ptr, ptr @dom_entity_class_entry, align 8, !tbaa !127
   %7249 = getelementptr inbounds nuw i8, ptr %7248, i64 8
   %7250 = load ptr, ptr %7249, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %630) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %630)
   store ptr @dom_entity_prop_handlers, ptr %630, align 8, !tbaa !44
   %7251 = getelementptr inbounds nuw i8, ptr %630, i64 8
   store i32 13, ptr %7251, align 8, !tbaa !44
   %7252 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7250, ptr noundef nonnull %630) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %630) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %630)
   %7253 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %47) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %47, i8 0, i64 520, i1 false)
   %7254 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7255 = call ptr %7254(ptr noundef nonnull @.str.696, i64 noundef 10, i1 noundef zeroext true) #17
@@ -17660,7 +17654,7 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   %7258 = getelementptr inbounds nuw i8, ptr %47, i64 504
   store ptr null, ptr %7258, align 8, !tbaa !44
   %7259 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %47, ptr noundef %7253, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %7260 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 0, ptr %7260, align 8, !tbaa !44
   %7261 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17709,7 +17703,7 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i653
 
 zend_string_release.exit.i653:                    ; preds = %7280, %7279, %7272, %dom_register_prop_handler.exit651
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %7281 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 0, ptr %7281, align 8, !tbaa !44
   %7282 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17758,7 +17752,7 @@ zend_string_release.exit.i653:                    ; preds = %7280, %7279, %7272,
   br label %zend_string_release.exit13.i655
 
 zend_string_release.exit13.i655:                  ; preds = %7301, %7300, %7293, %zend_string_release.exit.i653
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %7302 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %7302, align 8, !tbaa !44
   %7303 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -17807,13 +17801,13 @@ zend_string_release.exit13.i655:                  ; preds = %7301, %7300, %7293,
   br label %register_class_Dom_Entity.exit
 
 register_class_Dom_Entity.exit:                   ; preds = %zend_string_release.exit13.i655, %7314, %7321, %7322
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %47) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   store ptr %7259, ptr @dom_modern_entity_class_entry, align 8, !tbaa !127
   %7323 = getelementptr inbounds nuw i8, ptr %7259, i64 384
   store ptr @dom_objects_new, ptr %7323, align 8, !tbaa !44
@@ -17822,12 +17816,12 @@ register_class_Dom_Entity.exit:                   ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_entity_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7325 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7326 = call ptr %7325(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr @zm_startup_dom.hnd.237, ptr %46, align 8, !tbaa !44
   %7327 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 13, ptr %7327, align 8, !tbaa !44
   %7328 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_entity_prop_handlers, ptr noundef %7326, ptr noundef nonnull %46) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %7329 = getelementptr inbounds nuw i8, ptr %7326, i64 4
   %7330 = load i32, ptr %7329, align 4, !tbaa !44
   %7331 = and i32 %7330, 64
@@ -17850,12 +17844,12 @@ register_class_Dom_Entity.exit:                   ; preds = %zend_string_release
 dom_register_prop_handler.exit662:                ; preds = %register_class_Dom_Entity.exit, %7332, %7337
   %7338 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7339 = call ptr %7338(ptr noundef nonnull @.str.217, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr @zm_startup_dom.hnd.238, ptr %45, align 8, !tbaa !44
   %7340 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 13, ptr %7340, align 8, !tbaa !44
   %7341 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_entity_prop_handlers, ptr noundef %7339, ptr noundef nonnull %45) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %7342 = getelementptr inbounds nuw i8, ptr %7339, i64 4
   %7343 = load i32, ptr %7342, align 4, !tbaa !44
   %7344 = and i32 %7343, 64
@@ -17878,12 +17872,12 @@ dom_register_prop_handler.exit662:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit664:                ; preds = %dom_register_prop_handler.exit662, %7345, %7350
   %7351 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7352 = call ptr %7351(ptr noundef nonnull @.str.233, i64 noundef 12, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr @zm_startup_dom.hnd.239, ptr %44, align 8, !tbaa !44
   %7353 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 13, ptr %7353, align 8, !tbaa !44
   %7354 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_entity_prop_handlers, ptr noundef %7352, ptr noundef nonnull %44) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %7355 = getelementptr inbounds nuw i8, ptr %7352, i64 4
   %7356 = load i32, ptr %7355, align 4, !tbaa !44
   %7357 = and i32 %7356, 64
@@ -17908,14 +17902,14 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7364 = load ptr, ptr @dom_modern_entity_class_entry, align 8, !tbaa !127
   %7365 = getelementptr inbounds nuw i8, ptr %7364, i64 8
   %7366 = load ptr, ptr %7365, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %629) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %629)
   store ptr @dom_modern_entity_prop_handlers, ptr %629, align 8, !tbaa !44
   %7367 = getelementptr inbounds nuw i8, ptr %629, i64 8
   store i32 13, ptr %7367, align 8, !tbaa !44
   %7368 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7366, ptr noundef nonnull %629) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %629) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %629)
   %7369 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %43) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %43, i8 0, i64 520, i1 false)
   %7370 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7371 = call ptr %7370(ptr noundef nonnull @.str.697, i64 noundef 18, i1 noundef zeroext true) #17
@@ -17926,7 +17920,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7374 = getelementptr inbounds nuw i8, ptr %43, i64 504
   store ptr @class_DOMEntityReference_methods, ptr %7374, align 8, !tbaa !44
   %7375 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %43, ptr noundef %7369, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %43) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   store ptr %7375, ptr @dom_entityreference_class_entry, align 8, !tbaa !127
   %7376 = getelementptr inbounds nuw i8, ptr %7375, i64 384
   store ptr @dom_objects_new, ptr %7376, align 8, !tbaa !44
@@ -17934,41 +17928,41 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store ptr @dom_object_handlers, ptr %7377, align 8, !tbaa !128
   call void @_zend_hash_init(ptr noundef nonnull @dom_entity_reference_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   call void @zend_hash_merge(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr @zm_startup_dom.hnd.240, ptr %42, align 8, !tbaa !44
   %7378 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 13, ptr %7378, align 8, !tbaa !44
   %7379 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @.str.15, i64 noundef range(i64 9, 12) 10, ptr noundef nonnull %42) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr @zm_startup_dom.hnd.241, ptr %41, align 8, !tbaa !44
   %7380 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 13, ptr %7380, align 8, !tbaa !44
   %7381 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @.str.17, i64 noundef range(i64 9, 12) 9, ptr noundef nonnull %41) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr @zm_startup_dom.hnd.242, ptr %40, align 8, !tbaa !44
   %7382 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 13, ptr %7382, align 8, !tbaa !44
   %7383 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr @zm_startup_dom.hnd.243, ptr %39, align 8, !tbaa !44
   %7384 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 13, ptr %7384, align 8, !tbaa !44
   %7385 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @.str.13, i64 noundef range(i64 9, 12) 10, ptr noundef nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %7386 = load ptr, ptr @dom_entityreference_class_entry, align 8, !tbaa !127
   %7387 = getelementptr inbounds nuw i8, ptr %7386, i64 8
   %7388 = load ptr, ptr %7387, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %628) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %628)
   store ptr @dom_entity_reference_prop_handlers, ptr %628, align 8, !tbaa !44
   %7389 = getelementptr inbounds nuw i8, ptr %628, i64 8
   store i32 13, ptr %7389, align 8, !tbaa !44
   %7390 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7388, ptr noundef nonnull %628) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %628) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %628)
   %7391 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %38, i8 0, i64 520, i1 false)
   %7392 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7393 = call ptr %7392(ptr noundef nonnull @.str.570, i64 noundef 19, i1 noundef zeroext true) #17
@@ -17979,7 +17973,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7396 = getelementptr inbounds nuw i8, ptr %38, i64 504
   store ptr null, ptr %7396, align 8, !tbaa !44
   %7397 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %38, ptr noundef %7391, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   store ptr %7397, ptr @dom_modern_entityreference_class_entry, align 8, !tbaa !127
   %7398 = getelementptr inbounds nuw i8, ptr %7397, i64 384
   store ptr @dom_objects_new, ptr %7398, align 8, !tbaa !44
@@ -17987,43 +17981,43 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store ptr @dom_object_handlers, ptr %7399, align 8, !tbaa !128
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr @zm_startup_dom.hnd.244, ptr %37, align 8, !tbaa !44
   %7400 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 13, ptr %7400, align 8, !tbaa !44
   %7401 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @.str.15, i64 noundef range(i64 9, 12) 10, ptr noundef nonnull %37) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr @zm_startup_dom.hnd.245, ptr %36, align 8, !tbaa !44
   %7402 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 13, ptr %7402, align 8, !tbaa !44
   %7403 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @.str.17, i64 noundef range(i64 9, 12) 9, ptr noundef nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr @zm_startup_dom.hnd.246, ptr %35, align 8, !tbaa !44
   %7404 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 13, ptr %7404, align 8, !tbaa !44
   %7405 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr @zm_startup_dom.hnd.247, ptr %34, align 8, !tbaa !44
   %7406 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 13, ptr %7406, align 8, !tbaa !44
   %7407 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @.str.13, i64 noundef range(i64 9, 12) 10, ptr noundef nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %7408 = load ptr, ptr @dom_modern_entityreference_class_entry, align 8, !tbaa !127
   %7409 = getelementptr inbounds nuw i8, ptr %7408, i64 8
   %7410 = load ptr, ptr %7409, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %627) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %627)
   store ptr @dom_modern_entity_reference_prop_handlers, ptr %627, align 8, !tbaa !44
   %7411 = getelementptr inbounds nuw i8, ptr %627, i64 8
   store i32 13, ptr %7411, align 8, !tbaa !44
   %7412 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7410, ptr noundef nonnull %627) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %627) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %627)
   %7413 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %29, i8 0, i64 520, i1 false)
   %7414 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7415 = call ptr %7414(ptr noundef nonnull @.str.698, i64 noundef 24, i1 noundef zeroext true) #17
@@ -18034,7 +18028,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7418 = getelementptr inbounds nuw i8, ptr %29, i64 504
   store ptr @class_DOMProcessingInstruction_methods, ptr %7418, align 8, !tbaa !44
   %7419 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %29, ptr noundef %7413, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %7420 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %7420, align 8, !tbaa !44
   %7421 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -18083,7 +18077,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i668
 
 zend_string_release.exit.i668:                    ; preds = %7440, %7439, %7432, %dom_register_prop_handler.exit666
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %7441 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 0, ptr %7441, align 8, !tbaa !44
   %7442 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -18132,11 +18126,11 @@ zend_string_release.exit.i668:                    ; preds = %7440, %7439, %7432,
   br label %register_class_DOMProcessingInstruction.exit
 
 register_class_DOMProcessingInstruction.exit:     ; preds = %zend_string_release.exit.i668, %7453, %7460, %7461
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %29) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   store ptr %7419, ptr @dom_processinginstruction_class_entry, align 8, !tbaa !127
   %7462 = getelementptr inbounds nuw i8, ptr %7419, i64 384
   store ptr @dom_objects_new, ptr %7462, align 8, !tbaa !44
@@ -18145,12 +18139,12 @@ register_class_DOMProcessingInstruction.exit:     ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_processinginstruction_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7464 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7465 = call ptr %7464(ptr noundef nonnull @.str.249, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr @zm_startup_dom.hnd.248, ptr %28, align 8, !tbaa !44
   %7466 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 13, ptr %7466, align 8, !tbaa !44
   %7467 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_processinginstruction_prop_handlers, ptr noundef %7465, ptr noundef nonnull %28) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %7468 = getelementptr inbounds nuw i8, ptr %7465, i64 4
   %7469 = load i32, ptr %7468, align 4, !tbaa !44
   %7470 = and i32 %7469, 64
@@ -18173,12 +18167,12 @@ register_class_DOMProcessingInstruction.exit:     ; preds = %zend_string_release
 dom_register_prop_handler.exit673:                ; preds = %register_class_DOMProcessingInstruction.exit, %7471, %7476
   %7477 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7478 = call ptr %7477(ptr noundef nonnull @.str.142, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr @zm_startup_dom.hnd.250, ptr %27, align 8, !tbaa !44
   %7479 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 13, ptr %7479, align 8, !tbaa !44
   %7480 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_processinginstruction_prop_handlers, ptr noundef %7478, ptr noundef nonnull %27) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %7481 = getelementptr inbounds nuw i8, ptr %7478, i64 4
   %7482 = load i32, ptr %7481, align 4, !tbaa !44
   %7483 = and i32 %7482, 64
@@ -18203,15 +18197,15 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   %7490 = load ptr, ptr @dom_processinginstruction_class_entry, align 8, !tbaa !127
   %7491 = getelementptr inbounds nuw i8, ptr %7490, i64 8
   %7492 = load ptr, ptr %7491, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %626) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %626)
   store ptr @dom_processinginstruction_prop_handlers, ptr %626, align 8, !tbaa !44
   %7493 = getelementptr inbounds nuw i8, ptr %626, i64 8
   store i32 13, ptr %7493, align 8, !tbaa !44
   %7494 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7492, ptr noundef nonnull %626) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %626) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %626)
   %7495 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %24, i8 0, i64 520, i1 false)
   %7496 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7497 = call ptr %7496(ptr noundef nonnull @.str.483, i64 noundef 25, i1 noundef zeroext true) #17
@@ -18222,7 +18216,7 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   %7500 = getelementptr inbounds nuw i8, ptr %24, i64 504
   store ptr null, ptr %7500, align 8, !tbaa !44
   %7501 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %24, ptr noundef %7495, i32 noundef 0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %7502 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %7502, align 8, !tbaa !44
   %7503 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -18271,9 +18265,9 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   br label %register_class_Dom_ProcessingInstruction.exit
 
 register_class_Dom_ProcessingInstruction.exit:    ; preds = %dom_register_prop_handler.exit675, %7514, %7521, %7522
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store ptr %7501, ptr @dom_modern_processinginstruction_class_entry, align 8, !tbaa !127
   %7523 = getelementptr inbounds nuw i8, ptr %7501, i64 384
   store ptr @dom_objects_new, ptr %7523, align 8, !tbaa !44
@@ -18282,12 +18276,12 @@ register_class_Dom_ProcessingInstruction.exit:    ; preds = %dom_register_prop_h
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_processinginstruction_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7525 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7526 = call ptr %7525(ptr noundef nonnull @.str.249, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr @zm_startup_dom.hnd.251, ptr %23, align 8, !tbaa !44
   %7527 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 13, ptr %7527, align 8, !tbaa !44
   %7528 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_processinginstruction_prop_handlers, ptr noundef %7526, ptr noundef nonnull %23) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %7529 = getelementptr inbounds nuw i8, ptr %7526, i64 4
   %7530 = load i32, ptr %7529, align 4, !tbaa !44
   %7531 = and i32 %7530, 64
@@ -18310,12 +18304,12 @@ register_class_Dom_ProcessingInstruction.exit:    ; preds = %dom_register_prop_h
 dom_register_prop_handler.exit680:                ; preds = %register_class_Dom_ProcessingInstruction.exit, %7532, %7537
   %7538 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7539 = call ptr %7538(ptr noundef nonnull @.str.142, i64 noundef 4, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr @zm_startup_dom.hnd.252, ptr %22, align 8, !tbaa !44
   %7540 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 13, ptr %7540, align 8, !tbaa !44
   %7541 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_modern_processinginstruction_prop_handlers, ptr noundef %7539, ptr noundef nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %7542 = getelementptr inbounds nuw i8, ptr %7539, i64 4
   %7543 = load i32, ptr %7542, align 4, !tbaa !44
   %7544 = and i32 %7543, 64
@@ -18340,20 +18334,20 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   %7551 = load ptr, ptr @dom_modern_processinginstruction_class_entry, align 8, !tbaa !127
   %7552 = getelementptr inbounds nuw i8, ptr %7551, i64 8
   %7553 = load ptr, ptr %7552, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %625) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %625)
   store ptr @dom_modern_processinginstruction_prop_handlers, ptr %625, align 8, !tbaa !44
   %7554 = getelementptr inbounds nuw i8, ptr %625, i64 8
   store i32 13, ptr %7554, align 8, !tbaa !44
   %7555 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7553, ptr noundef nonnull %625) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %625) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %625)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_xpath_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
   store i32 56, ptr @dom_xpath_object_handlers, align 8, !tbaa !103
   store ptr @dom_xpath_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 8), align 8, !tbaa !114
   store ptr @dom_xpath_get_gc, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 168), align 8, !tbaa !135
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 24), align 8, !tbaa !119
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %17, i8 0, i64 520, i1 false)
   %7556 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7557 = call ptr %7556(ptr noundef nonnull @.str.699, i64 noundef 8, i1 noundef zeroext true) #17
@@ -18364,7 +18358,7 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   %7560 = getelementptr inbounds nuw i8, ptr %17, i64 504
   store ptr @class_DOMXPath_methods, ptr %7560, align 8, !tbaa !44
   %7561 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %17, ptr noundef null, i32 noundef 536870912) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %7562 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 0, ptr %7562, align 8, !tbaa !44
   %7563 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -18425,7 +18419,7 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i684
 
 zend_string_release.exit.i684:                    ; preds = %7588, %7587, %7580, %dom_register_prop_handler.exit682
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %7589 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %7589, align 8, !tbaa !44
   %7590 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -18474,11 +18468,11 @@ zend_string_release.exit.i684:                    ; preds = %7588, %7587, %7580,
   br label %register_class_DOMXPath.exit
 
 register_class_DOMXPath.exit:                     ; preds = %zend_string_release.exit.i684, %7601, %7608, %7609
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   store ptr %7561, ptr @dom_xpath_class_entry, align 8, !tbaa !127
   %7610 = getelementptr inbounds nuw i8, ptr %7561, i64 384
   store ptr @dom_xpath_objects_new, ptr %7610, align 8, !tbaa !44
@@ -18487,12 +18481,12 @@ register_class_DOMXPath.exit:                     ; preds = %zend_string_release
   call void @_zend_hash_init(ptr noundef nonnull @dom_xpath_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7612 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7613 = call ptr %7612(ptr noundef nonnull @.str.254, i64 noundef 8, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr @zm_startup_dom.hnd.253, ptr %16, align 8, !tbaa !44
   %7614 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 13, ptr %7614, align 8, !tbaa !44
   %7615 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_xpath_prop_handlers, ptr noundef %7613, ptr noundef nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %7616 = getelementptr inbounds nuw i8, ptr %7613, i64 4
   %7617 = load i32, ptr %7616, align 4, !tbaa !44
   %7618 = and i32 %7617, 64
@@ -18515,12 +18509,12 @@ register_class_DOMXPath.exit:                     ; preds = %zend_string_release
 dom_register_prop_handler.exit689:                ; preds = %register_class_DOMXPath.exit, %7619, %7624
   %7625 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7626 = call ptr %7625(ptr noundef nonnull @.str.256, i64 noundef 22, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @zm_startup_dom.hnd.255, ptr %15, align 8, !tbaa !44
   %7627 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 13, ptr %7627, align 8, !tbaa !44
   %7628 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_xpath_prop_handlers, ptr noundef %7626, ptr noundef nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %7629 = getelementptr inbounds nuw i8, ptr %7626, i64 4
   %7630 = load i32, ptr %7629, align 4, !tbaa !44
   %7631 = and i32 %7630, 64
@@ -18544,15 +18538,15 @@ dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_h
   %7638 = load ptr, ptr @dom_xpath_class_entry, align 8, !tbaa !127
   %7639 = getelementptr inbounds nuw i8, ptr %7638, i64 8
   %7640 = load ptr, ptr %7639, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %624) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %624)
   store ptr @dom_xpath_prop_handlers, ptr %624, align 8, !tbaa !44
   %7641 = getelementptr inbounds nuw i8, ptr %624, i64 8
   store i32 13, ptr %7641, align 8, !tbaa !44
   %7642 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7640, ptr noundef nonnull %624) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %624) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %624)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %10, i8 0, i64 520, i1 false)
   %7643 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7644 = call ptr %7643(ptr noundef nonnull @.str.719, i64 noundef 9, i1 noundef zeroext true) #17
@@ -18563,7 +18557,7 @@ dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_h
   %7647 = getelementptr inbounds nuw i8, ptr %10, i64 504
   store ptr @class_Dom_XPath_methods, ptr %7647, align 8, !tbaa !44
   %7648 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %10, ptr noundef null, i32 noundef 536870944) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %7649 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %7649, align 8, !tbaa !44
   %7650 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
@@ -18624,7 +18618,7 @@ dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_h
   br label %zend_string_release.exit.i693
 
 zend_string_release.exit.i693:                    ; preds = %7675, %7674, %7667, %dom_register_prop_handler.exit691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %7676 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %7676, align 8, !tbaa !44
   %7677 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
@@ -18673,11 +18667,11 @@ zend_string_release.exit.i693:                    ; preds = %7675, %7674, %7667,
   br label %register_class_Dom_XPath.exit
 
 register_class_Dom_XPath.exit:                    ; preds = %zend_string_release.exit.i693, %7688, %7695, %7696
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr %7648, ptr @dom_modern_xpath_class_entry, align 8, !tbaa !127
   %7697 = getelementptr inbounds nuw i8, ptr %7648, i64 384
   store ptr @dom_xpath_objects_new, ptr %7697, align 8, !tbaa !44
@@ -18685,17 +18679,17 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   store ptr @dom_xpath_object_handlers, ptr %7698, align 8, !tbaa !128
   %7699 = getelementptr inbounds nuw i8, ptr %7648, i64 8
   %7700 = load ptr, ptr %7699, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %623) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %623)
   store ptr @dom_xpath_prop_handlers, ptr %623, align 8, !tbaa !44
   %7701 = getelementptr inbounds nuw i8, ptr %623, i64 8
   store i32 13, ptr %7701, align 8, !tbaa !44
   %7702 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7700, ptr noundef nonnull %623) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %623) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %623)
   %7703 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
   %7704 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %5, i8 0, i64 520, i1 false)
   %7705 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7706 = call ptr %7705(ptr noundef nonnull @.str.662, i64 noundef 13, i1 noundef zeroext true) #17
@@ -18707,7 +18701,7 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   store ptr @class_Dom_TokenList_methods, ptr %7709, align 8, !tbaa !44
   %7710 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %5, ptr noundef null, i32 noundef 536879136) #17
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %7710, i32 noundef 2, ptr noundef %7703, ptr noundef %7704) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7711 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7711, align 8, !tbaa !44
   %7712 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
@@ -18756,7 +18750,7 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   br label %register_class_Dom_TokenList.exit
 
 register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_XPath.exit, %7723, %7730, %7731
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %7732 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %7732, align 8, !tbaa !44
   %7733 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
@@ -18768,11 +18762,11 @@ register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_
   %7737 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %7737, align 4
   %7738 = call ptr @zend_declare_typed_property(ptr noundef %7710, ptr noundef %7735, ptr noundef nonnull %8, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %7710, ptr @dom_token_list_class_entry, align 8, !tbaa !127
   %7739 = getelementptr inbounds nuw i8, ptr %7710, i64 384
   store ptr @dom_token_list_new, ptr %7739, align 8, !tbaa !44
@@ -18783,12 +18777,12 @@ register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_
   call void @_zend_hash_init(ptr noundef nonnull @dom_token_list_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7742 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7743 = call ptr %7742(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @zm_startup_dom.hnd.257, ptr %4, align 8, !tbaa !44
   %7744 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 13, ptr %7744, align 8, !tbaa !44
   %7745 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_token_list_prop_handlers, ptr noundef %7743, ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %7746 = getelementptr inbounds nuw i8, ptr %7743, i64 4
   %7747 = load i32, ptr %7746, align 4, !tbaa !44
   %7748 = and i32 %7747, 64
@@ -18811,12 +18805,12 @@ register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_
 dom_register_prop_handler.exit701:                ; preds = %register_class_Dom_TokenList.exit, %7749, %7754
   %7755 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7756 = call ptr %7755(ptr noundef nonnull @.str.159, i64 noundef 5, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @zm_startup_dom.hnd.258, ptr %3, align 8, !tbaa !44
   %7757 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %7757, align 8, !tbaa !44
   %7758 = call ptr @zend_hash_add_new(ptr noundef nonnull @dom_token_list_prop_handlers, ptr noundef %7756, ptr noundef nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7759 = getelementptr inbounds nuw i8, ptr %7756, i64 4
   %7760 = load i32, ptr %7759, align 4, !tbaa !44
   %7761 = and i32 %7760, 64
@@ -18840,12 +18834,12 @@ dom_register_prop_handler.exit703:                ; preds = %dom_register_prop_h
   %7768 = load ptr, ptr @dom_token_list_class_entry, align 8, !tbaa !127
   %7769 = getelementptr inbounds nuw i8, ptr %7768, i64 8
   %7770 = load ptr, ptr %7769, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %622) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %622)
   store ptr @dom_token_list_prop_handlers, ptr %622, align 8, !tbaa !44
   %7771 = getelementptr inbounds nuw i8, ptr %622, i64 8
   store i32 13, ptr %7771, align 8, !tbaa !44
   %7772 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7770, ptr noundef nonnull %622) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %622) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %622)
   call void @zend_register_long_constant(ptr noundef nonnull @.str.737, i64 noundef 16, i64 noundef 1, i32 noundef 1, i32 noundef %1) #17
   call void @zend_register_long_constant(ptr noundef nonnull @.str.738, i64 noundef 18, i64 noundef 2, i32 noundef 1, i32 noundef %1) #17
   call void @zend_register_long_constant(ptr noundef nonnull @.str.739, i64 noundef 13, i64 noundef 3, i32 noundef 1, i32 noundef %1) #17
@@ -18967,7 +18961,7 @@ define hidden void @zm_info_dom(ptr readnone captures(none) %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_dom(ptr noundef writeonly captures(none) initializes((0, 1)) %0) #7 {
+define internal void @zm_globals_ctor_dom(ptr noundef writeonly captures(none) initializes((0, 1)) %0) #6 {
   store i8 0, ptr %0, align 1, !tbaa !136
   ret void
 }
@@ -19229,7 +19223,7 @@ dom_get_prop_handler.exit:                        ; preds = %zend_hash_find_ptr.
 
 dom_get_prop_handler.exit.thread20:               ; preds = %13, %dom_get_prop_handler.exit
   %.0.i23 = phi ptr [ %.0.i.i, %dom_get_prop_handler.exit ], [ %15, %13 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = icmp eq i32 %2, 2
   br i1 %22, label %35, label %23
 
@@ -19262,7 +19256,7 @@ dom_get_prop_handler.exit.thread20:               ; preds = %13, %dom_get_prop_h
 
 35:                                               ; preds = %dom_get_prop_handler.exit.thread20, %23, %34
   %.0 = phi i1 [ %.1.shrunk, %34 ], [ false, %23 ], [ true, %dom_get_prop_handler.exit.thread20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 dom_get_prop_handler.exit.thread:                 ; preds = %4, %dom_get_prop_handler.exit
@@ -19336,7 +19330,7 @@ define internal ptr @dom_get_debug_info(ptr noundef %0, ptr noundef writeonly ca
   %31 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !142, !nonnull !45, !noundef !45
   %33 = load ptr, ptr %.03338.i, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load ptr, ptr %33, align 8, !tbaa !59
   %35 = call i32 %34(ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %36 = icmp eq i32 %35, -1
@@ -19367,7 +19361,7 @@ zend_string_addref.exit.i:                        ; preds = %43, %40, %37
   br label %47
 
 47:                                               ; preds = %zend_string_addref.exit.i, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 48:                                               ; preds = %47, %26
@@ -19597,14 +19591,14 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr noundef readonly cap
 20:                                               ; preds = %13, %17
   %21 = phi i8 [ %.pre, %17 ], [ %15, %13 ]
   %.013 = phi ptr [ %19, %17 ], [ %1, %13 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i8 %21, label %46 [
     i8 6, label %22
     i8 4, label %44
   ], !prof !153
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = load ptr, ptr %.013, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 1, !tbaa !44
@@ -19612,7 +19606,7 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr noundef readonly cap
   br i1 %26, label %.thread.i, label %is_numeric_string_ex.exit.i
 
 .thread.i:                                        ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 is_numeric_string_ex.exit.i:                      ; preds = %22
@@ -19646,12 +19640,12 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 .thread15.i:                                      ; preds = %41, %38, %31
   %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
   store i64 %.0.i.i, ptr %6, align 8, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 43:                                               ; preds = %is_numeric_string_ex.exit.i
   %.not.i = icmp eq i8 %29, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i, label %._crit_edge, label %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge
 
 .dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge: ; preds = %43
@@ -19699,7 +19693,7 @@ dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %.dom_nodemap_or
 
 58:                                               ; preds = %55, %54, %49
   %.1 = phi ptr [ %3, %49 ], [ null, %54 ], [ %3, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 59:                                               ; preds = %58, %7
@@ -19726,14 +19720,14 @@ define internal range(i32 0, 2) i32 @dom_nodemap_has_dimension(ptr noundef %0, p
 12:                                               ; preds = %3, %9
   %13 = phi i8 [ %.pre, %9 ], [ %7, %3 ]
   %.07 = phi ptr [ %11, %9 ], [ %1, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i8 %13, label %38 [
     i8 6, label %14
     i8 4, label %36
   ], !prof !153
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load ptr, ptr %.07, align 8, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i8, ptr %16, align 1, !tbaa !44
@@ -19741,7 +19735,7 @@ define internal range(i32 0, 2) i32 @dom_nodemap_has_dimension(ptr noundef %0, p
   br i1 %18, label %.thread.i, label %is_numeric_string_ex.exit.i
 
 .thread.i:                                        ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 is_numeric_string_ex.exit.i:                      ; preds = %14
@@ -19775,12 +19769,12 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 .thread15.i:                                      ; preds = %33, %30, %23
   %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
   store i64 %.0.i.i, ptr %5, align 8, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 35:                                               ; preds = %is_numeric_string_ex.exit.i
   %.not.i = icmp eq i8 %21, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i, label %._crit_edge, label %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split
 
 ._crit_edge:                                      ; preds = %35
@@ -19826,7 +19820,7 @@ dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_
 53:                                               ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exit, %49, %41
   %.0.shrunk = phi i1 [ %46, %41 ], [ false, %dom_nodemap_or_nodelist_process_offset_as_named.exit ], [ %52, %49 ]
   %.0 = zext i1 %.0.shrunk to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -19862,14 +19856,14 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr noundef readonly ca
 20:                                               ; preds = %13, %17
   %21 = phi i8 [ %.pre, %17 ], [ %15, %13 ]
   %.011 = phi ptr [ %19, %17 ], [ %1, %13 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i8 %21, label %46 [
     i8 6, label %22
     i8 4, label %44
   ], !prof !153
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = load ptr, ptr %.011, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 1, !tbaa !44
@@ -19877,7 +19871,7 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr noundef readonly ca
   br i1 %26, label %.thread.i, label %is_numeric_string_ex.exit.i
 
 .thread.i:                                        ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 is_numeric_string_ex.exit.i:                      ; preds = %22
@@ -19911,12 +19905,12 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 .thread15.i:                                      ; preds = %41, %38, %31
   %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
   store i64 %.0.i.i, ptr %6, align 8, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 43:                                               ; preds = %is_numeric_string_ex.exit.i
   %.not.i = icmp eq i8 %29, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i, label %49, label %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge
 
 .dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge: ; preds = %43
@@ -19949,7 +19943,7 @@ dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %.dom_nodemap_or
   br label %54
 
 54:                                               ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exit, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
 55:                                               ; preds = %54, %7
@@ -19976,14 +19970,14 @@ define internal range(i32 0, 2) i32 @dom_nodelist_has_dimension(ptr noundef %0, 
 12:                                               ; preds = %3, %9
   %13 = phi i8 [ %.pre, %9 ], [ %7, %3 ]
   %.05 = phi ptr [ %11, %9 ], [ %1, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i8 %13, label %38 [
     i8 6, label %14
     i8 4, label %36
   ], !prof !153
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load ptr, ptr %.05, align 8, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i8, ptr %16, align 1, !tbaa !44
@@ -19991,7 +19985,7 @@ define internal range(i32 0, 2) i32 @dom_nodelist_has_dimension(ptr noundef %0, 
   br i1 %18, label %.thread.i, label %is_numeric_string_ex.exit.i
 
 .thread.i:                                        ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread
 
 is_numeric_string_ex.exit.i:                      ; preds = %14
@@ -20025,12 +20019,12 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 .thread15.i:                                      ; preds = %33, %30, %23
   %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
   store i64 %.0.i.i, ptr %5, align 8, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 35:                                               ; preds = %is_numeric_string_ex.exit.i
   %.not.i = icmp eq i8 %21, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i, label %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread, label %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split
 
 36:                                               ; preds = %12
@@ -20064,7 +20058,7 @@ dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_
 
 dom_nodemap_or_nodelist_process_offset_as_named.exit.thread: ; preds = %.thread.i, %35, %dom_nodemap_or_nodelist_process_offset_as_named.exit, %43
   %.0 = phi i32 [ 0, %dom_nodemap_or_nodelist_process_offset_as_named.exit ], [ %47, %43 ], [ 0, %35 ], [ 0, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -20108,7 +20102,7 @@ define internal noundef ptr @dom_modern_nodemap_read_dimension(ptr noundef reado
   ]
 
 23:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %.025, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -20151,7 +20145,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   br label %41
 
 41:                                               ; preds = %_zend_handle_numeric_str.exit.thread, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %63
 
 42:                                               ; preds = %21
@@ -20233,7 +20227,7 @@ define internal range(i32 0, 2) i32 @dom_modern_nodemap_has_dimension(ptr nounde
   ]
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load ptr, ptr %.023, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -20283,7 +20277,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
 
 39:                                               ; preds = %30, %33, %_zend_handle_numeric_str.exit.thread
   %.0.shrunk = phi i1 [ %38, %_zend_handle_numeric_str.exit.thread ], [ false, %30 ], [ %35, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %69
 
 40:                                               ; preds = %13
@@ -20349,13 +20343,13 @@ zend_dval_to_lval_safe.exit:                      ; preds = %zend_dval_to_lval.e
   ret i32 %.1
 }
 
-declare ptr @dom_modern_nodelist_read_dimension(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare ptr @dom_modern_nodelist_read_dimension(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dom_modern_nodelist_has_dimension(ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dom_modern_nodelist_has_dimension(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @dom_html_collection_read_dimension(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare ptr @dom_html_collection_read_dimension(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dom_html_collection_has_dimension(ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dom_html_collection_has_dimension(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @dom_object_namespace_node_free_storage(ptr noundef %0) #1 {
@@ -20533,11 +20527,11 @@ dom_update_refcount_after_clone.exit:             ; preds = %55, %62
   ret ptr %6
 }
 
-declare void @dom_token_list_free_obj(ptr noundef) #3
+declare void @dom_token_list_free_obj(ptr noundef) #2
 
-declare ptr @dom_token_list_read_dimension(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare ptr @dom_token_list_read_dimension(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dom_token_list_has_dimension(ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @dom_token_list_has_dimension(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @dom_objects_new(ptr noundef %0) #1 {
@@ -20546,47 +20540,47 @@ define hidden nonnull ptr @dom_objects_new(ptr noundef %0) #1 {
   ret ptr %3
 }
 
-declare i32 @dom_node_node_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_node_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_node_value_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_node_value_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_node_value_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_node_value_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_node_type_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_node_type_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_parent_node_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_parent_node_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_parent_element_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_parent_element_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_child_nodes_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_child_nodes_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_first_child_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_first_child_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_last_child_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_last_child_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_previous_sibling_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_previous_sibling_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_next_sibling_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_next_sibling_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_attributes_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_attributes_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_is_connected_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_is_connected_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_owner_document_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_owner_document_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_namespace_uri_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_namespace_uri_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_prefix_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_prefix_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_prefix_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_prefix_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_local_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_local_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_base_uri_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_base_uri_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_text_content_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_text_content_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_text_content_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_text_content_write(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @dom_objects_namespace_node_new(ptr noundef %0) #1 {
@@ -20647,81 +20641,81 @@ dom_objects_set_class_ex.exit:                    ; preds = %.critedge.i, %27
   ret ptr %30
 }
 
-declare i32 @dom_parent_node_first_element_child_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_parent_node_first_element_child_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_parent_node_last_element_child_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_parent_node_last_element_child_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_parent_node_child_element_count(ptr noundef, ptr noundef) #3
+declare i32 @dom_parent_node_child_element_count(ptr noundef, ptr noundef) #2
 
-declare void @zend_hash_merge(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @zend_hash_merge(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @dom_modern_document_implementation_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_modern_document_implementation_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_document_uri_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_document_uri_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_document_uri_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_document_uri_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_encoding_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_encoding_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_html_document_encoding_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_html_document_encoding_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_doctype_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_doctype_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_document_element_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_document_element_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_html_document_body_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_html_document_body_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_html_document_body_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_html_document_body_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_html_document_head_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_html_document_head_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_html_document_title_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_html_document_title_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_html_document_title_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_html_document_title_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_implementation_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_implementation_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_actual_encoding_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_actual_encoding_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_encoding_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_encoding_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_standalone_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_standalone_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_standalone_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_standalone_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_version_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_version_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_version_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_version_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_strict_error_checking_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_strict_error_checking_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_strict_error_checking_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_strict_error_checking_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_config_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_config_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_format_output_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_format_output_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_format_output_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_format_output_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_validate_on_parse_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_validate_on_parse_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_validate_on_parse_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_validate_on_parse_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_resolve_externals_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_resolve_externals_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_resolve_externals_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_resolve_externals_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_preserve_whitespace_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_preserve_whitespace_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_preserve_whitespace_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_preserve_whitespace_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_recover_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_recover_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_recover_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_recover_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_substitute_entities_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_substitute_entities_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_document_substitute_entities_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_document_substitute_entities_write(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @dom_nnodemap_objects_new(ptr noundef %0) #1 {
@@ -20751,107 +20745,107 @@ define hidden nonnull ptr @dom_nnodemap_objects_new(ptr noundef %0) #1 {
   ret ptr %14
 }
 
-declare ptr @php_dom_get_iterator(ptr noundef, ptr noundef, i32 noundef) #3
+declare ptr @php_dom_get_iterator(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @dom_nodelist_length_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_nodelist_length_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_namednodemap_length_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_namednodemap_length_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_characterdata_data_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_characterdata_data_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_characterdata_data_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_characterdata_data_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_characterdata_length_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_characterdata_length_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_previous_element_sibling_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_previous_element_sibling_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_node_next_element_sibling_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_node_next_element_sibling_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_attr_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_attr_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_attr_specified_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_attr_specified_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_attr_value_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_attr_value_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_attr_value_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_attr_value_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_attr_owner_element_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_attr_owner_element_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_attr_schema_type_info_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_attr_schema_type_info_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_modern_node_prefix_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_modern_node_prefix_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_tag_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_tag_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_class_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_class_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_class_name_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_class_name_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_id_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_id_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_schema_type_info_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_schema_type_info_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_class_list_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_class_list_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_inner_html_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_inner_html_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_inner_html_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_inner_html_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_outer_html_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_outer_html_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_element_outer_html_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_element_outer_html_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_modern_element_substituted_node_value_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_modern_element_substituted_node_value_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_modern_element_substituted_node_value_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_modern_element_substituted_node_value_write(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_text_whole_text_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_text_whole_text_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_documenttype_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_documenttype_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_documenttype_entities_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_documenttype_entities_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_documenttype_notations_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_documenttype_notations_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_documenttype_public_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_documenttype_public_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_documenttype_system_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_documenttype_system_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_documenttype_internal_subset_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_documenttype_internal_subset_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_notation_public_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_notation_public_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_notation_system_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_notation_system_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_public_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_public_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_system_id_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_system_id_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_notation_name_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_notation_name_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_actual_encoding_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_actual_encoding_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_encoding_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_encoding_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_version_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_version_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_reference_child_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_reference_child_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_reference_text_content_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_reference_text_content_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_entity_reference_child_nodes_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_entity_reference_child_nodes_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_processinginstruction_target_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_processinginstruction_target_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_processinginstruction_data_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_processinginstruction_data_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_processinginstruction_data_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_processinginstruction_data_write(ptr noundef, ptr noundef) #2
 
-declare void @dom_xpath_objects_free_storage(ptr noundef) #3
+declare void @dom_xpath_objects_free_storage(ptr noundef) #2
 
-declare ptr @dom_xpath_get_gc(ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @dom_xpath_get_gc(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @dom_xpath_objects_new(ptr noundef %0) #1 {
@@ -20879,11 +20873,11 @@ define hidden noundef nonnull ptr @dom_xpath_objects_new(ptr noundef %0) #1 {
   ret ptr %15
 }
 
-declare i32 @dom_xpath_document_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_xpath_document_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_xpath_register_node_ns_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_xpath_register_node_ns_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_xpath_register_node_ns_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_xpath_register_node_ns_write(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @dom_token_list_new(ptr noundef %0) #1 {
@@ -20908,17 +20902,17 @@ define internal noundef nonnull ptr @dom_token_list_new(ptr noundef %0) #1 {
   ret ptr %14
 }
 
-declare ptr @dom_token_list_get_iterator(ptr noundef, ptr noundef, i32 noundef) #3
+declare ptr @dom_token_list_get_iterator(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @dom_token_list_length_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_token_list_length_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_token_list_value_read(ptr noundef, ptr noundef) #3
+declare i32 @dom_token_list_value_read(ptr noundef, ptr noundef) #2
 
-declare i32 @dom_token_list_value_write(ptr noundef, ptr noundef) #3
+declare i32 @dom_token_list_value_write(ptr noundef, ptr noundef) #2
 
-declare ptr @php_libxml_register_export(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @php_libxml_register_export(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @lexbor_memory_setup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @lexbor_memory_setup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @dom_malloc(i64 noundef %0) #1 {
@@ -20944,13 +20938,13 @@ define internal void @dom_free(ptr noundef %0) #1 {
   ret void
 }
 
-declare void @php_info_print_table_start() local_unnamed_addr #3
+declare void @php_info_print_table_start() local_unnamed_addr #2
 
-declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #3
+declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #2
 
-declare void @php_info_print_table_end() local_unnamed_addr #3
+declare void @php_info_print_table_end() local_unnamed_addr #2
 
-declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #3
+declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @node_list_unlink(ptr noundef %0) local_unnamed_addr #1 {
@@ -21009,15 +21003,15 @@ php_dom_object_get_data.exit.thread._crit_edge:   ; preds = %16, %php_dom_object
   ret void
 }
 
-declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #3
+declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #2
 
-declare void @zend_object_std_dtor(ptr noundef) local_unnamed_addr #3
+declare void @zend_object_std_dtor(ptr noundef) local_unnamed_addr #2
 
-declare void @php_libxml_node_decrement_resource(ptr noundef) local_unnamed_addr #3
+declare void @php_libxml_node_decrement_resource(ptr noundef) local_unnamed_addr #2
 
-declare i32 @php_libxml_decrement_node_ptr(ptr noundef) local_unnamed_addr #3
+declare i32 @php_libxml_decrement_node_ptr(ptr noundef) local_unnamed_addr #2
 
-declare i32 @php_libxml_decrement_doc_ref(ptr noundef) local_unnamed_addr #3
+declare i32 @php_libxml_decrement_doc_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dom_namednode_iter(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
@@ -21174,9 +21168,9 @@ zend_string_copy.exit54:                          ; preds = %.thread70, %69
   ret void
 }
 
-declare i32 @xmlDictReference(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlDictReference(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlDictExists(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @xmlDictExists(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @dom_objects_set_class(ptr noundef %0) unnamed_addr #1 {
@@ -21237,19 +21231,19 @@ dom_objects_set_class_ex.exit:                    ; preds = %.critedge.i, %27
   ret ptr %12
 }
 
-declare void @php_dom_xpath_callbacks_ctor(ptr noundef) local_unnamed_addr #3
+declare void @php_dom_xpath_callbacks_ctor(ptr noundef) local_unnamed_addr #2
 
-declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #3
+declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #2
 
-declare void @xmlDictFree(ptr noundef) local_unnamed_addr #3
+declare void @xmlDictFree(ptr noundef) local_unnamed_addr #2
 
-declare void @_efree(ptr noundef) local_unnamed_addr #3
+declare void @_efree(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @_emalloc_112() local_unnamed_addr #3
+declare noalias ptr @_emalloc_112() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @php_dom_create_nullable_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
@@ -21495,7 +21489,7 @@ php_dom_instantiate_object_helper.exit:           ; preds = %dom_get_doc_classma
   ret i1 %.not49
 }
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
@@ -21527,11 +21521,11 @@ define hidden nonnull ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr
   ret ptr %7
 }
 
-declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @php_libxml_increment_doc_ref(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @php_libxml_increment_doc_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_create_implementation(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
@@ -21543,7 +21537,7 @@ define hidden void @php_dom_create_implementation(ptr noundef %0, i1 noundef zer
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #8 {
+define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -21645,7 +21639,7 @@ zend_string_equals_cstr.exit19.thread:            ; preds = %2, %18, %zend_strin
   ret i1 %.0
 }
 
-declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @dom_match_qualified_name_according_to_spec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
@@ -21691,12 +21685,12 @@ define hidden zeroext i1 @dom_match_qualified_name_according_to_spec(ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
-declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i64 noundef %6) local_unnamed_addr #1 {
@@ -22426,7 +22420,7 @@ dom_reconcile_ns_internal.exit:                   ; preds = %30, %7
   ret void
 }
 
-declare i32 @xmlReconciliateNs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xmlReconciliateNs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 {
@@ -22656,11 +22650,11 @@ zend_string_equals_cstr.exit32.thread:            ; preds = %27, %.critedge26, %
   ret i32 %.0
 }
 
-declare i32 @xmlValidateQName(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @xmlValidateQName(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @xmlSplitQName2(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlSplitQName2(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 15) i32 @dom_check_qname(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
@@ -22711,7 +22705,7 @@ define hidden ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %0, ptr nounde
   br i1 %7, label %16, label %8, !prof !62
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 50, ptr noundef nonnull @.str.279) #17
   %10 = call ptr @xmlSearchNs(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %3) #17
   %.not15 = icmp eq ptr %10, null
@@ -22735,7 +22729,7 @@ define hidden ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %0, ptr nounde
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.1 = phi ptr [ %15, %._crit_edge ], [ null, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 16:                                               ; preds = %2, %.loopexit
@@ -22743,11 +22737,11 @@ define hidden ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %0, ptr nounde
   ret ptr %.013
 }
 
-declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @xmlSearchNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlSearchNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlNewNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNewNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dom_get_ns_unchecked(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
@@ -22808,7 +22802,7 @@ dom_get_ns_unchecked.exit.thread:                 ; preds = %.critedge25, %dom_g
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dom_get_nsdecl(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -22937,7 +22931,7 @@ define hidden void @dom_remove_all_children(ptr noundef captures(none) %0) local
   ret void
 }
 
-declare void @php_libxml_node_free_list(ptr noundef) local_unnamed_addr #3
+declare void @php_libxml_node_free_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
@@ -22982,7 +22976,7 @@ define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr noundef wr
   br label %71
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = call ptr @php_libxml_attr_value(ptr noundef nonnull %0, ptr noundef nonnull %4) #17
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
   %24 = icmp ugt i64 %23, 1
@@ -23040,7 +23034,7 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   br label %51
 
 51:                                               ; preds = %49, %zend_string_init_fast.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
 52:                                               ; preds = %3
@@ -23090,9 +23084,9 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   ret void
 }
 
-declare ptr @php_libxml_attr_value(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @php_libxml_attr_value(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlNodeGetContent(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNodeGetContent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dom_clone_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
@@ -23311,16 +23305,16 @@ dom_clone_helper.exit:                            ; preds = %.preheader.i, %11, 
   ret ptr %.031
 }
 
-declare ptr @xmlCopyDtd(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlCopyDtd(ptr noundef) local_unnamed_addr #2
 
-declare void @xmlSetTreeDoc(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @xmlSetTreeDoc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @php_dom_libxml_reconcile_modern(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @php_dom_libxml_reconcile_modern(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlDocCopyNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @xmlDocCopyNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @php_dom_has_child_of_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @php_dom_has_child_of_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.06 = load ptr, ptr %3, align 8, !tbaa !216
   %.not7.not = icmp eq ptr %.06, null
@@ -23345,7 +23339,7 @@ define hidden noundef zeroext i1 @php_dom_has_child_of_type(ptr noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @php_dom_has_sibling_following_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @php_dom_has_sibling_following_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -23366,7 +23360,7 @@ define hidden noundef zeroext i1 @php_dom_has_sibling_following_node(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @php_dom_has_sibling_preceding_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @php_dom_has_sibling_preceding_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -23461,9 +23455,9 @@ dom_match_qualified_name_according_to_spec.exit.thread: ; preds = %19, %16, %22,
   ret ptr %.0.lcssa
 }
 
-declare zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_str_tolower_dup_ex(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @zend_str_tolower_dup_ex(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @php_dom_libxml_fix_file_path(ptr noundef %0) local_unnamed_addr #1 {
@@ -23503,7 +23497,7 @@ define hidden ptr @php_dom_libxml_fix_file_path(ptr noundef %0) local_unnamed_ad
   ret ptr %.1
 }
 
-declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @php_dom_create_html_doc() local_unnamed_addr #1 {
@@ -23521,495 +23515,495 @@ define hidden ptr @php_dom_create_html_doc() local_unnamed_addr #1 {
   ret ptr %1
 }
 
-declare ptr @htmlNewDocNoDtD(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @htmlNewDocNoDtD(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlDictCreate() local_unnamed_addr #3
+declare ptr @xmlDictCreate() local_unnamed_addr #2
 
-declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @php_libxml_import_node(ptr noundef) local_unnamed_addr #3
+declare ptr @php_libxml_import_node(ptr noundef) local_unnamed_addr #2
 
-declare void @zend_argument_type_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @zend_argument_type_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @dom_document_convert_to_modern(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @dom_document_convert_to_modern(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_std_get_property_ptr_ptr(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_std_get_property_ptr_ptr(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_std_unset_property(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_std_unset_property(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @php_dom_private_data_create() local_unnamed_addr #3
+declare ptr @php_dom_private_data_create() local_unnamed_addr #2
 
-declare ptr @php_dom_ns_mapper_from_private(ptr noundef) local_unnamed_addr #3
+declare ptr @php_dom_ns_mapper_from_private(ptr noundef) local_unnamed_addr #2
 
-declare ptr @php_dom_libxml_private_data_header(ptr noundef) local_unnamed_addr #3
+declare ptr @php_dom_libxml_private_data_header(ptr noundef) local_unnamed_addr #2
 
-declare void @zend_objects_clone_members(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_objects_clone_members(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @zend_is_true(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @zend_is_true(ptr noundef) local_unnamed_addr #2
 
-declare i32 @zend_std_has_property(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zend_std_has_property(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #3
+declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #3
+declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
-declare ptr @zend_register_internal_enum(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_register_internal_enum(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_enum_add_case_cstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @zend_enum_add_case_cstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #3
+declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #2
 
-declare i32 @zend_register_class_alias_ex(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @zend_register_class_alias_ex(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @zend_register_internal_interface(ptr noundef) local_unnamed_addr #3
+declare ptr @zend_register_internal_interface(ptr noundef) local_unnamed_addr #2
 
-declare void @zim_DOMImplementation_hasFeature(ptr noundef, ptr noundef) #3
+declare void @zim_DOMImplementation_hasFeature(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMImplementation_createDocumentType(ptr noundef, ptr noundef) #3
+declare void @zim_DOMImplementation_createDocumentType(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMImplementation_createDocument(ptr noundef, ptr noundef) #3
+declare void @zim_DOMImplementation_createDocument(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Implementation_createDocumentType(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Implementation_createDocumentType(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Implementation_createDocument(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Implementation_createDocument(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Implementation_createHTMLDocument(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Implementation_createHTMLDocument(ptr noundef, ptr noundef) #2
 
-declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #3
+declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #2
 
-declare void @zim_DOMNode_appendChild(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_appendChild(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_C14N(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_C14N(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_C14NFile(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_C14NFile(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_cloneNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_cloneNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_getLineNo(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_getLineNo(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_getNodePath(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_getNodePath(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_hasAttributes(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_hasAttributes(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_hasChildNodes(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_hasChildNodes(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_insertBefore(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_insertBefore(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_isDefaultNamespace(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_isDefaultNamespace(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_isSameNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_isSameNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_isEqualNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_isEqualNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_isSupported(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_isSupported(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_lookupNamespaceURI(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_lookupNamespaceURI(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_lookupPrefix(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_lookupPrefix(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_normalize(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_normalize(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_removeChild(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_removeChild(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_replaceChild(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_replaceChild(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_contains(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_contains(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_getRootNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_getRootNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode_compareDocumentPosition(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode_compareDocumentPosition(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode___sleep(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode___sleep(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNode___wakeup(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNode___wakeup(ptr noundef, ptr noundef) #2
 
-declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zim_Dom_Node___construct(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_isEqualNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_isEqualNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_isSameNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_isSameNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_compareDocumentPosition(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_compareDocumentPosition(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_contains(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_contains(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_lookupPrefix(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_lookupPrefix(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_isDefaultNamespace(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_isDefaultNamespace(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_insertBefore(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_insertBefore(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_appendChild(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_appendChild(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_replaceChild(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_replaceChild(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_removeChild(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_removeChild(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Node_getNodePath(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Node_getNodePath(ptr noundef, ptr noundef) #2
 
-declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
+declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
-declare void @zim_DOMDocumentFragment___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocumentFragment___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocumentFragment_appendXML(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocumentFragment_appendXML(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_append(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_append(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_prepend(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_prepend(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_replaceChildren(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_replaceChildren(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_replaceChildren(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_replaceChildren(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_querySelector(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_querySelector(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_querySelectorAll(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_querySelectorAll(ptr noundef, ptr noundef) #2
 
-declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zim_Dom_Element_getElementsByTagName(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_getElementsByTagName(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_getElementsByTagNameNS(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_getElementsByTagNameNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_createElement(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_createElement(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_createElementNS(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_createElementNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createDocumentFragment(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createDocumentFragment(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createTextNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createTextNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createCDATASection(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createCDATASection(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createComment(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createComment(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_createProcessingInstruction(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_createProcessingInstruction(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_importNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_importNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_adoptNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_adoptNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createAttributeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createAttributeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_getElementById(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_getElementById(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_registerNodeClass(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_registerNodeClass(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_schemaValidate(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_schemaValidate(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_schemaValidateSource(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_schemaValidateSource(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_relaxNGValidate(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_relaxNGValidate(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_relaxNGValidateSource(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_relaxNGValidateSource(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Document_importLegacyNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Document_importLegacyNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createElement(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createElement(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createElementNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createElementNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createEntityReference(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createEntityReference(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_createProcessingInstruction(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_createProcessingInstruction(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getElementsByTagName(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getElementsByTagName(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getElementsByTagNameNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getElementsByTagNameNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_importNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_importNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_load(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_load(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_loadXML(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_loadXML(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_normalizeDocument(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_normalizeDocument(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_registerNodeClass(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_registerNodeClass(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_save(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_save(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_loadHTML(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_loadHTML(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_loadHTMLFile(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_loadHTMLFile(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_saveHTML(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_saveHTML(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_saveHTMLFile(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_saveHTMLFile(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_saveXML(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_saveXML(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_validate(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_validate(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_xinclude(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_xinclude(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMDocument_adoptNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMDocument_adoptNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_HTMLDocument_createEmpty(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_HTMLDocument_createEmpty(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_HTMLDocument_createFromFile(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_HTMLDocument_createFromFile(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_HTMLDocument_createFromString(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_HTMLDocument_createFromString(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XMLDocument_saveXml(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XMLDocument_saveXml(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_HTMLDocument_saveHtml(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_HTMLDocument_saveHtml(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_HTMLDocument_saveHtmlFile(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_HTMLDocument_saveHtmlFile(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XMLDocument_createEmpty(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XMLDocument_createEmpty(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XMLDocument_createFromFile(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XMLDocument_createFromFile(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XMLDocument_createFromString(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XMLDocument_createFromString(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XMLDocument_xinclude(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XMLDocument_xinclude(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNodeList_count(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNodeList_count(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNodeList_getIterator(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNodeList_getIterator(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNodeList_item(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNodeList_item(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNamedNodeMap_item(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNamedNodeMap_item(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNamedNodeMap_count(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNamedNodeMap_count(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMNamedNodeMap_getIterator(ptr noundef, ptr noundef) #3
+declare void @zim_DOMNamedNodeMap_getIterator(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_HTMLCollection_namedItem(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_HTMLCollection_namedItem(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMCharacterData_appendData(ptr noundef, ptr noundef) #3
+declare void @zim_DOMCharacterData_appendData(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMCharacterData_substringData(ptr noundef, ptr noundef) #3
+declare void @zim_DOMCharacterData_substringData(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMCharacterData_insertData(ptr noundef, ptr noundef) #3
+declare void @zim_DOMCharacterData_insertData(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMCharacterData_deleteData(ptr noundef, ptr noundef) #3
+declare void @zim_DOMCharacterData_deleteData(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMCharacterData_replaceData(ptr noundef, ptr noundef) #3
+declare void @zim_DOMCharacterData_replaceData(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_replaceWith(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_replaceWith(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_remove(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_remove(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_before(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_before(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_after(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_after(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_CharacterData_appendData(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_CharacterData_appendData(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_CharacterData_insertData(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_CharacterData_insertData(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_CharacterData_deleteData(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_CharacterData_deleteData(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_CharacterData_replaceData(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_CharacterData_replaceData(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMAttr___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMAttr___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMAttr_isId(ptr noundef, ptr noundef) #3
+declare void @zim_DOMAttr_isId(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_rename(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_rename(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getAttributeNames(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getAttributeNames(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getAttributeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getAttributeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getAttributeNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getAttributeNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_getAttributeNodeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_getAttributeNodeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_hasAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_hasAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_hasAttributeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_hasAttributeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_removeAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_removeAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_removeAttributeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_removeAttributeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_removeAttributeNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_removeAttributeNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setAttributeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setAttributeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setAttributeNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setAttributeNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setAttributeNodeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setAttributeNodeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setIdAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setIdAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setIdAttributeNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setIdAttributeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_setIdAttributeNode(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_setIdAttributeNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_toggleAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_toggleAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_insertAdjacentElement(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_insertAdjacentElement(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMElement_insertAdjacentText(ptr noundef, ptr noundef) #3
+declare void @zim_DOMElement_insertAdjacentText(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_removeAttribute(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_removeAttribute(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_setAttributeNodeNS(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_setAttributeNodeNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_removeAttributeNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_removeAttributeNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_insertAdjacentElement(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_insertAdjacentElement(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_insertAdjacentText(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_insertAdjacentText(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_insertAdjacentHTML(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_insertAdjacentHTML(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_setIdAttributeNode(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_setIdAttributeNode(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_closest(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_closest(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_matches(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_matches(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_getInScopeNamespaces(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_getInScopeNamespaces(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_Element_getDescendantNamespaces(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_Element_getDescendantNamespaces(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMText___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMText___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMText_isWhitespaceInElementContent(ptr noundef, ptr noundef) #3
+declare void @zim_DOMText_isWhitespaceInElementContent(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMText_splitText(ptr noundef, ptr noundef) #3
+declare void @zim_DOMText_splitText(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMComment___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMComment___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMCdataSection___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMCdataSection___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMEntityReference___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMEntityReference___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMProcessingInstruction___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMProcessingInstruction___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath___construct(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath_evaluate(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath_evaluate(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath_query(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath_query(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath_registerNamespace(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath_registerNamespace(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath_registerPhpFunctions(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath_registerPhpFunctions(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef, ptr noundef) #2
 
-declare void @zim_DOMXPath_quote(ptr noundef, ptr noundef) #3
+declare void @zim_DOMXPath_quote(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XPath___construct(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XPath___construct(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XPath_evaluate(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XPath_evaluate(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_XPath_query(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_XPath_query(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_item(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_item(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_contains(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_contains(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_add(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_add(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_remove(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_remove(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_toggle(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_toggle(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_replace(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_replace(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_supports(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_supports(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_count(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_count(ptr noundef, ptr noundef) #2
 
-declare void @zim_Dom_TokenList_getIterator(ptr noundef, ptr noundef) #3
+declare void @zim_Dom_TokenList_getIterator(ptr noundef, ptr noundef) #2
 
-declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @_emalloc_48() local_unnamed_addr #3
+declare noalias ptr @_emalloc_48() local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #12
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
-declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @gc_possible_root(ptr noundef) local_unnamed_addr #3
+declare void @gc_possible_root(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @xmlNodeAddContent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @xmlNodeAddContent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #3
+declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlSearchNsByHref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlSearchNsByHref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @php_libxml_set_old_ns(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @php_libxml_set_old_ns(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @php_dom_nodelist_get_item_into_zval(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @php_dom_nodelist_get_item_into_zval(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @php_dom_get_nodelist_length(ptr noundef) local_unnamed_addr #3
+declare i64 @php_dom_get_nodelist_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #12
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #11
 
-declare void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #3
+declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @php_dom_named_node_map_get_item_into_zval(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @php_dom_named_node_map_get_item_into_zval(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @php_dom_named_node_map_get_named_item(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @php_dom_named_node_map_get_named_item(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @php_dom_get_namednodemap_length(ptr noundef) local_unnamed_addr #3
+declare i64 @php_dom_get_namednodemap_length(ptr noundef) local_unnamed_addr #2
 
-declare void @zend_illegal_container_offset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @zend_illegal_container_offset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @zend_incompatible_double_to_long_error(double noundef) local_unnamed_addr #3
+declare void @zend_incompatible_double_to_long_error(double noundef) local_unnamed_addr #2
 
-declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #3
+declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
@@ -24106,7 +24100,13 @@ define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, p
   ret ptr %.3
 }
 
-declare ptr @php_dom_ns_compat_mark_attribute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @php_dom_ns_compat_mark_attribute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
@@ -24119,19 +24119,19 @@ declare double @llvm.fabs.f64(double) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }

@@ -1785,7 +1785,7 @@ entry:
   %coded_input.i = alloca %"class.google::protobuf::io::CodedInputStream", align 8
   %input = alloca %"class.google::protobuf::io::ArrayInputStream", align 8
   call void @_ZN6google8protobuf2io16ArrayInputStreamC1EPKvii(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef %data, i32 noundef %size, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %coded_input.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %coded_input.i)
   %input_.i.i = getelementptr inbounds nuw i8, ptr %coded_input.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %coded_input.i, i8 0, i64 16, i1 false)
   store ptr %input, ptr %input_.i.i, align 8
@@ -1831,7 +1831,7 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %tobool.i.i = trunc i8 %4 to i1
   %5 = select i1 %call.i1.i, i1 %tobool.i.i, i1 false
   call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %coded_input.i) #19
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %coded_input.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %coded_input.i)
   ret i1 %5
 }
 
@@ -1857,7 +1857,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZN4absl12lts_2023080216strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit: ; preds = %if.then.i, %if.else.i
   %call2 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %stream.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stream.i)
   %call.i2 = tail call noundef i64 @_ZN6google8protobuf8internal10WireFormat24ComputeUnknownFieldsSizeERKNS0_15UnknownFieldSetE(ptr noundef nonnull align 8 dereferenceable(24) %this)
   %0 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %frombool.i.i = and i8 %0, 1
@@ -1878,7 +1878,7 @@ _ZN4absl12lts_2023080216strings_internal37STLStringResizeUninitializedAmortizedI
   %skip_check_consistency.i.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   %call2.i = call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %call2, ptr noundef nonnull %stream.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %stream.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stream.i)
   ret i1 true
 }
 
@@ -1937,8 +1937,8 @@ entry:
 call2.i.noexc:                                    ; preds = %entry
   %start_count_.i = getelementptr inbounds nuw i8, ptr %coded_output_stream, i64 72
   store i64 %call2.i2, ptr %start_count_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
   %call.i.i3 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CordOutputStream4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(56) %cord_output_stream, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
           to label %call.i.i.noexc unwind label %lpad
 
@@ -1969,8 +1969,8 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
 
 invoke.cont:                                      ; preds = %call.i.i.noexc.invoke.cont_crit_edge, %if.then.i.i
   %4 = phi ptr [ %.pre, %call.i.i.noexc.invoke.cont_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
   %call2.i.i4 = invoke noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %4, ptr noundef nonnull %coded_output_stream)
           to label %call2.i.i.noexc unwind label %lpad2
 
@@ -2520,7 +2520,7 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPK
   br i1 %tobool8.not, label %return, label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %child.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %child.i)
   %22 = load ptr, ptr %field_parser, align 8
   %call.i57 = tail call noundef ptr @_ZN6google8protobuf15UnknownFieldSet8AddGroupEi(ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef %conv)
   store ptr %call.i57, ptr %child.i, align 8
@@ -2552,11 +2552,11 @@ if.end.i.i:                                       ; preds = %sw.bb11
   br i1 %cmp.i93, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread
 
 _ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread: ; preds = %sw.bb11, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %child.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %child.i)
   br label %return
 
 _ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit: ; preds = %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %child.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %child.i)
   %tobool13.not = icmp eq ptr %call.i94, null
   br i1 %tobool13.not, label %return, label %sw.epilog
 
@@ -3060,10 +3060,10 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

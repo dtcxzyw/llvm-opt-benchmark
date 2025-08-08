@@ -177,18 +177,18 @@ define internal i32 @test_bio_dgram(i32 noundef %0) #0 {
   %14 = load i32, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 5120, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 5120, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !10
   switch i32 %14, label %262 [
     i32 2, label %17
@@ -738,16 +738,16 @@ test_bio_dgram_impl.exit:                         ; preds = %268, %270
   call void @BIO_ADDR_free(ptr noundef %.0126.i) #5
   call void @BIO_ADDR_free(ptr noundef %.0125.i) #5
   call void @BIO_ADDR_free(ptr noundef %.0124.i) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 5120, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 5120, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0134.i
 }
 
@@ -762,18 +762,18 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %8 = alloca [2 x %struct.bio_msg_st], align 16
   %9 = alloca [2 x %struct.bio_msg_st], align 16
   %10 = alloca %struct.in_addr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 2052, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   store i32 16777343, ptr %10, align 4, !tbaa !12
@@ -1345,23 +1345,20 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   call void @BIO_ADDR_free(ptr noundef %.068140) #5
   call void @BIO_ADDR_free(ptr noundef %.067141) #5
   call void @BIO_ADDR_free(ptr noundef %.066142) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 2052, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.064143
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1404,11 +1401,11 @@ define internal fastcc range(i32 0, 2) i32 @compare_addr(ptr noundef %0, ptr nou
   %5 = alloca %struct.in6_addr, align 4
   %6 = alloca %struct.in6_addr, align 4
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @BIO_ADDR_family(ptr noundef %0) #5
   %9 = tail call i32 @BIO_ADDR_family(ptr noundef %1) #5
   %.not = icmp eq i32 %8, %9
@@ -1458,11 +1455,11 @@ define internal fastcc range(i32 0, 2) i32 @compare_addr(ptr noundef %0, ptr nou
 
 30:                                               ; preds = %24, %22, %19, %16, %13, %2
   %.018 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ 0, %22 ], [ %., %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.018
 }
 
@@ -1534,9 +1531,6 @@ declare i32 @BIO_closesocket(i32 noundef) local_unnamed_addr #1
 
 declare void @BIO_ADDR_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @BIO_ADDR_family(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_ADDR_rawaddress(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1559,8 +1553,8 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = trunc i64 %2 to i32
   store i32 %6, ptr %5, align 16, !tbaa !28
@@ -1601,8 +1595,8 @@ define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef nonnull %0, 
   %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ %10, %12 ], [ %10, %.preheader ], [ %10, %18 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %7) #5
   call void @EVP_CIPHER_free(ptr noundef %.0) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
 
@@ -1622,13 +1616,19 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

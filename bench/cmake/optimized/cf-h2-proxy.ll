@@ -196,7 +196,7 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not41, label %38, label %114
 
 38:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %39, i8 0, i64 160, i1 false)
@@ -204,9 +204,9 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   tail call void @Curl_bufq_init(ptr noundef nonnull %40, i64 noundef 16384, i64 noundef 640) #7
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 80
   tail call void @Curl_bufq_init(ptr noundef nonnull %41, i64 noundef 16384, i64 noundef 1) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 296
   store i32 0, ptr %42, align 8, !tbaa !37
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 288
@@ -233,15 +233,15 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not10.i.i, label %tunnel_stream_init.exit.thread.i, label %56
 
 tunnel_stream_init.exit.thread.i:                 ; preds = %47, %38
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %93
 
 56:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %57 = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %14) #7
   %.not41.i = icmp eq i32 %57, 0
   br i1 %.not41.i, label %59, label %58
@@ -265,16 +265,16 @@ tunnel_stream_init.exit.thread.i:                 ; preds = %47, %38
   call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %65, ptr noundef nonnull @proxy_h2_on_header) #7
   %66 = load ptr, ptr %14, align 8, !tbaa !35
   %67 = load ptr, ptr %16, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) @__const.proxy_h2_client_new.mem, i64 40, i1 false)
   %68 = call i32 @nghttp2_option_new(ptr noundef nonnull %9) #7
   %.not.i50.i = icmp eq i32 %68, 0
   br i1 %.not.i50.i, label %proxy_h2_client_new.exit.i, label %proxy_h2_client_new.exit.thread.i
 
 proxy_h2_client_new.exit.thread.i:                ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %74
 
 proxy_h2_client_new.exit.i:                       ; preds = %59
@@ -286,8 +286,8 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
   %72 = call i32 @nghttp2_session_client_new3(ptr noundef %67, ptr noundef %66, ptr noundef nonnull %0, ptr noundef %71, ptr noundef nonnull %10) #7
   %73 = load ptr, ptr %9, align 8, !tbaa !41
   call void @nghttp2_option_del(ptr noundef %73) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not42.i = icmp eq i32 %72, 0
   br i1 %.not42.i, label %75, label %74
 
@@ -296,7 +296,7 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
   br label %93
 
 75:                                               ; preds = %proxy_h2_client_new.exit.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 3, ptr %15, align 16, !tbaa !43
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %77 = load ptr, ptr %76, align 8, !tbaa !45
@@ -319,11 +319,11 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
 86:                                               ; preds = %75
   %87 = call ptr @nghttp2_strerror(i32 noundef %85) #7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, ptr noundef %87, i32 noundef %85) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %93
 
 88:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %89 = load ptr, ptr %35, align 8, !tbaa !15
   %90 = call i32 @nghttp2_session_set_local_window_size(ptr noundef %89, i8 noundef zeroext 0, i32 noundef 0, i32 noundef 104857600) #7
   %.not44.i = icmp eq i32 %90, 0
@@ -380,7 +380,7 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
   br label %cf_h2_proxy_ctx_init.exit
 
 cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %104, %108, %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not42, label %114, label %.critedge
 
 114:                                              ; preds = %34, %cf_h2_proxy_ctx_init.exit
@@ -461,7 +461,7 @@ H2_CONNECT.exit.thread47.thread:                  ; preds = %134
 
 153:                                              ; preds = %151, %146, %142, %137, %136
   %154 = load ptr, ptr %16, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !114
   %155 = call i32 @Curl_http_proxy_create_CONNECT(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1, i32 noundef 2) #7
   %.not.i.i43 = icmp eq i32 %155, 0
@@ -502,8 +502,8 @@ H2_CONNECT.exit.thread47.thread:                  ; preds = %134
 172:                                              ; preds = %168, %164, %159, %158
   %173 = load ptr, ptr %154, align 8, !tbaa !15
   %174 = load ptr, ptr %8, align 8, !tbaa !114
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Curl_dynhds_init(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 1048576) #7
   %175 = call i32 @Curl_http_req_to_h2(ptr noundef nonnull %5, ptr noundef %174, ptr noundef %1) #7
   %.not.i.i.i = icmp eq i32 %175, 0
@@ -515,12 +515,12 @@ H2_CONNECT.exit.thread47.thread:                  ; preds = %134
   br i1 %.not28.i.i.i, label %proxy_h2_submit.exit.i.i, label %178
 
 178:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @tunnel_send_callback, ptr %126, align 8, !tbaa !120
   store ptr %0, ptr %7, align 8, !tbaa !122
   %179 = load i64, ptr %6, align 8, !tbaa !123
   %180 = call i32 @nghttp2_submit_request(ptr noundef %173, ptr noundef null, ptr noundef nonnull %177, i64 noundef %179, ptr noundef nonnull %7, ptr noundef nonnull %18) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %182, label %proxy_h2_submit.exit.i.i
 
@@ -537,8 +537,8 @@ proxy_h2_submit.exit.i.i:                         ; preds = %182, %178, %176, %1
   call void %184(ptr noundef %.023.i.i.i) #7
   call void @Curl_dynhds_free(ptr noundef nonnull %5) #7
   store i32 %.022.i.i.i, ptr %125, align 4, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %185 = icmp ne i32 %.0.i.i.i, 0
   %or.cond4.i.i = and i1 %124, %185
   br i1 %or.cond4.i.i, label %186, label %202
@@ -588,11 +588,11 @@ proxy_h2_submit.exit.i.i:                         ; preds = %182, %178, %176, %1
 
 submit_CONNECT.exit.i:                            ; preds = %205
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.37) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %inspect_response.exit.i
 
 206:                                              ; preds = %205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %207 = load i32, ptr %120, align 8, !tbaa !37
   %208 = icmp eq i32 %207, 1
   br i1 %208, label %h2_tunnel_go_state.exit.i, label %209
@@ -1382,8 +1382,8 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = tail call i32 @Curl_conn_cf_get_socket(ptr noundef %0, ptr noundef %1) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = and i8 %10, 1
@@ -1618,8 +1618,8 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   br label %135
 
 135:                                              ; preds = %.sink.split, %86, %90
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2438,7 +2438,7 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
   br i1 %19, label %20, label %proxy_h2_connisalive.exit
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %2, align 1, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = call i64 @Curl_bufq_slurp(ptr noundef nonnull %21, ptr noundef nonnull @proxy_nw_in_reader, ptr noundef nonnull %0, ptr noundef nonnull %4) #7
@@ -2469,7 +2469,7 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
 
 proxy_h2_should_close_session.exit.i:             ; preds = %32, %29, %26, %23
   %.1.i = phi i1 [ false, %23 ], [ %.not19.i, %32 ], [ true, %26 ], [ %.not2.i.i, %29 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %proxy_h2_connisalive.exit
 
 proxy_h2_connisalive.exit:                        ; preds = %proxy_h2_should_close_session.exit.i, %17, %12, %9, %3
@@ -2595,7 +2595,7 @@ define internal i32 @cf_h2_proxy_query(ptr noundef %0, ptr noundef %1, i32 nound
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_cf_h2_proxy_insert_after(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !142
   %4 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !27
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 320) #7
@@ -2647,24 +2647,18 @@ cf_h2_proxy_ctx_clear.exit.i:                     ; preds = %13, %10
 
 cf_h2_proxy_ctx_free.exit:                        ; preds = %2, %cf_h2_proxy_ctx_clear.exit.i, %8
   %.013 = phi i32 [ 0, %8 ], [ %7, %cf_h2_proxy_ctx_clear.exit.i ], [ 27, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @Curl_cf_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_conn_cf_insert_after(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @Curl_conn_cf_connect(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -2675,7 +2669,7 @@ declare i32 @Curl_req_soft_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Curl_client_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @Curl_bufq_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2690,7 +2684,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr r
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %12 = call i64 @Curl_bufq_write_pass(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @proxy_h2_nw_out_writer, ptr noundef %4, ptr noundef nonnull %6) #7
@@ -2713,7 +2707,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr r
 
 19:                                               ; preds = %18, %14, %17
   %.0 = phi i64 [ -902, %17 ], [ -504, %14 ], [ %., %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
 
@@ -2758,7 +2752,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr readnone capt
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = call fastcc i32 @proxy_h2_fr_print(ptr noundef nonnull %1, ptr noundef %4)
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %29
@@ -2792,7 +2786,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr readnone capt
   br label %46
 
 46:                                               ; preds = %44, %39, %35, %27
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
 
 47:                                               ; preds = %46, %22, %18, %11, %3
@@ -3099,7 +3093,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr readnone captures(none) 
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = call fastcc i32 @proxy_h2_fr_print(ptr noundef %1, ptr noundef %4)
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %28
@@ -3134,7 +3128,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr readnone captures(none) 
   br label %46
 
 46:                                               ; preds = %43, %38, %34, %26
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %3, %46, %21, %17, %10, %5
@@ -3148,7 +3142,7 @@ define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr readnone captur
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 288
   %11 = load i32, ptr %10, align 8, !tbaa !133
   %.not = icmp eq i32 %2, %11
@@ -3166,7 +3160,7 @@ define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr readnone captur
 
 17:                                               ; preds = %12, %6
   %.0 = phi i32 [ -902, %6 ], [ %spec.select, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -3308,8 +3302,8 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr readnone captures
   br i1 %51, label %52, label %80
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %53 = call i32 @Curl_http_decode_status(ptr noundef nonnull %9, ptr noundef %4, i64 noundef %5) #7
   %.not83 = icmp eq i32 %53, 0
   br i1 %.not83, label %54, label %79
@@ -3362,8 +3356,8 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr readnone captures
 
 79:                                               ; preds = %57, %61, %68, %72, %77, %54, %52
   %.1 = phi i32 [ -902, %52 ], [ -902, %54 ], [ 0, %77 ], [ 0, %72 ], [ 0, %68 ], [ 0, %61 ], [ 0, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %105
 
 80:                                               ; preds = %50, %48
@@ -3593,7 +3587,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr noundef readonly captures(none
   br label %93
 
 68:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8, !tbaa !122
   %. = tail call i64 @llvm.umin.i64(i64 %70, i64 127)
@@ -3614,7 +3608,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr noundef readonly captures(none
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i32, ptr %78, align 8, !tbaa !122
   %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.24, i32 noundef %77, ptr noundef nonnull %3, i32 noundef %79) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %93
 
 81:                                               ; preds = %2
@@ -3677,7 +3671,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #7
@@ -3872,7 +3866,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
 
 100:                                              ; preds = %.critedge, %95, %97, %.split64.us, %84, %30
   %.0 = phi i32 [ %85, %84 ], [ %92, %.split64.us ], [ %31, %30 ], [ 0, %97 ], [ 0, %95 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -3954,7 +3948,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 
 40:                                               ; preds = %.critedge
   %41 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %42) #7
   br i1 %43, label %proxy_h2_nw_out_flush.exit, label %44
@@ -4054,7 +4048,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 
 proxy_h2_nw_out_flush.exit:                       ; preds = %40, %47, %69, %91
   %.0.i = phi i32 [ %93, %91 ], [ 0, %40 ], [ %.pre.i, %69 ], [ %48, %47 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %94
 
 94:                                               ; preds = %19, %20, %27, %32, %33, %38, %proxy_h2_nw_out_flush.exit
@@ -4083,7 +4077,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
 
 15:                                               ; preds = %7, %10
   %16 = phi ptr [ %14, %10 ], [ null, %7 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %53, label %17
 
@@ -4161,7 +4155,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
 
 53:                                               ; preds = %32, %33, %40, %44, %45, %50, %23, %17, %15
   %.0 = phi i64 [ -501, %15 ], [ -902, %17 ], [ %., %23 ], [ %21, %50 ], [ %21, %45 ], [ %21, %44 ], [ %21, %40 ], [ %21, %33 ], [ %21, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
 
@@ -4193,8 +4187,8 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   br i1 %9, label %.lr.ph, label %.loopexit
@@ -4332,8 +4326,8 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
 
 .loopexit:                                        ; preds = %74, %17, %19, %3, %59, %54, %50, %.split59.us, %.split.us
   %.0 = phi i32 [ -1, %.split.us ], [ 0, %.split59.us ], [ 0, %50 ], [ 0, %54 ], [ 0, %59 ], [ 0, %3 ], [ 0, %19 ], [ 0, %17 ], [ 0, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4435,6 +4429,12 @@ declare i32 @nghttp2_session_resume_data(ptr noundef, i32 noundef) local_unnamed
 
 declare i32 @nghttp2_session_consume(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
@@ -4443,9 +4443,9 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

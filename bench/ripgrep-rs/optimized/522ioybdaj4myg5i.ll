@@ -37,7 +37,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h46d05cae8456bbbbE.llvm.33
   ret void
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.019249c89b392e5cd1fec8153435207d.3.llvm.3382553183864397122, ptr %4, align 8, !alias.scope !4, !noalias !7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8, !alias.scope !4, !noalias !7
@@ -120,7 +120,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.33825531
   unreachable
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @anon.019249c89b392e5cd1fec8153435207d.7, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %5, align 8
@@ -968,7 +968,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
 ; Function Attrs: nonlazybind uwtable
 define { i1, i1 } @_ZN10grep_regex3ast11AstAnalysis8from_ast17hdb6b8d9a014ea309E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
   %2 = alloca { i8, i8 }, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %3, align 1
@@ -977,7 +977,7 @@ define { i1, i1 } @_ZN10grep_regex3ast11AstAnalysis8from_ast17hdb6b8d9a014ea309E
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr %3, align 1, !range !211, !noundef !16
   %7 = trunc nuw i8 %6 to i1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %8 = insertvalue { i1, i1 } poison, i1 %5, 0
   %9 = insertvalue { i1, i1 } %8, i1 %7, 1
   ret { i1, i1 } %9
@@ -1306,17 +1306,17 @@ declare i16 @llvm.cttz.i16(i16, i1 immarg) #17
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h4ed3e22d5344f10eE(i32 noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
-
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.8519985026491776260(i8 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

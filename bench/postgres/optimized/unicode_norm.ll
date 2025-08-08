@@ -29,8 +29,8 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %10 = icmp eq i32 %9, 2
   %11 = and i32 %0, -3
   %12 = icmp eq i32 %11, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = load i32, ptr %1, align 4
   %.not138 = icmp eq i32 %13, 0
   br i1 %.not138, label %._crit_edge, label %.lr.ph
@@ -91,7 +91,7 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %37 = sext i32 %.067146 to i64
   %38 = getelementptr inbounds i32, ptr %22, i64 %37
   %39 = load i32, ptr %38, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = tail call i32 @llvm.bswap.i32(i32 %36)
   store i32 %40, ptr %6, align 4
   br label %41
@@ -135,18 +135,18 @@ Decomp_hash_func.exit.i.i:                        ; preds = %41
   br i1 %.not.i.i, label %65, label %get_code_entry.exit.thread.i
 
 get_code_entry.exit.thread.i:                     ; preds = %61, %Decomp_hash_func.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %get_canonical_class.exit
 
 65:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %67 = load i8, ptr %66, align 4
   br label %get_canonical_class.exit
 
 get_canonical_class.exit:                         ; preds = %get_code_entry.exit.thread.i, %65
   %.0.i = phi i8 [ %67, %65 ], [ 0, %get_code_entry.exit.thread.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = tail call i32 @llvm.bswap.i32(i32 %39)
   store i32 %68, ptr %5, align 4
   br label %69
@@ -190,11 +190,11 @@ Decomp_hash_func.exit.i.i93:                      ; preds = %69
   br i1 %.not.i.i95, label %get_canonical_class.exit98, label %get_canonical_class.exit98.thread
 
 get_canonical_class.exit98.thread:                ; preds = %Decomp_hash_func.exit.i.i93, %89
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 
 get_canonical_class.exit98:                       ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i8, ptr %93, align 4
   %95 = icmp ne i8 %.0.i, 0
@@ -243,7 +243,7 @@ get_canonical_class.exit98:                       ; preds = %89
   %.076149 = phi i32 [ %106, %.lr.ph155.preheader ], [ %.177, %recompose_code.exit.thread ]
   %107 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %109 = tail call i32 @llvm.bswap.i32(i32 %108)
   store i32 %109, ptr %4, align 4
   br label %110
@@ -287,11 +287,11 @@ Decomp_hash_func.exit.i.i104:                     ; preds = %110
   br i1 %.not.i.i106, label %134, label %get_code_entry.exit.thread.i107
 
 get_code_entry.exit.thread.i107:                  ; preds = %130, %Decomp_hash_func.exit.i.i104
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_canonical_class.exit109
 
 134:                                              ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %136 = load i8, ptr %135, align 4
   br label %get_canonical_class.exit109
@@ -336,7 +336,7 @@ get_canonical_class.exit109:                      ; preds = %get_code_entry.exit
   br label %recompose_code.exit.thread
 
 157:                                              ; preds = %150, %148
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %158 = zext i32 %.076149 to i64
   %159 = shl nuw i64 %158, 32
   %160 = zext i32 %108 to i64
@@ -399,11 +399,11 @@ Recomp_hash_func.exit.i:                          ; preds = %163
 
 recompose_code.exit.thread126:                    ; preds = %195
   %200 = load i32, ptr %188, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %recompose_code.exit.thread
 
 .sink.split:                                      ; preds = %Recomp_hash_func.exit.i, %195, %183
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %201
 
 201:                                              ; preds = %.sink.split, %get_canonical_class.exit109
@@ -445,16 +445,13 @@ recompose_code.exit.thread:                       ; preds = %201, %recompose_cod
 
 208:                                              ; preds = %.sink.split177, %._crit_edge148, %._crit_edge145, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ %22, %._crit_edge145 ], [ %22, %._crit_edge148 ], [ %.0.ph, %.sink.split177 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = add i32 %0, -44032
   %or.cond = icmp ult i32 %4, 11172
@@ -468,7 +465,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
   br label %.loopexit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call i32 @llvm.bswap.i32(i32 %0)
   store i32 %8, ptr %3, align 4
   br label %9
@@ -512,11 +509,11 @@ Decomp_hash_func.exit.i:                          ; preds = %9
   br i1 %.not.i, label %33, label %get_code_entry.exit.thread
 
 get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.exit.i, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 33:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
@@ -569,10 +566,10 @@ get_code_decomposition.exit:                      ; preds = %45, %47
   ret i32 %.1
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
+define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = add i32 %0, -44032
   %or.cond = icmp ult i32 %6, 11172
@@ -611,7 +608,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
   br label %.loopexit.sink.split
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = tail call i32 @llvm.bswap.i32(i32 %0)
   store i32 %28, ptr %5, align 4
   br label %29
@@ -655,11 +652,11 @@ Decomp_hash_func.exit.i:                          ; preds = %29
   br i1 %.not.i, label %53, label %get_code_entry.exit.thread
 
 get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.exit.i, %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 53:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
@@ -726,13 +723,10 @@ get_code_decomposition.exit:                      ; preds = %68, %70
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -750,7 +744,7 @@ define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noun
   %.02353 = phi i8 [ %.0.i38, %95 ], [ 0, %.preheader ]
   %.02552 = phi i32 [ %.227.ph, %95 ], [ 1, %.preheader ]
   %.02951 = phi ptr [ %96, %95 ], [ %1, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
   store i32 %9, ptr %5, align 4
   br label %10
@@ -794,11 +788,11 @@ Decomp_hash_func.exit.i.i:                        ; preds = %10
   br i1 %.not.i.i, label %get_canonical_class.exit, label %get_canonical_class.exit.thread
 
 get_canonical_class.exit.thread:                  ; preds = %Decomp_hash_func.exit.i.i, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 get_canonical_class.exit:                         ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = icmp ugt i8 %.02353, %35
@@ -814,7 +808,7 @@ get_canonical_class.exit:                         ; preds = %30
   ]
 
 39:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %9, ptr %4, align 4
   br label %40
 
@@ -860,11 +854,11 @@ NFC_QC_hash_func.exit.i:                          ; preds = %40
 
 qc_hash_lookup.exit.i:                            ; preds = %60, %NFC_QC_hash_func.exit.i
   %.0.i.i = phi ptr [ null, %NFC_QC_hash_func.exit.i ], [ %..i.i, %60 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %91
 
 65:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %9, ptr %3, align 4
   br label %66
 
@@ -910,7 +904,7 @@ NFKC_QC_hash_func.exit.i:                         ; preds = %66
 
 qc_hash_lookup.exit10.i:                          ; preds = %86, %NFKC_QC_hash_func.exit.i
   %.0.i7.i = phi ptr [ null, %NFKC_QC_hash_func.exit.i ], [ %..i9.i, %86 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %91
 
 91:                                               ; preds = %qc_hash_lookup.exit10.i, %qc_hash_lookup.exit.i
@@ -943,18 +937,24 @@ qc_is_allowed.exit.thread:                        ; preds = %38, %91, %qc_is_all
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #6
+declare i64 @llvm.bswap.i64(i64) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

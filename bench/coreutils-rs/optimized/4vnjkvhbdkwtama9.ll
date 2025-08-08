@@ -140,15 +140,15 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
 
 11:                                               ; preds = %.lr.ph, %19
   %.013 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %8, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef 1, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %.013, i32 noundef 0), !noalias !30
   %12 = load i32, ptr %5, align 8, !range !31, !noundef !4
   %trunc = trunc nuw i32 %12 to i1
   %13 = load i64, ptr %9, align 8
   %14 = load i32, ptr %10, align 4, !range !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %trunc, label %17, label %15
 
 .loopexit:                                        ; preds = %19, %3, %17
@@ -161,11 +161,11 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   br i1 %16, label %18, label %19
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.1e8d7eed5618f48a9e8926bf8fbbdc06.1.llvm.12736379047329743416, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -178,7 +178,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
 
 19:                                               ; preds = %15
   %20 = sub i64 %.013, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.loopexit, label %11
 }
@@ -270,10 +270,10 @@ declare void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef sret(
 declare void @_ZN4core9panicking14panic_explicit17haa6fd94c1be858f7E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5

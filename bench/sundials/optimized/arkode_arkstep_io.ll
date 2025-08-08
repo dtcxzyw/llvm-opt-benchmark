@@ -143,8 +143,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @ARKStepSetExplicit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetExplicit, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %14
@@ -169,27 +169,21 @@ define i32 @ARKStepSetExplicit(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %1, %11, %9
   %.0 = phi i32 [ -22, %9 ], [ 0, %11 ], [ %4, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @arkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetImplicit, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %37
@@ -253,21 +247,21 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
 
 37:                                               ; preds = %35, %1, %36, %10
   %.05 = phi i32 [ -22, %10 ], [ 0, %36 ], [ %4, %1 ], [ %.0, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.05
 }
 
-declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetImEx, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %42
@@ -341,8 +335,8 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %40, %1, %41, %15, %9
   %.05 = phi i32 [ -22, %9 ], [ -22, %15 ], [ 0, %41 ], [ %4, %1 ], [ %.0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.05
 }
 
@@ -354,10 +348,10 @@ define i32 @ARKStepSetTables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetTables, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %156
@@ -469,8 +463,8 @@ define i32 @ARKStepSetTables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %156
 
 80:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %81 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetExplicit, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %.not.i = icmp eq i32 %81, 0
   br i1 %.not.i, label %82, label %90
@@ -491,14 +485,14 @@ ARKStepSetExplicit.exit:                          ; preds = %82
   store i32 1, ptr %88, align 4, !tbaa !20
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store i32 0, ptr %89, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %131
 
 90:                                               ; preds = %86, %80
   %.0.i.ph = phi i32 [ %81, %80 ], [ -22, %86 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %91 = load ptr, ptr %8, align 8, !tbaa !18
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %91, i32 noundef -22, i32 noundef 244, ptr noundef nonnull @__func__.ARKStepSetTables, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #5
   br label %156
@@ -614,18 +608,18 @@ ARKStepSetExplicit.exit:                          ; preds = %82
 
 156:                                              ; preds = %5, %131, %129, %125, %118, %109, %105, %90, %78, %26, %16
   %.0 = phi i32 [ -22, %16 ], [ -22, %26 ], [ -21, %78 ], [ %.0.i.ph, %90 ], [ 0, %131 ], [ -21, %105 ], [ -22, %109 ], [ -21, %118 ], [ -21, %125 ], [ -22, %129 ], [ %12, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare void @ARKodeButcherTable_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodeButcherTable_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ARKodeButcherTable_Copy(ptr noundef) local_unnamed_addr #2
+declare ptr @ARKodeButcherTable_Copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -635,10 +629,10 @@ define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetTableNum, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %152
@@ -739,8 +733,8 @@ define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %69 = load i32, ptr %68, align 4, !tbaa !46
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 92
   store i32 %69, ptr %70, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetExplicit, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not.i = icmp eq i32 %71, 0
   br i1 %.not.i, label %72, label %80
@@ -761,14 +755,14 @@ ARKStepSetExplicit.exit:                          ; preds = %72
   store i32 1, ptr %78, align 4, !tbaa !20
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store i32 0, ptr %79, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %152
 
 80:                                               ; preds = %76, %62
   %.0.i.ph = phi i32 [ %71, %62 ], [ -22, %76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %81 = load ptr, ptr %6, align 8, !tbaa !18
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %81, i32 noundef -22, i32 noundef 407, ptr noundef nonnull @__func__.ARKStepSetTableNum, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #5
   br label %152
@@ -910,16 +904,16 @@ ARKStepSetExplicit.exit:                          ; preds = %72
 
 152:                                              ; preds = %ARKStepSetExplicit.exit, %93, %140, %3, %150, %138, %134, %123, %103, %91, %85, %80, %60, %54, %50
   %.0 = phi i32 [ -22, %50 ], [ -22, %54 ], [ -22, %60 ], [ %.0.i.ph, %80 ], [ -22, %85 ], [ -22, %91 ], [ %102, %103 ], [ -22, %134 ], [ -22, %138 ], [ -22, %150 ], [ -22, %123 ], [ %10, %3 ], [ 0, %ARKStepSetExplicit.exit ], [ 0, %140 ], [ 0, %93 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #2
+declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #1
 
-declare ptr @ARKodeButcherTable_LoadDIRK(i32 noundef) local_unnamed_addr #2
+declare ptr @ARKodeButcherTable_LoadDIRK(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetTableName(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -929,14 +923,14 @@ define i32 @ARKStepSetTableName(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %6
 }
 
-declare i32 @arkButcherTableDIRKNameToID(ptr noundef) local_unnamed_addr #2
+declare i32 @arkButcherTableDIRKNameToID(ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkButcherTableERKNameToID(ptr noundef) local_unnamed_addr #2
+declare i32 @arkButcherTableERKNameToID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
   %5 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNumRhsEvals, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -988,11 +982,11 @@ define i32 @arkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef w
 
 26:                                               ; preds = %14, %17, %20, %3, %11, %8
   %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ %5, %3 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @arkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1009,14 +1003,14 @@ define i32 @ARKStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ret i32 %.0
 }
 
-declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetCurrentButcherTables(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepGetCurrentButcherTables, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -1032,8 +1026,8 @@ define i32 @ARKStepGetCurrentButcherTables(ptr noundef %0, ptr noundef writeonly
   br label %13
 
 13:                                               ; preds = %3, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
@@ -1041,8 +1035,8 @@ define i32 @ARKStepGetCurrentButcherTables(ptr noundef %0, ptr noundef writeonly
 define i32 @ARKStepGetTimestepperStats(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepGetTimestepperStats, ptr noundef nonnull %9, ptr noundef nonnull %10) #5
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %31
@@ -1076,8 +1070,8 @@ define i32 @ARKStepGetTimestepperStats(ptr noundef %0, ptr noundef writeonly cap
   br label %31
 
 31:                                               ; preds = %8, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %11
 }
 
@@ -1087,16 +1081,16 @@ define i32 @arkStep_SetRelaxFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   ret i32 %4
 }
 
-declare i32 @arkRelaxCreate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkRelaxCreate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkStep_RelaxDeltaE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @arkStep_RelaxDeltaE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @arkStep_GetOrder(ptr noundef) #2
+declare i32 @arkStep_GetOrder(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetUserData, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %18
@@ -1134,13 +1128,13 @@ define i32 @arkStep_SetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %15, %9, %2, %17
   %.0 = phi i32 [ 0, %17 ], [ %4, %2 ], [ %10, %9 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @arkLSSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkLSSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkLSSetMassUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkLSSetMassUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -1149,11 +1143,11 @@ define i32 @arkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetDefaults, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %120
@@ -1353,30 +1347,30 @@ define i32 @arkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 120:                                              ; preds = %107, %111, %1, %106, %99
   %.0 = phi i32 [ -20, %99 ], [ -20, %106 ], [ %7, %1 ], [ 0, %111 ], [ 0, %107 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_PID(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_PID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetOrder, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %42
@@ -1434,16 +1428,16 @@ define i32 @arkStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br label %42
 
 42:                                               ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetLinear, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %16
@@ -1476,14 +1470,14 @@ define i32 @arkStep_SetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 16:                                               ; preds = %2, %10, %9
   %.0 = phi i32 [ -22, %9 ], [ 0, %10 ], [ %4, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinear, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %9
@@ -1499,14 +1493,14 @@ define i32 @arkStep_SetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %1, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetAutonomous(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetAutonomous, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %24
@@ -1562,20 +1556,20 @@ define i32 @arkStep_SetAutonomous(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 24:                                               ; preds = %.thread21, %17, %2, %22, %16
   %.0 = phi i32 [ -22, %16 ], [ -20, %22 ], [ %4, %2 ], [ 0, %17 ], [ 0, %.thread21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @arkStep_SetNlsSysFn(ptr noundef) local_unnamed_addr #2
+declare i32 @arkStep_SetNlsSysFn(ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNonlinCRDown(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinCRDown, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -1589,14 +1583,14 @@ define i32 @arkStep_SetNonlinCRDown(ptr noundef %0, double noundef %1) local_unn
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNonlinRDiv(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinRDiv, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -1610,14 +1604,14 @@ define i32 @arkStep_SetNonlinRDiv(ptr noundef %0, double noundef %1) local_unnam
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetDeltaGammaMax, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -1631,14 +1625,14 @@ define i32 @arkStep_SetDeltaGammaMax(ptr noundef %0, double noundef %1) local_un
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetLSetupFrequency, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -1652,14 +1646,14 @@ define i32 @arkStep_SetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unn
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetPredictorMethod, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %10
@@ -1678,14 +1672,14 @@ define i32 @arkStep_SetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unn
 
 10:                                               ; preds = %5, %2, %9
   %.0 = phi i32 [ -22, %9 ], [ %4, %2 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetMaxNonlinIters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %16
@@ -1716,16 +1710,16 @@ define i32 @arkStep_SetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unna
 
 16:                                               ; preds = %10, %15, %11, %2
   %.0 = phi i32 [ %4, %2 ], [ -22, %10 ], [ -32, %15 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetNonlinConvCoef(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinConvCoef, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -1739,14 +1733,14 @@ define i32 @arkStep_SetNonlinConvCoef(ptr noundef %0, double noundef %1) local_u
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetStagePredictFn, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -1758,14 +1752,14 @@ define i32 @arkStep_SetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unna
   br label %8
 
 8:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_SetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetDeduceImplicitRhs, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -1777,14 +1771,14 @@ define i32 @arkStep_SetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_u
   br label %8
 
 8:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetCurrentGamma(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetCurrentGamma, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1797,14 +1791,14 @@ define i32 @arkStep_GetCurrentGamma(ptr noundef %0, ptr noundef writeonly captur
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetEstLocalErrors, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %20
@@ -1836,16 +1830,16 @@ define i32 @arkStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unna
 
 20:                                               ; preds = %8, %12, %2, %17
   %.0 = phi i32 [ 0, %17 ], [ %4, %2 ], [ -48, %12 ], [ -48, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetNumLinSolvSetups(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNumLinSolvSetups, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1858,14 +1852,14 @@ define i32 @arkStep_GetNumLinSolvSetups(ptr noundef %0, ptr noundef writeonly ca
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetNumNonlinSolvIters(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNumNonlinSolvIters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1878,14 +1872,14 @@ define i32 @arkStep_GetNumNonlinSolvIters(ptr noundef %0, ptr noundef writeonly 
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNumNonlinSolvConvFails, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1898,14 +1892,14 @@ define i32 @arkStep_GetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef writeo
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_GetNonlinSolvStats(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNonlinSolvStats, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -1921,14 +1915,14 @@ define i32 @arkStep_GetNonlinSolvStats(ptr noundef %0, ptr noundef writeonly cap
   br label %12
 
 12:                                               ; preds = %3, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_PrintAllStats, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %255
@@ -2231,17 +2225,17 @@ define i32 @arkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1,
 
 255:                                              ; preds = %253, %100, %96, %3, %254
   %.0 = phi i32 [ -22, %254 ], [ %5, %3 ], [ 0, %96 ], [ 0, %100 ], [ 0, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_WriteParameters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %68
@@ -2344,7 +2338,7 @@ define i32 @arkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %
   br label %68
 
 68:                                               ; preds = %2, %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
@@ -2354,7 +2348,7 @@ define i32 @ARKStepCreateMRIStepInnerStepper(ptr noundef %0, ptr noundef %1) loc
   ret i32 %3
 }
 
-declare i32 @ARKodeCreateMRIStepInnerStepper(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeCreateMRIStepInnerStepper(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepResize(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -2362,7 +2356,7 @@ define i32 @ARKStepResize(ptr noundef %0, ptr noundef %1, double noundef %2, dou
   ret i32 %7
 }
 
-declare i32 @ARKodeResize(ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeResize(ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2370,7 +2364,7 @@ define i32 @ARKStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) loca
   ret i32 %4
 }
 
-declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -2390,7 +2384,7 @@ define i32 @ARKStepWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepResStolerance(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -2398,7 +2392,7 @@ define i32 @ARKStepResStolerance(ptr noundef %0, double noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeResStolerance(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeResStolerance(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepResVtolerance(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2406,7 +2400,7 @@ define i32 @ARKStepResVtolerance(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeResVtolerance(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeResVtolerance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepResFtolerance(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2414,7 +2408,7 @@ define i32 @ARKStepResFtolerance(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeResFtolerance(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeResFtolerance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2422,7 +2416,7 @@ define i32 @ARKStepSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @ARKodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMassLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -2430,7 +2424,7 @@ define i32 @ARKStepSetMassLinearSolver(ptr noundef %0, ptr noundef %1, ptr nound
   ret i32 %5
 }
 
-declare i32 @ARKodeSetMassLinearSolver(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMassLinearSolver(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2438,7 +2432,7 @@ define i32 @ARKStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   ret i32 %4
 }
 
-declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -2446,7 +2440,7 @@ define i32 @ARKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
@@ -2454,10 +2448,10 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %247
@@ -2917,22 +2911,22 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 
 247:                                              ; preds = %53, %233, %237, %62, %72, %93, %114, %137, %1, %215, %196, %177, %160, %135, %112, %91, %70, %51, %38, %12
   %.0 = phi i32 [ -21, %12 ], [ -20, %38 ], [ -20, %160 ], [ -20, %177 ], [ -20, %196 ], [ -20, %215 ], [ -20, %70 ], [ -20, %91 ], [ -20, %112 ], [ -20, %135 ], [ -20, %51 ], [ %6, %1 ], [ 0, %137 ], [ 0, %114 ], [ 0, %93 ], [ 0, %72 ], [ 0, %62 ], [ 0, %237 ], [ 0, %233 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare ptr @SUNAdaptController_PI(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_PI(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetErrorBias(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetErrorBias(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_PI(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_PI(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_I(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_I(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_PID(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_PID(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2940,7 +2934,7 @@ define i32 @ARKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   ret i32 %3
 }
 
-declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2948,7 +2942,7 @@ define i32 @ARKStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2956,7 +2950,7 @@ define i32 @ARKStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetDenseOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2970,7 +2964,7 @@ define i32 @ARKStepSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2978,7 +2972,7 @@ define i32 @ARKStepSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNlsRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNlsRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2986,7 +2980,7 @@ define i32 @ARKStepSetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
@@ -2994,7 +2988,7 @@ define i32 @ARKStepSetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetNonlinear(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3002,7 +2996,7 @@ define i32 @ARKStepSetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetDeduceImplicitRhs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDeduceImplicitRhs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetAdaptController(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3010,7 +3004,7 @@ define i32 @ARKStepSetAdaptController(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetAdaptController(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetAdaptController(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3018,7 +3012,7 @@ define i32 @ARKStepSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local
   ret i32 %3
 }
 
-declare i32 @ARKodeSetAdaptivityAdjustment(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetAdaptivityAdjustment(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetCFLFraction(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3026,7 +3020,7 @@ define i32 @ARKStepSetCFLFraction(ptr noundef %0, double noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetCFLFraction(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetCFLFraction(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetSafetyFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3034,7 +3028,7 @@ define i32 @ARKStepSetSafetyFactor(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetSafetyFactor(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetSafetyFactor(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3042,7 +3036,7 @@ define i32 @ARKStepSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetErrorBias(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetErrorBias(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3050,7 +3044,7 @@ define i32 @ARKStepSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMinReduction(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3058,7 +3052,7 @@ define i32 @ARKStepSetMinReduction(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMinReduction(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMinReduction(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetFixedStepBounds(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -3066,7 +3060,7 @@ define i32 @ARKStepSetFixedStepBounds(ptr noundef %0, double noundef %1, double 
   ret i32 %4
 }
 
-declare i32 @ARKodeSetFixedStepBounds(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetFixedStepBounds(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetAdaptivityMethod(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -3074,7 +3068,7 @@ define i32 @ARKStepSetAdaptivityMethod(ptr noundef %0, i32 noundef %1, i32 nound
   ret i32 %6
 }
 
-declare i32 @arkSetAdaptivityMethod(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkSetAdaptivityMethod(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetAdaptivityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3082,7 +3076,7 @@ define i32 @ARKStepSetAdaptivityFn(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @arkSetAdaptivityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkSetAdaptivityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3090,7 +3084,7 @@ define i32 @ARKStepSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxFirstGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxFirstGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3098,7 +3092,7 @@ define i32 @ARKStepSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxEFailGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxEFailGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3106,7 +3100,7 @@ define i32 @ARKStepSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetSmallNumEFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetSmallNumEFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxCFailGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3114,7 +3108,7 @@ define i32 @ARKStepSetMaxCFailGrowth(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxCFailGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxCFailGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetNonlinCRDown(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3122,7 +3116,7 @@ define i32 @ARKStepSetNonlinCRDown(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinCRDown(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinCRDown(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetNonlinRDiv(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3130,7 +3124,7 @@ define i32 @ARKStepSetNonlinRDiv(ptr noundef %0, double noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinRDiv(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinRDiv(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3138,7 +3132,7 @@ define i32 @ARKStepSetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeSetDeltaGammaMax(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDeltaGammaMax(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3146,7 +3140,7 @@ define i32 @ARKStepSetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLSetupFrequency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLSetupFrequency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3154,7 +3148,7 @@ define i32 @ARKStepSetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPredictorMethod(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPredictorMethod(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetStabilityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3162,7 +3156,7 @@ define i32 @ARKStepSetStabilityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ret i32 %4
 }
 
-declare i32 @ARKodeSetStabilityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStabilityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxErrTestFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3170,7 +3164,7 @@ define i32 @ARKStepSetMaxErrTestFails(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxErrTestFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxErrTestFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3178,7 +3172,7 @@ define i32 @ARKStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNonlinIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNonlinIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxConvFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3186,7 +3180,7 @@ define i32 @ARKStepSetMaxConvFails(ptr noundef %0, i32 noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxConvFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxConvFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetNonlinConvCoef(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3194,7 +3188,7 @@ define i32 @ARKStepSetNonlinConvCoef(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinConvCoef(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinConvCoef(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3202,7 +3196,7 @@ define i32 @ARKStepSetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetConstraints(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetConstraints(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -3210,7 +3204,7 @@ define i32 @ARKStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3218,7 +3212,7 @@ define i32 @ARKStepSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxHnilWarns(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxHnilWarns(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetInitStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3226,7 +3220,7 @@ define i32 @ARKStepSetInitStep(ptr noundef %0, double noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInitStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInitStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3234,7 +3228,7 @@ define i32 @ARKStepSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMinStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMinStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3242,7 +3236,7 @@ define i32 @ARKStepSetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3250,7 +3244,7 @@ define i32 @ARKStepSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) local_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolateStopTime(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolateStopTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3258,7 +3252,7 @@ define i32 @ARKStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepClearStopTime(ptr noundef %0) local_unnamed_addr #0 {
@@ -3266,7 +3260,7 @@ define i32 @ARKStepClearStopTime(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeClearStopTime(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeClearStopTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3274,7 +3268,7 @@ define i32 @ARKStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMaxNumConstrFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3282,7 +3276,7 @@ define i32 @ARKStepSetMaxNumConstrFails(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNumConstrFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumConstrFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3290,7 +3284,7 @@ define i32 @ARKStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
@@ -3298,7 +3292,7 @@ define i32 @ARKStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3306,7 +3300,7 @@ define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3314,7 +3308,7 @@ define i32 @ARKStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3322,7 +3316,7 @@ define i32 @ARKStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3330,7 +3324,7 @@ define i32 @ARKStepSetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetStagePredictFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStagePredictFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3338,7 +3332,7 @@ define i32 @ARKStepSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   ret i32 %3
 }
 
-declare i32 @ARKodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMassFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3346,7 +3340,7 @@ define i32 @ARKStepSetMassFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMassFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMassFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -3354,7 +3348,7 @@ define i32 @ARKStepSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeSetJacEvalFrequency(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacEvalFrequency(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3362,7 +3356,7 @@ define i32 @ARKStepSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) loca
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLinearSolutionScaling(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinearSolutionScaling(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3370,7 +3364,7 @@ define i32 @ARKStepSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeSetEpsLin(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetEpsLin(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMassEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3378,7 +3372,7 @@ define i32 @ARKStepSetMassEpsLin(ptr noundef %0, double noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMassEpsLin(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMassEpsLin(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3386,7 +3380,7 @@ define i32 @ARKStepSetLSNormFactor(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLSNormFactor(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLSNormFactor(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMassLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3394,7 +3388,7 @@ define i32 @ARKStepSetMassLSNormFactor(ptr noundef %0, double noundef %1) local_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMassLSNormFactor(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMassLSNormFactor(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3402,7 +3396,7 @@ define i32 @ARKStepSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef
   ret i32 %4
 }
 
-declare i32 @ARKodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMassPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3410,7 +3404,7 @@ define i32 @ARKStepSetMassPreconditioner(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %4
 }
 
-declare i32 @ARKodeSetMassPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMassPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3418,7 +3412,7 @@ define i32 @ARKStepSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   ret i32 %4
 }
 
-declare i32 @ARKodeSetJacTimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacTimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3426,7 +3420,7 @@ define i32 @ARKStepSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetJacTimesRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacTimesRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetMassTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3434,7 +3428,7 @@ define i32 @ARKStepSetMassTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 %5
 }
 
-declare i32 @ARKodeSetMassTimes(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMassTimes(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3442,7 +3436,7 @@ define i32 @ARKStepSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLinSysFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -3450,7 +3444,7 @@ define i32 @ARKStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   ret i32 %6
 }
 
-declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3458,7 +3452,7 @@ define i32 @ARKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   ret i32 %5
 }
 
-declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3466,7 +3460,7 @@ define i32 @ARKStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %4
 }
 
-declare i32 @ARKodeComputeState(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeComputeState(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumExpSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3474,7 +3468,7 @@ define i32 @ARKStepGetNumExpSteps(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumExpSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumExpSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumAccSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3482,7 +3476,7 @@ define i32 @ARKStepGetNumAccSteps(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumAccSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumAccSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumStepAttempts(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3490,7 +3484,7 @@ define i32 @ARKStepGetNumStepAttempts(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumLinSolvSetups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3498,7 +3492,7 @@ define i32 @ARKStepGetNumLinSolvSetups(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinSolvSetups(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinSolvSetups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumErrTestFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3506,7 +3500,7 @@ define i32 @ARKStepGetNumErrTestFails(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumErrTestFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumErrTestFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3514,7 +3508,7 @@ define i32 @ARKStepGetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetEstLocalErrors(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetEstLocalErrors(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3522,7 +3516,7 @@ define i32 @ARKStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %4
 }
 
-declare i32 @ARKodeGetWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3530,7 +3524,7 @@ define i32 @ARKStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetActualInitStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3538,7 +3532,7 @@ define i32 @ARKStepGetActualInitStep(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetActualInitStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetActualInitStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3546,7 +3540,7 @@ define i32 @ARKStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetCurrentStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3554,7 +3548,7 @@ define i32 @ARKStepGetCurrentStep(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3562,7 +3556,7 @@ define i32 @ARKStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetCurrentState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3570,7 +3564,7 @@ define i32 @ARKStepGetCurrentState(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetCurrentGamma(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3578,7 +3572,7 @@ define i32 @ARKStepGetCurrentGamma(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentGamma(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentGamma(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetCurrentMassMatrix(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3586,7 +3580,7 @@ define i32 @ARKStepGetCurrentMassMatrix(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentMassMatrix(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentMassMatrix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetTolScaleFactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3594,7 +3588,7 @@ define i32 @ARKStepGetTolScaleFactor(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetTolScaleFactor(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetTolScaleFactor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3602,7 +3596,7 @@ define i32 @ARKStepGetErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeGetErrWeights(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetErrWeights(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetResWeights(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3610,7 +3604,7 @@ define i32 @ARKStepGetResWeights(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeGetResWeights(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetResWeights(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumGEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3618,7 +3612,7 @@ define i32 @ARKStepGetNumGEvals(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumGEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumGEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3626,7 +3620,7 @@ define i32 @ARKStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumConstrFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3634,7 +3628,7 @@ define i32 @ARKStepGetNumConstrFails(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumConstrFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumConstrFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3642,7 +3636,7 @@ define i32 @ARKStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -3650,7 +3644,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
-declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ARKStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
@@ -3658,7 +3652,7 @@ define ptr @ARKStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #2
+declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3666,14 +3660,14 @@ define i32 @ARKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepWriteButcher, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %45
@@ -3748,12 +3742,12 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 45:                                               ; preds = %2, %44, %15
   %.0 = phi i32 [ -21, %15 ], [ 0, %44 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetStepStats(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -3761,7 +3755,7 @@ define i32 @ARKStepGetStepStats(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 %7
 }
 
-declare i32 @ARKodeGetStepStats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetStepStats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNonlinearSystemData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -3769,7 +3763,7 @@ define i32 @ARKStepGetNonlinearSystemData(ptr noundef %0, ptr noundef %1, ptr no
   ret i32 %9
 }
 
-declare i32 @ARKodeGetNonlinearSystemData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNonlinearSystemData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumNonlinSolvIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3777,7 +3771,7 @@ define i32 @ARKStepGetNumNonlinSolvIters(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumNonlinSolvIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumNonlinSolvIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3785,7 +3779,7 @@ define i32 @ARKStepGetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef %1) loc
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNonlinSolvStats(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3793,7 +3787,7 @@ define i32 @ARKStepGetNonlinSolvStats(ptr noundef %0, ptr noundef %1, ptr nounde
   ret i32 %4
 }
 
-declare i32 @ARKodeGetNonlinSolvStats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNonlinSolvStats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumStepSolveFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3801,7 +3795,7 @@ define i32 @ARKStepGetNumStepSolveFails(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumStepSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumStepSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetJac(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3809,7 +3803,7 @@ define i32 @ARKStepGetJac(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   ret i32 %3
 }
 
-declare i32 @ARKodeGetJac(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetJac(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetJacTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3817,7 +3811,7 @@ define i32 @ARKStepGetJacTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   ret i32 %3
 }
 
-declare i32 @ARKodeGetJacTime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetJacTime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetJacNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3825,7 +3819,7 @@ define i32 @ARKStepGetJacNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetJacNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetJacNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetLinWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3833,7 +3827,7 @@ define i32 @ARKStepGetLinWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @ARKodeGetLinWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLinWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumJacEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3841,7 +3835,7 @@ define i32 @ARKStepGetNumJacEvals(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumPrecEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3849,7 +3843,7 @@ define i32 @ARKStepGetNumPrecEvals(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumPrecEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumPrecEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumPrecSolves(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3857,7 +3851,7 @@ define i32 @ARKStepGetNumPrecSolves(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumPrecSolves(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumPrecSolves(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumLinIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3865,7 +3859,7 @@ define i32 @ARKStepGetNumLinIters(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumLinConvFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3873,7 +3867,7 @@ define i32 @ARKStepGetNumLinConvFails(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumJTSetupEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3881,7 +3875,7 @@ define i32 @ARKStepGetNumJTSetupEvals(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumJTSetupEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJTSetupEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumJtimesEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3889,7 +3883,7 @@ define i32 @ARKStepGetNumJtimesEvals(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumJtimesEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJtimesEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumLinRhsEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3897,7 +3891,7 @@ define i32 @ARKStepGetNumLinRhsEvals(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetLastLinFlag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3905,7 +3899,7 @@ define i32 @ARKStepGetLastLinFlag(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastLinFlag(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastLinFlag(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetMassWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3913,7 +3907,7 @@ define i32 @ARKStepGetMassWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %4
 }
 
-declare i32 @ARKodeGetMassWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetMassWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassSetups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3921,7 +3915,7 @@ define i32 @ARKStepGetNumMassSetups(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassSetups(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassSetups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassMultSetups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3929,7 +3923,7 @@ define i32 @ARKStepGetNumMassMultSetups(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassMultSetups(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassMultSetups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassMult(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3937,7 +3931,7 @@ define i32 @ARKStepGetNumMassMult(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassMult(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassMult(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassSolves(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3945,7 +3939,7 @@ define i32 @ARKStepGetNumMassSolves(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassSolves(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassSolves(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassPrecEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3953,7 +3947,7 @@ define i32 @ARKStepGetNumMassPrecEvals(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassPrecEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassPrecEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassPrecSolves(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3961,7 +3955,7 @@ define i32 @ARKStepGetNumMassPrecSolves(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassPrecSolves(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassPrecSolves(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3969,7 +3963,7 @@ define i32 @ARKStepGetNumMassIters(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMassConvFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3977,7 +3971,7 @@ define i32 @ARKStepGetNumMassConvFails(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMassConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMassConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumMTSetups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3985,7 +3979,7 @@ define i32 @ARKStepGetNumMTSetups(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumMTSetups(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumMTSetups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetLastMassFlag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3993,7 +3987,7 @@ define i32 @ARKStepGetLastMassFlag(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastMassFlag(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastMassFlag(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ARKStepGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
@@ -4001,7 +3995,7 @@ define ptr @ARKStepGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @ARKodeGetLinReturnFlagName(i64 noundef) local_unnamed_addr #2
+declare ptr @ARKodeGetLinReturnFlagName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ARKStepFree(ptr noundef %0) local_unnamed_addr #0 {
@@ -4009,7 +4003,7 @@ define void @ARKStepFree(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ARKStepPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4017,7 +4011,7 @@ define void @ARKStepPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   ret void
 }
 
-declare void @ARKodePrintMem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodePrintMem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4025,7 +4019,7 @@ define i32 @ARKStepSetRelaxFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   ret i32 %4
 }
 
-declare i32 @ARKodeSetRelaxFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxEtaFail(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -4033,7 +4027,7 @@ define i32 @ARKStepSetRelaxEtaFail(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxEtaFail(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxEtaFail(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxLowerBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -4041,7 +4035,7 @@ define i32 @ARKStepSetRelaxLowerBound(ptr noundef %0, double noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxLowerBound(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxLowerBound(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxMaxFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -4049,7 +4043,7 @@ define i32 @ARKStepSetRelaxMaxFails(ptr noundef %0, i32 noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxMaxFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxMaxFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxMaxIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -4057,7 +4051,7 @@ define i32 @ARKStepSetRelaxMaxIters(ptr noundef %0, i32 noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxSolver(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -4065,7 +4059,7 @@ define i32 @ARKStepSetRelaxSolver(ptr noundef %0, i32 noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxSolver(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxSolver(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxResTol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -4073,7 +4067,7 @@ define i32 @ARKStepSetRelaxResTol(ptr noundef %0, double noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxResTol(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxResTol(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxTol(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -4081,7 +4075,7 @@ define i32 @ARKStepSetRelaxTol(ptr noundef %0, double noundef %1, double noundef
   ret i32 %4
 }
 
-declare i32 @ARKodeSetRelaxTol(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxTol(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepSetRelaxUpperBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -4089,7 +4083,7 @@ define i32 @ARKStepSetRelaxUpperBound(ptr noundef %0, double noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxUpperBound(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxUpperBound(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRelaxFnEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4097,7 +4091,7 @@ define i32 @ARKStepGetNumRelaxFnEvals(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxFnEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxFnEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRelaxJacEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4105,7 +4099,7 @@ define i32 @ARKStepGetNumRelaxJacEvals(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRelaxFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4113,7 +4107,7 @@ define i32 @ARKStepGetNumRelaxFails(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRelaxBoundFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4121,7 +4115,7 @@ define i32 @ARKStepGetNumRelaxBoundFails(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxBoundFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxBoundFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRelaxSolveFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4129,7 +4123,7 @@ define i32 @ARKStepGetNumRelaxSolveFails(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKStepGetNumRelaxSolveIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4137,7 +4131,13 @@ define i32 @ARKStepGetNumRelaxSolveIters(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxSolveIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxSolveIters(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
@@ -4146,9 +4146,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 

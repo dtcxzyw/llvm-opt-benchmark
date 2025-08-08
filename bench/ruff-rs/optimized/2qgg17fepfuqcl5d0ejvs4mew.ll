@@ -36,10 +36,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h05205d6410b54474E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hddec66fc2381af71E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -47,7 +47,7 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h16148a0fba6fa67eE"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !7
@@ -64,11 +64,11 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
           to label %_ZN4core4iter6traits8iterator8Iterator8for_each17h28d07defa8d82dfdE.exit unwind label %14
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h28d07defa8d82dfdE.exit: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0a85f4bc3a67a3caE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 13:                                               ; preds = %14
@@ -181,8 +181,8 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits59_$LT$impl$u20$bitflags..
   %6 = alloca [8 x i8], align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %6, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h2b1da83eb967b630E", ptr %.sroa.42.0..sroa_idx, align 8
@@ -196,8 +196,8 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits59_$LT$impl$u20$bitflags..
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %10, align 8
   %11 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17h229bba7517b44ceaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %11
 }
 
@@ -299,16 +299,16 @@ define hidden void @_ZN8bitflags6traits5Flags6insert17hac2058a02478b2c2E(ptr noa
   %4 = alloca [2 x i8], align 2
   %5 = tail call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb5a6c492703fd9ccE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %0)
   %6 = tail call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h8b2ba0720485a6a6E"(i16 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 %6, ptr %4, align 2
   store i16 %1, ptr %3, align 2
   %7 = call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb5a6c492703fd9ccE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %4)
   %8 = call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb5a6c492703fd9ccE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %3)
   %9 = or i16 %8, %7
   %10 = call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h8b2ba0720485a6a6E"(i16 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i16 %10, ptr %0, align 2
   ret void
 }
@@ -319,16 +319,16 @@ define hidden void @_ZN8bitflags6traits5Flags6insert17hdddfef69175d5573E(ptr noa
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0812f03c6e296c7dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0)
   %6 = tail call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hae28194cf2be2e43E"(i8 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   store i8 %1, ptr %3, align 1
   %7 = call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0812f03c6e296c7dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   %8 = call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0812f03c6e296c7dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3)
   %9 = or i8 %8, %7
   %10 = call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hae28194cf2be2e43E"(i8 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %10, ptr %0, align 1
   ret void
 }
@@ -339,16 +339,16 @@ define hidden void @_ZN8bitflags6traits5Flags6insert17hf007c4095c40868fE(ptr noa
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd08b2823955b8a6eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0)
   %6 = tail call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h679549c33a60b586E"(i8 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   store i8 %1, ptr %3, align 1
   %7 = call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd08b2823955b8a6eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   %8 = call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd08b2823955b8a6eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3)
   %9 = or i8 %8, %7
   %10 = call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h679549c33a60b586E"(i8 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %10, ptr %0, align 1
   ret void
 }
@@ -359,16 +359,16 @@ define hidden void @_ZN8bitflags6traits5Flags6insert17hfd94a6026ea49557E(ptr noa
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$4bits17h84e23dca929e9ebcE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0)
   %6 = tail call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h695153e1942d9f82E"(i8 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   store i8 %1, ptr %3, align 1
   %7 = call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$4bits17h84e23dca929e9ebcE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   %8 = call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$4bits17h84e23dca929e9ebcE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3)
   %9 = or i8 %8, %7
   %10 = call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h695153e1942d9f82E"(i8 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %10, ptr %0, align 1
   ret void
 }
@@ -379,8 +379,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17h41bab17b8dceee2fE(ptr noa
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$4bits17h84e23dca929e9ebcE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0)
   %6 = tail call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h695153e1942d9f82E"(i8 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   store i8 %1, ptr %3, align 1
   %7 = call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$4bits17h84e23dca929e9ebcE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
@@ -388,8 +388,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17h41bab17b8dceee2fE(ptr noa
   %9 = xor i8 %8, -1
   %10 = and i8 %7, %9
   %11 = call noundef i8 @"_ZN85_$LT$ruff_python_semantic..binding..Exceptions$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h695153e1942d9f82E"(i8 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %11, ptr %0, align 1
   ret void
 }
@@ -400,8 +400,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17h54798936cbc85746E(ptr noa
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0812f03c6e296c7dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0)
   %6 = tail call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hae28194cf2be2e43E"(i8 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   store i8 %1, ptr %3, align 1
   %7 = call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0812f03c6e296c7dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
@@ -409,8 +409,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17h54798936cbc85746E(ptr noa
   %9 = xor i8 %8, -1
   %10 = and i8 %7, %9
   %11 = call noundef i8 @"_ZN92_$LT$ruff_python_semantic..model..all..DunderAllFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hae28194cf2be2e43E"(i8 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %11, ptr %0, align 1
   ret void
 }
@@ -421,8 +421,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17h8f2168a6f671cc98E(ptr noa
   %4 = alloca [2 x i8], align 2
   %5 = tail call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb5a6c492703fd9ccE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %0)
   %6 = tail call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h8b2ba0720485a6a6E"(i16 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 %6, ptr %4, align 2
   store i16 %1, ptr %3, align 2
   %7 = call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb5a6c492703fd9ccE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %4)
@@ -430,8 +430,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17h8f2168a6f671cc98E(ptr noa
   %9 = xor i16 %8, -1
   %10 = and i16 %7, %9
   %11 = call noundef i16 @"_ZN87_$LT$ruff_python_semantic..binding..BindingFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h8b2ba0720485a6a6E"(i16 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i16 %11, ptr %0, align 2
   ret void
 }
@@ -442,8 +442,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17hf86c6922ae0dd7b9E(ptr noa
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd08b2823955b8a6eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0)
   %6 = tail call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h679549c33a60b586E"(i8 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   store i8 %1, ptr %3, align 1
   %7 = call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd08b2823955b8a6eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
@@ -451,8 +451,8 @@ define hidden void @_ZN8bitflags6traits5Flags6remove17hf86c6922ae0dd7b9E(ptr noa
   %9 = xor i8 %8, -1
   %10 = and i8 %7, %9
   %11 = call noundef i8 @"_ZN101_$LT$ruff_python_semantic..reference..UnresolvedReferenceFlags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h679549c33a60b586E"(i8 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %11, ptr %0, align 1
   ret void
 }
@@ -662,8 +662,8 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits60_$LT$impl$u20$bitflags..
   %6 = alloca [8 x i8], align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %6, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17hc5527d672f3eca10E", ptr %.sroa.42.0..sroa_idx, align 8
@@ -677,8 +677,8 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits60_$LT$impl$u20$bitflags..
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %10, align 8
   %11 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17h229bba7517b44ceaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %11
 }
 
@@ -690,8 +690,8 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits60_$LT$impl$u20$bitflags..
   %6 = alloca [8 x i8], align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %6, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17he0997910badf786dE", ptr %.sroa.42.0..sroa_idx, align 8
@@ -705,8 +705,8 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits60_$LT$impl$u20$bitflags..
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %10, align 8
   %11 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17h229bba7517b44ceaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %11
 }
 
@@ -1977,10 +1977,10 @@ declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17heab2726
 declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h94be3698d4225962E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef nonnull readonly align 1) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

@@ -203,10 +203,10 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %profilers_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i)
   store ptr %profilers_, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %profilers_, ptr noundef nonnull align 8 dereferenceable(8) %profiler.addr, ptr noundef nonnull align 8 dereferenceable(8) %profiler.addr, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i)
   %0 = load ptr, ptr %profiler.addr, align 8
   call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformRegisterRuntimeEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %0) #15
   %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #15
@@ -516,8 +516,8 @@ entry:
   %gen = alloca %"class.std::mersenne_twister_engine", align 8
   %distribution = alloca %"class.std::normal_distribution", align 8
   tail call void @_ZN6hermes8oscompat15set_thread_nameEPKc(ptr noundef nonnull @.str) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #15
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #15
@@ -528,8 +528,8 @@ entry:
   call void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(5000) %rd, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %call.i = call noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %rd) #15
   %conv = zext i32 %call.i to i64
   store i64 %conv, ptr %gen, align 8
@@ -629,13 +629,13 @@ if.end:                                           ; preds = %for.inc.i, %while.b
   br i1 %tobool.i.i.i.old, label %while.body.i.i, label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit"
 
 while.body.i.i:                                   ; preds = %if.end, %while.body.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__ts.i.i.i.i)
   store i64 %div.i.i.i.i.i.i.i, ptr %__ts.i.i.i.i, align 8
   store i64 %sub.i.i.i.i.i.i, ptr %tv_nsec.i.i.i.i, align 8
   %call2.i.i.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %enabledCondVar_, ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %__ts.i.i.i.i) #15
   %call14.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %cmp.i.i.i.i.not.i.i = icmp slt i64 %call14.i.i.i.i, %add.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__ts.i.i.i.i)
   %__p.val.val.i.i = load i8, ptr %enabled_, align 8
   %tobool.i.i.i = trunc i8 %__p.val.val.i.i to i1
   %or.cond = select i1 %cmp.i.i.i.i.not.i.i, i1 %tobool.i.i.i, i1 false
@@ -706,7 +706,7 @@ if.end:                                           ; preds = %_ZNSt10lock_guardIS
 
 if.end3:                                          ; preds = %if.end
   store i8 1, ptr %enabled_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm17sampling_profiler7SamplerEFvvEPS6_EEEEEE, i64 16), ptr %call.i, align 8
@@ -730,7 +730,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %if.end3
   br label %_ZNSt6threadC2IMN6hermes2vm17sampling_profiler7SamplerEFvvEJPS4_EvEEOT_DpOT0_.exit
 
 _ZNSt6threadC2IMN6hermes2vm17sampling_profiler7SamplerEFvvEJPS4_EvEEOT_DpOT0_.exit: ; preds = %if.end3, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %timerThread_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %timerThread_, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
@@ -1914,10 +1914,10 @@ declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceabl
 declare double @llvm.log.f64(double) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

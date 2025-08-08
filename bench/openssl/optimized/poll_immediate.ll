@@ -112,7 +112,7 @@ ossl_time_from_timeval.exit35.split.preheader:    ; preds = %ossl_time_from_time
   br label %ossl_time_from_timeval.exit35.split
 
 ossl_time_from_timeval.exit35.split.us:           ; preds = %38, %ossl_time_from_timeval.exit35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %59
 
 59:                                               ; preds = %76, %ossl_time_from_timeval.exit35.split.us
@@ -163,12 +163,12 @@ ossl_time_from_timeval.exit35.split.us:           ; preds = %38, %ossl_time_from
   br i1 %exitcond.not.i.us, label %.loopexit.split.us, label %59, !llvm.loop !26
 
 .loopexit.split.us:                               ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
 
 ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_timeval.exit35.split.preheader, %poll_block.exit
   %.026 = phi i32 [ 1, %poll_block.exit ], [ %17, %ossl_time_from_timeval.exit35.split.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %80
 
 80:                                               ; preds = %124, %ossl_time_from_timeval.exit35.split
@@ -314,11 +314,11 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
 poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph108.i, %.lr.ph111.i, %.lr.ph114.i, %.split.us, %.split107.us, %.split102.us, %.split97.us
   %.079102.i59 = phi i64 [ %.us-phi94, %.split.us ], [ %.us-phi109, %.split107.us ], [ %.us-phi104, %.split102.us ], [ %.us-phi99, %.split97.us ], [ %.us-phi94, %.lr.ph114.i ], [ %.us-phi109, %.lr.ph111.i ], [ %.us-phi104, %.lr.ph108.i ], [ %.us-phi99, %.lr.ph.i ]
   %.4.i.ph = add i64 %.079102.i59, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
 
 128:                                              ; preds = %124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not30 = icmp eq i64 %.281.i, 0
   br i1 %.not30, label %129, label %.loopexit
 
@@ -328,12 +328,12 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph10
   br i1 %.not44, label %131, label %.loopexit
 
 131:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @ossl_quic_reactor_wait_ctx_init(ptr noundef nonnull %13) #4
   %132 = call i32 @ossl_rio_poll_builder_init(ptr noundef nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !34
   br label %133
 
@@ -363,8 +363,8 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph10
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %145 = load i64, ptr %144, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %146 = call i32 @SSL_net_read_desired(ptr noundef nonnull %139) #4
   %.not.not.i.i.i = icmp eq i32 %146, 0
   br i1 %.not.not.i.i.i, label %153, label %147
@@ -437,7 +437,7 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph10
   br i1 %.not52.i.i.i, label %185, label %172
 
 172:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !13
   %173 = call i32 @ossl_rio_poll_builder_add_fd(ptr noundef nonnull %12, i32 noundef %171, i32 noundef 1, i32 noundef 0) #4
   %.not53.i.i.i = icmp eq i32 %173, 0
@@ -459,7 +459,7 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph10
   br i1 %.not55.i.i.i, label %179, label %poll_translate.exit.thread.i
 
 179:                                              ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %185
 
 poll_translate_ssl_quic.exit.thread.sink.split.i.i: ; preds = %157, %155, %149, %147
@@ -471,19 +471,19 @@ poll_translate_ssl_quic.exit.thread.sink.split.i.i: ; preds = %157, %155, %149, 
   br label %poll_translate_ssl_quic.exit.thread.i.i
 
 poll_translate_ssl_quic.exit.thread126.i.i:       ; preds = %172, %176
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %poll_translate_ssl_quic.exit.thread.i.i
 
 poll_translate.exit.thread.i:                     ; preds = %177
   call void @ossl_quic_leave_blocking_section(ptr noundef nonnull %139, ptr noundef nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %postpoll_translation_cleanup.exit.sink.split.i
 
 poll_translate_ssl_quic.exit.thread.i.i:          ; preds = %168, %164, %poll_translate_ssl_quic.exit.thread126.i.i, %poll_translate_ssl_quic.exit.thread.sink.split.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %180 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store i64 1, ptr %180, align 8, !tbaa !25
   %.0109208.i.i = add nuw i64 %.0105199.i.i, 1
@@ -501,8 +501,8 @@ poll_translate_ssl_quic.exit.thread.i.i:          ; preds = %168, %164, %poll_tr
   br i1 %exitcond280.not.i.i, label %.loopexit.i.i, label %.lr.ph210.i.i, !llvm.loop !36
 
 185:                                              ; preds = %179, %170
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %186 = call i32 @SSL_get_event_timeout(ptr noundef nonnull %139, ptr noundef nonnull %10, ptr noundef nonnull %11) #4
   %.not114.i.i = icmp eq i32 %186, 0
   br i1 %.not114.i.i, label %187, label %195
@@ -658,8 +658,8 @@ postpoll_translation_cleanup_ssl_quic.exit.i.i.i: ; preds = %239, %237, %235, %2
   br i1 %exitcond.not.i.i.i, label %postpoll_translation_cleanup.exit.sink.split.i, label %.lr.ph.i.i.i, !llvm.loop !42
 
 poll_translate.exit.i:                            ; preds = %226
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %..i.i = call i64 @llvm.umin.i64(i64 %.sroa.042.1.i.i, i64 %.sroa.07.0.fr195)
   %241 = call i32 @ossl_rio_poll_builder_poll(ptr noundef nonnull %12, i64 %..i.i) #4
   br label %.lr.ph.i9.i
@@ -700,8 +700,8 @@ postpoll_translation_cleanup_ssl_quic.exit.i.i:   ; preds = %253, %251, %249, %2
 
 postpoll_translation_cleanup.exit.sink.split.i:   ; preds = %postpoll_translation_cleanup_ssl_quic.exit.i.i.i, %.loopexit.i.i, %poll_translate.exit.thread.i
   %.1 = phi i64 [ 0, %poll_translate.exit.thread.i ], [ 1, %.loopexit.i.i ], [ 1, %postpoll_translation_cleanup_ssl_quic.exit.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %poll_block.exit
 
 poll_block.exit.loopexit:                         ; preds = %postpoll_translation_cleanup_ssl_quic.exit.i.i
@@ -713,8 +713,8 @@ poll_block.exit:                                  ; preds = %poll_block.exit.loo
   %.0.i38 = phi i1 [ true, %postpoll_translation_cleanup.exit.sink.split.i ], [ %255, %poll_block.exit.loopexit ]
   call void @ossl_rio_poll_builder_cleanup(ptr noundef nonnull %12) #4
   call void @ossl_quic_reactor_wait_ctx_cleanup(ptr noundef nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.0.i38, label %.loopexit, label %ossl_time_from_timeval.exit35.split
 
 .loopexit:                                        ; preds = %129, %128, %poll_block.exit, %.loopexit.split.us, %poll_readout.exit.thread, %20, %ossl_time_from_timeval.exit
@@ -731,51 +731,51 @@ poll_block.exit:                                  ; preds = %poll_block.exit.loo
   ret i32 %.0
 }
 
+declare void @OSSL_sleep(i64 noundef) local_unnamed_addr #1
+
+declare i64 @ossl_time_now() local_unnamed_addr #1
+
+declare i32 @ossl_quic_conn_poll_events(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_new() local_unnamed_addr #1
+
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @ossl_quic_reactor_wait_ctx_init(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ossl_rio_poll_builder_init(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ossl_rio_poll_builder_poll(ptr noundef, i64) local_unnamed_addr #1
+
+declare void @ossl_rio_poll_builder_cleanup(ptr noundef) local_unnamed_addr #1
+
+declare void @ossl_quic_reactor_wait_ctx_cleanup(ptr noundef) local_unnamed_addr #1
+
+declare i32 @SSL_get_event_timeout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @SSL_net_read_desired(ptr noundef) local_unnamed_addr #1
+
+declare i32 @SSL_get_rpoll_descriptor(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @SSL_net_write_desired(ptr noundef) local_unnamed_addr #1
+
+declare i32 @SSL_get_wpoll_descriptor(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ossl_rio_poll_builder_add_fd(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @ossl_quic_get_notifier_fd(ptr noundef) local_unnamed_addr #1
+
+declare void @ossl_quic_enter_blocking_section(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ossl_quic_leave_blocking_section(ptr noundef, ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @OSSL_sleep(i64 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @ossl_time_now() local_unnamed_addr #2
-
-declare i32 @ossl_quic_conn_poll_events(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_new() local_unnamed_addr #2
-
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @ossl_quic_reactor_wait_ctx_init(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ossl_rio_poll_builder_init(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ossl_rio_poll_builder_poll(ptr noundef, i64) local_unnamed_addr #2
-
-declare void @ossl_rio_poll_builder_cleanup(ptr noundef) local_unnamed_addr #2
-
-declare void @ossl_quic_reactor_wait_ctx_cleanup(ptr noundef) local_unnamed_addr #2
-
-declare i32 @SSL_get_event_timeout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @SSL_net_read_desired(ptr noundef) local_unnamed_addr #2
-
-declare i32 @SSL_get_rpoll_descriptor(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @SSL_net_write_desired(ptr noundef) local_unnamed_addr #2
-
-declare i32 @SSL_get_wpoll_descriptor(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ossl_rio_poll_builder_add_fd(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @ossl_quic_get_notifier_fd(ptr noundef) local_unnamed_addr #2
-
-declare void @ossl_quic_enter_blocking_section(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ossl_quic_leave_blocking_section(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #3
@@ -784,8 +784,8 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #3
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

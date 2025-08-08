@@ -532,9 +532,9 @@ do.end:                                           ; preds = %invoke.cont41
           to label %if.end88 unwind label %ehcleanup87
 
 if.then51:                                        ; preds = %invoke.cont11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %src.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %snk.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %src.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %snk.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store ptr %is, ptr %src.i.i, align 8
   store ptr %call12, ptr %snk.i.i, align 8
   store ptr %src.i.i, ptr %agg.tmp.i.i, align 8
@@ -546,9 +546,9 @@ if.then51:                                        ; preds = %invoke.cont11
           to label %invoke.cont53 unwind label %ehcleanup87.thread203
 
 invoke.cont53:                                    ; preds = %if.then51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %snk.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %src.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %snk.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %call57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7openvdb5v11_02io8TempFile8filenameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %call12)
           to label %invoke.cont56 unwind label %ehcleanup87.thread203
 
@@ -4192,7 +4192,7 @@ entry:
   %alloc.i = alloca %"class.std::allocator", align 1
   %alloc.i.i = alloca %"class.std::allocator", align 1
   %buf = alloca %"class.boost::iostreams::detail::basic_buffer", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i.i) #25
   %cmp.i.i.i.i = icmp slt i64 %buffer_size, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i.i, label %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit.i.i.i
@@ -4220,7 +4220,7 @@ lpad.i.i:                                         ; preds = %_ZNSt15__new_alloca
 
 _ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit: ; preds = %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   store ptr %call5.i.i1.i.i, ptr %buf, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i64 %buffer_size, ptr %size_.i, align 8
@@ -4292,11 +4292,11 @@ if.end:                                           ; preds = %call1.i.i.i.i.i.noe
   br label %while.body, !llvm.loop !15
 
 _ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit: ; preds = %invoke.cont3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i) #25
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i1.i.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
   ret i64 %total.014
 }
 
@@ -4339,7 +4339,7 @@ entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %__functor, align 8
   %_M_bound_args.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %1 = load ptr, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i.i)
   invoke void %1(ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
@@ -4353,7 +4353,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %entry
 
 _ZSt10__invoke_rIvRSt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_ES6_St12_PlaceholderILi1EEEEJS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i)
   ret void
 }
 
@@ -5921,10 +5921,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20

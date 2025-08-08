@@ -558,7 +558,7 @@ define hidden noundef i32 @sharkd_session_main(i32 noundef %0) local_unnamed_add
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca [8192 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str)
   %11 = load ptr, ptr @stdout, align 8
@@ -979,7 +979,7 @@ is_param_match.exit.i.i:                          ; preds = %176, %171
   ]
 
 196:                                              ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %197 = call zeroext i1 @ws_strtou32(ptr noundef %122, ptr noundef null, ptr noundef nonnull %7)
   %198 = load i32, ptr %7, align 4
   %199 = icmp ne i32 %198, 0
@@ -989,7 +989,7 @@ is_param_match.exit.i.i:                          ; preds = %176, %171
 200:                                              ; preds = %196
   %201 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %201, i32 noundef -32600, ptr poison, ptr noundef nonnull @.str.109, ptr noundef %.us-phi.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %sharkd_session_process.exit
 
 202:                                              ; preds = %195
@@ -1008,7 +1008,7 @@ is_param_match.exit.i.i:                          ; preds = %176, %171
   br label %sharkd_session_process.exit
 
 .critedge172.i.i:                                 ; preds = %196
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.backedge.i.i, %.backedge.us.i.i, %.critedge172.i.i, %204, %202, %195, %193
@@ -1322,8 +1322,8 @@ sharkd_session_process_status.exit.i:             ; preds = %._crit_edge28.i.i, 
   br i1 %.not67.i, label %340, label %364
 
 340:                                              ; preds = %338
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %341 = call ptr @g_hash_table_new(ptr noundef null, ptr noundef null)
   store ptr %341, ptr %3, align 8
@@ -1351,8 +1351,8 @@ sharkd_session_process_status.exit.i:             ; preds = %._crit_edge28.i.i, 
 
 .lr.ph.i90.i:                                     ; preds = %340, %351
   %.012.i.i = phi i32 [ %352, %351 ], [ 1, %340 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not10.i.i = icmp ne i32 %.012.i.i, 1
   %346 = zext i1 %.not10.i.i to i32
   %347 = add i32 %.012.i.i, -1
@@ -1366,8 +1366,8 @@ sharkd_session_process_status.exit.i:             ; preds = %._crit_edge28.i.i, 
   br label %351
 
 351:                                              ; preds = %349, %.lr.ph.i90.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %352 = add i32 %.012.i.i, 1
   %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not.i91.i = icmp ugt i32 %352, %353
@@ -1397,8 +1397,8 @@ sharkd_session_process_analyse.exit.i:            ; preds = %358, %356
   call void @wtap_rec_cleanup(ptr noundef nonnull %4)
   %363 = load ptr, ptr %3, align 8
   call void @g_hash_table_destroy(ptr noundef %363)
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sharkd_session_process.exit
 
 364:                                              ; preds = %338
@@ -1407,7 +1407,7 @@ sharkd_session_process_analyse.exit.i:            ; preds = %358, %356
   br i1 %.not68.i, label %366, label %416
 
 366:                                              ; preds = %364
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %367 = load i32, ptr @rpcid, align 4
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.8)
@@ -1627,7 +1627,7 @@ sharkd_session_process_info.exit.i:               ; preds = %408, %sharkd_sessio
   %413 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull @dumper)
   %414 = load ptr, ptr @stdout, align 8
   %415 = call i32 @fflush(ptr noundef %414)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %sharkd_session_process.exit
 
 416:                                              ; preds = %364
@@ -1766,27 +1766,24 @@ sharkd_session_process.exit:                      ; preds = %456, %451, %448, %4
   %459 = load ptr, ptr @filter_table, align 8
   call void @g_hash_table_destroy(ptr noundef %459)
   call void @g_free(ptr noundef %.016.lcssa)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_str_hash(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_hash(ptr noundef) #2
+declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_equal(ptr noundef, ptr noundef) #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) #2
+declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_filter_free(ptr noundef %0) #0 {
@@ -1797,13 +1794,13 @@ define internal void @sharkd_session_filter_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @set_resolution_synchrony(i1 noundef zeroext) local_unnamed_addr #2
+declare void @set_resolution_synchrony(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @json_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @json_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_json_error(i32 noundef %0, i32 noundef range(i32 -32603, -2000) %1, ptr readnone captures(none) %2, ptr noundef %3, ...) unnamed_addr #0 {
@@ -1819,14 +1816,14 @@ define internal void @sharkd_json_error(i32 noundef %0, i32 noundef range(i32 -3
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %7 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.6)
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %7)
   call void @g_free(ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -1839,16 +1836,13 @@ define internal void @sharkd_json_error(i32 noundef %0, i32 noundef range(i32 -3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @host_name_lookup_process() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @host_name_lookup_process() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_json_value_anyf(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
@@ -1861,46 +1855,46 @@ define internal void @sharkd_json_value_anyf(ptr noundef %0, ptr noundef %1, ...
   br label %5
 
 5:                                                ; preds = %4, %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @json_dumper_value_va_list(ptr noundef nonnull @dumper, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #4
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #4
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_begin_object(ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_begin_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_set_member_name(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_set_member_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_value_va_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_value_va_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_value_string(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_value_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_end_object(ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_end_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @json_dumper_finish(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @json_dumper_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @sharkd_session_process_load(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2147483647) %2) unnamed_addr #0 {
@@ -1932,7 +1926,7 @@ define internal fastcc void @sharkd_session_process_load(ptr noundef %0, ptr nou
   br i1 %.not.not.i, label %json_find_attr.exit, label %10
 
 json_find_attr.exit.thread:                       ; preds = %10, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %73
 
 json_find_attr.exit:                              ; preds = %.lr.ph.i
@@ -1941,7 +1935,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %0, i64 %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %73, label %22
@@ -1959,11 +1953,11 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   br label %73
 
 28:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @sharkd_session_process_load.catch_spec, i64 noundef 1)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %30 = call i32 @_setjmp(ptr noundef nonnull %29) #21
@@ -2049,10 +2043,10 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   %60 = load volatile ptr, ptr %59, align 8
   call void @except_free(ptr noundef %60)
   %61 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %62 = load i32, ptr %4, align 4
   %63 = icmp eq i32 %62, 0
   %64 = load i32, ptr @rpcid, align 4
@@ -2083,7 +2077,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   br label %73
 
 73:                                               ; preds = %json_find_attr.exit.thread, %65, %66, %json_find_attr.exit, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2154,8 +2148,8 @@ json_find_attr.exit27.thread:                     ; preds = %19
   br i1 %.not41, label %.thread, label %31
 
 31:                                               ; preds = %json_find_attr.exit27.thread, %json_find_attr.exit27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %32 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %.2.i, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 6, ptr noundef nonnull @__func__.sharkd_session_process_check)
   br i1 %32, label %33, label %46
@@ -2209,8 +2203,8 @@ json_find_attr.exit27.thread:                     ; preds = %19
 
 51:                                               ; preds = %46, %44
   call void @df_error_free(ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 52:                                               ; preds = %json_find_attr.exit27
@@ -2323,8 +2317,8 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
 36:                                               ; preds = %34
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2.i74) #18
   %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2.i74, i32 noundef 46) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.33)
   tail call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
   %39 = call i32 @proto_get_first_protocol(ptr noundef nonnull %4)
@@ -2456,8 +2450,8 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
 
 ._crit_edge:                                      ; preds = %.loopexit, %49, %36
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %83
 
 83:                                               ; preds = %._crit_edge, %34, %json_find_attr.exit72
@@ -2470,7 +2464,7 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
   br i1 %.not55, label %98, label %86
 
 86:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %32, ptr %6, align 8
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %32, ptr %87, align 8
@@ -2502,7 +2496,7 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
 
 97:                                               ; preds = %95, %94
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %98
 
 98:                                               ; preds = %97, %84, %83
@@ -2642,21 +2636,21 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
   br label %json_find_attr.exit119
 
 .thread244:                                       ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
   br label %153
 
 json_find_attr.exit119:                           ; preds = %55, %.thread.i118
   %.2.i117 = phi ptr [ %66, %.thread.i118 ], [ null, %55 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.lr.ph.i122
 
 67:                                               ; preds = %.lr.ph.i122
@@ -2685,25 +2679,25 @@ json_find_attr.exit119:                           ; preds = %55, %.thread.i118
 json_find_attr.exit128:                           ; preds = %67, %.thread.i127
   %.2.i126 = phi ptr [ %78, %.thread.i127 ], [ null, %67 ]
   store ptr %.2.i126, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %.2.i99, label %134, label %79
 
 79:                                               ; preds = %json_find_attr.exit128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 noundef 0, i64 noundef 72, i1 noundef false) #17
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %80 = zext nneg i32 %2 to i64
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %79, %111
   %indvars.iv.i129 = phi i64 [ %indvars.iv.next.i134, %111 ], [ 0, %79 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = trunc nuw nsw i64 %indvars.iv.i129 to i32
   %82 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 64, i32 noundef 2, i64 noundef 64, ptr noundef nonnull @.str.194, i32 noundef %81)
   br label %.lr.ph.i.i
@@ -2763,7 +2757,7 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %or.cond.i, label %132, label %111
 
 111:                                              ; preds = %107, %100
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i129, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i134, 32
   br i1 %exitcond.not.i, label %.loopexit.thread.i, label %.lr.ph.preheader.i.i, !llvm.loop !32
@@ -2773,7 +2767,7 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
   br label %.lr.ph.i130
 
 .loopexit.i:                                      ; preds = %json_find_attr.exit.i, %83
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @col_setup(ptr noundef nonnull %14, i32 noundef %81)
   %.not60.i = icmp eq i64 %indvars.iv.i129, 0
   br i1 %.not60.i, label %sharkd_session_create_columns.exit, label %.lr.ph.i130
@@ -2819,16 +2813,16 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
 
 sharkd_session_create_columns.exit:               ; preds = %130, %.loopexit.i
   call void @col_finalize(ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %134
 
 132:                                              ; preds = %100, %104, %107
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %133 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %133, i32 noundef -13001, ptr poison, ptr noundef nonnull @.str.191)
   br label %232
@@ -2845,14 +2839,14 @@ sharkd_session_create_columns.exit:               ; preds = %130, %.loopexit.i
   br i1 %.not.i135, label %138, label %sharkd_session_filter_data.exit.thread
 
 138:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %139 = call i32 @sharkd_filter(ptr noundef nonnull %.2.i, ptr noundef nonnull %4)
   %.not26.i = icmp eq i32 %139, -1
   br i1 %.not26.i, label %sharkd_session_filter_data.exit.thread163, label %sharkd_session_filter_data.exit
 
 sharkd_session_filter_data.exit.thread163:        ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 sharkd_session_filter_data.exit:                  ; preds = %138
@@ -2862,7 +2856,7 @@ sharkd_session_filter_data.exit:                  ; preds = %138
   %142 = load ptr, ptr @filter_table, align 8
   %143 = call noalias ptr @g_strdup(ptr noundef nonnull %.2.i)
   %144 = call i32 @g_hash_table_insert(ptr noundef %142, ptr noundef %143, ptr noundef %140)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not76.not = icmp eq ptr %140, null
   br i1 %.not76.not, label %.thread, label %sharkd_session_filter_data.exit.thread
 
@@ -2929,8 +2923,8 @@ sharkd_session_filter_data.exit.thread:           ; preds = %135, %sharkd_sessio
   %.057193 = phi i32 [ 0, %.lr.ph198 ], [ %.158.ph, %224 ]
   %.not81 = icmp ne i32 %.056194, 1
   %161 = zext i1 %.not81 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %.not82, label %171, label %162
 
 162:                                              ; preds = %160
@@ -3057,15 +3051,15 @@ sharkd_session_filter_data.exit.thread:           ; preds = %135, %sharkd_sessio
   br i1 %222, label %223, label %224
 
 223:                                              ; preds = %220
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit175
 
 224:                                              ; preds = %218, %220, %173, %162
   %.158.ph = phi i32 [ %.057193, %162 ], [ %.057193, %173 ], [ %.2, %220 ], [ %.2, %218 ]
   %.155.ph = phi i32 [ %.054197, %162 ], [ %.056194, %173 ], [ %.056194, %220 ], [ %.056194, %218 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %225 = add i32 %.056194, 1
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not80 = icmp ugt i32 %225, %226
@@ -3089,12 +3083,12 @@ sharkd_session_filter_data.exit.thread:           ; preds = %135, %sharkd_sessio
   br label %232
 
 232:                                              ; preds = %.thread, %155, %151, %148, %231, %132
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -3112,19 +3106,19 @@ define internal fastcc void @sharkd_session_process_tap(ptr noundef %0, ptr noun
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %json_find_attr.exit.thread, label %.lr.ph.preheader.i
 
 json_find_attr.exit.thread:                       ; preds = %3
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %16 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.204, i32 noundef 0)
   br label %json_find_attr.exit380.thread
 
@@ -3158,17 +3152,17 @@ json_find_attr.exit.thread:                       ; preds = %3
 json_find_attr.exit:                              ; preds = %18, %.thread.i
   %.2.i = phi ptr [ %29, %.thread.i ], [ null, %18 ]
   store ptr %.2.i, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
   br label %.lr.ph.preheader.i373
 
 .lr.ph.preheader.i373:                            ; preds = %json_find_attr.exit, %319
   %.0277493 = phi i32 [ %.2.ph, %319 ], [ 0, %json_find_attr.exit ]
   %.0278492 = phi i32 [ %320, %319 ], [ 0, %json_find_attr.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %30 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.204, i32 noundef %.0278492)
   br label %.lr.ph.i374
@@ -3394,7 +3388,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
 136:                                              ; preds = %134
   %137 = getelementptr i8, ptr %42, i64 4
   %138 = call ptr @get_rtd_table_by_name(ptr noundef %137)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not348 = icmp eq ptr %138, null
   br i1 %.not348, label %139, label %141
 
@@ -3417,7 +3411,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %.thread396
 
 .thread396:                                       ; preds = %143, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread416
 
 146:                                              ; preds = %141
@@ -3431,7 +3425,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   %152 = call ptr @register_tap_listener(ptr noundef %149, ptr noundef %147, ptr noundef %150, i32 noundef 0, ptr noundef null, ptr noundef %151, ptr noundef nonnull @sharkd_session_process_tap_rtd_cb, ptr noundef null)
   store ptr %147, ptr %9, align 8
   store ptr @sharkd_session_free_tap_rtd_cb, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %304
 
 153:                                              ; preds = %134
@@ -3442,7 +3436,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
 155:                                              ; preds = %153
   %156 = getelementptr i8, ptr %42, i64 4
   %157 = call ptr @get_srt_table_by_name(ptr noundef %156)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not351 = icmp eq ptr %157, null
   br i1 %.not351, label %158, label %160
 
@@ -3465,7 +3459,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %.thread400
 
 .thread400:                                       ; preds = %162, %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread416
 
 165:                                              ; preds = %160
@@ -3481,7 +3475,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   %172 = call ptr @register_tap_listener(ptr noundef %169, ptr noundef %166, ptr noundef %170, i32 noundef 0, ptr noundef null, ptr noundef %171, ptr noundef nonnull @sharkd_session_process_tap_srt_cb, ptr noundef null)
   store ptr %166, ptr %9, align 8
   store ptr @sharkd_session_free_tap_srt_cb, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %304
 
 sub_0:                                            ; preds = %153
@@ -3609,9 +3603,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not360, label %224, label %265
 
 224:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %225 = getelementptr i8, ptr %42, i64 11
   %226 = load i8, ptr %225, align 1
   %227 = icmp eq i8 %226, 0
@@ -3699,9 +3693,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not362.not, label %.lr.ph, label %.loopexit429, !llvm.loop !37
 
 .thread409:                                       ; preds = %249, %242
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread416
 
 .loopexit430:                                     ; preds = %230, %228
@@ -3717,9 +3711,9 @@ sub_1:                                            ; preds = %sub_0
   call void @voip_calls_init_all_taps(ptr noundef nonnull @tapinfo_)
   store ptr %260, ptr %9, align 8
   store ptr @sharkd_session_free_tap_voip_convs_cb, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %304
 
 265:                                              ; preds = %222
@@ -3853,23 +3847,23 @@ sub_2427:                                         ; preds = %sub_1426
   br label %319
 
 .thread416:                                       ; preds = %302, %300, %310, %305, %.thread, %.thread386, %.thread393, %.thread396, %.thread400, %.thread403, %.thread409, %105, %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 json_find_attr.exit380.thread:                    ; preds = %json_find_attr.exit380, %31, %json_find_attr.exit.thread
   %.0277467 = phi i32 [ 0, %json_find_attr.exit.thread ], [ %.0277493, %31 ], [ %.0277493, %json_find_attr.exit380 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit431
 
 319:                                              ; preds = %312, %201
   %.2.ph = phi i32 [ %.0277493, %201 ], [ %318, %312 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %320 = add nuw nsw i32 %.0278492, 1
   %exitcond.not = icmp eq i32 %320, 16
   br i1 %exitcond.not, label %.loopexit431, label %.lr.ph.preheader.i373, !llvm.loop !39
@@ -3941,10 +3935,10 @@ json_find_attr.exit380.thread:                    ; preds = %json_find_attr.exit
   br i1 %exitcond555.not, label %.loopexit, label %.lr.ph497, !llvm.loop !40
 
 .loopexit:                                        ; preds = %342, %329, %.thread416, %325
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4049,7 +4043,7 @@ json_find_attr.exit86:                            ; preds = %30, %3, %.thread.i8
   br label %103
 
 45:                                               ; preds = %json_find_attr.exit86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -1, ptr %4, align 8
   %.not65 = icmp eq ptr %.2.i84, null
   br i1 %.not65, label %48, label %46
@@ -4174,7 +4168,7 @@ json_find_attr.exit86:                            ; preds = %30, %3, %.thread.i8
   br label %102
 
 102:                                              ; preds = %98, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %103
 
 103:                                              ; preds = %102, %43
@@ -4190,8 +4184,8 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
   br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
 
 .thread:                                          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1000, ptr %5, align 4
   br label %sub_0218
 
@@ -4251,8 +4245,8 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
 
 json_find_attr.exit158:                           ; preds = %20, %.thread.i157
   %.2.i156 = phi ptr [ %31, %.thread.i157 ], [ null, %20 ]
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1000, ptr %5, align 4
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %34, label %32
@@ -4365,9 +4359,9 @@ sub_1224:                                         ; preds = %sub_0218
   br i1 %.not.i, label %.loopexit.thread307, label %.lr.ph.preheader.i160
 
 .loopexit.thread307:                              ; preds = %.tail227.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.401, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %159
 
 .lr.ph.preheader.i160:                            ; preds = %.tail227.thread, %156
@@ -4375,7 +4369,7 @@ sub_1224:                                         ; preds = %sub_0218
   %.0109249 = phi i32 [ %157, %156 ], [ 0, %.tail227.thread ]
   %73 = zext nneg i32 %.0109249 to i64
   %74 = getelementptr [10 x %struct.sharkd_iograph], ptr %4, i64 0, i64 %73
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.401, i32 noundef %.0109249)
   br label %.lr.ph.i161
 
@@ -4560,17 +4554,17 @@ json_find_attr.exit185.thread:                    ; preds = %130, %json_find_att
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %152, i32 noundef -6001, ptr poison, ptr noundef nonnull @.str.413, ptr noundef %153)
   %154 = load ptr, ptr %127, align 8
   %155 = call ptr @g_string_free(ptr noundef %154, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %203
 
 156:                                              ; preds = %149
   %157 = add nuw nsw i32 %.0109249, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %exitcond.not = icmp eq i32 %157, 10
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph.preheader.i160, !llvm.loop !42
 
 .loopexit:                                        ; preds = %json_find_attr.exit167, %120, %76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.0250, label %.loopexit.thread, label %159
 
 .loopexit.thread:                                 ; preds = %156, %.loopexit
@@ -4685,8 +4679,8 @@ json_find_attr.exit185.thread:                    ; preds = %130, %json_find_att
   br label %203
 
 203:                                              ; preds = %.thread204, %._crit_edge259, %.tail213.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4698,7 +4692,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
   br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
 
 .thread:                                          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1000, ptr %5, align 4
   br label %46
 
@@ -4758,7 +4752,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
 
 json_find_attr.exit75:                            ; preds = %19, %.thread.i74
   %.2.i73 = phi ptr [ %30, %.thread.i74 ], [ null, %19 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1000, ptr %5, align 4
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %33, label %31
@@ -4778,14 +4772,14 @@ json_find_attr.exit75:                            ; preds = %19, %.thread.i74
   br i1 %.not.i76, label %37, label %sharkd_session_filter_data.exit.thread
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %38 = call i32 @sharkd_filter(ptr noundef nonnull %.2.i73, ptr noundef nonnull %4)
   %.not26.i = icmp eq i32 %38, -1
   br i1 %.not26.i, label %sharkd_session_filter_data.exit.thread90, label %sharkd_session_filter_data.exit
 
 sharkd_session_filter_data.exit.thread90:         ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread94
 
 sharkd_session_filter_data.exit:                  ; preds = %37
@@ -4795,7 +4789,7 @@ sharkd_session_filter_data.exit:                  ; preds = %37
   %41 = load ptr, ptr @filter_table, align 8
   %42 = call noalias ptr @g_strdup(ptr noundef nonnull %.2.i73)
   %43 = call i32 @g_hash_table_insert(ptr noundef %41, ptr noundef %42, ptr noundef %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not59.not = icmp eq ptr %39, null
   br i1 %.not59.not, label %.thread94, label %sharkd_session_filter_data.exit.thread
 
@@ -5001,7 +4995,7 @@ sharkd_session_filter_data.exit.thread:           ; preds = %34, %sharkd_session
   br label %126
 
 126:                                              ; preds = %.thread94, %._crit_edge.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5102,13 +5096,13 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
   %.2.i51113 = phi ptr [ %.2.i51, %.thread.i61 ], [ null, %3 ], [ %.2.i51, %36 ]
   %.2.i109112 = phi ptr [ %.2.i, %.thread.i61 ], [ null, %3 ], [ %.2.i, %36 ]
   %.2.i60 = phi ptr [ %47, %.thread.i61 ], [ null, %3 ], [ null, %36 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %48 = call zeroext i1 @ws_strtou32(ptr noundef %.2.i109112, ptr noundef null, ptr noundef nonnull %4)
   %49 = load i32, ptr %4, align 4
   %.not = icmp ne i32 %49, 1
@@ -5344,13 +5338,13 @@ json_find_attr.exit107:                           ; preds = %.lr.ph.i101.tail.th
   br label %156
 
 156:                                              ; preds = %155, %65, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5361,7 +5355,7 @@ define internal fastcc void @sharkd_session_process_setcomment(ptr noundef %0, p
   br i1 %.not.i, label %json_find_attr.exit29.thread, label %.lr.ph.preheader.i
 
 json_find_attr.exit29.thread:                     ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %34
 
 .lr.ph.preheader.i:                               ; preds = %3
@@ -5420,7 +5414,7 @@ json_find_attr.exit29.thread:                     ; preds = %3
 
 json_find_attr.exit29:                            ; preds = %18, %.thread.i28
   %.2.i27 = phi ptr [ %29, %.thread.i28 ], [ null, %18 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not18 = icmp eq ptr %.2.i, null
   br i1 %.not18, label %34, label %30
 
@@ -5465,7 +5459,7 @@ json_find_attr.exit29:                            ; preds = %18, %.thread.i28
   br label %49
 
 49:                                               ; preds = %44, %46, %38, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5477,8 +5471,8 @@ define internal fastcc void @sharkd_session_process_setconf(ptr noundef %0, ptr 
   br i1 %.not.i, label %json_find_attr.exit22.thread, label %.lr.ph.preheader.i
 
 json_find_attr.exit22.thread:                     ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %34
 
 .lr.ph.preheader.i:                               ; preds = %3
@@ -5537,8 +5531,8 @@ json_find_attr.exit22.thread:                     ; preds = %3
 
 json_find_attr.exit22:                            ; preds = %19, %.thread.i21
   %.2.i20 = phi ptr [ %30, %.thread.i21 ], [ null, %19 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %34, label %31
@@ -5598,8 +5592,8 @@ json_find_attr.exit22:                            ; preds = %19, %.thread.i21
   br label %52
 
 52:                                               ; preds = %50, %37, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5640,7 +5634,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   br i1 %.not, label %json_find_attr.exit.thread, label %25
 
 json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_attr.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %20 = load i32, ptr @rpcid, align 4
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
@@ -5658,7 +5652,7 @@ json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_a
   %22 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull @dumper)
   %23 = load ptr, ptr @stdout, align 8
   %24 = call i32 @fflush(ptr noundef %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 25:                                               ; preds = %json_find_attr.exit
@@ -5684,7 +5678,7 @@ json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_a
   br i1 %.not26, label %38, label %32
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %28, ptr %5, align 8
   %33 = load i32, ptr @rpcid, align 4
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
@@ -5702,7 +5696,7 @@ json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_a
   %35 = tail call zeroext i1 @json_dumper_finish(ptr noundef nonnull @dumper)
   %36 = load ptr, ptr @stdout, align 8
   %37 = tail call i32 @fflush(ptr noundef %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 38:                                               ; preds = %.thread, %29
@@ -5716,7 +5710,7 @@ json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_a
   br i1 %.not24, label %48, label %42
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %41, ptr %6, align 8
   %43 = load i32, ptr @rpcid, align 4
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
@@ -5734,7 +5728,7 @@ json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_a
   %45 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull @dumper)
   %46 = load ptr, ptr @stdout, align 8
   %47 = call i32 @fflush(ptr noundef %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 48:                                               ; preds = %40
@@ -5835,9 +5829,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not.i80, label %.loopexit89, label %.lr.ph.i79, !llvm.loop !47
 
 .loopexit89:                                      ; preds = %38, %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %40 = getelementptr i8, ptr %30, i64 3
   %41 = tail call ptr @get_eo_by_name(ptr noundef %40)
@@ -5883,8 +5877,8 @@ sub_1:                                            ; preds = %sub_0
   br label %sharkd_session_eo_retap_listener.exit
 
 sharkd_session_eo_retap_listener.exit:            ; preds = %52, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %53, label %sharkd_eo_object_list_get_entry_by_type.exit, label %.critedge
 
 .critedge:                                        ; preds = %sharkd_session_eo_retap_listener.exit
@@ -5914,14 +5908,14 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
 
 65:                                               ; preds = %61
   %66 = getelementptr i8, ptr %21, i64 %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %67 = getelementptr i8, ptr %66, i64 1
   %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %67, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #17
   %.not68 = icmp eq i32 %68, 1
   br i1 %.not68, label %.loopexit, label %.loopexit.thread104
 
 .loopexit.thread104:                              ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.thread
 
 69:                                               ; preds = %.lr.ph, %61
@@ -5934,7 +5928,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %6, align 4
   %73 = call ptr @g_slist_nth_data(ptr noundef %71, i32 noundef %72)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not69 = icmp eq ptr %73, null
   br i1 %.not69, label %.loopexit.thread, label %74
 
@@ -5994,7 +5988,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   br i1 %.not72, label %93, label %102
 
 93:                                               ; preds = %.tail.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %94 = call ptr @ssl_export_sessions(ptr noundef nonnull %7)
   %.not73 = icmp eq ptr %94, null
   br i1 %.not73, label %101, label %95
@@ -6025,7 +6019,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
 
 101:                                              ; preds = %95, %93
   call void @g_free(ptr noundef %94)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %126
 
 102:                                              ; preds = %.tail.thread
@@ -6034,7 +6028,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   br i1 %.not74, label %104, label %124
 
 104:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 noundef 0, i64 noundef 80, i1 noundef false) #17
   %105 = getelementptr i8, ptr %21, i64 4
   %106 = call fastcc zeroext i1 @sharkd_rtp_match_init(ptr noundef nonnull %8, ptr noundef %105)
@@ -6086,7 +6080,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   br label %123
 
 123:                                              ; preds = %120, %122
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %126
 
 124:                                              ; preds = %102
@@ -6095,7 +6089,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   br label %126
 
 .critedge78:                                      ; preds = %107, %111
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %126
 
 126:                                              ; preds = %124, %101, %74, %.loopexit.thread, %123, %.critedge78, %.critedge, %json_find_attr.exit.thread
@@ -6121,43 +6115,43 @@ define internal fastcc void @sharkd_json_simple_ok(i32 noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @json_decode_string_inplace(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @json_decode_string_inplace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sharkd_cf_open(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @sharkd_cf_open(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #8
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sharkd_load_cap_file() local_unnamed_addr #2
+declare i32 @sharkd_load_cap_file() local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #9
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_free(ptr noundef) local_unnamed_addr #2
+declare void @except_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @except_pop() local_unnamed_addr #2
+declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @sharkd_json_result_prologue(i32 noundef %0) unnamed_addr #0 {
@@ -6171,7 +6165,7 @@ define internal fastcc void @sharkd_json_result_prologue(i32 noundef %0) unnamed
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_strerror(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @sharkd_json_result_epilogue() unnamed_addr #0 {
@@ -6184,22 +6178,22 @@ define internal fastcc void @sharkd_json_result_epilogue() unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #2
+declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @wtap_file_size(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @wtap_file_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_column_title(i32 noundef) local_unnamed_addr #2
+declare ptr @get_column_title(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_column_format(i32 noundef) local_unnamed_addr #2
+declare i32 @get_column_format(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @col_format_to_string(i32 noundef) local_unnamed_addr #2
+declare ptr @col_format_to_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_json_value_stringf(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
@@ -6212,45 +6206,45 @@ define internal void @sharkd_json_value_stringf(ptr noundef %0, ptr noundef %1, 
   br label %5
 
 5:                                                ; preds = %4, %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %6 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.136, ptr noundef %1)
   call void @json_dumper_value_va_list(ptr noundef nonnull @dumper, ptr noundef %6, ptr noundef nonnull %3)
   call void @g_free(ptr noundef %6)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_column_custom_fields(i32 noundef) local_unnamed_addr #2
+declare ptr @get_column_custom_fields(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_column_custom_occurrence(i32 noundef) local_unnamed_addr #2
+declare i32 @get_column_custom_occurrence(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @get_column_visible(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @get_column_visible(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare signext i8 @get_column_display_format(i32 noundef) local_unnamed_addr #2
+declare signext i8 @get_column_display_format(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_begin_array(ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_begin_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_end_array(ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_end_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_rec_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @wtap_rec_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sharkd_dissect_request(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sharkd_dissect_request(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_analyse_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef captures(none) %4) #0 {
@@ -6330,46 +6324,46 @@ define internal void @sharkd_session_process_analyse_cb(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_rec_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @wtap_rec_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @nstime_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nstime_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #2
+declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @col_format_desc(i32 noundef) local_unnamed_addr #2
+declare ptr @col_format_desc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stats_tree_get_cfg_list() local_unnamed_addr #2
+declare ptr @stats_tree_get_cfg_list() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_list_free(ptr noundef) local_unnamed_addr #2
+declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @ftype_name(i32 noundef) local_unnamed_addr #2
+declare ptr @ftype_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_ws_vcs_version_info_short() local_unnamed_addr #2
+declare ptr @get_ws_vcs_version_info_short() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stat_tap_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @stat_tap_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_session_process_info_nstat_cb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
@@ -6384,7 +6378,7 @@ define internal noundef zeroext i1 @sharkd_session_process_info_nstat_cb(ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @conversation_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_session_process_info_conv_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -6416,7 +6410,7 @@ define internal noundef zeroext i1 @sharkd_session_process_info_conv_cb(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sequence_analysis_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @sequence_analysis_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_session_seq_analysis_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -6430,7 +6424,7 @@ define internal noundef zeroext i1 @sharkd_session_seq_analysis_cb(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @eo_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @eo_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_export_object_visit_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -6446,7 +6440,7 @@ define internal noundef zeroext i1 @sharkd_export_object_visit_cb(ptr readnone c
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @srt_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @srt_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_srt_visit_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -6462,7 +6456,7 @@ define internal noundef zeroext i1 @sharkd_srt_visit_cb(ptr readnone captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtd_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rtd_table_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_rtd_visit_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -6478,7 +6472,7 @@ define internal noundef zeroext i1 @sharkd_rtd_visit_cb(ptr readnone captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @follow_iterate_followers(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @follow_iterate_followers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_follower_visit_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -6493,34 +6487,34 @@ define internal noundef zeroext i1 @sharkd_follower_visit_cb(ptr readnone captur
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_get_writable_file_types_subtypes(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_get_writable_file_types_subtypes(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_file_type_subtype_name(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_file_type_subtype_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_get_num_encap_types() local_unnamed_addr #2
+declare i32 @wtap_get_num_encap_types() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_encap_description(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_encap_description(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @encap_type_info_nat_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -6531,7 +6525,7 @@ define internal i32 @encap_type_info_nat_compare(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @encap_type_info_visit(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
@@ -6548,85 +6542,85 @@ define internal void @encap_type_info_visit(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_free(ptr noundef) local_unnamed_addr #2
+declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ws_ascii_strnatcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ws_ascii_strnatcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_conversation_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_conversation_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_endpoint_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_endpoint_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sequence_analysis_get_ui_name(ptr noundef) local_unnamed_addr #2
+declare ptr @sequence_analysis_get_ui_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_eo_proto_id(ptr noundef) local_unnamed_addr #2
+declare i32 @get_eo_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #2
+declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_srt_proto_id(ptr noundef) local_unnamed_addr #2
+declare i32 @get_srt_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_rtd_proto_id(ptr noundef) local_unnamed_addr #2
+declare i32 @get_rtd_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_follow_proto_id(ptr noundef) local_unnamed_addr #2
+declare i32 @get_follow_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dfilter_deprecated_tokens(ptr noundef) local_unnamed_addr #2
+declare ptr @dfilter_deprecated_tokens(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dfilter_free(ptr noundef) local_unnamed_addr #2
+declare void @dfilter_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @df_error_free(ptr noundef) local_unnamed_addr #2
+declare void @df_error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_registrar_get_byname(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_registrar_get_byname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_get_first_protocol(ptr noundef) local_unnamed_addr #2
+declare i32 @proto_get_first_protocol(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_protocol_long_name(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_get_protocol_long_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_first_protocol_field(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_get_first_protocol_field(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_next_protocol_field(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_get_next_protocol_field(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_get_next_protocol(ptr noundef) local_unnamed_addr #2
+declare i32 @proto_get_next_protocol(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_find_module(ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_find_module(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_pref_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @prefs_pref_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @sharkd_session_process_complete_pref_option_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -6653,7 +6647,7 @@ define internal noundef i32 @sharkd_session_process_complete_pref_option_cb(ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_modules_foreach(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @prefs_modules_foreach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @sharkd_session_process_complete_pref_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -6682,20 +6676,20 @@ define internal noundef i32 @sharkd_session_process_complete_pref_cb(ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_name(ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_title(ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_get_title(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sharkd_get_frame(i32 noundef) local_unnamed_addr #2
+declare ptr @sharkd_get_frame(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_frames_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.195)
@@ -6816,66 +6810,66 @@ define internal void @sharkd_session_process_frames_cb(ptr noundef readonly capt
 73:                                               ; preds = %41, %38
   call void @wtap_block_unref(ptr noundef %14)
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @col_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #12
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtoi16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtoi16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtou16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtou16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_setup(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_setup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_finalize(ptr noundef) local_unnamed_addr #2
+declare void @col_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sharkd_filter(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sharkd_filter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_column_text(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @get_column_text(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sharkd_get_packet_block(ptr noundef) local_unnamed_addr #2
+declare ptr @sharkd_get_packet_block(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_get_nth_string_option_value(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_get_nth_string_option_value(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #2
+declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stats_tree_get_cfg_by_abbr(ptr noundef) local_unnamed_addr #2
+declare ptr @stats_tree_get_cfg_by_abbr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stats_tree_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @stats_tree_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stats_tree_reset(ptr noundef) #2
+declare void @stats_tree_reset(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @stats_tree_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_stats_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -6903,10 +6897,10 @@ define internal void @sharkd_session_free_tap_stats_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_chunk_new(i64 noundef) local_unnamed_addr #2
+declare ptr @g_string_chunk_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @sharkd_session_packet_tap_expert_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #0 {
@@ -7019,19 +7013,19 @@ define internal void @sharkd_session_free_tap_expert_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sequence_analysis_find_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @sequence_analysis_find_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sequence_analysis_info_new() local_unnamed_addr #2
+declare ptr @sequence_analysis_info_new() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sequence_analysis_get_tap_listener_name(ptr noundef) local_unnamed_addr #2
+declare ptr @sequence_analysis_get_tap_listener_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sequence_analysis_get_tap_flags(ptr noundef) local_unnamed_addr #2
+declare i32 @sequence_analysis_get_tap_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sequence_analysis_get_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @sequence_analysis_get_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_flow_cb(ptr noundef %0) #0 {
@@ -7133,13 +7127,13 @@ define internal void @sharkd_session_free_tap_flow_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_conversation_by_proto_id(i32 noundef) local_unnamed_addr #2
+declare ptr @get_conversation_by_proto_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_get_id_by_short_name(ptr noundef) local_unnamed_addr #2
+declare i32 @proto_get_id_by_short_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @get_conversation_proto_id(ptr noundef) local_unnamed_addr #2
+declare i32 @get_conversation_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -7426,7 +7420,7 @@ define internal void @sharkd_session_free_tap_conv_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stat_tap_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @stat_tap_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_nstat_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -7605,19 +7599,19 @@ define internal void @sharkd_session_free_tap_nstat_cb(ptr noundef readonly capt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_rtd_table_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_rtd_table_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtd_table_get_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rtd_table_get_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtd_table_dissector_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rtd_table_dissector_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_rtd_tap_listener_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_rtd_tap_listener_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_rtd_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_rtd_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_rtd_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -7774,22 +7768,22 @@ define internal void @sharkd_session_free_tap_rtd_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_srt_table_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_srt_table_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @srt_table_get_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @srt_table_get_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @srt_table_dissector_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @srt_table_dissector_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_srt_tap_listener_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_srt_tap_listener_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_srt_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_srt_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_srt_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -7953,7 +7947,7 @@ define internal void @sharkd_session_free_tap_srt_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_eo_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_eo_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @sharkd_session_eo_register_tap_listener(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
@@ -8019,7 +8013,7 @@ define internal void @sharkd_session_process_tap_eo_cb(ptr noundef readonly capt
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -8101,15 +8095,15 @@ define internal void @sharkd_session_process_tap_eo_cb(ptr noundef readonly capt
 ._crit_edge:                                      ; preds = %23, %1
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtpstream_reset_cb(ptr noundef) #2
+declare void @rtpstream_reset_cb(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @rtpstream_packet_cb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @rtpstream_packet_cb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_rtp_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -8152,7 +8146,7 @@ define internal void @sharkd_session_process_tap_rtp_cb(ptr noundef readonly cap
 25:                                               ; preds = %.lr.ph, %25
   %.08 = phi ptr [ %5, %.lr.ph ], [ %55, %25 ]
   %26 = load ptr, ptr %.08, align 8
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @rtpstream_info_calculate(ptr noundef %26, ptr noundef nonnull %2)
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %27 = load i32, ptr %6, align 4
@@ -8208,7 +8202,7 @@ define internal void @sharkd_session_process_tap_rtp_cb(ptr noundef readonly cap
   call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.336, ptr noundef nonnull @.str.5, i32 noundef %53)
   call void @rtpstream_info_calc_free(ptr noundef nonnull %2)
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq ptr %55, null
@@ -8224,8 +8218,8 @@ define internal void @sharkd_session_process_tap_rtp_cb(ptr noundef readonly cap
 define internal fastcc noundef zeroext i1 @sharkd_rtp_match_init(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %0, i8 noundef 0, i64 noundef 64, i1 noundef false) #17
   %5 = tail call ptr @g_strsplit(ptr noundef %1, ptr noundef nonnull @.str.337, i32 noundef 7)
   %6 = tail call i32 @g_strv_length(ptr noundef %5)
@@ -8289,13 +8283,13 @@ copy_address.exit14:                              ; preds = %24
 38:                                               ; preds = %24, %19, %15, %10, %7, %2, %copy_address.exit14
   %.0 = phi i1 [ false, %2 ], [ true, %copy_address.exit14 ], [ false, %24 ], [ false, %19 ], [ false, %15 ], [ false, %10 ], [ false, %7 ]
   call void @g_strfreev(ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtpstream_id_free(ptr noundef) local_unnamed_addr #2
+declare void @rtpstream_id_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @sharkd_session_packet_tap_rtp_analyse_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
@@ -8577,7 +8571,7 @@ define internal void @sharkd_session_process_tap_rtp_free_cb(ptr noundef %0) #0 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @mcaststream_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @mcaststream_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_multicast_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -8678,13 +8672,13 @@ define internal void @sharkd_session_process_free_tap_multicast_cb(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_registrar_get_id_byname(ptr noundef) local_unnamed_addr #2
+declare i32 @proto_registrar_get_id_byname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @new_phs_t(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @new_phs_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @protohierstat_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @protohierstat_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_phs_cb(ptr noundef readonly captures(address_is_null) %0) #0 {
@@ -8714,7 +8708,7 @@ define internal void @sharkd_session_free_tap_phs_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @voip_stat_init_tapinfo() local_unnamed_addr #2
+declare void @voip_stat_init_tapinfo() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_voip_calls_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -8809,7 +8803,7 @@ define internal void @sharkd_session_process_tap_voip_calls_cb(ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @voip_calls_init_all_taps(ptr noundef) local_unnamed_addr #2
+declare void @voip_calls_init_all_taps(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_free_tap_voip_calls_cb(ptr noundef %0) #0 {
@@ -8839,7 +8833,7 @@ define internal void @sharkd_session_free_tap_voip_calls_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_voip_convs_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -8960,10 +8954,10 @@ define internal void @sharkd_session_free_tap_voip_convs_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
+declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_tap_hosts_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -8988,14 +8982,14 @@ define internal void @sharkd_session_process_tap_hosts_cb(ptr noundef readonly c
   br i1 %.not.i, label %sharkd_session_tap_ipv4_hosts_print.exit, label %10
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   call void @wmem_map_foreach(ptr noundef nonnull %9, ptr noundef nonnull @sharkd_session_tap_ipv4_host_insert_sorted, ptr noundef nonnull %3)
   %11 = load ptr, ptr %3, align 8
   call void @g_slist_foreach(ptr noundef %11, ptr noundef nonnull @sharkd_session_tap_ipv4_host_print, ptr noundef null)
   %12 = load ptr, ptr %3, align 8
   call void @g_slist_free(ptr noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sharkd_session_tap_ipv4_hosts_print.exit
 
 sharkd_session_tap_ipv4_hosts_print.exit:         ; preds = %8, %10
@@ -9016,14 +9010,14 @@ sharkd_session_tap_ipv4_hosts_print.exit:         ; preds = %8, %10
   br i1 %.not.i4, label %sharkd_session_tap_ipv6_hosts_print.exit, label %19
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   call void @wmem_map_foreach(ptr noundef nonnull %18, ptr noundef nonnull @sharkd_session_tap_ipv6_host_insert_sorted, ptr noundef nonnull %2)
   %20 = load ptr, ptr %2, align 8
   call void @g_slist_foreach(ptr noundef %20, ptr noundef nonnull @sharkd_session_tap_ipv6_host_print, ptr noundef null)
   %21 = load ptr, ptr %2, align 8
   call void @g_slist_free(ptr noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %sharkd_session_tap_ipv6_hosts_print.exit
 
 sharkd_session_tap_ipv6_hosts_print.exit:         ; preds = %17, %19
@@ -9042,13 +9036,13 @@ define internal void @sharkd_session_free_tap_hosts_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sharkd_retap() local_unnamed_addr #2
+declare i32 @sharkd_retap() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #2
+declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @sharkd_session_process_tap_stats_node_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -9237,51 +9231,51 @@ sharkd_json_array_open.exit:                      ; preds = %2, %3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stats_tree_free(ptr noundef) local_unnamed_addr #2
+declare void @stats_tree_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_chunk_insert_const(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_string_chunk_insert_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_string_chunk_free(ptr noundef) local_unnamed_addr #2
+declare void @g_string_chunk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sequence_analysis_get_nodes(ptr noundef) local_unnamed_addr #2
+declare i32 @sequence_analysis_get_nodes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_queue_peek_nth_link(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_queue_peek_nth_link(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sequence_analysis_info_free(ptr noundef) local_unnamed_addr #2
+declare void @sequence_analysis_info_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_conversation_address(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @get_conversation_address(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_conversation_port(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @get_conversation_port(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_conversation_filter(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @get_conversation_filter(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @sharkd_session_geoip_addr(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %.thread [
     i32 2, label %5
@@ -9407,48 +9401,48 @@ define internal fastcc zeroext i1 @sharkd_session_geoip_addr(ptr noundef readonl
 
 .thread:                                          ; preds = %54, %58, %2, %13, %14
   %.0 = phi i1 [ false, %14 ], [ false, %13 ], [ false, %2 ], [ true, %58 ], [ %.5, %54 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_endpoint_port(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @get_endpoint_port(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_endpoint_filter(ptr noundef) local_unnamed_addr #2
+declare ptr @get_endpoint_filter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @maxmind_db_lookup_ipv4(ptr noundef) local_unnamed_addr #2
+declare ptr @maxmind_db_lookup_ipv4(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @maxmind_db_lookup_ipv6(ptr noundef) local_unnamed_addr #2
+declare ptr @maxmind_db_lookup_ipv6(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @reset_conversation_table_data(ptr noundef) local_unnamed_addr #2
+declare void @reset_conversation_table_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @reset_endpoint_table_data(ptr noundef) local_unnamed_addr #2
+declare void @reset_endpoint_table_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stat_tap_get_field_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @stat_tap_get_field_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @free_stat_tables(ptr noundef) local_unnamed_addr #2
+declare void @free_stat_tables(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_rtd_value_string(ptr noundef) local_unnamed_addr #2
+declare ptr @get_rtd_value_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @free_rtd_table(ptr noundef) local_unnamed_addr #2
+declare void @free_rtd_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @free_srt_table(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @free_srt_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @eo_free_entry(ptr noundef) #2
+declare void @eo_free_entry(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_eo_object_list_add_entry(ptr noundef captures(none) %0, ptr noundef %1) #0 {
@@ -9468,52 +9462,52 @@ define internal ptr @sharkd_eo_object_list_get_entry(ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_eo_tap_listener_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_eo_tap_listener_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_eo_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_eo_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_slist_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @gcry_md_hash_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @gcry_md_hash_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @bytes_to_str_maxlen(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @bytes_to_str_maxlen(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_first(ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtpstream_info_calculate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rtpstream_info_calculate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtpstream_info_calc_free(ptr noundef) local_unnamed_addr #2
+declare void @rtpstream_info_calc_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_strv_length(ptr noundef) local_unnamed_addr #2
+declare i32 @g_strv_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @get_host_ipaddr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @get_host_ipaddr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #14
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @rtpstream_id_equal_pinfo_rtp_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @rtpstream_id_equal_pinfo_rtp_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtppacket_analyse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rtppacket_analyse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @mcaststream_reset(ptr noundef) local_unnamed_addr #2
+declare void @mcaststream_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @sharkd_session_process_tap_phs_cb_aux(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
@@ -9569,22 +9563,22 @@ define internal fastcc void @sharkd_session_process_tap_phs_cb_aux(ptr noundef r
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @free_phs(ptr noundef) local_unnamed_addr #2
+declare void @free_phs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @voip_calls_remove_all_tap_listeners(ptr noundef) local_unnamed_addr #2
+declare void @voip_calls_remove_all_tap_listeners(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_queue_free(ptr noundef) local_unnamed_addr #2
+declare void @g_queue_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sequence_analysis_list_sort(ptr noundef) local_unnamed_addr #2
+declare void @sequence_analysis_list_sort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_ipv4_hash_table() local_unnamed_addr #2
+declare ptr @get_ipv4_hash_table() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_tap_ipv4_host_insert_sorted(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
@@ -9626,7 +9620,7 @@ define internal i32 @sharkd_session_tap_ipv4_host_compare(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_ipv6_hash_table() local_unnamed_addr #2
+declare ptr @get_ipv6_hash_table() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_tap_ipv6_host_insert_sorted(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
@@ -9668,43 +9662,43 @@ define internal i32 @sharkd_session_tap_ipv6_host_compare(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_tap_string(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_tap_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_tap_handler(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_tap_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @address_to_name(ptr noundef) local_unnamed_addr #2
+declare ptr @address_to_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_port_to_display(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_port_to_display(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_last(ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_last(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @follow_info_free(ptr noundef) local_unnamed_addr #2
+declare void @follow_info_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_begin_base64(ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_begin_base64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_write_base64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @json_dumper_write_base64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @json_dumper_end_base64(ptr noundef) local_unnamed_addr #2
+declare void @json_dumper_end_base64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @check_field_unit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @check_field_unit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @sharkd_iograph_packet(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3, i32 %4) #0 {
@@ -10142,7 +10136,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   br i1 %cond1.i, label %229, label %266
 
 229:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %230 = call i32 @nstime_cmp(ptr noundef %228, ptr noundef nonnull %6)
   %231 = icmp slt i32 %230, 0
@@ -10209,7 +10203,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   br i1 %.not.i61, label %.thread.i, label %.lr.ph.i60
 
 .thread.i:                                        ; preds = %264, %259, %232, %229
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %290
 
 266:                                              ; preds = %222
@@ -10292,43 +10286,43 @@ update_io_graph_item.exit:                        ; preds = %.loopexit.i, %70, %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare double @get_io_graph_item(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare double @get_io_graph_item(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @get_io_graph_index(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @get_io_graph_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #2
+declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_finfo_ptr_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_get_finfo_ptr_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_registrar_get_ftype(i32 noundef) local_unnamed_addr #2
+declare i32 @proto_registrar_get_ftype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @fvalue_get_uinteger(ptr noundef) local_unnamed_addr #2
+declare i32 @fvalue_get_uinteger(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @fvalue_get_sinteger(ptr noundef) local_unnamed_addr #2
+declare i32 @fvalue_get_sinteger(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @fvalue_get_uinteger64(ptr noundef) local_unnamed_addr #2
+declare i64 @fvalue_get_uinteger64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @fvalue_get_sinteger64(ptr noundef) local_unnamed_addr #2
+declare i64 @fvalue_get_sinteger64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare double @fvalue_get_floating(ptr noundef) local_unnamed_addr #2
+declare double @fvalue_get_floating(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @fvalue_get_time(ptr noundef) local_unnamed_addr #2
+declare ptr @fvalue_get_time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
@@ -10375,7 +10369,7 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
   br i1 %.not87, label %34, label %26
 
 26:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = tail call i32 @wtap_block_count_option(ptr noundef nonnull %.072, i32 noundef 1)
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.82)
   tail call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
@@ -10400,7 +10394,7 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %32, %26
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %._crit_edge, %25
@@ -10635,16 +10629,16 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sharkd_get_modified_block(ptr noundef) local_unnamed_addr #2
+declare ptr @sharkd_get_modified_block(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_count_option(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_count_option(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #2
+declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_data_source_tvb(ptr noundef) local_unnamed_addr #2
+declare ptr @get_data_source_tvb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @sharkd_session_process_frame_cb_tree(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -10692,12 +10686,12 @@ sharkd_json_array_open.exit:                      ; preds = %5, %7
   br i1 %.not90, label %21, label %22
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 16
   call void @proto_item_fill_label(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef null)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.430)
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
 
 22:                                               ; preds = %18
@@ -10922,21 +10916,21 @@ sharkd_json_array_open.exit:                      ; preds = %5, %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_data_source_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_data_source_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sharkd_follower_visit_layers_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call i32 @get_follow_proto_id(ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %6)
@@ -10957,8 +10951,8 @@ define internal noundef zeroext i1 @sharkd_follower_visit_layers_cb(ptr readnone
   br label %17
 
 17:                                               ; preds = %11, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
@@ -10967,8 +10961,8 @@ define internal noundef zeroext i1 @sharkd_followers_visit_layers_cb(ptr readnon
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call i32 @get_follow_proto_id(ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %6)
@@ -11011,40 +11005,40 @@ define internal noundef zeroext i1 @sharkd_followers_visit_layers_cb(ptr readnon
   br label %25
 
 25:                                               ; preds = %24, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_fill_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_item_fill_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @fvalue_to_string_repr(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @fvalue_to_string_repr(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_construct_match_selected_string(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_construct_match_selected_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @proto_is_frame_protocol(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @proto_is_frame_protocol(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_conv_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_conv_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_stream_count_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_stream_count_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_follow_sub_stream_id_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_follow_sub_stream_id_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_string_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_string_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @sharkd_set_modified_block(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sharkd_set_modified_block(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_set_pref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @prefs_set_pref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @sharkd_session_process_dumpconf_mod_cb(ptr noundef %0, ptr noundef initializes((0, 8)) %1) #0 {
@@ -11054,13 +11048,13 @@ define internal noundef i32 @sharkd_session_process_dumpconf_mod_cb(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_find_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_find_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @sharkd_session_process_dumpconf_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = tail call ptr @prefs_get_name(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 512, i32 noundef 2, i64 noundef 512, ptr noundef nonnull @.str.188, ptr noundef %6, ptr noundef %4)
@@ -11210,48 +11204,48 @@ define internal noundef i32 @sharkd_session_process_dumpconf_cb(ptr noundef %0, 
 
 63:                                               ; preds = %9, %12, %._crit_edge41, %33, %._crit_edge46, %17, %14, %2
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @prefs_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_get_uint_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @prefs_get_uint_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_get_uint_base(ptr noundef) local_unnamed_addr #2
+declare i32 @prefs_get_uint_base(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @prefs_get_bool_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @prefs_get_bool_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_string_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @prefs_get_string_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_enumvals(ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_get_enumvals(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @prefs_get_enum_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @prefs_get_enum_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @range_convert_range(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @range_convert_range(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_range_value_real(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @prefs_get_range_value_real(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_uat_value(ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_get_uat_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @uat_fld_tostr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @uat_fld_tostr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @ssl_export_sessions(ptr noundef) local_unnamed_addr #2
+declare ptr @ssl_export_sessions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @sharkd_session_packet_download_tap_rtp_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
@@ -11338,11 +11332,11 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   %9 = alloca i32, align 4
   %10 = tail call ptr @rtp_decoder_hash_table_new()
   %11 = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.03551 = load ptr, ptr %12, align 8
@@ -11371,7 +11365,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   %.03854 = phi ptr [ %11, %.lr.ph ], [ %.139, %79 ]
   %.04253 = phi i64 [ 4096, %.lr.ph ], [ %.143, %79 ]
   %26 = load ptr, ptr %.03557, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %27 = call i64 @decode_rtp_packet(ptr noundef %26, ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %28 = icmp eq i64 %27, 0
@@ -11385,7 +11379,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1179011410, ptr %6, align 16
   store i32 -1, ptr %13, align 4
   store i32 1163280727, ptr %14, align 8
@@ -11405,7 +11399,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   store i32 1635017060, ptr %23, align 4
   store i32 -1, ptr %24, align 8
   call void @json_dumper_write_base64(ptr noundef nonnull @dumper, ptr noundef nonnull %6, i64 noundef 44)
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %4, align 4
   br label %39
 
@@ -11417,8 +11411,8 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   br i1 %.not48, label %78, label %42
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not49 = icmp eq ptr %.03255, null
   br i1 %.not49, label %43, label %46
 
@@ -11428,7 +11422,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   br label %53
 
 46:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @speex_resampler_get_rate(ptr noundef nonnull %.03255, ptr noundef nonnull %2, ptr noundef nonnull %9)
   %47 = load i32, ptr %4, align 4
   %48 = load i32, ptr %2, align 4
@@ -11441,7 +11435,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   br label %52
 
 52:                                               ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %53
 
 53:                                               ; preds = %52, %43
@@ -11482,8 +11476,8 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   %75 = load i32, ptr %8, align 4
   %76 = shl i32 %75, 1
   %77 = zext i32 %76 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %78
 
 78:                                               ; preds = %72, %39
@@ -11502,7 +11496,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   %.1 = phi i32 [ %.2, %78 ], [ %.056, %25 ]
   %80 = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %80)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %81 = getelementptr inbounds nuw i8, ptr %.03557, i64 8
   %.035 = load ptr, ptr %81, align 8
   %.not = icmp eq ptr %.035, null
@@ -11512,9 +11506,9 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   %.038.lcssa = phi ptr [ %11, %1 ], [ %.139, %79 ]
   call void @g_free(ptr noundef %.038.lcssa)
   call void @g_hash_table_destroy(ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -11531,28 +11525,34 @@ define internal void @sharkd_rtp_download_free_items(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @rtp_decoder_hash_table_new() local_unnamed_addr #2
+declare ptr @rtp_decoder_hash_table_new() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @decode_rtp_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @decode_rtp_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @speex_resampler_init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @speex_resampler_init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @speex_resampler_skip_zeros(ptr noundef) local_unnamed_addr #2
+declare i32 @speex_resampler_skip_zeros(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @speex_resampler_get_rate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @speex_resampler_get_rate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @speex_resampler_set_rate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @speex_resampler_set_rate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @speex_resampler_process_int(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @speex_resampler_process_int(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #16
@@ -11564,21 +11564,21 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind willreturn memory(read) }

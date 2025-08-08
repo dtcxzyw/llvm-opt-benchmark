@@ -645,7 +645,7 @@ _ZN14JvmtiTagMapKey8get_hashERKS_.exit:           ; preds = %12, %15, %.thread.i
   %29 = load ptr, ptr %25, align 8
   store i32 %19, ptr %26, align 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %31, null
@@ -668,7 +668,7 @@ _ZN21ResourceHashtableNodeI14JvmtiTagMapKeylEC2EjRKS0_RKlPS1_.exit: ; preds = %2
   store i64 %storemerge.i.i, ptr %30, align 8
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr null, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %41 = load i64, ptr %2, align 8
   store i64 %41, ptr %40, align 8
@@ -786,7 +786,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKey
 54:                                               ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE11lookup_nodeEjS7_.exit.thread
   store i32 %20, ptr %52, align 8
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %55, align 8
   %56 = load ptr, ptr %6, align 8
   %.not.i.i11 = icmp eq ptr %56, null
@@ -809,7 +809,7 @@ _ZN21ResourceHashtableNodeI14JvmtiTagMapKeylEC2EjRKS0_RKlPS1_.exit: ; preds = %5
   store i64 %storemerge.i.i, ptr %55, align 8
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr null, ptr %64, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %66 = load i64, ptr %2, align 8
   store i64 %66, ptr %65, align 8
@@ -3044,10 +3044,10 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

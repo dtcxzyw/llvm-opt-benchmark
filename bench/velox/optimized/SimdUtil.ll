@@ -307,13 +307,13 @@ entry:
   %buffer.i.i4.i.i = alloca [8 x i32], align 32
   %buffer.i.i.i.i = alloca [8 x i32], align 32
   %tmp.i.i = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   store i64 0, ptr %tmp.i.i, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i, %entry
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i.i.i)
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i
@@ -332,7 +332,7 @@ _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; pre
   %2 = load <8 x i32>, ptr %buffer.i.i.i.i, align 32
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ne <8 x i32> %2, zeroinitializer
   %3 = sext <8 x i1> %cmp.i.i.i.i.i.i.i.i.i.i.i to <8 x i32>
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i.i.i)
   %arrayidx.i.i = getelementptr inbounds nuw [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %indvars.iv.i.i
   store <8 x i32> %3, ptr %arrayidx.i.i, align 32
   %arrayidx7.i.i = getelementptr inbounds nuw [8 x i8], ptr %tmp.i.i, i64 0, i64 %indvars.iv.i.i
@@ -342,7 +342,7 @@ _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; pre
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.i.i:                                      ; preds = %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i4.i.i)
   br label %for.body.i.i5.i.i
 
 for.body.i.i5.i.i:                                ; preds = %for.body.i.i5.i.i, %for.end.i.i
@@ -361,16 +361,16 @@ __cxx_global_var_init.exit:                       ; preds = %for.body.i.i5.i.i
   %6 = load <8 x i32>, ptr %buffer.i.i4.i.i, align 32
   %cmp.i.i.i.i.i.i.i.i.i12.i.i = icmp ne <8 x i32> %6, zeroinitializer
   %7 = sext <8 x i1> %cmp.i.i.i.i.i.i.i.i.i12.i.i to <8 x i32>
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i4.i.i)
   store <8 x i32> %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 256), align 32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i3)
   store i32 0, ptr %tmp.i.i3, align 4
   br label %for.body.i.i4
 
 for.body.i.i4:                                    ; preds = %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i, %__cxx_global_var_init.exit
   %indvars.iv.i.i5 = phi i64 [ 0, %__cxx_global_var_init.exit ], [ %indvars.iv.next.i.i14, %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i.i.i2)
   br label %for.body.i.i.i.i6
 
 for.body.i.i.i.i6:                                ; preds = %for.body.i.i.i.i6, %for.body.i.i4
@@ -389,7 +389,7 @@ _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; pre
   %10 = load <4 x i64>, ptr %buffer.i.i.i.i2, align 32
   %11 = icmp ne <4 x i64> %10, zeroinitializer
   %xor.i.i.i.i.i.i.i.i.i.i = sext <4 x i1> %11 to <4 x i64>
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i.i.i2)
   %arrayidx.i.i12 = getelementptr inbounds nuw [5 x %"class.xsimd::batch_bool.3"], ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 0, i64 %indvars.iv.i.i5
   store <4 x i64> %xor.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i12, align 32
   %arrayidx7.i.i13 = getelementptr inbounds nuw [4 x i8], ptr %tmp.i.i3, i64 0, i64 %indvars.iv.i.i5
@@ -399,7 +399,7 @@ _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; pre
   br i1 %exitcond.not.i.i15, label %for.end.i.i16, label %for.body.i.i4, !llvm.loop !17
 
 for.end.i.i16:                                    ; preds = %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i4.i.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i4.i.i1)
   br label %for.body.i.i5.i.i17
 
 for.body.i.i5.i.i17:                              ; preds = %for.body.i.i5.i.i17, %for.end.i.i16
@@ -418,10 +418,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %for.body.i.i5.i.i17
   %14 = load <4 x i64>, ptr %buffer.i.i4.i.i1, align 32
   %15 = icmp ne <4 x i64> %14, zeroinitializer
   %xor.i.i.i.i.i.i.i.i12.i.i = sext <4 x i1> %15 to <4 x i64>
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i4.i.i1)
   store <4 x i64> %xor.i.i.i.i.i.i.i.i12.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 128), align 32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i24)
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37, %__cxx_global_var_init.1.exit
@@ -442,7 +442,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   br i1 %exitcond.not.i.i28, label %for.end.i.i29, label %for.body4.i.i, !llvm.loop !18
 
 for.end.i.i29:                                    ; preds = %for.body4.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i.i23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i.i.i23)
   br label %for.body.i.i.i.i30
 
 for.body.i.i.i.i30:                               ; preds = %for.body.i.i.i.i30, %for.end.i.i29
@@ -461,7 +461,7 @@ _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37: ; p
   %22 = load <8 x i32>, ptr %buffer.i.i.i.i23, align 32
   %cmp.i.i.i.i.i.i.i.i.i.i.i38 = icmp ne <8 x i32> %22, zeroinitializer
   %23 = sext <8 x i1> %cmp.i.i.i.i.i.i.i.i.i.i.i38 to <8 x i32>
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i.i.i23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i.i.i23)
   %arrayidx10.i.i = getelementptr inbounds nuw [256 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13fromBitMask32E, i64 0, i64 %indvars.iv10.i.i
   store <8 x i32> %23, ptr %arrayidx10.i.i, align 32
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
@@ -469,8 +469,8 @@ _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37: ; p
   br i1 %exitcond13.not.i.i, label %__cxx_global_var_init.2.exit, label %for.cond2.preheader.i.i, !llvm.loop !19
 
 __cxx_global_var_init.2.exit:                     ; preds = %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i40)
   br label %for.cond2.preheader.i.i41
 
 for.cond2.preheader.i.i41:                        ; preds = %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57, %__cxx_global_var_init.2.exit
@@ -491,7 +491,7 @@ for.body4.i.i43:                                  ; preds = %for.body4.i.i43, %f
   br i1 %exitcond.not.i.i48, label %for.end.i.i49, label %for.body4.i.i43, !llvm.loop !20
 
 for.end.i.i49:                                    ; preds = %for.body4.i.i43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i.i39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i.i.i39)
   br label %for.body.i.i.i.i50
 
 for.body.i.i.i.i50:                               ; preds = %for.body.i.i.i.i50, %for.end.i.i49
@@ -510,7 +510,7 @@ _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57: ; p
   %30 = load <4 x i64>, ptr %buffer.i.i.i.i39, align 32
   %31 = icmp ne <4 x i64> %30, zeroinitializer
   %xor.i.i.i.i.i.i.i.i.i.i58 = sext <4 x i1> %31 to <4 x i64>
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i.i.i39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i.i.i39)
   %arrayidx10.i.i59 = getelementptr inbounds nuw [16 x %"class.xsimd::batch_bool.3"], ptr @_ZN8facebook5velox4simd6detail13fromBitMask64E, i64 0, i64 %indvars.iv10.i.i42
   store <4 x i64> %xor.i.i.i.i.i.i.i.i.i.i58, ptr %arrayidx10.i.i59, align 32
   %indvars.iv.next11.i.i60 = add nuw nsw i64 %indvars.iv10.i.i42, 1
@@ -518,7 +518,7 @@ _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57: ; p
   br i1 %exitcond13.not.i.i61, label %__cxx_global_var_init.3.exit, label %for.cond2.preheader.i.i41, !llvm.loop !21
 
 __cxx_global_var_init.3.exit:                     ; preds = %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i40)
   %.b1.i.i = load i1, ptr @_ZZN8facebook5velox4simd18initializeSimdUtilEvE6inited, align 1
   br i1 %.b1.i.i, label %__cxx_global_var_init.4.exit, label %for.body.i.i.i
 
@@ -635,10 +635,10 @@ __cxx_global_var_init.4.exit:                     ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

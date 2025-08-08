@@ -476,7 +476,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %2 = load ptr, ptr %mImpl, align 8
   %mIsOpen = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i8 0, ptr %mIsOpen, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %endptr.i)
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.33) #31
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io4File4Impl22getDefaultCopyMaxBytesEv.exit, label %if.then.i
@@ -488,7 +488,7 @@ if.then.i:                                        ; preds = %invoke.cont5
 
 _ZN7openvdb5v11_02io4File4Impl22getDefaultCopyMaxBytesEv.exit: ; preds = %invoke.cont5, %if.then.i
   %result.0.i = phi i64 [ %call1.i, %if.then.i ], [ 500000000, %invoke.cont5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %endptr.i)
   %3 = load ptr, ptr %mImpl, align 8
   %mCopyMaxBytes = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %result.0.i, ptr %mCopyMaxBytes, align 8
@@ -1642,9 +1642,9 @@ invoke.cont33:                                    ; preds = %if.then31
           to label %invoke.cont39 unwind label %lpad36
 
 invoke.cont39:                                    ; preds = %invoke.cont33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %src.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %snk.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %src.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %snk.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store ptr %fstrm, ptr %src.i.i, align 8
   store ptr %tempFile, ptr %snk.i.i, align 8
   store ptr %src.i.i, ptr %agg.tmp.i.i, align 8
@@ -1656,9 +1656,9 @@ invoke.cont39:                                    ; preds = %invoke.cont33
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %snk.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %src.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %snk.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %call44 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7openvdb5v11_02io8TempFile8filenameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %tempFile)
           to label %invoke.cont43 unwind label %lpad40
 
@@ -7267,7 +7267,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i8, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %arrayidx.i.i.i, align 8, !noalias !15
   %arrayidx3.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -7283,7 +7283,7 @@ if.then15:                                        ; preds = %if.end
           to label %_ZNSt10shared_ptrIKN7openvdb5v11_08GridBaseEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSD_.exit unwind label %lpad12
 
 _ZNSt10shared_ptrIKN7openvdb5v11_08GridBaseEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSD_.exit: ; preds = %if.then15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end56
 
 lpad12:                                           ; preds = %if.then15, %if.end56, %if.end51, %if.else
@@ -8263,7 +8263,7 @@ if.end139:                                        ; preds = %invoke.cont1.i.i183
 if.then141:                                       ; preds = %if.end139
   %90 = load ptr, ptr %agg.result, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %vtable.i = load ptr, ptr %88, align 8, !noalias !18
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %91 = load ptr, ptr %vfn.i, align 8, !noalias !18
@@ -8372,7 +8372,7 @@ if.end8.sink.split.i.i.i.i.i275:                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont144
 
 invoke.cont144:                                   ; preds = %if.end8.sink.split.i.i.i.i.i275, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i272, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i264, %_ZN7openvdb5v11_012ConstPtrCastINS0_4tree8TreeBaseEKS3_EESt10shared_ptrIT_ERKS5_IT0_E.exit.i, %.noexc284
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %vtable145 = load ptr, ptr %90, align 8
   %vfn146 = getelementptr inbounds nuw i8, ptr %vtable145, i64 104
   %107 = load ptr, ptr %vfn146, align 8
@@ -11329,7 +11329,7 @@ entry:
   %alloc.i = alloca %"class.std::allocator", align 1
   %alloc.i.i = alloca %"class.std::allocator", align 1
   %buf = alloca %"class.boost::iostreams::detail::basic_buffer", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i.i) #31
   %cmp.i.i.i.i = icmp slt i64 %buffer_size, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i.i, label %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit.i.i.i
@@ -11357,7 +11357,7 @@ lpad.i.i:                                         ; preds = %_ZNSt15__new_alloca
 
 _ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit: ; preds = %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i.i) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   store ptr %call5.i.i1.i.i, ptr %buf, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i64 %buffer_size, ptr %size_.i, align 8
@@ -11425,11 +11425,11 @@ if.end:                                           ; preds = %call1.i.i.i.i.i.noe
   br label %while.body, !llvm.loop !42
 
 _ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit: ; preds = %invoke.cont3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i) #31
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i1.i.i) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
   ret i64 %total.014
 }
 
@@ -13348,10 +13348,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27

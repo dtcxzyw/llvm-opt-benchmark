@@ -36,15 +36,9 @@ define noundef ptr @lv_tileview_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_tileview_add_tile(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -71,11 +65,11 @@ define noundef ptr @lv_tileview_add_tile(ptr noundef %0, i8 noundef zeroext %1, 
   ret ptr %5
 }
 
-declare void @lv_obj_set_pos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_pos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_pct(i32 noundef) local_unnamed_addr #2
+declare i32 @lv_pct(i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_scroll_dir(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scroll_dir(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_tileview_set_tile(ptr noundef initializes((64, 72)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -90,11 +84,11 @@ define void @lv_tileview_set_tile(ptr noundef initializes((64, 72)) %0, ptr noun
   ret void
 }
 
-declare i32 @lv_obj_get_x(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_x(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_y(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_y(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_scroll_to(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_to(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_tileview_set_tile_by_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -138,26 +132,26 @@ define void @lv_tileview_set_tile_by_index(ptr noundef %0, i32 noundef %1, i32 n
   ret void
 }
 
-declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_content_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_content_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_tileview_get_tile_active(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @lv_tileview_get_tile_active(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   ret ptr %3
 }
 
-declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @tileview_event_cb(ptr noundef %0) #0 {
@@ -181,7 +175,7 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
 12:                                               ; preds = %8, %6
   %13 = tail call i32 @lv_obj_get_content_width(ptr noundef %4) #4
   %14 = tail call i32 @lv_obj_get_content_height(ptr noundef %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_obj_get_scroll_end(ptr noundef %4, ptr noundef nonnull %2) #4
   %15 = load i32, ptr %2, align 4, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -227,33 +221,39 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
 .critedge:                                        ; preds = %27, %12, %36
   %.137 = phi i32 [ %39, %36 ], [ 15, %12 ], [ 15, %27 ]
   call void @lv_obj_set_scroll_dir(ptr noundef %4, i32 noundef %.137) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 41:                                               ; preds = %1, %.critedge, %8
   ret void
 }
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_scroll_snap_x(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scroll_snap_x(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_scroll_snap_y(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scroll_snap_y(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare void @lv_obj_get_scroll_end(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_get_scroll_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

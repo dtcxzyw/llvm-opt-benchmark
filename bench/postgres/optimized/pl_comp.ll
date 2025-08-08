@@ -371,7 +371,7 @@ define ptr @plpgsql_compile(ptr noundef readonly captures(none) %0, i1 noundef z
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = zext i32 %13 to i64
   %15 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %14) #9
   %.not = icmp eq ptr %15, null
@@ -607,11 +607,11 @@ compute_function_hashkey.exit45:                  ; preds = %compute_function_ha
 
 .thread.i:                                        ; preds = %126, %compute_function_hashkey.exit45
   %.sink378.i = phi i32 [ %131, %126 ], [ 2, %compute_function_hashkey.exit45 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %132 = call i64 @SysCacheGetAttrNotNull(i32 noundef 47, ptr noundef nonnull %15, i16 noundef signext 26) #9
   %133 = inttoptr i64 %132 to ptr
   %134 = call ptr @text_to_cstring(ptr noundef %133) #9
@@ -745,7 +745,7 @@ compute_function_hashkey.exit45:                  ; preds = %compute_function_ha
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %263 ]
   %.0282357.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1283.i, %263 ]
   %.0284356.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1285.i, %263 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %202 = load ptr, ptr %6, align 8
   %203 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv.i
   %204 = load i32, ptr %203, align 4
@@ -869,7 +869,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   br label %263
 
 263:                                              ; preds = %261, %257, %253
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
@@ -1739,7 +1739,7 @@ plpgsql_finish_datums.exit.i:                     ; preds = %656, %._crit_edge36
   br label %665
 
 665:                                              ; preds = %664, %661
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %666 = load ptr, ptr @plpgsql_HashTable, align 8
   %667 = call ptr @hash_search(ptr noundef %666, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %3) #9
   %668 = load i8, ptr %3, align 1, !range !3, !noundef !4
@@ -1760,7 +1760,7 @@ do_compile.exit:                                  ; preds = %665, %670, %672
   store ptr %.0.i47, ptr %674, align 8
   %675 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 32
   store ptr %667, ptr %675, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %676 = load ptr, ptr %5, align 8
   store ptr %676, ptr @error_context_stack, align 8
   store ptr null, ptr @plpgsql_error_funcname, align 8
@@ -1768,11 +1768,11 @@ do_compile.exit:                                  ; preds = %665, %670, %672
   %677 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
   store ptr %677, ptr @CurrentMemoryContext, align 8
   store ptr null, ptr @plpgsql_compile_tmp_cxt, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %74, %do_compile.exit
@@ -1781,37 +1781,31 @@ do_compile.exit:                                  ; preds = %665, %670, %672
   %678 = load ptr, ptr %0, align 8
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 24
   store ptr %.3, ptr %679, align 8
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_compile_inline(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.compile_error_callback_arg, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @plpgsql_scanner_init(ptr noundef %0) #9
   store ptr @.str.3, ptr @plpgsql_error_funcname, align 8
   store ptr %0, ptr %2, align 8
@@ -2008,12 +2002,12 @@ plpgsql_finish_datums.exit:                       ; preds = %80, %57
   %91 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
   store ptr %91, ptr @CurrentMemoryContext, align 8
   store ptr null, ptr @plpgsql_compile_tmp_cxt, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %10
 }
 
-declare ptr @plpgsql_scanner_init(ptr noundef) local_unnamed_addr #2
+declare ptr @plpgsql_scanner_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @plpgsql_compile_error_callback(ptr noundef readonly captures(none) %0) #0 {
@@ -2046,15 +2040,15 @@ define internal void @plpgsql_compile_error_callback(ptr noundef readonly captur
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare void @plpgsql_ns_init() local_unnamed_addr #2
+declare void @plpgsql_ns_init() local_unnamed_addr #1
 
-declare void @plpgsql_ns_push(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @plpgsql_ns_push(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @plpgsql_build_variable(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -2213,9 +2207,9 @@ define ptr @plpgsql_build_datatype(i32 noundef %0, i32 noundef %1, i32 noundef %
   ret ptr %12
 }
 
-declare i32 @plpgsql_yyparse(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @plpgsql_yyparse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @plpgsql_scanner_finish(ptr noundef) local_unnamed_addr #2
+declare void @plpgsql_scanner_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_dummy_return(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -2296,12 +2290,12 @@ define internal fastcc void @add_dummy_return(ptr noundef captures(none) %0) unn
   ret void
 }
 
-declare void @plpgsql_mark_local_assignment_targets(ptr noundef) local_unnamed_addr #2
+declare void @plpgsql_mark_local_assignment_targets(ptr noundef) local_unnamed_addr #1
 
-declare void @plpgsql_dumptree(ptr noundef) local_unnamed_addr #2
+declare void @plpgsql_dumptree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @plpgsql_parser_setup(ptr noundef writeonly captures(none) initializes((200, 224), (232, 240)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @plpgsql_parser_setup(ptr noundef writeonly captures(none) initializes((200, 224), (232, 240)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr @plpgsql_pre_column_ref, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -2382,7 +2376,7 @@ define internal noundef ptr @plpgsql_param_ref(ptr noundef readonly captures(non
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.21, i32 noundef %7) #9
@@ -2432,7 +2426,7 @@ define internal noundef ptr @plpgsql_param_ref(ptr noundef readonly captures(non
 
 41:                                               ; preds = %2, %13
   %.0 = phi ptr [ %33, %13 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -2496,14 +2490,14 @@ define hidden noundef zeroext i1 @plpgsql_parse_word(ptr noundef %0, ptr noundef
   ret i1 %.0
 }
 
-declare ptr @plpgsql_ns_lookup(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @plpgsql_ns_lookup(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @plpgsql_ns_top() local_unnamed_addr #2
+declare ptr @plpgsql_ns_top() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @makeString(ptr noundef %0) #9
   %7 = tail call ptr @makeString(ptr noundef %1) #9
   %8 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %6, ptr %7) #9
@@ -2572,13 +2566,13 @@ define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noun
 
 41:                                               ; preds = %40, %36, %15
   %.0 = phi i1 [ false, %40 ], [ true, %15 ], [ true, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 
-declare ptr @makeString(ptr noundef) local_unnamed_addr #2
+declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_build_recfield(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2661,7 +2655,7 @@ plpgsql_adddatum.exit:                            ; preds = %._crit_edge, %26
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @plpgsql_parse_tripword(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @plpgsql_IdentifierLookup, align 4
   %.not = icmp eq i32 %7, 1
   br i1 %.not, label %37, label %8
@@ -2725,11 +2719,11 @@ define hidden noundef zeroext i1 @plpgsql_parse_tripword(ptr noundef %0, ptr nou
 
 42:                                               ; preds = %37, %33
   %.0 = phi i1 [ true, %33 ], [ false, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
-declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #2
+declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_parse_wordtype(ptr noundef %0) local_unnamed_addr #0 {
@@ -2764,14 +2758,14 @@ define hidden ptr @plpgsql_parse_wordtype(ptr noundef %0) local_unnamed_addr #0 
   ret ptr %.0
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_parse_cwordtype(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
@@ -2917,21 +2911,21 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
 .thread58:                                        ; preds = %22, %35, %80
   %.05762 = phi ptr [ %86, %80 ], [ %43, %35 ], [ %30, %22 ]
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.05762
 }
 
-declare ptr @makeRangeVar(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @makeRangeVar(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @list_delete_last(ptr noundef) local_unnamed_addr #2
+declare ptr @list_delete_last(ptr noundef) local_unnamed_addr #1
 
-declare ptr @list_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @list_copy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #2
+declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #1
 
-declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SearchSysCacheAttName(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SearchSysCacheAttName(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @build_datatype(ptr %.16.val, i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -3200,11 +3194,11 @@ plpgsql_build_datatype.exit:                      ; preds = %13
   ret ptr %21
 }
 
-declare i32 @RelnameGetRelid(ptr noundef) local_unnamed_addr #2
+declare i32 @RelnameGetRelid(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_rel_type_id(i32 noundef) local_unnamed_addr #2
+declare i32 @get_rel_type_id(i32 noundef) local_unnamed_addr #1
 
-declare ptr @makeTypeName(ptr noundef) local_unnamed_addr #2
+declare ptr @makeTypeName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_parse_cwordrowtype(ptr noundef %0) local_unnamed_addr #0 {
@@ -3250,7 +3244,7 @@ plpgsql_build_datatype.exit:                      ; preds = %13
   ret ptr %21
 }
 
-declare ptr @makeTypeNameFromNameList(ptr noundef) local_unnamed_addr #2
+declare ptr @makeTypeNameFromNameList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @plpgsql_adddatum(ptr noundef initializes((4, 8)) %0) local_unnamed_addr #0 {
@@ -3283,7 +3277,7 @@ define hidden void @plpgsql_adddatum(ptr noundef initializes((4, 8)) %0) local_u
   ret void
 }
 
-declare void @plpgsql_ns_additem(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @plpgsql_ns_additem(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @plpgsql_build_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -3340,10 +3334,10 @@ plpgsql_adddatum.exit:                            ; preds = %5, %17
   ret ptr %6
 }
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_build_datatype_arrayof(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
@@ -3398,7 +3392,7 @@ plpgsql_build_datatype.exit:                      ; preds = %15
   ret ptr %.0
 }
 
-declare i32 @get_array_type(i32 noundef) local_unnamed_addr #2
+declare i32 @get_array_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -3488,10 +3482,10 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_addr #0 {
@@ -3554,9 +3548,9 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
   ret ptr %.021
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -3668,36 +3662,36 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
 ; Function Attrs: nounwind uwtable
 define hidden void @plpgsql_HashTableInit() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 416, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 424, ptr %3, align 8
   %4 = call ptr @hash_create(ptr noundef nonnull @.str.19, i64 noundef 128, ptr noundef nonnull %1, i32 noundef 40) #9
   store ptr %4, ptr @plpgsql_HashTable, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #2
+declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare ptr @format_procedure(i32 noundef) local_unnamed_addr #2
+declare ptr @format_procedure(i32 noundef) local_unnamed_addr #1
 
-declare void @MemoryContextSetIdentifier(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextSetIdentifier(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @get_func_arg_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @get_func_arg_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
@@ -3833,7 +3827,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
   ret void
 }
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_parameter_name(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -3855,42 +3849,42 @@ define internal fastcc void @add_parameter_name(i32 noundef range(i32 1, 3) %0, 
   ret void
 }
 
-declare i32 @get_fn_expr_rettype(ptr noundef) local_unnamed_addr #2
+declare i32 @get_fn_expr_rettype(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @resolve_polymorphic_argtypes(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @resolve_polymorphic_argtypes(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_call_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @get_call_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #2
+declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #1
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @TupleDescInitEntryCollation(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #2
+declare void @TupleDescInitEntryCollation(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #1
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @function_parse_error_transpose(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @function_parse_error_transpose(ptr noundef) local_unnamed_addr #1
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @plpgsql_latest_lineno(ptr noundef) local_unnamed_addr #2
+declare i32 @plpgsql_latest_lineno(ptr noundef) local_unnamed_addr #1
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @resolve_column_ref(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 536
@@ -4154,39 +4148,45 @@ list_length.exit.thread.sink.split:               ; preds = %58, %87, %141
 
 list_length.exit.thread:                          ; preds = %list_length.exit.thread.sink.split, %._crit_edge, %4, %55, %113, %47, %list_length.exit
   %.0 = phi ptr [ null, %list_length.exit ], [ null, %47 ], [ null, %113 ], [ null, %55 ], [ null, %4 ], [ null, %._crit_edge ], [ %.sink94, %list_length.exit.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @plpgsql_exec_get_datum_type_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @plpgsql_exec_get_datum_type_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
+declare ptr @NameListToString(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #2
+declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #1
 
-declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @plpgsql_free_function_memory(ptr noundef) local_unnamed_addr #2
+declare void @plpgsql_free_function_memory(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }

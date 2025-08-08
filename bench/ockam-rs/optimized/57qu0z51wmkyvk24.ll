@@ -89,8 +89,8 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   br i1 %20, label %32, label %53
 
 21:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %22
 
 22:                                               ; preds = %21, %22
@@ -103,7 +103,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
 
 26:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(496) %4, i64 496, i1 false)
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %28 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef 504, i64 noundef 8) #7
   %29 = icmp eq ptr %28, null
@@ -137,12 +137,12 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %28, ptr noundef nonnull align 8 dereferenceable(496) %.sroa.0, i64 496, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 496
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %19
 
 32:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %.sroa.061)
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.061)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %32, %33
@@ -155,7 +155,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
 
 37:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %.sroa.061, ptr noundef nonnull align 8 dereferenceable(496) %3, i64 496, i1 false)
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %39 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef 504, i64 noundef 8) #7
   %40 = icmp eq ptr %39, null
@@ -172,7 +172,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %39, ptr noundef nonnull align 8 dereferenceable(496) %.sroa.061, i64 496, i1 false)
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 496
   store ptr null, ptr %.sroa.462.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %.sroa.061)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.061)
   %43 = ptrtoint ptr %39 to i64
   %44 = cmpxchg ptr %7, i64 0, i64 %43 release monotonic, align 8
   %45 = extractvalue { i64, i1 } %44, 1
@@ -321,7 +321,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E
   br label %22
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.10, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
@@ -339,7 +339,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E
   br label %22
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.14, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
@@ -389,10 +389,10 @@ declare noalias noundef ptr @__rust_alloc(i64 noundef, i64 allocalign noundef) u
 declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

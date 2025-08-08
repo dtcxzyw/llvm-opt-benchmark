@@ -555,14 +555,11 @@ define hidden void @proto_register_lat() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -657,7 +654,7 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 78:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %79 = load i32, ptr @hf_lat_nbr_slots, align 4
   %80 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %79, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %58)
   %81 = load i32, ptr @hf_lat_dst_cir_id, align 4
@@ -669,13 +666,13 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %87 = load i32, ptr @hf_lat_msg_ack_nbr, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %87, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648)
   %89 = load i32, ptr %58, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %90 = and i32 %89, 255
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %.not230.i.i = icmp eq i32 %90, 0
   br i1 %.not230.i.i, label %dissect_lat_run.exit, label %.lr.ph228.i.i
 
@@ -814,8 +811,8 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %cond.i.i, label %172, label %.thread.i.i
 
 172:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   br label %175
 
 173:                                              ; preds = %195
@@ -872,8 +869,8 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 205:                                              ; preds = %.loopexit.i.i.i, %193, %183, %173
   %.1.i.i.i = phi i32 [ %202, %173 ], [ %184, %183 ], [ %190, %193 ], [ %204, %.loopexit.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %206 = add i32 %.1.i.i.i, %167
   %207 = load i32, ptr %53, align 4
   %208 = sub i32 %207, %.1.i.i.i
@@ -1118,17 +1115,17 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond.not.i.i, label %dissect_lat_run.exit, label %.lr.ph228.i.i, !llvm.loop !6
 
 dissect_lat_run.exit:                             ; preds = %.thread206.i.i, %78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %987
 
 356:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %357 = load i32, ptr @hf_lat_nbr_slots, align 4
   %358 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %357, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %48)
   %359 = load i32, ptr @hf_lat_dst_cir_id, align 4
@@ -1139,7 +1136,7 @@ dissect_lat_run.exit:                             ; preds = %.thread206.i.i, %78
   %364 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %363, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
   %365 = load i32, ptr @hf_lat_msg_ack_nbr, align 4
   %366 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %365, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %367 = load i32, ptr @hf_lat_min_rcv_datagram_size, align 4
   %368 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %367, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
   %369 = load i32, ptr @hf_lat_prtcl_ver, align 4
@@ -1164,23 +1161,23 @@ dissect_lat_run.exit:                             ; preds = %.thread206.i.i, %78
   %388 = load i32, ptr @hf_lat_prod_vers_numb, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %388, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef -2147483648)
   %390 = load i32, ptr @hf_lat_slave_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %391 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %390, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %47)
   %392 = load i32, ptr %47, align 4
   %393 = add i32 %392, 20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %394 = load i32, ptr @hf_lat_master_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %395 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %46)
   %396 = load i32, ptr %46, align 4
   %397 = add i32 %396, %393
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %398 = load i32, ptr @hf_lat_location_text, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %399 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %398, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %45)
   %400 = load i32, ptr %45, align 4
   %401 = add i32 %400, %397
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %402 = load i32, ptr @hf_lat_param_code, align 4
   %403 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %402, ptr noundef %0, i32 noundef %401, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %49)
   %404 = load i32, ptr %49, align 4
@@ -1205,12 +1202,12 @@ dissect_lat_run.exit:                             ; preds = %.thread206.i.i, %78
   br i1 %418, label %dissect_lat_start.exit, label %.lr.ph.i
 
 dissect_lat_start.exit:                           ; preds = %.lr.ph.i, %356
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %987
 
 419:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %420 = load i32, ptr @hf_lat_nbr_slots, align 4
   %421 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %420, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %44)
   %422 = load i32, ptr @hf_lat_dst_cir_id, align 4
@@ -1221,7 +1218,7 @@ dissect_lat_start.exit:                           ; preds = %.lr.ph.i, %356
   %427 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %426, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
   %428 = load i32, ptr @hf_lat_msg_ack_nbr, align 4
   %429 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %428, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %430 = load i32, ptr @hf_lat_circuit_disconnect_reason, align 4
   %431 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %430, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648)
   %432 = load i32, ptr @hf_lat_reason_text, align 4
@@ -1229,9 +1226,9 @@ dissect_lat_start.exit:                           ; preds = %.lr.ph.i, %356
   br label %987
 
 434:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %435 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %436 = load i32, ptr @hf_lat_server_circuit_timer, align 4
   %437 = zext i8 %435 to i32
@@ -1265,17 +1262,17 @@ dissect_lat_start.exit:                           ; preds = %.lr.ph.i, %356
   %465 = load i32, ptr %41, align 4
   %466 = add i32 %465, 13
   %467 = load i32, ptr @hf_lat_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %468 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %467, ptr noundef %0, i32 noundef %466, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %40)
   %469 = load i32, ptr %40, align 4
   %470 = add i32 %469, %466
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %471 = load i32, ptr @hf_lat_node_description, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %472 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %471, ptr noundef %0, i32 noundef %470, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %39)
   %473 = load i32, ptr %39, align 4
   %474 = add i32 %473, %470
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %475 = load i32, ptr @hf_lat_service_name_count, align 4
   %476 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %475, ptr noundef %0, i32 noundef %474, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %42)
   %477 = add i32 %474, 1
@@ -1290,17 +1287,17 @@ dissect_lat_start.exit:                           ; preds = %.lr.ph.i, %356
   %480 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %479, ptr noundef %0, i32 noundef %.08687.i, i32 noundef 1, i32 noundef -2147483648)
   %481 = add i32 %.08687.i, 1
   %482 = load i32, ptr @hf_lat_service_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %483 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %482, ptr noundef %0, i32 noundef %481, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %38)
   %484 = load i32, ptr %38, align 4
   %485 = add i32 %484, %481
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %486 = load i32, ptr @hf_lat_service_description, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %487 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %486, ptr noundef %0, i32 noundef %485, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %37)
   %488 = load i32, ptr %37, align 4
   %489 = add i32 %488, %485
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %490 = add nuw i32 %.088.i, 1
   %491 = load i32, ptr %42, align 4
   %492 = icmp ult i32 %490, %491
@@ -1325,15 +1322,15 @@ dissect_lat_start.exit:                           ; preds = %.lr.ph.i, %356
   br i1 %501, label %.lr.ph91.i, label %dissect_lat_service_announcement.exit, !llvm.loop !9
 
 dissect_lat_service_announcement.exit:            ; preds = %.lr.ph91.i, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %987
 
 502:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %503 = load i32, ptr @hf_lat_prtcl_format, align 4
   %504 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %503, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %505 = load i32, ptr @hf_lat_high_prtcl_ver, align 4
@@ -1356,11 +1353,11 @@ dissect_lat_service_announcement.exit:            ; preds = %.lr.ph91.i, %._crit
   %522 = load i32, ptr @ett_lat_command_modifier, align 4
   %523 = tail call ptr @proto_tree_add_bitmask(ptr noundef %71, ptr noundef %0, i32 noundef 13, i32 noundef %521, i32 noundef %522, ptr noundef nonnull @lat_command_modifier_fields, i32 noundef -2147483648)
   %524 = load i32, ptr @hf_lat_obj_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %525 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %524, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %33)
   %526 = load i32, ptr %33, align 4
   %527 = add i32 %526, 14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %528 = load i32, ptr @hf_lat_subj_group_len, align 4
   %529 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %528, ptr noundef %0, i32 noundef %527, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %34)
   %530 = add i32 %526, 15
@@ -1370,35 +1367,35 @@ dissect_lat_service_announcement.exit:            ; preds = %.lr.ph91.i, %._crit
   %534 = load i32, ptr %34, align 4
   %535 = add i32 %534, %530
   %536 = load i32, ptr @hf_lat_subj_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %537 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %536, ptr noundef %0, i32 noundef %535, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %32)
   %538 = load i32, ptr %32, align 4
   %539 = add i32 %538, %535
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %540 = load i32, ptr @hf_lat_subj_port_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %541 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %540, ptr noundef %0, i32 noundef %539, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %31)
   %542 = load i32, ptr %31, align 4
   %543 = add i32 %542, %539
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %544 = load i32, ptr @hf_lat_subj_description, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %545 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %544, ptr noundef %0, i32 noundef %543, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %30)
   %546 = load i32, ptr %30, align 4
   %547 = add i32 %546, %543
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %548 = load i32, ptr @hf_lat_obj_srvc_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %549 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %548, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %29)
   %550 = load i32, ptr %29, align 4
   %551 = add i32 %550, %547
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %552 = load i32, ptr @hf_lat_obj_port_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %553 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %552, ptr noundef %0, i32 noundef %551, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %28)
   %554 = load i32, ptr %28, align 4
   %555 = add i32 %554, %551
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %556 = load i32, ptr @hf_lat_param_code, align 4
   %557 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %556, ptr noundef %0, i32 noundef %555, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %35)
   %558 = load i32, ptr %35, align 4
@@ -1423,14 +1420,14 @@ dissect_lat_service_announcement.exit:            ; preds = %.lr.ph91.i, %._crit
   br i1 %572, label %dissect_lat_command.exit, label %.lr.ph.i53
 
 dissect_lat_command.exit:                         ; preds = %.lr.ph.i53, %502
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %987
 
 573:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %574 = load i32, ptr @hf_lat_prtcl_format, align 4
   %575 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %574, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %576 = load i32, ptr @hf_lat_high_prtcl_ver, align 4
@@ -1458,8 +1455,8 @@ dissect_lat_command.exit:                         ; preds = %.lr.ph.i53, %502
 
 .preheader.i:                                     ; preds = %738, %573
   %.1.lcssa.i = phi i32 [ %spec.select.i, %573 ], [ %739, %738 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %594 = load i32, ptr @hf_lat_param_code, align 4
   %595 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %594, ptr noundef %0, i32 noundef %.1.lcssa.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %26)
   %596 = load i32, ptr %26, align 4
@@ -1469,9 +1466,9 @@ dissect_lat_command.exit:                         ; preds = %.lr.ph.i53, %502
 .lr.ph.i56:                                       ; preds = %573, %738
   %.1164.i = phi i32 [ %739, %738 ], [ %spec.select.i, %573 ]
   %.0150163.i = phi i32 [ %740, %738 ], [ 0, %573 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %598 = load i32, ptr @hf_lat_entry_length, align 4
   %599 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %598, ptr noundef %0, i32 noundef %.1164.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %23)
   %600 = add i32 %.1164.i, 1
@@ -1697,9 +1694,9 @@ dissect_lat_command.exit:                         ; preds = %.lr.ph.i53, %502
 738:                                              ; preds = %731, %727, %721, %709, %703, %691, %685, %676, %667, %658, %649, %640, %633, %615, %605
   %.2.i = phi i32 [ %600, %605 ], [ %611, %615 ], [ %634, %633 ], [ %637, %640 ], [ %645, %649 ], [ %654, %658 ], [ %663, %667 ], [ %672, %676 ], [ %681, %685 ], [ %694, %691 ], [ %699, %703 ], [ %712, %709 ], [ %717, %721 ], [ %730, %727 ], [ %735, %731 ]
   %739 = add i32 %.2.i, %603
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %740 = add nuw i32 %.0150163.i, 1
   %741 = load i32, ptr %21, align 4
   %742 = icmp ult i32 %740, %741
@@ -1716,10 +1713,10 @@ dissect_lat_command.exit:                         ; preds = %.lr.ph.i53, %502
   %749 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %747, ptr noundef %0, i32 noundef %746, i32 noundef %748, i32 noundef 0)
   %750 = load i32, ptr %27, align 4
   %751 = add i32 %750, %746
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %752 = load i32, ptr @hf_lat_param_code, align 4
   %753 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %752, ptr noundef %0, i32 noundef %751, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %26)
   %754 = load i32, ptr %26, align 4
@@ -1727,14 +1724,14 @@ dissect_lat_command.exit:                         ; preds = %.lr.ph.i53, %502
   br i1 %755, label %dissect_lat_status.exit, label %.lr.ph166.i
 
 dissect_lat_status.exit:                          ; preds = %.lr.ph166.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %987
 
 756:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %757 = load i32, ptr @hf_lat_prtcl_format, align 4
   %758 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %757, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %759 = load i32, ptr @hf_lat_high_prtcl_ver, align 4
@@ -1752,11 +1749,11 @@ dissect_lat_status.exit:                          ; preds = %.lr.ph166.i, %.preh
   %771 = load i32, ptr @hf_lat_response_timer, align 4
   %772 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %771, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
   %773 = load i32, ptr @hf_lat_dst_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %774 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %773, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %17)
   %775 = load i32, ptr %17, align 4
   %776 = add i32 %775, 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %777 = load i32, ptr @hf_lat_src_node_group_len, align 4
   %778 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %777, ptr noundef %0, i32 noundef %776, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %18)
   %779 = add i32 %775, 13
@@ -1766,19 +1763,19 @@ dissect_lat_status.exit:                          ; preds = %.lr.ph166.i, %.preh
   %783 = load i32, ptr %18, align 4
   %784 = add i32 %783, %779
   %785 = load i32, ptr @hf_lat_src_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %786 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %785, ptr noundef %0, i32 noundef %784, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %16)
   %787 = load i32, ptr %16, align 4
   %788 = add i32 %787, %784
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %789 = load i32, ptr @hf_lat_dst_srvc_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %790 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %789, ptr noundef %0, i32 noundef %788, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %15)
   %791 = load i32, ptr %15, align 4
   %792 = add i32 %791, %788
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %793 = load i32, ptr @hf_lat_param_code, align 4
   %794 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %793, ptr noundef %0, i32 noundef %792, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %19)
   %795 = load i32, ptr %19, align 4
@@ -1796,10 +1793,10 @@ dissect_lat_status.exit:                          ; preds = %.lr.ph166.i, %.preh
   %803 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %801, ptr noundef %0, i32 noundef %800, i32 noundef %802, i32 noundef 0)
   %804 = load i32, ptr %20, align 4
   %805 = add i32 %804, %800
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %806 = load i32, ptr @hf_lat_param_code, align 4
   %807 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %806, ptr noundef %0, i32 noundef %805, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %19)
   %808 = load i32, ptr %19, align 4
@@ -1807,14 +1804,14 @@ dissect_lat_status.exit:                          ; preds = %.lr.ph166.i, %.preh
   br i1 %809, label %dissect_lat_solicit_information.exit, label %.lr.ph.i58
 
 dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %987
 
 810:                                              ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %811 = load i32, ptr @hf_lat_prtcl_format, align 4
   %812 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %811, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %813 = load i32, ptr @hf_lat_high_prtcl_ver, align 4
@@ -1840,11 +1837,11 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
   %833 = load i32, ptr @hf_lat_src_node_mc_timer, align 4
   %834 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %833, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef -2147483648)
   %835 = load i32, ptr @hf_lat_dst_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %836 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %835, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7)
   %837 = load i32, ptr %7, align 4
   %838 = add i32 %837, 22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %839 = load i32, ptr @hf_lat_src_node_group_len, align 4
   %840 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %839, ptr noundef %0, i32 noundef %838, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9)
   %841 = add i32 %837, 23
@@ -1854,17 +1851,17 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
   %845 = load i32, ptr %9, align 4
   %846 = add i32 %845, %841
   %847 = load i32, ptr @hf_lat_src_node_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %848 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %847, ptr noundef %0, i32 noundef %846, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6)
   %849 = load i32, ptr %6, align 4
   %850 = add i32 %849, %846
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %851 = load i32, ptr @hf_lat_src_node_desc, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %852 = call ptr @proto_tree_add_item_ret_length(ptr noundef %71, i32 noundef %851, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5)
   %853 = load i32, ptr %5, align 4
   %854 = add i32 %853, %850
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %855 = load i32, ptr @hf_lat_srvc_count, align 4
   %856 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %855, ptr noundef %0, i32 noundef %854, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %8)
   %857 = load i32, ptr %8, align 4
@@ -1873,8 +1870,8 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
 
 .preheader.i64:                                   ; preds = %965, %810
   %.0150.lcssa.i = phi i32 [ %854, %810 ], [ %967, %965 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %858 = load i32, ptr @hf_lat_param_code, align 4
   %859 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %858, ptr noundef %0, i32 noundef %.0150.lcssa.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %13)
   %860 = load i32, ptr %13, align 4
@@ -1884,9 +1881,9 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
 .lr.ph165.i:                                      ; preds = %810, %965
   %.0150163.i60 = phi i32 [ %967, %965 ], [ %854, %810 ]
   %.0151162.i = phi i32 [ %968, %965 ], [ 0, %810 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %862 = load i32, ptr @hf_lat_srvc_entry_len, align 4
   %863 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %862, ptr noundef %0, i32 noundef %.0150163.i60, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10)
   %864 = add i32 %.0150163.i60, 1
@@ -2056,9 +2053,9 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
   %.1.i = phi i32 [ %864, %867 ], [ %.2160.i, %878 ], [ %.2.lcssa.i, %891 ], [ %897, %901 ], [ %906, %910 ], [ %915, %920 ], [ %926, %930 ], [ %939, %936 ], [ %944, %948 ], [ %957, %954 ], [ %962, %958 ]
   %966 = load i32, ptr %10, align 4
   %967 = add i32 %966, %.1.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %968 = add nuw i32 %.0151162.i, 1
   %969 = load i32, ptr %8, align 4
   %970 = icmp ult i32 %968, %969
@@ -2075,10 +2072,10 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
   %977 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %975, ptr noundef %0, i32 noundef %974, i32 noundef %976, i32 noundef 0)
   %978 = load i32, ptr %14, align 4
   %979 = add i32 %978, %974
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %980 = load i32, ptr @hf_lat_param_code, align 4
   %981 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %71, i32 noundef %980, ptr noundef %0, i32 noundef %979, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %13)
   %982 = load i32, ptr %13, align 4
@@ -2086,10 +2083,10 @@ dissect_lat_solicit_information.exit:             ; preds = %.lr.ph.i58, %756
   br i1 %983, label %dissect_lat_response_information.exit, label %.lr.ph168.i
 
 dissect_lat_response_information.exit:            ; preds = %.lr.ph168.i, %.preheader.i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %987
 
 984:                                              ; preds = %67
@@ -2103,19 +2100,16 @@ dissect_lat_response_information.exit:            ; preds = %.lr.ph168.i, %.preh
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lat() local_unnamed_addr #0 {
@@ -2125,40 +2119,40 @@ define hidden void @proto_reg_handoff_lat() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_lat_channel_char(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -2195,21 +2189,26 @@ define internal fastcc noundef i32 @dissect_lat_channel_char(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -143,7 +143,7 @@ from_utf8_mac_finish.exit:                        ; preds = %5
 buf_push.exit:                                    ; preds = %50, %from_utf8_mac_finish.exit
   %60 = phi i32 [ %.pre.i.pre, %from_utf8_mac_finish.exit ], [ %58, %50 ]
   %.037 = phi i64 [ 0, %from_utf8_mac_finish.exit ], [ %.038, %50 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load i32, ptr %62, align 4, !tbaa !11
@@ -290,7 +290,7 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
 
 buf_apply.exit:                                   ; preds = %122, %get_info.exit.thread.i, %134, %buf_push.exit, %70
   %.0.i = phi i64 [ 0, %70 ], [ 0, %buf_push.exit ], [ %140, %134 ], [ %.0.i.i, %get_info.exit.thread.i ], [ 0, %122 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %147 = add i64 %.0.i, %.037
   br label %148
 
@@ -332,10 +332,10 @@ buf_output_all.exit:                              ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

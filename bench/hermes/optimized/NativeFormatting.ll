@@ -67,7 +67,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %NumberBuffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NumberBuffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %NumberBuffer.i, i8 48, i64 128, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %NumberBuffer.i, i64 128
   br label %do.body.i.i
@@ -195,7 +195,7 @@ if.else.i:                                        ; preds = %if.end6.i
   br label %_ZL19write_unsigned_implImEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit
 
 _ZL19write_unsigned_implImEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i.i, %if.then8.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %NumberBuffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NumberBuffer.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZL19write_unsigned_implImEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit, %if.then
@@ -241,7 +241,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %NumberBuffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NumberBuffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %NumberBuffer.i, i8 48, i64 128, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %NumberBuffer.i, i64 128
   br label %do.body.i.i
@@ -369,7 +369,7 @@ if.else.i:                                        ; preds = %if.end6.i
   br label %_ZL19write_unsigned_implIyEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit
 
 _ZL19write_unsigned_implIyEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i.i, %if.then8.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %NumberBuffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NumberBuffer.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZL19write_unsigned_implIyEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit, %if.then
@@ -890,10 +890,10 @@ declare double @llvm.fabs.f64(double) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10

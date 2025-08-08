@@ -58,20 +58,14 @@ define noundef ptr @Fraig_NodeCreateConst(ptr noundef %0) local_unnamed_addr #0 
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @Fraig_MemFixedEntryFetch(ptr noundef) local_unnamed_addr #2
+declare ptr @Fraig_MemFixedEntryFetch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @Fraig_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Fraig_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Fraig_HashTableLookupF0(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @Fraig_HashTableLookupF0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Fraig_NodeCreatePi(ptr noundef %0) local_unnamed_addr #0 {
@@ -117,7 +111,7 @@ define noundef ptr @Fraig_NodeCreatePi(ptr noundef %0) local_unnamed_addr #0 {
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, -2
   store i32 %32, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #7
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %Abc_Clock.exit, label %35
@@ -133,7 +127,7 @@ define noundef ptr @Fraig_NodeCreatePi(ptr noundef %0) local_unnamed_addr #0 {
 
 Abc_Clock.exit:                                   ; preds = %1, %35
   %.0.i.neg = phi i64 [ %.neg54, %35 ], [ 1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 0, ptr %39, align 8, !tbaa !38
   %40 = load i32, ptr %11, align 8, !tbaa !31
@@ -200,7 +194,7 @@ Abc_Clock.exit.._crit_edge_crit_edge:             ; preds = %Abc_Clock.exit
   br i1 %75, label %.lr.ph58, label %._crit_edge59, !llvm.loop !44
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #7
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %Abc_Clock.exit52, label %78
@@ -216,7 +210,7 @@ Abc_Clock.exit.._crit_edge_crit_edge:             ; preds = %Abc_Clock.exit
 
 Abc_Clock.exit52:                                 ; preds = %._crit_edge59, %78
   %.0.i51 = phi i64 [ %84, %78 ], [ -1, %._crit_edge59 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %85 = add i64 %.0.i51, %.0.i.neg
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %87 = load i64, ptr %86, align 8, !tbaa !45
@@ -226,11 +220,11 @@ Abc_Clock.exit52:                                 ; preds = %._crit_edge59, %78
   ret ptr %6
 }
 
-declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #2
+declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #1
 
-declare i32 @Fraig_BitStringCountOnes(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Fraig_BitStringCountOnes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Fraig_HashTableLookupF(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Fraig_HashTableLookupF(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Fraig_NodeCreate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -327,7 +321,7 @@ define noundef ptr @Fraig_NodeCreate(ptr noundef captures(none) %0, ptr noundef 
   %70 = and i32 %63, -513
   %71 = or disjoint i32 %69, %70
   store i32 %71, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %72 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #7
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %Abc_Clock.exit, label %74
@@ -343,7 +337,7 @@ define noundef ptr @Fraig_NodeCreate(ptr noundef captures(none) %0, ptr noundef 
 
 Abc_Clock.exit:                                   ; preds = %57, %74
   %.0.i.neg = phi i64 [ %.neg57, %74 ], [ 1, %57 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %79 = load ptr, ptr %78, align 8, !tbaa !29
   %80 = call ptr @Fraig_MemFixedEntryFetch(ptr noundef %79) #7
@@ -384,7 +378,7 @@ Abc_Clock.exit:                                   ; preds = %57, %74
   br label %104
 
 104:                                              ; preds = %99, %Abc_Clock.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %105 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %Abc_Clock.exit55, label %107
@@ -400,7 +394,7 @@ Abc_Clock.exit:                                   ; preds = %57, %74
 
 Abc_Clock.exit55:                                 ; preds = %104, %107
   %.0.i54 = phi i64 [ %113, %107 ], [ -1, %104 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = add i64 %.0.i54, %.0.i.neg
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %116 = load i64, ptr %115, align 8, !tbaa !45
@@ -412,7 +406,7 @@ Abc_Clock.exit55:                                 ; preds = %104, %107
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq i32 %3, 0
   %.in.v = select i1 %.not, i64 112, i64 104
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -746,20 +740,26 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   ret void
 }
 
-declare void @Fraig_NodeAddFaninFanout(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Fraig_NodeAddFaninFanout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

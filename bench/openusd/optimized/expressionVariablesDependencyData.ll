@@ -255,7 +255,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36PcpExpressionVariablesDependencyData16_Ge
 25:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__36PcpExpressionVariablesDependencyData16_GetWritableDataEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %17, ptr %4, align 8
   %.not5.i.i.i = icmp eq ptr %27, null
   br i1 %.not5.i.i.i, label %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE6insertISt13move_iteratorINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEEEEvT_SI_.exit, label %.lr.ph.i.i.i
@@ -269,7 +269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36PcpExpressionVariablesDependencyData16_Ge
   br i1 %.not.i.i.i, label %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE6insertISt13move_iteratorINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEEEEvT_SI_.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE6insertISt13move_iteratorINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEEEEvT_SI_.exit: ; preds = %.lr.ph.i.i.i, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEaSEOSB_.exit
 
 _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEaSEOSB_.exit: ; preds = %21, %3, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE6insertISt13move_iteratorINSt8__detail14_Node_iteratorIS5_Lb1ELb1EEEEEEvT_SI_.exit
@@ -1504,10 +1504,10 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_13PcpLayerS
 declare i64 @llvm.bswap.i64(i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16

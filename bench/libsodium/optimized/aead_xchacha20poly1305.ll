@@ -14,17 +14,17 @@ define dso_local noundef i32 @crypto_aead_xchacha20poly1305_ietf_encrypt_detache
   %13 = alloca [8 x i8], align 8
   %14 = alloca [32 x i8], align 16
   %15 = alloca [12 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4
   %16 = call i32 @crypto_core_hchacha20(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null) #6
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = getelementptr i8, ptr %8, i64 16
   %19 = load i64, ptr %18, align 1
   store i64 %19, ptr %17, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %20 = call i32 @crypto_stream_chacha20_ietf_ext(ptr noundef nonnull %12, i64 noundef 64, ptr noundef nonnull %15, ptr noundef nonnull %14) #6
   %21 = call i32 @crypto_onetimeauth_poly1305_init(ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   call void @sodium_memzero(ptr noundef nonnull %12, i64 noundef 64) #6
@@ -51,24 +51,18 @@ define dso_local noundef i32 @crypto_aead_xchacha20poly1305_ietf_encrypt_detache
   br label %_encrypt_detached.exit
 
 _encrypt_detached.exit:                           ; preds = %10, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @sodium_memzero(ptr noundef nonnull %14, i64 noundef 32) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @crypto_core_hchacha20(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @crypto_core_hchacha20(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_aead_xchacha20poly1305_ietf_encrypt(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
@@ -95,7 +89,7 @@ define dso_local noundef i32 @crypto_aead_xchacha20poly1305_ietf_encrypt(ptr nou
 }
 
 ; Function Attrs: noreturn
-declare void @sodium_misuse() local_unnamed_addr #3
+declare void @sodium_misuse() local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_aead_xchacha20poly1305_ietf_decrypt_detached(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
@@ -105,18 +99,18 @@ define dso_local i32 @crypto_aead_xchacha20poly1305_ietf_decrypt_detached(ptr no
   %13 = alloca [16 x i8], align 16
   %14 = alloca [32 x i8], align 16
   %15 = alloca [12 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4
   %16 = call i32 @crypto_core_hchacha20(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #6
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = getelementptr i8, ptr %7, i64 16
   %19 = load i64, ptr %18, align 1
   store i64 %19, ptr %17, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %20 = call i32 @crypto_stream_chacha20_ietf_ext(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %15, ptr noundef nonnull %14) #6
   %21 = call i32 @crypto_onetimeauth_poly1305_init(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   call void @sodium_memzero(ptr noundef nonnull %11, i64 noundef 64) #6
@@ -153,13 +147,13 @@ define dso_local i32 @crypto_aead_xchacha20poly1305_ietf_decrypt_detached(ptr no
 
 _decrypt_detached.exit:                           ; preds = %9, %36, %37
   %.0.i = phi i32 [ -1, %36 ], [ 0, %37 ], [ %33, %9 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @sodium_memzero(ptr noundef nonnull %14, i64 noundef 32) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0.i
 }
 
@@ -192,27 +186,27 @@ define dso_local i32 @crypto_aead_xchacha20poly1305_ietf_decrypt(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_keybytes() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_keybytes() local_unnamed_addr #3 {
   ret i64 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_npubbytes() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_npubbytes() local_unnamed_addr #3 {
   ret i64 24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_nsecbytes() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_nsecbytes() local_unnamed_addr #3 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_abytes() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_abytes() local_unnamed_addr #3 {
   ret i64 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_messagebytes_max() local_unnamed_addr #4 {
+define dso_local noundef i64 @crypto_aead_xchacha20poly1305_ietf_messagebytes_max() local_unnamed_addr #3 {
   ret i64 -17
 }
 
@@ -222,28 +216,34 @@ define dso_local void @crypto_aead_xchacha20poly1305_ietf_keygen(ptr noundef non
   ret void
 }
 
-declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @crypto_stream_chacha20_ietf_ext(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @crypto_stream_chacha20_ietf_ext(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @crypto_onetimeauth_poly1305_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @crypto_onetimeauth_poly1305_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @crypto_onetimeauth_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @crypto_onetimeauth_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @crypto_stream_chacha20_ietf_ext_xor_ic(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @crypto_stream_chacha20_ietf_ext_xor_ic(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @crypto_onetimeauth_poly1305_final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @crypto_onetimeauth_poly1305_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }

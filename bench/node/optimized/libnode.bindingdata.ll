@@ -1556,7 +1556,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit.thread, label %if.end.i.i.i
 
 _ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1567,13 +1567,13 @@ if.end.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit, label %_ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit.thread2888
 
 _ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit.thread2888: ; preds = %if.end.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br label %if.then.i
 
 _ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit: ; preds = %if.end.i.i.i
   %6 = load i64, ptr %3, align 8
   %call.i.i.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %2, i64 noundef %6) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.i.i, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit, label %if.then.i
 
@@ -1621,7 +1621,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit: ; preds = %_ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit.thread, %_ZNK4node4quic11BindingData23endpoint_close_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %17 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i87 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %18 = load ptr, ptr %env_.i.i.i87, align 8
@@ -1633,7 +1633,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i89, label %_ZNK4node4quic11BindingData20session_new_callbackEv.exit.thread, label %if.end.i.i.i90
 
 _ZNK4node4quic11BindingData20session_new_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i96)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit118
 
 if.end.i.i.i90:                                   ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit
@@ -1644,13 +1644,13 @@ if.end.i.i.i90:                                   ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i92, label %_ZNK4node4quic11BindingData20session_new_callbackEv.exit, label %_ZNK4node4quic11BindingData20session_new_callbackEv.exit.thread2894
 
 _ZNK4node4quic11BindingData20session_new_callbackEv.exit.thread2894: ; preds = %if.end.i.i.i90
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i96)
   br label %if.then.i98
 
 _ZNK4node4quic11BindingData20session_new_callbackEv.exit: ; preds = %if.end.i.i.i90
   %23 = load i64, ptr %20, align 8
   %call.i.i.i.i95 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %19, i64 noundef %23) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i96)
   %cmp.i.i97 = icmp eq ptr %call.i.i.i.i95, null
   br i1 %cmp.i.i97, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit118, label %if.then.i98
 
@@ -1698,7 +1698,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i108: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit118
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit118: ; preds = %_ZNK4node4quic11BindingData20session_new_callbackEv.exit.thread, %_ZNK4node4quic11BindingData20session_new_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i96)
   %34 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i120 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %35 = load ptr, ptr %env_.i.i.i120, align 8
@@ -1710,7 +1710,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i122, label %_ZNK4node4quic11BindingData22session_close_callbackEv.exit.thread, label %if.end.i.i.i123
 
 _ZNK4node4quic11BindingData22session_close_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i129)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit151
 
 if.end.i.i.i123:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit118
@@ -1721,13 +1721,13 @@ if.end.i.i.i123:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i125, label %_ZNK4node4quic11BindingData22session_close_callbackEv.exit, label %_ZNK4node4quic11BindingData22session_close_callbackEv.exit.thread2900
 
 _ZNK4node4quic11BindingData22session_close_callbackEv.exit.thread2900: ; preds = %if.end.i.i.i123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i129)
   br label %if.then.i131
 
 _ZNK4node4quic11BindingData22session_close_callbackEv.exit: ; preds = %if.end.i.i.i123
   %40 = load i64, ptr %37, align 8
   %call.i.i.i.i128 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %36, i64 noundef %40) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i129)
   %cmp.i.i130 = icmp eq ptr %call.i.i.i.i128, null
   br i1 %cmp.i.i130, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit151, label %if.then.i131
 
@@ -1775,7 +1775,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i141: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit151
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit151: ; preds = %_ZNK4node4quic11BindingData22session_close_callbackEv.exit.thread, %_ZNK4node4quic11BindingData22session_close_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i129)
   %51 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i153 = getelementptr inbounds nuw i8, ptr %51, i64 176
   %52 = load ptr, ptr %env_.i.i.i153, align 8
@@ -1787,7 +1787,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i155, label %_ZNK4node4quic11BindingData25session_datagram_callbackEv.exit.thread, label %if.end.i.i.i156
 
 _ZNK4node4quic11BindingData25session_datagram_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit151
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i162)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit184
 
 if.end.i.i.i156:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit151
@@ -1798,13 +1798,13 @@ if.end.i.i.i156:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i158, label %_ZNK4node4quic11BindingData25session_datagram_callbackEv.exit, label %_ZNK4node4quic11BindingData25session_datagram_callbackEv.exit.thread2906
 
 _ZNK4node4quic11BindingData25session_datagram_callbackEv.exit.thread2906: ; preds = %if.end.i.i.i156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i162)
   br label %if.then.i164
 
 _ZNK4node4quic11BindingData25session_datagram_callbackEv.exit: ; preds = %if.end.i.i.i156
   %57 = load i64, ptr %54, align 8
   %call.i.i.i.i161 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %53, i64 noundef %57) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i162)
   %cmp.i.i163 = icmp eq ptr %call.i.i.i.i161, null
   br i1 %cmp.i.i163, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit184, label %if.then.i164
 
@@ -1852,7 +1852,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i174: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit184
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit184: ; preds = %_ZNK4node4quic11BindingData25session_datagram_callbackEv.exit.thread, %_ZNK4node4quic11BindingData25session_datagram_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i162)
   %68 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i186 = getelementptr inbounds nuw i8, ptr %68, i64 176
   %69 = load ptr, ptr %env_.i.i.i186, align 8
@@ -1864,7 +1864,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i188, label %_ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit.thread, label %if.end.i.i.i189
 
 _ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit184
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i195)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit217
 
 if.end.i.i.i189:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit184
@@ -1875,13 +1875,13 @@ if.end.i.i.i189:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i191, label %_ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit, label %_ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit.thread2912
 
 _ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit.thread2912: ; preds = %if.end.i.i.i189
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i195)
   br label %if.then.i197
 
 _ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit: ; preds = %if.end.i.i.i189
   %74 = load i64, ptr %71, align 8
   %call.i.i.i.i194 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %70, i64 noundef %74) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i195)
   %cmp.i.i196 = icmp eq ptr %call.i.i.i.i194, null
   br i1 %cmp.i.i196, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit217, label %if.then.i197
 
@@ -1929,7 +1929,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i207: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit217
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit217: ; preds = %_ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit.thread, %_ZNK4node4quic11BindingData32session_datagram_status_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i195)
   %85 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i219 = getelementptr inbounds nuw i8, ptr %85, i64 176
   %86 = load ptr, ptr %env_.i.i.i219, align 8
@@ -1941,7 +1941,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i221, label %_ZNK4node4quic11BindingData26session_handshake_callbackEv.exit.thread, label %if.end.i.i.i222
 
 _ZNK4node4quic11BindingData26session_handshake_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit217
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i228)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit250
 
 if.end.i.i.i222:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit217
@@ -1952,13 +1952,13 @@ if.end.i.i.i222:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i224, label %_ZNK4node4quic11BindingData26session_handshake_callbackEv.exit, label %_ZNK4node4quic11BindingData26session_handshake_callbackEv.exit.thread2918
 
 _ZNK4node4quic11BindingData26session_handshake_callbackEv.exit.thread2918: ; preds = %if.end.i.i.i222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i228)
   br label %if.then.i230
 
 _ZNK4node4quic11BindingData26session_handshake_callbackEv.exit: ; preds = %if.end.i.i.i222
   %91 = load i64, ptr %88, align 8
   %call.i.i.i.i227 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %87, i64 noundef %91) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i228)
   %cmp.i.i229 = icmp eq ptr %call.i.i.i.i227, null
   br i1 %cmp.i.i229, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit250, label %if.then.i230
 
@@ -2006,7 +2006,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i240: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit250
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit250: ; preds = %_ZNK4node4quic11BindingData26session_handshake_callbackEv.exit.thread, %_ZNK4node4quic11BindingData26session_handshake_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i240
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i228)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i228)
   %102 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i252 = getelementptr inbounds nuw i8, ptr %102, i64 176
   %103 = load ptr, ptr %env_.i.i.i252, align 8
@@ -2018,7 +2018,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i254, label %_ZNK4node4quic11BindingData23session_ticket_callbackEv.exit.thread, label %if.end.i.i.i255
 
 _ZNK4node4quic11BindingData23session_ticket_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit250
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i261)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit283
 
 if.end.i.i.i255:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit250
@@ -2029,13 +2029,13 @@ if.end.i.i.i255:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i257, label %_ZNK4node4quic11BindingData23session_ticket_callbackEv.exit, label %_ZNK4node4quic11BindingData23session_ticket_callbackEv.exit.thread2924
 
 _ZNK4node4quic11BindingData23session_ticket_callbackEv.exit.thread2924: ; preds = %if.end.i.i.i255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i261)
   br label %if.then.i263
 
 _ZNK4node4quic11BindingData23session_ticket_callbackEv.exit: ; preds = %if.end.i.i.i255
   %108 = load i64, ptr %105, align 8
   %call.i.i.i.i260 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %104, i64 noundef %108) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i261)
   %cmp.i.i262 = icmp eq ptr %call.i.i.i.i260, null
   br i1 %cmp.i.i262, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit283, label %if.then.i263
 
@@ -2083,7 +2083,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i273: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit283
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit283: ; preds = %_ZNK4node4quic11BindingData23session_ticket_callbackEv.exit.thread, %_ZNK4node4quic11BindingData23session_ticket_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i273
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i261)
   %119 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i285 = getelementptr inbounds nuw i8, ptr %119, i64 176
   %120 = load ptr, ptr %env_.i.i.i285, align 8
@@ -2095,7 +2095,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i287, label %_ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit.thread, label %if.end.i.i.i288
 
 _ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit283
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i294)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit316
 
 if.end.i.i.i288:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit283
@@ -2106,13 +2106,13 @@ if.end.i.i.i288:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i290, label %_ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit, label %_ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit.thread2930
 
 _ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit.thread2930: ; preds = %if.end.i.i.i288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i294)
   br label %if.then.i296
 
 _ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit: ; preds = %if.end.i.i.i288
   %125 = load i64, ptr %122, align 8
   %call.i.i.i.i293 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %121, i64 noundef %125) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i294)
   %cmp.i.i295 = icmp eq ptr %call.i.i.i.i293, null
   br i1 %cmp.i.i295, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit316, label %if.then.i296
 
@@ -2160,7 +2160,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i306: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit316
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit316: ; preds = %_ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit.thread, %_ZNK4node4quic11BindingData36session_version_negotiation_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i294)
   %136 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i318 = getelementptr inbounds nuw i8, ptr %136, i64 176
   %137 = load ptr, ptr %env_.i.i.i318, align 8
@@ -2172,7 +2172,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i320, label %_ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit.thread, label %if.end.i.i.i321
 
 _ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit316
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i327)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i327)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit349
 
 if.end.i.i.i321:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit316
@@ -2183,13 +2183,13 @@ if.end.i.i.i321:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i323, label %_ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit, label %_ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit.thread2936
 
 _ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit.thread2936: ; preds = %if.end.i.i.i321
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i327)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i327)
   br label %if.then.i329
 
 _ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit: ; preds = %if.end.i.i.i321
   %142 = load i64, ptr %139, align 8
   %call.i.i.i.i326 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %138, i64 noundef %142) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i327)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i327)
   %cmp.i.i328 = icmp eq ptr %call.i.i.i.i326, null
   br i1 %cmp.i.i328, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit349, label %if.then.i329
 
@@ -2237,7 +2237,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i339: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit349
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit349: ; preds = %_ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit.thread, %_ZNK4node4quic11BindingData32session_path_validation_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i327)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i327)
   %153 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i351 = getelementptr inbounds nuw i8, ptr %153, i64 176
   %154 = load ptr, ptr %env_.i.i.i351, align 8
@@ -2249,7 +2249,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i353, label %_ZNK4node4quic11BindingData21stream_close_callbackEv.exit.thread, label %if.end.i.i.i354
 
 _ZNK4node4quic11BindingData21stream_close_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit349
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i360)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i360)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit382
 
 if.end.i.i.i354:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit349
@@ -2260,13 +2260,13 @@ if.end.i.i.i354:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i356, label %_ZNK4node4quic11BindingData21stream_close_callbackEv.exit, label %_ZNK4node4quic11BindingData21stream_close_callbackEv.exit.thread2942
 
 _ZNK4node4quic11BindingData21stream_close_callbackEv.exit.thread2942: ; preds = %if.end.i.i.i354
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i360)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i360)
   br label %if.then.i362
 
 _ZNK4node4quic11BindingData21stream_close_callbackEv.exit: ; preds = %if.end.i.i.i354
   %159 = load i64, ptr %156, align 8
   %call.i.i.i.i359 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %155, i64 noundef %159) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i360)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i360)
   %cmp.i.i361 = icmp eq ptr %call.i.i.i.i359, null
   br i1 %cmp.i.i361, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit382, label %if.then.i362
 
@@ -2314,7 +2314,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i372: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit382
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit382: ; preds = %_ZNK4node4quic11BindingData21stream_close_callbackEv.exit.thread, %_ZNK4node4quic11BindingData21stream_close_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i372
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i360)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i360)
   %170 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i384 = getelementptr inbounds nuw i8, ptr %170, i64 176
   %171 = load ptr, ptr %env_.i.i.i384, align 8
@@ -2326,7 +2326,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i386, label %_ZNK4node4quic11BindingData23stream_created_callbackEv.exit.thread, label %if.end.i.i.i387
 
 _ZNK4node4quic11BindingData23stream_created_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit382
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i393)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i393)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit415
 
 if.end.i.i.i387:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit382
@@ -2337,13 +2337,13 @@ if.end.i.i.i387:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i389, label %_ZNK4node4quic11BindingData23stream_created_callbackEv.exit, label %_ZNK4node4quic11BindingData23stream_created_callbackEv.exit.thread2948
 
 _ZNK4node4quic11BindingData23stream_created_callbackEv.exit.thread2948: ; preds = %if.end.i.i.i387
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i393)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i393)
   br label %if.then.i395
 
 _ZNK4node4quic11BindingData23stream_created_callbackEv.exit: ; preds = %if.end.i.i.i387
   %176 = load i64, ptr %173, align 8
   %call.i.i.i.i392 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %172, i64 noundef %176) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i393)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i393)
   %cmp.i.i394 = icmp eq ptr %call.i.i.i.i392, null
   br i1 %cmp.i.i394, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit415, label %if.then.i395
 
@@ -2391,7 +2391,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i405: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit415
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit415: ; preds = %_ZNK4node4quic11BindingData23stream_created_callbackEv.exit.thread, %_ZNK4node4quic11BindingData23stream_created_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i405
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i393)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i393)
   %187 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i417 = getelementptr inbounds nuw i8, ptr %187, i64 176
   %188 = load ptr, ptr %env_.i.i.i417, align 8
@@ -2403,7 +2403,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i419, label %_ZNK4node4quic11BindingData21stream_reset_callbackEv.exit.thread, label %if.end.i.i.i420
 
 _ZNK4node4quic11BindingData21stream_reset_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit415
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i426)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i426)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit448
 
 if.end.i.i.i420:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit415
@@ -2414,13 +2414,13 @@ if.end.i.i.i420:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i422, label %_ZNK4node4quic11BindingData21stream_reset_callbackEv.exit, label %_ZNK4node4quic11BindingData21stream_reset_callbackEv.exit.thread2954
 
 _ZNK4node4quic11BindingData21stream_reset_callbackEv.exit.thread2954: ; preds = %if.end.i.i.i420
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i426)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i426)
   br label %if.then.i428
 
 _ZNK4node4quic11BindingData21stream_reset_callbackEv.exit: ; preds = %if.end.i.i.i420
   %193 = load i64, ptr %190, align 8
   %call.i.i.i.i425 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %189, i64 noundef %193) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i426)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i426)
   %cmp.i.i427 = icmp eq ptr %call.i.i.i.i425, null
   br i1 %cmp.i.i427, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit448, label %if.then.i428
 
@@ -2468,7 +2468,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i438: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit448
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit448: ; preds = %_ZNK4node4quic11BindingData21stream_reset_callbackEv.exit.thread, %_ZNK4node4quic11BindingData21stream_reset_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i438
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i426)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i426)
   %204 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i450 = getelementptr inbounds nuw i8, ptr %204, i64 176
   %205 = load ptr, ptr %env_.i.i.i450, align 8
@@ -2480,7 +2480,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i452, label %_ZNK4node4quic11BindingData23stream_headers_callbackEv.exit.thread, label %if.end.i.i.i453
 
 _ZNK4node4quic11BindingData23stream_headers_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit448
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i459)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i459)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit481
 
 if.end.i.i.i453:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit448
@@ -2491,13 +2491,13 @@ if.end.i.i.i453:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i455, label %_ZNK4node4quic11BindingData23stream_headers_callbackEv.exit, label %_ZNK4node4quic11BindingData23stream_headers_callbackEv.exit.thread2960
 
 _ZNK4node4quic11BindingData23stream_headers_callbackEv.exit.thread2960: ; preds = %if.end.i.i.i453
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i459)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i459)
   br label %if.then.i461
 
 _ZNK4node4quic11BindingData23stream_headers_callbackEv.exit: ; preds = %if.end.i.i.i453
   %210 = load i64, ptr %207, align 8
   %call.i.i.i.i458 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %206, i64 noundef %210) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i459)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i459)
   %cmp.i.i460 = icmp eq ptr %call.i.i.i.i458, null
   br i1 %cmp.i.i460, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit481, label %if.then.i461
 
@@ -2545,7 +2545,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i471: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit481
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit481: ; preds = %_ZNK4node4quic11BindingData23stream_headers_callbackEv.exit.thread, %_ZNK4node4quic11BindingData23stream_headers_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i471
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i459)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i459)
   %221 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i483 = getelementptr inbounds nuw i8, ptr %221, i64 176
   %222 = load ptr, ptr %env_.i.i.i483, align 8
@@ -2557,7 +2557,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i485, label %_ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit.thread, label %if.end.i.i.i486
 
 _ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit481
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i492)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i492)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit514
 
 if.end.i.i.i486:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit481
@@ -2568,13 +2568,13 @@ if.end.i.i.i486:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i488, label %_ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit, label %_ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit.thread2966
 
 _ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit.thread2966: ; preds = %if.end.i.i.i486
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i492)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i492)
   br label %if.then.i494
 
 _ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit: ; preds = %if.end.i.i.i486
   %227 = load i64, ptr %224, align 8
   %call.i.i.i.i491 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %223, i64 noundef %227) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i492)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i492)
   %cmp.i.i493 = icmp eq ptr %call.i.i.i.i491, null
   br i1 %cmp.i.i493, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit514, label %if.then.i494
 
@@ -2622,7 +2622,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i504: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit514
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit514: ; preds = %_ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit.thread, %_ZNK4node4quic11BindingData23stream_blocked_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i504
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i492)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i492)
   %238 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i516 = getelementptr inbounds nuw i8, ptr %238, i64 176
   %239 = load ptr, ptr %env_.i.i.i516, align 8
@@ -2634,7 +2634,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exi
   br i1 %cmp.i.i.i.i518, label %_ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit.thread, label %if.end.i.i.i519
 
 _ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit514
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i525)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i525)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit547
 
 if.end.i.i.i519:                                  ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit514
@@ -2645,13 +2645,13 @@ if.end.i.i.i519:                                  ; preds = %_ZN4node13MemoryTra
   br i1 %cmp.i.i.i521, label %_ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit, label %_ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit.thread2972
 
 _ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit.thread2972: ; preds = %if.end.i.i.i519
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i525)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i525)
   br label %if.then.i527
 
 _ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit: ; preds = %if.end.i.i.i519
   %244 = load i64, ptr %241, align 8
   %call.i.i.i.i524 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %240, i64 noundef %244) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i525)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i525)
   %cmp.i.i526 = icmp eq ptr %call.i.i.i.i524, null
   br i1 %cmp.i.i526, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit547, label %if.then.i527
 
@@ -2699,14 +2699,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i537: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit547
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit547: ; preds = %_ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit.thread, %_ZNK4node4quic11BindingData24stream_trailers_callbackEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i537
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i525)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i525)
   %aborted_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %255 = load ptr, ptr %aborted_string_.i, align 8
   %cmp.i.i548 = icmp eq ptr %255, null
   br i1 %cmp.i.i548, label %if.then.i549, label %_ZNK4node4quic11BindingData14aborted_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14aborted_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit547
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i554)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i554)
   br label %if.then.i556
 
 if.then.i549:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit547
@@ -2726,7 +2726,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i549
 _ZNK4node4quic11BindingData14aborted_stringEv.exit: ; preds = %if.then.i549, %if.then.i.i.i
   %call8.i.i = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %258, ptr noundef %call.i.i) #19
   store ptr %call8.i.i, ptr %aborted_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i554)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i554)
   %cmp.i.i555 = icmp eq ptr %call8.i.i, null
   br i1 %cmp.i.i555, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit, label %if.then.i556
 
@@ -2774,14 +2774,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i566: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit: ; preds = %_ZNK4node4quic11BindingData14aborted_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i566
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i554)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i554)
   %acknowledged_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %270 = load ptr, ptr %acknowledged_string_.i, align 8
   %cmp.i.i576 = icmp eq ptr %270, null
   br i1 %cmp.i.i576, label %if.then.i577, label %_ZNK4node4quic11BindingData19acknowledged_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData19acknowledged_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i586)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i586)
   br label %if.then.i588
 
 if.then.i577:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit
@@ -2801,7 +2801,7 @@ if.then.i.i.i585:                                 ; preds = %if.then.i577
 _ZNK4node4quic11BindingData19acknowledged_stringEv.exit: ; preds = %if.then.i577, %if.then.i.i.i585
   %call8.i.i584 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %273, ptr noundef %call.i.i581) #19
   store ptr %call8.i.i584, ptr %acknowledged_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i586)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i586)
   %cmp.i.i587 = icmp eq ptr %call8.i.i584, null
   br i1 %cmp.i.i587, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit608, label %if.then.i588
 
@@ -2849,14 +2849,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i598: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit608
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit608: ; preds = %_ZNK4node4quic11BindingData19acknowledged_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i598
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i586)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i586)
   %ack_delay_exponent_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %285 = load ptr, ptr %ack_delay_exponent_string_.i, align 8
   %cmp.i.i609 = icmp eq ptr %285, null
   br i1 %cmp.i.i609, label %if.then.i610, label %_ZNK4node4quic11BindingData25ack_delay_exponent_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData25ack_delay_exponent_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit608
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i619)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i619)
   br label %if.then.i621
 
 if.then.i610:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit608
@@ -2876,7 +2876,7 @@ if.then.i.i.i618:                                 ; preds = %if.then.i610
 _ZNK4node4quic11BindingData25ack_delay_exponent_stringEv.exit: ; preds = %if.then.i610, %if.then.i.i.i618
   %call8.i.i617 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %288, ptr noundef %call.i.i614) #19
   store ptr %call8.i.i617, ptr %ack_delay_exponent_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i619)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i619)
   %cmp.i.i620 = icmp eq ptr %call8.i.i617, null
   br i1 %cmp.i.i620, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit641, label %if.then.i621
 
@@ -2924,14 +2924,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i631: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit641
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit641: ; preds = %_ZNK4node4quic11BindingData25ack_delay_exponent_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i631
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i619)
   %active_connection_id_limit_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %300 = load ptr, ptr %active_connection_id_limit_string_.i, align 8
   %cmp.i.i642 = icmp eq ptr %300, null
   br i1 %cmp.i.i642, label %if.then.i643, label %_ZNK4node4quic11BindingData33active_connection_id_limit_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData33active_connection_id_limit_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit641
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i652)
   br label %if.then.i654
 
 if.then.i643:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit641
@@ -2951,7 +2951,7 @@ if.then.i.i.i651:                                 ; preds = %if.then.i643
 _ZNK4node4quic11BindingData33active_connection_id_limit_stringEv.exit: ; preds = %if.then.i643, %if.then.i.i.i651
   %call8.i.i650 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %303, ptr noundef %call.i.i647) #19
   store ptr %call8.i.i650, ptr %active_connection_id_limit_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i652)
   %cmp.i.i653 = icmp eq ptr %call8.i.i650, null
   br i1 %cmp.i.i653, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit674, label %if.then.i654
 
@@ -2999,14 +2999,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i664: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit674
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit674: ; preds = %_ZNK4node4quic11BindingData33active_connection_id_limit_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i664
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i652)
   %address_lru_size_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 336
   %315 = load ptr, ptr %address_lru_size_string_.i, align 8
   %cmp.i.i675 = icmp eq ptr %315, null
   br i1 %cmp.i.i675, label %if.then.i676, label %_ZNK4node4quic11BindingData23address_lru_size_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23address_lru_size_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit674
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i685)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i685)
   br label %if.then.i687
 
 if.then.i676:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit674
@@ -3026,7 +3026,7 @@ if.then.i.i.i684:                                 ; preds = %if.then.i676
 _ZNK4node4quic11BindingData23address_lru_size_stringEv.exit: ; preds = %if.then.i676, %if.then.i.i.i684
   %call8.i.i683 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %318, ptr noundef %call.i.i680) #19
   store ptr %call8.i.i683, ptr %address_lru_size_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i685)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i685)
   %cmp.i.i686 = icmp eq ptr %call8.i.i683, null
   br i1 %cmp.i.i686, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit707, label %if.then.i687
 
@@ -3074,14 +3074,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i697: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit707
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit707: ; preds = %_ZNK4node4quic11BindingData23address_lru_size_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i697
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i685)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i685)
   %alpn_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %330 = load ptr, ptr %alpn_string_.i, align 8
   %cmp.i.i708 = icmp eq ptr %330, null
   br i1 %cmp.i.i708, label %if.then.i709, label %_ZNK4node4quic11BindingData11alpn_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData11alpn_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit707
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i718)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i718)
   br label %if.then.i720
 
 if.then.i709:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit707
@@ -3101,7 +3101,7 @@ if.then.i.i.i717:                                 ; preds = %if.then.i709
 _ZNK4node4quic11BindingData11alpn_stringEv.exit:  ; preds = %if.then.i709, %if.then.i.i.i717
   %call8.i.i716 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %333, ptr noundef %call.i.i713) #19
   store ptr %call8.i.i716, ptr %alpn_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i718)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i718)
   %cmp.i.i719 = icmp eq ptr %call8.i.i716, null
   br i1 %cmp.i.i719, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit740, label %if.then.i720
 
@@ -3149,14 +3149,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i730: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit740
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit740: ; preds = %_ZNK4node4quic11BindingData11alpn_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i730
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i718)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i718)
   %application_options_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %345 = load ptr, ptr %application_options_string_.i, align 8
   %cmp.i.i741 = icmp eq ptr %345, null
   br i1 %cmp.i.i741, label %if.then.i742, label %_ZNK4node4quic11BindingData26application_options_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData26application_options_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit740
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i751)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i751)
   br label %if.then.i753
 
 if.then.i742:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit740
@@ -3176,7 +3176,7 @@ if.then.i.i.i750:                                 ; preds = %if.then.i742
 _ZNK4node4quic11BindingData26application_options_stringEv.exit: ; preds = %if.then.i742, %if.then.i.i.i750
   %call8.i.i749 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %348, ptr noundef %call.i.i746) #19
   store ptr %call8.i.i749, ptr %application_options_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i751)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i751)
   %cmp.i.i752 = icmp eq ptr %call8.i.i749, null
   br i1 %cmp.i.i752, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit773, label %if.then.i753
 
@@ -3224,14 +3224,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i763: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit773
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit773: ; preds = %_ZNK4node4quic11BindingData26application_options_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i763
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i751)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i751)
   %ca_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   %360 = load ptr, ptr %ca_string_.i, align 8
   %cmp.i.i774 = icmp eq ptr %360, null
   br i1 %cmp.i.i774, label %if.then.i775, label %_ZNK4node4quic11BindingData9ca_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData9ca_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit773
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i784)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i784)
   br label %if.then.i786
 
 if.then.i775:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit773
@@ -3251,7 +3251,7 @@ if.then.i.i.i783:                                 ; preds = %if.then.i775
 _ZNK4node4quic11BindingData9ca_stringEv.exit:     ; preds = %if.then.i775, %if.then.i.i.i783
   %call8.i.i782 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %363, ptr noundef %call.i.i779) #19
   store ptr %call8.i.i782, ptr %ca_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i784)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i784)
   %cmp.i.i785 = icmp eq ptr %call8.i.i782, null
   br i1 %cmp.i.i785, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit806, label %if.then.i786
 
@@ -3299,14 +3299,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i796: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit806
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit806: ; preds = %_ZNK4node4quic11BindingData9ca_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i796
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i784)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i784)
   %certs_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %375 = load ptr, ptr %certs_string_.i, align 8
   %cmp.i.i807 = icmp eq ptr %375, null
   br i1 %cmp.i.i807, label %if.then.i808, label %_ZNK4node4quic11BindingData12certs_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData12certs_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit806
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i817)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i817)
   br label %if.then.i819
 
 if.then.i808:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit806
@@ -3326,7 +3326,7 @@ if.then.i.i.i816:                                 ; preds = %if.then.i808
 _ZNK4node4quic11BindingData12certs_stringEv.exit: ; preds = %if.then.i808, %if.then.i.i.i816
   %call8.i.i815 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %378, ptr noundef %call.i.i812) #19
   store ptr %call8.i.i815, ptr %certs_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i817)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i817)
   %cmp.i.i818 = icmp eq ptr %call8.i.i815, null
   br i1 %cmp.i.i818, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit839, label %if.then.i819
 
@@ -3374,14 +3374,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i829: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit839
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit839: ; preds = %_ZNK4node4quic11BindingData12certs_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i829
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i817)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i817)
   %cc_algorithm_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   %390 = load ptr, ptr %cc_algorithm_string_.i, align 8
   %cmp.i.i840 = icmp eq ptr %390, null
   br i1 %cmp.i.i840, label %if.then.i841, label %_ZNK4node4quic11BindingData19cc_algorithm_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData19cc_algorithm_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit839
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i850)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i850)
   br label %if.then.i852
 
 if.then.i841:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit839
@@ -3401,7 +3401,7 @@ if.then.i.i.i849:                                 ; preds = %if.then.i841
 _ZNK4node4quic11BindingData19cc_algorithm_stringEv.exit: ; preds = %if.then.i841, %if.then.i.i.i849
   %call8.i.i848 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %393, ptr noundef %call.i.i845) #19
   store ptr %call8.i.i848, ptr %cc_algorithm_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i850)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i850)
   %cmp.i.i851 = icmp eq ptr %call8.i.i848, null
   br i1 %cmp.i.i851, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit872, label %if.then.i852
 
@@ -3449,14 +3449,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i862: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit872
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit872: ; preds = %_ZNK4node4quic11BindingData19cc_algorithm_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i862
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i850)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i850)
   %crl_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 384
   %405 = load ptr, ptr %crl_string_.i, align 8
   %cmp.i.i873 = icmp eq ptr %405, null
   br i1 %cmp.i.i873, label %if.then.i874, label %_ZNK4node4quic11BindingData10crl_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData10crl_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit872
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i883)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i883)
   br label %if.then.i885
 
 if.then.i874:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit872
@@ -3476,7 +3476,7 @@ if.then.i.i.i882:                                 ; preds = %if.then.i874
 _ZNK4node4quic11BindingData10crl_stringEv.exit:   ; preds = %if.then.i874, %if.then.i.i.i882
   %call8.i.i881 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %408, ptr noundef %call.i.i878) #19
   store ptr %call8.i.i881, ptr %crl_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i883)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i883)
   %cmp.i.i884 = icmp eq ptr %call8.i.i881, null
   br i1 %cmp.i.i884, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit905, label %if.then.i885
 
@@ -3524,14 +3524,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i895: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit905
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit905: ; preds = %_ZNK4node4quic11BindingData10crl_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i895
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i883)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i883)
   %ciphers_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   %420 = load ptr, ptr %ciphers_string_.i, align 8
   %cmp.i.i906 = icmp eq ptr %420, null
   br i1 %cmp.i.i906, label %if.then.i907, label %_ZNK4node4quic11BindingData14ciphers_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14ciphers_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit905
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i916)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i916)
   br label %if.then.i918
 
 if.then.i907:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit905
@@ -3551,7 +3551,7 @@ if.then.i.i.i915:                                 ; preds = %if.then.i907
 _ZNK4node4quic11BindingData14ciphers_stringEv.exit: ; preds = %if.then.i907, %if.then.i.i.i915
   %call8.i.i914 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %423, ptr noundef %call.i.i911) #19
   store ptr %call8.i.i914, ptr %ciphers_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i916)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i916)
   %cmp.i.i917 = icmp eq ptr %call8.i.i914, null
   br i1 %cmp.i.i917, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit938, label %if.then.i918
 
@@ -3599,14 +3599,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i928: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit938
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit938: ; preds = %_ZNK4node4quic11BindingData14ciphers_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i928
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i916)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i916)
   %disable_active_migration_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   %435 = load ptr, ptr %disable_active_migration_string_.i, align 8
   %cmp.i.i939 = icmp eq ptr %435, null
   br i1 %cmp.i.i939, label %if.then.i940, label %_ZNK4node4quic11BindingData31disable_active_migration_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData31disable_active_migration_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit938
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i949)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i949)
   br label %if.then.i951
 
 if.then.i940:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit938
@@ -3626,7 +3626,7 @@ if.then.i.i.i948:                                 ; preds = %if.then.i940
 _ZNK4node4quic11BindingData31disable_active_migration_stringEv.exit: ; preds = %if.then.i940, %if.then.i.i.i948
   %call8.i.i947 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %438, ptr noundef %call.i.i944) #19
   store ptr %call8.i.i947, ptr %disable_active_migration_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i949)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i949)
   %cmp.i.i950 = icmp eq ptr %call8.i.i947, null
   br i1 %cmp.i.i950, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit971, label %if.then.i951
 
@@ -3674,14 +3674,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i961: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit971
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit971: ; preds = %_ZNK4node4quic11BindingData31disable_active_migration_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i961
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i949)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i949)
   %disable_stateless_reset_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   %450 = load ptr, ptr %disable_stateless_reset_string_.i, align 8
   %cmp.i.i972 = icmp eq ptr %450, null
   br i1 %cmp.i.i972, label %if.then.i973, label %_ZNK4node4quic11BindingData30disable_stateless_reset_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData30disable_stateless_reset_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit971
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i982)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i982)
   br label %if.then.i984
 
 if.then.i973:                                     ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit971
@@ -3701,7 +3701,7 @@ if.then.i.i.i981:                                 ; preds = %if.then.i973
 _ZNK4node4quic11BindingData30disable_stateless_reset_stringEv.exit: ; preds = %if.then.i973, %if.then.i.i.i981
   %call8.i.i980 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %453, ptr noundef %call.i.i977) #19
   store ptr %call8.i.i980, ptr %disable_stateless_reset_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i982)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i982)
   %cmp.i.i983 = icmp eq ptr %call8.i.i980, null
   br i1 %cmp.i.i983, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1004, label %if.then.i984
 
@@ -3749,14 +3749,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i994: ; preds = %_ZNKSt5stackIPN4no
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1004
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1004: ; preds = %_ZNK4node4quic11BindingData30disable_stateless_reset_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i994
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i982)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i982)
   %enable_tls_trace_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 416
   %465 = load ptr, ptr %enable_tls_trace_string_.i, align 8
   %cmp.i.i1005 = icmp eq ptr %465, null
   br i1 %cmp.i.i1005, label %if.then.i1006, label %_ZNK4node4quic11BindingData23enable_tls_trace_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23enable_tls_trace_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1004
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1015)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1015)
   br label %if.then.i1017
 
 if.then.i1006:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1004
@@ -3776,7 +3776,7 @@ if.then.i.i.i1014:                                ; preds = %if.then.i1006
 _ZNK4node4quic11BindingData23enable_tls_trace_stringEv.exit: ; preds = %if.then.i1006, %if.then.i.i.i1014
   %call8.i.i1013 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %468, ptr noundef %call.i.i1010) #19
   store ptr %call8.i.i1013, ptr %enable_tls_trace_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1015)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1015)
   %cmp.i.i1016 = icmp eq ptr %call8.i.i1013, null
   br i1 %cmp.i.i1016, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1037, label %if.then.i1017
 
@@ -3824,14 +3824,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1027: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1037
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1037: ; preds = %_ZNK4node4quic11BindingData23enable_tls_trace_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1027
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1015)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1015)
   %endpoint_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   %480 = load ptr, ptr %endpoint_string_.i, align 8
   %cmp.i.i1038 = icmp eq ptr %480, null
   br i1 %cmp.i.i1038, label %if.then.i1039, label %_ZNK4node4quic11BindingData15endpoint_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData15endpoint_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1037
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1048)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1048)
   br label %if.then.i1050
 
 if.then.i1039:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1037
@@ -3851,7 +3851,7 @@ if.then.i.i.i1047:                                ; preds = %if.then.i1039
 _ZNK4node4quic11BindingData15endpoint_stringEv.exit: ; preds = %if.then.i1039, %if.then.i.i.i1047
   %call8.i.i1046 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %483, ptr noundef %call.i.i1043) #19
   store ptr %call8.i.i1046, ptr %endpoint_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1048)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1048)
   %cmp.i.i1049 = icmp eq ptr %call8.i.i1046, null
   br i1 %cmp.i.i1049, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1070, label %if.then.i1050
 
@@ -3899,14 +3899,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1060: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1070
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1070: ; preds = %_ZNK4node4quic11BindingData15endpoint_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1060
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1048)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1048)
   %endpoint_udp_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   %495 = load ptr, ptr %endpoint_udp_string_.i, align 8
   %cmp.i.i1071 = icmp eq ptr %495, null
   br i1 %cmp.i.i1071, label %if.then.i1072, label %_ZNK4node4quic11BindingData19endpoint_udp_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData19endpoint_udp_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1070
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1081)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1081)
   br label %if.then.i1083
 
 if.then.i1072:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1070
@@ -3926,7 +3926,7 @@ if.then.i.i.i1080:                                ; preds = %if.then.i1072
 _ZNK4node4quic11BindingData19endpoint_udp_stringEv.exit: ; preds = %if.then.i1072, %if.then.i.i.i1080
   %call8.i.i1079 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %498, ptr noundef %call.i.i1076) #19
   store ptr %call8.i.i1079, ptr %endpoint_udp_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1081)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1081)
   %cmp.i.i1082 = icmp eq ptr %call8.i.i1079, null
   br i1 %cmp.i.i1082, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1103, label %if.then.i1083
 
@@ -3974,14 +3974,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1093: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1103
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1103: ; preds = %_ZNK4node4quic11BindingData19endpoint_udp_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1093
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1081)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1081)
   %failure_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %510 = load ptr, ptr %failure_string_.i, align 8
   %cmp.i.i1104 = icmp eq ptr %510, null
   br i1 %cmp.i.i1104, label %if.then.i1105, label %_ZNK4node4quic11BindingData14failure_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14failure_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1114)
   br label %if.then.i1116
 
 if.then.i1105:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1103
@@ -4001,7 +4001,7 @@ if.then.i.i.i1113:                                ; preds = %if.then.i1105
 _ZNK4node4quic11BindingData14failure_stringEv.exit: ; preds = %if.then.i1105, %if.then.i.i.i1113
   %call8.i.i1112 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %513, ptr noundef %call.i.i1109) #19
   store ptr %call8.i.i1112, ptr %failure_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1114)
   %cmp.i.i1115 = icmp eq ptr %call8.i.i1112, null
   br i1 %cmp.i.i1115, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1136, label %if.then.i1116
 
@@ -4049,14 +4049,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1126: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1136
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1136: ; preds = %_ZNK4node4quic11BindingData14failure_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1114)
   %groups_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   %525 = load ptr, ptr %groups_string_.i, align 8
   %cmp.i.i1137 = icmp eq ptr %525, null
   br i1 %cmp.i.i1137, label %if.then.i1138, label %_ZNK4node4quic11BindingData13groups_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData13groups_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1147)
   br label %if.then.i1149
 
 if.then.i1138:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1136
@@ -4076,7 +4076,7 @@ if.then.i.i.i1146:                                ; preds = %if.then.i1138
 _ZNK4node4quic11BindingData13groups_stringEv.exit: ; preds = %if.then.i1138, %if.then.i.i.i1146
   %call8.i.i1145 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %528, ptr noundef %call.i.i1142) #19
   store ptr %call8.i.i1145, ptr %groups_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1147)
   %cmp.i.i1148 = icmp eq ptr %call8.i.i1145, null
   br i1 %cmp.i.i1148, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1169, label %if.then.i1149
 
@@ -4124,14 +4124,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1159: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1169
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1169: ; preds = %_ZNK4node4quic11BindingData13groups_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1147)
   %hostname_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   %540 = load ptr, ptr %hostname_string_.i, align 8
   %cmp.i.i1170 = icmp eq ptr %540, null
   br i1 %cmp.i.i1170, label %if.then.i1171, label %_ZNK4node4quic11BindingData15hostname_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData15hostname_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1180)
   br label %if.then.i1182
 
 if.then.i1171:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1169
@@ -4151,7 +4151,7 @@ if.then.i.i.i1179:                                ; preds = %if.then.i1171
 _ZNK4node4quic11BindingData15hostname_stringEv.exit: ; preds = %if.then.i1171, %if.then.i.i.i1179
   %call8.i.i1178 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %543, ptr noundef %call.i.i1175) #19
   store ptr %call8.i.i1178, ptr %hostname_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1180)
   %cmp.i.i1181 = icmp eq ptr %call8.i.i1178, null
   br i1 %cmp.i.i1181, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1202, label %if.then.i1182
 
@@ -4199,14 +4199,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1192: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1202
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1202: ; preds = %_ZNK4node4quic11BindingData15hostname_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1192
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1180)
   %http3_alpn_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %555 = load ptr, ptr %http3_alpn_string_.i, align 8
   %cmp.i.i1203 = icmp eq ptr %555, null
   br i1 %cmp.i.i1203, label %if.then.i1204, label %_ZNK4node4quic11BindingData17http3_alpn_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData17http3_alpn_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1213)
   br label %if.then.i1215
 
 if.then.i1204:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1202
@@ -4226,7 +4226,7 @@ if.then.i.i.i1212:                                ; preds = %if.then.i1204
 _ZNK4node4quic11BindingData17http3_alpn_stringEv.exit: ; preds = %if.then.i1204, %if.then.i.i.i1212
   %call8.i.i1211 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %558, ptr noundef %call.i.i1208) #19
   store ptr %call8.i.i1211, ptr %http3_alpn_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1213)
   %cmp.i.i1214 = icmp eq ptr %call8.i.i1211, null
   br i1 %cmp.i.i1214, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1235, label %if.then.i1215
 
@@ -4274,14 +4274,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1225: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1235
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1235: ; preds = %_ZNK4node4quic11BindingData17http3_alpn_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1225
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1213)
   %initial_max_data_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 472
   %570 = load ptr, ptr %initial_max_data_string_.i, align 8
   %cmp.i.i1236 = icmp eq ptr %570, null
   br i1 %cmp.i.i1236, label %if.then.i1237, label %_ZNK4node4quic11BindingData23initial_max_data_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23initial_max_data_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1235
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1246)
   br label %if.then.i1248
 
 if.then.i1237:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1235
@@ -4301,7 +4301,7 @@ if.then.i.i.i1245:                                ; preds = %if.then.i1237
 _ZNK4node4quic11BindingData23initial_max_data_stringEv.exit: ; preds = %if.then.i1237, %if.then.i.i.i1245
   %call8.i.i1244 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %573, ptr noundef %call.i.i1241) #19
   store ptr %call8.i.i1244, ptr %initial_max_data_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1246)
   %cmp.i.i1247 = icmp eq ptr %call8.i.i1244, null
   br i1 %cmp.i.i1247, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1268, label %if.then.i1248
 
@@ -4349,14 +4349,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1258: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1268
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1268: ; preds = %_ZNK4node4quic11BindingData23initial_max_data_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1258
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1246)
   %initial_max_stream_data_bidi_local_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %585 = load ptr, ptr %initial_max_stream_data_bidi_local_string_.i, align 8
   %cmp.i.i1269 = icmp eq ptr %585, null
   br i1 %cmp.i.i1269, label %if.then.i1270, label %_ZNK4node4quic11BindingData41initial_max_stream_data_bidi_local_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData41initial_max_stream_data_bidi_local_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1279)
   br label %if.then.i1281
 
 if.then.i1270:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1268
@@ -4376,7 +4376,7 @@ if.then.i.i.i1278:                                ; preds = %if.then.i1270
 _ZNK4node4quic11BindingData41initial_max_stream_data_bidi_local_stringEv.exit: ; preds = %if.then.i1270, %if.then.i.i.i1278
   %call8.i.i1277 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %588, ptr noundef %call.i.i1274) #19
   store ptr %call8.i.i1277, ptr %initial_max_stream_data_bidi_local_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1279)
   %cmp.i.i1280 = icmp eq ptr %call8.i.i1277, null
   br i1 %cmp.i.i1280, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1301, label %if.then.i1281
 
@@ -4424,14 +4424,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1291: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1301
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1301: ; preds = %_ZNK4node4quic11BindingData41initial_max_stream_data_bidi_local_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1291
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1279)
   %initial_max_stream_data_bidi_remote_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %600 = load ptr, ptr %initial_max_stream_data_bidi_remote_string_.i, align 8
   %cmp.i.i1302 = icmp eq ptr %600, null
   br i1 %cmp.i.i1302, label %if.then.i1303, label %_ZNK4node4quic11BindingData42initial_max_stream_data_bidi_remote_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData42initial_max_stream_data_bidi_remote_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1301
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1312)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1312)
   br label %if.then.i1314
 
 if.then.i1303:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1301
@@ -4451,7 +4451,7 @@ if.then.i.i.i1311:                                ; preds = %if.then.i1303
 _ZNK4node4quic11BindingData42initial_max_stream_data_bidi_remote_stringEv.exit: ; preds = %if.then.i1303, %if.then.i.i.i1311
   %call8.i.i1310 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %603, ptr noundef %call.i.i1307) #19
   store ptr %call8.i.i1310, ptr %initial_max_stream_data_bidi_remote_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1312)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1312)
   %cmp.i.i1313 = icmp eq ptr %call8.i.i1310, null
   br i1 %cmp.i.i1313, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1334, label %if.then.i1314
 
@@ -4499,14 +4499,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1324: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1334
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1334: ; preds = %_ZNK4node4quic11BindingData42initial_max_stream_data_bidi_remote_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1324
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1312)
   %initial_max_stream_data_uni_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 496
   %615 = load ptr, ptr %initial_max_stream_data_uni_string_.i, align 8
   %cmp.i.i1335 = icmp eq ptr %615, null
   br i1 %cmp.i.i1335, label %if.then.i1336, label %_ZNK4node4quic11BindingData34initial_max_stream_data_uni_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData34initial_max_stream_data_uni_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1334
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1345)
   br label %if.then.i1347
 
 if.then.i1336:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1334
@@ -4526,7 +4526,7 @@ if.then.i.i.i1344:                                ; preds = %if.then.i1336
 _ZNK4node4quic11BindingData34initial_max_stream_data_uni_stringEv.exit: ; preds = %if.then.i1336, %if.then.i.i.i1344
   %call8.i.i1343 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %618, ptr noundef %call.i.i1340) #19
   store ptr %call8.i.i1343, ptr %initial_max_stream_data_uni_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1345)
   %cmp.i.i1346 = icmp eq ptr %call8.i.i1343, null
   br i1 %cmp.i.i1346, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1367, label %if.then.i1347
 
@@ -4574,14 +4574,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1357: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1367
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1367: ; preds = %_ZNK4node4quic11BindingData34initial_max_stream_data_uni_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1357
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1345)
   %initial_max_streams_bidi_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 504
   %630 = load ptr, ptr %initial_max_streams_bidi_string_.i, align 8
   %cmp.i.i1368 = icmp eq ptr %630, null
   br i1 %cmp.i.i1368, label %if.then.i1369, label %_ZNK4node4quic11BindingData31initial_max_streams_bidi_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData31initial_max_streams_bidi_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1367
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1378)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1378)
   br label %if.then.i1380
 
 if.then.i1369:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1367
@@ -4601,7 +4601,7 @@ if.then.i.i.i1377:                                ; preds = %if.then.i1369
 _ZNK4node4quic11BindingData31initial_max_streams_bidi_stringEv.exit: ; preds = %if.then.i1369, %if.then.i.i.i1377
   %call8.i.i1376 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %633, ptr noundef %call.i.i1373) #19
   store ptr %call8.i.i1376, ptr %initial_max_streams_bidi_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1378)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1378)
   %cmp.i.i1379 = icmp eq ptr %call8.i.i1376, null
   br i1 %cmp.i.i1379, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1400, label %if.then.i1380
 
@@ -4649,14 +4649,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1390: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1400
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1400: ; preds = %_ZNK4node4quic11BindingData31initial_max_streams_bidi_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1390
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1378)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1378)
   %initial_max_streams_uni_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 512
   %645 = load ptr, ptr %initial_max_streams_uni_string_.i, align 8
   %cmp.i.i1401 = icmp eq ptr %645, null
   br i1 %cmp.i.i1401, label %if.then.i1402, label %_ZNK4node4quic11BindingData30initial_max_streams_uni_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData30initial_max_streams_uni_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1400
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1411)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1411)
   br label %if.then.i1413
 
 if.then.i1402:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1400
@@ -4676,7 +4676,7 @@ if.then.i.i.i1410:                                ; preds = %if.then.i1402
 _ZNK4node4quic11BindingData30initial_max_streams_uni_stringEv.exit: ; preds = %if.then.i1402, %if.then.i.i.i1410
   %call8.i.i1409 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %648, ptr noundef %call.i.i1406) #19
   store ptr %call8.i.i1409, ptr %initial_max_streams_uni_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1411)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1411)
   %cmp.i.i1412 = icmp eq ptr %call8.i.i1409, null
   br i1 %cmp.i.i1412, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1433, label %if.then.i1413
 
@@ -4724,14 +4724,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1423: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1433
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1433: ; preds = %_ZNK4node4quic11BindingData30initial_max_streams_uni_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1423
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1411)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1411)
   %ipv6_only_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 520
   %660 = load ptr, ptr %ipv6_only_string_.i, align 8
   %cmp.i.i1434 = icmp eq ptr %660, null
   br i1 %cmp.i.i1434, label %if.then.i1435, label %_ZNK4node4quic11BindingData16ipv6_only_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData16ipv6_only_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1433
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1444)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1444)
   br label %if.then.i1446
 
 if.then.i1435:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1433
@@ -4751,7 +4751,7 @@ if.then.i.i.i1443:                                ; preds = %if.then.i1435
 _ZNK4node4quic11BindingData16ipv6_only_stringEv.exit: ; preds = %if.then.i1435, %if.then.i.i.i1443
   %call8.i.i1442 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %663, ptr noundef %call.i.i1439) #19
   store ptr %call8.i.i1442, ptr %ipv6_only_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1444)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1444)
   %cmp.i.i1445 = icmp eq ptr %call8.i.i1442, null
   br i1 %cmp.i.i1445, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1466, label %if.then.i1446
 
@@ -4799,14 +4799,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1456: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1466
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1466: ; preds = %_ZNK4node4quic11BindingData16ipv6_only_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1456
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1444)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1444)
   %keylog_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %675 = load ptr, ptr %keylog_string_.i, align 8
   %cmp.i.i1467 = icmp eq ptr %675, null
   br i1 %cmp.i.i1467, label %if.then.i1468, label %_ZNK4node4quic11BindingData13keylog_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData13keylog_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1466
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1477)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1477)
   br label %if.then.i1479
 
 if.then.i1468:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1466
@@ -4826,7 +4826,7 @@ if.then.i.i.i1476:                                ; preds = %if.then.i1468
 _ZNK4node4quic11BindingData13keylog_stringEv.exit: ; preds = %if.then.i1468, %if.then.i.i.i1476
   %call8.i.i1475 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %678, ptr noundef %call.i.i1472) #19
   store ptr %call8.i.i1475, ptr %keylog_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1477)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1477)
   %cmp.i.i1478 = icmp eq ptr %call8.i.i1475, null
   br i1 %cmp.i.i1478, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1499, label %if.then.i1479
 
@@ -4874,14 +4874,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1489: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1499
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1499: ; preds = %_ZNK4node4quic11BindingData13keylog_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1489
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1477)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1477)
   %keys_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   %690 = load ptr, ptr %keys_string_.i, align 8
   %cmp.i.i1500 = icmp eq ptr %690, null
   br i1 %cmp.i.i1500, label %if.then.i1501, label %_ZNK4node4quic11BindingData11keys_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData11keys_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1499
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1510)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1510)
   br label %if.then.i1512
 
 if.then.i1501:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1499
@@ -4901,7 +4901,7 @@ if.then.i.i.i1509:                                ; preds = %if.then.i1501
 _ZNK4node4quic11BindingData11keys_stringEv.exit:  ; preds = %if.then.i1501, %if.then.i.i.i1509
   %call8.i.i1508 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %693, ptr noundef %call.i.i1505) #19
   store ptr %call8.i.i1508, ptr %keys_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1510)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1510)
   %cmp.i.i1511 = icmp eq ptr %call8.i.i1508, null
   br i1 %cmp.i.i1511, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1532, label %if.then.i1512
 
@@ -4949,14 +4949,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1522: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1532
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1532: ; preds = %_ZNK4node4quic11BindingData11keys_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1522
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1510)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1510)
   %logstream_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 544
   %705 = load ptr, ptr %logstream_string_.i, align 8
   %cmp.i.i1533 = icmp eq ptr %705, null
   br i1 %cmp.i.i1533, label %if.then.i1534, label %_ZNK4node4quic11BindingData16logstream_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData16logstream_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1532
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1543)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1543)
   br label %if.then.i1545
 
 if.then.i1534:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1532
@@ -4976,7 +4976,7 @@ if.then.i.i.i1542:                                ; preds = %if.then.i1534
 _ZNK4node4quic11BindingData16logstream_stringEv.exit: ; preds = %if.then.i1534, %if.then.i.i.i1542
   %call8.i.i1541 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %708, ptr noundef %call.i.i1538) #19
   store ptr %call8.i.i1541, ptr %logstream_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1543)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1543)
   %cmp.i.i1544 = icmp eq ptr %call8.i.i1541, null
   br i1 %cmp.i.i1544, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1565, label %if.then.i1545
 
@@ -5024,14 +5024,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1555: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1565
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1565: ; preds = %_ZNK4node4quic11BindingData16logstream_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1555
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1543)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1543)
   %lost_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   %720 = load ptr, ptr %lost_string_.i, align 8
   %cmp.i.i1566 = icmp eq ptr %720, null
   br i1 %cmp.i.i1566, label %if.then.i1567, label %_ZNK4node4quic11BindingData11lost_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData11lost_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1565
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1576)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1576)
   br label %if.then.i1578
 
 if.then.i1567:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1565
@@ -5051,7 +5051,7 @@ if.then.i.i.i1575:                                ; preds = %if.then.i1567
 _ZNK4node4quic11BindingData11lost_stringEv.exit:  ; preds = %if.then.i1567, %if.then.i.i.i1575
   %call8.i.i1574 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %723, ptr noundef %call.i.i1571) #19
   store ptr %call8.i.i1574, ptr %lost_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1576)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1576)
   %cmp.i.i1577 = icmp eq ptr %call8.i.i1574, null
   br i1 %cmp.i.i1577, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1598, label %if.then.i1578
 
@@ -5099,14 +5099,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1588: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1598
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1598: ; preds = %_ZNK4node4quic11BindingData11lost_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1588
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1576)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1576)
   %max_ack_delay_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 560
   %735 = load ptr, ptr %max_ack_delay_string_.i, align 8
   %cmp.i.i1599 = icmp eq ptr %735, null
   br i1 %cmp.i.i1599, label %if.then.i1600, label %_ZNK4node4quic11BindingData20max_ack_delay_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData20max_ack_delay_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1598
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1609)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1609)
   br label %if.then.i1611
 
 if.then.i1600:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1598
@@ -5126,7 +5126,7 @@ if.then.i.i.i1608:                                ; preds = %if.then.i1600
 _ZNK4node4quic11BindingData20max_ack_delay_stringEv.exit: ; preds = %if.then.i1600, %if.then.i.i.i1608
   %call8.i.i1607 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %738, ptr noundef %call.i.i1604) #19
   store ptr %call8.i.i1607, ptr %max_ack_delay_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1609)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1609)
   %cmp.i.i1610 = icmp eq ptr %call8.i.i1607, null
   br i1 %cmp.i.i1610, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1631, label %if.then.i1611
 
@@ -5174,14 +5174,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1621: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1631
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1631: ; preds = %_ZNK4node4quic11BindingData20max_ack_delay_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1621
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1609)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1609)
   %max_connections_per_host_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 568
   %750 = load ptr, ptr %max_connections_per_host_string_.i, align 8
   %cmp.i.i1632 = icmp eq ptr %750, null
   br i1 %cmp.i.i1632, label %if.then.i1633, label %_ZNK4node4quic11BindingData31max_connections_per_host_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData31max_connections_per_host_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1631
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1642)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1642)
   br label %if.then.i1644
 
 if.then.i1633:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1631
@@ -5201,7 +5201,7 @@ if.then.i.i.i1641:                                ; preds = %if.then.i1633
 _ZNK4node4quic11BindingData31max_connections_per_host_stringEv.exit: ; preds = %if.then.i1633, %if.then.i.i.i1641
   %call8.i.i1640 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %753, ptr noundef %call.i.i1637) #19
   store ptr %call8.i.i1640, ptr %max_connections_per_host_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1642)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1642)
   %cmp.i.i1643 = icmp eq ptr %call8.i.i1640, null
   br i1 %cmp.i.i1643, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1664, label %if.then.i1644
 
@@ -5249,14 +5249,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1654: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1664
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1664: ; preds = %_ZNK4node4quic11BindingData31max_connections_per_host_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1654
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1642)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1642)
   %max_connections_total_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %765 = load ptr, ptr %max_connections_total_string_.i, align 8
   %cmp.i.i1665 = icmp eq ptr %765, null
   br i1 %cmp.i.i1665, label %if.then.i1666, label %_ZNK4node4quic11BindingData28max_connections_total_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData28max_connections_total_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1664
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1675)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1675)
   br label %if.then.i1677
 
 if.then.i1666:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1664
@@ -5276,7 +5276,7 @@ if.then.i.i.i1674:                                ; preds = %if.then.i1666
 _ZNK4node4quic11BindingData28max_connections_total_stringEv.exit: ; preds = %if.then.i1666, %if.then.i.i.i1674
   %call8.i.i1673 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %768, ptr noundef %call.i.i1670) #19
   store ptr %call8.i.i1673, ptr %max_connections_total_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1675)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1675)
   %cmp.i.i1676 = icmp eq ptr %call8.i.i1673, null
   br i1 %cmp.i.i1676, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1697, label %if.then.i1677
 
@@ -5324,14 +5324,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1687: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1697
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1697: ; preds = %_ZNK4node4quic11BindingData28max_connections_total_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1687
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1675)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1675)
   %max_datagram_frame_size_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 584
   %780 = load ptr, ptr %max_datagram_frame_size_string_.i, align 8
   %cmp.i.i1698 = icmp eq ptr %780, null
   br i1 %cmp.i.i1698, label %if.then.i1699, label %_ZNK4node4quic11BindingData30max_datagram_frame_size_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData30max_datagram_frame_size_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1697
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1708)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1708)
   br label %if.then.i1710
 
 if.then.i1699:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1697
@@ -5351,7 +5351,7 @@ if.then.i.i.i1707:                                ; preds = %if.then.i1699
 _ZNK4node4quic11BindingData30max_datagram_frame_size_stringEv.exit: ; preds = %if.then.i1699, %if.then.i.i.i1707
   %call8.i.i1706 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %783, ptr noundef %call.i.i1703) #19
   store ptr %call8.i.i1706, ptr %max_datagram_frame_size_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1708)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1708)
   %cmp.i.i1709 = icmp eq ptr %call8.i.i1706, null
   br i1 %cmp.i.i1709, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1730, label %if.then.i1710
 
@@ -5399,14 +5399,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1720: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1730
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1730: ; preds = %_ZNK4node4quic11BindingData30max_datagram_frame_size_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1720
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1708)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1708)
   %max_field_section_size_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %795 = load ptr, ptr %max_field_section_size_string_.i, align 8
   %cmp.i.i1731 = icmp eq ptr %795, null
   br i1 %cmp.i.i1731, label %if.then.i1732, label %_ZNK4node4quic11BindingData29max_field_section_size_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData29max_field_section_size_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1730
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1741)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1741)
   br label %if.then.i1743
 
 if.then.i1732:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1730
@@ -5426,7 +5426,7 @@ if.then.i.i.i1740:                                ; preds = %if.then.i1732
 _ZNK4node4quic11BindingData29max_field_section_size_stringEv.exit: ; preds = %if.then.i1732, %if.then.i.i.i1740
   %call8.i.i1739 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %798, ptr noundef %call.i.i1736) #19
   store ptr %call8.i.i1739, ptr %max_field_section_size_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1741)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1741)
   %cmp.i.i1742 = icmp eq ptr %call8.i.i1739, null
   br i1 %cmp.i.i1742, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1763, label %if.then.i1743
 
@@ -5474,14 +5474,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1753: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1763
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1763: ; preds = %_ZNK4node4quic11BindingData29max_field_section_size_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1753
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1741)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1741)
   %max_header_length_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 600
   %810 = load ptr, ptr %max_header_length_string_.i, align 8
   %cmp.i.i1764 = icmp eq ptr %810, null
   br i1 %cmp.i.i1764, label %if.then.i1765, label %_ZNK4node4quic11BindingData24max_header_length_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData24max_header_length_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1763
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1774)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1774)
   br label %if.then.i1776
 
 if.then.i1765:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1763
@@ -5501,7 +5501,7 @@ if.then.i.i.i1773:                                ; preds = %if.then.i1765
 _ZNK4node4quic11BindingData24max_header_length_stringEv.exit: ; preds = %if.then.i1765, %if.then.i.i.i1773
   %call8.i.i1772 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %813, ptr noundef %call.i.i1769) #19
   store ptr %call8.i.i1772, ptr %max_header_length_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1774)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1774)
   %cmp.i.i1775 = icmp eq ptr %call8.i.i1772, null
   br i1 %cmp.i.i1775, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1796, label %if.then.i1776
 
@@ -5549,14 +5549,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1786: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1796
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1796: ; preds = %_ZNK4node4quic11BindingData24max_header_length_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1786
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1774)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1774)
   %max_header_pairs_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 608
   %825 = load ptr, ptr %max_header_pairs_string_.i, align 8
   %cmp.i.i1797 = icmp eq ptr %825, null
   br i1 %cmp.i.i1797, label %if.then.i1798, label %_ZNK4node4quic11BindingData23max_header_pairs_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23max_header_pairs_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1796
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1807)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1807)
   br label %if.then.i1809
 
 if.then.i1798:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1796
@@ -5576,7 +5576,7 @@ if.then.i.i.i1806:                                ; preds = %if.then.i1798
 _ZNK4node4quic11BindingData23max_header_pairs_stringEv.exit: ; preds = %if.then.i1798, %if.then.i.i.i1806
   %call8.i.i1805 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %828, ptr noundef %call.i.i1802) #19
   store ptr %call8.i.i1805, ptr %max_header_pairs_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1807)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1807)
   %cmp.i.i1808 = icmp eq ptr %call8.i.i1805, null
   br i1 %cmp.i.i1808, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1829, label %if.then.i1809
 
@@ -5624,14 +5624,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1819: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1829
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1829: ; preds = %_ZNK4node4quic11BindingData23max_header_pairs_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1819
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1807)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1807)
   %max_idle_timeout_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %840 = load ptr, ptr %max_idle_timeout_string_.i, align 8
   %cmp.i.i1830 = icmp eq ptr %840, null
   br i1 %cmp.i.i1830, label %if.then.i1831, label %_ZNK4node4quic11BindingData23max_idle_timeout_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23max_idle_timeout_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1829
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1840)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1840)
   br label %if.then.i1842
 
 if.then.i1831:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1829
@@ -5651,7 +5651,7 @@ if.then.i.i.i1839:                                ; preds = %if.then.i1831
 _ZNK4node4quic11BindingData23max_idle_timeout_stringEv.exit: ; preds = %if.then.i1831, %if.then.i.i.i1839
   %call8.i.i1838 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %843, ptr noundef %call.i.i1835) #19
   store ptr %call8.i.i1838, ptr %max_idle_timeout_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1840)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1840)
   %cmp.i.i1841 = icmp eq ptr %call8.i.i1838, null
   br i1 %cmp.i.i1841, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1862, label %if.then.i1842
 
@@ -5699,14 +5699,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1852: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1862
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1862: ; preds = %_ZNK4node4quic11BindingData23max_idle_timeout_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1852
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1840)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1840)
   %max_payload_size_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 624
   %855 = load ptr, ptr %max_payload_size_string_.i, align 8
   %cmp.i.i1863 = icmp eq ptr %855, null
   br i1 %cmp.i.i1863, label %if.then.i1864, label %_ZNK4node4quic11BindingData23max_payload_size_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23max_payload_size_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1862
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1873)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1873)
   br label %if.then.i1875
 
 if.then.i1864:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1862
@@ -5726,7 +5726,7 @@ if.then.i.i.i1872:                                ; preds = %if.then.i1864
 _ZNK4node4quic11BindingData23max_payload_size_stringEv.exit: ; preds = %if.then.i1864, %if.then.i.i.i1872
   %call8.i.i1871 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %858, ptr noundef %call.i.i1868) #19
   store ptr %call8.i.i1871, ptr %max_payload_size_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1873)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1873)
   %cmp.i.i1874 = icmp eq ptr %call8.i.i1871, null
   br i1 %cmp.i.i1874, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1895, label %if.then.i1875
 
@@ -5774,14 +5774,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1885: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1895
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1895: ; preds = %_ZNK4node4quic11BindingData23max_payload_size_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1885
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1873)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1873)
   %max_retries_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 632
   %870 = load ptr, ptr %max_retries_string_.i, align 8
   %cmp.i.i1896 = icmp eq ptr %870, null
   br i1 %cmp.i.i1896, label %if.then.i1897, label %_ZNK4node4quic11BindingData18max_retries_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData18max_retries_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1895
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1906)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1906)
   br label %if.then.i1908
 
 if.then.i1897:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1895
@@ -5801,7 +5801,7 @@ if.then.i.i.i1905:                                ; preds = %if.then.i1897
 _ZNK4node4quic11BindingData18max_retries_stringEv.exit: ; preds = %if.then.i1897, %if.then.i.i.i1905
   %call8.i.i1904 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %873, ptr noundef %call.i.i1901) #19
   store ptr %call8.i.i1904, ptr %max_retries_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1906)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1906)
   %cmp.i.i1907 = icmp eq ptr %call8.i.i1904, null
   br i1 %cmp.i.i1907, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1928, label %if.then.i1908
 
@@ -5849,14 +5849,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1918: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1928
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1928: ; preds = %_ZNK4node4quic11BindingData18max_retries_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1918
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1906)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1906)
   %max_stateless_resets_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 640
   %885 = load ptr, ptr %max_stateless_resets_string_.i, align 8
   %cmp.i.i1929 = icmp eq ptr %885, null
   br i1 %cmp.i.i1929, label %if.then.i1930, label %_ZNK4node4quic11BindingData27max_stateless_resets_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData27max_stateless_resets_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1928
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1939)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1939)
   br label %if.then.i1941
 
 if.then.i1930:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1928
@@ -5876,7 +5876,7 @@ if.then.i.i.i1938:                                ; preds = %if.then.i1930
 _ZNK4node4quic11BindingData27max_stateless_resets_stringEv.exit: ; preds = %if.then.i1930, %if.then.i.i.i1938
   %call8.i.i1937 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %888, ptr noundef %call.i.i1934) #19
   store ptr %call8.i.i1937, ptr %max_stateless_resets_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1939)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1939)
   %cmp.i.i1940 = icmp eq ptr %call8.i.i1937, null
   br i1 %cmp.i.i1940, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1961, label %if.then.i1941
 
@@ -5924,14 +5924,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1951: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1961
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1961: ; preds = %_ZNK4node4quic11BindingData27max_stateless_resets_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1951
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1939)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1939)
   %min_version_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 648
   %900 = load ptr, ptr %min_version_string_.i, align 8
   %cmp.i.i1962 = icmp eq ptr %900, null
   br i1 %cmp.i.i1962, label %if.then.i1963, label %_ZNK4node4quic11BindingData18min_version_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData18min_version_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1961
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1972)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1972)
   br label %if.then.i1974
 
 if.then.i1963:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1961
@@ -5951,7 +5951,7 @@ if.then.i.i.i1971:                                ; preds = %if.then.i1963
 _ZNK4node4quic11BindingData18min_version_stringEv.exit: ; preds = %if.then.i1963, %if.then.i.i.i1971
   %call8.i.i1970 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %903, ptr noundef %call.i.i1967) #19
   store ptr %call8.i.i1970, ptr %min_version_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1972)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1972)
   %cmp.i.i1973 = icmp eq ptr %call8.i.i1970, null
   br i1 %cmp.i.i1973, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1994, label %if.then.i1974
 
@@ -5999,14 +5999,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1984: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1994
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1994: ; preds = %_ZNK4node4quic11BindingData18min_version_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i1984
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1972)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1972)
   %packetwrap_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 656
   %915 = load ptr, ptr %packetwrap_string_.i, align 8
   %cmp.i.i1995 = icmp eq ptr %915, null
   br i1 %cmp.i.i1995, label %if.then.i1996, label %_ZNK4node4quic11BindingData17packetwrap_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData17packetwrap_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1994
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2005)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2005)
   br label %if.then.i2007
 
 if.then.i1996:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit1994
@@ -6026,7 +6026,7 @@ if.then.i.i.i2004:                                ; preds = %if.then.i1996
 _ZNK4node4quic11BindingData17packetwrap_stringEv.exit: ; preds = %if.then.i1996, %if.then.i.i.i2004
   %call8.i.i2003 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %918, ptr noundef %call.i.i2000) #19
   store ptr %call8.i.i2003, ptr %packetwrap_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2005)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2005)
   %cmp.i.i2006 = icmp eq ptr %call8.i.i2003, null
   br i1 %cmp.i.i2006, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2027, label %if.then.i2007
 
@@ -6074,14 +6074,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2017: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2027
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2027: ; preds = %_ZNK4node4quic11BindingData17packetwrap_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2017
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2005)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2005)
   %preferred_address_strategy_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 664
   %930 = load ptr, ptr %preferred_address_strategy_string_.i, align 8
   %cmp.i.i2028 = icmp eq ptr %930, null
   br i1 %cmp.i.i2028, label %if.then.i2029, label %_ZNK4node4quic11BindingData33preferred_address_strategy_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData33preferred_address_strategy_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2027
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2038)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2038)
   br label %if.then.i2040
 
 if.then.i2029:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2027
@@ -6101,7 +6101,7 @@ if.then.i.i.i2037:                                ; preds = %if.then.i2029
 _ZNK4node4quic11BindingData33preferred_address_strategy_stringEv.exit: ; preds = %if.then.i2029, %if.then.i.i.i2037
   %call8.i.i2036 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %933, ptr noundef %call.i.i2033) #19
   store ptr %call8.i.i2036, ptr %preferred_address_strategy_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2038)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2038)
   %cmp.i.i2039 = icmp eq ptr %call8.i.i2036, null
   br i1 %cmp.i.i2039, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2060, label %if.then.i2040
 
@@ -6149,14 +6149,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2050: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2060
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2060: ; preds = %_ZNK4node4quic11BindingData33preferred_address_strategy_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2050
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2038)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2038)
   %qlog_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 672
   %945 = load ptr, ptr %qlog_string_.i, align 8
   %cmp.i.i2061 = icmp eq ptr %945, null
   br i1 %cmp.i.i2061, label %if.then.i2062, label %_ZNK4node4quic11BindingData11qlog_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData11qlog_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2060
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2071)
   br label %if.then.i2073
 
 if.then.i2062:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2060
@@ -6176,7 +6176,7 @@ if.then.i.i.i2070:                                ; preds = %if.then.i2062
 _ZNK4node4quic11BindingData11qlog_stringEv.exit:  ; preds = %if.then.i2062, %if.then.i.i.i2070
   %call8.i.i2069 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %948, ptr noundef %call.i.i2066) #19
   store ptr %call8.i.i2069, ptr %qlog_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2071)
   %cmp.i.i2072 = icmp eq ptr %call8.i.i2069, null
   br i1 %cmp.i.i2072, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2093, label %if.then.i2073
 
@@ -6224,14 +6224,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2083: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2093
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2093: ; preds = %_ZNK4node4quic11BindingData11qlog_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2083
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2071)
   %qpack_blocked_streams_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 680
   %960 = load ptr, ptr %qpack_blocked_streams_string_.i, align 8
   %cmp.i.i2094 = icmp eq ptr %960, null
   br i1 %cmp.i.i2094, label %if.then.i2095, label %_ZNK4node4quic11BindingData28qpack_blocked_streams_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData28qpack_blocked_streams_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2093
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2104)
   br label %if.then.i2106
 
 if.then.i2095:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2093
@@ -6251,7 +6251,7 @@ if.then.i.i.i2103:                                ; preds = %if.then.i2095
 _ZNK4node4quic11BindingData28qpack_blocked_streams_stringEv.exit: ; preds = %if.then.i2095, %if.then.i.i.i2103
   %call8.i.i2102 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %963, ptr noundef %call.i.i2099) #19
   store ptr %call8.i.i2102, ptr %qpack_blocked_streams_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2104)
   %cmp.i.i2105 = icmp eq ptr %call8.i.i2102, null
   br i1 %cmp.i.i2105, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2126, label %if.then.i2106
 
@@ -6299,14 +6299,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2116: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2126
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2126: ; preds = %_ZNK4node4quic11BindingData28qpack_blocked_streams_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2104)
   %qpack_encoder_max_dtable_capacity_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 688
   %975 = load ptr, ptr %qpack_encoder_max_dtable_capacity_string_.i, align 8
   %cmp.i.i2127 = icmp eq ptr %975, null
   br i1 %cmp.i.i2127, label %if.then.i2128, label %_ZNK4node4quic11BindingData40qpack_encoder_max_dtable_capacity_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData40qpack_encoder_max_dtable_capacity_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2126
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2137)
   br label %if.then.i2139
 
 if.then.i2128:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2126
@@ -6326,7 +6326,7 @@ if.then.i.i.i2136:                                ; preds = %if.then.i2128
 _ZNK4node4quic11BindingData40qpack_encoder_max_dtable_capacity_stringEv.exit: ; preds = %if.then.i2128, %if.then.i.i.i2136
   %call8.i.i2135 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %978, ptr noundef %call.i.i2132) #19
   store ptr %call8.i.i2135, ptr %qpack_encoder_max_dtable_capacity_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2137)
   %cmp.i.i2138 = icmp eq ptr %call8.i.i2135, null
   br i1 %cmp.i.i2138, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2159, label %if.then.i2139
 
@@ -6374,14 +6374,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2149: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2159
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2159: ; preds = %_ZNK4node4quic11BindingData40qpack_encoder_max_dtable_capacity_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2137)
   %qpack_max_dtable_capacity_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 696
   %990 = load ptr, ptr %qpack_max_dtable_capacity_string_.i, align 8
   %cmp.i.i2160 = icmp eq ptr %990, null
   br i1 %cmp.i.i2160, label %if.then.i2161, label %_ZNK4node4quic11BindingData32qpack_max_dtable_capacity_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData32qpack_max_dtable_capacity_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2159
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2170)
   br label %if.then.i2172
 
 if.then.i2161:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2159
@@ -6401,7 +6401,7 @@ if.then.i.i.i2169:                                ; preds = %if.then.i2161
 _ZNK4node4quic11BindingData32qpack_max_dtable_capacity_stringEv.exit: ; preds = %if.then.i2161, %if.then.i.i.i2169
   %call8.i.i2168 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %993, ptr noundef %call.i.i2165) #19
   store ptr %call8.i.i2168, ptr %qpack_max_dtable_capacity_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2170)
   %cmp.i.i2171 = icmp eq ptr %call8.i.i2168, null
   br i1 %cmp.i.i2171, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2192, label %if.then.i2172
 
@@ -6449,14 +6449,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2182: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2192
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2192: ; preds = %_ZNK4node4quic11BindingData32qpack_max_dtable_capacity_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2170)
   %reject_unauthorized_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 704
   %1005 = load ptr, ptr %reject_unauthorized_string_.i, align 8
   %cmp.i.i2193 = icmp eq ptr %1005, null
   br i1 %cmp.i.i2193, label %if.then.i2194, label %_ZNK4node4quic11BindingData26reject_unauthorized_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData26reject_unauthorized_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2203)
   br label %if.then.i2205
 
 if.then.i2194:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2192
@@ -6476,7 +6476,7 @@ if.then.i.i.i2202:                                ; preds = %if.then.i2194
 _ZNK4node4quic11BindingData26reject_unauthorized_stringEv.exit: ; preds = %if.then.i2194, %if.then.i.i.i2202
   %call8.i.i2201 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1008, ptr noundef %call.i.i2198) #19
   store ptr %call8.i.i2201, ptr %reject_unauthorized_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2203)
   %cmp.i.i2204 = icmp eq ptr %call8.i.i2201, null
   br i1 %cmp.i.i2204, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2225, label %if.then.i2205
 
@@ -6524,14 +6524,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2215: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2225
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2225: ; preds = %_ZNK4node4quic11BindingData26reject_unauthorized_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2203)
   %retry_token_expiration_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %1020 = load ptr, ptr %retry_token_expiration_string_.i, align 8
   %cmp.i.i2226 = icmp eq ptr %1020, null
   br i1 %cmp.i.i2226, label %if.then.i2227, label %_ZNK4node4quic11BindingData29retry_token_expiration_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData29retry_token_expiration_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2225
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2236)
   br label %if.then.i2238
 
 if.then.i2227:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2225
@@ -6551,7 +6551,7 @@ if.then.i.i.i2235:                                ; preds = %if.then.i2227
 _ZNK4node4quic11BindingData29retry_token_expiration_stringEv.exit: ; preds = %if.then.i2227, %if.then.i.i.i2235
   %call8.i.i2234 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1023, ptr noundef %call.i.i2231) #19
   store ptr %call8.i.i2234, ptr %retry_token_expiration_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2236)
   %cmp.i.i2237 = icmp eq ptr %call8.i.i2234, null
   br i1 %cmp.i.i2237, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2258, label %if.then.i2238
 
@@ -6599,14 +6599,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2248: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2258
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2258: ; preds = %_ZNK4node4quic11BindingData29retry_token_expiration_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2248
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2236)
   %request_peer_certificate_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 720
   %1035 = load ptr, ptr %request_peer_certificate_string_.i, align 8
   %cmp.i.i2259 = icmp eq ptr %1035, null
   br i1 %cmp.i.i2259, label %if.then.i2260, label %_ZNK4node4quic11BindingData31request_peer_certificate_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData31request_peer_certificate_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2258
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2269)
   br label %if.then.i2271
 
 if.then.i2260:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2258
@@ -6626,7 +6626,7 @@ if.then.i.i.i2268:                                ; preds = %if.then.i2260
 _ZNK4node4quic11BindingData31request_peer_certificate_stringEv.exit: ; preds = %if.then.i2260, %if.then.i.i.i2268
   %call8.i.i2267 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1038, ptr noundef %call.i.i2264) #19
   store ptr %call8.i.i2267, ptr %request_peer_certificate_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2269)
   %cmp.i.i2270 = icmp eq ptr %call8.i.i2267, null
   br i1 %cmp.i.i2270, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2291, label %if.then.i2271
 
@@ -6674,14 +6674,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2281: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2291
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2291: ; preds = %_ZNK4node4quic11BindingData31request_peer_certificate_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2281
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2269)
   %reset_token_secret_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %1050 = load ptr, ptr %reset_token_secret_string_.i, align 8
   %cmp.i.i2292 = icmp eq ptr %1050, null
   br i1 %cmp.i.i2292, label %if.then.i2293, label %_ZNK4node4quic11BindingData25reset_token_secret_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData25reset_token_secret_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2291
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2302)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2302)
   br label %if.then.i2304
 
 if.then.i2293:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2291
@@ -6701,7 +6701,7 @@ if.then.i.i.i2301:                                ; preds = %if.then.i2293
 _ZNK4node4quic11BindingData25reset_token_secret_stringEv.exit: ; preds = %if.then.i2293, %if.then.i.i.i2301
   %call8.i.i2300 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1053, ptr noundef %call.i.i2297) #19
   store ptr %call8.i.i2300, ptr %reset_token_secret_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2302)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2302)
   %cmp.i.i2303 = icmp eq ptr %call8.i.i2300, null
   br i1 %cmp.i.i2303, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2324, label %if.then.i2304
 
@@ -6749,14 +6749,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2314: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2324
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2324: ; preds = %_ZNK4node4quic11BindingData25reset_token_secret_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2314
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2302)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2302)
   %rx_loss_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   %1065 = load ptr, ptr %rx_loss_string_.i, align 8
   %cmp.i.i2325 = icmp eq ptr %1065, null
   br i1 %cmp.i.i2325, label %if.then.i2326, label %_ZNK4node4quic11BindingData14rx_loss_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14rx_loss_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2324
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2335)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2335)
   br label %if.then.i2337
 
 if.then.i2326:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2324
@@ -6776,7 +6776,7 @@ if.then.i.i.i2334:                                ; preds = %if.then.i2326
 _ZNK4node4quic11BindingData14rx_loss_stringEv.exit: ; preds = %if.then.i2326, %if.then.i.i.i2334
   %call8.i.i2333 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1068, ptr noundef %call.i.i2330) #19
   store ptr %call8.i.i2333, ptr %rx_loss_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2335)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2335)
   %cmp.i.i2336 = icmp eq ptr %call8.i.i2333, null
   br i1 %cmp.i.i2336, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2357, label %if.then.i2337
 
@@ -6824,14 +6824,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2347: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2357
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2357: ; preds = %_ZNK4node4quic11BindingData14rx_loss_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2347
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2335)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2335)
   %session_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %1080 = load ptr, ptr %session_string_.i, align 8
   %cmp.i.i2358 = icmp eq ptr %1080, null
   br i1 %cmp.i.i2358, label %if.then.i2359, label %_ZNK4node4quic11BindingData14session_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14session_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2357
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2368)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2368)
   br label %if.then.i2370
 
 if.then.i2359:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2357
@@ -6851,7 +6851,7 @@ if.then.i.i.i2367:                                ; preds = %if.then.i2359
 _ZNK4node4quic11BindingData14session_stringEv.exit: ; preds = %if.then.i2359, %if.then.i.i.i2367
   %call8.i.i2366 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1083, ptr noundef %call.i.i2363) #19
   store ptr %call8.i.i2366, ptr %session_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2368)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2368)
   %cmp.i.i2369 = icmp eq ptr %call8.i.i2366, null
   br i1 %cmp.i.i2369, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2390, label %if.then.i2370
 
@@ -6899,14 +6899,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2380: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2390
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2390: ; preds = %_ZNK4node4quic11BindingData14session_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2380
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2368)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2368)
   %session_id_ctx_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 752
   %1095 = load ptr, ptr %session_id_ctx_string_.i, align 8
   %cmp.i.i2391 = icmp eq ptr %1095, null
   br i1 %cmp.i.i2391, label %if.then.i2392, label %_ZNK4node4quic11BindingData21session_id_ctx_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData21session_id_ctx_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2390
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2401)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2401)
   br label %if.then.i2403
 
 if.then.i2392:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2390
@@ -6926,7 +6926,7 @@ if.then.i.i.i2400:                                ; preds = %if.then.i2392
 _ZNK4node4quic11BindingData21session_id_ctx_stringEv.exit: ; preds = %if.then.i2392, %if.then.i.i.i2400
   %call8.i.i2399 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1098, ptr noundef %call.i.i2396) #19
   store ptr %call8.i.i2399, ptr %session_id_ctx_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2401)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2401)
   %cmp.i.i2402 = icmp eq ptr %call8.i.i2399, null
   br i1 %cmp.i.i2402, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2423, label %if.then.i2403
 
@@ -6974,14 +6974,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2413: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2423
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2423: ; preds = %_ZNK4node4quic11BindingData21session_id_ctx_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2413
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2401)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2401)
   %stream_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 760
   %1110 = load ptr, ptr %stream_string_.i, align 8
   %cmp.i.i2424 = icmp eq ptr %1110, null
   br i1 %cmp.i.i2424, label %if.then.i2425, label %_ZNK4node4quic11BindingData13stream_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData13stream_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2423
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2434)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2434)
   br label %if.then.i2436
 
 if.then.i2425:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2423
@@ -7001,7 +7001,7 @@ if.then.i.i.i2433:                                ; preds = %if.then.i2425
 _ZNK4node4quic11BindingData13stream_stringEv.exit: ; preds = %if.then.i2425, %if.then.i.i.i2433
   %call8.i.i2432 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1113, ptr noundef %call.i.i2429) #19
   store ptr %call8.i.i2432, ptr %stream_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2434)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2434)
   %cmp.i.i2435 = icmp eq ptr %call8.i.i2432, null
   br i1 %cmp.i.i2435, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2456, label %if.then.i2436
 
@@ -7049,14 +7049,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2446: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2456
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2456: ; preds = %_ZNK4node4quic11BindingData13stream_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2446
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2434)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2434)
   %success_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 768
   %1125 = load ptr, ptr %success_string_.i, align 8
   %cmp.i.i2457 = icmp eq ptr %1125, null
   br i1 %cmp.i.i2457, label %if.then.i2458, label %_ZNK4node4quic11BindingData14success_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14success_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2456
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2467)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2467)
   br label %if.then.i2469
 
 if.then.i2458:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2456
@@ -7076,7 +7076,7 @@ if.then.i.i.i2466:                                ; preds = %if.then.i2458
 _ZNK4node4quic11BindingData14success_stringEv.exit: ; preds = %if.then.i2458, %if.then.i.i.i2466
   %call8.i.i2465 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1128, ptr noundef %call.i.i2462) #19
   store ptr %call8.i.i2465, ptr %success_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2467)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2467)
   %cmp.i.i2468 = icmp eq ptr %call8.i.i2465, null
   br i1 %cmp.i.i2468, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2489, label %if.then.i2469
 
@@ -7124,14 +7124,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2479: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2489
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2489: ; preds = %_ZNK4node4quic11BindingData14success_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2479
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2467)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2467)
   %tls_options_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 776
   %1140 = load ptr, ptr %tls_options_string_.i, align 8
   %cmp.i.i2490 = icmp eq ptr %1140, null
   br i1 %cmp.i.i2490, label %if.then.i2491, label %_ZNK4node4quic11BindingData18tls_options_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData18tls_options_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2489
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2500)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2500)
   br label %if.then.i2502
 
 if.then.i2491:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2489
@@ -7151,7 +7151,7 @@ if.then.i.i.i2499:                                ; preds = %if.then.i2491
 _ZNK4node4quic11BindingData18tls_options_stringEv.exit: ; preds = %if.then.i2491, %if.then.i.i.i2499
   %call8.i.i2498 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1143, ptr noundef %call.i.i2495) #19
   store ptr %call8.i.i2498, ptr %tls_options_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2500)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2500)
   %cmp.i.i2501 = icmp eq ptr %call8.i.i2498, null
   br i1 %cmp.i.i2501, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2522, label %if.then.i2502
 
@@ -7199,14 +7199,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2512: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2522
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2522: ; preds = %_ZNK4node4quic11BindingData18tls_options_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2512
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2500)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2500)
   %token_expiration_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 784
   %1155 = load ptr, ptr %token_expiration_string_.i, align 8
   %cmp.i.i2523 = icmp eq ptr %1155, null
   br i1 %cmp.i.i2523, label %if.then.i2524, label %_ZNK4node4quic11BindingData23token_expiration_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23token_expiration_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2522
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2533)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2533)
   br label %if.then.i2535
 
 if.then.i2524:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2522
@@ -7226,7 +7226,7 @@ if.then.i.i.i2532:                                ; preds = %if.then.i2524
 _ZNK4node4quic11BindingData23token_expiration_stringEv.exit: ; preds = %if.then.i2524, %if.then.i.i.i2532
   %call8.i.i2531 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1158, ptr noundef %call.i.i2528) #19
   store ptr %call8.i.i2531, ptr %token_expiration_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2533)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2533)
   %cmp.i.i2534 = icmp eq ptr %call8.i.i2531, null
   br i1 %cmp.i.i2534, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2555, label %if.then.i2535
 
@@ -7274,14 +7274,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2545: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2555
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2555: ; preds = %_ZNK4node4quic11BindingData23token_expiration_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2545
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2533)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2533)
   %token_secret_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 792
   %1170 = load ptr, ptr %token_secret_string_.i, align 8
   %cmp.i.i2556 = icmp eq ptr %1170, null
   br i1 %cmp.i.i2556, label %if.then.i2557, label %_ZNK4node4quic11BindingData19token_secret_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData19token_secret_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2555
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2566)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2566)
   br label %if.then.i2568
 
 if.then.i2557:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2555
@@ -7301,7 +7301,7 @@ if.then.i.i.i2565:                                ; preds = %if.then.i2557
 _ZNK4node4quic11BindingData19token_secret_stringEv.exit: ; preds = %if.then.i2557, %if.then.i.i.i2565
   %call8.i.i2564 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1173, ptr noundef %call.i.i2561) #19
   store ptr %call8.i.i2564, ptr %token_secret_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2566)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2566)
   %cmp.i.i2567 = icmp eq ptr %call8.i.i2564, null
   br i1 %cmp.i.i2567, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2588, label %if.then.i2568
 
@@ -7349,14 +7349,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2578: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2588
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2588: ; preds = %_ZNK4node4quic11BindingData19token_secret_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2578
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2566)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2566)
   %transport_params_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 800
   %1185 = load ptr, ptr %transport_params_string_.i, align 8
   %cmp.i.i2589 = icmp eq ptr %1185, null
   br i1 %cmp.i.i2589, label %if.then.i2590, label %_ZNK4node4quic11BindingData23transport_params_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23transport_params_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2588
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2599)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2599)
   br label %if.then.i2601
 
 if.then.i2590:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2588
@@ -7376,7 +7376,7 @@ if.then.i.i.i2598:                                ; preds = %if.then.i2590
 _ZNK4node4quic11BindingData23transport_params_stringEv.exit: ; preds = %if.then.i2590, %if.then.i.i.i2598
   %call8.i.i2597 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1188, ptr noundef %call.i.i2594) #19
   store ptr %call8.i.i2597, ptr %transport_params_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2599)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2599)
   %cmp.i.i2600 = icmp eq ptr %call8.i.i2597, null
   br i1 %cmp.i.i2600, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2621, label %if.then.i2601
 
@@ -7424,14 +7424,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2611: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2621
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2621: ; preds = %_ZNK4node4quic11BindingData23transport_params_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2611
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2599)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2599)
   %tx_loss_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 808
   %1200 = load ptr, ptr %tx_loss_string_.i, align 8
   %cmp.i.i2622 = icmp eq ptr %1200, null
   br i1 %cmp.i.i2622, label %if.then.i2623, label %_ZNK4node4quic11BindingData14tx_loss_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14tx_loss_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2621
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2632)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2632)
   br label %if.then.i2634
 
 if.then.i2623:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2621
@@ -7451,7 +7451,7 @@ if.then.i.i.i2631:                                ; preds = %if.then.i2623
 _ZNK4node4quic11BindingData14tx_loss_stringEv.exit: ; preds = %if.then.i2623, %if.then.i.i.i2631
   %call8.i.i2630 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1203, ptr noundef %call.i.i2627) #19
   store ptr %call8.i.i2630, ptr %tx_loss_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2632)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2632)
   %cmp.i.i2633 = icmp eq ptr %call8.i.i2630, null
   br i1 %cmp.i.i2633, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2654, label %if.then.i2634
 
@@ -7499,14 +7499,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2644: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2654
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2654: ; preds = %_ZNK4node4quic11BindingData14tx_loss_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2644
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2632)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2632)
   %udp_receive_buffer_size_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 816
   %1215 = load ptr, ptr %udp_receive_buffer_size_string_.i, align 8
   %cmp.i.i2655 = icmp eq ptr %1215, null
   br i1 %cmp.i.i2655, label %if.then.i2656, label %_ZNK4node4quic11BindingData30udp_receive_buffer_size_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData30udp_receive_buffer_size_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2654
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2665)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2665)
   br label %if.then.i2667
 
 if.then.i2656:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2654
@@ -7526,7 +7526,7 @@ if.then.i.i.i2664:                                ; preds = %if.then.i2656
 _ZNK4node4quic11BindingData30udp_receive_buffer_size_stringEv.exit: ; preds = %if.then.i2656, %if.then.i.i.i2664
   %call8.i.i2663 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1218, ptr noundef %call.i.i2660) #19
   store ptr %call8.i.i2663, ptr %udp_receive_buffer_size_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2665)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2665)
   %cmp.i.i2666 = icmp eq ptr %call8.i.i2663, null
   br i1 %cmp.i.i2666, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2687, label %if.then.i2667
 
@@ -7574,14 +7574,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2677: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2687
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2687: ; preds = %_ZNK4node4quic11BindingData30udp_receive_buffer_size_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2677
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2665)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2665)
   %udp_send_buffer_size_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 824
   %1230 = load ptr, ptr %udp_send_buffer_size_string_.i, align 8
   %cmp.i.i2688 = icmp eq ptr %1230, null
   br i1 %cmp.i.i2688, label %if.then.i2689, label %_ZNK4node4quic11BindingData27udp_send_buffer_size_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData27udp_send_buffer_size_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2687
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2698)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2698)
   br label %if.then.i2700
 
 if.then.i2689:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2687
@@ -7601,7 +7601,7 @@ if.then.i.i.i2697:                                ; preds = %if.then.i2689
 _ZNK4node4quic11BindingData27udp_send_buffer_size_stringEv.exit: ; preds = %if.then.i2689, %if.then.i.i.i2697
   %call8.i.i2696 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1233, ptr noundef %call.i.i2693) #19
   store ptr %call8.i.i2696, ptr %udp_send_buffer_size_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2698)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2698)
   %cmp.i.i2699 = icmp eq ptr %call8.i.i2696, null
   br i1 %cmp.i.i2699, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2720, label %if.then.i2700
 
@@ -7649,14 +7649,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2710: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2720
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2720: ; preds = %_ZNK4node4quic11BindingData27udp_send_buffer_size_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2710
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2698)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2698)
   %udp_ttl_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 832
   %1245 = load ptr, ptr %udp_ttl_string_.i, align 8
   %cmp.i.i2721 = icmp eq ptr %1245, null
   br i1 %cmp.i.i2721, label %if.then.i2722, label %_ZNK4node4quic11BindingData14udp_ttl_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14udp_ttl_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2720
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2731)
   br label %if.then.i2733
 
 if.then.i2722:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2720
@@ -7676,7 +7676,7 @@ if.then.i.i.i2730:                                ; preds = %if.then.i2722
 _ZNK4node4quic11BindingData14udp_ttl_stringEv.exit: ; preds = %if.then.i2722, %if.then.i.i.i2730
   %call8.i.i2729 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1248, ptr noundef %call.i.i2726) #19
   store ptr %call8.i.i2729, ptr %udp_ttl_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2731)
   %cmp.i.i2732 = icmp eq ptr %call8.i.i2729, null
   br i1 %cmp.i.i2732, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2753, label %if.then.i2733
 
@@ -7724,14 +7724,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2743: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2753
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2753: ; preds = %_ZNK4node4quic11BindingData14udp_ttl_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2743
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2731)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2731)
   %unacknowledged_packet_threshold_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 840
   %1260 = load ptr, ptr %unacknowledged_packet_threshold_string_.i, align 8
   %cmp.i.i2754 = icmp eq ptr %1260, null
   br i1 %cmp.i.i2754, label %if.then.i2755, label %_ZNK4node4quic11BindingData38unacknowledged_packet_threshold_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData38unacknowledged_packet_threshold_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2753
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2764)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2764)
   br label %if.then.i2766
 
 if.then.i2755:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2753
@@ -7751,7 +7751,7 @@ if.then.i.i.i2763:                                ; preds = %if.then.i2755
 _ZNK4node4quic11BindingData38unacknowledged_packet_threshold_stringEv.exit: ; preds = %if.then.i2755, %if.then.i.i.i2763
   %call8.i.i2762 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1263, ptr noundef %call.i.i2759) #19
   store ptr %call8.i.i2762, ptr %unacknowledged_packet_threshold_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2764)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2764)
   %cmp.i.i2765 = icmp eq ptr %call8.i.i2762, null
   br i1 %cmp.i.i2765, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2786, label %if.then.i2766
 
@@ -7799,14 +7799,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2776: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2786
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2786: ; preds = %_ZNK4node4quic11BindingData38unacknowledged_packet_threshold_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2776
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2764)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2764)
   %validate_address_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 848
   %1275 = load ptr, ptr %validate_address_string_.i, align 8
   %cmp.i.i2787 = icmp eq ptr %1275, null
   br i1 %cmp.i.i2787, label %if.then.i2788, label %_ZNK4node4quic11BindingData23validate_address_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData23validate_address_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2786
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2797)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2797)
   br label %if.then.i2799
 
 if.then.i2788:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2786
@@ -7826,7 +7826,7 @@ if.then.i.i.i2796:                                ; preds = %if.then.i2788
 _ZNK4node4quic11BindingData23validate_address_stringEv.exit: ; preds = %if.then.i2788, %if.then.i.i.i2796
   %call8.i.i2795 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1278, ptr noundef %call.i.i2792) #19
   store ptr %call8.i.i2795, ptr %validate_address_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2797)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2797)
   %cmp.i.i2798 = icmp eq ptr %call8.i.i2795, null
   br i1 %cmp.i.i2798, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2819, label %if.then.i2799
 
@@ -7874,14 +7874,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2809: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2819
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2819: ; preds = %_ZNK4node4quic11BindingData23validate_address_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2809
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2797)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2797)
   %verify_hostname_identity_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 856
   %1290 = load ptr, ptr %verify_hostname_identity_string_.i, align 8
   %cmp.i.i2820 = icmp eq ptr %1290, null
   br i1 %cmp.i.i2820, label %if.then.i2821, label %_ZNK4node4quic11BindingData31verify_hostname_identity_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData31verify_hostname_identity_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2819
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2830)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2830)
   br label %if.then.i2832
 
 if.then.i2821:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2819
@@ -7901,7 +7901,7 @@ if.then.i.i.i2829:                                ; preds = %if.then.i2821
 _ZNK4node4quic11BindingData31verify_hostname_identity_stringEv.exit: ; preds = %if.then.i2821, %if.then.i.i.i2829
   %call8.i.i2828 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1293, ptr noundef %call.i.i2825) #19
   store ptr %call8.i.i2828, ptr %verify_hostname_identity_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2830)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2830)
   %cmp.i.i2831 = icmp eq ptr %call8.i.i2828, null
   br i1 %cmp.i.i2831, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2852, label %if.then.i2832
 
@@ -7949,14 +7949,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2842: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2852
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2852: ; preds = %_ZNK4node4quic11BindingData31verify_hostname_identity_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2842
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2830)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2830)
   %version_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 864
   %1305 = load ptr, ptr %version_string_.i, align 8
   %cmp.i.i2853 = icmp eq ptr %1305, null
   br i1 %cmp.i.i2853, label %if.then.i2854, label %_ZNK4node4quic11BindingData14version_stringEv.exit.thread
 
 _ZNK4node4quic11BindingData14version_stringEv.exit.thread: ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2852
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2863)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2863)
   br label %if.then.i2865
 
 if.then.i2854:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2852
@@ -7976,7 +7976,7 @@ if.then.i.i.i2862:                                ; preds = %if.then.i2854
 _ZNK4node4quic11BindingData14version_stringEv.exit: ; preds = %if.then.i2854, %if.then.i.i.i2862
   %call8.i.i2861 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %1308, ptr noundef %call.i.i2858) #19
   store ptr %call8.i.i2861, ptr %version_string_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2863)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2863)
   %cmp.i.i2864 = icmp eq ptr %call8.i.i2861, null
   br i1 %cmp.i.i2864, label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2885, label %if.then.i2865
 
@@ -8024,7 +8024,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2875: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2885
 
 _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit2885: ; preds = %_ZNK4node4quic11BindingData14version_stringEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i2875
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2863)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2863)
   ret void
 }
 
@@ -13658,10 +13658,10 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

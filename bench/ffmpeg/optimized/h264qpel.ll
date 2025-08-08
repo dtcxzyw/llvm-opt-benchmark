@@ -848,7 +848,7 @@ put_pixels16_8_c.exit:                            ; preds = %14
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc10_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -931,7 +931,7 @@ put_pixels8_l2_8.exit.i:                          ; preds = %15
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %39, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -956,7 +956,7 @@ define internal void @put_h264_qpel16_mc20_8_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc30_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1041,7 +1041,7 @@ put_pixels8_l2_8.exit.i:                          ; preds = %16
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %41, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1049,8 +1049,8 @@ put_pixels16_l2_8.exit:                           ; preds = %41
 define internal void @put_h264_qpel16_mc01_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -1161,8 +1161,8 @@ put_pixels8_l2_8.exit.i:                          ; preds = %29
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %53, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1171,9 +1171,9 @@ define internal void @put_h264_qpel16_mc11_8_c(ptr noundef writeonly captures(no
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 16, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1297,9 +1297,9 @@ put_pixels8_l2_8.exit.i:                          ; preds = %39
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %63, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1308,9 +1308,9 @@ define internal void @put_h264_qpel16_mc21_8_c(ptr noundef writeonly captures(no
   %4 = alloca [336 x i16], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 16, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1401,9 +1401,9 @@ put_pixels8_l2_8.exit.i:                          ; preds = %21
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %45, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1412,9 +1412,9 @@ define internal void @put_h264_qpel16_mc31_8_c(ptr noundef writeonly captures(no
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 16, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1539,16 +1539,16 @@ put_pixels8_l2_8.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %64, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc02_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [336 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -1595,7 +1595,7 @@ copy_block16_8.exit:                              ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 168
   call fastcc void @put_h264_qpel8_v_lowpass_8(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1605,10 +1605,10 @@ define internal void @put_h264_qpel16_mc12_8_c(ptr noundef writeonly captures(no
   %5 = alloca [336 x i16], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
@@ -1733,17 +1733,17 @@ put_pixels8_l2_8.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %65, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc22_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [336 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1758,7 +1758,7 @@ define internal void @put_h264_qpel16_mc22_8_c(ptr noundef writeonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1768,10 +1768,10 @@ define internal void @put_h264_qpel16_mc32_8_c(ptr noundef writeonly captures(no
   %5 = alloca [336 x i16], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -1897,10 +1897,10 @@ put_pixels8_l2_8.exit.i:                          ; preds = %42
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %66, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1908,8 +1908,8 @@ put_pixels16_l2_8.exit:                           ; preds = %66
 define internal void @put_h264_qpel16_mc03_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -2022,8 +2022,8 @@ put_pixels8_l2_8.exit.i:                          ; preds = %30
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %55, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2032,9 +2032,9 @@ define internal void @put_h264_qpel16_mc13_8_c(ptr noundef writeonly captures(no
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 16, i32 noundef %8)
@@ -2159,9 +2159,9 @@ put_pixels8_l2_8.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %64, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2170,9 +2170,9 @@ define internal void @put_h264_qpel16_mc23_8_c(ptr noundef writeonly captures(no
   %4 = alloca [336 x i16], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 16, i32 noundef %8)
@@ -2267,9 +2267,9 @@ put_pixels8_l2_8.exit.i:                          ; preds = %25
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %49, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2278,9 +2278,9 @@ define internal void @put_h264_qpel16_mc33_8_c(ptr noundef writeonly captures(no
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 16, i32 noundef %8)
@@ -2406,9 +2406,9 @@ put_pixels8_l2_8.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_8.exit, label %65, !llvm.loop !13
 
 put_pixels16_l2_8.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2439,7 +2439,7 @@ put_pixels8_8_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc10_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -2477,7 +2477,7 @@ define internal void @put_h264_qpel8_mc10_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %7, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2491,7 +2491,7 @@ define internal void @put_h264_qpel8_mc20_8_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc30_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -2530,7 +2530,7 @@ define internal void @put_h264_qpel8_mc30_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %8, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2538,8 +2538,8 @@ put_pixels8_l2_8.exit:                            ; preds = %8
 define internal void @put_h264_qpel8_mc01_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
@@ -2599,8 +2599,8 @@ copy_block8_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_8.exit, label %17, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2609,9 +2609,9 @@ define internal void @put_h264_qpel8_mc11_8_c(ptr noundef writeonly captures(non
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -2673,9 +2673,9 @@ copy_block8_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit, label %19, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2684,9 +2684,9 @@ define internal void @put_h264_qpel8_mc21_8_c(ptr noundef writeonly captures(non
   %4 = alloca [104 x i16], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef 8, i32 noundef %7)
@@ -2725,9 +2725,9 @@ define internal void @put_h264_qpel8_mc21_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %9, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2736,9 +2736,9 @@ define internal void @put_h264_qpel8_mc31_8_c(ptr noundef writeonly captures(non
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -2801,16 +2801,16 @@ copy_block8_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit, label %20, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc02_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [104 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -2838,7 +2838,7 @@ copy_block8_8.exit:                               ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @put_h264_qpel8_v_lowpass_8(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2848,10 +2848,10 @@ define internal void @put_h264_qpel8_mc12_8_c(ptr noundef writeonly captures(non
   %5 = alloca [104 x i16], align 16
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
@@ -2913,20 +2913,20 @@ copy_block8_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit, label %20, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc22_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 8, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2936,10 +2936,10 @@ define internal void @put_h264_qpel8_mc32_8_c(ptr noundef writeonly captures(non
   %5 = alloca [104 x i16], align 16
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -3002,10 +3002,10 @@ copy_block8_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit, label %21, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3013,8 +3013,8 @@ put_pixels8_l2_8.exit:                            ; preds = %21
 define internal void @put_h264_qpel8_mc03_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
@@ -3075,8 +3075,8 @@ copy_block8_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_8.exit, label %18, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3085,9 +3085,9 @@ define internal void @put_h264_qpel8_mc13_8_c(ptr noundef writeonly captures(non
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -3150,9 +3150,9 @@ copy_block8_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels8_l2_8.exit, label %20, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3161,9 +3161,9 @@ define internal void @put_h264_qpel8_mc23_8_c(ptr noundef writeonly captures(non
   %4 = alloca [104 x i16], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -3203,9 +3203,9 @@ define internal void @put_h264_qpel8_mc23_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %10, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3214,9 +3214,9 @@ define internal void @put_h264_qpel8_mc33_8_c(ptr noundef writeonly captures(non
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -3280,9 +3280,9 @@ copy_block8_8.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels8_l2_8.exit, label %21, !llvm.loop !13
 
 put_pixels8_l2_8.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3309,7 +3309,7 @@ put_pixels4_8_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc10_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 4, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -3336,7 +3336,7 @@ define internal void @put_h264_qpel4_mc10_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_8.exit, label %7, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3350,7 +3350,7 @@ define internal void @put_h264_qpel4_mc20_8_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc30_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 4, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -3378,7 +3378,7 @@ define internal void @put_h264_qpel4_mc30_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_8.exit, label %8, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3386,8 +3386,8 @@ put_pixels4_l2_8.exit:                            ; preds = %8
 define internal void @put_h264_qpel4_mc01_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
@@ -3432,8 +3432,8 @@ copy_block4_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_8.exit, label %14, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3442,9 +3442,9 @@ define internal void @put_h264_qpel4_mc11_8_c(ptr noundef writeonly captures(non
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 4, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -3491,9 +3491,9 @@ copy_block4_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_8.exit, label %16, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3502,9 +3502,9 @@ define internal void @put_h264_qpel4_mc21_8_c(ptr noundef writeonly captures(non
   %4 = alloca [36 x i16], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 4, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_8(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 4, i32 noundef %7)
@@ -3532,9 +3532,9 @@ define internal void @put_h264_qpel4_mc21_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_8.exit, label %9, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3543,9 +3543,9 @@ define internal void @put_h264_qpel4_mc31_8_c(ptr noundef writeonly captures(non
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 4, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -3593,16 +3593,16 @@ copy_block4_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_8.exit, label %17, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc02_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
@@ -3626,7 +3626,7 @@ copy_block4_8.exit:                               ; preds = %7
   %12 = trunc i64 %2 to i32
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call fastcc void @put_h264_qpel4_v_lowpass_8(ptr noundef %0, ptr noundef %13, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3636,10 +3636,10 @@ define internal void @put_h264_qpel4_mc12_8_c(ptr noundef writeonly captures(non
   %5 = alloca [36 x i16], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
@@ -3686,20 +3686,20 @@ copy_block4_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_8.exit, label %17, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc22_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [36 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_hv_lowpass_8(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3709,10 +3709,10 @@ define internal void @put_h264_qpel4_mc32_8_c(ptr noundef writeonly captures(non
   %5 = alloca [36 x i16], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -3760,10 +3760,10 @@ copy_block4_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_8.exit, label %18, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3771,8 +3771,8 @@ put_pixels4_l2_8.exit:                            ; preds = %18
 define internal void @put_h264_qpel4_mc03_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -3818,8 +3818,8 @@ copy_block4_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_8.exit, label %15, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3828,9 +3828,9 @@ define internal void @put_h264_qpel4_mc13_8_c(ptr noundef writeonly captures(non
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 4, i32 noundef %8)
@@ -3878,9 +3878,9 @@ copy_block4_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels4_l2_8.exit, label %17, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3889,9 +3889,9 @@ define internal void @put_h264_qpel4_mc23_8_c(ptr noundef writeonly captures(non
   %4 = alloca [36 x i16], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 4, i32 noundef %8)
@@ -3920,9 +3920,9 @@ define internal void @put_h264_qpel4_mc23_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_8.exit, label %10, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3931,9 +3931,9 @@ define internal void @put_h264_qpel4_mc33_8_c(ptr noundef writeonly captures(non
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 4, i32 noundef %8)
@@ -3982,9 +3982,9 @@ copy_block4_8.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels4_l2_8.exit, label %18, !llvm.loop !71
 
 put_pixels4_l2_8.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4009,7 +4009,7 @@ put_pixels2_8_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc10_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %sext = shl i64 %2, 32
   %5 = ashr exact i64 %sext, 32
@@ -4093,7 +4093,7 @@ put_h264_qpel2_h_lowpass_8.exit:                  ; preds = %6, %put_h264_qpel2_
   br i1 %51, label %put_h264_qpel2_h_lowpass_8.exit, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %put_h264_qpel2_h_lowpass_8.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4170,7 +4170,7 @@ put_h264_qpel2_h_lowpass_8.exit:                  ; preds = %5
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc30_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %sext = shl i64 %2, 32
   %5 = ashr exact i64 %sext, 32
@@ -4258,7 +4258,7 @@ put_h264_qpel2_h_lowpass_8.exit:                  ; preds = %6
   br i1 %53, label %52, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4266,8 +4266,8 @@ put_pixels2_l2_8.exit:                            ; preds = %52
 define internal void @put_h264_qpel2_mc01_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [14 x i8], align 1
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
@@ -4371,8 +4371,8 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %14, %put_h264_qpel2
   br i1 %57, label %put_h264_qpel2_v_lowpass_8.exit, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %put_h264_qpel2_v_lowpass_8.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4381,9 +4381,9 @@ define internal void @put_h264_qpel2_mc11_8_c(ptr noundef writeonly captures(non
   %4 = alloca [14 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %sext = shl i64 %2, 32
   %7 = ashr exact i64 %sext, 32
@@ -4550,9 +4550,9 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %60, %put_h264_qpel2
   br i1 %103, label %put_h264_qpel2_v_lowpass_8.exit, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %put_h264_qpel2_v_lowpass_8.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4561,9 +4561,9 @@ define internal void @put_h264_qpel2_mc21_8_c(ptr noundef writeonly captures(non
   %4 = alloca [14 x i16], align 16
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %sext = shl i64 %2, 32
   %7 = ashr exact i64 %sext, 32
@@ -4652,9 +4652,9 @@ put_h264_qpel2_h_lowpass_8.exit:                  ; preds = %8
   br i1 %55, label %54, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4663,9 +4663,9 @@ define internal void @put_h264_qpel2_mc31_8_c(ptr noundef writeonly captures(non
   %4 = alloca [14 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %sext = shl i64 %2, 32
   %7 = ashr exact i64 %sext, 32
@@ -4833,16 +4833,16 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %61, %put_h264_qpel2
   br i1 %104, label %put_h264_qpel2_v_lowpass_8.exit, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %put_h264_qpel2_v_lowpass_8.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc02_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [14 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
@@ -4927,7 +4927,7 @@ copy_block2_8.exit:                               ; preds = %7
   br i1 %exitcond.not, label %put_h264_qpel2_v_lowpass_8.exit, label %12, !llvm.loop !121
 
 put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4937,10 +4937,10 @@ define internal void @put_h264_qpel2_mc12_8_c(ptr noundef writeonly captures(non
   %5 = alloca [14 x i16], align 16
   %6 = alloca [4 x i8], align 1
   %7 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -5049,20 +5049,20 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %16
   br i1 %61, label %60, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc22_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [14 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel2_hv_lowpass_8(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5072,10 +5072,10 @@ define internal void @put_h264_qpel2_mc32_8_c(ptr noundef writeonly captures(non
   %5 = alloca [14 x i16], align 16
   %6 = alloca [4 x i8], align 1
   %7 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -5185,10 +5185,10 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %17
   br i1 %62, label %61, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5196,8 +5196,8 @@ put_pixels2_l2_8.exit:                            ; preds = %61
 define internal void @put_h264_qpel2_mc03_8_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [14 x i8], align 1
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
@@ -5305,8 +5305,8 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %14
   br i1 %59, label %58, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5315,9 +5315,9 @@ define internal void @put_h264_qpel2_mc13_8_c(ptr noundef writeonly captures(non
   %4 = alloca [14 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %sext = shl i64 %2, 32
@@ -5485,9 +5485,9 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %61, %put_h264_qpel2
   br i1 %104, label %put_h264_qpel2_v_lowpass_8.exit, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %put_h264_qpel2_v_lowpass_8.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5496,9 +5496,9 @@ define internal void @put_h264_qpel2_mc23_8_c(ptr noundef writeonly captures(non
   %4 = alloca [14 x i16], align 16
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %sext = shl i64 %2, 32
@@ -5588,9 +5588,9 @@ put_h264_qpel2_h_lowpass_8.exit:                  ; preds = %9
   br i1 %56, label %55, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5599,9 +5599,9 @@ define internal void @put_h264_qpel2_mc33_8_c(ptr noundef writeonly captures(non
   %4 = alloca [14 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %sext = shl i64 %2, 32
@@ -5770,9 +5770,9 @@ put_h264_qpel2_v_lowpass_8.exit:                  ; preds = %62, %put_h264_qpel2
   br i1 %105, label %put_h264_qpel2_v_lowpass_8.exit, label %put_pixels2_l2_8.exit, !llvm.loop !107
 
 put_pixels2_l2_8.exit:                            ; preds = %put_h264_qpel2_v_lowpass_8.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5848,7 +5848,7 @@ avg_pixels16_8_c.exit:                            ; preds = %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc10_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5955,7 +5955,7 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %15
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %51, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5980,7 +5980,7 @@ define internal void @avg_h264_qpel16_mc20_8_c(ptr noundef captures(none) %0, pt
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc30_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6089,7 +6089,7 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %16
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %53, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6097,8 +6097,8 @@ avg_pixels16_l2_8.exit:                           ; preds = %53
 define internal void @avg_h264_qpel16_mc01_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
@@ -6233,8 +6233,8 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %29
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %65, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6243,9 +6243,9 @@ define internal void @avg_h264_qpel16_mc11_8_c(ptr noundef captures(none) %0, pt
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 16, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6393,9 +6393,9 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %39
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %75, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6404,9 +6404,9 @@ define internal void @avg_h264_qpel16_mc21_8_c(ptr noundef captures(none) %0, pt
   %4 = alloca [336 x i16], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 16, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6521,9 +6521,9 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %21
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %57, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6532,9 +6532,9 @@ define internal void @avg_h264_qpel16_mc31_8_c(ptr noundef captures(none) %0, pt
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 16, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6683,16 +6683,16 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %76, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc02_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [336 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
@@ -6739,7 +6739,7 @@ copy_block16_8.exit:                              ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 168
   call fastcc void @avg_h264_qpel8_v_lowpass_8(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6749,10 +6749,10 @@ define internal void @avg_h264_qpel16_mc12_8_c(ptr noundef captures(none) %0, pt
   %5 = alloca [336 x i16], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
@@ -6901,17 +6901,17 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %77, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc22_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [336 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_8(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6926,7 +6926,7 @@ define internal void @avg_h264_qpel16_mc22_8_c(ptr noundef captures(none) %0, pt
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call fastcc void @avg_h264_qpel8_hv_lowpass_8(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6936,10 +6936,10 @@ define internal void @avg_h264_qpel16_mc32_8_c(ptr noundef captures(none) %0, pt
   %5 = alloca [336 x i16], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -7089,10 +7089,10 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %42
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %78, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7100,8 +7100,8 @@ avg_pixels16_l2_8.exit:                           ; preds = %78
 define internal void @avg_h264_qpel16_mc03_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
@@ -7238,8 +7238,8 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %30
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %67, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7248,9 +7248,9 @@ define internal void @avg_h264_qpel16_mc13_8_c(ptr noundef captures(none) %0, pt
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 16, i32 noundef %8)
@@ -7399,9 +7399,9 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %76, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7410,9 +7410,9 @@ define internal void @avg_h264_qpel16_mc23_8_c(ptr noundef captures(none) %0, pt
   %4 = alloca [336 x i16], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 16, i32 noundef %8)
@@ -7531,9 +7531,9 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %25
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %61, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7542,9 +7542,9 @@ define internal void @avg_h264_qpel16_mc33_8_c(ptr noundef captures(none) %0, pt
   %4 = alloca [336 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 16, i32 noundef %8)
@@ -7694,9 +7694,9 @@ avg_pixels8_l2_8.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_8.exit, label %77, !llvm.loop !189
 
 avg_pixels16_l2_8.exit:                           ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7739,7 +7739,7 @@ avg_pixels8_8_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc10_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -7789,7 +7789,7 @@ define internal void @avg_h264_qpel8_mc10_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %7, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7803,7 +7803,7 @@ define internal void @avg_h264_qpel8_mc20_8_c(ptr noundef captures(none) %0, ptr
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc30_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -7854,7 +7854,7 @@ define internal void @avg_h264_qpel8_mc30_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %8, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7862,8 +7862,8 @@ avg_pixels8_l2_8.exit:                            ; preds = %8
 define internal void @avg_h264_qpel8_mc01_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
@@ -7935,8 +7935,8 @@ copy_block8_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_8.exit, label %17, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7945,9 +7945,9 @@ define internal void @avg_h264_qpel8_mc11_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -8021,9 +8021,9 @@ copy_block8_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %19, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8032,9 +8032,9 @@ define internal void @avg_h264_qpel8_mc21_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [104 x i16], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef 8, i32 noundef %7)
@@ -8085,9 +8085,9 @@ define internal void @avg_h264_qpel8_mc21_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %9, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8096,9 +8096,9 @@ define internal void @avg_h264_qpel8_mc31_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -8173,16 +8173,16 @@ copy_block8_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %20, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc02_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [104 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
@@ -8210,7 +8210,7 @@ copy_block8_8.exit:                               ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @avg_h264_qpel8_v_lowpass_8(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8220,10 +8220,10 @@ define internal void @avg_h264_qpel8_mc12_8_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [104 x i16], align 16
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
@@ -8297,20 +8297,20 @@ copy_block8_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %20, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc22_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_8(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 8, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8320,10 +8320,10 @@ define internal void @avg_h264_qpel8_mc32_8_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [104 x i16], align 16
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -8398,10 +8398,10 @@ copy_block8_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %21, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8409,8 +8409,8 @@ avg_pixels8_l2_8.exit:                            ; preds = %21
 define internal void @avg_h264_qpel8_mc03_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
@@ -8483,8 +8483,8 @@ copy_block8_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_8.exit, label %18, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8493,9 +8493,9 @@ define internal void @avg_h264_qpel8_mc13_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -8570,9 +8570,9 @@ copy_block8_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_8.exit, label %20, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8581,9 +8581,9 @@ define internal void @avg_h264_qpel8_mc23_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [104 x i16], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -8635,9 +8635,9 @@ define internal void @avg_h264_qpel8_mc23_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %10, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8646,9 +8646,9 @@ define internal void @avg_h264_qpel8_mc33_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [104 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -8724,9 +8724,9 @@ copy_block8_8.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_8.exit, label %21, !llvm.loop !189
 
 avg_pixels8_l2_8.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8759,7 +8759,7 @@ avg_pixels4_8_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc10_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 4, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -8792,7 +8792,7 @@ define internal void @avg_h264_qpel4_mc10_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_8.exit, label %7, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8937,7 +8937,7 @@ avg_h264_qpel4_h_lowpass_8.exit:                  ; preds = %5
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc30_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 4, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -8971,7 +8971,7 @@ define internal void @avg_h264_qpel4_mc30_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_8.exit, label %8, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8979,8 +8979,8 @@ avg_pixels4_l2_8.exit:                            ; preds = %8
 define internal void @avg_h264_qpel4_mc01_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
@@ -9031,8 +9031,8 @@ copy_block4_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_8.exit, label %14, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9041,9 +9041,9 @@ define internal void @avg_h264_qpel4_mc11_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 4, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -9096,9 +9096,9 @@ copy_block4_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_8.exit, label %16, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9107,9 +9107,9 @@ define internal void @avg_h264_qpel4_mc21_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [36 x i16], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 4, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_8(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 4, i32 noundef %7)
@@ -9143,9 +9143,9 @@ define internal void @avg_h264_qpel4_mc21_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_8.exit, label %9, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9154,9 +9154,9 @@ define internal void @avg_h264_qpel4_mc31_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 4, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -9210,16 +9210,16 @@ copy_block4_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_8.exit, label %17, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc02_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
@@ -9377,7 +9377,7 @@ copy_block4_8.exit:                               ; preds = %7
   br i1 %exitcond.not.i5, label %avg_h264_qpel4_v_lowpass_8.exit, label %17, !llvm.loop !265
 
 avg_h264_qpel4_v_lowpass_8.exit:                  ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9387,10 +9387,10 @@ define internal void @avg_h264_qpel4_mc12_8_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [36 x i16], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
@@ -9443,17 +9443,17 @@ copy_block4_8.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_8.exit, label %17, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc22_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %6 = shl nsw i32 %5, 1
@@ -9669,7 +9669,7 @@ define internal void @avg_h264_qpel4_mc22_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond129.not.i, label %avg_h264_qpel4_hv_lowpass_8.exit, label %71, !llvm.loop !273
 
 avg_h264_qpel4_hv_lowpass_8.exit:                 ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9679,10 +9679,10 @@ define internal void @avg_h264_qpel4_mc32_8_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [36 x i16], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -9736,10 +9736,10 @@ copy_block4_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_8.exit, label %18, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9747,8 +9747,8 @@ avg_pixels4_l2_8.exit:                            ; preds = %18
 define internal void @avg_h264_qpel4_mc03_8_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
@@ -9800,8 +9800,8 @@ copy_block4_8.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_8.exit, label %15, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9810,9 +9810,9 @@ define internal void @avg_h264_qpel4_mc13_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 4, i32 noundef %8)
@@ -9866,9 +9866,9 @@ copy_block4_8.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_8.exit, label %17, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9877,9 +9877,9 @@ define internal void @avg_h264_qpel4_mc23_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [36 x i16], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 4, i32 noundef %8)
@@ -9914,9 +9914,9 @@ define internal void @avg_h264_qpel4_mc23_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_8.exit, label %10, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9925,9 +9925,9 @@ define internal void @avg_h264_qpel4_mc33_8_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [36 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_8(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 4, i32 noundef %8)
@@ -9982,9 +9982,9 @@ copy_block4_8.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_8.exit, label %18, !llvm.loop !245
 
 avg_pixels4_l2_8.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10036,7 +10036,7 @@ put_pixels16_9_c.exit:                            ; preds = %14
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc10_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10119,7 +10119,7 @@ put_pixels8_l2_9.exit.i:                          ; preds = %15
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %39, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10144,7 +10144,7 @@ define internal void @put_h264_qpel16_mc20_9_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc30_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10229,7 +10229,7 @@ put_pixels8_l2_9.exit.i:                          ; preds = %16
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %41, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10237,8 +10237,8 @@ put_pixels16_l2_9.exit:                           ; preds = %41
 define internal void @put_h264_qpel16_mc01_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
@@ -10349,8 +10349,8 @@ put_pixels8_l2_9.exit.i:                          ; preds = %29
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %53, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10359,9 +10359,9 @@ define internal void @put_h264_qpel16_mc11_9_c(ptr noundef writeonly captures(no
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -10485,9 +10485,9 @@ put_pixels8_l2_9.exit.i:                          ; preds = %39
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %63, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10496,9 +10496,9 @@ define internal void @put_h264_qpel16_mc21_9_c(ptr noundef writeonly captures(no
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -10589,9 +10589,9 @@ put_pixels8_l2_9.exit.i:                          ; preds = %21
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %45, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10600,9 +10600,9 @@ define internal void @put_h264_qpel16_mc31_9_c(ptr noundef writeonly captures(no
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -10727,16 +10727,16 @@ put_pixels8_l2_9.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %64, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc02_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
@@ -10783,7 +10783,7 @@ copy_block16_9.exit:                              ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10793,10 +10793,10 @@ define internal void @put_h264_qpel16_mc12_9_c(ptr noundef writeonly captures(no
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
@@ -10921,17 +10921,17 @@ put_pixels8_l2_9.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %65, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc22_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10946,7 +10946,7 @@ define internal void @put_h264_qpel16_mc22_9_c(ptr noundef writeonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10956,10 +10956,10 @@ define internal void @put_h264_qpel16_mc32_9_c(ptr noundef writeonly captures(no
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -11085,10 +11085,10 @@ put_pixels8_l2_9.exit.i:                          ; preds = %42
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %66, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11096,8 +11096,8 @@ put_pixels16_l2_9.exit:                           ; preds = %66
 define internal void @put_h264_qpel16_mc03_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
@@ -11210,8 +11210,8 @@ put_pixels8_l2_9.exit.i:                          ; preds = %30
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %55, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11220,9 +11220,9 @@ define internal void @put_h264_qpel16_mc13_9_c(ptr noundef writeonly captures(no
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -11347,9 +11347,9 @@ put_pixels8_l2_9.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %64, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11358,9 +11358,9 @@ define internal void @put_h264_qpel16_mc23_9_c(ptr noundef writeonly captures(no
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -11455,9 +11455,9 @@ put_pixels8_l2_9.exit.i:                          ; preds = %25
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %49, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11466,9 +11466,9 @@ define internal void @put_h264_qpel16_mc33_9_c(ptr noundef writeonly captures(no
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -11594,9 +11594,9 @@ put_pixels8_l2_9.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_9.exit, label %65, !llvm.loop !289
 
 put_pixels16_l2_9.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11627,7 +11627,7 @@ put_pixels8_9_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc10_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -11665,7 +11665,7 @@ define internal void @put_h264_qpel8_mc10_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_9.exit, label %7, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11679,7 +11679,7 @@ define internal void @put_h264_qpel8_mc20_9_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc30_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -11718,7 +11718,7 @@ define internal void @put_h264_qpel8_mc30_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_9.exit, label %8, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11726,8 +11726,8 @@ put_pixels8_l2_9.exit:                            ; preds = %8
 define internal void @put_h264_qpel8_mc01_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
@@ -11787,8 +11787,8 @@ copy_block8_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_9.exit, label %17, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11797,9 +11797,9 @@ define internal void @put_h264_qpel8_mc11_9_c(ptr noundef writeonly captures(non
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -11861,9 +11861,9 @@ copy_block8_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_9.exit, label %19, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11872,9 +11872,9 @@ define internal void @put_h264_qpel8_mc21_9_c(ptr noundef writeonly captures(non
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -11913,9 +11913,9 @@ define internal void @put_h264_qpel8_mc21_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_9.exit, label %9, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11924,9 +11924,9 @@ define internal void @put_h264_qpel8_mc31_9_c(ptr noundef writeonly captures(non
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -11989,16 +11989,16 @@ copy_block8_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_9.exit, label %20, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc02_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
@@ -12026,7 +12026,7 @@ copy_block8_9.exit:                               ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12036,10 +12036,10 @@ define internal void @put_h264_qpel8_mc12_9_c(ptr noundef writeonly captures(non
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
@@ -12101,20 +12101,20 @@ copy_block8_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_9.exit, label %20, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc22_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12124,10 +12124,10 @@ define internal void @put_h264_qpel8_mc32_9_c(ptr noundef writeonly captures(non
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -12190,10 +12190,10 @@ copy_block8_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_9.exit, label %21, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12201,8 +12201,8 @@ put_pixels8_l2_9.exit:                            ; preds = %21
 define internal void @put_h264_qpel8_mc03_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
@@ -12263,8 +12263,8 @@ copy_block8_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_9.exit, label %18, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12273,9 +12273,9 @@ define internal void @put_h264_qpel8_mc13_9_c(ptr noundef writeonly captures(non
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -12338,9 +12338,9 @@ copy_block8_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels8_l2_9.exit, label %20, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12349,9 +12349,9 @@ define internal void @put_h264_qpel8_mc23_9_c(ptr noundef writeonly captures(non
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -12391,9 +12391,9 @@ define internal void @put_h264_qpel8_mc23_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels8_l2_9.exit, label %10, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12402,9 +12402,9 @@ define internal void @put_h264_qpel8_mc33_9_c(ptr noundef writeonly captures(non
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -12468,9 +12468,9 @@ copy_block8_9.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels8_l2_9.exit, label %21, !llvm.loop !289
 
 put_pixels8_l2_9.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12497,7 +12497,7 @@ put_pixels4_9_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc10_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -12524,7 +12524,7 @@ define internal void @put_h264_qpel4_mc10_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_9.exit, label %7, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12538,7 +12538,7 @@ define internal void @put_h264_qpel4_mc20_9_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc30_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -12566,7 +12566,7 @@ define internal void @put_h264_qpel4_mc30_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_9.exit, label %8, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12574,8 +12574,8 @@ put_pixels4_l2_9.exit:                            ; preds = %8
 define internal void @put_h264_qpel4_mc01_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
@@ -12620,8 +12620,8 @@ copy_block4_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_9.exit, label %14, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12630,9 +12630,9 @@ define internal void @put_h264_qpel4_mc11_9_c(ptr noundef writeonly captures(non
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -12679,9 +12679,9 @@ copy_block4_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_9.exit, label %16, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12690,9 +12690,9 @@ define internal void @put_h264_qpel4_mc21_9_c(ptr noundef writeonly captures(non
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -12720,9 +12720,9 @@ define internal void @put_h264_qpel4_mc21_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_9.exit, label %9, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12731,9 +12731,9 @@ define internal void @put_h264_qpel4_mc31_9_c(ptr noundef writeonly captures(non
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -12781,16 +12781,16 @@ copy_block4_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_9.exit, label %17, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc02_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
@@ -12814,7 +12814,7 @@ copy_block4_9.exit:                               ; preds = %7
   %12 = trunc i64 %2 to i32
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @put_h264_qpel4_v_lowpass_9(ptr noundef %0, ptr noundef %13, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12824,10 +12824,10 @@ define internal void @put_h264_qpel4_mc12_9_c(ptr noundef writeonly captures(non
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
@@ -12874,20 +12874,20 @@ copy_block4_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_9.exit, label %17, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc22_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [72 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12897,10 +12897,10 @@ define internal void @put_h264_qpel4_mc32_9_c(ptr noundef writeonly captures(non
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -12948,10 +12948,10 @@ copy_block4_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_9.exit, label %18, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12959,8 +12959,8 @@ put_pixels4_l2_9.exit:                            ; preds = %18
 define internal void @put_h264_qpel4_mc03_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
@@ -13006,8 +13006,8 @@ copy_block4_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_9.exit, label %15, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13016,9 +13016,9 @@ define internal void @put_h264_qpel4_mc13_9_c(ptr noundef writeonly captures(non
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -13066,9 +13066,9 @@ copy_block4_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels4_l2_9.exit, label %17, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13077,9 +13077,9 @@ define internal void @put_h264_qpel4_mc23_9_c(ptr noundef writeonly captures(non
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -13108,9 +13108,9 @@ define internal void @put_h264_qpel4_mc23_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond.not.i, label %put_pixels4_l2_9.exit, label %10, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13119,9 +13119,9 @@ define internal void @put_h264_qpel4_mc33_9_c(ptr noundef writeonly captures(non
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -13170,9 +13170,9 @@ copy_block4_9.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels4_l2_9.exit, label %18, !llvm.loop !347
 
 put_pixels4_l2_9.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13197,7 +13197,7 @@ put_pixels2_9_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc10_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
   %6 = ashr i32 %5, 1
@@ -13283,7 +13283,7 @@ put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %8
   br i1 %57, label %56, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13357,7 +13357,7 @@ put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc30_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   %6 = ashr i32 %5, 1
@@ -13444,7 +13444,7 @@ put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %8
   br i1 %58, label %57, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13452,8 +13452,8 @@ put_pixels2_l2_9.exit:                            ; preds = %57
 define internal void @put_h264_qpel2_mc01_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
@@ -13552,8 +13552,8 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %14, %put_h264_qpel2
   br i1 %61, label %put_h264_qpel2_v_lowpass_9.exit, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %put_h264_qpel2_v_lowpass_9.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13562,9 +13562,9 @@ define internal void @put_h264_qpel2_mc11_9_c(ptr noundef writeonly captures(non
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
   %8 = ashr i32 %7, 1
@@ -13725,9 +13725,9 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %65, %put_h264_qpel2
   br i1 %112, label %put_h264_qpel2_v_lowpass_9.exit, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %put_h264_qpel2_v_lowpass_9.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13736,9 +13736,9 @@ define internal void @put_h264_qpel2_mc21_9_c(ptr noundef writeonly captures(non
   %4 = alloca [28 x i16], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %8 = ashr i32 %7, 1
@@ -13825,9 +13825,9 @@ put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %10
   br i1 %59, label %58, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13836,9 +13836,9 @@ define internal void @put_h264_qpel2_mc31_9_c(ptr noundef writeonly captures(non
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   %8 = ashr i32 %7, 1
@@ -14000,16 +14000,16 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_9.exit, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %put_h264_qpel2_v_lowpass_9.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc02_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !417)
@@ -14093,7 +14093,7 @@ copy_block2_9.exit:                               ; preds = %7
   br i1 %17, label %16, label %put_h264_qpel2_v_lowpass_9.exit, !llvm.loop !395
 
 put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14103,10 +14103,10 @@ define internal void @put_h264_qpel2_mc12_9_c(ptr noundef writeonly captures(non
   %5 = alloca [28 x i16], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
@@ -14210,20 +14210,20 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %16
   br i1 %65, label %64, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc22_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [28 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel2_hv_lowpass_9(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14233,10 +14233,10 @@ define internal void @put_h264_qpel2_mc32_9_c(ptr noundef writeonly captures(non
   %5 = alloca [28 x i16], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -14341,10 +14341,10 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %17
   br i1 %66, label %65, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14352,8 +14352,8 @@ put_pixels2_l2_9.exit:                            ; preds = %65
 define internal void @put_h264_qpel2_mc03_9_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
@@ -14456,8 +14456,8 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %14
   br i1 %63, label %62, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14466,9 +14466,9 @@ define internal void @put_h264_qpel2_mc13_9_c(ptr noundef writeonly captures(non
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
@@ -14630,9 +14630,9 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_9.exit, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %put_h264_qpel2_v_lowpass_9.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14641,9 +14641,9 @@ define internal void @put_h264_qpel2_mc23_9_c(ptr noundef writeonly captures(non
   %4 = alloca [28 x i16], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
@@ -14731,9 +14731,9 @@ put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %11
   br i1 %60, label %59, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14742,9 +14742,9 @@ define internal void @put_h264_qpel2_mc33_9_c(ptr noundef writeonly captures(non
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
@@ -14907,9 +14907,9 @@ put_h264_qpel2_v_lowpass_9.exit:                  ; preds = %67, %put_h264_qpel2
   br i1 %114, label %put_h264_qpel2_v_lowpass_9.exit, label %put_pixels2_l2_9.exit, !llvm.loop !381
 
 put_pixels2_l2_9.exit:                            ; preds = %put_h264_qpel2_v_lowpass_9.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14985,7 +14985,7 @@ avg_pixels16_9_c.exit:                            ; preds = %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc10_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -15092,7 +15092,7 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %15
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %51, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15117,7 +15117,7 @@ define internal void @avg_h264_qpel16_mc20_9_c(ptr noundef captures(none) %0, pt
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc30_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -15226,7 +15226,7 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %16
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %53, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15234,8 +15234,8 @@ avg_pixels16_l2_9.exit:                           ; preds = %53
 define internal void @avg_h264_qpel16_mc01_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
@@ -15370,8 +15370,8 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %29
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %65, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15380,9 +15380,9 @@ define internal void @avg_h264_qpel16_mc11_9_c(ptr noundef captures(none) %0, pt
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15530,9 +15530,9 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %39
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %75, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15541,9 +15541,9 @@ define internal void @avg_h264_qpel16_mc21_9_c(ptr noundef captures(none) %0, pt
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15658,9 +15658,9 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %21
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %57, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15669,9 +15669,9 @@ define internal void @avg_h264_qpel16_mc31_9_c(ptr noundef captures(none) %0, pt
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15820,16 +15820,16 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %76, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc02_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !473)
@@ -15876,7 +15876,7 @@ copy_block16_9.exit:                              ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15886,10 +15886,10 @@ define internal void @avg_h264_qpel16_mc12_9_c(ptr noundef captures(none) %0, pt
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
@@ -16038,17 +16038,17 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %77, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc22_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16063,7 +16063,7 @@ define internal void @avg_h264_qpel16_mc22_9_c(ptr noundef captures(none) %0, pt
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16073,10 +16073,10 @@ define internal void @avg_h264_qpel16_mc32_9_c(ptr noundef captures(none) %0, pt
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -16226,10 +16226,10 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %42
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %78, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16237,8 +16237,8 @@ avg_pixels16_l2_9.exit:                           ; preds = %78
 define internal void @avg_h264_qpel16_mc03_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
@@ -16375,8 +16375,8 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %30
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %67, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16385,9 +16385,9 @@ define internal void @avg_h264_qpel16_mc13_9_c(ptr noundef captures(none) %0, pt
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -16536,9 +16536,9 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %76, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16547,9 +16547,9 @@ define internal void @avg_h264_qpel16_mc23_9_c(ptr noundef captures(none) %0, pt
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -16668,9 +16668,9 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %25
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %61, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16679,9 +16679,9 @@ define internal void @avg_h264_qpel16_mc33_9_c(ptr noundef captures(none) %0, pt
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -16831,9 +16831,9 @@ avg_pixels8_l2_9.exit.i:                          ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_9.exit, label %77, !llvm.loop !463
 
 avg_pixels16_l2_9.exit:                           ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16876,7 +16876,7 @@ avg_pixels8_9_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc10_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -16926,7 +16926,7 @@ define internal void @avg_h264_qpel8_mc10_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_9.exit, label %7, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16940,7 +16940,7 @@ define internal void @avg_h264_qpel8_mc20_9_c(ptr noundef captures(none) %0, ptr
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc30_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -16991,7 +16991,7 @@ define internal void @avg_h264_qpel8_mc30_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_9.exit, label %8, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16999,8 +16999,8 @@ avg_pixels8_l2_9.exit:                            ; preds = %8
 define internal void @avg_h264_qpel8_mc01_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
@@ -17072,8 +17072,8 @@ copy_block8_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_9.exit, label %17, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17082,9 +17082,9 @@ define internal void @avg_h264_qpel8_mc11_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -17158,9 +17158,9 @@ copy_block8_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_9.exit, label %19, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17169,9 +17169,9 @@ define internal void @avg_h264_qpel8_mc21_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -17222,9 +17222,9 @@ define internal void @avg_h264_qpel8_mc21_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_9.exit, label %9, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17233,9 +17233,9 @@ define internal void @avg_h264_qpel8_mc31_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -17310,16 +17310,16 @@ copy_block8_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_9.exit, label %20, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc02_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !500)
@@ -17347,7 +17347,7 @@ copy_block8_9.exit:                               ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17357,10 +17357,10 @@ define internal void @avg_h264_qpel8_mc12_9_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
@@ -17434,20 +17434,20 @@ copy_block8_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_9.exit, label %20, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc22_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17457,10 +17457,10 @@ define internal void @avg_h264_qpel8_mc32_9_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -17535,10 +17535,10 @@ copy_block8_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_9.exit, label %21, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17546,8 +17546,8 @@ avg_pixels8_l2_9.exit:                            ; preds = %21
 define internal void @avg_h264_qpel8_mc03_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
@@ -17620,8 +17620,8 @@ copy_block8_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_9.exit, label %18, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17630,9 +17630,9 @@ define internal void @avg_h264_qpel8_mc13_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -17707,9 +17707,9 @@ copy_block8_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_9.exit, label %20, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17718,9 +17718,9 @@ define internal void @avg_h264_qpel8_mc23_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -17772,9 +17772,9 @@ define internal void @avg_h264_qpel8_mc23_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels8_l2_9.exit, label %10, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17783,9 +17783,9 @@ define internal void @avg_h264_qpel8_mc33_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -17861,9 +17861,9 @@ copy_block8_9.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_9.exit, label %21, !llvm.loop !463
 
 avg_pixels8_l2_9.exit:                            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17896,7 +17896,7 @@ avg_pixels4_9_c.exit:                             ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc10_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -17929,7 +17929,7 @@ define internal void @avg_h264_qpel4_mc10_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_9.exit, label %7, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18059,7 +18059,7 @@ avg_h264_qpel4_h_lowpass_9.exit:                  ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc30_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -18093,7 +18093,7 @@ define internal void @avg_h264_qpel4_mc30_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_9.exit, label %8, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18101,8 +18101,8 @@ avg_pixels4_l2_9.exit:                            ; preds = %8
 define internal void @avg_h264_qpel4_mc01_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
@@ -18153,8 +18153,8 @@ copy_block4_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_9.exit, label %14, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18163,9 +18163,9 @@ define internal void @avg_h264_qpel4_mc11_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -18218,9 +18218,9 @@ copy_block4_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_9.exit, label %16, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18229,9 +18229,9 @@ define internal void @avg_h264_qpel4_mc21_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -18265,9 +18265,9 @@ define internal void @avg_h264_qpel4_mc21_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_9.exit, label %9, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18276,9 +18276,9 @@ define internal void @avg_h264_qpel4_mc31_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -18332,16 +18332,16 @@ copy_block4_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_9.exit, label %17, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc02_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
@@ -18484,7 +18484,7 @@ copy_block4_9.exit:                               ; preds = %7
   br i1 %exitcond.not.i5, label %avg_h264_qpel4_v_lowpass_9.exit, label %19, !llvm.loop !539
 
 avg_h264_qpel4_v_lowpass_9.exit:                  ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18494,10 +18494,10 @@ define internal void @avg_h264_qpel4_mc12_9_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
@@ -18550,17 +18550,17 @@ copy_block4_9.exit:                               ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_9.exit, label %17, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
   %6 = ashr i32 %5, 1
@@ -18752,7 +18752,7 @@ define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond129.not.i, label %avg_h264_qpel4_hv_lowpass_9.exit, label %64, !llvm.loop !547
 
 avg_h264_qpel4_hv_lowpass_9.exit:                 ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18762,10 +18762,10 @@ define internal void @avg_h264_qpel4_mc32_9_c(ptr noundef captures(none) %0, ptr
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -18819,10 +18819,10 @@ copy_block4_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_9.exit, label %18, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18830,8 +18830,8 @@ avg_pixels4_l2_9.exit:                            ; preds = %18
 define internal void @avg_h264_qpel4_mc03_9_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
@@ -18883,8 +18883,8 @@ copy_block4_9.exit:                               ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_9.exit, label %15, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18893,9 +18893,9 @@ define internal void @avg_h264_qpel4_mc13_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -18949,9 +18949,9 @@ copy_block4_9.exit:                               ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_9.exit, label %17, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18960,9 +18960,9 @@ define internal void @avg_h264_qpel4_mc23_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -18997,9 +18997,9 @@ define internal void @avg_h264_qpel4_mc23_9_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.i, label %avg_pixels4_l2_9.exit, label %10, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19008,9 +19008,9 @@ define internal void @avg_h264_qpel4_mc33_9_c(ptr noundef captures(none) %0, ptr
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -19065,9 +19065,9 @@ copy_block4_9.exit:                               ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_9.exit, label %18, !llvm.loop !519
 
 avg_pixels4_l2_9.exit:                            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19119,7 +19119,7 @@ put_pixels16_10_c.exit:                           ; preds = %14
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc10_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -19202,7 +19202,7 @@ put_pixels8_l2_10.exit.i:                         ; preds = %15
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %39, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19227,7 +19227,7 @@ define internal void @put_h264_qpel16_mc20_10_c(ptr noundef writeonly captures(n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc30_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -19312,7 +19312,7 @@ put_pixels8_l2_10.exit.i:                         ; preds = %16
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %41, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19320,8 +19320,8 @@ put_pixels16_l2_10.exit:                          ; preds = %41
 define internal void @put_h264_qpel16_mc01_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
@@ -19432,8 +19432,8 @@ put_pixels8_l2_10.exit.i:                         ; preds = %29
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %53, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19442,9 +19442,9 @@ define internal void @put_h264_qpel16_mc11_10_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -19568,9 +19568,9 @@ put_pixels8_l2_10.exit.i:                         ; preds = %39
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %63, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19579,9 +19579,9 @@ define internal void @put_h264_qpel16_mc21_10_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -19672,9 +19672,9 @@ put_pixels8_l2_10.exit.i:                         ; preds = %21
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %45, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19683,9 +19683,9 @@ define internal void @put_h264_qpel16_mc31_10_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -19810,16 +19810,16 @@ put_pixels8_l2_10.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %64, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc02_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)
@@ -19866,7 +19866,7 @@ copy_block16_10.exit:                             ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -19876,10 +19876,10 @@ define internal void @put_h264_qpel16_mc12_10_c(ptr noundef writeonly captures(n
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !575)
@@ -20004,17 +20004,17 @@ put_pixels8_l2_10.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %65, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc22_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20029,7 +20029,7 @@ define internal void @put_h264_qpel16_mc22_10_c(ptr noundef writeonly captures(n
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20039,10 +20039,10 @@ define internal void @put_h264_qpel16_mc32_10_c(ptr noundef writeonly captures(n
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -20168,10 +20168,10 @@ put_pixels8_l2_10.exit.i:                         ; preds = %42
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %66, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20179,8 +20179,8 @@ put_pixels16_l2_10.exit:                          ; preds = %66
 define internal void @put_h264_qpel16_mc03_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
@@ -20293,8 +20293,8 @@ put_pixels8_l2_10.exit.i:                         ; preds = %30
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %55, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20303,9 +20303,9 @@ define internal void @put_h264_qpel16_mc13_10_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -20430,9 +20430,9 @@ put_pixels8_l2_10.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %64, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20441,9 +20441,9 @@ define internal void @put_h264_qpel16_mc23_10_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -20538,9 +20538,9 @@ put_pixels8_l2_10.exit.i:                         ; preds = %25
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %49, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20549,9 +20549,9 @@ define internal void @put_h264_qpel16_mc33_10_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -20677,9 +20677,9 @@ put_pixels8_l2_10.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_10.exit, label %65, !llvm.loop !561
 
 put_pixels16_l2_10.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20710,7 +20710,7 @@ put_pixels8_10_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc10_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -20748,7 +20748,7 @@ define internal void @put_h264_qpel8_mc10_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_10.exit, label %7, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20762,7 +20762,7 @@ define internal void @put_h264_qpel8_mc20_10_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc30_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -20801,7 +20801,7 @@ define internal void @put_h264_qpel8_mc30_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_10.exit, label %8, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20809,8 +20809,8 @@ put_pixels8_l2_10.exit:                           ; preds = %8
 define internal void @put_h264_qpel8_mc01_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
@@ -20870,8 +20870,8 @@ copy_block8_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_10.exit, label %17, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20880,9 +20880,9 @@ define internal void @put_h264_qpel8_mc11_10_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -20944,9 +20944,9 @@ copy_block8_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_10.exit, label %19, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -20955,9 +20955,9 @@ define internal void @put_h264_qpel8_mc21_10_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -20996,9 +20996,9 @@ define internal void @put_h264_qpel8_mc21_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_10.exit, label %9, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21007,9 +21007,9 @@ define internal void @put_h264_qpel8_mc31_10_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -21072,16 +21072,16 @@ copy_block8_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_10.exit, label %20, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc02_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
@@ -21109,7 +21109,7 @@ copy_block8_10.exit:                              ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21119,10 +21119,10 @@ define internal void @put_h264_qpel8_mc12_10_c(ptr noundef writeonly captures(no
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
@@ -21184,20 +21184,20 @@ copy_block8_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_10.exit, label %20, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc22_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21207,10 +21207,10 @@ define internal void @put_h264_qpel8_mc32_10_c(ptr noundef writeonly captures(no
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -21273,10 +21273,10 @@ copy_block8_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_10.exit, label %21, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21284,8 +21284,8 @@ put_pixels8_l2_10.exit:                           ; preds = %21
 define internal void @put_h264_qpel8_mc03_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
@@ -21346,8 +21346,8 @@ copy_block8_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_10.exit, label %18, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21356,9 +21356,9 @@ define internal void @put_h264_qpel8_mc13_10_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -21421,9 +21421,9 @@ copy_block8_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels8_l2_10.exit, label %20, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21432,9 +21432,9 @@ define internal void @put_h264_qpel8_mc23_10_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -21474,9 +21474,9 @@ define internal void @put_h264_qpel8_mc23_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_10.exit, label %10, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21485,9 +21485,9 @@ define internal void @put_h264_qpel8_mc33_10_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -21551,9 +21551,9 @@ copy_block8_10.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels8_l2_10.exit, label %21, !llvm.loop !561
 
 put_pixels8_l2_10.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21580,7 +21580,7 @@ put_pixels4_10_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc10_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -21607,7 +21607,7 @@ define internal void @put_h264_qpel4_mc10_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_10.exit, label %7, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21621,7 +21621,7 @@ define internal void @put_h264_qpel4_mc20_10_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc30_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -21649,7 +21649,7 @@ define internal void @put_h264_qpel4_mc30_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_10.exit, label %8, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21657,8 +21657,8 @@ put_pixels4_l2_10.exit:                           ; preds = %8
 define internal void @put_h264_qpel4_mc01_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !620)
@@ -21703,8 +21703,8 @@ copy_block4_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_10.exit, label %14, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21713,9 +21713,9 @@ define internal void @put_h264_qpel4_mc11_10_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -21762,9 +21762,9 @@ copy_block4_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_10.exit, label %16, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21773,9 +21773,9 @@ define internal void @put_h264_qpel4_mc21_10_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -21803,9 +21803,9 @@ define internal void @put_h264_qpel4_mc21_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_10.exit, label %9, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21814,9 +21814,9 @@ define internal void @put_h264_qpel4_mc31_10_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -21864,16 +21864,16 @@ copy_block4_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_10.exit, label %17, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc02_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
@@ -21897,7 +21897,7 @@ copy_block4_10.exit:                              ; preds = %7
   %12 = trunc i64 %2 to i32
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @put_h264_qpel4_v_lowpass_10(ptr noundef %0, ptr noundef %13, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21907,10 +21907,10 @@ define internal void @put_h264_qpel4_mc12_10_c(ptr noundef writeonly captures(no
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
@@ -21957,20 +21957,20 @@ copy_block4_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_10.exit, label %17, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc22_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [72 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -21980,10 +21980,10 @@ define internal void @put_h264_qpel4_mc32_10_c(ptr noundef writeonly captures(no
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -22031,10 +22031,10 @@ copy_block4_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_10.exit, label %18, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22042,8 +22042,8 @@ put_pixels4_l2_10.exit:                           ; preds = %18
 define internal void @put_h264_qpel4_mc03_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !639)
@@ -22089,8 +22089,8 @@ copy_block4_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_10.exit, label %15, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22099,9 +22099,9 @@ define internal void @put_h264_qpel4_mc13_10_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -22149,9 +22149,9 @@ copy_block4_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels4_l2_10.exit, label %17, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22160,9 +22160,9 @@ define internal void @put_h264_qpel4_mc23_10_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -22191,9 +22191,9 @@ define internal void @put_h264_qpel4_mc23_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_10.exit, label %10, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22202,9 +22202,9 @@ define internal void @put_h264_qpel4_mc33_10_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -22253,9 +22253,9 @@ copy_block4_10.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels4_l2_10.exit, label %18, !llvm.loop !619
 
 put_pixels4_l2_10.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22280,7 +22280,7 @@ put_pixels2_10_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc10_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !649)
   %6 = ashr i32 %5, 1
@@ -22366,7 +22366,7 @@ put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %8
   br i1 %57, label %56, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22440,7 +22440,7 @@ put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc30_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   %6 = ashr i32 %5, 1
@@ -22527,7 +22527,7 @@ put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %8
   br i1 %58, label %57, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22535,8 +22535,8 @@ put_pixels2_l2_10.exit:                           ; preds = %57
 define internal void @put_h264_qpel2_mc01_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !660)
@@ -22635,8 +22635,8 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %14, %put_h264_qpel2
   br i1 %61, label %put_h264_qpel2_v_lowpass_10.exit, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %put_h264_qpel2_v_lowpass_10.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22645,9 +22645,9 @@ define internal void @put_h264_qpel2_mc11_10_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !668)
   %8 = ashr i32 %7, 1
@@ -22808,9 +22808,9 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %65, %put_h264_qpel2
   br i1 %112, label %put_h264_qpel2_v_lowpass_10.exit, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %put_h264_qpel2_v_lowpass_10.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22819,9 +22819,9 @@ define internal void @put_h264_qpel2_mc21_10_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i16], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !677)
   %8 = ashr i32 %7, 1
@@ -22908,9 +22908,9 @@ put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %10
   br i1 %59, label %58, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -22919,9 +22919,9 @@ define internal void @put_h264_qpel2_mc31_10_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %8 = ashr i32 %7, 1
@@ -23083,16 +23083,16 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_10.exit, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %put_h264_qpel2_v_lowpass_10.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc02_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
@@ -23176,7 +23176,7 @@ copy_block2_10.exit:                              ; preds = %7
   br i1 %17, label %16, label %put_h264_qpel2_v_lowpass_10.exit, !llvm.loop !667
 
 put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23186,10 +23186,10 @@ define internal void @put_h264_qpel2_mc12_10_c(ptr noundef writeonly captures(no
   %5 = alloca [28 x i16], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !695)
@@ -23293,20 +23293,20 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %16
   br i1 %65, label %64, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc22_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [28 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel2_hv_lowpass_10(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23316,10 +23316,10 @@ define internal void @put_h264_qpel2_mc32_10_c(ptr noundef writeonly captures(no
   %5 = alloca [28 x i16], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -23424,10 +23424,10 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %17
   br i1 %66, label %65, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23435,8 +23435,8 @@ put_pixels2_l2_10.exit:                           ; preds = %65
 define internal void @put_h264_qpel2_mc03_10_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
@@ -23539,8 +23539,8 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %14
   br i1 %63, label %62, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23549,9 +23549,9 @@ define internal void @put_h264_qpel2_mc13_10_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
@@ -23713,9 +23713,9 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_10.exit, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %put_h264_qpel2_v_lowpass_10.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23724,9 +23724,9 @@ define internal void @put_h264_qpel2_mc23_10_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i16], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !722)
@@ -23814,9 +23814,9 @@ put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %11
   br i1 %60, label %59, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23825,9 +23825,9 @@ define internal void @put_h264_qpel2_mc33_10_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !725)
@@ -23990,9 +23990,9 @@ put_h264_qpel2_v_lowpass_10.exit:                 ; preds = %67, %put_h264_qpel2
   br i1 %114, label %put_h264_qpel2_v_lowpass_10.exit, label %put_pixels2_l2_10.exit, !llvm.loop !653
 
 put_pixels2_l2_10.exit:                           ; preds = %put_h264_qpel2_v_lowpass_10.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24068,7 +24068,7 @@ avg_pixels16_10_c.exit:                           ; preds = %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc10_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24175,7 +24175,7 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %15
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %51, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24200,7 +24200,7 @@ define internal void @avg_h264_qpel16_mc20_10_c(ptr noundef captures(none) %0, p
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc30_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24309,7 +24309,7 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %16
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %53, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24317,8 +24317,8 @@ avg_pixels16_l2_10.exit:                          ; preds = %53
 define internal void @avg_h264_qpel16_mc01_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
@@ -24453,8 +24453,8 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %29
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %65, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24463,9 +24463,9 @@ define internal void @avg_h264_qpel16_mc11_10_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24613,9 +24613,9 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %39
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %75, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24624,9 +24624,9 @@ define internal void @avg_h264_qpel16_mc21_10_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24741,9 +24741,9 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %21
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %57, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24752,9 +24752,9 @@ define internal void @avg_h264_qpel16_mc31_10_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24903,16 +24903,16 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %76, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc02_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
@@ -24959,7 +24959,7 @@ copy_block16_10.exit:                             ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -24969,10 +24969,10 @@ define internal void @avg_h264_qpel16_mc12_10_c(ptr noundef captures(none) %0, p
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !748)
@@ -25121,17 +25121,17 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %77, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc22_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25146,7 +25146,7 @@ define internal void @avg_h264_qpel16_mc22_10_c(ptr noundef captures(none) %0, p
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25156,10 +25156,10 @@ define internal void @avg_h264_qpel16_mc32_10_c(ptr noundef captures(none) %0, p
   %5 = alloca [672 x i16], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -25309,10 +25309,10 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %42
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %78, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25320,8 +25320,8 @@ avg_pixels16_l2_10.exit:                          ; preds = %78
 define internal void @avg_h264_qpel16_mc03_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !754)
@@ -25458,8 +25458,8 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %30
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %67, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25468,9 +25468,9 @@ define internal void @avg_h264_qpel16_mc13_10_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -25619,9 +25619,9 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %76, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25630,9 +25630,9 @@ define internal void @avg_h264_qpel16_mc23_10_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i16], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -25751,9 +25751,9 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %25
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %61, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1344, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25762,9 +25762,9 @@ define internal void @avg_h264_qpel16_mc33_10_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -25914,9 +25914,9 @@ avg_pixels8_l2_10.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_10.exit, label %77, !llvm.loop !735
 
 avg_pixels16_l2_10.exit:                          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -25959,7 +25959,7 @@ avg_pixels8_10_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc10_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -26009,7 +26009,7 @@ define internal void @avg_h264_qpel8_mc10_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_10.exit, label %7, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26023,7 +26023,7 @@ define internal void @avg_h264_qpel8_mc20_10_c(ptr noundef captures(none) %0, pt
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc30_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -26074,7 +26074,7 @@ define internal void @avg_h264_qpel8_mc30_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_10.exit, label %8, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26082,8 +26082,8 @@ avg_pixels8_l2_10.exit:                           ; preds = %8
 define internal void @avg_h264_qpel8_mc01_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
@@ -26155,8 +26155,8 @@ copy_block8_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_10.exit, label %17, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26165,9 +26165,9 @@ define internal void @avg_h264_qpel8_mc11_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -26241,9 +26241,9 @@ copy_block8_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_10.exit, label %19, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26252,9 +26252,9 @@ define internal void @avg_h264_qpel8_mc21_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -26305,9 +26305,9 @@ define internal void @avg_h264_qpel8_mc21_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_10.exit, label %9, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26316,9 +26316,9 @@ define internal void @avg_h264_qpel8_mc31_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -26393,16 +26393,16 @@ copy_block8_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_10.exit, label %20, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc02_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !772)
@@ -26430,7 +26430,7 @@ copy_block8_10.exit:                              ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26440,10 +26440,10 @@ define internal void @avg_h264_qpel8_mc12_10_c(ptr noundef captures(none) %0, pt
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !775)
@@ -26517,20 +26517,20 @@ copy_block8_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_10.exit, label %20, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc22_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26540,10 +26540,10 @@ define internal void @avg_h264_qpel8_mc32_10_c(ptr noundef captures(none) %0, pt
   %5 = alloca [208 x i16], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -26618,10 +26618,10 @@ copy_block8_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_10.exit, label %21, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26629,8 +26629,8 @@ avg_pixels8_l2_10.exit:                           ; preds = %21
 define internal void @avg_h264_qpel8_mc03_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !781)
@@ -26703,8 +26703,8 @@ copy_block8_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_10.exit, label %18, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26713,9 +26713,9 @@ define internal void @avg_h264_qpel8_mc13_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -26790,9 +26790,9 @@ copy_block8_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_10.exit, label %20, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26801,9 +26801,9 @@ define internal void @avg_h264_qpel8_mc23_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i16], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -26855,9 +26855,9 @@ define internal void @avg_h264_qpel8_mc23_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_10.exit, label %10, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26866,9 +26866,9 @@ define internal void @avg_h264_qpel8_mc33_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -26944,9 +26944,9 @@ copy_block8_10.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_10.exit, label %21, !llvm.loop !735
 
 avg_pixels8_l2_10.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -26979,7 +26979,7 @@ avg_pixels4_10_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc10_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -27012,7 +27012,7 @@ define internal void @avg_h264_qpel4_mc10_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_10.exit, label %7, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27142,7 +27142,7 @@ avg_h264_qpel4_h_lowpass_10.exit:                 ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc30_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -27176,7 +27176,7 @@ define internal void @avg_h264_qpel4_mc30_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_10.exit, label %8, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27184,8 +27184,8 @@ avg_pixels4_l2_10.exit:                           ; preds = %8
 define internal void @avg_h264_qpel4_mc01_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !796)
@@ -27236,8 +27236,8 @@ copy_block4_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_10.exit, label %14, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27246,9 +27246,9 @@ define internal void @avg_h264_qpel4_mc11_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -27301,9 +27301,9 @@ copy_block4_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_10.exit, label %16, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27312,9 +27312,9 @@ define internal void @avg_h264_qpel4_mc21_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -27348,9 +27348,9 @@ define internal void @avg_h264_qpel4_mc21_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_10.exit, label %9, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27359,9 +27359,9 @@ define internal void @avg_h264_qpel4_mc31_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -27415,16 +27415,16 @@ copy_block4_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_10.exit, label %17, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc02_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
@@ -27567,7 +27567,7 @@ copy_block4_10.exit:                              ; preds = %7
   br i1 %exitcond.not.i5, label %avg_h264_qpel4_v_lowpass_10.exit, label %19, !llvm.loop !811
 
 avg_h264_qpel4_v_lowpass_10.exit:                 ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27577,10 +27577,10 @@ define internal void @avg_h264_qpel4_mc12_10_c(ptr noundef captures(none) %0, pt
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !812)
@@ -27633,17 +27633,17 @@ copy_block4_10.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_10.exit, label %17, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !815)
   %6 = ashr i32 %5, 1
@@ -27846,7 +27846,7 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond129.not.i, label %avg_h264_qpel4_hv_lowpass_10.exit, label %68, !llvm.loop !819
 
 avg_h264_qpel4_hv_lowpass_10.exit:                ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27856,10 +27856,10 @@ define internal void @avg_h264_qpel4_mc32_10_c(ptr noundef captures(none) %0, pt
   %5 = alloca [72 x i16], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -27913,10 +27913,10 @@ copy_block4_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_10.exit, label %18, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27924,8 +27924,8 @@ avg_pixels4_l2_10.exit:                           ; preds = %18
 define internal void @avg_h264_qpel4_mc03_10_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !823)
@@ -27977,8 +27977,8 @@ copy_block4_10.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_10.exit, label %15, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -27987,9 +27987,9 @@ define internal void @avg_h264_qpel4_mc13_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -28043,9 +28043,9 @@ copy_block4_10.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_10.exit, label %17, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28054,9 +28054,9 @@ define internal void @avg_h264_qpel4_mc23_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i16], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -28091,9 +28091,9 @@ define internal void @avg_h264_qpel4_mc23_10_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_10.exit, label %10, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28102,9 +28102,9 @@ define internal void @avg_h264_qpel4_mc33_10_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -28159,9 +28159,9 @@ copy_block4_10.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_10.exit, label %18, !llvm.loop !791
 
 avg_pixels4_l2_10.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28213,7 +28213,7 @@ put_pixels16_12_c.exit:                           ; preds = %14
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc10_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28296,7 +28296,7 @@ put_pixels8_l2_12.exit.i:                         ; preds = %15
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %39, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28321,7 +28321,7 @@ define internal void @put_h264_qpel16_mc20_12_c(ptr noundef writeonly captures(n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc30_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28406,7 +28406,7 @@ put_pixels8_l2_12.exit.i:                         ; preds = %16
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %41, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28414,8 +28414,8 @@ put_pixels16_l2_12.exit:                          ; preds = %41
 define internal void @put_h264_qpel16_mc01_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !834)
@@ -28526,8 +28526,8 @@ put_pixels8_l2_12.exit.i:                         ; preds = %29
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %53, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28536,9 +28536,9 @@ define internal void @put_h264_qpel16_mc11_12_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28662,9 +28662,9 @@ put_pixels8_l2_12.exit.i:                         ; preds = %39
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %63, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28673,9 +28673,9 @@ define internal void @put_h264_qpel16_mc21_12_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28766,9 +28766,9 @@ put_pixels8_l2_12.exit.i:                         ; preds = %21
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %45, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28777,9 +28777,9 @@ define internal void @put_h264_qpel16_mc31_12_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28904,16 +28904,16 @@ put_pixels8_l2_12.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %64, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc02_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !844)
@@ -28960,7 +28960,7 @@ copy_block16_12.exit:                             ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -28970,10 +28970,10 @@ define internal void @put_h264_qpel16_mc12_12_c(ptr noundef writeonly captures(n
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !847)
@@ -29098,17 +29098,17 @@ put_pixels8_l2_12.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %65, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc22_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29123,7 +29123,7 @@ define internal void @put_h264_qpel16_mc22_12_c(ptr noundef writeonly captures(n
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29133,10 +29133,10 @@ define internal void @put_h264_qpel16_mc32_12_c(ptr noundef writeonly captures(n
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -29262,10 +29262,10 @@ put_pixels8_l2_12.exit.i:                         ; preds = %42
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %66, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29273,8 +29273,8 @@ put_pixels16_l2_12.exit:                          ; preds = %66
 define internal void @put_h264_qpel16_mc03_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !853)
@@ -29387,8 +29387,8 @@ put_pixels8_l2_12.exit.i:                         ; preds = %30
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %55, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29397,9 +29397,9 @@ define internal void @put_h264_qpel16_mc13_12_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -29524,9 +29524,9 @@ put_pixels8_l2_12.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %64, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29535,9 +29535,9 @@ define internal void @put_h264_qpel16_mc23_12_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -29632,9 +29632,9 @@ put_pixels8_l2_12.exit.i:                         ; preds = %25
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %49, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29643,9 +29643,9 @@ define internal void @put_h264_qpel16_mc33_12_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -29771,9 +29771,9 @@ put_pixels8_l2_12.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_12.exit, label %65, !llvm.loop !833
 
 put_pixels16_l2_12.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29804,7 +29804,7 @@ put_pixels8_12_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc10_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -29842,7 +29842,7 @@ define internal void @put_h264_qpel8_mc10_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_12.exit, label %7, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29856,7 +29856,7 @@ define internal void @put_h264_qpel8_mc20_12_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc30_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -29895,7 +29895,7 @@ define internal void @put_h264_qpel8_mc30_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_12.exit, label %8, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29903,8 +29903,8 @@ put_pixels8_l2_12.exit:                           ; preds = %8
 define internal void @put_h264_qpel8_mc01_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !862)
@@ -29964,8 +29964,8 @@ copy_block8_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_12.exit, label %17, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -29974,9 +29974,9 @@ define internal void @put_h264_qpel8_mc11_12_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -30038,9 +30038,9 @@ copy_block8_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_12.exit, label %19, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30049,9 +30049,9 @@ define internal void @put_h264_qpel8_mc21_12_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -30090,9 +30090,9 @@ define internal void @put_h264_qpel8_mc21_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_12.exit, label %9, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30101,9 +30101,9 @@ define internal void @put_h264_qpel8_mc31_12_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -30166,16 +30166,16 @@ copy_block8_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_12.exit, label %20, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc02_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !872)
@@ -30203,7 +30203,7 @@ copy_block8_12.exit:                              ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30213,10 +30213,10 @@ define internal void @put_h264_qpel8_mc12_12_c(ptr noundef writeonly captures(no
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !875)
@@ -30278,20 +30278,20 @@ copy_block8_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_12.exit, label %20, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc22_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30301,10 +30301,10 @@ define internal void @put_h264_qpel8_mc32_12_c(ptr noundef writeonly captures(no
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -30367,10 +30367,10 @@ copy_block8_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_12.exit, label %21, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30378,8 +30378,8 @@ put_pixels8_l2_12.exit:                           ; preds = %21
 define internal void @put_h264_qpel8_mc03_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
@@ -30440,8 +30440,8 @@ copy_block8_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_12.exit, label %18, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30450,9 +30450,9 @@ define internal void @put_h264_qpel8_mc13_12_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -30515,9 +30515,9 @@ copy_block8_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels8_l2_12.exit, label %20, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30526,9 +30526,9 @@ define internal void @put_h264_qpel8_mc23_12_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -30568,9 +30568,9 @@ define internal void @put_h264_qpel8_mc23_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_12.exit, label %10, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30579,9 +30579,9 @@ define internal void @put_h264_qpel8_mc33_12_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -30645,9 +30645,9 @@ copy_block8_12.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels8_l2_12.exit, label %21, !llvm.loop !833
 
 put_pixels8_l2_12.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30674,7 +30674,7 @@ put_pixels4_12_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc10_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -30701,7 +30701,7 @@ define internal void @put_h264_qpel4_mc10_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_12.exit, label %7, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30715,7 +30715,7 @@ define internal void @put_h264_qpel4_mc20_12_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc30_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -30743,7 +30743,7 @@ define internal void @put_h264_qpel4_mc30_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_12.exit, label %8, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30751,8 +30751,8 @@ put_pixels4_l2_12.exit:                           ; preds = %8
 define internal void @put_h264_qpel4_mc01_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
@@ -30797,8 +30797,8 @@ copy_block4_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_12.exit, label %14, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30807,9 +30807,9 @@ define internal void @put_h264_qpel4_mc11_12_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -30856,9 +30856,9 @@ copy_block4_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_12.exit, label %16, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30867,9 +30867,9 @@ define internal void @put_h264_qpel4_mc21_12_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -30897,9 +30897,9 @@ define internal void @put_h264_qpel4_mc21_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_12.exit, label %9, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -30908,9 +30908,9 @@ define internal void @put_h264_qpel4_mc31_12_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -30958,16 +30958,16 @@ copy_block4_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_12.exit, label %17, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc02_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !902)
@@ -30991,7 +30991,7 @@ copy_block4_12.exit:                              ; preds = %7
   %12 = trunc i64 %2 to i32
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @put_h264_qpel4_v_lowpass_12(ptr noundef %0, ptr noundef %13, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31001,10 +31001,10 @@ define internal void @put_h264_qpel4_mc12_12_c(ptr noundef writeonly captures(no
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !905)
@@ -31051,20 +31051,20 @@ copy_block4_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_12.exit, label %17, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc22_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [72 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31074,10 +31074,10 @@ define internal void @put_h264_qpel4_mc32_12_c(ptr noundef writeonly captures(no
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -31125,10 +31125,10 @@ copy_block4_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_12.exit, label %18, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31136,8 +31136,8 @@ put_pixels4_l2_12.exit:                           ; preds = %18
 define internal void @put_h264_qpel4_mc03_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !911)
@@ -31183,8 +31183,8 @@ copy_block4_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_12.exit, label %15, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31193,9 +31193,9 @@ define internal void @put_h264_qpel4_mc13_12_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -31243,9 +31243,9 @@ copy_block4_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels4_l2_12.exit, label %17, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31254,9 +31254,9 @@ define internal void @put_h264_qpel4_mc23_12_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -31285,9 +31285,9 @@ define internal void @put_h264_qpel4_mc23_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_12.exit, label %10, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31296,9 +31296,9 @@ define internal void @put_h264_qpel4_mc33_12_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -31347,9 +31347,9 @@ copy_block4_12.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels4_l2_12.exit, label %18, !llvm.loop !891
 
 put_pixels4_l2_12.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31374,7 +31374,7 @@ put_pixels2_12_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc10_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   %6 = ashr i32 %5, 1
@@ -31460,7 +31460,7 @@ put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %8
   br i1 %57, label %56, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31534,7 +31534,7 @@ put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc30_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !929)
   %6 = ashr i32 %5, 1
@@ -31621,7 +31621,7 @@ put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %8
   br i1 %58, label %57, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31629,8 +31629,8 @@ put_pixels2_l2_12.exit:                           ; preds = %57
 define internal void @put_h264_qpel2_mc01_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
@@ -31729,8 +31729,8 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %14, %put_h264_qpel2
   br i1 %61, label %put_h264_qpel2_v_lowpass_12.exit, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %put_h264_qpel2_v_lowpass_12.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31739,9 +31739,9 @@ define internal void @put_h264_qpel2_mc11_12_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !940)
   %8 = ashr i32 %7, 1
@@ -31902,9 +31902,9 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %65, %put_h264_qpel2
   br i1 %112, label %put_h264_qpel2_v_lowpass_12.exit, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %put_h264_qpel2_v_lowpass_12.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31913,9 +31913,9 @@ define internal void @put_h264_qpel2_mc21_12_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i32], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !949)
   %8 = ashr i32 %7, 1
@@ -32002,9 +32002,9 @@ put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %10
   br i1 %59, label %58, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32013,9 +32013,9 @@ define internal void @put_h264_qpel2_mc31_12_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !952)
   %8 = ashr i32 %7, 1
@@ -32177,16 +32177,16 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_12.exit, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %put_h264_qpel2_v_lowpass_12.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc02_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !961)
@@ -32270,7 +32270,7 @@ copy_block2_12.exit:                              ; preds = %7
   br i1 %17, label %16, label %put_h264_qpel2_v_lowpass_12.exit, !llvm.loop !939
 
 put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32280,10 +32280,10 @@ define internal void @put_h264_qpel2_mc12_12_c(ptr noundef writeonly captures(no
   %5 = alloca [28 x i32], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !967)
@@ -32387,20 +32387,20 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %16
   br i1 %65, label %64, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc22_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [28 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel2_hv_lowpass_12(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32410,10 +32410,10 @@ define internal void @put_h264_qpel2_mc32_12_c(ptr noundef writeonly captures(no
   %5 = alloca [28 x i32], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -32518,10 +32518,10 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %17
   br i1 %66, label %65, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32529,8 +32529,8 @@ put_pixels2_l2_12.exit:                           ; preds = %65
 define internal void @put_h264_qpel2_mc03_12_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
@@ -32633,8 +32633,8 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %14
   br i1 %63, label %62, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32643,9 +32643,9 @@ define internal void @put_h264_qpel2_mc13_12_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !985)
@@ -32807,9 +32807,9 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_12.exit, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %put_h264_qpel2_v_lowpass_12.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32818,9 +32818,9 @@ define internal void @put_h264_qpel2_mc23_12_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i32], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !994)
@@ -32908,9 +32908,9 @@ put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %11
   br i1 %60, label %59, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -32919,9 +32919,9 @@ define internal void @put_h264_qpel2_mc33_12_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !997)
@@ -33084,9 +33084,9 @@ put_h264_qpel2_v_lowpass_12.exit:                 ; preds = %67, %put_h264_qpel2
   br i1 %114, label %put_h264_qpel2_v_lowpass_12.exit, label %put_pixels2_l2_12.exit, !llvm.loop !925
 
 put_pixels2_l2_12.exit:                           ; preds = %put_h264_qpel2_v_lowpass_12.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33162,7 +33162,7 @@ avg_pixels16_12_c.exit:                           ; preds = %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc10_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33269,7 +33269,7 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %15
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %51, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33294,7 +33294,7 @@ define internal void @avg_h264_qpel16_mc20_12_c(ptr noundef captures(none) %0, p
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc30_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33403,7 +33403,7 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %16
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %53, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33411,8 +33411,8 @@ avg_pixels16_l2_12.exit:                          ; preds = %53
 define internal void @avg_h264_qpel16_mc01_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1008)
@@ -33547,8 +33547,8 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %29
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %65, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33557,9 +33557,9 @@ define internal void @avg_h264_qpel16_mc11_12_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33707,9 +33707,9 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %39
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %75, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33718,9 +33718,9 @@ define internal void @avg_h264_qpel16_mc21_12_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33835,9 +33835,9 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %21
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %57, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -33846,9 +33846,9 @@ define internal void @avg_h264_qpel16_mc31_12_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33997,16 +33997,16 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %76, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc02_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
@@ -34053,7 +34053,7 @@ copy_block16_12.exit:                             ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -34063,10 +34063,10 @@ define internal void @avg_h264_qpel16_mc12_12_c(ptr noundef captures(none) %0, p
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1020)
@@ -34215,17 +34215,17 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %77, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc22_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -34240,7 +34240,7 @@ define internal void @avg_h264_qpel16_mc22_12_c(ptr noundef captures(none) %0, p
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -34250,10 +34250,10 @@ define internal void @avg_h264_qpel16_mc32_12_c(ptr noundef captures(none) %0, p
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -34403,10 +34403,10 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %42
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %78, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -34414,8 +34414,8 @@ avg_pixels16_l2_12.exit:                          ; preds = %78
 define internal void @avg_h264_qpel16_mc03_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1026)
@@ -34552,8 +34552,8 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %30
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %67, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -34562,9 +34562,9 @@ define internal void @avg_h264_qpel16_mc13_12_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -34713,9 +34713,9 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %76, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -34724,9 +34724,9 @@ define internal void @avg_h264_qpel16_mc23_12_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -34845,9 +34845,9 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %25
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %61, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -34856,9 +34856,9 @@ define internal void @avg_h264_qpel16_mc33_12_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -35008,9 +35008,9 @@ avg_pixels8_l2_12.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_12.exit, label %77, !llvm.loop !1007
 
 avg_pixels16_l2_12.exit:                          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35053,7 +35053,7 @@ avg_pixels8_12_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc10_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -35103,7 +35103,7 @@ define internal void @avg_h264_qpel8_mc10_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_12.exit, label %7, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35117,7 +35117,7 @@ define internal void @avg_h264_qpel8_mc20_12_c(ptr noundef captures(none) %0, pt
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc30_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -35168,7 +35168,7 @@ define internal void @avg_h264_qpel8_mc30_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_12.exit, label %8, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35176,8 +35176,8 @@ avg_pixels8_l2_12.exit:                           ; preds = %8
 define internal void @avg_h264_qpel8_mc01_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1035)
@@ -35249,8 +35249,8 @@ copy_block8_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_12.exit, label %17, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35259,9 +35259,9 @@ define internal void @avg_h264_qpel8_mc11_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -35335,9 +35335,9 @@ copy_block8_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_12.exit, label %19, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35346,9 +35346,9 @@ define internal void @avg_h264_qpel8_mc21_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -35399,9 +35399,9 @@ define internal void @avg_h264_qpel8_mc21_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_12.exit, label %9, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35410,9 +35410,9 @@ define internal void @avg_h264_qpel8_mc31_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -35487,16 +35487,16 @@ copy_block8_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_12.exit, label %20, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc02_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
@@ -35524,7 +35524,7 @@ copy_block8_12.exit:                              ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35534,10 +35534,10 @@ define internal void @avg_h264_qpel8_mc12_12_c(ptr noundef captures(none) %0, pt
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1047)
@@ -35611,20 +35611,20 @@ copy_block8_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_12.exit, label %20, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc22_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35634,10 +35634,10 @@ define internal void @avg_h264_qpel8_mc32_12_c(ptr noundef captures(none) %0, pt
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -35712,10 +35712,10 @@ copy_block8_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_12.exit, label %21, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35723,8 +35723,8 @@ avg_pixels8_l2_12.exit:                           ; preds = %21
 define internal void @avg_h264_qpel8_mc03_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1053)
@@ -35797,8 +35797,8 @@ copy_block8_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_12.exit, label %18, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35807,9 +35807,9 @@ define internal void @avg_h264_qpel8_mc13_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -35884,9 +35884,9 @@ copy_block8_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_12.exit, label %20, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35895,9 +35895,9 @@ define internal void @avg_h264_qpel8_mc23_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -35949,9 +35949,9 @@ define internal void @avg_h264_qpel8_mc23_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_12.exit, label %10, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35960,9 +35960,9 @@ define internal void @avg_h264_qpel8_mc33_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -36038,9 +36038,9 @@ copy_block8_12.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_12.exit, label %21, !llvm.loop !1007
 
 avg_pixels8_l2_12.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36073,7 +36073,7 @@ avg_pixels4_12_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc10_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -36106,7 +36106,7 @@ define internal void @avg_h264_qpel4_mc10_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_12.exit, label %7, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36236,7 +36236,7 @@ avg_h264_qpel4_h_lowpass_12.exit:                 ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc30_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -36270,7 +36270,7 @@ define internal void @avg_h264_qpel4_mc30_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_12.exit, label %8, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36278,8 +36278,8 @@ avg_pixels4_l2_12.exit:                           ; preds = %8
 define internal void @avg_h264_qpel4_mc01_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1068)
@@ -36330,8 +36330,8 @@ copy_block4_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_12.exit, label %14, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36340,9 +36340,9 @@ define internal void @avg_h264_qpel4_mc11_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -36395,9 +36395,9 @@ copy_block4_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_12.exit, label %16, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36406,9 +36406,9 @@ define internal void @avg_h264_qpel4_mc21_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -36442,9 +36442,9 @@ define internal void @avg_h264_qpel4_mc21_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_12.exit, label %9, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36453,9 +36453,9 @@ define internal void @avg_h264_qpel4_mc31_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -36509,16 +36509,16 @@ copy_block4_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_12.exit, label %17, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc02_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1077)
@@ -36661,7 +36661,7 @@ copy_block4_12.exit:                              ; preds = %7
   br i1 %exitcond.not.i5, label %avg_h264_qpel4_v_lowpass_12.exit, label %19, !llvm.loop !1083
 
 avg_h264_qpel4_v_lowpass_12.exit:                 ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36671,10 +36671,10 @@ define internal void @avg_h264_qpel4_mc12_12_c(ptr noundef captures(none) %0, pt
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1084)
@@ -36727,17 +36727,17 @@ copy_block4_12.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_12.exit, label %17, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1087)
   %6 = ashr i32 %5, 1
@@ -36929,7 +36929,7 @@ define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond129.not.i, label %avg_h264_qpel4_hv_lowpass_12.exit, label %73, !llvm.loop !1091
 
 avg_h264_qpel4_hv_lowpass_12.exit:                ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -36939,10 +36939,10 @@ define internal void @avg_h264_qpel4_mc32_12_c(ptr noundef captures(none) %0, pt
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -36996,10 +36996,10 @@ copy_block4_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_12.exit, label %18, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37007,8 +37007,8 @@ avg_pixels4_l2_12.exit:                           ; preds = %18
 define internal void @avg_h264_qpel4_mc03_12_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1095)
@@ -37060,8 +37060,8 @@ copy_block4_12.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_12.exit, label %15, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37070,9 +37070,9 @@ define internal void @avg_h264_qpel4_mc13_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -37126,9 +37126,9 @@ copy_block4_12.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_12.exit, label %17, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37137,9 +37137,9 @@ define internal void @avg_h264_qpel4_mc23_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -37174,9 +37174,9 @@ define internal void @avg_h264_qpel4_mc23_12_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_12.exit, label %10, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37185,9 +37185,9 @@ define internal void @avg_h264_qpel4_mc33_12_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -37242,9 +37242,9 @@ copy_block4_12.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_12.exit, label %18, !llvm.loop !1063
 
 avg_pixels4_l2_12.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37296,7 +37296,7 @@ put_pixels16_14_c.exit:                           ; preds = %14
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc10_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -37379,7 +37379,7 @@ put_pixels8_l2_14.exit.i:                         ; preds = %15
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %39, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37404,7 +37404,7 @@ define internal void @put_h264_qpel16_mc20_14_c(ptr noundef writeonly captures(n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc30_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -37489,7 +37489,7 @@ put_pixels8_l2_14.exit.i:                         ; preds = %16
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %41, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37497,8 +37497,8 @@ put_pixels16_l2_14.exit:                          ; preds = %41
 define internal void @put_h264_qpel16_mc01_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1106)
@@ -37609,8 +37609,8 @@ put_pixels8_l2_14.exit.i:                         ; preds = %29
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %53, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37619,9 +37619,9 @@ define internal void @put_h264_qpel16_mc11_14_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -37745,9 +37745,9 @@ put_pixels8_l2_14.exit.i:                         ; preds = %39
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %63, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37756,9 +37756,9 @@ define internal void @put_h264_qpel16_mc21_14_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -37849,9 +37849,9 @@ put_pixels8_l2_14.exit.i:                         ; preds = %21
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %45, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -37860,9 +37860,9 @@ define internal void @put_h264_qpel16_mc31_14_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -37987,16 +37987,16 @@ put_pixels8_l2_14.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %64, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc02_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1116)
@@ -38043,7 +38043,7 @@ copy_block16_14.exit:                             ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38053,10 +38053,10 @@ define internal void @put_h264_qpel16_mc12_14_c(ptr noundef writeonly captures(n
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1119)
@@ -38181,17 +38181,17 @@ put_pixels8_l2_14.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %65, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel16_mc22_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -38206,7 +38206,7 @@ define internal void @put_h264_qpel16_mc22_14_c(ptr noundef writeonly captures(n
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38216,10 +38216,10 @@ define internal void @put_h264_qpel16_mc32_14_c(ptr noundef writeonly captures(n
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -38345,10 +38345,10 @@ put_pixels8_l2_14.exit.i:                         ; preds = %42
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %66, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38356,8 +38356,8 @@ put_pixels16_l2_14.exit:                          ; preds = %66
 define internal void @put_h264_qpel16_mc03_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1125)
@@ -38470,8 +38470,8 @@ put_pixels8_l2_14.exit.i:                         ; preds = %30
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %55, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38480,9 +38480,9 @@ define internal void @put_h264_qpel16_mc13_14_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -38607,9 +38607,9 @@ put_pixels8_l2_14.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %64, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38618,9 +38618,9 @@ define internal void @put_h264_qpel16_mc23_14_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -38715,9 +38715,9 @@ put_pixels8_l2_14.exit.i:                         ; preds = %25
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %49, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38726,9 +38726,9 @@ define internal void @put_h264_qpel16_mc33_14_c(ptr noundef writeonly captures(n
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -38854,9 +38854,9 @@ put_pixels8_l2_14.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %put_pixels16_l2_14.exit, label %65, !llvm.loop !1105
 
 put_pixels16_l2_14.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38887,7 +38887,7 @@ put_pixels8_14_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc10_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -38925,7 +38925,7 @@ define internal void @put_h264_qpel8_mc10_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_14.exit, label %7, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38939,7 +38939,7 @@ define internal void @put_h264_qpel8_mc20_14_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc30_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -38978,7 +38978,7 @@ define internal void @put_h264_qpel8_mc30_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_14.exit, label %8, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -38986,8 +38986,8 @@ put_pixels8_l2_14.exit:                           ; preds = %8
 define internal void @put_h264_qpel8_mc01_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
@@ -39047,8 +39047,8 @@ copy_block8_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_14.exit, label %17, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39057,9 +39057,9 @@ define internal void @put_h264_qpel8_mc11_14_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -39121,9 +39121,9 @@ copy_block8_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_14.exit, label %19, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39132,9 +39132,9 @@ define internal void @put_h264_qpel8_mc21_14_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -39173,9 +39173,9 @@ define internal void @put_h264_qpel8_mc21_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_14.exit, label %9, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39184,9 +39184,9 @@ define internal void @put_h264_qpel8_mc31_14_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -39249,16 +39249,16 @@ copy_block8_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_14.exit, label %20, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc02_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1144)
@@ -39286,7 +39286,7 @@ copy_block8_14.exit:                              ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39296,10 +39296,10 @@ define internal void @put_h264_qpel8_mc12_14_c(ptr noundef writeonly captures(no
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1147)
@@ -39361,20 +39361,20 @@ copy_block8_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels8_l2_14.exit, label %20, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel8_mc22_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39384,10 +39384,10 @@ define internal void @put_h264_qpel8_mc32_14_c(ptr noundef writeonly captures(no
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -39450,10 +39450,10 @@ copy_block8_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels8_l2_14.exit, label %21, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39461,8 +39461,8 @@ put_pixels8_l2_14.exit:                           ; preds = %21
 define internal void @put_h264_qpel8_mc03_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1153)
@@ -39523,8 +39523,8 @@ copy_block8_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels8_l2_14.exit, label %18, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39533,9 +39533,9 @@ define internal void @put_h264_qpel8_mc13_14_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -39598,9 +39598,9 @@ copy_block8_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels8_l2_14.exit, label %20, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39609,9 +39609,9 @@ define internal void @put_h264_qpel8_mc23_14_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -39651,9 +39651,9 @@ define internal void @put_h264_qpel8_mc23_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels8_l2_14.exit, label %10, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39662,9 +39662,9 @@ define internal void @put_h264_qpel8_mc33_14_c(ptr noundef writeonly captures(no
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -39728,9 +39728,9 @@ copy_block8_14.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels8_l2_14.exit, label %21, !llvm.loop !1105
 
 put_pixels8_l2_14.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39757,7 +39757,7 @@ put_pixels4_14_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc10_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -39784,7 +39784,7 @@ define internal void @put_h264_qpel4_mc10_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_14.exit, label %7, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39798,7 +39798,7 @@ define internal void @put_h264_qpel4_mc20_14_c(ptr noundef writeonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc30_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -39826,7 +39826,7 @@ define internal void @put_h264_qpel4_mc30_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_14.exit, label %8, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39834,8 +39834,8 @@ put_pixels4_l2_14.exit:                           ; preds = %8
 define internal void @put_h264_qpel4_mc01_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1164)
@@ -39880,8 +39880,8 @@ copy_block4_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_14.exit, label %14, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39890,9 +39890,9 @@ define internal void @put_h264_qpel4_mc11_14_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -39939,9 +39939,9 @@ copy_block4_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_14.exit, label %16, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39950,9 +39950,9 @@ define internal void @put_h264_qpel4_mc21_14_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -39980,9 +39980,9 @@ define internal void @put_h264_qpel4_mc21_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_14.exit, label %9, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -39991,9 +39991,9 @@ define internal void @put_h264_qpel4_mc31_14_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -40041,16 +40041,16 @@ copy_block4_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_14.exit, label %17, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc02_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
@@ -40074,7 +40074,7 @@ copy_block4_14.exit:                              ; preds = %7
   %12 = trunc i64 %2 to i32
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @put_h264_qpel4_v_lowpass_14(ptr noundef %0, ptr noundef %13, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40084,10 +40084,10 @@ define internal void @put_h264_qpel4_mc12_14_c(ptr noundef writeonly captures(no
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1177)
@@ -40134,20 +40134,20 @@ copy_block4_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %put_pixels4_l2_14.exit, label %17, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel4_mc22_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [72 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40157,10 +40157,10 @@ define internal void @put_h264_qpel4_mc32_14_c(ptr noundef writeonly captures(no
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -40208,10 +40208,10 @@ copy_block4_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %put_pixels4_l2_14.exit, label %18, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40219,8 +40219,8 @@ put_pixels4_l2_14.exit:                           ; preds = %18
 define internal void @put_h264_qpel4_mc03_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1183)
@@ -40266,8 +40266,8 @@ copy_block4_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %put_pixels4_l2_14.exit, label %15, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40276,9 +40276,9 @@ define internal void @put_h264_qpel4_mc13_14_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -40326,9 +40326,9 @@ copy_block4_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %put_pixels4_l2_14.exit, label %17, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40337,9 +40337,9 @@ define internal void @put_h264_qpel4_mc23_14_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -40368,9 +40368,9 @@ define internal void @put_h264_qpel4_mc23_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond.not.i, label %put_pixels4_l2_14.exit, label %10, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40379,9 +40379,9 @@ define internal void @put_h264_qpel4_mc33_14_c(ptr noundef writeonly captures(no
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -40430,9 +40430,9 @@ copy_block4_14.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %put_pixels4_l2_14.exit, label %18, !llvm.loop !1163
 
 put_pixels4_l2_14.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40457,7 +40457,7 @@ put_pixels2_14_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc10_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1193)
   %6 = ashr i32 %5, 1
@@ -40543,7 +40543,7 @@ put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %8
   br i1 %57, label %56, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40617,7 +40617,7 @@ put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc30_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1201)
   %6 = ashr i32 %5, 1
@@ -40704,7 +40704,7 @@ put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %8
   br i1 %58, label %57, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40712,8 +40712,8 @@ put_pixels2_l2_14.exit:                           ; preds = %57
 define internal void @put_h264_qpel2_mc01_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1204)
@@ -40812,8 +40812,8 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %14, %put_h264_qpel2
   br i1 %61, label %put_h264_qpel2_v_lowpass_14.exit, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %put_h264_qpel2_v_lowpass_14.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40822,9 +40822,9 @@ define internal void @put_h264_qpel2_mc11_14_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1212)
   %8 = ashr i32 %7, 1
@@ -40985,9 +40985,9 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %65, %put_h264_qpel2
   br i1 %112, label %put_h264_qpel2_v_lowpass_14.exit, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %put_h264_qpel2_v_lowpass_14.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -40996,9 +40996,9 @@ define internal void @put_h264_qpel2_mc21_14_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i32], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   %8 = ashr i32 %7, 1
@@ -41085,9 +41085,9 @@ put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %10
   br i1 %59, label %58, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41096,9 +41096,9 @@ define internal void @put_h264_qpel2_mc31_14_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
   %8 = ashr i32 %7, 1
@@ -41260,16 +41260,16 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_14.exit, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %put_h264_qpel2_v_lowpass_14.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc02_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1233)
@@ -41353,7 +41353,7 @@ copy_block2_14.exit:                              ; preds = %7
   br i1 %17, label %16, label %put_h264_qpel2_v_lowpass_14.exit, !llvm.loop !1211
 
 put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41363,10 +41363,10 @@ define internal void @put_h264_qpel2_mc12_14_c(ptr noundef writeonly captures(no
   %5 = alloca [28 x i32], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1239)
@@ -41470,20 +41470,20 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %16
   br i1 %65, label %64, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_h264_qpel2_mc22_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [28 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel2_hv_lowpass_14(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41493,10 +41493,10 @@ define internal void @put_h264_qpel2_mc32_14_c(ptr noundef writeonly captures(no
   %5 = alloca [28 x i32], align 16
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -41601,10 +41601,10 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %17
   br i1 %66, label %65, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41612,8 +41612,8 @@ put_pixels2_l2_14.exit:                           ; preds = %65
 define internal void @put_h264_qpel2_mc03_14_c(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1251)
@@ -41716,8 +41716,8 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %14
   br i1 %63, label %62, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41726,9 +41726,9 @@ define internal void @put_h264_qpel2_mc13_14_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1257)
@@ -41890,9 +41890,9 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %66, %put_h264_qpel2
   br i1 %113, label %put_h264_qpel2_v_lowpass_14.exit, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %put_h264_qpel2_v_lowpass_14.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -41901,9 +41901,9 @@ define internal void @put_h264_qpel2_mc23_14_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i32], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1266)
@@ -41991,9 +41991,9 @@ put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %11
   br i1 %60, label %59, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42002,9 +42002,9 @@ define internal void @put_h264_qpel2_mc33_14_c(ptr noundef writeonly captures(no
   %4 = alloca [28 x i8], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1269)
@@ -42167,9 +42167,9 @@ put_h264_qpel2_v_lowpass_14.exit:                 ; preds = %67, %put_h264_qpel2
   br i1 %114, label %put_h264_qpel2_v_lowpass_14.exit, label %put_pixels2_l2_14.exit, !llvm.loop !1197
 
 put_pixels2_l2_14.exit:                           ; preds = %put_h264_qpel2_v_lowpass_14.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42245,7 +42245,7 @@ avg_pixels16_14_c.exit:                           ; preds = %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc10_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -42352,7 +42352,7 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %15
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %51, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42377,7 +42377,7 @@ define internal void @avg_h264_qpel16_mc20_14_c(ptr noundef captures(none) %0, p
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc30_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -42486,7 +42486,7 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %16
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %53, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42494,8 +42494,8 @@ avg_pixels16_l2_14.exit:                          ; preds = %53
 define internal void @avg_h264_qpel16_mc01_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1280)
@@ -42630,8 +42630,8 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %29
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %65, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42640,9 +42640,9 @@ define internal void @avg_h264_qpel16_mc11_14_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -42790,9 +42790,9 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %39
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %75, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42801,9 +42801,9 @@ define internal void @avg_h264_qpel16_mc21_14_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -42918,9 +42918,9 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %21
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %57, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -42929,9 +42929,9 @@ define internal void @avg_h264_qpel16_mc31_14_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %1, i32 noundef 32, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -43080,16 +43080,16 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %76, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc02_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1289)
@@ -43136,7 +43136,7 @@ copy_block16_14.exit:                             ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef nonnull %29, ptr noundef readonly %30, i32 noundef %21, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43146,10 +43146,10 @@ define internal void @avg_h264_qpel16_mc12_14_c(ptr noundef captures(none) %0, p
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1292)
@@ -43298,17 +43298,17 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %77, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel16_mc22_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [672 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef %0, ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %5, i32 noundef 32, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -43323,7 +43323,7 @@ define internal void @avg_h264_qpel16_mc22_14_c(ptr noundef captures(none) %0, p
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef nonnull %13, ptr noundef %7, ptr noundef nonnull readonly %14, i32 noundef %5, i32 noundef 32, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43333,10 +43333,10 @@ define internal void @avg_h264_qpel16_mc32_14_c(ptr noundef captures(none) %0, p
   %5 = alloca [672 x i32], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -43486,10 +43486,10 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %42
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %78, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43497,8 +43497,8 @@ avg_pixels16_l2_14.exit:                          ; preds = %78
 define internal void @avg_h264_qpel16_mc03_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1298)
@@ -43635,8 +43635,8 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %30
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %67, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43645,9 +43645,9 @@ define internal void @avg_h264_qpel16_mc13_14_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -43796,9 +43796,9 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %40
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %76, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43807,9 +43807,9 @@ define internal void @avg_h264_qpel16_mc23_14_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -43928,9 +43928,9 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %25
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %61, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43939,9 +43939,9 @@ define internal void @avg_h264_qpel16_mc33_14_c(ptr noundef captures(none) %0, p
   %4 = alloca [672 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef readonly %7, i32 noundef 32, i32 noundef %8)
@@ -44091,9 +44091,9 @@ avg_pixels8_l2_14.exit.i:                         ; preds = %41
   br i1 %exitcond.not.i15.i, label %avg_pixels16_l2_14.exit, label %77, !llvm.loop !1279
 
 avg_pixels16_l2_14.exit:                          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44136,7 +44136,7 @@ avg_pixels8_14_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc10_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -44186,7 +44186,7 @@ define internal void @avg_h264_qpel8_mc10_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_14.exit, label %7, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44200,7 +44200,7 @@ define internal void @avg_h264_qpel8_mc20_14_c(ptr noundef captures(none) %0, pt
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc30_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 16, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -44251,7 +44251,7 @@ define internal void @avg_h264_qpel8_mc30_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_14.exit, label %8, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44259,8 +44259,8 @@ avg_pixels8_l2_14.exit:                           ; preds = %8
 define internal void @avg_h264_qpel8_mc01_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1307)
@@ -44332,8 +44332,8 @@ copy_block8_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_14.exit, label %17, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44342,9 +44342,9 @@ define internal void @avg_h264_qpel8_mc11_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -44418,9 +44418,9 @@ copy_block8_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_14.exit, label %19, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44429,9 +44429,9 @@ define internal void @avg_h264_qpel8_mc21_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   call fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 16, i32 noundef %7)
@@ -44482,9 +44482,9 @@ define internal void @avg_h264_qpel8_mc21_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_14.exit, label %9, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44493,9 +44493,9 @@ define internal void @avg_h264_qpel8_mc31_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 16, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -44570,16 +44570,16 @@ copy_block8_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_14.exit, label %20, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc02_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1316)
@@ -44607,7 +44607,7 @@ copy_block8_14.exit:                              ; preds = %7
   %15 = trunc i64 %2 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef %0, ptr noundef %16, i32 noundef %15, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44617,10 +44617,10 @@ define internal void @avg_h264_qpel8_mc12_14_c(ptr noundef captures(none) %0, pt
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1319)
@@ -44694,20 +44694,20 @@ copy_block8_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_14.exit, label %20, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel8_mc22_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [208 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44717,10 +44717,10 @@ define internal void @avg_h264_qpel8_mc32_14_c(ptr noundef captures(none) %0, pt
   %5 = alloca [208 x i32], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -44795,10 +44795,10 @@ copy_block8_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels8_l2_14.exit, label %21, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44806,8 +44806,8 @@ avg_pixels8_l2_14.exit:                           ; preds = %21
 define internal void @avg_h264_qpel8_mc03_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1325)
@@ -44880,8 +44880,8 @@ copy_block8_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels8_l2_14.exit, label %18, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44890,9 +44890,9 @@ define internal void @avg_h264_qpel8_mc13_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -44967,9 +44967,9 @@ copy_block8_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_14.exit, label %20, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -44978,9 +44978,9 @@ define internal void @avg_h264_qpel8_mc23_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i32], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -45032,9 +45032,9 @@ define internal void @avg_h264_qpel8_mc23_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels8_l2_14.exit, label %10, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45043,9 +45043,9 @@ define internal void @avg_h264_qpel8_mc33_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [208 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16, i32 noundef %8)
@@ -45121,9 +45121,9 @@ copy_block8_14.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels8_l2_14.exit, label %21, !llvm.loop !1279
 
 avg_pixels8_l2_14.exit:                           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45156,7 +45156,7 @@ avg_pixels4_14_c.exit:                            ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc10_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %sext = shl i64 %2, 32
@@ -45189,7 +45189,7 @@ define internal void @avg_h264_qpel4_mc10_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_14.exit, label %7, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45319,7 +45319,7 @@ avg_h264_qpel4_h_lowpass_14.exit:                 ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc30_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -45353,7 +45353,7 @@ define internal void @avg_h264_qpel4_mc30_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_14.exit, label %8, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45361,8 +45361,8 @@ avg_pixels4_l2_14.exit:                           ; preds = %8
 define internal void @avg_h264_qpel4_mc01_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1340)
@@ -45413,8 +45413,8 @@ copy_block4_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_14.exit, label %14, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45423,9 +45423,9 @@ define internal void @avg_h264_qpel4_mc11_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -45478,9 +45478,9 @@ copy_block4_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_14.exit, label %16, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45489,9 +45489,9 @@ define internal void @avg_h264_qpel4_mc21_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   call fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, i32 noundef 8, i32 noundef %7)
@@ -45525,9 +45525,9 @@ define internal void @avg_h264_qpel4_mc21_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_14.exit, label %9, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45536,9 +45536,9 @@ define internal void @avg_h264_qpel4_mc31_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 8, i32 noundef %7)
   %.neg = mul i64 %2, -2
@@ -45592,16 +45592,16 @@ copy_block4_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_14.exit, label %17, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc02_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.neg = mul i64 %2, -2
   %5 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1349)
@@ -45744,7 +45744,7 @@ copy_block4_14.exit:                              ; preds = %7
   br i1 %exitcond.not.i5, label %avg_h264_qpel4_v_lowpass_14.exit, label %19, !llvm.loop !1355
 
 avg_h264_qpel4_v_lowpass_14.exit:                 ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45754,10 +45754,10 @@ define internal void @avg_h264_qpel4_mc12_14_c(ptr noundef captures(none) %0, pt
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1356)
@@ -45810,17 +45810,17 @@ copy_block4_14.exit:                              ; preds = %10
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_14.exit, label %17, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1359)
   %6 = ashr i32 %5, 1
@@ -46012,7 +46012,7 @@ define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond129.not.i, label %avg_h264_qpel4_hv_lowpass_14.exit, label %73, !llvm.loop !1363
 
 avg_h264_qpel4_hv_lowpass_14.exit:                ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46022,10 +46022,10 @@ define internal void @avg_h264_qpel4_mc32_14_c(ptr noundef captures(none) %0, pt
   %5 = alloca [72 x i32], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.neg = mul i64 %2, -2
   %8 = getelementptr inbounds i8, ptr %1, i64 %.neg
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -46079,10 +46079,10 @@ copy_block4_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i7, label %avg_pixels4_l2_14.exit, label %18, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46090,8 +46090,8 @@ avg_pixels4_l2_14.exit:                           ; preds = %18
 define internal void @avg_h264_qpel4_mc03_14_c(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %2, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1367)
@@ -46143,8 +46143,8 @@ copy_block4_14.exit:                              ; preds = %8
   br i1 %exitcond.not.i6, label %avg_pixels4_l2_14.exit, label %15, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46153,9 +46153,9 @@ define internal void @avg_h264_qpel4_mc13_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -46209,9 +46209,9 @@ copy_block4_14.exit:                              ; preds = %11
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_14.exit, label %17, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46220,9 +46220,9 @@ define internal void @avg_h264_qpel4_mc23_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i32], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -46257,9 +46257,9 @@ define internal void @avg_h264_qpel4_mc23_14_c(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not.i, label %avg_pixels4_l2_14.exit, label %10, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46268,9 +46268,9 @@ define internal void @avg_h264_qpel4_mc33_14_c(ptr noundef captures(none) %0, pt
   %4 = alloca [72 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = trunc i64 %2 to i32
   call fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 8, i32 noundef %8)
@@ -46325,17 +46325,11 @@ copy_block4_14.exit:                              ; preds = %12
   br i1 %exitcond.not.i8, label %avg_pixels4_l2_14.exit, label %18, !llvm.loop !1335
 
 avg_pixels4_l2_14.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_h264_qpel8_h_lowpass_8(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
@@ -56823,6 +56817,12 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
@@ -56838,7 +56838,6 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite, ina
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

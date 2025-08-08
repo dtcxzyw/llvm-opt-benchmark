@@ -496,7 +496,7 @@ src_in_image.exit:                                ; preds = %41, %36
 
 148:                                              ; preds = %142
   %.val = load ptr, ptr %88, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %149 = trunc i32 %131 to i16
   store i16 %149, ptr %9, align 2
   %150 = trunc i32 %135 to i16
@@ -506,7 +506,7 @@ src_in_image.exit:                                ; preds = %41, %36
   %152 = trunc i32 %146 to i16
   store i16 %152, ptr %31, align 2
   %153 = call i32 @XUnionRectWithRegion(ptr noundef nonnull %9, ptr noundef %.val, ptr noundef %.val) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %src_in_image.exit114.thread
 
 154:                                              ; preds = %142, %136, %132, %128, %123, %.lr.ph
@@ -537,7 +537,7 @@ src_in_image.exit114:                             ; preds = %.lr.ph.i109, %154
   %166 = load i32, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %.088124, i64 44
   %168 = load i32, ptr %167, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %169 = call ptr @XCreateRegion() #9
   %170 = trunc i32 %162 to i16
   store i16 %170, ptr %8, align 2
@@ -551,7 +551,7 @@ src_in_image.exit114:                             ; preds = %.lr.ph.i109, %154
   %175 = load ptr, ptr %88, align 8
   %176 = call i32 @XSubtractRegion(ptr noundef %175, ptr noundef %169, ptr noundef %175) #9
   %177 = call i32 @XDestroyRegion(ptr noundef %169) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %src_in_image.exit114.thread
 
 src_in_image.exit114.thread:                      ; preds = %156, %155, %148, %src_in_image.exit114
@@ -1707,10 +1707,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

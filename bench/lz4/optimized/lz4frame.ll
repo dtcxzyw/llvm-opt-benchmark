@@ -105,14 +105,8 @@ define i64 @LZ4F_getBlockSize(i32 noundef %0) local_unnamed_addr #0 {
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @LZ4F_compressFrameBound(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define i64 @LZ4F_compressFrameBound(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %LZ4F_getBlockSize.exit.thread47.i, label %3
 
@@ -168,17 +162,17 @@ LZ4F_compressBound_internal.exit:                 ; preds = %5, %LZ4F_getBlockSi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressFrame_usingCDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #5 {
+define i64 @LZ4F_compressFrame_usingCDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = alloca %struct.LZ4F_preferences_t, align 8
   %9 = alloca %struct.LZ4F_compressOptions_t, align 4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %LZ4F_optimalBSID.exit.thread, label %11
 
@@ -367,25 +361,25 @@ LZ4F_compressEnd.exit:                            ; preds = %86, %90
 
 LZ4F_compressEnd.exit.thread:                     ; preds = %90, %81, %72, %67, %LZ4F_compressFrameBound.exit, %LZ4F_compressEnd.exit, %62, %59, %96
   %.0 = phi i64 [ %98, %96 ], [ %94, %LZ4F_compressEnd.exit ], [ %64, %62 ], [ %60, %59 ], [ -11, %LZ4F_compressFrameBound.exit ], [ -14, %90 ], [ -11, %81 ], [ -11, %72 ], [ %70, %67 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_usingCDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin_usingCDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %3, ptr noundef %4)
   ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_compressUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = tail call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 0)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressEnd(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #5 {
+define i64 @LZ4F_compressEnd(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #4 {
   %5 = tail call i64 @LZ4F_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr poison)
   %6 = icmp ult i64 %5, -23
   br i1 %6, label %7, label %32
@@ -442,11 +436,11 @@ define i64 @LZ4F_compressEnd(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressFrame(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
+define i64 @LZ4F_compressFrame(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.LZ4F_cctx_s, align 8
   %7 = alloca %union.LZ4_stream_u, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 16416, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, i8 0, i64 216, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 100, ptr %8, align 8, !tbaa !35
@@ -507,15 +501,15 @@ define i64 @LZ4F_compressFrame(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 LZ4F_free.exit:                                   ; preds = %34, %33, %26, %22, %16
   %phi.call20 = phi i64 [ %phi.call19, %22 ], [ %21, %16 ], [ %phi.call19, %26 ], [ %phi.call19, %33 ], [ %phi.call19, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16416, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %phi.call20
 }
 
-declare ptr @LZ4_initStream(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @LZ4_initStream(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @LZ4F_createCDict_advanced(ptr noundef readonly byval(%struct.LZ4F_CustomMem) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define ptr @LZ4F_createCDict_advanced(ptr noundef readonly byval(%struct.LZ4F_CustomMem) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val35 = load ptr, ptr %4, align 8
@@ -612,7 +606,7 @@ LZ4F_malloc.exit50:                               ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @LZ4F_freeCDict(ptr noundef %0) local_unnamed_addr #5 {
+define void @LZ4F_freeCDict(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %LZ4F_free.exit21, label %3
 
@@ -705,22 +699,22 @@ LZ4F_free.exit21:                                 ; preds = %26, %25, %1
   ret void
 }
 
-declare i32 @LZ4_loadDictSlow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_loadDictSlow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare ptr @LZ4_initStreamHC(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @LZ4_initStreamHC(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @LZ4_setCompressionLevel(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @LZ4_setCompressionLevel(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_loadDictHC(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_loadDictHC(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @LZ4F_createCDict(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
+define ptr @LZ4F_createCDict(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call ptr @LZ4F_createCDict_advanced(ptr noundef nonnull byval(%struct.LZ4F_CustomMem) align 8 @LZ4F_defaultCMem, ptr noundef %0, i64 noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @LZ4F_createCompressionContext_advanced(ptr noundef readonly byval(%struct.LZ4F_CustomMem) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef ptr @LZ4F_createCompressionContext_advanced(ptr noundef readonly byval(%struct.LZ4F_CustomMem) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
@@ -770,7 +764,7 @@ LZ4F_calloc.exit.thread:                          ; preds = %9, %LZ4F_calloc.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define range(i64 -21, 1) i64 @LZ4F_createCompressionContext(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i64 -21, 1) i64 @LZ4F_createCompressionContext(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %LZ4F_calloc.exit.i
 
@@ -796,7 +790,7 @@ LZ4F_createCompressionContext_advanced.exit:      ; preds = %LZ4F_calloc.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @LZ4F_freeCompressionContext(ptr noundef %0) local_unnamed_addr #5 {
+define noundef i64 @LZ4F_freeCompressionContext(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %LZ4F_free.exit15, label %2
 
@@ -866,9 +860,9 @@ LZ4F_free.exit15:                                 ; preds = %19, %18, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = alloca %struct.LZ4F_preferences_t, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store i32 4, ptr %8, align 8
   %9 = icmp ult i64 %2, 19
@@ -1283,36 +1277,36 @@ LZ4F_initStream.exit:                             ; preds = %130, %129, %126, %1
 
 .thread:                                          ; preds = %LZ4F_malloc.exit141, %LZ4F_malloc.exit, %140, %LZ4F_malloc.exit147, %53, %7, %192
   %.0 = phi i64 [ %203, %192 ], [ -11, %7 ], [ -9, %53 ], [ -9, %LZ4F_malloc.exit147 ], [ -4, %140 ], [ -9, %LZ4F_malloc.exit ], [ -9, %LZ4F_malloc.exit141 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
 
-declare i32 @LZ4_XXH32_reset(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_XXH32_reset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @LZ4_favorDecompressionSpeed(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @LZ4_favorDecompressionSpeed(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_loadDict(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_loadDict(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_usingDictOnce(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin_usingDictOnce(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, ptr noundef %5)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, ptr noundef readonly %5)
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @LZ4F_compressBound(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define i64 @LZ4F_compressBound(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %13
 
@@ -1436,7 +1430,7 @@ LZ4F_compressBound_internal.exit26:               ; preds = %44, %LZ4F_getBlockS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
+define internal fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -1892,13 +1886,13 @@ LZ4F_localSaveDict.exit157:                       ; preds = %220, %222
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_uncompressedUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_uncompressedUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = tail call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 1)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -20, 21474836480) i64 @LZ4F_flush(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #5 {
+define range(i64 -20, 21474836480) i64 @LZ4F_flush(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8, !tbaa !58
   %7 = icmp eq i64 %6, 0
@@ -2039,10 +2033,10 @@ LZ4F_localSaveDict.exit:                          ; preds = %73, %75
   ret i64 %.0
 }
 
-declare i32 @LZ4_XXH32_digest(ptr noundef) local_unnamed_addr #6
+declare i32 @LZ4_XXH32_digest(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @LZ4F_createDecompressionContext_advanced(ptr noundef readonly byval(%struct.LZ4F_CustomMem) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef ptr @LZ4F_createDecompressionContext_advanced(ptr noundef readonly byval(%struct.LZ4F_CustomMem) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2090,7 +2084,7 @@ LZ4F_calloc.exit.thread:                          ; preds = %9, %LZ4F_calloc.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define range(i64 -21, 1) i64 @LZ4F_createDecompressionContext(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i64 -21, 1) i64 @LZ4F_createDecompressionContext(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %LZ4F_calloc.exit.i
 
@@ -2116,7 +2110,7 @@ LZ4F_createDecompressionContext_advanced.exit:    ; preds = %LZ4F_calloc.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @LZ4F_freeDecompressionContext(ptr noundef %0) local_unnamed_addr #5 {
+define range(i64 0, 4294967296) i64 @LZ4F_freeDecompressionContext(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %LZ4F_free.exit17, label %2
 
@@ -2190,7 +2184,7 @@ LZ4F_free.exit17:                                 ; preds = %21, %20, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4F_resetDecompressionContext(ptr noundef writeonly captures(none) initializes((68, 80), (128, 144), (264, 268)) %0) local_unnamed_addr #8 {
+define void @LZ4F_resetDecompressionContext(ptr noundef writeonly captures(none) initializes((68, 80), (128, 144), (264, 268)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %2, align 4, !tbaa !72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2203,7 +2197,7 @@ define void @LZ4F_resetDecompressionContext(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -15, 20) i64 @LZ4F_headerSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i64 -15, 20) i64 @LZ4F_headerSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %20, label %4
 
@@ -2239,7 +2233,7 @@ define range(i64 -15, 20) i64 @LZ4F_headerSize(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_getFrameInfo(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
+define i64 @LZ4F_getFrameInfo(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -2248,16 +2242,16 @@ define i64 @LZ4F_getFrameInfo(ptr noundef %0, ptr noundef writeonly captures(non
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !8
   store i64 0, ptr %3, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !77
   %12 = call i64 @LZ4F_decompress(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 13:                                               ; preds = %4
@@ -2329,7 +2323,7 @@ define i64 @LZ4F_getFrameInfo(ptr noundef %0, ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_decompress(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_decompress(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = load i64, ptr %4, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   %.not = icmp eq ptr %1, null
@@ -3569,7 +3563,7 @@ LZ4F_updateDict.exit719:                          ; preds = %430, %436, %440, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 4, 0) i64 @LZ4F_decodeHeader(ptr noundef writeonly captures(address) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #5 {
+define internal fastcc range(i64 4, 0) i64 @LZ4F_decodeHeader(ptr noundef writeonly captures(address) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp ult i64 %2, 7
   br i1 %4, label %.thread, label %5
 
@@ -3722,14 +3716,14 @@ LZ4F_getBlockSize.exit:                           ; preds = %53
   ret i64 %.0
 }
 
-declare i32 @LZ4_XXH32_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @LZ4_XXH32_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_XXH32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_XXH32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_decompress_safe_usingDict(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_decompress_safe_usingDict(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_decompress_usingDict(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #5 {
+define i64 @LZ4F_decompress_usingDict(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %10 = load i32, ptr %9, align 4, !tbaa !72
   %11 = icmp ult i32 %10, 3
@@ -3748,25 +3742,25 @@ define i64 @LZ4F_decompress_usingDict(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
-declare i32 @LZ4_sizeofState() local_unnamed_addr #6
+declare i32 @LZ4_sizeofState() local_unnamed_addr #5
 
-declare i32 @LZ4_sizeofStateHC() local_unnamed_addr #6
+declare i32 @LZ4_sizeofStateHC() local_unnamed_addr #5
 
-declare void @LZ4_resetStream_fast(ptr noundef) local_unnamed_addr #6
+declare void @LZ4_resetStream_fast(ptr noundef) local_unnamed_addr #5
 
-declare void @LZ4_attach_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @LZ4_attach_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @LZ4_resetStreamHC_fast(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @LZ4_resetStreamHC_fast(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @LZ4_attach_HC_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @LZ4_attach_HC_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @LZ4F_doNotCompressBlock(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i32 %5, ptr readnone captures(none) %6) unnamed_addr #0 {
@@ -3774,7 +3768,7 @@ define internal noundef i32 @LZ4F_doNotCompressBlock(ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LZ4F_compressBlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #5 {
+define internal i32 @LZ4F_compressBlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #4 {
   %8 = icmp slt i32 %5, 0
   %9 = sub i32 1, %5
   %10 = select i1 %8, i32 %9, i32 1
@@ -3817,7 +3811,7 @@ LZ4F_initStream.exit:                             ; preds = %17, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LZ4F_compressBlock_continue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6) unnamed_addr #5 {
+define internal i32 @LZ4F_compressBlock_continue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6) unnamed_addr #4 {
   %8 = icmp slt i32 %5, 0
   %9 = sub i32 1, %5
   %10 = select i1 %8, i32 %9, i32 1
@@ -3826,7 +3820,7 @@ define internal i32 @LZ4F_compressBlock_continue(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LZ4F_compressBlockHC(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #5 {
+define internal i32 @LZ4F_compressBlockHC(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #4 {
   %8 = icmp slt i32 %5, 2
   br i1 %8, label %9, label %13
 
@@ -3866,22 +3860,28 @@ LZ4F_initStream.exit:                             ; preds = %14, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LZ4F_compressBlockHC_continue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 %5, ptr readnone captures(none) %6) unnamed_addr #5 {
+define internal i32 @LZ4F_compressBlockHC_continue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 %5, ptr readnone captures(none) %6) unnamed_addr #4 {
   %8 = tail call i32 @LZ4_compress_HC_continue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #13
   ret i32 %8
 }
 
-declare i32 @LZ4_compress_fast_continue(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_compress_fast_continue(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_compress_fast_extState_fastReset(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_compress_fast_extState_fastReset(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_compress_HC_continue(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_compress_HC_continue(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_compress_HC_extStateHC_fastReset(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_compress_HC_extStateHC_fastReset(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_saveDict(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_saveDict(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @LZ4_saveDictHC(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @LZ4_saveDictHC(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
@@ -3890,17 +3890,17 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0) }

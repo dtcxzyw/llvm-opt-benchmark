@@ -277,7 +277,7 @@ define hidden void @_cmsAllocTransformPluginChunk(ptr noundef captures(none) %0,
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 120
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.02.i = load ptr, ptr %.val, align 8
   %.not3.i = icmp eq ptr %.02.i, null
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
@@ -325,7 +325,7 @@ define hidden void @_cmsAllocTransformPluginChunk(ptr noundef captures(none) %0,
   br label %DupPluginTransformList.exit
 
 DupPluginTransformList.exit:                      ; preds = %7, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %2
@@ -1364,9 +1364,9 @@ define hidden ptr @cmsCreateMultiprofileTransform(ptr noundef %0, i32 noundef %1
 .lr.ph.i:                                         ; preds = %6
   %12 = load ptr, ptr %0, align 8
   %13 = tail call ptr @cmsGetProfileContextID(ptr noundef %12) #11
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = lshr i32 %5, 13
   %.lobit.i = and i32 %14, 1
   %wide.trip.count.i = zext nneg i32 %1 to i64
@@ -1388,9 +1388,9 @@ define hidden ptr @cmsCreateMultiprofileTransform(ptr noundef %0, i32 noundef %1
 
 cmsCreateMultiprofileTransformTHR.exit:           ; preds = %15
   %21 = call ptr @cmsCreateExtendedTransform(ptr noundef %13, i32 noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, i32 noundef %2, i32 noundef %3, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %22
 
 22:                                               ; preds = %cmsCreateMultiprofileTransformTHR.exit, %11
@@ -1412,9 +1412,9 @@ define hidden ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %3, ptr %11, align 8
   %12 = icmp eq ptr %3, null
   %13 = select i1 %12, i32 1, i32 2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = lshr i32 %6, 13
   %.lobit.i = and i32 %14, 1
   %wide.trip.count.i = zext nneg i32 %13 to i64
@@ -1436,9 +1436,9 @@ define hidden ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef %1, i32 nou
 
 ._crit_edge.i:                                    ; preds = %15
   %21 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, i32 noundef %2, i32 noundef %4, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %21
 }
 
@@ -1449,15 +1449,15 @@ define hidden ptr @cmsCreateTransform(ptr noundef %0, i32 noundef %1, ptr nounde
   %9 = alloca [256 x double], align 16
   %10 = alloca [2 x ptr], align 16
   %11 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 16
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %12, align 8
   %13 = icmp eq ptr %2, null
   %14 = select i1 %13, i32 1, i32 2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = lshr i32 %5, 13
   %.lobit.i.i = and i32 %15, 1
   %wide.trip.count.i.i = zext nneg i32 %14 to i64
@@ -1479,10 +1479,10 @@ define hidden ptr @cmsCreateTransform(ptr noundef %0, i32 noundef %1, ptr nounde
 
 cmsCreateTransformTHR.exit:                       ; preds = %16
   %22 = call ptr @cmsCreateExtendedTransform(ptr noundef %11, i32 noundef %14, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, i32 noundef %1, i32 noundef %3, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %22
 }
 
@@ -1533,15 +1533,15 @@ define hidden ptr @cmsCreateProofingTransformTHR(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %34, label %45
 
 34:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 16
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %3, ptr %35, align 8
   %36 = icmp eq ptr %3, null
   %37 = select i1 %36, i32 1, i32 2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %wide.trip.count.i.i = zext nneg i32 %37 to i64
   br label %38
 
@@ -1561,10 +1561,10 @@ define hidden ptr @cmsCreateProofingTransformTHR(ptr noundef %0, ptr noundef %1,
 
 cmsCreateTransformTHR.exit:                       ; preds = %38
   %44 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef %2, i32 noundef %4, i32 noundef %8)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %47
 
 45:                                               ; preds = %9
@@ -1952,7 +1952,7 @@ define internal void @PrecalculatedXFORMGamutCheck(ptr noundef %0, ptr noundef %
   %23 = load ptr, ptr %10, align 8
   %24 = load i32, ptr %11, align 4
   %25 = call ptr %23(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %.03233.us, i32 noundef %24) #11
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = load ptr, ptr %12, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
@@ -1994,7 +1994,7 @@ define internal void @PrecalculatedXFORMGamutCheck(ptr noundef %0, ptr noundef %
   br label %TransformOnePixelWithGamutCheck.exit.us
 
 TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %44, %32
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = load ptr, ptr %15, align 8
   %51 = load i32, ptr %16, align 4
   %52 = call ptr %50(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.03134.us, i32 noundef %51) #11
@@ -2127,7 +2127,7 @@ define internal void @CachedXFORMGamutCheck(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %29, label %55, label %30
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %14, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
@@ -2169,7 +2169,7 @@ define internal void @CachedXFORMGamutCheck(ptr noundef %0, ptr noundef %1, ptr 
   br label %TransformOnePixelWithGamutCheck.exit.us
 
 TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %49, %37
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %17, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 32, i1 false)
   br label %56
@@ -2294,10 +2294,10 @@ declare i32 @_cmsLCMScolorSpace(i32 noundef) local_unnamed_addr #1
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

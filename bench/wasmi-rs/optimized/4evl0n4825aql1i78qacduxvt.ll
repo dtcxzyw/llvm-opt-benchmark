@@ -36,13 +36,13 @@ define hidden void @_ZN11wasmprinter11print_bytes17hf6610b97af4224e9E(ptr dead_o
   %5 = alloca [8 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN11wasmprinter6Config3new17ha2e9294fd68a1b27E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6)
           to label %13 unwind label %9
 
@@ -67,9 +67,9 @@ define hidden void @_ZN11wasmprinter11print_bytes17hf6610b97af4224e9E(ptr dead_o
           to label %8 unwind label %33
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %6, ptr %14, align 8, !noalias !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -109,7 +109,7 @@ define hidden void @_ZN11wasmprinter11print_bytes17hf6610b97af4224e9E(ptr dead_o
   unreachable
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %28, label %26
 
@@ -117,26 +117,26 @@ define hidden void @_ZN11wasmprinter11print_bytes17hf6610b97af4224e9E(ptr dead_o
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %27, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @"_ZN4core3ptr40drop_in_place$LT$wasmprinter..Config$GT$17h5d013f7d1a2e8339E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %31 unwind label %9
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @"_ZN4core3ptr40drop_in_place$LT$wasmprinter..Config$GT$17h5d013f7d1a2e8339E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %29 unwind label %9
 
 29:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %30
 
 30:                                               ; preds = %31, %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 31:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a484ee173f4f04aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   br label %30
 
@@ -201,7 +201,7 @@ define internal noundef zeroext i1 @_ZN11wasmprinter5print5Print20supports_async
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @_ZN3std2fs14create_dir_all17h683f2866342bcf1bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 511, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 1, ptr %3, align 4
@@ -210,7 +210,7 @@ define hidden noundef ptr @_ZN3std2fs14create_dir_all17h683f2866342bcf1bE(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i = load i64, ptr %5, align 8, !noundef !6
   %6 = call noundef ptr @_ZN3std2fs10DirBuilder7_create17hca32fd9ed68ebc08E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %6
 }
 
@@ -438,10 +438,10 @@ declare { i32, i32 } @_ZN5wasmi4func7funcref7FuncRef4null17h851dc3d435b5ee8dE() 
 declare { i32, i32 } @_ZN5wasmi9externref9ExternRef4null17hc7838b5ef9f14d38E() unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9

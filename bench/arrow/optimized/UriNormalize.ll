@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @uriNormalizeSyntaxMaskRequiredA(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.UriUriStructA, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %uriNormalizeSyntaxMaskRequiredExA.exit, label %5
 
@@ -31,18 +31,15 @@ define i32 @uriNormalizeSyntaxMaskRequiredA(ptr noundef readonly captures(addres
 
 uriNormalizeSyntaxMaskRequiredExA.exit:           ; preds = %1, %5
   %7 = phi i32 [ 0, %1 ], [ %.pre, %5 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExA(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.UriUriStructA, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -55,20 +52,17 @@ define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExA(ptr noundef readon
 
 8:                                                ; preds = %2, %6
   %.0 = phi i32 [ 0, %6 ], [ 2, %2 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineA(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineA(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = icmp eq ptr %0, null
   %.not211 = icmp eq ptr %2, null
@@ -1312,7 +1306,7 @@ uriMakeOwnerA.exit:                               ; preds = %.thread.i102.i, %58
 
 603:                                              ; preds = %.thread311, %421, %.thread310, %uriMakeOwnerA.exit, %306, %319, %10, %7, %601, %418, %402, %233, %169, %143, %101, %8
   %.0 = phi i32 [ 0, %8 ], [ 3, %601 ], [ 3, %418 ], [ 3, %402 ], [ 3, %233 ], [ 3, %143 ], [ 3, %169 ], [ 3, %101 ], [ 2, %7 ], [ 0, %10 ], [ 3, %319 ], [ 3, %306 ], [ 0, %uriMakeOwnerA.exit ], [ 0, %.thread310 ], [ 0, %421 ], [ 0, %.thread311 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1342,7 +1336,7 @@ define range(i32 0, 11) i32 @uriNormalizeSyntaxExMmA(ptr noundef %0, i32 noundef
   ret i32 %.05
 }
 
-declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #4
+declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 4) i32 @uriNormalizeSyntaxA(ptr noundef %0) local_unnamed_addr #0 {
@@ -1354,9 +1348,9 @@ define range(i32 0, 4) i32 @uriNormalizeSyntaxA(ptr noundef %0) local_unnamed_ad
 define i32 @uriNormalizeSyntaxMaskRequiredW(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.UriUriStructW, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %uriNormalizeSyntaxMaskRequiredExW.exit, label %5
 
@@ -1368,15 +1362,15 @@ define i32 @uriNormalizeSyntaxMaskRequiredW(ptr noundef readonly captures(addres
 
 uriNormalizeSyntaxMaskRequiredExW.exit:           ; preds = %1, %5
   %7 = phi i32 [ 0, %1 ], [ %.pre, %5 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExW(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.UriUriStructW, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1389,14 +1383,14 @@ define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExW(ptr noundef readon
 
 8:                                                ; preds = %2, %6
   %.0 = phi i32 [ 0, %6 ], [ 2, %2 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineW(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineW(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = icmp eq ptr %0, null
   %.not211 = icmp eq ptr %2, null
@@ -2657,7 +2651,7 @@ uriMakeOwnerW.exit:                               ; preds = %.thread.i102.i, %60
 
 626:                                              ; preds = %.thread305, %432, %.thread304, %uriMakeOwnerW.exit, %317, %330, %10, %7, %624, %429, %413, %244, %179, %153, %107, %8
   %.0 = phi i32 [ 0, %8 ], [ 3, %624 ], [ 3, %429 ], [ 3, %413 ], [ 3, %244 ], [ 3, %153 ], [ 3, %179 ], [ 3, %107 ], [ 2, %7 ], [ 0, %10 ], [ 3, %330 ], [ 3, %317 ], [ 0, %uriMakeOwnerW.exit ], [ 0, %.thread304 ], [ 0, %432 ], [ 0, %.thread305 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -2694,7 +2688,7 @@ define range(i32 0, 4) i32 @uriNormalizeSyntaxW(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @uriPreventLeakageA(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @uriPreventLeakageA(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -2842,7 +2836,7 @@ define internal fastcc void @uriPreventLeakageA(ptr noundef nonnull captures(non
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @uriFixPercentEncodingInplaceA(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @uriFixPercentEncodingInplaceA(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %50, label %4
 
@@ -2947,7 +2941,7 @@ uriFixPercentEncodingEngineA.exit:                ; preds = %.lr.ph49.i, %.prehe
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocA(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocA(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !24
   %5 = icmp eq ptr %4, null
   br i1 %5, label %67, label %6
@@ -3075,18 +3069,18 @@ uriFixPercentEncodingEngineA.exit:                ; preds = %.lr.ph49.i, %.prehe
   ret i32 %.0
 }
 
-declare i32 @uriRemoveDotSegmentsExA(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @uriRemoveDotSegmentsExA(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @uriFixEmptyTrailSegmentA(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @uriFixEmptyTrailSegmentA(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i8 @uriHexdigToIntA(i8 noundef signext) local_unnamed_addr #4
+declare zeroext i8 @uriHexdigToIntA(i8 noundef signext) local_unnamed_addr #3
 
-declare i32 @uriIsUnreserved(i32 noundef) local_unnamed_addr #4
+declare i32 @uriIsUnreserved(i32 noundef) local_unnamed_addr #3
 
-declare signext i8 @uriHexToLetterA(i32 noundef) local_unnamed_addr #4
+declare signext i8 @uriHexToLetterA(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 33) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 33) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %6 = and i32 %5, %1
   %7 = icmp eq i32 %6, 0
@@ -3131,7 +3125,7 @@ define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr noundef nonnu
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @uriPreventLeakageW(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @uriPreventLeakageW(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -3279,7 +3273,7 @@ define internal fastcc void @uriPreventLeakageW(ptr noundef nonnull captures(non
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @uriFixPercentEncodingInplaceW(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @uriFixPercentEncodingInplaceW(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %48, label %4
 
@@ -3383,7 +3377,7 @@ uriFixPercentEncodingEngineW.exit:                ; preds = %.lr.ph50.i, %.prehe
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !66
   %5 = icmp eq ptr %4, null
   br i1 %5, label %66, label %6
@@ -3511,16 +3505,16 @@ uriFixPercentEncodingEngineW.exit:                ; preds = %.lr.ph50.i, %.prehe
   ret i32 %.0
 }
 
-declare i32 @uriRemoveDotSegmentsExW(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @uriRemoveDotSegmentsExW(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i8 @uriHexdigToIntW(i32 noundef) local_unnamed_addr #4
+declare zeroext i8 @uriHexdigToIntW(i32 noundef) local_unnamed_addr #3
 
-declare i32 @uriHexToLetterW(i32 noundef) local_unnamed_addr #4
+declare i32 @uriHexToLetterW(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 33) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 33) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %6 = and i32 %5, %1
   %7 = icmp eq i32 %6, 0
@@ -3566,14 +3560,20 @@ define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr noundef nonnu
   ret i32 %.1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

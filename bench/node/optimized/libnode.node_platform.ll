@@ -1548,7 +1548,7 @@ while.end:                                        ; preds = %_ZN4node9TaskQueueI
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %__cur.04.i.i.ptr.i.i.i.i, align 8, !noalias !46
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 512
   %task_queue_.i4 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %tasks, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tasks, ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i4, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i4, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !46
@@ -1568,7 +1568,7 @@ while.end:                                        ; preds = %_ZN4node9TaskQueueI
   store ptr %add.ptr.i.i.i.i.i.i, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !46
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store ptr %__cur.04.i.i.ptr.i.i.i.i, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
   tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #25, !noalias !46
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %tasks, i64 48
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %tasks, i64 16
@@ -2028,7 +2028,7 @@ define dso_local void @_ZThn8_N4node22PerIsolatePlatformData19PostNonNestableTas
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.22", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %1 = load i64, ptr %task, align 8
   store i64 %1, ptr %agg.tmp.i, align 8
   store ptr null, ptr %task, align 8
@@ -2048,7 +2048,7 @@ _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i: ; preds = %entry
   br label %_ZN4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE.exit
 
 _ZN4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE.exit: ; preds = %entry, %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -2083,7 +2083,7 @@ define dso_local void @_ZThn8_N4node22PerIsolatePlatformData26PostNonNestableDel
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.22", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %1 = load i64, ptr %task, align 8
   store i64 %1, ptr %agg.tmp.i, align 8
   store ptr null, ptr %task, align 8
@@ -2103,7 +2103,7 @@ _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i: ; preds = %entry
   br label %_ZN4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd.exit
 
 _ZN4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd.exit: ; preds = %entry, %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -2316,8 +2316,8 @@ entry:
   %6 = load ptr, ptr %_M_last4.i.i4.i.i, align 8, !noalias !57
   %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %7 = load ptr, ptr %_M_node5.i.i6.i.i, align 8, !noalias !57
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i)
   store ptr %0, ptr %agg.tmp.i.i.i, align 8
   %_M_first.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i.i7.i.i, align 8
@@ -2333,8 +2333,8 @@ entry:
   %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i, align 8
   call void @_ZNSt5dequeISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE19_M_destroy_data_auxESt15_Deque_iteratorIS5_RS5_PS5_ESB_(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i)
   %8 = load ptr, ptr %task_queue_, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEED2Ev.exit, label %if.then.i.i.i
@@ -2501,7 +2501,7 @@ if.end:                                           ; preds = %entry
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %__cur.04.i.i.ptr.i.i.i.i, align 8, !noalias !61
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 512
   %task_queue_.i = getelementptr inbounds nuw i8, ptr %this, i64 472
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !61
@@ -2521,7 +2521,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !61
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 544
   store ptr %__cur.04.i.i.ptr.i.i.i.i, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !61
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
   tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #25, !noalias !61
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.ensured, i64 16
   %1 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !64
@@ -2539,8 +2539,8 @@ if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %_M_last4.i.i4.i.i, align 8, !noalias !67
   %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.ensured, i64 72
   %8 = load ptr, ptr %_M_node5.i.i6.i.i, align 8, !noalias !67
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i)
   store ptr %1, ptr %agg.tmp.i.i.i, align 8
   %_M_first.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %2, ptr %_M_first.i.i7.i.i, align 8
@@ -2556,8 +2556,8 @@ if.end:                                           ; preds = %entry
   %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %8, ptr %_M_node.i5.i.i.i, align 8
   call void @_ZNSt5dequeISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE19_M_destroy_data_auxESt15_Deque_iteratorIS5_RS5_PS5_ESB_(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i)
   %9 = load ptr, ptr %agg.tmp.ensured, align 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEED2Ev.exit, label %if.then.i.i.i
@@ -2599,7 +2599,7 @@ _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeI
   store ptr %call5.i.i.i.i.i.i.i.i.i5, ptr %__cur.04.i.i.ptr.i.i.i.i4, align 8, !noalias !70
   %add.ptr.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i5, i64 512
   %task_queue_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured2, ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i7, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i7, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i1, i64 16, i1 false), !noalias !70
@@ -2619,7 +2619,7 @@ _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeI
   store ptr %add.ptr.i.i.i.i.i.i6, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i14, align 8, !noalias !70
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 320
   store ptr %__cur.04.i.i.ptr.i.i.i.i4, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i15, align 8, !noalias !70
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i1)
   call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #25, !noalias !70
   call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured2) #25
   %scheduled_delayed_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 552
@@ -3737,7 +3737,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %isolate_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #25
   br i1 %call.i, label %if.end.i, label %if.else.sink.split
 
@@ -3774,7 +3774,7 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18Cont
   %9 = inttoptr i64 %sub.i.i.i to ptr
   %10 = load i64, ptr %9, align 8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   %cmp.not = icmp eq i64 %10, 0
   br i1 %cmp.not, label %if.else, label %if.then5
 
@@ -3796,7 +3796,7 @@ if.then5:                                         ; preds = %_ZN4node11Environme
   br label %if.end19
 
 if.else.sink.split:                               ; preds = %if.end, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %if.else
 
 if.else:                                          ; preds = %if.else.sink.split, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
@@ -4308,7 +4308,7 @@ entry:
   %0 = load ptr, ptr %worker_thread_task_runner_, align 8
   %1 = load i64, ptr %task, align 8
   store ptr null, ptr %task, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 %1, ptr %agg.tmp.i, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(256) %0) #25
   %outstanding_tasks_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -4352,7 +4352,7 @@ _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i: ; preds = %_ZN4node9TaskQueu
   br label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i, %_ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -4364,7 +4364,7 @@ entry:
   %0 = load ptr, ptr %worker_thread_task_runner_, align 8
   %1 = load i64, ptr %task, align 8
   store ptr null, ptr %task, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %delayed_task_scheduler_.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %2 = load ptr, ptr %delayed_task_scheduler_.i, align 8
   store i64 %1, ptr %agg.tmp.i, align 8
@@ -4381,7 +4381,7 @@ _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i: ; preds = %entry
   br label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i, %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -5420,10 +5420,10 @@ _ZNSt10unique_ptrI10uv_timer_sSt14default_deleteIS0_EED2Ev.exit: ; preds = %do.e
   %3 = load ptr, ptr %scheduler_, align 8
   %timers_ = getelementptr inbounds nuw i8, ptr %3, i64 1240
   store ptr %call2, ptr %ref.tmp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i)
   store ptr %timers_, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIP10uv_timer_sS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIS1_S1_NS3_10_AllocNodeISaINS3_10_Hash_nodeIS1_Lb0EEEEEEEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %timers_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i)
   ret void
 }
 
@@ -5440,7 +5440,7 @@ entry:
   %pending_worker_tasks_ = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %pending_worker_tasks_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %timer.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %timer.addr.i)
   store ptr %timer, ptr %timer.addr.i, align 8, !noalias !112
   %4 = load ptr, ptr %timer, align 8, !noalias !112
   store ptr %4, ptr %agg.tmp, align 8, !alias.scope !112
@@ -5448,7 +5448,7 @@ entry:
   tail call void @uv_close(ptr noundef nonnull %timer, ptr noundef nonnull @_ZZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler13TakeTimerTaskEP10uv_timer_sENUlP11uv_handle_sE_8__invokeES5_) #25, !noalias !112
   %timers_.i = getelementptr inbounds nuw i8, ptr %2, i64 1240
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableIP10uv_timer_sS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %timers_.i, ptr noundef nonnull align 8 dereferenceable(8) %timer.addr.i), !noalias !112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timer.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %timer.addr.i)
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %3) #25
   %outstanding_tasks_.i = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load i32, ptr %outstanding_tasks_.i, align 8
@@ -6049,14 +6049,14 @@ for.body18:                                       ; preds = %for.cond16.preheade
   %__begin210.sroa.0.028 = phi ptr [ %incdec.ptr.i6, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit ], [ %timers.sroa.0.1, %for.cond16.preheader ]
   %4 = load ptr, ptr %__begin210.sroa.0.028, align 8
   %5 = load ptr, ptr %scheduler_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %timer.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %timer.addr.i)
   store ptr %4, ptr %timer.addr.i, align 8, !noalias !120
   %6 = load ptr, ptr %4, align 8, !noalias !120
   %call.i = call i32 @uv_timer_stop(ptr noundef nonnull %4) #25, !noalias !120
   call void @uv_close(ptr noundef nonnull %4, ptr noundef nonnull @_ZZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler13TakeTimerTaskEP10uv_timer_sENUlP11uv_handle_sE_8__invokeES5_) #25, !noalias !120
   %timers_.i = getelementptr inbounds nuw i8, ptr %5, i64 1240
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableIP10uv_timer_sS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %timers_.i, ptr noundef nonnull align 8 dereferenceable(8) %timer.addr.i), !noalias !120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timer.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %timer.addr.i)
   %cmp.not.i5 = icmp eq ptr %6, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
 
@@ -8414,10 +8414,10 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21

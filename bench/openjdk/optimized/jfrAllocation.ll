@@ -53,7 +53,7 @@ _ZL22hook_memory_allocationPKcm.exit:             ; preds = %2, %6, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.NativeCallStack, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %6
@@ -85,7 +85,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef %0) local_unnamed_ad
   unreachable
 
 _ZN11JfrCHeapObjnwEmRKSt9nothrow_t.exit:          ; preds = %6, %11, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %7
 }
 
@@ -131,7 +131,7 @@ declare void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11JfrCHeapObjnaEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.NativeCallStack, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %6
@@ -163,7 +163,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObjnaEm(i64 noundef %0) local_unnamed_ad
   unreachable
 
 _ZN11JfrCHeapObjnaEmRKSt9nothrow_t.exit:          ; preds = %6, %11, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %7
 }
 
@@ -317,10 +317,10 @@ declare void @llvm.va_end.p0(ptr) #4
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

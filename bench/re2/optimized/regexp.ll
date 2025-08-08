@@ -375,7 +375,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %s.i)
   %str_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i.i, ptr noundef nonnull @.str.5)
           to label %call2.i.noexc unwind label %terminate.lpad
@@ -391,7 +391,7 @@ _ZN10LogMessage5FlushEv.exit:                     ; preds = %call2.i.noexc
   %call5.i = call i64 @fwrite(ptr noundef %call4.i, i64 noundef 1, i64 noundef %call3.i, ptr noundef %1) #29
   store i8 1, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10LogMessage5FlushEv.exit, %entry
@@ -1031,8 +1031,8 @@ if.end21:                                         ; preds = %for.body
   br i1 %cmp24, label %if.then.i, label %if.else
 
 if.then.i:                                        ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp16.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp16.i)
   call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN3re2L11ref_storageE)
   %11 = ptrtoint ptr %9 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %11, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
@@ -1182,8 +1182,8 @@ terminate.lpad.i3.i:                              ; preds = %if.end.i
   unreachable
 
 _ZN3re26Regexp6DecrefEv.exit:                     ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp16.i)
   %.pr = load i16, ptr %ref_22, align 4
   br label %if.end27
 
@@ -5562,8 +5562,8 @@ if.end.thread:                                    ; preds = %if.then
   %4 = getelementptr inbounds nuw i8, ptr %re, i64 24
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %ref.tmp, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %add.ptr.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call6, i64 8
   br label %if.then.i
 
@@ -5573,8 +5573,8 @@ if.end:                                           ; preds = %if.then
   %6 = getelementptr inbounds nuw i8, ptr %re, i64 24
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %ref.tmp, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp.not5.i.i.i.i = icmp eq ptr %.pre6, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
@@ -5614,8 +5614,8 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
   %12 = phi ptr [ %10, %if.then.i ], [ %1, %lor.rhs.i ]
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %call12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br label %if.end13
 
@@ -7097,10 +7097,10 @@ declare i32 @llvm.ctpop.i32(i32) #22
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

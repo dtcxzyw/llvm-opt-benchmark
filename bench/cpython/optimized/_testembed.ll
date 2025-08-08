@@ -1369,17 +1369,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_repeated_init_exec() #0 {
@@ -1443,7 +1437,7 @@ define internal range(i32 0, 2) i32 @test_repeated_init_exec() #0 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal noundef i32 @test_repeated_simple_init() #4 {
+define internal noundef i32 @test_repeated_simple_init() #3 {
   br label %2
 
 1:                                                ; preds = %2
@@ -1578,12 +1572,12 @@ define internal i32 @test_repeated_init_and_inittab() #0 {
   br label %.loopexit
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_audit_run_command.argv, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   store i32 1, ptr %5, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, i64 noundef 3, ptr noundef nonnull %3) #20
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i = icmp eq i32 %15, 0
@@ -1595,8 +1589,8 @@ define internal i32 @test_repeated_init_and_inittab() #0 {
   unreachable
 
 config_set_argv.exit:                             ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %17 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -1608,11 +1602,11 @@ config_set_argv.exit:                             ; preds = %14
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %19 = call i32 @Py_RunMain() #20
   %.not12 = icmp eq i32 %19, 0
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not12, label %6, label %.loopexit
 
 .loopexit:                                        ; preds = %6, %init_from_config_clear.exit, %11
@@ -1748,7 +1742,7 @@ define internal noundef i32 @test_pre_initialization_sys_options() #0 {
 define internal range(i32 0, 2) i32 @test_bpo20891() #0 {
   %1 = alloca ptr, align 8
   %2 = tail call i32 @putenv(ptr noundef nonnull @.str.90) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = tail call ptr @PyThread_allocate_lock() #20
   store ptr %3, ptr %1, align 8, !tbaa !41
   %.not = icmp eq ptr %3, null
@@ -1782,7 +1776,7 @@ define internal range(i32 0, 2) i32 @test_bpo20891() #0 {
 
 16:                                               ; preds = %8, %9, %4
   %.0 = phi i32 [ 1, %4 ], [ 1, %8 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1797,12 +1791,12 @@ define internal noundef i32 @test_initialize_twice() #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_initialize_pymain() #0 {
   %1 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_initialize_pymain.argv, i64 32, i1 false)
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
   %2 = call i32 @Py_Main(i32 noundef 4, ptr noundef nonnull %1) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 0
 }
 
@@ -1872,7 +1866,7 @@ define internal noundef i32 @test_init_from_config() #0 {
   %14 = alloca [8 x ptr], align 16
   %15 = alloca [3 x ptr], align 16
   %16 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %11) #20
   %17 = call i32 @putenv(ptr noundef nonnull @.str.132) #20
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 36
@@ -1881,7 +1875,7 @@ define internal noundef i32 @test_init_from_config() #0 {
   store i32 0, ptr @Py_UTF8Mode, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 1, ptr %20, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %11) #20
   %21 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #20
   %.not = icmp eq i32 %21, 0
@@ -1892,7 +1886,7 @@ define internal noundef i32 @test_init_from_config() #0 {
   unreachable
 
 23:                                               ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %13) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %13) #20
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %24, align 8, !tbaa !45
@@ -1920,7 +1914,7 @@ define internal noundef i32 @test_init_from_config() #0 {
   store i32 1, ptr %38, align 8, !tbaa !53
   %39 = call i32 @putenv(ptr noundef nonnull @.str.139) #20
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %10, ptr noundef nonnull %13, ptr noundef nonnull %40, ptr noundef nonnull @.str.140) #20
   %41 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %10) #20
   %.not.i = icmp eq i32 %41, 0
@@ -1932,10 +1926,10 @@ define internal noundef i32 @test_init_from_config() #0 {
   unreachable
 
 config_set_string.exit:                           ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @Py_SetProgramName(ptr noundef nonnull @.str.125) #20
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef nonnull %13, ptr noundef nonnull %43, ptr noundef nonnull @.str.141) #20
   %44 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %9) #20
   %.not.i1 = icmp eq i32 %44, 0
@@ -1947,10 +1941,10 @@ config_set_string.exit:                           ; preds = %23
   unreachable
 
 config_set_string.exit2:                          ; preds = %config_set_string.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #20
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, ptr noundef nonnull align 16 dereferenceable(64) @__const.test_init_from_config.argv, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef nonnull %13, i64 noundef 8, ptr noundef nonnull %14) #20
   %46 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %8) #20
   %.not.i3 = icmp eq i32 %46, 0
@@ -1962,13 +1956,13 @@ config_set_string.exit2:                          ; preds = %config_set_string.e
   unreachable
 
 config_set_argv.exit:                             ; preds = %config_set_string.exit2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store i32 1, ptr %48, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_init_from_config.xoptions, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @PyConfig_SetWideStringList(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %13, ptr noundef nonnull %49, i64 noundef 3, ptr noundef nonnull %15) #20
   %50 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %7) #20
   %.not.i4 = icmp eq i32 %50, 0
@@ -1980,11 +1974,11 @@ config_set_argv.exit:                             ; preds = %config_set_string.e
   unreachable
 
 config_set_wide_string_list.exit:                 ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 ptrtoint (ptr @.str.150 to i64), ptr %16, align 8
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @PyConfig_SetWideStringList(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %13, ptr noundef nonnull %52, i64 noundef 1, ptr noundef nonnull %16) #20
   %53 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
   %.not.i5 = icmp eq i32 %53, 0
@@ -1996,10 +1990,10 @@ config_set_wide_string_list.exit:                 ; preds = %config_set_argv.exi
   unreachable
 
 config_set_wide_string_list.exit6:                ; preds = %config_set_wide_string_list.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = call i32 @putenv(ptr noundef nonnull @.str.151) #20
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 304
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %13, ptr noundef nonnull %56, ptr noundef nonnull @.str.152) #20
   %57 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not.i7 = icmp eq i32 %57, 0
@@ -2011,7 +2005,7 @@ config_set_wide_string_list.exit6:                ; preds = %config_set_wide_str
   unreachable
 
 config_set_string.exit8:                          ; preds = %config_set_wide_string_list.exit6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %59 = call i32 @putenv(ptr noundef nonnull @.str.130) #20
   store i32 0, ptr @Py_VerboseFlag, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 208
@@ -2048,7 +2042,7 @@ config_set_string.exit8:                          ; preds = %config_set_wide_str
   store i32 0, ptr %73, align 8, !tbaa !64
   %74 = call i32 @putenv(ptr noundef nonnull @.str.153) #20
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 232
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %13, ptr noundef nonnull %75, ptr noundef nonnull @.str.74) #20
   %76 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not.i9 = icmp eq i32 %76, 0
@@ -2060,9 +2054,9 @@ config_set_string.exit8:                          ; preds = %config_set_wide_str
   unreachable
 
 config_set_string.exit10:                         ; preds = %config_set_string.exit8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 240
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %13, ptr noundef nonnull %78, ptr noundef nonnull @.str.76) #20
   %79 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i11 = icmp eq i32 %79, 0
@@ -2074,13 +2068,13 @@ config_set_string.exit10:                         ; preds = %config_set_string.e
   unreachable
 
 config_set_string.exit12:                         ; preds = %config_set_string.exit10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %81 = call i32 @putenv(ptr noundef nonnull @.str.154) #20
   store i32 0, ptr @Py_NoUserSiteDirectory, align 4, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 216
   store i32 0, ptr %82, align 8, !tbaa !65
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 248
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %13, ptr noundef nonnull %83, ptr noundef nonnull @.str.155) #20
   %84 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i13 = icmp eq i32 %84, 0
@@ -2092,7 +2086,7 @@ config_set_string.exit12:                         ; preds = %config_set_string.e
   unreachable
 
 config_set_string.exit14:                         ; preds = %config_set_string.exit12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr @Py_FrozenFlag, align 4, !tbaa !4
   %86 = getelementptr inbounds nuw i8, ptr %13, i64 272
   store i32 0, ptr %86, align 8, !tbaa !66
@@ -2103,7 +2097,7 @@ config_set_string.exit14:                         ; preds = %config_set_string.e
   store i32 31337, ptr %89, align 8, !tbaa !68
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 268
   store i32 4321, ptr %90, align 4, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %13) #20
   call void @PyConfig_Clear(ptr noundef nonnull %13) #20
   %91 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2115,15 +2109,15 @@ config_set_string.exit14:                         ; preds = %config_set_string.e
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %93 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 0
 }
 
@@ -2155,10 +2149,10 @@ define internal noundef i32 @test_init_python_env() #0 {
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.PyConfig, align 8
   tail call fastcc void @set_all_env_vars()
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.68) #20
   %5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %5, 0
@@ -2170,8 +2164,8 @@ define internal noundef i32 @test_init_python_env() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %3) #20
   call void @PyConfig_Clear(ptr noundef nonnull %3) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2183,10 +2177,10 @@ config_set_program_name.exit:                     ; preds = %0
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %9 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2222,7 +2216,7 @@ define internal noundef i32 @test_init_dont_configure_locale() #0 {
   %3 = alloca %struct.PyPreConfig, align 4
   %4 = alloca %struct.PyStatus, align 8
   %5 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %3) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %6, align 4, !tbaa !70
@@ -2230,7 +2224,7 @@ define internal noundef i32 @test_init_dont_configure_locale() #0 {
   store i32 1, ptr %7, align 4, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %8, align 4, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %3) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not = icmp eq i32 %9, 0
@@ -2241,10 +2235,10 @@ define internal noundef i32 @test_init_dont_configure_locale() #0 {
   unreachable
 
 11:                                               ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %5) #20
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull @.str.68) #20
   %13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %13, 0
@@ -2256,8 +2250,8 @@ define internal noundef i32 @test_init_dont_configure_locale() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2269,12 +2263,12 @@ config_set_program_name.exit:                     ; preds = %11
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %17 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2283,14 +2277,14 @@ define internal noundef i32 @test_init_dev_mode() #0 {
   %1 = alloca %struct.PyStatus, align 8
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %3) #20
   %4 = call i32 @putenv(ptr noundef nonnull @.str.134) #20
   %5 = call i32 @putenv(ptr noundef nonnull @.str.90) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4, !tbaa !73
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull @.str.68) #20
   %8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %8, 0
@@ -2302,8 +2296,8 @@ define internal noundef i32 @test_init_dev_mode() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %3) #20
   call void @PyConfig_Clear(ptr noundef nonnull %3) #20
   %10 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2315,10 +2309,10 @@ config_set_program_name.exit:                     ; preds = %0
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %12 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2327,7 +2321,7 @@ define internal noundef i32 @test_init_isolated_flag() #0 {
   %1 = alloca %struct.PyStatus, align 8
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %3) #20
   store i32 0, ptr @Py_IsolatedFlag, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2339,7 +2333,7 @@ define internal noundef i32 @test_init_isolated_flag() #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i32 1, ptr %7, align 8, !tbaa !65
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull @.str.68) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %9, 0
@@ -2351,9 +2345,9 @@ define internal noundef i32 @test_init_isolated_flag() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call fastcc void @set_all_env_vars()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %3) #20
   call void @PyConfig_Clear(ptr noundef nonnull %3) #20
   %11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2365,10 +2359,10 @@ config_set_program_name.exit:                     ; preds = %0
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %13 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2403,11 +2397,11 @@ define internal noundef i32 @test_preinit_isolated1() #0 {
   %3 = alloca %struct.PyPreConfig, align 4
   %4 = alloca %struct.PyStatus, align 8
   %5 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %3) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %6, align 4, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %3) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not = icmp eq i32 %7, 0
@@ -2418,10 +2412,10 @@ define internal noundef i32 @test_preinit_isolated1() #0 {
   unreachable
 
 9:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %5) #20
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull @.str.68) #20
   %11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %11, 0
@@ -2433,9 +2427,9 @@ define internal noundef i32 @test_preinit_isolated1() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call fastcc void @set_all_env_vars()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2447,12 +2441,12 @@ config_set_program_name.exit:                     ; preds = %9
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %15 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2463,11 +2457,11 @@ define internal noundef i32 @test_preinit_isolated2() #0 {
   %3 = alloca %struct.PyPreConfig, align 4
   %4 = alloca %struct.PyStatus, align 8
   %5 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %3) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 4, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %3) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not = icmp eq i32 %7, 0
@@ -2478,13 +2472,13 @@ define internal noundef i32 @test_preinit_isolated2() #0 {
   unreachable
 
 9:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %5) #20
   store i32 0, ptr @Py_IsolatedFlag, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %10, align 4, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull @.str.68) #20
   %12 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %12, 0
@@ -2496,9 +2490,9 @@ define internal noundef i32 @test_preinit_isolated2() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call fastcc void @set_all_env_vars()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2510,12 +2504,12 @@ config_set_program_name.exit:                     ; preds = %9
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %16 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2526,11 +2520,11 @@ define internal noundef i32 @test_preinit_parse_argv() #0 {
   %3 = alloca %struct.PyStatus, align 8
   %4 = alloca %struct.PyConfig, align 8
   %5 = alloca [5 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.test_preinit_parse_argv.argv, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, i64 noundef 5, ptr noundef nonnull %5) #20
   %6 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %6, 0
@@ -2542,9 +2536,9 @@ define internal noundef i32 @test_preinit_parse_argv() #0 {
   unreachable
 
 config_set_argv.exit:                             ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull @.str.68) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %9, 0
@@ -2556,8 +2550,8 @@ config_set_argv.exit:                             ; preds = %0
   unreachable
 
 config_set_program_name.exit:                     ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2569,11 +2563,11 @@ config_set_program_name.exit:                     ; preds = %config_set_argv.exi
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %13 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -2586,13 +2580,13 @@ define internal noundef i32 @test_preinit_dont_parse_argv() #0 {
   %5 = alloca [9 x ptr], align 16
   %6 = alloca %struct.PyStatus, align 8
   %7 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %4) #20
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %8, align 4, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, ptr noundef nonnull align 16 dereferenceable(72) @__const.test_preinit_dont_parse_argv.argv, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Py_PreInitializeFromArgs(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull %5) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
   %.not = icmp eq i32 %9, 0
@@ -2603,11 +2597,11 @@ define internal noundef i32 @test_preinit_dont_parse_argv() #0 {
   unreachable
 
 11:                                               ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %7) #20
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %12, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %7, i64 noundef 9, ptr noundef nonnull %5) #20
   %13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %13, 0
@@ -2619,9 +2613,9 @@ define internal noundef i32 @test_preinit_dont_parse_argv() #0 {
   unreachable
 
 config_set_argv.exit:                             ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %7, ptr noundef nonnull %15, ptr noundef nonnull @.str.68) #20
   %16 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %16, 0
@@ -2633,8 +2627,8 @@ config_set_argv.exit:                             ; preds = %11
   unreachable
 
 config_set_program_name.exit:                     ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %7) #20
   call void @PyConfig_Clear(ptr noundef nonnull %7) #20
   %18 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2646,13 +2640,13 @@ config_set_program_name.exit:                     ; preds = %config_set_argv.exi
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %20 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -2665,11 +2659,11 @@ define internal noundef i32 @test_init_read_set() #0 {
   %5 = alloca %struct.PyConfig, align 8
   %6 = alloca %struct.PyStatus, align 8
   %7 = alloca %struct.PyStatus, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %5) #20
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull @.str.190) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %9, 0
@@ -2681,34 +2675,34 @@ define internal noundef i32 @test_init_read_set() #0 {
   unreachable
 
 config_set_string.exit:                           ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %5) #20
   %11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %24
 
 12:                                               ; preds = %config_set_string.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 320
   call void @PyWideStringList_Insert(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %13, i64 noundef 1, ptr noundef nonnull @.str.191) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not1 = icmp eq i32 %14, 0
   br i1 %.not1, label %15, label %24
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %13, ptr noundef nonnull @.str.192) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not2 = icmp eq i32 %16, 0
   br i1 %.not2, label %17, label %24
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull @.str.193) #20
   %19 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i3 = icmp eq i32 %19, 0
@@ -2720,8 +2714,8 @@ config_set_string.exit:                           ; preds = %0
   unreachable
 
 config_set_string.exit4:                          ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %21 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2733,11 +2727,11 @@ config_set_string.exit4:                          ; preds = %17
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %23 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 
 24:                                               ; preds = %15, %12, %config_set_string.exit
@@ -2753,13 +2747,13 @@ define internal i32 @test_init_run_main() #0 {
   %3 = alloca %struct.PyStatus, align 8
   %4 = alloca [4 x ptr], align 16
   %5 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %5) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @__const.configure_init_main.argv, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 1, ptr %6, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %4) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i.i = icmp eq i32 %7, 0
@@ -2771,9 +2765,9 @@ define internal i32 @test_init_run_main() #0 {
   unreachable
 
 config_set_argv.exit.i:                           ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull @.str.195) #20
   %10 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i4.i = icmp eq i32 %10, 0
@@ -2785,9 +2779,9 @@ config_set_argv.exit.i:                           ; preds = %0
   unreachable
 
 configure_init_main.exit:                         ; preds = %config_set_argv.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %12 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2799,9 +2793,9 @@ configure_init_main.exit:                         ; preds = %config_set_argv.exi
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %configure_init_main.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %14 = call i32 @Py_RunMain() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %14
 }
 
@@ -2817,11 +2811,11 @@ define internal noundef i32 @test_init_sys_add() #0 {
   tail call void @PySys_AddXOption(ptr noundef nonnull @.str.196) #20
   tail call void @PySys_AddXOption(ptr noundef nonnull @.str.197) #20
   tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.198) #20
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.test_init_sys_add.argv, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, i64 noundef 5, ptr noundef nonnull %5) #20
   %8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %8, 0
@@ -2833,10 +2827,10 @@ define internal noundef i32 @test_init_sys_add() #0 {
   unreachable
 
 config_set_argv.exit:                             ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 1, ptr %10, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %11, ptr noundef nonnull @.str.200) #20
   %12 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
@@ -2844,18 +2838,18 @@ config_set_argv.exit:                             ; preds = %0
   br i1 %.not, label %13, label %23
 
 13:                                               ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 160
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %14, ptr noundef nonnull @.str.201) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
   %.not1 = icmp eq i32 %15, 0
   br i1 %.not1, label %16, label %23
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, ptr noundef nonnull %17, ptr noundef nonnull @.str.68) #20
   %18 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %18, 0
@@ -2867,8 +2861,8 @@ config_set_argv.exit:                             ; preds = %0
   unreachable
 
 config_set_program_name.exit:                     ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -2880,12 +2874,12 @@ config_set_program_name.exit:                     ; preds = %16
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %22 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 
 23:                                               ; preds = %13, %config_set_argv.exit
@@ -2935,9 +2929,9 @@ define internal range(i32 0, 2) i32 @test_init_setpath_config() #0 {
   %4 = alloca %struct.PyPreConfig, align 4
   %5 = alloca %struct.PyStatus, align 8
   %6 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %4) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not = icmp eq i32 %7, 0
@@ -2969,10 +2963,10 @@ define internal range(i32 0, 2) i32 @test_init_setpath_config() #0 {
   call void @Py_SetPath(ptr noundef nonnull %13) #20
   call void @PyMem_RawFree(ptr noundef nonnull %13) #20
   %17 = call i32 @putenv(ptr noundef nonnull @.str.205) #20
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %6) #20
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %6, ptr noundef nonnull %18, ptr noundef nonnull @.str.206) #20
   %19 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %19, 0
@@ -2984,9 +2978,9 @@ define internal range(i32 0, 2) i32 @test_init_setpath_config() #0 {
   unreachable
 
 config_set_string.exit:                           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 344
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef nonnull @.str.207) #20
   %22 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i8 = icmp eq i32 %22, 0
@@ -2998,8 +2992,8 @@ config_set_string.exit:                           ; preds = %16
   unreachable
 
 config_set_string.exit9:                          ; preds = %config_set_string.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %6) #20
   call void @PyConfig_Clear(ptr noundef nonnull %6) #20
   %24 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -3011,16 +3005,16 @@ config_set_string.exit9:                          ; preds = %config_set_string.e
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %26 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 27:                                               ; preds = %15, %init_from_config_clear.exit, %11
   %.0 = phi i32 [ 1, %11 ], [ 1, %15 ], [ 0, %init_from_config_clear.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3082,10 +3076,10 @@ define internal range(i32 0, 2) i32 @test_init_is_python_build() #0 {
   br label %32
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %5) #20
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull @.str.68) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not.i.i = icmp eq i32 %14, 0
@@ -3097,9 +3091,9 @@ define internal range(i32 0, 2) i32 @test_init_is_python_build() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef nonnull %9) #20
   %17 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %17, 0
@@ -3111,7 +3105,7 @@ config_set_program_name.exit:                     ; preds = %12
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @PyMem_RawFree(ptr noundef nonnull %9) #20
   %19 = call i32 @putenv(ptr noundef nonnull @.str.211) #20
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 440
@@ -3136,7 +3130,7 @@ sub_0:                                            ; preds = %config_set_string.e
   br label %26
 
 26:                                               ; preds = %.tail.thread, %.tail, %config_set_string.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %27 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -3148,10 +3142,10 @@ sub_0:                                            ; preds = %config_set_string.e
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @Py_Finalize() #20
   store i32 -1, ptr %20, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
   %29 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -3163,10 +3157,10 @@ init_from_config_clear.exit:                      ; preds = %26
   unreachable
 
 init_from_config_clear.exit14:                    ; preds = %init_from_config_clear.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %31 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 32:                                               ; preds = %11, %init_from_config_clear.exit14, %7
@@ -3188,14 +3182,14 @@ define internal noundef i32 @test_init_warnoptions() #0 {
   %10 = tail call i32 @putenv(ptr noundef nonnull @.str.214) #20
   tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.215) #20
   tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.216) #20
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %11, align 4, !tbaa !73
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 180
   store i32 1, ptr %12, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %13, ptr noundef nonnull @.str.68) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i.i = icmp eq i32 %14, 0
@@ -3207,8 +3201,8 @@ define internal noundef i32 @test_init_warnoptions() #0 {
   unreachable
 
 config_set_program_name.exit:                     ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 160
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %16, ptr noundef nonnull @.str.217) #20
   %17 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
@@ -3220,9 +3214,9 @@ config_set_program_name.exit:                     ; preds = %0
   unreachable
 
 19:                                               ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_init_warnoptions.argv, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, i64 noundef 3, ptr noundef nonnull %6) #20
   %20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i = icmp eq i32 %20, 0
@@ -3234,13 +3228,13 @@ config_set_program_name.exit:                     ; preds = %0
   unreachable
 
 config_set_argv.exit:                             ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 1, ptr %22, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %4) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not1 = icmp eq i32 %23, 0
   br i1 %.not1, label %25, label %24
@@ -3250,10 +3244,10 @@ config_set_argv.exit:                             ; preds = %19
   unreachable
 
 25:                                               ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef nonnull %16, ptr noundef nonnull @.str.220) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not2 = icmp eq i32 %26, 0
   br i1 %.not2, label %28, label %27
@@ -3263,10 +3257,10 @@ config_set_argv.exit:                             ; preds = %19
   unreachable
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @PyWideStringList_Insert(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef nonnull %16, i64 noundef 0, ptr noundef nonnull @.str.221) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %29 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not3 = icmp eq i32 %29, 0
   br i1 %.not3, label %31, label %30
@@ -3276,7 +3270,7 @@ config_set_argv.exit:                             ; preds = %19
   unreachable
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %32 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -3288,12 +3282,12 @@ config_set_argv.exit:                             ; preds = %19
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %34 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -3358,7 +3352,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_api() #0 {
   br label %36
 
 32:                                               ; preds = %27, %24, %21, %18, %15, %12, %9, %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %33 = call i32 @PyInitConfig_GetError(ptr noundef nonnull %3, ptr noundef nonnull %2) #20
   %34 = load ptr, ptr %2, align 8, !tbaa !11
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.233, ptr noundef %34)
@@ -3421,7 +3415,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_get_api() #0 {
   unreachable
 
 29:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.224, ptr noundef nonnull %8) #20
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %33, label %32
@@ -3441,7 +3435,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_get_api() #0 {
   unreachable
 
 initconfig_getint.exit:                           ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %37 = icmp eq i64 %34, 0
   br i1 %37, label %39, label %38
 
@@ -3459,7 +3453,7 @@ initconfig_getint.exit:                           ; preds = %33
   unreachable
 
 43:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.224, ptr noundef nonnull %7) #20
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
@@ -3479,7 +3473,7 @@ initconfig_getint.exit:                           ; preds = %33
   unreachable
 
 initconfig_getint.exit25:                         ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %51 = icmp eq i64 %48, 1
   br i1 %51, label %53, label %52
 
@@ -3488,7 +3482,7 @@ initconfig_getint.exit25:                         ; preds = %47
   unreachable
 
 53:                                               ; preds = %initconfig_getint.exit25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.236, ptr noundef nonnull %6) #20
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %57, label %56
@@ -3508,7 +3502,7 @@ initconfig_getint.exit25:                         ; preds = %47
   unreachable
 
 initconfig_getint.exit27:                         ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = icmp eq i64 %58, 0
   br i1 %61, label %63, label %62
 
@@ -3526,7 +3520,7 @@ initconfig_getint.exit27:                         ; preds = %57
   unreachable
 
 67:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.236, ptr noundef nonnull %5) #20
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %71, label %70
@@ -3546,7 +3540,7 @@ initconfig_getint.exit27:                         ; preds = %57
   unreachable
 
 initconfig_getint.exit29:                         ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %75 = icmp eq i64 %72, 1
   br i1 %75, label %77, label %76
 
@@ -3555,7 +3549,7 @@ initconfig_getint.exit29:                         ; preds = %71
   unreachable
 
 77:                                               ; preds = %initconfig_getint.exit29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %78 = call i32 @PyInitConfig_GetStr(ptr noundef nonnull %14, ptr noundef nonnull @.str.227, ptr noundef nonnull %9) #20
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %81, label %80
@@ -3603,8 +3597,8 @@ initconfig_getint.exit29:                         ; preds = %71
 
 98:                                               ; preds = %93
   call void @free(ptr noundef nonnull %94) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %99 = call i32 @PyInitConfig_GetStrList(ptr noundef nonnull %14, ptr noundef nonnull @.str.232, ptr noundef nonnull %10, ptr noundef nonnull %11) #20
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %102, label %101
@@ -3623,7 +3617,7 @@ initconfig_getint.exit29:                         ; preds = %71
   unreachable
 
 106:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 ptrtoint (ptr @.str.231 to i64), ptr %12, align 8
   %107 = call i32 @PyInitConfig_SetStrList(ptr noundef nonnull %14, ptr noundef nonnull @.str.232, i64 noundef 1, ptr noundef nonnull %12) #20
   %108 = icmp eq i32 %107, 0
@@ -3664,7 +3658,7 @@ initconfig_getint.exit29:                         ; preds = %71
 
 124:                                              ; preds = %118
   call void @PyInitConfig_FreeStrList(i64 noundef 1, ptr noundef nonnull %119) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %125 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.255, ptr noundef nonnull %4) #20
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %128, label %127
@@ -3684,7 +3678,7 @@ initconfig_getint.exit29:                         ; preds = %71
   unreachable
 
 initconfig_getint.exit31:                         ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %132 = icmp eq i64 %129, 0
   br i1 %132, label %134, label %133
 
@@ -3702,7 +3696,7 @@ initconfig_getint.exit31:                         ; preds = %128
   unreachable
 
 138:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %139 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.255, ptr noundef nonnull %3) #20
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %142, label %141
@@ -3722,7 +3716,7 @@ initconfig_getint.exit31:                         ; preds = %128
   unreachable
 
 initconfig_getint.exit33:                         ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %146 = icmp eq i64 %143, 1
   br i1 %146, label %148, label %147
 
@@ -3731,7 +3725,7 @@ initconfig_getint.exit33:                         ; preds = %142
   unreachable
 
 148:                                              ; preds = %initconfig_getint.exit33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %149 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.259, ptr noundef nonnull %2) #20
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %152, label %151
@@ -3751,7 +3745,7 @@ initconfig_getint.exit33:                         ; preds = %142
   unreachable
 
 initconfig_getint.exit35:                         ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %156 = icmp eq i64 %153, 0
   br i1 %156, label %158, label %157
 
@@ -3760,7 +3754,7 @@ initconfig_getint.exit35:                         ; preds = %152
   unreachable
 
 158:                                              ; preds = %initconfig_getint.exit35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_initconfig_get_api.paths, i64 16, i1 false)
   %159 = call i32 @PyInitConfig_SetStrList(ptr noundef nonnull %14, ptr noundef nonnull @.str.263, i64 noundef 2, ptr noundef nonnull %13) #20
   %160 = icmp eq i32 %159, 0
@@ -3771,7 +3765,7 @@ initconfig_getint.exit35:                         ; preds = %152
   unreachable
 
 162:                                              ; preds = %158
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %163 = call i32 @PyInitConfig_GetInt(ptr noundef nonnull %14, ptr noundef nonnull @.str.259, ptr noundef nonnull %1) #20
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %166, label %165
@@ -3791,7 +3785,7 @@ initconfig_getint.exit35:                         ; preds = %152
   unreachable
 
 initconfig_getint.exit37:                         ; preds = %166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %170 = icmp eq i64 %167, 1
   br i1 %170, label %172, label %171
 
@@ -3800,11 +3794,11 @@ initconfig_getint.exit37:                         ; preds = %166
   unreachable
 
 172:                                              ; preds = %initconfig_getint.exit37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %173
 
 173:                                              ; preds = %172, %16
@@ -3826,7 +3820,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_exit() #0 {
   br label %37
 
 7:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_initconfig_exit.argv, i64 16, i1 false)
   %8 = call i32 @PyInitConfig_SetStrList(ptr noundef nonnull %4, ptr noundef nonnull @.str.269, i64 noundef 2, ptr noundef nonnull %1) #20
   %9 = icmp eq i32 %8, 0
@@ -3855,7 +3849,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_exit() #0 {
   unreachable
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = call i32 @PyInitConfig_GetExitCode(ptr noundef nonnull %4, ptr noundef nonnull %2) #20
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %23, label %22
@@ -3874,7 +3868,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_exit() #0 {
   unreachable
 
 27:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = call i32 @PyInitConfig_GetError(ptr noundef nonnull %4, ptr noundef nonnull %3) #20
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %31, label %30
@@ -3895,9 +3889,9 @@ define internal range(i32 0, 2) i32 @test_initconfig_exit() #0 {
 
 36:                                               ; preds = %31
   call void @PyInitConfig_Free(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %37
 
 37:                                               ; preds = %36, %6
@@ -3948,7 +3942,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_module() #0 {
   br label %25
 
 21:                                               ; preds = %11, %8, %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %22 = call i32 @PyInitConfig_GetError(ptr noundef nonnull %2, ptr noundef nonnull %1) #20
   %23 = load ptr, ptr %1, align 8, !tbaa !11
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.233, ptr noundef %23)
@@ -3967,11 +3961,11 @@ define internal i32 @test_run_main() #0 {
   %3 = alloca %struct.PyStatus, align 8
   %4 = alloca %struct.PyConfig, align 8
   %5 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_run_main.argv, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %5) #20
   %6 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %6, 0
@@ -3983,9 +3977,9 @@ define internal i32 @test_run_main() #0 {
   unreachable
 
 config_set_argv.exit:                             ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull @.str.195) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i1 = icmp eq i32 %9, 0
@@ -3997,8 +3991,8 @@ config_set_argv.exit:                             ; preds = %0
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -4010,10 +4004,10 @@ config_set_string.exit:                           ; preds = %config_set_argv.exi
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %13 = call i32 @Py_RunMain() #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %13
 }
 
@@ -4044,11 +4038,11 @@ define internal noundef i32 @test_get_argc_argv() #0 {
   %6 = alloca %struct.PyStatus, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_get_argc_argv.argv, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %5) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %9, 0
@@ -4060,9 +4054,9 @@ define internal noundef i32 @test_get_argc_argv() #0 {
   unreachable
 
 config_set_argv.exit:                             ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull @.str.195) #20
   %12 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i6 = icmp eq i32 %12, 0
@@ -4074,8 +4068,8 @@ config_set_argv.exit:                             ; preds = %0
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %4) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
   %.not = icmp eq i32 %14, 0
@@ -4087,7 +4081,7 @@ config_set_string.exit:                           ; preds = %config_set_argv.exi
   unreachable
 
 16:                                               ; preds = %config_set_string.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %17 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -4099,9 +4093,9 @@ config_set_string.exit:                           ; preds = %config_set_argv.exi
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @Py_GetArgcArgv(ptr noundef nonnull %7, ptr noundef nonnull %8) #20
   %19 = load i32, ptr %7, align 4, !tbaa !4
   %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.284, i32 noundef %19)
@@ -4128,11 +4122,11 @@ init_from_config_clear.exit:                      ; preds = %16
   call void @Py_Finalize() #20
   %putchar = call i32 @putchar(i32 10)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
@@ -4164,7 +4158,7 @@ define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
   %4 = alloca %struct.PyConfig, align 8
   %5 = alloca [5 x ptr], align 16
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.290) #20
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
@@ -4182,11 +4176,11 @@ define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
   br label %check_use_frozen_modules.exit
 
 14:                                               ; preds = %10, %8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 1, ptr %15, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.157, ptr %5, align 16, !tbaa !82
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.145, ptr %16, align 8, !tbaa !82
@@ -4196,7 +4190,7 @@ define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
   store ptr @.str.88, ptr %18, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr @.str.89, ptr %19, align 16, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, i64 noundef 5, ptr noundef nonnull %5) #20
   %20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %20, 0
@@ -4208,8 +4202,8 @@ define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
   unreachable
 
 config_set_argv.exit.i:                           ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %22 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -4221,16 +4215,16 @@ config_set_argv.exit.i:                           ; preds = %14
   unreachable
 
 init_from_config_clear.exit.i:                    ; preds = %config_set_argv.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %24 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %check_use_frozen_modules.exit
 
 check_use_frozen_modules.exit:                    ; preds = %13, %init_from_config_clear.exit.i
   %.0.i = phi i32 [ 0, %init_from_config_clear.exit.i ], [ -1, %13 ]
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -4247,8 +4241,8 @@ define internal noundef i32 @test_init_main_interpreter_settings() #0 {
 define internal i32 @test_init_in_background_thread() #0 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @PyThread_start_joinable_thread(ptr noundef nonnull @do_init, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %1) #20
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %8, label %5
@@ -4260,15 +4254,15 @@ define internal i32 @test_init_in_background_thread() #0 {
 
 8:                                                ; preds = %0, %5
   %.0 = phi i32 [ %7, %5 ], [ -1, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_open_code_hook() #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !4
   %2 = call i32 @PyFile_SetOpenCodeHook(ptr noundef nonnull @_open_code_hook, ptr noundef nonnull %1) #20
   store i32 %2, ptr %1, align 4, !tbaa !4
@@ -4402,14 +4396,14 @@ Py_XDECREF.exit:                                  ; preds = %9, %17, %36, %33, %
 
 38:                                               ; preds = %Py_XDECREF.exit, %6, %3
   %.0 = phi i32 [ 1, %3 ], [ %37, %Py_XDECREF.exit ], [ 2, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 4096, 7) i32 @test_audit() #0 {
   %1 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !78
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4, !tbaa !4
   %2 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %1) #20
@@ -4472,7 +4466,7 @@ define internal range(i32 4096, 7) i32 @test_audit() #0 {
 
 _test_audit.exit:                                 ; preds = %5, %9, %13, %17, %21, %23, %25
   %.0.i = phi i32 [ 1, %5 ], [ 2, %9 ], [ 4, %17 ], [ 5, %21 ], [ 6, %25 ], [ 3, %13 ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @Py_Finalize() #20
   %26 = load i32, ptr @_audit_hook_clear_count, align 4, !tbaa !4
   %.not = icmp eq i32 %26, 1
@@ -4484,7 +4478,7 @@ _test_audit.exit:                                 ; preds = %5, %9, %13, %17, %2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 32) i32 @test_audit_tuple() #0 {
   %1 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !78
   %2 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %1) #20
   call fastcc void @_testembed_Py_InitializeFromConfig()
@@ -4611,7 +4605,7 @@ Py_DECREF.exit12:                                 ; preds = %41, %43, %46
 
 57:                                               ; preds = %12, %16, %21, %34, %39, %49, %53, %55, %56, %4
   %.0 = phi i32 [ 0, %4 ], [ 1, %56 ], [ 11, %16 ], [ 31, %53 ], [ 0, %55 ], [ 30, %49 ], [ 21, %39 ], [ 20, %34 ], [ 12, %21 ], [ 10, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -4646,15 +4640,15 @@ define internal i32 @test_audit_subinterpreter() #0 {
 define internal i32 @test_audit_run_command() #0 {
   %1 = alloca %struct.AuditRunCommandTest, align 8
   %2 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_command.test, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_audit_run_command.argv, i64 24, i1 false)
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4, !tbaa !4
   %3 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %1) #20
   %4 = call i32 @Py_Main(i32 noundef 3, ptr noundef nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %4
 }
 
@@ -4662,15 +4656,15 @@ define internal i32 @test_audit_run_command() #0 {
 define internal i32 @test_audit_run_file() #0 {
   %1 = alloca %struct.AuditRunCommandTest, align 8
   %2 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_file.test, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_audit_run_file.argv, i64 16, i1 false)
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4, !tbaa !4
   %3 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %1) #20
   %4 = call i32 @Py_Main(i32 noundef 2, ptr noundef nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %4
 }
 
@@ -4680,11 +4674,11 @@ define internal i32 @test_audit_run_interactivehook() #0 {
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.AuditRunCommandTest, align 8
   %4 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_interactivehook.test, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 ptrtoint (ptr @.str.68 to i64), ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 1, ptr %5, align 8, !tbaa !85
@@ -4703,7 +4697,7 @@ define internal i32 @test_audit_run_interactivehook() #0 {
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %12, align 4, !tbaa !62
   %13 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %1) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i = icmp eq i32 %14, 0
@@ -4715,10 +4709,10 @@ define internal i32 @test_audit_run_interactivehook() #0 {
 
 run_audit_run_test.exit:                          ; preds = %0
   %16 = call i32 @Py_RunMain() #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %1) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
@@ -4728,11 +4722,11 @@ define internal i32 @test_audit_run_startup() #0 {
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.AuditRunCommandTest, align 8
   %4 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_startup.test, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 ptrtoint (ptr @.str.68 to i64), ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 1, ptr %5, align 8, !tbaa !85
@@ -4751,7 +4745,7 @@ define internal i32 @test_audit_run_startup() #0 {
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %12, align 4, !tbaa !62
   %13 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %1) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i = icmp eq i32 %14, 0
@@ -4763,10 +4757,10 @@ define internal i32 @test_audit_run_startup() #0 {
 
 run_audit_run_test.exit:                          ; preds = %0
   %16 = call i32 @Py_RunMain() #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %1) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
@@ -4776,11 +4770,11 @@ define internal i32 @test_audit_run_stdin() #0 {
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.AuditRunCommandTest, align 8
   %4 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_stdin.test, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 ptrtoint (ptr @.str.68 to i64), ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 1, ptr %5, align 8, !tbaa !85
@@ -4799,7 +4793,7 @@ define internal i32 @test_audit_run_stdin() #0 {
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %12, align 4, !tbaa !62
   %13 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %1) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i = icmp eq i32 %14, 0
@@ -4811,10 +4805,10 @@ define internal i32 @test_audit_run_stdin() #0 {
 
 run_audit_run_test.exit:                          ; preds = %0
   %16 = call i32 @Py_RunMain() #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %1) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
@@ -4890,11 +4884,11 @@ Py_DECREF.exit:                                   ; preds = %15, %17, %20
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_frozenmain() #0 {
   %1 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_frozenmain.argv, i64 32, i1 false)
   store ptr @test_frozenmain.frozen_modules, ptr @PyImport_FrozenModules, align 8, !tbaa !89
   %2 = call i32 @Py_FrozenMain(i32 noundef 4, ptr noundef nonnull %1) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %2
 }
 
@@ -4903,9 +4897,9 @@ define internal i32 @test_get_incomplete_frame() #0 {
   %1 = alloca %struct.PyMemAllocatorEx, align 8
   %2 = alloca %struct.PyMemAllocatorEx, align 8
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %2, ptr %1, align 8, !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @malloc_wrapper, ptr %3, align 8, !tbaa !93
@@ -4916,32 +4910,32 @@ define internal i32 @test_get_incomplete_frame() #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @free_wrapper, ptr %6, align 8, !tbaa !96
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %1) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %7 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.339, ptr noundef null) #20
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %2) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_testembed_Py_InitializeFromConfig() unnamed_addr #0 {
   %1 = alloca %struct.PyStatus, align 8
   %2 = alloca %struct.PyStatus, align 8
   %3 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.68) #20
   %5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
   %.not.i.i = icmp eq i32 %5, 0
@@ -4953,8 +4947,8 @@ define internal fastcc void @_testembed_Py_InitializeFromConfig() unnamed_addr #
   unreachable
 
 config_set_program_name.exit:                     ; preds = %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %3) #20
   call void @PyConfig_Clear(ptr noundef nonnull %3) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %1) #20
@@ -4966,31 +4960,31 @@ config_set_program_name.exit:                     ; preds = %0
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @PyRun_SimpleStringFlags(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyRun_SimpleStringFlags(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @Py_Finalize() local_unnamed_addr #6
+declare void @Py_Finalize() local_unnamed_addr #5
 
-declare void @_PyConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #6
+declare void @_PyConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #5
 
-declare void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyStatus_Exception(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #6
+declare i32 @PyStatus_Exception(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #5
 
-declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @Py_ExitStatusException(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #7
+declare void @Py_ExitStatusException(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #6
 
-declare void @Py_InitializeFromConfig(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #6
+declare void @Py_InitializeFromConfig(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #5
 
-declare void @Py_SetProgramName(ptr noundef) local_unnamed_addr #6
+declare void @Py_SetProgramName(ptr noundef) local_unnamed_addr #5
 
-declare void @Py_Initialize() local_unnamed_addr #6
+declare void @Py_Initialize() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_stdio_details(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -5025,13 +5019,13 @@ define internal fastcc void @check_stdio_details(ptr noundef %0, ptr noundef %1)
 15:                                               ; preds = %14, %12
   %16 = load ptr, ptr @stdout, align 8, !tbaa !16
   %17 = tail call i32 @fflush(ptr noundef %16)
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %7) #20
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull %0) #20
   %20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
   %.not.i = icmp eq i32 %20, 0
@@ -5043,7 +5037,7 @@ define internal fastcc void @check_stdio_details(ptr noundef %0, ptr noundef %1)
   unreachable
 
 config_set_string.exit:                           ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %22
 
 22:                                               ; preds = %config_set_string.exit, %15
@@ -5051,7 +5045,7 @@ config_set_string.exit:                           ; preds = %18
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 240
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %7, ptr noundef nonnull %24, ptr noundef nonnull %1) #20
   %25 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not.i12 = icmp eq i32 %25, 0
@@ -5063,12 +5057,12 @@ config_set_string.exit:                           ; preds = %18
   unreachable
 
 config_set_string.exit13:                         ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 27:                                               ; preds = %config_set_string.exit13, %22
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %7, ptr noundef nonnull %28, ptr noundef nonnull @.str.68) #20
   %29 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not.i.i = icmp eq i32 %29, 0
@@ -5080,8 +5074,8 @@ config_set_string.exit13:                         ; preds = %23
   unreachable
 
 config_set_program_name.exit:                     ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %7) #20
   call void @PyConfig_Clear(ptr noundef nonnull %7) #20
   %31 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
@@ -5093,32 +5087,32 @@ config_set_program_name.exit:                     ; preds = %27
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.81, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare ptr @PyThreadState_Swap(ptr noundef) local_unnamed_addr #6
+declare ptr @PyThreadState_Swap(ptr noundef) local_unnamed_addr #5
 
-declare ptr @Py_NewInterpreter() local_unnamed_addr #6
+declare ptr @Py_NewInterpreter() local_unnamed_addr #5
 
-declare ptr @PyThreadState_Get() local_unnamed_addr #6
+declare ptr @PyThreadState_Get() local_unnamed_addr #5
 
-declare void @PyEval_ReleaseThread(ptr noundef) local_unnamed_addr #6
+declare void @PyEval_ReleaseThread(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyGILState_Ensure() local_unnamed_addr #6
+declare i32 @PyGILState_Ensure() local_unnamed_addr #5
 
-declare void @Py_EndInterpreter(ptr noundef) local_unnamed_addr #6
+declare void @Py_EndInterpreter(ptr noundef) local_unnamed_addr #5
 
-declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #6
+declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #5
 
-declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #6
+declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #5
 
-declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #6
+declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyImport_AppendInittab(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyImport_AppendInittab(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyInit_embedded_ext() #0 {
@@ -5127,44 +5121,44 @@ define internal ptr @PyInit_embedded_ext() #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare void @PyConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #5
 
-declare i32 @Py_RunMain() local_unnamed_addr #6
+declare i32 @Py_RunMain() local_unnamed_addr #5
 
-declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @PyConfig_SetArgv(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_SetArgv(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @putenv(ptr noundef) local_unnamed_addr #9
+declare i32 @putenv(ptr noundef) local_unnamed_addr #8
 
-declare ptr @Py_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @Py_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @Py_IsInitialized() local_unnamed_addr #6
+declare i32 @Py_IsInitialized() local_unnamed_addr #5
 
-declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #6
+declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @PySys_AddWarnOption(ptr noundef) local_unnamed_addr #6
+declare void @PySys_AddWarnOption(ptr noundef) local_unnamed_addr #5
 
-declare void @PySys_ResetWarnOptions() local_unnamed_addr #6
+declare void @PySys_ResetWarnOptions() local_unnamed_addr #5
 
-declare void @PySys_AddXOption(ptr noundef) local_unnamed_addr #6
+declare void @PySys_AddXOption(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-declare ptr @PyThread_allocate_lock() local_unnamed_addr #6
+declare ptr @PyThread_allocate_lock() local_unnamed_addr #5
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @error(ptr noundef %0) unnamed_addr #12 {
+define internal fastcc void @error(ptr noundef %0) unnamed_addr #11 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !16
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.118, ptr noundef %0) #21
   %4 = load ptr, ptr @stderr, align 8, !tbaa !16
@@ -5172,7 +5166,7 @@ define internal fastcc void @error(ptr noundef %0) unnamed_addr #12 {
   ret void
 }
 
-declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @bpo20891_thread(ptr noundef readonly captures(none) %0) #0 {
@@ -5193,20 +5187,20 @@ define internal void @bpo20891_thread(ptr noundef readonly captures(none) %0) #0
   ret void
 }
 
-declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare ptr @PyEval_SaveThread() local_unnamed_addr #6
+declare ptr @PyEval_SaveThread() local_unnamed_addr #5
 
-declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #6
+declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyGILState_Check() local_unnamed_addr #6
+declare i32 @PyGILState_Check() local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #13
+declare void @abort() local_unnamed_addr #12
 
-declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #6
+declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #5
 
-declare i32 @Py_Main(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @Py_Main(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_init_compat_config(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
@@ -5215,12 +5209,12 @@ define internal fastcc void @check_init_compat_config(i32 noundef range(i32 0, 2
   %4 = alloca %struct.PyStatus, align 8
   %5 = alloca %struct.PyPreConfig, align 4
   %6 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %5) #20
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %5) #20
   %8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
@@ -5232,14 +5226,14 @@ define internal fastcc void @check_init_compat_config(i32 noundef range(i32 0, 2
   unreachable
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %11
 
 11:                                               ; preds = %10, %1
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %6) #20
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.68) #20
   %13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i.i = icmp eq i32 %13, 0
@@ -5251,8 +5245,8 @@ define internal fastcc void @check_init_compat_config(i32 noundef range(i32 0, 2
   unreachable
 
 config_set_program_name.exit:                     ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %6) #20
   call void @PyConfig_Clear(ptr noundef nonnull %6) #20
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -5264,19 +5258,19 @@ config_set_program_name.exit:                     ; preds = %11
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @_PyPreConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #6
+declare void @_PyPreConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #5
 
-declare void @Py_PreInitialize(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #6
+declare void @Py_PreInitialize(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #5
 
-declare void @PyConfig_SetWideStringList(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_SetWideStringList(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_init_parse_argv(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
@@ -5284,13 +5278,13 @@ define internal fastcc void @check_init_parse_argv(i32 noundef range(i32 0, 2) %
   %3 = alloca %struct.PyStatus, align 8
   %4 = alloca %struct.PyConfig, align 8
   %5 = alloca [7 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %0, ptr %6, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 16 dereferenceable(56) @__const.check_init_parse_argv.argv, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, i64 noundef 7, ptr noundef nonnull %5) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i = icmp eq i32 %7, 0
@@ -5302,8 +5296,8 @@ define internal fastcc void @check_init_parse_argv(i32 noundef range(i32 0, 2) %
   unreachable
 
 config_set_argv.exit:                             ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4) #20
   call void @PyConfig_Clear(ptr noundef nonnull %4) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -5315,11 +5309,11 @@ config_set_argv.exit:                             ; preds = %1
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_argv.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5350,7 +5344,7 @@ define internal fastcc void @set_all_env_vars() unnamed_addr #0 {
   ret void
 }
 
-declare void @PyPreConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #6
+declare void @PyPreConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
@@ -5359,7 +5353,7 @@ define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32
   %4 = alloca %struct.PyStatus, align 8
   %5 = alloca %struct.PyPreConfig, align 4
   %6 = alloca %struct.PyConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call fastcc void @set_all_env_vars()
   store i32 0, ptr @Py_IsolatedFlag, align 4, !tbaa !4
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4, !tbaa !4
@@ -5379,7 +5373,7 @@ define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32
   br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %5) #20
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %5) #20
   %8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
@@ -5409,14 +5403,14 @@ define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32
   unreachable
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19
 
 19:                                               ; preds = %18, %1
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %6) #20
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull @.str.68) #20
   %21 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i.i = icmp eq i32 %21, 0
@@ -5428,8 +5422,8 @@ define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32
   unreachable
 
 config_set_program_name.exit:                     ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %6) #20
   call void @PyConfig_Clear(ptr noundef nonnull %6) #20
   %23 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -5441,7 +5435,7 @@ config_set_program_name.exit:                     ; preds = %19
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !75
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %28, label %27
@@ -5462,17 +5456,17 @@ init_from_config_clear.exit:                      ; preds = %config_set_program_
 32:                                               ; preds = %28
   %33 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @PyPreConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #6
+declare void @PyPreConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #14
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
-declare void @PyConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_init_python_config(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
@@ -5499,9 +5493,9 @@ define internal fastcc void @check_init_python_config(i32 noundef range(i32 0, 2
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %4) #20
   %8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not1 = icmp eq i32 %8, 0
@@ -5512,15 +5506,15 @@ define internal fastcc void @check_init_python_config(i32 noundef range(i32 0, 2
   unreachable
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11
 
 11:                                               ; preds = %10, %1
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %6) #20
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.68) #20
   %13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
   %.not.i.i = icmp eq i32 %13, 0
@@ -5532,8 +5526,8 @@ define internal fastcc void @check_init_python_config(i32 noundef range(i32 0, 2
   unreachable
 
 config_set_program_name.exit:                     ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %6) #20
   call void @PyConfig_Clear(ptr noundef nonnull %6) #20
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -5545,55 +5539,55 @@ config_set_program_name.exit:                     ; preds = %11
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.123, ptr noundef null) #20
   call void @Py_Finalize() #20
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @Py_PreInitializeFromArgs(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare void @Py_PreInitializeFromArgs(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @PyConfig_Read(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #6
+declare void @PyConfig_Read(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #5
 
-declare void @PyWideStringList_Insert(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyWideStringList_Insert(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @PyWideStringList_Append(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyWideStringList_Append(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #14
 
-declare void @Py_SetPath(ptr noundef) local_unnamed_addr #6
+declare void @Py_SetPath(ptr noundef) local_unnamed_addr #5
 
-declare void @Py_SetPythonHome(ptr noundef) local_unnamed_addr #6
+declare void @Py_SetPythonHome(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyInitConfig_Create() local_unnamed_addr #6
+declare ptr @PyInitConfig_Create() local_unnamed_addr #5
 
-declare i32 @PyInitConfig_SetInt(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_SetInt(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_SetStr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_SetStr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_SetStrList(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_SetStrList(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @Py_InitializeFromInitConfig(ptr noundef) local_unnamed_addr #6
+declare i32 @Py_InitializeFromInitConfig(ptr noundef) local_unnamed_addr #5
 
-declare void @PyInitConfig_Free(ptr noundef) local_unnamed_addr #6
+declare void @PyInitConfig_Free(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_GetError(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_GetError(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_HasOption(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_HasOption(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_GetStr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_GetStr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_GetStrList(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_GetStrList(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @PyInitConfig_FreeStrList(i64 noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyInitConfig_FreeStrList(i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_GetInt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_GetInt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_GetExitCode(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_GetExitCode(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyInitConfig_AddModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyInitConfig_AddModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @init_my_test_extension() #0 {
@@ -5601,20 +5595,20 @@ define internal ptr @init_my_test_extension() #0 {
   ret ptr %1
 }
 
-declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #6
+declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #5
 
-declare void @Py_GetArgcArgv(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @Py_GetArgcArgv(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #16
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #9
+declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
-declare i32 @PyThread_start_joinable_thread(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyThread_start_joinable_thread(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @do_init(ptr readnone captures(none) %0) #0 {
@@ -5624,9 +5618,9 @@ define internal void @do_init(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
-declare i32 @PyThread_join_thread(i64 noundef) local_unnamed_addr #6
+declare i32 @PyThread_join_thread(i64 noundef) local_unnamed_addr #5
 
-declare i32 @PyFile_SetOpenCodeHook(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyFile_SetOpenCodeHook(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_open_code_hook(ptr noundef %0, ptr noundef %1) #0 {
@@ -5652,23 +5646,23 @@ define internal ptr @_open_code_hook(ptr noundef %0, ptr noundef %1) #0 {
   ret ptr %.0
 }
 
-declare ptr @PyFile_OpenCode(ptr noundef) local_unnamed_addr #6
+declare ptr @PyFile_OpenCode(ptr noundef) local_unnamed_addr #5
 
-declare void @PyErr_Print() local_unnamed_addr #6
+declare void @PyErr_Print() local_unnamed_addr #5
 
-declare ptr @PyLong_AsVoidPtr(ptr noundef) local_unnamed_addr #6
+declare ptr @PyLong_AsVoidPtr(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #6
+declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #6
+declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #5
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #6
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PySys_AddAuditHook(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PySys_AddAuditHook(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_audit_hook(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -5722,26 +5716,26 @@ define internal range(i32 -1, 1) i32 @_audit_hook(ptr noundef readonly captures(
   ret i32 %.0
 }
 
-declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare void @PyErr_Clear() local_unnamed_addr #6
+declare void @PyErr_Clear() local_unnamed_addr #5
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #6
+declare ptr @PyErr_Occurred() local_unnamed_addr #5
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #6
+declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #5
 
-declare i32 @PySys_AuditTuple(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PySys_AuditTuple(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #6
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #5
 
-declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #6
+declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @_audit_subinterpreter_hook(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #17 {
+define internal noundef i32 @_audit_subinterpreter_hook(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #16 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %0)
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(31) @.str.322) #19
   %5 = icmp eq i32 %4, 0
@@ -5807,21 +5801,21 @@ Py_DECREF.exit:                                   ; preds = %17, %14, %11, %9
   ret i32 %.0
 }
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #6
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #6
+declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @_PyUnicode_FromId(ptr noundef) local_unnamed_addr #6
+declare ptr @_PyUnicode_FromId(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #6
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @Py_FrozenMain(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @Py_FrozenMain(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @PyMem_GetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyMem_GetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @malloc_wrapper(ptr noundef %0, i64 noundef %1) #0 {
@@ -5829,7 +5823,7 @@ define internal ptr @malloc_wrapper(ptr noundef %0, i64 noundef %1) #0 {
   tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef %0) #20
   %4 = tail call ptr @PyEval_GetFrame() #20
   tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef %0) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @malloc_wrapper, ptr %5, align 8, !tbaa !93
@@ -5840,7 +5834,7 @@ define internal ptr @malloc_wrapper(ptr noundef %0, i64 noundef %1) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @free_wrapper, ptr %8, align 8, !tbaa !96
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = load ptr, ptr %0, align 8, !tbaa !91
@@ -5875,9 +5869,15 @@ define internal void @free_wrapper(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyEval_GetFrame() local_unnamed_addr #6
+declare ptr @PyEval_GetFrame() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
@@ -5889,23 +5889,23 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nounwind willreturn memory(read) }
 attributes #20 = { nounwind }

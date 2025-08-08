@@ -103,14 +103,11 @@ define dso_local { i64, i64 } @_ZNK20btConvexHullInternal6Int128mlEl(ptr noundef
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i64 } @_ZN20btConvexHullInternal6Int1283mulEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local { i64, i64 } @_ZN20btConvexHullInternal6Int1283mulEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = and i64 %0, 4294967295
   %4 = and i64 %1, 4294967295
   %5 = mul nuw i64 %4, %3
@@ -138,11 +135,8 @@ define dso_local { i64, i64 } @_ZN20btConvexHullInternal6Int1283mulEmm(i64 nound
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i64 } @_ZN20btConvexHullInternal6Int1283mulEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local { i64, i64 } @_ZN20btConvexHullInternal6Int1283mulEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
   %.09 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
   %3 = xor i64 %1, %0
@@ -282,7 +276,7 @@ _ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit: ; preds = %11, %61, %63, %65
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.btConvexHullInternal::Int128", align 8
   %4 = alloca %"class.btConvexHullInternal::Int128", align 8
   %5 = alloca %"class.btConvexHullInternal::Int128", align 8
@@ -317,10 +311,10 @@ define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERK
   br label %55
 
 25:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.06.0.copyload = load i64, ptr %0, align 8, !tbaa !9
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !9
@@ -385,10 +379,10 @@ _ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit.thread: ; preds = %51, %47, %4
   %.0.i20.sink = phi i32 [ 1, %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit ], [ -1, %35 ], [ 1, %33 ], [ -1, %25 ], [ -1, %39 ], [ 1, %45 ], [ -1, %47 ], [ %..i19, %51 ]
   %53 = load i32, ptr %7, align 8, !tbaa !15
   %54 = mul nsw i32 %53, %.0.i20.sink
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 55:                                               ; preds = %13, %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit.thread, %19, %11
@@ -526,7 +520,7 @@ _ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit: ; preds = %_ZNK20btConvexHull
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btConvexHullInternal4DMulINS_6Int128EmE3mulES1_S1_RS1_S3_(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btConvexHullInternal4DMulINS_6Int128EmE3mulES1_S1_RS1_S3_(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #3 comdat align 2 {
 _ZN20btConvexHullInternal6Int128pLERKS0_.exit:
   %6 = and i64 %0, 4294967295
   %7 = and i64 %2, 4294967295
@@ -641,7 +635,7 @@ _ZN20btConvexHullInternal6Int128pLERKS0_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !23
@@ -796,7 +790,7 @@ _ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit23: ; preds = %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionERNS_16IntermediateHullES1_RPNS_6VertexES4_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionERNS_16IntermediateHullES1_RPNS_6VertexES4_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1232,7 +1226,7 @@ define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.btConvexHullInternal::IntermediateHull", align 8
   %6 = sub nsw i32 %2, %1
   switch i32 %6, label %68 [
@@ -1433,11 +1427,11 @@ _ZNK20btConvexHullInternal7Point32eqERKS0_.exit:  ; preds = %85
 .critedge:                                        ; preds = %92, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit138, %.critedge.loopexit.split.loop.exit142, %68
   %.0.lcssa = phi i32 [ %70, %68 ], [ %94, %.critedge.loopexit.split.loop.exit ], [ %95, %.critedge.loopexit.split.loop.exit138 ], [ %96, %.critedge.loopexit.split.loop.exit142 ], [ %2, %92 ]
   tail call void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %70, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   call void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.0.lcssa, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 97:                                               ; preds = %41, %51, %.critedge, %57, %7
@@ -1445,7 +1439,7 @@ _ZNK20btConvexHullInternal7Point32eqERKS0_.exit:  ; preds = %85
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1477,9 +1471,9 @@ define dso_local void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1
   %23 = load i32, ptr %22, align 8, !tbaa !42
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr %22, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !66
   %25 = call noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionERNS_16IntermediateHullES1_RPNS_6VertexES4_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %26 = load ptr, ptr %5, align 8, !tbaa !66
@@ -1513,7 +1507,7 @@ define dso_local void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1
   %51 = sub nsw i64 %49, %50
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !85
   %.not185 = icmp eq ptr %53, null
   br i1 %.not185, label %129, label %.preheader388
@@ -1629,7 +1623,7 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit: 
   %130 = phi i1 [ %128, %.loopexit389 ], [ false, %27 ]
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !85
   %.not188 = icmp eq ptr %132, null
   br i1 %.not188, label %208, label %.preheader
@@ -1780,8 +1774,8 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   %.sroa.0319.0.copyload = phi i32 [ %31, %215 ], [ %.sroa.0319.0.copyload.pre, %218 ], [ %31, %208 ]
   %223 = phi ptr [ %26, %215 ], [ %220, %218 ], [ %26, %208 ]
   %224 = add nsw i32 %.sroa.10331.0.copyload, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %228
 
 225:                                              ; preds = %21
@@ -1829,7 +1823,7 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   %.0145 = phi ptr [ null, %228 ], [ %.4149, %484 ]
   %.0142 = phi ptr [ null, %228 ], [ %.2144, %484 ]
   %.0140 = phi ptr [ null, %228 ], [ %.2, %484 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 104
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 104
   %246 = load i32, ptr %244, align 4, !tbaa !77
@@ -1856,7 +1850,7 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   %259 = sub nsw i32 %.sroa.0319.1, %247
   %260 = sub nsw i32 %.sroa.9324.1, %252
   %261 = sub nsw i32 %.sroa.10331.1, %257
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %262 = sext i32 %260 to i64
   %263 = sext i32 %258 to i64
   %264 = mul nsw i64 %263, %262
@@ -1875,7 +1869,7 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   store i64 %268, ptr %9, align 8, !tbaa !88, !alias.scope !90
   store i64 %273, ptr %231, align 8, !tbaa !93, !alias.scope !90
   store i64 %276, ptr %232, align 8, !tbaa !94, !alias.scope !90
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %277 = mul nsw i64 %276, %266
   %278 = mul nsw i64 %273, %263
   %279 = sub nsw i64 %277, %278
@@ -1888,10 +1882,10 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   store i64 %279, ptr %10, align 8, !tbaa !88, !alias.scope !95
   store i64 %282, ptr %233, align 8, !tbaa !93, !alias.scope !95
   store i64 %285, ptr %234, align 8, !tbaa !94, !alias.scope !95
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   %286 = call noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6VertexERKNS_7Point32ERKNS_7Point64ES8_RNS_10Rational64E(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext false, ptr noundef %243, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(20) %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, i8 0, i64 20, i1 false)
   %287 = call noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6VertexERKNS_7Point32ERKNS_7Point64ES8_RNS_10Rational64E(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext true, ptr noundef %242, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(20) %12)
   %288 = icmp ne ptr %286, null
@@ -1949,9 +1943,9 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   br i1 %316, label %.thread358, label %317
 
 .thread358:                                       ; preds = %311
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %286, ptr %13, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %371
 
 317:                                              ; preds = %311, %305, %301
@@ -1987,9 +1981,9 @@ _ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit24
   %.2167 = phi ptr [ %.3168, %325 ], [ %.0165, %305 ]
   %.2152 = phi ptr [ %318, %325 ], [ %.0150, %305 ]
   %.2147 = phi ptr [ %.3148, %325 ], [ %.0145, %305 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %286, ptr %13, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %287, ptr %14, align 8, !tbaa !85
   %328 = icmp eq i32 %302, 0
   br i1 %328, label %329, label %330
@@ -2238,8 +2232,8 @@ _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit257: ; preds = %386, %3
   %.4149 = phi ptr [ %.5, %407 ], [ %.2147357364, %371 ]
   %.2144 = phi ptr [ %.4, %407 ], [ %.0142, %371 ]
   %.2 = phi ptr [ %412, %407 ], [ %.0140, %371 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %415 = icmp eq ptr %414, %.promoted407
   %416 = load ptr, ptr %5, align 8
   %417 = icmp eq ptr %416, %229
@@ -2416,21 +2410,21 @@ _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit267: ; preds = %465, %4
   br label %485
 
 484:                                              ; preds = %413
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %241, !llvm.loop !102
 
 485:                                              ; preds = %290, %._crit_edge419, %481, %453
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %486
 
 486:                                              ; preds = %3, %485, %20
@@ -2438,7 +2432,7 @@ _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit267: ; preds = %465, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3) local_unnamed_addr #5 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !35
   %6 = icmp eq ptr %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2541,7 +2535,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6VertexERKNS_7Point32ERKNS_7Point64ES8_RNS_10Rational64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %6) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6VertexERKNS_7Point32ERKNS_7Point64ES8_RNS_10Rational64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %6) local_unnamed_addr #6 align 2 {
   %8 = alloca %"class.btConvexHullInternal::Point32", align 8
   %9 = alloca %"class.btConvexHullInternal::Rational64", align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2574,7 +2568,7 @@ define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6Ver
   br i1 %28, label %29, label %91
 
 29:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = getelementptr inbounds nuw i8, ptr %.023, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !53
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
@@ -2597,7 +2591,7 @@ define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6Ver
   %.sroa.3.8.insert.insert.i.i = or disjoint i64 %.sroa.3.8.insert.ext.i.i, -4294967296
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %8, align 8
   store i64 %.sroa.3.8.insert.insert.i.i, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = sext i32 %35 to i64
   %45 = load i64, ptr %5, align 8, !tbaa !88
   %46 = mul nsw i64 %45, %44
@@ -2693,8 +2687,8 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit:  ; preds = %73
 
 90:                                               ; preds = %86, %79, %84, %83, %_ZN20btConvexHullInternal10Rational64C2Ell.exit
   %.3 = phi ptr [ %.1, %_ZN20btConvexHullInternal10Rational64C2Ell.exit ], [ %.023, %79 ], [ %.023, %83 ], [ %.1, %84 ], [ %spec.select, %86 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load ptr, ptr %10, align 8, !tbaa !67
   br label %91
 
@@ -2711,7 +2705,7 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit:  ; preds = %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6VertexES1_RPNS_4EdgeES4_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef readnone captures(address) %5, ptr noundef readnone captures(address) %6) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6VertexES1_RPNS_4EdgeES4_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef readnone captures(address) %5, ptr noundef readnone captures(address) %6) local_unnamed_addr #6 align 2 {
   %8 = alloca %"class.btConvexHullInternal::Rational64", align 8
   %9 = alloca %"class.btConvexHullInternal::Rational64", align 8
   %10 = alloca %"class.btConvexHullInternal::Rational64", align 8
@@ -3118,14 +3112,14 @@ define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6
   %291 = mul nsw i64 %285, %56
   %292 = add nsw i64 %290, %291
   %293 = icmp eq i64 %287, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %293, label %294, label %296
 
 294:                                              ; preds = %268
   %295 = icmp slt i64 %292, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %295, label %318, label %.thread632
 
 296:                                              ; preds = %268
@@ -3186,13 +3180,13 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit:  ; preds = %296
   store i64 %.sink10.i255, ptr %240, align 8, !tbaa !14
   %316 = call noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %9)
   %317 = icmp sgt i32 %316, -1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %317, label %318, label %.thread632
 
 .critedge:                                        ; preds = %296
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread632
 
 318:                                              ; preds = %294, %315
@@ -3278,8 +3272,8 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit:  ; preds = %296
   %384 = mul nsw i64 %86, %383
   %385 = add nsw i64 %382, %384
   %386 = icmp sgt i64 %385, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %386, label %387, label %.critedge11
 
 387:                                              ; preds = %364
@@ -3288,8 +3282,8 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit:  ; preds = %296
 
 389:                                              ; preds = %387
   %390 = icmp slt i64 %374, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %390, label %413, label %.thread680
 
 391:                                              ; preds = %387
@@ -3350,13 +3344,13 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit284: ; preds = %391
   store i64 %.sink10.i287, ptr %244, align 8, !tbaa !14
   %411 = call noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11)
   %412 = icmp sgt i32 %411, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %412, label %413, label %.thread680
 
 .critedge11:                                      ; preds = %391, %364
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread680
 
 413:                                              ; preds = %389, %410
@@ -3453,14 +3447,14 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit284: ; preds = %391
   %473 = mul nsw i64 %467, %56
   %474 = add nsw i64 %472, %473
   %475 = icmp eq i64 %469, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %475, label %476, label %478
 
 476:                                              ; preds = %450
   %477 = icmp sgt i64 %474, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %477, label %500, label %.thread708
 
 478:                                              ; preds = %450
@@ -3521,13 +3515,13 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit316: ; preds = %478
   store i64 %.sink10.i319, ptr %421, align 8, !tbaa !14
   %498 = call noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13)
   %499 = icmp slt i32 %498, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %499, label %500, label %.thread708
 
 .critedge13:                                      ; preds = %478
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread708
 
 500:                                              ; preds = %476, %497
@@ -3614,8 +3608,8 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit316: ; preds = %478
   %567 = mul nsw i64 %86, %566
   %568 = add nsw i64 %565, %567
   %569 = icmp slt i64 %568, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %569, label %570, label %.critedge15
 
 570:                                              ; preds = %547
@@ -3624,8 +3618,8 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit316: ; preds = %478
 
 572:                                              ; preds = %570
   %573 = icmp sgt i64 %557, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %573, label %596, label %.thread680
 
 574:                                              ; preds = %570
@@ -3686,13 +3680,13 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit348: ; preds = %574
   store i64 %.sink10.i351, ptr %425, align 8, !tbaa !14
   %594 = call noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15)
   %595 = icmp slt i32 %594, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %595, label %596, label %.thread680
 
 .critedge15:                                      ; preds = %574, %547
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread680
 
 596:                                              ; preds = %572, %593
@@ -3705,7 +3699,7 @@ _ZN20btConvexHullInternal10Rational64C2Ell.exit348: ; preds = %574
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btConvexHullInternal7computeEPKvbii(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20btConvexHullInternal7computeEPKvbii(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.btAlignedObjectArray.4, align 8
   %7 = alloca %class.btVector3, align 8
   %8 = alloca %class.btVector3, align 8
@@ -3879,7 +3873,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i79:                 ; preds = %_Z8btSetMinIfEvRT_R
   store <2 x float> %.sroa.0.4.vec.insert.i95, ptr %82, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x float> %.sroa.3.12.vec.insert.i96, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %83, align 8, !tbaa !118
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3952,7 +3946,7 @@ _ZNK20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
 
 .loopexit263.thread:                              ; preds = %69
   store i32 %4, ptr %85, align 4, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE9quickSortI8pointCmpEEvRKT_.exit
 
 .lr.ph:                                           ; preds = %.loopexit263
@@ -3977,7 +3971,7 @@ _ZNK20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
 121:                                              ; preds = %.lr.ph299, %121
   %indvars.iv307 = phi i64 [ 0, %.lr.ph299 ], [ %indvars.iv.next308, %121 ]
   %.2298 = phi ptr [ %1, %.lr.ph299 ], [ %130, %121 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %122 = load double, ptr %.2298, align 8, !tbaa !108
   %123 = fptrunc double %122 to float
   %124 = getelementptr inbounds nuw i8, ptr %.2298, i64 8
@@ -4013,7 +4007,7 @@ _ZNK20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 12
   %147 = trunc nuw nsw i64 %indvars.iv307 to i32
   store i32 %147, ptr %146, align 4, !tbaa !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond311.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count310
   br i1 %exitcond311.not, label %.loopexit260, label %121, !llvm.loop !128
@@ -4021,7 +4015,7 @@ _ZNK20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
 148:                                              ; preds = %.lr.ph, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %148 ]
   %.3296 = phi ptr [ %1, %.lr.ph ], [ %154, %148 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %149 = getelementptr inbounds nuw i8, ptr %.3296, i64 4
   %150 = getelementptr inbounds nuw i8, ptr %.3296, i64 8
   %151 = load float, ptr %.3296, align 4, !tbaa !111
@@ -4054,13 +4048,13 @@ _ZNK20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
   %170 = getelementptr inbounds nuw i8, ptr %163, i64 12
   %171 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %171, ptr %170, align 4, !tbaa !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next, %wide.trip.count310
   br i1 %exitcond306.not, label %.loopexit260, label %148, !llvm.loop !129
 
 .loopexit260:                                     ; preds = %148, %121
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not321 = icmp eq i32 %4, 1
   br i1 %.not321, label %_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE9quickSortI8pointCmpEEvRKT_.exit, label %172
 
@@ -4070,7 +4064,7 @@ _ZNK20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
           to label %_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE9quickSortI8pointCmpEEvRKT_.exit unwind label %214
 
 _ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE9quickSortI8pointCmpEEvRKT_.exit: ; preds = %.loopexit263.thread, %.loopexit260, %172
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %175 = load ptr, ptr %174, align 8, !tbaa !130
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4195,7 +4189,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i
 214:                                              ; preds = %172
   %215 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %276
 
 216:                                              ; preds = %213
@@ -4310,7 +4304,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i
   store i32 0, ptr %262, align 4, !tbaa !56
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 -3, ptr %263, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   invoke void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 0, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %264 unwind label %274
@@ -4319,7 +4313,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i
   %265 = load ptr, ptr %10, align 8, !tbaa !69
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %265, ptr %266, align 8, !tbaa !145
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %267 = load ptr, ptr %84, align 8, !tbaa !122
   %.not.i.i.i141 = icmp ne ptr %267, null
   %268 = load i8, ptr %83, align 8, !range !19
@@ -4335,30 +4329,30 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
-  call void @__clang_call_terminate(ptr %273) #20
+  call void @__clang_call_terminate(ptr %273) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EED2Ev.exit: ; preds = %264, %270
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 274:                                              ; preds = %254
   %275 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %276
 
 276:                                              ; preds = %274, %252, %218, %216, %214, %119
   %.pn = phi { ptr, i32 } [ %253, %252 ], [ %275, %274 ], [ %217, %216 ], [ %219, %218 ], [ %215, %214 ], [ %120, %119 ]
-  call void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !122
   %.not.i.i = icmp ne ptr %3, null
@@ -4385,14 +4379,14 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInt
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #20
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal10toBtVectorERKNS_7Point32E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal10toBtVectorERKNS_7Point32E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %class.btVector3, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 4, !tbaa !77
   %5 = sitofp i32 %4 to float
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -4434,16 +4428,16 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal10toBtVe
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %36, i64 0
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert.i, 0
   %.fca.1.insert.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i, <2 x float> %.sroa.3.12.vec.insert.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtNormalEPNS_4FaceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtNormalEPNS_4FaceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %class.btVector3, align 4
   %4 = alloca %class.btVector3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 4, !tbaa !77
   %7 = sitofp i32 %6 to float
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -4480,9 +4474,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtN
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load float, ptr %36, align 8, !tbaa !111
   %38 = fmul float %35, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = load i32, ptr %39, align 4, !tbaa !77
   %41 = sitofp i32 %40 to float
   %42 = getelementptr inbounds float, ptr %3, i64 %10
@@ -4505,7 +4499,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtN
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load float, ptr %56, align 4, !tbaa !111
   %58 = fmul float %37, %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = fneg float %55
   %60 = fmul float %38, %59
   %61 = tail call float @llvm.fmuladd.f32(float %33, float %58, float %60)
@@ -4532,9 +4526,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal14getCoordinatesEPKNS_6VertexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal14getCoordinatesEPKNS_6VertexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %class.btVector3, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4, !tbaa !146
   %6 = icmp sgt i32 %5, -1
@@ -4640,12 +4634,12 @@ _ZNK20btConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %41, %45
   %.sroa.3.12.vec.insert.i6 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %77, i64 0
   %.fca.0.insert.i7 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert.i5, 0
   %.fca.1.insert.i8 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i7, <2 x float> %.sroa.3.12.vec.insert.i6, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN20btConvexHullInternal6shrinkEff(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, float noundef %1, float noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN20btConvexHullInternal6shrinkEff(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btVector3, align 4
   %5 = alloca %class.btVector3, align 4
   %6 = alloca %class.btVector3, align 4
@@ -4676,16 +4670,16 @@ define dso_local noundef float @_ZN20btConvexHullInternal6shrinkEff(ptr noundef 
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !82
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 112
   %.sroa.12.0.copyload = load i32, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5179,7 +5173,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   br i1 %narrow.i, label %276, label %_ZNK20btConvexHullInternal6Int1287getSignEv.exit.thread
 
 276:                                              ; preds = %_ZNK20btConvexHullInternal6Int1287getSignEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %277 = invoke noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %278 unwind label %339
 
@@ -5284,7 +5278,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %344 = getelementptr inbounds nuw ptr, ptr %.sroa.16279.1, i64 %indvars.iv
   %345 = load ptr, ptr %344, align 8, !tbaa !162
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %347 = load i32, ptr %346, align 4, !tbaa !77
   %348 = sitofp i32 %347 to float
   store float %348, ptr %319, align 4, !tbaa !111
@@ -5302,9 +5296,9 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %358 = fmul float %310, %357
   %359 = load float, ptr %327, align 4, !tbaa !111
   %360 = fmul float %313, %359
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %361 = getelementptr inbounds nuw i8, ptr %345, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %362 = load i32, ptr %361, align 4, !tbaa !77
   %363 = sitofp i32 %362 to float
   store float %363, ptr %328, align 4, !tbaa !111
@@ -5322,7 +5316,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %373 = fmul float %310, %372
   %374 = load float, ptr %332, align 4, !tbaa !111
   %375 = fmul float %313, %374
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %376 = fneg float %373
   %377 = fmul float %360, %376
   %378 = call float @llvm.fmuladd.f32(float %358, float %375, float %377)
@@ -5342,7 +5336,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %391 = fmul float %384, %388
   %392 = load ptr, ptr %344, align 8, !tbaa !162
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %394 = load i32, ptr %393, align 4, !tbaa !77
   %395 = sitofp i32 %394 to float
   store float %395, ptr %333, align 4, !tbaa !111
@@ -5360,7 +5354,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %405 = fmul float %310, %404
   %406 = load float, ptr %337, align 4, !tbaa !111
   %407 = fmul float %313, %406
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %408 = fsub float %403, %308
   %409 = fsub float %405, %311
   %410 = fsub float %407, %314
@@ -5446,7 +5440,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %442 = landingpad { ptr, i32 }
           catch ptr null
   %443 = extractvalue { ptr, i32 } %442, 0
-  call void @__clang_call_terminate(ptr %443) #20
+  call void @__clang_call_terminate(ptr %443) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit: ; preds = %436, %440
@@ -5463,25 +5457,25 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit: ; preds = 
 446:                                              ; preds = %432
   %447 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12) #19
+  call void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12) #20
   br label %448
 
 .critedge:                                        ; preds = %431, %417, %444, %._crit_edge
   %.4 = phi float [ 0.000000e+00, %._crit_edge ], [ %445, %444 ], [ %.0320, %417 ], [ %.0320, %431 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK20btConvexHullInternal6Int1287getSignEv.exit.thread
 
 448:                                              ; preds = %446, %341, %339
   %.pn109.pn.pn = phi { ptr, i32 } [ %342, %341 ], [ %340, %339 ], [ %447, %446 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %457
 
 _ZNK20btConvexHullInternal6Int1287getSignEv.exit.thread: ; preds = %271, %_ZNK20btConvexHullInternal6Int1287getSignEv.exit, %.critedge
   %.1 = phi float [ %.4, %.critedge ], [ 0.000000e+00, %_ZNK20btConvexHullInternal6Int1287getSignEv.exit ], [ 0.000000e+00, %271 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i229.not = icmp eq ptr %.sroa.16279.1, null
   br i1 %.not.i.i.i229.not, label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit, label %449
 
@@ -5493,7 +5487,7 @@ _ZNK20btConvexHullInternal6Int1287getSignEv.exit.thread: ; preds = %271, %_ZNK20
   %451 = landingpad { ptr, i32 }
           catch ptr null
   %452 = extractvalue { ptr, i32 } %451, 0
-  call void @__clang_call_terminate(ptr %452) #20
+  call void @__clang_call_terminate(ptr %452) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit: ; preds = %_ZNK20btConvexHullInternal6Int1287getSignEv.exit.thread, %449
@@ -5508,17 +5502,17 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit: ; preds = %_
   %455 = landingpad { ptr, i32 }
           catch ptr null
   %456 = extractvalue { ptr, i32 } %455, 0
-  call void @__clang_call_terminate(ptr %456) #20
+  call void @__clang_call_terminate(ptr %456) #19
   unreachable
 
 457:                                              ; preds = %248, %66, %448
   %.sroa.16279.3 = phi ptr [ %.sroa.16279.2, %66 ], [ %.sroa.16279.1, %448 ], [ %.sroa.16279.2, %248 ]
   %.sroa.26303.5 = phi ptr [ %.sroa.26303.2, %66 ], [ %.sroa.26303.1, %448 ], [ %.sroa.26303.3, %248 ]
   %.pn119.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn109.pn.pn, %448 ], [ %249, %248 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i234.not = icmp eq ptr %.sroa.16279.3, null
   br i1 %.not.i.i.i234.not, label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit236, label %458
 
@@ -5530,7 +5524,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit: ; preds = %_
   %460 = landingpad { ptr, i32 }
           catch ptr null
   %461 = extractvalue { ptr, i32 } %460, 0
-  call void @__clang_call_terminate(ptr %461) #20
+  call void @__clang_call_terminate(ptr %461) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit236: ; preds = %457, %458
@@ -5545,7 +5539,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit236: ; preds =
   %464 = landingpad { ptr, i32 }
           catch ptr null
   %465 = extractvalue { ptr, i32 } %464, 0
-  call void @__clang_call_terminate(ptr %465) #20
+  call void @__clang_call_terminate(ptr %465) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit239: ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal4FaceEED2Ev.exit236, %462
@@ -5557,7 +5551,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit233: ; preds
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !134
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5646,12 +5640,12 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE7reserveEi.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"class.btConvexHullInternal::Int128", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !4
   %5 = icmp sgt i64 %4, -1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
@@ -5677,12 +5671,12 @@ define linkonce_odr dso_local noundef float @_ZNK20btConvexHullInternal6Int1288t
 
 21:                                               ; preds = %11, %6
   %22 = phi float [ %10, %6 ], [ %20, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4FaceEf20btAlignedObjectArrayIPNS_6VertexEE(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef %1, float noundef %2, ptr noundef %3) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4FaceEf20btAlignedObjectArrayIPNS_6VertexEE(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef %1, float noundef %2, ptr noundef %3) local_unnamed_addr #7 align 2 {
   %5 = alloca %class.btVector3, align 4
   %6 = alloca %class.btVector3, align 4
   %7 = alloca %class.btVector3, align 8
@@ -5694,9 +5688,9 @@ define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4Fa
   %13 = alloca %"class.btConvexHullInternal::Rational128", align 8
   %14 = alloca %"class.btConvexHullInternal::Rational128", align 8
   %15 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = load i32, ptr %16, align 4, !tbaa !77
   %18 = sitofp i32 %17 to float
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -5733,9 +5727,9 @@ define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4Fa
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load float, ptr %47, align 8, !tbaa !111
   %49 = fmul float %46, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = load i32, ptr %50, align 4, !tbaa !77
   %52 = sitofp i32 %51 to float
   %53 = getelementptr inbounds float, ptr %5, i64 %21
@@ -5758,7 +5752,7 @@ define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4Fa
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = load float, ptr %67, align 4, !tbaa !111
   %69 = fmul float %48, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %70 = fneg float %66
   %71 = fmul float %49, %70
   %72 = tail call float @llvm.fmuladd.f32(float %44, float %69, float %71)
@@ -5831,7 +5825,7 @@ define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4Fa
   br i1 %or.cond854, label %1513, label %_ZN20btConvexHullInternal7Point326isZeroEv.exit.thread
 
 _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %116 = sext i32 %24 to i64
   %117 = sext i32 %59 to i64
   %118 = mul nsw i64 %117, %116
@@ -5889,7 +5883,7 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
   %160 = load ptr, ptr %159, align 8, !tbaa !158
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %9, ptr noundef nonnull align 8 dereferenceable(124) %160, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %163 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %9, i64 noundef %157)
   %164 = icmp slt i32 %163, 0
@@ -5899,7 +5893,7 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
   %.0241 = phi ptr [ %176, %174 ], [ %162, %158 ]
   %.0232 = phi i32 [ %.1233, %174 ], [ %163, %158 ]
   %.0226 = phi ptr [ %.1227, %174 ], [ %162, %158 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %165 = getelementptr inbounds nuw i8, ptr %.0241, i64 24
   %166 = load ptr, ptr %165, align 8, !tbaa !53
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %10, ptr noundef nonnull align 8 dereferenceable(124) %166, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -5921,19 +5915,19 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
   %.1227 = phi ptr [ %172, %169 ], [ %.0226, %.preheader957 ]
   %175 = getelementptr inbounds nuw i8, ptr %.1242, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not270 = icmp eq ptr %176, %.1227
   br i1 %.not270, label %.thread834, label %.preheader957, !llvm.loop !177
 
 .loopexit958:                                     ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not271.not = icmp eq ptr %172, null
   br i1 %.not271.not, label %.thread834, label %191
 
 .preheader955:                                    ; preds = %158, %187
   %.0244 = phi ptr [ %189, %187 ], [ %162, %158 ]
   %.3229 = phi ptr [ %.4230, %187 ], [ %162, %158 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %177 = getelementptr inbounds nuw i8, ptr %.0244, i64 24
   %178 = load ptr, ptr %177, align 8, !tbaa !53
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %11, ptr noundef nonnull align 8 dereferenceable(124) %178, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -5957,12 +5951,12 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
   %.4230 = phi ptr [ %186, %184 ], [ %.3229, %.preheader955 ]
   %188 = getelementptr inbounds nuw i8, ptr %.1245, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not268 = icmp eq ptr %189, %.4230
   br i1 %.not268, label %.thread834, label %.preheader955, !llvm.loop !178
 
 190:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %191
 
 191:                                              ; preds = %190, %.loopexit958
@@ -5979,13 +5973,13 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
 
 197:                                              ; preds = %202, %193
   %.0247 = phi ptr [ %196, %193 ], [ %203, %202 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %198 = getelementptr inbounds nuw i8, ptr %.0247, i64 24
   %199 = load ptr, ptr %198, align 8, !tbaa !53
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %12, ptr noundef nonnull align 8 dereferenceable(124) %199, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %200 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %12, i64 noundef %157)
   %201 = icmp sgt i32 %200, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %201, label %.thread838, label %202
 
 202:                                              ; preds = %197
@@ -6031,25 +6025,25 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
   %227 = getelementptr inbounds nuw i8, ptr %.7222, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !41
   %229 = load ptr, ptr %228, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load ptr, ptr %230, align 8, !tbaa !53
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %13, ptr noundef nonnull align 8 dereferenceable(124) %231, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %232 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %13, i64 noundef %157)
   %233 = icmp sgt i32 %232, -1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %233, label %.thread840, label %.lr.ph
 
 234:                                              ; preds = %.lr.ph
   %235 = getelementptr inbounds nuw i8, ptr %.0254974, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %237 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %238 = load ptr, ptr %237, align 8, !tbaa !53
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %13, ptr noundef nonnull align 8 dereferenceable(124) %238, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %239 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %13, i64 noundef %157)
   %240 = icmp sgt i32 %239, -1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %240, label %.thread840, label %.lr.ph, !llvm.loop !180
 
 .lr.ph:                                           ; preds = %226, %234
@@ -6079,7 +6073,7 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
   %249 = load ptr, ptr %248, align 8, !tbaa !41
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %253 = load ptr, ptr %252, align 8, !tbaa !53
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind nonnull writable sret(%"class.btConvexHullInternal::Rational128") align 8 %14, ptr noundef nonnull align 8 dereferenceable(124) %253, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -6111,7 +6105,7 @@ _ZN20btConvexHullInternal7Point326isZeroEv.exit.thread: ; preds = %103
 
 .thread845:                                       ; preds = %266
   %268 = getelementptr inbounds nuw i8, ptr %251, i64 24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %322
 
 269:                                              ; preds = %266, %263
@@ -6196,7 +6190,7 @@ _ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit.i: ; preds = %316, %313, %311,
 
 _ZNK20btConvexHullInternal11Rational1287compareEl.exit: ; preds = %257, %265, %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit.i
   %.0.i = phi i32 [ %261, %257 ], [ %318, %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit.i ], [ %256, %265 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %319 = icmp sgt i32 %.0.i, -1
   br i1 %319, label %320, label %.backedge.backedge
 
@@ -6204,7 +6198,7 @@ _ZNK20btConvexHullInternal11Rational1287compareEl.exit: ; preds = %257, %265, %_
   br label %.backedge, !llvm.loop !181
 
 _ZNK20btConvexHullInternal11Rational1287compareEl.exit.thread: ; preds = %263
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge.backedge
 
 320:                                              ; preds = %_ZNK20btConvexHullInternal11Rational1287compareEl.exit
@@ -8010,10 +8004,10 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit
   br i1 %.not280, label %._crit_edge983, label %.lr.ph982, !llvm.loop !200
 
 ._crit_edge983:                                   ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit607, %1283
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !66
   call void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1340
 
 1340:                                             ; preds = %1280, %._crit_edge983, %1268
@@ -8481,22 +8475,22 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_.exit: 
 
 .thread834:                                       ; preds = %174, %187, %202, %.lr.ph, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_.exit, %.loopexit958
   %.3 = phi i1 [ false, %.loopexit958 ], [ true, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_.exit ], [ true, %.lr.ph ], [ true, %202 ], [ true, %187 ], [ false, %174 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1512
 
 1512:                                             ; preds = %_ZN20btConvexHullInternal7Point326isZeroEv.exit.thread, %.thread834
   %.1 = phi i1 [ %.3, %.thread834 ], [ false, %_ZN20btConvexHullInternal7Point326isZeroEv.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1513
 
 1513:                                             ; preds = %103, %1512
   %.0 = phi i1 [ %.1, %1512 ], [ true, %103 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !76
   %.not.i.i = icmp ne ptr %3, null
@@ -8523,12 +8517,12 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullIn
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #20
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind noalias writable sret(%"class.btConvexHullInternal::Rational128") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr dead_on_unwind noalias writable sret(%"class.btConvexHullInternal::Rational128") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4, !tbaa !146
   %6 = icmp sgt i32 %5, -1
@@ -8842,7 +8836,7 @@ _ZN20btConvexHullInternal11Rational128C2ERKNS_6Int128ES3_.exit: ; preds = %_ZNK2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.btConvexHullInternal, align 8
   %9 = alloca %class.btAlignedObjectArray, align 8
   %10 = icmp slt i32 %4, 1
@@ -8912,7 +8906,7 @@ _ZN20btAlignedObjectArrayIiE5clearEv.exit:        ; preds = %_ZN20btAlignedObjec
   br label %458
 
 36:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %37, i8 0, i64 24, i1 false)
@@ -9187,7 +9181,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i148: ; preds = %145, %_ZNK20b
 
 .loopexit277:                                     ; preds = %.lr.ph.i140, %.loopexit278
   store i32 0, ptr %133, align 4, !tbaa !226
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 1, ptr %150, align 8, !tbaa !137
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9785,11 +9779,11 @@ _ZL13getVertexCopyPN20btConvexHullInternal6VertexER20btAlignedObjectArrayIS1_E.e
   %406 = landingpad { ptr, i32 }
           catch ptr null
   %407 = extractvalue { ptr, i32 } %406, 0
-  call void @__clang_call_terminate(ptr %407) #20
+  call void @__clang_call_terminate(ptr %407) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit: ; preds = %.loopexit277, %._crit_edge, %404
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %456
 
 408:                                              ; preds = %.lr.ph288, %.loopexit274
@@ -9921,20 +9915,20 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit271: ; preds = %416, %420, %_ZN20
 
 455:                                              ; preds = %452, %371, %373, %375, %369, %367, %365
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %366, %365 ], [ %453, %452 ], [ %368, %367 ], [ %370, %369 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ]
-  call void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19
+  call void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %457
 
 456:                                              ; preds = %_ZN20btAlignedObjectArrayIiE5clearEv.exit115, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit
   %.1 = phi float [ %.075, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit ], [ %50, %_ZN20btAlignedObjectArrayIiE5clearEv.exit115 ]
-  call void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %8) #19
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #19
+  call void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %458
 
 457:                                              ; preds = %82, %357, %359, %361, %363, %455, %80
   %.pn98.pn = phi { ptr, i32 } [ %81, %80 ], [ %83, %82 ], [ %.pn.pn.pn.pn, %455 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ]
-  call void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %8) #19
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #19
+  call void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn98.pn
 
 458:                                              ; preds = %456, %_ZN20btAlignedObjectArrayIiE5clearEv.exit
@@ -9943,10 +9937,10 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit271: ; preds = %416, %420, %_ZN20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !76
   %.not.i.i.i = icmp ne ptr %3, null
@@ -9964,7 +9958,7 @@ define linkonce_odr dso_local void @_ZN20btConvexHullInternalD2Ev(ptr noundef no
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit: ; preds = %1, %7
@@ -9994,7 +9988,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit: ; preds = 
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #20
+  tail call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
 _ZN20btConvexHullInternal9PoolArrayINS_4FaceEED2Ev.exit.i: ; preds = %16
@@ -10005,7 +9999,7 @@ _ZN20btConvexHullInternal9PoolArrayINS_4FaceEED2Ev.exit.i: ; preds = %16
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #20
+  tail call void @__clang_call_terminate(ptr %25) #19
   unreachable
 
 _ZN20btConvexHullInternal4PoolINS_4FaceEED2Ev.exit: ; preds = %14
@@ -10029,7 +10023,7 @@ _ZN20btConvexHullInternal4PoolINS_4FaceEED2Ev.exit: ; preds = %14
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #20
+  tail call void @__clang_call_terminate(ptr %35) #19
   unreachable
 
 _ZN20btConvexHullInternal9PoolArrayINS_4EdgeEED2Ev.exit.i: ; preds = %29
@@ -10040,7 +10034,7 @@ _ZN20btConvexHullInternal9PoolArrayINS_4EdgeEED2Ev.exit.i: ; preds = %29
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #20
+  tail call void @__clang_call_terminate(ptr %38) #19
   unreachable
 
 _ZN20btConvexHullInternal4PoolINS_4EdgeEED2Ev.exit: ; preds = %27
@@ -10064,7 +10058,7 @@ _ZN20btConvexHullInternal4PoolINS_4EdgeEED2Ev.exit: ; preds = %27
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #20
+  tail call void @__clang_call_terminate(ptr %48) #19
   unreachable
 
 _ZN20btConvexHullInternal9PoolArrayINS_6VertexEED2Ev.exit.i: ; preds = %42
@@ -10075,7 +10069,7 @@ _ZN20btConvexHullInternal9PoolArrayINS_6VertexEED2Ev.exit.i: ; preds = %42
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #20
+  tail call void @__clang_call_terminate(ptr %51) #19
   unreachable
 
 _ZN20btConvexHullInternal4PoolINS_6VertexEED2Ev.exit: ; preds = %40
@@ -10083,26 +10077,26 @@ _ZN20btConvexHullInternal4PoolINS_6VertexEED2Ev.exit: ; preds = %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #14
+declare float @llvm.fmuladd.f32(float, float, float) #13
 
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #15
+declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #20
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #17
+declare void @_ZSt9terminatev() local_unnamed_addr #16
 
-declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #15
+declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE17quickSortInternalI8pointCmpEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE17quickSortInternalI8pointCmpEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.btConvexHullInternal::Point32", align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %tailrecurse
@@ -10201,13 +10195,13 @@ _ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39: ; preds =
   br i1 %.not, label %54, label %49
 
 49:                                               ; preds = %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !125
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !125
   %50 = load ptr, ptr %6, align 8, !tbaa !122
   %51 = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %50, i64 %indvars.iv53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !125
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = add nsw i32 %31, 1
   %53 = add nsw i32 %48, -1
   br label %54
@@ -10234,6 +10228,12 @@ _ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39: ; preds =
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #18
 
@@ -10244,26 +10244,26 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #18
 declare float @llvm.sqrt.f32(float) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold nofree noreturn }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold nofree noreturn }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

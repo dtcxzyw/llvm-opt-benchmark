@@ -172,16 +172,10 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   ret i64 %.036
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %1
   %6 = load i8, ptr %4, align 1, !tbaa !4
@@ -357,14 +351,14 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   %69 = call double @lexbor_strtod_internal(ptr noundef nonnull %3, i64 noundef %68, i32 noundef %65) #6
   %70 = fneg double %69
   %.069 = select i1 %.172, double %70, double %69
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.069
 }
 
 declare double @lexbor_strtod_internal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %1
   %.not = icmp eq i64 %1, 0
@@ -403,7 +397,7 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %1
   %5 = load i8, ptr %3, align 1, !tbaa !4
@@ -461,7 +455,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lexbor_conv_data_to_uint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @lexbor_conv_data_to_uint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %1
   %.not = icmp eq i64 %1, 0
@@ -539,14 +533,20 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   ret i64 %.016
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

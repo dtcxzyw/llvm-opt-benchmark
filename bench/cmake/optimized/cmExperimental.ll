@@ -64,12 +64,6 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
@@ -288,11 +282,11 @@ define dso_local noundef zeroext i1 @_ZN14cmExperimental17HasSupportEnabledERK10
   %9 = load ptr, ptr %8, align 16, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %7, ptr %3, align 8
   %12 = call noundef i32 @_ZNK7cmValue7CompareESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 %11, ptr %9) #17
   %13 = icmp eq i32 %12, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %2
@@ -360,7 +354,7 @@ define internal void @_GLOBAL__sub_I_cmExperimental.cxx() #13 section ".text.sta
   %27 = alloca [3 x i32], align 4
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %28 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 0, ptr %27, align 4, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 1, ptr %29, align 4, !tbaa !30
@@ -391,10 +385,10 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %38 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12cmStateEnumsL16AllTargetDomainsE)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 16), ptr @_ZN12_GLOBAL__N_111LookupTableE, align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 25, ptr %26, align 8, !tbaa !34
   %39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_111LookupTableE, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0)
   store ptr %39, ptr @_ZN12_GLOBAL__N_111LookupTableE, align 16, !tbaa !11
@@ -405,9 +399,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %41 = load ptr, ptr @_ZN12_GLOBAL__N_111LookupTableE, align 16, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 0, ptr %42, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 32), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 36, ptr %25, align 8, !tbaa !34
   %43 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef 0)
           to label %.noexc141.i unwind label %140
@@ -421,9 +415,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 32), align 16, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %44
   store i8 0, ptr %46, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 80), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 64), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 46, ptr %24, align 8, !tbaa !34
   %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 0)
           to label %.noexc145.i unwind label %142
@@ -437,9 +431,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 64), align 16, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
   store i8 0, ptr %50, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 112), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 96), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 131, ptr %23, align 8, !tbaa !34
   %51 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 96), ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 0)
           to label %.noexc149.i unwind label %302
@@ -453,10 +447,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 96), align 16, !tbaa !11
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
   store i8 0, ptr %54, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 128), i8 0, i64 29, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 176), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 160), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 23, ptr %22, align 8, !tbaa !34
   %55 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 160), ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 0)
           to label %.noexc153.i unwind label %144
@@ -470,9 +464,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 160), align 16, !tbaa !11
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %56
   store i8 0, ptr %58, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 208), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 192), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 36, ptr %21, align 8, !tbaa !34
   %59 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 192), ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 0)
           to label %.noexc157.i unwind label %146
@@ -486,9 +480,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 192), align 16, !tbaa !11
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   store i8 0, ptr %62, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 240), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 224), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 45, ptr %20, align 8, !tbaa !34
   %63 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 224), ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 0)
           to label %.noexc161.i unwind label %148
@@ -502,9 +496,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 224), align 16, !tbaa !11
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %64
   store i8 0, ptr %66, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 272), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 256), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 130, ptr %19, align 8, !tbaa !34
   %67 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 256), ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0)
           to label %.noexc165.i unwind label %281
@@ -518,14 +512,14 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 256), align 16, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %68
   store i8 0, ptr %70, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 288), i8 0, i64 29, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 336), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 320), align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 336), ptr noundef nonnull align 1 dereferenceable(12) @.str.10, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 328), align 8, !tbaa !16
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 348), align 4, !tbaa !17
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 368), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 352), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 36, ptr %18, align 8, !tbaa !34
   %71 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 352), ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0)
           to label %.noexc173.i unwind label %150
@@ -539,9 +533,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 352), align 16, !tbaa !11
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %72
   store i8 0, ptr %74, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 400), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 384), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 33, ptr %17, align 8, !tbaa !34
   %75 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 384), ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0)
           to label %.noexc177.i unwind label %152
@@ -555,9 +549,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 384), align 16, !tbaa !11
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %76
   store i8 0, ptr %78, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 432), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 416), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 140, ptr %16, align 8, !tbaa !34
   %79 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 416), ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 0)
           to label %.noexc181.i unwind label %260
@@ -571,10 +565,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 416), align 16, !tbaa !11
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
   store i8 0, ptr %82, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 448), i8 0, i64 29, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 496), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 480), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 17, ptr %15, align 8, !tbaa !34
   %83 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 480), ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0)
           to label %.noexc185.i unwind label %154
@@ -588,9 +582,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 480), align 16, !tbaa !11
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
   store i8 0, ptr %86, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 528), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 512), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 36, ptr %14, align 8, !tbaa !34
   %87 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 512), ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0)
           to label %.noexc189.i unwind label %156
@@ -604,9 +598,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 512), align 16, !tbaa !11
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %88
   store i8 0, ptr %90, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 560), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 544), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 36, ptr %13, align 8, !tbaa !34
   %91 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 544), ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
           to label %.noexc193.i unwind label %158
@@ -620,9 +614,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 544), align 16, !tbaa !11
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %92
   store i8 0, ptr %94, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 592), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 576), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 199, ptr %12, align 8, !tbaa !34
   %95 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 576), ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
           to label %.noexc197.i unwind label %239
@@ -636,10 +630,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 576), align 16, !tbaa !11
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 %96
   store i8 0, ptr %98, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 608), i8 0, i64 29, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 656), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 640), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 17, ptr %11, align 8, !tbaa !34
   %99 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 640), ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 0)
           to label %.noexc201.i unwind label %160
@@ -653,9 +647,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 640), align 16, !tbaa !11
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %100
   store i8 0, ptr %102, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 688), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 672), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 36, ptr %10, align 8, !tbaa !34
   %103 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 672), ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
           to label %.noexc205.i unwind label %162
@@ -669,9 +663,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 672), align 16, !tbaa !11
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %104
   store i8 0, ptr %106, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 720), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 704), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 38, ptr %9, align 8, !tbaa !34
   %107 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 704), ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 0)
           to label %.noexc209.i unwind label %164
@@ -685,9 +679,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 704), align 16, !tbaa !11
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   store i8 0, ptr %110, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 736), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 180, ptr %8, align 8, !tbaa !34
   %111 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 736), ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
           to label %.noexc213.i unwind label %218
@@ -701,10 +695,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 736), align 16, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %112
   store i8 0, ptr %114, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 768), i8 0, i64 29, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 816), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 800), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 19, ptr %7, align 8, !tbaa !34
   %115 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 800), ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
           to label %.noexc217.i unwind label %166
@@ -718,9 +712,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 800), align 16, !tbaa !11
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 %116
   store i8 0, ptr %118, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 848), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 832), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 36, ptr %6, align 8, !tbaa !34
   %119 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 832), ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
           to label %.noexc221.i unwind label %168
@@ -734,9 +728,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 832), align 16, !tbaa !11
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 %120
   store i8 0, ptr %122, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 880), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 864), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 40, ptr %5, align 8, !tbaa !34
   %123 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 864), ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
           to label %.noexc225.i unwind label %170
@@ -750,9 +744,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 864), align 16, !tbaa !11
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 %124
   store i8 0, ptr %126, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 912), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 896), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 133, ptr %4, align 8, !tbaa !34
   %127 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 896), ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
           to label %.noexc229.i unwind label %196
@@ -766,7 +760,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 896), align 16, !tbaa !11
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 %128
   store i8 0, ptr %130, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 928), i8 0, i64 24, i1 false)
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 952), align 8, !tbaa !36
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 956), align 4, !tbaa !21
@@ -775,7 +769,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   store i64 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 968), align 8, !tbaa !16
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 991), align 1, !tbaa !17
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1008), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 992), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 36, ptr %3, align 8, !tbaa !34
   %131 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 992), ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
           to label %.noexc237.i unwind label %172
@@ -789,9 +783,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 992), align 16, !tbaa !11
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 %132
   store i8 0, ptr %134, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1040), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1024), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 34, ptr %2, align 8, !tbaa !34
   %135 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1024), ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
           to label %.noexc241.i unwind label %174
@@ -805,9 +799,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE
   %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1024), align 16, !tbaa !11
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 %136
   store i8 0, ptr %138, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1072), ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1056), align 16, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 139, ptr %1, align 8, !tbaa !34
   %139 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1056), ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
           to label %__cxx_global_var_init.2.exit unwind label %176
@@ -1312,13 +1306,19 @@ __cxx_global_var_init.2.exit:                     ; preds = %.noexc241.i
   %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1056), align 16, !tbaa !11
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 %327
   store i8 0, ptr %329, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1088), i8 0, i64 24, i1 false)
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1112), align 8, !tbaa !36
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1116), align 4, !tbaa !21
   %330 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

@@ -130,23 +130,17 @@ ffi_register_module.exit:                         ; preds = %1, %42, %45, %56
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare hidden ptr @lj_ctype_init(ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_init(ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_lib_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @lj_lib_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @lj_clib_default(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @lj_clib_default(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_ffi_meta___index(ptr noundef %0) #0 {
@@ -160,9 +154,9 @@ define internal i32 @lj_cf_ffi_meta___index(ptr noundef %0) #0 {
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %0, ptr %10, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -218,8 +212,8 @@ define internal i32 @lj_cf_ffi_meta___index(ptr noundef %0) #0 {
 
 43:                                               ; preds = %29, %41, %34, %27
   %.0 = phi i32 [ %28, %27 ], [ 1, %34 ], [ 1, %41 ], [ 1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -235,9 +229,9 @@ define internal i32 @lj_cf_ffi_meta___newindex(ptr noundef %0) #0 {
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %0, ptr %10, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -286,8 +280,8 @@ define internal i32 @lj_cf_ffi_meta___newindex(ptr noundef %0) #0 {
 
 35:                                               ; preds = %33, %31
   %.0 = phi i32 [ %32, %31 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -795,9 +789,9 @@ define internal i32 @lj_cf_ffi_meta___ipairs(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_argt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @lj_err_argt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden ptr @lj_cdata_index(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_cdata_index(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ffi_index_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
@@ -912,34 +906,34 @@ define internal fastcc i32 @ffi_index_meta(ptr noundef %0, ptr noundef %1, ptr n
   ret i32 %.1
 }
 
-declare hidden i32 @lj_cdata_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cdata_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_meta(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_ctype_meta(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_repr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_ctype_repr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
+declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
-declare hidden ptr @lj_meta_tget(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_meta_tget(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_meta_tset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_meta_tset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_meta_tailcall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_meta_tailcall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden void @lj_cdata_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_cdata_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_carith_op(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_carith_op(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ccall_func(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ccall_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_ffi_new(ptr noundef %0) #0 {
@@ -976,7 +970,7 @@ define internal noundef i32 @lj_cf_ffi_new(ptr noundef %0) #0 {
 20:                                               ; preds = %17
   %21 = and i64 %18, 140737488355327
   %22 = inttoptr i64 %21 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %0, ptr %23, align 8, !tbaa !60
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -1001,7 +995,7 @@ define internal noundef i32 @lj_cf_ffi_new(ptr noundef %0) #0 {
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ffi_checkctype.exit
 
 35:                                               ; preds = %17
@@ -1036,7 +1030,7 @@ ffi_checkctype.exit:                              ; preds = %32, %41, %44
   br i1 %49, label %47, label %ctype_raw.exit, !llvm.loop !54
 
 ctype_raw.exit:                                   ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @lj_ctype_info(ptr noundef nonnull %10, i32 noundef %.0.i61, ptr noundef nonnull %4) #9
   %52 = load ptr, ptr %12, align 8, !tbaa !44
   %53 = and i32 %51, 1048576
@@ -1052,7 +1046,7 @@ ctype_raw.exit:                                   ; preds = %47
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %0, ptr %60, align 8, !tbaa !42
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %62 = load ptr, ptr %14, align 8, !tbaa !4
   %.not.i = icmp ult ptr %61, %62
   br i1 %.not.i, label %ffi_checkint.exit, label %63
@@ -1067,7 +1061,7 @@ ffi_checkint.exit:                                ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %59, ptr noundef nonnull %66, ptr noundef nonnull %2, ptr noundef nonnull %61, i32 noundef 512) #9
   %67 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %68 = call i32 @lj_ctype_vlsize(ptr noundef nonnull %10, ptr noundef nonnull %.0.i, i32 noundef %67) #9
   store i32 %68, ptr %4, align 4, !tbaa !43
   br label %70
@@ -1200,7 +1194,7 @@ thread-pre-split:                                 ; preds = %ctype_raw.exit
   br label %145
 
 145:                                              ; preds = %143, %.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
@@ -1229,7 +1223,7 @@ define internal fastcc i32 @ffi_checkctype(ptr noundef %0, ptr noundef %1, ptr n
 13:                                               ; preds = %10
   %14 = and i64 %11, 140737488355327
   %15 = inttoptr i64 %14 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %0, ptr %16, align 8, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -1254,7 +1248,7 @@ define internal fastcc i32 @ffi_checkctype(ptr noundef %0, ptr noundef %1, ptr n
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 28:                                               ; preds = %10
@@ -1289,38 +1283,38 @@ define internal fastcc i32 @ffi_checkctype(ptr noundef %0, ptr noundef %1, ptr n
   ret i32 %.0
 }
 
-declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ctype_vlsize(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: noreturn
-declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare hidden ptr @lj_cdata_newx(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden void @lj_cconv_ct_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_meta_cache(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ctype_vlsize(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @lj_cparse(ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_cdata_newx(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden void @lj_cconv_ct_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_meta_cache(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cparse(ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_repr_complex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: noreturn
+declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden ptr @lj_ctype_repr_int64(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare hidden ptr @lj_ctype_repr_complex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_ctype_repr_int64(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ffi_pairs(ptr noundef %0, i32 noundef range(i32 20, 22) %1) unnamed_addr #0 {
@@ -1680,11 +1674,11 @@ define internal noundef i32 @lj_cf_ffi_clib___gc(ptr noundef readonly captures(n
   ret i32 0
 }
 
-declare hidden i32 @lj_cconv_tv_ct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cconv_tv_ct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_clib_index(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_clib_index(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @lj_clib_unload(ptr noundef) local_unnamed_addr #2
+declare hidden void @lj_clib_unload(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_ffi_callback_free(ptr noundef %0) #0 {
@@ -1840,17 +1834,17 @@ ctype_raw.exit:                                   ; preds = %25
   ret void
 }
 
-declare hidden i32 @lj_ccallback_ptr2slot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ccallback_ptr2slot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_setinth(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_setinth(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_lib_checkfunc(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_lib_checkfunc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_ffi_cdef(ptr noundef %0) #0 {
   %2 = alloca %struct.CPState, align 8
   %3 = tail call ptr @lj_lib_checkstr(ptr noundef %0, i32 noundef 1) #9
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %4, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1898,7 +1892,7 @@ define internal noundef i32 @lj_cf_ffi_cdef(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %30, %23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
@@ -1935,7 +1929,7 @@ define internal noundef i32 @lj_cf_ffi_cast(ptr noundef %0) #0 {
 18:                                               ; preds = %15
   %19 = and i64 %16, 140737488355327
   %20 = inttoptr i64 %19 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1960,7 +1954,7 @@ define internal noundef i32 @lj_cf_ffi_cast(ptr noundef %0) #0 {
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ffi_checkctype.exit
 
 33:                                               ; preds = %15
@@ -2121,7 +2115,7 @@ define internal range(i32 0, 2) i32 @lj_cf_ffi_typeinfo(ptr noundef %0) #0 {
   store ptr %0, ptr %9, align 8, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %.not.i = icmp ult ptr %11, %13
@@ -2136,7 +2130,7 @@ ffi_checkint.exit:                                ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %8, ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef nonnull %11, i32 noundef 256) #9
   %17 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %79, label %18
 
@@ -2272,7 +2266,7 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
 18:                                               ; preds = %15
   %19 = and i64 %16, 140737488355327
   %20 = inttoptr i64 %19 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2297,7 +2291,7 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ffi_checkctype.exit
 
 33:                                               ; preds = %15
@@ -2467,7 +2461,7 @@ define internal noundef i32 @lj_cf_ffi_sizeof(ptr noundef %0) #0 {
 19:                                               ; preds = %16
   %20 = and i64 %17, 140737488355327
   %21 = inttoptr i64 %20 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %0, ptr %22, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -2492,7 +2486,7 @@ define internal noundef i32 @lj_cf_ffi_sizeof(ptr noundef %0) #0 {
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %11, align 8, !tbaa !44
   %.pre26 = load i64, ptr %.pre, align 8, !tbaa !23
   br label %ffi_checkctype.exit
@@ -2551,7 +2545,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
   store ptr %0, ptr %66, align 8, !tbaa !42
   %67 = load ptr, ptr %11, align 8, !tbaa !44
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %69 = load ptr, ptr %13, align 8, !tbaa !4
   %.not.i = icmp ult ptr %68, %69
   br i1 %.not.i, label %ffi_checkint.exit, label %70
@@ -2565,7 +2559,7 @@ ffi_checkint.exit:                                ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %65, ptr noundef nonnull %72, ptr noundef nonnull %2, ptr noundef nonnull %68, i32 noundef 512) #9
   %73 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %74 = call i32 @lj_ctype_vlsize(ptr noundef nonnull %9, ptr noundef nonnull %56, i32 noundef %73) #9
   br label %80
 
@@ -2635,7 +2629,7 @@ define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
 19:                                               ; preds = %16
   %20 = and i64 %17, 140737488355327
   %21 = inttoptr i64 %20 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %22, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2660,7 +2654,7 @@ define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ffi_checkctype.exit
 
 34:                                               ; preds = %16
@@ -2682,7 +2676,7 @@ define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
   %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !43
   %45 = call i32 @lj_ctype_info_raw(ptr noundef nonnull %9, i32 noundef %.0.i, ptr noundef nonnull %3) #9
   %46 = load ptr, ptr %13, align 8, !tbaa !4
@@ -2692,7 +2686,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
   %50 = shl nuw nsw i32 1, %49
   %51 = uitofp nneg i32 %50 to double
   store double %51, ptr %47, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }
 
@@ -2730,7 +2724,7 @@ define internal range(i32 0, 4) i32 @lj_cf_ffi_offsetof(ptr noundef %0) #0 {
 19:                                               ; preds = %16
   %20 = and i64 %17, 140737488355327
   %21 = inttoptr i64 %20 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %22, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2755,7 +2749,7 @@ define internal range(i32 0, 4) i32 @lj_cf_ffi_offsetof(ptr noundef %0) #0 {
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ffi_checkctype.exit
 
 34:                                               ; preds = %16
@@ -2779,7 +2773,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
   %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
   %45 = call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef 2) #9
   %46 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = load i32, ptr %46, align 8, !tbaa !52
   %.mask = and i32 %47, -268435456
   %48 = icmp eq i32 %.mask, 268435456
@@ -2831,7 +2825,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
 
 72:                                               ; preds = %61, %ffi_checkctype.exit, %49, %52, %54, %.thread
   %.1 = phi i32 [ 0, %54 ], [ 0, %52 ], [ 0, %49 ], [ 0, %ffi_checkctype.exit ], [ 3, %61 ], [ 1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
@@ -2856,12 +2850,12 @@ ffi_checkint.exit:                                ; preds = %1
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %0, ptr %16, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load ptr, ptr %15, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 256) #9
   %19 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 %19, ptr %3, align 4, !tbaa !43
   %.pre = load ptr, ptr %5, align 8, !tbaa !4
   br label %20
@@ -2888,7 +2882,7 @@ define internal noundef i32 @lj_cf_ffi_string(ptr noundef %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %0, ptr %10, align 8, !tbaa !42
   %11 = tail call ptr @lj_lib_checkany(ptr noundef %0, i32 noundef 1) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !4
@@ -2911,7 +2905,7 @@ define internal noundef i32 @lj_cf_ffi_string(ptr noundef %0) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp ult ptr %28, %14
   br i1 %.not.i, label %ffi_checkint.exit, label %29
 
@@ -2924,7 +2918,7 @@ ffi_checkint.exit:                                ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %24, ptr noundef nonnull %31, ptr noundef nonnull %2, ptr noundef nonnull %28, i32 noundef 512) #9
   %32 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr %9, align 8, !tbaa !51
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 432
@@ -2962,7 +2956,7 @@ ffi_checkint.exit:                                ; preds = %19
   br label %54
 
 54:                                               ; preds = %52, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }
 
@@ -2981,7 +2975,7 @@ define internal noundef i32 @lj_cf_ffi_copy(ptr noundef %0) #0 {
   store ptr %0, ptr %11, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %.not.i = icmp ult ptr %13, %15
@@ -2996,7 +2990,7 @@ ffi_checkptr.exit:                                ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
   call void @lj_cconv_ct_tv(ptr noundef nonnull %10, ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 256) #9
   %19 = load ptr, ptr %4, align 8, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load i64, ptr %5, align 8, !tbaa !24
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 384
@@ -3006,7 +3000,7 @@ ffi_checkptr.exit:                                ; preds = %1
   store ptr %0, ptr %25, align 8, !tbaa !42
   %26 = load ptr, ptr %12, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load ptr, ptr %14, align 8, !tbaa !4
   %.not.i10 = icmp ult ptr %27, %28
   br i1 %.not.i10, label %ffi_checkptr.exit11, label %29
@@ -3020,7 +3014,7 @@ ffi_checkptr.exit11:                              ; preds = %ffi_checkptr.exit
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 432
   call void @lj_cconv_ct_tv(ptr noundef nonnull %24, ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %27, i32 noundef 512) #9
   %32 = load ptr, ptr %3, align 8, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %12, align 8, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !23
@@ -3049,7 +3043,7 @@ ffi_checkptr.exit11:                              ; preds = %ffi_checkptr.exit
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %0, ptr %50, align 8, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i12 = icmp ult ptr %51, %.pre
   br i1 %.not.i12, label %ffi_checkint.exit, label %52
 
@@ -3062,7 +3056,7 @@ ffi_checkint.exit:                                ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %49, ptr noundef nonnull %54, ptr noundef nonnull %2, ptr noundef nonnull %51, i32 noundef 768) #9
   %55 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %56
 
 56:                                               ; preds = %ffi_checkint.exit, %38
@@ -3087,7 +3081,7 @@ define internal noundef i32 @lj_cf_ffi_fill(ptr noundef %0) #0 {
   store ptr %0, ptr %11, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %.not.i = icmp ult ptr %13, %15
@@ -3102,7 +3096,7 @@ ffi_checkptr.exit:                                ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
   call void @lj_cconv_ct_tv(ptr noundef nonnull %10, ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 256) #9
   %19 = load ptr, ptr %4, align 8, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load i64, ptr %5, align 8, !tbaa !24
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 384
@@ -3112,7 +3106,7 @@ ffi_checkptr.exit:                                ; preds = %1
   store ptr %0, ptr %25, align 8, !tbaa !42
   %26 = load ptr, ptr %12, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load ptr, ptr %14, align 8, !tbaa !4
   %.not.i9 = icmp ult ptr %27, %28
   br i1 %.not.i9, label %ffi_checkint.exit, label %29
@@ -3126,7 +3120,7 @@ ffi_checkint.exit:                                ; preds = %ffi_checkptr.exit
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %24, ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %27, i32 noundef 512) #9
   %32 = load i32, ptr %3, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %12, align 8, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %14, align 8, !tbaa !4
@@ -3146,12 +3140,12 @@ ffi_checkint.exit11:                              ; preds = %37
   %44 = inttoptr i64 %43 to ptr
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %0, ptr %45, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %46 = load ptr, ptr %44, align 8, !tbaa !51
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 216
   call void @lj_cconv_ct_tv(ptr noundef nonnull %44, ptr noundef nonnull %47, ptr noundef nonnull %2, ptr noundef nonnull %34, i32 noundef 768) #9
   %48 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %49 = trunc i32 %48 to i8
   br label %50
 
@@ -3213,7 +3207,7 @@ define internal noundef i32 @lj_cf_ffi_metatype(ptr noundef %0) #0 {
 18:                                               ; preds = %15
   %19 = and i64 %16, 140737488355327
   %20 = inttoptr i64 %19 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -3238,7 +3232,7 @@ define internal noundef i32 @lj_cf_ffi_metatype(ptr noundef %0) #0 {
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ffi_checkctype.exit
 
 33:                                               ; preds = %15
@@ -3457,42 +3451,48 @@ define internal noundef i32 @lj_cf_ffi_load(ptr noundef %0) #0 {
   ret i32 1
 }
 
-declare hidden ptr @lj_lib_checkstr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_lib_checkstr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_lib_checkany(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_lib_checkany(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_rawref(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_ctype_rawref(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_cconv_compatptr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cconv_compatptr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_ctype_info_raw(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ctype_info_raw(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare hidden i32 @lj_cparse_case(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cparse_case(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_lib_checktab(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_lib_checktab(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden void @lj_cdata_setfin(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_cdata_setfin(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden void @lj_clib_load(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_clib_load(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
@@ -3501,13 +3501,13 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }

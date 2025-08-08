@@ -1123,8 +1123,8 @@ define void @_ZN11GLLogStream14backToBookmarkEv(ptr noundef nonnull align 8 dere
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit
   %15 = phi ptr [ %28, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit ], [ %8, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !20
   %17 = icmp ugt i32 %16, 1
   br i1 %17, label %18, label %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit
@@ -1146,8 +1146,8 @@ _ZN5QListISt4pairIi7QStringEE10removeLastEv.exit: ; preds = %.lr.ph, %18
   %27 = getelementptr inbounds i8, ptr %26, i64 -8
   store ptr %27, ptr %2, align 8
   call void @_ZN5QListISt4pairIi7QStringEE5eraseENS3_8iteratorE(ptr dead_on_unwind nonnull writable sret(%"class.QList<std::pair<int, QString>>::iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = load ptr, ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
@@ -1797,16 +1797,16 @@ define void @_ZN11GLLogStream5clearEv(ptr noundef nonnull align 8 captures(none)
   %2 = alloca %class.QList, align 8
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @_ZN9QListData11shared_nullE, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr @_ZN9QListData11shared_nullE, ptr %4, align 8
   store ptr %5, ptr %2, align 8
   call void @_ZN5QListISt4pairIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN5QListISt4pairIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2356,7 +2356,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %class.QByteArray, align 8
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !noalias !38
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noalias !38
@@ -2377,7 +2377,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
 
 13:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load ptr, ptr %4, align 8
   %15 = load atomic i32, ptr %14 monotonic, align 4
   switch i32 %15, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -2421,10 +2421,10 @@ declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef capt
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16

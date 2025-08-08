@@ -87,7 +87,7 @@ define void @_ZN19GeometryStateDialog18saveWindowGeometryEv(ptr noundef align 8 
   br i1 %9, label %59, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %11, align 8
@@ -126,8 +126,8 @@ define void @_ZN19GeometryStateDialog18saveWindowGeometryEv(ptr noundef align 8 
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %36 = zext i1 %34 to i8
   store i8 %36, ptr %35, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK7QWidget12saveGeometryEv(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef align 8 dereferenceable_or_null(40) %0)
   invoke void @_ZNK10QByteArray5toHexEc(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %3, ptr noundef nonnull align 8 dereferenceable_or_null(24) %4, i8 noundef signext 0)
           to label %37 unwind label %60
@@ -173,9 +173,9 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %_ZN10QByteArrayD2Ev
   br label %51
 
 51:                                               ; preds = %49, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %_ZN10QByteArrayD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %6)
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -200,8 +200,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i19:     ; preds = %54
   br label %_ZN10QByteArrayD2Ev.exit21
 
 _ZN10QByteArrayD2Ev.exit21:                       ; preds = %54, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i19, %57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %59
 
 59:                                               ; preds = %1, %_ZN10QByteArrayD2Ev.exit21
@@ -246,8 +246,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i27:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit29
 
 _ZN10QByteArrayD2Ev.exit29:                       ; preds = %_ZN10QByteArrayD2Ev.exit25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i27, %70
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %78
 
 72:                                               ; preds = %51
@@ -268,12 +268,12 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i31:     ; preds = %72
   br label %_ZN10QByteArrayD2Ev.exit33
 
 _ZN10QByteArrayD2Ev.exit33:                       ; preds = %72, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i31, %76
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 78:                                               ; preds = %_ZN10QByteArrayD2Ev.exit33, %_ZN10QByteArrayD2Ev.exit29
   %.pn5 = phi { ptr, i32 } [ %73, %_ZN10QByteArrayD2Ev.exit33 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit29 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn5
 }
 
@@ -301,7 +301,7 @@ define void @_ZN19GeometryStateDialog17saveSplitterStateEPK9QSplitter(ptr nounde
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false)
   %9 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9QSplitter16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %14
@@ -339,25 +339,25 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16:    ; preds = %14
   br label %_ZN7QStringD2Ev.exit18
 
 _ZN7QStringD2Ev.exit18:                           ; preds = %14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 20:                                               ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %59, label %.thread
 
 .thread:                                          ; preds = %2, %20
   %.0946 = phi ptr [ %9, %20 ], [ %1, %2 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %21)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i19 = icmp eq ptr %23, null
   %spec.select.i.i = select i1 %.not.i.i19, ptr @_ZN10QByteArray6_emptyE, ptr %23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNK9QSplitter9saveStateEv(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %6, ptr noundef nonnull align 8 dereferenceable_or_null(40) %.0946)
           to label %24 unwind label %41
 
@@ -404,8 +404,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i25:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit27
 
 _ZN10QByteArrayD2Ev.exit27:                       ; preds = %_ZN10QByteArrayD2Ev.exit, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i25, %35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = load ptr, ptr %4, align 8
   %.not.i.i.i28 = icmp eq ptr %37, null
   br i1 %.not.i.i.i28, label %_ZN10QByteArrayD2Ev.exit31, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i29
@@ -421,7 +421,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i29:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit31
 
 _ZN10QByteArrayD2Ev.exit31:                       ; preds = %_ZN10QByteArrayD2Ev.exit27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i29, %39
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 41:                                               ; preds = %.thread
@@ -469,8 +469,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i37:     ; preds = %_ZN10QByteArrayD2Ev
 
 _ZN10QByteArrayD2Ev.exit39:                       ; preds = %53, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i37, %_ZN10QByteArrayD2Ev.exit35, %41
   %.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit35 ], [ %.pn, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i37 ], [ %.pn, %53 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %55 = load ptr, ptr %4, align 8
   %.not.i.i.i40 = icmp eq ptr %55, null
   br i1 %.not.i.i.i40, label %_ZN10QByteArrayD2Ev.exit43, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i41
@@ -486,7 +486,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i41:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit43
 
 _ZN10QByteArrayD2Ev.exit43:                       ; preds = %_ZN10QByteArrayD2Ev.exit39, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i41, %57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 59:                                               ; preds = %_ZN10QByteArrayD2Ev.exit31, %20
@@ -538,8 +538,8 @@ define void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef ali
   %13 = alloca %class.QPoint, align 8
   %14 = alloca %class.QSize, align 8
   %15 = alloca %class.QSize, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
@@ -583,14 +583,14 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZN7QStringC2ERKS_.
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2ERKS_.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.critedge.thread, label %37
 
 37:                                               ; preds = %_ZN7QStringD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %28)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -615,7 +615,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %41
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %40, label %46, label %.critedge.thread
 
 46:                                               ; preds = %.critedge
@@ -625,8 +625,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %41
   br i1 %.not, label %.critedge44.thread, label %49
 
 49:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, ptr noundef nonnull %48, i64 noundef -1)
   invoke void @_ZN10QByteArray7fromHexERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %50 unwind label %92
@@ -666,12 +666,12 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i54:     ; preds = %_ZN10QByteArrayD2Ev
   br label %.critedge44
 
 .critedge44:                                      ; preds = %58, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i54, %_ZN10QByteArrayD2Ev.exit52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %51, label %136, label %.critedge44.thread
 
 .critedge44.thread:                               ; preds = %46, %.critedge44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -695,12 +695,12 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i54:     ; preds = %_ZN10QByteArrayD2Ev
   br i1 %75, label %76, label %104
 
 76:                                               ; preds = %.critedge44.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %77 = load i64, ptr %12, align 8
   store i64 %77, ptr %13, align 8
   call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %78 = load i32, ptr %69, align 8
   %79 = load i32, ptr %12, align 8
   %80 = add i32 %78, 1
@@ -715,7 +715,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i54:     ; preds = %_ZN10QByteArrayD2Ev
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %14, align 8
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %126
 
 86:                                               ; preds = %37
@@ -736,7 +736,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i58:     ; preds = %86
   br label %_ZN10QByteArrayD2Ev.exit60
 
 _ZN10QByteArrayD2Ev.exit60:                       ; preds = %86, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i58, %90
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %137
 
 92:                                               ; preds = %49
@@ -778,8 +778,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i66:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit68
 
 _ZN10QByteArrayD2Ev.exit68:                       ; preds = %_ZN10QByteArrayD2Ev.exit64, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i66, %102
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %137
 
 104:                                              ; preds = %.critedge44.thread
@@ -799,7 +799,7 @@ _ZN10QByteArrayD2Ev.exit68:                       ; preds = %_ZN10QByteArrayD2Ev
   br i1 %111, label %112, label %121
 
 112:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %113 = load i32, ptr %69, align 8
   %114 = load i32, ptr %12, align 8
   %115 = add i32 %113, 1
@@ -814,7 +814,7 @@ _ZN10QByteArrayD2Ev.exit68:                       ; preds = %_ZN10QByteArrayD2Ev
   %.sroa.0.0.insert.insert.i72 = or disjoint i64 %.sroa.2.0.insert.shift.i70, %.sroa.0.0.insert.ext.i71
   store i64 %.sroa.0.0.insert.insert.i72, ptr %15, align 8
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %126
 
 121:                                              ; preds = %104
@@ -824,12 +824,12 @@ _ZN10QByteArrayD2Ev.exit68:                       ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond, label %124, label %126
 
 124:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 4
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %125, align 4
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %126
 
 126:                                              ; preds = %112, %124, %121, %76
@@ -843,7 +843,7 @@ _ZN10QByteArrayD2Ev.exit68:                       ; preds = %_ZN10QByteArrayD2Ev
   br label %131
 
 131:                                              ; preds = %130, %126
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %136
 
 .critedge.thread:                                 ; preds = %_ZN7QStringD2Ev.exit, %.critedge
@@ -853,59 +853,53 @@ _ZN10QByteArrayD2Ev.exit68:                       ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond3, label %134, label %136
 
 134:                                              ; preds = %.critedge.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 4
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %135, align 4
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %136
 
 136:                                              ; preds = %.critedge.thread, %134, %.critedge44, %131
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 137:                                              ; preds = %_ZN10QByteArrayD2Ev.exit68, %_ZN10QByteArrayD2Ev.exit60
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN10QByteArrayD2Ev.exit68 ], [ %87, %_ZN10QByteArrayD2Ev.exit60 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZNK7QObject10objectNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(16)) local_unnamed_addr #8
+declare void @_ZNK7QObject10objectNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(16)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind null_pointer_is_valid
 declare noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @window_geom_load(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @window_geom_load(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZN7QWidget15restoreGeometryERK10QByteArray(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZN7QWidget15restoreGeometryERK10QByteArray(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #8
+declare void @_ZN10QByteArray7fromHexERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN10QByteArray7fromHexERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #8
+declare void @_ZN10QByteArrayC1EPKcx(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef, i64 noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN10QByteArrayC1EPKcx(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef, i64 noundef) unnamed_addr #8
+declare noundef zeroext i1 @_Z14rect_on_screenRK5QRect(ptr noundef align 4 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_Z14rect_on_screenRK5QRect(ptr noundef align 4 dereferenceable(16)) local_unnamed_addr #8
+declare void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) local_unnamed_addr #8
+declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) local_unnamed_addr #8
-
-; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget14showFullScreenEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #8
+declare void @_ZN7QWidget14showFullScreenEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN19GeometryStateDialog17setWindowModalityEN2Qt14WindowModalityE(ptr noundef align 8 dereferenceable_or_null(72) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
@@ -937,13 +931,13 @@ define void @_ZN19GeometryStateDialog17setWindowModalityEN2Qt14WindowModalityE(p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef i32 @_ZNK7QWidget14windowModalityEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #8
+declare noundef i32 @_ZNK7QWidget14windowModalityEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget9setParentEPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef, i32) local_unnamed_addr #8
+declare void @_ZN7QWidget9setParentEPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget17setWindowModalityEN2Qt14WindowModalityE(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) local_unnamed_addr #8
+declare void @_ZN7QWidget17setWindowModalityEN2Qt14WindowModalityE(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN19GeometryStateDialog17loadSplitterStateEP9QSplitter(ptr noundef align 8 dereferenceable_or_null(72) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -955,7 +949,7 @@ define void @_ZN19GeometryStateDialog17loadSplitterStateEP9QSplitter(ptr noundef
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false)
   %9 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9QSplitter16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %14
@@ -993,17 +987,17 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18:    ; preds = %14
   br label %_ZN7QStringD2Ev.exit20
 
 _ZN7QStringD2Ev.exit20:                           ; preds = %14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 20:                                               ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %60, label %.thread
 
 .thread:                                          ; preds = %2, %20
   %.046 = phi ptr [ %9, %20 ], [ %1, %2 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %21)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1029,13 +1023,13 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %25
   br label %_ZN10QByteArrayD2Ev.exit
 
 _ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not13 = icmp eq ptr %24, null
   br i1 %.not13, label %60, label %30
 
 30:                                               ; preds = %_ZN10QByteArrayD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %6, ptr noundef nonnull %24, i64 noundef -1)
   invoke void @_ZN10QByteArray7fromHexERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %31 unwind label %48
@@ -1075,8 +1069,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i29:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit31
 
 _ZN10QByteArrayD2Ev.exit31:                       ; preds = %_ZN10QByteArrayD2Ev.exit27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i29, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 42:                                               ; preds = %.thread
@@ -1097,7 +1091,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i33:     ; preds = %42
   br label %_ZN10QByteArrayD2Ev.exit35
 
 _ZN10QByteArrayD2Ev.exit35:                       ; preds = %42, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i33, %46
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %61
 
 48:                                               ; preds = %30
@@ -1139,8 +1133,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i41:     ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN10QByteArrayD2Ev.exit43
 
 _ZN10QByteArrayD2Ev.exit43:                       ; preds = %_ZN10QByteArrayD2Ev.exit39, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i41, %58
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 60:                                               ; preds = %_ZN10QByteArrayD2Ev.exit, %_ZN10QByteArrayD2Ev.exit31, %20
@@ -1152,225 +1146,231 @@ _ZN10QByteArrayD2Ev.exit43:                       ; preds = %_ZN10QByteArrayD2Ev
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @window_splitter_load(ptr noundef) local_unnamed_addr #8
+declare ptr @window_splitter_load(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZN9QSplitter12restoreStateERK10QByteArray(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZN9QSplitter12restoreStateERK10QByteArray(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @_ZNK7QWidget3posEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #8
+declare i64 @_ZNK7QWidget3posEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZNK7QWidget12isFullScreenEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZNK7QWidget12isFullScreenEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #8
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZNK7QWidget12saveGeometryEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #8
+declare void @_ZNK7QWidget12saveGeometryEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZNK10QByteArray5toHexEc(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable_or_null(24), i8 noundef signext) local_unnamed_addr #8
+declare void @_ZNK10QByteArray5toHexEc(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable_or_null(24), i8 noundef signext) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @window_geom_save(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @window_geom_save(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @window_splitter_save(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @window_splitter_save(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZNK9QSplitter9saveStateEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #8
+declare void @_ZNK9QSplitter9saveStateEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef ptr @_ZNK7QDialog10metaObjectEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare noundef ptr @_ZNK7QDialog10metaObjectEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef ptr @_ZN7QDialog11qt_metacastEPKc(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare noundef ptr @_ZN7QDialog11qt_metacastEPKc(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef i32 @_ZN7QDialog11qt_metacallEN11QMetaObject4CallEiPPv(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #8
+declare noundef i32 @_ZN7QDialog11qt_metacallEN11QMetaObject4CallEiPPv(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZN7QWidget5eventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare noundef zeroext i1 @_ZN7QWidget5eventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZN7QDialog11eventFilterEP7QObjectP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef, ptr noundef) unnamed_addr #8
+declare noundef zeroext i1 @_ZN7QDialog11eventFilterEP7QObjectP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef, ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QObject10timerEventEP11QTimerEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #8
+declare void @_ZN7QObject10timerEventEP11QTimerEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QObject10childEventEP11QChildEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #8
+declare void @_ZN7QObject10childEventEP11QChildEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QObject11customEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #8
+declare void @_ZN7QObject11customEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QObject13connectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #8
+declare void @_ZN7QObject13connectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QObject16disconnectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #8
+declare void @_ZN7QObject16disconnectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef i32 @_ZNK7QWidget7devTypeEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare noundef i32 @_ZNK7QWidget7devTypeEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(40), i1 noundef zeroext) unnamed_addr #8
+declare void @_ZN7QDialog10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(40), i1 noundef zeroext) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @_ZNK7QDialog8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare i64 @_ZNK7QDialog8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @_ZNK7QDialog15minimumSizeHintEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare i64 @_ZNK7QDialog15minimumSizeHintEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef i32 @_ZNK7QWidget14heightForWidthEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) unnamed_addr #8
+declare noundef i32 @_ZNK7QWidget14heightForWidthEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZNK7QWidget17hasHeightForWidthEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare noundef zeroext i1 @_ZNK7QWidget17hasHeightForWidthEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef ptr @_ZNK7QWidget11paintEngineEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare noundef ptr @_ZNK7QWidget11paintEngineEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget15mousePressEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget15mousePressEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget17mouseReleaseEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget17mouseReleaseEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget14mouseMoveEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget14mouseMoveEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget10wheelEventEP11QWheelEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget10wheelEventEP11QWheelEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog13keyPressEventEP9QKeyEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QDialog13keyPressEventEP9QKeyEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget15keyReleaseEventEP9QKeyEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget15keyReleaseEventEP9QKeyEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget12focusInEventEP11QFocusEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget12focusInEventEP11QFocusEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget13focusOutEventEP11QFocusEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget13focusOutEventEP11QFocusEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget10enterEventEP11QEnterEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget10enterEventEP11QEnterEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget10leaveEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget10leaveEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget10paintEventEP11QPaintEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget10paintEventEP11QPaintEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget9moveEventEP10QMoveEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget9moveEventEP10QMoveEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog11resizeEventEP12QResizeEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QDialog11resizeEventEP12QResizeEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog10closeEventEP11QCloseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QDialog10closeEventEP11QCloseEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog16contextMenuEventEP17QContextMenuEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QDialog16contextMenuEventEP17QContextMenuEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget11tabletEventEP12QTabletEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget11tabletEventEP12QTabletEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget11actionEventEP12QActionEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget11actionEventEP12QActionEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget9dropEventEP10QDropEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget9dropEventEP10QDropEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog9showEventEP10QShowEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QDialog9showEventEP10QShowEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget9hideEventEP10QHideEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget9hideEventEP10QHideEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZN7QWidget11nativeEventERK10QByteArrayPvPx(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24), ptr noundef, ptr noundef) unnamed_addr #8
+declare noundef zeroext i1 @_ZN7QWidget11nativeEventERK10QByteArrayPvPx(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24), ptr noundef, ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget11changeEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget11changeEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef i32 @_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) unnamed_addr #8
+declare noundef i32 @_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZNK7QWidget11initPainterEP8QPainter(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZNK7QWidget11initPainterEP8QPainter(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef ptr @_ZNK7QWidget10redirectedEP6QPoint(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare noundef ptr @_ZNK7QWidget10redirectedEP6QPoint(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef ptr @_ZNK7QWidget13sharedPainterEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare noundef ptr @_ZNK7QWidget13sharedPainterEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QWidget16inputMethodEventEP17QInputMethodEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #8
+declare void @_ZN7QWidget16inputMethodEventEP17QInputMethodEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #7
 
 declare void @_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE() unnamed_addr
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef zeroext i1 @_ZN7QWidget18focusNextPrevChildEb(ptr noundef align 8 dereferenceable_or_null(40), i1 noundef zeroext) unnamed_addr #8
+declare noundef zeroext i1 @_ZN7QWidget18focusNextPrevChildEb(ptr noundef align 8 dereferenceable_or_null(40), i1 noundef zeroext) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog4openEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare void @_ZN7QDialog4openEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef i32 @_ZN7QDialog4execEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare noundef i32 @_ZN7QDialog4execEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog4doneEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) unnamed_addr #8
+declare void @_ZN7QDialog4doneEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog6acceptEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare void @_ZN7QDialog6acceptEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QDialog6rejectEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #8
+declare void @_ZN7QDialog6rejectEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-declare noundef i32 @_ZThn16_NK7QWidget7devTypeEv(ptr noundef) unnamed_addr #9 align 2
+declare noundef i32 @_ZThn16_NK7QWidget7devTypeEv(ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-declare noundef ptr @_ZThn16_NK7QWidget11paintEngineEv(ptr noundef) unnamed_addr #9 align 2
+declare noundef ptr @_ZThn16_NK7QWidget11paintEngineEv(ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-declare noundef i32 @_ZThn16_NK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE(ptr noundef, i32 noundef) unnamed_addr #9 align 2
+declare noundef i32 @_ZThn16_NK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE(ptr noundef, i32 noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-declare void @_ZThn16_NK7QWidget11initPainterEP8QPainter(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn16_NK7QWidget11initPainterEP8QPainter(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-declare noundef ptr @_ZThn16_NK7QWidget10redirectedEP6QPoint(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare noundef ptr @_ZThn16_NK7QWidget10redirectedEP6QPoint(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-declare noundef ptr @_ZThn16_NK7QWidget13sharedPainterEv(ptr noundef) unnamed_addr #9 align 2
+declare noundef ptr @_ZThn16_NK7QWidget13sharedPainterEv(ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: nounwind null_pointer_is_valid
 declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #8
+declare void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef, ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(56), i32) local_unnamed_addr #8
+declare noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef, ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(56), i32) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -1382,9 +1382,9 @@ attributes #3 = { cold nofree noreturn }
 attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

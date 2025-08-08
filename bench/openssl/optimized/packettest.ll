@@ -194,10 +194,7 @@ define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PACKET_buf_init() #0 {
@@ -932,7 +929,7 @@ PACKET_copy_bytes.exit18:                         ; preds = %PACKET_forward.exit
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PACKET_copy_all() #0 {
   %1 = alloca [255 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 208, ptr noundef nonnull @.str.34, i32 noundef 1) #6
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %11, label %PACKET_copy_all.exit
@@ -966,7 +963,7 @@ PACKET_copy_all.exit11:                           ; preds = %8
 
 11:                                               ; preds = %PACKET_copy_all.exit11, %0, %PACKET_copy_all.exit, %4, %6, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %6 ], [ 0, %4 ], [ 0, %PACKET_copy_all.exit ], [ 0, %0 ], [ %spec.select, %PACKET_copy_all.exit11 ]
-  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1033,8 +1030,8 @@ PACKET_memdup.exit13:                             ; preds = %PACKET_forward.exit
 define internal range(i32 0, 2) i32 @test_PACKET_strndup() #0 {
   %1 = alloca [10 x i8], align 1
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, i8 120, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 121, i64 10, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -1093,8 +1090,8 @@ define internal range(i32 0, 2) i32 @test_PACKET_strndup() #0 {
   %.018 = phi ptr [ null, %0 ], [ %6, %5 ], [ %6, %10 ], [ %6, %13 ], [ %6, %15 ], [ %18, %17 ], [ %18, %22 ], [ %18, %25 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ 0, %10 ], [ 0, %13 ], [ 0, %15 ], [ 0, %17 ], [ 0, %22 ], [ %spec.select, %25 ]
   call void @CRYPTO_free(ptr noundef %.018, ptr noundef nonnull @.str.25, i32 noundef 264) #6
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1102,8 +1099,8 @@ define internal range(i32 0, 2) i32 @test_PACKET_strndup() #0 {
 define internal range(i32 0, 2) i32 @test_PACKET_contains_zero_byte() #0 {
   %1 = alloca [10 x i8], align 1
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, i8 120, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 121, i64 10, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -1136,8 +1133,8 @@ define internal range(i32 0, 2) i32 @test_PACKET_contains_zero_byte() #0 {
 
 17:                                               ; preds = %12, %0, %5, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %12 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1188,7 +1185,7 @@ PACKET_get_bytes.exit13:                          ; preds = %PACKET_forward.exit
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_1() #0 {
   %1 = alloca [255 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %2
 
 2:                                                ; preds = %0, %2
@@ -1252,14 +1249,14 @@ PACKET_get_length_prefixed_1.exit16:              ; preds = %17
 
 26:                                               ; preds = %24, %5, %7, %PACKET_get_length_prefixed_1.exit, %11, %PACKET_get_net_2.exit, %17, %PACKET_get_length_prefixed_1.exit16
   %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_1.exit16 ], [ 0, %17 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %11 ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %24 ]
-  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_2() #0 {
   %1 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %2
 
 2:                                                ; preds = %0, %2
@@ -1341,14 +1338,14 @@ PACKET_get_length_prefixed_2.exit15:              ; preds = %27
 
 38:                                               ; preds = %35, %6, %8, %PACKET_get_length_prefixed_2.exit, %20, %PACKET_get_net_2.exit, %27, %PACKET_get_length_prefixed_2.exit15
   %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_2.exit15 ], [ 0, %27 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %20 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %35 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_3() #0 {
   %1 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %2
 
 2:                                                ; preds = %0, %2
@@ -1434,7 +1431,7 @@ PACKET_get_length_prefixed_3.exit15:              ; preds = %31
 
 42:                                               ; preds = %39, %5, %7, %PACKET_get_length_prefixed_3.exit, %24, %PACKET_get_net_2.exit, %31, %PACKET_get_length_prefixed_3.exit15
   %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_3.exit15 ], [ 0, %31 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %24 ], [ 0, %PACKET_get_length_prefixed_3.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %39 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1483,7 +1480,7 @@ PACKET_as_length_prefixed_1.exit20:               ; preds = %5
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_PACKET_as_length_prefixed_2() #0 {
   %1 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %2
 
 2:                                                ; preds = %0, %2
@@ -1550,7 +1547,7 @@ PACKET_as_length_prefixed_2.exit19:               ; preds = %18
 
 25:                                               ; preds = %23, %6, %8, %PACKET_as_length_prefixed_2.exit, %18, %PACKET_as_length_prefixed_2.exit19, %21
   %.05 = phi i32 [ 0, %21 ], [ 0, %PACKET_as_length_prefixed_2.exit19 ], [ 0, %18 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %23 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.05
 }
 
@@ -1708,63 +1705,66 @@ PACKET_get_quic_length_prefixed.exit.thread:      ; preds = %11
   ret i32 %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @test_ulong_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @test_ulong_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @test_char_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext) local_unnamed_addr #2
+declare i32 @test_char_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
-
-declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @ossl_quic_vlint_decode_unchecked(ptr noundef) local_unnamed_addr #2
+declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+
+declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare i64 @ossl_quic_vlint_decode_unchecked(ptr noundef) local_unnamed_addr #1
+
+declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

@@ -34,7 +34,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_static_sha1() #0 {
   %1 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @SHA1(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %1) #3
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %2) #3
   %.not.i = icmp eq i32 %3, 0
@@ -69,14 +69,14 @@ define internal range(i32 0, 2) i32 @test_static_sha1() #0 {
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
   %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_static_sha224() #0 {
   %1 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @SHA224(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %1) #3
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %2) #3
   %.not.i = icmp eq i32 %3, 0
@@ -111,14 +111,14 @@ define internal range(i32 0, 2) i32 @test_static_sha224() #0 {
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
   %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_static_sha256() #0 {
   %1 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @SHA256(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %1) #3
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %2) #3
   %.not.i = icmp eq i32 %3, 0
@@ -153,14 +153,14 @@ define internal range(i32 0, 2) i32 @test_static_sha256() #0 {
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
   %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_static_sha384() #0 {
   %1 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @SHA384(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %1) #3
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %2) #3
   %.not.i = icmp eq i32 %3, 0
@@ -195,14 +195,14 @@ define internal range(i32 0, 2) i32 @test_static_sha384() #0 {
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
   %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_static_sha512() #0 {
   %1 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @SHA512(ptr noundef nonnull @.str.5, i64 noundef 3, ptr noundef nonnull %1) #3
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef %2) #3
   %.not.i = icmp eq i32 %3, 0
@@ -237,14 +237,11 @@ define internal range(i32 0, 2) i32 @test_static_sha512() #0 {
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
   %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
 
 declare ptr @SHA1(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -254,9 +251,6 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare i32 @test_ptr_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @SHA224(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @SHA256(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -264,6 +258,12 @@ declare ptr @SHA256(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @SHA384(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @SHA512(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

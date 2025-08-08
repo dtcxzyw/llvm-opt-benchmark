@@ -1381,7 +1381,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
 
 10:                                               ; preds = %6
   %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !29
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -1416,7 +1416,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
   %22 = load ptr, ptr %0, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
 24:                                               ; preds = %2
@@ -1433,7 +1433,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
 
 29:                                               ; preds = %24
   %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %30, ptr %3, align 8, !tbaa !29
   %31 = icmp ugt i64 %30, 15
   br i1 %31, label %.noexc.i9, label %._crit_edge.i.i8
@@ -1468,20 +1468,14 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
   %41 = load ptr, ptr %0, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
   store i8 0, ptr %42, align 1, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %38, %19
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
@@ -1507,6 +1501,12 @@ define internal void @_GLOBAL__sub_I_Symbol.cpp() #0 section ".text.startup" {
   store ptr @_ZN5FFlag18LuauSymbolEqualityE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !36
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

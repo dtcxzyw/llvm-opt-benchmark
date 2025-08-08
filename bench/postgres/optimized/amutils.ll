@@ -39,20 +39,17 @@ define dso_local range(i64 0, 2) i64 @pg_indexam_has_property(ptr noundef captur
   ret i64 %10
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
-
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 2) i64 @indexam_property(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   br label %9
 
@@ -494,13 +491,10 @@ test_indoption.exit110:                           ; preds = %129, %133
 
 .critedge:                                        ; preds = %30, %20, %64, %174, %177, %223, %219, %214, %210, %206, %202, %199, %195, %190, %185, %181, %57, %55, %45, %40
   %.1 = phi i64 [ 0, %40 ], [ 0, %45 ], [ 0, %55 ], [ %59, %57 ], [ 0, %199 ], [ %184, %181 ], [ %189, %185 ], [ %194, %190 ], [ %198, %195 ], [ 0, %223 ], [ %205, %202 ], [ %209, %206 ], [ %213, %210 ], [ %218, %214 ], [ %222, %219 ], [ 0, %177 ], [ %176, %174 ], [ 0, %64 ], [ 0, %20 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -590,27 +584,33 @@ define dso_local i64 @pg_indexam_progress_phasename(ptr noundef captures(none) %
   ret i64 %.0
 }
 
-declare ptr @GetIndexAmRoutineByAmId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @GetIndexAmRoutineByAmId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
-declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @index_can_return(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @index_can_return(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #2
+declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

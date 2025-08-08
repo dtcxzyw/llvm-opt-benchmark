@@ -79,17 +79,11 @@ define { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef readonly ca
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @b2SegmentDistance(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2SegmentDistanceResult) align 4 captures(none) initializes((0, 28)) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4) local_unnamed_addr #3 {
+define void @b2SegmentDistance(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2SegmentDistanceResult) align 4 captures(none) initializes((0, 28)) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 4
   %7 = fsub <2 x float> %2, %1
@@ -249,10 +243,10 @@ define void @b2SegmentDistance(ptr dead_on_unwind noalias writable writeonly sre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @b2MakeProxy(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ShapeProxy) align 4 captures(none) initializes((64, 72)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3) local_unnamed_addr #5 {
+define void @b2MakeProxy(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ShapeProxy) align 4 captures(none) initializes((64, 72)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3) local_unnamed_addr #4 {
   %5 = tail call noundef range(i32 -2147483648, 9) i32 @llvm.smin.i32(i32 %2, i32 8)
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -274,7 +268,7 @@ define void @b2MakeProxy(ptr dead_on_unwind noalias writable writeonly sret(%str
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2DistanceOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #6 {
+define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2DistanceOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca [3 x ptr], align 16
   %8 = alloca %struct.b2Simplex, align 8
@@ -291,13 +285,13 @@ define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(
   %.sroa.068.0.copyload = load <2 x float>, ptr %14, align 4
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 168
   %.sroa.570.0.copyload = load <2 x float>, ptr %.sroa.570.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %15 = load i16, ptr %1, align 2, !tbaa !24, !noalias !21
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 %16, ptr %17, align 4, !tbaa !27, !alias.scope !21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12, !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !21
   store ptr %8, ptr %7, align 16, !tbaa !30, !noalias !21
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 36
@@ -454,7 +448,7 @@ define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(
 
 b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %89 = phi i32 [ %63, %._crit_edge.i ], [ 1, %._crit_edge.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12, !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !21
   %.not = icmp ne ptr %3, null
   %90 = icmp sgt i32 %4, 0
   %or.cond = and i1 %.not, %90
@@ -466,14 +460,14 @@ b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._c
 
 92:                                               ; preds = %91, %b2MakeSimplexFromCache.exit
   %.0 = phi i32 [ 1, %91 ], [ 0, %b2MakeSimplexFromCache.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %8, ptr %9, align 16, !tbaa !30
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %19, ptr %93, align 8, !tbaa !30
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %21, ptr %94, align 16, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -943,7 +937,7 @@ b2ComputeSimplexWitnessPoints.exit:               ; preds = %257, %260, %276, %2
   store i32 %.5, ptr %330, align 4, !tbaa !51
   %331 = trunc i32 %259 to i16
   store i16 %331, ptr %1, align 2, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %6, align 16, !tbaa !30
   %332 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %19, ptr %332, align 8, !tbaa !30
@@ -977,7 +971,7 @@ b2ComputeSimplexWitnessPoints.exit:               ; preds = %257, %260, %276, %2
   br i1 %exitcond231.not, label %b2MakeSimplexCache.exit, label %338, !llvm.loop !52
 
 b2MakeSimplexCache.exit:                          ; preds = %338, %b2ComputeSimplexWitnessPoints.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %349 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %350 = load i8, ptr %349, align 4, !tbaa !53, !range !57, !noundef !58
   %351 = trunc nuw i8 %350 to i1
@@ -1031,15 +1025,15 @@ b2Normalize.exit:                                 ; preds = %352
   br label %380
 
 380:                                              ; preds = %354, %b2Normalize.exit, %b2MakeSimplexCache.exit
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) initializes((108, 112)) %0) unnamed_addr #7 {
+define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) initializes((108, 112)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.087.0.copyload = load <2 x float>, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1231,7 +1225,7 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2CastOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2CastOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca %struct.b2ShapeProxy, align 8
   %4 = alloca %struct.b2ShapeProxy, align 8
   %5 = alloca %struct.b2Simplex, align 4
@@ -1241,7 +1235,7 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   %8 = load float, ptr %7, align 4, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %8, ptr %9, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(72) %1, i64 72, i1 false), !tbaa.struct !63
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.sroa.079.0.copyload = load <2 x float>, ptr %10, align 4
@@ -1275,7 +1269,7 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   %27 = fmul float %.sroa.05.0.vec.extract.i.i, %22
   %28 = fmul float %.sroa.05.4.vec.extract.i.i, %20
   %29 = fsub float %27, %28
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %32 = load i32, ptr %31, align 4, !tbaa !64
@@ -1308,10 +1302,10 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   %47 = fmul float %14, %.sroa.0.0.vec.extract.i
   %48 = fmul float %18, %.sroa.0.4.vec.extract.i
   %49 = fadd float %47, %48
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 0, ptr %50, align 4, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 16, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1829,15 +1823,15 @@ b2Normalize.exit221:                              ; preds = %b2ComputeSimplexWit
   br label %.critedge103
 
 .critedge103:                                     ; preds = %.critedge103.loopexit, %.critedge, %b2Normalize.exit221
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnamed_addr #6 {
+define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.b2SimplexCache, align 8
   %3 = alloca %struct.b2DistanceInput, align 4
   %4 = alloca %struct.b2DistanceOutput, align 4
@@ -1884,9 +1878,9 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   %19 = fcmp ogt float %17, %18
   %20 = select i1 %19, float %17, float %18
   %21 = fmul float %17, 2.500000e-01
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !63
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %22, ptr noundef nonnull align 4 dereferenceable(72) %10, i64 72, i1 false), !tbaa.struct !63
@@ -2012,7 +2006,7 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   store <2 x float> %.sroa.012.4.vec.insert.i.i, ptr %.sroa.432.0..sroa_idx, align 4
   store <2 x float> %.sroa.02.4.vec.insert.i38.i126, ptr %25, align 4
   store <2 x float> %.sroa.012.4.vec.insert.i.i122, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0)
   %99 = add nuw nsw i32 %.0103, 1
   %100 = load float, ptr %26, align 4, !tbaa !48
@@ -2024,7 +2018,7 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   br i1 %103, label %104, label %.thread246
 
 104:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   store ptr %0, ptr %5, align 8, !tbaa !75, !alias.scope !72
   store ptr %10, ptr %28, align 8, !tbaa !78, !alias.scope !72
@@ -2834,20 +2828,20 @@ select.unfold223:                                 ; preds = %461, %select.unfold
 .thread256:                                       ; preds = %select.unfold223, %466, %463, %b2FindMinSeparation.exit
   %.sroa.073.5.ph = phi i64 [ 3, %466 ], [ 1, %463 ], [ 4, %b2FindMinSeparation.exit ], [ 1, %select.unfold223 ]
   %.sroa.8.5.ph = phi float [ %.099, %466 ], [ %.099, %463 ], [ %7, %b2FindMinSeparation.exit ], [ %.3102.ph, %select.unfold223 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread246
 
 604:                                              ; preds = %select.unfold223
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 .thread246:                                       ; preds = %102, %41, %.thread256
   %.sroa.8.1253 = phi float [ %.sroa.8.5.ph, %.thread256 ], [ %.099, %102 ], [ 0.000000e+00, %41 ]
   %.sroa.073.1252 = phi i64 [ %.sroa.073.5.ph, %.thread256 ], [ 3, %102 ], [ 2, %41 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %605 = bitcast float %.sroa.8.1253 to i32
   %.sroa.8.0.insert.ext = zext i32 %605 to i64
   %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
@@ -2856,7 +2850,7 @@ select.unfold223:                                 ; preds = %461, %select.unfold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #9 {
+define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = fsub float 1.000000e+00, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3099,6 +3093,12 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   ret float %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
@@ -3112,18 +3112,17 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 declare float @llvm.fabs.f32(float) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

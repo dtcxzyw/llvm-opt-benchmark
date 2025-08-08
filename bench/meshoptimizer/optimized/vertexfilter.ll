@@ -81,7 +81,7 @@ _ZN7meshoptL19decodeFilterOctSimdEPam.exit.i:     ; preds = %.lr.ph.i.i, %7
   br i1 %.not.i, label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit, label %64
 
 64:                                               ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPam.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store <2 x i64> zeroinitializer, ptr %.sroa.0.i, align 16
   %65 = and i64 %1, 3
   %66 = shl nuw nsw i64 %65, 2
@@ -149,7 +149,7 @@ _ZN7meshoptL19decodeFilterOctSimdEPam.exit.i:     ; preds = %.lr.ph.i.i, %7
 
 _ZN7meshoptL19decodeFilterOctSimdEPam.exit23.i:   ; preds = %.lr.ph.i21.i, %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull align 16 %.sroa.0.i, i64 %66, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit
 
 120:                                              ; preds = %3
@@ -231,7 +231,7 @@ _ZN7meshoptL19decodeFilterOctSimdEPsm.exit11:     ; preds = %.lr.ph.i8, %120
   br i1 %.not.i4, label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit, label %185
 
 185:                                              ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %186 = and i64 %1, 3
   %187 = shl nuw nsw i64 %186, 3
@@ -310,7 +310,7 @@ _ZN7meshoptL19decodeFilterOctSimdEPsm.exit11:     ; preds = %.lr.ph.i8, %120
 
 _ZN7meshoptL19decodeFilterOctSimdEPsm.exit:       ; preds = %.lr.ph.i, %185
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %188, ptr nonnull align 16 %4, i64 %187, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit
 
 _ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit, %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit11, %_ZN7meshoptL19decodeFilterOctSimdEPam.exit23.i, %_ZN7meshoptL19decodeFilterOctSimdEPam.exit.i
@@ -419,7 +419,7 @@ _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14:    ; preds = %.lr.ph.i3, %3
   br i1 %.not.i, label %_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit, label %81
 
 81:                                               ; preds = %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %82 = and i64 %1, 3
   %83 = shl nuw nsw i64 %82, 3
@@ -517,7 +517,7 @@ _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14:    ; preds = %.lr.ph.i3, %3
 
 _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit:      ; preds = %.lr.ph.i, %81
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %84, ptr nonnull align 16 %4, i64 %83, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit
 
 _ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14, %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit
@@ -555,7 +555,7 @@ _ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i:     ; preds = %.lr.ph.i.i, %3
   br i1 %.not.i, label %_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit, label %20
 
 20:                                               ; preds = %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %21 = and i64 %6, 3
   %22 = shl nuw nsw i64 %21, 2
@@ -579,7 +579,7 @@ _ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i:     ; preds = %.lr.ph.i.i, %3
 
 _ZN7meshoptL19decodeFilterExpSimdEPjm.exit23.i:   ; preds = %.lr.ph.i21.i, %20
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 16 %4, i64 %22, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit
 
 _ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i, %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit23.i
@@ -712,14 +712,8 @@ define dso_local void @meshopt_encodeFilterOct(ptr noundef writeonly captures(no
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare float @llvm.fabs.f32(float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
@@ -839,7 +833,7 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
 define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [64 x i32], align 16
   %8 = lshr i64 %2, 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp ne i32 %5, 2
   %.not = icmp ult i64 %2, 4
   %or.cond = or i1 %9, %.not
@@ -896,7 +890,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br label %28
 
 ._crit_edge114:                                   ; preds = %._crit_edge, %.preheader94.thread, %.loopexit95
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 28:                                               ; preds = %.lr.ph113, %._crit_edge
@@ -1015,31 +1009,37 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #4
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float>) #4
+declare <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #4
+declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.sqrt.v4f32(<4 x float>) #3
+declare <4 x float> @llvm.sqrt.v4f32(<4 x float>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #4
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #3
+declare i64 @llvm.fshl.i64(i64, i64, i64) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -1055,13 +1055,12 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

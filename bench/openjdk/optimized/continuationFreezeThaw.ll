@@ -686,10 +686,10 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit7: ; preds = %_ZN20Th
 
 _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit7, %35, %39, %43
   %.0.i = phi ptr [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit7 ], [ %38, %35 ], [ %42, %39 ], [ %44, %43 ]
-  call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 1336
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
@@ -834,10 +834,10 @@ _ZNK5frame6senderEP11RegisterMap.exit23.i:        ; preds = %_ZNK11RegisterMap7i
 
 _ZL10is_pinned0P10JavaThreadP7oopDescb.exit:      ; preds = %82, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i, %96, %104, %110, %113, %_ZN10JNIHandles7resolveEP8_jobject.exit, %48, %51
   %.0.i9 = phi i32 [ 0, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ 2, %48 ], [ 4, %51 ], [ 3, %82 ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ], [ 0, %96 ], [ 0, %104 ], [ 4, %113 ], [ 2, %110 ]
-  call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -1378,16 +1378,16 @@ define hidden void @_ZN10FreezeBase18freeze_start_frameEv(ptr dead_on_unwind noa
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   call void @_ZN10FreezeBase6senderIN18ContinuationHelper26NonInterpretedUnknownFrameEEE5frameRKS3_(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8, !noalias !22
   %.not.i.i = icmp eq ptr %16, null
@@ -1474,8 +1474,8 @@ _ZN19TemplateInterpreter8containsEPh.exit4.i:     ; preds = %_ZN18ContinuationHe
 
 _ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame.exit: ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.i, %_ZN18ContinuationHelper5Frame9return_pcERK5frame.exit.i, %_ZN19TemplateInterpreter8containsEPh.exit4.i, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 61:                                               ; preds = %_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame.exit, %13
@@ -2118,7 +2118,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_fr
   %24 = trunc nsw i64 %10 to i32
   %25 = sub i32 %15, %24
   %26 = add i32 %25, %23
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %26, %28
@@ -2146,7 +2146,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_fr
 
 _ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %39, %41
   %.0.i = phi i32 [ %40, %39 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = icmp samesign ugt i32 %.0.i, 1
   br i1 %43, label %146, label %44
 
@@ -2404,7 +2404,7 @@ _ZN18ContinuationHelper5Frame12frame_methodERK5frame.exit: ; preds = %39, %_ZNK5
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 46
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load i32, ptr %52, align 8
   %54 = add nsw i32 %53, %27
@@ -2437,7 +2437,7 @@ _ZN18ContinuationHelper5Frame12frame_methodERK5frame.exit: ; preds = %39, %_ZNK5
 
 _ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper16InterpretedFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %63, %65
   %.0.i = phi i32 [ %64, %63 ], [ %72, %65 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %73 = icmp samesign ugt i32 %.0.i, 1
   br i1 %73, label %171, label %74
 
@@ -4386,7 +4386,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %193, %188, %167, %1
   %221 = mul nsw i32 %220, %219
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds i8, ptr %214, i64 %222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %224 = load i8, ptr @UseCompressedOops, align 1
   %225 = trunc i8 %224 to i1
   %226 = ptrtoint ptr %223 to i64
@@ -4420,7 +4420,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %193, %188, %167, %1
   %250 = sub i64 %249, %235
   %251 = ashr exact i64 %250, %..i.i
   call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %248, i64 noundef %251) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %252
 
 252:                                              ; preds = %199, %209, %198
@@ -4680,7 +4680,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
   %171 = zext i16 %154 to i64
   %172 = sub nsw i64 0, %171
   %173 = getelementptr inbounds i64, ptr %82, i64 %172
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %174 = load i8, ptr @UseCompressedOops, align 1
   %175 = trunc i8 %174 to i1
   %176 = and i64 %83, -8
@@ -4713,7 +4713,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
   %199 = sub i64 %198, %184
   %200 = ashr exact i64 %199, %..i.i
   call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %197, i64 noundef %200) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %201
 
 201:                                              ; preds = %160, %170, %159
@@ -8989,8 +8989,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind0E19CardTableBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9053,8 +9053,8 @@ _ZN4ThawI6ConfigIL8oop_kind0E19CardTableBarrierSetEE13can_thaw_fastEP17stackChun
 
 _ZN6ConfigIL8oop_kind0E19CardTableBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind0E19CardTableBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind0E19CardTableBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -9063,9 +9063,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind0E19CardTableBarrie
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -9368,9 +9368,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E19CardTableBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -10479,8 +10479,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind0E17EpsilonBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.60, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -10543,8 +10543,8 @@ _ZN4ThawI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE13can_thaw_fastEP17stackChunkO
 
 _ZN6ConfigIL8oop_kind0E17EpsilonBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -10553,9 +10553,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind0E17EpsilonBarrierS
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.59, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -10858,9 +10858,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E17EpsilonBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -11277,8 +11277,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind0E12G1BarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.62, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11341,8 +11341,8 @@ _ZN4ThawI6ConfigIL8oop_kind0E12G1BarrierSetEE13can_thaw_fastEP17stackChunkOopDes
 
 _ZN6ConfigIL8oop_kind0E12G1BarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind0E12G1BarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind0E12G1BarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -11351,9 +11351,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind0E12G1BarrierSetE6f
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.61, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -11656,9 +11656,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E12G1BarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -12075,8 +12075,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.64, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -12139,8 +12139,8 @@ _ZN4ThawI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE13can_thaw_fastEP17stackChu
 
 _ZN6ConfigIL8oop_kind0E20ShenandoahBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -12149,9 +12149,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind0E20ShenandoahBarri
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.63, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -12454,9 +12454,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -12873,8 +12873,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind0E11XBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.66, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -12937,8 +12937,8 @@ _ZN4ThawI6ConfigIL8oop_kind0E11XBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc
 
 _ZN6ConfigIL8oop_kind0E11XBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind0E11XBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind0E11XBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -12947,9 +12947,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind0E11XBarrierSetE6fr
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.65, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -13252,9 +13252,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E11XBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -13671,8 +13671,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind0E11ZBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.68, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -13735,8 +13735,8 @@ _ZN4ThawI6ConfigIL8oop_kind0E11ZBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc
 
 _ZN6ConfigIL8oop_kind0E11ZBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind0E11ZBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind0E11ZBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -13745,9 +13745,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind0E11ZBarrierSetE6fr
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.67, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -14050,9 +14050,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E11ZBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -14469,8 +14469,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind1E19CardTableBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.70, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -14533,8 +14533,8 @@ _ZN4ThawI6ConfigIL8oop_kind1E19CardTableBarrierSetEE13can_thaw_fastEP17stackChun
 
 _ZN6ConfigIL8oop_kind1E19CardTableBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind1E19CardTableBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind1E19CardTableBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -14543,9 +14543,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind1E19CardTableBarrie
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.69, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -14848,9 +14848,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E19CardTableBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -15267,8 +15267,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind1E17EpsilonBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.72, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -15331,8 +15331,8 @@ _ZN4ThawI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE13can_thaw_fastEP17stackChunkO
 
 _ZN6ConfigIL8oop_kind1E17EpsilonBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -15341,9 +15341,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind1E17EpsilonBarrierS
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.71, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -15646,9 +15646,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E17EpsilonBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -16065,8 +16065,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind1E12G1BarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.74, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -16129,8 +16129,8 @@ _ZN4ThawI6ConfigIL8oop_kind1E12G1BarrierSetEE13can_thaw_fastEP17stackChunkOopDes
 
 _ZN6ConfigIL8oop_kind1E12G1BarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind1E12G1BarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind1E12G1BarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -16139,9 +16139,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind1E12G1BarrierSetE6f
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.73, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -16444,9 +16444,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E12G1BarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -16863,8 +16863,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.76, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -16927,8 +16927,8 @@ _ZN4ThawI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE13can_thaw_fastEP17stackChu
 
 _ZN6ConfigIL8oop_kind1E20ShenandoahBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -16937,9 +16937,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind1E20ShenandoahBarri
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.75, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -17242,9 +17242,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -17661,8 +17661,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind1E11XBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.78, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -17725,8 +17725,8 @@ _ZN4ThawI6ConfigIL8oop_kind1E11XBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc
 
 _ZN6ConfigIL8oop_kind1E11XBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind1E11XBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind1E11XBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -17735,9 +17735,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind1E11XBarrierSetE6fr
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.77, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -18040,9 +18040,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E11XBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -18459,8 +18459,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %10, %17
 define internal noundef ptr @_ZL4thawI6ConfigIL8oop_kind1E11ZBarrierSetEEPlP10JavaThreadi(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Thaw.80, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -18523,8 +18523,8 @@ _ZN4ThawI6ConfigIL8oop_kind1E11ZBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc
 
 _ZN6ConfigIL8oop_kind1E11ZBarrierSetE4thawEP10JavaThreadN12Continuation9thaw_kindE.exit: ; preds = %38, %_ZN4ThawI6ConfigIL8oop_kind1E11ZBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i
   %42 = phi ptr [ %39, %38 ], [ %41, %_ZN4ThawI6ConfigIL8oop_kind1E11ZBarrierSetEE13can_thaw_fastEP17stackChunkOopDesc.exit.thread.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %42
 }
 
@@ -18533,9 +18533,9 @@ define linkonce_odr hidden noundef i32 @_ZN6ConfigIL8oop_kind1E11ZBarrierSetE6fr
   %3 = alloca %class.ContinuationWrapper, align 8
   %4 = alloca %class.Freeze.79, align 8
   %5 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -18838,9 +18838,9 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E11ZBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
   %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -19860,10 +19860,10 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
 declare void @_ZN17stackChunkOopDesc12do_barriers0ILNS_11BarrierTypeE1EL11ChunkFrames1E11RegisterMapEEvRK21StackChunkFrameStreamIXT0_EEPKT1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

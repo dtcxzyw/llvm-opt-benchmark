@@ -43,14 +43,8 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #4 {
+define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStackTraceEPvPKS1_PiiibPFvPKcS1_ES1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = alloca [100 x i8], align 16
   %10 = alloca [1024 x i8], align 16
   %11 = alloca [1024 x i8], align 16
@@ -69,22 +63,22 @@ define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStack
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .thread41:                                        ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 1024)
   %spec.select.i = select i1 %19, ptr %13, ptr @.str.3
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 18, ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i) #9
   call void %6(ptr noundef nonnull %14, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %21 = icmp sgt i32 %3, 0
   br i1 %21, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .thread:                                          ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 100, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 18, ptr noundef nonnull %0) #9
   call void %6(ptr noundef nonnull %12, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph.split.preheader, label %._crit_edge
 
@@ -106,10 +100,10 @@ define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStack
   %26 = getelementptr inbounds i8, ptr %25, i64 -1
   %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv36
   %28 = load i32, ptr %27, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef nonnull %26, ptr noundef nonnull %10, i32 noundef 1024)
   %spec.select.i32.us = select i1 %29, ptr %10, ptr @.str.3
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %30 = icmp slt i32 %28, 1
   br i1 %30, label %33, label %31
 
@@ -123,8 +117,8 @@ define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStack
 
 _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us: ; preds = %33, %31
   call void %6(ptr noundef nonnull %11, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
@@ -139,7 +133,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPv
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %40 = icmp slt i32 %39, 1
   br i1 %40, label %41, label %43
 
@@ -153,16 +147,16 @@ _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPv
 
 _ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit: ; preds = %41, %43
   call void %6(ptr noundef nonnull %9, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 45:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 100, ptr noundef nonnull @.str.2, i32 noundef %4) #9
   call void %6(ptr noundef nonnull %15, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge
@@ -170,15 +164,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local void @_ZN4absl18debugging_internal14DumpStackTraceEiibPFvPKcPvES3_(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18debugging_internal14DumpStackTraceEiibPFvPKcPvES3_(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca [100 x i8], align 16
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [1024 x i8], align 16
   %9 = alloca [64 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp slt i32 %1, 65
   br i1 %10, label %17, label %11
 
@@ -211,7 +205,7 @@ define dso_local void @_ZN4absl18debugging_internal14DumpStackTraceEiibPFvPKcPvE
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us ], [ 0, %.lr.ph ]
   %21 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv47
   %22 = load ptr, ptr %21, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = ptrtoint ptr %22 to i64
   %24 = add i64 %23, -1
   %25 = inttoptr i64 %24 to ptr
@@ -227,11 +221,11 @@ define dso_local void @_ZN4absl18debugging_internal14DumpStackTraceEiibPFvPKcPvE
 
 _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us: ; preds = %29, %27
   %.0.i.us = phi ptr [ %7, %29 ], [ @.str.3, %27 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %22, ptr noundef nonnull %.0.i.us) #9
   call void %3(ptr noundef nonnull %8, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
@@ -245,10 +239,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.e
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %32 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %33) #9
   call void %3(ptr noundef nonnull %6, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
@@ -266,29 +260,35 @@ _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.e
   br label %39
 
 39:                                               ; preds = %37, %36
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
-declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
-declare noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
-
-; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: nounwind
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -1047,15 +1047,9 @@ define internal fastcc range(i32 0, 2) i32 @dh_to_text(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @ossl_bio_new_from_core_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @DH_get0_priv_key(ptr noundef) local_unnamed_addr #2
 
@@ -1088,9 +1082,9 @@ define internal fastcc range(i32 0, 2) i32 @ec_to_text(ptr noundef %0, ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
@@ -1317,7 +1311,7 @@ ec_param_explicit_curve_to_text.exit.i.i:         ; preds = %106
   br i1 %.not47.i.i, label %ec_param_explicit_curve_to_text.exit.thread.i.i, label %109
 
 109:                                              ; preds = %ec_param_explicit_curve_to_text.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
   %110 = call i32 @EC_GROUP_get_point_conversion_form(ptr noundef nonnull %11) #4
   %111 = call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %11) #4
@@ -1344,7 +1338,7 @@ ec_param_explicit_curve_to_text.exit.i.i:         ; preds = %106
   br i1 %118, label %ec_param_explicit_gen_to_text.exit.thread.i.i, label %ec_param_explicit_gen_to_text.exit.i.i
 
 ec_param_explicit_gen_to_text.exit.thread.i.i:    ; preds = %116, %113, %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ec_param_explicit_curve_to_text.exit.thread.i.i
 
 ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %116
@@ -1352,7 +1346,7 @@ ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %116
   %120 = call i32 @ossl_bio_print_labeled_buf(ptr noundef nonnull %0, ptr noundef nonnull %.0.i42.i.i, ptr noundef %119, i64 noundef %117) #4
   %121 = load ptr, ptr %4, align 8, !tbaa !3
   call void @CRYPTO_clear_free(ptr noundef %121, i64 noundef %117, ptr noundef nonnull @.str, i32 noundef 243) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not37.i.i = icmp eq i32 %120, 0
   br i1 %.not37.i.i, label %ec_param_explicit_curve_to_text.exit.thread.i.i, label %122
 
@@ -1398,8 +1392,8 @@ ec_param_to_text.exit:                            ; preds = %34, %33, %26, %25, 
 
 133:                                              ; preds = %ec_param_to_text.exit, %13, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ %.038, %ec_param_to_text.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1563,11 +1557,11 @@ define internal fastcc range(i32 0, 2) i32 @rsa_to_text(ptr noundef %0, ptr noun
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !16
   %7 = tail call ptr @ossl_rsa_get0_pss_params_30(ptr noundef %1) #4
   %8 = icmp eq ptr %0, null
@@ -1810,9 +1804,9 @@ define internal fastcc range(i32 0, 2) i32 @rsa_to_text(ptr noundef %0, ptr noun
   call void @OPENSSL_sk_free(ptr noundef %.095) #4
   call void @OPENSSL_sk_free(ptr noundef %.099) #4
   call void @OPENSSL_sk_free(ptr noundef %.0100) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.098
 }
 
@@ -1849,6 +1843,12 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
 
 declare i32 @ossl_ml_dsa_key_to_text(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

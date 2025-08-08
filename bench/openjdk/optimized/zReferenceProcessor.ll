@@ -1960,7 +1960,7 @@ define hidden void @_ZN19ZReferenceProcessor18process_referencesEv(ptr noundef n
   call void @_ZN27java_lang_ref_SoftReference9set_clockEl(i64 noundef %16) #11
   call void @_ZN20SuspendibleThreadSet5leaveEv() #11
   call void @_ZN19ZReferenceProcessor18collect_statisticsEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %18 = extractvalue { i64, i64 } %17, 0
   store i64 %18, ptr %2, align 8
@@ -1975,7 +1975,7 @@ define hidden void @_ZN19ZReferenceProcessor18process_referencesEv(ptr noundef n
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2052,7 +2052,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %9, %11
   br label %25
 
 25:                                               ; preds = %1, %_ZN13MonitorLockerD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %27 = extractvalue { i64, i64 } %26, 0
   store i64 %27, ptr %2, align 8
@@ -2067,7 +2067,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %9, %11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %2) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3707,10 +3707,10 @@ define internal void @_GLOBAL__sub_I_zReferenceProcessor.cpp() #7 section ".text
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

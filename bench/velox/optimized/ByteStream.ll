@@ -2381,7 +2381,7 @@ if.end9.i.i.i.i:                                  ; preds = %if.end8.sink.split.
 
 _ZNSt10shared_ptrIN8facebook5velox11StreamArenaEEaSERKS3_.exit.i: ; preds = %if.end9.i.i.i.i, %call.i.noexc
   %releaseFn3.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i8 0, i64 32, i1 false)
   %25 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %25, null
@@ -2417,11 +2417,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i3.i
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %invoke.cont.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox11StreamArenaEEaSERKS3_.exit.i
   %32 = phi ptr [ null, %_ZNSt10shared_ptrIN8facebook5velox11StreamArenaEEaSERKS3_.exit.i ], [ %26, %invoke.cont.i.i.i ]
   %33 = phi ptr [ null, %_ZNSt10shared_ptrIN8facebook5velox11StreamArenaEEaSERKS3_.exit.i ], [ %27, %invoke.cont.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %releaseFn3.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %releaseFn3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 32
   %34 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store ptr %34, ptr %_M_manager.i.i.i.i, align 8
@@ -2445,7 +2445,7 @@ terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   unreachable
 
 invoke.cont13:                                    ; preds = %if.then.i.i5.i.i, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %38 = load ptr, ptr %__begin2.sroa.0.016, align 8
   %conv = sext i32 %cond to i64
   invoke void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %newBuf, ptr noundef %38, i64 noundef %conv, i64 noundef 0, i64 noundef %conv, ptr noundef nonnull @_ZN8facebook5velox12_GLOBAL__N_18freeFuncEPvS2_, ptr noundef nonnull %call.i7, i1 noundef zeroext true, i32 noundef 0)
@@ -3208,10 +3208,10 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #20
 declare i8 @llvm.fshr.i8(i8, i8, i8) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

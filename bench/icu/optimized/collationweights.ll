@@ -29,14 +29,8 @@ define void @_ZN6icu_7716CollationWeightsC2Ev(ptr noundef nonnull writeonly alig
   br i1 %exitcond.not, label %5, label %6, !llvm.loop !10
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7716CollationWeights14initForPrimaryEa(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %0, i8 noundef signext %1) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7716CollationWeights14initForPrimaryEa(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %0, i8 noundef signext %1) local_unnamed_addr #1 align 2 {
   store i32 1, ptr %0, align 4, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %3, align 4, !tbaa !9
@@ -61,7 +55,7 @@ define void @_ZN6icu_7716CollationWeights14initForPrimaryEa(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7716CollationWeights16initForSecondaryEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7716CollationWeights16initForSecondaryEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %0) local_unnamed_addr #1 align 2 {
   store i32 3, ptr %0, align 4, !tbaa !12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4, !tbaa !9
@@ -83,7 +77,7 @@ define void @_ZN6icu_7716CollationWeights16initForSecondaryEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7716CollationWeights15initForTertiaryEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7716CollationWeights15initForTertiaryEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %0) local_unnamed_addr #1 align 2 {
   store i32 3, ptr %0, align 4, !tbaa !12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4, !tbaa !9
@@ -105,7 +99,7 @@ define void @_ZN6icu_7716CollationWeights15initForTertiaryEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7716CollationWeights9incWeightEji(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK6icu_7716CollationWeights9incWeightEji(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = shl i32 %2, 3
   %6 = sub i32 32, %5
@@ -166,7 +160,7 @@ define noundef i32 @_ZNK6icu_7716CollationWeights9incWeightEji(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = shl i32 %2, 3
   %7 = sub i32 32, %6
@@ -236,7 +230,7 @@ define noundef i32 @_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7716CollationWeights13lengthenRangeERNS0_11WeightRangeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define void @_ZNK6icu_7716CollationWeights13lengthenRangeERNS0_11WeightRangeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4, !tbaa !14
   %5 = add nsw i32 %4, 1
@@ -274,7 +268,7 @@ define void @_ZNK6icu_7716CollationWeights13lengthenRangeERNS0_11WeightRangeE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca [5 x %"struct.icu_77::CollationWeights::WeightRange"], align 16
   %5 = alloca [5 x %"struct.icu_77::CollationWeights::WeightRange"], align 16
   %6 = and i32 %1, 16777215
@@ -327,8 +321,8 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   br i1 %29, label %238, label %30
 
 30:                                               ; preds = %24, %22
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %31 = load i32, ptr %0, align 4, !tbaa !12
@@ -642,8 +636,8 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i, %143
   %211 = phi i32 [ %206, %205 ], [ %237, %236 ]
   %212 = icmp sgt i32 %211, 0
   %213 = zext i1 %212 to i8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %238
 
 214:                                              ; preds = %.lr.ph179, %236
@@ -693,13 +687,13 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i, %143
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWeightsInShortRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWeightsInShortRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 4, !tbaa !8
@@ -744,10 +738,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
   br i1 %.not21, label %.critedge, label %24
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !24
   call void @uprv_sortArray_77(ptr noundef nonnull %8, i32 noundef %23, i32 noundef 16, ptr noundef nonnull @_ZN6icu_77L13compareRangesEPKvS1_S1_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 25:                                               ; preds = %14
@@ -761,10 +755,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
   ret i8 %not.switch
 }
 
-declare void @uprv_sortArray_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #9
+declare void @uprv_sortArray_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN6icu_77L13compareRangesEPKvS1_S1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
+define internal noundef range(i32 -1, 2) i32 @_ZN6icu_77L13compareRangesEPKvS1_S1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i32, ptr %1, align 4, !tbaa !16
   %5 = load i32, ptr %2, align 4, !tbaa !16
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
@@ -772,7 +766,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN6icu_77L13compareRangesEPKvS1_S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights29allocWeightsInMinLengthRangesEii(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights29allocWeightsInMinLengthRangesEii(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 4, !tbaa !8
@@ -1059,7 +1053,7 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i56, %_ZNK6i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = alloca i32, align 4
   %6 = tail call noundef signext i8 @_ZN6icu_7716CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %1, i32 noundef %2)
   %.not = icmp eq i8 %6, 0
@@ -1117,10 +1111,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
   br i1 %.not21.i, label %.loopexit25, label %30
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !24
   call void @uprv_sortArray_77(ptr noundef nonnull %7, i32 noundef %29, i32 noundef 16, ptr noundef nonnull @_ZN6icu_77L13compareRangesEPKvS1_S1_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit25
 
 31:                                               ; preds = %20
@@ -1203,7 +1197,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7716CollationWeights10nextWeightEv(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7716CollationWeights10nextWeightEv(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1295,6 +1289,12 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %30, %17
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #10
 
@@ -1305,17 +1305,16 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

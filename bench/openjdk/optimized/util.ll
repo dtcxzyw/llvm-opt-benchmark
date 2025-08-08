@@ -1676,9 +1676,9 @@ define hidden void @sharedGetFieldValues(ptr noundef %0, ptr noundef %1, i8 noun
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 248
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %10, ptr noundef %.0) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -1721,9 +1721,9 @@ define hidden void @sharedGetFieldValues(ptr noundef %0, ptr noundef %1, i8 noun
   br label %fieldSignature.exit.i36.us
 
 fieldSignature.exit.i36.us:                       ; preds = %52, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not61.i37.us = icmp eq i32 %46, 0
   br i1 %.not61.i37.us, label %55, label %53
 
@@ -2021,9 +2021,9 @@ writeStaticFieldValue.exit.us:                    ; preds = %178, %166, %154, %1
 
 186:                                              ; preds = %.lr.ph.split
   %187 = call ptr @inStream_readFieldID(ptr noundef %0) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
@@ -2066,9 +2066,9 @@ writeStaticFieldValue.exit.us:                    ; preds = %178, %166, %154, %1
   br label %fieldSignature.exit.i
 
 fieldSignature.exit.i:                            ; preds = %205, %202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i = icmp eq i32 %199, 0
   br i1 %.not.i, label %208, label %206
 
@@ -2935,7 +2935,7 @@ declare zeroext i8 @threadControl_isDebugThread(ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 1, 4) i8 @referenceTypeTag(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
@@ -2969,7 +2969,7 @@ define hidden signext range(i8 1, 4) i8 @referenceTypeTag(ptr noundef %0) local_
 
 isInterface.exit:                                 ; preds = %8, %15
   %18 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %19, label %21
 
@@ -3174,9 +3174,9 @@ define hidden i32 @methodReturnType(ptr noundef %0, ptr noundef writeonly captur
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
@@ -3219,9 +3219,9 @@ define hidden i32 @methodReturnType(ptr noundef %0, ptr noundef writeonly captur
   br label %methodSignature.exit
 
 methodSignature.exit:                             ; preds = %20, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = icmp eq i32 %17, 0
   br i1 %24, label %25, label %36
 
@@ -4250,7 +4250,7 @@ define hidden ptr @getClassname(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %4 = load ptr, ptr @gdata, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
@@ -4273,7 +4273,7 @@ classSignature.exit:                              ; preds = %3, %8
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #14
   %15 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not2 = icmp eq i32 %14, 0
   br i1 %.not2, label %16, label %17
 
@@ -4618,7 +4618,7 @@ classLoader.exit:                                 ; preds = %3, %13
   br i1 %.not, label %20, label %124
 
 20:                                               ; preds = %classLoader.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %21 = load ptr, ptr @gdata, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 528
@@ -4641,7 +4641,7 @@ classSignature.exit:                              ; preds = %20, %25
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef nonnull %27, ptr noundef %0, ptr noundef nonnull %5, ptr noundef null) #14
   %32 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not37 = icmp eq i32 %31, 0
   br i1 %.not37, label %33, label %124
 
@@ -4695,7 +4695,7 @@ allClassLoaderClasses.exit:                       ; preds = %33, %40
   %54 = load ptr, ptr %7, align 8
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %57 = load ptr, ptr @gdata, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
@@ -4718,7 +4718,7 @@ classSignature.exit48:                            ; preds = %53, %61
   %66 = load ptr, ptr %65, align 8
   %67 = call i32 %66(ptr noundef nonnull %63, ptr noundef %56, ptr noundef nonnull %4, ptr noundef null) #14
   %68 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not39 = icmp eq i32 %67, 0
   br i1 %.not39, label %69, label %classSignature.exit48._crit_edge
 
@@ -5313,7 +5313,7 @@ define hidden void @writeCodeLocation(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = tail call zeroext i16 @outStream_writeByte(ptr noundef %0, i8 noundef signext %.0) #14
   %10 = tail call ptr @getEnv()
   %11 = tail call zeroext i16 @outStream_writeObjectRef(ptr noundef %10, ptr noundef %0, ptr noundef %1) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %isMethodObsolete.exit.thread, label %12
@@ -5343,12 +5343,12 @@ define hidden void @writeCodeLocation(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not3.i, label %isMethodObsolete.exit, label %isMethodObsolete.exit.thread
 
 isMethodObsolete.exit.thread:                     ; preds = %8, %18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
 isMethodObsolete.exit:                            ; preds = %18
   %.pre4.i = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre4.i.fr = freeze i8 %.pre4.i
   %.not11 = icmp eq i8 %.pre4.i.fr, 0
   %spec.select = select i1 %.not11, ptr %2, ptr null
@@ -5950,9 +5950,9 @@ define hidden void @log_debugee_location(ptr noundef %0, ptr noundef %1, ptr nou
 
 .thread35:                                        ; preds = %33, %42
   %43 = phi ptr [ %.pr, %42 ], [ %2, %33 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
@@ -5995,9 +5995,9 @@ define hidden void @log_debugee_location(ptr noundef %0, ptr noundef %1, ptr nou
   br label %methodSignature.exit
 
 methodSignature.exit:                             ; preds = %59, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not19 = icmp eq i32 %55, 0
   %spec.select = select i1 %.not19, ptr %56, ptr null
   %.pr38 = load ptr, ptr %9, align 8
@@ -6031,7 +6031,7 @@ methodClass.exit:                                 ; preds = %62, %67
 
 75:                                               ; preds = %methodClass.exit
   %76 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %77 = load ptr, ptr @gdata, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 528
@@ -6054,7 +6054,7 @@ classSignature.exit:                              ; preds = %75, %81
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 %86(ptr noundef nonnull %83, ptr noundef %76, ptr noundef nonnull %5, ptr noundef null) #14
   %88 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not21 = icmp eq i32 %87, 0
   %spec.select43 = select i1 %.not21, ptr %88, ptr null
   br label %.thread39
@@ -6785,10 +6785,10 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

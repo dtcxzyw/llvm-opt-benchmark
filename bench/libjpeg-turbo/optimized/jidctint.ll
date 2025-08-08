@@ -8,7 +8,7 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -426,22 +426,16 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond.not, label %334, label %180, !llvm.loop !38
 
 334:                                              ; preds = %332
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_7x7(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [49 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 196, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -696,7 +690,7 @@ define void @jpeg_idct_7x7(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %exitcond182.not, label %224, label %125, !llvm.loop !40
 
 224:                                              ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 196, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -705,7 +699,7 @@ define void @jpeg_idct_6x6(ptr noundef readonly captures(none) %0, ptr noundef r
   %6 = alloca [36 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -905,7 +899,7 @@ define void @jpeg_idct_6x6(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %exitcond138.not, label %175, label %99, !llvm.loop !42
 
 175:                                              ; preds = %99
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -914,7 +908,7 @@ define void @jpeg_idct_5x5(ptr noundef readonly captures(none) %0, ptr noundef r
   %6 = alloca [25 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -1085,7 +1079,7 @@ define void @jpeg_idct_5x5(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %exitcond114.not, label %146, label %84, !llvm.loop !44
 
 146:                                              ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1094,7 +1088,7 @@ define void @jpeg_idct_3x3(ptr noundef readonly captures(none) %0, ptr noundef r
   %6 = alloca [9 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -1201,7 +1195,7 @@ define void @jpeg_idct_3x3(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %exitcond70.not, label %88, label %53, !llvm.loop !46
 
 88:                                               ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1210,7 +1204,7 @@ define void @jpeg_idct_9x9(ptr noundef readonly captures(none) %0, ptr noundef r
   %6 = alloca [72 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -1499,7 +1493,7 @@ define void @jpeg_idct_9x9(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %exitcond215.not, label %256, label %141, !llvm.loop !48
 
 256:                                              ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1508,7 +1502,7 @@ define void @jpeg_idct_10x10(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [80 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -1820,7 +1814,7 @@ define void @jpeg_idct_10x10(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond242.not, label %273, label %148, !llvm.loop !50
 
 273:                                              ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1829,7 +1823,7 @@ define void @jpeg_idct_11x11(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [88 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -2196,7 +2190,7 @@ define void @jpeg_idct_11x11(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond273.not, label %316, label %169, !llvm.loop !52
 
 316:                                              ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2205,7 +2199,7 @@ define void @jpeg_idct_12x12(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [96 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -2560,7 +2554,7 @@ define void @jpeg_idct_12x12(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond268.not, label %312, label %166, !llvm.loop !54
 
 312:                                              ; preds = %166
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2569,7 +2563,7 @@ define void @jpeg_idct_13x13(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [104 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -2980,7 +2974,7 @@ define void @jpeg_idct_13x13(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond313.not, label %360, label %189, !llvm.loop !56
 
 360:                                              ; preds = %189
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2989,7 +2983,7 @@ define void @jpeg_idct_14x14(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [112 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -3389,7 +3383,7 @@ define void @jpeg_idct_14x14(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond315.not, label %343, label %179, !llvm.loop !58
 
 343:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3398,7 +3392,7 @@ define void @jpeg_idct_15x15(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [120 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -3817,7 +3811,7 @@ define void @jpeg_idct_15x15(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond341.not, label %360, label %187, !llvm.loop !60
 
 360:                                              ; preds = %187
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3826,7 +3820,7 @@ define void @jpeg_idct_16x16(ptr noundef readonly captures(none) %0, ptr noundef
   %6 = alloca [128 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   br label %13
@@ -4289,13 +4283,18 @@ define void @jpeg_idct_16x16(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond374.not, label %408, label %210, !llvm.loop !62
 
 408:                                              ; preds = %210
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

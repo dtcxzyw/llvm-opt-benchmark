@@ -1052,7 +1052,7 @@ define hidden ptr @getMinorMessage(ptr noundef %0, ptr noundef %1, i32 noundef %
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 200
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef nonnull %6, i32 noundef %2, i32 noundef 2, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = load i64, ptr %7, align 8
   %21 = trunc i64 %20 to i32
   %22 = load ptr, ptr %0, align 8
@@ -1095,7 +1095,7 @@ getJavaString.exit:                               ; preds = %15, %27, %37
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 224
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 %49(ptr noundef nonnull %4, ptr noundef nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.021.i
 }
 
@@ -1704,10 +1704,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

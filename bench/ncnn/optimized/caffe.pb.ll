@@ -3763,14 +3763,8 @@ define dso_local void @_ZN5caffe9BlobShape9ArenaDtorEPv(ptr noundef readnone cap
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe9BlobShape13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe9BlobShape13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -3986,7 +3980,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt64ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %0) local_unnamed_addr #12 comdat {
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = load ptr, ptr %0, align 8, !tbaa !418
   %3 = load i8, ptr %2, align 1, !tbaa !94
   %.not.i = icmp sgt i8 %3, -1
@@ -4587,13 +4581,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe9BlobShape11GetMetadataEv(ptr nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe9BlobProto21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe9BlobProto21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe28_BlobShape_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe28_BlobProto_default_instance_E, i64 120), align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe9BlobProto9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe9BlobProto9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   ret ptr %3
@@ -4879,10 +4873,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5caffe9BlobProtoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -5032,7 +5026,7 @@ define dso_local void @_ZN5caffe9BlobProto9ArenaDtorEPv(ptr noundef readnone cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe9BlobProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe9BlobProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -5132,7 +5126,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN5caffe9BlobProto14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -7595,7 +7589,7 @@ define dso_local void @_ZN5caffe15BlobProtoVector9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15BlobProtoVector13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15BlobProtoVector13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -8661,7 +8655,7 @@ define dso_local void @_ZN5caffe5Datum9ArenaDtorEPv(ptr noundef readnone capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe5Datum13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe5Datum13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -10391,7 +10385,7 @@ define dso_local void @_ZN5caffe15FillerParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15FillerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15FillerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -11742,13 +11736,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe15FillerParameter11GetMetadataEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe12NetParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe12NetParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe27_NetState_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe31_NetParameter_default_instance_E, i64 144), align 8, !tbaa !260
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe12NetParameter9_Internal5stateEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe12NetParameter9_Internal5stateEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !260
   ret ptr %3
@@ -12601,7 +12595,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN5caffe16V1LayerParameterEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe12NetParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe12NetParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -12716,7 +12710,7 @@ define dso_local void @_ZN5caffe12NetParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12NetParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12NetParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -15501,7 +15495,7 @@ define dso_local void @_ZN5caffe12NetParameter8CopyFromERKS0_(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK5caffe12NetParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5caffe12NetParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8, !tbaa !485
   %4 = icmp slt i32 %3, 1
@@ -15682,7 +15676,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe12NetParameter11GetMetadataEv(ptr nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe15SolverParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe15SolverParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe31_NetParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe34_SolverParameter_default_instance_E, i64 192), align 8, !tbaa !334
   store ptr @_ZN5caffe31_NetParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe34_SolverParameter_default_instance_E, i64 184), align 8, !tbaa !339
   store ptr @_ZN5caffe27_NetState_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe34_SolverParameter_default_instance_E, i64 200), align 8, !tbaa !340
@@ -15690,21 +15684,21 @@ define dso_local void @_ZN5caffe15SolverParameter21InitAsDefaultInstanceEv() loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN5caffe15SolverParameter9_Internal9net_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN5caffe15SolverParameter9_Internal9net_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !334
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN5caffe15SolverParameter9_Internal15train_net_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN5caffe15SolverParameter9_Internal15train_net_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !339
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe15SolverParameter9_Internal11train_stateEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe15SolverParameter9_Internal11train_stateEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8, !tbaa !340
   ret ptr %3
@@ -16664,7 +16658,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN5caffe12NetParameterEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe15SolverParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(304) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe15SolverParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(304) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -16946,7 +16940,7 @@ define dso_local void @_ZN5caffe15SolverParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15SolverParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15SolverParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -23530,7 +23524,7 @@ define dso_local void @_ZN5caffe15SolverParameter8CopyFromERKS0_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK5caffe15SolverParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5caffe15SolverParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !485
   %4 = icmp slt i32 %3, 1
@@ -24286,7 +24280,7 @@ define dso_local void @_ZN5caffe11SolverState9ArenaDtorEPv(ptr noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe11SolverState13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe11SolverState13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -25890,7 +25884,7 @@ define dso_local void @_ZN5caffe8NetState9ArenaDtorEPv(ptr noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe8NetState13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe8NetState13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -27152,7 +27146,7 @@ define dso_local void @_ZN5caffe12NetStateRule9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12NetStateRule13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12NetStateRule13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -28999,7 +28993,7 @@ define dso_local void @_ZN5caffe9ParamSpec9ArenaDtorEPv(ptr noundef readnone cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe9ParamSpec13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe9ParamSpec13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -30027,7 +30021,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe9ParamSpec11GetMetadataEv(ptr nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe14LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe14LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe42_TransformationParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_LayerParameter_default_instance_E, i64 232), align 8, !tbaa !121
   store ptr @_ZN5caffe32_LossParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_LayerParameter_default_instance_E, i64 240), align 8, !tbaa !192
   store ptr @_ZN5caffe36_AccuracyParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_LayerParameter_default_instance_E, i64 248), align 8, !tbaa !193
@@ -30092,420 +30086,420 @@ define dso_local void @_ZN5caffe14LayerParameter21InitAsDefaultInstanceEv() loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14LayerParameter9_Internal15transform_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14LayerParameter9_Internal15transform_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8, !tbaa !121
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal10loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal10loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8, !tbaa !192
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal14accuracy_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal14accuracy_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !193
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal12argmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal12argmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal16batch_norm_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal16batch_norm_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8, !tbaa !195
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal10bias_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal10bias_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8, !tbaa !196
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal8bn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal8bn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8, !tbaa !197
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal12concat_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal12concat_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8, !tbaa !198
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8, !tbaa !199
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN5caffe14LayerParameter9_Internal17convolution_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN5caffe14LayerParameter9_Internal17convolution_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !200
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal10crop_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal10crop_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8, !tbaa !201
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe14LayerParameter9_Internal10data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe14LayerParameter9_Internal10data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !202
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe14LayerParameter9_Internal22detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe14LayerParameter9_Internal22detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %3 = load ptr, ptr %2, align 8, !tbaa !203
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe14LayerParameter9_Internal27yolo_detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe14LayerParameter9_Internal27yolo_detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %3 = load ptr, ptr %2, align 8, !tbaa !204
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN5caffe14LayerParameter9_Internal29yolov3_detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN5caffe14LayerParameter9_Internal29yolov3_detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %3 = load ptr, ptr %2, align 8, !tbaa !205
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13dropout_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13dropout_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8, !tbaa !206
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN5caffe14LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN5caffe14LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8, !tbaa !207
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal13eltwise_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal13eltwise_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8, !tbaa !208
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal9elu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal9elu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8, !tbaa !209
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal11embed_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal11embed_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !210
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal9exp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal9exp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8, !tbaa !211
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13flatten_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13flatten_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8, !tbaa !212
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8, !tbaa !213
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !214
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !215
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe14LayerParameter9_Internal16image_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe14LayerParameter9_Internal16image_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !216
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8, !tbaa !217
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal19inner_product_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal19inner_product_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8, !tbaa !218
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal11input_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal11input_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8, !tbaa !219
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal12interp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal12interp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load ptr, ptr %2, align 8, !tbaa !220
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal9log_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal9log_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %3 = load ptr, ptr %2, align 8, !tbaa !221
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal9lrn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal9lrn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8, !tbaa !222
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal17memory_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal17memory_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8, !tbaa !223
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal9mvn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal9mvn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8, !tbaa !224
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal10norm_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal10norm_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8, !tbaa !225
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe14LayerParameter9_Internal13pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe14LayerParameter9_Internal13pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8, !tbaa !226
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal13permute_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal13permute_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8, !tbaa !227
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal11power_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal11power_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8, !tbaa !228
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal11prelu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal11prelu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8, !tbaa !229
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(128) ptr @_ZN5caffe14LayerParameter9_Internal15prior_box_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(128) ptr @_ZN5caffe14LayerParameter9_Internal15prior_box_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load ptr, ptr %2, align 8, !tbaa !230
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal19psroi_pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal19psroi_pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 8, !tbaa !231
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal12python_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal12python_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8, !tbaa !232
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal15recurrent_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal15recurrent_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8, !tbaa !233
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal15reduction_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal15reduction_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8, !tbaa !234
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal10relu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal10relu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8, !tbaa !235
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal11reorg_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal11reorg_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8, !tbaa !236
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal13reshape_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal13reshape_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8, !tbaa !237
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal15roi_align_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal15roi_align_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8, !tbaa !238
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal17roi_pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal17roi_pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %3 = load ptr, ptr %2, align 8, !tbaa !239
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal11scale_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe14LayerParameter9_Internal11scale_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8, !tbaa !240
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal21shuffle_channel_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal21shuffle_channel_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8, !tbaa !241
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8, !tbaa !242
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal20smooth_l1_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal20smooth_l1_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8, !tbaa !243
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13softmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal13softmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8, !tbaa !244
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal9spp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe14LayerParameter9_Internal9spp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8, !tbaa !245
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal11slice_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe14LayerParameter9_Internal11slice_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8, !tbaa !246
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal10tanh_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal10tanh_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8, !tbaa !247
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal15threshold_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal15threshold_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8, !tbaa !248
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal10tile_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe14LayerParameter9_Internal10tile_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8, !tbaa !249
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5caffe14LayerParameter9_Internal17window_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5caffe14LayerParameter9_Internal17window_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8, !tbaa !250
   ret ptr %3
@@ -34897,7 +34891,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN5caffe9ParamSpecEED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe14LayerParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(712) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe14LayerParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(712) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -37516,7 +37510,7 @@ define dso_local void @_ZN5caffe14LayerParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(712) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(712) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -74428,7 +74422,7 @@ define dso_local void @_ZN5caffe14LayerParameter8CopyFromERKS0_(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK5caffe14LayerParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5caffe14LayerParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !468
   %4 = and i32 %3, 1048576
@@ -74456,7 +74450,7 @@ define dso_local noundef zeroext i1 @_ZNK5caffe14LayerParameter13IsInitializedEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5caffe21PSROIPoolingParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #14 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5caffe21PSROIPoolingParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !468
   %4 = and i32 %3, 7
@@ -74880,7 +74874,7 @@ define dso_local void @_ZN5caffe23TransformationParameter9ArenaDtorEPv(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe23TransformationParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe23TransformationParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -76194,7 +76188,7 @@ define dso_local void @_ZN5caffe15ResizeParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15ResizeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15ResizeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -76752,13 +76746,13 @@ _ZN5caffe15ResizeParameter22mutable_unknown_fieldsEv.exit80: ; preds = %221, %22
   br i1 %232, label %188, label %.backedge, !llvm.loop !769
 
 233:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %10, ptr %3, align 8, !tbaa !770
   store ptr @_ZN5caffe35ResizeParameter_Interp_mode_IsValidEi, ptr %11, align 8, !tbaa !773
   store ptr %4, ptr %12, align 8, !tbaa !774
   store i32 7, ptr %13, align 8, !tbaa !775
   %234 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_16PackedEnumParserINS0_15UnknownFieldSetEEEPKcPvS7_PNS1_12ParseContextEPFbiEPNS1_16InternalMetadataEiEUlmE_EES7_S7_T_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %.0.i44140, ptr noundef nonnull byval(%class.anon) align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not30 = icmp eq ptr %234, null
   br i1 %.not30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !411
 
@@ -78305,7 +78299,7 @@ define dso_local void @_ZN5caffe13LossParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13LossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13LossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -79460,7 +79454,7 @@ define dso_local void @_ZN5caffe17AccuracyParameter9ArenaDtorEPv(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe17AccuracyParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe17AccuracyParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -80625,7 +80619,7 @@ define dso_local void @_ZN5caffe15ArgMaxParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15ArgMaxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15ArgMaxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -81732,7 +81726,7 @@ define dso_local void @_ZN5caffe15ConcatParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15ConcatParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15ConcatParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -82807,7 +82801,7 @@ define dso_local void @_ZN5caffe18BatchNormParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18BatchNormParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18BatchNormParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -83572,13 +83566,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe18BatchNormParameter11GetMetadataEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe13BiasParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe13BiasParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe32_BiasParameter_default_instance_E, i64 24), align 8, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe13BiasParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe13BiasParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   ret ptr %3
@@ -83819,7 +83813,7 @@ define dso_local void @_ZN5caffe13BiasParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13BiasParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13BiasParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -84661,21 +84655,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe13BiasParameter11GetMetadataEv(ptr nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe11BNParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe11BNParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe30_BNParameter_default_instance_E, i64 24), align 8, !tbaa !27
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe30_BNParameter_default_instance_E, i64 32), align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe11BNParameter9_Internal12scale_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe11BNParameter9_Internal12scale_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !27
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe11BNParameter9_Internal12shift_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe11BNParameter9_Internal12shift_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   ret ptr %3
@@ -85019,7 +85013,7 @@ define dso_local void @_ZN5caffe11BNParameter9ArenaDtorEPv(ptr noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe11BNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe11BNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -86102,7 +86096,7 @@ define dso_local void @_ZN5caffe24ContrastiveLossParameter9ArenaDtorEPv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe24ContrastiveLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe24ContrastiveLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -86865,21 +86859,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe24ContrastiveLossParameter11GetMetadata
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe20ConvolutionParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe20ConvolutionParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe39_ConvolutionParameter_default_instance_E, i64 88), align 8, !tbaa !54
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe39_ConvolutionParameter_default_instance_E, i64 96), align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe20ConvolutionParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe20ConvolutionParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !54
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe20ConvolutionParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe20ConvolutionParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   ret ptr %3
@@ -87429,7 +87423,7 @@ define dso_local void @_ZN5caffe20ConvolutionParameter9ArenaDtorEPv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe20ConvolutionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe20ConvolutionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -90610,7 +90604,7 @@ define dso_local void @_ZN5caffe13CropParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13CropParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13CropParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -91719,7 +91713,7 @@ define dso_local void @_ZN5caffe13DataParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13DataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13DataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -93527,7 +93521,7 @@ define dso_local void @_ZN5caffe30NonMaximumSuppressionParameter9ArenaDtorEPv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe30NonMaximumSuppressionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe30NonMaximumSuppressionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -94478,13 +94472,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe30NonMaximumSuppressionParameter11GetMe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe19SaveOutputParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe19SaveOutputParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_ResizeParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe38_SaveOutputParameter_default_instance_E, i64 64), align 8, !tbaa !314
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5caffe19SaveOutputParameter9_Internal12resize_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5caffe19SaveOutputParameter9_Internal12resize_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !314
   ret ptr %3
@@ -94798,7 +94792,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe19SaveOutputParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe19SaveOutputParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -94975,7 +94969,7 @@ define dso_local void @_ZN5caffe19SaveOutputParameter9ArenaDtorEPv(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe19SaveOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe19SaveOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -96658,21 +96652,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe19SaveOutputParameter11GetMetadataEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe24DetectionOutputParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe24DetectionOutputParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe49_NonMaximumSuppressionParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe43_DetectionOutputParameter_default_instance_E, i64 32), align 8, !tbaa !70
   store ptr @_ZN5caffe38_SaveOutputParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe43_DetectionOutputParameter_default_instance_E, i64 40), align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe24DetectionOutputParameter9_Internal9nms_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe24DetectionOutputParameter9_Internal9nms_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !70
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe24DetectionOutputParameter9_Internal17save_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe24DetectionOutputParameter9_Internal17save_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   ret ptr %3
@@ -96931,7 +96925,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe24DetectionOutputParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe24DetectionOutputParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -97055,7 +97049,7 @@ define dso_local void @_ZN5caffe24DetectionOutputParameter9ArenaDtorEPv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe24DetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe24DetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -99154,7 +99148,7 @@ define dso_local void @_ZN5caffe28YoloDetectionOutputParameter9ArenaDtorEPv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe28YoloDetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe28YoloDetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -100729,7 +100723,7 @@ define dso_local void @_ZN5caffe30Yolov3DetectionOutputParameter9ArenaDtorEPv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe30Yolov3DetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe30Yolov3DetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -102290,7 +102284,7 @@ define dso_local void @_ZN5caffe16DropoutParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16DropoutParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16DropoutParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -103694,7 +103688,7 @@ define dso_local void @_ZN5caffe18DummyDataParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18DummyDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18DummyDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -105506,7 +105500,7 @@ define dso_local void @_ZN5caffe16EltwiseParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16EltwiseParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16EltwiseParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -106473,7 +106467,7 @@ define dso_local void @_ZN5caffe12ELUParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12ELUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12ELUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -107043,21 +107037,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe12ELUParameter11GetMetadataEv(ptr nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe14EmbedParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe14EmbedParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_EmbedParameter_default_instance_E, i64 24), align 8, !tbaa !82
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_EmbedParameter_default_instance_E, i64 32), align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14EmbedParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14EmbedParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !82
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14EmbedParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14EmbedParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !83
   ret ptr %3
@@ -107402,7 +107396,7 @@ define dso_local void @_ZN5caffe14EmbedParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14EmbedParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14EmbedParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -108671,7 +108665,7 @@ define dso_local void @_ZN5caffe12ExpParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12ExpParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12ExpParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -109573,7 +109567,7 @@ define dso_local void @_ZN5caffe16FlattenParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16FlattenParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16FlattenParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -110670,7 +110664,7 @@ define dso_local void @_ZN5caffe17HDF5DataParameter9ArenaDtorEPv(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe17HDF5DataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe17HDF5DataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -111639,7 +111633,7 @@ define dso_local void @_ZN5caffe19HDF5OutputParameter9ArenaDtorEPv(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe19HDF5OutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe19HDF5OutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -112329,7 +112323,7 @@ define dso_local void @_ZN5caffe18HingeLossParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18HingeLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18HingeLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -113336,7 +113330,7 @@ define dso_local void @_ZN5caffe18ImageDataParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18ImageDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18ImageDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -115339,7 +115333,7 @@ define dso_local void @_ZN5caffe21InfogainLossParameter9ArenaDtorEPv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe21InfogainLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe21InfogainLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -115853,21 +115847,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe21InfogainLossParameter11GetMetadataEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe21InnerProductParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe21InnerProductParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe40_InnerProductParameter_default_instance_E, i64 24), align 8, !tbaa !111
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe40_InnerProductParameter_default_instance_E, i64 32), align 8, !tbaa !112
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe21InnerProductParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe21InnerProductParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !111
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe21InnerProductParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe21InnerProductParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !112
   ret ptr %3
@@ -116214,7 +116208,7 @@ define dso_local void @_ZN5caffe21InnerProductParameter9ArenaDtorEPv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe21InnerProductParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe21InnerProductParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -117657,7 +117651,7 @@ define dso_local void @_ZN5caffe14InputParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14InputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14InputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -118603,7 +118597,7 @@ define dso_local void @_ZN5caffe15InterpParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15InterpParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15InterpParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -120041,7 +120035,7 @@ define dso_local void @_ZN5caffe12LogParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12LogParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12LogParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -120944,7 +120938,7 @@ define dso_local void @_ZN5caffe12LRNParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12LRNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12LRNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -122171,7 +122165,7 @@ define dso_local void @_ZN5caffe19MemoryDataParameter9ArenaDtorEPv(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe19MemoryDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe19MemoryDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -123449,7 +123443,7 @@ define dso_local void @_ZN5caffe12MVNParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12MVNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12MVNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -124249,13 +124243,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe12MVNParameter11GetMetadataEv(ptr nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe18NormalizeParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe18NormalizeParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe37_NormalizeParameter_default_instance_E, i64 24), align 8, !tbaa !274
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe18NormalizeParameter9_Internal12scale_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe18NormalizeParameter9_Internal12scale_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !274
   ret ptr %3
@@ -124498,7 +124492,7 @@ define dso_local void @_ZN5caffe18NormalizeParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18NormalizeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18NormalizeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -125497,7 +125491,7 @@ define dso_local void @_ZN5caffe16PermuteParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16PermuteParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16PermuteParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -126314,7 +126308,7 @@ define dso_local void @_ZN5caffe16PoolingParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16PoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16PoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -128523,7 +128517,7 @@ define dso_local void @_ZN5caffe14PowerParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14PowerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14PowerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -129556,7 +129550,7 @@ define dso_local void @_ZN5caffe17PriorBoxParameter9ArenaDtorEPv(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe17PriorBoxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe17PriorBoxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -131302,7 +131296,7 @@ define dso_local void @_ZN5caffe21PSROIPoolingParameter9ArenaDtorEPv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe21PSROIPoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe21PSROIPoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -131728,7 +131722,7 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, 28) i64 @_ZNK5caffe21PSROIPoolingParameter30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef range(i64 0, 28) i64 @_ZNK5caffe21PSROIPoolingParameter30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !468
   %4 = and i32 %3, 1
@@ -132612,7 +132606,7 @@ define dso_local void @_ZN5caffe15PythonParameter9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe15PythonParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe15PythonParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -133526,21 +133520,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe15PythonParameter11GetMetadataEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe18RecurrentParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe18RecurrentParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe37_RecurrentParameter_default_instance_E, i64 24), align 8, !tbaa !300
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe37_RecurrentParameter_default_instance_E, i64 32), align 8, !tbaa !302
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe18RecurrentParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe18RecurrentParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !300
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe18RecurrentParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe18RecurrentParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !302
   ret ptr %3
@@ -133883,7 +133877,7 @@ define dso_local void @_ZN5caffe18RecurrentParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18RecurrentParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18RecurrentParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -135104,7 +135098,7 @@ define dso_local void @_ZN5caffe18ReductionParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18ReductionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18ReductionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -136225,7 +136219,7 @@ define dso_local void @_ZN5caffe13ReLUParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13ReLUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13ReLUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -137231,7 +137225,7 @@ define dso_local void @_ZN5caffe14ReorgParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14ReorgParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14ReorgParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -138073,13 +138067,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe14ReorgParameter11GetMetadataEv(ptr non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe16ReshapeParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe16ReshapeParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe28_BlobShape_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_ReshapeParameter_default_instance_E, i64 24), align 8, !tbaa !309
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16ReshapeParameter9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16ReshapeParameter9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !309
   ret ptr %3
@@ -138310,7 +138304,7 @@ define dso_local void @_ZN5caffe16ReshapeParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16ReshapeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16ReshapeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -139506,7 +139500,7 @@ define dso_local void @_ZN5caffe17ROIAlignParameter9ArenaDtorEPv(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe17ROIAlignParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe17ROIAlignParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -140565,7 +140559,7 @@ define dso_local void @_ZN5caffe19ROIPoolingParameter9ArenaDtorEPv(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe19ROIPoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe19ROIPoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -141451,21 +141445,21 @@ define dso_local { ptr, ptr } @_ZNK5caffe19ROIPoolingParameter11GetMetadataEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe14ScaleParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe14ScaleParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_ScaleParameter_default_instance_E, i64 24), align 8, !tbaa !320
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_ScaleParameter_default_instance_E, i64 32), align 8, !tbaa !321
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14ScaleParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14ScaleParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !320
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14ScaleParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14ScaleParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !321
   ret ptr %3
@@ -141812,7 +141806,7 @@ define dso_local void @_ZN5caffe14ScaleParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14ScaleParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14ScaleParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -143100,7 +143094,7 @@ define dso_local void @_ZN5caffe23ShuffleChannelParameter9ArenaDtorEPv(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe23ShuffleChannelParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe23ShuffleChannelParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -143935,7 +143929,7 @@ define dso_local void @_ZN5caffe16SigmoidParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16SigmoidParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16SigmoidParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -144800,7 +144794,7 @@ define dso_local void @_ZN5caffe21SmoothL1LossParameter9ArenaDtorEPv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe21SmoothL1LossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe21SmoothL1LossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -145597,7 +145591,7 @@ define dso_local void @_ZN5caffe14SliceParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14SliceParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14SliceParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -146654,7 +146648,7 @@ define dso_local void @_ZN5caffe16SoftmaxParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16SoftmaxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16SoftmaxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -147770,7 +147764,7 @@ define dso_local void @_ZN5caffe13TanHParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13TanHParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13TanHParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -148637,7 +148631,7 @@ define dso_local void @_ZN5caffe13TileParameter9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe13TileParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe13TileParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -149719,7 +149713,7 @@ define dso_local void @_ZN5caffe18ThresholdParameter9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe18ThresholdParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe18ThresholdParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -150551,7 +150545,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe19WindowDataParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe19WindowDataParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -150684,7 +150678,7 @@ define dso_local void @_ZN5caffe19WindowDataParameter9ArenaDtorEPv(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe19WindowDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe19WindowDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -152389,7 +152383,7 @@ define dso_local void @_ZN5caffe12SPPParameter9ArenaDtorEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe12SPPParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe12SPPParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -153437,7 +153431,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe12SPPParameter11GetMetadataEv(ptr nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe16V1LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe16V1LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe36_AccuracyParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V1LayerParameter_default_instance_E, i64 400), align 8, !tbaa !354
   store ptr @_ZN5caffe34_ArgMaxParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V1LayerParameter_default_instance_E, i64 368), align 8, !tbaa !357
   store ptr @_ZN5caffe34_ConcatParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V1LayerParameter_default_instance_E, i64 256), align 8, !tbaa !358
@@ -153473,217 +153467,217 @@ define dso_local void @_ZN5caffe16V1LayerParameter21InitAsDefaultInstanceEv() lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal14accuracy_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal14accuracy_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8, !tbaa !354
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal12argmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal12argmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8, !tbaa !357
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal12concat_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal12concat_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !358
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8, !tbaa !359
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN5caffe16V1LayerParameter9_Internal17convolution_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN5caffe16V1LayerParameter9_Internal17convolution_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8, !tbaa !360
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe16V1LayerParameter9_Internal10data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe16V1LayerParameter9_Internal10data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8, !tbaa !361
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal13dropout_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal13dropout_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !362
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN5caffe16V1LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN5caffe16V1LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8, !tbaa !363
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe16V1LayerParameter9_Internal13eltwise_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe16V1LayerParameter9_Internal13eltwise_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8, !tbaa !364
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal9exp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal9exp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8, !tbaa !365
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !366
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8, !tbaa !367
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8, !tbaa !368
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe16V1LayerParameter9_Internal16image_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5caffe16V1LayerParameter9_Internal16image_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8, !tbaa !369
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8, !tbaa !370
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe16V1LayerParameter9_Internal19inner_product_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5caffe16V1LayerParameter9_Internal19inner_product_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8, !tbaa !371
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe16V1LayerParameter9_Internal9lrn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe16V1LayerParameter9_Internal9lrn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8, !tbaa !372
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal17memory_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal17memory_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8, !tbaa !373
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal9mvn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal9mvn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8, !tbaa !374
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe16V1LayerParameter9_Internal13pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5caffe16V1LayerParameter9_Internal13pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !375
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal11power_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal11power_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !376
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal10relu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal10relu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8, !tbaa !377
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8, !tbaa !378
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal13softmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal13softmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8, !tbaa !379
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe16V1LayerParameter9_Internal11slice_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5caffe16V1LayerParameter9_Internal11slice_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8, !tbaa !380
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal10tanh_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal10tanh_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8, !tbaa !381
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal15threshold_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V1LayerParameter9_Internal15threshold_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8, !tbaa !382
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5caffe16V1LayerParameter9_Internal17window_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5caffe16V1LayerParameter9_Internal17window_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !383
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe16V1LayerParameter9_Internal15transform_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe16V1LayerParameter9_Internal15transform_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8, !tbaa !384
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal10loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5caffe16V1LayerParameter9_Internal10loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8, !tbaa !385
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN5caffe16V1LayerParameter9_Internal5layerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN5caffe16V1LayerParameter9_Internal5layerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !386
   ret ptr %3
@@ -156441,7 +156435,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN5caffe9BlobProtoEED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe16V1LayerParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(504) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe16V1LayerParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(504) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -157876,7 +157870,7 @@ define dso_local void @_ZN5caffe16V1LayerParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16V1LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(504) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16V1LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(504) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -164398,13 +164392,13 @@ _ZN5caffe16V1LayerParameter22mutable_unknown_fieldsEv.exit660: ; preds = %2179, 
   br i1 %2189, label %2146, label %.backedge.backedge, !llvm.loop !886
 
 2190:                                             ; preds = %2143
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %8, ptr %3, align 8, !tbaa !770
   store ptr @_ZN5caffe37V1LayerParameter_DimCheckMode_IsValidEi, ptr %9, align 8, !tbaa !773
   store ptr %4, ptr %10, align 8, !tbaa !774
   store i32 1002, ptr %11, align 8, !tbaa !775
   %2191 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_16PackedEnumParserINS0_15UnknownFieldSetEEEPKcPvS7_PNS1_12ParseContextEPFbiEPNS1_16InternalMetadataEiEUlmE_EES7_S7_T_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %.0.i164752, ptr noundef nonnull byval(%class.anon) align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not81 = icmp eq ptr %2191, null
   br i1 %.not81, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge, !prof !411
 
@@ -174244,7 +174238,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe16V1LayerParameter11GetMetadataEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe16V0LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe16V0LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V0LayerParameter_default_instance_E, i64 128), align 8, !tbaa !350
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V0LayerParameter_default_instance_E, i64 136), align 8, !tbaa !352
   store ptr @_ZN5caffe38_HDF5OutputParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V0LayerParameter_default_instance_E, i64 144), align 8, !tbaa !353
@@ -174252,21 +174246,21 @@ define dso_local void @_ZN5caffe16V0LayerParameter21InitAsDefaultInstanceEv() lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe16V0LayerParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe16V0LayerParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !350
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe16V0LayerParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe16V0LayerParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !352
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V0LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5caffe16V0LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !353
   ret ptr %3
@@ -175110,7 +175104,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN5caffe9BlobProtoEED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5caffe16V0LayerParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5caffe16V0LayerParameter10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -175309,7 +175303,7 @@ define dso_local void @_ZN5caffe16V0LayerParameter9ArenaDtorEPv(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe16V0LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe16V0LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -180278,13 +180272,13 @@ define dso_local { ptr, ptr } @_ZNK5caffe16V0LayerParameter11GetMetadataEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5caffe14PReLUParameter21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN5caffe14PReLUParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_PReLUParameter_default_instance_E, i64 24), align 8, !tbaa !279
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14PReLUParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5caffe14PReLUParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !279
   ret ptr %3
@@ -180521,7 +180515,7 @@ define dso_local void @_ZN5caffe14PReLUParameter9ArenaDtorEPv(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5caffe14PReLUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK5caffe14PReLUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -181164,7 +181158,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe14PReLUParameter11GetMetadataEv(ptr non
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9BlobShapeEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9BlobShapeEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -181210,7 +181204,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe9BlobShapeEEEPT_PS1_.exi
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9BlobProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9BlobProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %14
 
@@ -181313,7 +181307,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe9BlobProtoEEEPT_PS1_.exi
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15BlobProtoVectorEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15BlobProtoVectorEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %10
 
@@ -181382,7 +181376,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15BlobProtoVectorEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe5DatumEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe5DatumEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -181457,7 +181451,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe5DatumEEEPT_PS1_.exit: ;
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15FillerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15FillerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -181527,7 +181521,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15FillerParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12NetParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12NetParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -181563,7 +181557,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12NetParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15SolverParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15SolverParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -181599,7 +181593,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15SolverParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe11SolverStateEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe11SolverStateEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -181677,7 +181671,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe11SolverStateEEEPT_PS1_.
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe8NetStateEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe8NetStateEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -181755,7 +181749,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe8NetStateEEEPT_PS1_.exit
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12NetStateRuleEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12NetStateRuleEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -181838,7 +181832,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12NetStateRuleEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9ParamSpecEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9ParamSpecEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -181906,7 +181900,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe9ParamSpecEEEPT_PS1_.exi
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -181942,7 +181936,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14LayerParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe23TransformationParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe23TransformationParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -182019,7 +182013,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe23TransformationParamete
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ResizeParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ResizeParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -182075,7 +182069,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15ResizeParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13LossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13LossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182111,7 +182105,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13LossParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17AccuracyParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17AccuracyParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182153,7 +182147,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe17AccuracyParameterEEEPT
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ArgMaxParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ArgMaxParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182189,7 +182183,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15ArgMaxParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ConcatParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ConcatParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182229,7 +182223,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15ConcatParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18BatchNormParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18BatchNormParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182267,7 +182261,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18BatchNormParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13BiasParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13BiasParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -182333,7 +182327,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13BiasParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe11BNParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe11BNParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -182395,7 +182389,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe11BNParameterEEEPT_PS1_.
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe24ContrastiveLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe24ContrastiveLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182431,7 +182425,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe24ContrastiveLossParamet
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe20ConvolutionParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe20ConvolutionParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %14
 
@@ -182537,7 +182531,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe20ConvolutionParameterEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13CropParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13CropParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -182581,7 +182575,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13CropParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13DataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13DataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -182651,7 +182645,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13DataParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe30NonMaximumSuppressionParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe30NonMaximumSuppressionParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -182693,7 +182687,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe30NonMaximumSuppressionP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19SaveOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19SaveOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -182765,7 +182759,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe19SaveOutputParameterEEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe24DetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe24DetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -182835,7 +182829,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe24DetectionOutputParamet
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe28YoloDetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe28YoloDetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -182920,7 +182914,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe28YoloDetectionOutputPar
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe30Yolov3DetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe30Yolov3DetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -182984,7 +182978,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe30Yolov3DetectionOutputP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16DropoutParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16DropoutParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183024,7 +183018,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16DropoutParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18DummyDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18DummyDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -183060,7 +183054,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18DummyDataParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16EltwiseParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16EltwiseParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -183106,7 +183100,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16EltwiseParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12ELUParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12ELUParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183144,7 +183138,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12ELUParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14EmbedParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14EmbedParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -183208,7 +183202,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14EmbedParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12ExpParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12ExpParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183250,7 +183244,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12ExpParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16FlattenParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16FlattenParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183290,7 +183284,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16FlattenParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17HDF5DataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17HDF5DataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -183354,7 +183348,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe17HDF5DataParameterEEEPT
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19HDF5OutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19HDF5OutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -183416,7 +183410,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe19HDF5OutputParameterEEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18HingeLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18HingeLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183454,7 +183448,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18HingeLossParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ImageDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ImageDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -183528,7 +183522,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18ImageDataParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21InfogainLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21InfogainLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -183590,7 +183584,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe21InfogainLossParameterE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21InnerProductParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21InnerProductParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -183656,7 +183650,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe21InnerProductParameterE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14InputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14InputParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %14
 
@@ -183742,7 +183736,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14InputParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15InterpParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15InterpParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183780,7 +183774,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15InterpParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12LogParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12LogParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183822,7 +183816,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12LogParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12LRNParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12LRNParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183864,7 +183858,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12LRNParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19MemoryDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19MemoryDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183898,7 +183892,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe19MemoryDataParameterEEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12MVNParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12MVNParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -183936,7 +183930,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12MVNParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18NormalizeParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18NormalizeParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -184004,7 +183998,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18NormalizeParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16PermuteParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16PermuteParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -184048,7 +184042,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16PermuteParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16PoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16PoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184084,7 +184078,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16PoolingParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14PowerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14PowerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184126,7 +184120,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14PowerParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17PriorBoxParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17PriorBoxParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -184192,7 +184186,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe17PriorBoxParameterEEEPT
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21PSROIPoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21PSROIPoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184226,7 +184220,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe21PSROIPoolingParameterE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15PythonParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15PythonParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -184294,7 +184288,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe15PythonParameterEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18RecurrentParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18RecurrentParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -184356,7 +184350,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18RecurrentParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ReductionParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ReductionParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184398,7 +184392,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18ReductionParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13ReLUParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13ReLUParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184432,7 +184426,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13ReLUParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14ReorgParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14ReorgParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184466,7 +184460,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14ReorgParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16ReshapeParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16ReshapeParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -184530,7 +184524,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16ReshapeParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17ROIAlignParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17ROIAlignParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184566,7 +184560,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe17ROIAlignParameterEEEPT
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19ROIPoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19ROIPoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184602,7 +184596,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe19ROIPoolingParameterEEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14ScaleParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14ScaleParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -184668,7 +184662,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14ScaleParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe23ShuffleChannelParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe23ShuffleChannelParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184706,7 +184700,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe23ShuffleChannelParamete
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16SigmoidParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16SigmoidParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184744,7 +184738,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16SigmoidParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21SmoothL1LossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21SmoothL1LossParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184782,7 +184776,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe21SmoothL1LossParameterE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14SliceParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14SliceParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %8
 
@@ -184828,7 +184822,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14SliceParameterEEEPT_PS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16SoftmaxParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16SoftmaxParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184868,7 +184862,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16SoftmaxParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13TanHParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13TanHParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184906,7 +184900,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13TanHParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13TileParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13TileParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184946,7 +184940,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe13TileParameterEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ThresholdParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ThresholdParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -184984,7 +184978,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe18ThresholdParameterEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19WindowDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19WindowDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -185062,7 +185056,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe19WindowDataParameterEEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12SPPParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12SPPParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -185096,7 +185090,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe12SPPParameterEEEPT_PS1_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16V1LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16V1LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -185132,7 +185126,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16V1LayerParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16V0LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16V0LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -185168,7 +185162,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe16V0LayerParameterEEEPT_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14PReLUParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14PReLUParameterEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -185232,7 +185226,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN5caffe14PReLUParameterEEEPT_PS
 declare void @_ZNK6google8protobuf7Message11GetTypeNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe9BlobShape3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe9BlobShape3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9BlobShapeEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185264,7 +185258,7 @@ declare void @_ZN6google8protobuf7Message20DiscardUnknownFieldsEv(ptr noundef no
 declare noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe9BlobProto3NewEv(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe9BlobProto3NewEv(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9BlobProtoEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185283,7 +185277,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe9BlobProto13GetCachedSizeEv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15BlobProtoVector3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15BlobProtoVector3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15BlobProtoVectorEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185302,7 +185296,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15BlobProtoVector13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe5Datum3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe5Datum3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe5DatumEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185321,7 +185315,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe5Datum13GetCachedSizeEv(ptr
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15FillerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15FillerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15FillerParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185340,7 +185334,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15FillerParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12NetParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12NetParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12NetParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185359,7 +185353,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12NetParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15SolverParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15SolverParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15SolverParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185378,7 +185372,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15SolverParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe11SolverState3NewEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe11SolverState3NewEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe11SolverStateEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185397,7 +185391,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe11SolverState13GetCachedSiz
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe8NetState3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe8NetState3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe8NetStateEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185416,7 +185410,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe8NetState13GetCachedSizeEv(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12NetStateRule3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12NetStateRule3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12NetStateRuleEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185435,7 +185429,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12NetStateRule13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe9ParamSpec3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe9ParamSpec3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe9ParamSpecEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185454,7 +185448,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe9ParamSpec13GetCachedSizeEv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14LayerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14LayerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185473,7 +185467,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14LayerParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe23TransformationParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe23TransformationParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe23TransformationParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185492,7 +185486,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe23TransformationParameter13
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15ResizeParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15ResizeParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ResizeParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185511,7 +185505,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15ResizeParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13LossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13LossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13LossParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185530,7 +185524,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13LossParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe17AccuracyParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe17AccuracyParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17AccuracyParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185549,7 +185543,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe17AccuracyParameter13GetCac
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15ArgMaxParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15ArgMaxParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ArgMaxParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185568,7 +185562,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15ArgMaxParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15ConcatParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15ConcatParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15ConcatParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185587,7 +185581,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15ConcatParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18BatchNormParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18BatchNormParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18BatchNormParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185606,7 +185600,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18BatchNormParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13BiasParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13BiasParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13BiasParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185625,7 +185619,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13BiasParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe11BNParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe11BNParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe11BNParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185644,7 +185638,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe11BNParameter13GetCachedSiz
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe24ContrastiveLossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe24ContrastiveLossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe24ContrastiveLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185663,7 +185657,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe24ContrastiveLossParameter1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe20ConvolutionParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe20ConvolutionParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe20ConvolutionParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185682,7 +185676,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe20ConvolutionParameter13Get
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13CropParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13CropParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13CropParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185701,7 +185695,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13CropParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13DataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13DataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13DataParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185720,7 +185714,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13DataParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe30NonMaximumSuppressionParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe30NonMaximumSuppressionParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe30NonMaximumSuppressionParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185739,7 +185733,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe30NonMaximumSuppressionPara
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe19SaveOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe19SaveOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19SaveOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185758,7 +185752,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe19SaveOutputParameter13GetC
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe24DetectionOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe24DetectionOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe24DetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185777,7 +185771,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe24DetectionOutputParameter1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe28YoloDetectionOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe28YoloDetectionOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe28YoloDetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185796,7 +185790,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe28YoloDetectionOutputParame
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe30Yolov3DetectionOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe30Yolov3DetectionOutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe30Yolov3DetectionOutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185815,7 +185809,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe30Yolov3DetectionOutputPara
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16DropoutParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16DropoutParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16DropoutParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185834,7 +185828,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16DropoutParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18DummyDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18DummyDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18DummyDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185853,7 +185847,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18DummyDataParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16EltwiseParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16EltwiseParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16EltwiseParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185872,7 +185866,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16EltwiseParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12ELUParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12ELUParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12ELUParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185891,7 +185885,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12ELUParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14EmbedParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14EmbedParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14EmbedParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185910,7 +185904,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14EmbedParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12ExpParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12ExpParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12ExpParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185929,7 +185923,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12ExpParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16FlattenParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16FlattenParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16FlattenParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185948,7 +185942,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16FlattenParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe17HDF5DataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe17HDF5DataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17HDF5DataParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185967,7 +185961,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe17HDF5DataParameter13GetCac
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe19HDF5OutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe19HDF5OutputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19HDF5OutputParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -185986,7 +185980,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe19HDF5OutputParameter13GetC
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18HingeLossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18HingeLossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18HingeLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186005,7 +185999,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18HingeLossParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18ImageDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18ImageDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ImageDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186024,7 +186018,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18ImageDataParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe21InfogainLossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe21InfogainLossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21InfogainLossParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186043,7 +186037,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe21InfogainLossParameter13Ge
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe21InnerProductParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe21InnerProductParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21InnerProductParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186062,7 +186056,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe21InnerProductParameter13Ge
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14InputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14InputParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14InputParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186081,7 +186075,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14InputParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15InterpParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15InterpParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15InterpParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186100,7 +186094,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15InterpParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12LogParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12LogParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12LogParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186119,7 +186113,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12LogParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12LRNParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12LRNParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12LRNParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186138,7 +186132,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12LRNParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe19MemoryDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe19MemoryDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19MemoryDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186157,7 +186151,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe19MemoryDataParameter13GetC
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12MVNParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12MVNParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12MVNParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186176,7 +186170,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12MVNParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18NormalizeParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18NormalizeParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18NormalizeParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186195,7 +186189,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18NormalizeParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16PermuteParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16PermuteParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16PermuteParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186214,7 +186208,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16PermuteParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16PoolingParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16PoolingParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16PoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186233,7 +186227,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16PoolingParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14PowerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14PowerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14PowerParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186252,7 +186246,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14PowerParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe17PriorBoxParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe17PriorBoxParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17PriorBoxParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186271,7 +186265,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe17PriorBoxParameter13GetCac
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe21PSROIPoolingParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe21PSROIPoolingParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21PSROIPoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186290,7 +186284,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe21PSROIPoolingParameter13Ge
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe15PythonParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe15PythonParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe15PythonParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186309,7 +186303,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe15PythonParameter13GetCache
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18RecurrentParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18RecurrentParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18RecurrentParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186328,7 +186322,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18RecurrentParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18ReductionParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18ReductionParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ReductionParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186347,7 +186341,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18ReductionParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13ReLUParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13ReLUParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13ReLUParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186366,7 +186360,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13ReLUParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14ReorgParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14ReorgParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14ReorgParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186385,7 +186379,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14ReorgParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16ReshapeParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16ReshapeParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16ReshapeParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186404,7 +186398,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16ReshapeParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe17ROIAlignParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe17ROIAlignParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe17ROIAlignParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186423,7 +186417,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe17ROIAlignParameter13GetCac
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe19ROIPoolingParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe19ROIPoolingParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19ROIPoolingParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186442,7 +186436,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe19ROIPoolingParameter13GetC
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14ScaleParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14ScaleParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14ScaleParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186461,7 +186455,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14ScaleParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe23ShuffleChannelParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe23ShuffleChannelParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe23ShuffleChannelParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186480,7 +186474,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe23ShuffleChannelParameter13
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16SigmoidParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16SigmoidParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16SigmoidParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186499,7 +186493,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16SigmoidParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe21SmoothL1LossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe21SmoothL1LossParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe21SmoothL1LossParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186518,7 +186512,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe21SmoothL1LossParameter13Ge
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14SliceParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14SliceParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14SliceParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186537,7 +186531,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe14SliceParameter13GetCached
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16SoftmaxParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16SoftmaxParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16SoftmaxParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186556,7 +186550,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16SoftmaxParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13TanHParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13TanHParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13TanHParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186575,7 +186569,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13TanHParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe13TileParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe13TileParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe13TileParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186594,7 +186588,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe13TileParameter13GetCachedS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe18ThresholdParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe18ThresholdParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe18ThresholdParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186613,7 +186607,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe18ThresholdParameter13GetCa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe19WindowDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe19WindowDataParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe19WindowDataParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186632,7 +186626,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe19WindowDataParameter13GetC
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe12SPPParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe12SPPParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe12SPPParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186651,7 +186645,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe12SPPParameter13GetCachedSi
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16V1LayerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16V1LayerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16V1LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186670,7 +186664,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16V1LayerParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe16V0LayerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe16V0LayerParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe16V0LayerParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186689,7 +186683,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK5caffe16V0LayerParameter13GetCach
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK5caffe14PReLUParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK5caffe14PReLUParameter3NewEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
   %2 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN5caffe14PReLUParameterEJEEEPT_PS1_DpOT0_(ptr noundef null)
   ret ptr %2
 }
@@ -186728,10 +186722,10 @@ declare void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnul
 declare { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare void @llvm.assume(i1 noundef) #21
 
 declare void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
@@ -186742,7 +186736,7 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFal
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %1, null
@@ -186755,7 +186749,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   %10 = load ptr, ptr %2, align 8, !tbaa !494
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8, !tbaa !433
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -186793,7 +186787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %22 = load ptr, ptr %8, align 8, !tbaa !494
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit
 
 24:                                               ; preds = %.noexc.i
@@ -186819,7 +186813,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %26, %29
   %32 = load ptr, ptr %2, align 8, !tbaa !494
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %34, ptr %4, align 8, !tbaa !433
   %35 = icmp ugt i64 %34, 15
   br i1 %35, label %.noexc.i5, label %._crit_edge.i.i4
@@ -186854,7 +186848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6: ; preds = %
   %44 = load ptr, ptr %30, align 8, !tbaa !494
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store i8 0, ptr %45, align 1, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6
@@ -186900,7 +186894,7 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMay
 declare void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #21
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
 declare void @_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
@@ -186909,7 +186903,7 @@ declare { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr n
 declare void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 1
@@ -187005,7 +186999,7 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallba
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe9BlobProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe9BlobProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe9BlobProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(144) %0)
   ret void
 }
@@ -187202,13 +187196,13 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %25, %.
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe16V1LayerParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe16V1LayerParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe16V1LayerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(504) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe9BlobShapeEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe9BlobShapeEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -187274,7 +187268,7 @@ _ZN5caffe9BlobShape9MergeFromERKS0_.exit:         ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe14LayerParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe14LayerParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe14LayerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(712) %0)
   ret void
 }
@@ -187385,25 +187379,25 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe8NetStateEE6DeleteEPS4_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe12NetParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe12NetParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe12NetParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe8NetStateEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe8NetStateEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe8NetState9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe9ParamSpecEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe9ParamSpecEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe9ParamSpec9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe12NetStateRuleEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe12NetStateRuleEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe12NetStateRule9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %0)
   ret void
 }
@@ -187735,18 +187729,24 @@ _ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci.exit.threa
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe15FillerParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe15FillerParameterEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
   tail call void @_ZN5caffe15FillerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_caffe.pb.cc() #23 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_caffe.pb.cc() #22 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   tail call void @_ZN6google8protobuf8internal14AddDescriptorsEPKNS1_15DescriptorTableE(ptr noundef nonnull @descriptor_table_caffe_2eproto)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
@@ -187764,20 +187764,20 @@ attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #22 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nounwind }

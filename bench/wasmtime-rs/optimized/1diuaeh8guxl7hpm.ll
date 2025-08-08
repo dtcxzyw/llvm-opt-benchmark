@@ -726,9 +726,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br i1 %243, label %244, label %255
 
 244:                                              ; preds = %241
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN3syn3lit7parsing64_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..lit..LitStr$GT$5parse17h44294d4545ed9970E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %1)
           to label %.noexc unwind label %.thread498
 
@@ -778,9 +778,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br label %.sink.split
 
 257:                                              ; preds = %252
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 -9223372036854775806, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.247.0..sroa_idx, align 8
@@ -795,9 +795,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 258:                                              ; preds = %.noexc
   %.sroa.08.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.08.sroa.3.0.copyload.i = load i64, ptr %.sroa.08.sroa.3.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %245, ptr %259, align 8
   %.sroa.0303.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -887,8 +887,8 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 define void @_ZN15wiggle_generate6config6Config13load_document17hb83a7be137c641f4E(ptr sret({ { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca { i8, [111 x i8] }, align 8
   %4 = alloca { i8, [111 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %6 = icmp eq i64 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -908,8 +908,8 @@ define void @_ZN15wiggle_generate6config6Config13load_document17hb83a7be137c641f
   br label %_ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4bba5E.exit
 
 _ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4bba5E.exit: ; preds = %11, %12
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1439,16 +1439,16 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 68:                                               ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.01.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %69 = load i64, ptr %21, align 8, !range !4, !noalias !10, !noundef !3
   %70 = icmp eq i64 %69, -9223372036854775808
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !10
   invoke void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h004d73e7f6440055E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %7, ptr nonnull align 8 %.sroa.gep)
           to label %.noexc unwind label %.body.thread73
 
@@ -1473,18 +1473,18 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   %76 = load i32, ptr %54, align 8, !noalias !13, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false)
   store i32 %76, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !10
   store i64 -9223372036854775808, ptr %18, align 8, !alias.scope !10
   br label %83
 
 77:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !10
   invoke void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h004d73e7f6440055E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %3, ptr nonnull align 8 %.sroa.gep42)
           to label %.noexc35 unwind label %.body.thread73
 
@@ -1509,9 +1509,9 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   %82 = load i32, ptr %52, align 8, !noalias !16, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.48..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.01.i, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.01.i, i64 80, i1 false)
   store i32 %82, ptr %.sroa.32.0..sroa_idx.i, align 8, !alias.scope !10
   br label %83
@@ -1527,8 +1527,8 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   br label %64
 
 83:                                               ; preds = %"_ZN82_$LT$wiggle_generate..config..UserErrorConfField$u20$as$u20$core..clone..Clone$GT$5clone17hf78fc3c1aaf68b2cE.exit.i", %"_ZN87_$LT$wiggle_generate..config..TrappableErrorConfField$u20$as$u20$core..clone..Clone$GT$5clone17h60be3e55316f8078E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.01.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h9a5d4e67cc4e6f22E"(ptr nonnull sret({ i64, [10 x i64] }) align 8 %20, ptr nonnull align 8 %26, ptr nonnull align 8 %19, ptr nonnull align 8 %18)
           to label %84 unwind label %.body
 
@@ -2127,7 +2127,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
           to label %43 unwind label %.thread73
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = load i64, ptr %11, align 8, !range !4, !noundef !3
   %45 = icmp eq i64 %44, -9223372036854775808
   br i1 %45, label %52, label %46
@@ -2153,7 +2153,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   unreachable
 
 52:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %53, align 8
   br label %92
@@ -3347,7 +3347,7 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   store i64 -9223372036854775807, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc59d0aabf0b23f91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.9)
           to label %.noexc unwind label %5
 
@@ -3364,7 +3364,7 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 7:                                                ; preds = %.noexc
   %8 = extractvalue { i64, i64 } %4, 0
   %9 = extractvalue { i64, i64 } %4, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
@@ -3811,10 +3811,10 @@ declare void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9

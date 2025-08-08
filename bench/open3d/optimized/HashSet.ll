@@ -264,9 +264,9 @@ define void @_ZN6open3d4core7HashSetC2ElRKNS0_5DtypeERKNS0_10SizeVectorERKNS0_6D
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core7HashSetE, i64 16), ptr %0, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %10 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
           to label %.noexc unwind label %60
@@ -381,7 +381,7 @@ _ZSt8_DestroyIPN6open3d4core10SizeVectorES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_
   br label %_ZNSt6vectorIN6open3d4core10SizeVectorESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6open3d4core10SizeVectorESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6open3d4core10SizeVectorES2_EvT_S4_RSaIT0_E.exit.i, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %53 = load ptr, ptr %7, align 8, !tbaa !35
   %.not.i.i.i7 = icmp eq ptr %53, null
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit, label %54
@@ -396,7 +396,7 @@ _ZNSt6vectorIN6open3d4core10SizeVectorESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destr
   br label %_ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6open3d4core10SizeVectorESaIS2_EED2Ev.exit, %54
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 60:                                               ; preds = %6
@@ -407,7 +407,7 @@ _ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6op
 .body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core7HashMapESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i, %60
   %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %14, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core7HashMapESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i ]
   call void @_ZNSt6vectorIN6open3d4core10SizeVectorESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %62 = load ptr, ptr %7, align 8, !tbaa !35
   %.not.i.i.i8 = icmp eq ptr %62, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit9, label %63
@@ -422,16 +422,13 @@ _ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6op
   br label %_ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit9
 
 _ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit9: ; preds = %.body, %63
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt12__shared_ptrIN6open3d4core7HashMapELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -536,17 +533,14 @@ _ZNSt12_Vector_baseIN6open3d4core10SizeVectorESaIS2_EED2Ev.exit: ; preds = %_ZSt
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
@@ -607,7 +601,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: noinline noreturn nounwind ssp uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
   tail call void @_ZSt9terminatev() #22
   unreachable
@@ -616,18 +610,18 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
-declare void @_ZN6open3d4core7HashMapC1ElRKNS0_5DtypeERKNS0_10SizeVectorERKSt6vectorIS2_SaIS2_EERKS8_IS5_SaIS5_EERKNS0_6DeviceERKNS0_15HashBackendTypeE(ptr noundef nonnull align 8 dereferenceable(152), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #9
+declare void @_ZN6open3d4core7HashMapC1ElRKNS0_5DtypeERKNS0_10SizeVectorERKSt6vectorIS2_SaIS2_EERKS8_IS5_SaIS5_EERKNS0_6DeviceERKNS0_15HashBackendTypeE(ptr noundef nonnull align 8 dereferenceable(152), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress noinline nounwind ssp uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -664,7 +658,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d4core7HashSet7ReserveEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
@@ -674,7 +668,7 @@ define void @_ZN6open3d4core7HashSet7ReserveEl(ptr noundef nonnull readonly alig
   ret void
 }
 
-declare void @_ZN6open3d4core7HashMap7ReserveEl(ptr noundef nonnull align 8 dereferenceable(152), i64 noundef) local_unnamed_addr #9
+declare void @_ZN6open3d4core7HashMap7ReserveEl(ptr noundef nonnull align 8 dereferenceable(152), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d4core7HashSet6InsertERKNS0_6TensorE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -689,21 +683,21 @@ define void @_ZN6open3d4core7HashSet6InsertERKNS0_6TensorE(ptr dead_on_unwind no
   %12 = alloca [1 x i64], align 8
   %13 = alloca %"class.open3d::core::Tensor", align 8
   %14 = alloca %"class.open3d::core::Tensor", align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !42
   store ptr %10, ptr %9, align 8, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %16, align 8, !tbaa !47
   call void @_ZN6open3d4core10SizeVectorC1ERKSt16initializer_listIlE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 1, ptr %12, align 8, !tbaa !42
   store ptr %12, ptr %11, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -714,8 +708,8 @@ define void @_ZN6open3d4core7HashSet6InsertERKNS0_6TensorE(ptr dead_on_unwind no
 19:                                               ; preds = %3
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %21 = load ptr, ptr %15, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %23 = icmp eq ptr %21, %22
@@ -730,19 +724,19 @@ common.resume:                                    ; preds = %19, %24, %.body
   resume { ptr, i32 } %common.resume.op
 
 _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr null, ptr %25, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core9UndefinedE, i64 32, i1 false), !tbaa.struct !62
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %14, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !42
   store ptr %6, ptr %5, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -751,11 +745,11 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
           to label %.noexc unwind label %123
 
 .noexc:                                           ; preds = %_ZN6open3d4core6TensorC2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 1, ptr %8, align 8, !tbaa !42
   store ptr %8, ptr %7, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -766,8 +760,8 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
 32:                                               ; preds = %.noexc
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = load ptr, ptr %28, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %36 = icmp eq ptr %34, %35
@@ -778,8 +772,8 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
   br label %.body
 
 38:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store ptr null, ptr %39, align 8, !tbaa !48
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 112
@@ -788,7 +782,7 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZN6open3d4core7HashMap6InsertERKNS0_6TensorERKSt6vectorIS2_SaIS2_EERS2_SA_(ptr noundef nonnull align 8 dereferenceable(152) %43, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(160) %14)
           to label %44 unwind label %58
@@ -831,11 +825,11 @@ _ZSt8_DestroyIPN6open3d4core6TensorES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body7
 
 60:                                               ; preds = %52, %_ZSt8_DestroyIPN6open3d4core6TensorES2_EvT_S4_RSaIT0_E.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZNSt4pairIN6open3d4core6TensorES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(160) %14)
           to label %_ZSt9make_pairIRN6open3d4core6TensorES3_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit unwind label %125
 
@@ -911,7 +905,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i11: ; preds = %87, %_ZNSt12__share
   br label %_ZN6open3d4core6TensorD2Ev.exit
 
 _ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i11, %91
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %13, align 8, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %93 = load ptr, ptr %92, align 8, !tbaa !7
@@ -983,7 +977,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i17: ; preds = %118, %_ZNSt12__shar
   br label %_ZN6open3d4core6TensorD2Ev.exit18
 
 _ZN6open3d4core6TensorD2Ev.exit18:                ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i17, %122
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
 123:                                              ; preds = %_ZN6open3d4core6TensorC2Ev.exit
@@ -1003,9 +997,9 @@ _ZN6open3d4core6TensorD2Ev.exit18:                ; preds = %_ZN6open3d4core11Sm
 
 .body:                                            ; preds = %123, %37, %32, %.body7
   %.pn = phi { ptr, i32 } [ %eh.lpad-body8, %.body7 ], [ %124, %123 ], [ %33, %37 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %13) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 }
 
@@ -1014,7 +1008,7 @@ define void @_ZN6open3d4core7HashSet6InsertERKNS0_6TensorERS2_S5_(ptr noundef no
   %5 = alloca %"class.std::vector.15", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN6open3d4core7HashMap6InsertERKNS0_6TensorERKSt6vectorIS2_SaIS2_EERS2_SA_(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(160) %3)
           to label %8 unwind label %22
@@ -1054,19 +1048,19 @@ _ZSt8_DestroyIPN6open3d4core6TensorES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_
   br label %_ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6open3d4core6TensorES2_EvT_S4_RSaIT0_E.exit.i, %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 22:                                               ; preds = %4
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %23
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
-define linkonce_odr void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !7
@@ -1143,7 +1137,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit1:    ; preds = %_ZN6open3d4core11Sm
   ret void
 }
 
-declare void @_ZN6open3d4core10SizeVectorC1ERKSt16initializer_listIlE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
+declare void @_ZN6open3d4core10SizeVectorC1ERKSt16initializer_listIlE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt4pairIN6open3d4core6TensorES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1274,7 +1268,7 @@ _ZN6open3d4core6TensorC2ERKS1_.exit7:             ; preds = %51, %48, %36
   br label %common.resume
 }
 
-declare void @_ZN6open3d4core10SizeVectorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #9
+declare void @_ZN6open3d4core10SizeVectorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d4core7HashSet4FindERKNS0_6TensorE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1288,21 +1282,21 @@ define void @_ZN6open3d4core7HashSet4FindERKNS0_6TensorE(ptr dead_on_unwind noal
   %11 = alloca [1 x i64], align 8
   %12 = alloca %"class.open3d::core::Tensor", align 8
   %13 = alloca %"class.open3d::core::Tensor", align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !42
   store ptr %9, ptr %8, align 8, !tbaa !44
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %15, align 8, !tbaa !47
   call void @_ZN6open3d4core10SizeVectorC1ERKSt16initializer_listIlE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 1, ptr %11, align 8, !tbaa !42
   store ptr %11, ptr %10, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1313,8 +1307,8 @@ define void @_ZN6open3d4core7HashSet4FindERKNS0_6TensorE(ptr dead_on_unwind noal
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %20 = load ptr, ptr %14, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %22 = icmp eq ptr %20, %21
@@ -1329,19 +1323,19 @@ common.resume:                                    ; preds = %18, %23, %.body
   resume { ptr, i32 } %common.resume.op
 
 _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store ptr null, ptr %24, align 8, !tbaa !48
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core9UndefinedE, i64 32, i1 false), !tbaa.struct !62
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %13, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !42
   store ptr %5, ptr %4, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1350,11 +1344,11 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
           to label %.noexc unwind label %105
 
 .noexc:                                           ; preds = %_ZN6open3d4core6TensorC2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %7, align 8, !tbaa !42
   store ptr %7, ptr %6, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1365,8 +1359,8 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
 31:                                               ; preds = %.noexc
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load ptr, ptr %27, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %35 = icmp eq ptr %33, %34
@@ -1377,8 +1371,8 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
   br label %.body
 
 37:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr null, ptr %38, align 8, !tbaa !48
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 112
@@ -1466,7 +1460,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i9:  ; preds = %69, %_ZNSt12__share
   br label %_ZN6open3d4core6TensorD2Ev.exit
 
 _ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i9, %73
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %12, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %75 = load ptr, ptr %74, align 8, !tbaa !7
@@ -1538,7 +1532,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15: ; preds = %100, %_ZNSt12__shar
   br label %_ZN6open3d4core6TensorD2Ev.exit16
 
 _ZN6open3d4core6TensorD2Ev.exit16:                ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15, %104
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 105:                                              ; preds = %_ZN6open3d4core6TensorC2Ev.exit
@@ -1554,9 +1548,9 @@ _ZN6open3d4core6TensorD2Ev.exit16:                ; preds = %_ZN6open3d4core11Sm
 
 .body:                                            ; preds = %105, %36, %31, %107
   %.pn = phi { ptr, i32 } [ %108, %107 ], [ %106, %105 ], [ %32, %36 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 }
 
@@ -1576,18 +1570,18 @@ define void @_ZN6open3d4core7HashSet5EraseERKNS0_6TensorE(ptr dead_on_unwind noa
   %7 = alloca [1 x i64], align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %0, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !42
   store ptr %5, ptr %4, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8, !tbaa !47
   call void @_ZN6open3d4core10SizeVectorC1ERKSt16initializer_listIlE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %7, align 8, !tbaa !42
   store ptr %7, ptr %6, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1598,8 +1592,8 @@ define void @_ZN6open3d4core7HashSet5EraseERKNS0_6TensorE(ptr dead_on_unwind noa
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = load ptr, ptr %8, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = icmp eq ptr %14, %15
@@ -1614,8 +1608,8 @@ common.resume:                                    ; preds = %12, %17, %23
   resume { ptr, i32 } %common.resume.op
 
 _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %18, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1653,18 +1647,18 @@ define void @_ZNK6open3d4core7HashSet16GetActiveIndicesEv(ptr dead_on_unwind noa
   %6 = alloca [1 x i64], align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !42
   store ptr %4, ptr %3, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %8, align 8, !tbaa !47
   call void @_ZN6open3d4core10SizeVectorC1ERKSt16initializer_listIlE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 8, !tbaa !42
   store ptr %6, ptr %5, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1675,8 +1669,8 @@ define void @_ZNK6open3d4core7HashSet16GetActiveIndicesEv(ptr dead_on_unwind noa
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = load ptr, ptr %7, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = icmp eq ptr %13, %14
@@ -1691,8 +1685,8 @@ common.resume:                                    ; preds = %11, %16, %22
   resume { ptr, i32 } %common.resume.op
 
 _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %17, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1722,7 +1716,7 @@ define void @_ZNK6open3d4core7HashSet16GetActiveIndicesERNS0_6TensorE(ptr nounde
   ret void
 }
 
-declare void @_ZN6open3d4core7HashMap6InsertERKNS0_6TensorERKSt6vectorIS2_SaIS2_EERS2_SA_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #9
+declare void @_ZN6open3d4core7HashMap6InsertERKNS0_6TensorERKSt6vectorIS2_SaIS2_EERS2_SA_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1763,11 +1757,11 @@ _ZNSt12_Vector_baseIN6open3d4core6TensorESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   ret void
 }
 
-declare void @_ZN6open3d4core7HashMap4FindERKNS0_6TensorERS2_S5_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #9
+declare void @_ZN6open3d4core7HashMap4FindERKNS0_6TensorERS2_S5_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #8
 
-declare void @_ZN6open3d4core7HashMap5EraseERKNS0_6TensorERS2_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #9
+declare void @_ZN6open3d4core7HashMap5EraseERKNS0_6TensorERS2_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #8
 
-declare void @_ZNK6open3d4core7HashMap16GetActiveIndicesERNS0_6TensorE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #9
+declare void @_ZNK6open3d4core7HashMap16GetActiveIndicesERNS0_6TensorE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d4core7HashSet5ClearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
@@ -1777,7 +1771,7 @@ define void @_ZN6open3d4core7HashSet5ClearEv(ptr noundef nonnull readonly align 
   ret void
 }
 
-declare void @_ZN6open3d4core7HashMap5ClearEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare void @_ZN6open3d4core7HashMap5ClearEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d4core7HashSet4SaveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
@@ -1787,30 +1781,30 @@ define void @_ZN6open3d4core7HashSet4SaveERKNSt7__cxx1112basic_stringIcSt11char_
   ret void
 }
 
-declare void @_ZN6open3d1t2io12WriteHashMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4core7HashMapE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare void @_ZN6open3d1t2io12WriteHashMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4core7HashMapE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d4core7HashSet4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.open3d::core::HashSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open3d::core::HashMap", align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6open3d1t2io11ReadHashMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.open3d::core::HashMap") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   invoke void @_ZN6open3d4core7HashSetC1ERKNS0_7HashMapE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(152) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
   call void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %6
 }
 
-declare void @_ZN6open3d1t2io11ReadHashMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.open3d::core::HashMap") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
+declare void @_ZN6open3d1t2io11ReadHashMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.open3d::core::HashMap") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1995,39 +1989,39 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 define void @_ZNK6open3d4core7HashSet5CloneEv(ptr dead_on_unwind noalias writable sret(%"class.open3d::core::HashSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open3d::core::HashMap", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(24) %1)
   store i64 %10, ptr %4, align 8
   call void @_ZNK6open3d4core7HashMap2ToERKNS0_6DeviceEb(ptr dead_on_unwind nonnull writable sret(%"class.open3d::core::HashMap") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 4 dereferenceable(8) %4, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN6open3d4core7HashSetC1ERKNS0_7HashMapE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(152) %3)
           to label %11 unwind label %12
 
 11:                                               ; preds = %2
   call void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 12:                                               ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
-declare void @_ZNK6open3d4core7HashMap2ToERKNS0_6DeviceEb(ptr dead_on_unwind writable sret(%"class.open3d::core::HashMap") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #9
+declare void @_ZNK6open3d4core7HashMap2ToERKNS0_6DeviceEb(ptr dead_on_unwind writable sret(%"class.open3d::core::HashMap") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZNK6open3d4core7HashSet2ToERKNS0_6DeviceEb(ptr dead_on_unwind noalias writable sret(%"class.open3d::core::HashSet") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.open3d::core::HashMap", align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   call void @_ZNK6open3d4core7HashMap2ToERKNS0_6DeviceEb(ptr dead_on_unwind nonnull writable sret(%"class.open3d::core::HashMap") align 8 %5, ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext %3)
@@ -2036,14 +2030,14 @@ define void @_ZNK6open3d4core7HashSet2ToERKNS0_6DeviceEb(ptr dead_on_unwind noal
 
 8:                                                ; preds = %4
   call void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 9:                                                ; preds = %4
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6open3d4core7HashMapD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %10
 }
 
@@ -2055,7 +2049,7 @@ define noundef i64 @_ZNK6open3d4core7HashSet4SizeEv(ptr noundef nonnull readonly
   ret i64 %4
 }
 
-declare noundef i64 @_ZNK6open3d4core7HashMap4SizeEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare noundef i64 @_ZNK6open3d4core7HashMap4SizeEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define noundef i64 @_ZNK6open3d4core7HashSet11GetCapacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
@@ -2065,7 +2059,7 @@ define noundef i64 @_ZNK6open3d4core7HashSet11GetCapacityEv(ptr noundef nonnull 
   ret i64 %4
 }
 
-declare noundef i64 @_ZNK6open3d4core7HashMap11GetCapacityEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare noundef i64 @_ZNK6open3d4core7HashMap11GetCapacityEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define noundef i64 @_ZNK6open3d4core7HashSet14GetBucketCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
@@ -2075,7 +2069,7 @@ define noundef i64 @_ZNK6open3d4core7HashSet14GetBucketCountEv(ptr noundef nonnu
   ret i64 %4
 }
 
-declare noundef i64 @_ZNK6open3d4core7HashMap14GetBucketCountEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare noundef i64 @_ZNK6open3d4core7HashMap14GetBucketCountEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZNK6open3d4core7HashSet12GetKeyTensorEv(ptr dead_on_unwind noalias writable sret(%"class.open3d::core::Tensor") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
@@ -2085,7 +2079,7 @@ define void @_ZNK6open3d4core7HashSet12GetKeyTensorEv(ptr dead_on_unwind noalias
   ret void
 }
 
-declare void @_ZNK6open3d4core7HashMap12GetKeyTensorEv(ptr dead_on_unwind writable sret(%"class.open3d::core::Tensor") align 8, ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare void @_ZNK6open3d4core7HashMap12GetKeyTensorEv(ptr dead_on_unwind writable sret(%"class.open3d::core::Tensor") align 8, ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZNK6open3d4core7HashSet11BucketSizesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.23") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
@@ -2095,7 +2089,7 @@ define void @_ZNK6open3d4core7HashSet11BucketSizesEv(ptr dead_on_unwind noalias 
   ret void
 }
 
-declare void @_ZNK6open3d4core7HashMap11BucketSizesEv(ptr dead_on_unwind writable sret(%"class.std::vector.23") align 8, ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare void @_ZNK6open3d4core7HashMap11BucketSizesEv(ptr dead_on_unwind writable sret(%"class.std::vector.23") align 8, ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress ssp uwtable
 define noundef float @_ZNK6open3d4core7HashSet10LoadFactorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
@@ -2105,10 +2099,10 @@ define noundef float @_ZNK6open3d4core7HashSet10LoadFactorEv(ptr noundef nonnull
   ret float %4
 }
 
-declare noundef float @_ZNK6open3d4core7HashMap10LoadFactorEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #9
+declare noundef float @_ZNK6open3d4core7HashMap10LoadFactorEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn uwtable
-define void @_ZNK6open3d4core7HashSet20GetDeviceHashBackendEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.9") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d4core7HashSet20GetDeviceHashBackendEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.9") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
@@ -2233,7 +2227,7 @@ _ZNSt12__shared_ptrIN6open3d4core7HashMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define linkonce_odr void @_ZN6open3d4core7HashMapC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6open3d4core7HashMapC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core7HashMapE, i64 16), ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2495,7 +2489,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @__cxx_global_var_init() #17 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
+define internal void @__cxx_global_var_init() #16 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
   %1 = load i8, ptr @_ZGVN3fmt3v1012format_facetISt6localeE2idE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
@@ -2508,27 +2502,33 @@ define internal void @__cxx_global_var_init() #17 section ".text.startup" comdat
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 attributes #0 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind ssp uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind ssp willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind ssp uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind ssp willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nounwind }
 attributes #20 = { builtin nounwind }

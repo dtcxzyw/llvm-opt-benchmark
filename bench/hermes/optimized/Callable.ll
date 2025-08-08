@@ -202,11 +202,11 @@ _ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %3, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %emptyCodeBlock_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9392
   %5 = load ptr, ptr %emptyCodeBlock_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %domain.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %parentHandle.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %envHandle.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %codeBlock.addr.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %domain.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %parentHandle.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %envHandle.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %codeBlock.addr.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %domain.i.i.i, align 8
   store ptr %prototype.coerce, ptr %parentHandle.i.i.i, align 8
   store ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, ptr %envHandle.i.i.i, align 8
@@ -219,11 +219,11 @@ _ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit
   %bf.load.i.i.i = load i32, ptr %flags_.i.i.i, align 4
   %bf.set.i.i.i = or i32 %bf.load.i.i.i, 64
   store i32 %bf.set.i.i.i, ptr %flags_.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %domain.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %parentHandle.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %envHandle.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %codeBlock.addr.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %domain.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %parentHandle.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %envHandle.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %codeBlock.addr.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   ret ptr %call.i.i.i.i.i.i
 }
 
@@ -317,10 +317,10 @@ declare ptr @_ZN6hermes2vm9JSMapImplILNS0_8CellKindE48EE6createERNS0_7RuntimeENS
 define weak_odr hidden ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_8JSBigIntEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
 entry:
   %value.addr.i.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value.addr.i.i)
   store i32 0, ptr %value.addr.i.i, align 4
   %call1.i.i = call { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive9fromBytesERNS0_7RuntimeEN4llvh8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.addr.i.i, i64 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value.addr.i.i)
   %1 = extractvalue { i32, i64 } %call1.i.i, 0
   %cmp.i.i = icmp eq i32 %1, 0
   br i1 %cmp.i.i, label %_ZN6hermes2vmL32toCallResultPseudoHandleJSObjectINS0_8JSBigIntEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEENS3_INS0_6HandleIT_EEXsr6detail23GetCallResultSpecializeISC_EE5valueEEE.exit, label %if.end.i
@@ -508,11 +508,11 @@ _ZN6hermes2vm19JSGeneratorFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjec
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %3, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %emptyCodeBlock_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9392
   %5 = load ptr, ptr %emptyCodeBlock_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %domain.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %parentHandle.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %envHandle.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %codeBlock.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %domain.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %parentHandle.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %envHandle.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %codeBlock.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %domain.i.i, align 8
   store ptr %prototype.coerce, ptr %parentHandle.i.i, align 8
   store ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, ptr %envHandle.i.i, align 8
@@ -525,11 +525,11 @@ _ZN6hermes2vm19JSGeneratorFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjec
   %bf.load.i.i = load i32, ptr %flags_.i.i, align 4
   %bf.set.i.i = or i32 %bf.load.i.i, 64
   store i32 %bf.set.i.i, ptr %flags_.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %domain.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %parentHandle.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %envHandle.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %codeBlock.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %domain.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %parentHandle.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %envHandle.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %codeBlock.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   ret ptr %call.i.i.i.i.i
 }
 
@@ -567,11 +567,11 @@ _ZN6hermes2vm15JSAsyncFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %3, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %emptyCodeBlock_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9392
   %5 = load ptr, ptr %emptyCodeBlock_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %domain.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %parentHandle.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %envHandle.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %codeBlock.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %domain.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %parentHandle.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %envHandle.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %codeBlock.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %domain.i.i, align 8
   store ptr %prototype.coerce, ptr %parentHandle.i.i, align 8
   store ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, ptr %envHandle.i.i, align 8
@@ -584,11 +584,11 @@ _ZN6hermes2vm15JSAsyncFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE
   %bf.load.i.i = load i32, ptr %flags_.i.i, align 4
   %bf.set.i.i = or i32 %bf.load.i.i, 64
   store i32 %bf.set.i.i, ptr %flags_.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %domain.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %parentHandle.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %envHandle.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %codeBlock.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %domain.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %parentHandle.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %envHandle.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %codeBlock.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   ret ptr %call.i.i.i.i.i
 }
 
@@ -1987,7 +1987,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end32, %for.body
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit, label %for.body.i.i.i.i, !llvm.loop !14
 
 _ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit: ; preds = %for.body.i.i.i.i, %if.end32
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i)
   store ptr %runtime, ptr %gcScope.i, align 8
   %prevScope_.i.i = getelementptr inbounds nuw i8, ptr %gcScope.i, i64 8
   %12 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8
@@ -2241,12 +2241,12 @@ if.end78.i:                                       ; preds = %for.body60.i
 
 if.then45:                                        ; preds = %for.body60.i, %if.end31.i
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #11
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   br label %cleanup
 
 if.end46:                                         ; preds = %if.end78.i, %for.inc.i, %for.cond.preheader.i, %for.cond58.preheader.i
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #11
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   %agg.tmp.sroa.0.0.copyload.i.i.i27 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i28 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i27, 281474976710655
   %40 = inttoptr i64 %and.i.i.i.i.i.i28 to ptr
@@ -4806,7 +4806,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread, label %if.end.i
 
 _ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i)
   %rightKind_.i3.i5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i, i64 24
   store i32 1, ptr %rightKind_.i3.i5.i.i, align 8
   %leftSize_.i4.i6.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i, i64 32
@@ -4817,7 +4817,7 @@ _ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i, i64 8
   store i32 3, ptr %0, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -4852,10 +4852,10 @@ if.end:                                           ; preds = %cond.false.i.i.i.i.
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 8
   %numDigits.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 4
   %call8 = tail call noundef i32 @_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE(ptr nonnull %add.ptr.i.i.i, ptr nonnull %numDigits.i, ptr %bytes.coerce0, i64 %bytes.coerce1) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
   switch i32 %call8, label %sw.epilog.i [
     i32 0, label %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit.thread
     i32 1, label %sw.bb1.i
@@ -4865,10 +4865,10 @@ if.end:                                           ; preds = %cond.false.i.i.i.i.
   ]
 
 _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit.thread: ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   br label %if.end12
 
 sw.bb1.i:                                         ; preds = %if.end
@@ -4919,10 +4919,10 @@ _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15Operation
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   %cmp.not = icmp eq i32 %call10.i, 1
   br i1 %cmp.not, label %if.end12, label %return
 
@@ -5422,10 +5422,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #8
 declare i32 @llvm.uadd.sat.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

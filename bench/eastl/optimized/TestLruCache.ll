@@ -2682,7 +2682,7 @@ terminate.lpad.i.i.i1091:                         ; preds = %if.then.i.i.i1089
 
 _ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev.exit: ; preds = %_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEED2Ev.exit, %if.then.i.i.i1089
   store i32 1, ptr %ref.tmp670, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp5.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i)
   %m_map.i.i = getelementptr inbounds nuw i8, ptr %lruCache659, i64 24
   %mnBucketCount.i.i.i = getelementptr inbounds nuw i8, ptr %lruCache659, i64 40
   %454 = load i64, ptr %mnBucketCount.i.i.i, align 8, !noalias !59
@@ -2791,18 +2791,18 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.
           to label %call9.i.i.noexc unwind label %lpad671
 
 call9.i.i.noexc:                                  ; preds = %cond.end.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %479 = load i32, ptr %ref.tmp670, align 4, !noalias !75
   %conv.i.i.i.i.i.i = sext i32 %479 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.43") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(45) %m_map.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp670, i64 noundef %conv.i.i.i.i.i.i)
           to label %.noexc1095 unwind label %lpad671
 
 .noexc1095:                                       ; preds = %call9.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %invoke.cont672
 
 invoke.cont672:                                   ; preds = %for.inc.i.i.i1614, %.noexc1095, %call.i.i.i.i.i.i.i.i.noexc1632, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i)
   %480 = load i32, ptr %fooCreator, align 4
   %cmp674 = icmp eq i32 %480, 1
   %call676 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp674, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @.str.39)
@@ -2898,7 +2898,7 @@ invoke.cont698:                                   ; preds = %for.inc.i.i.i1126, 
 
 invoke.cont702:                                   ; preds = %invoke.cont698
   store i32 2, ptr %ref.tmp704, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp5.i.i1135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i1135)
   %498 = load i64, ptr %mnBucketCount.i.i.i, align 8, !noalias !78
   %rem.i.i.i.i.i1140.rhs.trunc = trunc i64 %498 to i32
   %rem.i.i.i.i.i11401783 = urem i32 2, %rem.i.i.i.i.i1140.rhs.trunc
@@ -3004,18 +3004,18 @@ cond.end.i.i1156:                                 ; preds = %cond.true.i.i1153, 
           to label %call9.i.i.noexc1169 unwind label %lpad671
 
 call9.i.i.noexc1169:                              ; preds = %cond.end.i.i1156
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i1134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1134)
   %521 = load i32, ptr %ref.tmp704, align 4, !noalias !93
   %conv.i.i.i.i.i.i1158 = sext i32 %521 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.43") align 8 %ref.tmp.i.i.i1134, ptr noundef nonnull align 8 dereferenceable(45) %m_map.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp704, i64 noundef %conv.i.i.i.i.i.i1158)
           to label %.noexc1171 unwind label %lpad671
 
 .noexc1171:                                       ; preds = %call9.i.i.noexc1169
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i1134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1134)
   br label %invoke.cont705
 
 invoke.cont705:                                   ; preds = %for.inc.i.i.i1644, %.noexc1171, %call.i.i.i.i.i.i.i.i.noexc1663, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i1648
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i.i1135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i1135)
   %522 = load i32, ptr %fooCreator, align 4
   %cmp708 = icmp eq i32 %522, 2
   %call710 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp708, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @.str.40)
@@ -3231,7 +3231,7 @@ invoke.cont774:                                   ; preds = %for.inc.i.i.i1246, 
 
 invoke.cont778:                                   ; preds = %invoke.cont774
   store i32 2, ptr %ref.tmp780, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp5.i.i1255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i1255)
   %562 = load i64, ptr %mnBucketCount.i.i.i, align 8, !noalias !96
   %rem.i.i.i.i.i1260.rhs.trunc = trunc i64 %562 to i32
   %rem.i.i.i.i.i12601788 = urem i32 2, %rem.i.i.i.i.i1260.rhs.trunc
@@ -3337,7 +3337,7 @@ cond.end.i.i1276:                                 ; preds = %cond.true.i.i1273, 
           to label %call9.i.i.noexc1289 unwind label %lpad671
 
 call9.i.i.noexc1289:                              ; preds = %cond.end.i.i1276
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i1254)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1254)
   %585 = load i32, ptr %ref.tmp780, align 4, !noalias !111
   %conv.i.i.i.i.i.i1278 = sext i32 %585 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.43") align 8 %ref.tmp.i.i.i1254, ptr noundef nonnull align 8 dereferenceable(45) %m_map.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp780, i64 noundef %conv.i.i.i.i.i.i1278)
@@ -3345,13 +3345,13 @@ call9.i.i.noexc1289:                              ; preds = %cond.end.i.i1276
 
 .noexc1291:                                       ; preds = %call9.i.i.noexc1289
   %586 = load ptr, ptr %ref.tmp.i.i.i1254, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i1254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1254)
   br label %invoke.cont781
 
 invoke.cont781:                                   ; preds = %for.inc.i.i.i1676, %.noexc1291, %call.i.i.i.i.i.i.i.i.noexc1695, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i1680
   %.sink.i.pn.i.i1279 = phi ptr [ %586, %.noexc1291 ], [ %pNode.addr.05.i.i.i.i1265, %call.i.i.i.i.i.i.i.i.noexc1695 ], [ %pNode.addr.05.i.i.i.i1265, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i1680 ], [ %pNode.addr.05.i.i.i.i1265, %for.inc.i.i.i1676 ]
   %retval.0.i.i1280 = getelementptr inbounds nuw i8, ptr %.sink.i.pn.i.i1279, i64 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i.i1255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i1255)
   %587 = load ptr, ptr %retval.0.i.i1280, align 8
   %588 = load i32, ptr %587, align 4
   %cmp784 = icmp eq i32 %588, 20
@@ -3360,7 +3360,7 @@ invoke.cont781:                                   ; preds = %for.inc.i.i.i1676, 
 
 invoke.cont785:                                   ; preds = %invoke.cont781
   store i32 2, ptr %ref.tmp787, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp5.i.i1294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i1294)
   %589 = load i64, ptr %mnBucketCount.i.i.i, align 8, !noalias !114
   %rem.i.i.i.i.i1299.rhs.trunc = trunc i64 %589 to i32
   %rem.i.i.i.i.i12991789 = urem i32 2, %rem.i.i.i.i.i1299.rhs.trunc
@@ -3466,7 +3466,7 @@ cond.end.i.i1315:                                 ; preds = %cond.true.i.i1312, 
           to label %call9.i.i.noexc1328 unwind label %lpad671
 
 call9.i.i.noexc1328:                              ; preds = %cond.end.i.i1315
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i1293)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1293)
   %612 = load i32, ptr %ref.tmp787, align 4, !noalias !129
   %conv.i.i.i.i.i.i1317 = sext i32 %612 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.43") align 8 %ref.tmp.i.i.i1293, ptr noundef nonnull align 8 dereferenceable(45) %m_map.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp787, i64 noundef %conv.i.i.i.i.i.i1317)
@@ -3474,13 +3474,13 @@ call9.i.i.noexc1328:                              ; preds = %cond.end.i.i1315
 
 .noexc1330:                                       ; preds = %call9.i.i.noexc1328
   %613 = load ptr, ptr %ref.tmp.i.i.i1293, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i1293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1293)
   br label %invoke.cont788
 
 invoke.cont788:                                   ; preds = %for.inc.i.i.i1708, %.noexc1330, %call.i.i.i.i.i.i.i.i.noexc1727, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i1712
   %.sink.i.pn.i.i1318 = phi ptr [ %613, %.noexc1330 ], [ %pNode.addr.05.i.i.i.i1304, %call.i.i.i.i.i.i.i.i.noexc1727 ], [ %pNode.addr.05.i.i.i.i1304, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i1712 ], [ %pNode.addr.05.i.i.i.i1304, %for.inc.i.i.i1708 ]
   %retval.0.i.i1319 = getelementptr inbounds nuw i8, ptr %.sink.i.pn.i.i1318, i64 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i.i1294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i1294)
   %614 = load ptr, ptr %retval.0.i.i1319, align 8
   %b790 = getelementptr inbounds nuw i8, ptr %614, i64 4
   %615 = load i32, ptr %b790, align 4
@@ -4537,13 +4537,13 @@ _ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %13 = load ptr, ptr %this, align 8, !noalias !184
   %14 = load i64, ptr %v, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %15 = load i32, ptr %k, align 4, !noalias !187
   %conv.i.i.i.i = sext i32 %15 to i64
   call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.34") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %conv.i.i.i.i)
   %16 = load ptr, ptr %ref.tmp.i, align 8
   %second.i6 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   store i64 %14, ptr %second.i6, align 8
   %ref.tmp4.sroa.2.0.second.i6.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %13, ptr %ref.tmp4.sroa.2.0.second.i6.sroa_idx, align 8
@@ -6337,12 +6337,12 @@ cond.false:                                       ; preds = %if.else
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %call9 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %10 = load i32, ptr %k, align 4, !noalias !323
   %conv.i.i.i.i = sext i32 %10 to i64
   call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.34") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %conv.i.i.i.i)
   %11 = load ptr, ptr %ref.tmp.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then
@@ -6833,13 +6833,13 @@ _ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EEN
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %13 = load ptr, ptr %this, align 8, !noalias !341
   %14 = load ptr, ptr %v, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %15 = load i32, ptr %k, align 4, !noalias !344
   %conv.i.i.i.i = sext i32 %15 to i64
   call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.43") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %conv.i.i.i.i)
   %16 = load ptr, ptr %ref.tmp.i, align 8
   %second.i6 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   store ptr %14, ptr %second.i6, align 8
   %ref.tmp4.sroa.2.0.second.i6.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %13, ptr %ref.tmp4.sroa.2.0.second.i6.sroa_idx, align 8
@@ -7231,13 +7231,13 @@ _ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
   %13 = load ptr, ptr %this, align 8, !noalias !361
   %14 = load i32, ptr %v, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %15 = load i32, ptr %k, align 4, !noalias !364
   %conv.i.i.i.i = sext i32 %15 to i64
   call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.47") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %conv.i.i.i.i)
   %16 = load ptr, ptr %ref.tmp.i, align 8
   %second.i6 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   store i32 %14, ptr %second.i6, align 8
   %ref.tmp4.sroa.27.0.second.i6.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %13, ptr %ref.tmp4.sroa.27.0.second.i6.sroa_idx, align 8
@@ -7498,10 +7498,10 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

@@ -73,7 +73,7 @@ define void @_ZN3zmq14tcp_listener_t8in_eventEv(ptr noundef nonnull align 8 dere
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %8 = load ptr, ptr %7, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = invoke i32 @zmq_errno()
@@ -119,14 +119,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   br label %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit
 
 _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %67
 
 26:                                               ; preds = %11, %6
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2) #14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %68
 
 28:                                               ; preds = %1
@@ -151,7 +151,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 44:                                               ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %46 = load ptr, ptr %45, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %47)
   %48 = invoke i32 @zmq_errno()
@@ -197,14 +197,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   br label %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit18
 
 _ZN3zmq19endpoint_uri_pair_tD2Ev.exit18:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 64:                                               ; preds = %49, %44
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %3) #14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 66:                                               ; preds = %28
@@ -218,9 +218,6 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit18:          ; preds = %_ZNKSt7__cxx1112bas
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %65, %64 ]
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1584) %0) local_unnamed_addr #0 align 2 {
@@ -242,9 +239,9 @@ define noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr noundef nonnull readonl
 
 11:                                               ; preds = %1, %6
   %12 = phi i32 [ %5, %1 ], [ %.pre, %6 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 128, ptr %3, align 4, !tbaa !76
   %13 = call i32 @accept4(i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 524288)
   %14 = icmp eq i32 %13, -1
@@ -361,8 +358,8 @@ define noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr noundef nonnull readonl
 
 .critedge:                                        ; preds = %41, %.critedge37, %15, %64, %67, %50, %52, %18, %15, %15, %15, %15, %15, %15, %15
   %.0 = phi i32 [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %18 ], [ -1, %52 ], [ -1, %50 ], [ %13, %67 ], [ %13, %64 ], [ -1, %15 ], [ -1, %.critedge37 ], [ -1, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -373,7 +370,7 @@ declare void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_
 declare i32 @zmq_errno() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -412,9 +409,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNK
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare noundef i32 @_ZN3zmq15tune_tcp_socketEi(i32 noundef) local_unnamed_addr #1
 
 declare noundef i32 @_ZN3zmq19tune_tcp_keepalivesEiiiii(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -424,7 +418,7 @@ declare noundef i32 @_ZN3zmq14tune_tcp_maxrtEii(i32 noundef, i32 noundef) local_
 declare void @_ZN3zmq22stream_listener_base_t13create_engineEi(ptr noundef nonnull align 8 dereferenceable(1520), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn1448_N3zmq14tcp_listener_t8in_eventEv(ptr noundef %0) unnamed_addr #4 align 2 {
+define void @_ZThn1448_N3zmq14tcp_listener_t8in_eventEv(ptr noundef %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1448
   tail call void @_ZN3zmq14tcp_listener_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1584) %2)
   ret void
@@ -435,7 +429,7 @@ define void @_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_t
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca %"class.zmq::tcp_address_t", align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #14, !noalias !84
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !84
   %7 = call noundef i32 @_ZN3zmq18get_socket_addressEiNS_12socket_end_tEP16sockaddr_storage(i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5), !noalias !84
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
@@ -449,7 +443,7 @@ define void @_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_t
   br label %_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE.exit
 
 12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6) #14, !noalias !84
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !84
   call void @_ZN3zmq13tcp_address_tC1EPK8sockaddrj(ptr noundef nonnull align 4 dereferenceable(57) %6, ptr noundef nonnull %5, i32 noundef %7), !noalias !84
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !87, !alias.scope !84
@@ -477,16 +471,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6) #14, !noalias !84
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #14, !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !84
   resume { ptr, i32 } %17
 
 22:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6) #14, !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !84
   br label %_ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE.exit
 
 _ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_12socket_end_tE.exit: ; preds = %9, %22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #14, !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !84
   ret void
 }
 
@@ -503,7 +497,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(
 
 9:                                                ; preds = %2
   tail call void @_ZN3zmq26make_socket_noninheritableEi(i32 noundef %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !76
   %10 = load i32, ptr %7, align 8, !tbaa !72
   %11 = call i32 @setsockopt(i32 noundef %10, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 4) #14
@@ -546,7 +540,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(
 
 34:                                               ; preds = %25, %30
   %.1 = phi i32 [ -1, %30 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %2, %34
@@ -559,31 +553,31 @@ declare noundef i32 @_ZN3zmq15tcp_open_socketEPKcRKNS_9options_tEbbPNS_13tcp_add
 declare void @_ZN3zmq26make_socket_noninheritableEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare noundef ptr @_ZNK3zmq13tcp_address_t4addrEv(ptr noundef nonnull align 4 dereferenceable(57)) local_unnamed_addr #1
 
 declare noundef i32 @_ZNK3zmq13tcp_address_t7addrlenEv(ptr noundef nonnull align 4 dereferenceable(57)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 declare noundef i32 @_ZN3zmq22stream_listener_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #1
 
@@ -615,11 +609,11 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14tcp_listener_t17set_local_addressE
 
 14:                                               ; preds = %._crit_edge, %9
   %15 = phi i32 [ %.pre, %._crit_edge ], [ %8, %9 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #14, !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !97
   %17 = call noundef i32 @_ZN3zmq18get_socket_addressEiNS_12socket_end_tEP16sockaddr_storage(i32 noundef %15, i32 noundef 0, ptr noundef nonnull %3), !noalias !97
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %22
@@ -633,7 +627,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14tcp_listener_t17set_local_addressE
   br label %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #14, !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !97
   call void @_ZN3zmq13tcp_address_tC1EPK8sockaddrj(ptr noundef nonnull align 4 dereferenceable(57) %4, ptr noundef nonnull %3, i32 noundef %17), !noalias !97
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %23, ptr %5, align 8, !tbaa !87, !alias.scope !97
@@ -665,16 +659,16 @@ common.resume:                                    ; preds = %94, %_ZNSt7__cxx111
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #14, !noalias !97
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #14, !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !97
   br label %common.resume
 
 32:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #14, !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !97
   br label %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
 
 _ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit: ; preds = %19, %32
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #14, !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !97
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %34 = load ptr, ptr %33, align 8, !tbaa !65
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1504
@@ -783,10 +777,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %78 = load ptr, ptr %77, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %33)
   %79 = load i32, ptr %16, align 8, !tbaa !72
   invoke void @_ZN3zmq13socket_base_t15event_listeningERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %78, ptr noundef nonnull align 8 dereferenceable(68) %6, i32 noundef %79)
@@ -828,14 +822,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   br label %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit
 
 _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 96:                                               ; preds = %11, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit
@@ -846,7 +840,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 declare void @_ZN3zmq13socket_base_t15event_listeningERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @accept4(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -861,10 +855,10 @@ declare void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef, i32 noundef) local
 declare void @_ZN3zmq19set_socket_priorityEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #5
+declare void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq14tcp_listener_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1584) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3zmq14tcp_listener_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1584) %0) unnamed_addr #2 comdat align 2 {
   tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
@@ -915,14 +909,14 @@ declare void @_ZN3zmq5own_t14process_seqnumEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN3zmq5own_t15process_destroyEv(ptr noundef nonnull align 8 dereferenceable(1444)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn1448_N3zmq14tcp_listener_tD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn1448_N3zmq14tcp_listener_tD1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1448
   tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %2) #14
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn1448_N3zmq14tcp_listener_tD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn1448_N3zmq14tcp_listener_tD0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1448
   tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %2) #14
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1584) %2) #15
@@ -934,7 +928,7 @@ declare void @_ZN3zmq11io_object_t9out_eventEv(ptr noundef nonnull align 8 deref
 declare void @_ZN3zmq11io_object_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 declare noundef i32 @_ZN3zmq18get_socket_addressEiNS_12socket_end_tEP16sockaddr_storage(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -943,7 +937,13 @@ declare void @_ZN3zmq13tcp_address_tC1EPK8sockaddrj(ptr noundef nonnull align 4 
 declare noundef i32 @_ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -953,16 +953,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nounwind }

@@ -57,7 +57,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %23
   %28 = phi i64 [ %21, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ %26, %23 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !7
   store i64 %3, ptr %2, align 8
@@ -235,7 +235,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %.068 = phi i32 [ %138, %133 ], [ %131, %129 ], [ 2147483647, %92 ], [ 1, %99 ]
   %108 = sub i32 0, %.068
   %.0.i108 = select i1 %.not, i32 %.068, i32 %108
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
 109:                                              ; preds = %105
@@ -299,11 +299,11 @@ define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$10from_posit17he000c84e186aee88E"(ptr noalias noundef writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %1, i32 noundef 1073741824, i1 noundef zeroext true)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -488,8 +488,8 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire32..Q32E2$u20$as$u20$core.
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca double, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0)
   switch i32 %6, label %8 [
     i32 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
@@ -568,7 +568,7 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %.val = load ptr, ptr %39, align 8, !nonnull !7, !noundef !7
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load ptr, ptr %40, align 8, !nonnull !7, !noundef !7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14
   store ptr @anon.4540a05e70eb433947f08bd653635aa8.5, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -579,9 +579,9 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %41
 }
 
@@ -604,10 +604,10 @@ declare void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noun
 declare noundef zeroext i1 @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17h2ea2ae54310fbdaeE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7

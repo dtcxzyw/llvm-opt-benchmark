@@ -16,7 +16,7 @@ define hidden i64 @mbedtls_timing_get_timer(ptr noundef captures(none) %0, i32 n
   br label %19
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #4
   %8 = load i64, ptr %3, align 8, !tbaa !3
   %9 = load i64, ptr %0, align 8, !tbaa !8
@@ -29,7 +29,7 @@ define hidden i64 @mbedtls_timing_get_timer(ptr noundef captures(none) %0, i32 n
   %16 = sub nsw i64 %13, %15
   %17 = sdiv i64 %16, 1000
   %18 = add i64 %17, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %6, %4
@@ -37,14 +37,8 @@ define hidden i64 @mbedtls_timing_get_timer(ptr noundef captures(none) %0, i32 n
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @mbedtls_timing_set_delay(ptr noundef captures(none) initializes((32, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -72,7 +66,7 @@ define hidden range(i32 -1, 3) i32 @mbedtls_timing_get_delay(ptr noundef readonl
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #4
   %8 = load i64, ptr %2, align 8, !tbaa !3
   %9 = load i64, ptr %0, align 8, !tbaa !8
@@ -85,7 +79,7 @@ define hidden range(i32 -1, 3) i32 @mbedtls_timing_get_delay(ptr noundef readonl
   %16 = sub nsw i64 %13, %15
   %17 = sdiv i64 %16, 1000
   %18 = add i64 %17, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load i32, ptr %3, align 4, !tbaa !16
   %20 = zext i32 %19 to i64
   %.not = icmp ult i64 %18, %20
@@ -105,16 +99,22 @@ define hidden range(i32 -1, 3) i32 @mbedtls_timing_get_delay(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_timing_get_final_delay(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_timing_get_final_delay(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !tbaa !16
   ret i32 %3
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

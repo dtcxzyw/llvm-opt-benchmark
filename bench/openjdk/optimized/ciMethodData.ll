@@ -299,14 +299,14 @@ define hidden void @_ZN12ciMethodData16prepare_metadataEv(ptr noundef nonnull re
   %25 = load i64, ptr %24, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23PrepareExtraDataClosure, i64 16), ptr %3, align 8
   store ptr %5, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = load i64, ptr @_ZN20SafepointSynchronize13_safepoint_idE, align 8
   %27 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %28 = icmp eq i32 %27, 2
   call void @_ZN21SafepointStateTrackerC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %2, i64 noundef %26, i1 noundef zeroext %28) #13
   %.fca.0.load.i.i = load i64, ptr %2, align 8
   %.fca.1.load.i.i = load i8, ptr %.fca.1.gep.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i64 %.fca.0.load.i.i, ptr %8, align 8
   store i8 %.fca.1.load.i.i, ptr %9, align 8
   %29 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
@@ -5673,10 +5673,10 @@ declare i32 @llvm.ctpop.i32(i32) #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

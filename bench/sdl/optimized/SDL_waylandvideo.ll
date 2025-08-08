@@ -212,19 +212,13 @@ define hidden ptr @Wayland_GetWindowDataForOwnedSurface(ptr noundef %0) local_un
   ret ptr %.09
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @Wayland_Preferred_CreateDevice() #0 {
   %1 = tail call fastcc ptr @Wayland_CreateDevice(i1 noundef zeroext true)
   ret ptr %1
 }
 
-declare zeroext i1 @Wayland_ShowMessageBox(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_ShowMessageBox(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @Wayland_Fallback_CreateDevice() #0 {
@@ -233,12 +227,12 @@ define internal noundef ptr @Wayland_Fallback_CreateDevice() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @Wayland_LoadLibdecor(ptr noundef readnone captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @Wayland_LoadLibdecor(ptr noundef readnone captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @Wayland_VideoReconnect(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @Wayland_VideoReconnect(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret i1 false
 }
 
@@ -290,14 +284,14 @@ define internal fastcc noundef ptr @Wayland_CreateDevice(i1 noundef zeroext %0) 
   %22 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %.097) #12
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %20(ptr noundef nonnull %.097, i32 noundef 1, ptr noundef %21, i32 noundef %23, i32 noundef 0, ptr noundef null) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %Wayland_IsPreferred.exit.thread109, label %26
 
 Wayland_IsPreferred.exit.thread109:               ; preds = %19
   %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %35
 
 26:                                               ; preds = %19
@@ -312,14 +306,14 @@ Wayland_IsPreferred.exit.thread109:               ; preds = %19
   br i1 %33, label %Wayland_IsPreferred.exit.thread, label %Wayland_IsPreferred.exit
 
 Wayland_IsPreferred.exit.thread:                  ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %39
 
 Wayland_IsPreferred.exit:                         ; preds = %26
   call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 5, ptr noundef nonnull @.str.9) #12
   %.pre.i = load i8, ptr %2, align 1, !range !5
   %34 = trunc nuw i8 %.pre.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %Wayland_IsPreferred.exit.thread109, %Wayland_IsPreferred.exit
@@ -543,26 +537,26 @@ Wayland_IsPreferred.exit:                         ; preds = %26
   ret ptr %.1
 }
 
-declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetGlobalProperties_REAL() local_unnamed_addr #2
+declare i32 @SDL_GetGlobalProperties_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_WAYLAND_LoadSymbols() local_unnamed_addr #2
+declare zeroext i1 @SDL_WAYLAND_LoadSymbols() local_unnamed_addr #1
 
-declare void @SDL_WAYLAND_UnloadSymbols() local_unnamed_addr #2
+declare void @SDL_WAYLAND_UnloadSymbols() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
@@ -649,7 +643,7 @@ define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
   br i1 %52, label %.critedge.i.i.i, label %53
 
 53:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 192
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.45) #12
@@ -710,9 +704,9 @@ define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
   br label %90
 
 90:                                               ; preds = %119, %.preheader.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %91 = load ptr, ptr %83, align 8
   call void %91(ptr noundef nonnull %85, ptr noundef nonnull %88) #12
   %92 = load ptr, ptr %68, align 8
@@ -764,15 +758,15 @@ define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
   br i1 %.not54.i.i.i.i, label %119, label %Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i
 
 .thread58.i.i.i.i:                                ; preds = %111, %106, %100, %94, %90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i.i.i.i
 
 119:                                              ; preds = %116
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %120 = load ptr, ptr %72, align 8
   %121 = call i32 %120(ptr noundef nonnull %85) #12
   %.not55.i.i.i.i = icmp eq i32 %121, 0
@@ -784,7 +778,7 @@ define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
   br label %Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.thread89.i.i.i
 
 Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.thread89.i.i.i: ; preds = %.loopexit.i.i.i.i, %57, %53
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.i.i.i
 
 Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i: ; preds = %116
@@ -792,10 +786,10 @@ Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i: ; preds = %116
   %124 = load i32, ptr %5, align 4
   %125 = load ptr, ptr %62, align 8
   call void %125(ptr noundef nonnull %61) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %126 = load i32, ptr %48, align 8
   %.not7495.i.i.i = icmp sgt i32 %126, 0
   br i1 %.not7495.i.i.i, label %.lr.ph.i.i.i, label %Wayland_GetPrimaryDisplay.exit.thread.i.i
@@ -955,7 +949,7 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
   br i1 %.not.i11.i.i, label %Wayland_SortOutputs.exit.i, label %200
 
 200:                                              ; preds = %Wayland_GetPrimaryDisplay.exit.thread.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %201 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %199) #12
   %202 = load i32, ptr %48, align 8
   %203 = sext i32 %202 to i64
@@ -1066,7 +1060,7 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
 246:                                              ; preds = %._crit_edge.i.i.i, %200
   call void @SDL_free_REAL(ptr noundef %201) #12
   call void @SDL_free_REAL(ptr noundef %205) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %Wayland_SortOutputs.exit.i
 
 Wayland_SortOutputs.exit.i:                       ; preds = %246, %Wayland_GetPrimaryDisplay.exit.thread.i.i
@@ -1526,7 +1520,7 @@ Wayland_VideoCleanup.exit:                        ; preds = %206, %209
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @Wayland_GetDisplayBounds(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #5 {
+define internal noundef zeroext i1 @Wayland_GetDisplayBounds(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -1629,131 +1623,131 @@ define internal noundef zeroext i1 @Wayland_GetDisplayBounds(ptr noundef readonl
   ret i1 true
 }
 
-declare zeroext i1 @Wayland_SuspendScreenSaver(ptr noundef) #2
+declare zeroext i1 @Wayland_SuspendScreenSaver(ptr noundef) #1
 
-declare void @Wayland_PumpEvents(ptr noundef) #2
+declare void @Wayland_PumpEvents(ptr noundef) #1
 
-declare i32 @Wayland_WaitEventTimeout(ptr noundef, i64 noundef) #2
+declare i32 @Wayland_WaitEventTimeout(ptr noundef, i64 noundef) #1
 
-declare void @Wayland_SendWakeupEvent(ptr noundef, ptr noundef) #2
+declare void @Wayland_SendWakeupEvent(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_GLES_SwapWindow(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_GLES_SwapWindow(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_GLES_GetSwapInterval(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_GLES_GetSwapInterval(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_GLES_SetSwapInterval(ptr noundef, i32 noundef) #2
+declare zeroext i1 @Wayland_GLES_SetSwapInterval(ptr noundef, i32 noundef) #1
 
-declare zeroext i1 @Wayland_GLES_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_GLES_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @Wayland_GLES_CreateContext(ptr noundef, ptr noundef) #2
+declare ptr @Wayland_GLES_CreateContext(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_GLES_LoadLibrary(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_GLES_LoadLibrary(ptr noundef, ptr noundef) #1
 
-declare void @SDL_EGL_UnloadLibrary(ptr noundef) #2
+declare void @SDL_EGL_UnloadLibrary(ptr noundef) #1
 
-declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) #2
+declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_GLES_DestroyContext(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_GLES_DestroyContext(ptr noundef, ptr noundef) #1
 
-declare ptr @Wayland_GLES_GetEGLSurface(ptr noundef, ptr noundef) #2
+declare ptr @Wayland_GLES_GetEGLSurface(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_CreateWindow(ptr noundef, ptr noundef, i32 noundef) #2
+declare zeroext i1 @Wayland_CreateWindow(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @Wayland_ShowWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_ShowWindow(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_HideWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_HideWindow(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_RaiseWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_RaiseWindow(ptr noundef, ptr noundef) #1
 
-declare i32 @Wayland_SetWindowFullscreen(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @Wayland_SetWindowFullscreen(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @Wayland_MaximizeWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_MaximizeWindow(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_MinimizeWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_MinimizeWindow(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowMouseRect(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_SetWindowMouseRect(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowMouseGrab(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @Wayland_SetWindowMouseGrab(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @Wayland_SetWindowKeyboardGrab(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @Wayland_SetWindowKeyboardGrab(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare void @Wayland_RestoreWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_RestoreWindow(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_SetWindowBordered(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare void @Wayland_SetWindowBordered(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare void @Wayland_SetWindowResizable(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare void @Wayland_SetWindowResizable(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @Wayland_SetWindowPosition(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_SetWindowPosition(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_SetWindowSize(ptr noundef, ptr noundef) #2
+declare void @Wayland_SetWindowSize(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_SetWindowMinimumSize(ptr noundef, ptr noundef) #2
+declare void @Wayland_SetWindowMinimumSize(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_SetWindowMaximumSize(ptr noundef, ptr noundef) #2
+declare void @Wayland_SetWindowMaximumSize(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowParent(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_SetWindowParent(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowModal(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @Wayland_SetWindowModal(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @Wayland_SetWindowOpacity(ptr noundef, ptr noundef, float noundef) #2
+declare zeroext i1 @Wayland_SetWindowOpacity(ptr noundef, ptr noundef, float noundef) #1
 
-declare void @Wayland_SetWindowTitle(ptr noundef, ptr noundef) #2
+declare void @Wayland_SetWindowTitle(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowIcon(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_SetWindowIcon(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare void @Wayland_GetWindowSizeInPixels(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @Wayland_GetWindowSizeInPixels(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare float @Wayland_GetWindowContentScale(ptr noundef, ptr noundef) #2
+declare float @Wayland_GetWindowContentScale(ptr noundef, ptr noundef) #1
 
-declare ptr @Wayland_GetWindowICCProfile(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Wayland_GetWindowICCProfile(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @Wayland_GetDisplayForWindow(ptr noundef, ptr noundef) #2
+declare i32 @Wayland_GetDisplayForWindow(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_DestroyWindow(ptr noundef, ptr noundef) #2
+declare void @Wayland_DestroyWindow(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowHitTest(ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @Wayland_SetWindowHitTest(ptr noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @Wayland_FlashWindow(ptr noundef, ptr noundef, i32 noundef) #2
+declare zeroext i1 @Wayland_FlashWindow(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare zeroext i1 @DBUS_ApplyWindowProgress(ptr noundef, ptr noundef) #2
+declare zeroext i1 @DBUS_ApplyWindowProgress(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_HasScreenKeyboardSupport(ptr noundef) #2
+declare zeroext i1 @Wayland_HasScreenKeyboardSupport(ptr noundef) #1
 
-declare void @Wayland_ShowWindowSystemMenu(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @Wayland_ShowWindowSystemMenu(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare zeroext i1 @Wayland_SyncWindow(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_SyncWindow(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetWindowFocusable(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @Wayland_SetWindowFocusable(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @SDL_SystemTheme_Init() local_unnamed_addr #2
+declare zeroext i1 @SDL_SystemTheme_Init() local_unnamed_addr #1
 
-declare i32 @SDL_SystemTheme_Get() local_unnamed_addr #2
+declare i32 @SDL_SystemTheme_Get() local_unnamed_addr #1
 
-declare ptr @Wayland_GetTextMimeTypes(ptr noundef, ptr noundef) #2
+declare ptr @Wayland_GetTextMimeTypes(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_SetClipboardData(ptr noundef) #2
+declare zeroext i1 @Wayland_SetClipboardData(ptr noundef) #1
 
-declare ptr @Wayland_GetClipboardData(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Wayland_GetClipboardData(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_HasClipboardData(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_HasClipboardData(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_StartTextInput(ptr noundef, ptr noundef, i32 noundef) #2
+declare zeroext i1 @Wayland_StartTextInput(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare zeroext i1 @Wayland_StopTextInput(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_StopTextInput(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_UpdateTextInputArea(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_UpdateTextInputArea(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_Vulkan_LoadLibrary(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_Vulkan_LoadLibrary(ptr noundef, ptr noundef) #1
 
-declare void @Wayland_Vulkan_UnloadLibrary(ptr noundef) #2
+declare void @Wayland_Vulkan_UnloadLibrary(ptr noundef) #1
 
-declare ptr @Wayland_Vulkan_GetInstanceExtensions(ptr noundef, ptr noundef) #2
+declare ptr @Wayland_Vulkan_GetInstanceExtensions(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_Vulkan_CreateSurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_Vulkan_CreateSurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare void @Wayland_Vulkan_DestroySurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @Wayland_Vulkan_DestroySurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @Wayland_Vulkan_GetPresentationSupport(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare zeroext i1 @Wayland_Vulkan_GetPresentationSupport(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @Wayland_DeleteDevice(ptr noundef %0) #0 {
@@ -1788,11 +1782,11 @@ define internal void @Wayland_DeleteDevice(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @wayland_preferred_check_handle_global(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef %3, i32 %4) #0 {
@@ -1809,23 +1803,23 @@ define internal void @wayland_preferred_check_handle_global(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @wayland_preferred_check_remove_global(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #3 {
+define internal void @wayland_preferred_check_remove_global(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #2 {
   ret void
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @Wayland_InitMouse() local_unnamed_addr #2
+declare void @Wayland_InitMouse() local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_InitKeyboard(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_InitKeyboard(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_SetPrimarySelectionText(ptr noundef, ptr noundef) #2
+declare zeroext i1 @Wayland_SetPrimarySelectionText(ptr noundef, ptr noundef) #1
 
-declare ptr @Wayland_GetPrimarySelectionText(ptr noundef) #2
+declare ptr @Wayland_GetPrimarySelectionText(ptr noundef) #1
 
-declare zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef) #2
+declare zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @display_handle_global(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -2422,15 +2416,15 @@ define internal void @display_remove_global(ptr noundef captures(address) %0, pt
   ret void
 }
 
-declare void @Wayland_DisplayCreateSeat(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayCreateSeat(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Wayland_DisplayCreateTextInputManager(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayCreateTextInputManager(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Wayland_DisplayInitDataDeviceManager(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayInitDataDeviceManager(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_DisplayInitPrimarySelectionDeviceManager(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayInitPrimarySelectionDeviceManager(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_DisplayInitTabletManager(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayInitTabletManager(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Wayland_init_xdg_output(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -2471,9 +2465,9 @@ define internal fastcc void @Wayland_init_xdg_output(ptr noundef readonly captur
   br i1 %24, label %6, label %._crit_edge, !llvm.loop !18
 }
 
-declare void @Wayland_DisplayInitInputTimestampManager(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayInitInputTimestampManager(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_DisplayInitCursorShapeManager(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayInitCursorShapeManager(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Wayland_InitColorManager(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -2516,9 +2510,9 @@ define internal fastcc void @Wayland_InitColorManager(ptr noundef readonly captu
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @Wayland_GetColorInfoForOutput(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @Wayland_GetColorInfoForOutput(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @display_handle_geometry(ptr noundef captures(none) initializes((80, 84), (88, 96)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7, ptr noundef %8, i32 noundef %9) #0 {
@@ -2580,7 +2574,7 @@ define internal void @display_handle_geometry(ptr noundef captures(none) initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @display_handle_mode(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #8 {
+define internal void @display_handle_mode(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = and i32 %2, 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -2618,8 +2612,8 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   %5 = alloca %struct.SDL_DisplayMode, align 8
   %6 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.41, i1 noundef zeroext true) #12
   %7 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -2855,7 +2849,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
 137:                                              ; preds = %.loopexit
   %138 = load i32, ptr %29, align 8
   %139 = load i32, ptr %30, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %140 = load i32, ptr %16, align 4
   %.not.i = icmp eq i32 %140, 0
   br i1 %.not.i, label %143, label %141
@@ -2948,7 +2942,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   br i1 %exitcond.not.i, label %AddEmulatedModes.exit, label %.split.i, !llvm.loop !23
 
 AddEmulatedModes.exit:                            ; preds = %183, %169
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %184
 
 184:                                              ; preds = %AddEmulatedModes.exit, %.loopexit
@@ -3000,13 +2994,13 @@ AddEmulatedModes.exit:                            ; preds = %183, %169
   br label %213
 
 213:                                              ; preds = %210, %205, %188, %2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @display_handle_scale(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr readnone captures(none) %1, i32 noundef %2) #9 {
+define internal void @display_handle_scale(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr readnone captures(none) %1, i32 noundef %2) #8 {
   %4 = sitofp i32 %2 to double
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %4, ptr %5, align 8
@@ -3042,31 +3036,31 @@ define internal void @display_handle_description(ptr noundef captures(none) %0, 
   ret void
 }
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetVideoDisplay(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetVideoDisplay(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_ResetFullscreenDisplayModes(ptr noundef) local_unnamed_addr #2
+declare void @SDL_ResetFullscreenDisplayModes(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetDisplayContentScale(ptr noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SetDisplayContentScale(ptr noundef, float noundef) local_unnamed_addr #1
 
-declare void @SDL_SetDesktopDisplayMode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetDesktopDisplayMode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_AddFullscreenDisplayMode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddFullscreenDisplayMode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetDisplayHDRProperties(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetDisplayHDRProperties(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_AddVideoDisplay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_AddVideoDisplay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendDisplayEvent(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_SendDisplayEvent(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @xdg_output_handle_logical_position(ptr noundef writeonly captures(none) initializes((68, 76), (96, 97)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #9 {
+define internal void @xdg_output_handle_logical_position(ptr noundef writeonly captures(none) initializes((68, 76), (96, 97)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %2, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3077,7 +3071,7 @@ define internal void @xdg_output_handle_logical_position(ptr noundef writeonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @xdg_output_handle_logical_size(ptr noundef writeonly captures(none) initializes((52, 60), (97, 98)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #9 {
+define internal void @xdg_output_handle_logical_size(ptr noundef writeonly captures(none) initializes((52, 60), (97, 98)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %2, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3261,23 +3255,23 @@ define internal fastcc void @Wayland_free_display(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
-declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @Wayland_SeatDestroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @Wayland_SeatDestroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
-declare void @Wayland_RemoveOutputFromWindow(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Wayland_RemoveOutputFromWindow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_FreeColorInfoState(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_FreeColorInfoState(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DelVideoDisplay(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_DelVideoDisplay(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Wayland_DisplayPositionCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -3359,21 +3353,27 @@ define internal i32 @Wayland_DisplayPositionCompare(ptr noundef readonly capture
   ret i32 %.0
 }
 
-declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_DBus_GetContext() local_unnamed_addr #2
+declare ptr @SDL_DBus_GetContext() local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strtok_r_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strtok_r_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_FiniMouse(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_FiniMouse(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_QuitKeyboard(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_QuitKeyboard(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
@@ -3382,16 +3382,16 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind allocsize(0,1) }

@@ -1546,7 +1546,7 @@ define internal fastcc range(i32 -1, 65536) i32 @getFlags0(ptr noundef %0, ptr n
 
 getFlags.exit:                                    ; preds = %24, %18
   %.03.i.ph = phi i32 [ %19, %18 ], [ %25, %24 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 noundef 16) #15
@@ -1556,7 +1556,7 @@ getFlags.exit:                                    ; preds = %24, %18
   %35 = icmp slt i32 %34, 0
   %36 = load i16, ptr %31, align 8
   %37 = zext i16 %36 to i32
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = call i32 @close(i32 noundef %.03.i.ph) #15
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1360
@@ -1801,7 +1801,7 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
 
 33:                                               ; preds = %26, %20
   %.03.i.ph = phi i32 [ %21, %20 ], [ %27, %26 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
   %35 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %11, i64 noundef 15) #15
@@ -1820,7 +1820,7 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
 
 getMTU.exit:                                      ; preds = %38, %39
   %.0.i = phi i32 [ -1, %38 ], [ %41, %39 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1360
   %44 = load ptr, ptr %43, align 8
@@ -1927,7 +1927,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 
 35:                                               ; preds = %32
   store i8 0, ptr %34, align 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %37 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #15
@@ -1935,7 +1935,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   store i8 0, ptr %38, align 1
   %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35091, ptr noundef nonnull %11) #15
   %40 = icmp slt i32 %39, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %35
@@ -1984,7 +1984,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %59 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #15
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 55
   store i8 0, ptr %60, align 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   %62 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #15
@@ -1994,7 +1994,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %65 = load i32, ptr %61, align 8
   %.inv.i = icmp sgt i32 %64, -1
   %.0.i120 = select i1 %.inv.i, i32 %65, i32 -1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %.0.i120, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -2055,7 +2055,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %85 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16) #15
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 55
   store i8 0, ptr %86, align 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   %88 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #15
@@ -2065,7 +2065,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %91 = load i32, ptr %87, align 8
   %.inv.i121 = icmp sgt i32 %90, -1
   %.0.i122 = select i1 %.inv.i121, i32 %91, i32 -1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %.0.i122, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -2152,10 +2152,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

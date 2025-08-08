@@ -89,7 +89,7 @@ define internal zeroext i1 @HIDAPI_DriverWii_InitDevice(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %4, %29
   %.0165.i = phi i32 [ %30, %29 ], [ 0, %4 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = tail call fastcc noundef zeroext i1 @ReadRegister(ptr noundef nonnull %3, i32 noundef 10748158, i1 noundef zeroext true)
   br i1 %9, label %10, label %29
 
@@ -141,11 +141,11 @@ define internal zeroext i1 @HIDAPI_DriverWii_InitDevice(ptr noundef %0) #0 {
 
 GetExtensionType.exit.i:                          ; preds = %28, %27, %26, %25, %23
   %.0.i.i = phi i32 [ 0, %28 ], [ 129, %25 ], [ 130, %26 ], [ 131, %27 ], [ 128, %23 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ReadExtensionControllerType.exit
 
 29:                                               ; preds = %10, %.preheader
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %30 = add nuw nsw i32 %.0165.i, 1
   %exitcond.not.i = icmp eq i32 %30, 20
   br i1 %exitcond.not.i, label %ReadExtensionControllerType.exit, label %.preheader, !llvm.loop !3
@@ -203,7 +203,7 @@ define internal void @HIDAPI_DriverWii_SetDevicePlayerIndex(ptr noundef readonly
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %2, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -269,7 +269,7 @@ define internal void @HIDAPI_DriverWii_SetDevicePlayerIndex(ptr noundef readonly
   br label %UpdateSlotLED.exit
 
 UpdateSlotLED.exit:                               ; preds = %30, %33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %3, %UpdateSlotLED.exit
@@ -385,7 +385,7 @@ ReadInput.exit:                                   ; preds = %ReadInput.exit.lr.p
   %81 = load i8, ptr %38, align 1
   %82 = and i8 %81, 2
   %.not16.i.i = icmp eq i8 %82, 0
-  call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(27) %52, i8 0, i64 27, i1 false)
   %.val.i.i = load i16, ptr %34, align 1
   store i16 %.val.i.i, ptr %9, align 2
@@ -431,7 +431,7 @@ ReadInput.exit:                                   ; preds = %ReadInput.exit.lr.p
 
 GetButtonPacketType.exit.i.i.i:                   ; preds = %.sink.split.i.i.i.i, %91, %78
   %.0.i.i.i.i = phi i8 [ 61, %91 ], [ %95, %.sink.split.i.i.i.i ], [ 61, %78 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = load i8, ptr %31, align 8, !range !5, !noundef !6
   %97 = or disjoint i8 %96, 4
   store i8 18, ptr %8, align 1
@@ -446,7 +446,7 @@ GetButtonPacketType.exit.i.i.i:                   ; preds = %.sink.split.i.i.i.i
   br label %ResetButtonPacketType.exit.i.i
 
 ResetButtonPacketType.exit.i.i:                   ; preds = %99, %GetButtonPacketType.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %102 = select i1 %.not16.i.i, ptr @.str.15, ptr @.str.14
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, ptr noundef nonnull %102) #7
   %103 = load i8, ptr %56, align 2
@@ -474,7 +474,7 @@ ResetButtonPacketType.exit.i.i:                   ; preds = %99, %GetButtonPacke
   br label %HandleStatus.exit.i
 
 HandleStatus.exit.i:                              ; preds = %111, %109, %107, %104
-  call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %HandleInput.exit
 
 112:                                              ; preds = %73
@@ -483,7 +483,7 @@ HandleStatus.exit.i:                              ; preds = %111, %109, %107, %1
   br i1 %or.cond.i, label %114, label %141
 
 114:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(27) %41, i8 0, i64 27, i1 false)
   %.val.i16.i = load i16, ptr %34, align 1
   store i16 %.val.i16.i, ptr %6, align 2
@@ -495,7 +495,7 @@ HandleStatus.exit.i:                              ; preds = %111, %109, %107, %1
   br i1 %switch.i.i, label %116, label %HandleResponse.exit.i
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
   %117 = call fastcc zeroext i1 @ParseExtensionIdentifyResponse(ptr noundef nonnull %12, ptr noundef %7)
   br i1 %117, label %118, label %140
@@ -523,7 +523,7 @@ HandleStatus.exit.i:                              ; preds = %111, %109, %107, %1
   br i1 %123, label %130, label %136
 
 130:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 23, ptr %5, align 1
   %131 = load i8, ptr %31, align 8, !range !5, !noundef !6
   %132 = or disjoint i8 %131, 4
@@ -542,7 +542,7 @@ WriteOutput.exit.i.i.i:                           ; preds = %130
   br label %ReadRegister.exit.i.i
 
 ReadRegister.exit.i.i:                            ; preds = %WriteOutput.exit.i.i.i, %130
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split.i.i
 
 136:                                              ; preds = %129
@@ -561,11 +561,11 @@ ReadRegister.exit.i.i:                            ; preds = %WriteOutput.exit.i.
   br label %140
 
 140:                                              ; preds = %.sink.split.i.i, %116
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %HandleResponse.exit.i
 
 HandleResponse.exit.i:                            ; preds = %140, %114
-  call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HandleInput.exit
 
 141:                                              ; preds = %112
@@ -593,7 +593,7 @@ HandleResponse.exit.i:                            ; preds = %140, %114
 
 GetButtonPacketType.exit.i.i:                     ; preds = %.sink.split.i.i.i, %143
   %.0.i.i17.i = phi i32 [ 61, %143 ], [ %.3.i.i.i, %.sink.split.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %148 = load i8, ptr %27, align 4
   %149 = zext i8 %148 to i32
   %.not.i18.i = icmp eq i32 %.0.i.i17.i, %149
@@ -601,7 +601,7 @@ GetButtonPacketType.exit.i.i:                     ; preds = %.sink.split.i.i.i, 
 
 150:                                              ; preds = %GetButtonPacketType.exit.i.i
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.18, i32 noundef %.0.i.i17.i) #7
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %151 = load i8, ptr %31, align 8, !range !5, !noundef !6
   %152 = or disjoint i8 %151, 4
   store i8 18, ptr %3, align 1
@@ -617,7 +617,7 @@ GetButtonPacketType.exit.i.i:                     ; preds = %.sink.split.i.i.i, 
   br label %RequestButtonPacketType.exit.i.i
 
 RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr.i19.i = load i8, ptr %27, align 4
   br label %158
 
@@ -793,7 +793,7 @@ GetExtensionData.exit.i.i:                        ; preds = %193, %188, %182, %1
   br label %HandleButtonPacket.exit.i
 
 HandleButtonPacket.exit.i:                        ; preds = %GetExtensionData.exit.i.i, %197
-  call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HandleInput.exit
 
 199:                                              ; preds = %141
@@ -832,7 +832,7 @@ ReadInput.exit.thread:                            ; preds = %ReadInput.exit, %Ha
   br i1 %or.cond.not, label %214, label %236
 
 214:                                              ; preds = %210
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 23, ptr %2, align 1
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %216 = load i8, ptr %215, align 8, !range !5, !noundef !6
@@ -858,7 +858,7 @@ WriteOutput.exit.i.i:                             ; preds = %214
   br label %CheckMotionPlusConnection.exit
 
 CheckMotionPlusConnection.exit:                   ; preds = %214, %WriteOutput.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %227 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 1, ptr %227, align 8
   %228 = load i32, ptr %208, align 4
@@ -891,7 +891,7 @@ NeedsPeriodicMotionPlusCheck.exit:                ; preds = %CheckMotionPlusConn
   br i1 %or.cond44, label %248, label %240
 
 240:                                              ; preds = %236
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 21, ptr %10, align 1
   %241 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %242 = load i8, ptr %241, align 8, !range !5, !noundef !6
@@ -907,7 +907,7 @@ NeedsPeriodicMotionPlusCheck.exit:                ; preds = %CheckMotionPlusConn
 
 WriteOutput.exit:                                 ; preds = %240, %245
   store i64 %22, ptr %237, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %248
 
 248:                                              ; preds = %236, %207, %WriteOutput.exit, %ReadInput.exit.thread
@@ -1024,7 +1024,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
 
 GetButtonPacketType.exit.i.i:                     ; preds = %21, %.sink.split.i.i.i
   %.0.i.i.i = phi i8 [ %38, %.sink.split.i.i.i ], [ 61, %21 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %40 = load i8, ptr %39, align 8, !range !5, !noundef !6
   %41 = or disjoint i8 %40, 4
@@ -1042,10 +1042,10 @@ GetButtonPacketType.exit.i.i:                     ; preds = %21, %.sink.split.i.
   br label %InitializeExtension.exit
 
 InitializeExtension.exit:                         ; preds = %GetButtonPacketType.exit.i.i, %45
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 41
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 42
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %48, align 1
   store i8 0, ptr %49, align 1
   %50 = load i32, ptr %9, align 4
@@ -1053,7 +1053,7 @@ InitializeExtension.exit:                         ; preds = %GetButtonPacketType
   br i1 %51, label %GetMotionPlusState.exit.thread, label %52
 
 GetMotionPlusState.exit.thread:                   ; preds = %InitializeExtension.exit
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %NeedsPeriodicMotionPlusCheck.exit.thread.thread
 
 52:                                               ; preds = %InitializeExtension.exit
@@ -1097,7 +1097,7 @@ GetMotionPlusState.exit.thread:                   ; preds = %InitializeExtension
 
 GetMotionPlusState.exit:                          ; preds = %60, %63, %65, %67, %71
   %.pr = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %72 = icmp eq i32 %.pr, 131
   br i1 %72, label %NeedsPeriodicMotionPlusCheck.exit.thread.thread, label %NeedsPeriodicMotionPlusCheck.exit
 
@@ -1147,7 +1147,7 @@ NeedsPeriodicMotionPlusCheck.exit.thread.thread:  ; preds = %GetMotionPlusState.
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %93 = zext i1 %91 to i8
   store i8 %93, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %94 = load i8, ptr %39, align 8, !range !5, !noundef !6
   br i1 %91, label %95, label %110
 
@@ -1210,7 +1210,7 @@ NeedsPeriodicMotionPlusCheck.exit.thread.thread:  ; preds = %GetMotionPlusState.
   br label %UpdateSlotLED.exit
 
 UpdateSlotLED.exit:                               ; preds = %110, %113
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %116 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull @SDL_PlayerLEDHintChanged, ptr noundef nonnull %7) #7
   %117 = load i32, ptr %9, align 4
   %118 = icmp eq i32 %117, 131
@@ -1239,7 +1239,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_RumbleJoystick(ptr noundef 
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 16, ptr %5, align 1
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %12, ptr %14, align 1
@@ -1253,7 +1253,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_RumbleJoystick(ptr noundef 
 
 WriteOutput.exit:                                 ; preds = %13, %16
   store i8 %12, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19
 
 19:                                               ; preds = %WriteOutput.exit, %4
@@ -1376,7 +1376,7 @@ DeactivateMotionPlus.exit:                        ; preds = %28, %.split17.us.i.
 
 GetButtonPacketType.exit.i:                       ; preds = %.sink.split.i.i, %35
   %.0.i.i = phi i8 [ 61, %35 ], [ %41, %.sink.split.i.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %43 = load i8, ptr %42, align 8, !range !5, !noundef !6
   %44 = or disjoint i8 %43, 4
@@ -1394,7 +1394,7 @@ GetButtonPacketType.exit.i:                       ; preds = %.sink.split.i.i, %3
   br label %ResetButtonPacketType.exit
 
 ResetButtonPacketType.exit:                       ; preds = %GetButtonPacketType.exit.i, %48
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %ResetButtonPacketType.exit, %3
@@ -1422,16 +1422,10 @@ declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef)
 
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @ParseExtensionIdentifyResponse(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
@@ -1514,7 +1508,7 @@ define internal fastcc noundef zeroext i1 @ParseExtensionIdentifyResponse(ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @ReadRegister(ptr noundef %0, i32 noundef range(i32 10748158, 10879231) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 23, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
@@ -1607,7 +1601,7 @@ ReadInputSync.exit.thread:                        ; preds = %44, %WriteOutput.ex
 
 WriteOutput.exit.thread:                          ; preds = %25, %ReadInputSync.exit, %19, %WriteOutput.exit, %ReadInputSync.exit.thread
   %.0 = phi i1 [ true, %ReadInputSync.exit.thread ], [ false, %WriteOutput.exit ], [ false, %ReadInputSync.exit ], [ false, %19 ], [ false, %25 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -1630,7 +1624,7 @@ declare i32 @SDL_hid_read_timeout_REAL(ptr noundef, ptr noundef, i64 noundef, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @WriteRegister(ptr noundef %0, i32 noundef range(i32 10748144, 10748156) %1, i8 %.0.val) unnamed_addr #0 {
   %3 = alloca [22 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %3, i8 0, i64 22, i1 false)
   store i8 22, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1718,15 +1712,15 @@ ReadInputSync.exit:                               ; preds = %ReadInput.exit.i, %
   br label %48
 
 48:                                               ; preds = %ReadInputSync.exit, %42, %2, %45
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @HIDAPI_SetDeviceName(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1986,7 +1980,7 @@ UpdatePowerLevelWiiU.exit.i:                      ; preds = %108, %switch.lookup
   br i1 %135, label %136, label %HandleMotionPlusData.exit
 
 136:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
@@ -2046,7 +2040,7 @@ UpdatePowerLevelWiiU.exit.i:                      ; preds = %108, %switch.lookup
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %182 = load i64, ptr %181, align 8
   call void @SDL_SendJoystickSensor(i64 noundef %182, ptr noundef nonnull %1, i32 noundef 2, i64 noundef %182, ptr noundef nonnull %6, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HandleMotionPlusData.exit
 
 HandleMotionPlusData.exit:                        ; preds = %132, %136
@@ -2308,7 +2302,7 @@ PostStickCalibrated.exit55.i:                     ; preds = %325, %284
   br i1 %330, label %331, label %HandleNunchuckButtonData.exit
 
 331:                                              ; preds = %PostStickCalibrated.exit55.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %332 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %333 = load i8, ptr %332, align 1
   %334 = zext i8 %333 to i16
@@ -2373,7 +2367,7 @@ PostStickCalibrated.exit55.i:                     ; preds = %325, %284
   store float %375, ptr %376, align 4
   %377 = load i64, ptr %224, align 8
   call void @SDL_SendJoystickSensor(i64 noundef %377, ptr noundef nonnull %1, i32 noundef 3, i64 noundef %377, ptr noundef nonnull %5, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HandleNunchuckButtonData.exit
 
 HandleNunchuckButtonData.exit:                    ; preds = %360, %PostStickCalibrated.exit55.i, %204, %HandleWiiRemoteButtonData.exit
@@ -2854,7 +2848,7 @@ PostStickCalibrated.exit61.i:                     ; preds = %602, %561
   br label %HandleWiiRemoteButtonDataAsMainController.exit
 
 HandleWiiRemoteButtonDataAsMainController.exit:   ; preds = %395, %649, %608, %396, %HandleNunchuckButtonData.exit, %HandleWiiRemoteButtonData.exit
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %653 = load i8, ptr %652, align 1, !range !5, !noundef !6
   %654 = trunc nuw i8 %653 to i1
@@ -2912,7 +2906,7 @@ HandleWiiRemoteButtonDataAsMainController.exit:   ; preds = %395, %649, %608, %3
   br label %HandleWiiRemoteAccelData.exit
 
 HandleWiiRemoteAccelData.exit:                    ; preds = %HandleWiiRemoteButtonDataAsMainController.exit, %655
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HandleWiiUProButtonData.exit
 
 HandleWiiUProButtonData.exit:                     ; preds = %UpdatePowerLevelWiiU.exit.i, %10, %119, %HandleWiiRemoteAccelData.exit
@@ -2945,7 +2939,7 @@ define internal void @SDL_PlayerLEDHintChanged(ptr noundef captures(none) %0, pt
 
 10:                                               ; preds = %4
   store i8 %9, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   br i1 %6, label %13, label %29
@@ -3010,7 +3004,7 @@ define internal void @SDL_PlayerLEDHintChanged(ptr noundef captures(none) %0, pt
   br label %UpdateSlotLED.exit
 
 UpdateSlotLED.exit:                               ; preds = %29, %32
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %UpdateSlotLED.exit, %4
@@ -3019,13 +3013,19 @@ UpdateSlotLED.exit:                               ; preds = %29, %32
 
 declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0,1) }
 

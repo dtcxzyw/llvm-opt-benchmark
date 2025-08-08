@@ -773,7 +773,7 @@ if.then18:                                        ; preds = %if.then15
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.then15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %10 = load i32, ptr %backup_bytes_, align 8
   %cmp.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.i.i.i, label %while.end.i, label %while.body.i
@@ -800,7 +800,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv.exit
 
 _ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv.exit: ; preds = %while.end.i, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 if.end21:                                         ; preds = %if.end8
@@ -4262,10 +4262,10 @@ declare i32 @llvm.smin.i32(i32, i32) #22
 declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

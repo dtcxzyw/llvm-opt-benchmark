@@ -42,7 +42,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_IsEnabled() #0 {
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @HIDAPI_DriverPS5_IsSupportedDevice(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 zeroext %5, i32 %6, i32 %7, i32 %8, i32 %9) #0 {
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq i32 %2, 6
   br i1 %12, label %25, label %13
 
@@ -73,7 +73,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_IsSupportedDevice(ptr noundef reado
 
 25:                                               ; preds = %13, %15, %16, %19, %10
   %.0 = phi i1 [ true, %10 ], [ %or.cond, %19 ], [ true, %16 ], [ true, %15 ], [ false, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
 
@@ -81,8 +81,8 @@ define internal zeroext i1 @HIDAPI_DriverPS5_IsSupportedDevice(ptr noundef reado
 define internal zeroext i1 @HIDAPI_DriverPS5_InitDevice(ptr noundef %0) #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca [18 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noalias dereferenceable_or_null(192) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 192) #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %185, label %5
@@ -439,8 +439,8 @@ switch.lookup:                                    ; preds = %109
 
 185:                                              ; preds = %180, %171, %1, %183
   %.0 = phi i1 [ %184, %183 ], [ false, %1 ], [ true, %171 ], [ true, %180 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -476,7 +476,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_UpdateDevice(ptr noundef %0) #0 {
   %5 = alloca [128 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = tail call i64 @SDL_GetTicks_REAL() #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4
@@ -597,7 +597,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_UpdateDevice(ptr noundef %0) #0 {
   br label %HIDAPI_DriverPS5_IsPacketValid.exit, !llvm.loop !7
 
 90:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -95, ptr %4, align 1
   %91 = zext nneg i32 %61 to i64
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 %91
@@ -607,7 +607,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_UpdateDevice(ptr noundef %0) #0 {
   %96 = call i32 @SDL_crc32_REAL(i32 noundef %94, ptr noundef nonnull %5, i64 noundef %95) #9
   %97 = load i32, ptr %93, align 1
   %98 = icmp eq i32 %96, %97
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %98, label %99, label %HIDAPI_DriverPS5_IsPacketValid.exit, !llvm.loop !7
 
 99:                                               ; preds = %90, %64, %86, %83, %80, %77, %74, %71
@@ -825,7 +825,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit: ; preds = %186, %189
   br i1 %208, label %.critedge.i, label %HIDAPI_DriverPS5_IsPacketValid.exit
 
 .critedge.i:                                      ; preds = %206, %203, %200, %197
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %3, i8 0, i64 47, i1 false)
   %209 = load i8, ptr %41, align 4, !range !5, !noundef !6
   %210 = trunc nuw i8 %209 to i1
@@ -877,7 +877,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit: ; preds = %186, %189
 
 HIDAPI_DriverPS5_UpdateEffects.exit.i:            ; preds = %229, %226
   %230 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 47, i1 noundef zeroext false) #11
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 2, ptr %38, align 4
   %231 = call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %7, i32 noundef 24, i1 noundef zeroext false)
   br label %HIDAPI_DriverPS5_IsPacketValid.exit
@@ -921,7 +921,7 @@ HIDAPI_DriverPS5_IsPacketValid.exit:              ; preds = %60, %90, %HIDAPI_Dr
   br i1 %250, label %251, label %257
 
 251:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %2, i8 0, i64 78, i1 false)
   store i8 49, ptr %2, align 16
   %252 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -934,7 +934,7 @@ HIDAPI_DriverPS5_IsPacketValid.exit:              ; preds = %60, %90, %HIDAPI_Dr
   br label %256
 
 256:                                              ; preds = %254, %251
-  call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %HIDAPI_DriverPS5_TickleBluetooth.exit
 
 257:                                              ; preds = %246
@@ -1036,7 +1036,7 @@ HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %256, %257, %260
 .thread:                                          ; preds = %291, %294, %301, %298, %296
   %.lcssa8090 = phi i32 [ %.lcssa80, %291 ], [ %.lcssa80, %294 ], [ 1, %301 ], [ 1, %298 ], [ %.lcssa8091, %296 ]
   %305 = icmp eq i32 %.lcssa8090, 0
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %305
 }
 
@@ -1140,12 +1140,12 @@ define internal zeroext i1 @HIDAPI_DriverPS5_RumbleJoystick(ptr noundef readonly
   br i1 %.not10, label %HIDAPI_DriverPS5_UpdateEffects.exit, label %23
 
 HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %20, i8 0, i64 46, i1 false)
   store i8 2, ptr %6, align 1
   %21 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef 47, i1 noundef zeroext true) #11
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i8, ptr %9, align 4, !range !5
   %22 = trunc nuw i8 %.pre to i1
   br label %23
@@ -1159,7 +1159,7 @@ HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %17
   %28 = trunc nuw i16 %27 to i8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 102
   store i8 %28, ptr %29, align 2
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %5, i8 0, i64 47, i1 false)
   %30 = or i16 %3, %2
   %or.cond = icmp ugt i16 %30, 255
@@ -1195,7 +1195,7 @@ HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %17
 
 HIDAPI_DriverPS5_UpdateEffects.exit15:            ; preds = %23, %40
   %44 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 47, i1 noundef zeroext true) #11
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %HIDAPI_DriverPS5_UpdateEffects.exit15, %12
@@ -1314,7 +1314,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %.val = load ptr, ptr %6, align 8
   %23 = getelementptr i8, ptr %0, i64 128
   %.val9 = load ptr, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i8 5, ptr %4, align 16
   %24 = call i32 @SDL_hid_get_feature_report_REAL(ptr noundef %.val9, ptr noundef nonnull %4, i64 noundef 64) #9
@@ -1467,7 +1467,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   br i1 %exitcond.not.i, label %HIDAPI_DriverPS5_LoadCalibrationData.exit, label %124, !llvm.loop !8
 
 HIDAPI_DriverPS5_LoadCalibrationData.exit:        ; preds = %140, %22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %HIDAPI_DriverPS5_LoadCalibrationData.exit
@@ -1508,21 +1508,15 @@ declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef)
 
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare zeroext i1 @HIDAPI_SupportsPlaystationDetection(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
 
@@ -1545,7 +1539,7 @@ declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef captures(none) %0, i32 noundef range(i32 0, 25) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.DS5EffectsState_t, align 1
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
@@ -1742,7 +1736,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
 
 109:                                              ; preds = %107, %16
   %.0 = phi i1 [ true, %16 ], [ %108, %107 ]
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -1754,10 +1748,10 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(p
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
@@ -1839,7 +1833,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39: ; preds = %
 
 HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread: ; preds = %25, %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit
   store i8 1, ptr %17, align 1
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %5, i8 0, i64 47, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i8, ptr %51, align 4, !range !5, !noundef !6
@@ -1891,7 +1885,7 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread: ; preds = %25, %HIDAPI_Dr
 
 HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %57, %73, %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread
   %77 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 47, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %78 = tail call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %0, i32 noundef 24, i1 noundef zeroext false)
   %.pre35.pre = load i8, ptr %17, align 1, !range !5
   %79 = trunc nuw i8 %.pre35.pre to i1
@@ -1927,7 +1921,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   br i1 %85, label %91, label %97
 
 91:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -94, ptr %10, align 1
   %92 = call i32 @SDL_crc32_REAL(i32 noundef 0, ptr noundef nonnull %10, i64 noundef 1) #9
   %93 = zext nneg i32 %.029 to i64
@@ -1935,7 +1929,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   %95 = call i32 @SDL_crc32_REAL(i32 noundef %92, ptr noundef nonnull %6, i64 noundef %94) #9
   %96 = getelementptr inbounds nuw [78 x i8], ptr %6, i64 0, i64 %94
   store i32 %95, ptr %96, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %97
 
 97:                                               ; preds = %91, %87
@@ -1983,17 +1977,17 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
 
 122:                                              ; preds = %119, %.critedge, %97, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread, %14
   %.0 = phi i1 [ %80, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread ], [ %15, %14 ], [ false, %97 ], [ true, %.critedge ], [ %.not, %119 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @SDL_crc32_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2068,7 +2062,7 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit6:  ; preds = %4, %27
 
 33:                                               ; preds = %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit6
   store i8 1, ptr %30, align 1
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %3, i8 0, i64 47, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i8, ptr %34, align 4, !range !5, !noundef !6
@@ -2120,7 +2114,7 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit6:  ; preds = %4, %27
 
 HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %33, %56, %40
   %60 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 47, i1 noundef zeroext false) #11
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = tail call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %0, i32 noundef 24, i1 noundef zeroext false)
   br label %HIDAPI_DriverPS5_SetEnhancedMode.exit
 
@@ -2536,7 +2530,7 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketCommon(ptr nounde
   br i1 %106, label %107, label %297
 
 107:                                              ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %109 = load i8, ptr %108, align 1, !range !5, !noundef !6
   %110 = trunc nuw i8 %109 to i1
@@ -2795,7 +2789,7 @@ HIDAPI_DriverPS5_ApplyCalibrationData.exit173:    ; preds = %283, %285
   %296 = fmul float %295, 0x40239D0140000000
   store float %296, ptr %228, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 1, i64 noundef %.0149, ptr noundef nonnull %5, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %297
 
 297:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit173, %84
@@ -2912,7 +2906,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
 
 10:                                               ; preds = %4
   store i8 %9, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
@@ -3021,7 +3015,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
   br label %HIDAPI_DriverPS5_UpdateEffects.exit
 
 HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %22, %67
-  call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
 69:                                               ; preds = %HIDAPI_DriverPS5_UpdateEffects.exit, %4
@@ -3036,6 +3030,12 @@ declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #3
 
 declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
@@ -3046,10 +3046,10 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

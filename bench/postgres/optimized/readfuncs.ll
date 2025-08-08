@@ -370,7 +370,7 @@ define dso_local ptr @readBitmapset() local_unnamed_addr #0 {
 define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -423,7 +423,7 @@ define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
   br i1 %.not20, label %.preheader, label %28
 
 .preheader:                                       ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge, label %.lr.ph
@@ -475,15 +475,15 @@ define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
 50:                                               ; preds = %40
   %51 = trunc i64 %41 to i32
   %52 = call ptr @bms_add_member(ptr noundef %.01430, i32 noundef %51) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %54 = icmp eq ptr %53, null
   br i1 %54, label %._crit_edge, label %.lr.ph
 
 55:                                               ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.01430
 }
 
@@ -501,7 +501,7 @@ define dso_local noundef ptr @parseNodeString() local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call void @check_stack_depth() #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %12) #10
   %14 = load i32, ptr %12, align 4
@@ -516,7 +516,7 @@ define dso_local noundef ptr @parseNodeString() local_unnamed_addr #0 {
 18:                                               ; preds = %16
   %19 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %20 = call ptr @pg_strtok(ptr noundef nonnull %11) #10
   %21 = call ptr @pg_strtok(ptr noundef nonnull %11) #10
   %22 = load i32, ptr %11, align 4
@@ -552,7 +552,7 @@ _readAlias.exit:                                  ; preds = %18, %30, %32
   %36 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %36, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %2119
 
 38:                                               ; preds = %0
@@ -571,7 +571,7 @@ _readAlias.exit:                                  ; preds = %18, %30, %32
 41:                                               ; preds = %39
   %42 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 3, ptr %42, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %43 = call ptr @pg_strtok(ptr noundef nonnull %10) #10
   %44 = call ptr @pg_strtok(ptr noundef nonnull %10) #10
   %45 = load i32, ptr %10, align 4
@@ -700,7 +700,7 @@ _readRangeVar.exit:                               ; preds = %nullable_string.exi
   %110 = call ptr @pg_strtok(ptr noundef nonnull %10) #10
   %111 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store i32 -1, ptr %111, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2119
 
 112:                                              ; preds = %38
@@ -711,7 +711,7 @@ _readRangeVar.exit:                               ; preds = %nullable_string.exi
 114:                                              ; preds = %112
   %115 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 4, ptr %115, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = call ptr @pg_strtok(ptr noundef nonnull %9) #10
   %117 = call ptr @pg_strtok(ptr noundef nonnull %9) #10
   %118 = call i64 @strtol(ptr noundef nonnull captures(none) %117, ptr noundef null, i32 noundef 10) #10
@@ -784,7 +784,7 @@ _readRangeVar.exit:                               ; preds = %nullable_string.exi
   %169 = call ptr @pg_strtok(ptr noundef nonnull %9) #10
   %170 = getelementptr inbounds nuw i8, ptr %115, i64 124
   store i32 -1, ptr %170, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %2119
 
 171:                                              ; preds = %38
@@ -795,7 +795,7 @@ _readRangeVar.exit:                               ; preds = %nullable_string.exi
 173:                                              ; preds = %171
   %174 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 5, ptr %174, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %175 = call ptr @pg_strtok(ptr noundef nonnull %8) #10
   %176 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
@@ -887,7 +887,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   %226 = getelementptr inbounds nuw i8, ptr %174, i64 64
   %227 = zext i1 %225 to i8
   store i8 %227, ptr %226, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %2119
 
 228:                                              ; preds = %38
@@ -898,7 +898,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
 230:                                              ; preds = %228
   %231 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 6, ptr %231, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %232 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %233 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %234 = call i64 @strtol(ptr noundef nonnull captures(none) %233, ptr noundef null, i32 noundef 10) #10
@@ -961,7 +961,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   %281 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %282 = getelementptr inbounds nuw i8, ptr %231, i64 48
   store i32 -1, ptr %282, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2119
 
 283:                                              ; preds = %16
@@ -972,7 +972,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
 285:                                              ; preds = %283
   %286 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 7, ptr %286, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %287 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
   %288 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
   %289 = call i64 @strtoul(ptr noundef captures(none) %288, ptr noundef null, i32 noundef 10) #10
@@ -1033,7 +1033,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   br label %_readConst.exit
 
 _readConst.exit:                                  ; preds = %325, %327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %2119
 
 332:                                              ; preds = %283
@@ -1044,7 +1044,7 @@ _readConst.exit:                                  ; preds = %325, %327
 334:                                              ; preds = %332
   %335 = call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %335, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %336 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %337 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %338 = call i64 @strtol(ptr noundef nonnull captures(none) %337, ptr noundef null, i32 noundef 10) #10
@@ -1079,7 +1079,7 @@ _readConst.exit:                                  ; preds = %325, %327
   %362 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %363 = getelementptr inbounds nuw i8, ptr %335, i64 24
   store i32 -1, ptr %363, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %2119
 
 364:                                              ; preds = %38
@@ -1100,7 +1100,7 @@ _readConst.exit:                                  ; preds = %325, %327
 369:                                              ; preds = %367
   %370 = call noundef ptr @palloc0(i64 noundef 96) #10
   store i32 9, ptr %370, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %371 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %372 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %373 = call i64 @strtoul(ptr noundef captures(none) %372, ptr noundef null, i32 noundef 10) #10
@@ -1224,7 +1224,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   %465 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %466 = getelementptr inbounds nuw i8, ptr %370, i64 92
   store i32 -1, ptr %466, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %2119
 
 467:                                              ; preds = %364
@@ -1235,7 +1235,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
 469:                                              ; preds = %467
   %470 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 10, ptr %470, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %471 = call ptr @pg_strtok(ptr noundef nonnull %3) #10
   %472 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %473 = getelementptr inbounds nuw i8, ptr %470, i64 8
@@ -1258,7 +1258,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   %486 = call ptr @pg_strtok(ptr noundef nonnull %3) #10
   %487 = getelementptr inbounds nuw i8, ptr %470, i64 36
   store i32 -1, ptr %487, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %2119
 
 .thread664.thread:                                ; preds = %171
@@ -1269,7 +1269,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
 489:                                              ; preds = %.thread664.thread
   %490 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 11, ptr %490, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %491 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %492 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %493 = call i64 @strtoul(ptr noundef captures(none) %492, ptr noundef null, i32 noundef 10) #10
@@ -1330,7 +1330,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   %538 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %539 = getelementptr inbounds nuw i8, ptr %490, i64 56
   store i32 -1, ptr %539, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %2119
 
 540:                                              ; preds = %364
@@ -1341,7 +1341,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
 542:                                              ; preds = %540
   %543 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 12, ptr %543, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %544 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %545 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %546 = call i64 @strtoul(ptr noundef captures(none) %545, ptr noundef null, i32 noundef 10) #10
@@ -1365,7 +1365,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   %561 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %562 = getelementptr inbounds nuw i8, ptr %543, i64 16
   store ptr %561, ptr %562, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %2119
 
 563:                                              ; preds = %364
@@ -5019,23 +5019,20 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
 
 2119:                                             ; preds = %2115, %2110, %2105, %2101, %2096, %2091, %2086, %2081, %2076, %2072, %2067, %2062, %2057, %2053, %2048, %2043, %2038, %2033, %2028, %2022, %2017, %2013, %2008, %2003, %1998, %1993, %1988, %1983, %1978, %1973, %1968, %1963, %1958, %1954, %1950, %1945, %1940, %1935, %1930, %1925, %1920, %1915, %1910, %1905, %1900, %1895, %1890, %1885, %1880, %1875, %1870, %1866, %1861, %1856, %1852, %1847, %1842, %1838, %1833, %1828, %1823, %1819, %1813, %1808, %1804, %1799, %1794, %1790, %1785, %1781, %1776, %1771, %1766, %1761, %1756, %1751, %1746, %1741, %1736, %1731, %1726, %1721, %1716, %1711, %1707, %1702, %1696, %1691, %1686, %1682, %1677, %1672, %1667, %1662, %1657, %1652, %1647, %1643, %1638, %1633, %1628, %1624, %1619, %1614, %1609, %1604, %1599, %1594, %1590, %1585, %1580, %1575, %1570, %1565, %1561, %1556, %1551, %1546, %1541, %1536, %1531, %1526, %1521, %1516, %1512, %1507, %1502, %1497, %1492, %1487, %1482, %1478, %1473, %1468, %1463, %1458, %1453, %1448, %1443, %1438, %1433, %1428, %1424, %1419, %1414, %1410, %1405, %1399, %1394, %1389, %1384, %1379, %1374, %1369, %1364, %1359, %1354, %1350, %1345, %1340, %1335, %1330, %1324, %1319, %1314, %1309, %1304, %1299, %1294, %1289, %1284, %1279, %1274, %1269, %1264, %1259, %1254, %1249, %1245, %1241, %1236, %1231, %1226, %1221, %1216, %1210, %1205, %1199, %1195, %1190, %1185, %1180, %1175, %1170, %1165, %1161, %1156, %1151, %1146, %1142, %1138, %1134, %1129, %1124, %1119, %1114, %1109, %1104, %1099, %1094, %1089, %1085, %1080, %1075, %1070, %1065, %1060, %1055, %1050, %1045, %1041, %1036, %1031, %1026, %1021, %1016, %1011, %1006, %1001, %997, %993, %988, %983, %978, %973, %968, %963, %958, %953, %948, %943, %939, %934, %929, %924, %919, %914, %909, %904, %900, %895, %890, %886, %881, %877, %872, %868, %864, %860, %855, %850, %845, %840, %836, %831, %826, %820, %815, %810, %805, %800, %795, %789, %785, %779, %774, %769, %764, %759, %754, %748, %743, %738, %733, %729, %724, %706, %690, %673, %669, %653, %638, %625, %621, %617, %606, %602, %596, %592, %587, %582, %577, %573, %565, %542, %489, %469, %_readAggref.exit, %334, %_readConst.exit, %230, %_readIntoClause.exit, %114, %_readRangeVar.exit, %_readAlias.exit
   %.0 = phi ptr [ %19, %_readAlias.exit ], [ %42, %_readRangeVar.exit ], [ %115, %114 ], [ %174, %_readIntoClause.exit ], [ %231, %230 ], [ %286, %_readConst.exit ], [ %335, %334 ], [ %370, %_readAggref.exit ], [ %470, %469 ], [ %490, %489 ], [ %543, %542 ], [ %566, %565 ], [ %574, %573 ], [ %578, %577 ], [ %583, %582 ], [ %588, %587 ], [ %593, %592 ], [ %597, %596 ], [ %603, %602 ], [ %607, %606 ], [ %618, %617 ], [ %622, %621 ], [ %626, %625 ], [ %639, %638 ], [ %654, %653 ], [ %670, %669 ], [ %674, %673 ], [ %691, %690 ], [ %707, %706 ], [ %725, %724 ], [ %730, %729 ], [ %734, %733 ], [ %739, %738 ], [ %744, %743 ], [ %749, %748 ], [ %755, %754 ], [ %760, %759 ], [ %765, %764 ], [ %770, %769 ], [ %775, %774 ], [ %780, %779 ], [ %786, %785 ], [ %790, %789 ], [ %796, %795 ], [ %801, %800 ], [ %806, %805 ], [ %811, %810 ], [ %816, %815 ], [ %821, %820 ], [ %827, %826 ], [ %832, %831 ], [ %837, %836 ], [ %841, %840 ], [ %846, %845 ], [ %851, %850 ], [ %856, %855 ], [ %861, %860 ], [ %865, %864 ], [ %869, %868 ], [ %873, %872 ], [ %878, %877 ], [ %882, %881 ], [ %887, %886 ], [ %891, %890 ], [ %896, %895 ], [ %901, %900 ], [ %905, %904 ], [ %910, %909 ], [ %915, %914 ], [ %920, %919 ], [ %925, %924 ], [ %930, %929 ], [ %935, %934 ], [ %940, %939 ], [ %944, %943 ], [ %949, %948 ], [ %954, %953 ], [ %959, %958 ], [ %964, %963 ], [ %969, %968 ], [ %974, %973 ], [ %979, %978 ], [ %984, %983 ], [ %989, %988 ], [ %994, %993 ], [ %998, %997 ], [ %1002, %1001 ], [ %1007, %1006 ], [ %1012, %1011 ], [ %1017, %1016 ], [ %1022, %1021 ], [ %1027, %1026 ], [ %1032, %1031 ], [ %1037, %1036 ], [ %1042, %1041 ], [ %1046, %1045 ], [ %1051, %1050 ], [ %1056, %1055 ], [ %1061, %1060 ], [ %1066, %1065 ], [ %1071, %1070 ], [ %1076, %1075 ], [ %1081, %1080 ], [ %1086, %1085 ], [ %1090, %1089 ], [ %1095, %1094 ], [ %1100, %1099 ], [ %1105, %1104 ], [ %1110, %1109 ], [ %1115, %1114 ], [ %1120, %1119 ], [ %1125, %1124 ], [ %1130, %1129 ], [ %1135, %1134 ], [ %1139, %1138 ], [ %1143, %1142 ], [ %1147, %1146 ], [ %1152, %1151 ], [ %1157, %1156 ], [ %1162, %1161 ], [ %1166, %1165 ], [ %1171, %1170 ], [ %1176, %1175 ], [ %1181, %1180 ], [ %1186, %1185 ], [ %1191, %1190 ], [ %1196, %1195 ], [ %1200, %1199 ], [ %1206, %1205 ], [ %1211, %1210 ], [ %1217, %1216 ], [ %1222, %1221 ], [ %1227, %1226 ], [ %1232, %1231 ], [ %1237, %1236 ], [ %1242, %1241 ], [ %1246, %1245 ], [ %1250, %1249 ], [ %1255, %1254 ], [ %1260, %1259 ], [ %1265, %1264 ], [ %1270, %1269 ], [ %1275, %1274 ], [ %1280, %1279 ], [ %1285, %1284 ], [ %1290, %1289 ], [ %1295, %1294 ], [ %1300, %1299 ], [ %1305, %1304 ], [ %1310, %1309 ], [ %1315, %1314 ], [ %1320, %1319 ], [ %1325, %1324 ], [ %1331, %1330 ], [ %1336, %1335 ], [ %1341, %1340 ], [ %1346, %1345 ], [ %1351, %1350 ], [ %1355, %1354 ], [ %1360, %1359 ], [ %1365, %1364 ], [ %1370, %1369 ], [ %1375, %1374 ], [ %1380, %1379 ], [ %1385, %1384 ], [ %1390, %1389 ], [ %1395, %1394 ], [ %1400, %1399 ], [ %1406, %1405 ], [ %1411, %1410 ], [ %1415, %1414 ], [ %1420, %1419 ], [ %1425, %1424 ], [ %1429, %1428 ], [ %1434, %1433 ], [ %1439, %1438 ], [ %1444, %1443 ], [ %1449, %1448 ], [ %1454, %1453 ], [ %1459, %1458 ], [ %1464, %1463 ], [ %1469, %1468 ], [ %1474, %1473 ], [ %1479, %1478 ], [ %1483, %1482 ], [ %1488, %1487 ], [ %1493, %1492 ], [ %1498, %1497 ], [ %1503, %1502 ], [ %1508, %1507 ], [ %1513, %1512 ], [ %1517, %1516 ], [ %1522, %1521 ], [ %1527, %1526 ], [ %1532, %1531 ], [ %1537, %1536 ], [ %1542, %1541 ], [ %1547, %1546 ], [ %1552, %1551 ], [ %1557, %1556 ], [ %1562, %1561 ], [ %1566, %1565 ], [ %1571, %1570 ], [ %1576, %1575 ], [ %1581, %1580 ], [ %1586, %1585 ], [ %1591, %1590 ], [ %1595, %1594 ], [ %1600, %1599 ], [ %1605, %1604 ], [ %1610, %1609 ], [ %1615, %1614 ], [ %1620, %1619 ], [ %1625, %1624 ], [ %1629, %1628 ], [ %1634, %1633 ], [ %1639, %1638 ], [ %1644, %1643 ], [ %1648, %1647 ], [ %1653, %1652 ], [ %1658, %1657 ], [ %1663, %1662 ], [ %1668, %1667 ], [ %1673, %1672 ], [ %1678, %1677 ], [ %1683, %1682 ], [ %1687, %1686 ], [ %1692, %1691 ], [ %1697, %1696 ], [ %1703, %1702 ], [ %1708, %1707 ], [ %1712, %1711 ], [ %1717, %1716 ], [ %1722, %1721 ], [ %1727, %1726 ], [ %1732, %1731 ], [ %1737, %1736 ], [ %1742, %1741 ], [ %1747, %1746 ], [ %1752, %1751 ], [ %1757, %1756 ], [ %1762, %1761 ], [ %1767, %1766 ], [ %1772, %1771 ], [ %1777, %1776 ], [ %1782, %1781 ], [ %1786, %1785 ], [ %1791, %1790 ], [ %1795, %1794 ], [ %1800, %1799 ], [ %1805, %1804 ], [ %1809, %1808 ], [ %1814, %1813 ], [ %1820, %1819 ], [ %1824, %1823 ], [ %1829, %1828 ], [ %1834, %1833 ], [ %1839, %1838 ], [ %1843, %1842 ], [ %1848, %1847 ], [ %1853, %1852 ], [ %1857, %1856 ], [ %1862, %1861 ], [ %1867, %1866 ], [ %1871, %1870 ], [ %1876, %1875 ], [ %1881, %1880 ], [ %1886, %1885 ], [ %1891, %1890 ], [ %1896, %1895 ], [ %1901, %1900 ], [ %1906, %1905 ], [ %1911, %1910 ], [ %1916, %1915 ], [ %1921, %1920 ], [ %1926, %1925 ], [ %1931, %1930 ], [ %1936, %1935 ], [ %1941, %1940 ], [ %1946, %1945 ], [ %1951, %1950 ], [ %1955, %1954 ], [ %1959, %1958 ], [ %1964, %1963 ], [ %1969, %1968 ], [ %1974, %1973 ], [ %1979, %1978 ], [ %1984, %1983 ], [ %1989, %1988 ], [ %1994, %1993 ], [ %1999, %1998 ], [ %2004, %2003 ], [ %2009, %2008 ], [ %2014, %2013 ], [ %2018, %2017 ], [ %2023, %2022 ], [ %2029, %2028 ], [ %2034, %2033 ], [ %2039, %2038 ], [ %2044, %2043 ], [ %2049, %2048 ], [ %2054, %2053 ], [ %2058, %2057 ], [ %2063, %2062 ], [ %2068, %2067 ], [ %2073, %2072 ], [ %2077, %2076 ], [ %2082, %2081 ], [ %2087, %2086 ], [ %2092, %2091 ], [ %2097, %2096 ], [ %2102, %2101 ], [ %2106, %2105 ], [ %2111, %2110 ], [ %2116, %2115 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @check_stack_depth() local_unnamed_addr #1
 
-declare void @check_stack_depth() local_unnamed_addr #2
-
-declare ptr @pg_strtok(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_strtok(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_readMergeSupportFunc() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 13, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5052,7 +5049,7 @@ define internal fastcc noundef ptr @_readMergeSupportFunc() unnamed_addr #0 {
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -1, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5061,7 +5058,7 @@ define internal fastcc noundef ptr @_readSubscriptingRef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 14, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5108,7 +5105,7 @@ define internal fastcc noundef ptr @_readSubscriptingRef() unnamed_addr #0 {
   %38 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %38, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5117,7 +5114,7 @@ define internal fastcc noundef ptr @_readFuncExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 15, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5170,7 +5167,7 @@ define internal fastcc noundef ptr @_readFuncExpr() unnamed_addr #0 {
   %44 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %45, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5179,7 +5176,7 @@ define internal fastcc noundef ptr @_readNamedArgExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 16, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5225,7 +5222,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %28, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5234,7 +5231,7 @@ define internal fastcc noundef ptr @_readOpExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 17, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5280,7 +5277,7 @@ define internal fastcc noundef ptr @_readOpExpr() unnamed_addr #0 {
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5289,7 +5286,7 @@ define internal fastcc noundef ptr @_readDistinctExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 18, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5335,7 +5332,7 @@ define internal fastcc noundef ptr @_readDistinctExpr() unnamed_addr #0 {
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5344,7 +5341,7 @@ define internal fastcc noundef ptr @_readNullIfExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 19, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5390,7 +5387,7 @@ define internal fastcc noundef ptr @_readNullIfExpr() unnamed_addr #0 {
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5399,7 +5396,7 @@ define internal fastcc noundef ptr @_readScalarArrayOpExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 20, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5445,7 +5442,7 @@ define internal fastcc noundef ptr @_readScalarArrayOpExpr() unnamed_addr #0 {
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5454,7 +5451,7 @@ define internal fastcc noundef ptr @_readBoolExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 21, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -5525,7 +5522,7 @@ sub_117:                                          ; preds = %sub_0
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5534,7 +5531,7 @@ define internal fastcc noundef ptr @_readSubLink() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5563,7 +5560,7 @@ define internal fastcc noundef ptr @_readSubLink() unnamed_addr #0 {
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5572,7 +5569,7 @@ define internal fastcc noundef ptr @_readSubPlan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 96) #10
   store i32 23, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5685,7 +5682,7 @@ nullable_string.exit:                             ; preds = %0, %29, %31
   %82 = call double @strtod(ptr noundef nonnull captures(none) %81, ptr noundef null) #10
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store double %82, ptr %83, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5694,12 +5691,12 @@ define internal fastcc noundef ptr @_readAlternativeSubPlan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 24, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5708,7 +5705,7 @@ define internal fastcc noundef ptr @_readFieldSelect() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 25, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5737,7 +5734,7 @@ define internal fastcc noundef ptr @_readFieldSelect() unnamed_addr #0 {
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %24, ptr %25, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5746,7 +5743,7 @@ define internal fastcc noundef ptr @_readFieldStore() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 26, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5765,7 +5762,7 @@ define internal fastcc noundef ptr @_readFieldStore() unnamed_addr #0 {
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %15, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5774,7 +5771,7 @@ define internal fastcc noundef ptr @_readRelabelType() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 27, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5807,7 +5804,7 @@ define internal fastcc noundef ptr @_readRelabelType() unnamed_addr #0 {
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5816,7 +5813,7 @@ define internal fastcc noundef ptr @_readCoerceViaIO() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 28, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5843,7 +5840,7 @@ define internal fastcc noundef ptr @_readCoerceViaIO() unnamed_addr #0 {
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5852,7 +5849,7 @@ define internal fastcc noundef ptr @_readArrayCoerceExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 29, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5889,7 +5886,7 @@ define internal fastcc noundef ptr @_readArrayCoerceExpr() unnamed_addr #0 {
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5898,7 +5895,7 @@ define internal fastcc noundef ptr @_readConvertRowtypeExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 30, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5919,7 +5916,7 @@ define internal fastcc noundef ptr @_readConvertRowtypeExpr() unnamed_addr #0 {
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5928,7 +5925,7 @@ define internal fastcc noundef ptr @_readCollateExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 31, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5943,7 +5940,7 @@ define internal fastcc noundef ptr @_readCollateExpr() unnamed_addr #0 {
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5952,7 +5949,7 @@ define internal fastcc noundef ptr @_readCaseExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 32, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -5981,7 +5978,7 @@ define internal fastcc noundef ptr @_readCaseExpr() unnamed_addr #0 {
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -5990,7 +5987,7 @@ define internal fastcc noundef ptr @_readCaseWhen() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 33, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6003,7 +6000,7 @@ define internal fastcc noundef ptr @_readCaseWhen() unnamed_addr #0 {
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6012,7 +6009,7 @@ define internal fastcc noundef ptr @_readCaseTestExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 34, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6031,7 +6028,7 @@ define internal fastcc noundef ptr @_readCaseTestExpr() unnamed_addr #0 {
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6040,7 +6037,7 @@ define internal fastcc noundef ptr @_readArrayExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 35, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6074,7 +6071,7 @@ define internal fastcc noundef ptr @_readArrayExpr() unnamed_addr #0 {
   %28 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %29, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6083,7 +6080,7 @@ define internal fastcc noundef ptr @_readRowExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 36, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6108,7 +6105,7 @@ define internal fastcc noundef ptr @_readRowExpr() unnamed_addr #0 {
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6117,7 +6114,7 @@ define internal fastcc noundef ptr @_readRowCompareExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 37, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6144,7 +6141,7 @@ define internal fastcc noundef ptr @_readRowCompareExpr() unnamed_addr #0 {
   %21 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %21, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6153,7 +6150,7 @@ define internal fastcc noundef ptr @_readCoalesceExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 38, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6174,7 +6171,7 @@ define internal fastcc noundef ptr @_readCoalesceExpr() unnamed_addr #0 {
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6183,7 +6180,7 @@ define internal fastcc noundef ptr @_readMinMaxExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 39, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6216,7 +6213,7 @@ define internal fastcc noundef ptr @_readMinMaxExpr() unnamed_addr #0 {
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6225,7 +6222,7 @@ define internal fastcc noundef ptr @_readSQLValueFunction() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6248,7 +6245,7 @@ define internal fastcc noundef ptr @_readSQLValueFunction() unnamed_addr #0 {
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %20, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6257,7 +6254,7 @@ define internal fastcc noundef ptr @_readXmlExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6336,7 +6333,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %54 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 -1, ptr %55, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6345,7 +6342,7 @@ define internal fastcc noundef ptr @_readJsonFormat() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 42, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6362,7 +6359,7 @@ define internal fastcc noundef ptr @_readJsonFormat() unnamed_addr #0 {
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -1, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6371,7 +6368,7 @@ define internal fastcc noundef ptr @_readJsonReturning() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 43, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6388,7 +6385,7 @@ define internal fastcc noundef ptr @_readJsonReturning() unnamed_addr #0 {
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6397,7 +6394,7 @@ define internal fastcc noundef ptr @_readJsonValueExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 44, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6410,7 +6407,7 @@ define internal fastcc noundef ptr @_readJsonValueExpr() unnamed_addr #0 {
   %10 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6419,7 +6416,7 @@ define internal fastcc noundef ptr @_readJsonConstructorExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 45, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6460,7 +6457,7 @@ define internal fastcc noundef ptr @_readJsonConstructorExpr() unnamed_addr #0 {
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 -1, ptr %34, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6469,7 +6466,7 @@ define internal fastcc noundef ptr @_readJsonIsPredicate() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 46, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6495,7 +6492,7 @@ define internal fastcc noundef ptr @_readJsonIsPredicate() unnamed_addr #0 {
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6504,7 +6501,7 @@ define internal fastcc noundef ptr @_readJsonBehavior() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 47, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6526,7 +6523,7 @@ define internal fastcc noundef ptr @_readJsonBehavior() unnamed_addr #0 {
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %19, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6535,7 +6532,7 @@ define internal fastcc noundef ptr @_readJsonExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 48, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6642,7 +6639,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %76 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 -1, ptr %77, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6651,7 +6648,7 @@ define internal fastcc noundef ptr @_readJsonTablePath() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 49, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6687,7 +6684,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6696,7 +6693,7 @@ define internal fastcc noundef ptr @_readJsonTablePathScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 50, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6724,7 +6721,7 @@ define internal fastcc noundef ptr @_readJsonTablePathScan() unnamed_addr #0 {
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %23, ptr %24, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6733,7 +6730,7 @@ define internal fastcc noundef ptr @_readJsonTableSiblingJoin() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 51, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6742,7 +6739,7 @@ define internal fastcc noundef ptr @_readJsonTableSiblingJoin() unnamed_addr #0 
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6751,7 +6748,7 @@ define internal fastcc noundef ptr @_readNullTest() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 52, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6773,7 +6770,7 @@ define internal fastcc noundef ptr @_readNullTest() unnamed_addr #0 {
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6782,7 +6779,7 @@ define internal fastcc noundef ptr @_readBooleanTest() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6797,7 +6794,7 @@ define internal fastcc noundef ptr @_readBooleanTest() unnamed_addr #0 {
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6806,7 +6803,7 @@ define internal fastcc noundef ptr @_readMergeAction() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 54, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6837,7 +6834,7 @@ define internal fastcc noundef ptr @_readMergeAction() unnamed_addr #0 {
   %25 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %25, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6846,7 +6843,7 @@ define internal fastcc noundef ptr @_readCoerceToDomain() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 55, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6879,7 +6876,7 @@ define internal fastcc noundef ptr @_readCoerceToDomain() unnamed_addr #0 {
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6888,7 +6885,7 @@ define internal fastcc noundef ptr @_readCoerceToDomainValue() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 56, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6911,7 +6908,7 @@ define internal fastcc noundef ptr @_readCoerceToDomainValue() unnamed_addr #0 {
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %20, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6920,7 +6917,7 @@ define internal fastcc noundef ptr @_readSetToDefault() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 57, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6943,7 +6940,7 @@ define internal fastcc noundef ptr @_readSetToDefault() unnamed_addr #0 {
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %20, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -6952,7 +6949,7 @@ define internal fastcc noundef ptr @_readCurrentOfExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 58, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -6996,7 +6993,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %26, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7005,7 +7002,7 @@ define internal fastcc noundef ptr @_readNextValueExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 12) #10
   store i32 59, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -7018,7 +7015,7 @@ define internal fastcc noundef ptr @_readNextValueExpr() unnamed_addr #0 {
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7027,7 +7024,7 @@ define internal fastcc noundef ptr @_readInferenceElem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 60, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7044,7 +7041,7 @@ define internal fastcc noundef ptr @_readInferenceElem() unnamed_addr #0 {
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7053,7 +7050,7 @@ define internal fastcc noundef ptr @_readReturningExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 61, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -7071,7 +7068,7 @@ define internal fastcc noundef ptr @_readReturningExpr() unnamed_addr #0 {
   %15 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %15, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7080,7 +7077,7 @@ define internal fastcc noundef ptr @_readTargetEntry() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 62, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7147,7 +7144,7 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 42
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7156,14 +7153,14 @@ define internal fastcc noundef ptr @_readRangeTblRef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 63, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7172,7 +7169,7 @@ define internal fastcc noundef ptr @_readJoinExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 64, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -7216,7 +7213,7 @@ define internal fastcc noundef ptr @_readJoinExpr() unnamed_addr #0 {
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %35, ptr %36, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7225,7 +7222,7 @@ define internal fastcc noundef ptr @_readFromExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 65, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7234,7 +7231,7 @@ define internal fastcc noundef ptr @_readFromExpr() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7243,7 +7240,7 @@ define internal fastcc noundef ptr @_readOnConflictExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 66, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -7282,7 +7279,7 @@ define internal fastcc noundef ptr @_readOnConflictExpr() unnamed_addr #0 {
   %31 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %31, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7291,7 +7288,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 280) #10
   store i32 67, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -7579,7 +7576,7 @@ nullable_string.exit69:                           ; preds = %nullable_string.exi
   %212 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %213 = getelementptr inbounds nuw i8, ptr %2, i64 276
   store i32 -1, ptr %213, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7588,7 +7585,7 @@ define internal fastcc noundef ptr @_readTypeName() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 68, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7631,7 +7628,7 @@ define internal fastcc noundef ptr @_readTypeName() unnamed_addr #0 {
   %35 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 -1, ptr %36, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7640,7 +7637,7 @@ define internal fastcc noundef ptr @_readColumnRef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 69, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7649,7 +7646,7 @@ define internal fastcc noundef ptr @_readColumnRef() unnamed_addr #0 {
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7658,7 +7655,7 @@ define internal fastcc noundef ptr @_readParamRef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 12) #10
   store i32 70, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -7669,7 +7666,7 @@ define internal fastcc noundef ptr @_readParamRef() unnamed_addr #0 {
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %10, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7678,7 +7675,7 @@ define internal fastcc noundef ptr @_readA_Expr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 71, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = load i32, ptr %1, align 4
   switch i32 %4, label %.thread66 [
@@ -7896,7 +7893,7 @@ sub_086:                                          ; preds = %0
   %107 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %108, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7905,7 +7902,7 @@ define internal fastcc noundef ptr @_readA_Const() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 4
@@ -7972,7 +7969,7 @@ define internal fastcc noundef ptr @_readA_Const() unnamed_addr #0 {
   %32 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %33, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -7981,7 +7978,7 @@ define internal fastcc noundef ptr @_readTypeCast() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 73, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7994,7 +7991,7 @@ define internal fastcc noundef ptr @_readTypeCast() unnamed_addr #0 {
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8003,7 +8000,7 @@ define internal fastcc noundef ptr @_readCollateClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 74, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8016,7 +8013,7 @@ define internal fastcc noundef ptr @_readCollateClause() unnamed_addr #0 {
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8025,7 +8022,7 @@ define internal fastcc noundef ptr @_readRoleSpec() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -8067,7 +8064,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8076,7 +8073,7 @@ define internal fastcc noundef ptr @_readFuncCall() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 76, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8135,7 +8132,7 @@ define internal fastcc noundef ptr @_readFuncCall() unnamed_addr #0 {
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 -1, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8144,7 +8141,7 @@ define internal fastcc noundef ptr @_readA_Indices() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 78, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -8160,7 +8157,7 @@ define internal fastcc noundef ptr @_readA_Indices() unnamed_addr #0 {
   %13 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %13, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8169,7 +8166,7 @@ define internal fastcc noundef ptr @_readA_Indirection() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 79, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8178,7 +8175,7 @@ define internal fastcc noundef ptr @_readA_Indirection() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8187,7 +8184,7 @@ define internal fastcc noundef ptr @_readA_ArrayExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 80, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8196,7 +8193,7 @@ define internal fastcc noundef ptr @_readA_ArrayExpr() unnamed_addr #0 {
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8205,7 +8202,7 @@ define internal fastcc noundef ptr @_readResTarget() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -8249,7 +8246,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8258,7 +8255,7 @@ define internal fastcc noundef ptr @_readMultiAssignRef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 82, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8275,7 +8272,7 @@ define internal fastcc noundef ptr @_readMultiAssignRef() unnamed_addr #0 {
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8284,7 +8281,7 @@ define internal fastcc noundef ptr @_readSortBy() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 83, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8309,7 +8306,7 @@ define internal fastcc noundef ptr @_readSortBy() unnamed_addr #0 {
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8318,7 +8315,7 @@ define internal fastcc noundef ptr @_readWindowDef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -8407,7 +8404,7 @@ nullable_string.exit13:                           ; preds = %nullable_string.exi
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 -1, ptr %52, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8416,7 +8413,7 @@ define internal fastcc noundef ptr @_readRangeSubselect() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 85, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -8432,7 +8429,7 @@ define internal fastcc noundef ptr @_readRangeSubselect() unnamed_addr #0 {
   %13 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %13, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8441,7 +8438,7 @@ define internal fastcc noundef ptr @_readRangeFunction() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 86, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -8475,7 +8472,7 @@ define internal fastcc noundef ptr @_readRangeFunction() unnamed_addr #0 {
   %28 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %28, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8484,7 +8481,7 @@ define internal fastcc noundef ptr @_readRangeTableFunc() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 87, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -8516,7 +8513,7 @@ define internal fastcc noundef ptr @_readRangeTableFunc() unnamed_addr #0 {
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 -1, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8525,7 +8522,7 @@ define internal fastcc noundef ptr @_readRangeTableFuncCol() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 88, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -8587,7 +8584,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %40 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 -1, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8596,7 +8593,7 @@ define internal fastcc noundef ptr @_readRangeTableSample() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 89, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8617,7 +8614,7 @@ define internal fastcc noundef ptr @_readRangeTableSample() unnamed_addr #0 {
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8626,7 +8623,7 @@ define internal fastcc noundef ptr @_readColumnDef() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -8845,7 +8842,7 @@ nullable_string.exit42:                           ; preds = %69, %82, %84
   %137 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 -1, ptr %138, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8854,7 +8851,7 @@ define internal fastcc noundef ptr @_readTableLikeClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 91, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8871,7 +8868,7 @@ define internal fastcc noundef ptr @_readTableLikeClause() unnamed_addr #0 {
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8880,7 +8877,7 @@ define internal fastcc noundef ptr @_readIndexElem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 92, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -8971,7 +8968,7 @@ nullable_string.exit14:                           ; preds = %nullable_string.exi
   %53 = trunc i64 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %53, ptr %54, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -8980,7 +8977,7 @@ define internal fastcc noundef ptr @_readDefElem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 93, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -9057,7 +9054,7 @@ nullable_string.exit10:                           ; preds = %nullable_string.exi
   %42 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 -1, ptr %43, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9066,7 +9063,7 @@ define internal fastcc noundef ptr @_readLockingClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 94, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9083,7 +9080,7 @@ define internal fastcc noundef ptr @_readLockingClause() unnamed_addr #0 {
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9092,7 +9089,7 @@ define internal fastcc noundef ptr @_readXmlSerialize() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 95, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9118,7 +9115,7 @@ define internal fastcc noundef ptr @_readXmlSerialize() unnamed_addr #0 {
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %22, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9127,7 +9124,7 @@ define internal fastcc noundef ptr @_readPartitionElem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 96, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -9175,7 +9172,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %28 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9184,7 +9181,7 @@ define internal fastcc noundef ptr @_readPartitionSpec() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 97, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9199,7 +9196,7 @@ define internal fastcc noundef ptr @_readPartitionSpec() unnamed_addr #0 {
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9208,7 +9205,7 @@ define internal fastcc noundef ptr @_readPartitionBoundSpec() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 98, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -9264,7 +9261,7 @@ define internal fastcc noundef ptr @_readPartitionBoundSpec() unnamed_addr #0 {
   %42 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9273,7 +9270,7 @@ define internal fastcc noundef ptr @_readPartitionRangeDatum() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 99, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9288,7 +9285,7 @@ define internal fastcc noundef ptr @_readPartitionRangeDatum() unnamed_addr #0 {
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9297,7 +9294,7 @@ define internal fastcc noundef ptr @_readPartitionCmd() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 100, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9313,7 +9310,7 @@ define internal fastcc noundef ptr @_readPartitionCmd() unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9322,7 +9319,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 224) #10
   store i32 101, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9698,7 +9695,7 @@ nullable_string.exit86:                           ; preds = %192, %203, %205
   %248 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %249 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store ptr %248, ptr %249, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9707,7 +9704,7 @@ define internal fastcc noundef ptr @_readRTEPermissionInfo() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 102, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9744,7 +9741,7 @@ define internal fastcc noundef ptr @_readRTEPermissionInfo() unnamed_addr #0 {
   %30 = call fastcc ptr @_readBitmapset()
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %30, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9753,7 +9750,7 @@ define internal fastcc noundef ptr @_readRangeTblFunction() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 103, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9784,7 +9781,7 @@ define internal fastcc noundef ptr @_readRangeTblFunction() unnamed_addr #0 {
   %24 = call fastcc ptr @_readBitmapset()
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %24, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9793,7 +9790,7 @@ define internal fastcc noundef ptr @_readTableSampleClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 104, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9808,7 +9805,7 @@ define internal fastcc noundef ptr @_readTableSampleClause() unnamed_addr #0 {
   %12 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %12, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9817,7 +9814,7 @@ define internal fastcc noundef ptr @_readWithCheckOption() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 105, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9897,7 +9894,7 @@ nullable_string.exit11:                           ; preds = %nullable_string.exi
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9906,7 +9903,7 @@ define internal fastcc noundef ptr @_readSortGroupClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 106, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9946,7 +9943,7 @@ define internal fastcc noundef ptr @_readSortGroupClause() unnamed_addr #0 {
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %35 = zext i1 %33 to i8
   store i8 %35, ptr %34, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9955,7 +9952,7 @@ define internal fastcc noundef ptr @_readGroupingSet() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 107, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -9970,7 +9967,7 @@ define internal fastcc noundef ptr @_readGroupingSet() unnamed_addr #0 {
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -9979,7 +9976,7 @@ define internal fastcc noundef ptr @_readWindowClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 88) #10
   store i32 108, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -10109,7 +10106,7 @@ nullable_string.exit26:                           ; preds = %nullable_string.exi
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %87 = zext i1 %85 to i8
   store i8 %87, ptr %86, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10118,7 +10115,7 @@ define internal fastcc noundef ptr @_readRowMarkClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 109, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -10144,7 +10141,7 @@ define internal fastcc noundef ptr @_readRowMarkClause() unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = zext i1 %21 to i8
   store i8 %23, ptr %22, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10153,7 +10150,7 @@ define internal fastcc noundef ptr @_readWithClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 110, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10169,7 +10166,7 @@ define internal fastcc noundef ptr @_readWithClause() unnamed_addr #0 {
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %14, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10178,7 +10175,7 @@ define internal fastcc noundef ptr @_readInferClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 111, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10222,7 +10219,7 @@ nullable_string.exit:                             ; preds = %0, %19, %21
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10231,7 +10228,7 @@ define internal fastcc noundef ptr @_readOnConflictClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 112, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -10254,7 +10251,7 @@ define internal fastcc noundef ptr @_readOnConflictClause() unnamed_addr #0 {
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10263,7 +10260,7 @@ define internal fastcc noundef ptr @_readCTESearchClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 113, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10310,7 +10307,7 @@ nullable_string.exit:                             ; preds = %0, %22, %24
   %28 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10319,7 +10316,7 @@ define internal fastcc noundef ptr @_readCTECycleClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 114, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10422,7 +10419,7 @@ nullable_string.exit18:                           ; preds = %nullable_string.exi
   %63 = trunc i64 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %63, ptr %64, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10431,7 +10428,7 @@ define internal fastcc noundef ptr @_readCommonTableExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 115, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -10518,7 +10515,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %59 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %59, ptr %60, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10527,7 +10524,7 @@ define internal fastcc noundef ptr @_readMergeWhenClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -10558,7 +10555,7 @@ define internal fastcc noundef ptr @_readMergeWhenClause() unnamed_addr #0 {
   %25 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %25, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10567,7 +10564,7 @@ define internal fastcc noundef ptr @_readReturningOption() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 117, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -10609,7 +10606,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10618,7 +10615,7 @@ define internal fastcc noundef ptr @_readReturningClause() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 118, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10627,7 +10624,7 @@ define internal fastcc noundef ptr @_readReturningClause() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10636,7 +10633,7 @@ define internal fastcc noundef ptr @_readTriggerTransition() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 119, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -10682,7 +10679,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %29 = zext i1 %27 to i8
   store i8 %29, ptr %28, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10691,7 +10688,7 @@ define internal fastcc noundef ptr @_readJsonOutput() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 120, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10700,7 +10697,7 @@ define internal fastcc noundef ptr @_readJsonOutput() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10709,7 +10706,7 @@ define internal fastcc noundef ptr @_readJsonArgument() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 121, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10745,7 +10742,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10754,7 +10751,7 @@ define internal fastcc noundef ptr @_readJsonFuncExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 122, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -10832,7 +10829,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %52 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 -1, ptr %53, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10841,7 +10838,7 @@ define internal fastcc noundef ptr @_readJsonTablePathSpec() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 123, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10885,7 +10882,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %26, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10894,7 +10891,7 @@ define internal fastcc noundef ptr @_readJsonTable() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 124, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10930,7 +10927,7 @@ define internal fastcc noundef ptr @_readJsonTable() unnamed_addr #0 {
   %28 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 -1, ptr %29, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -10939,7 +10936,7 @@ define internal fastcc noundef ptr @_readJsonTableColumn() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -11017,7 +11014,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %52 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 -1, ptr %53, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11026,7 +11023,7 @@ define internal fastcc noundef ptr @_readJsonKeyValue() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 126, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11035,7 +11032,7 @@ define internal fastcc noundef ptr @_readJsonKeyValue() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11044,7 +11041,7 @@ define internal fastcc noundef ptr @_readJsonParseExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 127, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11064,7 +11061,7 @@ define internal fastcc noundef ptr @_readJsonParseExpr() unnamed_addr #0 {
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11073,7 +11070,7 @@ define internal fastcc noundef ptr @_readJsonScalarExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 128, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11086,7 +11083,7 @@ define internal fastcc noundef ptr @_readJsonScalarExpr() unnamed_addr #0 {
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11095,7 +11092,7 @@ define internal fastcc noundef ptr @_readJsonSerializeExpr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 129, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11108,7 +11105,7 @@ define internal fastcc noundef ptr @_readJsonSerializeExpr() unnamed_addr #0 {
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11117,7 +11114,7 @@ define internal fastcc noundef ptr @_readJsonObjectConstructor() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 130, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11144,7 +11141,7 @@ define internal fastcc noundef ptr @_readJsonObjectConstructor() unnamed_addr #0
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11153,7 +11150,7 @@ define internal fastcc noundef ptr @_readJsonArrayConstructor() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 131, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11173,7 +11170,7 @@ define internal fastcc noundef ptr @_readJsonArrayConstructor() unnamed_addr #0 
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11182,7 +11179,7 @@ define internal fastcc noundef ptr @_readJsonArrayQueryConstructor() unnamed_add
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 132, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11206,7 +11203,7 @@ define internal fastcc noundef ptr @_readJsonArrayQueryConstructor() unnamed_add
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 -1, ptr %20, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11215,7 +11212,7 @@ define internal fastcc noundef ptr @_readJsonAggConstructor() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 133, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11236,7 +11233,7 @@ define internal fastcc noundef ptr @_readJsonAggConstructor() unnamed_addr #0 {
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11245,7 +11242,7 @@ define internal fastcc noundef ptr @_readJsonObjectAgg() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 134, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11268,7 +11265,7 @@ define internal fastcc noundef ptr @_readJsonObjectAgg() unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %20 = zext i1 %18 to i8
   store i8 %20, ptr %19, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11277,7 +11274,7 @@ define internal fastcc noundef ptr @_readJsonArrayAgg() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 135, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11293,7 +11290,7 @@ define internal fastcc noundef ptr @_readJsonArrayAgg() unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11302,7 +11299,7 @@ define internal fastcc noundef ptr @_readRawStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11315,7 +11312,7 @@ define internal fastcc noundef ptr @_readRawStmt() unnamed_addr #0 {
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11324,7 +11321,7 @@ define internal fastcc noundef ptr @_readInsertStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 137, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11363,7 +11360,7 @@ define internal fastcc noundef ptr @_readInsertStmt() unnamed_addr #0 {
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 -1, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11372,7 +11369,7 @@ define internal fastcc noundef ptr @_readDeleteStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 138, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11401,7 +11398,7 @@ define internal fastcc noundef ptr @_readDeleteStmt() unnamed_addr #0 {
   %22 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 -1, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11410,7 +11407,7 @@ define internal fastcc noundef ptr @_readUpdateStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 139, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11443,7 +11440,7 @@ define internal fastcc noundef ptr @_readUpdateStmt() unnamed_addr #0 {
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 -1, ptr %26, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11452,7 +11449,7 @@ define internal fastcc noundef ptr @_readMergeStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 140, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11485,7 +11482,7 @@ define internal fastcc noundef ptr @_readMergeStmt() unnamed_addr #0 {
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 -1, ptr %26, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11494,7 +11491,7 @@ define internal fastcc noundef ptr @_readSelectStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11593,7 +11590,7 @@ define internal fastcc noundef ptr @_readSelectStmt() unnamed_addr #0 {
   %77 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store i32 -1, ptr %78, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11602,7 +11599,7 @@ define internal fastcc noundef ptr @_readSetOperationStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 142, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -11640,7 +11637,7 @@ define internal fastcc noundef ptr @_readSetOperationStmt() unnamed_addr #0 {
   %30 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %30, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11649,12 +11646,12 @@ define internal fastcc noundef ptr @_readReturnStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 143, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11663,7 +11660,7 @@ define internal fastcc noundef ptr @_readPLAssignStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 144, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -11713,7 +11710,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11722,7 +11719,7 @@ define internal fastcc noundef ptr @_readCreateSchemaStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 145, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -11769,7 +11766,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %29 = zext i1 %27 to i8
   store i8 %29, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11778,7 +11775,7 @@ define internal fastcc noundef ptr @_readAlterTableStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11800,7 +11797,7 @@ define internal fastcc noundef ptr @_readAlterTableStmt() unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %19 = zext i1 %17 to i8
   store i8 %19, ptr %18, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11809,7 +11806,7 @@ define internal fastcc noundef ptr @_readReplicaIdentityStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 147, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -11861,7 +11858,7 @@ nullable_string.exit:                             ; preds = %13, %26, %28
   %.0.i = phi ptr [ %27, %26 ], [ %29, %28 ], [ null, %13 ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11870,7 +11867,7 @@ define internal fastcc noundef ptr @_readAlterTableCmd() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -11942,7 +11939,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 45
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11951,12 +11948,12 @@ define internal fastcc noundef ptr @_readAlterCollationStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 149, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -11965,7 +11962,7 @@ define internal fastcc noundef ptr @_readAlterDomainStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -12038,7 +12035,7 @@ nullable_string.exit:                             ; preds = %13, %29, %31
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %47 = zext i1 %45 to i8
   store i8 %47, ptr %46, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12047,7 +12044,7 @@ define internal fastcc noundef ptr @_readGrantStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -12096,7 +12093,7 @@ define internal fastcc noundef ptr @_readGrantStmt() unnamed_addr #0 {
   %40 = trunc i64 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %40, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12105,7 +12102,7 @@ define internal fastcc noundef ptr @_readObjectWithArgs() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12125,7 +12122,7 @@ define internal fastcc noundef ptr @_readObjectWithArgs() unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = zext i1 %15 to i8
   store i8 %17, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12134,7 +12131,7 @@ define internal fastcc noundef ptr @_readAccessPriv() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -12170,7 +12167,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12179,7 +12176,7 @@ define internal fastcc noundef ptr @_readGrantRoleStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 154, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12209,7 +12206,7 @@ define internal fastcc noundef ptr @_readGrantRoleStmt() unnamed_addr #0 {
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %24, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12218,7 +12215,7 @@ define internal fastcc noundef ptr @_readAlterDefaultPrivilegesStmt() unnamed_ad
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 155, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12227,7 +12224,7 @@ define internal fastcc noundef ptr @_readAlterDefaultPrivilegesStmt() unnamed_ad
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12236,7 +12233,7 @@ define internal fastcc noundef ptr @_readCopyStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 156, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12302,7 +12299,7 @@ nullable_string.exit:                             ; preds = %0, %34, %36
   %43 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %43, ptr %44, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12311,7 +12308,7 @@ define internal fastcc noundef ptr @_readVariableSetStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -12371,7 +12368,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %39 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %40, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12380,7 +12377,7 @@ define internal fastcc noundef ptr @_readVariableShowStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 158, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -12412,7 +12409,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12421,7 +12418,7 @@ define internal fastcc noundef ptr @_readCreateStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12533,7 +12530,7 @@ nullable_string.exit19:                           ; preds = %nullable_string.exi
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %70 = zext i1 %68 to i8
   store i8 %70, ptr %69, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12542,7 +12539,7 @@ define internal fastcc noundef ptr @_readConstraint() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -12935,7 +12932,7 @@ nullable_string.exit80:                           ; preds = %nullable_string.exi
   %253 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %254 = getelementptr inbounds nuw i8, ptr %2, i64 180
   store i32 -1, ptr %254, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -12944,7 +12941,7 @@ define internal fastcc noundef ptr @_readCreateTableSpaceStmt() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 161, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13015,7 +13012,7 @@ nullable_string.exit8:                            ; preds = %nullable_string.exi
   %37 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %37, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13024,7 +13021,7 @@ define internal fastcc noundef ptr @_readDropTableSpaceStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 162, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13063,7 +13060,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = zext i1 %21 to i8
   store i8 %23, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13072,7 +13069,7 @@ define internal fastcc noundef ptr @_readAlterTableSpaceOptionsStmt() unnamed_ad
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 163, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13115,7 +13112,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = zext i1 %24 to i8
   store i8 %26, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13124,7 +13121,7 @@ define internal fastcc noundef ptr @_readAlterTableMoveAllStmt() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13204,7 +13201,7 @@ nullable_string.exit11:                           ; preds = %nullable_string.exi
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13213,7 +13210,7 @@ define internal fastcc noundef ptr @_readCreateExtensionStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 165, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13256,7 +13253,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %25 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %25, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13265,7 +13262,7 @@ define internal fastcc noundef ptr @_readAlterExtensionStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 166, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13301,7 +13298,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13310,7 +13307,7 @@ define internal fastcc noundef ptr @_readAlterExtensionContentsStmt() unnamed_ad
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13358,7 +13355,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %29 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %29, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13367,7 +13364,7 @@ define internal fastcc noundef ptr @_readCreateFdwStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 168, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13407,7 +13404,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %22 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13416,7 +13413,7 @@ define internal fastcc noundef ptr @_readAlterFdwStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 169, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13456,7 +13453,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %22 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13465,7 +13462,7 @@ define internal fastcc noundef ptr @_readCreateForeignServerStmt() unnamed_addr 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 170, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13601,7 +13598,7 @@ nullable_string.exit17:                           ; preds = %nullable_string.exi
   %70 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %70, ptr %71, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13610,7 +13607,7 @@ define internal fastcc noundef ptr @_readAlterForeignServerStmt() unnamed_addr #
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 171, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -13684,7 +13681,7 @@ nullable_string.exit9:                            ; preds = %nullable_string.exi
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %41 = zext i1 %39 to i8
   store i8 %41, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13693,7 +13690,7 @@ define internal fastcc noundef ptr @_readCreateForeignTableStmt() unnamed_addr #
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 172, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13840,7 +13837,7 @@ nullable_string.exit24:                           ; preds = %nullable_string.exi
   %87 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr %87, ptr %88, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13849,7 +13846,7 @@ define internal fastcc noundef ptr @_readCreateUserMappingStmt() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 173, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13896,7 +13893,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %28 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %28, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13905,7 +13902,7 @@ define internal fastcc noundef ptr @_readAlterUserMappingStmt() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 174, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13945,7 +13942,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %22 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -13954,7 +13951,7 @@ define internal fastcc noundef ptr @_readDropUserMappingStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 175, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13997,7 +13994,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = zext i1 %24 to i8
   store i8 %26, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14006,7 +14003,7 @@ define internal fastcc noundef ptr @_readImportForeignSchemaStmt() unnamed_addr 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 176, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -14114,7 +14111,7 @@ nullable_string.exit14:                           ; preds = %nullable_string.exi
   %57 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %57, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14123,7 +14120,7 @@ define internal fastcc noundef ptr @_readCreatePolicyStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 177, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -14209,7 +14206,7 @@ nullable_string.exit12:                           ; preds = %nullable_string.exi
   %49 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %49, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14218,7 +14215,7 @@ define internal fastcc noundef ptr @_readAlterPolicyStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 178, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -14266,7 +14263,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %28 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %28, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14275,7 +14272,7 @@ define internal fastcc noundef ptr @_readCreateAmStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 179, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -14331,7 +14328,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %32 = phi i8 [ 0, %nullable_string.exit ], [ %30, %28 ], [ %26, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 %32, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14340,7 +14337,7 @@ define internal fastcc noundef ptr @_readCreateTrigStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 88) #10
   store i32 180, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -14447,7 +14444,7 @@ nullable_string.exit:                             ; preds = %0, %25, %27
   %77 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %77, ptr %78, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14456,7 +14453,7 @@ define internal fastcc noundef ptr @_readCreateEventTrigStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 181, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -14527,7 +14524,7 @@ nullable_string.exit8:                            ; preds = %nullable_string.exi
   %37 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %37, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14536,7 +14533,7 @@ define internal fastcc noundef ptr @_readAlterEventTrigStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 182, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -14588,7 +14585,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %29 = phi i8 [ 0, %nullable_string.exit ], [ %27, %25 ], [ %23, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %29, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14597,7 +14594,7 @@ define internal fastcc noundef ptr @_readCreatePLangStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 183, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -14655,7 +14652,7 @@ nullable_string.exit:                             ; preds = %0, %19, %21
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14664,7 +14661,7 @@ define internal fastcc noundef ptr @_readCreateRoleStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 184, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -14706,7 +14703,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %24 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %24, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14715,7 +14712,7 @@ define internal fastcc noundef ptr @_readAlterRoleStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 185, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14730,7 +14727,7 @@ define internal fastcc noundef ptr @_readAlterRoleStmt() unnamed_addr #0 {
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %12, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14739,7 +14736,7 @@ define internal fastcc noundef ptr @_readAlterRoleSetStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 186, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14779,7 +14776,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %22 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14788,7 +14785,7 @@ define internal fastcc noundef ptr @_readDropRoleStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14800,7 +14797,7 @@ define internal fastcc noundef ptr @_readDropRoleStmt() unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14809,7 +14806,7 @@ define internal fastcc noundef ptr @_readCreateSeqStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 188, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14838,7 +14835,7 @@ define internal fastcc noundef ptr @_readCreateSeqStmt() unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 29
   %25 = zext i1 %23 to i8
   store i8 %25, ptr %24, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14847,7 +14844,7 @@ define internal fastcc noundef ptr @_readAlterSeqStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 189, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14870,7 +14867,7 @@ define internal fastcc noundef ptr @_readAlterSeqStmt() unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %20 = zext i1 %18 to i8
   store i8 %20, ptr %19, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14879,7 +14876,7 @@ define internal fastcc noundef ptr @_readDefineStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -14919,7 +14916,7 @@ define internal fastcc noundef ptr @_readDefineStmt() unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 41
   %34 = zext i1 %32 to i8
   store i8 %34, ptr %33, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14928,7 +14925,7 @@ define internal fastcc noundef ptr @_readCreateDomainStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 191, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14945,7 +14942,7 @@ define internal fastcc noundef ptr @_readCreateDomainStmt() unnamed_addr #0 {
   %13 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %13, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -14954,7 +14951,7 @@ define internal fastcc noundef ptr @_readCreateOpClassStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 192, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15009,7 +15006,7 @@ nullable_string.exit:                             ; preds = %0, %19, %21
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %35 = zext i1 %33 to i8
   store i8 %35, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15018,7 +15015,7 @@ define internal fastcc noundef ptr @_readCreateOpClassItem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -15047,7 +15044,7 @@ define internal fastcc noundef ptr @_readCreateOpClassItem() unnamed_addr #0 {
   %23 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %23, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15056,7 +15053,7 @@ define internal fastcc noundef ptr @_readCreateOpFamilyStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 194, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15092,7 +15089,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15101,7 +15098,7 @@ define internal fastcc noundef ptr @_readAlterOpFamilyStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 195, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15148,7 +15145,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %28 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %28, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15157,7 +15154,7 @@ define internal fastcc noundef ptr @_readDropStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15188,7 +15185,7 @@ define internal fastcc noundef ptr @_readDropStmt() unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %27 = zext i1 %25 to i8
   store i8 %27, ptr %26, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15197,7 +15194,7 @@ define internal fastcc noundef ptr @_readTruncateStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 197, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15215,7 +15212,7 @@ define internal fastcc noundef ptr @_readTruncateStmt() unnamed_addr #0 {
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %15, ptr %16, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15224,7 +15221,7 @@ define internal fastcc noundef ptr @_readCommentStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -15266,7 +15263,7 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   %.0.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ null, %0 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15275,7 +15272,7 @@ define internal fastcc noundef ptr @_readSecLabelStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -15348,7 +15345,7 @@ nullable_string.exit9:                            ; preds = %nullable_string.exi
   %.0.i8 = phi ptr [ %37, %36 ], [ %39, %38 ], [ null, %nullable_string.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i8, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15357,7 +15354,7 @@ define internal fastcc noundef ptr @_readDeclareCursorStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 200, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -15399,7 +15396,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %24 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %24, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15408,7 +15405,7 @@ define internal fastcc noundef ptr @_readClosePortalStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 201, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -15440,7 +15437,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15449,7 +15446,7 @@ define internal fastcc noundef ptr @_readFetchStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -15499,7 +15496,7 @@ nullable_string.exit:                             ; preds = %0, %22, %24
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = zext i1 %30 to i8
   store i8 %32, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15508,7 +15505,7 @@ define internal fastcc noundef ptr @_readIndexStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 203, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -15758,7 +15755,7 @@ nullable_string.exit50:                           ; preds = %nullable_string.exi
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 114
   %166 = zext i1 %164 to i8
   store i8 %166, ptr %165, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15767,7 +15764,7 @@ define internal fastcc noundef ptr @_readCreateStatsStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 204, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15829,7 +15826,7 @@ nullable_string.exit:                             ; preds = %0, %25, %27
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 49
   %41 = zext i1 %39 to i8
   store i8 %41, ptr %40, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15838,7 +15835,7 @@ define internal fastcc noundef ptr @_readStatsElem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 205, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -15874,7 +15871,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15883,7 +15880,7 @@ define internal fastcc noundef ptr @_readAlterStatsStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 206, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15899,7 +15896,7 @@ define internal fastcc noundef ptr @_readAlterStatsStmt() unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15908,7 +15905,7 @@ define internal fastcc noundef ptr @_readCreateFunctionStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 207, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -15943,7 +15940,7 @@ define internal fastcc noundef ptr @_readCreateFunctionStmt() unnamed_addr #0 {
   %28 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %28, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -15952,7 +15949,7 @@ define internal fastcc noundef ptr @_readFunctionParameter() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16002,7 +15999,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 -1, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16011,7 +16008,7 @@ define internal fastcc noundef ptr @_readAlterFunctionStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 209, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -16026,7 +16023,7 @@ define internal fastcc noundef ptr @_readAlterFunctionStmt() unnamed_addr #0 {
   %12 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %12, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16035,12 +16032,12 @@ define internal fastcc noundef ptr @_readDoStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 210, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16049,7 +16046,7 @@ define internal fastcc noundef ptr @_readCallStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 212, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16062,7 +16059,7 @@ define internal fastcc noundef ptr @_readCallStmt() unnamed_addr #0 {
   %10 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16071,7 +16068,7 @@ define internal fastcc noundef ptr @_readRenameStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -16167,7 +16164,7 @@ nullable_string.exit16:                           ; preds = %nullable_string.exi
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %59 = zext i1 %57 to i8
   store i8 %59, ptr %58, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16176,7 +16173,7 @@ define internal fastcc noundef ptr @_readAlterObjectDependsStmt() unnamed_addr #
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -16202,7 +16199,7 @@ define internal fastcc noundef ptr @_readAlterObjectDependsStmt() unnamed_addr #
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = zext i1 %20 to i8
   store i8 %22, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16211,7 +16208,7 @@ define internal fastcc noundef ptr @_readAlterObjectSchemaStmt() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -16264,7 +16261,7 @@ nullable_string.exit:                             ; preds = %0, %24, %26
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = zext i1 %32 to i8
   store i8 %34, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16273,7 +16270,7 @@ define internal fastcc noundef ptr @_readAlterOwnerStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -16292,7 +16289,7 @@ define internal fastcc noundef ptr @_readAlterOwnerStmt() unnamed_addr #0 {
   %15 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %15, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16301,7 +16298,7 @@ define internal fastcc noundef ptr @_readAlterOperatorStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 218, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16310,7 +16307,7 @@ define internal fastcc noundef ptr @_readAlterOperatorStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16319,7 +16316,7 @@ define internal fastcc noundef ptr @_readAlterTypeStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 219, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16328,7 +16325,7 @@ define internal fastcc noundef ptr @_readAlterTypeStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16337,7 +16334,7 @@ define internal fastcc noundef ptr @_readRuleStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 220, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16401,7 +16398,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %43 = zext i1 %41 to i8
   store i8 %43, ptr %42, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16410,7 +16407,7 @@ define internal fastcc noundef ptr @_readNotifyStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 221, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16473,7 +16470,7 @@ nullable_string.exit6:                            ; preds = %nullable_string.exi
   %.0.i5 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i5, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16482,7 +16479,7 @@ define internal fastcc noundef ptr @_readListenStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 222, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16514,7 +16511,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16523,7 +16520,7 @@ define internal fastcc noundef ptr @_readUnlistenStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 223, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16555,7 +16552,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16564,7 +16561,7 @@ define internal fastcc noundef ptr @_readTransactionStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -16648,7 +16645,7 @@ nullable_string.exit12:                           ; preds = %nullable_string.exi
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 -1, ptr %49, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16657,7 +16654,7 @@ define internal fastcc noundef ptr @_readCompositeTypeStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 225, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16666,7 +16663,7 @@ define internal fastcc noundef ptr @_readCompositeTypeStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16675,7 +16672,7 @@ define internal fastcc noundef ptr @_readCreateEnumStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 226, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16684,7 +16681,7 @@ define internal fastcc noundef ptr @_readCreateEnumStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16693,7 +16690,7 @@ define internal fastcc noundef ptr @_readCreateRangeStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 227, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16702,7 +16699,7 @@ define internal fastcc noundef ptr @_readCreateRangeStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16711,7 +16708,7 @@ define internal fastcc noundef ptr @_readAlterEnumStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 228, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16823,7 +16820,7 @@ nullable_string.exit15:                           ; preds = %nullable_string.exi
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 41
   %62 = zext i1 %60 to i8
   store i8 %62, ptr %61, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16832,7 +16829,7 @@ define internal fastcc noundef ptr @_readViewStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 229, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16862,7 +16859,7 @@ define internal fastcc noundef ptr @_readViewStmt() unnamed_addr #0 {
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %24, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16871,7 +16868,7 @@ define internal fastcc noundef ptr @_readLoadStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 230, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16903,7 +16900,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16912,7 +16909,7 @@ define internal fastcc noundef ptr @_readCreatedbStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 231, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16948,7 +16945,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -16957,7 +16954,7 @@ define internal fastcc noundef ptr @_readAlterDatabaseStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 232, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -16993,7 +16990,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17002,7 +16999,7 @@ define internal fastcc noundef ptr @_readAlterDatabaseRefreshCollStmt() unnamed_
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 233, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -17034,7 +17031,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17043,7 +17040,7 @@ define internal fastcc noundef ptr @_readAlterDatabaseSetStmt() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 234, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -17079,7 +17076,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17088,7 +17085,7 @@ define internal fastcc noundef ptr @_readDropdbStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 235, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -17131,7 +17128,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %25 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %25, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17140,12 +17137,12 @@ define internal fastcc noundef ptr @_readAlterSystemStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 236, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17154,7 +17151,7 @@ define internal fastcc noundef ptr @_readClusterStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 237, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17194,7 +17191,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   %22 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17203,7 +17200,7 @@ define internal fastcc noundef ptr @_readVacuumStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 238, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17219,7 +17216,7 @@ define internal fastcc noundef ptr @_readVacuumStmt() unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17228,7 +17225,7 @@ define internal fastcc noundef ptr @_readVacuumRelation() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 239, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17243,7 +17240,7 @@ define internal fastcc noundef ptr @_readVacuumRelation() unnamed_addr #0 {
   %12 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %12, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17252,7 +17249,7 @@ define internal fastcc noundef ptr @_readExplainStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 240, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17261,7 +17258,7 @@ define internal fastcc noundef ptr @_readExplainStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17270,7 +17267,7 @@ define internal fastcc noundef ptr @_readCreateTableAsStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17299,7 +17296,7 @@ define internal fastcc noundef ptr @_readCreateTableAsStmt() unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 29
   %25 = zext i1 %23 to i8
   store i8 %25, ptr %24, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17308,7 +17305,7 @@ define internal fastcc noundef ptr @_readRefreshMatViewStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 242, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -17327,7 +17324,7 @@ define internal fastcc noundef ptr @_readRefreshMatViewStmt() unnamed_addr #0 {
   %16 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %16, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17336,14 +17333,14 @@ define internal fastcc noundef ptr @_readDiscardStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 244, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17352,7 +17349,7 @@ define internal fastcc noundef ptr @_readLockStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 245, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17370,7 +17367,7 @@ define internal fastcc noundef ptr @_readLockStmt() unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %16 = zext i1 %14 to i8
   store i8 %16, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17379,7 +17376,7 @@ define internal fastcc noundef ptr @_readConstraintsSetStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 246, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17391,7 +17388,7 @@ define internal fastcc noundef ptr @_readConstraintsSetStmt() unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17400,7 +17397,7 @@ define internal fastcc noundef ptr @_readReindexStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 247, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -17446,7 +17443,7 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   %27 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %27, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17455,7 +17452,7 @@ define internal fastcc noundef ptr @_readCreateConversionStmt() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 248, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17533,7 +17530,7 @@ nullable_string.exit10:                           ; preds = %nullable_string.exi
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %44 = zext i1 %42 to i8
   store i8 %44, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17542,7 +17539,7 @@ define internal fastcc noundef ptr @_readCreateCastStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 249, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17568,7 +17565,7 @@ define internal fastcc noundef ptr @_readCreateCastStmt() unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = zext i1 %20 to i8
   store i8 %22, ptr %21, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17577,7 +17574,7 @@ define internal fastcc noundef ptr @_readCreateTransformStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 250, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i8, ptr %4, align 1
@@ -17628,7 +17625,7 @@ nullable_string.exit:                             ; preds = %0, %22, %24
   %31 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %31, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17637,7 +17634,7 @@ define internal fastcc noundef ptr @_readPrepareStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 251, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -17677,7 +17674,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %22 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17686,7 +17683,7 @@ define internal fastcc noundef ptr @_readExecuteStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 252, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -17722,7 +17719,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %19 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17731,7 +17728,7 @@ define internal fastcc noundef ptr @_readDeallocateStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 253, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -17774,7 +17771,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %26, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17783,7 +17780,7 @@ define internal fastcc noundef ptr @_readDropOwnedStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 254, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17794,7 +17791,7 @@ define internal fastcc noundef ptr @_readDropOwnedStmt() unnamed_addr #0 {
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17803,7 +17800,7 @@ define internal fastcc noundef ptr @_readReassignOwnedStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 255, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17812,7 +17809,7 @@ define internal fastcc noundef ptr @_readReassignOwnedStmt() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17821,7 +17818,7 @@ define internal fastcc noundef ptr @_readAlterTSDictionaryStmt() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 256, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17830,7 +17827,7 @@ define internal fastcc noundef ptr @_readAlterTSDictionaryStmt() unnamed_addr #0
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17839,7 +17836,7 @@ define internal fastcc noundef ptr @_readAlterTSConfigurationStmt() unnamed_addr
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -17879,7 +17876,7 @@ define internal fastcc noundef ptr @_readAlterTSConfigurationStmt() unnamed_addr
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 34
   %34 = zext i1 %32 to i8
   store i8 %34, ptr %33, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17888,7 +17885,7 @@ define internal fastcc noundef ptr @_readPublicationTable() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 258, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17901,7 +17898,7 @@ define internal fastcc noundef ptr @_readPublicationTable() unnamed_addr #0 {
   %10 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17910,7 +17907,7 @@ define internal fastcc noundef ptr @_readPublicationObjSpec() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -17956,7 +17953,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -17965,7 +17962,7 @@ define internal fastcc noundef ptr @_readCreatePublicationStmt() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 260, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -18012,7 +18009,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %29 = zext i1 %27 to i8
   store i8 %29, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18021,7 +18018,7 @@ define internal fastcc noundef ptr @_readAlterPublicationStmt() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 261, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -18074,7 +18071,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %33, ptr %34, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18083,7 +18080,7 @@ define internal fastcc noundef ptr @_readCreateSubscriptionStmt() unnamed_addr #
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 262, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -18154,7 +18151,7 @@ nullable_string.exit8:                            ; preds = %nullable_string.exi
   %37 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %37, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18163,7 +18160,7 @@ define internal fastcc noundef ptr @_readAlterSubscriptionStmt() unnamed_addr #0
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -18240,7 +18237,7 @@ nullable_string.exit10:                           ; preds = %nullable_string.exi
   %42 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %42, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18249,7 +18246,7 @@ define internal fastcc noundef ptr @_readDropSubscriptionStmt() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 264, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = load i32, ptr %1, align 4
@@ -18294,7 +18291,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %27, ptr %28, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18303,7 +18300,7 @@ define internal fastcc noundef ptr @_readGroupByOrdering() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 275, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -18312,7 +18309,7 @@ define internal fastcc noundef ptr @_readGroupByOrdering() unnamed_addr #0 {
   %7 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18321,7 +18318,7 @@ define internal fastcc noundef ptr @_readPlaceHolderVar() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 318, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -18346,7 +18343,7 @@ define internal fastcc noundef ptr @_readPlaceHolderVar() unnamed_addr #0 {
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %20, ptr %21, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18355,7 +18352,7 @@ define internal fastcc noundef ptr @_readAppendRelInfo() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 321, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -18401,7 +18398,7 @@ define internal fastcc noundef ptr @_readAppendRelInfo() unnamed_addr #0 {
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %38, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18410,7 +18407,7 @@ define internal fastcc noundef ptr @_readPlannedStmt() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 152) #10
   store i32 329, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -18534,7 +18531,7 @@ define internal fastcc noundef ptr @_readPlannedStmt() unnamed_addr #0 {
   %99 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 -1, ptr %100, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18543,7 +18540,7 @@ define internal fastcc noundef ptr @_readResult() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 330, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -18630,7 +18627,7 @@ define internal fastcc noundef ptr @_readResult() unnamed_addr #0 {
   %70 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %70, ptr %71, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18639,7 +18636,7 @@ define internal fastcc noundef ptr @_readProjectSet() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 331, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -18722,7 +18719,7 @@ define internal fastcc noundef ptr @_readProjectSet() unnamed_addr #0 {
   %67 = call fastcc ptr @_readBitmapset()
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %67, ptr %68, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18731,7 +18728,7 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 272) #10
   store i32 332, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -18982,7 +18979,7 @@ nullable_string.exit61:                           ; preds = %nullable_string.exi
   %181 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store ptr %181, ptr %182, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -18991,7 +18988,7 @@ define internal fastcc noundef ptr @_readAppend() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 136) #10
   store i32 333, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19100,7 +19097,7 @@ define internal fastcc noundef ptr @_readAppend() unnamed_addr #0 {
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 %88, ptr %89, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19109,7 +19106,7 @@ define internal fastcc noundef ptr @_readMergeAppend() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 334, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19232,7 +19229,7 @@ define internal fastcc noundef ptr @_readMergeAppend() unnamed_addr #0 {
   %99 = trunc i64 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 %99, ptr %100, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19241,7 +19238,7 @@ define internal fastcc noundef ptr @_readRecursiveUnion() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 144) #10
   store i32 335, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19356,7 +19353,7 @@ define internal fastcc noundef ptr @_readRecursiveUnion() unnamed_addr #0 {
   %93 = call i64 @strtol(ptr noundef nonnull captures(none) %92, ptr noundef null, i32 noundef 10) #10
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i64 %93, ptr %94, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19365,7 +19362,7 @@ define internal fastcc noundef ptr @_readBitmapAnd() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 336, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19452,7 +19449,7 @@ define internal fastcc noundef ptr @_readBitmapAnd() unnamed_addr #0 {
   %70 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %70, ptr %71, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19461,7 +19458,7 @@ define internal fastcc noundef ptr @_readBitmapOr() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 337, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19555,7 +19552,7 @@ define internal fastcc noundef ptr @_readBitmapOr() unnamed_addr #0 {
   %76 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %76, ptr %77, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19564,7 +19561,7 @@ define internal fastcc noundef ptr @_readSeqScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 338, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19653,7 +19650,7 @@ define internal fastcc noundef ptr @_readSeqScan() unnamed_addr #0 {
   %72 = trunc i64 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %72, ptr %73, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19662,7 +19659,7 @@ define internal fastcc noundef ptr @_readSampleScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 339, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19755,7 +19752,7 @@ define internal fastcc noundef ptr @_readSampleScan() unnamed_addr #0 {
   %75 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19764,7 +19761,7 @@ define internal fastcc noundef ptr @_readIndexScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 340, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -19885,7 +19882,7 @@ define internal fastcc noundef ptr @_readIndexScan() unnamed_addr #0 {
   %97 = trunc i64 %96 to i32
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 %97, ptr %98, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -19894,7 +19891,7 @@ define internal fastcc noundef ptr @_readIndexOnlyScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 160) #10
   store i32 341, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20011,7 +20008,7 @@ define internal fastcc noundef ptr @_readIndexOnlyScan() unnamed_addr #0 {
   %94 = trunc i64 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %94, ptr %95, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20020,7 +20017,7 @@ define internal fastcc noundef ptr @_readBitmapIndexScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 136) #10
   store i32 342, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20130,7 +20127,7 @@ define internal fastcc noundef ptr @_readBitmapIndexScan() unnamed_addr #0 {
   %89 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %89, ptr %90, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20139,7 +20136,7 @@ define internal fastcc noundef ptr @_readBitmapHeapScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 343, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20232,7 +20229,7 @@ define internal fastcc noundef ptr @_readBitmapHeapScan() unnamed_addr #0 {
   %75 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20241,7 +20238,7 @@ define internal fastcc noundef ptr @_readTidScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 344, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20334,7 +20331,7 @@ define internal fastcc noundef ptr @_readTidScan() unnamed_addr #0 {
   %75 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20343,7 +20340,7 @@ define internal fastcc noundef ptr @_readTidRangeScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 345, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20436,7 +20433,7 @@ define internal fastcc noundef ptr @_readTidRangeScan() unnamed_addr #0 {
   %75 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20445,7 +20442,7 @@ define internal fastcc noundef ptr @_readSubqueryScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 346, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20544,7 +20541,7 @@ define internal fastcc noundef ptr @_readSubqueryScan() unnamed_addr #0 {
   %80 = trunc i64 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %80, ptr %81, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20553,7 +20550,7 @@ define internal fastcc noundef ptr @_readFunctionScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 347, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20653,7 +20650,7 @@ define internal fastcc noundef ptr @_readFunctionScan() unnamed_addr #0 {
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %82 = zext i1 %80 to i8
   store i8 %82, ptr %81, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20662,7 +20659,7 @@ define internal fastcc noundef ptr @_readValuesScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 348, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20755,7 +20752,7 @@ define internal fastcc noundef ptr @_readValuesScan() unnamed_addr #0 {
   %75 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20764,7 +20761,7 @@ define internal fastcc noundef ptr @_readTableFuncScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 349, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20857,7 +20854,7 @@ define internal fastcc noundef ptr @_readTableFuncScan() unnamed_addr #0 {
   %75 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20866,7 +20863,7 @@ define internal fastcc noundef ptr @_readCteScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 350, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -20967,7 +20964,7 @@ define internal fastcc noundef ptr @_readCteScan() unnamed_addr #0 {
   %82 = trunc i64 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %82, ptr %83, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -20976,7 +20973,7 @@ define internal fastcc noundef ptr @_readNamedTuplestoreScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 351, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21096,7 +21093,7 @@ nullable_string.exit:                             ; preds = %0, %84, %86
   %.0.i = phi ptr [ %85, %84 ], [ %87, %86 ], [ null, %0 ]
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %.0.i, ptr %88, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21105,7 +21102,7 @@ define internal fastcc noundef ptr @_readWorkTableScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 352, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21200,7 +21197,7 @@ define internal fastcc noundef ptr @_readWorkTableScan() unnamed_addr #0 {
   %77 = trunc i64 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %77, ptr %78, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21209,7 +21206,7 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 353, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21353,7 +21350,7 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %117 = zext i1 %115 to i8
   store i8 %117, ptr %116, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21362,7 +21359,7 @@ define internal fastcc noundef ptr @_readCustomScan() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 354, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21509,7 +21506,7 @@ nullable_string.exit:                             ; preds = %0, %104, %106
   %108 = call ptr @GetCustomScanMethods(ptr noundef %.0.i, i1 noundef zeroext false) #10
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %108, ptr %109, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21518,7 +21515,7 @@ define internal fastcc noundef ptr @_readNestLoop() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 355, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21622,7 +21619,7 @@ define internal fastcc noundef ptr @_readNestLoop() unnamed_addr #0 {
   %84 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr %84, ptr %85, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21631,7 +21628,7 @@ define internal fastcc noundef ptr @_readNestLoopParam() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 356, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21642,7 +21639,7 @@ define internal fastcc noundef ptr @_readNestLoopParam() unnamed_addr #0 {
   %9 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21651,7 +21648,7 @@ define internal fastcc noundef ptr @_readMergeJoin() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 357, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21822,7 +21819,7 @@ list_length.exit47:                               ; preds = %list_length.exit45,
   %122 = call ptr @readBoolCols(i32 noundef %121)
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %122, ptr %123, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21831,7 +21828,7 @@ define internal fastcc noundef ptr @_readHashJoin() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 152) #10
   store i32 358, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -21947,7 +21944,7 @@ define internal fastcc noundef ptr @_readHashJoin() unnamed_addr #0 {
   %93 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %93, ptr %94, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -21956,7 +21953,7 @@ define internal fastcc noundef ptr @_readMaterial() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 359, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22039,7 +22036,7 @@ define internal fastcc noundef ptr @_readMaterial() unnamed_addr #0 {
   %67 = call fastcc ptr @_readBitmapset()
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %67, ptr %68, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22048,7 +22045,7 @@ define internal fastcc noundef ptr @_readMemoize() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 152) #10
   store i32 360, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22175,7 +22172,7 @@ define internal fastcc noundef ptr @_readMemoize() unnamed_addr #0 {
   %103 = call fastcc ptr @_readBitmapset()
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %103, ptr %104, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22184,7 +22181,7 @@ define internal fastcc noundef ptr @_readSort() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 144) #10
   store i32 361, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22293,7 +22290,7 @@ define internal fastcc noundef ptr @_readSort() unnamed_addr #0 {
   %88 = call ptr @readBoolCols(i32 noundef %87)
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr %88, ptr %89, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22302,7 +22299,7 @@ define internal fastcc noundef ptr @_readIncrementalSort() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 152) #10
   store i32 362, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22417,7 +22414,7 @@ define internal fastcc noundef ptr @_readIncrementalSort() unnamed_addr #0 {
   %93 = trunc i64 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 %93, ptr %94, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22426,7 +22423,7 @@ define internal fastcc noundef ptr @_readGroup() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 136) #10
   store i32 363, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22530,7 +22527,7 @@ define internal fastcc noundef ptr @_readGroup() unnamed_addr #0 {
   %84 = call ptr @readOidCols(i32 noundef %83)
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %84, ptr %85, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22539,7 +22536,7 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 364, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22677,7 +22674,7 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   %111 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %111, ptr %112, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22686,7 +22683,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 224) #10
   store i32 365, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22878,7 +22875,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 222
   %157 = zext i1 %155 to i8
   store i8 %157, ptr %156, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -22887,7 +22884,7 @@ define internal fastcc noundef ptr @_readUnique() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 136) #10
   store i32 366, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -22991,7 +22988,7 @@ define internal fastcc noundef ptr @_readUnique() unnamed_addr #0 {
   %84 = call ptr @readOidCols(i32 noundef %83)
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %84, ptr %85, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23000,7 +22997,7 @@ define internal fastcc noundef ptr @_readGather() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 367, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23113,7 +23110,7 @@ define internal fastcc noundef ptr @_readGather() unnamed_addr #0 {
   %92 = call fastcc ptr @_readBitmapset()
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr %92, ptr %93, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23122,7 +23119,7 @@ define internal fastcc noundef ptr @_readGatherMerge() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 160) #10
   store i32 368, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23247,7 +23244,7 @@ define internal fastcc noundef ptr @_readGatherMerge() unnamed_addr #0 {
   %101 = call fastcc ptr @_readBitmapset()
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr %101, ptr %102, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23256,7 +23253,7 @@ define internal fastcc noundef ptr @_readHash() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 369, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23367,7 +23364,7 @@ define internal fastcc noundef ptr @_readHash() unnamed_addr #0 {
   %90 = call double @strtod(ptr noundef nonnull captures(none) %89, ptr noundef null) #10
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store double %90, ptr %91, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23376,7 +23373,7 @@ define internal fastcc noundef ptr @_readSetOp() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 160) #10
   store i32 370, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23502,7 +23499,7 @@ define internal fastcc noundef ptr @_readSetOp() unnamed_addr #0 {
   %102 = call i64 @strtol(ptr noundef nonnull captures(none) %101, ptr noundef null, i32 noundef 10) #10
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 %102, ptr %103, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23511,7 +23508,7 @@ define internal fastcc noundef ptr @_readLockRows() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 371, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23604,7 +23601,7 @@ define internal fastcc noundef ptr @_readLockRows() unnamed_addr #0 {
   %75 = trunc i64 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %75, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23613,7 +23610,7 @@ define internal fastcc noundef ptr @_readLimit() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 152) #10
   store i32 372, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23731,7 +23728,7 @@ define internal fastcc noundef ptr @_readLimit() unnamed_addr #0 {
   %95 = call ptr @readOidCols(i32 noundef %94)
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %95, ptr %96, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23740,7 +23737,7 @@ define internal fastcc noundef ptr @_readPlanRowMark() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 36) #10
   store i32 373, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23790,7 +23787,7 @@ define internal fastcc noundef ptr @_readPlanRowMark() unnamed_addr #0 {
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = zext i1 %41 to i8
   store i8 %43, ptr %42, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23799,7 +23796,7 @@ define internal fastcc noundef ptr @_readPartitionPruneInfo() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 374, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call fastcc ptr @_readBitmapset()
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -23812,7 +23809,7 @@ define internal fastcc noundef ptr @_readPartitionPruneInfo() unnamed_addr #0 {
   %10 = call fastcc ptr @_readBitmapset()
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23821,7 +23818,7 @@ define internal fastcc noundef ptr @_readPartitionedRelPruneInfo() unnamed_addr 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 375, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23870,7 +23867,7 @@ define internal fastcc noundef ptr @_readPartitionedRelPruneInfo() unnamed_addr 
   %39 = call fastcc ptr @_readBitmapset()
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %39, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23879,7 +23876,7 @@ define internal fastcc noundef ptr @_readPartitionPruneStepOp() unnamed_addr #0 
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 376, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23904,7 +23901,7 @@ define internal fastcc noundef ptr @_readPartitionPruneStepOp() unnamed_addr #0 
   %20 = call fastcc ptr @_readBitmapset()
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %20, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23913,7 +23910,7 @@ define internal fastcc noundef ptr @_readPartitionPruneStepCombine() unnamed_add
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 377, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23930,7 +23927,7 @@ define internal fastcc noundef ptr @_readPartitionPruneStepCombine() unnamed_add
   %14 = call ptr @nodeRead(ptr noundef null, i32 noundef 0) #10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %14, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -23939,7 +23936,7 @@ define internal fastcc noundef ptr @_readPlanInvalItem() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = tail call noundef ptr @palloc0(i64 noundef 12) #10
   store i32 378, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %5 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
@@ -23952,14 +23949,14 @@ define internal fastcc noundef ptr @_readPlanInvalItem() unnamed_addr #0 {
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_readExtensibleNode() unnamed_addr #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = load i32, ptr %1, align 4
@@ -24010,26 +24007,23 @@ nullable_string.exit.thread:                      ; preds = %0, %nullable_string
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %22) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %22
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = and i64 %5, 4294967295
@@ -24127,20 +24121,20 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 48:                                               ; preds = %42
   %49 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @readAttrNumberCols(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -24232,14 +24226,14 @@ define dso_local ptr @readAttrNumberCols(i32 noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %37, %8
   %.016 = phi ptr [ null, %8 ], [ %19, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @readOidCols(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -24331,14 +24325,14 @@ define dso_local ptr @readOidCols(i32 noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %37, %8
   %.016 = phi ptr [ null, %8 ], [ %19, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @readIntCols(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -24430,14 +24424,14 @@ define dso_local ptr @readIntCols(i32 noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %37, %8
   %.016 = phi ptr [ null, %8 ], [ %19, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @readBoolCols(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -24528,35 +24522,41 @@ define dso_local ptr @readBoolCols(i32 noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %36, %8
   %.016 = phi ptr [ null, %8 ], [ %18, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.016
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @nodeRead(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @nodeRead(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @debackslash(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @debackslash(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @GetCustomScanMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @GetCustomScanMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
@@ -24568,12 +24568,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

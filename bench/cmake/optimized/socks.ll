@@ -245,7 +245,7 @@ socksstate.exit:                                  ; preds = %45
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #8
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 1707
   %103 = load i8, ptr %102, align 1, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !114
   switch i32 %92, label %socksstate.exit478.thread.i.i [
     i32 1, label %104
@@ -308,7 +308,7 @@ socksstate.exit:                                  ; preds = %45
   br label %193
 
 socksstate.exit469.thread520.i.i:                 ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %356
 
 104:                                              ; preds = %96
@@ -420,7 +420,7 @@ socksstate.exit469.thread520.i.i:                 ; preds = %96
   %153 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %.1338.i.i, ptr %153, align 8, !tbaa !116
   %.val.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %154 = call i64 @Curl_conn_cf_send(ptr noundef %.val.i.i, ptr noundef nonnull %1, ptr noundef nonnull %97, i64 noundef %.1338.i.i, i1 noundef zeroext false, ptr noundef nonnull %16) #7
   %155 = icmp slt i64 %154, 1
   br i1 %155, label %156, label %161
@@ -452,7 +452,7 @@ socksstate.exit469.thread520.i.i:                 ; preds = %96
 
 socks_state_send.exit.i.i:                        ; preds = %159, %158
   %.0.i.i.i = phi i32 [ 3, %158 ], [ 29, %159 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split.i.i:                             ; preds = %156
@@ -461,7 +461,7 @@ thread-pre-split.i.i:                             ; preds = %156
 
 166:                                              ; preds = %thread-pre-split.i.i, %161
   %167 = phi i64 [ %.pr.i.i, %thread-pre-split.i.i ], [ %163, %161 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not412.i.i = icmp eq i64 %167, 0
   br i1 %.not412.i.i, label %168, label %do_SOCKS5.exit.i
 
@@ -476,7 +476,7 @@ thread-pre-split.i.i:                             ; preds = %156
 
 172:                                              ; preds = %96
   %.val450.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %173 = getelementptr inbounds nuw i8, ptr %.0, i64 616
   %174 = load ptr, ptr %173, align 8, !tbaa !115
   %175 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -512,7 +512,7 @@ thread-pre-split.i.i:                             ; preds = %156
 
 socks_state_send.exit458.i.i:                     ; preds = %182, %181
   %.0.i457.i.i = phi i32 [ 3, %181 ], [ 29, %182 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split486.i.i:                          ; preds = %179
@@ -521,7 +521,7 @@ thread-pre-split486.i.i:                          ; preds = %179
 
 189:                                              ; preds = %thread-pre-split486.i.i, %184
   %190 = phi i64 [ %.pr487.i.i, %thread-pre-split486.i.i ], [ %186, %184 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not405.i.i = icmp eq i64 %190, 0
   br i1 %.not405.i.i, label %socksstate.exit.i.i, label %do_SOCKS5.exit.i
 
@@ -536,7 +536,7 @@ socksstate.exit.i.i:                              ; preds = %189, %171, %168, %9
   %194 = phi i64 [ %.pre598.i.i, %._crit_edge594.i.i ], [ 2, %socksstate.exit.i.i ]
   %195 = phi ptr [ %.pre596.i.i, %._crit_edge594.i.i ], [ %97, %socksstate.exit.i.i ]
   %.val453.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %196 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %197 = call i64 @Curl_conn_cf_recv(ptr noundef %.val453.i.i, ptr noundef nonnull %1, ptr noundef %195, i64 noundef %194, ptr noundef nonnull %14) #7
   %198 = icmp slt i64 %197, 1
@@ -570,7 +570,7 @@ socksstate.exit.i.i:                              ; preds = %189, %171, %168, %9
 
 socks_state_recv.exit.i.i:                        ; preds = %202, %201
   %.0.i459.i.i = phi i32 [ 3, %201 ], [ 15, %202 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split490.i.i:                          ; preds = %199
@@ -579,7 +579,7 @@ thread-pre-split490.i.i:                          ; preds = %199
 
 210:                                              ; preds = %thread-pre-split490.i.i, %204
   %211 = phi i64 [ %.pr491.i.i, %thread-pre-split490.i.i ], [ %207, %204 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not414.i.i = icmp eq i64 %211, 0
   br i1 %.not414.i.i, label %212, label %do_SOCKS5.exit.i
 
@@ -719,7 +719,7 @@ socksstate.exit461.i.i:                           ; preds = %224, %221, %96
   %268 = phi i64 [ %.pre603.i.i, %._crit_edge599.i.i ], [ %260, %264 ]
   %269 = phi ptr [ %.pre601.i.i, %._crit_edge599.i.i ], [ %97, %264 ]
   %.val451.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %270 = getelementptr inbounds nuw i8, ptr %.0, i64 616
   %271 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %272 = call i64 @Curl_conn_cf_send(ptr noundef %.val451.i.i, ptr noundef nonnull %1, ptr noundef %269, i64 noundef %268, i1 noundef zeroext false, ptr noundef nonnull %13) #7
@@ -753,7 +753,7 @@ socksstate.exit461.i.i:                           ; preds = %224, %221, %96
 
 socks_state_send.exit464.i.i:                     ; preds = %277, %276
   %.0.i463.i.i = phi i32 [ 3, %276 ], [ 28, %277 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split509.i.i:                          ; preds = %274
@@ -762,7 +762,7 @@ thread-pre-split509.i.i:                          ; preds = %274
 
 284:                                              ; preds = %thread-pre-split509.i.i, %279
   %285 = phi i64 [ %.pr510.i.i, %thread-pre-split509.i.i ], [ %281, %279 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not419.i.i = icmp eq i64 %285, 0
   br i1 %.not419.i.i, label %286, label %do_SOCKS5.exit.i
 
@@ -781,7 +781,7 @@ socksstate.exit465.i.i:                           ; preds = %289, %286, %.sockss
   %290 = phi i64 [ %.pre607.i.i, %.socksstate.exit465_crit_edge.i.i ], [ 2, %289 ], [ 2, %286 ]
   %291 = phi ptr [ %.pre605.i.i, %.socksstate.exit465_crit_edge.i.i ], [ %97, %289 ], [ %97, %286 ]
   %.val454.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %292 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %293 = call i64 @Curl_conn_cf_recv(ptr noundef %.val454.i.i, ptr noundef nonnull %1, ptr noundef %291, i64 noundef %290, ptr noundef nonnull %12) #7
   %294 = icmp slt i64 %293, 1
@@ -815,7 +815,7 @@ socksstate.exit465.i.i:                           ; preds = %289, %286, %.sockss
 
 socks_state_recv.exit467.i.i:                     ; preds = %298, %297
   %.0.i466.i.i = phi i32 [ 3, %297 ], [ 14, %298 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split513.i.i:                          ; preds = %295
@@ -824,7 +824,7 @@ thread-pre-split513.i.i:                          ; preds = %295
 
 306:                                              ; preds = %thread-pre-split513.i.i, %300
   %307 = phi i64 [ %.pr514.i.i, %thread-pre-split513.i.i ], [ %303, %300 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not421.i.i = icmp eq i64 %307, 0
   br i1 %.not421.i.i, label %308, label %do_SOCKS5.exit.i
 
@@ -928,7 +928,7 @@ socksstate.exit460.i.i:                           ; preds = %socksstate.exit460.
   br i1 %.not402.i.i, label %352, label %socksstate.exit469.thread526.i.i
 
 socksstate.exit469.thread526.i.i:                 ; preds = %.critedge579.i.i
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %353
 
 352:                                              ; preds = %.critedge579.i.i
@@ -938,7 +938,7 @@ socksstate.exit469.thread526.i.i:                 ; preds = %.critedge579.i.i
 
 socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %332, %329
   %.pr519.i.i = load ptr, ptr %17, align 8, !tbaa !114
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.not428.i.i = icmp eq ptr %.pr519.i.i, null
   br i1 %.not428.i.i, label %356, label %353
 
@@ -980,7 +980,7 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
 .thread541.i.i:                                   ; preds = %364, %.critedge.i.i, %359
   %367 = load ptr, ptr %99, align 8, !tbaa !29
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %367) #7
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %do_SOCKS5.exit.i
 
 .critedge.thread536.i.i:                          ; preds = %.lr.ph.i.i, %.critedge.i.i
@@ -1103,7 +1103,7 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
 423:                                              ; preds = %422, %419, %415, %408, %407, %394, %390, %383, %382
   %.7348.i.i = phi i64 [ 3, %422 ], [ 8, %394 ], [ 8, %390 ], [ 8, %383 ], [ 8, %382 ], [ 20, %419 ], [ 20, %415 ], [ 20, %408 ], [ 20, %407 ]
   call void @Curl_resolv_unlink(ptr noundef %1, ptr noundef nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %466
 
 424:                                              ; preds = %96
@@ -1115,7 +1115,7 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
   br i1 %98, label %427, label %466
 
 427:                                              ; preds = %424, %.thread545.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %428 = getelementptr inbounds nuw i8, ptr %93, i64 920
   %429 = load i64, ptr %428, align 8
   %430 = and i64 %429, 1024
@@ -1123,7 +1123,7 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
   br i1 %.not423.i.i, label %436, label %431
 
 431:                                              ; preds = %427
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %432 = load ptr, ptr %99, align 8, !tbaa !29
   %433 = call i32 @inet_pton(i32 noundef 10, ptr noundef %432, ptr noundef nonnull %20) #7
   %.not424.i.i = icmp eq i32 %433, 1
@@ -1134,7 +1134,7 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
   store i8 4, ptr %434, align 1, !tbaa !120
   %435 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %435, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %450
 
 436:                                              ; preds = %427
@@ -1190,12 +1190,12 @@ socksstate.exit469.i.i:                           ; preds = %348, %344, %337, %3
   br label %.thread552.i.i
 
 .thread552.i.i:                                   ; preds = %461, %457, %450
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %466
 
 465:                                              ; preds = %431
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %do_SOCKS5.exit.i
 
 466:                                              ; preds = %.thread552.i.i, %424, %423, %96
@@ -1227,7 +1227,7 @@ socksstate.exit471.i.i:                           ; preds = %480, %466, %.sockss
   %481 = phi i64 [ %.pre611.i.i, %.socksstate.exit471_crit_edge.i.i ], [ %474, %480 ], [ %474, %466 ]
   %482 = phi ptr [ %.pre609.i.i, %.socksstate.exit471_crit_edge.i.i ], [ %97, %480 ], [ %97, %466 ]
   %.val452.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %483 = getelementptr inbounds nuw i8, ptr %.0, i64 616
   %484 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %485 = call i64 @Curl_conn_cf_send(ptr noundef %.val452.i.i, ptr noundef %1, ptr noundef %482, i64 noundef %481, i1 noundef zeroext false, ptr noundef nonnull %11) #7
@@ -1261,7 +1261,7 @@ socksstate.exit471.i.i:                           ; preds = %480, %466, %.sockss
 
 socks_state_send.exit473.i.i:                     ; preds = %490, %489
   %.0.i472.i.i = phi i32 [ 3, %489 ], [ 30, %490 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split558.i.i:                          ; preds = %487
@@ -1270,7 +1270,7 @@ thread-pre-split558.i.i:                          ; preds = %487
 
 497:                                              ; preds = %thread-pre-split558.i.i, %492
   %498 = phi i64 [ %.pr559.i.i, %thread-pre-split558.i.i ], [ %494, %492 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not440.i.i = icmp eq i64 %498, 0
   br i1 %.not440.i.i, label %499, label %do_SOCKS5.exit.i
 
@@ -1289,7 +1289,7 @@ socksstate.exit474.i.i:                           ; preds = %502, %499, %.sockss
   %503 = phi i64 [ %.pre615.i.i, %.socksstate.exit474_crit_edge.i.i ], [ 10, %502 ], [ 10, %499 ]
   %504 = phi ptr [ %.pre613.i.i, %.socksstate.exit474_crit_edge.i.i ], [ %97, %502 ], [ %97, %499 ]
   %.val455.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %505 = getelementptr inbounds nuw i8, ptr %.0, i64 616
   %506 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %507 = call i64 @Curl_conn_cf_recv(ptr noundef %.val455.i.i, ptr noundef %1, ptr noundef %504, i64 noundef %503, ptr noundef nonnull %10) #7
@@ -1323,7 +1323,7 @@ socksstate.exit474.i.i:                           ; preds = %502, %499, %.sockss
 
 socks_state_recv.exit476.i.i:                     ; preds = %512, %511
   %.0.i475.i.i = phi i32 [ 3, %511 ], [ 16, %512 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split562.i.i:                          ; preds = %509
@@ -1332,7 +1332,7 @@ thread-pre-split562.i.i:                          ; preds = %509
 
 519:                                              ; preds = %thread-pre-split562.i.i, %514
   %520 = phi i64 [ %.pr563.i.i, %thread-pre-split562.i.i ], [ %516, %514 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not442.i.i = icmp eq i64 %520, 0
   br i1 %.not442.i.i, label %521, label %do_SOCKS5.exit.i
 
@@ -1408,7 +1408,7 @@ socksstate.exit477.i.i:                           ; preds = %549, %.thread564.i.
   %552 = phi i64 [ %.pre619.i.i, %.socksstate.exit477_crit_edge.i.i ], [ %545, %549 ], [ %545, %.thread564.i.i ]
   %553 = phi ptr [ %.pre617.i.i, %.socksstate.exit477_crit_edge.i.i ], [ %546, %549 ], [ %546, %.thread564.i.i ]
   %.val456.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %554 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %555 = call i64 @Curl_conn_cf_recv(ptr noundef %.val456.i.i, ptr noundef %1, ptr noundef %553, i64 noundef %552, ptr noundef nonnull %9) #7
   %556 = icmp slt i64 %555, 1
@@ -1442,7 +1442,7 @@ socksstate.exit477.i.i:                           ; preds = %549, %.thread564.i.
 
 socks_state_recv.exit480.i.i:                     ; preds = %560, %559
   %.0.i479.i.i = phi i32 [ 3, %559 ], [ 13, %560 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %do_SOCKS5.exit.i
 
 thread-pre-split571.i.i:                          ; preds = %557
@@ -1451,7 +1451,7 @@ thread-pre-split571.i.i:                          ; preds = %557
 
 568:                                              ; preds = %thread-pre-split571.i.i, %562
   %569 = phi i64 [ %.pr572.i.i, %thread-pre-split571.i.i ], [ %565, %562 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not446.i.i = icmp eq i64 %569, 0
   br i1 %.not446.i.i, label %570, label %do_SOCKS5.exit.i
 
@@ -1493,13 +1493,13 @@ socksstate.exit478.thread.i.i:                    ; preds = %socksstate.exit478.
 
 do_SOCKS5.exit.i:                                 ; preds = %583, %579, %socksstate.exit478.thread.i.i, %socksstate.exit478.i.i, %568, %socks_state_recv.exit480.i.i, %538, %531, %527, %523, %519, %socks_state_recv.exit476.i.i, %497, %socks_state_send.exit473.i.i, %465, %.thread541.i.i, %352, %328, %325, %320, %311, %306, %socks_state_recv.exit467.i.i, %284, %socks_state_send.exit464.i.i, %255, %242, %227, %226, %225, %214, %210, %socks_state_recv.exit.i.i, %189, %socks_state_send.exit458.i.i, %166, %socks_state_send.exit.i.i, %124
   %.3.i.i = phi i32 [ 9, %124 ], [ 2, %214 ], [ 2, %523 ], [ 1, %538 ], [ 1, %465 ], [ 33, %311 ], [ 12, %226 ], [ 32, %227 ], [ 5, %225 ], [ %.0.i.i.i, %socks_state_send.exit.i.i ], [ 0, %166 ], [ %.0.i457.i.i, %socks_state_send.exit458.i.i ], [ 0, %189 ], [ %.0.i459.i.i, %socks_state_recv.exit.i.i ], [ 0, %210 ], [ %.0.i463.i.i, %socks_state_send.exit464.i.i ], [ 0, %284 ], [ %.0.i466.i.i, %socks_state_recv.exit467.i.i ], [ 0, %306 ], [ %..i.i, %352 ], [ %.0.i472.i.i, %socks_state_send.exit473.i.i ], [ 0, %497 ], [ %.0.i475.i.i, %socks_state_recv.exit476.i.i ], [ 0, %519 ], [ %534, %531 ], [ 25, %527 ], [ %.0.i479.i.i, %socks_state_recv.exit480.i.i ], [ 0, %568 ], [ 0, %583 ], [ 0, %579 ], [ 0, %socksstate.exit478.thread.i.i ], [ 0, %socksstate.exit478.i.i ], [ 27, %.thread541.i.i ], [ 10, %255 ], [ 11, %242 ], [ 0, %328 ], [ 0, %325 ], [ 27, %320 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %907
 
 584:                                              ; preds = %91, %91
   %585 = icmp eq i8 %95, 6
   %586 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !114
   switch i32 %92, label %socksstate.exit250.i.i [
     i32 1, label %587
@@ -1750,7 +1750,7 @@ socksstate.exit244.i.i:                           ; preds = %socksstate.exit244.
   br i1 %.not227.i.i, label %.critedge242.i.i, label %.lr.ph.i21.i, !llvm.loop !138
 
 .critedge.i22.i:                                  ; preds = %.lr.ph.i21.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @Curl_printable_address(ptr noundef nonnull %.0185285.i.i, ptr noundef nonnull %8, i64 noundef 64) #7
   %696 = getelementptr inbounds nuw i8, ptr %.0185285.i.i, i64 32
   %697 = load ptr, ptr %696, align 8, !tbaa !132
@@ -1810,7 +1810,7 @@ socksstate.exit244.thread253.i.i:                 ; preds = %socksstate.exit244.
 
 726:                                              ; preds = %721, %717, %710, %.critedge.i22.i
   call void @Curl_resolv_unlink(ptr noundef %1, ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %socksstate.exit245.i.i
 
 socksstate.exit245.i.i:                           ; preds = %726, %663, %660, %584
@@ -1888,7 +1888,7 @@ socksstate.exit247.thread.i.i:                    ; preds = %758, %753, %.sockss
   %759 = phi i64 [ %.pre288.i.i, %.socksstate.exit247.thread_crit_edge.i.i ], [ %.0.i.i, %758 ], [ %.0.i.i, %753 ]
   %760 = phi ptr [ %.pre.i14.i, %.socksstate.exit247.thread_crit_edge.i.i ], [ %586, %758 ], [ %586, %753 ]
   %.val.i15.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %761 = getelementptr inbounds nuw i8, ptr %.0, i64 616
   %762 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %763 = call i64 @Curl_conn_cf_send(ptr noundef %.val.i15.i, ptr noundef %1, ptr noundef %760, i64 noundef %759, i1 noundef zeroext false, ptr noundef nonnull %6) #7
@@ -1922,7 +1922,7 @@ socksstate.exit247.thread.i.i:                    ; preds = %758, %753, %.sockss
 
 socks_state_send.exit.i16.i:                      ; preds = %768, %767
   %.0.i.i17.i = phi i32 [ 3, %767 ], [ 29, %768 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %do_SOCKS4.exit.i
 
 thread-pre-split.i18.i:                           ; preds = %765
@@ -1931,7 +1931,7 @@ thread-pre-split.i18.i:                           ; preds = %765
 
 775:                                              ; preds = %thread-pre-split.i18.i, %770
   %776 = phi i64 [ %.pr277.i.i, %thread-pre-split.i18.i ], [ %772, %770 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not235.i.i = icmp eq i64 %776, 0
   br i1 %.not235.i.i, label %777, label %do_SOCKS4.exit.i
 
@@ -1950,7 +1950,7 @@ socksstate.exit248.i.i:                           ; preds = %780, %777, %.sockss
   %781 = phi i64 [ %.pre292.i.i, %.socksstate.exit248_crit_edge.i.i ], [ 8, %780 ], [ 8, %777 ]
   %782 = phi ptr [ %.pre290.i.i, %.socksstate.exit248_crit_edge.i.i ], [ %586, %780 ], [ %586, %777 ]
   %.val243.i.i = load ptr, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %783 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %784 = call i64 @Curl_conn_cf_recv(ptr noundef %.val243.i.i, ptr noundef %1, ptr noundef %782, i64 noundef %781, ptr noundef nonnull %5) #7
   %785 = icmp slt i64 %784, 1
@@ -1984,7 +1984,7 @@ socksstate.exit248.i.i:                           ; preds = %780, %777, %.sockss
 
 socks_state_recv.exit.i13.i:                      ; preds = %789, %788
   %.0.i249.i.i = phi i32 [ 3, %788 ], [ 15, %789 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %do_SOCKS4.exit.i
 
 thread-pre-split280.i.i:                          ; preds = %786
@@ -1993,7 +1993,7 @@ thread-pre-split280.i.i:                          ; preds = %786
 
 797:                                              ; preds = %thread-pre-split280.i.i, %791
   %798 = phi i64 [ %.pr281.i.i, %thread-pre-split280.i.i ], [ %794, %791 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not237.i.i = icmp eq i64 %798, 0
   br i1 %.not237.i.i, label %799, label %do_SOCKS4.exit.i
 
@@ -2152,7 +2152,7 @@ socksstate.exit250.i.i:                           ; preds = %802, %799, %584
 
 do_SOCKS4.exit.i:                                 ; preds = %885, %864, %843, %822, %820, %816, %809, %808, %804, %797, %socks_state_recv.exit.i13.i, %775, %socks_state_send.exit.i16.i, %socksstate.exit247.i.i, %734, %socksstate.exit244.thread253.i.i, %.critedge242.i.i, %690, %655, %651, %644, %socksstate.exit.i25.i, %636
   %.1184.i.i = phi i32 [ 2, %804 ], [ 31, %885 ], [ 26, %822 ], [ 7, %843 ], [ 8, %864 ], [ 9, %socksstate.exit247.i.i ], [ 11, %734 ], [ %..i23.i, %690 ], [ %.0.i.i17.i, %socks_state_send.exit.i16.i ], [ 0, %775 ], [ %.0.i249.i.i, %socks_state_recv.exit.i13.i ], [ 0, %797 ], [ 0, %808 ], [ 0, %809 ], [ 0, %816 ], [ 0, %820 ], [ 0, %socksstate.exit.i25.i ], [ 0, %644 ], [ 0, %651 ], [ 0, %655 ], [ 27, %636 ], [ 27, %.critedge242.i.i ], [ 27, %socksstate.exit244.thread253.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %907
 
 .thread.i:                                        ; preds = %91
@@ -2323,7 +2323,7 @@ declare i32 @Curl_cf_def_query(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_cf_socks_proxy_insert_after(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @Curl_cf_create(ptr noundef nonnull %3, ptr noundef nonnull @Curl_cft_socks_proxy, ptr noundef null) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -2334,31 +2334,25 @@ define dso_local i32 @Curl_cf_socks_proxy_insert_after(ptr noundef %0, ptr nound
   br label %7
 
 7:                                                ; preds = %5, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @Curl_cf_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_conn_cf_insert_after(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @Curl_verboseconnect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_resolv(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -2371,7 +2365,7 @@ declare void @Curl_printable_address(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @Curl_resolv_unlink(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i64 @Curl_conn_cf_send(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -2380,19 +2374,25 @@ declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 declare i64 @Curl_conn_cf_recv(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @Curl_conn_cf_get_socket(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_pollset_change(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 

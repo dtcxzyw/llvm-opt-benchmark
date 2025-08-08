@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @FuzzerInitialize(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ht_config_st, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) @__const.FuzzerInitialize.fuzz_conf, i64 40, i1 false)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #8
   tail call void @ERR_clear_error() #8
@@ -57,15 +57,12 @@ define dso_local range(i32 -1, 1) i32 @FuzzerInitialize(ptr noundef readnone cap
 
 12:                                               ; preds = %7, %2, %10
   %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @fuzz_free_cb(ptr noundef readonly captures(address_is_null) %0) #2 {
+define internal void @fuzz_free_cb(ptr noundef readonly captures(address_is_null) %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %3
 
@@ -91,20 +88,17 @@ ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread:   ; preds = %3, %1, %7, %ossl_ht
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ERR_clear_error() local_unnamed_addr #4
+declare void @ERR_clear_error() local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @ossl_ht_new(ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_ht_new(ptr noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -114,8 +108,8 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly c
   %6 = alloca ptr, align 8
   %7 = alloca i16, align 2
   %8 = alloca %struct.fuzzer_key_st, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ult i64 %1, 11
   br i1 %9, label %10, label %12
 
@@ -167,24 +161,24 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly c
   br i1 %.not45, label %ossl_ht_fz_FUZZER_VALUE_insert.exit, label %ossl_ht_fz_FUZZER_VALUE_insert.exit50
 
 ossl_ht_fz_FUZZER_VALUE_insert.exit:              ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !28
   store ptr %23, ptr %5, align 8, !tbaa !17
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @fz_FUZZER_VALUE_id, ptr %32, align 8, !tbaa !11
   %33 = call i32 @ossl_ht_insert(ptr noundef %31, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %23, ptr %4, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @fz_FUZZER_VALUE_id, ptr %34, align 8, !tbaa !11
   %35 = call i32 @ossl_ht_insert(ptr noundef %31, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef null) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %ossl_ht_fz_FUZZER_VALUE_insert.exit50, %ossl_ht_fz_FUZZER_VALUE_insert.exit
@@ -270,7 +264,7 @@ ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
   %.not40 = icmp eq i64 %75, 0
   %spec.store.select = select i1 %.not40, ptr null, ptr %72
   %76 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %77 = call ptr @ossl_ht_get(ptr noundef %76, ptr noundef nonnull %8) #8
   store ptr %77, ptr %3, align 8, !tbaa !28
   %78 = icmp eq ptr %77, null
@@ -290,13 +284,13 @@ ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
 85:                                               ; preds = %82
   %86 = load ptr, ptr %80, align 8, !tbaa !17
   %87 = icmp eq ptr %86, %spec.store.select
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %88 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_read_unlock(ptr noundef %88) #8
   br i1 %87, label %91, label %90
 
 ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %69, %79, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %89 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_read_unlock(ptr noundef %89) #8
   br i1 %.not40, label %.critedge, label %90
@@ -420,30 +414,30 @@ default.unreachable58:                            ; preds = %12
 
 .critedge:                                        ; preds = %.critedge.sink.split, %ossl_ht_fz_FUZZER_VALUE_get.exit, %36, %44, %66, %91
   %.0 = phi i32 [ 0, %91 ], [ 0, %66 ], [ 0, %44 ], [ 0, %36 ], [ 0, %ossl_ht_fz_FUZZER_VALUE_get.exit ], [ %.0.ph, %.critedge.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare void @ossl_ht_write_lock(ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_write_lock(ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_ht_write_unlock(ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_write_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ossl_ht_delete(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_ht_delete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_ht_read_lock(ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_read_lock(ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_ht_read_unlock(ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_read_unlock(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_ht_flush(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_ht_flush(ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_ht_foreach_until(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_foreach_until(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @table_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal range(i32 0, 2) i32 @table_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i16, ptr %1, align 2, !tbaa !35
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %5
@@ -475,10 +469,10 @@ ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread:   ; preds = %5, %2, %ossl_ht_fz_
   ret i32 %.0
 }
 
-declare ptr @ossl_ht_filter(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_ht_filter(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @filter_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal range(i32 0, 2) i32 @filter_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i16, ptr %1, align 2, !tbaa !35
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %5
@@ -509,7 +503,7 @@ ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread:   ; preds = %5, %2, %9, %ossl_ht
   ret i32 %.0
 }
 
-declare void @ossl_ht_value_list_free(ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_value_list_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FuzzerCleanup() local_unnamed_addr #0 {
@@ -521,24 +515,30 @@ define dso_local void @FuzzerCleanup() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ossl_ht_free(ptr noundef) local_unnamed_addr #4
+declare void @ossl_ht_free(ptr noundef) local_unnamed_addr #3
 
-declare void @OPENSSL_cleanup() local_unnamed_addr #4
+declare void @OPENSSL_cleanup() local_unnamed_addr #3
 
-declare i32 @ossl_ht_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_ht_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ossl_ht_get(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_ht_get(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ossl_rcu_uptr_deref(ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_rcu_uptr_deref(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }
 

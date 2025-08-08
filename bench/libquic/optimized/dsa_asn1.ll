@@ -16,7 +16,7 @@ define hidden ptr @DSA_SIG_parse(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 @CBS_get_asn1(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 48) #3
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %parse_integer.exit.thread, label %7
@@ -56,7 +56,7 @@ parse_integer.exit.thread:                        ; preds = %11, %7, %16, %parse
 
 18:                                               ; preds = %16, %parse_integer.exit.thread
   %.1 = phi ptr [ null, %parse_integer.exit.thread ], [ %3, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %19
 
 19:                                               ; preds = %1, %18
@@ -64,12 +64,9 @@ parse_integer.exit.thread:                        ; preds = %11, %7, %16, %parse
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @DSA_SIG_new() local_unnamed_addr #1
 
-declare ptr @DSA_SIG_new() local_unnamed_addr #2
-
-declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_integer(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
@@ -87,19 +84,16 @@ define internal fastcc i32 @parse_integer(ptr noundef nonnull %0, ptr noundef no
   ret i32 %.0
 }
 
-declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
+declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @DSA_SIG_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @DSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @DSA_SIG_marshal(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 48) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
@@ -140,13 +134,13 @@ marshal_integer.exit8:                            ; preds = %9
 
 17:                                               ; preds = %14, %16
   %.0 = phi i32 [ 0, %16 ], [ 1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @DSA_parse_public_key(ptr noundef %0) local_unnamed_addr #0 {
@@ -156,7 +150,7 @@ define hidden ptr @DSA_parse_public_key(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %30, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 @CBS_get_asn1(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 48) #3
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %parse_integer.exit.thread, label %7
@@ -221,7 +215,7 @@ parse_integer.exit.thread:                        ; preds = %22, %17, %12, %7, %
 
 29:                                               ; preds = %27, %parse_integer.exit.thread
   %.1 = phi ptr [ null, %parse_integer.exit.thread ], [ %3, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 30:                                               ; preds = %1, %29
@@ -229,14 +223,14 @@ parse_integer.exit.thread:                        ; preds = %22, %17, %12, %7, %
   ret ptr %.0
 }
 
-declare ptr @DSA_new() local_unnamed_addr #2
+declare ptr @DSA_new() local_unnamed_addr #1
 
-declare void @DSA_free(ptr noundef) local_unnamed_addr #2
+declare void @DSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @DSA_marshal_public_key(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 48) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %27, label %5
@@ -300,7 +294,7 @@ marshal_integer.exit16:                           ; preds = %20
 
 28:                                               ; preds = %25, %27
   %.0 = phi i32 [ 0, %27 ], [ 1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -312,7 +306,7 @@ define hidden ptr @DSA_parse_parameters(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 @CBS_get_asn1(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 48) #3
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %parse_integer.exit.thread, label %7
@@ -365,7 +359,7 @@ parse_integer.exit.thread:                        ; preds = %17, %12, %7, %22, %
 
 24:                                               ; preds = %22, %parse_integer.exit.thread
   %.1 = phi ptr [ null, %parse_integer.exit.thread ], [ %3, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %1, %24
@@ -376,7 +370,7 @@ parse_integer.exit.thread:                        ; preds = %17, %12, %7, %22, %
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @DSA_marshal_parameters(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 48) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %22, label %5
@@ -429,7 +423,7 @@ marshal_integer.exit12:                           ; preds = %15
 
 23:                                               ; preds = %20, %22
   %.0 = phi i32 [ 0, %22 ], [ 1, %20 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -442,8 +436,8 @@ define hidden ptr @DSA_parse_private_key(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %41, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @CBS_get_asn1(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 48) #3
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -535,8 +529,8 @@ parse_integer.exit.thread:                        ; preds = %29, %24, %19, %14, 
 
 40:                                               ; preds = %37, %39
   %.1 = phi ptr [ null, %39 ], [ %4, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 41:                                               ; preds = %1, %40
@@ -544,12 +538,12 @@ parse_integer.exit.thread:                        ; preds = %29, %24, %19, %14, 
   ret ptr %.0
 }
 
-declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @DSA_marshal_private_key(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 48) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %34, label %5
@@ -629,11 +623,11 @@ marshal_integer.exit21:                           ; preds = %27
 
 35:                                               ; preds = %32, %34
   %.0 = phi i32 [ 0, %34 ], [ 1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -642,7 +636,7 @@ define hidden ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %0, ptr nou
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !26
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #3
   %8 = call ptr @DSA_SIG_parse(ptr noundef nonnull %4)
@@ -665,7 +659,7 @@ define hidden ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %0, ptr nou
   br label %15
 
 15:                                               ; preds = %6, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %3, %15
@@ -673,14 +667,14 @@ define hidden ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %0, ptr nou
   ret ptr %.0
 }
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @CBS_data(ptr noundef) local_unnamed_addr #2
+declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -700,15 +694,15 @@ define hidden i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %0, ptr nound
 
 10:                                               ; preds = %8, %7
   %.0 = phi i32 [ %9, %8 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @d2i_DSAPublicKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -717,7 +711,7 @@ define hidden ptr @d2i_DSAPublicKey(ptr noundef captures(address_is_null) %0, pt
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !26
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #3
   %8 = call ptr @DSA_parse_public_key(ptr noundef nonnull %4)
@@ -740,7 +734,7 @@ define hidden ptr @d2i_DSAPublicKey(ptr noundef captures(address_is_null) %0, pt
   br label %15
 
 15:                                               ; preds = %6, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %3, %15
@@ -751,7 +745,7 @@ define hidden ptr @d2i_DSAPublicKey(ptr noundef captures(address_is_null) %0, pt
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_DSAPublicKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -771,7 +765,7 @@ define hidden i32 @i2d_DSAPublicKey(ptr noundef readonly captures(none) %0, ptr 
 
 10:                                               ; preds = %8, %7
   %.0 = phi i32 [ %9, %8 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -782,7 +776,7 @@ define hidden ptr @d2i_DSAPrivateKey(ptr noundef captures(address_is_null) %0, p
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !26
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #3
   %8 = call ptr @DSA_parse_private_key(ptr noundef nonnull %4)
@@ -805,7 +799,7 @@ define hidden ptr @d2i_DSAPrivateKey(ptr noundef captures(address_is_null) %0, p
   br label %15
 
 15:                                               ; preds = %6, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %3, %15
@@ -816,7 +810,7 @@ define hidden ptr @d2i_DSAPrivateKey(ptr noundef captures(address_is_null) %0, p
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_DSAPrivateKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -836,7 +830,7 @@ define hidden i32 @i2d_DSAPrivateKey(ptr noundef readonly captures(none) %0, ptr
 
 10:                                               ; preds = %8, %7
   %.0 = phi i32 [ %9, %8 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -847,7 +841,7 @@ define hidden ptr @d2i_DSAparams(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !26
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #3
   %8 = call ptr @DSA_parse_parameters(ptr noundef nonnull %4)
@@ -870,7 +864,7 @@ define hidden ptr @d2i_DSAparams(ptr noundef captures(address_is_null) %0, ptr n
   br label %15
 
 15:                                               ; preds = %6, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %3, %15
@@ -881,7 +875,7 @@ define hidden ptr @d2i_DSAparams(ptr noundef captures(address_is_null) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_DSAparams(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -901,19 +895,25 @@ define hidden i32 @i2d_DSAparams(ptr noundef readonly captures(none) %0, ptr nou
 
 10:                                               ; preds = %8, %7
   %.0 = phi i32 [ %9, %8 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare i32 @BN_parse_asn1_unsigned(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_parse_asn1_unsigned(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_marshal_asn1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_marshal_asn1(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

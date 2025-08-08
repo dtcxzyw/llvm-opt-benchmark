@@ -3106,8 +3106,8 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo25validate_boot_class_pathsEv(
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %37 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.0.i, ptr %2, align 8
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #26
   %39 = trunc i64 %38 to i32
@@ -3136,8 +3136,8 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo25validate_boot_class_pathsEv(
   br i1 %or.cond.i, label %_ZN11FileMapInfo21check_paths_existenceEPKc.exit, label %44, !llvm.loop !21
 
 _ZN11FileMapInfo21check_paths_existenceEPKc.exit: ; preds = %44, %48
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = load ptr, ptr %31, align 8
   %.not.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i, label %56, label %55
@@ -9437,10 +9437,10 @@ declare void @llvm.assume(i1 noundef) #22
 declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

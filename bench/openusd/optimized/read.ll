@@ -1652,7 +1652,7 @@ avifDecoderItemOperatingPoint.exit.i:             ; preds = %460, %avifPropertyA
   %484 = and i32 %483, -2
   %spec.select = select i1 %or.cond, i32 %483, i32 %484
   %485 = load i32, ptr %indvars.iv758.sroa.phi, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %486 = getelementptr inbounds nuw i8, ptr %345, i64 124
   %487 = load i32, ptr %486, align 4
   %.not12.i.i = icmp eq i32 %487, 0
@@ -1958,11 +1958,11 @@ avifCodecConfigurationBoxGetFormat.exit.i:        ; preds = %601, %597, %avifPro
   br i1 %.not106.i, label %avifDecoderItemValidateProperties.exit.thread, label %avifDecoderItemValidateProperties.exit
 
 avifDecoderItemValidateProperties.exit.thread:    ; preds = %avifCodecConfigurationBoxGetFormat.exit.i, %582, %589, %567, %560, %.loopexit169.i, %.loopexit171.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %avifMetaFindAlphaItem.exit
 
 avifDecoderItemValidateProperties.exit:           ; preds = %585, %.loopexit.i486, %avifCodecConfigurationBoxGetFormat.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %607
 
 607:                                              ; preds = %avifDecoderItemValidateProperties.exit, %344
@@ -3006,12 +3006,12 @@ avifDecoderDataCreate.exit.thread:                ; preds = %107, %avifDecoderCl
   store ptr %90, ptr %83, align 8
   %109 = getelementptr inbounds nuw i8, ptr %90, i64 144
   store ptr %72, ptr %109, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %110 = load ptr, ptr %83, align 8
   %111 = load ptr, ptr %77, align 8
   %112 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -3220,9 +3220,9 @@ avifFileTypeHasBrand.exit.i:                      ; preds = %189, %188, %.prehea
   %206 = load ptr, ptr %70, align 8
   %207 = load i32, ptr %73, align 4
   %208 = load i32, ptr %117, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store ptr %206, ptr %64, align 8
   store i64 %174, ptr %118, align 8
   %209 = load ptr, ptr %119, align 8
@@ -3250,9 +3250,9 @@ avifFileTypeHasBrand.exit.i:                      ; preds = %189, %188, %.prehea
   %217 = add i64 %216, %.053.i
   %218 = call ptr @avifROStreamCurrent(ptr noundef nonnull %63) #13
   %219 = load i64, ptr %65, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store ptr %218, ptr %61, align 8
   store i64 %219, ptr %121, align 8
   %220 = load ptr, ptr %119, align 8
@@ -3329,15 +3329,15 @@ avifDecoderDataCreateTrack.exit.i.i.i:            ; preds = %228
   %250 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
   %251 = load i64, ptr %62, align 8
   %252 = load ptr, ptr %119, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store ptr %250, ptr %52, align 8
   store i64 %251, ptr %142, align 8
   call void @avifROStreamStart(ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef %252, ptr noundef nonnull @.str.120) #13
@@ -3460,29 +3460,29 @@ avifDecoderDataCreateTrack.exit.i.i.i:            ; preds = %228
   br label %avifParseTrackHeaderBox.exit.thread.i.i.i
 
 avifParseTrackHeaderBox.exit.thread.i.i.i:        ; preds = %287, %285, %283, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %249, %300, %296, %281
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %avifParseTrackBox.exit.thread.i.i
 
 avifParseTrackHeaderBox.exit.i.i.i:               ; preds = %298
   %304 = load i32, ptr %55, align 4
   store i32 %304, ptr %221, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %615
 
 305:                                              ; preds = %248
@@ -3501,9 +3501,9 @@ avifParseTrackHeaderBox.exit.i.i.i:               ; preds = %298
   %315 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
   %316 = load i64, ptr %62, align 8
   %317 = load ptr, ptr %119, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr %315, ptr %49, align 8
   store i64 %316, ptr %129, align 8
   call void @avifROStreamStart(ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef %317, ptr noundef nonnull @.str.124) #13
@@ -3530,14 +3530,14 @@ avifParseTrackHeaderBox.exit.i.i.i:               ; preds = %298
 323:                                              ; preds = %322
   %324 = call ptr @avifROStreamCurrent(ptr noundef nonnull %48) #13
   %325 = load i64, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr %324, ptr %41, align 8
   store i64 %325, ptr %141, align 8
   call void @avifROStreamStart(ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %317, ptr noundef nonnull @.str.127) #13
@@ -3607,14 +3607,14 @@ avifParseTrackHeaderBox.exit.i.i.i:               ; preds = %298
   br label %avifParseMediaHeaderBox.exit.thread.i.i.i.i
 
 avifParseMediaHeaderBox.exit.thread.i.i.i.i:      ; preds = %345, %343, %341, %339, %335, %333, %331, %329, %323, %350
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %avifParseMediaBox.exit.thread.i.i.i
 
 avifParseMediaHeaderBox.exit.i.i.i.i:             ; preds = %347, %337
@@ -3622,23 +3622,23 @@ avifParseMediaHeaderBox.exit.i.i.i.i:             ; preds = %347, %337
   store i64 %.sink.i.i.i.i.i, ptr %239, align 8
   %352 = load i32, ptr %44, align 4
   store i32 %352, ptr %240, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %536
 
 353:                                              ; preds = %322
   %354 = call i64 @avifROStreamOffset(ptr noundef nonnull %48) #13
   %355 = call ptr @avifROStreamCurrent(ptr noundef nonnull %48) #13
   %356 = load i64, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %355, ptr %38, align 8
   store i64 %356, ptr %131, align 8
   call void @avifROStreamStart(ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef %317, ptr noundef nonnull @.str.129) #13
@@ -3664,9 +3664,9 @@ avifParseMediaHeaderBox.exit.i.i.i.i:             ; preds = %347, %337
   %363 = call i64 @avifROStreamOffset(ptr noundef nonnull %37) #13
   %364 = call ptr @avifROStreamCurrent(ptr noundef nonnull %37) #13
   %365 = load i64, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %366 = load ptr, ptr %238, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %366, null
   br i1 %.not.i.i.i.i.i.i, label %368, label %367
@@ -3774,9 +3774,9 @@ avifSampleTableCreate.exit.thread.i.i.i.i.i.i:    ; preds = %368, %388
   %406 = load ptr, ptr %238, align 8
   %407 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
   %408 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %407, ptr %32, align 8
   store i64 %408, ptr %138, align 8
   call void @avifROStreamStart(ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef %317, ptr noundef nonnull @.str.142) #13
@@ -3852,25 +3852,25 @@ avifSampleTableCreate.exit.thread.i.i.i.i.i.i:    ; preds = %368, %388
 
 avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i: ; preds = %410, %405, %421, %418, %416, %414, %430, %428
   %.0.i68.ph.i.i.i.i.i.i = phi i32 [ 9, %430 ], [ 9, %428 ], [ 26, %414 ], [ 9, %416 ], [ 9, %418 ], [ 9, %421 ], [ 9, %405 ], [ 9, %410 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
 
 avifParseSampleToChunkBox.exit.i.i.i.i.i.i:       ; preds = %431, %.preheader.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %530
 
 436:                                              ; preds = %394
   %437 = load ptr, ptr %238, align 8
   %438 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
   %439 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %438, ptr %28, align 8
   store i64 %439, ptr %137, align 8
   call void @avifROStreamStart(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %317, ptr noundef nonnull @.str.145) #13
@@ -3923,27 +3923,27 @@ avifParseSampleToChunkBox.exit.i.i.i.i.i.i:       ; preds = %431, %.preheader.i.
 
 avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i:   ; preds = %443, %441, %436, %456, %.lr.ph.i76.i.i.i.i.i.i
   %.0.i73.ph.i.i.i.i.i.i = phi i32 [ 26, %.lr.ph.i76.i.i.i.i.i.i ], [ 9, %456 ], [ 9, %436 ], [ 9, %441 ], [ 9, %443 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
 
 avifParseSampleSizeBox.exit.i.i.i.i.i.i:          ; preds = %451, %449, %.preheader.i74.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %530
 
 458:                                              ; preds = %394
   %459 = load ptr, ptr %238, align 8
   %460 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
   %461 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %460, ptr %24, align 8
   store i64 %461, ptr %136, align 8
   call void @avifROStreamStart(ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %317, ptr noundef nonnull @.str.146) #13
@@ -3984,26 +3984,26 @@ avifParseSampleSizeBox.exit.i.i.i.i.i.i:          ; preds = %451, %449, %.prehea
 
 avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i:   ; preds = %463, %458, %468, %.lr.ph.i81.i.i.i.i.i.i
   %.0.i83.ph.i.i.i.i.i.i = phi i32 [ 9, %.lr.ph.i81.i.i.i.i.i.i ], [ 26, %468 ], [ 9, %458 ], [ 9, %463 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
 
 avifParseSyncSampleBox.exit.i.i.i.i.i.i:          ; preds = %470, %.preheader.i80.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %530
 
 475:                                              ; preds = %394
   %476 = load ptr, ptr %238, align 8
   %477 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
   %478 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %477, ptr %21, align 8
   store i64 %478, ptr %135, align 8
   call void @avifROStreamStart(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %317, ptr noundef nonnull @.str.147) #13
@@ -4047,15 +4047,15 @@ avifParseSyncSampleBox.exit.i.i.i.i.i.i:          ; preds = %470, %.preheader.i8
 
 avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i: ; preds = %480, %475, %491, %489, %.lr.ph.i88.i.i.i.i.i.i
   %.0.i92.ph.i.i.i.i.i.i = phi i32 [ 26, %.lr.ph.i88.i.i.i.i.i.i ], [ 9, %489 ], [ 9, %491 ], [ 9, %475 ], [ 9, %480 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
 
 avifParseTimeToSampleBox.exit.i.i.i.i.i.i:        ; preds = %484, %.preheader.i86.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %530
 
 494:                                              ; preds = %394
@@ -4063,10 +4063,10 @@ avifParseTimeToSampleBox.exit.i.i.i.i.i.i:        ; preds = %484, %.preheader.i8
   %496 = call i64 @avifROStreamOffset(ptr noundef nonnull %34) #13
   %497 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
   %498 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %497, ptr %17, align 8
   store i64 %498, ptr %139, align 8
   call void @avifROStreamStart(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %317, ptr noundef nonnull @.str.148) #13
@@ -4144,17 +4144,17 @@ avifParseTimeToSampleBox.exit.i.i.i.i.i.i:        ; preds = %484, %.preheader.i8
 
 avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i: ; preds = %500, %494, %527, %520, %510, %508, %515
   %.0.i15.ph.i.i.i.i.i = phi i32 [ 26, %515 ], [ 9, %527 ], [ %526, %520 ], [ 26, %510 ], [ 9, %508 ], [ 9, %494 ], [ 9, %500 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
 
 avifParseSampleDescriptionBox.exit.i.i.i.i.i:     ; preds = %504, %.preheader.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %530
 
 530:                                              ; preds = %avifParseSampleDescriptionBox.exit.i.i.i.i.i, %avifParseTimeToSampleBox.exit.i.i.i.i.i.i, %avifParseSyncSampleBox.exit.i.i.i.i.i.i, %avifParseSampleSizeBox.exit.i.i.i.i.i.i, %avifParseSampleToChunkBox.exit.i.i.i.i.i.i, %400, %395, %394
@@ -4165,15 +4165,15 @@ avifParseSampleDescriptionBox.exit.i.i.i.i.i:     ; preds = %504, %.preheader.i.
 
 avifParseSampleTableBox.exit.thread.i.i.i.i.i:    ; preds = %530, %400, %395, %392, %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i, %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, %avifSampleTableCreate.exit.thread.i.i.i.i.i.i
   %.0.i.ph.i.i.i.i.i = phi i32 [ %.0.i15.ph.i.i.i.i.i, %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i ], [ %.0.i92.ph.i.i.i.i.i.i, %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i ], [ %.0.i83.ph.i.i.i.i.i.i, %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i ], [ %.0.i73.ph.i.i.i.i.i.i, %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i ], [ %.0.i68.ph.i.i.i.i.i.i, %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i ], [ 26, %avifSampleTableCreate.exit.thread.i.i.i.i.i.i ], [ 9, %392 ], [ %399, %395 ], [ %404, %400 ], [ 9, %530 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %avifParseMediaInformationBox.exit.thread.i.i.i.i
 
 avifParseSampleTableBox.exit.i.i.i.i.i:           ; preds = %390, %367
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %533
 
 533:                                              ; preds = %avifParseSampleTableBox.exit.i.i.i.i.i, %361
@@ -4184,15 +4184,15 @@ avifParseSampleTableBox.exit.i.i.i.i.i:           ; preds = %390, %367
 
 avifParseMediaInformationBox.exit.thread.i.i.i.i: ; preds = %533, %359, %avifParseSampleTableBox.exit.thread.i.i.i.i.i
   %.0.i22.ph.i.i.i.i = phi i32 [ %.0.i.ph.i.i.i.i.i, %avifParseSampleTableBox.exit.thread.i.i.i.i.i ], [ 9, %359 ], [ 9, %533 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %avifParseMediaBox.exit.thread.i.i.i
 
 avifParseMediaInformationBox.exit.i.i.i.i:        ; preds = %357
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %536
 
 536:                                              ; preds = %avifParseMediaInformationBox.exit.i.i.i.i, %avifParseMediaHeaderBox.exit.i.i.i.i, %322
@@ -4203,26 +4203,26 @@ avifParseMediaInformationBox.exit.i.i.i.i:        ; preds = %357
 
 avifParseMediaBox.exit.thread.i.i.i:              ; preds = %536, %320, %avifParseMediaInformationBox.exit.thread.i.i.i.i, %avifParseMediaHeaderBox.exit.thread.i.i.i.i
   %.0.i69.ph.i.i.i = phi i32 [ %.0.i22.ph.i.i.i.i, %avifParseMediaInformationBox.exit.thread.i.i.i.i ], [ 9, %avifParseMediaHeaderBox.exit.thread.i.i.i.i ], [ 9, %320 ], [ 9, %536 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %avifParseTrackBox.exit.thread.i.i
 
 avifParseMediaBox.exit.i.i.i:                     ; preds = %318
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %615
 
 539:                                              ; preds = %248
   %540 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
   %541 = load i64, ptr %62, align 8
   %542 = load ptr, ptr %119, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %540, ptr %12, align 8
   store i64 %541, ptr %127, align 8
   call void @avifROStreamStart(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %542, ptr noundef nonnull @.str.149) #13
@@ -4288,19 +4288,19 @@ avifParseMediaBox.exit.i.i.i:                     ; preds = %318
   br i1 %.not.i74.i.i.i, label %avifTrackReferenceBox.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
 
 avifTrackReferenceBox.exit.thread.i.i.i:          ; preds = %562, %556, %554, %548, %546, %.lr.ph.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %avifParseTrackBox.exit.thread.i.i
 
 avifTrackReferenceBox.exit.i.i.i:                 ; preds = %565, %539
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %615
 
 567:                                              ; preds = %248
@@ -4316,9 +4316,9 @@ avifTrackReferenceBox.exit.i.i.i:                 ; preds = %565, %539
   %571 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
   %572 = load i64, ptr %62, align 8
   %573 = load ptr, ptr %119, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %571, ptr %9, align 8
   store i64 %572, ptr %124, align 8
   call void @avifROStreamStart(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %573, ptr noundef nonnull @.str.150) #13
@@ -4351,12 +4351,12 @@ avifTrackReferenceBox.exit.i.i.i:                 ; preds = %565, %539
 581:                                              ; preds = %579
   %582 = call ptr @avifROStreamCurrent(ptr noundef nonnull %8) #13
   %583 = load i64, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %582, ptr %3, align 8
   store i64 %583, ptr %126, align 8
   call void @avifROStreamStart(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %573, ptr noundef nonnull @.str.154) #13
@@ -4431,21 +4431,21 @@ avifTrackReferenceBox.exit.i.i.i:                 ; preds = %565, %539
   br label %avifParseEditListBox.exit.thread.i.i.i.i
 
 avifParseEditListBox.exit.thread.i.i.i.i:         ; preds = %599, %597, %590, %581, %609, %604, %594
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %avifParseEditBox.exit.thread.i.i.i
 
 avifParseEditListBox.exit.i.i.i.i:                ; preds = %606, %589
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %610
 
 610:                                              ; preds = %avifParseEditListBox.exit.i.i.i.i, %578
@@ -4464,15 +4464,15 @@ avifParseEditListBox.exit.i.i.i.i:                ; preds = %606, %589
   br label %avifParseEditBox.exit.thread.i.i.i
 
 avifParseEditBox.exit.thread.i.i.i:               ; preds = %610, %576, %614, %avifParseEditListBox.exit.thread.i.i.i.i, %580
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %avifParseTrackBox.exit.thread.i.i
 
 avifParseEditBox.exit.i.i.i:                      ; preds = %613
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %615
 
 615:                                              ; preds = %avifParseEditBox.exit.i.i.i, %avifTrackReferenceBox.exit.i.i.i, %avifParseMediaBox.exit.i.i.i, %305, %avifParseTrackHeaderBox.exit.i.i.i, %248
@@ -4518,18 +4518,18 @@ avifParseEditBox.exit.i.i.i:                      ; preds = %613
 
 avifParseTrackBox.exit.thread.i.i:                ; preds = %215, %615, %305, %246, %623, %avifParseEditBox.exit.thread.i.i.i, %568, %avifTrackReferenceBox.exit.thread.i.i.i, %avifParseMediaBox.exit.thread.i.i.i, %avifParseTrackHeaderBox.exit.thread.i.i.i, %.loopexit22.i.i
   %.0.i.ph.i.i = phi i32 [ 26, %.loopexit22.i.i ], [ 9, %avifParseEditBox.exit.thread.i.i.i ], [ 9, %avifTrackReferenceBox.exit.thread.i.i.i ], [ %.0.i69.ph.i.i.i, %avifParseMediaBox.exit.thread.i.i.i ], [ 9, %avifParseTrackHeaderBox.exit.thread.i.i.i ], [ 9, %623 ], [ 9, %568 ], [ 9, %615 ], [ %312, %305 ], [ 9, %246 ], [ 26, %215 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %avifParseMovieBox.exit.thread.i
 
 avifParseTrackBox.exit.i.i:                       ; preds = %625, %621, %619, %618
   %.sink.i.i = phi i32 [ -2, %618 ], [ -1, %621 ], [ 0, %619 ], [ %spec.select.i.i, %625 ]
   %635 = getelementptr inbounds nuw i8, ptr %221, i64 44
   store i32 %.sink.i.i, ptr %635, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %636
 
 636:                                              ; preds = %avifParseTrackBox.exit.i.i, %214
@@ -4540,15 +4540,15 @@ avifParseTrackBox.exit.i.i:                       ; preds = %625, %621, %619, %6
 
 avifParseMovieBox.exit.thread.i:                  ; preds = %636, %212, %avifParseTrackBox.exit.thread.i.i
   %.0.i111.ph.i = phi i32 [ %.0.i.ph.i.i, %avifParseTrackBox.exit.thread.i.i ], [ 9, %212 ], [ 9, %636 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %avifParse.exit.thread
 
 639:                                              ; preds = %210
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   store i32 1, ptr %143, align 8
   br label %avifFileTypeHasBrand.exit108.i
 
@@ -4607,21 +4607,21 @@ avifFileTypeHasBrand.exit108.thread.i:            ; preds = %195, %194, %avifFil
 
 avifParse.exit.thread:                            ; preds = %204, %199, %198, %182, %178, %177, %169, %166, %160, %154, %147, %645, %650, %651, %654, %avifParseMovieBox.exit.thread.i
   %.0.i76.ph = phi i32 [ %.0.i111.ph.i, %avifParseMovieBox.exit.thread.i ], [ 20, %654 ], [ 20, %651 ], [ 2, %650 ], [ 9, %204 ], [ %203, %199 ], [ 9, %198 ], [ 2, %182 ], [ 9, %178 ], [ 9, %177 ], [ 9, %169 ], [ 20, %166 ], [ %165, %160 ], [ 9, %154 ], [ %151, %147 ], [ 9, %645 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %727
 
 select.unfold:                                    ; preds = %642, %654
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %657 = load ptr, ptr %83, align 8
   %658 = load ptr, ptr %657, align 8
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 12
@@ -5562,14 +5562,14 @@ define internal fastcc i32 @avifDecoderItemReadAndParse(ptr noundef readonly cap
   %33 = load ptr, ptr %20, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 144
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %26, ptr %7, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %28, ptr %36, align 8
@@ -5696,27 +5696,27 @@ define internal fastcc i32 @avifDecoderItemReadAndParse(ptr noundef readonly cap
   br label %avifParseImageGridBox.exit.thread
 
 avifParseImageGridBox.exit.thread:                ; preds = %40, %._crit_edge40.i, %89, %73, %25, %42, %44, %46, %61, %63, %74, %77
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %108
 
 avifParseImageGridBox.exit:                       ; preds = %87
   %92 = call i64 @avifROStreamRemainingBytes(ptr noundef nonnull %6) #13
   %.not29 = icmp eq i64 %92, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not29, label %93, label %108
 
 93:                                               ; preds = %16, %avifParseImageGridBox.exit
@@ -6385,7 +6385,7 @@ avifDecoderPrepareTiles.exit:                     ; preds = %224
   %231 = load ptr, ptr %8, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 56
   %233 = getelementptr inbounds nuw [2 x %struct.avifTileInfo], ptr %232, i64 0, i64 %indvars.iv187
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %235 = load i32, ptr %234, align 4
   %236 = load i32, ptr %233, align 4
@@ -6799,10 +6799,10 @@ avifImageLimitedToFullAlpha.exit.thread._crit_edge.i: ; preds = %360, %avifImage
 .split.i:                                         ; preds = %471, %378
   %477 = load ptr, ptr %8, align 8
   %478 = load ptr, ptr %192, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 32
   %480 = load ptr, ptr %479, align 8
   %481 = load i32, ptr %238, align 4
@@ -6938,10 +6938,10 @@ avifImageLimitedToFullAlpha.exit.thread._crit_edge.i: ; preds = %360, %avifImage
   br i1 %.not53.i, label %avifDecoderDataCopyTileToImage.exit, label %avifDecoderDataCopyTileToImage.exit.thread
 
 avifDecoderDataCopyTileToImage.exit.thread:       ; preds = %554, %551, %525
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %avifDecoderDecodeTiles.exit.thread
 
 avifDecoderDataCopyTileToImage.exit:              ; preds = %554
@@ -6951,10 +6951,10 @@ avifDecoderDataCopyTileToImage.exit:              ; preds = %554
   %560 = icmp eq i32 %559, 1
   %561 = select i1 %560, i32 2, i32 1
   call void @avifImageCopySamples(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %561) #13
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %599
 
 562:                                              ; preds = %376, %372
@@ -7028,11 +7028,11 @@ avifDecoderDataCopyTileToImage.exit:              ; preds = %554
 
 avifDecoderDecodeTiles.exit.thread:               ; preds = %412, %avifImageLimitedToFullAlpha.exit.i, %366, %582, %271, %474, %442, %409, %400, %avifDecoderDataCopyTileToImage.exit.thread
   %.0.i80.ph = phi i32 [ 18, %avifDecoderDataCopyTileToImage.exit.thread ], [ 18, %400 ], [ 18, %409 ], [ 18, %442 ], [ 26, %474 ], [ %276, %271 ], [ 12, %582 ], [ %371, %366 ], [ %.0.i.i, %avifImageLimitedToFullAlpha.exit.i ], [ 18, %412 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %avifDecoderCreateCodecs.exit.thread
 
 .loopexit:                                        ; preds = %599, %243, %229
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %230, label %229, label %603, !llvm.loop !69
 
 603:                                              ; preds = %.loopexit
@@ -7932,11 +7932,11 @@ uniqueBoxSeen.exit.thread:                        ; preds = %108
   %111 = or disjoint i32 %.0139, 1
   %112 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
   %113 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store ptr %112, ptr %71, align 8
   store i64 %113, ptr %85, align 8
   call void @avifROStreamStart(ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef %4, ptr noundef nonnull @.str.36) #13
@@ -7981,21 +7981,21 @@ avifParseHandlerBox.exit.thread.sink.split:       ; preds = %121, %117
   br label %avifParseHandlerBox.exit.thread
 
 avifParseHandlerBox.exit.thread:                  ; preds = %110, %115, %119, %.preheader.i, %avifParseHandlerBox.exit.thread.sink.split
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %avifParseItemDataBox.exit.thread
 
 avifParseHandlerBox.exit:                         ; preds = %122
   %125 = call i32 @avifROStreamReadString(ptr noundef nonnull %70, ptr noundef null, i64 noundef 0) #13
   %.not12.i.not = icmp eq i32 %125, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br i1 %.not12.i.not, label %avifParseItemDataBox.exit.thread, label %547
 
 126:                                              ; preds = %107
@@ -8025,23 +8025,23 @@ uniqueBoxSeen.exit77.thread:                      ; preds = %128
   %131 = or disjoint i32 %.0139, 2
   %132 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
   %133 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %60)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store ptr %132, ptr %54, align 8
   store i64 %133, ptr %101, align 8
   call void @avifROStreamStart(ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef %4, ptr noundef nonnull @.str.40) #13
@@ -8311,43 +8311,43 @@ avifCheckItemID.exit.i:                           ; preds = %176
 
 avifParseItemLocationBox.exit.thread:             ; preds = %130, %140, %142, %144, %153, %158, %163, %169, %174, %179, %190, %195, %205, %207, %211, %224, %220, %216, %138, %151, %185, %194, %199, %231, %240, %avifCheckItemID.exit.i
   %.0.i79.ph = phi i32 [ 9, %avifCheckItemID.exit.i ], [ 9, %240 ], [ 9, %231 ], [ 9, %199 ], [ 9, %194 ], [ 9, %185 ], [ 9, %151 ], [ 9, %138 ], [ 26, %224 ], [ 9, %220 ], [ 9, %216 ], [ 9, %169 ], [ 9, %174 ], [ %180, %179 ], [ 9, %190 ], [ 9, %195 ], [ 9, %205 ], [ 9, %207 ], [ 9, %211 ], [ 9, %163 ], [ 9, %158 ], [ 9, %153 ], [ 9, %144 ], [ 9, %142 ], [ 9, %140 ], [ 9, %130 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %avifParseItemDataBox.exit.thread
 
 avifParseItemLocationBox.exit:                    ; preds = %._crit_edge.i, %165
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %547
 
 251:                                              ; preds = %127
@@ -8363,10 +8363,10 @@ uniqueBoxSeen.exit83.thread:                      ; preds = %251
   %254 = or disjoint i32 %.0139, 4
   %255 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
   %256 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %257 = load i32, ptr %99, align 4
   %.not.i84 = icmp eq i32 %257, 0
   br i1 %.not.i84, label %259, label %258
@@ -8405,17 +8405,17 @@ uniqueBoxSeen.exit83.thread:                      ; preds = %251
   br i1 %.not8.i86, label %avifParsePrimaryItemBox.exit.thread, label %avifParsePrimaryItemBox.exit
 
 avifParsePrimaryItemBox.exit.thread:              ; preds = %259, %264, %269, %258
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %avifParseItemDataBox.exit.thread
 
 avifParsePrimaryItemBox.exit:                     ; preds = %266, %269
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %547
 
 271:                                              ; preds = %127
@@ -8467,11 +8467,11 @@ uniqueBoxSeen.exit97.thread:                      ; preds = %283
   %288 = add i64 %287, %1
   %289 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
   %290 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr %289, ptr %45, align 8
   store i64 %290, ptr %91, align 8
   call void @avifROStreamStart(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef %4, ptr noundef nonnull @.str.54) #13
@@ -8522,17 +8522,17 @@ uniqueBoxSeen.exit97.thread:                      ; preds = %283
 307:                                              ; preds = %306
   %308 = call ptr @avifROStreamCurrent(ptr noundef nonnull %44) #13
   %309 = load i64, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %308, ptr %34, align 8
   store i64 %309, ptr %95, align 8
   call void @avifROStreamStart(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %4, ptr noundef nonnull @.str.92) #13
@@ -8749,31 +8749,31 @@ avifCheckItemID.exit.i.i:                         ; preds = %331
 
 avifParseItemPropertyAssociation.exit.thread.i:   ; preds = %311, %307, %344, %336, %329, %324, %.critedge81.i.i, %351, %349, %379, %373, %359, %342, %335, %avifCheckItemID.exit.i.i
   %.0.i.ph.i = phi i32 [ 9, %avifCheckItemID.exit.i.i ], [ 9, %379 ], [ 9, %373 ], [ 9, %359 ], [ 9, %342 ], [ 9, %335 ], [ 9, %349 ], [ 9, %351 ], [ 26, %.critedge81.i.i ], [ 9, %344 ], [ %337, %336 ], [ 9, %329 ], [ 9, %324 ], [ 9, %307 ], [ 9, %311 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %avifParseItemPropertiesBox.exit.thread
 
 avifParseItemPropertyAssociation.exit.i:          ; preds = %._crit_edge.i.i, %.preheader85.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %.not52.i100 = icmp eq i64 %indvars.iv64.i, 0
   br i1 %.not52.i100, label %._crit_edge.thread.i, label %.lr.ph.i101
 
@@ -8816,19 +8816,19 @@ avifParseItemPropertyAssociation.exit.i:          ; preds = %._crit_edge.i.i, %.
 
 avifParseItemPropertiesBox.exit.thread:           ; preds = %285, %294, %300, %._crit_edge.thread.i, %304, %293, %402, %396, %398, %avifParseItemPropertyAssociation.exit.thread.i
   %.023.i.ph = phi i32 [ %.0.i.ph.i, %avifParseItemPropertyAssociation.exit.thread.i ], [ 9, %398 ], [ 9, %396 ], [ 9, %402 ], [ 9, %293 ], [ 9, %304 ], [ 9, %._crit_edge.thread.i ], [ 9, %285 ], [ %299, %294 ], [ 9, %300 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %avifParseItemDataBox.exit.thread
 
 avifParseItemPropertiesBox.exit:                  ; preds = %.preheader.i99
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %547
 
 403:                                              ; preds = %127
@@ -8844,12 +8844,12 @@ uniqueBoxSeen.exit106.thread:                     ; preds = %403
   %406 = or disjoint i32 %.0139, 32
   %407 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
   %408 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %407, ptr %28, align 8
   store i64 %408, ptr %88, align 8
   call void @avifROStreamStart(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %4, ptr noundef nonnull @.str.98) #13
@@ -8914,16 +8914,16 @@ uniqueBoxSeen.exit106.thread:                     ; preds = %403
 429:                                              ; preds = %428
   %430 = call ptr @avifROStreamCurrent(ptr noundef nonnull %27) #13
   %431 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %430, ptr %18, align 8
   store i64 %431, ptr %90, align 8
   call void @avifROStreamStart(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %4, ptr noundef nonnull @.str.102) #13
@@ -9016,16 +9016,16 @@ avifCheckItemID.exit.i.i119:                      ; preds = %451
 
 avifParseItemInfoEntry.exit.thread.i:             ; preds = %464, %461, %459, %456, %454, %449, %444, %429, %avifCheckItemID.exit.i.i119, %436
   %.0.i.ph.i118 = phi i32 [ 9, %avifCheckItemID.exit.i.i119 ], [ 9, %436 ], [ %466, %464 ], [ 9, %461 ], [ 9, %459 ], [ 9, %456 ], [ 9, %454 ], [ 9, %449 ], [ 9, %444 ], [ 9, %429 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %avifParseItemInfoBox.exit.thread
 
 467:                                              ; preds = %428
@@ -9039,16 +9039,16 @@ avifParseItemInfoEntry.exit.thread.i:             ; preds = %464, %461, %459, %4
   store i32 %471, ptr %470, align 8
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %472, ptr noundef nonnull align 1 dereferenceable(64) %25, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %473 = load i64, ptr %32, align 8
   %474 = call i32 @avifROStreamSkip(ptr noundef nonnull %27, i64 noundef %473) #13
   %.not19.i = icmp eq i32 %474, 0
@@ -9056,21 +9056,21 @@ avifParseItemInfoEntry.exit.thread.i:             ; preds = %464, %461, %459, %4
 
 avifParseItemInfoBox.exit.thread:                 ; preds = %405, %412, %417, %.lr.ph.i111, %468, %467, %419, %avifParseItemInfoEntry.exit.thread.i
   %.0.i113.ph = phi i32 [ %.0.i.ph.i118, %avifParseItemInfoEntry.exit.thread.i ], [ 9, %419 ], [ 9, %467 ], [ 9, %468 ], [ 9, %.lr.ph.i111 ], [ 9, %417 ], [ 9, %412 ], [ 9, %405 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %avifParseItemDataBox.exit.thread
 
 avifParseItemInfoBox.exit:                        ; preds = %423, %421
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %547
 
 475:                                              ; preds = %127
@@ -9086,17 +9086,17 @@ uniqueBoxSeen.exit122.thread:                     ; preds = %475
   %478 = or disjoint i32 %.0139, 64
   %479 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
   %480 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %479, ptr %7, align 8
   store i64 %480, ptr %86, align 8
   call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.105) #13
@@ -9270,31 +9270,31 @@ avifCheckItemID.exit61.thread.i:                  ; preds = %508, %502
 
 avifParseItemReferenceBox.exit.thread:            ; preds = %477, %.lr.ph78.i, %486, %492, %avifCheckItemID.exit.thread.i, %530, %515, %506, %500, %.loopexit.sink.split.i
   %.0.i130.ph = phi i32 [ 9, %.loopexit.sink.split.i ], [ %532, %530 ], [ %516, %515 ], [ 9, %506 ], [ 9, %500 ], [ 9, %avifCheckItemID.exit.thread.i ], [ 9, %492 ], [ 9, %486 ], [ 9, %.lr.ph78.i ], [ 9, %477 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %avifParseItemDataBox.exit.thread
 
 avifParseItemReferenceBox.exit:                   ; preds = %484, %._crit_edge.i129, %.preheader72.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %547
 
 547:                                              ; preds = %127, %avifParseItemReferenceBox.exit, %avifParseItemInfoBox.exit, %avifParseItemPropertiesBox.exit, %avifParsePrimaryItemBox.exit, %avifParseItemLocationBox.exit, %avifParseHandlerBox.exit, %avifParseItemDataBox.exit
@@ -9417,8 +9417,8 @@ define internal fastcc range(i32 0, 27) i32 @avifParseItemPropertyContainerBox(p
 51:                                               ; preds = %49
   %52 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %53 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %52, ptr %29, align 8
   store i64 %53, ptr %42, align 8
   call void @avifROStreamStart(ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef %4, ptr noundef nonnull @.str.67) #13
@@ -9433,23 +9433,23 @@ define internal fastcc range(i32 0, 27) i32 @avifParseItemPropertyContainerBox(p
   br i1 %.not6.i, label %avifParseImageSpatialExtentsProperty.exit.thread, label %avifParseImageSpatialExtentsProperty.exit
 
 avifParseImageSpatialExtentsProperty.exit.thread: ; preds = %51, %55
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.loopexit
 
 avifParseImageSpatialExtentsProperty.exit:        ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %59 = call i32 @avifROStreamReadU32(ptr noundef nonnull %28, ptr noundef nonnull %58) #13
   %.not7.i.not = icmp eq i32 %59, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.not7.i.not, label %.loopexit, label %217
 
 60:                                               ; preds = %49
   %61 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %62 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %61, ptr %27, align 8
   store i64 %62, ptr %41, align 8
   call void @avifROStreamStart(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %4, ptr noundef nonnull @.str.68) #13
@@ -9458,16 +9458,16 @@ avifParseImageSpatialExtentsProperty.exit:        ; preds = %55
   br i1 %.not.i75, label %avifParseAuxiliaryTypeProperty.exit.thread, label %avifParseAuxiliaryTypeProperty.exit
 
 avifParseAuxiliaryTypeProperty.exit.thread:       ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit
 
 avifParseAuxiliaryTypeProperty.exit:              ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %65 = call i32 @avifROStreamReadString(ptr noundef nonnull %26, ptr noundef nonnull %64, i64 noundef 64) #13
   %.not4.i.not = icmp eq i32 %65, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %.not4.i.not, label %.loopexit, label %217
 
 66:                                               ; preds = %49
@@ -9475,11 +9475,11 @@ avifParseAuxiliaryTypeProperty.exit:              ; preds = %60
   %68 = add i64 %67, %1
   %69 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %70 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %69, ptr %22, align 8
   store i64 %70, ptr %40, align 8
   call void @avifROStreamStart(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %4, ptr noundef nonnull @.str.69) #13
@@ -9565,34 +9565,34 @@ avifParseAuxiliaryTypeProperty.exit:              ; preds = %60
   br label %avifParseColourInformationBox.exit
 
 avifParseColourInformationBox.exit.thread:        ; preds = %66, %83, %86, %89, %92, %94, %101
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit
 
 avifParseColourInformationBox.exit:               ; preds = %76, %82, %103
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %217
 
 104:                                              ; preds = %49
   %105 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %106 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 10, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.62) #13
   store ptr %105, ptr %20, align 8
   store i64 %106, ptr %39, align 8
   call void @avifROStreamStart(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %4, ptr noundef nonnull %18) #13
   %108 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %109 = call i32 @avifROStreamReadBits(ptr noundef nonnull %19, ptr noundef nonnull %16, i64 noundef 1) #13
   %.not.i.i = icmp eq i32 %109, 0
   br i1 %.not.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %110
@@ -9674,28 +9674,28 @@ avifParseColourInformationBox.exit:               ; preds = %76, %82, %103
   br i1 %.not38.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %avifParseCodecConfigurationBoxProperty.exit
 
 avifParseCodecConfigurationBoxProperty.exit.thread: ; preds = %104, %113, %118, %120, %123, %126, %129, %132, %135, %138, %141, %117, %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 avifParseCodecConfigurationBoxProperty.exit:      ; preds = %141
   %144 = call i32 @avifROStreamSkip(ptr noundef nonnull %19, i64 noundef 1) #13
   %.not39.i.i.not = icmp eq i32 %144, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not39.i.i.not, label %.loopexit, label %217
 
 145:                                              ; preds = %49
   %146 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %147 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %146, ptr %15, align 8
   store i64 %147, ptr %38, align 8
   call void @avifROStreamStart(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %4, ptr noundef nonnull @.str.77) #13
@@ -9705,23 +9705,23 @@ avifParseCodecConfigurationBoxProperty.exit:      ; preds = %141
   br i1 %.not.i80, label %avifParsePixelAspectRatioBoxProperty.exit.thread, label %avifParsePixelAspectRatioBoxProperty.exit
 
 avifParsePixelAspectRatioBoxProperty.exit.thread: ; preds = %145
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
 
 avifParsePixelAspectRatioBoxProperty.exit:        ; preds = %145
   %150 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %151 = call i32 @avifROStreamReadU32(ptr noundef nonnull %14, ptr noundef nonnull %150) #13
   %.not6.i81.not = icmp eq i32 %151, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not6.i81.not, label %.loopexit, label %217
 
 152:                                              ; preds = %49
   %153 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %154 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %153, ptr %13, align 8
   store i64 %154, ptr %37, align 8
   call void @avifROStreamStart(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull @.str.78) #13
@@ -9767,24 +9767,24 @@ avifParsePixelAspectRatioBoxProperty.exit:        ; preds = %145
   br i1 %.not17.i85, label %avifParseCleanApertureBoxProperty.exit.thread, label %avifParseCleanApertureBoxProperty.exit
 
 avifParseCleanApertureBoxProperty.exit.thread:    ; preds = %152, %157, %160, %163, %166, %169, %172
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 avifParseCleanApertureBoxProperty.exit:           ; preds = %172
   %175 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %176 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %175) #13
   %.not18.i.not = icmp eq i32 %176, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not18.i.not, label %.loopexit, label %217
 
 177:                                              ; preds = %49
   %178 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %179 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %178, ptr %10, align 8
   store i64 %179, ptr %36, align 8
   call void @avifROStreamStart(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4, ptr noundef nonnull @.str.79) #13
@@ -9804,25 +9804,25 @@ avifParseCleanApertureBoxProperty.exit:           ; preds = %172
   br label %avifParseImageRotationProperty.exit.thread
 
 avifParseImageRotationProperty.exit.thread:       ; preds = %177, %184
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 avifParseImageRotationProperty.exit:              ; preds = %182
   %186 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %9, ptr noundef nonnull %180, i64 noundef 2) #13
   %.not8.i.not = icmp eq i32 %186, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not8.i.not, label %.loopexit, label %217
 
 187:                                              ; preds = %49
   %188 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %189 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %188, ptr %7, align 8
   store i64 %189, ptr %35, align 8
   call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.81) #13
@@ -9842,17 +9842,17 @@ avifParseImageRotationProperty.exit:              ; preds = %182
   br label %avifParseImageMirrorProperty.exit.thread
 
 avifParseImageMirrorProperty.exit.thread:         ; preds = %187, %194
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 avifParseImageMirrorProperty.exit:                ; preds = %192
   %196 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %6, ptr noundef nonnull %190, i64 noundef 1) #13
   %.not8.i95.not = icmp eq i32 %196, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not8.i95.not, label %.loopexit, label %217
 
 197:                                              ; preds = %49
@@ -10823,10 +10823,10 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

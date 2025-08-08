@@ -122,7 +122,7 @@ define hidden range(i32 0, 9) i32 @aom_read_obu_header_and_size(ptr noundef %0, 
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %13 = call i32 @aom_uleb_decode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
   %.not.i = icmp eq i32 %13, 0
@@ -134,11 +134,11 @@ define hidden range(i32 0, 9) i32 @aom_read_obu_header_and_size(ptr noundef %0, 
   br i1 %16, label %read_obu_size.exit.thread, label %read_obu_size.exit
 
 read_obu_size.exit.thread:                        ; preds = %12, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %50
 
 read_obu_size.exit:                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i64, ptr %9, align 8
   br label %17
 
@@ -181,7 +181,7 @@ read_obu_size.exit:                               ; preds = %14
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = add i64 %34, %36
   %39 = sub i64 %1, %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %40 = call i32 @aom_uleb_decode(ptr noundef %37, i64 noundef %39, ptr noundef nonnull %7, ptr noundef nonnull %10) #4
   %.not.i34 = icmp eq i32 %40, 0
@@ -193,12 +193,12 @@ read_obu_size.exit:                               ; preds = %14
   br i1 %43, label %read_obu_size.exit36.thread, label %read_obu_size.exit36
 
 read_obu_size.exit36.thread:                      ; preds = %33, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %50
 
 read_obu_size.exit36:                             ; preds = %41
   store i64 %42, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre45 = load i64, ptr %10, align 8
   br label %44
 
@@ -226,10 +226,10 @@ declare i32 @aom_uleb_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

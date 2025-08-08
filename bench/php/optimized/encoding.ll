@@ -45,8 +45,8 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr noundef rea
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %13 = load i64, ptr %12, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = icmp eq ptr %2, null
   %spec.store.select = select i1 %14, ptr %8, ptr %2
   %15 = icmp eq ptr %3, null
@@ -60,13 +60,13 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr noundef rea
   %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 %17)
   %18 = add i64 %spec.select, 1
   %19 = shl i64 %18, 3
-  %20 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %19) #8
+  %20 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %19) #7
   store ptr %20, ptr %spec.store.select, align 8, !tbaa !24
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %7
-  tail call void @file_oomem(ptr noundef nonnull %0, i64 noundef %19) #7
+  tail call void @file_oomem(ptr noundef nonnull %0, i64 noundef %19) #8
   br label %239
 
 23:                                               ; preds = %7
@@ -432,7 +432,7 @@ looks_extended.exit:                              ; preds = %.lr.ph.i154
   br i1 %204, label %205, label %.lr.ph.i158
 
 205:                                              ; preds = %looks_extended.exit
-  tail call void @file_oomem(ptr noundef %0, i64 noundef %18) #7
+  tail call void @file_oomem(ptr noundef %0, i64 noundef %18) #8
   br label %239
 
 .lr.ph.i158:                                      ; preds = %looks_extended.exit, %.lr.ph.i158
@@ -515,7 +515,7 @@ looks_latin1.exit173:                             ; preds = %.lr.ph.i168
 
 238:                                              ; preds = %237, %looks_latin1.exit173, %224
   %.2 = phi i32 [ 1, %224 ], [ 1, %237 ], [ 0, %looks_latin1.exit173 ]
-  tail call void @_efree(ptr noundef nonnull %203) #7
+  tail call void @_efree(ptr noundef nonnull %203) #8
   br label %239
 
 239:                                              ; preds = %205, %238, %.thread, %50, %71, %173, %172, %202, %188, %looks_ucs32.exit, %.loopexit191, %67, %22
@@ -525,25 +525,22 @@ looks_latin1.exit173:                             ; preds = %.lr.ph.i168
 
 241:                                              ; preds = %239
   %242 = load ptr, ptr %8, align 8, !tbaa !24
-  call void @_efree(ptr noundef %242) #7
+  call void @_efree(ptr noundef %242) #8
   br label %243
 
 243:                                              ; preds = %239, %241
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0131
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden void @file_oomem(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare hidden void @file_oomem(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
+define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
 
@@ -706,7 +703,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #3 {
   %5 = icmp ult i64 %1, 2
   br i1 %5, label %.critedge, label %6
 
@@ -875,25 +872,28 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 
-declare void @_efree(ptr noundef) local_unnamed_addr #3
+declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0,1) }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

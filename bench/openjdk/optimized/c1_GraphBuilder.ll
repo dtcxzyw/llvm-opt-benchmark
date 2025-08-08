@@ -13055,12 +13055,12 @@ _ZN8ciMethod15raw_code_at_bciEi.exit:             ; preds = %_ZN8ciMethod4codeEv
   ]
 
 681:                                              ; preds = %_ZN8ciMethod15raw_code_at_bciEi.exit, %_ZN8ciMethod15raw_code_at_bciEi.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %682 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %668, i32 noundef %661, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %5) #19
   %683 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 40
   %685 = load ptr, ptr %684, align 8
   %686 = load ptr, ptr %685, align 8
@@ -19243,7 +19243,7 @@ _ZN12GraphBuilder12is_profilingEv.exit306.thread: ; preds = %769, %_ZN12GraphBui
 
 793:                                              ; preds = %.sink.split443, %790
   %.0193 = phi ptr [ null, %790 ], [ %792, %.sink.split443 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %794 = call noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
   %795 = icmp eq ptr %794, null
   br i1 %795, label %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit, label %796
@@ -19319,7 +19319,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   br i1 %837, label %804, label %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit, !llvm.loop !30
 
 _ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit: ; preds = %804, %836, %793, %796
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN12GraphBuilder12profile_callEP8ciMethodP11InstructionP7ciKlassP13GrowableArrayIS3_Eb(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %.0194390, ptr noundef %767, ptr noundef %.0193, ptr noundef %794, i1 noundef zeroext false)
   br label %.critedge249
 
@@ -23257,7 +23257,7 @@ define hidden void @_ZN13PhiSimplifier8block_doEP10BlockBegin(ptr noundef nonnul
 define hidden void @_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.SubstitutionResolver, align 8
   %4 = alloca %class.PhiSimplifier, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13PhiSimplifier, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8
@@ -23274,7 +23274,7 @@ define hidden void @_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin(pt
   br label %_ZN13PhiSimplifierC2EP10BlockBegin.exit
 
 _ZN13PhiSimplifierC2EP10BlockBegin.exit:          ; preds = %2, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -30832,8 +30832,8 @@ _ZN10ValueStack16copy_for_parsingEv.exit54:       ; preds = %_ZN22CompilationRes
   %347 = call noundef ptr @_ZN12GraphBuilder17setup_start_blockEiP10BlockBeginS1_P10ValueStack(ptr noundef nonnull align 8 dereferenceable(97) %0, i32 poison, ptr noundef nonnull %65, ptr noundef %345, ptr noundef %346)
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %347, ptr %348, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13PhiSimplifier, i64 16), ptr %5, align 8
   %349 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %349, align 8
@@ -30850,8 +30850,8 @@ _ZN10ValueStack16copy_for_parsingEv.exit54:       ; preds = %_ZN22CompilationRes
   br label %_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin.exit
 
 _ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin.exit: ; preds = %344, %352
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %56, -1
   br i1 %.not, label %371, label %354
 
@@ -40749,10 +40749,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

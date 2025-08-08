@@ -71,13 +71,13 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h96fa0206c
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17he7bec279ad429390E"(ptr noalias noundef nonnull align 4 %.sroa.0.077, i64 noundef range(i64 33, 0) %.sroa.11.076, i64 noundef 0, i64 noundef %24)
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !9
   %35 = load i32, ptr %34, align 4, !alias.scope !11, !noalias !12, !noundef !13
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 12
   %37 = load i32, ptr %36, align 4, !alias.scope !11, !noalias !12, !noundef !13
   store i32 %35, ptr %9, align 8, !noalias !9
   store i32 %37, ptr %15, align 4, !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 16
   store ptr %38, ptr %16, align 8, !noalias !9
   store i64 0, ptr %17, align 8, !noalias !9
@@ -206,8 +206,8 @@ _ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h55e
   %.lobit.i17.i.i = lshr i8 %59, 7
   %84 = zext nneg i8 %.lobit.i17.i.i to i64
   %85 = add i64 %58, %84
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !9
   %.not5.i = icmp ult i64 %85, %.sroa.11.076
   br i1 %.not5.i, label %_ZN4core5slice4sort8unstable9quicksort9partition17h14d2651336d59f12E.exit, label %86
 
@@ -229,13 +229,13 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h14d2651336d59f12E.exit: ; pre
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17he7bec279ad429390E"(ptr noalias noundef nonnull align 4 %.sroa.0.077, i64 noundef range(i64 33, 0) %.sroa.11.076, i64 noundef 0, i64 noundef range(i64 0, -1) %24)
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !36
   %93 = load i32, ptr %92, align 4, !alias.scope !38, !noalias !39, !noundef !13
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 12
   %95 = load i32, ptr %94, align 4, !alias.scope !38, !noalias !39, !noundef !13
   store i32 %93, ptr %7, align 8, !noalias !36
   store i32 %95, ptr %11, align 4, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !36
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 16
   store ptr %96, ptr %12, align 8, !noalias !36
   store i64 0, ptr %13, align 8, !noalias !36
@@ -360,8 +360,8 @@ _ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hdf1
   store i64 %145, ptr %143, align 4, !alias.scope !38, !noalias !52
   %146 = zext i1 %142 to i64
   %147 = add i64 %117, %146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !36
   %.not5.i35 = icmp ult i64 %147, %.sroa.11.076
   br i1 %.not5.i35, label %_ZN4core5slice4sort8unstable9quicksort9partition17hdae4227726dd8d3aE.exit, label %148
 
@@ -415,10 +415,10 @@ declare hidden noundef i64 @_ZN4core5slice4sort6shared5pivot12choose_pivot17h763
 declare hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h118f4f7094b4b4d1E(ptr noalias noundef nonnull align 4, i64 noundef, ptr noalias noundef nonnull align 1) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

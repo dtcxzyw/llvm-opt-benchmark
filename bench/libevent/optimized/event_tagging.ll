@@ -14,7 +14,7 @@ define void @evtag_init() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @evtag_encode_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, i8 0, i64 5, i1 false)
   %.not23.i = icmp eq i32 %1, 0
   br i1 %.not23.i, label %encode_int_internal.exit, label %.lr.ph.i
@@ -70,22 +70,16 @@ encode_int_internal.exit:                         ; preds = %2, %._crit_edge.i
   %28 = phi i8 [ 0, %2 ], [ %24, %._crit_edge.i ]
   store i8 %28, ptr %3, align 1
   %29 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.020.lcssa29.i) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @evbuffer_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @evbuffer_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @evtag_encode_int64(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
   %.not23.i = icmp eq i64 %1, 0
   br i1 %.not23.i, label %encode_int64_internal.exit, label %.lr.ph.i
@@ -141,14 +135,14 @@ encode_int64_internal.exit:                       ; preds = %2, %._crit_edge.i
   %28 = phi i8 [ 0, %2 ], [ %24, %._crit_edge.i ]
   store i8 %28, ptr %3, align 1
   %29 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.020.lcssa29.i) #7
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @evtag_encode_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, i8 0, i64 5, i1 false)
   br label %4
 
@@ -177,12 +171,12 @@ define range(i32 -2147483647, -2147483648) i32 @evtag_encode_tag(ptr noundef %0,
 
 13:                                               ; preds = %10, %9
   %14 = trunc nuw nsw i64 %indvars.iv.next to i32
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @evtag_decode_tag(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -246,7 +240,7 @@ decode_tag_internal.exit:                         ; preds = %.preheader.i, %11, 
 define void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [5 x i8], align 1
   %6 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   br label %7
 
@@ -274,8 +268,8 @@ define void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
   br label %evtag_encode_tag.exit
 
 evtag_encode_tag.exit:                            ; preds = %12, %13
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   %.not23.i.i = icmp eq i32 %3, 0
   br i1 %.not23.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i
@@ -331,7 +325,7 @@ evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.ex
   %40 = phi i8 [ 0, %evtag_encode_tag.exit ], [ %36, %._crit_edge.i.i ]
   store i8 %40, ptr %5, align 1
   %41 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %.020.lcssa29.i.i) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = zext i32 %3 to i64
   %43 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef %2, i64 noundef %42) #7
   ret void
@@ -341,7 +335,7 @@ evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.ex
 define void @evtag_marshal_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   br label %6
 
@@ -369,10 +363,10 @@ define void @evtag_marshal_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %evtag_encode_tag.exit
 
 evtag_encode_tag.exit:                            ; preds = %11, %12
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = call i64 @evbuffer_get_length(ptr noundef %2) #7
   %16 = trunc i64 %15 to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   %.not23.i.i = icmp eq i32 %16, 0
   br i1 %.not23.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i
@@ -428,21 +422,21 @@ evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.ex
   %41 = phi i8 [ 0, %evtag_encode_tag.exit ], [ %37, %._crit_edge.i.i ]
   store i8 %41, ptr %4, align 1
   %42 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.020.lcssa29.i.i) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = call i32 @evbuffer_add_buffer(ptr noundef %0, ptr noundef %2) #7
   ret void
 }
 
-declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #3
+declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @evbuffer_add_buffer(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @evbuffer_add_buffer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @evtag_marshal_int(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [5 x i8], align 1
   %6 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   %.not23.i = icmp eq i32 %2, 0
   br i1 %.not23.i, label %encode_int_internal.exit, label %.lr.ph.i
@@ -496,7 +490,7 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   %.020.lcssa29.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
   %30 = phi i8 [ 0, %3 ], [ %27, %._crit_edge.i ]
   store i8 %30, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   br label %31
 
@@ -524,8 +518,8 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %37, %36
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   br label %.lr.ph.i.i
 
@@ -575,10 +569,10 @@ evtag_encode_int.exit:                            ; preds = %53
   %63 = zext nneg i32 %62 to i64
   store i8 %60, ptr %4, align 1
   %64 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %63) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = zext nneg i32 %.020.lcssa29.i to i64
   %66 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %65) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -587,7 +581,7 @@ define void @evtag_marshal_int64(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %4 = alloca [5 x i8], align 1
   %5 = alloca [5 x i8], align 1
   %6 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
   %.not23.i = icmp eq i64 %2, 0
   br i1 %.not23.i, label %encode_int64_internal.exit, label %.lr.ph.i
@@ -641,7 +635,7 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
   %.020.lcssa29.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
   %30 = phi i8 [ 0, %3 ], [ %27, %._crit_edge.i ]
   store i8 %30, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   br label %31
 
@@ -669,8 +663,8 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %37, %36
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   br label %.lr.ph.i.i
 
@@ -720,10 +714,10 @@ evtag_encode_int.exit:                            ; preds = %53
   %63 = zext nneg i32 %62 to i64
   store i8 %60, ptr %4, align 1
   %64 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %63) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = zext nneg i32 %.020.lcssa29.i to i64
   %66 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %65) #7
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -736,12 +730,12 @@ define void @evtag_marshal_string(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @evtag_marshal_timeval(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %2, align 8
   %6 = trunc i64 %5 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
@@ -857,7 +851,7 @@ encode_int_internal.exit19:                       ; preds = %encode_int_internal
   store i8 %59, ptr %32, align 1
   %60 = add nuw nsw i32 %.020.lcssa29.i18, %.020.lcssa29.i
   call void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i32 noundef %60)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -921,7 +915,7 @@ decode_int_internal.exit.thread:                  ; preds = %17, %7, %12, %5, %2
   ret i32 %.not7
 }
 
-declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evtag_decode_int64(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1238,7 +1232,7 @@ decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, 
 ; Function Attrs: nounwind uwtable
 define i32 @evtag_unmarshal_header(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @evbuffer_get_length(ptr noundef %0) #7
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 5)
   %6 = tail call ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %5) #7
@@ -1300,7 +1294,7 @@ decode_tag_internal.exit:                         ; preds = %.thread49.i, %21
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %12, %2, %24, %decode_tag_internal.exit
   %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ %., %24 ], [ -1, %2 ], [ -1, %12 ], [ -1, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1342,12 +1336,12 @@ define i32 @evtag_unmarshal(ptr noundef %0, ptr noundef writeonly captures(addre
   ret i32 %.0
 }
 
-declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 6) i32 @evtag_unmarshal_int(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @evbuffer_get_length(ptr noundef %0) #7
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 5)
   %7 = tail call ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %6) #7
@@ -1466,14 +1460,14 @@ decode_int_internal.exit:                         ; preds = %30, %33, %35, %40, 
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %13, %3, %decode_int_internal.exit, %25, %22, %decode_tag_internal.exit
   %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ -1, %22 ], [ -1, %25 ], [ %spec.select, %decode_int_internal.exit ], [ -1, %3 ], [ -1, %13 ], [ -1, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 10) i32 @evtag_unmarshal_int64(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @evbuffer_get_length(ptr noundef %0) #7
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 5)
   %7 = tail call ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %6) #7
@@ -1588,14 +1582,14 @@ decode_int64_internal.exit:                       ; preds = %30, %33, %35, %43, 
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %13, %3, %decode_int64_internal.exit, %25, %22, %decode_tag_internal.exit
   %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ -1, %22 ], [ -1, %25 ], [ %spec.select, %decode_int64_internal.exit ], [ -1, %3 ], [ -1, %13 ], [ -1, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evtag_unmarshal_fixed(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @evtag_unmarshal_header(ptr noundef %0, ptr noundef nonnull %5)
   %7 = icmp sgt i32 %6, -1
   %8 = load i32, ptr %5, align 4
@@ -1612,16 +1606,16 @@ define range(i32 -1, 1) i32 @evtag_unmarshal_fixed(ptr noundef %0, i32 noundef %
 
 12:                                               ; preds = %4, %10
   %.0 = phi i32 [ 0, %10 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @evbuffer_remove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @evbuffer_remove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evtag_unmarshal_string(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @evtag_unmarshal_header(ptr noundef %0, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, -1
   %7 = load i32, ptr %4, align 4
@@ -1651,18 +1645,18 @@ define range(i32 -1, 1) i32 @evtag_unmarshal_string(ptr noundef %0, i32 noundef 
 
 19:                                               ; preds = %3, %14, %13
   %.0 = phi i32 [ -1, %13 ], [ 0, %14 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #3
+declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
 
-declare void @event_warn(ptr noundef, ...) local_unnamed_addr #3
+declare void @event_warn(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evtag_unmarshal_timeval(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @evtag_unmarshal_header(ptr noundef %0, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %75, label %7
@@ -1795,19 +1789,25 @@ decode_int_internal.exit.thread:                  ; preds = %55, %44, %50, %40, 
 
 75:                                               ; preds = %3, %decode_int_internal.exit.thread
   %.013 = phi i32 [ %.0, %decode_int_internal.exit.thread ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }

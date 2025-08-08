@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @WalWriterMain(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 15, ptr @MyBackendType, align 4
   call void @AuxiliaryProcessMainCommon() #5
   call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #5
@@ -110,68 +110,68 @@ define dso_local void @WalWriterMain(ptr noundef readnone captures(none) %0, i64
   br label %19
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @AuxiliaryProcessMainCommon() local_unnamed_addr #1
 
-declare void @AuxiliaryProcessMainCommon() local_unnamed_addr #2
+declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SignalHandlerForConfigReload(i32 noundef) #1
 
-declare void @SignalHandlerForConfigReload(i32 noundef) #2
+declare void @SignalHandlerForShutdownRequest(i32 noundef) #1
 
-declare void @SignalHandlerForShutdownRequest(i32 noundef) #2
+declare void @procsignal_sigusr1_handler(i32 noundef) #1
 
-declare void @procsignal_sigusr1_handler(i32 noundef) #2
-
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @EmitErrorReport() local_unnamed_addr #2
+declare void @EmitErrorReport() local_unnamed_addr #1
 
-declare void @LWLockReleaseAll() local_unnamed_addr #2
+declare void @LWLockReleaseAll() local_unnamed_addr #1
 
-declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #2
+declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #1
 
-declare void @UnlockBuffers() local_unnamed_addr #2
+declare void @UnlockBuffers() local_unnamed_addr #1
 
-declare void @ReleaseAuxProcessResources(i1 noundef zeroext) local_unnamed_addr #2
+declare void @ReleaseAuxProcessResources(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @AtEOXact_Buffers(i1 noundef zeroext) local_unnamed_addr #2
+declare void @AtEOXact_Buffers(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @AtEOXact_SMgr() local_unnamed_addr #2
+declare void @AtEOXact_SMgr() local_unnamed_addr #1
 
-declare void @AtEOXact_Files(i1 noundef zeroext) local_unnamed_addr #2
+declare void @AtEOXact_Files(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @AtEOXact_HashTables(i1 noundef zeroext) local_unnamed_addr #2
+declare void @AtEOXact_HashTables(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @FlushErrorState() local_unnamed_addr #2
+declare void @FlushErrorState() local_unnamed_addr #1
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @SetWalWriterSleeping(i1 noundef zeroext) local_unnamed_addr #2
+declare void @SetWalWriterSleeping(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #2
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
 
-declare void @HandleMainLoopInterrupts() local_unnamed_addr #2
+declare void @HandleMainLoopInterrupts() local_unnamed_addr #1
 
-declare zeroext i1 @XLogBackgroundFlush() local_unnamed_addr #2
+declare zeroext i1 @XLogBackgroundFlush() local_unnamed_addr #1
 
-declare void @pgstat_report_wal(i1 noundef zeroext) local_unnamed_addr #2
+declare void @pgstat_report_wal(i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind returns_twice }
 

@@ -110,7 +110,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr noundef
   br i1 %or.cond.i, label %aes_ctr_increase_counter.exit, label %.preheader78, !llvm.loop !18
 
 aes_ctr_increase_counter.exit:                    ; preds = %.preheader78
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !20
   %21 = load ptr, ptr %0, align 8, !tbaa !4
   %22 = load ptr, ptr %14, align 8, !tbaa !12
@@ -119,7 +119,7 @@ aes_ctr_increase_counter.exit:                    ; preds = %.preheader78
   br i1 %24, label %aes_ctr_encrypt_counter.exit.thread, label %aes_ctr_encrypt_counter.exit
 
 aes_ctr_encrypt_counter.exit.thread:              ; preds = %aes_ctr_increase_counter.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_counter.exit
@@ -129,7 +129,7 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   %28 = load i32, ptr %7, align 4
   %29 = icmp eq i32 %28, 16
   %or.cond.i49.not = select i1 %27, i1 %29, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %or.cond.i49.not, label %.preheader67, label %.loopexit
 
 .preheader67:                                     ; preds = %aes_ctr_encrypt_counter.exit, %aes_ctr_encrypt_counter.exit59
@@ -167,7 +167,7 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   br i1 %or.cond.i54, label %aes_ctr_increase_counter.exit55, label %.preheader86, !llvm.loop !18
 
 aes_ctr_increase_counter.exit55:                  ; preds = %.preheader86
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !20
   %44 = load ptr, ptr %0, align 8, !tbaa !4
   %45 = load ptr, ptr %14, align 8, !tbaa !12
@@ -176,7 +176,7 @@ aes_ctr_increase_counter.exit55:                  ; preds = %.preheader86
   br i1 %47, label %aes_ctr_encrypt_counter.exit59.thread, label %aes_ctr_encrypt_counter.exit59
 
 aes_ctr_encrypt_counter.exit59.thread:            ; preds = %aes_ctr_increase_counter.exit55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_counter.exit55
@@ -187,7 +187,7 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   %52 = load i32, ptr %6, align 4
   %53 = icmp eq i32 %52, 16
   %or.cond.i56.not = select i1 %51, i1 %53, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %or.cond.i56.not, label %.preheader67, label %.loopexit, !llvm.loop !22
 
 54:                                               ; preds = %.preheader67
@@ -259,12 +259,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -272,6 +266,12 @@ declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

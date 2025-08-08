@@ -731,9 +731,9 @@ entry:
   %add = add i64 %2, %size
   store i64 %add, ptr %cumulativeBytes_, align 8
   %allocationsFromPool_ = getelementptr inbounds nuw i8, ptr %this, i64 37376
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i)
   store ptr %ptr, ptr %ref.tmp.i.i, align 8, !alias.scope !14, !noalias !17
   %3 = ptrtoint ptr %call2 to i64
   %4 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %3)
@@ -742,9 +742,9 @@ entry:
   %add.i.i.i.i = add i64 %4, %3
   call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE19tryEmplaceValueImplIS4_JRKSt21piecewise_construct_tSt5tupleIJRKS4_EESB_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkISG_ISC_mEEEEEbESG_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.69") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationsFromPool_, i64 %add.i.i.i.i, i64 %or.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ptr, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i), !noalias !17
   %retval.i.sroa.0.0.copyload.i.i = load ptr, ptr %rv.i.i, align 8, !noalias !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
   %second.i = getelementptr inbounds nuw i8, ptr %retval.i.sroa.0.0.copyload.i.i, i64 8
   store i64 %size, ptr %second.i, align 8
   %sizeFromPool_ = getelementptr inbounds nuw i8, ptr %this, i64 37408
@@ -1107,7 +1107,7 @@ if.then3:                                         ; preds = %if.then
 _ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit: ; preds = %if.then
   %narrow = add nuw nsw i32 %size, 4
   %add = zext nneg i32 %narrow to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ptr.i)
   %pool_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 37280
   %0 = load ptr, ptr %pool_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -1120,9 +1120,9 @@ _ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit: ; preds = %if.then
   %add.i = add i64 %2, %add
   store i64 %add.i, ptr %cumulativeBytes_.i, align 8
   %allocationsFromPool_.i = getelementptr inbounds nuw i8, ptr %this, i64 37376
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i.i)
   store ptr %ptr.i, ptr %ref.tmp.i.i.i, align 8, !alias.scope !22, !noalias !25
   %3 = ptrtoint ptr %call2.i to i64
   %4 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %3)
@@ -1131,9 +1131,9 @@ _ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit: ; preds = %if.then
   %add.i.i.i.i.i = add i64 %4, %3
   call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE19tryEmplaceValueImplIS4_JRKSt21piecewise_construct_tSt5tupleIJRKS4_EESB_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkISG_ISC_mEEEEEbESG_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.69") align 8 %rv.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocationsFromPool_.i, i64 %add.i.i.i.i.i, i64 %or.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ptr.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i.i), !noalias !25
   %retval.i.sroa.0.0.copyload.i.i.i = load ptr, ptr %rv.i.i.i, align 8, !noalias !25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i.i)
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.i.sroa.0.0.copyload.i.i.i, i64 8
   store i64 %add, ptr %second.i.i, align 8
   %sizeFromPool_.i = getelementptr inbounds nuw i8, ptr %this, i64 37408
@@ -1141,7 +1141,7 @@ _ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit: ; preds = %if.then
   %add4.i = add i64 %5, %add
   store i64 %add4.i, ptr %sizeFromPool_.i, align 8
   %6 = load ptr, ptr %ptr.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ptr.i)
   store i32 %size, ptr %6, align 4
   br label %return
 
@@ -5377,10 +5377,10 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24

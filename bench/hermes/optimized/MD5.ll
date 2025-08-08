@@ -1065,8 +1065,8 @@ entry:
   %ref.tmp.i = alloca %"class.llvh::format_object", align 8
   %ref.tmp = alloca %"class.llvh::SmallString", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %Res.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Res.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !10
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -1100,8 +1100,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZNK4llvh3MD59MD5Result6digestEv.exit:            ; preds = %for.body.i
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Res.i) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %Res.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Res.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %Str, %ref.tmp
   br i1 %cmp.i, label %_ZN4llvh15SmallVectorImplIcEaSEOS1_.exit, label %if.end.i
 
@@ -1330,10 +1330,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

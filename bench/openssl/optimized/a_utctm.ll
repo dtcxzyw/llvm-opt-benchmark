@@ -55,7 +55,7 @@ ossl_asn1_utctime_to_tm.exit:                     ; preds = %1, %4
 define range(i32 0, 2) i32 @ASN1_UTCTIME_set_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 ASN1_UTCTIME_check.exit:
   %2 = alloca %struct.asn1_string_st, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 23, ptr %3, align 4, !tbaa !3
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
@@ -83,28 +83,22 @@ ASN1_UTCTIME_check.exit:
 
 13:                                               ; preds = %10, %ASN1_UTCTIME_check.exit, %12
   %.0 = phi i32 [ 1, %12 ], [ 0, %ASN1_UTCTIME_check.exit ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_UTCTIME_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %ASN1_UTCTIME_adj.exit, label %7
@@ -115,8 +109,8 @@ define ptr @ASN1_UTCTIME_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 
 ASN1_UTCTIME_adj.exit:                            ; preds = %2, %7
   %.0.i = phi ptr [ %8, %7 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -125,7 +119,7 @@ define ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
   store i64 %1, ptr %5, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -147,7 +141,7 @@ define ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64
 
 16:                                               ; preds = %12, %4, %14
   %.0 = phi ptr [ %15, %14 ], [ null, %4 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -165,10 +159,10 @@ define range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr noundef %0, i64 noundef
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i64 %1, ptr %3, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %.not.i = icmp eq i32 %9, 23
@@ -206,10 +200,10 @@ ossl_asn1_utctime_to_tm.exit:                     ; preds = %2
 
 ossl_asn1_utctime_to_tm.exit.thread:              ; preds = %2, %21, %16, %14, %11, %ossl_asn1_utctime_to_tm.exit
   %.0 = phi i32 [ -2, %ossl_asn1_utctime_to_tm.exit ], [ -2, %11 ], [ -2, %14 ], [ 1, %16 ], [ %., %21 ], [ -2, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -233,10 +227,16 @@ define i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 declare i32 @ASN1_TIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

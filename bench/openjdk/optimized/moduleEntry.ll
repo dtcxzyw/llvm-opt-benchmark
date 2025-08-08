@@ -1298,7 +1298,7 @@ declare noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef non
 define hidden noundef ptr @_ZN11ModuleEntry24new_unnamed_module_entryE6HandleP15ClassLoaderData(ptr %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.OopHandle, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 80, i8 noundef zeroext 20, i32 noundef 0) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr %1, ptr %5, align 8
@@ -1346,7 +1346,7 @@ _ZN6Symbol24maybe_decrement_refcountEPS_.exit.i.i: ; preds = %2, %18, %16
 _ZN11ModuleEntryC2E6HandlebP6SymbolS2_S2_P15ClassLoaderData.exit: ; preds = %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i.i, %20
   store ptr null, ptr %8, align 8
   call void @_ZN10JfrTraceId6assignEPK11ModuleEntry(ptr noundef nonnull align 8 dereferenceable(80) %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
@@ -4727,10 +4727,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #14

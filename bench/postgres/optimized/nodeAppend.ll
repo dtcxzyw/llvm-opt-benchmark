@@ -16,7 +16,7 @@ define dso_local noundef ptr @ExecInitAppend(ptr noundef %0, ptr noundef %1, i32
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @palloc0(i64 noundef 352) #6
   store i32 396, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -271,12 +271,9 @@ classify_matching_subplans.exit:                  ; preds = %133, %132, %128, %.
   store ptr null, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 344
   store ptr @choose_next_subplan_locally, ptr %140, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecAppend(ptr noundef %0) #0 {
@@ -633,28 +630,25 @@ ExecProcNode.exit:                                ; preds = %ExecAppendAsyncGetN
   ret ptr %.0
 }
 
-declare ptr @ExecInitPartitionExecPruning(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitPartitionExecPruning(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #2
+declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_add_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecGetCommonSlotOps(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecGetCommonSlotOps(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @choose_next_subplan_locally(ptr noundef captures(none) %0) #0 {
@@ -758,7 +752,7 @@ define dso_local void @ExecEndAppend(ptr noundef readonly captures(none) %0) loc
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -884,13 +878,13 @@ define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unn
   ret void
 }
 
-declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @bms_free(ptr noundef) local_unnamed_addr #2
+declare void @bms_free(ptr noundef) local_unnamed_addr #1
 
-declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecAppendEstimate(ptr noundef captures(none) initializes((304, 312)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -913,7 +907,7 @@ define dso_local void @ExecAppendEstimate(ptr noundef captures(none) initializes
   ret void
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecAppendInitializeDSM(ptr noundef captures(none) initializes((296, 304), (344, 352)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -939,14 +933,14 @@ define dso_local void @ExecAppendInitializeDSM(ptr noundef captures(none) initia
   ret void
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr noundef captures(none) %0) #0 {
@@ -1062,7 +1056,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ExecAppendReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
+define dso_local void @ExecAppendReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1092,7 +1086,7 @@ define dso_local void @ExecAppendInitializeWorker(ptr noundef captures(none) ini
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr noundef captures(none) %0) #0 {
@@ -1298,7 +1292,7 @@ define dso_local void @ExecAsyncAppendResponse(ptr noundef readonly captures(non
   ret void
 }
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none) initializes((280, 288)) %0) unnamed_addr #0 {
@@ -1310,7 +1304,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
   %7 = load i8, ptr %6, align 4, !range !4, !noundef !5
   %8 = zext nneg i8 %7 to i64
   %9 = sub nsw i64 0, %8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load ptr, ptr @CurrentResourceOwner, align 8
   %11 = tail call ptr @CreateWaitEventSet(ptr noundef %10, i32 noundef %5) #6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1401,39 +1395,45 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph32, !llvm.loop !20
 
 .loopexit:                                        ; preds = %54, %38, %36
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @ExecFindMatchingSubPlans(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecFindMatchingSubPlans(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAsyncRequest(ptr noundef) local_unnamed_addr #2
+declare void @ExecAsyncRequest(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAsyncConfigureWait(ptr noundef) local_unnamed_addr #2
+declare void @ExecAsyncConfigureWait(ptr noundef) local_unnamed_addr #1
 
-declare i32 @GetNumRegisteredWaitEvents(ptr noundef) local_unnamed_addr #2
+declare i32 @GetNumRegisteredWaitEvents(ptr noundef) local_unnamed_addr #1
 
-declare void @FreeWaitEventSet(ptr noundef) local_unnamed_addr #2
+declare void @FreeWaitEventSet(ptr noundef) local_unnamed_addr #1
 
-declare i32 @WaitEventSetWait(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WaitEventSetWait(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecAsyncNotify(ptr noundef) local_unnamed_addr #2
+declare void @ExecAsyncNotify(ptr noundef) local_unnamed_addr #1
 
-declare i32 @bms_prev_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @bms_prev_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_intersect(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @bms_intersect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_del_members(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @bms_del_members(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
@@ -1442,10 +1442,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

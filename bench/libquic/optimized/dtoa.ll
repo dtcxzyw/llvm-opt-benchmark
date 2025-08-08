@@ -34,10 +34,10 @@ define noundef double @_ZN6dmg_fp6strtodEPKcPPc(ptr noundef %0, ptr noundef writ
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %"union.dmg_fp::U", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double 0.000000e+00, ptr %10, align 8, !tbaa !3
   br label %11
 
@@ -644,7 +644,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   br i1 %263, label %.loopexit, label %266
 
 .loopexit:                                        ; preds = %743, %._crit_edge793, %262
-  %264 = tail call ptr @__errno_location() #17
+  %264 = tail call ptr @__errno_location() #16
   store i32 34, ptr %264, align 4, !tbaa !20
   %265 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 2146435072, ptr %265, align 4, !tbaa !3
@@ -841,7 +841,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
 
 364:                                              ; preds = %.thread613, %662, %716, %361, %322
   store double 0.000000e+00, ptr %10, align 8, !tbaa !3
-  %365 = tail call ptr @__errno_location() #17
+  %365 = tail call ptr @__errno_location() #16
   store i32 34, ptr %365, align 4, !tbaa !20
   br label %1055
 
@@ -1000,7 +1000,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   %432 = phi i64 [ %421, %416 ], [ %415, %410 ]
   %433 = phi i32 [ %417, %416 ], [ %411, %410 ]
   %434 = and i64 %432, 34359738360
-  %435 = tail call noalias ptr @malloc(i64 noundef %434) #18
+  %435 = tail call noalias ptr @malloc(i64 noundef %434) #17
   br label %436
 
 436:                                              ; preds = %431, %429
@@ -1149,7 +1149,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549:           ; preds = %_ZN6dmg_fpL5BfreeEP
   %509 = phi i64 [ %498, %493 ], [ %492, %487 ]
   %510 = phi i32 [ %494, %493 ], [ %488, %487 ]
   %511 = and i64 %509, 34359738360
-  %512 = tail call noalias ptr @malloc(i64 noundef %511) #18
+  %512 = tail call noalias ptr @malloc(i64 noundef %511) #17
   br label %513
 
 513:                                              ; preds = %508, %506
@@ -1195,7 +1195,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %485, %513
   br label %536
 
 534:                                              ; preds = %527
-  %535 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %535 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %536
 
 536:                                              ; preds = %534, %532
@@ -1250,7 +1250,7 @@ _ZN6dmg_fpL3i2bEi.exit:                           ; preds = %525, %536
   br i1 %563, label %564, label %565
 
 564:                                              ; preds = %560
-  tail call void @free(ptr noundef nonnull %523) #16
+  tail call void @free(ptr noundef nonnull %523) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 565:                                              ; preds = %560
@@ -1523,8 +1523,8 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit533.thread609._crit_edge: ; preds = %_ZN6dmg
   br label %_ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit533.thread
 
 683:                                              ; preds = %605
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %684 = call fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef nonnull readonly %584, ptr noundef %5)
   %685 = call fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %.1317, ptr noundef %6)
   %686 = load i32, ptr %5, align 4, !tbaa !20
@@ -1567,8 +1567,8 @@ _ZN6dmg_fpL5ratioEPNS_6BigintES1_.exit:           ; preds = %694, %699
   %.sroa.04.0.i = phi double [ %698, %694 ], [ %684, %699 ]
   %.sroa.0.0.i = phi double [ %685, %694 ], [ %703, %699 ]
   %704 = fdiv double %.sroa.04.0.i, %.sroa.0.0.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %705 = fcmp ugt double %704, 2.000000e+00
   br i1 %705, label %721, label %706
 
@@ -1746,7 +1746,7 @@ _ZN6dmg_fpL5ratioEPNS_6BigintES1_.exit:           ; preds = %694, %699
   br i1 %790, label %791, label %792
 
 791:                                              ; preds = %787
-  tail call void @free(ptr noundef nonnull %.1323) #16
+  tail call void @free(ptr noundef nonnull %.1323) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit543
 
 792:                                              ; preds = %787
@@ -1768,7 +1768,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit543:           ; preds = %786, %791, %792
   br i1 %799, label %800, label %801
 
 800:                                              ; preds = %796
-  tail call void @free(ptr noundef nonnull %.1319) #16
+  tail call void @free(ptr noundef nonnull %.1319) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit545
 
 801:                                              ; preds = %796
@@ -1786,7 +1786,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit545:           ; preds = %801, %800, %_ZN6dmg
   br i1 %807, label %808, label %809
 
 808:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit545
-  tail call void @free(ptr noundef nonnull %.1317) #16
+  tail call void @free(ptr noundef nonnull %.1317) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit547
 
 809:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit545
@@ -1804,7 +1804,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit547:           ; preds = %809, %808
   br i1 %815, label %816, label %817
 
 816:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit547
-  tail call void @free(ptr noundef nonnull %584) #16
+  tail call void @free(ptr noundef nonnull %584) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549.backedge
 
 _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549.backedge:  ; preds = %816, %817
@@ -1832,7 +1832,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit533.thread:   ; preds = %784, %781, %635, %6
   br i1 %824, label %825, label %826
 
 825:                                              ; preds = %821
-  tail call void @free(ptr noundef nonnull %.1323) #16
+  tail call void @free(ptr noundef nonnull %.1323) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit551
 
 826:                                              ; preds = %821
@@ -1854,7 +1854,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit551:           ; preds = %_ZN6dmg_fpL3cmpEPNS
   br i1 %833, label %834, label %835
 
 834:                                              ; preds = %830
-  tail call void @free(ptr noundef nonnull %.1319) #16
+  tail call void @free(ptr noundef nonnull %.1319) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit553
 
 835:                                              ; preds = %830
@@ -1876,7 +1876,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit553:           ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %842, label %843, label %844
 
 843:                                              ; preds = %839
-  tail call void @free(ptr noundef nonnull %.1317) #16
+  tail call void @free(ptr noundef nonnull %.1317) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit555
 
 844:                                              ; preds = %839
@@ -1897,7 +1897,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit555:           ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %850, label %851, label %852
 
 851:                                              ; preds = %848
-  tail call void @free(ptr noundef nonnull %.231.lcssa.i) #16
+  tail call void @free(ptr noundef nonnull %.231.lcssa.i) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit557
 
 852:                                              ; preds = %848
@@ -1919,7 +1919,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit557:           ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %859, label %860, label %861
 
 860:                                              ; preds = %856
-  tail call void @free(ptr noundef nonnull %.0) #16
+  tail call void @free(ptr noundef nonnull %.0) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit559
 
 861:                                              ; preds = %856
@@ -1935,8 +1935,8 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit559:           ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %865, label %866, label %1049
 
 866:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit559
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %867 = add nsw i32 %.sroa.30581.2, %186
   %868 = add nsw i32 %867, -1
   %869 = load double, ptr %10, align 8, !tbaa !3
@@ -1966,7 +1966,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit559:           ; preds = %_ZN6dmg_fpL5BfreeEP
   br label %884
 
 882:                                              ; preds = %875
-  %883 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %883 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %884
 
 884:                                              ; preds = %882, %880
@@ -2040,7 +2040,7 @@ _ZN6dmg_fpL3i2bEi.exit.i:                         ; preds = %884, %873
   br label %919
 
 917:                                              ; preds = %910
-  %918 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %918 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %919
 
 919:                                              ; preds = %917, %915
@@ -2273,7 +2273,7 @@ _ZN6dmg_fpL3i2bEi.exit131.i:                      ; preds = %919, %908
   br i1 %1011, label %1012, label %1013
 
 1012:                                             ; preds = %.thread.i
-  tail call void @free(ptr noundef nonnull %.5143.i) #16
+  tail call void @free(ptr noundef nonnull %.5143.i) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit.i
 
 1013:                                             ; preds = %.thread.i
@@ -2296,7 +2296,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit.i:            ; preds = %1013, %1012, %.loop
   br i1 %1020, label %1021, label %1022
 
 1021:                                             ; preds = %1017
-  tail call void @free(ptr noundef nonnull %.183.i) #16
+  tail call void @free(ptr noundef nonnull %.183.i) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit135.i
 
 1022:                                             ; preds = %1017
@@ -2365,8 +2365,8 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit135.i:         ; preds = %1022, %1021, %_ZN6d
   br label %_ZN6dmg_fpL7bigcompEPNS_1UEPKcPNS_6BCinfoE.exit
 
 _ZN6dmg_fpL7bigcompEPNS_1UEPKcPNS_6BCinfoE.exit:  ; preds = %1026, %1030, %1038, %1045, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %1049
 
 1049:                                             ; preds = %_ZN6dmg_fpL7bigcompEPNS_1UEPKcPNS_6BCinfoE.exit, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit559
@@ -2380,7 +2380,7 @@ _ZN6dmg_fpL7bigcompEPNS_1UEPKcPNS_6BCinfoE.exit:  ; preds = %1026, %1030, %1038,
   br i1 %.not473, label %1053, label %1055
 
 1053:                                             ; preds = %1050
-  %1054 = tail call ptr @__errno_location() #17
+  %1054 = tail call ptr @__errno_location() #16
   store i32 34, ptr %1054, align 4, !tbaa !20
   br label %1055
 
@@ -2403,18 +2403,15 @@ _ZN6dmg_fpL7bigcompEPNS_1UEPKcPNS_6BCinfoE.exit:  ; preds = %1026, %1030, %1038,
   %1059 = load double, ptr %10, align 8
   %1060 = fneg double %1059
   %1061 = select i1 %.not476, double %1059, double %1060
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %1061
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6dmg_fpL6hexnanEPNS_1UEPPKc(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @_ZN6dmg_fpL6hexnanEPNS_1UEPPKc(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #1 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6dmg_fpL6hexdigE, i64 48), align 16, !tbaa !3
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %.lr.ph.i.i, label %_ZN6dmg_fpL11hexdig_initEv.exit
@@ -2595,19 +2592,19 @@ _ZN6dmg_fpL11hexdig_initEv.exit:                  ; preds = %.lr.ph.i6.i, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare i32 @llvm.get.rounding() #4
+declare i32 @llvm.get.rounding() #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #6 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6dmg_fpL8freelistE, i64 8), align 8, !tbaa !28
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %7, label %5
@@ -2630,7 +2627,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr noundef non
   br label %16
 
 14:                                               ; preds = %7
-  %15 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %15 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -2917,7 +2914,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL8pow5multEPNS_6BigintEi(ptr nound
   br label %27
 
 25:                                               ; preds = %18
-  %26 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %26 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -2972,7 +2969,7 @@ _ZN6dmg_fpL3i2bEi.exit:                           ; preds = %16, %27
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %.125) #16
+  tail call void @free(ptr noundef nonnull %.125) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 42:                                               ; preds = %37
@@ -3005,7 +3002,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %42, %41, %35, %33
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #8 {
+define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3072,7 +3069,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef
   %48 = phi i64 [ %37, %32 ], [ %31, %26 ]
   %49 = phi i32 [ %33, %32 ], [ %27, %26 ]
   %50 = and i64 %48, 34359738360
-  %51 = tail call noalias ptr @malloc(i64 noundef %50) #18
+  %51 = tail call noalias ptr @malloc(i64 noundef %50) #17
   br label %52
 
 52:                                               ; preds = %47, %45
@@ -3254,7 +3251,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL6lshiftEPNS_6BigintEi(ptr noundef
   %42 = phi i64 [ %31, %26 ], [ %25, %20 ]
   %43 = phi i32 [ %27, %26 ], [ %21, %20 ]
   %44 = and i64 %42, 34359738360
-  %45 = tail call noalias ptr @malloc(i64 noundef %44) #18
+  %45 = tail call noalias ptr @malloc(i64 noundef %44) #17
   br label %46
 
 46:                                               ; preds = %41, %39
@@ -3341,7 +3338,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %18, %46
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %0) #16
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 85:                                               ; preds = %.loopexit
@@ -3357,7 +3354,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %84, %85
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6dmg_fpL4diffEPNS_6BigintES1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #8 {
+define internal fastcc noundef ptr @_ZN6dmg_fpL4diffEPNS_6BigintES1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3417,7 +3414,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit:             ; preds = %19
   br label %32
 
 30:                                               ; preds = %23
-  %31 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #18
+  %31 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -3493,7 +3490,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %21, %32
   %71 = phi i64 [ %60, %55 ], [ %54, %49 ]
   %72 = phi i32 [ %56, %55 ], [ %50, %49 ]
   %73 = and i64 %71, 34359738360
-  %74 = tail call noalias ptr @malloc(i64 noundef %73) #18
+  %74 = tail call noalias ptr @malloc(i64 noundef %73) #17
   br label %75
 
 75:                                               ; preds = %70, %68
@@ -3587,11 +3584,8 @@ _ZN6dmg_fpL6BallocEi.exit61:                      ; preds = %47, %75
   ret ptr %.044
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN6dmg_fp8freedtoaEPc(ptr noundef initializes((4, 12)) %0) local_unnamed_addr #9 {
+define void @_ZN6dmg_fp8freedtoaEPc(ptr noundef initializes((4, 12)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -4
   %3 = load i32, ptr %2, align 4, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3603,7 +3597,7 @@ define void @_ZN6dmg_fp8freedtoaEPc(ptr noundef initializes((4, 12)) %0) local_u
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %2) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 9:                                                ; preds = %1
@@ -3632,9 +3626,9 @@ define noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %0, i32 n
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %"union.dmg_fp::U", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load ptr, ptr @_ZN6dmg_fpL11dtoa_resultE, align 8, !tbaa !6
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %23, label %11
@@ -3651,7 +3645,7 @@ define noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %0, i32 n
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %12) #16
+  tail call void @free(ptr noundef nonnull %12) #18
   br label %_ZN6dmg_fp8freedtoaEPc.exit
 
 19:                                               ; preds = %11
@@ -3719,7 +3713,7 @@ _ZN6dmg_fp8freedtoaEPc.exit:                      ; preds = %19, %18
   br label %51
 
 49:                                               ; preds = %42
-  %50 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #18
+  %50 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %51
 
 51:                                               ; preds = %49, %47
@@ -3778,7 +3772,7 @@ _ZN6dmg_fpL8rv_allocEi.exit.i:                    ; preds = %51, %40
   br label %71
 
 69:                                               ; preds = %62
-  %70 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #18
+  %70 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %71
 
 71:                                               ; preds = %69, %67
@@ -3845,7 +3839,7 @@ _ZN6dmg_fpL8rv_allocEi.exit.i549:                 ; preds = %71, %60
   br label %95
 
 93:                                               ; preds = %86
-  %94 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #18
+  %94 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %95
 
 95:                                               ; preds = %93, %91
@@ -4088,7 +4082,7 @@ default.unreachable:                              ; preds = %162
   %205 = phi i64 [ %194, %189 ], [ %188, %183 ]
   %206 = phi i32 [ %190, %189 ], [ %184, %183 ]
   %207 = and i64 %205, 34359738360
-  %208 = tail call noalias ptr @malloc(i64 noundef %207) #18
+  %208 = tail call noalias ptr @malloc(i64 noundef %207) #17
   br label %209
 
 209:                                              ; preds = %204, %202
@@ -4530,7 +4524,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
   br label %409
 
 407:                                              ; preds = %400
-  %408 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %408 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %409
 
 409:                                              ; preds = %407, %405
@@ -4590,7 +4584,7 @@ _ZN6dmg_fpL3i2bEi.exit:                           ; preds = %398, %409
   br i1 %431, label %432, label %433
 
 432:                                              ; preds = %428
-  tail call void @free(ptr noundef nonnull %103) #16
+  tail call void @free(ptr noundef nonnull %103) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 433:                                              ; preds = %428
@@ -4630,7 +4624,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %433, %432, %425, %4
   br label %451
 
 449:                                              ; preds = %442
-  %450 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
+  %450 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %451
 
 451:                                              ; preds = %449, %447
@@ -4935,7 +4929,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit600.thread688: ; preds = %539, %_ZN6dmg_fpL3
   %584 = phi i64 [ %573, %568 ], [ %567, %562 ]
   %585 = phi i32 [ %569, %568 ], [ %563, %562 ]
   %586 = and i64 %584, 34359738360
-  %587 = tail call noalias ptr @malloc(i64 noundef %586) #18
+  %587 = tail call noalias ptr @malloc(i64 noundef %586) #17
   br label %588
 
 588:                                              ; preds = %583, %581
@@ -5070,7 +5064,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit625.thread:   ; preds = %_ZN6dmg_fpL3cmpEPNS
   br i1 %647, label %648, label %649
 
 648:                                              ; preds = %_ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit625.thread
-  tail call void @free(ptr noundef nonnull %623) #16
+  tail call void @free(ptr noundef nonnull %623) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit627
 
 649:                                              ; preds = %_ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit625.thread
@@ -5386,7 +5380,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit649.thread707: ; preds = %751, %_ZN6dmg_fpL3
   br i1 %771, label %772, label %773
 
 772:                                              ; preds = %768
-  tail call void @free(ptr noundef nonnull %.4376) #16
+  tail call void @free(ptr noundef nonnull %.4376) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit651
 
 773:                                              ; preds = %768
@@ -5414,7 +5408,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit651:           ; preds = %.loopexit721, %772,
   br i1 %781, label %782, label %783
 
 782:                                              ; preds = %778
-  tail call void @free(ptr noundef nonnull %.2393) #16
+  tail call void @free(ptr noundef nonnull %.2393) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit653
 
 783:                                              ; preds = %778
@@ -5432,7 +5426,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit653:           ; preds = %777, %782, %783
   br i1 %789, label %790, label %791
 
 790:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit653
-  tail call void @free(ptr noundef nonnull %.7384) #16
+  tail call void @free(ptr noundef nonnull %.7384) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit655
 
 791:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit653
@@ -5466,7 +5460,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit655:           ; preds = %.preheader726, %385
   br i1 %798, label %799, label %800
 
 799:                                              ; preds = %795
-  tail call void @free(ptr noundef nonnull %.2402) #16
+  tail call void @free(ptr noundef nonnull %.2402) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657
 
 800:                                              ; preds = %795
@@ -5492,9 +5486,9 @@ _ZN6dmg_fpL9nrv_allocEPKcPPci.exit.sink.split:    ; preds = %_ZN6dmg_fpL5BfreeEP
 
 _ZN6dmg_fpL9nrv_allocEPKcPPci.exit:               ; preds = %_ZN6dmg_fpL9nrv_allocEPKcPPci.exit.sink.split, %_ZN6dmg_fpL8rv_allocEi.exit.i561, %._crit_edge.i556, %._crit_edge.i, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657
   %.0 = phi ptr [ %.ptr714.ptr, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657 ], [ %56, %._crit_edge.i ], [ %76, %._crit_edge.i556 ], [ %100, %_ZN6dmg_fpL8rv_allocEi.exit.i561 ], [ %.0.ph, %_ZN6dmg_fpL9nrv_allocEPKcPPci.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -5585,7 +5579,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr nound
   %55 = phi i64 [ %44, %39 ], [ %38, %33 ]
   %56 = phi i32 [ %40, %39 ], [ %34, %33 ]
   %57 = and i64 %55, 34359738360
-  %58 = tail call noalias ptr @malloc(i64 noundef %57) #18
+  %58 = tail call noalias ptr @malloc(i64 noundef %57) #17
   br label %59
 
 59:                                               ; preds = %54, %52
@@ -5614,7 +5608,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr nound
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %63
-  tail call void @free(ptr noundef nonnull %0) #16
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 74:                                               ; preds = %63
@@ -5643,7 +5637,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %74, %73, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN6dmg_fpL6quoremEPNS_6BigintES1_(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #10 {
+define internal fastcc noundef i32 @_ZN6dmg_fpL6quoremEPNS_6BigintES1_(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5833,13 +5827,13 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit.thread89:    ; preds = %52, %_ZN6dmg_fpL3cm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly captures(address) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #13 {
+define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly captures(address) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !37
@@ -5944,6 +5938,12 @@ define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr nounde
   ret double %.sroa.0.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
@@ -5969,24 +5969,24 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #14
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { nounwind allocsize(0) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

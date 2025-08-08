@@ -199,9 +199,6 @@ _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj.exit: 
   ret ptr %.0.i.i.i.i.i.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4llvm10SuffixTree6extendEjj(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
@@ -244,7 +241,7 @@ define dso_local noundef i32 @_ZN4llvm10SuffixTree6extendEjj(ptr noundef nonnull
 
 24:                                               ; preds = %._crit_edge, %23
   %.pre-phi = phi i64 [ %.pre76, %._crit_edge ], [ %11, %23 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = load ptr, ptr %0, align 8, !tbaa !68
   %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.pre-phi
   %27 = load i32, ptr %26, align 4, !tbaa !69
@@ -285,7 +282,7 @@ define dso_local noundef i32 @_ZN4llvm10SuffixTree6extendEjj(ptr noundef nonnull
   br i1 %48, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5countERKj.exit, label %.lr.ph.i.i.i.i, !prof !73, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %27, ptr %6, align 4, !tbaa !69
   %49 = load i64, ptr %17, align 8, !tbaa !43
   %50 = add i64 %49, 40
@@ -331,7 +328,7 @@ _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit: ; preds =
   store ptr %19, ptr %71, align 8, !tbaa !77
   %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(4) %6)
   store ptr %.0.i.i.i.i.i.i, ptr %72, align 8, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not46 = icmp eq ptr %.03471, null
   br i1 %.not46, label %.thread, label %73
 
@@ -411,7 +408,7 @@ _ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit: ; preds = %_ZNK4llvm1
   %113 = load i32, ptr %9, align 4, !tbaa !66
   %114 = add i32 %113, 1
   store i32 %114, ptr %9, align 4, !tbaa !66
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit65
 
 115:                                              ; preds = %95
@@ -422,7 +419,7 @@ _ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit: ; preds = %_ZNK4llvm1
   %120 = add i32 %118, -1
   %121 = add i32 %120, %119
   %122 = load i32, ptr %7, align 4, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %122, ptr %5, align 4, !tbaa !69
   %123 = load i64, ptr %13, align 8, !tbaa !43
   %124 = add i64 %123, 64
@@ -479,8 +476,8 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE8AllocateEm.exit
   br label %_ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj.exit
 
 _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj.exit: ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE8AllocateEm.exit.i, %148
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %98, ptr %4, align 4, !tbaa !69
   %151 = load i64, ptr %17, align 8, !tbaa !43
   %152 = add i64 %151, 40
@@ -526,7 +523,7 @@ _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53: ; preds
   store ptr %19, ptr %173, align 8, !tbaa !77
   %174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %147, ptr noundef nonnull align 4 dereferenceable(4) %4)
   store ptr %.0.i.i.i.i.i.i52, ptr %174, align 8, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = load i32, ptr %9, align 4, !tbaa !66
   call void @_ZN4llvm14SuffixTreeNode17incrementStartIdxEj(ptr noundef nonnull align 8 dereferenceable(28) %76, i32 noundef %175) #12
   %176 = call noundef i32 @_ZNK4llvm14SuffixTreeNode11getStartIdxEv(ptr noundef nonnull align 8 dereferenceable(28) %76) #12
@@ -573,7 +570,7 @@ _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53: ; preds
 193:                                              ; preds = %90, %190, %186, %184
   %.5 = phi ptr [ %.135, %184 ], [ %.135, %186 ], [ %.135, %190 ], [ %.03471, %90 ]
   %.2 = phi i32 [ %181, %184 ], [ %181, %186 ], [ %181, %190 ], [ %.072, %90 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %.loopexit65, label %20
 
@@ -582,14 +579,11 @@ _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53: ; preds
   ret i32 %.067
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm10SuffixTree16setSuffixIndicesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0) local_unnamed_addr #0 align 2 {
 .lr.ph38:
   %1 = alloca %"class.llvm::SmallVector.7", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %1, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -761,7 +755,7 @@ _ZN4llvm16DenseMapIteratorIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detai
   br label %_ZN4llvm11SmallVectorISt4pairIPNS_14SuffixTreeNodeEjELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairIPNS_14SuffixTreeNodeEjELj3EED2Ev.exit: ; preds = %._crit_edge, %72
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -771,7 +765,7 @@ define dso_local void @_ZN4llvm10SuffixTree12setLeafNodesEv(ptr noundef nonnull 
   %1 = alloca %"class.llvm::SmallVector.16", align 8
   %2 = alloca %"class.llvm::DenseMap.21", align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -781,7 +775,7 @@ define dso_local void @_ZN4llvm10SuffixTree12setLeafNodesEv(ptr noundef nonnull 
   %8 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = ptrtoint ptr %8 to i64
   store i64 %9, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -799,7 +793,7 @@ define dso_local void @_ZN4llvm10SuffixTree12setLeafNodesEv(ptr noundef nonnull 
   %20 = load ptr, ptr %19, align 8, !tbaa !78
   %21 = add i32 %15, -1
   store i32 %21, ptr %5, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !45
   %24 = icmp eq i32 %23, 1
@@ -1066,7 +1060,7 @@ _ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN
 
 _ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %123, %115, %._crit_edge, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit
   %.1 = phi i32 [ %.047, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit ], [ %.047, %._crit_edge ], [ %.047, %115 ], [ %120, %123 ], [ %120, %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr = load i32, ptr %5, align 8, !tbaa !38
   %.not.i = icmp eq i32 %.pr, 0
   br i1 %.not.i, label %._crit_edge49, label %14, !llvm.loop !104
@@ -1077,7 +1071,7 @@ _ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit: ; preds 
   %145 = zext i32 %.pre52 to i64
   %146 = mul nuw nsw i64 %145, 24
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.pre51, i64 noundef %146, i64 noundef 8) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %147 = load ptr, ptr %1, align 8, !tbaa !37
   %148 = icmp eq ptr %147, %4
   br i1 %148, label %_ZN4llvm11SmallVectorIPNS_14SuffixTreeNodeELj6EED2Ev.exit, label %149
@@ -1087,7 +1081,7 @@ _ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit: ; preds 
   br label %_ZN4llvm11SmallVectorIPNS_14SuffixTreeNodeELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_14SuffixTreeNodeELj6EED2Ev.exit: ; preds = %._crit_edge49, %149
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1197,7 +1191,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit: ; preds = %19, %2
   %.sink.i = phi ptr [ %20, %19 ], [ null, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sink.i, ptr %3, align 8, !tbaa !106
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !84
@@ -1246,7 +1240,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEE
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E16InsertIntoBucketIRKjJEEEPS8_SE_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E16InsertIntoBucketIRKjJEEEPS8_SE_OT_DpOT0_.exit: ; preds = %43, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = load i32, ptr %1, align 4, !tbaa !69
   store i32 %53, ptr %44, align 4, !tbaa !69
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -1325,9 +1319,9 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE8AllocateEm.exit
   ret ptr %.0.i.i.i.i.i
 }
 
-declare void @_ZN4llvm14SuffixTreeNode12setConcatLenEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm14SuffixTreeNode12setConcatLenEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm18SuffixTreeLeafNode12setSuffixIdxEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18SuffixTreeLeafNode12setSuffixIdxEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
@@ -1383,7 +1377,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sink.i, ptr %3, align 8, !tbaa !109
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !110
@@ -1432,7 +1426,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E16InsertIntoBucketIRKS3_JEEEPSC_SI_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E16InsertIntoBucketIRKS3_JEEEPSC_SI_OT_DpOT0_.exit: ; preds = %47, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = load ptr, ptr %1, align 8, !tbaa !89
   store ptr %57, ptr %48, align 8, !tbaa !89
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -1445,23 +1439,23 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
   ret ptr %.0
 }
 
-declare void @_ZN4llvm14SuffixTreeNode15setRightLeafIdxEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm14SuffixTreeNode15setRightLeafIdxEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK4llvm14SuffixTreeNode15getRightLeafIdxEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14SuffixTreeNode15getRightLeafIdxEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
 
-declare void @_ZN4llvm14SuffixTreeNode14setLeftLeafIdxEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm14SuffixTreeNode14setLeftLeafIdxEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK4llvm14SuffixTreeNode14getLeftLeafIdxEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14SuffixTreeNode14getLeftLeafIdxEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
 
-declare void @_ZN4llvm22SuffixTreeInternalNode7setLinkEPS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #3
+declare void @_ZN4llvm22SuffixTreeInternalNode7setLinkEPS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK4llvm14SuffixTreeNode11getStartIdxEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14SuffixTreeNode11getStartIdxEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK4llvm22SuffixTreeInternalNode6isRootEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK4llvm22SuffixTreeInternalNode6isRootEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
-declare void @_ZN4llvm14SuffixTreeNode17incrementStartIdxEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm14SuffixTreeNode17incrementStartIdxEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK4llvm22SuffixTreeInternalNode7getLinkEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
+declare noundef ptr @_ZNK4llvm22SuffixTreeInternalNode7getLinkEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(161) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
@@ -1473,7 +1467,7 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8, !tbaa !38
   store ptr null, ptr %0, align 8, !tbaa !119
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %5, ptr %1, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1808,29 +1802,29 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit66: ; preds = %134, %13
   br label %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit
 
 _ZN4llvm11SmallVectorIjLj12EED2Ev.exit:           ; preds = %.thread, %152
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare noundef i32 @_ZNK4llvm14SuffixTreeNode12getConcatLenEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14SuffixTreeNode12getConcatLenEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK4llvm18SuffixTreeLeafNode12getSuffixIdxEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm18SuffixTreeLeafNode12getSuffixIdxEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #5 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -2126,7 +2120,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEE
   ret void
 }
 
-declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
@@ -2339,13 +2333,19 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -2364,14 +2364,14 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nounwind }

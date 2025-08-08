@@ -11,27 +11,27 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 28) i32 @Curl_auth_create_cram_md5_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
-  %7 = tail call i32 @curlx_uztoui(i64 noundef %6) #4
-  %8 = tail call ptr @Curl_HMAC_init(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef nonnull %2, i32 noundef %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #4
+  %7 = tail call i32 @curlx_uztoui(i64 noundef %6) #5
+  %8 = tail call ptr @Curl_HMAC_init(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef nonnull %2, i32 noundef %7) #5
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %68, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call i64 @Curl_bufref_len(ptr noundef %0) #4
+  %10 = tail call i64 @Curl_bufref_len(ptr noundef %0) #5
   %.not15 = icmp eq i64 %10, 0
   br i1 %.not15, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @Curl_bufref_ptr(ptr noundef %0) #4
-  %13 = tail call i64 @Curl_bufref_len(ptr noundef %0) #4
-  %14 = tail call i32 @curlx_uztoui(i64 noundef %13) #4
-  %15 = tail call i32 @Curl_HMAC_update(ptr noundef nonnull %8, ptr noundef %12, i32 noundef %14) #4
+  %12 = tail call ptr @Curl_bufref_ptr(ptr noundef %0) #5
+  %13 = tail call i64 @Curl_bufref_len(ptr noundef %0) #5
+  %14 = tail call i32 @curlx_uztoui(i64 noundef %13) #5
+  %15 = tail call i32 @Curl_HMAC_update(ptr noundef nonnull %8, ptr noundef %12, i32 noundef %14) #5
   br label %16
 
 16:                                               ; preds = %11, %9
-  %17 = call i32 @Curl_HMAC_final(ptr noundef nonnull %8, ptr noundef nonnull %5) #4
+  %17 = call i32 @Curl_HMAC_final(ptr noundef nonnull %8, ptr noundef nonnull %5) #5
   %18 = load i8, ptr %5, align 16, !tbaa !3
   %19 = zext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -79,54 +79,54 @@ define hidden range(i32 0, 28) i32 @Curl_auth_create_cram_md5_message(ptr nounde
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 15
   %63 = load i8, ptr %62, align 1, !tbaa !3
   %64 = zext i8 %63 to i32
-  %65 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str, ptr noundef %1, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %64) #4
+  %65 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str, ptr noundef %1, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %64) #5
   %.not16 = icmp eq ptr %65, null
   br i1 %.not16, label %68, label %66
 
 66:                                               ; preds = %16
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #5
-  call void @Curl_bufref_set(ptr noundef %3, ptr noundef nonnull %65, i64 noundef %67, ptr noundef nonnull @curl_free) #4
+  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #4
+  call void @Curl_bufref_set(ptr noundef %3, ptr noundef nonnull %65, i64 noundef %67, ptr noundef nonnull @curl_free) #5
   br label %68
 
 68:                                               ; preds = %16, %4, %66
   %.0 = phi i32 [ 0, %66 ], [ 27, %4 ], [ 27, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @Curl_HMAC_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Curl_HMAC_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #2
+declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #2
+declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_HMAC_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_HMAC_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_HMAC_final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_HMAC_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @curl_free(ptr noundef) #2
+declare void @curl_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(read) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

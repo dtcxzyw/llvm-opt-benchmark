@@ -302,7 +302,7 @@ lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
 116:                                              ; preds = %16
   %117 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
   %118 = tail call ptr @lv_event_get_layer(ptr noundef %1) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_obj_get_content_coords(ptr noundef %117, ptr noundef nonnull %3) #7
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 116
   %120 = load i8, ptr %119, align 4
@@ -336,7 +336,7 @@ lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
 
 get_label_flags.exit.i:                           ; preds = %134, %129, %116
   %.2.i.i = phi i32 [ %.1.i.i, %129 ], [ %.1.i.i, %116 ], [ %spec.select11.i.i, %134 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %4) #7
   %139 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %140 = load ptr, ptr %139, align 8, !tbaa !3
@@ -429,7 +429,7 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br i1 %or.cond5.i, label %191, label %204
 
 191:                                              ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %192 = load ptr, ptr %139, align 8, !tbaa !3
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %194 = load ptr, ptr %193, align 8, !tbaa !52
@@ -448,11 +448,11 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br label %203
 
 203:                                              ; preds = %202, %191
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %204
 
 204:                                              ; preds = %203, %188, %185
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %205 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %206 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %205) #7
   br i1 %206, label %207, label %draw_main.exit
@@ -481,12 +481,12 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br i1 %switch55.i, label %220, label %221
 
 220:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !57
   call void @lv_draw_label(ptr noundef nonnull %118, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %222
 
 221:                                              ; preds = %217
@@ -494,7 +494,7 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br label %222
 
 222:                                              ; preds = %221, %220
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !57
   %223 = load i8, ptr %119, align 4
@@ -503,7 +503,7 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br i1 %225, label %226, label %261
 
 226:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %227 = load ptr, ptr %139, align 8, !tbaa !3
   %228 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %229 = load ptr, ptr %228, align 8, !tbaa !52
@@ -553,18 +553,18 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br label %260
 
 260:                                              ; preds = %252, %247
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %261
 
 261:                                              ; preds = %260, %222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %draw_main.exit
 
 draw_main.exit:                                   ; preds = %204, %261
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %262
 
 262:                                              ; preds = %15, %106, %draw_main.exit, %17, %16, %2
@@ -578,15 +578,9 @@ define noundef ptr @lv_label_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_label_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -702,11 +696,11 @@ lv_label_revert_dots.exit:                        ; preds = %8, %.critedge.i
   ret void
 }
 
-declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lv_label_refr_text(ptr noundef %0) unnamed_addr #0 {
@@ -728,7 +722,7 @@ define internal fastcc void @lv_label_refr_text(ptr noundef %0) unnamed_addr #0 
   %14 = load i8, ptr %13, align 4
   %15 = or i8 %14, -128
   store i8 %15, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_obj_get_content_coords(ptr noundef nonnull %0, ptr noundef nonnull %2) #7
   %16 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
   %17 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #7
@@ -738,7 +732,7 @@ define internal fastcc void @lv_label_refr_text(ptr noundef %0) unnamed_addr #0 
   %20 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 91) #7
   %21 = ptrtoint ptr %20 to i64
   %.sroa.0.0.extract.trunc.i152 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = load i8, ptr %13, align 4
   %23 = lshr i8 %22, 2
   %24 = and i8 %23, 8
@@ -828,7 +822,7 @@ lv_label_revert_dots.exit:                        ; preds = %get_label_flags.exi
 
 65:                                               ; preds = %63, %58
   %.0116 = phi i32 [ %64, %63 ], [ %.sroa.0.0.extract.trunc.i153, %58 ]
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_anim_init(ptr noundef nonnull %4) #7
   call void @lv_anim_set_var(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %4, i32 noundef -1) #7
@@ -1119,7 +1113,7 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
   br label %220
 
 220:                                              ; preds = %217, %overwrite_anim_property.exit154
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %413
 
 221:                                              ; preds = %lv_label_revert_dots.exit
@@ -1136,7 +1130,7 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
 
 228:                                              ; preds = %226, %221
   %.0122 = phi i32 [ %227, %226 ], [ %.sroa.0.0.extract.trunc.i155, %221 ]
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_anim_init(ptr noundef nonnull %5) #7
   call void @lv_anim_set_var(ptr noundef nonnull %5, ptr noundef nonnull %0) #7
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %5, i32 noundef -1) #7
@@ -1376,7 +1370,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
   br label %361
 
 361:                                              ; preds = %358, %overwrite_anim_property.exit157
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %413
 
 362:                                              ; preds = %lv_label_revert_dots.exit
@@ -1400,7 +1394,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
   br i1 %375, label %376, label %413
 
 376:                                              ; preds = %371
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %377 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
   %378 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %17, i32 noundef 46, i32 noundef 46) #7
   %379 = zext i16 %378 to i32
@@ -1434,7 +1428,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
   %396 = call i32 @lv_label_get_letter_on(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 zeroext poison)
   %397 = load ptr, ptr %8, align 8, !tbaa !3
   %398 = call i64 @lv_strlen(ptr noundef %397) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %399 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !67
   %400 = load ptr, ptr %8, align 8, !tbaa !3
   %401 = call i32 %399(ptr noundef %400, i32 noundef %396) #7
@@ -1460,14 +1454,14 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 ._crit_edge:                                      ; preds = %407, %395
   %.lcssa = phi i32 [ %401, %395 ], [ %410, %407 ]
   call fastcc void @lv_label_set_dots(ptr noundef nonnull %0, i32 noundef %.lcssa)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %413
 
 413:                                              ; preds = %lv_label_revert_dots.exit, %361, %362, %367, %371, %._crit_edge, %220
   call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %414
 
 414:                                              ; preds = %1, %413
@@ -1510,7 +1504,7 @@ define void @lv_label_set_text_fmt(ptr noundef %0, ptr noundef %1, ...) local_un
   br label %14
 
 14:                                               ; preds = %13, %8, %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %15 = call ptr @lv_text_set_text_vfmt(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   store ptr %15, ptr %6, align 8, !tbaa !3
@@ -1520,19 +1514,19 @@ define void @lv_label_set_text_fmt(ptr noundef %0, ptr noundef %1, ...) local_un
   %18 = and i8 %17, -17
   store i8 %18, ptr %16, align 4
   call fastcc void @lv_label_refr_text(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
-declare ptr @lv_text_set_text_vfmt(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_text_set_text_vfmt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_label_set_text_static(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1606,7 +1600,7 @@ define void @lv_label_set_long_mode(ptr noundef %0, i32 noundef %1) local_unname
   ret void
 }
 
-declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @set_ofs_x_anim(ptr noundef initializes((108, 112)) %0, i32 noundef %1) #0 {
@@ -1624,7 +1618,7 @@ define internal void @set_ofs_y_anim(ptr noundef initializes((112, 116)) %0, i32
   ret void
 }
 
-declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_label_set_text_selection_start(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1685,7 +1679,7 @@ define void @lv_label_set_recolor(ptr noundef %0, i1 noundef zeroext %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_label_get_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @lv_label_get_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1699,7 +1693,7 @@ define ptr @lv_label_get_text(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_label_get_long_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 16) i32 @lv_label_get_long_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1809,7 +1803,7 @@ get_label_flags.exit:                             ; preds = %20, %31, %36
   %.sroa.0.0.extract.trunc.i102 = trunc i64 %46 to i32
   %47 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #7
   %48 = tail call i32 @lv_font_get_line_height(ptr noundef %47) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_obj_get_content_coords(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %49 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
   %50 = call i32 @lv_area_get_height(ptr noundef nonnull %4) #7
@@ -1926,28 +1920,28 @@ calculate_x_coordinate.exit:                      ; preds = %87, %.sink.split.i
   store i32 %.0104, ptr %2, align 4, !tbaa !30
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.3, ptr %104, align 4, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 105:                                              ; preds = %13, %14, %16, %19, %calculate_x_coordinate.exit
   ret void
 }
 
-declare i32 @lv_obj_calculate_style_text_align(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_calculate_style_text_align(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_get_content_coords(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_get_content_coords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_text_get_next_line(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_text_get_next_line(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_text_get_width_with_flags(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_text_get_width_with_flags(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_label_get_letter_on(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 zeroext %2) local_unnamed_addr #0 {
@@ -1982,7 +1976,7 @@ lv_label_get_text.exit:                           ; preds = %10
   %18 = ptrtoint ptr %17 to i64
   %.sroa.0.0.extract.trunc.i102 = trunc i64 %18 to i32
   %19 = sub nsw i32 %16, %.sroa.0.0.extract.trunc.i102
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_obj_get_content_coords(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !3
@@ -2064,7 +2058,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br i1 %.not95, label %73, label %64
 
 64:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %63, ptr %5, align 4, !tbaa !48
   %65 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
   %66 = call i32 %65(ptr noundef nonnull %21, ptr noundef nonnull %5) #7
@@ -2082,7 +2076,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 .thread:                                          ; preds = %64, %67
   %.278 = phi i32 [ %63, %64 ], [ %spec.select99, %67 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit122
 
 73:                                               ; preds = %61
@@ -2123,9 +2117,9 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit122
   %.2108 = phi i32 [ 0, %.loopexit122 ], [ %91, %88 ], [ %87, %83 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !48
   %.not97 = icmp ne i32 %.177, 0
   %92 = icmp ult i32 %.076125, %.177
@@ -2140,8 +2134,8 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
 94:                                               ; preds = %.lr.ph135, %121
   %.079134 = phi i32 [ 0, %.lr.ph135 ], [ %.180, %121 ]
   %.0106133 = phi i32 [ %.2108, %.lr.ph135 ], [ %.1107, %121 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @lv_text_encoded_letter_next_2(ptr noundef nonnull %79, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #7
   br i1 %.not98, label %102, label %95
 
@@ -2184,8 +2178,8 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
 
 .thread114:                                       ; preds = %102, %109, %113
   store i32 %.079134, ptr %7, align 4, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 119:                                              ; preds = %113
@@ -2197,8 +2191,8 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
   %122 = phi i32 [ %.pre, %._crit_edge ], [ %110, %119 ]
   %.1107 = phi i32 [ %.0106133, %._crit_edge ], [ %120, %119 ]
   %.180 = phi i32 [ %.079134, %._crit_edge ], [ %110, %119 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %123 = icmp ult i32 %.pre-phi, %.177
   br i1 %123, label %94, label %.loopexit
 
@@ -2208,17 +2202,17 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
   %126 = call i32 %125(ptr noundef nonnull %79, i32 noundef %124) #7
   %127 = call i32 %125(ptr noundef nonnull %21, i32 noundef %.076125) #7
   %128 = add i32 %127, %126
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %128
 }
 
-declare void @lv_text_encoded_letter_next_2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_text_encoded_letter_next_2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_text_is_cmd(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_text_is_cmd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_label_is_char_under_pos(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -2241,7 +2235,7 @@ define zeroext i1 @lv_label_is_char_under_pos(ptr noundef %0, ptr noundef readon
   br label %.preheader104
 
 lv_label_get_text.exit:                           ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_obj_get_content_coords(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !3
@@ -2355,13 +2349,13 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 73:                                               ; preds = %59, %68, %62
   %.086 = phi i32 [ %67, %62 ], [ %72, %68 ], [ 0, %59 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %42, ptr %5, align 4, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !48
   %.not99 = icmp eq i32 %.182, 0
   br i1 %.not99, label %.loopexit, label %.preheader105
@@ -2468,16 +2462,16 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 123:                                              ; preds = %117, %.loopexit
   %124 = phi i1 [ false, %.loopexit ], [ %122, %117 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %124
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_label_get_text_selection_start(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @lv_label_get_text_selection_start(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2491,7 +2485,7 @@ define i32 @lv_label_get_text_selection_start(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_label_get_text_selection_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @lv_label_get_text_selection_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2505,7 +2499,7 @@ define i32 @lv_label_get_text_selection_end(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_label_get_recolor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_label_get_recolor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2580,9 +2574,9 @@ define void @lv_label_ins_text(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   ret void
 }
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_text_ins(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_text_ins(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_label_cut_text(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2611,21 +2605,21 @@ lv_label_get_text.exit:                           ; preds = %4
   ret void
 }
 
-declare void @lv_text_cut(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_text_cut(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_event_set_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_event_set_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lv_label_set_dots(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -2685,68 +2679,74 @@ define internal fastcc void @lv_label_set_dots(ptr noundef %0, i32 noundef %1) u
   ret void
 }
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_top(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_top(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_style_apply_color_filter(ptr noundef, i32 noundef, ptr) local_unnamed_addr #2
+declare ptr @lv_obj_style_apply_color_filter(ptr noundef, i32 noundef, ptr) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_anim_speed_clamped(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_anim_speed_clamped(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_reverse_delay(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_reverse_delay(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_repeat_delay(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_repeat_delay(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_anim_get(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_anim_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_anim_resolve_speed(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_anim_resolve_speed(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_reverse_duration(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_reverse_duration(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

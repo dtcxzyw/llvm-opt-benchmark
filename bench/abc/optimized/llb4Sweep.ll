@@ -84,22 +84,16 @@ define void @Llb_Nonlin4SweepOrder_rec(ptr noundef %0, ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb_Nonlin4SweepOrder(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @Llb_Nonlin4SweepOrder(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !25
   %5 = getelementptr i8, ptr %0, i64 32
   %.val38 = load ptr, ptr %5, align 8, !tbaa !28
   %6 = getelementptr i8, ptr %.val38, i64 4
   %.val38.val = load i32, ptr %6, align 4, !tbaa !29
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %8 = add i32 %.val38.val, -1
   %or.cond.i.i = icmp ult i32 %8, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val38.val
@@ -117,7 +111,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %3
 Vec_IntAlloc.exit.i:                              ; preds = %3
   %11 = sext i32 %spec.store.select.i.i to i64
   %12 = shl nsw i64 %11, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #14
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #13
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !26
   store i32 %.val38.val, ptr %9, align 4, !tbaa !32
@@ -131,7 +125,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %3
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %15
-  tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #13
+  tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #14
   %18 = getelementptr i8, ptr %0, i64 48
   %.val39 = load ptr, ptr %18, align 8, !tbaa !33
   %19 = getelementptr i8, ptr %0, i64 312
@@ -238,20 +232,20 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %69
 
 69:                                               ; preds = %63, %.critedge2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %7
 }
 
-declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val102 = load ptr, ptr %5, align 8, !tbaa !28
   %6 = getelementptr i8, ptr %.val102, i64 4
   %.val102.val = load i32, ptr %6, align 4, !tbaa !29
-  %7 = tail call ptr @Cudd_Init(i32 noundef %.val102.val, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
-  tail call void @Aig_ManCleanData(ptr noundef %0) #13
+  %7 = tail call ptr @Cudd_Init(i32 noundef %.val102.val, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
+  tail call void @Aig_ManCleanData(ptr noundef %0) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = getelementptr i8, ptr %9, i64 4
@@ -287,7 +281,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %23 = sext i32 %.val111 to i64
   %24 = getelementptr inbounds i32, ptr %.val110, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !25
-  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %25) #13
+  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %25) #14
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %26, ptr %27, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -345,16 +339,16 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %62 = and i64 %56, 1
   %63 = xor i64 %62, %61
   %64 = inttoptr i64 %63 to ptr
-  %65 = tail call ptr @Cudd_bddAnd(ptr noundef %7, ptr noundef %54, ptr noundef %64) #13
-  tail call void @Cudd_Ref(ptr noundef %65) #13
-  %66 = tail call i32 @Cudd_DagSize(ptr noundef %65) #13
+  %65 = tail call ptr @Cudd_bddAnd(ptr noundef %7, ptr noundef %54, ptr noundef %64) #14
+  tail call void @Cudd_Ref(ptr noundef %65) #14
+  %66 = tail call i32 @Cudd_DagSize(ptr noundef %65) #14
   %67 = icmp sgt i32 %66, %2
   br i1 %67, label %68, label %130
 
 68:                                               ; preds = %44
-  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %65) #13
-  %69 = tail call i32 @Cudd_DagSize(ptr noundef %54) #13
-  %70 = tail call i32 @Cudd_DagSize(ptr noundef %64) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %65) #14
+  %69 = tail call i32 @Cudd_DagSize(ptr noundef %54) #14
+  %70 = tail call i32 @Cudd_DagSize(ptr noundef %64) #14
   %.not87 = icmp slt i32 %69, %70
   br i1 %.not87, label %85, label %71
 
@@ -365,7 +359,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8, !tbaa !41
-  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %76) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %76) #14
   %.val90 = load ptr, ptr %45, align 8, !tbaa !22
   %77 = ptrtoint ptr %.val90 to i64
   %78 = and i64 %77, -2
@@ -376,7 +370,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %81 = sext i32 %.val109 to i64
   %82 = getelementptr inbounds i32, ptr %.val108, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !25
-  %84 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %83) #13
+  %84 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %83) #14
   br label %99
 
 85:                                               ; preds = %68
@@ -386,7 +380,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %88 = inttoptr i64 %87 to ptr
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load ptr, ptr %89, align 8, !tbaa !41
-  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %90) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %90) #14
   %.val96 = load ptr, ptr %55, align 8, !tbaa !23
   %91 = ptrtoint ptr %.val96 to i64
   %92 = and i64 %91, -2
@@ -397,7 +391,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %95 = sext i32 %.val107 to i64
   %96 = getelementptr inbounds i32, ptr %.val106, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !25
-  %98 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %97) #13
+  %98 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %97) #14
   br label %99
 
 99:                                               ; preds = %85, %71
@@ -409,7 +403,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %102 = inttoptr i64 %101 to ptr
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
   store ptr %.sink144, ptr %103, align 8, !tbaa !41
-  tail call void @Cudd_Ref(ptr noundef %.sink144) #13
+  tail call void @Cudd_Ref(ptr noundef %.sink144) #14
   %.val94.sink = load ptr, ptr %.val94.sink.in, align 8, !tbaa !43
   %104 = ptrtoint ptr %.val94.sink to i64
   %105 = and i64 %104, -2
@@ -438,8 +432,8 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   %125 = and i64 %119, 1
   %126 = xor i64 %125, %124
   %127 = inttoptr i64 %126 to ptr
-  %128 = tail call ptr @Cudd_bddAnd(ptr noundef %7, ptr noundef %118, ptr noundef %127) #13
-  tail call void @Cudd_Ref(ptr noundef %128) #13
+  %128 = tail call ptr @Cudd_bddAnd(ptr noundef %7, ptr noundef %118, ptr noundef %127) #14
+  tail call void @Cudd_Ref(ptr noundef %128) #14
   %129 = add nsw i32 %.0123, 1
   br label %130
 
@@ -483,7 +477,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
 146:                                              ; preds = %141
   %147 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %148 = load ptr, ptr %147, align 8, !tbaa !41
-  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %148) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %148) #14
   %.pre136 = load ptr, ptr %5, align 8, !tbaa !28
   br label %.critedge2
 
@@ -498,7 +492,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge.preheader, %.critedge2.preheader
   %.0.lcssa139 = phi i32 [ %.2, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ %.2, %.critedge2 ]
-  tail call void @Extra_StopManager(ptr noundef %7) #13
+  tail call void @Extra_StopManager(ptr noundef %7) #14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %155, label %153
 
@@ -510,27 +504,27 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   ret i32 %.0.lcssa139
 }
 
-declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #3
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #2
 
-declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #3
+declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #2
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #3
+declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %1, i64 24
   %.val74 = load i64, ptr %5, align 8
   %6 = and i64 %.val74, 7
@@ -540,7 +534,7 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef captures(
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #13
+  %8 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #14
   br label %91
 
 9:                                                ; preds = %4
@@ -551,7 +545,7 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef captures(
   %12 = sext i32 %.val70 to i64
   %13 = getelementptr inbounds i32, ptr %.val69, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !25
-  %15 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %14) #13
+  %15 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %14) #14
   br label %91
 
 16:                                               ; preds = %4
@@ -584,9 +578,9 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef captures(
   %33 = sext i32 %.val68 to i64
   %34 = getelementptr inbounds i32, ptr %.val67, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !25
-  %36 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %35) #13
-  %37 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %36, ptr noundef %29) #13
-  tail call void @Cudd_Ref(ptr noundef %37) #13
+  %36 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %35) #14
+  %37 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %36, ptr noundef %29) #14
+  tail call void @Cudd_Ref(ptr noundef %37) #14
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !29
   %40 = load i32, ptr %3, align 8, !tbaa !46
@@ -613,7 +607,7 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef captures(
   br label %Vec_PtrGrow.exit.i
 
 49:                                               ; preds = %44
-  %50 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
+  %50 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %49, %47
@@ -636,7 +630,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %49, %47
   br label %62
 
 60:                                               ; preds = %52
-  %61 = tail call noalias ptr @malloc(i64 noundef %57) #14
+  %61 = tail call noalias ptr @malloc(i64 noundef %57) #13
   br label %62
 
 62:                                               ; preds = %60, %58
@@ -668,8 +662,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %77 = and i64 %76, 1
   %78 = xor i64 %77, %75
   %79 = inttoptr i64 %78 to ptr
-  %80 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %29, ptr noundef %79) #13
-  tail call void @Cudd_Ref(ptr noundef %80) #13
+  %80 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %29, ptr noundef %79) #14
+  tail call void @Cudd_Ref(ptr noundef %80) #14
   %81 = getelementptr i8, ptr %2, i64 8
   %.val65 = load ptr, ptr %81, align 8, !tbaa !26
   %82 = getelementptr i8, ptr %1, i64 36
@@ -681,12 +675,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %69
-  %88 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %85) #13
-  %89 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %88, ptr noundef %80) #13
-  tail call void @Cudd_Ref(ptr noundef %89) #13
+  %88 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %85) #14
+  %89 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %88, ptr noundef %80) #14
+  tail call void @Cudd_Ref(ptr noundef %89) #14
   tail call fastcc void @Vec_PtrPush(ptr noundef %3, ptr noundef %89)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %80) #13
-  tail call void @Cudd_Ref(ptr noundef %88) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %80) #14
+  tail call void @Cudd_Ref(ptr noundef %88) #14
   br label %90
 
 90:                                               ; preds = %87, %69
@@ -699,12 +693,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   ret ptr %.0
 }
 
-declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Cudd_bddXnor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddXnor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !29
   %5 = load i32, ptr %0, align 8, !tbaa !46
@@ -731,7 +725,7 @@ define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noun
   br label %Vec_PtrGrow.exit
 
 14:                                               ; preds = %9
-  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
+  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
   br label %Vec_PtrGrow.exit
 
 Vec_PtrGrow.exit:                                 ; preds = %12, %14
@@ -754,7 +748,7 @@ Vec_PtrGrow.exit:                                 ; preds = %12, %14
   br label %27
 
 25:                                               ; preds = %17
-  %26 = tail call noalias ptr @malloc(i64 noundef %22) #14
+  %26 = tail call noalias ptr @malloc(i64 noundef %22) #13
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -775,13 +769,13 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  tail call void @Aig_ManCleanData(ptr noundef %1) #13
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+  tail call void @Aig_ManCleanData(ptr noundef %1) #14
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !29
   store i32 100, ptr %5, align 8, !tbaa !46
-  %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #14
+  %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !36
   %.not = icmp eq i32 %3, 0
@@ -872,7 +866,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   br i1 %.not38, label %52, label %51
 
 51:                                               ; preds = %48
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %50) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %50) #14
   %.pre = load ptr, ptr %34, align 8, !tbaa !28
   br label %52
 
@@ -890,12 +884,12 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 752
   %5 = load i64, ptr %4, align 8, !tbaa !52
   store i64 0, ptr %4, align 8, !tbaa !52
-  %6 = tail call ptr @Cudd_ReadOne(ptr noundef %2) #13
-  tail call void @Cudd_Ref(ptr noundef %6) #13
+  %6 = tail call ptr @Cudd_ReadOne(ptr noundef %2) #14
+  tail call void @Cudd_Ref(ptr noundef %6) #14
   %7 = getelementptr i8, ptr %0, i64 112
   %.val2425 = load i32, ptr %7, align 8, !tbaa !48
   %8 = icmp sgt i32 %.val2425, 0
@@ -920,13 +914,13 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef readonly captures(no
   %17 = sext i32 %.val23 to i64
   %18 = getelementptr inbounds i32, ptr %.val22, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !25
-  %20 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %2, i32 noundef %19) #13
+  %20 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %2, i32 noundef %19) #14
   %21 = ptrtoint ptr %20 to i64
   %22 = xor i64 %21, 1
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %2, ptr noundef %.027, ptr noundef %23) #13
-  tail call void @Cudd_Ref(ptr noundef %24) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %2, ptr noundef %.027) #13
+  %24 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %2, ptr noundef %.027, ptr noundef %23) #14
+  tail call void @Cudd_Ref(ptr noundef %24) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %2, ptr noundef %.027) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val24 = load i32, ptr %7, align 8, !tbaa !48
   %25 = sext i32 %.val24 to i64
@@ -935,7 +929,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef readonly captures(no
 
 .critedge:                                        ; preds = %11, %3
   %.0.lcssa = phi ptr [ %6, %3 ], [ %24, %11 ]
-  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #13
+  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #14
   store i64 %5, ptr %4, align 8, !tbaa !52
   %27 = ptrtoint ptr %.0.lcssa to i64
   %28 = xor i64 %27, 1
@@ -943,10 +937,10 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef readonly captures(no
   ret ptr %29
 }
 
-declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #3
+declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Llb_Nonlin4SweepVars2Q(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
+define noalias noundef ptr @Llb_Nonlin4SweepVars2Q(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
   %5 = getelementptr i8, ptr %0, i64 32
@@ -960,7 +954,7 @@ define noalias noundef ptr @Llb_Nonlin4SweepVars2Q(ptr noundef readonly captures
   %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %8 = zext nneg i32 %.val24.val to i64
   %9 = shl nuw nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
   store ptr %10, ptr %7, align 8, !tbaa !26
   store i32 %.val24.val, ptr %calloc, align 8, !tbaa !31
   br label %11
@@ -1048,7 +1042,7 @@ Vec_IntFill.exit:                                 ; preds = %11, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_Nonlin4SweepDeref(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define void @Llb_Nonlin4SweepDeref(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val8 = load i32, ptr %3, align 4, !tbaa !29
   %4 = icmp sgt i32 %.val8, 0
@@ -1063,7 +1057,7 @@ define void @Llb_Nonlin4SweepDeref(ptr noundef %0, ptr noundef captures(none) %1
   %.val7 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !37
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %8) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %8) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %3, align 4, !tbaa !29
   %9 = sext i32 %.val to i64
@@ -1077,16 +1071,16 @@ define void @Llb_Nonlin4SweepDeref(ptr noundef %0, ptr noundef captures(none) %1
   br i1 %.not.i, label %Vec_PtrFree.exit, label %13
 
 13:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %12) #13
+  tail call void @free(ptr noundef nonnull %12) #14
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %13
-  tail call void @free(ptr noundef nonnull %1) #13
+  tail call void @free(ptr noundef nonnull %1) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_Nonlin4SweepPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define void @Llb_Nonlin4SweepPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val6 = load i32, ptr %2, align 4, !tbaa !29
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val6)
@@ -1103,7 +1097,7 @@ define void @Llb_Nonlin4SweepPrint(ptr noundef readonly captures(none) %0) local
   %.val7 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !37
-  %9 = tail call i32 @Cudd_DagSize(ptr noundef %8) #13
+  %9 = tail call i32 @Cudd_DagSize(ptr noundef %8) #14
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %2, align 4, !tbaa !29
@@ -1117,7 +1111,7 @@ define void @Llb_Nonlin4SweepPrint(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb4_Nonlin4SweepBadStates(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @Llb4_Nonlin4SweepBadStates(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %4 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   %5 = getelementptr i8, ptr %0, i64 32
@@ -1131,7 +1125,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadStates(ptr noundef %0, ptr noundef %1, i
   %7 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %8 = zext nneg i32 %.val24.val.i to i64
   %9 = shl nuw nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
   store ptr %10, ptr %7, align 8, !tbaa !26
   store i32 %.val24.val.i, ptr %calloc.i, align 8, !tbaa !31
   br label %11
@@ -1183,14 +1177,14 @@ Vec_IntFill.exit.i:                               ; preds = %11, %3
   br i1 %exitcond.not, label %Llb_Nonlin4SweepVars2Q.exit, label %21, !llvm.loop !69
 
 Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %21, %Vec_IntFill.exit.i
-  %29 = tail call ptr @Cudd_Init(i32 noundef %2, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
+  %29 = tail call ptr @Cudd_Init(i32 noundef %2, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
   %30 = tail call ptr @Llb_Nonlin4SweepPartitions(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0)
   %31 = tail call ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %29)
-  tail call void @Cudd_Ref(ptr noundef %31) #13
-  tail call void @Cudd_AutodynEnable(ptr noundef %29, i32 noundef 6) #13
-  %32 = tail call ptr @Llb_Nonlin4Image(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %calloc.i) #13
-  tail call void @Cudd_Ref(ptr noundef %32) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %31) #13
+  tail call void @Cudd_Ref(ptr noundef %31) #14
+  tail call void @Cudd_AutodynEnable(ptr noundef %29, i32 noundef 6) #14
+  %32 = tail call ptr @Llb_Nonlin4Image(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %calloc.i) #14
+  tail call void @Cudd_Ref(ptr noundef %32) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %31) #14
   %33 = getelementptr i8, ptr %30, i64 4
   %.val8.i = load i32, ptr %33, align 4, !tbaa !29
   %34 = icmp sgt i32 %.val8.i, 0
@@ -1205,7 +1199,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %21, %Vec_IntFill.ex
   %.val7.i = load ptr, ptr %35, align 8, !tbaa !36
   %37 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !37
-  tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %38) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %38) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i25 = load i32, ptr %33, align 4, !tbaa !29
   %39 = sext i32 %.val.i25 to i64
@@ -1219,33 +1213,33 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %21, %Vec_IntFill.ex
   br i1 %.not.i.i, label %Llb_Nonlin4SweepDeref.exit, label %43
 
 43:                                               ; preds = %.critedge.i23
-  tail call void @free(ptr noundef nonnull %42) #13
+  tail call void @free(ptr noundef nonnull %42) #14
   br label %Llb_Nonlin4SweepDeref.exit
 
 Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i23, %43
-  tail call void @free(ptr noundef nonnull %30) #13
+  tail call void @free(ptr noundef nonnull %30) #14
   %44 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !26
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %46
 
 46:                                               ; preds = %Llb_Nonlin4SweepDeref.exit
-  tail call void @free(ptr noundef nonnull %45) #13
+  tail call void @free(ptr noundef nonnull %45) #14
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Llb_Nonlin4SweepDeref.exit, %46
-  tail call void @free(ptr noundef nonnull %calloc.i) #13
+  tail call void @free(ptr noundef nonnull %calloc.i) #14
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 736
   store ptr %32, ptr %47, align 8, !tbaa !73
   ret ptr %29
 }
 
-declare void @Cudd_AutodynEnable(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Cudd_AutodynEnable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @Llb_Nonlin4Image(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Llb_Nonlin4Image(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define noundef ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %7 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   %8 = getelementptr i8, ptr %0, i64 32
@@ -1259,7 +1253,7 @@ define noundef ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %1, i32 
   %10 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %11 = zext nneg i32 %.val24.val.i to i64
   %12 = shl nuw nsw i64 %11, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #14
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #13
   store ptr %13, ptr %10, align 8, !tbaa !26
   store i32 %.val24.val.i, ptr %calloc.i, align 8, !tbaa !31
   br label %14
@@ -1338,10 +1332,10 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   br i1 %exitcond32.not, label %Llb_Nonlin4SweepVars2Q.exit, label %37, !llvm.loop !70
 
 Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %37, %Vec_IntFill.exit.i
-  %45 = tail call ptr @Cudd_Init(i32 noundef %2, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
+  %45 = tail call ptr @Cudd_Init(i32 noundef %2, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
   %46 = tail call ptr @Llb_Nonlin4SweepPartitions(ptr noundef %45, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
-  tail call void @Cudd_AutodynEnable(ptr noundef %45, i32 noundef 6) #13
-  %47 = tail call ptr @Llb_Nonlin4Group(ptr noundef %45, ptr noundef %46, ptr noundef nonnull %calloc.i, i32 noundef %4) #13
+  tail call void @Cudd_AutodynEnable(ptr noundef %45, i32 noundef 6) #14
+  %47 = tail call ptr @Llb_Nonlin4Group(ptr noundef %45, ptr noundef %46, ptr noundef nonnull %calloc.i, i32 noundef %4) #14
   store ptr %47, ptr %3, align 8, !tbaa !74
   %48 = getelementptr i8, ptr %46, i64 4
   %.val8.i = load i32, ptr %48, align 4, !tbaa !29
@@ -1357,7 +1351,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %37, %Vec_IntFill.ex
   %.val7.i = load ptr, ptr %50, align 8, !tbaa !36
   %52 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %53 = load ptr, ptr %52, align 8, !tbaa !37
-  tail call void @Cudd_RecursiveDeref(ptr noundef %45, ptr noundef %53) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %45, ptr noundef %53) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i19 = load i32, ptr %48, align 4, !tbaa !29
   %54 = sext i32 %.val.i19 to i64
@@ -1371,11 +1365,11 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %37, %Vec_IntFill.ex
   br i1 %.not.i.i, label %Llb_Nonlin4SweepDeref.exit, label %58
 
 58:                                               ; preds = %.critedge.i17
-  tail call void @free(ptr noundef nonnull %57) #13
+  tail call void @free(ptr noundef nonnull %57) #14
   br label %Llb_Nonlin4SweepDeref.exit
 
 Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i17, %58
-  tail call void @free(ptr noundef nonnull %46) #13
+  tail call void @free(ptr noundef nonnull %46) #14
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %73, label %59
 
@@ -1398,7 +1392,7 @@ Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i17, %58
   %.val7.i24 = load ptr, ptr %65, align 8, !tbaa !36
   %67 = getelementptr inbounds nuw ptr, ptr %.val7.i24, i64 %indvars.iv.i23
   %68 = load ptr, ptr %67, align 8, !tbaa !37
-  %69 = tail call i32 @Cudd_DagSize(ptr noundef %68) #13
+  %69 = tail call i32 @Cudd_DagSize(ptr noundef %68) #14
   %70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %69)
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
   %.val.i26 = load i32, ptr %62, align 4, !tbaa !29
@@ -1417,26 +1411,26 @@ Llb_Nonlin4SweepPrint.exit:                       ; preds = %66, %59
   br i1 %.not.i, label %Vec_IntFree.exit, label %76
 
 76:                                               ; preds = %73
-  tail call void @free(ptr noundef nonnull %75) #13
+  tail call void @free(ptr noundef nonnull %75) #14
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %73, %76
-  tail call void @free(ptr noundef nonnull %calloc.i) #13
+  tail call void @free(ptr noundef nonnull %calloc.i) #14
   ret ptr %45
 }
 
-declare ptr @Llb_Nonlin4Group(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Llb_Nonlin4Group(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_Nonlin4SweepPrintSuppProfile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #13
+define void @Llb_Nonlin4SweepPrintSuppProfile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+  %6 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #14
   %7 = sext i32 %6 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #16
   %9 = getelementptr i8, ptr %3, i64 8
   %.val71 = load ptr, ptr %9, align 8, !tbaa !36
   %10 = getelementptr i8, ptr %3, i64 4
   %.val64 = load i32, ptr %10, align 4, !tbaa !29
-  %11 = tail call ptr @Extra_VectorSupportArray(ptr noundef %0, ptr noundef %.val71, i32 noundef %.val64, ptr noundef %8) #13
+  %11 = tail call ptr @Extra_VectorSupportArray(ptr noundef %0, ptr noundef %.val71, i32 noundef %.val64, ptr noundef %8) #14
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr i8, ptr %13, i64 4
@@ -1563,7 +1557,7 @@ Saig_ObjIsLi.exit.thread:                         ; preds = %41
   br i1 %.not, label %56, label %55
 
 55:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %8) #13
+  tail call void @free(ptr noundef nonnull %8) #14
   br label %56
 
 56:                                               ; preds = %.critedge, %55
@@ -1587,22 +1581,22 @@ Saig_ObjIsLi.exit.thread:                         ; preds = %41
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare i32 @Cudd_ReadSize(ptr noundef) local_unnamed_addr #3
+declare i32 @Cudd_ReadSize(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Extra_VectorSupportArray(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Extra_VectorSupportArray(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Llb4_Nonlin4Sweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, i32 noundef %6) local_unnamed_addr #2 {
+define void @Llb4_Nonlin4Sweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
-  tail call void @Aig_ManCleanMarkA(ptr noundef %0) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  tail call void @Aig_ManCleanMarkA(ptr noundef %0) #14
   %10 = call ptr @Llb_Nonlin4SweepOrder(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1)
   %11 = call i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef %10, i32 noundef %1, i32 noundef %6)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1611,13 +1605,13 @@ define void @Llb4_Nonlin4Sweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %.not.i, label %Vec_IntFree.exit, label %14
 
 14:                                               ; preds = %7
-  call void @free(ptr noundef nonnull %13) #13
+  call void @free(ptr noundef nonnull %13) #14
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %7, %14
-  call void @free(ptr noundef nonnull %10) #13
+  call void @free(ptr noundef nonnull %10) #14
   %15 = call ptr @Llb_Nonlin4SweepOrder(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 0)
-  call void @Aig_ManCleanMarkA(ptr noundef %0) #13
+  call void @Aig_ManCleanMarkA(ptr noundef %0) #14
   %16 = getelementptr i8, ptr %0, i64 136
   %.val38 = load i32, ptr %16, align 8, !tbaa !25
   %17 = add nsw i32 %.val38, %11
@@ -1632,36 +1626,36 @@ Vec_IntFree.exit:                                 ; preds = %7, %14
   %23 = call ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %15, i32 noundef %22, ptr noundef nonnull %8, i32 noundef %2, i32 noundef %6)
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 736
   %25 = load ptr, ptr %24, align 8, !tbaa !73
-  %26 = call ptr @Cudd_bddTransfer(ptr noundef %20, ptr noundef %23, ptr noundef %25) #13
+  %26 = call ptr @Cudd_bddTransfer(ptr noundef %20, ptr noundef %23, ptr noundef %25) #14
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 736
   store ptr %26, ptr %27, align 8, !tbaa !73
-  call void @Cudd_Ref(ptr noundef %26) #13
+  call void @Cudd_Ref(ptr noundef %26) #14
   %28 = load ptr, ptr %24, align 8, !tbaa !73
-  call void @Cudd_RecursiveDeref(ptr noundef %20, ptr noundef %28) #13
+  call void @Cudd_RecursiveDeref(ptr noundef %20, ptr noundef %28) #14
   store ptr null, ptr %24, align 8, !tbaa !73
-  call void @Extra_StopManager(ptr noundef %20) #13
+  call void @Extra_StopManager(ptr noundef %20) #14
   %29 = load ptr, ptr %8, align 8, !tbaa !74
   call void @Llb_Nonlin4SweepPrintSuppProfile(ptr noundef %23, ptr noundef %0, ptr noundef %15, ptr noundef %29, i32 noundef %6)
   store ptr %23, ptr %3, align 8, !tbaa !76
   store ptr %15, ptr %4, align 8, !tbaa !78
   store ptr %29, ptr %5, align 8, !tbaa !74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare void @Aig_ManCleanMarkA(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManCleanMarkA(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Cudd_bddTransfer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddTransfer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #2 {
+define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Llb4_Nonlin4Sweep(ptr noundef %0, i32 noundef 100, i32 noundef 500, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %5 = load ptr, ptr %2, align 8, !tbaa !76
   %6 = load ptr, ptr %4, align 8, !tbaa !74
@@ -1679,7 +1673,7 @@ define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #2 {
   %.val7.i = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !37
-  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %12) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %12) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %7, align 4, !tbaa !29
   %13 = sext i32 %.val.i to i64
@@ -1693,15 +1687,15 @@ define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i.i, label %Llb_Nonlin4SweepDeref.exit, label %17
 
 17:                                               ; preds = %.critedge.i
-  tail call void @free(ptr noundef nonnull %16) #13
+  tail call void @free(ptr noundef nonnull %16) #14
   br label %Llb_Nonlin4SweepDeref.exit
 
 Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i, %17
-  tail call void @free(ptr noundef nonnull %6) #13
+  tail call void @free(ptr noundef nonnull %6) #14
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 736
   %19 = load ptr, ptr %18, align 8, !tbaa !73
-  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %19) #13
-  tail call void @Extra_StopManager(ptr noundef %5) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %19) #14
+  tail call void @Extra_StopManager(ptr noundef %5) #14
   %20 = load ptr, ptr %3, align 8, !tbaa !78
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !26
@@ -1709,44 +1703,50 @@ Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i, %17
   br i1 %.not.i, label %Vec_IntFree.exit, label %23
 
 23:                                               ; preds = %Llb_Nonlin4SweepDeref.exit
-  tail call void @free(ptr noundef nonnull %22) #13
+  tail call void @free(ptr noundef nonnull %22) #14
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Llb_Nonlin4SweepDeref.exit, %23
-  tail call void @free(ptr noundef nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  tail call void @free(ptr noundef nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(1) }
 attributes #16 = { nounwind allocsize(0,1) }
 

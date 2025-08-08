@@ -157,8 +157,8 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef ali
           to label %38 unwind label %57
 
 38:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider12rangeChangedEii to i64), ptr %10, align 8, !noalias !6
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !6
@@ -180,11 +180,11 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef ali
           to label %42 unwind label %57
 
 42:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %12) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider12valueChangedEi to i64), ptr %8, align 8, !noalias !9
   %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !9
@@ -206,11 +206,11 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef ali
           to label %46 unwind label %57
 
 46:                                               ; preds = %.noexc34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider12valueChangedEi to i64), ptr %6, align 8, !noalias !12
   %.fca.1.gep12.i39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.fca.1.gep12.i39, align 8, !noalias !12
@@ -232,11 +232,11 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef ali
           to label %50 unwind label %57
 
 50:                                               ; preds = %.noexc42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %14) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider15actionTriggeredEi to i64), ptr %4, align 8, !noalias !15
   %.fca.1.gep12.i48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep12.i48, align 8, !noalias !15
@@ -258,8 +258,8 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef ali
           to label %54 unwind label %57
 
 54:                                               ; preds = %.noexc51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %15) #11
   ret void
 
@@ -327,7 +327,7 @@ define void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef align 8 deref
   %2 = alloca %class.QString, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call noundef ptr @_ZN12QApplication5styleEv()
   call void @_ZNK6QStyle4nameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef align 8 dereferenceable_or_null(16) %5)
   %6 = invoke noundef ptr @_ZN13QStyleFactory6createERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -353,7 +353,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %8
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %3, align 8
   call void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable_or_null(40) %13, ptr noundef %14)
@@ -377,7 +377,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3:     ; preds = %15
   br label %_ZN7QStringD2Ev.exit5
 
 _ZN7QStringD2Ev.exit5:                            ; preds = %15, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %16
 }
 
@@ -397,12 +397,6 @@ define linkonce_odr void @_ZN16OverlayScrollBar13setChildRangeEii(ptr noundef al
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: nounwind null_pointer_is_valid
 declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #2
 
@@ -416,7 +410,7 @@ declare void @_ZN15QAbstractSlider8setValueEi(ptr noundef align 8 dereferenceabl
 declare void @_ZN15QAbstractSlider15actionTriggeredEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN17QArrayDataPointerIiED2Ev.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i
@@ -445,7 +439,7 @@ declare void @_ZN10QScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(40
 declare void @_ZN10QScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define void @_ZN16OverlayScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(196) initializes((0, 8), (16, 24)) %0) unnamed_addr #8 align 2 {
+define void @_ZN16OverlayScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(196) initializes((0, 8), (16, 24)) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 440) (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %2, align 8
@@ -502,21 +496,21 @@ _ZN5QListIiED2Ev.exit:                            ; preds = %18, %_ZN17QArrayDat
 }
 
 ; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
-define void @_ZThn16_N16OverlayScrollBarD1Ev(ptr noundef %0) unnamed_addr #9 align 2 {
+define void @_ZThn16_N16OverlayScrollBarD1Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16OverlayScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(196) %2) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define void @_ZN16OverlayScrollBarD0Ev(ptr noundef align 8 dereferenceable_or_null(196) %0) unnamed_addr #8 align 2 {
+define void @_ZN16OverlayScrollBarD0Ev(ptr noundef align 8 dereferenceable_or_null(196) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN16OverlayScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(196) %0) #11
   tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 200) #13
   ret void
 }
 
 ; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
-define void @_ZThn16_N16OverlayScrollBarD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
+define void @_ZThn16_N16OverlayScrollBarD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16OverlayScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(196) %2) #11
   tail call void @_ZdlPvm(ptr noundef align 8 dereferenceable_or_null(196) %2, i64 noundef 200) #13
@@ -682,7 +676,7 @@ define void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef al
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef align 8 dereferenceable_or_null(196) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QStyleOptionSlider, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN18QStyleOptionSliderC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(128) %2)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 424
@@ -724,14 +718,14 @@ define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef align 8 der
 
 27:                                               ; preds = %22
   call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(128) %2) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { i64, i64 } %26
 
 28:                                               ; preds = %22, %6, %1
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(128) %2) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %29
 }
 
@@ -752,12 +746,12 @@ define void @_ZN16OverlayScrollBar11resizeEventEP12QResizeEvent(ptr noundef alig
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %7, ptr %4, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %8, align 4
   call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable_or_null(40) %5, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %5)
   %.sroa.0.0.extract.trunc = trunc i64 %9 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -768,12 +762,12 @@ define void @_ZN16OverlayScrollBar11resizeEventEP12QResizeEvent(ptr noundef alig
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %13, 1
   %17 = sub i32 %16, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.sroa.0.0.extract.trunc, ptr %3, align 4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %17, ptr %18, align 4
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable_or_null(40) %5, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -804,7 +798,7 @@ define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef align 
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable_or_null(10) %18, i32 noundef 12)
   %23 = sitofp i32 %22 to double
   %24 = fmul double %23, 0x3EF0000000000000
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -828,7 +822,7 @@ define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef align 
   %44 = fadd double %42, %43
   %45 = fptosi double %44 to i32
   store i32 %45, ptr %35, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11, ptr noundef nonnull %18)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
@@ -851,7 +845,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
   br i1 %52, label %177, label %54
 
 54:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %12, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef 6)
           to label %55 unwind label %94
 
@@ -860,7 +854,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
           to label %56 unwind label %96
 
 56:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13, ptr noundef nonnull %12)
           to label %57 unwind label %98
 
@@ -877,8 +871,8 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
   %.sroa.14.12.insert.ext = zext i32 %62 to i64
   %.sroa.14.12.insert.shift = shl nuw i64 %.sroa.14.12.insert.ext, 32
   %.sroa.14.12.insert.insert = or disjoint i64 %.sroa.14.12.insert.shift, %.sroa.14.8.insert.ext
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.sroa.2.0.insert.ext.i = zext i32 %60 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %59 to i64
@@ -888,7 +882,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
           to label %63 unwind label %102
 
 63:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %65 = sitofp i32 %59 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -896,7 +890,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %67 = sitofp i32 %60 to double
   store double %67, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %68 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %14)
           to label %.noexc unwind label %104
 
@@ -916,11 +910,11 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
           to label %74 unwind label %104
 
 74:                                               ; preds = %.noexc40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %14) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %76 = load i64, ptr %75, align 8
   %77 = icmp sgt i64 %76, 0
@@ -1001,8 +995,8 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %._crit_edge
 
 106:                                              ; preds = %104, %102
   %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47
 
 107:                                              ; preds = %.lr.ph, %139
@@ -1024,7 +1018,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %._crit_edge
 114:                                              ; preds = %113
   %115 = mul i32 %108, %60
   %116 = sdiv i32 %115, %109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %117 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
           to label %118 unwind label %132
 
@@ -1044,10 +1038,10 @@ _ZNK8QPalette9highlightEv.exit:                   ; preds = %118
 
 123:                                              ; preds = %122
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %16) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %124 = load i32, ptr %10, align 4
   %125 = load i32, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   store i32 %116, ptr %87, align 4
   %126 = add i32 %124, -1
@@ -1059,7 +1053,7 @@ _ZNK8QPalette9highlightEv.exit:                   ; preds = %118
           to label %129 unwind label %137
 
 129:                                              ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13)
           to label %139 unwind label %137
 
@@ -1081,7 +1075,7 @@ _ZNK8QPalette9highlightEv.exit:                   ; preds = %118
 
 136:                                              ; preds = %134, %132
   %.pn28 = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %141
 
 137:                                              ; preds = %123, %129
@@ -1112,7 +1106,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit: ; preds = %91, %_ZN17QArra
           to label %144 unwind label %163
 
 144:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %145 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
           to label %146 unwind label %165
 
@@ -1138,7 +1132,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %149
           to label %153 unwind label %165
 
 153:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.14.12.insert.shift, ptr %154, align 8
@@ -1146,8 +1140,8 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %149
           to label %155 unwind label %167
 
 155:                                              ; preds = %153
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.14.8.insert.ext, ptr %5, align 8
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.14.12.insert.insert, ptr %156, align 8
@@ -1155,8 +1149,8 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %149
           to label %157 unwind label %169
 
 157:                                              ; preds = %155
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.14.12.insert.shift, ptr %4, align 8
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.14.12.insert.insert, ptr %158, align 8
@@ -1164,7 +1158,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %149
           to label %159 unwind label %171
 
 159:                                              ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13)
           to label %160 unwind label %165
 
@@ -1173,18 +1167,18 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %149
           to label %161 unwind label %165
 
 161:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   invoke void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %162 unwind label %165
 
 162:                                              ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %12) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %177
 
 163:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
@@ -1214,7 +1208,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %149
 
 173:                                              ; preds = %171, %169, %167, %165
   %.pn26 = phi { ptr, i32 } [ %166, %165 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47
 
 _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47: ; preds = %106, %163, %173, %143, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i45, %141, %100
@@ -1224,7 +1218,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47: ; preds = %106, %163, %1
 
 174:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47, %98
   %.pn30.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47 ], [ %99, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %175
 
 175:                                              ; preds = %174, %96
@@ -1234,20 +1228,20 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47: ; preds = %106, %163, %1
 
 176:                                              ; preds = %175, %94
   %.pn30.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn.pn.pn.pn, %175 ], [ %95, %94 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %178
 
 177:                                              ; preds = %162, %53
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 178:                                              ; preds = %176, %92
   %.pn30.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn.pn.pn.pn.pn, %176 ], [ %93, %92 ]
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn30.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -1334,7 +1328,7 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   br i1 %21, label %126, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN18QStyleOptionSliderC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(128) %7)
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 424
@@ -1381,12 +1375,12 @@ common.resume:                                    ; preds = %123, %46
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(128) %7) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(128) %7) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = extractvalue { i64, i64 } %45, 0
   %49 = extractvalue { i64, i64 } %45, 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1426,13 +1420,13 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   %78 = call double @llvm.copysign.f64(double 5.000000e-01, double %77)
   %79 = fadd double %77, %78
   %80 = fptosi double %79 to i32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8, i32 noundef %75, i32 noundef %80, i32 noundef 6)
   invoke void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8, i32 noundef 19)
           to label %81 unwind label %103
 
 81:                                               ; preds = %_ZN16OverlayScrollBar10grooveRectEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9, ptr noundef nonnull %8)
           to label %82 unwind label %105
 
@@ -1441,8 +1435,8 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
           to label %83 unwind label %107
 
 83:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.2.0.insert.ext.i33 = zext i32 %80 to i64
   %.sroa.2.0.insert.shift.i34 = shl nuw i64 %.sroa.2.0.insert.ext.i33, 32
   %.sroa.0.0.insert.ext.i35 = zext i32 %75 to i64
@@ -1452,7 +1446,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
           to label %84 unwind label %109
 
 84:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %86 = sitofp i32 %75 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -1460,7 +1454,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %88 = sitofp i32 %80 to double
   store double %88, ptr %87, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %10)
           to label %.noexc unwind label %111
 
@@ -1480,16 +1474,16 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
           to label %95 unwind label %111
 
 95:                                               ; preds = %.noexc37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %10) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   invoke void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8, double noundef %56)
           to label %96 unwind label %114
 
 96:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable_or_null(8) %12, ptr noundef nonnull %97)
           to label %98 unwind label %116
@@ -1497,7 +1491,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
 98:                                               ; preds = %96
   %99 = sitofp i32 %61 to double
   %100 = sitofp i32 %66 to double
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %99, ptr %4, align 8
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %100, ptr %101, align 8
@@ -1505,13 +1499,13 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
           to label %102 unwind label %118
 
 102:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %12) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %126
 
 103:                                              ; preds = %_ZN16OverlayScrollBar10grooveRectEv.exit
@@ -1542,8 +1536,8 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
 
 113:                                              ; preds = %111, %109
   %.pn = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %121
 
 114:                                              ; preds = %95
@@ -1564,7 +1558,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
 
 120:                                              ; preds = %118, %116
   %.pn19 = phi { ptr, i32 } [ %119, %118 ], [ %117, %116 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %121
 
 121:                                              ; preds = %113, %114, %120, %107
@@ -1574,13 +1568,13 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
 
 122:                                              ; preds = %121, %105
   %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn, %121 ], [ %106, %105 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %123
 
 123:                                              ; preds = %122, %103
   %.pn19.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn, %122 ], [ %104, %103 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 ._crit_edge:                                      ; preds = %3
@@ -1605,7 +1599,7 @@ declare void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef align 8 dereferenceable_or_
 define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QRect, align 4
   %4 = alloca %class.QPoint, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1623,7 +1617,7 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %17 = sub i32 %10, %12
   store i32 %17, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %19)
@@ -1663,7 +1657,7 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
 43:                                               ; preds = %39
   %44 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   %45 = icmp sgt i32 %44, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %45, label %46, label %89
 
 46:                                               ; preds = %43
@@ -1713,11 +1707,11 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
   br label %89
 
 .critedge:                                        ; preds = %2, %30, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 89:                                               ; preds = %.critedge, %46, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1728,7 +1722,7 @@ declare noundef zeroext i1 @_ZNK5QRect8containsERK6QPointb(ptr noundef align 4 d
 declare noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #10
+declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare noundef i32 @_ZNK15QAbstractSlider7maximumEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #1
@@ -1764,7 +1758,7 @@ declare noundef i32 @_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv(ptr 
 declare void @_ZN11QProxyStyleD2Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN13OsbProxyStyleD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN13OsbProxyStyleD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN11QProxyStyleD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) #11
   tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 16) #13
   ret void
@@ -1887,7 +1881,7 @@ declare void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_
 declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #10
+declare double @llvm.copysign.f64(double, double) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12), i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2045,17 +2039,23 @@ _ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE4callINS_4ListIJiEEEvEEvS3
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 attributes #0 = { mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nobuiltin null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { builtin allocsize(0) }
 attributes #13 = { builtin nounwind }

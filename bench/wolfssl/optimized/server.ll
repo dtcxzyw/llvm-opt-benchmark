@@ -312,9 +312,9 @@ err_sys_ex.exit:                                  ; preds = %22, %19, %18, %5
   %.085193 = phi i64 [ 0, %.critedge.lr.ph ], [ %.287, %155 ]
   %.092192 = phi double [ 0.000000e+00, %.critedge.lr.ph ], [ %.294, %155 ]
   %.096188 = phi double [ 0.000000e+00, %.critedge.lr.ph ], [ %.298, %155 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 1, ptr %12, align 8, !tbaa !11
   store i64 0, ptr %27, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 128, i1 false), !tbaa !15
@@ -336,19 +336,19 @@ err_sys_ex.exit:                                  ; preds = %22, %19, %18, %5
   br i1 %.not33.i.i, label %tcp_select.exit.thread, label %50
 
 tcp_select.exit.thread:                           ; preds = %47, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %155
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %26, label %51, label %.thread.thread
 
 51:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #21
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %.thread
@@ -367,7 +367,7 @@ tcp_select.exit.thread:                           ; preds = %47, %.critedge
   %61 = sitofp i64 %60 to double
   %62 = fdiv double %61, 1.000000e+06
   %63 = fadd double %62, %59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = icmp sgt i32 %57, 0
   br i1 %64, label %.lr.ph.split.us, label %err_sys_ex.exit117
 
@@ -471,7 +471,7 @@ err_sys_ex.exit117:                               ; preds = %74, %.thread, %92, 
   br i1 %26, label %97, label %err_sys_ex.exit117.thread
 
 97:                                               ; preds = %err_sys_ex.exit117
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %98 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #21
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %current_time.exit118
@@ -483,8 +483,8 @@ err_sys_ex.exit117:                               ; preds = %74, %.thread, %92, 
 current_time.exit118:                             ; preds = %97
   %101 = load i64, ptr %8, align 8, !tbaa !11
   %102 = load i64, ptr %37, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %103 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #21
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %105, label %current_time.exit119
@@ -506,7 +506,7 @@ current_time.exit119:                             ; preds = %current_time.exit11
   %115 = sitofp i64 %114 to double
   %116 = fdiv double %115, 1.000000e+06
   %117 = fadd double %116, %113
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %err_sys_ex.exit117.thread
 
 err_sys_ex.exit117.thread:                        ; preds = %79, %.thread.thread, %.lr.ph.split.split.us, %current_time.exit119, %err_sys_ex.exit117
@@ -569,7 +569,7 @@ err_sys_ex.exit122:                               ; preds = %136, %133, %132, %.
   br i1 %26, label %140, label %152
 
 140:                                              ; preds = %err_sys_ex.exit122
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %141 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #21
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %current_time.exit123
@@ -585,7 +585,7 @@ current_time.exit123:                             ; preds = %140
   %147 = sitofp i64 %146 to double
   %148 = fdiv double %147, 1.000000e+06
   %149 = fadd double %148, %145
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %150 = fsub double %149, %.4
   %151 = fadd double %.092192, %150
   br label %152
@@ -645,27 +645,21 @@ current_time.exit123:                             ; preds = %140
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wolfSSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @wolfSSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @server_test(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #0 {
@@ -696,14 +690,14 @@ define dso_local noalias noundef ptr @server_test(ptr noundef captures(none) ini
   %26 = alloca i8, align 1
   %27 = alloca i8, align 1
   %28 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %29 = load i32, ptr %0, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %32, align 8, !tbaa !28
@@ -2330,7 +2324,7 @@ err_sys_ex.exit552:                               ; preds = %551, %556, %557, %5
   unreachable
 
 588:                                              ; preds = %577
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   switch i32 %.035510302590, label %SetKeyShare.exit [
     i32 2, label %589
@@ -2367,7 +2361,7 @@ err_sys_ex.exit552:                               ; preds = %551, %556, %557, %5
   unreachable
 
 SetKeyShare.exit:                                 ; preds = %588, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %599
 
 599:                                              ; preds = %SetKeyShare.exit, %585, %.critedge500
@@ -2392,7 +2386,7 @@ SetKeyShare.exit:                                 ; preds = %588, %.thread.i
   br i1 %.not.i556, label %672, label %607
 
 607:                                              ; preds = %606
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br i1 %.not.not.i.i, label %608, label %617
 
@@ -2452,7 +2446,7 @@ build_addr.exit.i.i:                              ; preds = %625, %618, %617
 
 tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
   %630 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 1, ptr %17, align 4, !tbaa !4
   %631 = call i32 @setsockopt(i32 noundef %627, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %17, i32 noundef 4) #21
   %632 = icmp slt i32 %631, 0
@@ -2463,8 +2457,8 @@ tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
   unreachable
 
 634:                                              ; preds = %tcp_socket.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 1, ptr %18, align 4, !tbaa !4
   %635 = call i32 @setsockopt(i32 noundef %627, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %18, i32 noundef 4) #21
   %636 = icmp slt i32 %635, 0
@@ -2475,7 +2469,7 @@ tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
   unreachable
 
 638:                                              ; preds = %634
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %639 = call i32 @bind(i32 noundef %627, ptr noundef nonnull %16, i32 noundef 16) #21
   %.not36.i.i = icmp eq i32 %639, 0
   br i1 %.not36.i.i, label %641, label %640
@@ -2489,14 +2483,14 @@ tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
   br i1 %642, label %643, label %647
 
 643:                                              ; preds = %641
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 16, ptr %19, align 4, !tbaa !4
   %644 = call i32 @getsockname(i32 noundef %627, ptr noundef nonnull %16, ptr noundef nonnull %19) #21
   %645 = icmp eq i32 %644, 0
   %646 = load i16, ptr %523, align 2
   %rev.i.i.i = call i16 @llvm.bswap.i16(i16 %646)
   %.1.i.i = select i1 %645, i16 %rev.i.i.i, i16 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %647
 
 647:                                              ; preds = %641, %643
@@ -2554,14 +2548,14 @@ tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
   br label %udp_accept.exit.i
 
 udp_accept.exit.i:                                ; preds = %669, %663
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %tcp_accept.exit
 
 672:                                              ; preds = %606
   br i1 %.not47.i, label %.thread79.i, label %673
 
 673:                                              ; preds = %672
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br i1 %.not.not.i.i, label %674, label %683
 
@@ -2621,7 +2615,7 @@ build_addr.exit.i58.i:                            ; preds = %691, %684, %683
 
 696:                                              ; preds = %build_addr.exit.i58.i
   %697 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %11, align 4, !tbaa !4
   %698 = call i32 @setsockopt(i32 noundef %693, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 4) #21
   %699 = icmp slt i32 %698, 0
@@ -2632,8 +2626,8 @@ build_addr.exit.i58.i:                            ; preds = %691, %684, %683
   unreachable
 
 tcp_socket.exit.i59.i:                            ; preds = %696
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1, ptr %13, align 4, !tbaa !4
   %701 = call i32 @setsockopt(i32 noundef %693, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %13, i32 noundef 4) #21
   %702 = icmp slt i32 %701, 0
@@ -2644,8 +2638,8 @@ tcp_socket.exit.i59.i:                            ; preds = %696
   unreachable
 
 704:                                              ; preds = %tcp_socket.exit.i59.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 4, !tbaa !4
   %705 = call i32 @setsockopt(i32 noundef %693, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %14, i32 noundef 4) #21
   %706 = icmp slt i32 %705, 0
@@ -2656,7 +2650,7 @@ tcp_socket.exit.i59.i:                            ; preds = %696
   unreachable
 
 708:                                              ; preds = %704
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %709 = call i32 @bind(i32 noundef %693, ptr noundef nonnull %12, i32 noundef 16) #21
   %.not18.i.i = icmp eq i32 %709, 0
   br i1 %.not18.i.i, label %711, label %710
@@ -2679,19 +2673,19 @@ tcp_socket.exit.i59.i:                            ; preds = %696
   br i1 %715, label %716, label %720
 
 716:                                              ; preds = %714
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 16, ptr %15, align 4, !tbaa !4
   %717 = call i32 @getsockname(i32 noundef %693, ptr noundef nonnull %12, ptr noundef nonnull %15) #21
   %718 = icmp eq i32 %717, 0
   %719 = load i16, ptr %525, align 2
   %rev.i.i60.i = call i16 @llvm.bswap.i16(i16 %719)
   %.068.i = select i1 %718, i16 %rev.i.i60.i, i16 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %720
 
 720:                                              ; preds = %714, %716
   %.169.i = phi i16 [ %.068.i, %716 ], [ %.2437, %714 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %721 = load ptr, ptr %522, align 8, !tbaa !45
   %.not49.i = icmp eq ptr %721, null
   br i1 %.not49.i, label %742, label %722
@@ -2886,9 +2880,9 @@ tcp_set_nonblocking.exit:                         ; preds = %789
   br i1 %810, label %811, label %827
 
 811:                                              ; preds = %809
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1, ptr %10, align 8, !tbaa !11
   store i64 0, ptr %529, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !tbaa !15
@@ -2924,15 +2918,15 @@ tcp_set_nonblocking.exit:                         ; preds = %789
 
 tcp_select_tx.exit.i:                             ; preds = %826, %823, %820, %811
   %.0.i.i.i = phi i32 [ 0, %826 ], [ 1, %811 ], [ 4, %823 ], [ 3, %820 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %843
 
 827:                                              ; preds = %809
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %7, align 8, !tbaa !11
   store i64 0, ptr %528, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !15
@@ -2968,9 +2962,9 @@ tcp_select_tx.exit.i:                             ; preds = %826, %823, %820, %8
 
 tcp_select.exit.i:                                ; preds = %842, %839, %836, %827
   %.0.i.i27.i = phi i32 [ 0, %842 ], [ 1, %827 ], [ 4, %839 ], [ 2, %836 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %843
 
 843:                                              ; preds = %tcp_select.exit.i, %tcp_select_tx.exit.i
@@ -3149,9 +3143,9 @@ err_sys_ex.exit571:                               ; preds = %917, %914, %913, %s
 
 922:                                              ; preds = %921
   %923 = call ptr @wolfSSL_get_current_cipher(ptr noundef %538) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %.not476 = icmp eq ptr %923, null
   br i1 %.not476, label %err_sys_ex.exit579, label %924
 
@@ -3266,9 +3260,9 @@ err_sys_ex.exit579.sink.split:                    ; preds = %969, %958
   br label %err_sys_ex.exit579
 
 err_sys_ex.exit579:                               ; preds = %err_sys_ex.exit579.sink.split, %969, %968, %958, %957, %err_sys_ex.exit575, %949, %962, %924, %922
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %975
 
 975:                                              ; preds = %err_sys_ex.exit579, %921, %err_sys_ex.exit571
@@ -3341,9 +3335,9 @@ err_sys_ex.exit579:                               ; preds = %err_sys_ex.exit579.
 
 .preheader:                                       ; preds = %993, %1014
   %996 = call i32 @wolfSSL_get_fd(ptr noundef %538) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 2, ptr %4, align 8, !tbaa !11
   store i64 0, ptr %533, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false), !tbaa !15
@@ -3373,15 +3367,15 @@ err_sys_ex.exit579:                               ; preds = %err_sys_ex.exit579.
   br i1 %.not33.i.i, label %tcp_select.exit.thread, label %1014
 
 tcp_select.exit.thread:                           ; preds = %1011, %.preheader
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %1020
 
 1014:                                             ; preds = %1011
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %1015 = call i32 @wolfSSL_shutdown(ptr noundef %538) #21
   switch i32 %1015, label %1016 [
     i32 1, label %.thread637
@@ -3432,19 +3426,19 @@ tcp_select.exit.thread:                           ; preds = %1011, %.preheader
 1031:                                             ; preds = %1029, %990, %878
   %.sink3696 = phi i32 [ 0, %1029 ], [ %988, %990 ], [ %860, %878 ]
   store i32 %.sink3696, ptr %32, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #21
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Usage() unnamed_addr #5 {
+define internal fastcc void @Usage() unnamed_addr #4 {
   %1 = load i32, ptr @lng_index, align 4, !tbaa !4
   %2 = sext i32 %1 to i64
   %3 = getelementptr inbounds [2 x [66 x ptr]], ptr @server_usage_msg, i64 0, i64 %2
@@ -3567,31 +3561,31 @@ define internal fastcc void @Usage() unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @wc_ecc_get_curve_id(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_get_curve_id(i32 noundef) local_unnamed_addr #1
 
-declare ptr @wc_ecc_get_name(i32 noundef) local_unnamed_addr #2
+declare ptr @wc_ecc_get_name(i32 noundef) local_unnamed_addr #1
 
-declare ptr @wolfTLSv1_1_server_method_ex(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfTLSv1_1_server_method_ex(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfTLSv1_2_server_method_ex(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfTLSv1_2_server_method_ex(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfTLSv1_3_server_method_ex(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfTLSv1_3_server_method_ex(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSLv23_server_method_ex(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSLv23_server_method_ex(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_CTX_new(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_CTX_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_SetMinVersion(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_SetMinVersion(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @wolfSSL_CTX_SetIOSend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_CTX_SetIOSend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal range(i32 -5, -2147483648) i32 @SimulateWantWriteIOSendCb(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #8 {
+define internal range(i32 -5, -2147483648) i32 @SimulateWantWriteIOSendCb(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #7 {
   %.b = load i1, ptr @SimulateWantWriteIOSendCb.wantWriteFlag, align 4
   br i1 %.b, label %5, label %16
 
@@ -3633,30 +3627,30 @@ define internal range(i32 -5, -2147483648) i32 @SimulateWantWriteIOSendCb(ptr re
   ret i32 %.2
 }
 
-declare i32 @wolfSSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_set_group_messages(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_set_group_messages(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_SetMinDhKey_Sz(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_SetMinDhKey_Sz(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_SetMinRsaKey_Sz(ptr noundef, i16 noundef signext) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_SetMinRsaKey_Sz(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_SetMinEccKey_Sz(ptr noundef, i16 noundef signext) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_SetMinEccKey_Sz(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_mutual_auth(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_mutual_auth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @wolfSSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold inlinehint nounwind uwtable
-define internal noundef i32 @myVerify(i32 noundef %0, ptr noundef readonly captures(none) %1) #9 {
+define internal noundef i32 @myVerify(i32 noundef %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @stderr, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !64
@@ -3709,77 +3703,77 @@ define internal noundef i32 @myVerify(i32 noundef %0, ptr noundef readonly captu
 
 .thread.thread:                                   ; preds = %.thread, %20, %2, %22
   %.0 = phi i32 [ 1, %22 ], [ 0, %2 ], [ %0, %20 ], [ %spec.select, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_UseSNI(ptr noundef, i8 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_UseSNI(ptr noundef, i8 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef) local_unnamed_addr #1
 
-declare i32 @accept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @accept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_new(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_SetHsDoneCb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_SetHsDoneCb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @myHsDoneCb(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #10 {
+define internal noundef i32 @myHsDoneCb(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #9 {
   ret i32 0
 }
 
-declare i32 @wolfSSL_UseKeyShare(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @wolfSSL_UseKeyShare(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
-define internal fastcc void @err_sys(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc void @err_sys(ptr noundef %0) unnamed_addr #10 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.69, ptr noundef %0) #22
   tail call void @exit(i32 noundef 1) #27
   unreachable
 }
 
-declare i32 @wolfSSL_set_groups(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_set_groups(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_AllowEncryptThenMac(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_AllowEncryptThenMac(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_set_fd(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_set_fd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_SetTmpDH_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_SetTmpDH_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_accept(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_accept(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_ERR_error_string(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_ERR_error_string(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wolfSSL_free(ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_free(ptr noundef) local_unnamed_addr #1
 
-declare void @wolfSSL_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @close(i32 noundef) local_unnamed_addr #2
+declare i32 @close(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_state(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_state(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_get_current_cipher(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_get_current_cipher(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CIPHER_get_id(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CIPHER_get_id(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ServerRead(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -3787,7 +3781,7 @@ define internal fastcc void @ServerRead(ptr noundef %0, ptr noundef nonnull %1) 
   %4 = alloca %struct.fd_set, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.critedge7
 
 .critedge7:                                       ; preds = %.critedge7.backedge, %2
@@ -3843,9 +3837,9 @@ define internal fastcc void @ServerRead(ptr noundef %0, ptr noundef nonnull %1) 
 
 32:                                               ; preds = %29
   %33 = call i32 @wolfSSL_get_fd(ptr noundef %0) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !tbaa !15
   %34 = srem i32 %33, 64
@@ -3874,15 +3868,15 @@ define internal fastcc void @ServerRead(ptr noundef %0, ptr noundef nonnull %1) 
   br i1 %.not33.i.i, label %tcp_select.exit.thread, label %tcp_select.exit
 
 tcp_select.exit.thread:                           ; preds = %48, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %err_sys_ex.exit.thread
 
 tcp_select.exit:                                  ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %tcp_select.exit
@@ -3955,11 +3949,11 @@ err_sys_ex.exit.thread:                           ; preds = %29, %err_sys_ex.exi
   br label %72
 
 72:                                               ; preds = %68, %err_sys_ex.exit.thread
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wolfSSL_update_keys(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_update_keys(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ServerWrite(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 22, 226) %2) unnamed_addr #0 {
@@ -4001,7 +3995,7 @@ define internal fastcc void @ServerWrite(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not23, label %.thread.thread, label %13
 
 13:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.b = load i1, ptr @quieter, align 4
   br i1 %.b, label %19, label %14
 
@@ -4037,24 +4031,24 @@ define internal fastcc void @ServerWrite(ptr noundef %0, ptr noundef %1, i32 nou
   unreachable
 
 err_sys_ex.exit:                                  ; preds = %22, %23, %26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %7, %err_sys_ex.exit, %.thread
   ret void
 }
 
-declare i32 @wolfSSL_shutdown(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_shutdown(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_get_fd(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_get_fd(ptr noundef) local_unnamed_addr #1
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold inlinehint noreturn nounwind uwtable
-define internal fastcc void @err_sys_with_errno(ptr noundef %0) unnamed_addr #12 {
+define internal fastcc void @err_sys_with_errno(ptr noundef %0) unnamed_addr #11 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !8
   %3 = tail call ptr @__errno_location() #28
   %4 = load i32, ptr %3, align 4, !tbaa !4
@@ -4065,80 +4059,86 @@ define internal fastcc void @err_sys_with_errno(ptr noundef %0) unnamed_addr #12
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #13
+declare ptr @strerror(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
 
-declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #12
+
+; Function Attrs: nounwind
+declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #14
+declare ptr @__ctype_b_loc() local_unnamed_addr #13
 
-declare ptr @gethostbyname(ptr noundef) local_unnamed_addr #2
+declare ptr @gethostbyname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nounwind
-declare i32 @inet_addr(ptr noundef) local_unnamed_addr #13
+declare i32 @inet_addr(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #13
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #12
 
-declare i32 @wolfSSL_CondStart(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CondStart(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CondSignal(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CondSignal(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_CondEnd(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_CondEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare i32 @wolfSSL_dtls(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_dtls(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_get_version(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_get_version(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_CIPHER_get_name(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_CIPHER_get_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wolfSSL_get_curve_name(ptr noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_get_curve_name(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_GetDhKey_Sz(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_GetDhKey_Sz(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_session_reused(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_session_reused(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_peek(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_peek(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wolfSSL_pending(ptr noundef) local_unnamed_addr #2
+declare i32 @wolfSSL_pending(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
@@ -4159,23 +4159,23 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #20
 declare i16 @llvm.bswap.i16(i16) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }

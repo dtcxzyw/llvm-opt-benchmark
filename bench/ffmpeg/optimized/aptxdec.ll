@@ -86,7 +86,7 @@ define internal range(i32 -2147483648, 536870912) i32 @aptx_decode_frame(ptr nou
 37:                                               ; preds = %.lr.ph, %242
   %indvars.iv62 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next63, %242 ]
   %.03951 = phi i32 [ 0, %.lr.ph ], [ %244, %242 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %38 = load ptr, ptr %28, align 8, !tbaa !38
   %39 = sext i32 %.03951 to i64
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
@@ -240,7 +240,7 @@ aptx_check_parity.exit.i:                         ; preds = %116
   %indvars.iv52.i.sroa.phi = phi ptr [ %9, %aptx_check_parity.exit.i ], [ %indvars.iv52.i.sroa.gep41, %aptx_decode_channel.exit.i ]
   %indvars.iv52.i = phi i64 [ 0, %aptx_check_parity.exit.i ], [ 1, %aptx_decode_channel.exit.i ]
   %125 = getelementptr inbounds nuw [2 x %struct.Channel], ptr %29, i64 0, i64 %indvars.iv52.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 1220
   br label %127
 
@@ -256,7 +256,7 @@ aptx_check_parity.exit.i:                         ; preds = %116
   br i1 %exitcond.not.i.i, label %131, label %127, !llvm.loop !52
 
 131:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 288
   br label %134
 
@@ -274,7 +274,7 @@ aptx_check_parity.exit.i:                         ; preds = %116
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !49
   %142 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %137
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %143 = add nsw i32 %141, %139
   store i32 %143, ptr %6, align 4, !tbaa !49
   %144 = sub nsw i32 %139, %141
@@ -337,7 +337,7 @@ aptx_qmf_convolution.exit20.i.i.i:                ; preds = %165
   br i1 %146, label %145, label %aptx_qmf_polyphase_synthesis.exit.i.i.i, !llvm.loop !56
 
 aptx_qmf_polyphase_synthesis.exit.i.i.i:          ; preds = %aptx_qmf_convolution.exit20.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %135, label %134, label %.preheader.i.i.i, !llvm.loop !57
 
 182:                                              ; preds = %aptx_qmf_polyphase_synthesis.exit16.i.i.i, %.preheader.i.i.i
@@ -350,7 +350,7 @@ aptx_qmf_polyphase_synthesis.exit.i.i.i:          ; preds = %aptx_qmf_convolutio
   %187 = load i32, ptr %186, align 4, !tbaa !49
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv48.i.i.i, 3
   %188 = getelementptr inbounds nuw i8, ptr %indvars.iv52.i.sroa.phi, i64 %.idx.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %189 = add nsw i32 %187, %184
   store i32 %189, ptr %5, align 4, !tbaa !49
   %190 = sub nsw i32 %184, %187
@@ -413,12 +413,12 @@ aptx_qmf_convolution.exit.i.i.i:                  ; preds = %211
   br i1 %192, label %191, label %aptx_qmf_polyphase_synthesis.exit16.i.i.i, !llvm.loop !56
 
 aptx_qmf_polyphase_synthesis.exit16.i.i.i:        ; preds = %aptx_qmf_convolution.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %183, label %182, label %aptx_decode_channel.exit.i, !llvm.loop !58
 
 aptx_decode_channel.exit.i:                       ; preds = %aptx_qmf_polyphase_synthesis.exit16.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %124, label %123, label %aptx_decode_samples.exit, !llvm.loop !59
 
 aptx_decode_samples.exit:                         ; preds = %aptx_decode_channel.exit.i
@@ -430,7 +430,7 @@ aptx_decode_samples.exit:                         ; preds = %aptx_decode_channel
 
 .thread:                                          ; preds = %aptx_decode_samples.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %252
 
 .preheader:                                       ; preds = %aptx_decode_samples.exit, %241
@@ -458,7 +458,7 @@ aptx_decode_samples.exit:                         ; preds = %aptx_decode_channel
   br i1 %231, label %.preheader, label %242, !llvm.loop !62
 
 242:                                              ; preds = %241
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %243 = load i32, ptr %14, align 4, !tbaa !29
   %244 = add nsw i32 %243, %.03951
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 4
@@ -480,19 +480,19 @@ aptx_decode_samples.exit:                         ; preds = %aptx_decode_channel
   ret i32 %.035
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @ff_aptx_generate_dither(ptr noundef) local_unnamed_addr #0
 
 declare void @ff_aptx_invert_quantize_and_prediction(ptr noundef, i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #3

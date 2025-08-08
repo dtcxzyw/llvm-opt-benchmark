@@ -344,7 +344,7 @@ entry:
   tail call void @_ZN6hermes3hbc18BytecodeSerializer18visitBigIntStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
   tail call void @_ZN6hermes3hbc18BytecodeSerializer16visitRegExpTableEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
   tail call void @_ZN6hermes3hbc18BytecodeSerializer18visitRegExpStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %loc_.i.i = getelementptr inbounds nuw i8, ptr %visitor, i64 40
   %0 = load i64, ptr %loc_.i.i, align 8
   %rem.i.i = and i64 %0, 3
@@ -390,11 +390,11 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i: ; preds = %if
   br i1 %exitcond.not.i, label %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit, label %for.body.i.i, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i, %entry, %for.body.us.i.preheader.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %bytecodeModule_.i = getelementptr inbounds nuw i8, ptr %visitor, i64 8
   %9 = load ptr, ptr %bytecodeModule_.i, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %visitor, ptr noundef nonnull align 8 dereferenceable(513) %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i15)
   %10 = load i64, ptr %loc_.i.i, align 8
   %rem.i.i17 = and i64 %10, 3
   %cmp.i.i18 = icmp eq i64 %rem.i.i17, 0
@@ -439,7 +439,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i29: ; preds = %
   br i1 %exitcond.not.i32, label %_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv.exit, label %for.body.i.i23, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i29, %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit, %for.body.us.i.preheader.i34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i15)
   %19 = load ptr, ptr %bytecodeModule_.i, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %visitor, ptr noundef nonnull align 8 dereferenceable(513) %19)
   ret void
@@ -495,10 +495,10 @@ if.then9:                                         ; preds = %if.then
   store ptr %4, ptr %ref.tmp, align 8
   store i64 %sub.ptr.sub.i.i.i, ptr %key.sroa.2.0.ref.tmp.sroa_idx, align 8
   store i32 %conv, ptr %second.i.i, align 8, !alias.scope !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i), !noalias !10
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !10
   %7 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i), !noalias !10
   br i1 %call.i.i.i, label %if.then14, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread: ; preds = %if.then9
@@ -568,7 +568,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
   br i1 %cmp.i14, label %if.end44, label %if.then40
 
 if.then40:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %23 = load i64, ptr %loc_21, align 8
   %rem.i = and i64 %23, 3
   %cmp.i16 = icmp eq i64 %rem.i, 0
@@ -611,7 +611,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.then40, %for.body.us.i.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %32 = load ptr, ptr %__begin1.sroa.0.067, align 8
   %call43 = call { ptr, i64 } @_ZNK6hermes3hbc16BytecodeFunction17getJumpTablesOnlyEv(ptr noundef nonnull align 8 dereferenceable(104) %32) #12
   %33 = extractvalue { ptr, i64 } %call43, 1
@@ -688,7 +688,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit: ; preds = %while.
 
 while.end:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit, %if.then47.while.end_crit_edge, %while.body.lr.ph.split.us
   %47 = phi i64 [ %.pre73, %if.then47.while.end_crit_edge ], [ %43, %while.body.lr.ph.split.us ], [ %add.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i30)
   %rem.i32 = and i64 %47, 3
   %cmp.i33 = icmp eq i64 %rem.i32, 0
   br i1 %cmp.i33, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, label %if.end.i34
@@ -730,7 +730,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44: ; preds = %if
   br i1 %exitcond68.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, label %for.body.i38, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit55:  ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44, %while.end, %for.body.us.i48.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i30)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then14, %if.end44, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, %if.else
@@ -780,7 +780,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %bf.cast.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %5, 3
@@ -832,7 +832,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit: ; preds = %_ZN6hermes3hb
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit, %if.then3, %for.body.us.i.preheader
   %15 = phi i64 [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit ], [ %5, %if.then3 ], [ %10, %for.body.us.i.preheader ]
   %16 = phi i8 [ %.pre, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit.loopexit ], [ %.pre4, %if.then3 ], [ %.pre4, %for.body.us.i.preheader ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %tobool.i.i = trunc i8 %16 to i1
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_14FunctionHeaderEEEvRKT_.exit, label %if.then.i.i
 
@@ -862,7 +862,7 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %empty = alloca %"struct.hermes::hbc::DebugInfoHeader", align 1
   %header = alloca %"struct.hermes::hbc::DebugInfoHeader", align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -910,7 +910,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %conv = trunc i64 %11 to i32
   %debugInfoOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %conv, ptr %debugInfoOffset_, align 8
@@ -1390,7 +1390,7 @@ return:                                           ; preds = %if.end58, %if.then5
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -1438,7 +1438,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cjsModuleTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 440
   %12 = load ptr, ptr %cjsModuleTable_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 448
@@ -1523,7 +1523,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayISt4pairIjjEEEvN4llvh8ArrayR
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -1571,7 +1571,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %functionSourceTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 488
   %12 = load ptr, ptr %functionSourceTable_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 496
@@ -1612,7 +1612,7 @@ entry:
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %2, 3
@@ -1660,7 +1660,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end, %for.body.us.i.preheader
   %13 = phi i64 [ %2, %if.end ], [ %8, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %14 = load ptr, ptr %_M_finish.i.i, align 8
   %15 = load ptr, ptr %exceptions_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
@@ -1818,7 +1818,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %3, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %4, 3
@@ -1866,7 +1866,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end, %for.body.us.i.preheader
   %15 = phi i64 [ %4, %if.end ], [ %10, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %16 = load i8, ptr %isLayout_.i.i, align 8
   %tobool.i.i = trunc i8 %16 to i1
@@ -1898,7 +1898,7 @@ entry:
   %header.i = alloca %"struct.hermes::hbc::FunctionHeader", align 1
   %ref.tmp.i1 = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -1945,11 +1945,11 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %header.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %header.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1)
   %12 = load ptr, ptr %11, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2000,8 +2000,8 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   br i1 %cmp.i.not.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.i4
 
 _ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %header.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %header.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1)
   ret void
 }
 
@@ -2009,7 +2009,7 @@ _ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModule
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitStringKindsEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2057,7 +2057,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %stringKinds_.i = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -2091,7 +2091,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_10StringKind5EntryEEEvN4
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer21visitIdentifierHashesEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2139,7 +2139,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %identifierHashes_.i = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -2174,7 +2174,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer21visitSmallStringTableEv(
 entry:
   %ref.tmp.i = alloca i8, align 1
   %small = alloca %"struct.hermes::hbc::SmallStringTableEntry", align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2222,7 +2222,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %stringTable_.i = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -2303,7 +2303,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer24visitOverflowStringTable
 entry:
   %ref.tmp.i = alloca i8, align 1
   %overflow = alloca %"class.llvh::SmallVector.66", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2350,7 +2350,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %overflow, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %overflow, align 8
   %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %overflow, i64 8
@@ -2456,7 +2456,7 @@ _ZN4llvh11SmallVectorIN6hermes3hbc24OverflowStringTableEntryELj64EED2Ev.exit: ; 
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitStringStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2504,7 +2504,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %stringStorage_.i = getelementptr inbounds nuw i8, ptr %12, i64 104
@@ -2538,7 +2538,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2586,7 +2586,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %arrayBuffer_.i.i = getelementptr inbounds nuw i8, ptr %12, i64 360
@@ -2620,7 +2620,7 @@ _ZN6hermes3hbc18BytecodeSerializer20serializeArrayBufferERNS0_14BytecodeModuleE.
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer20visitObjectKeyBufferEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2668,7 +2668,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %objKeyBuffer_.i = getelementptr inbounds nuw i8, ptr %12, i64 384
@@ -2702,7 +2702,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer22visitObjectValueBufferEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2750,7 +2750,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %objValBuffer_.i = getelementptr inbounds nuw i8, ptr %12, i64 408
@@ -2784,7 +2784,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitBigIntTableEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2832,7 +2832,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %bigIntTable_.i = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -2866,7 +2866,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_6bigint16BigIntTableEntr
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitBigIntStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2914,7 +2914,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %bigIntStorage_.i = getelementptr inbounds nuw i8, ptr %12, i64 152
@@ -2948,7 +2948,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitRegExpTableEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -2996,7 +2996,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %regExpTable_.i = getelementptr inbounds nuw i8, ptr %12, i64 200
@@ -3030,7 +3030,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16RegExpTableEntryEEEvN4
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitRegExpStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -3078,7 +3078,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
   %regExpStorage_.i = getelementptr inbounds nuw i8, ptr %12, i64 176
@@ -3112,7 +3112,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -3159,7 +3159,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %11)
@@ -3170,7 +3170,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
@@ -3217,7 +3217,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
   br i1 %exitcond.not, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %for.body.i, !llvm.loop !4
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %11)
@@ -3957,10 +3957,10 @@ entry:
 if.then:                                          ; preds = %entry
   %mul4 = shl i32 %1, 1
   tail call void @_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %mul4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i)
   %call.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i)
   %2 = load ptr, ptr %ConstFoundBucket.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i)
   br label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit
 
 if.else:                                          ; preds = %entry
@@ -3975,10 +3975,10 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   tail call void @_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i9)
   %call.i10 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i9)
   %4 = load ptr, ptr %ConstFoundBucket.i9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i9)
   br label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit
 
 _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit: ; preds = %if.else, %if.then10, %if.then
@@ -4087,10 +4087,10 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i: ; preds = %_ZN4l
   br i1 %switch.i, label %if.end.i5, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i)
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %B.028.i, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i)
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.028.i, i64 16, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %second.i23.i = getelementptr inbounds nuw i8, ptr %B.028.i, i64 16
@@ -4120,10 +4120,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #10

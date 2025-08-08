@@ -964,7 +964,7 @@ define void @_ZN14VrmlTranslator6Parser6SemErrEPKw(ptr noundef nonnull align 8 c
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i32, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %14, i32 noundef %16, ptr noundef %1) #14
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -973,7 +973,7 @@ define void @_ZN14VrmlTranslator6Parser6SemErrEPKw(ptr noundef nonnull align 8 c
   %21 = load i32, ptr %10, align 8
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %8, %2
@@ -7151,8 +7151,8 @@ define void @_ZN14VrmlTranslator6Parser15HeaderStatementEv(ptr noundef nonnull a
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.203)
   store ptr %25, ptr %6, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
@@ -7164,8 +7164,8 @@ define void @_ZN14VrmlTranslator6Parser15HeaderStatementEv(ptr noundef nonnull a
   %30 = load i32, ptr %20, align 8
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %18, %13
@@ -7217,8 +7217,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTrans
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %55 = load i32, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.282)
   store ptr %56, ptr %4, align 8
   %57 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %53, i32 noundef %55, ptr noundef %56) #14
@@ -7230,8 +7230,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTrans
   %61 = load i32, ptr %51, align 8
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %44, %49
@@ -7263,8 +7263,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %44, %49
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %79 = load i32, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %80 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.206)
   store ptr %80, ptr %2, align 8
   %81 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %77, i32 noundef %79, ptr noundef %80) #14
@@ -7276,8 +7276,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %44, %49
   %85 = load i32, ptr %75, align 8
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %75, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i2
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i2:      ; preds = %73, %68
@@ -7327,8 +7327,8 @@ define void @_ZN14VrmlTranslator6Parser16ProfileStatementEv(ptr noundef nonnull 
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.207)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -7340,8 +7340,8 @@ define void @_ZN14VrmlTranslator6Parser16ProfileStatementEv(ptr noundef nonnull 
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -7554,8 +7554,8 @@ define void @_ZN14VrmlTranslator6Parser13ProfileNameIdEv(ptr noundef nonnull ali
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -7567,8 +7567,8 @@ define void @_ZN14VrmlTranslator6Parser13ProfileNameIdEv(ptr noundef nonnull ali
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -7610,8 +7610,8 @@ define void @_ZN14VrmlTranslator6Parser18ComponentStatementEv(ptr noundef nonnul
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load i32, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.208)
   store ptr %23, ptr %4, align 8
   %24 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %20, i32 noundef %22, ptr noundef %23) #14
@@ -7623,8 +7623,8 @@ define void @_ZN14VrmlTranslator6Parser18ComponentStatementEv(ptr noundef nonnul
   %28 = load i32, ptr %18, align 8
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %16, %11
@@ -7657,8 +7657,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %10, %_ZN14VrmlTrans
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %45 = load i32, ptr %44, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.209)
   store ptr %46, ptr %2, align 8
   %47 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %43, i32 noundef %45, ptr noundef %46) #14
@@ -7670,8 +7670,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %10, %_ZN14VrmlTrans
   %51 = load i32, ptr %41, align 8
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i2
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i2:      ; preds = %39, %34
@@ -7712,8 +7712,8 @@ define void @_ZN14VrmlTranslator6Parser13MetaStatementEv(ptr noundef nonnull ali
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.214)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -7725,8 +7725,8 @@ define void @_ZN14VrmlTranslator6Parser13MetaStatementEv(ptr noundef nonnull ali
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -7800,8 +7800,8 @@ define void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef non
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i32, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.283)
   store ptr %31, ptr %3, align 8
   %32 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %28, i32 noundef %30, ptr noundef %31) #14
@@ -7813,8 +7813,8 @@ define void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef non
   %36 = load i32, ptr %26, align 8
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %19, %24
@@ -7854,8 +7854,8 @@ define void @_ZN14VrmlTranslator6Parser15ComponentNameIdEv(ptr noundef nonnull a
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -7867,8 +7867,8 @@ define void @_ZN14VrmlTranslator6Parser15ComponentNameIdEv(ptr noundef nonnull a
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -7908,8 +7908,8 @@ define void @_ZN14VrmlTranslator6Parser21ComponentSupportLevelEv(ptr noundef non
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.198)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -7921,8 +7921,8 @@ define void @_ZN14VrmlTranslator6Parser21ComponentSupportLevelEv(ptr noundef non
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -7966,8 +7966,8 @@ define void @_ZN14VrmlTranslator6Parser15ExportStatementEv(ptr noundef nonnull a
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load i32, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.210)
           to label %.noexc8 unwind label %60
 
@@ -7988,8 +7988,8 @@ define void @_ZN14VrmlTranslator6Parser15ExportStatementEv(ptr noundef nonnull a
   %29 = load i32, ptr %19, align 8
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc2, %12
@@ -8025,8 +8025,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %47 = load i32, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.211)
           to label %.noexc11 unwind label %60
 
@@ -8047,8 +8047,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %53 = load i32, ptr %43, align 8
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i4
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i4:      ; preds = %.noexc6, %36
@@ -8120,8 +8120,8 @@ define void @_ZN14VrmlTranslator6Parser10NodeNameIdER7QString(ptr noundef nonnul
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -8133,8 +8133,8 @@ define void @_ZN14VrmlTranslator6Parser10NodeNameIdER7QString(ptr noundef nonnul
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -8208,8 +8208,8 @@ define void @_ZN14VrmlTranslator6Parser18ExportedNodeNameIdEv(ptr noundef nonnul
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -8221,8 +8221,8 @@ define void @_ZN14VrmlTranslator6Parser18ExportedNodeNameIdEv(ptr noundef nonnul
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -8270,8 +8270,8 @@ define void @_ZN14VrmlTranslator6Parser15ImportStatementEv(ptr noundef nonnull a
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load i32, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.212)
           to label %.noexc13 unwind label %86
 
@@ -8292,8 +8292,8 @@ define void @_ZN14VrmlTranslator6Parser15ImportStatementEv(ptr noundef nonnull a
   %31 = load i32, ptr %21, align 8
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc2, %14
@@ -8329,8 +8329,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %49 = load i32, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.213)
           to label %.noexc16 unwind label %86
 
@@ -8351,8 +8351,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %55 = load i32, ptr %45, align 8
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %45, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i4
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i4:      ; preds = %.noexc6, %38
@@ -8388,8 +8388,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
   %71 = load i32, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load i32, ptr %72, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %74 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.211)
           to label %.noexc20 unwind label %86
 
@@ -8410,8 +8410,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
   %79 = load i32, ptr %69, align 8
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %69, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i9
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i9:      ; preds = %.noexc11, %62
@@ -8483,8 +8483,8 @@ define void @_ZN14VrmlTranslator6Parser16InlineNodeNameIdEv(ptr noundef nonnull 
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -8496,8 +8496,8 @@ define void @_ZN14VrmlTranslator6Parser16InlineNodeNameIdEv(ptr noundef nonnull 
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -8537,8 +8537,8 @@ define void @_ZN14VrmlTranslator6Parser7MetakeyEv(ptr noundef nonnull align 8 ca
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -8550,8 +8550,8 @@ define void @_ZN14VrmlTranslator6Parser7MetakeyEv(ptr noundef nonnull align 8 ca
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -8591,8 +8591,8 @@ define void @_ZN14VrmlTranslator6Parser9MetavalueEv(ptr noundef nonnull align 8 
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
@@ -8604,8 +8604,8 @@ define void @_ZN14VrmlTranslator6Parser9MetavalueEv(ptr noundef nonnull align 8 
   %26 = load i32, ptr %16, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %14, %9
@@ -8847,8 +8847,8 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %60, %_ZN9QtPrivate8
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %82 = load i32, ptr %81, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.284)
           to label %.noexc37 unwind label %23
 
@@ -8869,8 +8869,8 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %60, %_ZN9QtPrivate8
   %88 = load i32, ptr %78, align 8
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %78, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %71, %.noexc
@@ -8966,8 +8966,8 @@ define void @_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement(ptr nound
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.285)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -8979,8 +8979,8 @@ define void @_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement(ptr nound
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %10, %15
@@ -9028,8 +9028,8 @@ define void @_ZN14VrmlTranslator6Parser14RouteStatementEv(ptr noundef nonnull al
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load i32, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %28 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.231)
           to label %.noexc18 unwind label %112
 
@@ -9050,8 +9050,8 @@ define void @_ZN14VrmlTranslator6Parser14RouteStatementEv(ptr noundef nonnull al
   %33 = load i32, ptr %23, align 8
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc2, %16
@@ -9087,8 +9087,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %51 = load i32, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.213)
           to label %.noexc21 unwind label %112
 
@@ -9109,8 +9109,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %57 = load i32, ptr %47, align 8
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i4
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i4:      ; preds = %.noexc6, %40
@@ -9146,8 +9146,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %75 = load i32, ptr %74, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.232)
           to label %.noexc25 unwind label %112
 
@@ -9168,8 +9168,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
   %81 = load i32, ptr %71, align 8
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %71, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i9
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i9:      ; preds = %.noexc11, %64
@@ -9205,8 +9205,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %99 = load i32, ptr %98, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %100 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.213)
           to label %.noexc29 unwind label %112
 
@@ -9227,8 +9227,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
   %105 = load i32, ptr %95, align 8
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %95, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i14
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i14:     ; preds = %.noexc16, %88
@@ -9509,8 +9509,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i27:  ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit32:                           ; preds = %84, %_ZN9QtPrivate8RefCount5derefEv.exit.i28, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i27
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9547,8 +9547,8 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
 100:                                              ; preds = %96, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %96 ], [ %99, %.critedge.i ]
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br label %105
 
@@ -9583,8 +9583,8 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %121 = load i32, ptr %120, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %122 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.220)
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -9605,8 +9605,8 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
   %127 = load i32, ptr %117, align 8
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %117, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc34, %110
@@ -9652,8 +9652,8 @@ _ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit: ; preds = %.noexc35
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %149 = load i32, ptr %148, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %150 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.221)
           to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -9674,8 +9674,8 @@ _ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit: ; preds = %.noexc35
   %155 = load i32, ptr %145, align 8
   %156 = add nsw i32 %155, 1
   store i32 %156, ptr %145, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i37
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i37:     ; preds = %.noexc39, %138
@@ -9711,8 +9711,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i37:     ; preds = %.noexc39, %138
   %172 = load i32, ptr %171, align 4
   %173 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %174 = load i32, ptr %173, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %175 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.220)
           to label %.noexc69 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -9733,8 +9733,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i37:     ; preds = %.noexc39, %138
   %180 = load i32, ptr %170, align 8
   %181 = add nsw i32 %180, 1
   store i32 %181, ptr %170, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i42
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i42:     ; preds = %.noexc44, %163
@@ -9780,8 +9780,8 @@ _ZN14VrmlTranslator6Parser10ScriptBodyEv.exit:    ; preds = %.noexc46
   %200 = load i32, ptr %199, align 4
   %201 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %202 = load i32, ptr %201, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %203 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.221)
           to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -9802,8 +9802,8 @@ _ZN14VrmlTranslator6Parser10ScriptBodyEv.exit:    ; preds = %.noexc46
   %208 = load i32, ptr %198, align 8
   %209 = add nsw i32 %208, 1
   store i32 %209, ptr %198, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i48
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i48:     ; preds = %.noexc50, %191
@@ -9879,8 +9879,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i54:  ; preds = %_ZN9QtPrivate8RefCo
   %235 = load i32, ptr %234, align 4
   %236 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %237 = load i32, ptr %236, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %238 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.286)
           to label %.noexc77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -9901,8 +9901,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i54:  ; preds = %_ZN9QtPrivate8RefCo
   %243 = load i32, ptr %233, align 8
   %244 = add nsw i32 %243, 1
   store i32 %244, ptr %233, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %226, %.noexc61
@@ -9980,8 +9980,8 @@ define void @_ZN14VrmlTranslator6Parser5ProtoER11QDomElement(ptr noundef nonnull
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %42 = load i32, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.217)
           to label %.noexc69 unwind label %207
 
@@ -10002,8 +10002,8 @@ define void @_ZN14VrmlTranslator6Parser5ProtoER11QDomElement(ptr noundef nonnull
   %48 = load i32, ptr %38, align 8
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc12, %31
@@ -10113,8 +10113,8 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %64, %_ZN9QtPrivate8
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %87 = load i32, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %88 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.218)
           to label %.noexc72 unwind label %207
 
@@ -10135,8 +10135,8 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %64, %_ZN9QtPrivate8
   %93 = load i32, ptr %83, align 8
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %83, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i24
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i24:     ; preds = %.noexc26, %76
@@ -10221,8 +10221,8 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %126 = load i32, ptr %125, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %127 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
           to label %.noexc76 unwind label %.loopexit.split-lp100
 
@@ -10243,8 +10243,8 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
   %132 = load i32, ptr %122, align 8
   %133 = add nsw i32 %132, 1
   store i32 %133, ptr %122, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i38
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i38:     ; preds = %.noexc40, %115
@@ -10276,8 +10276,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %149 = load i32, ptr %148, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %150 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.220)
           to label %.noexc80 unwind label %.loopexit.split-lp100
 
@@ -10298,8 +10298,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
   %155 = load i32, ptr %145, align 8
   %156 = add nsw i32 %155, 1
   store i32 %156, ptr %145, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i43
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i43:     ; preds = %.noexc45, %138
@@ -10407,8 +10407,8 @@ _ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit: ; preds = %.noexc56
   %190 = load i32, ptr %189, align 4
   %191 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %192 = load i32, ptr %191, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %193 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.221)
           to label %.noexc88 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -10429,8 +10429,8 @@ _ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit: ; preds = %.noexc56
   %198 = load i32, ptr %188, align 8
   %199 = add nsw i32 %198, 1
   store i32 %199, ptr %188, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i59
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i59:     ; preds = %.noexc61, %181
@@ -10635,8 +10635,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN9QtPrivate8
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %41 = load i32, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.230)
           to label %.noexc48 unwind label %.loopexit.split-lp
 
@@ -10657,8 +10657,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN9QtPrivate8
   %47 = load i32, ptr %37, align 8
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc7, %30
@@ -10694,8 +10694,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %65 = load i32, ptr %64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.218)
           to label %.noexc51 unwind label %.loopexit.split-lp
 
@@ -10716,8 +10716,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %71 = load i32, ptr %61, align 8
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %61, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i9
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i9:      ; preds = %.noexc11, %54
@@ -10771,8 +10771,8 @@ _ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; p
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %100 = load i32, ptr %99, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %101 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
           to label %.noexc55 unwind label %.loopexit.split-lp
 
@@ -10793,8 +10793,8 @@ _ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; p
   %106 = load i32, ptr %96, align 8
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %96, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i15
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i15:     ; preds = %.noexc17, %89
@@ -11027,8 +11027,8 @@ define void @_ZN14VrmlTranslator6Parser12OutputOnlyIdER7QString(ptr noundef nonn
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -11040,8 +11040,8 @@ define void @_ZN14VrmlTranslator6Parser12OutputOnlyIdER7QString(ptr noundef nonn
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -11115,8 +11115,8 @@ define void @_ZN14VrmlTranslator6Parser11InputOnlyIdER7QString(ptr noundef nonnu
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -11128,8 +11128,8 @@ define void @_ZN14VrmlTranslator6Parser11InputOnlyIdER7QString(ptr noundef nonnu
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -11205,8 +11205,8 @@ define void @_ZN14VrmlTranslator6Parser10NodeTypeIdER7QString(ptr noundef nonnul
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -11218,8 +11218,8 @@ define void @_ZN14VrmlTranslator6Parser10NodeTypeIdER7QString(ptr noundef nonnul
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -11823,8 +11823,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i7:   ; preds = %_ZN9QtPrivate8RefCo
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %50 = load i32, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.287)
           to label %.noexc26 unwind label %20
 
@@ -11845,8 +11845,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i7:   ; preds = %_ZN9QtPrivate8RefCo
   %56 = load i32, ptr %46, align 8
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %46, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %39, %.noexc
@@ -12155,7 +12155,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i5 = icmp eq ptr %35, null
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %36
 
@@ -12204,8 +12204,8 @@ common.resume:                                    ; preds = %54, %46
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit:                      ; preds = %41, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull @.str.185, i32 noundef 1)
   %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %49 unwind label %54
@@ -12238,7 +12238,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7: ; preds = %_ZN9QtPrivate8RefCo
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit12:                    ; preds = %49, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %56 = load ptr, ptr %9, align 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 37
@@ -12270,8 +12270,8 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %49, %_ZN9QtPrivate8
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %72 = load i32, ptr %71, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
   store ptr %73, ptr %5, align 8
   %74 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %70, i32 noundef %72, ptr noundef %73) #14
@@ -12283,8 +12283,8 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %49, %_ZN9QtPrivate8
   %78 = load i32, ptr %68, align 8
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %68, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %66, %61
@@ -12306,8 +12306,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %66, %61
   %89 = load i32, ptr %88, align 4
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %91 = load i32, ptr %90, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %92 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.292)
   store ptr %92, ptr %3, align 8
   %93 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %89, i32 noundef %91, ptr noundef %92) #14
@@ -12319,8 +12319,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %66, %61
   %97 = load i32, ptr %87, align 8
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %87, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %80, %85
@@ -12684,8 +12684,8 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
   %106 = load i32, ptr %105, align 4
   %107 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %108 = load i32, ptr %107, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %109 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.288)
           to label %.noexc69 unwind label %28
 
@@ -12706,8 +12706,8 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
   %114 = load i32, ptr %104, align 8
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %104, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %97, %.noexc
@@ -13189,8 +13189,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60:  ; preds = %_ZN9QtPrivate8RefCo
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %123 = load i32, ptr %122, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %124 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.289)
           to label %.noexc101 unwind label %37
 
@@ -13211,8 +13211,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60:  ; preds = %_ZN9QtPrivate8RefCo
   %129 = load i32, ptr %119, align 8
   %130 = add nsw i32 %129, 1
   store i32 %130, ptr %119, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %112, %.noexc
@@ -13688,8 +13688,8 @@ define void @_ZN14VrmlTranslator6Parser7FieldIdER7QString(ptr noundef nonnull al
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -13701,8 +13701,8 @@ define void @_ZN14VrmlTranslator6Parser7FieldIdER7QString(ptr noundef nonnull al
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -13867,8 +13867,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i10:  ; preds = %_ZN9QtPrivate8RefCo
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %55 = load i32, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.291)
   store ptr %56, ptr %5, align 8
   %57 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %53, i32 noundef %55, ptr noundef %56) #14
@@ -13880,8 +13880,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i10:  ; preds = %_ZN9QtPrivate8RefCo
   %61 = load i32, ptr %51, align 8
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %44, %49
@@ -13927,8 +13927,8 @@ define void @_ZN14VrmlTranslator6Parser16InitializeOnlyIdER7QString(ptr noundef 
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -13940,8 +13940,8 @@ define void @_ZN14VrmlTranslator6Parser16InitializeOnlyIdER7QString(ptr noundef 
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -14079,7 +14079,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %36, %_ZN9QtPrivate8
           to label %56 unwind label %.loopexit.split-lp
 
 56:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not.i25 = icmp eq ptr %55, null
   br i1 %.not.i25, label %_ZN7QString8fromUtf8EPKci.exit.i, label %57
 
@@ -14126,7 +14126,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.body
 
 69:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %70 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.191, i32 noundef 1)
           to label %71 unwind label %.loopexit.split-lp
 
@@ -14197,7 +14197,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i28:  ; preds = %_ZN9QtPrivate8RefCo
           to label %91 unwind label %.loopexit.split-lp
 
 91:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i34 = icmp eq ptr %90, null
   br i1 %.not.i34, label %_ZN7QString8fromUtf8EPKci.exit.i35, label %92
 
@@ -14244,7 +14244,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36: ; preds = %_ZN9QtPrivate8RefC
   br label %.body
 
 104:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i37, %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %105 = load ptr, ptr %41, align 8
   %106 = load i32, ptr %105, align 8
   %107 = icmp eq i32 %106, 37
@@ -14270,7 +14270,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36: ; preds = %_ZN9QtPrivate8RefC
           to label %112 unwind label %.loopexit
 
 112:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull @.str.185, i32 noundef 1)
           to label %.noexc51 unwind label %.loopexit
 
@@ -14307,7 +14307,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i46: ; preds = %_ZN9QtPrivate8RefC
   br label %.body
 
 121:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i46, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i47, %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %122 = load ptr, ptr %86, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
@@ -14315,7 +14315,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i46: ; preds = %_ZN9QtPrivate8RefC
           to label %126 unwind label %.loopexit
 
 126:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i55 = icmp eq ptr %125, null
   br i1 %.not.i55, label %_ZN7QString8fromUtf8EPKci.exit.i56, label %127
 
@@ -14362,7 +14362,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i57: ; preds = %_ZN9QtPrivate8RefC
   br label %.body
 
 139:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i57, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i58, %132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %140 = load ptr, ptr %41, align 8
   %141 = load i32, ptr %140, align 8
   %142 = icmp eq i32 %141, 37
@@ -14388,7 +14388,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i57: ; preds = %_ZN9QtPrivate8RefC
           to label %148 unwind label %.loopexit.split-lp
 
 148:                                              ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull @.str.192, i32 noundef 4)
           to label %.noexc72 unwind label %.loopexit.split-lp
 
@@ -14418,7 +14418,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i67: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %.noexc72, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i68, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN7QStringD2Ev.exit33
 
 154:                                              ; preds = %48
@@ -14426,7 +14426,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %.noexc72, %_ZN9QtPr
           to label %155 unwind label %.loopexit.split-lp
 
 155:                                              ; preds = %154
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull @.str.193, i32 noundef 5)
           to label %.noexc79 unwind label %.loopexit.split-lp
 
@@ -14456,7 +14456,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i74: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit80
 
 _ZN7QStringaSEPKc.exit80:                         ; preds = %.noexc79, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i75, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN7QStringD2Ev.exit33
 
 _ZN7QStringD2Ev.exit33:                           ; preds = %144, %109, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i28, %_ZN9QtPrivate8RefCount5derefEv.exit.i29, %73, %_ZN7QStringaSEPKc.exit80, %_ZN7QStringaSEPKc.exit
@@ -14817,8 +14817,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i127: ; preds = %_ZN9QtPrivate8RefCo
   %257 = load i32, ptr %256, align 4
   %258 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %259 = load i32, ptr %258, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %260 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.296)
           to label %.noexc141 unwind label %.loopexit.split-lp
 
@@ -14839,8 +14839,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i127: ; preds = %_ZN9QtPrivate8RefCo
   %265 = load i32, ptr %255, align 8
   %266 = add nsw i32 %265, 1
   store i32 %266, ptr %255, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %248, %.noexc134
@@ -14971,8 +14971,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %56 = load i32, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.218)
           to label %.noexc87 unwind label %.loopexit.split-lp99
 
@@ -14993,8 +14993,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
   %62 = load i32, ptr %52, align 8
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %52, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc31, %45
@@ -15501,8 +15501,8 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   %197 = load i32, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %199 = load i32, ptr %198, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %200 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.297)
           to label %.noexc90 unwind label %.loopexit.split-lp99
 
@@ -15523,8 +15523,8 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   %205 = load i32, ptr %195, align 8
   %206 = add nsw i32 %205, 1
   store i32 %206, ptr %195, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
@@ -15556,8 +15556,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
   %221 = load i32, ptr %220, align 4
   %222 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %223 = load i32, ptr %222, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %224 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
           to label %.noexc94 unwind label %.loopexit.split-lp99
 
@@ -15578,8 +15578,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
   %229 = load i32, ptr %219, align 8
   %230 = add nsw i32 %229, 1
   store i32 %230, ptr %219, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i77
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i77:     ; preds = %.noexc79, %212
@@ -16066,8 +16066,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i70:  ; preds = %_ZN9QtPrivate8RefCo
   %135 = load i32, ptr %134, align 4
   %136 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %137 = load i32, ptr %136, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %138 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.293)
           to label %.noexc105 unwind label %37
 
@@ -16088,8 +16088,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i70:  ; preds = %_ZN9QtPrivate8RefCo
   %143 = load i32, ptr %133, align 8
   %144 = add nsw i32 %143, 1
   store i32 %144, ptr %133, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %126, %.noexc
@@ -16664,8 +16664,8 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %126, %_ZN9QtPrivate
   %156 = load i32, ptr %155, align 4
   %157 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %158 = load i32, ptr %157, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %159 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.294)
           to label %.noexc86 unwind label %60
 
@@ -16686,8 +16686,8 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %126, %_ZN9QtPrivate
   %164 = load i32, ptr %154, align 8
   %165 = add nsw i32 %164, 1
   store i32 %165, ptr %154, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %147, %.noexc67
@@ -16721,8 +16721,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %147, %.noexc67
   %178 = load i32, ptr %177, align 4
   %179 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %180 = load i32, ptr %179, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %181 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.294)
           to label %.noexc92 unwind label %60
 
@@ -16743,8 +16743,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %147, %.noexc67
   %186 = load i32, ptr %176, align 8
   %187 = add nsw i32 %186, 1
   store i32 %187, ptr %176, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit73
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit73:       ; preds = %169, %.noexc72
@@ -17040,8 +17040,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %69, %64
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %95 = load i32, ptr %94, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %96 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.235)
           to label %.noexc19 unwind label %20
 
@@ -17062,8 +17062,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %69, %64
   %101 = load i32, ptr %91, align 8
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %91, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc9, %84
@@ -17089,8 +17089,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %114 = load i32, ptr %113, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %115 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.295)
           to label %.noexc22 unwind label %20
 
@@ -17111,8 +17111,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %120 = load i32, ptr %110, align 8
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %110, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit12
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit12:       ; preds = %103, %.noexc11
@@ -17185,8 +17185,8 @@ define void @_ZN14VrmlTranslator6Parser13InputOutputIdER7QString(ptr noundef non
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
@@ -17198,8 +17198,8 @@ define void @_ZN14VrmlTranslator6Parser13InputOutputIdER7QString(ptr noundef non
   %27 = load i32, ptr %17, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
@@ -17286,8 +17286,8 @@ define void @_ZN14VrmlTranslator6Parser11MultiNumberER7QString(ptr noundef nonnu
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.298)
   store ptr %25, ptr %3, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
@@ -17299,8 +17299,8 @@ define void @_ZN14VrmlTranslator6Parser11MultiNumberER7QString(ptr noundef nonnu
   %30 = load i32, ptr %20, align 8
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
@@ -17313,7 +17313,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i5 = icmp eq ptr %37, null
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %38
 
@@ -17362,7 +17362,7 @@ common.resume:                                    ; preds = %79, %63, %48
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit:                      ; preds = %43, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = load ptr, ptr %8, align 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 37
@@ -17382,7 +17382,7 @@ _ZN7QString6appendEPKc.exit:                      ; preds = %43, %_ZN9QtPrivate8
 
 .critedge:                                        ; preds = %54, %85
   call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull @.str.185, i32 noundef 1)
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %58 unwind label %63
@@ -17415,12 +17415,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7: ; preds = %_ZN9QtPrivate8RefCo
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %65 = load ptr, ptr %33, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i13 = icmp eq ptr %68, null
   br i1 %.not.i13, label %_ZN7QString8fromUtf8EPKci.exit.i14, label %69
 
@@ -17463,7 +17463,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i15: ; preds = %_ZN9QtPrivate8RefC
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit20:                    ; preds = %74, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i16, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %81 = load ptr, ptr %8, align 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 37
@@ -17517,8 +17517,8 @@ define void @_ZN14VrmlTranslator6Parser11MultiStringER7QString(ptr noundef nonnu
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
   store ptr %25, ptr %3, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
@@ -17530,8 +17530,8 @@ define void @_ZN14VrmlTranslator6Parser11MultiStringER7QString(ptr noundef nonnu
   %30 = load i32, ptr %20, align 8
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %18, %13
@@ -17544,7 +17544,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTrans
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZN7QString8fromUtf8EPKci.exit.i, label %37
 
@@ -17593,7 +17593,7 @@ common.resume:                                    ; preds = %78, %62, %47
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit:                      ; preds = %42, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = load ptr, ptr %8, align 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 37
@@ -17612,7 +17612,7 @@ _ZN7QString6appendEPKc.exit:                      ; preds = %42, %_ZN9QtPrivate8
 
 .lr.ph:                                           ; preds = %53, %84
   call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull @.str.185, i32 noundef 1)
   %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %57 unwind label %62
@@ -17645,12 +17645,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i6: ; preds = %_ZN9QtPrivate8RefCo
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit11:                    ; preds = %57, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i7, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %64 = load ptr, ptr %32, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %66)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i12 = icmp eq ptr %67, null
   br i1 %.not.i12, label %_ZN7QString8fromUtf8EPKci.exit.i13, label %68
 
@@ -17693,7 +17693,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i14: ; preds = %_ZN9QtPrivate8RefC
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit19:                    ; preds = %73, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i15, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %80 = load ptr, ptr %8, align 8
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 37
@@ -17752,8 +17752,8 @@ define void @_ZN14VrmlTranslator6Parser9MultiBoolER7QString(ptr noundef nonnull 
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.299)
   store ptr %25, ptr %3, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
@@ -17765,8 +17765,8 @@ define void @_ZN14VrmlTranslator6Parser9MultiBoolER7QString(ptr noundef nonnull 
   %30 = load i32, ptr %20, align 8
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
@@ -17779,7 +17779,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i5 = icmp eq ptr %37, null
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %38
 
@@ -17828,7 +17828,7 @@ common.resume:                                    ; preds = %79, %63, %48
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit:                      ; preds = %43, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = load ptr, ptr %8, align 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 37
@@ -17848,7 +17848,7 @@ _ZN7QString6appendEPKc.exit:                      ; preds = %43, %_ZN9QtPrivate8
 
 .critedge:                                        ; preds = %54, %85
   call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull @.str.185, i32 noundef 1)
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %58 unwind label %63
@@ -17881,12 +17881,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7: ; preds = %_ZN9QtPrivate8RefCo
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %65 = load ptr, ptr %33, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i13 = icmp eq ptr %68, null
   br i1 %.not.i13, label %_ZN7QString8fromUtf8EPKci.exit.i14, label %69
 
@@ -17929,7 +17929,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i15: ; preds = %_ZN9QtPrivate8RefC
   br label %common.resume
 
 _ZN7QString6appendEPKc.exit20:                    ; preds = %74, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i16, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %81 = load ptr, ptr %8, align 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 37
@@ -18009,8 +18009,8 @@ define void @_ZN14VrmlTranslator6Parser5ParseEv(ptr noundef nonnull align 8 dere
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load i32, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.196)
   store ptr %28, ptr %2, align 8
   %29 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %25, i32 noundef %27, ptr noundef %28) #14
@@ -18022,8 +18022,8 @@ define void @_ZN14VrmlTranslator6Parser5ParseEv(ptr noundef nonnull align 8 dere
   %33 = load i32, ptr %23, align 8
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
 
 _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %21, %16
@@ -18365,10 +18365,10 @@ declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_
 declare noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13

@@ -94,12 +94,12 @@ entry:
   %call4 = tail call noundef ptr @_ZN2v86Object10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0.copyload) #14
   %event_.i = getelementptr inbounds nuw i8, ptr %message, i64 8
   %0 = load i32, ptr %event_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %call4) #14
   br i1 %call.i, label %if.end.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %cleanup.cont
 
 if.end.i:                                         ; preds = %entry
@@ -128,7 +128,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread129: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %cleanup.cont
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
@@ -137,7 +137,7 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18Cont
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   %cmp = icmp eq i64 %9, 0
   br i1 %cmp, label %cleanup.cont, label %lor.lhs.false
 
@@ -217,9 +217,9 @@ if.end39:                                         ; preds = %_ZN4node7tracing16T
 if.then42:                                        ; preds = %if.end39
   %23 = load atomic i64, ptr @_ZZN4node21PromiseRejectCallbackEN2v820PromiseRejectMessageEE19unhandledRejections seq_cst, align 8
   %24 = load atomic i64, ptr @_ZZN4node21PromiseRejectCallbackEN2v820PromiseRejectMessageEE22rejectionsHandledAfter seq_cst, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_names.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %arg_types.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_values.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_names.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_types.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_values.i)
   store ptr @.str.5, ptr %arg_names.i, align 16
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %arg_names.i, i64 8
   store ptr @.str.6, ptr %arrayinit.element.i, align 8
@@ -233,7 +233,7 @@ if.then42:                                        ; preds = %if.end39
   %sext134 = shl i64 %24, 32
   %conv.i1.i = ashr exact i64 %sext134, 32
   store i64 %conv.i1.i, ptr %arrayidx3.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i, i64 16
   %call.i.i = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #14
@@ -270,10 +270,10 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit, label %arraydestroy.body.i.i
 
 _ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_names.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %arg_types.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_values.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_names.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_types.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_values.i)
   br label %if.end103
 
 if.then53:                                        ; preds = %do.end19
@@ -314,9 +314,9 @@ if.end69:                                         ; preds = %_ZN4node7tracing16T
 if.then73:                                        ; preds = %if.end69
   %37 = load atomic i64, ptr @_ZZN4node21PromiseRejectCallbackEN2v820PromiseRejectMessageEE19unhandledRejections seq_cst, align 8
   %38 = load atomic i64, ptr @_ZZN4node21PromiseRejectCallbackEN2v820PromiseRejectMessageEE22rejectionsHandledAfter seq_cst, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_names.i68)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %arg_types.i69)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_values.i70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_names.i68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_types.i69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_values.i70)
   store ptr @.str.5, ptr %arg_names.i68, align 16
   %arrayinit.element.i71 = getelementptr inbounds nuw i8, ptr %arg_names.i68, i64 8
   store ptr @.str.6, ptr %arrayinit.element.i71, align 8
@@ -330,7 +330,7 @@ if.then73:                                        ; preds = %if.end69
   %sext132 = shl i64 %38, 32
   %conv.i1.i75 = ashr exact i64 %sext132, 32
   store i64 %conv.i1.i75, ptr %arrayidx3.i74, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i67)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i67, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i76 = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i67, i64 16
   %call.i.i77 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #14
@@ -367,10 +367,10 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i93, label %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit94, label %arraydestroy.body.i.i85
 
 _ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit94: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i67)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_names.i68)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %arg_types.i69)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_values.i70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_names.i68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_types.i69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_values.i70)
   br label %if.end103
 
 if.then85:                                        ; preds = %do.end19
@@ -1415,10 +1415,10 @@ entry:
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

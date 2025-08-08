@@ -234,13 +234,7 @@ define noalias ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define void @EVP_CIPHER_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -498,9 +492,9 @@ EVP_CIPHER_free.exit.i:                           ; preds = %84, %CRYPTO_DOWN_RE
   br i1 %.not109.i, label %123, label %115
 
 115:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !35
   %.not10.i.i = icmp eq ptr %.pre6, null
   br i1 %.not10.i.i, label %EVP_CIPHER_CTX_set_padding.exit.i, label %116
@@ -512,8 +506,8 @@ EVP_CIPHER_free.exit.i:                           ; preds = %84, %CRYPTO_DOWN_RE
   br i1 %119, label %EVP_CIPHER_CTX_set_padding.exit.thread.i, label %EVP_CIPHER_CTX_set_padding.exit.i
 
 EVP_CIPHER_CTX_set_padding.exit.thread.i:         ; preds = %116
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %123
 
 EVP_CIPHER_CTX_set_padding.exit.i:                ; preds = %116, %115
@@ -522,8 +516,8 @@ EVP_CIPHER_CTX_set_padding.exit.i:                ; preds = %116, %115
   %121 = load ptr, ptr %90, align 8, !tbaa !17
   %122 = call i32 @evp_do_ciph_ctx_setparams(ptr noundef %120, ptr noundef %121, ptr noundef nonnull %8) #9
   %.not126.i = icmp eq i32 %122, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not126.i, label %evp_cipher_init_skey_internal.exit, label %EVP_CIPHER_CTX_set_padding.exit.i._crit_edge
 
 EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_padding.exit.i
@@ -544,8 +538,8 @@ EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_
   br i1 %129, label %130, label %140
 
 130:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %131 = call i32 @EVP_SKEY_get_raw_key(ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
   %.not113.not.i = icmp eq i32 %131, 0
   br i1 %.not113.not.i, label %.thread122.i, label %132
@@ -554,8 +548,8 @@ EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 588, ptr noundef nonnull @__func__.evp_cipher_init_skey_internal) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %evp_cipher_init_skey_internal.exit
 
 132:                                              ; preds = %130
@@ -566,8 +560,8 @@ EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_
   %137 = load ptr, ptr %10, align 8, !tbaa !38
   %138 = load i64, ptr %11, align 8, !tbaa !39
   %139 = call i32 %135(ptr noundef %136, ptr noundef %137, i64 noundef %138, ptr noundef %3, i64 noundef %spec.select.i, ptr noundef %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %evp_cipher_init_skey_internal.exit
 
 140:                                              ; preds = %126
@@ -584,8 +578,8 @@ EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_
   br i1 %148, label %149, label %159
 
 149:                                              ; preds = %145
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %150 = call i32 @EVP_SKEY_get_raw_key(ptr noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
   %.not112.not.i = icmp eq i32 %150, 0
   br i1 %.not112.not.i, label %.thread124.i, label %151
@@ -594,8 +588,8 @@ EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 605, ptr noundef nonnull @__func__.evp_cipher_init_skey_internal) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %evp_cipher_init_skey_internal.exit
 
 151:                                              ; preds = %149
@@ -606,8 +600,8 @@ EVP_CIPHER_CTX_set_padding.exit.i._crit_edge:     ; preds = %EVP_CIPHER_CTX_set_
   %156 = load ptr, ptr %12, align 8, !tbaa !38
   %157 = load i64, ptr %13, align 8, !tbaa !39
   %158 = call i32 %154(ptr noundef %155, ptr noundef %156, i64 noundef %157, ptr noundef %3, i64 noundef %spec.select.i, ptr noundef %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %evp_cipher_init_skey_internal.exit
 
 159:                                              ; preds = %145
@@ -1029,9 +1023,9 @@ EVP_CIPHER_can_pipeline.exit:                     ; preds = %161, %151
   br i1 %.not272, label %189, label %180
 
 180:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %9, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !35
   store i64 %178, ptr %177, align 8, !tbaa !28
   %181 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1045,8 +1039,8 @@ EVP_CIPHER_can_pipeline.exit:                     ; preds = %161, %151
   br i1 %185, label %EVP_CIPHER_CTX_set_padding.exit.thread, label %EVP_CIPHER_CTX_set_padding.exit
 
 EVP_CIPHER_CTX_set_padding.exit.thread:           ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %189
 
 EVP_CIPHER_CTX_set_padding.exit:                  ; preds = %180, %182
@@ -1055,8 +1049,8 @@ EVP_CIPHER_CTX_set_padding.exit:                  ; preds = %180, %182
   %187 = load ptr, ptr %165, align 8, !tbaa !17
   %188 = call i32 @evp_do_ciph_ctx_setparams(ptr noundef %186, ptr noundef %187, ptr noundef nonnull %9) #9
   %.not337 = icmp eq i32 %188, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not337, label %.thread313, label %189
 
 189:                                              ; preds = %EVP_CIPHER_CTX_set_padding.exit.thread, %EVP_CIPHER_CTX_set_padding.exit, %176
@@ -1064,7 +1058,7 @@ EVP_CIPHER_CTX_set_padding.exit:                  ; preds = %180, %182
   br i1 %.not274, label %220, label %190
 
 190:                                              ; preds = %189
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %11, i8 0, i64 120, i1 false)
   %191 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %7, ptr noundef nonnull @.str.3) #9
   %.not275 = icmp eq ptr %191, null
@@ -1146,11 +1140,11 @@ EVP_CIPHER_CTX_set_params.exit:                   ; preds = %204
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.evp_cipher_init_internal) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 221, ptr noundef null) #9
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread313
 
 EVP_CIPHER_CTX_set_params.exit.thread322:         ; preds = %214, %216, %198, %EVP_CIPHER_CTX_set_params.exit
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %220
 
 220:                                              ; preds = %EVP_CIPHER_CTX_set_params.exit.thread322, %189
@@ -1685,7 +1679,7 @@ define i32 @EVP_CipherUpdate(ptr noundef %0, ptr noundef %1, ptr noundef capture
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %4 to i64
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %8, !prof !61
@@ -1775,14 +1769,14 @@ define i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef %1, ptr noundef captur
 
 46:                                               ; preds = %30, %42, %44, %41, %29, %16, %12, %11
   %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ %45, %44 ], [ 0, %29 ], [ 0, %41 ], [ 0, %11 ], [ %37, %42 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_DecryptUpdate(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %4 to i64
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %8, !prof !61
@@ -2074,7 +2068,7 @@ safe_div_round_up_int.exit.thread:                ; preds = %53
 
 146:                                              ; preds = %142, %143, %127, %30, %42, %123, %117, %98, %.thread, %89, %88, %82, %41, %29, %16, %12, %11
   %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %82 ], [ 0, %88 ], [ 1, %89 ], [ %93, %.thread ], [ %99, %98 ], [ 0, %117 ], [ 0, %123 ], [ 0, %29 ], [ 0, %41 ], [ 0, %11 ], [ %37, %42 ], [ 0, %30 ], [ 0, %127 ], [ 1, %143 ], [ 1, %142 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2176,7 +2170,7 @@ define i32 @EVP_CipherFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef write
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_EncryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -2343,14 +2337,14 @@ define i32 @EVP_EncryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writ
 
 81:                                               ; preds = %64, %56, %._crit_edge, %80, %44, %27, %38, %65, %49, %37, %26, %13, %9, %8
   %.0 = phi i32 [ 0, %13 ], [ 1, %49 ], [ 0, %65 ], [ 0, %26 ], [ 0, %37 ], [ 0, %9 ], [ 0, %8 ], [ %33, %38 ], [ 0, %27 ], [ 0, %44 ], [ %79, %80 ], [ 0, %._crit_edge ], [ 1, %56 ], [ 1, %64 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -2567,7 +2561,7 @@ define i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writ
 
 95:                                               ; preds = %56, %60, %._crit_edge, %44, %27, %38, %88, %81, %68, %59, %49, %37, %26, %13, %9, %8
   %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 1, %49 ], [ 0, %59 ], [ 0, %68 ], [ 0, %81 ], [ 0, %88 ], [ 0, %26 ], [ 0, %37 ], [ 0, %8 ], [ %33, %38 ], [ 0, %27 ], [ 0, %44 ], [ 1, %._crit_edge ], [ 1, %60 ], [ 1, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2729,7 +2723,7 @@ define i32 @EVP_DecryptInit_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @ossl_is_partially_overlapping(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_is_partially_overlapping(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -3008,12 +3002,12 @@ safe_div_round_up_int.exit.thread:                ; preds = %12
 declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @EVP_CIPHER_CTX_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3026,9 +3020,9 @@ define i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not, label %35, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef nonnull %0) #9
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %34, label %11
@@ -3084,8 +3078,8 @@ EVP_CIPHER_settable_ctx_params.exit:              ; preds = %11, %13, %16
 
 34:                                               ; preds = %26, %24, %8, %32, %23
   %.0 = phi i32 [ 0, %23 ], [ 1, %32 ], [ 1, %8 ], [ 0, %24 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 35:                                               ; preds = %2
@@ -3181,11 +3175,11 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %16 = alloca %struct.ossl_param_st, align 8
   %17 = alloca %struct.ossl_param_st, align 8
   %18 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = sext i32 %2 to i64
   store i64 %19, ptr %5, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %7, i8 0, i64 160, i1 false)
   %20 = icmp eq ptr %0, null
   br i1 %20, label %24, label %21
@@ -3344,10 +3338,10 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %74, label %165, label %75
 
 75:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %76 = load ptr, ptr %0, align 8, !tbaa !3
   %77 = load ptr, ptr %71, align 8, !tbaa !17
   %78 = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %76, ptr noundef %77, ptr noundef nonnull %7) #9
@@ -3377,15 +3371,15 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %90, label %167, label %91
 
 91:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %5) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %93 = load ptr, ptr %0, align 8, !tbaa !3
   %94 = load ptr, ptr %87, align 8, !tbaa !17
   %95 = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %7) #9
@@ -3408,11 +3402,11 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %106 = load i64, ptr %105, align 8, !tbaa !77
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.18, ptr noundef %104, i64 noundef %106) #9
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.19, ptr noundef nonnull %108) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %109 = load ptr, ptr %0, align 8, !tbaa !3
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %111 = load ptr, ptr %110, align 8, !tbaa !17
@@ -3421,19 +3415,19 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %113, label %167, label %114
 
 114:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.20, ptr noundef nonnull %5) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.19, ptr noundef nonnull %108) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %115, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %116 = load ptr, ptr %0, align 8, !tbaa !3
   %117 = load ptr, ptr %110, align 8, !tbaa !17
   %118 = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %116, ptr noundef %117, ptr noundef nonnull %7) #9
@@ -3451,19 +3445,19 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %126 = load i64, ptr %125, align 8, !tbaa !77
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.21, ptr noundef %124, i64 noundef %126) #9
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !75
   %130 = load i64, ptr %125, align 8, !tbaa !77
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.22, ptr noundef %129, i64 noundef %130) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16, ptr noundef nonnull @.str.19, ptr noundef nonnull %132) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %131, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %133 = load ptr, ptr %0, align 8, !tbaa !3
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %135 = load ptr, ptr %134, align 8, !tbaa !17
@@ -3472,14 +3466,14 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %137, label %167, label %138
 
 138:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %17, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %18) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !tbaa.struct !73
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %139 = load ptr, ptr %0, align 8, !tbaa !3
   %140 = load ptr, ptr %134, align 8, !tbaa !17
   %141 = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %139, ptr noundef %140, ptr noundef nonnull %7) #9
@@ -3547,9 +3541,9 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 167:                                              ; preds = %165, %146, %143, %123, %138, %120, %100, %102, %114, %91, %85, %64, %61, %57, %45, %40, %38, %29, %32, %30, %.thread103, %162, %97, %80, %24
   %.0 = phi i32 [ 0, %24 ], [ 0, %162 ], [ 0, %.thread103 ], [ %82, %80 ], [ %99, %97 ], [ 0, %30 ], [ 1, %32 ], [ 1, %29 ], [ 0, %38 ], [ 1, %40 ], [ 0, %45 ], [ 0, %57 ], [ 0, %61 ], [ 0, %64 ], [ 0, %85 ], [ 0, %91 ], [ %122, %120 ], [ 0, %100 ], [ %112, %102 ], [ 0, %114 ], [ %145, %143 ], [ %136, %123 ], [ 0, %138 ], [ -1, %146 ], [ %.083, %165 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3557,9 +3551,9 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_padding(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ossl_param_st], align 16
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %1, ptr %4, align 4, !tbaa !35
   %.not = icmp eq i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3590,8 +3584,8 @@ define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_padding(ptr noundef captures(none
 
 20:                                               ; preds = %9, %13
   %.0 = phi i32 [ %19, %13 ], [ 1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -4017,7 +4011,7 @@ EVP_CIPHER_up_ref.exit:                           ; preds = %26, %22, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #7 {
+define noundef i32 @EVP_CIPHER_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = icmp eq i32 %3, 0
@@ -4553,7 +4547,7 @@ EVP_CIPHER_free.exit:                             ; preds = %38, %CRYPTO_DOWN_RE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @evp_cipher_up_ref(ptr noundef captures(none) %0) #7 {
+define internal noundef i32 @evp_cipher_up_ref(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = icmp eq i32 %3, 0
@@ -4616,7 +4610,7 @@ define ptr @evp_cipher_fetch_from_prov(ptr noundef %0, ptr noundef %1, ptr nound
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @EVP_CIPHER_can_pipeline(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @EVP_CIPHER_can_pipeline(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.critedge, label %3
 
@@ -4729,15 +4723,21 @@ declare ptr @OBJ_NAME_get(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @EVP_CIPHER_get_nid(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 

@@ -303,7 +303,7 @@ declare i32 @dcom_register_routine(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_wmio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_wmio, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef %6, i32 noundef 0)
   %11 = load i32, ptr @ett_wmio, align 4
@@ -324,7 +324,7 @@ define internal noundef i32 @dissect_wmio(ptr noundef %0, i32 noundef %1, ptr no
 
 22:                                               ; preds = %7, %16
   %.0 = add i32 %6, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -344,9 +344,6 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -405,9 +402,6 @@ define internal fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -424,7 +418,7 @@ declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %10 = tail call ptr @proto_registrar_get_nth(i32 noundef %2)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -435,7 +429,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 453, ptr noundef %16) #5
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 453, ptr noundef %16) #4
   unreachable
 
 17:                                               ; preds = %7
@@ -495,7 +489,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   br label %72
 
 46:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %18, label %47, label %50
 
 47:                                               ; preds = %46
@@ -545,12 +539,12 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   %.2 = phi i32 [ %69, %66 ], [ %64, %62 ]
   %71 = sub i32 %.2, %.070
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %72
 
 72:                                               ; preds = %33, %45, %70
   %.1 = phi i32 [ %.070, %33 ], [ %.070, %45 ], [ %.2, %70 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
@@ -561,7 +555,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -608,8 +602,8 @@ define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr nounde
   %29 = add i32 %24, 8
   %30 = add i32 %29, %26
   %31 = add i32 %30, %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %32 = load i32, ptr @hf_wmio_class_header, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %32, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0)
   %34 = load i32, ptr @ett_wmio_class_header, align 4
@@ -624,9 +618,9 @@ define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr nounde
   %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %35, i32 noundef %42, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13)
   %44 = load i32, ptr %13, align 4
   call void @proto_item_set_len(ptr noundef %33, i32 noundef 13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %45 = load i32, ptr @hf_wmio_class_derivation, align 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %45, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef 0)
   %47 = load i32, ptr @ett_wmio_class_derivation, align 4
@@ -652,9 +646,9 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %.0.lcssa.i.i = phi i32 [ %51, %6 ], [ %56, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i32 [ %52, %6 ], [ %57, %.lr.ph.i.i ]
   call void @proto_item_set_len(ptr noundef %46, i32 noundef %.lcssa.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %60 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef readonly %2, ptr noundef %19, i32 noundef %31)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %61 = load i32, ptr @hf_wmio_propertylookuptable, align 4
   %62 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef -1, i32 noundef 0)
   %63 = load i32, ptr @ett_wmio_propertylookuptable, align 4
@@ -676,7 +670,7 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %73 = load i32, ptr @hf_wmio_propertynameref, align 4
   %74 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.02022.i.i, i32 noundef %73, ptr noundef readonly %2, ptr noundef %72, i1 noundef zeroext false, i32 noundef %31)
   %75 = add i32 %.02022.i.i, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %76 = load i32, ptr @hf_property_info, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef -1, i32 noundef 0)
   %78 = load i32, ptr @ett_property_info, align 4
@@ -705,7 +699,7 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %101 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %100, ptr noundef readonly %2, ptr noundef %79, i32 noundef %31)
   %102 = sub i32 %101, %83
   call void @proto_item_set_len(ptr noundef %77, i32 noundef %102)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %103 = add i32 %.02022.i.i, 8
   call void @proto_item_set_len(ptr noundef %70, i32 noundef 8)
   %104 = add nuw i32 %.023.i.i, 1
@@ -717,7 +711,7 @@ dissect_wmio_encoding_propertylookuptable.exit.i: ; preds = %.lr.ph.i58.i, %diss
   %.020.lcssa.i.i = phi i32 [ %67, %dissect_wmio_encoding_derivationlist.exit.i ], [ %103, %.lr.ph.i58.i ]
   %107 = sub i32 %.020.lcssa.i.i, %60
   call void @proto_item_set_len(ptr noundef %62, i32 noundef %107)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %dissect_wmio_encoding_classpart.exit, label %108
 
@@ -740,8 +734,8 @@ dissect_wmio_encoding_classpart.exit:             ; preds = %dissect_wmio_encodi
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %117)
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %38)
   %120 = add i32 %38, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %121 = load i32, ptr @hf_methodspart, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef -1, i32 noundef 0)
   %123 = load i32, ptr @ett_methodspart, align 4
@@ -840,8 +834,8 @@ dissect_wmio_encoding_methodpart.exit:            ; preds = %dissect_wmio_encodi
   call void @proto_item_set_len(ptr noundef %122, i32 noundef %195)
   %196 = load i32, ptr %7, align 4
   %197 = add i32 %196, %120
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %198 = sub i32 %197, %1
   call void @proto_item_set_len(ptr noundef %14, i32 noundef %198)
   ret i32 %197
@@ -850,7 +844,7 @@ dissect_wmio_encoding_methodpart.exit:            ; preds = %dissect_wmio_encodi
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_wmio_qualifierset, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0)
   %9 = load i32, ptr @ett_wmio_qualifierset, align 4
@@ -1148,7 +1142,7 @@ dissect_wmio_qualifier.exit:                      ; preds = %.lr.ph.i, %33, %.pr
   call void @proto_item_set_len(ptr noundef %8, i32 noundef %168)
   %169 = load i32, ptr %6, align 4
   %170 = add i32 %169, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %170
 }
 
@@ -1182,12 +1176,17 @@ declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

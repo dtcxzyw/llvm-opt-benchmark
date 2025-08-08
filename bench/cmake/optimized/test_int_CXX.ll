@@ -149,14 +149,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %29 = alloca i64, align 8
   %30 = alloca i64, align 8
   %31 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef -85) #5
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str, ptr noundef nonnull %1)
   %rhsv.i = load i32, ptr %1, align 16
   %.not.i = icmp eq i32 %rhsv.i, 3487789
   %str.1.str.i = select i1 %.not.i, ptr @str.127, ptr @str.118
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.str.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #5
   %.not108.i = icmp eq i32 %34, 1
   br i1 %.not108.i, label %._crit_edge.i, label %36
@@ -177,14 +177,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %41 = icmp eq i8 %40, -85
   %str.3.str.2.i = select i1 %41, ptr @str.127, ptr @str.118
   %puts109.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.3.str.2.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef -85) #5
   %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str, ptr noundef nonnull %1)
   %rhsv111.i = load i32, ptr %1, align 16
   %.not113.i = icmp eq i32 %rhsv111.i, 3487789
   %str.4.sink.i = select i1 %.not113.i, ptr @str.127, ptr @str.118
   %puts114.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.4.sink.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #5
   %.not116.i = icmp eq i32 %44, 1
   br i1 %.not116.i, label %._crit_edge298.i, label %46
@@ -205,14 +205,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %51 = icmp eq i8 %50, -85
   %str.7.str.6.i = select i1 %51, ptr @str.127, ptr @str.118
   %puts117.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.7.str.6.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef 171) #5
   %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull @.str.11, ptr noundef nonnull %1)
   %rhsv119.i = load i32, ptr %1, align 16
   %.not121.i = icmp eq i32 %rhsv119.i, 3355954
   %str.8.sink.i = select i1 %.not121.i, ptr @str.127, ptr @str.118
   %puts122.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.8.sink.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %54 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #5
   %.not124.i = icmp eq i32 %54, 1
   br i1 %.not124.i, label %._crit_edge300.i, label %56
@@ -233,14 +233,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %61 = icmp eq i8 %60, -85
   %str.11.str.10.i = select i1 %61, ptr @str.127, ptr @str.118
   %puts125.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.11.str.10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.17, i32 noundef 171) #5
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef nonnull @.str.16, ptr noundef nonnull %1)
   %rhsv127.i = load i32, ptr %1, align 16
   %.not129.i = icmp eq i32 %rhsv127.i, 3225393
   %str.12.sink.i = select i1 %.not129.i, ptr @str.127, ptr @str.118
   %puts130.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.12.sink.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef nonnull %5) #5
   %.not132.i = icmp eq i32 %64, 1
   br i1 %.not132.i, label %._crit_edge302.i, label %66
@@ -261,7 +261,7 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %71 = icmp eq i8 %70, -85
   %str.15.str.14.i = select i1 %71, ptr @str.127, ptr @str.118
   %puts133.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.15.str.14.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.22, i32 noundef 171) #5
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull @.str.21, ptr noundef nonnull %1)
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.21, ptr noundef nonnull dereferenceable(3) %1, i64 3)
@@ -274,7 +274,7 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %77 = icmp eq i32 %bcmp137.i, 0
   %str.18.sink.i = select i1 %77, ptr @str.127, ptr @str.118
   %puts138.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.18.sink.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.27, ptr noundef nonnull %6) #5
   %.not140.i = icmp eq i32 %78, 1
   br i1 %.not140.i, label %._crit_edge304.i, label %80
@@ -295,8 +295,8 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %85 = icmp eq i8 %84, -85
   %str.21.str.20.i = select i1 %85, ptr @str.127, ptr @str.118
   %puts141.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.21.str.20.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.27, ptr noundef nonnull %7) #5
   %.not143.i = icmp eq i32 %86, 1
   br i1 %.not143.i, label %._crit_edge306.i, label %88
@@ -317,14 +317,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %93 = icmp eq i8 %92, -85
   %str.23.str.22.i = select i1 %93, ptr @str.127, ptr @str.118
   %puts144.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.23.str.22.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef -21760) #5
   %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull @.str.30, ptr noundef nonnull %1)
   %bcmp146.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.30, ptr noundef nonnull dereferenceable(7) %1, i64 7)
   %96 = icmp eq i32 %bcmp146.i, 0
   %str.24.sink.i = select i1 %96, ptr @str.127, ptr @str.118
   %puts147.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.24.sink.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull %8) #5
   %.not149.i = icmp eq i32 %97, 1
   br i1 %.not149.i, label %._crit_edge308.i, label %99
@@ -345,14 +345,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %104 = icmp eq i16 %103, -21760
   %str.27.str.26.i = select i1 %104, ptr @str.127, ptr @str.118
   %puts150.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.27.str.26.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef -21760) #5
   %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull @.str.30, ptr noundef nonnull %1)
   %bcmp152.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.30, ptr noundef nonnull dereferenceable(7) %1, i64 7)
   %107 = icmp eq i32 %bcmp152.i, 0
   %str.28.sink.i = select i1 %107, ptr @str.127, ptr @str.118
   %puts153.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.28.sink.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %108 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.35, ptr noundef nonnull %9) #5
   %.not155.i = icmp eq i32 %108, 1
   br i1 %.not155.i, label %._crit_edge310.i, label %110
@@ -373,14 +373,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %115 = icmp eq i16 %114, -21760
   %str.31.str.30.i = select i1 %115, ptr @str.127, ptr @str.118
   %puts156.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.31.str.30.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef 43776) #5
   %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef nonnull @.str.37, ptr noundef nonnull %1)
   %bcmp158.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.37, ptr noundef nonnull dereferenceable(7) %1, i64 7)
   %118 = icmp eq i32 %bcmp158.i, 0
   %str.32.sink.i = select i1 %118, ptr @str.127, ptr @str.118
   %puts159.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.32.sink.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.39, ptr noundef nonnull %10) #5
   %.not161.i = icmp eq i32 %119, 1
   br i1 %.not161.i, label %._crit_edge312.i, label %121
@@ -401,14 +401,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %126 = icmp eq i16 %125, -21760
   %str.35.str.34.i = select i1 %126, ptr @str.127, ptr @str.118
   %puts162.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.35.str.34.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.17, i32 noundef 43776) #5
   %128 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull @.str.41, ptr noundef nonnull %1)
   %bcmp164.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.41, ptr noundef nonnull dereferenceable(6) %1, i64 6)
   %129 = icmp eq i32 %bcmp164.i, 0
   %str.36.sink.i = select i1 %129, ptr @str.127, ptr @str.118
   %puts165.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.36.sink.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %130 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull %11) #5
   %.not167.i = icmp eq i32 %130, 1
   br i1 %.not167.i, label %._crit_edge314.i, label %132
@@ -429,14 +429,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %137 = icmp eq i16 %136, -21760
   %str.39.str.38.i = select i1 %137, ptr @str.127, ptr @str.118
   %puts168.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.39.str.38.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.22, i32 noundef 43776) #5
   %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull @.str.45, ptr noundef nonnull %1)
   %bcmp170.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.45, ptr noundef nonnull dereferenceable(5) %1, i64 5)
   %140 = icmp eq i32 %bcmp170.i, 0
   %str.40.sink.i = select i1 %140, ptr @str.127, ptr @str.118
   %puts171.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.40.sink.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %141 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.47, ptr noundef nonnull %12) #5
   %.not173.i = icmp eq i32 %141, 1
   br i1 %.not173.i, label %._crit_edge316.i, label %143
@@ -457,14 +457,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %148 = icmp eq i16 %147, -21760
   %str.43.str.42.i = select i1 %148, ptr @str.127, ptr @str.118
   %puts174.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.43.str.42.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %149 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.25, i32 noundef 43776) #5
   %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef nonnull @.str.49, ptr noundef nonnull %1)
   %bcmp176.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.49, ptr noundef nonnull dereferenceable(5) %1, i64 5)
   %151 = icmp eq i32 %bcmp176.i, 0
   %str.44.sink.i = select i1 %151, ptr @str.127, ptr @str.118
   %puts177.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.44.sink.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.47, ptr noundef nonnull %13) #5
   %.not179.i = icmp eq i32 %152, 1
   br i1 %.not179.i, label %._crit_edge318.i, label %154
@@ -485,14 +485,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %159 = icmp eq i16 %158, -21760
   %str.47.str.46.i = select i1 %159, ptr @str.127, ptr @str.118
   %puts180.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.47.str.46.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %160 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef -1426063360) #5
   %161 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef nonnull @.str.52, ptr noundef nonnull %1)
   %bcmp182.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.52, ptr noundef nonnull dereferenceable(12) %1, i64 12)
   %162 = icmp eq i32 %bcmp182.i, 0
   %str.48.sink.i = select i1 %162, ptr @str.127, ptr @str.118
   %puts183.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.48.sink.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %163 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, ptr noundef nonnull %14) #5
   %.not185.i = icmp eq i32 %163, 1
   br i1 %.not185.i, label %._crit_edge320.i, label %164
@@ -512,14 +512,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %169 = icmp eq i32 %168, -1426063360
   %str.51.str.50.i = select i1 %169, ptr @str.127, ptr @str.118
   %puts186.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.51.str.50.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %170 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef -1426063360) #5
   %171 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef nonnull @.str.52, ptr noundef nonnull %1)
   %bcmp188.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.52, ptr noundef nonnull dereferenceable(12) %1, i64 12)
   %172 = icmp eq i32 %bcmp188.i, 0
   %str.52.sink.i = select i1 %172, ptr @str.127, ptr @str.118
   %puts189.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.52.sink.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %173 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.7, ptr noundef nonnull %15) #5
   %.not191.i = icmp eq i32 %173, 1
   br i1 %.not191.i, label %._crit_edge322.i, label %174
@@ -539,14 +539,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %179 = icmp eq i32 %178, -1426063360
   %str.55.str.54.i = select i1 %179, ptr @str.127, ptr @str.118
   %puts192.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.55.str.54.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef -1426063360) #5
   %181 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull @.str.57, ptr noundef nonnull %1)
   %bcmp194.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.57, ptr noundef nonnull dereferenceable(12) %1, i64 12)
   %182 = icmp eq i32 %bcmp194.i, 0
   %str.56.sink.i = select i1 %182, ptr @str.127, ptr @str.118
   %puts195.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.56.sink.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %183 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.12, ptr noundef nonnull %16) #5
   %.not197.i = icmp eq i32 %183, 1
   br i1 %.not197.i, label %._crit_edge324.i, label %184
@@ -566,14 +566,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %189 = icmp eq i32 %188, -1426063360
   %str.59.str.58.i = select i1 %189, ptr @str.127, ptr @str.118
   %puts198.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.59.str.58.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %190 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.17, i32 noundef -1426063360) #5
   %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull @.str.60, ptr noundef nonnull %1)
   %bcmp200.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @.str.60, ptr noundef nonnull dereferenceable(11) %1, i64 11)
   %192 = icmp eq i32 %bcmp200.i, 0
   %str.60.sink.i = select i1 %192, ptr @str.127, ptr @str.118
   %puts201.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.60.sink.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %193 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.17, ptr noundef nonnull %17) #5
   %.not203.i = icmp eq i32 %193, 1
   br i1 %.not203.i, label %._crit_edge326.i, label %194
@@ -593,14 +593,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %199 = icmp eq i32 %198, -1426063360
   %str.63.str.62.i = select i1 %199, ptr @str.127, ptr @str.118
   %puts204.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.63.str.62.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %200 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.22, i32 noundef -1426063360) #5
   %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef nonnull @.str.63, ptr noundef nonnull %1)
   %bcmp206.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.63, ptr noundef nonnull dereferenceable(9) %1, i64 9)
   %202 = icmp eq i32 %bcmp206.i, 0
   %str.64.sink.i = select i1 %202, ptr @str.127, ptr @str.118
   %puts207.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.64.sink.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %203 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.22, ptr noundef nonnull %18) #5
   %.not209.i = icmp eq i32 %203, 1
   br i1 %.not209.i, label %._crit_edge328.i, label %204
@@ -620,14 +620,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %209 = icmp eq i32 %208, -1426063360
   %str.67.str.66.i = select i1 %209, ptr @str.127, ptr @str.118
   %puts210.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.67.str.66.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.25, i32 noundef -1426063360) #5
   %211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, ptr noundef nonnull @.str.66, ptr noundef nonnull %1)
   %bcmp212.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.66, ptr noundef nonnull dereferenceable(9) %1, i64 9)
   %212 = icmp eq i32 %bcmp212.i, 0
   %str.68.sink.i = select i1 %212, ptr @str.127, ptr @str.118
   %puts213.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.68.sink.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %213 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.22, ptr noundef nonnull %19) #5
   %.not215.i = icmp eq i32 %213, 1
   br i1 %.not215.i, label %._crit_edge330.i, label %214
@@ -647,14 +647,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %219 = icmp eq i32 %218, -1426063360
   %str.71.str.70.i = select i1 %219, ptr @str.127, ptr @str.118
   %puts216.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.71.str.70.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.70, i64 noundef -6124895493223874560) #5
   %221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, ptr noundef nonnull @.str.69, ptr noundef nonnull %1)
   %bcmp218.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @.str.69, ptr noundef nonnull dereferenceable(21) %1, i64 21)
   %222 = icmp eq i32 %bcmp218.i, 0
   %str.72.sink.i = select i1 %222, ptr @str.127, ptr @str.118
   %puts219.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.72.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %223 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %20) #5
   %.not221.i = icmp eq i32 %223, 1
   br i1 %.not221.i, label %._crit_edge332.i, label %224
@@ -674,14 +674,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %229 = icmp eq i64 %228, -6124895493223874560
   %str.75.str.74.i = select i1 %229, ptr @str.127, ptr @str.118
   %puts222.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.75.str.74.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %230 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.73, i64 noundef -6124895493223874560) #5
   %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull @.str.69, ptr noundef nonnull %1)
   %bcmp224.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @.str.69, ptr noundef nonnull dereferenceable(21) %1, i64 21)
   %232 = icmp eq i32 %bcmp224.i, 0
   %str.76.sink.i = select i1 %232, ptr @str.127, ptr @str.118
   %puts225.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.76.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %233 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.73, ptr noundef nonnull %21) #5
   %.not227.i = icmp eq i32 %233, 1
   br i1 %.not227.i, label %._crit_edge334.i, label %234
@@ -701,14 +701,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %239 = icmp eq i64 %238, -6124895493223874560
   %str.79.str.78.i = select i1 %239, ptr @str.127, ptr @str.118
   %puts228.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.79.str.78.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %240 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.77, i64 noundef -6124895493223874560) #5
   %241 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.76, ptr noundef nonnull %1)
   %bcmp230.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) @.str.76, ptr noundef nonnull dereferenceable(23) %1, i64 23)
   %242 = icmp eq i32 %bcmp230.i, 0
   %str.80.sink.i = select i1 %242, ptr @str.127, ptr @str.118
   %puts231.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.80.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %243 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull %22) #5
   %.not233.i = icmp eq i32 %243, 1
   br i1 %.not233.i, label %._crit_edge336.i, label %244
@@ -728,14 +728,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %249 = icmp eq i64 %248, -6124895493223874560
   %str.83.str.82.i = select i1 %249, ptr @str.127, ptr @str.118
   %puts234.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.83.str.82.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.81, i64 noundef -6124895493223874560) #5
   %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.82, ptr noundef nonnull @.str.80, ptr noundef nonnull %1)
   %bcmp236.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @.str.80, ptr noundef nonnull dereferenceable(21) %1, i64 21)
   %252 = icmp eq i32 %bcmp236.i, 0
   %str.84.sink.i = select i1 %252, ptr @str.127, ptr @str.118
   %puts237.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.84.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %253 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull %23) #5
   %.not239.i = icmp eq i32 %253, 1
   br i1 %.not239.i, label %._crit_edge338.i, label %254
@@ -755,7 +755,7 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %259 = icmp eq i64 %258, -6124895493223874560
   %str.87.str.86.i = select i1 %259, ptr @str.127, ptr @str.118
   %puts240.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.87.str.86.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %260 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.85, i64 noundef -6124895493223874560) #5
   %261 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.86, ptr noundef nonnull @.str.84, ptr noundef nonnull %1)
   %bcmp242.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.84, ptr noundef nonnull dereferenceable(17) %1, i64 17)
@@ -768,7 +768,7 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %265 = icmp eq i32 %bcmp245.i, 0
   %str.90.sink.i = select i1 %265, ptr @str.127, ptr @str.118
   %puts246.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.90.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %266 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull %24) #5
   %.not248.i = icmp eq i32 %266, 1
   br i1 %.not248.i, label %._crit_edge340.i, label %267
@@ -788,8 +788,8 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %272 = icmp eq i64 %271, -6124895493223874560
   %str.93.str.92.i = select i1 %272, ptr @str.127, ptr @str.118
   %puts249.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.93.str.92.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %273 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.85, ptr noundef nonnull %25) #5
   %.not251.i = icmp eq i32 %273, 1
   br i1 %.not251.i, label %._crit_edge342.i, label %274
@@ -809,14 +809,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %279 = icmp eq i64 %278, -6124895493223874560
   %str.95.str.94.i = select i1 %279, ptr @str.127, ptr @str.118
   %puts252.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.95.str.94.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %280 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.70, i64 noundef -6124895493223874560) #5
   %281 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92, ptr noundef nonnull @.str.69, ptr noundef nonnull %1)
   %bcmp254.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @.str.69, ptr noundef nonnull dereferenceable(21) %1, i64 21)
   %282 = icmp eq i32 %bcmp254.i, 0
   %str.96.sink.i = select i1 %282, ptr @str.127, ptr @str.118
   %puts255.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.96.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %283 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %26) #5
   %.not257.i = icmp eq i32 %283, 1
   br i1 %.not257.i, label %._crit_edge344.i, label %284
@@ -836,14 +836,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %289 = icmp eq i64 %288, -6124895493223874560
   %str.99.str.98.i = select i1 %289, ptr @str.127, ptr @str.118
   %puts258.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.99.str.98.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %290 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.73, i64 noundef -6124895493223874560) #5
   %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef nonnull @.str.69, ptr noundef nonnull %1)
   %bcmp260.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @.str.69, ptr noundef nonnull dereferenceable(21) %1, i64 21)
   %292 = icmp eq i32 %bcmp260.i, 0
   %str.100.sink.i = select i1 %292, ptr @str.127, ptr @str.118
   %puts261.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.100.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %293 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.73, ptr noundef nonnull %27) #5
   %.not263.i = icmp eq i32 %293, 1
   br i1 %.not263.i, label %._crit_edge346.i, label %294
@@ -863,14 +863,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %299 = icmp eq i64 %298, -6124895493223874560
   %str.103.str.102.i = select i1 %299, ptr @str.127, ptr @str.118
   %puts264.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.103.str.102.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.77, i64 noundef -6124895493223874560) #5
   %301 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef nonnull @.str.76, ptr noundef nonnull %1)
   %bcmp266.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) @.str.76, ptr noundef nonnull dereferenceable(23) %1, i64 23)
   %302 = icmp eq i32 %bcmp266.i, 0
   %str.104.sink.i = select i1 %302, ptr @str.127, ptr @str.118
   %puts267.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.104.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %303 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull %28) #5
   %.not269.i = icmp eq i32 %303, 1
   br i1 %.not269.i, label %._crit_edge348.i, label %304
@@ -890,14 +890,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %309 = icmp eq i64 %308, -6124895493223874560
   %str.107.str.106.i = select i1 %309, ptr @str.127, ptr @str.118
   %puts270.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.107.str.106.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %310 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.81, i64 noundef -6124895493223874560) #5
   %311 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.98, ptr noundef nonnull @.str.80, ptr noundef nonnull %1)
   %bcmp272.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @.str.80, ptr noundef nonnull dereferenceable(21) %1, i64 21)
   %312 = icmp eq i32 %bcmp272.i, 0
   %str.108.sink.i = select i1 %312, ptr @str.127, ptr @str.118
   %puts273.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.108.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %313 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull %29) #5
   %.not275.i = icmp eq i32 %313, 1
   br i1 %.not275.i, label %._crit_edge350.i, label %314
@@ -917,14 +917,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %319 = icmp eq i64 %318, -6124895493223874560
   %str.111.str.110.i = select i1 %319, ptr @str.127, ptr @str.118
   %puts276.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.111.str.110.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %320 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.85, i64 noundef -6124895493223874560) #5
   %321 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.100, ptr noundef nonnull @.str.84, ptr noundef nonnull %1)
   %bcmp278.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.84, ptr noundef nonnull dereferenceable(17) %1, i64 17)
   %322 = icmp eq i32 %bcmp278.i, 0
   %str.112.sink.i = select i1 %322, ptr @str.127, ptr @str.118
   %puts279.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.112.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %323 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull %30) #5
   %.not281.i = icmp eq i32 %323, 1
   br i1 %.not281.i, label %._crit_edge352.i, label %324
@@ -944,14 +944,14 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %329 = icmp eq i64 %328, -6124895493223874560
   %str.115.str.114.i = select i1 %329, ptr @str.127, ptr @str.118
   %puts282.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.115.str.114.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %330 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.88, i64 noundef -6124895493223874560) #5
   %331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.102, ptr noundef nonnull @.str.87, ptr noundef nonnull %1)
   %bcmp284.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.87, ptr noundef nonnull dereferenceable(17) %1, i64 17)
   %332 = icmp eq i32 %bcmp284.i, 0
   %str.116.sink.i = select i1 %332, ptr @str.127, ptr @str.118
   %puts285.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.116.sink.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %333 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.85, ptr noundef nonnull %31) #5
   %.not287.i = icmp eq i32 %333, 1
   br i1 %.not287.i, label %._crit_edge354.i, label %334
@@ -1035,7 +1035,7 @@ _ZL15test_int_formatv.exit:                       ; preds = %._crit_edge354.i, %
   %393 = select i1 %392, i1 %343, i1 false
   %narrow413.i = select i1 %393, i1 %narrow362.i, i1 false
   %puts288.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.119.str.118.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %394 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.104, i32 noundef -85, i32 noundef -85)
   %puts290.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.127)
   %395 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.105, i32 noundef 171, i32 noundef 171)
@@ -1052,25 +1052,25 @@ _ZL15test_int_formatv.exit:                       ; preds = %._crit_edge354.i, %
   %puts296.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.127)
   %401 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, i64 noundef -6124895493223874560, i64 noundef -6124895493223874560)
   %puts297.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.127)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %. = zext i1 %narrow413.i to i32
   ret i32 %.
 }
 
+; Function Attrs: nofree nounwind
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
@@ -1079,8 +1079,8 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nofree nounwind }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nounwind }

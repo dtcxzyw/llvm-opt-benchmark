@@ -90,10 +90,10 @@ define hidden noundef zeroext i1 @_ZN5Rdtsc10initializeEv() local_unnamed_addr #
 
 11:                                               ; preds = %0
   tail call void @_ZN10VM_Version14initialize_tscEv() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
@@ -138,10 +138,10 @@ define hidden noundef zeroext i1 @_ZN5Rdtsc10initializeEv() local_unnamed_addr #
   store volatile i64 0, ptr %7, align 8
   store volatile i64 0, ptr %8, align 8
   store volatile i64 0, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 0, ptr %2, align 8
   store volatile i64 0, ptr %3, align 8
   store volatile i64 0, ptr %4, align 8
@@ -216,10 +216,10 @@ _ZL20do_time_measurementsRVlS0_S0_S0_.exit.i.i:   ; preds = %37
   %.0..0..0..0..0..0..0.14.i.i = load volatile i64, ptr %9, align 8
   %68 = sdiv i64 %.0..0..0..0..0..0..0.14.i.i, 3
   store volatile i64 %68, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0..0..0..0..0..0..0.17.i.i = load volatile i64, ptr %7, align 8
   %69 = icmp eq i64 %.0..0..0..0..0..0..0.17.i.i, 0
   br i1 %69, label %_ZL26initialize_elapsed_counterv.exit.thread, label %70
@@ -270,10 +270,10 @@ _ZL20do_time_measurementsRVlS0_S0_S0_.exit.i.i:   ; preds = %37
   br label %_ZL26initialize_elapsed_counterv.exit
 
 _ZL26initialize_elapsed_counterv.exit.thread:     ; preds = %11, %70, %_ZL20do_time_measurementsRVlS0_S0_S0_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i64 0, ptr @_ZL13tsc_frequency, align 8
   br label %_ZL10ergonomicsv.exit
 
@@ -281,10 +281,10 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
   %.1.i.i = phi double [ 0.000000e+00, %88 ], [ %.010.i.i, %85 ], [ %.0102733.i.i, %.thread29.i.i ]
   %89 = fptosi double %.1.i.i to i64
   %.pre.i = load i64, ptr @_ZL6_epoch, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i64 %89, ptr @_ZL13tsc_frequency, align 8
   %90 = icmp ne i64 %89, 0
   %91 = icmp ne i64 %.pre.i, 0
@@ -298,10 +298,10 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
   br i1 %or.cond.i, label %96, label %98
 
 96:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 1, ptr %1, align 1
   %97 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 915, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %98
 
 98:                                               ; preds = %96, %93
@@ -357,10 +357,10 @@ declare void @_Z7warningPKcz(ptr noundef, ...) local_unnamed_addr #1
 declare noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

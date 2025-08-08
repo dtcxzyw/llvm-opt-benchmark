@@ -351,13 +351,7 @@ sz_sa2u.exit.thread:                              ; preds = %22, %sz_s2u.exit29,
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @duckdb_je_arena_extent_alloc_large(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @duckdb_je_arena_extent_alloc_large(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @duckdb_je_large_ralloc_no_move(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -558,7 +552,7 @@ ticker_geom_ticks.exit57:                         ; preds = %91
   br i1 %123, label %arena_decay_ticks.exit, label %124
 
 124:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !15
   %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 10664
   %126 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !7
@@ -602,7 +596,7 @@ sz_size2index.exit.i:                             ; preds = %137, %135, %129
   br i1 %153, label %large_ralloc_no_move_shrink.exit.thread79, label %154
 
 large_ralloc_no_move_shrink.exit.thread79:        ; preds = %sz_size2index.exit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %arena_decay_ticks.exit
 
 154:                                              ; preds = %sz_size2index.exit.i
@@ -616,7 +610,7 @@ large_ralloc_no_move_shrink.exit.thread79:        ; preds = %sz_size2index.exit.
 
 158:                                              ; preds = %157, %154
   call void @duckdb_je_arena_extent_ralloc_large_shrink(ptr noundef %0, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %1, i64 noundef %118) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val44 = load i64, ptr %1, align 8, !tbaa !91
   %159 = and i64 %.val44, 4095
   %160 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %159
@@ -720,7 +714,7 @@ define internal fastcc zeroext i1 @large_ralloc_no_move_expand(ptr noundef %0, p
 
 sz_size2index.exit:                               ; preds = %26, %24, %18
   %.0.i = phi i32 [ %23, %18 ], [ %41, %26 ], [ 232, %24 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10664
   %43 = call zeroext i1 @duckdb_je_pa_expand(ptr noundef %0, ptr noundef nonnull %42, ptr noundef nonnull %1, i64 noundef %10, i64 noundef %16, i32 noundef %.0.i, i1 noundef zeroext %3, ptr noundef nonnull %5) #11
@@ -757,7 +751,7 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   br label %59
 
 59:                                               ; preds = %47, %58
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %43
 }
 
@@ -766,7 +760,7 @@ define ptr @duckdb_je_large_ralloc(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = alloca %struct.rtree_ctx_s, align 8
   %10 = alloca %struct.rtree_contents_s, align 8
   %11 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq ptr %0, null
   br i1 %12, label %13, label %14, !prof !9
 
@@ -862,7 +856,7 @@ rtree_read.exit:                                  ; preds = %23, %33, %45, %59
   %63 = ashr exact i64 %62, 16
   %64 = and i64 %63, -128
   %65 = inttoptr i64 %64 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.val49 = load i64, ptr %65, align 128, !tbaa !91
   %66 = lshr i64 %.val49, 20
   %67 = and i64 %66, 255
@@ -1046,8 +1040,8 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %152
   br label %arena_sdalloc.exit
 
 169:                                              ; preds = %146, %sz_size2index.exit.i.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %12, label %170, label %171, !prof !9
 
 170:                                              ; preds = %169
@@ -1063,8 +1057,8 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %171, %170
   %173 = ptrtoint ptr %.val to i64
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %0, ptr noundef nonnull %.0.i.i42, i64 noundef %173)
   %174 = load ptr, ptr %10, align 8, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @duckdb_je_large_dalloc(ptr noundef %0, ptr noundef %174)
   br label %arena_sdalloc.exit
 
@@ -1073,14 +1067,14 @@ arena_sdalloc.exit:                               ; preds = %90, %141, %131, %ca
   ret ptr %.0
 }
 
-declare void @duckdb_je_hook_invoke_expand(i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_hook_invoke_expand(i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_hook_invoke_dalloc(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_hook_invoke_dalloc(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_large_dalloc_prep_locked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1293,7 +1287,7 @@ define void @duckdb_je_large_dalloc_finish(ptr noundef %0, ptr noundef %1) local
   %5 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %4
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %.0.i.i = inttoptr i64 %6 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10664
   call void @duckdb_je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %3) #11
@@ -1306,7 +1300,7 @@ define void @duckdb_je_large_dalloc_finish(ptr noundef %0, ptr noundef %1) local
   br label %large_dalloc_finish_impl.exit
 
 large_dalloc_finish_impl.exit:                    ; preds = %2, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1319,7 +1313,7 @@ define void @duckdb_je_large_dalloc(ptr noundef %0, ptr noundef %1) local_unname
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %.0.i.i = inttoptr i64 %6 to ptr
   tail call fastcc void @large_dalloc_prep_impl(ptr noundef %0, ptr noundef %.0.i.i, ptr noundef nonnull %1, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10664
   call void @duckdb_je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %3) #11
@@ -1332,7 +1326,7 @@ define void @duckdb_je_large_dalloc(ptr noundef %0, ptr noundef %1) local_unname
   br label %large_dalloc_finish_impl.exit
 
 large_dalloc_finish_impl.exit:                    ; preds = %2, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %arena_decay_ticks.exit, label %12, !prof !9
 
@@ -1379,7 +1373,7 @@ arena_decay_ticks.exit:                           ; preds = %12, %ticker_geom_ti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @duckdb_je_large_salloc(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define i64 @duckdb_je_large_salloc(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %.val = load i64, ptr %1, align 8, !tbaa !91
   %3 = lshr i64 %.val, 20
   %4 = and i64 %3, 255
@@ -1415,12 +1409,12 @@ define void @duckdb_je_large_prof_info_get(ptr noundef %0, ptr noundef %1, ptr n
   ret void
 }
 
-declare void @duckdb_je_nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_prof_recent_alloc_reset(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_prof_recent_alloc_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @duckdb_je_large_prof_tctx_reset(ptr noundef writeonly captures(none) %0) local_unnamed_addr #5 {
+define void @duckdb_je_large_prof_tctx_reset(ptr noundef writeonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store atomic i64 1, ptr %2 release, align 8
   ret void
@@ -1429,7 +1423,7 @@ define void @duckdb_je_large_prof_tctx_reset(ptr noundef writeonly captures(none
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_large_prof_info_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @duckdb_je_nstime_prof_init_update(ptr noundef nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @duckdb_je_nstime_copy(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
@@ -1439,54 +1433,54 @@ define void @duckdb_je_large_prof_info_set(ptr noundef %0, ptr noundef %1, i64 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = ptrtoint ptr %1 to i64
   store atomic i64 %8, ptr %7 release, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @duckdb_je_nstime_prof_init_update(ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_nstime_prof_init_update(ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_edata_prof_recent_alloc_init(ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_edata_prof_recent_alloc_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
-declare ptr @duckdb_je_arena_choose_huge(ptr noundef) local_unnamed_addr #2
+declare ptr @duckdb_je_arena_choose_huge(ptr noundef) local_unnamed_addr #1
 
-declare ptr @duckdb_je_arena_choose_hard(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @duckdb_je_arena_choose_hard(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @duckdb_je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @duckdb_je_arena_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @duckdb_je_arena_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #7
+declare void @duckdb_je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #6
 
-declare void @duckdb_je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
-declare zeroext i1 @duckdb_je_pa_expand(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @duckdb_je_arena_handle_deferred_work(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @duckdb_je_pa_expand(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
+
+declare void @duckdb_je_arena_handle_deferred_work(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare void @duckdb_je_arena_extent_ralloc_large_expand(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @duckdb_je_arena_extent_ralloc_large_expand(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @duckdb_je_arena_get_ehooks(ptr noundef) local_unnamed_addr #2
+declare ptr @duckdb_je_arena_get_ehooks(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @duckdb_je_pa_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @duckdb_je_pa_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_arena_extent_ralloc_large_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @duckdb_je_arena_extent_ralloc_large_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #9 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #8 {
   %5 = lshr i64 %3, 30
   %6 = and i64 %5, 15
   %7 = and i64 %3, -1073741824
@@ -1589,12 +1583,12 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %33, %11, %21, %47
   ret void
 }
 
-declare void @duckdb_je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 
-declare ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_sdalloc_no_tcache(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc void @arena_sdalloc_no_tcache(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 {
   %4 = icmp ult i64 %2, 4097
   br i1 %4, label %5, label %11, !prof !3
 
@@ -1645,12 +1639,12 @@ sz_size2index.exit.thread:                        ; preds = %11, %sz_size2index.
   ret void
 }
 
-declare void @duckdb_je_arena_dalloc_small(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_arena_dalloc_small(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #9 {
+define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #8 {
   %3 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !9
 
@@ -1746,18 +1740,24 @@ rtree_read.exit:                                  ; preds = %15, %25, %37, %51
   %55 = ashr exact i64 %54, 16
   %56 = and i64 %55, -128
   %57 = inttoptr i64 %56 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @duckdb_je_large_dalloc(ptr noundef %0, ptr noundef %57)
   ret void
 }
 
-declare void @duckdb_je_tcache_bin_flush_small(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @duckdb_je_tcache_bin_flush_small(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_tcache_bin_flush_large(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @duckdb_je_tcache_bin_flush_large(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_arena_extent_dalloc_large_prep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_arena_extent_dalloc_large_prep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @duckdb_je_pa_dalloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @duckdb_je_pa_dalloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -1766,15 +1766,15 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 

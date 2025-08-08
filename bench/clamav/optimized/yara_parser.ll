@@ -49,12 +49,6 @@ define i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext %1, i64 n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
@@ -62,7 +56,7 @@ define i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext %1,
   %7 = alloca ptr, align 8
   store i8 %1, ptr %5, align 1, !tbaa !3
   store i64 %2, ptr %6, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !6
@@ -88,7 +82,7 @@ define i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext %1,
 
 .thread:                                          ; preds = %4, %19, %13
   %.1 = phi i32 [ %24, %19 ], [ %17, %13 ], [ %11, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -198,7 +192,7 @@ declare i64 @cli_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define i32 @yr_parser_check_types(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = load i8, ptr %6, align 1, !tbaa !3
@@ -255,12 +249,12 @@ define i32 @yr_parser_check_types(ptr noundef %0, ptr noundef readonly captures(
 .loopexit:                                        ; preds = %22, %3, %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %27
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @yr_parser_lookup_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -314,7 +308,7 @@ define ptr @yr_parser_lookup_string(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -404,7 +398,7 @@ define ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef %1, 
 sub_0:
   %4 = alloca ptr, align 8
   %5 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !41
   %8 = shl i32 %7, 2
@@ -492,7 +486,7 @@ _yr_parser_write_string.exit:                     ; preds = %23
 
 .thread:                                          ; preds = %_yr_parser_write_string.exit, %_yr_parser_write_string.exit.thread, %45, %44
   %.0 = phi ptr [ null, %44 ], [ %46, %45 ], [ null, %_yr_parser_write_string.exit.thread ], [ null, %_yr_parser_write_string.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -503,8 +497,8 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
   %9 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -1, ptr %8, align 1, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %11 = load ptr, ptr %10, align 8, !tbaa !44
@@ -722,8 +716,8 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 118:                                              ; preds = %112, %95, %94, %88, %87, %83, %82, %72, %58, %54, %.critedge, %113, %62, %22
   %.077 = phi i32 [ 14, %22 ], [ 20, %62 ], [ 0, %113 ], [ %53, %.critedge ], [ %57, %54 ], [ %.pre101, %58 ], [ %81, %72 ], [ %.pre100, %82 ], [ %86, %83 ], [ %.pre99, %87 ], [ %93, %88 ], [ %.pre98, %94 ], [ %111, %95 ], [ %.pre, %112 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.077
 }
 
@@ -765,8 +759,8 @@ sub_0:
 
 16:                                               ; preds = %12
   %17 = zext nneg i32 %14 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 41, ptr %5, align 1, !tbaa !3
   store i64 %17, ptr %6, align 8, !tbaa !21
   %18 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
@@ -784,15 +778,15 @@ sub_0:
   br label %yr_parser_emit_with_arg.exit
 
 yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %2, ptr %4, align 1, !tbaa !3
   %28 = call ptr @yara_yyget_extra(ptr noundef %0) #6
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 248
   %30 = load ptr, ptr %29, align 8, !tbaa !6
   %31 = call i32 @yr_arena_write_data(ptr noundef %30, ptr noundef nonnull %4, i64 noundef 1, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not28 = icmp eq i8 %2, 30
   br i1 %.not28, label %.critedge, label %32
 
@@ -886,13 +880,13 @@ yr_parser_lookup_string.exit:                     ; preds = %64
   br label %81
 
 81:                                               ; preds = %78, %yr_parser_lookup_string.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %2, ptr %3, align 1, !tbaa !3
   %82 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 248
   %84 = load ptr, ptr %83, align 8, !tbaa !6
   %85 = call i32 @yr_arena_write_data(ptr noundef %84, ptr noundef nonnull %3, i64 noundef 1, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %86 = load i32, ptr %75, align 8, !tbaa !25
   %87 = or i32 %86, 1
   store i32 %87, ptr %75, align 8, !tbaa !25
@@ -908,7 +902,7 @@ yr_parser_lookup_string.exit:                     ; preds = %64
 define noundef ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %9, i64 noundef 24, ptr noundef nonnull %6, i64 noundef 8, i64 noundef 16, i64 noundef -1) #6
@@ -960,21 +954,27 @@ define noundef ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 nounde
 
 32:                                               ; preds = %27, %12, %5, %29
   %.0 = phi ptr [ %30, %29 ], [ null, %5 ], [ null, %12 ], [ null, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @yr_parser_reduce_import(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
+define noundef i32 @yr_parser_reduce_import(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

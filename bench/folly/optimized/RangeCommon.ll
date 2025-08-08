@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.std::bitset", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.not22 = icmp eq ptr %2, %3
   br i1 %.not22, label %.preheader, label %.lr.ph
@@ -61,23 +61,17 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph26, %.preheader
   %spec.select = phi i64 [ -1, %.preheader ], [ %.01225, %.lr.ph26 ], [ -1, %27 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.folly::SparseByteSet", align 2
-  call void @llvm.lifetime.start.p0(i64 514, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not18 = icmp eq ptr %2, %3
   br i1 %.not18, label %.preheader, label %.lr.ph
 
@@ -157,14 +151,19 @@ _ZNK5folly13SparseByteSet8containsEh.exit.thread: ; preds = %32, %_ZNK5folly13Sp
 
 _ZNK5folly13SparseByteSet8containsEh.exit._crit_edge: ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit.thread, %_ZNK5folly13SparseByteSet8containsEh.exit, %.preheader
   %spec.select = phi i64 [ -1, %.preheader ], [ %.01221, %_ZNK5folly13SparseByteSet8containsEh.exit ], [ -1, %_ZNK5folly13SparseByteSet8containsEh.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 514, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %spec.select
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

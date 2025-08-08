@@ -17,7 +17,7 @@ define range(i32 -1094995529, 1) i32 @ff_sauce_read(ptr noundef %0, ptr noundef 
   %5 = alloca [36 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = tail call i64 @avio_size(ptr noundef %7) #4
   %9 = icmp slt i64 %8, 128
   br i1 %9, label %.critedge, label %10
@@ -266,38 +266,38 @@ define range(i32 -1094995529, 1) i32 @ff_sauce_read(ptr noundef %0, ptr noundef 
 
 .critedge:                                        ; preds = %._crit_edge, %124, %111, %123, %115, %14, %10, %4
   %.0 = phi i32 [ -1094995529, %4 ], [ -1, %10 ], [ -1, %14 ], [ 0, %115 ], [ 0, %123 ], [ 0, %._crit_edge ], [ 0, %111 ], [ 0, %124 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @avio_size(ptr noundef) local_unnamed_addr #1
 
-declare i64 @avio_size(ptr noundef) local_unnamed_addr #2
+declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @avio_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @avio_skip(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @avio_r8(ptr noundef) local_unnamed_addr #1
 
-declare i32 @avio_r8(ptr noundef) local_unnamed_addr #2
+declare i32 @avio_rl16(ptr noundef) local_unnamed_addr #1
 
-declare i32 @avio_rl16(ptr noundef) local_unnamed_addr #2
-
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #4 = { nounwind }
 

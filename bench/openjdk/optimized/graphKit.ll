@@ -3603,13 +3603,13 @@ _ZN8GraphKit21has_exception_handlerEv.exit.thread39: ; preds = %31, %_ZN8GraphKi
   br label %88
 
 88:                                               ; preds = %86, %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %89 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.031) #13
   store ptr %89, ptr %3, align 8
   %90 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %91 = load ptr, ptr %3, align 8
   %92 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %91, ptr noundef %90, i1 noundef zeroext true, ptr noundef nonnull %.031, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef ptr @_ZN7ConNode4makeEPK4Type(ptr noundef %92) #13
@@ -9074,8 +9074,8 @@ define hidden noundef ptr @_ZN8GraphKit18load_array_elementEP4NodeS1_PK10TypeAry
   %16 = tail call noundef ptr @_ZN8GraphKit21array_element_addressEP4NodeS1_9BasicTypePK7TypeIntS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %12, ptr noundef %15, ptr noundef null)
   %17 = icmp eq i8 %12, 16
   %spec.store.select = select i1 %17, i8 12, i8 %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -9140,8 +9140,8 @@ _ZN8GraphKit7stoppedEv.exit.i:                    ; preds = %5
 
 _ZN8GraphKit14access_load_atEP4NodeS1_PK7TypePtrPK4Type9BasicTypem.exit: ; preds = %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge.i, %_ZN8GraphKit7stoppedEv.exit.i, %43, %45
   %.0.i = phi ptr [ %44, %43 ], [ %49, %45 ], [ %.pre10.i, %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge.i ], [ %27, %_ZN8GraphKit7stoppedEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0.i
 }
 
@@ -13651,7 +13651,7 @@ define hidden noundef ptr @_ZN8GraphKit40record_profiled_receiver_for_speculatio
   br i1 %5, label %6, label %125
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13670,7 +13670,7 @@ define hidden noundef ptr @_ZN8GraphKit40record_profiled_receiver_for_speculatio
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load ptr, ptr %19, align 8
   %.0.i = select i1 %or.cond5.i, ptr %20, ptr null
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr %9, align 8
   %23 = icmp ne ptr %21, null
@@ -18604,7 +18604,7 @@ _ZN8GraphKit28too_many_traps_or_recompilesEN14Deoptimization11DeoptReasonE.exit:
   br i1 %.not21, label %21, label %.thread19
 
 21:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr %16, align 8
   call void @_ZN8ciMethod19call_profile_at_bciEi(ptr dead_on_unwind nonnull writable sret(%class.ciCallProfile) align 8 %6, ptr noundef nonnull align 8 dereferenceable(160) %22, i32 noundef %23) #13
@@ -18620,7 +18620,7 @@ _ZN8GraphKit28too_many_traps_or_recompilesEN14Deoptimization11DeoptReasonE.exit:
   %or.cond5.i.not23 = select i1 %or.cond.i.not26, i1 true, i1 %31
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = load ptr, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq ptr %33, null
   %or.cond = select i1 %or.cond5.i.not23, i1 true, i1 %.not
   br i1 %or.cond, label %_ZN8GraphKit28too_many_traps_or_recompilesEN14Deoptimization11DeoptReasonE.exit.thread, label %.thread19
@@ -26441,12 +26441,12 @@ define hidden noundef ptr @_ZN8GraphKit17load_String_valueEP4Nodeb(ptr noundef n
   %7 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr @_ZN5ciEnv13_String_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %9, ptr %6, align 8
   %10 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %11 = load ptr, ptr %6, align 8
   %12 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %11, ptr noundef %10, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = sext i32 %7 to i64
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 192
@@ -26458,8 +26458,8 @@ define hidden noundef ptr @_ZN8GraphKit17load_String_valueEP4Nodeb(ptr noundef n
   %21 = call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 8) #13
   %22 = call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i(i32 noundef 4, ptr noundef %20, ptr noundef %21, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
   %23 = call noundef ptr @_ZN8GraphKit14basic_plus_adrEP4NodeS1_l(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %1, i64 noundef %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -26522,8 +26522,8 @@ _ZN8GraphKit7stoppedEv.exit.i:                    ; preds = %3
 
 _ZN8GraphKit14access_load_atEP4NodeS1_PK7TypePtrPK4Type9BasicTypem.exit: ; preds = %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge.i, %_ZN8GraphKit7stoppedEv.exit.i, %48, %50
   %.0.i = phi ptr [ %49, %48 ], [ %54, %50 ], [ %.pre10.i, %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge.i ], [ %32, %_ZN8GraphKit7stoppedEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0.i
 }
 
@@ -26546,12 +26546,12 @@ define hidden noundef ptr @_ZN8GraphKit17load_String_coderEP4Nodeb(ptr noundef n
   %14 = load i32, ptr @_ZN16java_lang_String13_coder_offsetE, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr @_ZN5ciEnv13_String_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %16, ptr %6, align 8
   %17 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %18, ptr noundef %17, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %20 = sext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 192
@@ -26559,8 +26559,8 @@ define hidden noundef ptr @_ZN8GraphKit17load_String_coderEP4Nodeb(ptr noundef n
   %24 = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(80) %19, i64 noundef %20) #13
   %25 = call noundef ptr @_ZN8GraphKit14basic_plus_adrEP4NodeS1_l(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %1, i64 noundef %20)
   %26 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -26623,8 +26623,8 @@ _ZN8GraphKit7stoppedEv.exit.i:                    ; preds = %13
 
 _ZN8GraphKit14access_load_atEP4NodeS1_PK7TypePtrPK4Type9BasicTypem.exit: ; preds = %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge.i, %_ZN8GraphKit7stoppedEv.exit.i, %51, %53
   %.0.i = phi ptr [ %52, %51 ], [ %57, %53 ], [ %.pre10.i, %._ZN8GraphKit7stoppedEv.exit.thread_crit_edge.i ], [ %35, %_ZN8GraphKit7stoppedEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 58:                                               ; preds = %_ZN8GraphKit14access_load_atEP4NodeS1_PK7TypePtrPK4Type9BasicTypem.exit, %9
@@ -26643,12 +26643,12 @@ define hidden void @_ZN8GraphKit18store_String_valueEP4NodeS1_(ptr noundef nonnu
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %6 = load ptr, ptr @_ZN5ciEnv13_String_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %7 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %8, ptr noundef %7, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = sext i32 %5 to i64
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 192
@@ -26665,12 +26665,12 @@ define hidden void @_ZN8GraphKit18store_String_coderEP4NodeS1_(ptr noundef nonnu
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @_ZN16java_lang_String13_coder_offsetE, align 4
   %6 = load ptr, ptr @_ZN5ciEnv13_String_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %7 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %8, ptr noundef %7, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = sext i32 %5 to i64
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 192
@@ -28870,10 +28870,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11

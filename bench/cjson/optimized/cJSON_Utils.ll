@@ -160,28 +160,22 @@ cJSONUtils_strdup.exit:                           ; preds = %49, %11, %16, %enco
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @cJSON_IsArray(ptr noundef) local_unnamed_addr #1
 
-declare i32 @cJSON_IsArray(ptr noundef) local_unnamed_addr #2
-
-declare ptr @cJSON_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @cJSON_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @cJSON_free(ptr noundef) local_unnamed_addr #2
+declare void @cJSON_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @cJSON_IsObject(ptr noundef) local_unnamed_addr #2
+declare i32 @cJSON_IsObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -805,7 +799,7 @@ sub_0:                                            ; preds = %140
   br label %.thread219
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !22
   %148 = call fastcc i32 @decode_array_index_from_pointer(ptr noundef %126, ptr noundef %4)
   %.not134 = icmp eq i32 %148, 0
@@ -839,11 +833,11 @@ sub_0:                                            ; preds = %140
 
 .thread237:                                       ; preds = %.tail.thread, %149
   %.5.ph = phi i32 [ 11, %.tail.thread ], [ 10, %149 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread227
 
 159:                                              ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread219
 
 .thread227:                                       ; preds = %decode_pointer_inplace.exit.thread, %152, %decode_pointer_inplace.exit, %.thread237
@@ -1029,7 +1023,7 @@ define noundef ptr @cJSONUtils_GeneratePatches(ptr noundef captures(address_is_n
   ret ptr %.0
 }
 
-declare ptr @cJSON_CreateArray() local_unnamed_addr #2
+declare ptr @cJSON_CreateArray() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
@@ -1378,7 +1372,7 @@ define noundef ptr @cJSONUtils_GeneratePatchesCaseSensitive(ptr noundef captures
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @cJSONUtils_SortObject(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define void @cJSONUtils_SortObject(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sort_object.exit, label %3
 
@@ -1394,7 +1388,7 @@ sort_object.exit:                                 ; preds = %1, %3
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sort_object.exit, label %3
 
@@ -1664,10 +1658,10 @@ define ptr @cJSONUtils_GenerateMergePatchCaseSensitive(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1, !tbaa !13
   %.fr29 = freeze i8 %3
   %4 = icmp eq i8 %.fr29, 48
@@ -1722,7 +1716,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_tolower_loc() local_unnamed_addr #9
+declare ptr @__ctype_tolower_loc() local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @get_object_item(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -1742,10 +1736,10 @@ define internal fastcc ptr @get_object_item(ptr noundef nonnull %0, ptr noundef 
   ret ptr %.0
 }
 
-declare i32 @cJSON_IsString(ptr noundef) local_unnamed_addr #2
+declare i32 @cJSON_IsString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1994,7 +1988,7 @@ define internal fastcc void @overwrite_item(ptr noundef captures(address_is_null
   ret void
 }
 
-declare ptr @cJSON_Duplicate(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @cJSON_Duplicate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @detach_path(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -2180,15 +2174,15 @@ detach_item_from_array.exit.thread:               ; preds = %3, %detach_item_fro
   ret ptr %.02033
 }
 
-declare void @cJSON_Delete(ptr noundef) local_unnamed_addr #2
+declare void @cJSON_Delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @cJSON_AddItemToArray(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @cJSON_AddItemToArray(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @insert_item_in_array(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -2241,27 +2235,27 @@ define internal fastcc range(i32 0, 2) i32 @insert_item_in_array(ptr noundef non
   ret i32 %.021
 }
 
-declare void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @cJSON_DeleteItemFromObject(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cJSON_DeleteItemFromObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @cJSON_AddItemToObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @cJSON_AddItemToObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cJSON_GetObjectItem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cJSON_GetObjectItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+declare double @llvm.fabs.f64(double) #9
 
-declare ptr @cJSON_DetachItemFromObject(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cJSON_DetachItemFromObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cJSON_CreateObject() local_unnamed_addr #2
+declare ptr @cJSON_CreateObject() local_unnamed_addr #1
 
-declare ptr @cJSON_CreateString(ptr noundef) local_unnamed_addr #2
+declare ptr @cJSON_CreateString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #6 {
+define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge.thread, label %4
 
@@ -2541,11 +2535,17 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   ret ptr %.074
 }
 
-declare i32 @cJSON_IsNull(ptr noundef) local_unnamed_addr #2
+declare i32 @cJSON_IsNull(ptr noundef) local_unnamed_addr #1
 
-declare ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cJSON_CreateNull() local_unnamed_addr #2
+declare ptr @cJSON_CreateNull() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
@@ -2554,16 +2554,16 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }

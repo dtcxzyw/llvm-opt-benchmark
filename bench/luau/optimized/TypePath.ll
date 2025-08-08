@@ -1740,7 +1740,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau8TypePath9ReductioneqERKS1_(ptr no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Luau8TypePath4Path6appendERKS1_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypePath::Path") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
@@ -1775,7 +1775,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   store ptr %23, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %27, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 28:                                               ; preds = %3
@@ -1791,12 +1791,9 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2009,9 +2006,6 @@ _ZNSt12_Vector_baseIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeF
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
@@ -2067,7 +2061,7 @@ _ZNSt12_Vector_baseIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeF
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Luau8TypePath4Path4pushENS_7VariantIJNS0_8PropertyENS0_5IndexENS0_9TypeFieldENS0_9PackFieldENS0_9ReductionEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypePath::Path") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
@@ -2109,21 +2103,21 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   store ptr %19, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %23, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 24:                                               ; preds = %18, %9
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Luau8TypePath4Path10push_frontENS_7VariantIJNS0_8PropertyENS0_5IndexENS0_9TypeFieldENS0_9PackFieldENS0_9ReductionEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypePath::Path") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %5, align 8, !tbaa !10
@@ -2190,7 +2184,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   store ptr %37, ptr %39, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %38, ptr %40, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 41:                                               ; preds = %27, %18, %3
@@ -2206,7 +2200,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
 45:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -2227,7 +2221,7 @@ define dso_local void @_ZNK4Luau8TypePath4Path3popEv(ptr dead_on_unwind noalias 
   br label %27
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
@@ -2258,7 +2252,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   store ptr %22, ptr %25, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %26, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 27:                                               ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit, %8
@@ -2403,7 +2397,7 @@ define dso_local noundef i64 @_ZNK4Luau8TypePath8PathHashclERKNS0_9ReductionE(pt
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK4Luau8TypePath8PathHashclERKNS_7VariantIJNS0_8PropertyENS0_5IndexENS0_9TypeFieldENS0_9PackFieldENS0_9ReductionEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 8, !tbaa !11
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [5 x ptr], ptr @_ZZN4Luau5visitIRKNS_8TypePath8PathHashEJNS1_8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 0, i64 %5
@@ -2411,7 +2405,7 @@ define dso_local noundef i64 @_ZNK4Luau8TypePath8PathHashclERKNS_7VariantIJNS0_8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void %7(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %8)
   %9 = load i64, ptr %3, align 8, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %9
 }
 
@@ -2431,7 +2425,7 @@ define dso_local noundef i64 @_ZNK4Luau8TypePath8PathHashclERKNS0_4PathE(ptr nou
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.011 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
   %.sroa.06.010 = phi ptr [ %14, %.lr.ph ], [ %4, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load i32, ptr %.sroa.06.010, align 8, !tbaa !11
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [5 x ptr], ptr @_ZZN4Luau5visitIRKNS_8TypePath8PathHashEJNS1_8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 0, i64 %8
@@ -2439,7 +2433,7 @@ define dso_local noundef i64 @_ZNK4Luau8TypePath8PathHashclERKNS0_4PathE(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   call void %10(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %11)
   %12 = load i64, ptr %3, align 8, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = xor i64 %12, %.011
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 48
   %.not = icmp eq ptr %14, %6
@@ -2468,8 +2462,8 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
   %3 = alloca %"class.Luau::Variant", align 8
   %4 = alloca %"struct.Luau::TypePath::Property", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2665,8 +2659,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 79:                                               ; preds = %59
@@ -2721,8 +2715,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %80
 }
 
@@ -2731,8 +2725,8 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
   %3 = alloca %"class.Luau::Variant", align 8
   %4 = alloca %"struct.Luau::TypePath::Property", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2928,8 +2922,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 79:                                               ; preds = %59
@@ -2984,8 +2978,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %80
 }
 
@@ -2994,8 +2988,8 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypeP
   %3 = alloca %"class.Luau::Variant", align 8
   %4 = alloca %"struct.Luau::TypePath::Property", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %1, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3191,8 +3185,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 79:                                               ; preds = %59
@@ -3247,15 +3241,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %80
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder5indexEm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8, !tbaa !47
@@ -3298,7 +3292,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 19:                                               ; preds = %11
@@ -3319,14 +3313,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4: ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder2mtEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !43
@@ -3369,7 +3363,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3390,14 +3384,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder2lbEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %3, align 8, !tbaa !43
@@ -3440,7 +3434,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3461,14 +3455,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder2ubEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 3, ptr %3, align 8, !tbaa !43
@@ -3511,7 +3505,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3532,14 +3526,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder8indexKeyEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %3, align 8, !tbaa !43
@@ -3582,7 +3576,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3603,14 +3597,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder10indexValueEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 5, ptr %3, align 8, !tbaa !43
@@ -3653,7 +3647,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3674,14 +3668,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder7negatedEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 6, ptr %3, align 8, !tbaa !43
@@ -3724,7 +3718,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3745,14 +3739,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder8variadicEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 2, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 7, ptr %3, align 8, !tbaa !43
@@ -3795,7 +3789,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3816,14 +3810,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder4argsEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 3, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8, !tbaa !45
@@ -3866,7 +3860,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3887,14 +3881,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder4retsEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 3, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !45
@@ -3937,7 +3931,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -3958,14 +3952,14 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder4tailEv(ptr noundef nonnull returned align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 3, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %3, align 8, !tbaa !45
@@ -4008,7 +4002,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 
 18:                                               ; preds = %10
@@ -4029,7 +4023,7 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit3: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 }
 
@@ -4041,11 +4035,11 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_8TypePath4PathEb(ptr dead_o
   %7 = alloca %class.anon, align 8
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %4, align 1, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %9, align 8, !tbaa !51
@@ -4130,8 +4124,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body
 
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %36, %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %46, ptr %5, align 8, !tbaa !65
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
@@ -4178,15 +4172,15 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store i64 0, ptr %69, align 8, !tbaa !67
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %70) #29
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %44
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #29
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -4201,7 +4195,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_4TypeERKNS_8TypePath4PathENS_7NotN
   %5 = alloca i8, align 1
   %6 = alloca %class.anon.36, align 8
   %7 = alloca %"struct.Luau::(anonymous namespace)::TraversalState", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %1)
   store i32 0, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4213,7 +4207,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_4TypeERKNS_8TypePath4PathENS_7NotN
   %.val = load ptr, ptr %2, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val4 = load ptr, ptr %12, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !77
   %.not4.i = icmp eq ptr %.val, %.val4
   br i1 %.not4.i, label %.loopexit8, label %.lr.ph.i
@@ -4225,7 +4219,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_4TypeERKNS_8TypePath4PathENS_7NotN
 
 .lr.ph.i:                                         ; preds = %4, %13
   %.sroa.01.05.i = phi ptr [ %14, %13 ], [ %.val, %4 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i32, ptr %.sroa.01.05.i, align 8, !tbaa !11
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [5 x ptr], ptr @"_ZZN4Luau5visitIRZNS_L8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEE3$_0JNS4_8PropertyENS4_5IndexENS4_9TypeFieldENS4_9PackFieldENS4_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %16
@@ -4237,7 +4231,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_4TypeERKNS_8TypePath4PathENS_7NotN
 .noexc:                                           ; preds = %.lr.ph.i
   %20 = load i8, ptr %5, align 1, !tbaa !48, !range !30, !noundef !42
   %21 = trunc nuw i8 %20 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %21, label %13, label %35
 
 .loopexit8.loopexit:                              ; preds = %13
@@ -4246,7 +4240,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_4TypeERKNS_8TypePath4PathENS_7NotN
 
 .loopexit8:                                       ; preds = %.loopexit8.loopexit, %4
   %22 = phi i32 [ %.pre, %.loopexit8.loopexit ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %22, ptr %0, align 8, !tbaa !69
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEC1ERKS7_E5table, i64 0, i64 %23
@@ -4282,11 +4276,11 @@ define dso_local void @_ZN4Luau8traverseEPKNS_4TypeERKNS_8TypePath4PathENS_7NotN
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %lpad.phi
 
 35:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISE_ISt10in_place_tSL_EESt16is_constructibleIS8_JSH_EESt14is_convertibleISH_S8_EEEbE4typeELb1EEEOSH_.exit
 
 _ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISE_ISt10in_place_tSL_EESt16is_constructibleIS8_JSH_EESt14is_convertibleISH_S8_EEEbE4typeELb1EEEOSH_.exit: ; preds = %.loopexit8, %35
@@ -4308,7 +4302,7 @@ _ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit6: ; preds = %_ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISE_ISt10in_place_tSL_EESt16is_constructibleIS8_JSH_EESt14is_convertibleISH_S8_EEEbE4typeELb1EEEOSH_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -4322,7 +4316,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_11TypePackVarERKNS_8TypePath4PathE
   %5 = alloca i8, align 1
   %6 = alloca %class.anon.36, align 8
   %7 = alloca %"struct.Luau::(anonymous namespace)::TraversalState", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %1)
   store i32 1, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4334,7 +4328,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_11TypePackVarERKNS_8TypePath4PathE
   %.val = load ptr, ptr %2, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val4 = load ptr, ptr %12, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !77
   %.not4.i = icmp eq ptr %.val, %.val4
   br i1 %.not4.i, label %.loopexit8, label %.lr.ph.i
@@ -4346,7 +4340,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_11TypePackVarERKNS_8TypePath4PathE
 
 .lr.ph.i:                                         ; preds = %4, %13
   %.sroa.01.05.i = phi ptr [ %14, %13 ], [ %.val, %4 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i32, ptr %.sroa.01.05.i, align 8, !tbaa !11
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [5 x ptr], ptr @"_ZZN4Luau5visitIRZNS_L8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEE3$_0JNS4_8PropertyENS4_5IndexENS4_9TypeFieldENS4_9PackFieldENS4_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %16
@@ -4358,7 +4352,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_11TypePackVarERKNS_8TypePath4PathE
 .noexc:                                           ; preds = %.lr.ph.i
   %20 = load i8, ptr %5, align 1, !tbaa !48, !range !30, !noundef !42
   %21 = trunc nuw i8 %20 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %21, label %13, label %35
 
 .loopexit8.loopexit:                              ; preds = %13
@@ -4367,7 +4361,7 @@ define dso_local void @_ZN4Luau8traverseEPKNS_11TypePackVarERKNS_8TypePath4PathE
 
 .loopexit8:                                       ; preds = %.loopexit8.loopexit, %4
   %22 = phi i32 [ %.pre, %.loopexit8.loopexit ], [ 1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %22, ptr %0, align 8, !tbaa !69
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEC1ERKS7_E5table, i64 0, i64 %23
@@ -4403,11 +4397,11 @@ define dso_local void @_ZN4Luau8traverseEPKNS_11TypePackVarERKNS_8TypePath4PathE
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %lpad.phi
 
 35:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISE_ISt10in_place_tSL_EESt16is_constructibleIS8_JSH_EESt14is_convertibleISH_S8_EEEbE4typeELb1EEEOSH_.exit
 
 _ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISE_ISt10in_place_tSL_EESt16is_constructibleIS8_JSH_EESt14is_convertibleISH_S8_EEEbE4typeELb1EEEOSH_.exit: ; preds = %.loopexit8, %35
@@ -4429,7 +4423,7 @@ _ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit6: ; preds = %_ZNSt8optionalIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEC2IRS8_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISE_ISt10in_place_tSL_EESt16is_constructibleIS8_JSH_EESt14is_convertibleISH_S8_EEEbE4typeELb1EEEOSH_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -4440,7 +4434,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
   %4 = alloca i8, align 1
   %5 = alloca %class.anon.36, align 8
   %6 = alloca %"struct.Luau::(anonymous namespace)::TraversalState", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %0)
   store i32 0, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4452,7 +4446,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
   %.val = load ptr, ptr %1, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val9 = load ptr, ptr %11, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !77
   %.not4.i = icmp eq ptr %.val, %.val9
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
@@ -4464,7 +4458,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
 
 .lr.ph.i:                                         ; preds = %3, %12
   %.sroa.01.05.i = phi ptr [ %13, %12 ], [ %.val, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %.sroa.01.05.i, align 8, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [5 x ptr], ptr @"_ZZN4Luau5visitIRZNS_L8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEE3$_0JNS4_8PropertyENS4_5IndexENS4_9TypeFieldENS4_9PackFieldENS4_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %15
@@ -4476,7 +4470,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
 .noexc:                                           ; preds = %.lr.ph.i
   %19 = load i8, ptr %4, align 1, !tbaa !48, !range !30, !noundef !42
   %20 = trunc nuw i8 %19 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %20, label %12, label %29
 
 .loopexit.loopexit:                               ; preds = %12
@@ -4487,7 +4481,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
   %21 = phi ptr [ %.pre13, %.loopexit.loopexit ], [ %7, %3 ]
   %22 = phi i32 [ %.pre, %.loopexit.loopexit ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %22, 0
   %spec.select = zext i1 %.not to i8
   %spec.select12 = select i1 %.not, ptr %21, ptr undef
@@ -4504,7 +4498,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
           to label %_ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10 unwind label %38
 
 29:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre14 = load i32, ptr %6, align 8, !tbaa !69
   br label %30
 
@@ -4526,7 +4520,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_4TypeERKNS_8TypePat
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -4539,7 +4533,7 @@ _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %24
 }
 
@@ -4548,7 +4542,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
   %4 = alloca i8, align 1
   %5 = alloca %class.anon.36, align 8
   %6 = alloca %"struct.Luau::(anonymous namespace)::TraversalState", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %0)
   store i32 1, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4560,7 +4554,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
   %.val = load ptr, ptr %1, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val9 = load ptr, ptr %11, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !77
   %.not4.i = icmp eq ptr %.val, %.val9
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
@@ -4572,7 +4566,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
 
 .lr.ph.i:                                         ; preds = %3, %12
   %.sroa.01.05.i = phi ptr [ %13, %12 ], [ %.val, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %.sroa.01.05.i, align 8, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [5 x ptr], ptr @"_ZZN4Luau5visitIRZNS_L8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEE3$_0JNS4_8PropertyENS4_5IndexENS4_9TypeFieldENS4_9PackFieldENS4_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %15
@@ -4584,7 +4578,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
 .noexc:                                           ; preds = %.lr.ph.i
   %19 = load i8, ptr %4, align 1, !tbaa !48, !range !30, !noundef !42
   %20 = trunc nuw i8 %19 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %20, label %12, label %29
 
 .loopexit.loopexit:                               ; preds = %12
@@ -4595,7 +4589,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
   %21 = phi ptr [ %.pre13, %.loopexit.loopexit ], [ %7, %3 ]
   %22 = phi i32 [ %.pre, %.loopexit.loopexit ], [ 1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %22, 0
   %spec.select = zext i1 %.not to i8
   %spec.select12 = select i1 %.not, ptr %21, ptr undef
@@ -4612,7 +4606,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
           to label %_ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10 unwind label %38
 
 29:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre14 = load i32, ptr %6, align 8, !tbaa !69
   br label %30
 
@@ -4634,7 +4628,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForTypeEPKNS_11TypePackVarERKNS_
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -4647,7 +4641,7 @@ _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %24
 }
 
@@ -4656,7 +4650,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
   %4 = alloca i8, align 1
   %5 = alloca %class.anon.36, align 8
   %6 = alloca %"struct.Luau::(anonymous namespace)::TraversalState", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %0)
   store i32 0, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4668,7 +4662,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
   %.val = load ptr, ptr %1, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val9 = load ptr, ptr %11, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !77
   %.not4.i = icmp eq ptr %.val, %.val9
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
@@ -4680,7 +4674,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
 
 .lr.ph.i:                                         ; preds = %3, %12
   %.sroa.01.05.i = phi ptr [ %13, %12 ], [ %.val, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %.sroa.01.05.i, align 8, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [5 x ptr], ptr @"_ZZN4Luau5visitIRZNS_L8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEE3$_0JNS4_8PropertyENS4_5IndexENS4_9TypeFieldENS4_9PackFieldENS4_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %15
@@ -4692,7 +4686,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
 .noexc:                                           ; preds = %.lr.ph.i
   %19 = load i8, ptr %4, align 1, !tbaa !48, !range !30, !noundef !42
   %20 = trunc nuw i8 %19 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %20, label %12, label %29
 
 .loopexit.loopexit:                               ; preds = %12
@@ -4703,7 +4697,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
   %21 = phi ptr [ %.pre13, %.loopexit.loopexit ], [ %7, %3 ]
   %22 = phi i32 [ %.pre, %.loopexit.loopexit ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %22, 1
   %spec.select = zext i1 %.not to i8
   %spec.select12 = select i1 %.not, ptr %21, ptr undef
@@ -4720,7 +4714,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
           to label %_ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10 unwind label %38
 
 29:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre14 = load i32, ptr %6, align 8, !tbaa !69
   br label %30
 
@@ -4742,7 +4736,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_4TypeERKNS_8TypePat
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -4755,7 +4749,7 @@ _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %24
 }
 
@@ -4764,7 +4758,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
   %4 = alloca i8, align 1
   %5 = alloca %class.anon.36, align 8
   %6 = alloca %"struct.Luau::(anonymous namespace)::TraversalState", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %0)
   store i32 1, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4776,7 +4770,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
   %.val = load ptr, ptr %1, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val9 = load ptr, ptr %11, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !77
   %.not4.i = icmp eq ptr %.val, %.val9
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
@@ -4788,7 +4782,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
 
 .lr.ph.i:                                         ; preds = %3, %12
   %.sroa.01.05.i = phi ptr [ %13, %12 ], [ %.val, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %.sroa.01.05.i, align 8, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [5 x ptr], ptr @"_ZZN4Luau5visitIRZNS_L8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEE3$_0JNS4_8PropertyENS4_5IndexENS4_9TypeFieldENS4_9PackFieldENS4_9ReductionEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %15
@@ -4800,7 +4794,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
 .noexc:                                           ; preds = %.lr.ph.i
   %19 = load i8, ptr %4, align 1, !tbaa !48, !range !30, !noundef !42
   %20 = trunc nuw i8 %19 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %20, label %12, label %29
 
 .loopexit.loopexit:                               ; preds = %12
@@ -4811,7 +4805,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
   %21 = phi ptr [ %.pre13, %.loopexit.loopexit ], [ %7, %3 ]
   %22 = phi i32 [ %.pre, %.loopexit.loopexit ], [ 1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %22, 1
   %spec.select = zext i1 %.not to i8
   %spec.select12 = select i1 %.not, ptr %21, ptr undef
@@ -4828,7 +4822,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
           to label %_ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10 unwind label %38
 
 29:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre14 = load i32, ptr %6, align 8, !tbaa !69
   br label %30
 
@@ -4850,7 +4844,7 @@ define dso_local { ptr, i8 } @_ZN4Luau15traverseForPackEPKNS_11TypePackVarERKNS_
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -4863,7 +4857,7 @@ _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit:  ; preds = %30
   unreachable
 
 _ZN4Luau12_GLOBAL__N_114TraversalStateD2Ev.exit10: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %24
 }
 
@@ -4875,7 +4869,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_
   %5 = load ptr, ptr %1, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %7, ptr %3, align 8, !tbaa !47
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -4910,7 +4904,7 @@ _ZN4Luau8TypePath8PropertyC2ERKS1_.exit:          ; preds = %._crit_edge.i.i.i, 
   %17 = load ptr, ptr %0, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
   store i8 0, ptr %18, align 1, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i8, ptr %20, align 8, !tbaa !27, !range !30, !noundef !42
@@ -5028,7 +5022,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
   %6 = alloca i8, align 1
   %7 = load ptr, ptr %0, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 91, ptr %6, align 1, !tbaa !26
   %9 = load ptr, ptr %8, align 8, !tbaa !65
   %10 = getelementptr i8, ptr %9, i64 -24
@@ -5048,7 +5042,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %17, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = load i8, ptr @_ZN5FFlag12LuauSolverV2E, align 8, !tbaa !92, !range !30, !noundef !42
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %31
@@ -5072,7 +5066,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %17, %15
 31:                                               ; preds = %29, %27, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i
   %32 = load ptr, ptr %0, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 34, ptr %5, align 1, !tbaa !26
   %34 = load ptr, ptr %33, align 8, !tbaa !65
   %35 = getelementptr i8, ptr %34, i64 -24
@@ -5093,12 +5087,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %17, %15
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit5.i: ; preds = %42, %40
   %.0.i4.i = phi ptr [ %41, %40 ], [ %33, %42 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = load ptr, ptr %1, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !25
   %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i4.i, ptr noundef %44, i64 noundef %46)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 34, ptr %4, align 1, !tbaa !26
   %48 = load ptr, ptr %47, align 8, !tbaa !65
   %49 = getelementptr i8, ptr %48, i64 -24
@@ -5119,8 +5113,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit5.i: ; preds = %42, %4
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit8.i: ; preds = %56, %54
   %.0.i7.i = phi ptr [ %55, %54 ], [ %47, %56 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 93, ptr %3, align 1, !tbaa !26
   %58 = load ptr, ptr %.0.i7.i, align 8, !tbaa !65
   %59 = getelementptr i8, ptr %58, i64 -24
@@ -5140,7 +5134,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit8.i: ; preds = %56, %5
   br label %"_ZZN4Luau8toStringB5cxx11ERKNS_8TypePath4PathEbENK3$_0clIRKNS0_8PropertyEEEDaOT_.exit"
 
 "_ZZN4Luau8toStringB5cxx11ERKNS_8TypePath4PathEbENK3$_0clIRKNS0_8PropertyEEEDaOT_.exit": ; preds = %64, %66
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !95
   store i8 0, ptr %69, align 1, !tbaa !48
@@ -5154,7 +5148,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 91, ptr %4, align 1, !tbaa !26
   %8 = load ptr, ptr %7, align 8, !tbaa !65
   %9 = getelementptr i8, ptr %8, i64 -24
@@ -5175,8 +5169,8 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %16, %14
   %.0.i.i = phi ptr [ %15, %14 ], [ %7, %16 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load i64, ptr %1, align 8, !tbaa !31
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %19 = icmp ult i64 %18, 10
@@ -5284,7 +5278,7 @@ _ZNSt7__cxx119to_stringEm.exit.i:                 ; preds = %67, %59
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i unwind label %91
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i: ; preds = %_ZNSt7__cxx119to_stringEm.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 93, ptr %3, align 1, !tbaa !26
   %74 = load ptr, ptr %73, align 8, !tbaa !65
   %75 = getelementptr i8, ptr %74, i64 -24
@@ -5304,7 +5298,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
           to label %84 unwind label %91
 
 84:                                               ; preds = %82, %80
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %85 = load ptr, ptr %5, align 8, !tbaa !22
   %86 = icmp eq ptr %85, %36
   br i1 %86, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -5341,11 +5335,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %92
 
 "_ZZN4Luau8toStringB5cxx11ERKNS_8TypePath4PathEbENK3$_0clIRKNS0_5IndexEEEDaOT_.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !95
   store i8 0, ptr %100, align 1, !tbaa !48
@@ -5371,7 +5365,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
 13:                                               ; preds = %8, %2
   %14 = load ptr, ptr %0, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 46, ptr %3, align 1, !tbaa !26
   %16 = load ptr, ptr %15, align 8, !tbaa !65
   %17 = getelementptr i8, ptr %16, i64 -24
@@ -5391,7 +5385,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %24, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
 
 26:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i, %8
@@ -5483,7 +5477,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
 13:                                               ; preds = %8, %2
   %14 = load ptr, ptr %0, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 46, ptr %3, align 1, !tbaa !26
   %16 = load ptr, ptr %15, align 8, !tbaa !65
   %17 = getelementptr i8, ptr %16, i64 -24
@@ -5503,7 +5497,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_8toStringB5cxx11ERKNS_8TypePath4P
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %24, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
 
 26:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i, %8
@@ -5608,7 +5602,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_L8traverseERNS_12_GLOBAL__N_114Tr
   ]
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4Luau5beginEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %7, ptr noundef nonnull %25)
   %26 = load i64, ptr %2, align 8, !tbaa !31
   %.not1.i.i.i.i = icmp eq i64 %26, 0
@@ -5684,7 +5678,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit.i.i.i.i: ; preds = %_ZN4Luau8Vec
   br i1 %.not.i.i77.i.i, label %_ZSt7advanceIN4Luau12TypeIteratorINS0_9UnionTypeEEEmEvRT_T0_.exit.i.i, label %30, !llvm.loop !122
 
 _ZSt7advanceIN4Luau12TypeIteratorINS0_9UnionTypeEEEmEvRT_T0_.exit.i.i: ; preds = %.noexc78.i.i, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN4Luau3endEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %8, ptr noundef nonnull %25)
           to label %61 unwind label %131
 
@@ -5737,7 +5731,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i.i: ; preds = %89, %86
   %92 = load i64, ptr %91, align 8, !tbaa !121
   %93 = shl i64 %92, 4
   call void @_ZdlPvm(ptr noundef %90, i64 noundef %93) #28
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.0.i.i.i.i, label %.critedge66.i.i, label %94
 
 94:                                               ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i.i
@@ -5763,7 +5757,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i.i: ; preds = %89, %86
           to label %_ZN4Luau12TypeIteratorINS_9UnionTypeEEdeEv.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 _ZN4Luau12TypeIteratorINS_9UnionTypeEEdeEv.exit.i.i: ; preds = %.noexc80.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %103)
           to label %.noexc83.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
@@ -5828,7 +5822,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i.i.i: ; preds = 
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body.i.i
 
 .loopexit.i.i:                                    ; preds = %34
@@ -5849,11 +5843,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %1
 131:                                              ; preds = %_ZSt7advanceIN4Luau12TypeIteratorINS0_9UnionTypeEEEmEvRT_T0_.exit.i.i
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body.i.i
 
 133:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %135 = load ptr, ptr %134, align 8, !tbaa !125
   %.not.i.i.i84.i.i = icmp eq ptr %135, null
@@ -5870,17 +5864,17 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit85.i.i: ; preds = %136, %133
   %139 = load i64, ptr %138, align 8, !tbaa !121
   %140 = shl i64 %139, 4
   call void @_ZdlPvm(ptr noundef %137, i64 noundef %140) #28
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 .body.i.i:                                        ; preds = %131, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i
   %.pn62.i.i = phi { ptr, i32 } [ %132, %131 ], [ %123, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit138.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp139.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
   call void @_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #29
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume.i.i
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4Luau5beginEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.86") align 8 %9, ptr noundef nonnull %25)
   %141 = load i64, ptr %2, align 8, !tbaa !31
   %.not1.i.i87.i.i = icmp eq i64 %141, 0
@@ -5956,7 +5950,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEppEv.exit.i.i.i.i: ; preds = %_ZN4
   br i1 %.not.i.i93.i.i, label %_ZSt7advanceIN4Luau12TypeIteratorINS0_16IntersectionTypeEEEmEvRT_T0_.exit.i.i, label %145, !llvm.loop !138
 
 _ZSt7advanceIN4Luau12TypeIteratorINS0_16IntersectionTypeEEEmEvRT_T0_.exit.i.i: ; preds = %.noexc95.i.i, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN4Luau3endEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.86") align 8 %10, ptr noundef nonnull %25)
           to label %176 unwind label %246
 
@@ -6009,7 +6003,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit.i.i: ; preds = %204, %20
   %207 = load i64, ptr %206, align 8, !tbaa !137
   %208 = shl i64 %207, 4
   call void @_ZdlPvm(ptr noundef %205, i64 noundef %208) #28
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.0.i.i98.i.i, label %.critedge68.i.i, label %209
 
 209:                                              ; preds = %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit.i.i
@@ -6035,7 +6029,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit.i.i: ; preds = %204, %20
           to label %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEEdeEv.exit.i.i unwind label %.loopexit.split-lp142.loopexit.split-lp.i.i
 
 _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEdeEv.exit.i.i: ; preds = %.noexc104.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %219 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %218)
           to label %.noexc112.i.i unwind label %.loopexit.split-lp142.loopexit.split-lp.i.i
 
@@ -6100,7 +6094,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i111.i.i: ; preds
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i107.i.i: ; preds = %237
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body113.i.i
 
 .loopexit141.i.i:                                 ; preds = %149
@@ -6121,11 +6115,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i107.i.i: ; preds =
 246:                                              ; preds = %_ZSt7advanceIN4Luau12TypeIteratorINS0_16IntersectionTypeEEEmEvRT_T0_.exit.i.i
   %247 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body113.i.i
 
 248:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i111.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %249 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %250 = load ptr, ptr %249, align 8, !tbaa !141
   %.not.i.i.i116.i.i = icmp eq ptr %250, null
@@ -6142,13 +6136,13 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit117.i.i: ; preds = %251, 
   %254 = load i64, ptr %253, align 8, !tbaa !137
   %255 = shl i64 %254, 4
   call void @_ZdlPvm(ptr noundef %252, i64 noundef %255) #28
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 .body113.i.i:                                     ; preds = %246, %.loopexit.split-lp142.loopexit.split-lp.i.i, %.loopexit.split-lp142.loopexit.i.i, %.loopexit141.i.i, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i107.i.i
   %.pn58.i.i = phi { ptr, i32 } [ %247, %246 ], [ %238, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i107.i.i ], [ %lpad.loopexit143.i.i, %.loopexit141.i.i ], [ %lpad.loopexit145.i.i, %.loopexit.split-lp142.loopexit.i.i ], [ %lpad.loopexit.split-lp146.i.i, %.loopexit.split-lp142.loopexit.split-lp.i.i ]
   call void @_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #29
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume.i.i
 
 .critedge68.i.i:                                  ; preds = %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit.i.i
@@ -6168,7 +6162,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit119.i.i: ; preds = %258, 
   %261 = load i64, ptr %260, align 8, !tbaa !137
   %262 = shl i64 %261, 4
   call void @_ZdlPvm(ptr noundef %259, i64 noundef %262) #28
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 .critedge66.i.i:                                  ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i.i
@@ -6188,7 +6182,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit121.i.i: ; preds = %265, %.crited
   %268 = load i64, ptr %267, align 8, !tbaa !121
   %269 = shl i64 %268, 4
   call void @_ZdlPvm(ptr noundef %266, i64 noundef %269) #28
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 common.resume.i.i:                                ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i124.i.i, %.body113.i.i, %.body.i.i
@@ -6204,11 +6198,11 @@ common.resume.i.i:                                ; preds = %_ZN4Luau7VariantIJP
   br i1 %273, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i, label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i: ; preds = %271
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4Luau5beginEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %11, ptr noundef nonnull %21)
   %274 = load i64, ptr %2, align 8, !tbaa !31
   %.not150.i.i = icmp eq i64 %274, 0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %.not150.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i, %279
@@ -6216,19 +6210,19 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i: ; preds = %271
   %275 = load ptr, ptr %20, align 8, !tbaa !81
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %12, ptr noundef %275)
   %276 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %276, label %279, label %.loopexit148.i.i
 
 .critedge.i.i:                                    ; preds = %279, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit148.i.i
 
 .loopexit148.i.i:                                 ; preds = %.lr.ph.i.i, %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %277 = load ptr, ptr %20, align 8, !tbaa !81
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %13, ptr noundef %277)
   %278 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %278, label %284, label %.critedge74.i.i
 
 279:                                              ; preds = %.lr.ph.i.i
@@ -6236,13 +6230,13 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.i.i: ; preds = %271
   %281 = add nuw i64 %.0149.i.i, 1
   %282 = load i64, ptr %2, align 8, !tbaa !31
   %283 = icmp ult i64 %281, %282
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %283, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !147
 
 284:                                              ; preds = %.loopexit148.i.i
   %285 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau16TypePackIteratordeEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
   %286 = load ptr, ptr %285, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %287 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %286)
   store i32 0, ptr %4, align 8, !tbaa !69
   %288 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6304,16 +6298,16 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i128.i.i: ; preds
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i124.i.i: ; preds = %305
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume.i.i
 
 _ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit129.i.i: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i128.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 .critedge74.i.i:                                  ; preds = %.loopexit148.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit": ; preds = %3, %22, %23, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit85.i.i, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit117.i.i, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit119.i.i, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit121.i.i, %270, %271, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit129.i.i, %.critedge74.i.i
@@ -6370,7 +6364,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_L8traverseERNS_12_GLOBAL__N_114Tr
 _ZN4Luau3getINS_13MetatableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i: ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %23)
   store i32 0, ptr %8, align 8, !tbaa !69
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6436,11 +6430,11 @@ common.resume.i.i:                                ; preds = %_ZN4Luau7VariantIJP
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume.i.i
 
 51:                                               ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 52:                                               ; preds = %13
@@ -6484,7 +6478,7 @@ _ZN4Luau3getINS_8FreeTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE
   %.in68.v.i.i = select i1 %70, i64 40, i64 48
   %.in68.i.i = getelementptr inbounds nuw i8, ptr %66, i64 %.in68.v.i.i
   %71 = load ptr, ptr %.in68.i.i, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %71)
   store i32 0, ptr %7, align 8, !tbaa !69
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6546,11 +6540,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i91.i.i: ; preds 
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i87.i.i: ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume.i.i
 
 99:                                               ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i91.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 100:                                              ; preds = %13, %13
@@ -6630,7 +6624,7 @@ _ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEb
   %.in.idx.i.i = select i1 %136, i64 0, i64 8
   %.in.i.i = getelementptr inbounds nuw i8, ptr %.045.ph.i.i, i64 %.in.idx.i.i
   %137 = load ptr, ptr %.in.i.i, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %138 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %137)
   store i32 0, ptr %6, align 8, !tbaa !69
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6692,11 +6686,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i111.i.i: ; preds
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i107.i.i: ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume.i.i
 
 _ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit112.i.i: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i111.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 165:                                              ; preds = %13
@@ -6718,7 +6712,7 @@ _ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit112.i.i: ;
 _ZN4Luau3getINS_12NegationTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i: ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !158
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %175 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %174)
   store i32 0, ptr %5, align 8, !tbaa !69
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6780,11 +6774,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i121.i.i: ; preds
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i117.i.i: ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume.i.i
 
 202:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i121.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 203:                                              ; preds = %13
@@ -6806,7 +6800,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i117.i.i: ; preds =
 _ZN4Luau3getINS_16VariadicTypePackETnNSt9enable_ifIXsr15TypePackVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i: ; preds = %208
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %212 = load ptr, ptr %211, align 8, !tbaa !160
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %213 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %212)
   store i32 0, ptr %4, align 8, !tbaa !69
   %214 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6868,11 +6862,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i131.i.i: ; preds
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i127.i.i: ; preds = %231
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume.i.i
 
 240:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i131.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit": ; preds = %3, %13, %14, %16, %19, %51, %52, %54, %.critedge.i.i, %62, %64, %67, %99, %100, %102, %105, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i, %124, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit102.i.i, %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit112.i.i, %165, %167, %170, %202, %203, %205, %208, %240
@@ -6925,7 +6919,7 @@ _ZN4Luau3getINS_12FunctionTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT
   %.in.v.i.i = select i1 %21, i64 224, i64 232
   %.in.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %.in.v.i.i
   %22 = load ptr, ptr %.in.i.i, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %22)
   store i32 1, ptr %5, align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6991,11 +6985,11 @@ common.resume.i.i:                                ; preds = %_ZN4Luau7VariantIJP
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume.i.i
 
 50:                                               ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit"
 
 51:                                               ; preds = %12
@@ -7005,23 +6999,23 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %4
   br i1 %.not.i.i, label %54, label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit"
 
 54:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %55 = load ptr, ptr %53, align 8, !tbaa !81
   call void @_ZN4Luau5beginEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %6, ptr noundef %55)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %56 = load ptr, ptr %53, align 8, !tbaa !81
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %56)
   %57 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %54, %.lr.ph.i.i
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau16TypePackIteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %59 = load ptr, ptr %53, align 8, !tbaa !81
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %59)
   %60 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !162
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %54
@@ -7032,7 +7026,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %4
 
 64:                                               ; preds = %._crit_edge.i.i
   %65 = extractvalue { ptr, i8 } %61, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %65)
   store i32 1, ptr %4, align 8, !tbaa !69
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7094,16 +7088,16 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i28.i.i: ; preds 
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i24.i.i: ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume.i.i
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit"
 
 93:                                               ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i28.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit": ; preds = %3, %12, %13, %15, %18, %50, %51, %.critedge.i.i, %93
@@ -7126,7 +7120,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_L8traverseERNS_12_GLOBAL__N_114Tr
   br i1 %.not.i.i, label %9, label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9ReductionEEEDaOT_.exit"
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val3)
   store i32 0, ptr %4, align 8, !tbaa !69
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7189,11 +7183,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i.i.i: ; preds = 
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i.i.i: ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %30
 
 _ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit.i.i: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9ReductionEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9ReductionEEEDaOT_.exit": ; preds = %3, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit.i.i
@@ -7319,12 +7313,12 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyES
 
 _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %18
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !69
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %17, ptr %47, align 8, !tbaa !71
   %48 = load ptr, ptr %46, align 8, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %48)
           to label %.noexc unwind label %79
 
@@ -7389,11 +7383,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i: ; preds = %.no
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i: ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 76:                                               ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %77 = invoke fastcc noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_114TraversalState8traverseERKNS_8TypePath8PropertyE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %1)
           to label %78 unwind label %79
 
@@ -7422,7 +7416,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i: ; preds = %67
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit: ; preds = %.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 88:                                               ; preds = %78
@@ -7445,7 +7439,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit: ; preds = %.body
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit72: ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge65.thread
 
 .critedge:                                        ; preds = %78
@@ -7464,7 +7458,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit72: ; preds = %90
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit73: ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge67
 
 .critedge65:                                      ; preds = %18
@@ -7484,7 +7478,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit73: ; preds = %.crite
 
 112:                                              ; preds = %.critedge65.thread
   %113 = extractvalue { ptr, i8 } %109, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %114 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %113)
   store i32 0, ptr %4, align 8, !tbaa !69
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7550,12 +7544,12 @@ common.resume:                                    ; preds = %_ZN4Luau7VariantIJP
   resume { ptr, i32 } %common.resume.op
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i75: ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 141:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %142, ptr %8, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %142, ptr noundef nonnull align 1 dereferenceable(7) @.str.73, i64 7, i1 false)
@@ -7611,7 +7605,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %149, label %177, label %.critedge67
 
 163:                                              ; preds = %141
@@ -7651,7 +7645,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i88
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 177:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -7682,7 +7676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 
 189:                                              ; preds = %.thread133, %183
   %.sroa.098.0136 = phi ptr [ %182, %.thread133 ], [ %.sroa.098.0.copyload, %183 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %190 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.sroa.098.0136)
   store i32 0, ptr %3, align 8, !tbaa !69
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7744,11 +7738,11 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95: ; preds = %.
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91: ; preds = %208
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 .thread137:                                       ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge67
 
 .critedge67:                                      ; preds = %183, %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.critedge65.thread, %.thread137, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit73, %11, %2
@@ -7761,7 +7755,7 @@ declare noundef ptr @_ZN4Luau15lookupClassPropEPKNS_9ClassTypeERKNSt7__cxx1112ba
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Luau::Variant.14", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %1)
   store i32 0, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7807,7 +7801,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit: ; preds = %.noex
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 23:                                               ; preds = %.noexc, %6
@@ -7828,14 +7822,14 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit: ; preds = %_ZN4Luau
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Luau::Variant.14", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 8, !tbaa !69
   store i32 %4, ptr %3, align 8, !tbaa !69
   %5 = sext i32 %4 to i64
@@ -7881,7 +7875,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit: ; preds = %2, %.
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit: ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 27:                                               ; preds = %.noexc, %10
@@ -7902,7 +7896,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit: ; preds = %_ZN4Luau
   unreachable
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4: ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -9291,7 +9285,7 @@ _ZSt13move_backwardIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9Type
   %.015.i.i.i.i.i = phi i64 [ %75, %.lr.ph.i.i.i.i.i52 ], [ %111, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i ]
   %.0814.i.i.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i.i.i52 ], [ %110, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i ]
   %.0913.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i52 ], [ %109, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load i32, ptr %.0913.i.i.i.i.i, align 8, !tbaa !11
   store i32 %78, ptr %6, align 8, !tbaa !11
   %79 = sext i32 %78 to i64
@@ -9353,11 +9347,11 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i: ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i: ; preds = %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSEOS7_.exit.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %109 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i.i, i64 48
   %110 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i.i.i, i64 48
   %111 = add nsw i64 %.015.i.i.i.i.i, -1
@@ -9539,7 +9533,7 @@ _ZSt22__uninitialized_move_aIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexE
   %.015.i.i.i.i.i71 = phi i64 [ %174, %.lr.ph.i.i.i.i.i70 ], [ %210, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i78 ]
   %.0814.i.i.i.i.i72 = phi ptr [ %1, %.lr.ph.i.i.i.i.i70 ], [ %209, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i78 ]
   %.0913.i.i.i.i.i73 = phi ptr [ %2, %.lr.ph.i.i.i.i.i70 ], [ %208, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i78 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %177 = load i32, ptr %.0913.i.i.i.i.i73, align 8, !tbaa !11
   store i32 %177, ptr %5, align 8, !tbaa !11
   %178 = sext i32 %177 to i64
@@ -9601,11 +9595,11 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i75: ; preds = %199
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSERKS7_.exit.i.i.i.i.i78: ; preds = %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSEOS7_.exit.i.i.i.i.i.i77
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %208 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i.i73, i64 48
   %209 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i.i.i72, i64 48
   %210 = add nsw i64 %.015.i.i.i.i.i71, -1
@@ -10754,6 +10748,12 @@ define internal void @_GLOBAL__sub_I_TypePath.cpp() #22 section ".text.startup" 
   store ptr @_ZN5DFInt32LuauTypePathMaximumTraverseStepsE, ptr @_ZN4Luau6FValueIiE4listE, align 8, !tbaa !195
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23

@@ -31,7 +31,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h5688dd8e349d3d85E(p
   %.16 = select i1 %.not, ptr %14, ptr %0
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -101,7 +101,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h5688dd8e349d3d85E(p
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$8merge_up17h50c67037c9c9817aE.exit": ; preds = %._crit_edge.i, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h5833cc823ed4ca2dE.exit"
   call void @"_ZN4core3ptr116drop_in_place$LT$core..slice..sort..stable..merge..MergeState$LT$ruff_annotate_snippets..snippet..Annotation$GT$$GT$17h97b57bef310ded4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 46:                                               ; preds = %10, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$8merge_up17h50c67037c9c9817aE.exit"
@@ -129,7 +129,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h75756be81e20cc09E(p
   %.16 = select i1 %.not, ptr %14, ptr %0
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -203,7 +203,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h75756be81e20cc09E(p
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$8merge_up17h8f0a6a615c4aaf12E.exit": ; preds = %._crit_edge.i, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17hd22c1145834d9f15E.exit"
   call void @"_ZN4core3ptr144drop_in_place$LT$core..slice..sort..stable..merge..MergeState$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceAnnotation$GT$$GT$17had3cd3bceadbddf9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %50
 
 50:                                               ; preds = %10, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$8merge_up17h8f0a6a615c4aaf12E.exit"
@@ -231,7 +231,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hf6df2a2204cd94fdE(p
   %.16 = select i1 %.not, ptr %14, ptr %0
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -335,7 +335,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hf6df2a2204cd94fdE(p
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h2eb330d8e96ca868E.exit": ; preds = %.noexc22, %.noexc17
   call void @"_ZN4core3ptr164drop_in_place$LT$core..slice..sort..stable..merge..MergeState$LT$$LP$usize$C$$RF$ruff_annotate_snippets..renderer..display_list..DisplaySourceAnnotation$RP$$GT$$GT$17h37a43f5839944c11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
 
 57:                                               ; preds = %10, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h2eb330d8e96ca868E.exit"
@@ -383,7 +383,7 @@ define void @_ZN22ruff_annotate_snippets8renderer8Renderer5plain17h2db5a236f865a
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN22ruff_annotate_snippets8renderer8Renderer6styled17h7ad565d34ec5920fE(ptr dead_on_unwind noalias noundef writable writeonly sret([144 x i8]) align 8 captures(none) dereferenceable(144) initializes((0, 19), (22, 23), (26, 47), (50, 51), (54, 61), (64, 65), (68, 85), (88, 89), (92, 93), (96, 99), (102, 103), (106, 107), (110, 137)) %0) unnamed_addr #0 {
   %2 = alloca [144 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN22ruff_annotate_snippets8renderer10stylesheet10Stylesheet5plain17he42b09c30d3e73b6E(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(144) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %3, align 8
@@ -454,7 +454,7 @@ define void @_ZN22ruff_annotate_snippets8renderer8Renderer6styled17h7ad565d34ec5
   store ptr @anon.0a62b5931a7646b9bd024ac5b93665c3.0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 3, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -842,10 +842,10 @@ declare void @_ZN22ruff_annotate_snippets8renderer10stylesheet10Stylesheet5plain
 declare hidden void @_ZN22ruff_annotate_snippets8renderer12display_list11DisplayList3new17hc051cddd0cdb0f46E(ptr dead_on_unwind noalias noundef writable sret([56 x i8]) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 captures(none) dereferenceable(88), ptr noalias noundef readonly align 2 dereferenceable(112), i1 noundef zeroext, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8

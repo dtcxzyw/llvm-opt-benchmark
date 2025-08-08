@@ -44,16 +44,16 @@ define dso_local i32 @SDLTest_CompareSurfaces(ptr noundef %0, ptr noundef %1, i3
   %11 = alloca i8, align 1
   %12 = alloca [128 x i8], align 16
   %13 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %15
 
@@ -294,50 +294,44 @@ define dso_local i32 @SDLTest_CompareSurfaces(ptr noundef %0, ptr noundef %1, i3
 
 108:                                              ; preds = %._crit_edge121, %95, %27, %16, %14
   %.074 = phi i32 [ -2, %27 ], [ -1, %16 ], [ -1, %14 ], [ %.070.lcssa, %95 ], [ 0, %._crit_edge121 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.074
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare void @SDLTest_LogError(ptr noundef, ...) local_unnamed_addr #3
+declare void @SDLTest_LogError(ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_LockSurface(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_LockSurface(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ReadSurfacePixel(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ReadSurfacePixel(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetError() local_unnamed_addr #3
+declare ptr @SDL_GetError() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_UnlockSurface(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockSurface(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetPixelFormatName(i32 noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetPixelFormatName(i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @SDL_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare zeroext i1 @SDL_SaveBMP(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SaveBMP(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.anon], align 16
   %6 = alloca [149 x i8], align 16
   %7 = tail call i64 @llvm.umax.i64(i64 %1, i64 %3)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.14, ptr %5, align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %8, align 8
@@ -349,7 +343,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
   store ptr %2, ptr %11, align 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %3, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 149, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = icmp eq i64 %1, %3
   %14 = zext i1 %13 to i32
   %15 = tail call i32 (i32, ptr, ...) @SDLTest_AssertCheck(i32 noundef %14, ptr noundef nonnull @.str.16, i64 noundef %1, i64 noundef %3) #6
@@ -478,21 +472,27 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
 
 .loopexit:                                        ; preds = %79, %.critedge, %16
   %.173 = phi i32 [ 0, %16 ], [ 1, %.critedge ], [ 1, %79 ]
-  call void @llvm.lifetime.end.p0(i64 149, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.173
 }
 
-declare i32 @SDLTest_AssertCheck(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDLTest_AssertCheck(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @SDL_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @SDL_strlen(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_strlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @SDL_isprint(i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_isprint(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -501,10 +501,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

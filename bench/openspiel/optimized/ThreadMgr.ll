@@ -360,7 +360,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %43
 
 _ZNSt5mutex4lockEv.exit._crit_edge:               ; preds = %_ZNSt5mutex4lockEv.exit, %_ZNSt5mutex4lockEv.exit.preheader
   %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @mtx) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   store i64 1000000, ptr %40, align 8
   br label %59
@@ -377,7 +377,7 @@ _ZNSt5mutex4lockEv.exit._crit_edge:               ; preds = %_ZNSt5mutex4lockEv.
   br i1 %65, label %59, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !9
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %59, %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @mtx) #17
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit.preheader, label %._crit_edge, !llvm.loop !10
@@ -1267,10 +1267,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

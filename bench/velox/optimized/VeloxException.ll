@@ -224,8 +224,8 @@ catch:                                            ; preds = %catch.fallthrough
   %10 = load ptr, ptr %vfn, align 8
   %call = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp410)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp410)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 14, ptr %agg.tmp410, align 8
   %agg.tmp4.sroa.2.0.agg.tmp410.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp410, i64 8
   store ptr @.str, ptr %agg.tmp4.sroa.2.0.agg.tmp410.sroa_idx, align 8
@@ -237,8 +237,8 @@ catch:                                            ; preds = %catch.fallthrough
 
 invoke.cont6:                                     ; preds = %catch
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %agg.tmp2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp410)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp410)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   %call.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #17, !noalias !4
   %call1.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i, ptr noundef nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN8facebook5velox14VeloxUserErrorEEEvPv) #17, !noalias !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %call.i, align 8, !noalias !4
@@ -846,7 +846,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %state.i = alloca %"class.std::shared_ptr.15", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %state.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %state.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %state.i, i64 8
   %call5.i.i.i2.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #20, !noalias !12
@@ -944,8 +944,8 @@ lpad4.i:                                          ; preds = %invoke.cont2.i
   br label %ehcleanup.i
 
 if.end.i:                                         ; preds = %if.then.i.i.i, %invoke.cont5.i, %invoke.cont.i, %if.end8.i.i, %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp8.i.i), !noalias !15
   store i32 %exceptionType, ptr %exceptionType.i.i.i.i.i.i.i.i.i, align 8, !noalias !15
   %__sv.sroa.0.0.copyload.i.i.i.i = load i64, ptr %exceptionName, align 8, !noalias !15
   %__sv.sroa.2.0.__svt.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %exceptionName, i64 8
@@ -1005,9 +1005,9 @@ _ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i.i) #17, !noalias !15
   %isRetriable.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 280
   store i8 %frombool, ptr %isRetriable.i.i, align 8, !noalias !15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %state.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp8.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %state.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %state_.i, align 8
@@ -1024,7 +1024,7 @@ entry:
   %ref.tmp8.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %state.i = alloca %"class.std::shared_ptr.15", align 8
   %frombool = zext i1 %isRetriable to i8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %state.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %state.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %state.i, i64 8
   %call5.i.i.i2.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #20, !noalias !19
@@ -1063,8 +1063,8 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %elaborateMessage.i.i.i.i.i.i.i.i.i) #17, !noalias !19
   store ptr %call5.i.i.i2.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !16, !noalias !22
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %state.i, align 8, !alias.scope !16, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp8.i.i), !noalias !22
   store i32 %exceptionType, ptr %exceptionType.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %__sv.sroa.0.0.copyload.i.i.i.i = load i64, ptr %exceptionName, align 8, !noalias !22
   %__sv.sroa.2.0.__svt.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %exceptionName, i64 8
@@ -1112,7 +1112,7 @@ call3.i.i25.i.noexc.i:                            ; preds = %call3.i.i21.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i.i) #17, !noalias !22
   %isRetriable.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i, i64 280
   store i8 %frombool, ptr %isRetriable.i.i, align 8, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !22
   %1 = load ptr, ptr %e, align 8, !noalias !22
   store ptr %1, ptr %ref.tmp.i.i.i, align 8, !noalias !22
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -1142,10 +1142,10 @@ lpad.i:                                           ; preds = %.noexc.i, %call3.i.
   resume { ptr, i32 } %4
 
 _ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit: ; preds = %if.then.i2.i.i.i, %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %state.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp8.i.i), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %state.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %state_.i, align 8
@@ -2226,10 +2226,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

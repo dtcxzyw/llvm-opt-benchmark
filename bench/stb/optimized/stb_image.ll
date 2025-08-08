@@ -319,9 +319,6 @@ define void @stbi__stdio_skip(ptr noundef captures(none) %0, i32 noundef %1) #4 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -330,9 +327,6 @@ declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @stbi__stdio_eof(ptr noundef captures(none) %0) #4 {
@@ -355,7 +349,7 @@ define range(i32 0, 2) i32 @stbi__stdio_eof(ptr noundef captures(none) %0) #4 {
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @stbi__start_file(ptr noundef initializes((16, 56), (184, 188)) %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -410,7 +404,7 @@ stbi__start_callbacks.exit:                       ; preds = %22, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbi__rewind(ptr noundef captures(none) initializes((192, 208)) %0) local_unnamed_addr #8 {
+define void @stbi__rewind(ptr noundef captures(none) initializes((192, 208)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -423,30 +417,30 @@ define void @stbi__rewind(ptr noundef captures(none) initializes((192, 208)) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define ptr @stbi_failure_reason() local_unnamed_addr #9 {
+define ptr @stbi_failure_reason() local_unnamed_addr #8 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   %2 = load ptr, ptr %1, align 8, !tbaa !22
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__err(ptr noundef %0) local_unnamed_addr #11 {
+define noundef i32 @stbi__err(ptr noundef %0) local_unnamed_addr #10 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr %0, ptr %2, align 8, !tbaa !22
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__malloc(i64 noundef %0) local_unnamed_addr #12 {
+define noalias noundef ptr @stbi__malloc(i64 noundef %0) local_unnamed_addr #11 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #38
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @stbi__addsizes_valid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -612,7 +606,7 @@ stbi__mul2sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__malloc_mad2(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
+define noalias noundef ptr @stbi__malloc_mad2(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = or i32 %1, %0
   %or.cond.not.i.i = icmp sgt i32 %4, -1
   br i1 %or.cond.not.i.i, label %5, label %stbi__mad2sizes_valid.exit.thread
@@ -646,7 +640,7 @@ stbi__mad2sizes_valid.exit.thread:                ; preds = %3, %stbi__mul2sizes
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__malloc_mad3(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
+define noalias noundef ptr @stbi__malloc_mad3(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = or i32 %1, %0
   %or.cond.not.i.i = icmp sgt i32 %5, -1
   br i1 %or.cond.not.i.i, label %6, label %stbi__mad3sizes_valid.exit.thread
@@ -695,7 +689,7 @@ stbi__mad3sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__malloc_mad4(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #12 {
+define noalias noundef ptr @stbi__malloc_mad4(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = or i32 %1, %0
   %or.cond.not.i.i = icmp sgt i32 %6, -1
   br i1 %or.cond.not.i.i, label %7, label %stbi__mad4sizes_valid.exit.thread
@@ -824,22 +818,22 @@ define range(i32 0, 2) i32 @stbi__mul2shorts_valid(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbi_image_free(ptr noundef captures(none) %0) local_unnamed_addr #14 {
+define void @stbi_image_free(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   tail call void @free(ptr noundef %0) #37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_unnamed_addr #11 {
+define void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_unnamed_addr #10 {
   store i32 %0, ptr @stbi__vertically_flip_on_load_global, align 4, !tbaa !23
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_set_flip_vertically_on_load_thread(i32 noundef %0) local_unnamed_addr #11 {
+define void @stbi_set_flip_vertically_on_load_thread(i32 noundef %0) local_unnamed_addr #10 {
   %2 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__vertically_flip_on_load_local)
   store i32 %0, ptr %2, align 4, !tbaa !23
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__vertically_flip_on_load_set)
@@ -943,10 +937,10 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %58 = load ptr, ptr %57, align 8, !tbaa !15
   store ptr %58, ptr %13, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8, !tbaa !30
   %59 = call ptr @stbi__do_png(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %131
 
 60:                                               ; preds = %stbi__get8.exit.i.i
@@ -979,7 +973,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   br i1 %.not76, label %92, label %74
 
 74:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %8) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %8, i8 0, i64 34928, i1 false)
   %75 = call ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %3, i32 poison, ptr noundef null)
   %76 = icmp eq ptr %75, %0
@@ -1019,7 +1013,7 @@ stbi__gif_load.exit:                              ; preds = %77, %82, %84, %87
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !37
   call void @free(ptr noundef %91) #37
-  call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %8) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %131
 
 92:                                               ; preds = %70
@@ -1109,7 +1103,7 @@ stbi__gif_load.exit:                              ; preds = %77, %82, %84, %87
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__png_test(ptr noundef %0) local_unnamed_addr #2 {
@@ -1212,10 +1206,10 @@ stbi__check_png_header.exit:                      ; preds = %12, %45
 ; Function Attrs: nounwind uwtable
 define ptr @stbi__png_load(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__png, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !30
   %8 = call ptr @stbi__do_png(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %8
 }
 
@@ -1241,8 +1235,8 @@ define noundef ptr @stbi__bmp_load(ptr noundef %0, ptr noundef writeonly capture
   %10 = alloca [9 x i32], align 16
   %11 = alloca [256 x [4 x i8]], align 16
   %12 = alloca %struct.stbi__bmp_data, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #37
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 255, ptr %13, align 4, !tbaa !38
   %14 = call ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef nonnull %12)
@@ -2781,7 +2775,7 @@ stbi__get8.exit466:                               ; preds = %stbi__refill_buffer
 836:                                              ; preds = %.lr.ph534, %832
   %837 = phi i32 [ %835, %832 ], [ %831, %.lr.ph534 ]
   %838 = and i32 %837, %31
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   store i32 1, ptr %646, align 4
   store i32 2, ptr %647, align 4
@@ -2795,13 +2789,13 @@ stbi__get8.exit466:                               ; preds = %stbi__refill_buffer
   %843 = mul i32 %842, %841
   %844 = load i32, ptr %655, align 4, !tbaa !23
   %845 = ashr i32 %843, %844
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %846 = trunc i32 %845 to i8
   %847 = sext i32 %.4301532 to i64
   %848 = getelementptr inbounds i8, ptr %122, i64 %847
   store i8 %846, ptr %848, align 1, !tbaa !21
   %849 = and i32 %837, %33
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %9, i8 0, i64 36, i1 false)
   store i32 1, ptr %656, align 4
   store i32 2, ptr %657, align 4
@@ -2815,12 +2809,12 @@ stbi__get8.exit466:                               ; preds = %stbi__refill_buffer
   %854 = mul i32 %853, %852
   %855 = load i32, ptr %665, align 4, !tbaa !23
   %856 = ashr i32 %854, %855
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %857 = trunc i32 %856 to i8
   %858 = getelementptr i8, ptr %848, i64 1
   store i8 %857, ptr %858, align 1, !tbaa !21
   %859 = and i32 %837, %35
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %8, i8 0, i64 36, i1 false)
   store i32 1, ptr %666, align 4
   store i32 2, ptr %667, align 4
@@ -2834,7 +2828,7 @@ stbi__get8.exit466:                               ; preds = %stbi__refill_buffer
   %864 = mul i32 %863, %862
   %865 = load i32, ptr %675, align 4, !tbaa !23
   %866 = ashr i32 %864, %865
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %867 = trunc i32 %866 to i8
   %868 = add nsw i32 %.4301532, 3
   %869 = getelementptr i8, ptr %848, i64 2
@@ -2843,7 +2837,7 @@ stbi__get8.exit466:                               ; preds = %stbi__refill_buffer
 
 870:                                              ; preds = %836
   %871 = and i32 %837, %37
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   store i32 1, ptr %676, align 4
   store i32 2, ptr %677, align 4
@@ -2857,7 +2851,7 @@ stbi__get8.exit466:                               ; preds = %stbi__refill_buffer
   %876 = mul i32 %875, %874
   %877 = load i32, ptr %685, align 4, !tbaa !23
   %878 = ashr i32 %876, %877
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %879
 
 879:                                              ; preds = %836, %870
@@ -3037,8 +3031,8 @@ stbi__skip.exit476:                               ; preds = %.loopexit523, %901,
 
 .critedge:                                        ; preds = %610, %629, %139, %276, %79, %88, %942, %945, %939, %6, %stbi__malloc_mad3.exit.thread, %116, %27, %22
   %.0 = phi ptr [ null, %22 ], [ null, %27 ], [ null, %stbi__malloc_mad3.exit.thread ], [ null, %116 ], [ null, %6 ], [ null, %939 ], [ %.0290, %945 ], [ %.0290, %942 ], [ null, %88 ], [ null, %79 ], [ null, %276 ], [ null, %139 ], [ null, %629 ], [ null, %610 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #37
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
 
@@ -3059,7 +3053,7 @@ define range(i32 0, 2) i32 @stbi__gif_test(ptr noundef %0) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @stbi__gif_load(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__gif, align 8
-  call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %7, i8 0, i64 34928, i1 false)
   %8 = call ptr @stbi__gif_load_next(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %3, i32 poison, ptr noundef null)
   %9 = icmp eq ptr %8, %0
@@ -3099,7 +3093,7 @@ define ptr @stbi__gif_load(ptr noundef %0, ptr noundef writeonly captures(none) 
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   call void @free(ptr noundef %25) #37
-  call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -3708,7 +3702,7 @@ define range(i32 0, 2) i32 @stbi__pic_test(ptr noundef %0) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stbi__pic_load(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3895,7 +3889,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 
 90:                                               ; preds = %88, %stbi__malloc_mad3.exit.thread, %65, %stbi__at_eof.exit.thread54
   %.0 = phi ptr [ null, %stbi__at_eof.exit.thread54 ], [ %89, %88 ], [ null, %stbi__malloc_mad3.exit.thread ], [ null, %65 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -4529,8 +4523,8 @@ define noalias noundef ptr @stbi__hdr_load(ptr noundef %0, ptr noundef writeonly
   %8 = alloca ptr, align 8
   %9 = alloca [4 x i8], align 4
   %10 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = call ptr @stbi__hdr_gettoken(ptr noundef %0, ptr noundef nonnull %7)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %7, ptr noundef nonnull dereferenceable(11) @.str.101, i64 11)
   %.not = icmp eq i32 %bcmp, 0
@@ -4889,7 +4883,7 @@ stbi__hdr_convert.exit:                           ; preds = %156, %157, %159, %1
   br i1 %or.cond151, label %184, label %179
 
 179:                                              ; preds = %173
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %174, ptr %10, align 1, !tbaa !21
   %180 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %175, ptr %180, align 1, !tbaa !21
@@ -4900,7 +4894,7 @@ stbi__hdr_convert.exit:                           ; preds = %156, %157, %159, %1
   store i8 %182, ptr %183, align 1, !tbaa !21
   call void @stbi__hdr_convert(ptr noundef nonnull %62, ptr noundef nonnull %10, i32 noundef %spec.store.select)
   call void @free(ptr noundef %.0120224) #37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %87
 
 184:                                              ; preds = %173
@@ -5309,8 +5303,8 @@ stbi__hdr_convert.exit170:                        ; preds = %342, %343, %345, %3
 
 ._crit_edge226.thread:                            ; preds = %.preheader187, %260, %.thread, %83, %._crit_edge226, %stbi__malloc_mad2.exit.thread, %190, %63, %59, %52, %48, %.tail.thread, %27, %._crit_edge.thread, %13
   %.0 = phi ptr [ null, %13 ], [ null, %27 ], [ null, %.tail.thread ], [ null, %48 ], [ null, %52 ], [ null, %190 ], [ null, %stbi__malloc_mad2.exit.thread ], [ null, %63 ], [ null, %59 ], [ null, %._crit_edge.thread ], [ %62, %._crit_edge226 ], [ %62, %83 ], [ null, %.thread ], [ null, %260 ], [ %62, %.preheader187 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #37
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -6329,7 +6323,7 @@ stbi__get8.exit250:                               ; preds = %201, %204, %stbi__r
   %.pre.i259 = phi ptr [ %202, %201 ], [ %233, %stbi__refill_buffer.exit.i247 ], [ %199, %204 ]
   %234 = phi ptr [ %198, %201 ], [ %.sink.i.i248, %stbi__refill_buffer.exit.i247 ], [ %198, %204 ]
   %.0.i249 = phi i8 [ %203, %201 ], [ %232, %stbi__refill_buffer.exit.i247 ], [ 0, %204 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %235 = icmp ugt i8 %.0.i231, 7
   %236 = lshr i8 %.0.i249, 5
@@ -7071,12 +7065,12 @@ stbi__get8.exit294:                               ; preds = %491, %494, %stbi__r
 
 547:                                              ; preds = %.loopexit, %545, %385, %stbi__malloc_mad2.exit.thread, %335, %stbi__malloc_mad3.exit.thread, %261, %stbi__tga_get_comp.exit
   %.0 = phi ptr [ null, %335 ], [ null, %385 ], [ null, %stbi__malloc_mad2.exit.thread ], [ null, %stbi__malloc_mad3.exit.thread ], [ null, %261 ], [ null, %stbi__tga_get_comp.exit ], [ %546, %545 ], [ %267, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__convert_16_to_8(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #17 {
+define noalias noundef ptr @stbi__convert_16_to_8(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = mul nsw i32 %2, %1
   %6 = mul nsw i32 %5, %3
   %7 = sext i32 %6 to i64
@@ -7118,7 +7112,7 @@ define noalias noundef ptr @stbi__convert_16_to_8(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__convert_8_to_16(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #17 {
+define noalias noundef ptr @stbi__convert_8_to_16(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = mul nsw i32 %2, %1
   %6 = mul nsw i32 %5, %3
   %7 = shl nsw i32 %6, 1
@@ -7161,12 +7155,12 @@ define noalias noundef ptr @stbi__convert_8_to_16(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__vertical_flip(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
+define void @stbi__vertical_flip(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #17 {
   %5 = alloca [2048 x i8], align 16
   %6 = sext i32 %1 to i64
   %7 = sext i32 %3 to i64
   %8 = mul nsw i64 %7, %6
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = ashr i32 %2, 1
   %10 = icmp slt i32 %9, 1
   %.not32 = icmp eq i64 %8, 0
@@ -7209,12 +7203,12 @@ define void @stbi__vertical_flip(ptr noundef captures(none) %0, i32 noundef %1, 
   br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %4
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__vertical_flip_slices(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
+define void @stbi__vertical_flip_slices(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #17 {
   %6 = alloca [2048 x i8], align 16
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -7236,7 +7230,7 @@ define void @stbi__vertical_flip_slices(ptr noundef captures(none) %0, i32 nound
 .lr.ph.preheader.i:                               ; preds = %.lr.ph, %stbi__vertical_flip.exit.loopexit
   %.014 = phi ptr [ %29, %stbi__vertical_flip.exit.loopexit ], [ %0, %.lr.ph ]
   %.01213 = phi i32 [ %30, %stbi__vertical_flip.exit.loopexit ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph.preheader.i
@@ -7271,7 +7265,7 @@ define void @stbi__vertical_flip_slices(ptr noundef captures(none) %0, i32 nound
   br i1 %exitcond.not.i, label %stbi__vertical_flip.exit.loopexit, label %.lr.ph.i, !llvm.loop !113
 
 stbi__vertical_flip.exit.loopexit:                ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = getelementptr inbounds i8, ptr %.014, i64 %15
   %30 = add nuw nsw i32 %.01213, 1
   %exitcond.not = icmp eq i32 %30, %3
@@ -7285,7 +7279,7 @@ stbi__vertical_flip.exit.loopexit:                ; preds = %._crit_edge.i
 define ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stbi__result_info, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call ptr @stbi__load_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %7, i32 noundef 8)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %66, label %10
@@ -7380,7 +7374,7 @@ stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
   %48 = sext i32 %46 to i64
   %49 = sext i32 %45 to i64
   %50 = mul nsw i64 %48, %49
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = ashr i32 %47, 1
   %52 = icmp slt i32 %51, 1
   %.not32.i = icmp eq i64 %50, 0
@@ -7423,12 +7417,12 @@ stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
   br i1 %exitcond.not.i33, label %stbi__vertical_flip.exit, label %.lr.ph.i29, !llvm.loop !113
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i31, %44
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 66:                                               ; preds = %36, %39, %stbi__vertical_flip.exit, %5
   %.0 = phi ptr [ null, %5 ], [ %.020, %stbi__vertical_flip.exit ], [ %.020, %39 ], [ %.020, %36 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -7436,7 +7430,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i31, %4
 define ptr @stbi__load_and_postprocess_16bit(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stbi__result_info, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call ptr @stbi__load_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %7, i32 noundef 16)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %68, label %10
@@ -7533,7 +7527,7 @@ stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
   %50 = sext i32 %47 to i64
   %51 = sext i32 %49 to i64
   %52 = mul nsw i64 %51, %50
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = ashr i32 %48, 1
   %54 = icmp slt i32 %53, 1
   %.not32.i = icmp eq i64 %52, 0
@@ -7576,17 +7570,17 @@ stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
   br i1 %exitcond.not.i33, label %stbi__vertical_flip.exit, label %.lr.ph.i29, !llvm.loop !113
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i31, %45
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 68:                                               ; preds = %37, %40, %stbi__vertical_flip.exit, %5
   %.0 = phi ptr [ null, %5 ], [ %.020, %stbi__vertical_flip.exit ], [ %.020, %40 ], [ %.020, %37 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__float_postprocess(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #19 {
+define void @stbi__float_postprocess(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = alloca [2048 x i8], align 16
   %7 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__vertically_flip_on_load_set)
   %8 = load i32, ptr %7, align 4, !tbaa !23
@@ -7624,7 +7618,7 @@ define void @stbi__float_postprocess(ptr noundef captures(address_is_null) %0, p
   %22 = sext i32 %19 to i64
   %23 = sext i32 %21 to i64
   %24 = mul nsw i64 %23, %22
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = ashr i32 %20, 1
   %26 = icmp slt i32 %25, 1
   %.not32.i = icmp eq i64 %24, 0
@@ -7667,7 +7661,7 @@ define void @stbi__float_postprocess(ptr noundef captures(address_is_null) %0, p
   br i1 %exitcond.not.i, label %stbi__vertical_flip.exit, label %.lr.ph.i, !llvm.loop !113
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i, %17
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %40
 
 40:                                               ; preds = %stbi__vertical_flip.exit, %12, %9
@@ -7696,7 +7690,7 @@ define ptr @stbi_load(ptr noundef readonly captures(none) %0, ptr noundef captur
   br label %46
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -7760,7 +7754,7 @@ stbi__start_file.exit.i:                          ; preds = %32, %30
   br label %stbi_load_from_file.exit
 
 stbi_load_from_file.exit:                         ; preds = %stbi__start_file.exit.i, %38
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = call i32 @fclose(ptr noundef nonnull %7)
   br label %46
 
@@ -7772,7 +7766,7 @@ stbi_load_from_file.exit:                         ; preds = %stbi__start_file.ex
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_load_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -7836,7 +7830,7 @@ stbi__start_file.exit:                            ; preds = %26, %28
   br label %41
 
 41:                                               ; preds = %34, %stbi__start_file.exit
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %33
 }
 
@@ -7846,7 +7840,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_load_from_file_16(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -7910,7 +7904,7 @@ stbi__start_file.exit:                            ; preds = %26, %28
   br label %41
 
 41:                                               ; preds = %34, %stbi__start_file.exit
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %33
 }
 
@@ -7927,7 +7921,7 @@ define ptr @stbi_load_16(ptr noundef readonly captures(none) %0, ptr noundef cap
   br label %46
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -7991,7 +7985,7 @@ stbi__start_file.exit.i:                          ; preds = %32, %30
   br label %stbi_load_from_file_16.exit
 
 stbi_load_from_file_16.exit:                      ; preds = %stbi__start_file.exit.i, %38
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = call i32 @fclose(ptr noundef nonnull %7)
   br label %46
 
@@ -8003,7 +7997,7 @@ stbi_load_from_file_16.exit:                      ; preds = %stbi__start_file.ex
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -8021,14 +8015,14 @@ define ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr %14, ptr %16, align 8, !tbaa !16
   %17 = call ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !17
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -8077,14 +8071,14 @@ stbi__start_callbacks.exit:                       ; preds = %27, %29
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store ptr %.sink.i.i, ptr %33, align 8, !tbaa !15
   %34 = call ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %34
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -8102,14 +8096,14 @@ define ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr %14, ptr %16, align 8, !tbaa !16
   %17 = call ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_load_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !17
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -8158,7 +8152,7 @@ stbi__start_callbacks.exit:                       ; preds = %27, %29
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store ptr %.sink.i.i, ptr %33, align 8, !tbaa !15
   %34 = call ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %34
 }
 
@@ -8166,7 +8160,7 @@ stbi__start_callbacks.exit:                       ; preds = %27, %29
 define noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = alloca [2048 x i8], align 16
   %10 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %10) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -8225,7 +8219,7 @@ define noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef %1, pt
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i, %stbi__vertical_flip.exit.loopexit.i
   %.014.i = phi ptr [ %55, %stbi__vertical_flip.exit.loopexit.i ], [ %20, %.lr.ph.i ]
   %.01213.i = phi i32 [ %56, %stbi__vertical_flip.exit.loopexit.i ], [ 0, %.lr.ph.i ]
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i, %.lr.ph.preheader.i.i
@@ -8260,14 +8254,14 @@ define noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef %1, pt
   br i1 %exitcond.not.i.i, label %stbi__vertical_flip.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !113
 
 stbi__vertical_flip.exit.loopexit.i:              ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %55 = getelementptr inbounds i8, ptr %.014.i, i64 %41
   %56 = add nuw nsw i32 %.01213.i, 1
   %exitcond.not.i = icmp eq i32 %56, %30
   br i1 %exitcond.not.i, label %stbi__vertical_flip_slices.exit, label %.lr.ph.preheader.i.i, !llvm.loop !114
 
 stbi__vertical_flip_slices.exit:                  ; preds = %stbi__vertical_flip.exit.loopexit.i, %.lr.ph.i, %28, %26, %23
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %10) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %20
 }
 
@@ -8287,7 +8281,7 @@ define noundef ptr @stbi__load_gif_main(ptr noundef %0, ptr noundef captures(add
   br i1 %.not, label %120, label %16
 
 16:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %8) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %8, i8 0, i64 34928, i1 false)
   %.not91 = icmp eq ptr %1, null
   br i1 %.not91, label %18, label %17
@@ -8526,7 +8520,7 @@ stbi__load_gif_main_outofmem.exit109:             ; preds = %78, %86
 
 .critedge:                                        ; preds = %.thread, %stbi__load_gif_main_outofmem.exit, %119, %stbi__load_gif_main_outofmem.exit109, %stbi__load_gif_main_outofmem.exit105
   %.4 = phi ptr [ %.481, %119 ], [ null, %stbi__load_gif_main_outofmem.exit109 ], [ null, %stbi__load_gif_main_outofmem.exit105 ], [ null, %stbi__load_gif_main_outofmem.exit ], [ null, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %8) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %122
 
 120:                                              ; preds = %7
@@ -8584,7 +8578,7 @@ define noalias noundef ptr @stbi__loadf_main(ptr noundef %0, ptr noundef capture
   %26 = sext i32 %23 to i64
   %27 = sext i32 %25 to i64
   %28 = mul nsw i64 %27, %26
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = ashr i32 %24, 1
   %30 = icmp slt i32 %29, 1
   %.not32.i.i = icmp eq i64 %28, 0
@@ -8627,7 +8621,7 @@ define noalias noundef ptr @stbi__loadf_main(ptr noundef %0, ptr noundef capture
   br i1 %exitcond.not.i.i, label %stbi__vertical_flip.exit.i, label %.lr.ph.i.i, !llvm.loop !113
 
 stbi__vertical_flip.exit.i:                       ; preds = %._crit_edge.i.i, %21
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbi__float_postprocess.exit
 
 44:                                               ; preds = %5
@@ -8796,7 +8790,7 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -8814,14 +8808,14 @@ define noalias noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr %14, ptr %16, align 8, !tbaa !16
   %17 = call ptr @stbi__loadf_main(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !17
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -8870,7 +8864,7 @@ stbi__start_callbacks.exit:                       ; preds = %27, %29
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store ptr %.sink.i.i, ptr %33, align 8, !tbaa !15
   %34 = call ptr @stbi__loadf_main(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %34
 }
 
@@ -8887,7 +8881,7 @@ define noalias noundef ptr @stbi_loadf(ptr noundef readonly captures(none) %0, p
   br label %39
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -8936,7 +8930,7 @@ stbi_loadf_from_file.exit:                        ; preds = %30, %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr %.sink.i.i.i.i, ptr %36, align 8, !tbaa !15
   %37 = call noalias noundef ptr @stbi__loadf_main(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = call i32 @fclose(ptr noundef nonnull %7)
   br label %39
 
@@ -8948,7 +8942,7 @@ stbi_loadf_from_file.exit:                        ; preds = %30, %32
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -8997,14 +8991,14 @@ stbi__start_file.exit:                            ; preds = %26, %28
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr %.sink.i.i.i, ptr %32, align 8, !tbaa !15
   %33 = call ptr @stbi__loadf_main(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %33
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_is_hdr_from_memory(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -9022,7 +9016,7 @@ define range(i32 0, 2) i32 @stbi_is_hdr_from_memory(ptr noundef %0, i32 noundef 
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store ptr %10, ptr %12, align 8, !tbaa !16
   %13 = call i32 @stbi__hdr_test(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %13
 }
 
@@ -9035,7 +9029,7 @@ define range(i32 0, 2) i32 @stbi_is_hdr(ptr noundef readonly captures(none) %0) 
 
 4:                                                ; preds = %1
   %5 = tail call i64 @ftell(ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -9085,7 +9079,7 @@ stbi_is_hdr_from_file.exit:                       ; preds = %25, %27
   store ptr %.sink.i.i.i.i, ptr %31, align 8, !tbaa !15
   %32 = call i32 @stbi__hdr_test(ptr noundef nonnull %2)
   %33 = call i32 @fseek(ptr noundef nonnull %3, i64 noundef %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = call i32 @fclose(ptr noundef nonnull %3)
   br label %35
 
@@ -9098,7 +9092,7 @@ stbi_is_hdr_from_file.exit:                       ; preds = %25, %27
 define range(i32 0, 2) i32 @stbi_is_hdr_from_file(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -9148,7 +9142,7 @@ stbi__start_file.exit:                            ; preds = %23, %25
   store ptr %.sink.i.i.i, ptr %29, align 8, !tbaa !15
   %30 = call i32 @stbi__hdr_test(ptr noundef nonnull %2)
   %31 = call i32 @fseek(ptr noundef %0, i64 noundef %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %30
 }
 
@@ -9158,7 +9152,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_is_hdr_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !17
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -9207,31 +9201,31 @@ stbi__start_callbacks.exit:                       ; preds = %23, %25
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store ptr %.sink.i.i, ptr %29, align 8, !tbaa !15
   %30 = call i32 @stbi__hdr_test(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_ldr_to_hdr_gamma(float noundef %0) local_unnamed_addr #11 {
+define void @stbi_ldr_to_hdr_gamma(float noundef %0) local_unnamed_addr #10 {
   store float %0, ptr @stbi__l2h_gamma, align 4, !tbaa !88
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_ldr_to_hdr_scale(float noundef %0) local_unnamed_addr #11 {
+define void @stbi_ldr_to_hdr_scale(float noundef %0) local_unnamed_addr #10 {
   store float %0, ptr @stbi__l2h_scale, align 4, !tbaa !88
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_hdr_to_ldr_gamma(float noundef %0) local_unnamed_addr #11 {
+define void @stbi_hdr_to_ldr_gamma(float noundef %0) local_unnamed_addr #10 {
   %2 = fdiv float 1.000000e+00, %0
   store float %2, ptr @stbi__h2l_gamma_i, align 4, !tbaa !88
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_addr #11 {
+define void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_addr #10 {
   %2 = fdiv float 1.000000e+00, %0
   store float %2, ptr @stbi__h2l_scale_i, align 4, !tbaa !88
   ret void
@@ -10561,13 +10555,13 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #20
+declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #10
+declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   br label %.preheader66
 
@@ -10726,7 +10720,7 @@ define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__build_fast_ac(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define void @stbi__build_fast_ac(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   br label %5
@@ -12628,9 +12622,9 @@ define zeroext i8 @stbi__clamp(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #18 {
+define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
   %4 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %6
 
 .preheader:                                       ; preds = %129
@@ -12943,12 +12937,12 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   br i1 %exitcond223.not, label %241, label %133, !llvm.loop !172
 
 241:                                              ; preds = %133
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbi__idct_simd(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #22 {
+define void @stbi__idct_simd(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #21 {
   %4 = load <8 x i16>, ptr %2, align 16, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load <8 x i16>, ptr %5, align 16, !tbaa !21
@@ -13402,7 +13396,7 @@ stbi__get8.exit.thread:                           ; preds = %54, %stbi__get8.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbi__jpeg_reset(ptr noundef captures(none) initializes((18104, 18108), (18200, 18204), (18296, 18300), (18392, 18396), (18464, 18473), (18476, 18480), (18500, 18504), (18540, 18544)) %0) local_unnamed_addr #8 {
+define void @stbi__jpeg_reset(ptr noundef captures(none) initializes((18104, 18108), (18200, 18204), (18296, 18300), (18392, 18396), (18464, 18473), (18476, 18480), (18500, 18504), (18540, 18544)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18468
   store i32 0, ptr %2, align 4, !tbaa !155
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18464
@@ -13470,7 +13464,7 @@ define range(i32 0, 2) i32 @stbi__parse_entropy_coded_data(ptr noundef initializ
   br i1 %20, label %22, label %84
 
 22:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %24 = load i32, ptr %23, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 18080
@@ -13585,11 +13579,11 @@ define range(i32 0, 2) i32 @stbi__parse_entropy_coded_data(ptr noundef initializ
 
 .loopexit:                                        ; preds = %._crit_edge292.us, %77, %49, %.preheader.lr.ph, %22
   %.3 = phi i32 [ 1, %22 ], [ 1, %.preheader.lr.ph ], [ 1, %77 ], [ 0, %49 ], [ 1, %._crit_edge292.us ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread248
 
 84:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 18068
   %86 = load i32, ptr %85, align 4, !tbaa !187
   %87 = icmp sgt i32 %86, 0
@@ -13777,7 +13771,7 @@ define range(i32 0, 2) i32 @stbi__parse_entropy_coded_data(ptr noundef initializ
 
 .critedge:                                        ; preds = %._crit_edge288, %167, %.lr.ph280, %.preheader254.lr.ph, %84
   %.12 = phi i32 [ 1, %84 ], [ 1, %.preheader254.lr.ph ], [ 0, %.lr.ph280 ], [ 1, %167 ], [ 1, %._crit_edge288 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread248
 
 182:                                              ; preds = %1
@@ -14069,7 +14063,7 @@ define range(i32 0, 2) i32 @stbi__parse_entropy_coded_data(ptr noundef initializ
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__jpeg_dequantize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define void @stbi__jpeg_dequantize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -14463,7 +14457,7 @@ stbi__get8.exit148:                               ; preds = %86, %89, %stbi__ref
 
 135:                                              ; preds = %.lr.ph198, %stbi__build_fast_ac.exit
   %.2116196 = phi i32 [ %130, %.lr.ph198 ], [ %316, %stbi__build_fast_ac.exit ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %136 = load ptr, ptr %0, align 8, !tbaa !79
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 192
   %138 = load ptr, ptr %137, align 8, !tbaa !14
@@ -14787,7 +14781,7 @@ stbi__get8.exit166:                               ; preds = %242, %245, %stbi__r
 
 stbi__build_fast_ac.exit:                         ; preds = %315, %._crit_edge
   %316 = sub i32 %223, %219
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %317 = icmp sgt i32 %316, 0
   br i1 %317, label %135, label %._crit_edge199, !llvm.loop !214
 
@@ -15085,7 +15079,7 @@ stbi__get8.exit179:                               ; preds = %388, %391, %stbi__r
   br label %.critedge141
 
 .critedge141:                                     ; preds = %229, %226, %.critedge141.sink.split
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread.i, %459, %442, %437, %65, %78, %.critedge141, %469, %329, %328, %._crit_edge199, %._crit_edge204, %11, %9, %4
@@ -16952,7 +16946,7 @@ define noundef ptr @resample_row_1(ptr readnone captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #18 {
+define noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #17 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -16984,7 +16978,7 @@ define noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4) #18 {
+define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4) #17 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1, !tbaa !21
   br i1 %6, label %8, label %10
@@ -17077,7 +17071,7 @@ define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
+define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #17 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1, !tbaa !21
   %8 = load i8, ptr %2, align 1, !tbaa !21
@@ -17162,7 +17156,7 @@ define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #23 {
+define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #22 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1, !tbaa !21
   %8 = load i8, ptr %2, align 1, !tbaa !21
@@ -17336,7 +17330,7 @@ define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4) #18 {
+define noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4) #17 {
   %6 = icmp sgt i32 %3, 0
   %7 = icmp sgt i32 %4, 0
   %or.cond = and i1 %6, %7
@@ -17373,7 +17367,7 @@ define noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__YCbCr_to_RGB_row(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #18 {
+define void @stbi__YCbCr_to_RGB_row(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #17 {
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -17436,7 +17430,7 @@ define void @stbi__YCbCr_to_RGB_row(ptr noundef writeonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) #23 {
+define void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) #22 {
   %7 = icmp eq i32 %5, 4
   %8 = icmp sgt i32 %4, 7
   %or.cond = and i1 %7, %8
@@ -17818,9 +17812,9 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %exitcond.not.i.i300, label %stbi__cleanup_jpeg.exit, label %60, !llvm.loop !224
 
 76:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %77 = load i32, ptr %.pre, align 8, !tbaa !41
   %78 = add i32 %77, 3
   %79 = zext i32 %78 to i64
@@ -18670,8 +18664,8 @@ stbi__cleanup_jpeg.exit329:                       ; preds = %stbi__cleanup_jpeg.
 
 518:                                              ; preds = %134, %.thread334, %stbi__cleanup_jpeg.exit329, %514, %stbi__cleanup_jpeg.exit320
   %.3 = phi ptr [ null, %134 ], [ null, %stbi__cleanup_jpeg.exit320 ], [ %152, %514 ], [ %152, %stbi__cleanup_jpeg.exit329 ], [ null, %.thread334 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %7) #37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbi__cleanup_jpeg.exit
 
 stbi__cleanup_jpeg.exit:                          ; preds = %75, %35, %57, %14, %518, %10
@@ -18828,11 +18822,11 @@ define range(i32 0, 65536) i32 @stbi__bit_reverse(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) initializes((0, 1024)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) initializes((0, 1024)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [17 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #37
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %6 = icmp sgt i32 %2, 0
@@ -18997,13 +18991,13 @@ define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) init
 
 .loopexit70:                                      ; preds = %81, %.loopexit70.sink.split, %40
   %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %81 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %5) #37
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
   %2 = load ptr, ptr %0, align 8, !tbaa !279
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !282
@@ -19013,7 +19007,7 @@ define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i8 @stbi__zget8(ptr noundef captures(none) %0) local_unnamed_addr #25 {
+define zeroext i8 @stbi__zget8(ptr noundef captures(none) %0) local_unnamed_addr #24 {
   %2 = load ptr, ptr %0, align 8, !tbaa !279
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !282
@@ -19032,7 +19026,7 @@ define zeroext i8 @stbi__zget8(ptr noundef captures(none) %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__fill_bits(ptr noundef captures(none) %0) local_unnamed_addr #19 {
+define void @stbi__fill_bits(ptr noundef captures(none) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load i32, ptr %2, align 8, !tbaa !283
@@ -19080,7 +19074,7 @@ stbi__zget8.exit:                                 ; preds = %10, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @stbi__zreceive(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
+define range(i32 0, -2147483648) i32 @stbi__zreceive(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !284
   %5 = icmp slt i32 %4, %1
@@ -19142,7 +19136,7 @@ stbi__fill_bits.exit:                             ; preds = %stbi__zget8.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 65536) i32 @stbi__zhuffman_decode_slowpath(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define range(i32 -1, 65536) i32 @stbi__zhuffman_decode_slowpath(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !283
   %trunc.i.i = trunc i32 %4 to i16
@@ -19208,7 +19202,7 @@ define range(i32 -1, 65536) i32 @stbi__zhuffman_decode_slowpath(ptr noundef capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 65536) i32 @stbi__zhuffman_decode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
+define range(i32 -1, 65536) i32 @stbi__zhuffman_decode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !284
   %5 = icmp slt i32 %4, 16
@@ -19436,7 +19430,7 @@ define range(i32 0, 2) i32 @stbi__zexpand(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #26
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__parse_huffman_block(ptr noundef captures(none) %0) local_unnamed_addr #2 {
@@ -19791,13 +19785,13 @@ stbi__zexpand.exit.thread:                        ; preds = %stbi__zexpand.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__compute_huffman_codes(ptr noundef captures(none) %0) local_unnamed_addr #27 {
+define range(i32 0, 2) i32 @stbi__compute_huffman_codes(ptr noundef captures(none) %0) local_unnamed_addr #26 {
   %2 = alloca %struct.stbi__zhuffman, align 4
   %3 = alloca [455 x i8], align 16
   %4 = alloca [19 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %2) #37
-  call void @llvm.lifetime.start.p0(i64 455, ptr nonnull %3) #37
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !284
   %7 = icmp slt i32 %6, 5
@@ -20269,16 +20263,16 @@ stbi__zreceive.exit97:                            ; preds = %stbi__zget8.exit.i.
 
 .critedge:                                        ; preds = %155, %215, %121, %230, %227, %117, %225
   %.048 = phi i32 [ 0, %225 ], [ 0, %117 ], [ 0, %227 ], [ %234, %230 ], [ 0, %121 ], [ 0, %215 ], [ 0, %155 ]
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %4) #37
-  call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %3) #37
-  call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__parse_uncompressed_block(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !284
   %5 = and i32 %4, 7
@@ -20539,12 +20533,12 @@ stbi__zexpand.exit:                               ; preds = %._crit_edge.i
 
 stbi__zexpand.exit.thread:                        ; preds = %91, %118, %110, %107, %123, %79, %70, %49
   %.030 = phi i32 [ 0, %49 ], [ 0, %70 ], [ 0, %79 ], [ 1, %123 ], [ 0, %107 ], [ 0, %110 ], [ 0, %118 ], [ 0, %91 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.030
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__parse_zlib_header(ptr noundef captures(none) %0) local_unnamed_addr #28 {
+define range(i32 0, 2) i32 @stbi__parse_zlib_header(ptr noundef captures(none) %0) local_unnamed_addr #27 {
   %2 = load ptr, ptr %0, align 8, !tbaa !279
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !282
@@ -20839,7 +20833,7 @@ define range(i32 0, 2) i32 @stbi__do_zlib(ptr noundef captures(none) initializes
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %2 to i64
   %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #38
   %8 = icmp eq ptr %7, null
@@ -20885,14 +20879,14 @@ define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i3
 
 28:                                               ; preds = %19, %20, %4, %26
   %.0 = phi ptr [ null, %26 ], [ null, %4 ], [ %.pre, %20 ], [ %.pre, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #38
   %6 = icmp eq ptr %5, null
   br i1 %6, label %stbi_zlib_decode_malloc_guesssize.exit, label %7
@@ -20937,14 +20931,14 @@ define ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %3, %17, %18, %24
   %.0.i = phi ptr [ null, %24 ], [ null, %3 ], [ %.pre.i, %18 ], [ %.pre.i, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %2 to i64
   %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #38
   %9 = icmp eq ptr %8, null
@@ -20990,14 +20984,14 @@ define ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 nou
 
 29:                                               ; preds = %20, %21, %5, %27
   %.0 = phi ptr [ null, %27 ], [ null, %5 ], [ %.pre, %21 ], [ %.pre, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbi_zlib_decode_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !279
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -21022,14 +21016,14 @@ define i32 @stbi_zlib_decode_buffer(ptr noundef %0, i32 noundef %1, ptr noundef 
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
   %.0 = select i1 %.not, i32 -1, i32 %21
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #38
   %6 = icmp eq ptr %5, null
   br i1 %6, label %26, label %7
@@ -21074,14 +21068,14 @@ define ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %0, i32 noundef %1, ptr
 
 26:                                               ; preds = %17, %18, %3, %24
   %.0 = phi ptr [ null, %24 ], [ null, %3 ], [ %.pre, %18 ], [ %.pre, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbi_zlib_decode_noheader_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stbi__zbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !279
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -21106,7 +21100,7 @@ define i32 @stbi_zlib_decode_noheader_buffer(ptr noundef %0, i32 noundef %1, ptr
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
   %.0 = select i1 %.not, i32 -1, i32 %21
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -21235,7 +21229,7 @@ define i32 @stbi__paeth(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__create_png_alpha_expand8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
+define void @stbi__create_png_alpha_expand8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #17 {
   %5 = icmp eq i32 %3, 1
   %.030 = add i32 %2, -1
   %6 = icmp sgt i32 %.030, -1
@@ -22161,7 +22155,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #27 {
+define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #26 {
   %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = load i32, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22236,7 +22230,7 @@ define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__compute_transparency16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #27 {
+define noundef i32 @stbi__compute_transparency16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #26 {
   %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = load i32, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22424,19 +22418,19 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %4, %stbi__mul2sizes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_set_unpremultiply_on_load(i32 noundef %0) local_unnamed_addr #11 {
+define void @stbi_set_unpremultiply_on_load(i32 noundef %0) local_unnamed_addr #10 {
   store i32 %0, ptr @stbi__unpremultiply_on_load_global, align 4, !tbaa !23
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unnamed_addr #11 {
+define void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unnamed_addr #10 {
   store i32 %0, ptr @stbi__de_iphone_flag_global, align 4, !tbaa !23
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_set_unpremultiply_on_load_thread(i32 noundef %0) local_unnamed_addr #11 {
+define void @stbi_set_unpremultiply_on_load_thread(i32 noundef %0) local_unnamed_addr #10 {
   %2 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__unpremultiply_on_load_local)
   store i32 %0, ptr %2, align 4, !tbaa !23
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__unpremultiply_on_load_set)
@@ -22445,7 +22439,7 @@ define void @stbi_set_unpremultiply_on_load_thread(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbi_convert_iphone_png_to_rgb_thread(i32 noundef %0) local_unnamed_addr #11 {
+define void @stbi_convert_iphone_png_to_rgb_thread(i32 noundef %0) local_unnamed_addr #10 {
   %2 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__de_iphone_flag_local)
   store i32 %0, ptr %2, align 4, !tbaa !23
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__de_iphone_flag_set)
@@ -22454,7 +22448,7 @@ define void @stbi_convert_iphone_png_to_rgb_thread(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__de_iphone(ptr noundef readonly captures(none) %0) local_unnamed_addr #27 {
+define void @stbi__de_iphone(ptr noundef readonly captures(none) %0) local_unnamed_addr #26 {
   %2 = load ptr, ptr %0, align 8, !tbaa !30
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22586,10 +22580,10 @@ define range(i32 0, 2) i32 @stbi__parse_png_file(ptr noundef captures(none) init
   %6 = alloca [3 x i8], align 1
   %7 = alloca [3 x i16], align 2
   %8 = alloca [25 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #37
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = load ptr, ptr %0, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23701,7 +23695,7 @@ stbi__getn.exit.thread:                           ; preds = %.thread.i342, %stbi
   %522 = mul i32 %521, %518
   %523 = add i32 %522, %519
   %.not259 = icmp eq i32 %.0235, 0
-  call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %524 = sext i32 %523 to i64
   %525 = tail call noalias noundef ptr @malloc(i64 noundef %524) #38
   %526 = icmp eq ptr %525, null
@@ -23733,13 +23727,13 @@ stbi__getn.exit.thread:                           ; preds = %.thread.i342, %stbi
   br label %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread
 
 stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread: ; preds = %539, %513
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %10, align 8, !tbaa !335
   br label %.thread384
 
 stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %527
   %540 = load ptr, ptr %533, align 8, !tbaa !287
-  call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %538, ptr %10, align 8, !tbaa !335
   %541 = icmp eq ptr %538, null
   br i1 %541, label %.thread384, label %542
@@ -23862,10 +23856,10 @@ stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %527
   br i1 %598, label %599, label %601
 
 599:                                              ; preds = %596
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %8) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %600 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr %8, ptr %600, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %8) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread384
 
 601:                                              ; preds = %596
@@ -23931,9 +23925,9 @@ stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %527
 
 .thread384:                                       ; preds = %460, %95, %189, %234, %245, %251, %228, %222, %219, %186, %179, %.loopexit403, %115, %110, %98, %505, %511, %589, %507, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %542, %581, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %.thread374, %453, %454, %450, %stbi__getn.exit.thread, %458, %445, %410, %417, %414, %373, %368, %365, %361, %357, %263, %258, %254, %599, %594, %stbi__check_png_header.exit.thread, %stbi__check_png_header.exit
   %.0 = phi i32 [ 1, %stbi__check_png_header.exit ], [ 0, %stbi__check_png_header.exit.thread ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %581 ], [ 0, %542 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %507 ], [ 1, %589 ], [ 0, %511 ], [ 0, %505 ], [ 0, %.thread374 ], [ 1, %453 ], [ 1, %454 ], [ 0, %450 ], [ 0, %stbi__getn.exit.thread ], [ 0, %458 ], [ 0, %445 ], [ 0, %410 ], [ 1, %417 ], [ 0, %414 ], [ 0, %373 ], [ 0, %368 ], [ 1, %365 ], [ 0, %361 ], [ 0, %357 ], [ 0, %263 ], [ 0, %258 ], [ 0, %254 ], [ 0, %599 ], [ 0, %594 ], [ 0, %98 ], [ 0, %110 ], [ 0, %115 ], [ 0, %.loopexit403 ], [ 0, %179 ], [ 0, %186 ], [ 0, %219 ], [ 0, %222 ], [ 0, %228 ], [ 0, %251 ], [ 0, %245 ], [ 0, %234 ], [ 0, %189 ], [ 0, %95 ], [ 0, %460 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #37
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #37
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -24101,7 +24095,7 @@ define range(i32 0, 2) i32 @stbi__png_info_raw(ptr noundef captures(none) initia
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__png_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stbi__png, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !30
   %6 = call i32 @stbi__parse_png_file(ptr noundef nonnull %5, i32 noundef 2, i32 noundef 0)
   %.not.i = icmp eq i32 %6, 0
@@ -24153,14 +24147,14 @@ define range(i32 0, 2) i32 @stbi__png_info(ptr noundef %0, ptr noundef writeonly
 
 stbi__png_info_raw.exit:                          ; preds = %7, %24, %25
   %.0.i = phi i32 [ 0, %7 ], [ 1, %25 ], [ 1, %24 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__png_is16(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.stbi__png, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !30
   %3 = call i32 @stbi__parse_png_file(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 0)
   %.not.i = icmp ne i32 %3, 0
@@ -24184,7 +24178,7 @@ define range(i32 0, 2) i32 @stbi__png_is16(ptr noundef %0) local_unnamed_addr #2
 
 13:                                               ; preds = %1, %.sink.split
   %.0 = phi i32 [ 0, %.sink.split ], [ 1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -24410,7 +24404,7 @@ define range(i32 0, 64) i32 @stbi__bitcount(i32 noundef %0) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @stbi__shiftsigned(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [9 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %5, align 4
@@ -24434,12 +24428,12 @@ define i32 @stbi__shiftsigned(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
   %19 = getelementptr inbounds [9 x i32], ptr %4, i64 0, i64 %15
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = ashr i32 %18, %20
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stbi__bmp_set_mask_defaults(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbi__bmp_set_mask_defaults(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   switch i32 %1, label %14 [
     i32 3, label %15
     i32 0, label %3
@@ -24887,7 +24881,7 @@ stbi__bmp_set_mask_defaults.exit:                 ; preds = %.thread, %162, %160
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 0, 5) i32 @stbi__tga_get_comp(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
@@ -26285,7 +26279,7 @@ stbi__get8.exit:                                  ; preds = %stbi__at_eof.exit.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__copyval(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #18 {
+define void @stbi__copyval(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
   br label %4
 
 4:                                                ; preds = %3, %10
@@ -26317,7 +26311,7 @@ define noundef ptr @stbi__pic_load_core(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca [10 x %struct.stbi__pic_packet], align 16
   %7 = alloca [4 x i8], align 1
   %8 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -26794,7 +26788,7 @@ stbi__readval.exit:                               ; preds = %216
 221:                                              ; preds = %.lr.ph357, %stbi__readval.exit215._crit_edge
   %.0105356 = phi i32 [ %1, %.lr.ph357 ], [ %317, %stbi__readval.exit215._crit_edge ]
   %.1109355 = phi ptr [ %163, %.lr.ph357 ], [ %.3.lcssa, %stbi__readval.exit215._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %222 = load ptr, ptr %9, align 8, !tbaa !14
   %223 = load ptr, ptr %10, align 8, !tbaa !16
   %224 = icmp ult ptr %222, %223
@@ -27019,14 +27013,14 @@ stbi__copyval.exit:                               ; preds = %313
 stbi__readval.exit215._crit_edge:                 ; preds = %stbi__copyval.exit, %stbi__readval.exit215.preheader
   %.3.lcssa = phi ptr [ %.1109355, %stbi__readval.exit215.preheader ], [ %316, %stbi__copyval.exit ]
   %317 = sub nsw i32 %.0105356, %spec.select328
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %318 = icmp slt i32 %317, 1
   br i1 %318, label %.critedge, label %221, !llvm.loop !351
 
 stbi__at_eof.exit193.thread298:                   ; preds = %stbi__at_eof.exit193, %256, %stbi__at_eof.exit.i199, %272
   %319 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.90, ptr %319, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge160
 
 320:                                              ; preds = %.lr.ph350, %.loopexit
@@ -27125,7 +27119,7 @@ stbi__at_eof.exit229.thread:                      ; preds = %352, %stbi__at_eof.
   br i1 %362, label %363, label %486
 
 363:                                              ; preds = %stbi__at_eof.exit229.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %364 = icmp eq i8 %.0.i224, -128
   br i1 %364, label %365, label %424
 
@@ -27391,12 +27385,12 @@ stbi__copyval.exit262:                            ; preds = %481
 .thread316:                                       ; preds = %426, %stbi__at_eof.exit.i240, %439
   %485 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.90, ptr %485, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge160
 
 stbi__readval.exit256._crit_edge:                 ; preds = %stbi__copyval.exit262, %stbi__readval.exit256.preheader
   %.7.lcssa = phi ptr [ %.4348, %stbi__readval.exit256.preheader ], [ %484, %stbi__copyval.exit262 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 486:                                              ; preds = %stbi__at_eof.exit229.thread
@@ -27545,7 +27539,7 @@ stbi__readval.exit284:                            ; preds = %532
 
 .critedge160:                                     ; preds = %.critedge161, %stbi__readval.exit, %stbi__readval.exit284, %154, %151, %stbi__at_eof.exit.thread287, %22, %173, %stbi__readval.exit.thread, %stbi__at_eof.exit193.thread298, %stbi__at_eof.exit229.thread310, %488, %.thread316, %stbi__readval.exit284.thread
   %.2112 = phi ptr [ null, %stbi__readval.exit284.thread ], [ null, %.thread316 ], [ null, %488 ], [ null, %stbi__at_eof.exit229.thread310 ], [ null, %stbi__at_eof.exit193.thread298 ], [ null, %stbi__readval.exit.thread ], [ null, %173 ], [ null, %22 ], [ null, %stbi__at_eof.exit.thread287 ], [ null, %151 ], [ %4, %154 ], [ null, %stbi__readval.exit284 ], [ null, %stbi__readval.exit ], [ %4, %.critedge161 ]
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.2112
 }
 
@@ -28881,7 +28875,7 @@ define range(i32 0, 2) i32 @stbi__gif_info_raw(ptr noundef %0, ptr noundef write
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__out_gif_code(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #29 {
+define void @stbi__out_gif_code(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2100
   %4 = zext i16 %1 to i64
   %5 = getelementptr inbounds nuw [8192 x %struct.stbi__gif_lzw], ptr %3, i64 0, i64 %4
@@ -30381,7 +30375,7 @@ stbi__skip.exit222.thread:                        ; preds = %stbi__get8.exit, %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #30 {
+define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #29 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   tail call void @free(ptr noundef %5) #37
@@ -30856,7 +30850,7 @@ stbi__refill_buffer.exit.i30:                     ; preds = %129, %128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #31 {
+define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #30 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = load i8, ptr %4, align 1, !tbaa !21
   %.not = icmp eq i8 %5, 0
@@ -30956,17 +30950,17 @@ define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #20
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #32
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__hdr_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %1, null
   %.not17 = icmp eq ptr %2, null
   %.not18 = icmp eq ptr %3, null
@@ -31099,15 +31093,15 @@ sub_1:                                            ; preds = %43
 
 .cont22:                                          ; preds = %.else24, %.cont25, %.tail.thread, %32, %._crit_edge.thread, %12
   %.016 = phi i32 [ 0, %12 ], [ 0, %32 ], [ 0, %.tail.thread ], [ 0, %._crit_edge.thread ], [ 1, %.cont25 ], [ 1, %.else24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #37
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__bmp_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stbi__bmp_data, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 255, ptr %6, align 4, !tbaa !38
   %7 = call ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef nonnull %5)
@@ -31169,7 +31163,7 @@ define range(i32 0, 2) i32 @stbi__bmp_info(ptr noundef %0, ptr noundef writeonly
 
 33:                                               ; preds = %23, %31, %30, %9
   %.0 = phi i32 [ 0, %9 ], [ 1, %30 ], [ 1, %31 ], [ 1, %23 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -31952,7 +31946,7 @@ stbi__at_eof.exit89.thread:                       ; preds = %222, %stbi__at_eof.
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 17) i32 @stbi__pnm_info(ptr noundef initializes((192, 208)) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %1, null
   %.not30 = icmp eq ptr %2, null
   %.not31 = icmp eq ptr %3, null
@@ -32224,7 +32218,7 @@ stbi__get8.exit45.cont:                           ; preds = %stbi__get8.exit45, 
 
 139:                                              ; preds = %137, %135, %130, %125, %stbi__get8.exit39.thread
   %.0 = phi i32 [ 0, %stbi__get8.exit39.thread ], [ 0, %125 ], [ 0, %130 ], [ 0, %135 ], [ %., %137 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -32686,7 +32680,7 @@ stbi__jpeg_info.exit:                             ; preds = %8
   br label %32
 
 32:                                               ; preds = %stbi__jpeg_info.exit, %stbi__jpeg_info.exit.thread
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !30
   %33 = call i32 @stbi__parse_png_file(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 0)
   %.not.i.i44 = icmp eq i32 %33, 0
@@ -32725,7 +32719,7 @@ stbi__jpeg_info.exit:                             ; preds = %8
   br label %stbi__png_info.exit.thread
 
 stbi__png_info.exit.thread:                       ; preds = %44, %43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %111
 
 48:                                               ; preds = %32
@@ -32738,7 +32732,7 @@ stbi__png_info.exit.thread:                       ; preds = %44, %43
   %54 = load ptr, ptr %53, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 200
   store ptr %54, ptr %55, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #38
   %.not.i.i49 = icmp eq ptr %56, null
   br i1 %.not.i.i49, label %57, label %59
@@ -32789,7 +32783,7 @@ stbi__gif_info.exit:                              ; preds = %71, %72
   br label %111
 
 75:                                               ; preds = %61, %57
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 255, ptr %76, align 4, !tbaa !38
   %77 = call ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef nonnull %5)
@@ -32833,7 +32827,7 @@ stbi__bmp_info.exit.thread.sink.split:            ; preds = %86
   br label %stbi__bmp_info.exit.thread
 
 stbi__bmp_info.exit.thread:                       ; preds = %stbi__bmp_info.exit.thread.sink.split, %86
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %111
 
 93:                                               ; preds = %75
@@ -32845,7 +32839,7 @@ stbi__bmp_info.exit.thread:                       ; preds = %stbi__bmp_info.exit
   %98 = load ptr, ptr %97, align 8, !tbaa !15
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %98, ptr %99, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %100 = tail call i32 @stbi__psd_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not39 = icmp eq i32 %100, 0
   br i1 %.not39, label %101, label %111
@@ -32883,7 +32877,7 @@ stbi__bmp_info.exit.thread:                       ; preds = %stbi__bmp_info.exit
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__is_16_main(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.stbi__png, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !30
   %3 = call i32 @stbi__parse_png_file(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 0)
   %.not.i.i = icmp ne i32 %3, 0
@@ -32894,7 +32888,7 @@ define range(i32 0, 2) i32 @stbi__is_16_main(ptr noundef %0) local_unnamed_addr 
   br i1 %or.cond.i, label %stbi__png_is16.exit, label %6
 
 stbi__png_is16.exit:                              ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 6:                                                ; preds = %1
@@ -32907,7 +32901,7 @@ stbi__png_is16.exit:                              ; preds = %1
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr %12, ptr %13, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = tail call i32 @stbi__psd_is16(ptr noundef %0)
   %.not3 = icmp eq i32 %14, 0
   br i1 %.not3, label %15, label %17
@@ -32936,7 +32930,7 @@ define range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, pt
   br label %40
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call i64 @ftell(ptr noundef nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
@@ -32987,7 +32981,7 @@ stbi_info_from_file.exit:                         ; preds = %30, %32
   store ptr %.sink.i.i.i.i, ptr %36, align 8, !tbaa !15
   %37 = call i32 @stbi__info_main(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %38 = call i32 @fseek(ptr noundef nonnull %6, i64 noundef %10, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = call i32 @fclose(ptr noundef nonnull %6)
   br label %40
 
@@ -32999,7 +32993,7 @@ stbi_info_from_file.exit:                         ; preds = %30, %32
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i64 @ftell(ptr noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
@@ -33050,7 +33044,7 @@ stbi__start_file.exit:                            ; preds = %26, %28
   store ptr %.sink.i.i.i, ptr %32, align 8, !tbaa !15
   %33 = call i32 @stbi__info_main(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %34 = call i32 @fseek(ptr noundef %0, i64 noundef %6, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %33
 }
 
@@ -33079,7 +33073,7 @@ define range(i32 0, 2) i32 @stbi_is_16_bit(ptr noundef readonly captures(none) %
 define range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.stbi__png, align 8
   %3 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @ftell(ptr noundef %0)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false), !tbaa.struct !17
@@ -33128,7 +33122,7 @@ stbi__start_file.exit:                            ; preds = %24, %26
   store ptr %.sink.i.i.i, ptr %29, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store ptr %.sink.i.i.i, ptr %30, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !30
   %31 = call i32 @stbi__parse_png_file(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 0)
   %.not.i.i.i = icmp ne i32 %31, 0
@@ -33139,7 +33133,7 @@ stbi__start_file.exit:                            ; preds = %24, %26
   br i1 %or.cond.i.i, label %stbi__png_is16.exit.i, label %34
 
 stbi__png_is16.exit.i:                            ; preds = %stbi__start_file.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %stbi__is_16_main.exit
 
 34:                                               ; preds = %stbi__start_file.exit
@@ -33152,7 +33146,7 @@ stbi__png_is16.exit.i:                            ; preds = %stbi__start_file.ex
   %40 = load ptr, ptr %39, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 200
   store ptr %40, ptr %41, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = call i32 @stbi__psd_is16(ptr noundef nonnull %3)
   %.not3.i = icmp eq i32 %42, 0
   br i1 %.not3.i, label %43, label %stbi__is_16_main.exit
@@ -33166,14 +33160,14 @@ stbi__png_is16.exit.i:                            ; preds = %stbi__start_file.ex
 stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit.i, %34, %43
   %.0.i = phi i32 [ 1, %stbi__png_is16.exit.i ], [ 1, %34 ], [ %..i, %43 ]
   %45 = call i32 @fseek(ptr noundef %0, i64 noundef %4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -33191,14 +33185,14 @@ define range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 noundef %1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %13, ptr %15, align 8, !tbaa !16
   %16 = call i32 @stbi__info_main(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -33247,7 +33241,7 @@ stbi__start_callbacks.exit:                       ; preds = %26, %28
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr %.sink.i.i, ptr %32, align 8, !tbaa !15
   %33 = call i32 @stbi__info_main(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %33
 }
 
@@ -33255,7 +33249,7 @@ stbi__start_callbacks.exit:                       ; preds = %26, %28
 define range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.stbi__png, align 8
   %4 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -33272,7 +33266,7 @@ define range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0, i32 nound
   store ptr %11, ptr %12, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %11, ptr %13, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !30
   %14 = call i32 @stbi__parse_png_file(ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0)
   %.not.i.i.i = icmp ne i32 %14, 0
@@ -33283,7 +33277,7 @@ define range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0, i32 nound
   br i1 %or.cond.i.i, label %stbi__png_is16.exit.i, label %17
 
 stbi__png_is16.exit.i:                            ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %stbi__is_16_main.exit
 
 17:                                               ; preds = %2
@@ -33296,7 +33290,7 @@ stbi__png_is16.exit.i:                            ; preds = %2
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 200
   store ptr %23, ptr %24, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = call i32 @stbi__psd_is16(ptr noundef nonnull %4)
   %.not3.i = icmp eq i32 %25, 0
   br i1 %.not3.i, label %26, label %stbi__is_16_main.exit
@@ -33309,7 +33303,7 @@ stbi__png_is16.exit.i:                            ; preds = %2
 
 stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit.i, %17, %26
   %.0.i = phi i32 [ 1, %stbi__png_is16.exit.i ], [ 1, %17 ], [ %..i, %26 ]
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -33317,7 +33311,7 @@ stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit
 define range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.stbi__png, align 8
   %4 = alloca %struct.stbi__context, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -33365,7 +33359,7 @@ stbi__start_callbacks.exit:                       ; preds = %24, %26
   store ptr %.sink.i.i, ptr %29, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %.sink.i.i, ptr %30, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #37
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !30
   %31 = call i32 @stbi__parse_png_file(ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0)
   %.not.i.i.i = icmp ne i32 %31, 0
@@ -33376,7 +33370,7 @@ stbi__start_callbacks.exit:                       ; preds = %24, %26
   br i1 %or.cond.i.i, label %stbi__png_is16.exit.i, label %34
 
 stbi__png_is16.exit.i:                            ; preds = %stbi__start_callbacks.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %stbi__is_16_main.exit
 
 34:                                               ; preds = %stbi__start_callbacks.exit
@@ -33389,7 +33383,7 @@ stbi__png_is16.exit.i:                            ; preds = %stbi__start_callbac
   %40 = load ptr, ptr %39, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 200
   store ptr %40, ptr %41, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = call i32 @stbi__psd_is16(ptr noundef nonnull %4)
   %.not3.i = icmp eq i32 %42, 0
   br i1 %.not3.i, label %43, label %stbi__is_16_main.exit
@@ -33402,21 +33396,27 @@ stbi__png_is16.exit.i:                            ; preds = %stbi__start_callbac
 
 stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit.i, %34, %43
   %.0.i = phi i32 [ 1, %stbi__png_is16.exit.i ], [ 1, %34 ], [ %..i, %43 ]
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #33
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #33
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #33
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #33
+declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #32
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #33
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #34
@@ -33451,34 +33451,34 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #34 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #35 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #36 = { nocallback nofree nounwind willreturn memory(argmem: read) }

@@ -2198,7 +2198,7 @@ _ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: 
   %add.ptr.i.i = getelementptr inbounds i8, ptr %55, i64 -176
   %56 = load i64, ptr %pos, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %data, i64 %56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i.i, ptr noundef %add.ptr22, i64 noundef %sz13.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2228,7 +2228,7 @@ common.resume:                                    ; preds = %lpad.i614, %if.then
   resume { ptr, i32 } %common.resume.op
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i560
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcm.exit
@@ -2245,7 +2245,7 @@ if.end28:                                         ; preds = %_ZN9struct_pb8inter
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store ptr %0, ptr %tmp_str, align 8
@@ -2253,7 +2253,7 @@ sw.bb30:                                          ; preds = %if.end
   store i64 0, ptr %_M_string_length.i.i.i563, align 8
   %62 = load ptr, ptr %tmp_str, align 8
   store i8 0, ptr %62, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %63 = load i64, ptr %pos, align 8
   %cmp.i283 = icmp ult i64 %63, %size
   br i1 %cmp.i283, label %land.lhs.true.i405, label %if.end.i284
@@ -2821,7 +2821,7 @@ if.end52:                                         ; preds = %if.end82.i527, %if.
 
 if.then.i604:                                     ; preds = %if.end52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %113, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %113, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
@@ -2831,7 +2831,7 @@ if.then.i604:                                     ; preds = %if.end52
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %116 = load ptr, ptr %113, align 8
   store i8 0, ptr %116, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %value.i.i.i.i = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %117 = load ptr, ptr %_M_finish.i601, align 8
@@ -2849,7 +2849,7 @@ _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit:
   %add.ptr.i.i611 = getelementptr inbounds i8, ptr %118, i64 -40
   %119 = load i64, ptr %pos, align 8
   %add.ptr56 = getelementptr inbounds i8, ptr %data, i64 %119
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i612)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i612)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i612, i8 0, i64 24, i1 false)
   %call.i613 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i611, ptr noundef %add.ptr56, i64 noundef %sz47.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i612)
           to label %invoke.cont.i618 unwind label %lpad.i614
@@ -2875,7 +2875,7 @@ if.then.i.i.i.i2.i616:                            ; preds = %lpad.i614
   br label %common.resume
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit: ; preds = %invoke.cont.i618, %if.then.i.i.i.i.i620
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i612)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i612)
   br i1 %call.i613, label %if.end62, label %if.then60
 
 if.then60:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
@@ -2899,7 +2899,7 @@ sw.bb64:                                          ; preds = %if.end
 if.then66:                                        ; preds = %sw.bb64
   %call.i624 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i624, i8 0, i64 32, i1 false), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !9
   %126 = getelementptr inbounds nuw i8, ptr %call.i624, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %call.i624, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
@@ -2909,7 +2909,7 @@ if.then66:                                        ; preds = %sw.bb64
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !9
   %127 = load ptr, ptr %call.i624, align 8, !noalias !9
   store i8 0, ptr %127, align 1, !noalias !9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !9
   %128 = load ptr, ptr %source_context, align 8
   store ptr %call.i624, ptr %source_context, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %128, null
@@ -5763,7 +5763,7 @@ if.end71:                                         ; preds = %if.end82.i1136, %if
 
 if.then.i891:                                     ; preds = %if.end71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
@@ -5773,7 +5773,7 @@ if.then.i891:                                     ; preds = %if.end71
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %155 = load ptr, ptr %152, align 8
   store i8 0, ptr %155, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %value.i.i.i.i = getelementptr inbounds nuw i8, ptr %152, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %156 = load ptr, ptr %_M_finish.i, align 8
@@ -5791,7 +5791,7 @@ _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %157, i64 -40
   %158 = load i64, ptr %pos, align 8
   %add.ptr75 = getelementptr inbounds i8, ptr %data, i64 %158
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef %add.ptr75, i64 noundef %sz66.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -5820,7 +5820,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3.i:         ; preds = %if.then.i.i.i.i2.i,
   resume { ptr, i32 } %160
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i893
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i, label %if.end81, label %if.then79
 
 if.then79:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
@@ -6502,7 +6502,7 @@ if.end14.i:                                       ; preds = %_ZN9struct_pb8inter
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72: ; preds = %if.end14.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i
   %total.329.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
   %__begin3.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %8, %if.end14.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i62)
   %_M_string_length.i.i.i74 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.028.i, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i74, align 8
   %cmp.i.i75 = icmp eq i64 %10, 0
@@ -6568,7 +6568,7 @@ lpad.i:                                           ; preds = %if.then10.i
 
 call23.i.noexc:                                   ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i87, %if.end.i79
   %total.1.i88 = phi i64 [ %add17.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i87 ], [ %total.0.i80, %if.end.i79 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i62)
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %call23.i.noexc
@@ -6940,7 +6940,7 @@ if.end14.i:                                       ; preds = %_ZN9struct_pb8inter
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161: ; preds = %if.end14.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i
   %total.329.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
   %__begin3.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %10, %if.end14.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i151)
   %_M_string_length.i.i.i163 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.028.i, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i163, align 8
   %cmp.i.i164 = icmp eq i64 %12, 0
@@ -7006,7 +7006,7 @@ lpad.i:                                           ; preds = %if.then10.i
 
 call23.i.noexc:                                   ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i176, %if.end.i168
   %total.1.i177 = phi i64 [ %add17.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i176 ], [ %total.0.i169, %if.end.i168 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i151)
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %call23.i.noexc
@@ -8025,7 +8025,7 @@ if.end18:                                         ; preds = %if.end82.i221, %if.
 
 if.then.i477:                                     ; preds = %if.end18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
@@ -8035,7 +8035,7 @@ if.then.i477:                                     ; preds = %if.end18
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %53 = load ptr, ptr %50, align 8
   store i8 0, ptr %53, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %options.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options.i.i.i.i, i8 0, i64 24, i1 false)
   %54 = load ptr, ptr %_M_finish.i, align 8
@@ -8052,7 +8052,7 @@ _ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE12emplace_backIJEEERS2_DpOT_.ex
   %55 = phi ptr [ %incdec.ptr.i, %if.then.i477 ], [ %.pre631, %if.else.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %55, i64 -64
   %add.ptr22 = getelementptr inbounds i8, ptr %data, i64 %49
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf9EnumValueEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i, ptr noundef %add.ptr22, i64 noundef %sz13.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -8084,7 +8084,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf9EnumValueEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i479
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf9EnumValueEEEbRT_PKcm.exit
@@ -8324,7 +8324,7 @@ if.end36:                                         ; preds = %if.end82.i363, %if.
 
 if.then.i489:                                     ; preds = %if.end36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %82, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i485)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i485)
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i485) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i485) #15
@@ -8334,7 +8334,7 @@ if.then.i489:                                     ; preds = %if.end36
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i490, align 8
   %85 = load ptr, ptr %82, align 8
   store i8 0, ptr %85, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i485)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i485)
   %value.i.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %86 = load ptr, ptr %_M_finish.i486, align 8
@@ -8351,7 +8351,7 @@ _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit:
   %87 = phi ptr [ %incdec.ptr.i491, %if.then.i489 ], [ %.pre, %if.else.i494 ]
   %add.ptr.i.i497 = getelementptr inbounds i8, ptr %87, i64 -40
   %add.ptr40 = getelementptr inbounds i8, ptr %data, i64 %81
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i498)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i498)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i498, i8 0, i64 24, i1 false)
   %call.i499 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i497, ptr noundef %add.ptr40, i64 noundef %sz31.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i498)
           to label %invoke.cont.i504 unwind label %lpad.i500
@@ -8373,7 +8373,7 @@ lpad.i500:                                        ; preds = %_ZNSt6vectorIN6goog
   br i1 %tobool.not.i.i.i.i1.i501, label %common.resume, label %common.resume.sink.split
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit: ; preds = %invoke.cont.i504, %if.then.i.i.i.i.i506
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i498)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i498)
   br i1 %call.i499, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
@@ -8397,7 +8397,7 @@ sw.bb48:                                          ; preds = %if.end
 if.then50:                                        ; preds = %sw.bb48
   %call.i510 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i510, i8 0, i64 32, i1 false), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !15
   %94 = getelementptr inbounds nuw i8, ptr %call.i510, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %call.i510, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
@@ -8407,7 +8407,7 @@ if.then50:                                        ; preds = %sw.bb48
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !15
   %95 = load ptr, ptr %call.i510, align 8, !noalias !15
   store i8 0, ptr %95, align 1, !noalias !15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !15
   %96 = load ptr, ptr %source_context, align 8
   store ptr %call.i510, ptr %source_context, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %96, null
@@ -9645,7 +9645,7 @@ if.end24:                                         ; preds = %if.end82.i314, %if.
 
 if.then.i315:                                     ; preds = %if.end24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
@@ -9655,7 +9655,7 @@ if.then.i315:                                     ; preds = %if.end24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %68 = load ptr, ptr %65, align 8
   store i8 0, ptr %68, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %value.i.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %69 = load ptr, ptr %_M_finish.i, align 8
@@ -9672,7 +9672,7 @@ _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit:
   %70 = phi ptr [ %incdec.ptr.i, %if.then.i315 ], [ %.pre, %if.else.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %70, i64 -40
   %add.ptr28 = getelementptr inbounds i8, ptr %data, i64 %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef %add.ptr28, i64 noundef %sz19.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -9701,7 +9701,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3.i:         ; preds = %if.then.i.i.i.i2.i,
   resume { ptr, i32 } %72
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i, label %if.end34, label %if.then32
 
 if.then32:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
@@ -10160,7 +10160,7 @@ sw.bb12:                                          ; preds = %if.end
 if.then14:                                        ; preds = %sw.bb12
   %call.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call.i, i8 0, i64 64, i1 false), !noalias !20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !20
   %36 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
@@ -10170,9 +10170,9 @@ if.then14:                                        ; preds = %sw.bb12
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !20
   %37 = load ptr, ptr %call.i, align 8, !noalias !20
   store i8 0, ptr %37, align 1, !noalias !20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !20
   %value.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1.i.i), !noalias !20
   %38 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
@@ -10182,7 +10182,7 @@ if.then14:                                        ; preds = %sw.bb12
   store i64 0, ptr %_M_string_length.i.i.i2.i.i, align 8, !noalias !20
   %39 = load ptr, ptr %value.i.i, align 8, !noalias !20
   store i8 0, ptr %39, align 1, !noalias !20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1.i.i), !noalias !20
   %40 = load ptr, ptr %value, align 8
   store ptr %call.i, ptr %value, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %40, null
@@ -10647,7 +10647,7 @@ entry:
   %ref.tmp.i1 = alloca %"class.std::allocator.0", align 1
   %ref.tmp.i = alloca %"class.std::allocator.0", align 1
   %name = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
@@ -10657,9 +10657,9 @@ entry:
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   %1 = load ptr, ptr %name, align 8
   store i8 0, ptr %1, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %type_url = getelementptr inbounds nuw i8, ptr %this, i64 48
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1)
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
@@ -10669,11 +10669,11 @@ entry:
   store i64 0, ptr %_M_string_length.i.i.i2, align 8
   %3 = load ptr, ptr %type_url, align 8
   store i8 0, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1)
   %options = getelementptr inbounds nuw i8, ptr %this, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options, i8 0, i64 24, i1 false)
   %json_name = getelementptr inbounds nuw i8, ptr %this, i64 112
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 128
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %json_name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
@@ -10683,9 +10683,9 @@ entry:
   store i64 0, ptr %_M_string_length.i.i.i4, align 8
   %5 = load ptr, ptr %json_name, align 8
   store i8 0, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   %default_value = getelementptr inbounds nuw i8, ptr %this, i64 144
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i5)
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 160
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %default_value, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
@@ -10695,7 +10695,7 @@ entry:
   store i64 0, ptr %_M_string_length.i.i.i6, align 8
   %7 = load ptr, ptr %default_value, align 8
   store i8 0, ptr %7, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i5)
   ret void
 }
 
@@ -11264,7 +11264,7 @@ _ZNKSt6vectorIN6google8protobuf6OptionESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
@@ -11274,7 +11274,7 @@ _ZNKSt6vectorIN6google8protobuf6OptionESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %value.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   store ptr null, ptr %value.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -11434,7 +11434,7 @@ _ZNKSt6vectorIN6google8protobuf9EnumValueESaIS2_EE12_M_check_lenEmPKc.exit: ; pr
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
@@ -11444,7 +11444,7 @@ _ZNKSt6vectorIN6google8protobuf9EnumValueESaIS2_EE12_M_check_lenEmPKc.exit: ; pr
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %options.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -11603,10 +11603,10 @@ declare void @llvm.assume(i1 noundef) #9
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

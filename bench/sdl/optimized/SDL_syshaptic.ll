@@ -46,9 +46,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden zeroext i1 @SDL_SYS_HapticInit() local_unnamed_addr #0 {
   %1 = alloca [19 x i8], align 16
   %2 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %1, ptr noundef nonnull align 16 dereferenceable(19) @__const.SDL_SYS_HapticInit.joydev_pattern, i64 19, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %3
 
 3:                                                ; preds = %0, %3
@@ -82,23 +82,20 @@ define hidden zeroext i1 @SDL_SYS_HapticInit() local_unnamed_addr #0 {
 
 16:                                               ; preds = %14, %12, %8
   %.04 = phi i1 [ true, %14 ], [ %13, %12 ], [ %9, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.04
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 524290, i32 noundef 0) #13
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %39, label %5
@@ -189,15 +186,15 @@ define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr
   br label %39
 
 39:                                               ; preds = %21, %._crit_edge, %1, %36, %27, %17, %9
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare zeroext i1 @SDL_UDEV_Init() local_unnamed_addr #3
+declare zeroext i1 @SDL_UDEV_Init() local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_UDEV_AddCallback(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_UDEV_AddCallback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @haptic_udev_callback(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -281,21 +278,18 @@ MaybeRemoveDevice.exit:                           ; preds = %.lr.ph, %28, %7, %5
   ret void
 }
 
-declare void @SDL_UDEV_Quit() local_unnamed_addr #3
+declare void @SDL_UDEV_Quit() local_unnamed_addr #2
 
-declare zeroext i1 @SDL_UDEV_Scan() local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_UDEV_Scan() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @SDL_SYS_NumHaptics() local_unnamed_addr #4 {
+define hidden i32 @SDL_SYS_NumHaptics() local_unnamed_addr #3 {
   %1 = load i32, ptr @numhaptics, align 4
   ret i32 %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @SDL_SYS_HapticInstanceID(i32 noundef %0) local_unnamed_addr #5 {
+define hidden i32 @SDL_SYS_HapticInstanceID(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp sgt i32 %0, -1
   %3 = load i32, ptr @numhaptics, align 4
   %.not.i = icmp slt i32 %0, %3
@@ -384,9 +378,9 @@ HapticByDevIndex.exit.thread:                     ; preds = %1, %7, %17, %Haptic
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticOpen(ptr noundef %0) local_unnamed_addr #0 {
@@ -435,10 +429,10 @@ HapticByInstanceID.exit:                          ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @SDL_SYS_HapticOpenFromFD(ptr noundef initializes((40, 48)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
@@ -502,7 +496,7 @@ define internal fastcc noundef zeroext i1 @SDL_SYS_HapticOpenFromFD(ptr noundef 
   ret i1 %.0
 }
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_SYS_HapticMouse() local_unnamed_addr #0 {
@@ -531,10 +525,10 @@ define hidden i32 @SDL_SYS_HapticMouse() local_unnamed_addr #0 {
   br label %.loopexit
 
 14:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %15 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %4, i64 noundef 2168472865, ptr noundef nonnull %1) #13
   %16 = icmp sgt i32 %15, -1
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %17 = call i32 @close(i32 noundef %4) #13
   br i1 %16, label %.loopexit, label %18
 
@@ -571,12 +565,12 @@ define hidden zeroext i1 @SDL_SYS_JoystickIsHaptic(ptr noundef readonly captures
   ret i1 %.0
 }
 
-declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #3
+declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 262144) i32 @EV_IsHaptic(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [16 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 2155889973, ptr noundef nonnull %2) #13
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %10
@@ -629,7 +623,7 @@ define internal fastcc range(i32 0, 262144) i32 @EV_IsHaptic(i32 noundef %0) unn
 
 36:                                               ; preds = %10, %5
   %.018 = phi i32 [ 0, %5 ], [ %.14, %10 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.018
 }
 
@@ -659,7 +653,7 @@ define hidden zeroext i1 @SDL_SYS_JoystickSameHaptic(ptr noundef readonly captur
   ret i1 %.0
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -777,10 +771,10 @@ define hidden void @SDL_SYS_HapticClose(ptr noundef captures(none) initializes((
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SYS_HapticQuit() local_unnamed_addr #0 {
@@ -808,7 +802,7 @@ define hidden void @SDL_SYS_HapticQuit() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_UDEV_DelCallback(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UDEV_DelCallback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SYS_HapticNewEffect(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((72, 80)) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -851,7 +845,7 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticNewEffect(ptr noundef readonly c
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeonly initializes((0, 48)) %0, ptr noundef readonly %1) unnamed_addr #0 {
@@ -1237,12 +1231,12 @@ switch.lookup:                                    ; preds = %104
 }
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #7
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticUpdateEffect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ff_effect, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef %4, ptr noundef %2)
   br i1 %5, label %6, label %24
 
@@ -1274,14 +1268,14 @@ define hidden zeroext i1 @SDL_SYS_HapticUpdateEffect(ptr noundef readonly captur
 
 24:                                               ; preds = %3, %22, %17
   %.0 = phi i1 [ %21, %17 ], [ true, %22 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticRunEffect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.input_event, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 21, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1309,17 +1303,17 @@ define hidden zeroext i1 @SDL_SYS_HapticRunEffect(ptr noundef readonly captures(
 
 23:                                               ; preds = %3, %18
   %.0 = phi i1 [ %22, %18 ], [ true, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticStopEffect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.input_event, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 21, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1346,7 +1340,7 @@ define hidden zeroext i1 @SDL_SYS_HapticStopEffect(ptr noundef readonly captures
 
 21:                                               ; preds = %2, %16
   %.0 = phi i1 [ %20, %16 ], [ true, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -1387,7 +1381,7 @@ define hidden noundef i32 @SDL_SYS_HapticGetEffectStatus(ptr noundef readnone ca
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticSetGain(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.input_event, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 21, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -1414,14 +1408,14 @@ define hidden zeroext i1 @SDL_SYS_HapticSetGain(ptr noundef readonly captures(no
 
 21:                                               ; preds = %2, %16
   %.0 = phi i1 [ %20, %16 ], [ true, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticSetAutocenter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.input_event, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 21, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -1448,7 +1442,7 @@ define hidden zeroext i1 @SDL_SYS_HapticSetAutocenter(ptr noundef readonly captu
 
 21:                                               ; preds = %2, %16
   %.0 = phi i1 [ %20, %16 ], [ true, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -1490,7 +1484,7 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticStopAll(ptr noundef readonly cap
   br i1 %.not, label %28, label %16
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 21, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %18 = load i16, ptr %17, align 2
@@ -1510,7 +1504,7 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticStopAll(ptr noundef readonly cap
   br label %SDL_SYS_HapticStopEffect.exit
 
 SDL_SYS_HapticStopEffect.exit:                    ; preds = %16, %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 8
   br label %28
 
@@ -1526,11 +1520,11 @@ SDL_SYS_HapticStopEffect.exit:                    ; preds = %16, %23
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
-declare i32 @SDL_GetNextObjectID() local_unnamed_addr #3
+declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -1616,7 +1610,13 @@ define internal fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef nonnull write
   ret i1 %.0
 }
 
-declare float @SDL_atan2f_REAL(float noundef, float noundef) local_unnamed_addr #3
+declare float @SDL_atan2f_REAL(float noundef, float noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #12
@@ -1631,17 +1631,17 @@ declare i16 @llvm.smax.i16(i16, i16) #12
 declare i16 @llvm.umin.i16(i16, i16) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0,1) }

@@ -973,31 +973,31 @@ define void @YGNodeStyleSetFlexBasis(ptr noundef %0, float noundef %1) local_unn
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift4.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift4.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit
 
@@ -1018,31 +1018,31 @@ define void @YGNodeStyleSetFlexBasisPercent(ptr noundef %0, float noundef %1) lo
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift4.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift4.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit
 
@@ -1054,18 +1054,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 define void @YGNodeStyleSetFlexBasisAuto(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnull align 8 dereferenceable(144) %2)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 12884901888
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 12884901888
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 15028191232)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 15028191232)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit
 
@@ -1077,18 +1077,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 define void @YGNodeStyleSetFlexBasisMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnull align 8 dereferenceable(144) %2)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit
 
@@ -1100,18 +1100,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 define void @YGNodeStyleSetFlexBasisFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnull align 8 dereferenceable(144) %2)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit
 
@@ -1123,18 +1123,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 define void @YGNodeStyleSetFlexBasisStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnull align 8 dereferenceable(144) %2)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_15StyleSizeLengthEEES4_EEvP6YGNodeT1_.exit
 
@@ -1276,8 +1276,8 @@ define void @YGNodeStyleSetPosition(ptr noundef %0, i32 noundef %1, float nounde
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8positionENS2_4EdgeEEETnDaXadL_ZNS3_11setPositionES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_(ptr noundef %0, i8 noundef zeroext %1, i64 range(i64 0, 1099511627776) %2) unnamed_addr #0 {
-  %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
-  %4 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %.sroa.07.0.extract.trunc = trunc i64 %2 to i32
+  %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %6 = zext i8 %1 to i64
   %7 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
@@ -1369,33 +1369,33 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i: ; preds = %_ZNSt6ve
 
 _ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit: ; preds = %3, %41, %43, %.fold.split.i.i
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i.i, %41 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i.i, %43 ], [ 2143289344, %3 ], [ 15028191232, %.fold.split.i.i ]
-  %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.in.i.i to i32
-  %45 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc to float
-  %46 = fcmp oeq float %45, %4
-  br i1 %46, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %47
+  %45 = trunc i64 %.sroa.0.0.in.i.i to i32
+  %46 = bitcast i32 %45 to float
+  %47 = fcmp oeq float %46, %4
+  br i1 %47, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %48
 
-47:                                               ; preds = %_ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit
-  %48 = fcmp uno float %45, 0.000000e+00
-  br i1 %48, label %49, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+48:                                               ; preds = %_ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit
+  %49 = fcmp uno float %46, 0.000000e+00
+  br i1 %49, label %50, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-49:                                               ; preds = %47
-  %50 = fcmp uno float %4, 0.000000e+00
+50:                                               ; preds = %48
+  %51 = fcmp uno float %4, 0.000000e+00
   br label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit, %49
-  %51 = phi i1 [ true, %_ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit ], [ %50, %49 ]
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit, %50
+  %52 = phi i1 [ true, %_ZNK8facebook4yoga5Style8positionENS0_4EdgeE.exit ], [ %51, %50 ]
   %.unshifted = xor i64 %.sroa.0.0.in.i.i, %2
-  %52 = icmp samesign ult i64 %.unshifted, 4294967296
-  %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %55, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+  %53 = icmp ult i64 %.unshifted, 4294967296
+  %54 = select i1 %52, i1 %53, i1 false
+  br i1 %54, label %56, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %47, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %48, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+56:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
   ret void
 }
 
@@ -1533,8 +1533,8 @@ define void @YGNodeStyleSetMargin(ptr noundef %0, i32 noundef %1, float noundef 
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6marginENS2_4EdgeEEETnDaXadL_ZNS3_9setMarginES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_(ptr noundef %0, i8 noundef zeroext %1, i64 range(i64 0, 1099511627776) %2) unnamed_addr #0 {
-  %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
-  %4 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %.sroa.07.0.extract.trunc = trunc i64 %2 to i32
+  %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = zext i8 %1 to i64
   %7 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
@@ -1626,33 +1626,33 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i: ; preds = %_ZNSt6ve
 
 _ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit:  ; preds = %3, %41, %43, %.fold.split.i.i
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i.i, %41 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i.i, %43 ], [ 2143289344, %3 ], [ 15028191232, %.fold.split.i.i ]
-  %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.in.i.i to i32
-  %45 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc to float
-  %46 = fcmp oeq float %45, %4
-  br i1 %46, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %47
+  %45 = trunc i64 %.sroa.0.0.in.i.i to i32
+  %46 = bitcast i32 %45 to float
+  %47 = fcmp oeq float %46, %4
+  br i1 %47, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %48
 
-47:                                               ; preds = %_ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit
-  %48 = fcmp uno float %45, 0.000000e+00
-  br i1 %48, label %49, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+48:                                               ; preds = %_ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit
+  %49 = fcmp uno float %46, 0.000000e+00
+  br i1 %49, label %50, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-49:                                               ; preds = %47
-  %50 = fcmp uno float %4, 0.000000e+00
+50:                                               ; preds = %48
+  %51 = fcmp uno float %4, 0.000000e+00
   br label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit, %49
-  %51 = phi i1 [ true, %_ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit ], [ %50, %49 ]
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit, %50
+  %52 = phi i1 [ true, %_ZNK8facebook4yoga5Style6marginENS0_4EdgeE.exit ], [ %51, %50 ]
   %.unshifted = xor i64 %.sroa.0.0.in.i.i, %2
-  %52 = icmp samesign ult i64 %.unshifted, 4294967296
-  %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %55, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+  %53 = icmp ult i64 %.unshifted, 4294967296
+  %54 = select i1 %52, i1 %53, i1 false
+  br i1 %54, label %56, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %47, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %48, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+56:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
   ret void
 }
 
@@ -1790,8 +1790,8 @@ define void @YGNodeStyleSetPadding(ptr noundef %0, i32 noundef %1, float noundef
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7paddingENS2_4EdgeEEETnDaXadL_ZNS3_10setPaddingES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_(ptr noundef %0, i8 noundef zeroext %1, i64 range(i64 0, 1099511627776) %2) unnamed_addr #0 {
-  %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
-  %4 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %.sroa.07.0.extract.trunc = trunc i64 %2 to i32
+  %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = zext i8 %1 to i64
   %7 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
@@ -1883,33 +1883,33 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i: ; preds = %_ZNSt6ve
 
 _ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit: ; preds = %3, %41, %43, %.fold.split.i.i
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i.i, %41 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i.i, %43 ], [ 2143289344, %3 ], [ 15028191232, %.fold.split.i.i ]
-  %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.in.i.i to i32
-  %45 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc to float
-  %46 = fcmp oeq float %45, %4
-  br i1 %46, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %47
+  %45 = trunc i64 %.sroa.0.0.in.i.i to i32
+  %46 = bitcast i32 %45 to float
+  %47 = fcmp oeq float %46, %4
+  br i1 %47, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %48
 
-47:                                               ; preds = %_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit
-  %48 = fcmp uno float %45, 0.000000e+00
-  br i1 %48, label %49, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+48:                                               ; preds = %_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit
+  %49 = fcmp uno float %46, 0.000000e+00
+  br i1 %49, label %50, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-49:                                               ; preds = %47
-  %50 = fcmp uno float %4, 0.000000e+00
+50:                                               ; preds = %48
+  %51 = fcmp uno float %4, 0.000000e+00
   br label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit, %49
-  %51 = phi i1 [ true, %_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit ], [ %50, %49 ]
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit, %50
+  %52 = phi i1 [ true, %_ZNK8facebook4yoga5Style7paddingENS0_4EdgeE.exit ], [ %51, %50 ]
   %.unshifted = xor i64 %.sroa.0.0.in.i.i, %2
-  %52 = icmp samesign ult i64 %.unshifted, 4294967296
-  %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %55, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+  %53 = icmp ult i64 %.unshifted, 4294967296
+  %54 = select i1 %52, i1 %53, i1 false
+  br i1 %54, label %56, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %47, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %48, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+56:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
   ret void
 }
 
@@ -2125,29 +2125,29 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i.i: ; preds = %_ZNSt6
 
 _ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i: ; preds = %.fold.split.i.i.i, %45, %43, %3
   %.sroa.0.0.in.i.i.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i.i.i, %43 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i.i.i, %45 ], [ 2143289344, %3 ], [ 15028191232, %.fold.split.i.i.i ]
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i.i to i32
-  %47 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %48 = fcmp oeq float %.sroa.03.sroa.0.0.i, %47
-  br i1 %48, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i, label %49
+  %47 = trunc i64 %.sroa.0.0.in.i.i.i to i32
+  %48 = bitcast i32 %47 to float
+  %49 = fcmp oeq float %.sroa.03.sroa.0.0.i, %48
+  br i1 %49, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i, label %50
 
-49:                                               ; preds = %_ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i
-  %50 = fcmp uno float %47, 0.000000e+00
-  br i1 %50, label %51, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread.i
+50:                                               ; preds = %_ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i
+  %51 = fcmp uno float %48, 0.000000e+00
+  br i1 %51, label %52, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread.i
 
-51:                                               ; preds = %49
-  %52 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+52:                                               ; preds = %50
+  %53 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i:   ; preds = %51, %_ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i
-  %53 = phi i1 [ true, %_ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i ], [ %52, %51 ]
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i:   ; preds = %52, %_ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i
+  %54 = phi i1 [ true, %_ZNK8facebook4yoga5Style6borderENS0_4EdgeE.exit.i ], [ %53, %52 ]
   %.unshifted.i = xor i64 %.sroa.0.0.in.i.i.i, %.sroa.03.sroa.3.0.insert.shift.i
-  %54 = icmp samesign ult i64 %.unshifted.i, 4294967296
-  %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6borderENS2_4EdgeEEETnDaXadL_ZNS3_9setBorderES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread.i
+  %55 = icmp samesign ult i64 %.unshifted.i, 4294967296
+  %56 = select i1 %54, i1 %55, i1 false
+  br i1 %56, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6borderENS2_4EdgeEEETnDaXadL_ZNS3_9setBorderES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i, %49
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.i, %50
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6borderENS2_4EdgeEEETnDaXadL_ZNS3_9setBorderES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2250,8 +2250,8 @@ define void @YGNodeStyleSetGap(ptr noundef %0, i32 noundef %1, float noundef %2)
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style3gapENS2_6GutterEEETnDaXadL_ZNS3_6setGapES4_NS2_11StyleLengthEEES4_S5_EEvP6YGNodeT1_T2_(ptr noundef %0, i8 noundef zeroext %1, i64 range(i64 0, 1099511627776) %2) unnamed_addr #0 {
-  %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
-  %4 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %.sroa.07.0.extract.trunc = trunc i64 %2 to i32
+  %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %6 = zext i8 %1 to i64
   %7 = getelementptr inbounds nuw [3 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
@@ -2343,33 +2343,33 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i: ; preds = %_ZNSt6ve
 
 _ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit:   ; preds = %3, %41, %43, %.fold.split.i.i
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i.i, %41 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i.i, %43 ], [ 2143289344, %3 ], [ 15028191232, %.fold.split.i.i ]
-  %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.in.i.i to i32
-  %45 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc to float
-  %46 = fcmp oeq float %45, %4
-  br i1 %46, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %47
+  %45 = trunc i64 %.sroa.0.0.in.i.i to i32
+  %46 = bitcast i32 %45 to float
+  %47 = fcmp oeq float %46, %4
+  br i1 %47, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %48
 
-47:                                               ; preds = %_ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit
-  %48 = fcmp uno float %45, 0.000000e+00
-  br i1 %48, label %49, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+48:                                               ; preds = %_ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit
+  %49 = fcmp uno float %46, 0.000000e+00
+  br i1 %49, label %50, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-49:                                               ; preds = %47
-  %50 = fcmp uno float %4, 0.000000e+00
+50:                                               ; preds = %48
+  %51 = fcmp uno float %4, 0.000000e+00
   br label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit, %49
-  %51 = phi i1 [ true, %_ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit ], [ %50, %49 ]
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit, %50
+  %52 = phi i1 [ true, %_ZNK8facebook4yoga5Style3gapENS0_6GutterE.exit ], [ %51, %50 ]
   %.unshifted = xor i64 %.sroa.0.0.in.i.i, %2
-  %52 = icmp samesign ult i64 %.unshifted, 4294967296
-  %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %55, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
+  %53 = icmp ult i64 %.unshifted, 4294967296
+  %54 = select i1 %52, i1 %53, i1 false
+  br i1 %54, label %56, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %47, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread: ; preds = %48, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_11StyleLengthE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 1 dereferenceable(2) %7, i64 %2)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+56:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit.thread, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
   ret void
 }
 
@@ -2686,31 +2686,31 @@ define void @YGNodeStyleSetWidth(ptr noundef %0, float noundef %1) local_unnamed
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2731,31 +2731,31 @@ define void @YGNodeStyleSetWidthPercent(ptr noundef %0, float noundef %1) local_
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2767,18 +2767,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetWidthAuto(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 12884901888
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 12884901888
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 15028191232)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 15028191232)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2790,18 +2790,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetWidthMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2813,18 +2813,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetWidthFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2836,18 +2836,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetWidthStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -2988,31 +2988,31 @@ define void @YGNodeStyleSetHeight(ptr noundef %0, float noundef %1) local_unname
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3033,31 +3033,31 @@ define void @YGNodeStyleSetHeightPercent(ptr noundef %0, float noundef %1) local
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3069,18 +3069,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetHeightAuto(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 12884901888
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 12884901888
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 15028191232)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 15028191232)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3092,18 +3092,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetHeightMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3115,18 +3115,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetHeightFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3138,18 +3138,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 define void @YGNodeStyleSetHeightStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3178,31 +3178,31 @@ define void @YGNodeStyleSetMinWidth(ptr noundef %0, float noundef %1) local_unna
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 134
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3223,31 +3223,31 @@ define void @YGNodeStyleSetMinWidthPercent(ptr noundef %0, float noundef %1) loc
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 134
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3259,18 +3259,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 define void @YGNodeStyleSetMinWidthMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 134
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3282,18 +3282,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 define void @YGNodeStyleSetMinWidthFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 134
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3305,18 +3305,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 define void @YGNodeStyleSetMinWidthStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 134
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3457,31 +3457,31 @@ define void @YGNodeStyleSetMinHeight(ptr noundef %0, float noundef %1) local_unn
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3502,31 +3502,31 @@ define void @YGNodeStyleSetMinHeightPercent(ptr noundef %0, float noundef %1) lo
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3538,18 +3538,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 define void @YGNodeStyleSetMinHeightMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3561,18 +3561,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 define void @YGNodeStyleSetMinHeightFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3584,18 +3584,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 define void @YGNodeStyleSetMinHeightStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3624,31 +3624,31 @@ define void @YGNodeStyleSetMaxWidth(ptr noundef %0, float noundef %1) local_unna
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3669,31 +3669,31 @@ define void @YGNodeStyleSetMaxWidthPercent(ptr noundef %0, float noundef %1) loc
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3705,18 +3705,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 define void @YGNodeStyleSetMaxWidthMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3728,18 +3728,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 define void @YGNodeStyleSetMaxWidthFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3751,18 +3751,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 define void @YGNodeStyleSetMaxWidthStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 0)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3903,31 +3903,31 @@ define void @YGNodeStyleSetMaxHeight(ptr noundef %0, float noundef %1) local_unn
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3948,31 +3948,31 @@ define void @YGNodeStyleSetMaxHeightPercent(ptr noundef %0, float noundef %1) lo
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
-  %7 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %.sroa.0.sroa.4.0.extract.shift5.i = lshr i64 %6, 32
-  %.sroa.0.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.4.0.extract.shift5.i to i8
-  %8 = fcmp oeq float %.sroa.03.sroa.0.0.i, %7
-  br i1 %8, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %9
+  %7 = trunc i64 %6 to i32
+  %8 = bitcast i32 %7 to float
+  %9 = fcmp oeq float %.sroa.03.sroa.0.0.i, %8
+  %10 = lshr i64 %6, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %9, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, label %12
 
-9:                                                ; preds = %2
-  %10 = fcmp uno float %7, 0.000000e+00
-  br i1 %10, label %11, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+12:                                               ; preds = %2
+  %13 = fcmp uno float %8, 0.000000e+00
+  br i1 %13, label %14, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-11:                                               ; preds = %9
-  %12 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
+14:                                               ; preds = %12
+  %15 = fcmp uno float %.sroa.03.sroa.0.0.i, 0.000000e+00
   br label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %11, %2
-  %13 = phi i1 [ true, %2 ], [ %12, %11 ]
-  %14 = icmp eq i8 %.sroa.0.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i: ; preds = %14, %2
+  %16 = phi i1 [ true, %2 ], [ %15, %14 ]
+  %17 = icmp eq i8 %11, %.sroa.3.0.extract.trunc.i
+  %18 = select i1 %16, i1 %17, i1 false
+  br i1 %18, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
-_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(2) %17, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
+_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(2) %20, i64 range(i64 0, 1099511627776) %.sroa.03.sroa.0.0.insert.insert.i)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -3984,18 +3984,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 define void @YGNodeStyleSetMaxHeightMaxContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 17179869184
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 17179869184
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 19323158528)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 19323158528)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -4007,18 +4007,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 define void @YGNodeStyleSetMaxHeightFitContent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 21474836480
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 21474836480
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 23618125824)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 23618125824)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -4030,18 +4030,18 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 define void @YGNodeStyleSetMaxHeightStretch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 1)
-  %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
-  %4 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc.i to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = and i64 %3, 1095216660480
-  %7 = icmp eq i64 %6, 25769803776
-  %or.cond = and i1 %7, %5
+  %4 = trunc i64 %3 to i32
+  %5 = bitcast i32 %4 to float
+  %6 = fcmp uno float %5, 0.000000e+00
+  %7 = and i64 %3, 1095216660480
+  %8 = icmp eq i64 %7, 25769803776
+  %or.cond = and i1 %8, %6
   br i1 %or.cond, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %_ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i
 
 _ZNK8facebook4yoga15StyleSizeLengtheqERKS1_.exit.thread.i: ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(2) %9, i64 range(i64 0, 1099511627776) 27913093120)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  tail call void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16StyleValueHandleENS0_15StyleSizeLengthE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(2) %10, i64 range(i64 0, 1099511627776) 27913093120)
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_15StyleSizeLengthEEES4_S5_EEvP6YGNodeT1_T2_.exit
 
@@ -4414,7 +4414,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8facebook4yoga5Style12lengthsEqualERK
   %8 = load i16, ptr %2, align 1, !tbaa !4
   %9 = and i16 %8, 7
   %10 = icmp eq i16 %9, 0
-  br i1 %10, label %94, label %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit
+  br i1 %10, label %96, label %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit
 
 11:                                               ; preds = %4
   %12 = and i16 %5, 8
@@ -4500,118 +4500,118 @@ _ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exitthread-
 _ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit: ; preds = %7, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exitthread-pre-split
   %.sroa.0.0.copyload = phi i16 [ %.sroa.0.0.copyload.pr, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exitthread-pre-split ], [ %8, %7 ]
   %.sroa.0.0.in.i = phi i64 [ %.sroa.0.0.in.i.ph, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exitthread-pre-split ], [ 2143289344, %7 ]
-  %.sroa.0.sroa.028.0.extract.trunc = trunc i64 %.sroa.0.0.in.i to i32
-  %47 = bitcast i32 %.sroa.0.sroa.028.0.extract.trunc to float
-  %48 = and i16 %.sroa.0.0.copyload, 7
-  switch i16 %48, label %49 [
+  %47 = and i16 %.sroa.0.0.copyload, 7
+  %48 = trunc i64 %.sroa.0.0.in.i to i32
+  %49 = bitcast i32 %48 to float
+  switch i16 %47, label %50 [
     i16 0, label %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26
     i16 4, label %.fold.split.i7
   ]
 
-49:                                               ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit
-  %50 = and i16 %.sroa.0.0.copyload, 8
-  %.not.i9 = icmp eq i16 %50, 0
-  %51 = lshr i16 %.sroa.0.0.copyload, 4
-  br i1 %.not.i9, label %71, label %52
+50:                                               ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit
+  %51 = and i16 %.sroa.0.0.copyload, 8
+  %.not.i9 = icmp eq i16 %51, 0
+  %52 = lshr i16 %.sroa.0.0.copyload, 4
+  br i1 %.not.i9, label %72, label %53
 
-52:                                               ; preds = %49
-  %53 = zext nneg i16 %51 to i64
-  %54 = icmp ult i16 %.sroa.0.0.copyload, 64
-  br i1 %54, label %55, label %58
+53:                                               ; preds = %50
+  %54 = zext nneg i16 %52 to i64
+  %55 = icmp ult i16 %.sroa.0.0.copyload, 64
+  br i1 %55, label %56, label %59
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %56, i64 0, i64 %53
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %58 = getelementptr inbounds nuw [4 x i32], ptr %57, i64 0, i64 %54
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12
 
-58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !8
-  %61 = add nsw i64 %53, -4
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !11
-  %64 = load ptr, ptr %60, align 8, !tbaa !14
-  %65 = ptrtoint ptr %63 to i64
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !8
+  %62 = add nsw i64 %54, -4
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !11
+  %65 = load ptr, ptr %61, align 8, !tbaa !14
   %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %68 = ashr exact i64 %67, 2
-  %.not.i.i.i.i10 = icmp ult i64 %61, %68
-  br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11, label %69
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %69 = ashr exact i64 %68, 2
+  %.not.i.i.i.i10 = icmp ult i64 %62, %69
+  br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11, label %70
 
-69:                                               ; preds = %58
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %61, i64 noundef %68) #13
+70:                                               ; preds = %59
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %62, i64 noundef %69) #13
   unreachable
 
-_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11:             ; preds = %58
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %61
+_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11:             ; preds = %59
+  %71 = getelementptr inbounds nuw i32, ptr %65, i64 %62
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12
 
-_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11, %55
-  %.0.in.i.i13 = phi ptr [ %57, %55 ], [ %70, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11 ]
+_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12: ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11, %56
+  %.0.in.i.i13 = phi ptr [ %58, %56 ], [ %71, %_ZNSt6vectorIjSaIjEE2atEm.exit.i.i11 ]
   %.0.i13.i14 = load float, ptr %.0.in.i.i13, align 4, !tbaa !15
-  br label %77
+  br label %78
 
-71:                                               ; preds = %49
-  %72 = and i16 %51, 2047
-  %73 = zext nneg i16 %72 to i32
-  %74 = sub nsw i32 0, %73
+72:                                               ; preds = %50
+  %73 = and i16 %52, 2047
+  %74 = zext nneg i16 %73 to i32
+  %75 = sub nsw i32 0, %74
   %.not.i12.i25 = icmp slt i16 %.sroa.0.0.copyload, 0
-  %75 = select i1 %.not.i12.i25, i32 %74, i32 %73
-  %76 = sitofp i32 %75 to float
-  br label %77
+  %76 = select i1 %.not.i12.i25, i32 %75, i32 %74
+  %77 = sitofp i32 %76 to float
+  br label %78
 
-77:                                               ; preds = %71, %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12
-  %78 = phi float [ %.0.i13.i14, %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12 ], [ %76, %71 ]
-  %79 = icmp eq i16 %48, 1
-  %80 = tail call float @llvm.fabs.f32(float %78)
-  br i1 %79, label %81, label %83
+78:                                               ; preds = %72, %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12
+  %79 = phi float [ %.0.i13.i14, %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12 ], [ %77, %72 ]
+  %80 = icmp eq i16 %47, 1
+  %81 = tail call float @llvm.fabs.f32(float %79)
+  br i1 %80, label %82, label %84
 
-81:                                               ; preds = %77
-  %or.cond.i.i20 = fcmp one float %80, 0x7FF0000000000000
-  %.sroa.03.sroa.0.0.i.i21 = select i1 %or.cond.i.i20, float %78, float 0x7FF8000000000000
-  %82 = bitcast float %.sroa.03.sroa.0.0.i.i21 to i32
+82:                                               ; preds = %78
+  %or.cond.i.i20 = fcmp one float %81, 0x7FF0000000000000
+  %.sroa.03.sroa.0.0.i.i21 = select i1 %or.cond.i.i20, float %79, float 0x7FF8000000000000
+  %83 = bitcast float %.sroa.03.sroa.0.0.i.i21 to i32
   %.sroa.03.sroa.3.0.insert.shift.i.i22 = select i1 %or.cond.i.i20, i64 4294967296, i64 0
-  %.sroa.03.sroa.0.0.insert.ext.i.i23 = zext i32 %82 to i64
+  %.sroa.03.sroa.0.0.insert.ext.i.i23 = zext i32 %83 to i64
   %.sroa.03.sroa.0.0.insert.insert.i.i24 = or disjoint i64 %.sroa.03.sroa.3.0.insert.shift.i.i22, %.sroa.03.sroa.0.0.insert.ext.i.i23
   br label %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26
 
-83:                                               ; preds = %77
-  %or.cond.i3.i15 = fcmp ueq float %80, 0x7FF0000000000000
-  %.sroa.03.sroa.0.0.i4.i16 = select i1 %or.cond.i3.i15, float 0x7FF8000000000000, float %78
-  %84 = bitcast float %.sroa.03.sroa.0.0.i4.i16 to i32
+84:                                               ; preds = %78
+  %or.cond.i3.i15 = fcmp ueq float %81, 0x7FF0000000000000
+  %.sroa.03.sroa.0.0.i4.i16 = select i1 %or.cond.i3.i15, float 0x7FF8000000000000, float %79
+  %85 = bitcast float %.sroa.03.sroa.0.0.i4.i16 to i32
   %.sroa.03.sroa.3.0.insert.ext.i.i17 = select i1 %or.cond.i3.i15, i64 0, i64 8589934592
-  %.sroa.03.sroa.0.0.insert.ext.i5.i18 = zext i32 %84 to i64
+  %.sroa.03.sroa.0.0.insert.ext.i5.i18 = zext i32 %85 to i64
   %.sroa.03.sroa.0.0.insert.insert.i6.i19 = or disjoint i64 %.sroa.03.sroa.3.0.insert.ext.i.i17, %.sroa.03.sroa.0.0.insert.ext.i5.i18
   br label %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26
 
 .fold.split.i7:                                   ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit
   br label %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26
 
-_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26: ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit, %81, %83, %.fold.split.i7
-  %.sroa.0.0.in.i8 = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i24, %81 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i19, %83 ], [ 2143289344, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit ], [ 15028191232, %.fold.split.i7 ]
-  %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.in.i8 to i32
-  %85 = bitcast i32 %.sroa.0.sroa.0.0.extract.trunc to float
-  %86 = fcmp oeq float %47, %85
-  br i1 %86, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %87
+_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26: ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit, %82, %84, %.fold.split.i7
+  %.sroa.0.0.in.i8 = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i.i24, %82 ], [ %.sroa.03.sroa.0.0.insert.insert.i6.i19, %84 ], [ 2143289344, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit ], [ 15028191232, %.fold.split.i7 ]
+  %86 = trunc i64 %.sroa.0.0.in.i8 to i32
+  %87 = bitcast i32 %86 to float
+  %88 = fcmp oeq float %49, %87
+  br i1 %88, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, label %89
 
-87:                                               ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26
-  %88 = fcmp uno float %47, 0.000000e+00
-  br i1 %88, label %89, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
+89:                                               ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26
+  %90 = fcmp uno float %49, 0.000000e+00
+  br i1 %90, label %91, label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
 
-89:                                               ; preds = %87
-  %90 = fcmp uno float %85, 0.000000e+00
+91:                                               ; preds = %89
+  %92 = fcmp uno float %87, 0.000000e+00
   br label %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit
 
-_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26, %87, %89
-  %91 = phi i1 [ true, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26 ], [ false, %87 ], [ %90, %89 ]
+_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit:     ; preds = %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26, %89, %91
+  %93 = phi i1 [ true, %_ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit26 ], [ false, %89 ], [ %92, %91 ]
   %.unshifted = xor i64 %.sroa.0.0.in.i, %.sroa.0.0.in.i8
-  %92 = icmp samesign ult i64 %.unshifted, 4294967296
-  %93 = select i1 %91, i1 %92, i1 false
-  br label %94
+  %94 = icmp ult i64 %.unshifted, 4294967296
+  %95 = select i1 %93, i1 %94, i1 false
+  br label %96
 
-94:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, %7
-  %95 = phi i1 [ true, %7 ], [ %93, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit ]
-  ret i1 %95
+96:                                               ; preds = %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit, %7
+  %97 = phi i1 [ true, %7 ], [ %95, %_ZNK8facebook4yoga11StyleLengtheqERKS1_.exit ]
+  ret i1 %97
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

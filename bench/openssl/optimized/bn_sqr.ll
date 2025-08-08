@@ -10,9 +10,6 @@ define range(i32 0, 2) i32 @BN_sqr(ptr noundef %0, ptr noundef readonly captures
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i64], align 16
@@ -74,11 +71,11 @@ define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %0, ptr noundef readonl
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = load ptr, ptr %15, align 8, !tbaa !11
   %34 = load ptr, ptr %1, align 8, !tbaa !11
   call void @bn_sqr_normal(ptr noundef %33, ptr noundef %34, i32 noundef %6, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 35:                                               ; preds = %30
@@ -140,20 +137,17 @@ define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %0, ptr noundef readonl
   ret i32 %.0
 }
 
-declare void @bn_correct_top(ptr noundef) local_unnamed_addr #2
+declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
+declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @bn_sqr_comba4(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @bn_sqr_comba4(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @bn_sqr_comba8(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @bn_sqr_comba8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -209,7 +203,7 @@ define void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i
   ret void
 }
 
-declare i32 @BN_num_bits_word(i64 noundef) local_unnamed_addr #2
+declare i32 @BN_num_bits_word(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -316,29 +310,35 @@ define void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   ret void
 }
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
-declare i64 @bn_mul_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @bn_mul_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @bn_mul_add_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @bn_mul_add_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @bn_add_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @bn_add_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @bn_sqr_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @bn_sqr_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @bn_cmp_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @bn_cmp_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

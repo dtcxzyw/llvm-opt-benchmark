@@ -389,8 +389,8 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
 
 108:                                              ; preds = %99
   tail call void (ptr, ptr, ...) @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN38ZRememberedSetContainingInLiveIteratorC1EP5ZPage(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(192) %1) #14
   %109 = call noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull %4) #14
   br i1 %109, label %.lr.ph.i, label %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit"
@@ -461,8 +461,8 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
 "_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit": ; preds = %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i", %108
   %.5 = phi i1 [ false, %108 ], [ %153, %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i" ]
   call void @_ZNK38ZRememberedSetContainingInLiveIterator16print_statisticsEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #14
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %156
 
 155:                                              ; preds = %99
@@ -528,8 +528,8 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered15scan_forwardingEP11ZForward
   tail call void @_ZN11ZForwarding53relocated_remembered_fields_notify_concurrent_scan_ofEv(ptr noundef nonnull align 8 dereferenceable(184) %1) #14
   store i32 0, ptr %2, align 4
   %15 = tail call noundef ptr @_ZN11ZForwarding4pageEv(ptr noundef nonnull align 8 dereferenceable(184) %1) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (ptr, ptr, ...) @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %15, ptr noundef nonnull @.str.13)
   call void @_ZN32ZRememberedSetContainingIteratorC1EP5ZPage(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %15) #14
   %16 = call noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %5) #14
@@ -541,8 +541,8 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered15scan_forwardingEP11ZForward
   br i1 %18, label %.lr.ph.i, label %_ZL15fill_containingP18GrowableArrayCHeapI24ZRememberedSetContainingL8MEMFLAGS5EEP5ZPage.exit, !llvm.loop !13
 
 _ZL15fill_containingP18GrowableArrayCHeapI24ZRememberedSetContainingL8MEMFLAGS5EEP5ZPage.exit: ; preds = %.lr.ph.i, %13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN11ZForwarding12release_pageEv(ptr noundef nonnull align 8 dereferenceable(184) %1) #14
   %19 = load i32, ptr %2, align 4
   %.not67.i = icmp eq i32 %19, 0
@@ -2378,10 +2378,10 @@ declare noundef i64 @_ZN9ZRelocate15relocate_objectEP11ZForwarding15zaddress_uns
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

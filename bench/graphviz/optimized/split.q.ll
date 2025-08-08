@@ -70,7 +70,7 @@ GetBranches.exit:                                 ; preds = %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %27, i8 -1, i64 260, i1 false), !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %36, i8 0, i64 260, i1 false), !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %38
 
 .preheader.i.i:                                   ; preds = %38
@@ -161,7 +161,7 @@ Classify.exit.i.i:                                ; preds = %50, %49
   %.142.i.i = phi i32 [ %.048.i.i, %.lr.ph.i.i ], [ %.2.i.i, %71 ]
   %.12740.i.i = phi i64 [ %.02646.i.i, %.lr.ph.i.i ], [ %.228.i.i, %71 ]
   %.13139.i.i = phi i32 [ %.03045.i.i, %.lr.ph.i.i ], [ %.232.i.i, %71 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv52.i.i
   %73 = call { i64, i64 } @CombineRect(ptr noundef nonnull %68, ptr noundef nonnull %72) #6
   %74 = extractvalue { i64, i64 } %73, 0
@@ -179,7 +179,7 @@ Classify.exit.i.i:                                ; preds = %50, %49
   %.232.i.i = select i1 %82, i32 %83, i32 %.13139.i.i
   %.228.i.i = call i64 @llvm.umax.i64(i64 %81, i64 %.12740.i.i)
   %.2.i.i = select i1 %82, i32 %70, i32 %.142.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
   %exitcond55.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, 65
   br i1 %exitcond55.not.i.i, label %.loopexit.i.i, label %71, !llvm.loop !26
@@ -191,7 +191,7 @@ PickSeeds.exit.i:                                 ; preds = %64, %63
   %86 = load i32, ptr %29, align 4, !tbaa !22
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr %29, align 4, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load i32, ptr %28, align 8, !tbaa !22
   %89 = add nsw i32 %88, %87
   %90 = icmp slt i32 %89, 65
@@ -262,7 +262,7 @@ Classify.exit.i:                                  ; preds = %106, %105
 
 123:                                              ; preds = %.preheader.i
   %124 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %125 = call { i64, i64 } @CombineRect(ptr noundef nonnull %124, ptr noundef nonnull %30) #6
   %126 = extractvalue { i64, i64 } %125, 0
   store i64 %126, ptr %7, align 8
@@ -309,7 +309,7 @@ Classify.exit.i:                                  ; preds = %106, %105
   %.162.i = phi i64 [ %.06186.i, %141 ], [ %.050.i, %123 ], [ %.06186.i, %143 ]
   %.256.i = phi i32 [ %.15588.i, %141 ], [ %.051.i, %123 ], [ %spec.select.i, %143 ]
   %.2.i = phi i32 [ %.15389.i, %141 ], [ %140, %123 ], [ %spec.select74.i, %143 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %152
 
 152:                                              ; preds = %151, %.preheader.i
@@ -418,26 +418,26 @@ LoadNodes.exit:                                   ; preds = %184
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @RTreeNewNode() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @RTreeNewNode() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @RectArea(ptr noundef) local_unnamed_addr #2
+declare i64 @RectArea(ptr noundef) local_unnamed_addr #1
 
-declare void @InitNode(ptr noundef) local_unnamed_addr #2
+declare void @InitNode(ptr noundef) local_unnamed_addr #1
 
-declare { i64, i64 } @NullRect() local_unnamed_addr #2
+declare { i64, i64 } @NullRect() local_unnamed_addr #1
 
-declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
@@ -446,9 +446,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }

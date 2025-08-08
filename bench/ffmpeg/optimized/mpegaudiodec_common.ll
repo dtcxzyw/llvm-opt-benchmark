@@ -50,7 +50,7 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @mpegaudiodec_common_init_static() #0 {
   %1 = alloca %struct.VLCInitState, align 8
   %2 = alloca [256 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.mpegaudiodec_common_init_static.state, i64 16, i1 false)
   br label %3
 
@@ -72,7 +72,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %29 ], [ 0, %3 ]
   %.096 = phi ptr [ %33, %29 ], [ @mpa_huffsymbols, %3 ]
   %.07495 = phi ptr [ %32, %29 ], [ @mpa_hufflens, %3 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw [15 x i8], ptr @mpa_huff_sizes_minus_one, i64 0, i64 %indvars.iv111
   %11 = load i8, ptr %10, align 1, !tbaa !10
   %12 = zext i8 %11 to i32
@@ -108,7 +108,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   store ptr %30, ptr %31, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %.07495, i64 %wide.trip.count
   %33 = getelementptr inbounds nuw i8, ptr %.096, i64 %wide.trip.count
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 15
   br i1 %exitcond114.not, label %.preheader90, label %.preheader91, !llvm.loop !15
 
@@ -162,7 +162,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 
 59:                                               ; preds = %.loopexit
   call fastcc void @mpegaudiodec_common_tableinit() #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 .preheader87:                                     ; preds = %48, %.loopexit
@@ -209,21 +209,15 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   br i1 %exitcond134.not, label %59, label %.preheader87, !llvm.loop !27
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @ff_vlc_init_tables_from_lengths(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @ff_vlc_init_sparse(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree norecurse nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #4 {
+define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #3 {
   %1 = alloca i32, align 4
   br label %3
 
@@ -233,7 +227,7 @@ define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #4 {
 3:                                                ; preds = %0, %13
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %13 ]
   %.014 = phi double [ 0.000000e+00, %0 ], [ %.1, %13 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = and i32 %4, 3
   %6 = icmp eq i32 %5, 0
@@ -264,32 +258,38 @@ define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #4 {
   %25 = sub i8 103, %24
   %26 = getelementptr inbounds nuw [32828 x i8], ptr @ff_table_4_3_exp, i64 0, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32828
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) local_unnamed_addr #5
+declare double @cbrt(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.llrint.i64.f64(double) #7
+declare i64 @llvm.llrint.i64.f64(double) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold nofree norecurse nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold nofree norecurse nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { cold }

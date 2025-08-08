@@ -951,7 +951,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyHamt_Assoc(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
   %5 = tail call i64 @PyObject_Hash(ptr noundef %1) #12
   %6 = icmp eq i64 %5, -1
@@ -1035,12 +1035,9 @@ Py_DECREF.exit:                                   ; preds = %18, %20, %23
 
 _Py_NewRef.exit:                                  ; preds = %3, %36, %33, %31, %26, %Py_DECREF.exit, %hamt_hash.exit, %37
   %.0 = phi ptr [ %29, %37 ], [ null, %hamt_hash.exit ], [ %0, %Py_DECREF.exit ], [ %0, %26 ], [ null, %31 ], [ null, %33 ], [ null, %36 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
@@ -1649,9 +1646,6 @@ hamt_node_array_assoc.exit:                       ; preds = %149, %225, %281, %.
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyHamt_Without(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
@@ -1664,7 +1658,7 @@ hamt_hash.exit:                                   ; preds = %2
   %7 = xor i64 %6, %4
   %8 = trunc i64 %7 to i32
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 -2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !8
@@ -1740,7 +1734,7 @@ default.unreachable:                              ; preds = %hamt_hash.exit
 
 _PyHamt_New.exit:                                 ; preds = %37, %34, %31, %26, %23, %21, %13, %38, %hamt_hash.exit
   %.1 = phi ptr [ null, %hamt_hash.exit ], [ %29, %38 ], [ %18, %13 ], [ %18, %21 ], [ %0, %23 ], [ %0, %26 ], [ null, %31 ], [ null, %34 ], [ null, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %hamt_hash.exit.thread
 
 hamt_hash.exit.thread:                            ; preds = %2, %_PyHamt_New.exit
@@ -1784,7 +1778,7 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
 29:                                               ; preds = %17
   %30 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !18
   %32 = add i32 %1, 5
   %33 = call fastcc i32 @hamt_node_without(ptr noundef %31, i32 noundef %32, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %7)
@@ -2013,7 +2007,7 @@ Py_DECREF.exit.i:                                 ; preds = %136, %133, %.loopex
 
 Py_DECREF.exit71.i.thread:                        ; preds = %82, %47, %49, %52, %Py_DECREF.exit67.i, %Py_DECREF.exit.i, %29
   %.3.i = phi i32 [ 3, %Py_DECREF.exit.i ], [ %33, %29 ], [ 0, %47 ], [ 0, %49 ], [ 0, %52 ], [ 3, %Py_DECREF.exit67.i ], [ 0, %82 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %hamt_node_bitmap_without.exit
 
 137:                                              ; preds = %17
@@ -2186,7 +2180,7 @@ hamt_node_bitmap_clone_without.exit:              ; preds = %146, %._crit_edge37
   br i1 %224, label %hamt_node_bitmap_without.exit, label %225
 
 225:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !18
   %226 = add i32 %1, 5
   %227 = call fastcc i32 @hamt_node_without(ptr noundef nonnull %223, i32 noundef %226, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %6)
@@ -2457,7 +2451,7 @@ default.unreachable:                              ; preds = %225
 
 Py_DECREF.exit94.i:                               ; preds = %268, %271, %274, %309, %304, %Py_DECREF.exit.i23, %290, %283, %Py_DECREF.exit92.i, %225, %225
   %.1.i = phi i32 [ %227, %225 ], [ %227, %225 ], [ 3, %Py_DECREF.exit92.i ], [ 2, %283 ], [ 3, %Py_DECREF.exit.i23 ], [ 0, %290 ], [ 3, %309 ], [ 0, %304 ], [ 0, %274 ], [ 0, %271 ], [ 0, %268 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %hamt_node_bitmap_without.exit
 
 352:                                              ; preds = %216
@@ -2721,7 +2715,7 @@ hamt_node_bitmap_without.exit:                    ; preds = %366, %359, %hamt_no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_PyHamt_New() local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @_PyHamt_New() local_unnamed_addr #1 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2893,10 +2887,10 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
   br i1 %.not, label %13, label %29
 
 13:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2937,10 +2931,10 @@ default.unreachable24:                            ; preds = %20
 
 .thread19:                                        ; preds = %23, %17, %28, %20, %.thread19.loopexit
   %.2 = phi i32 [ 0, %20 ], [ -1, %23 ], [ 1, %17 ], [ 0, %28 ], [ -1, %.thread19.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %8, %2, %.thread19
@@ -2949,7 +2943,7 @@ default.unreachable24:                            ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.promoted = load i8, ptr %4, align 8, !tbaa !121
   %5 = icmp slt i8 %.promoted, 0
@@ -3095,10 +3089,10 @@ hamt_iterator_bitmap_next.exit:                   ; preds = %tailrecurse.backedg
   ret i32 %.0
 }
 
-declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_PyHamt_Len(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden i64 @_PyHamt_Len(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !16
   ret i64 %3
@@ -3133,7 +3127,7 @@ hamt_baseiter_tp_clear.exit:                      ; preds = %1, %4, %6, %9
   ret void
 }
 
-declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #4
+declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_baseiter_tp_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
@@ -3182,14 +3176,14 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
   ret i32 0
 }
 
-declare ptr @PyObject_SelfIter(ptr noundef) #4
+declare ptr @PyObject_SelfIter(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3)
   %switch.not = icmp eq i32 %5, 0
@@ -3210,8 +3204,8 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0
 
 14:                                               ; preds = %8, %6
   %.0 = phi ptr [ null, %6 ], [ %13, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -3288,7 +3282,7 @@ hamt_baseiter_new.exit:                           ; preds = %1, %_Py_NewRef.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 8, !tbaa !15
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -3336,7 +3330,7 @@ hamt_baseiter_new.exit:                           ; preds = %1, %_Py_NewRef.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @hamt_iter_yield_values(ptr readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) #6 {
+define internal noundef ptr @hamt_iter_yield_values(ptr readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) #5 {
   %3 = load i32, ptr %1, align 8, !tbaa !15
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -3405,7 +3399,7 @@ hamt_tp_clear.exit:                               ; preds = %12, %15, %17, %20
   ret void
 }
 
-declare i64 @PyObject_HashNotImplemented(ptr noundef) #4
+declare i64 @PyObject_HashNotImplemented(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @hamt_tp_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
@@ -3487,10 +3481,10 @@ define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) 
   br i1 %.not.i, label %20, label %_PyHamt_Eq.exit.thread
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3528,17 +3522,17 @@ default.unreachable:                              ; preds = %27
 
 _PyHamt_Eq.exit.thread21:                         ; preds = %27, %24, %35
   %.2.i.ph = phi i32 [ 0, %35 ], [ 1, %24 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_PyHamt_Eq.exit.thread
 
 _PyHamt_Eq.exit:                                  ; preds = %27, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 _PyHamt_Eq.exit.thread:                           ; preds = %15, %13, %_PyHamt_Eq.exit.thread21
@@ -3590,7 +3584,7 @@ _PyHamt_NewIterKeys.exit:                         ; preds = %1, %_Py_NewRef.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @hamt_tp_new(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
+define internal noundef nonnull ptr @hamt_tp_new(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3714,7 +3708,7 @@ define internal i32 @hamt_node_array_traverse(ptr noundef readonly captures(none
   ret i32 %spec.select
 }
 
-declare void @PyObject_GC_Del(ptr noundef) #4
+declare void @PyObject_GC_Del(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @hamt_node_bitmap_dealloc(ptr noundef %0) #0 {
@@ -3956,7 +3950,7 @@ define internal i32 @hamt_node_collision_traverse(ptr noundef readonly captures(
   ret i32 %spec.select
 }
 
-declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #4
+declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
@@ -4379,7 +4373,7 @@ hamt_node_new_bitmap_or_collision.exit.thread254: ; preds = %231, %_Py_NewRef.ex
   br label %250
 
 234:                                              ; preds = %hamt_hash.exit249
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %235 = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), i32 noundef %177, i32 noundef %183, ptr noundef nonnull %23, ptr noundef %26, ptr noundef %7)
   %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), align 8, !tbaa !15
   %.not.i37.i = icmp sgt i32 %236, -1
@@ -4400,7 +4394,7 @@ Py_DECREF.exit38.i:                               ; preds = %240, %237, %234
   br i1 %241, label %hamt_node_new_bitmap_or_collision.exit.thread257, label %242
 
 hamt_node_new_bitmap_or_collision.exit.thread257: ; preds = %Py_DECREF.exit38.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_Py_NewRef.exit
 
 242:                                              ; preds = %Py_DECREF.exit38.i
@@ -4420,7 +4414,7 @@ hamt_node_new_bitmap_or_collision.exit.thread257: ; preds = %Py_DECREF.exit38.i
   br label %hamt_node_new_bitmap_or_collision.exit
 
 hamt_node_new_bitmap_or_collision.exit:           ; preds = %248, %245, %242
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %249 = icmp eq ptr %243, null
   br i1 %249, label %_Py_NewRef.exit, label %250
 
@@ -5049,7 +5043,7 @@ define internal fastcc ptr @hamt_node_bitmap_new(i64 noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Py_XDECREF(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc void @Py_XDECREF(ptr noundef %0) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %Py_DECREF.exit, label %2
 
@@ -5072,12 +5066,12 @@ Py_DECREF.exit:                                   ; preds = %7, %4, %2, %1
   ret void
 }
 
-declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #8
+declare i32 @llvm.ctpop.i32(i32) #7
 
-declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #4
+declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hamt_node_array_clone(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -5150,17 +5144,17 @@ hamt_node_array_new.exit.thread:                  ; preds = %_Py_XNewRef.exit, %
   ret ptr %4
 }
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #4
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #3
 
-declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #4
+declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
-declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #4
+declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @hamt_baseiter_tp_len(ptr noundef readonly captures(none) %0) #9 {
+define internal i64 @hamt_baseiter_tp_len(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !125
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5168,25 +5162,25 @@ define internal i64 @hamt_baseiter_tp_len(ptr noundef readonly captures(none) %0
   ret i64 %5
 }
 
-declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #4
+declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #3
 
-declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #4
+declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #3
 
-declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #4
+declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @hamt_tp_contains(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
 switch.lookup:
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call fastcc i32 @hamt_find(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2)
   %switch.offset = add nsw i32 %3, -1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %switch.offset
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @hamt_tp_len(ptr noundef readonly captures(none) %0) #5 {
+define internal i64 @hamt_tp_len(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !16
   ret i64 %3
@@ -5195,7 +5189,7 @@ define internal i64 @hamt_tp_len(ptr noundef readonly captures(none) %0) #5 {
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @hamt_tp_subscript(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc i32 @hamt_find(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   switch i32 %4, label %default.unreachable [
     i32 0, label %_Py_NewRef.exit
@@ -5224,18 +5218,18 @@ default.unreachable:                              ; preds = %2
 
 _Py_NewRef.exit:                                  ; preds = %9, %5, %2, %11
   %.0 = phi ptr [ null, %11 ], [ null, %2 ], [ %6, %5 ], [ %6, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_py_set(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef 2, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
@@ -5248,8 +5242,8 @@ define internal ptr @hamt_py_set(ptr noundef captures(ret: address, provenance) 
 
 10:                                               ; preds = %2, %6
   %.0 = phi ptr [ %9, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -5258,15 +5252,15 @@ define internal ptr @hamt_py_get(ptr noundef readonly captures(none) %0, ptr nou
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !110
   %6 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %21, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !110
   %8 = load ptr, ptr %3, align 8, !tbaa !110
   %9 = call fastcc i32 @hamt_find(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %5)
@@ -5304,13 +5298,13 @@ _Py_NewRef.exit.sink.split:                       ; preds = %17, %10
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %17, %10, %14, %7
   %.1 = phi ptr [ null, %7 ], [ @_Py_NoneStruct, %14 ], [ %11, %10 ], [ %15, %17 ], [ %.sink6, %_Py_NewRef.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %2, %_Py_NewRef.exit
   %.0 = phi ptr [ %.1, %_Py_NewRef.exit ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -5419,13 +5413,19 @@ _PyHamt_NewIterValues.exit:                       ; preds = %2, %_Py_NewRef.exit
   ret ptr %3
 }
 
-declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #4
+declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #3
 
-declare ptr @PyThreadState_Get() local_unnamed_addr #4
+declare ptr @PyThreadState_Get() local_unnamed_addr #3
 
-declare void @_PyTrash_thread_deposit_object(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_PyTrash_thread_deposit_object(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_PyTrash_thread_destroy_chain(ptr noundef) local_unnamed_addr #4
+declare void @_PyTrash_thread_destroy_chain(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -5434,15 +5434,15 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }

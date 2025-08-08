@@ -74,7 +74,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
   ]
 
 .critedge.us:                                     ; preds = %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = icmp eq i8 %23, 59
   br i1 %25, label %.split33.us, label %26
 
@@ -143,7 +143,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
 
 59:                                               ; preds = %.thread6.us
   %60 = sub nsw i32 %22, %53
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.split.us, !llvm.loop !6
 
 .split:                                           ; preds = %2, %107
@@ -163,7 +163,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
   ]
 
 .critedge:                                        ; preds = %.split, %.split, %.split, %.split, %.split, %.split, %.split
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !annotation !8
   %66 = icmp eq i8 %64, 59
   br i1 %66, label %.split33.us, label %68
@@ -253,18 +253,18 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
   br i1 %106, label %.thread15, label %107
 
 .thread10:                                        ; preds = %92, %68, %45, %26, %.thread
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %138
 
 .thread15:                                        ; preds = %.thread6, %.thread6.us, %.split33.us, %.split36.us
   %.ph = phi i32 [ %72, %.split36.us ], [ %67, %.split33.us ], [ %55, %.thread6.us ], [ %102, %.thread6 ]
   %.ph13 = phi i8 [ 50, %.split36.us ], [ 59, %.split33.us ], [ %56, %.thread6.us ], [ %103, %.thread6 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 107:                                              ; preds = %.thread6
   %108 = sub nsw i32 %63, %100
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.split
 
 .loopexit:                                        ; preds = %.split, %.split.us, %.thread15
@@ -341,17 +341,17 @@ define internal range(i32 -22, 1) i32 @ipv6header_mt6_check(ptr noundef readonly
   ret i32 %14
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @xt_register_match(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

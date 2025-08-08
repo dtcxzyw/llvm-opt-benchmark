@@ -131,7 +131,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
 15:                                               ; preds = %2
   %16 = getelementptr i8, ptr %5, i64 1
   store ptr %16, ptr %4, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %17, i8 noundef 0, i64 noundef 22, i1 noundef false) #5
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -603,7 +603,7 @@ pm_regexp_char_expect.exit:                       ; preds = %177
   br label %pm_regexp_parse_group.exit.thread
 
 pm_regexp_parse_group.exit.thread:                ; preds = %132, %127, %125, %141, %143, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit87, %73, %29, %36, %89, %122, %181, %.loopexit, %96, %113
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %240
 
 .loopexit84.sink.split:                           ; preds = %pm_regexp_char_expect.exit, %54, %138, %150
@@ -612,7 +612,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %132, %127, %125, %1
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %80, %76, %.loopexit84.sink.split
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
   br label %240
 
@@ -1102,18 +1102,12 @@ define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr noundef nonnu
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-declare i64 @pm_encoding_utf_8_char_width(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare i64 @pm_encoding_utf_8_char_width(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pm_string_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @pm_string_shared_init(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !42
@@ -1121,21 +1115,27 @@ define internal fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull 
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   call void %6(ptr noundef nonnull %4, ptr noundef %8) #5
   call void @pm_string_free(ptr noundef nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @pm_string_shared_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @pm_string_shared_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pm_string_free(ptr noundef) local_unnamed_addr #4
+declare void @pm_string_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @pm_memchr(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare ptr @pm_memchr(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}

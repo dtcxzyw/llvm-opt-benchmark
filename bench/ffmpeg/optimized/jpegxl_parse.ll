@@ -44,7 +44,7 @@ define i32 @ff_jpegxl_parse_codestream_header(ptr noundef %0, i32 noundef %1, pt
   %35 = alloca [4 x i32], align 16
   %36 = alloca [4 x i32], align 16
   %37 = alloca %struct.GetBitContext, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %or.cond.i = icmp ugt i32 %1, 268435455
   %38 = shl nuw nsw i32 %1, 3
   %39 = select i1 %or.cond.i, i32 -8, i32 %38
@@ -206,7 +206,7 @@ define i32 @ff_jpegxl_parse_codestream_header(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not.i271, label %250, label %144
 
 144:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 16, ptr %15, align 16, !tbaa !20
   %145 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 32, ptr %145, align 4, !tbaa !20
@@ -214,7 +214,7 @@ define i32 @ff_jpegxl_parse_codestream_header(ptr noundef %0, i32 noundef %1, pt
   store i32 1, ptr %146, align 8, !tbaa !20
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 33, ptr %147, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 16, !tbaa !20
   %148 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %148, align 4, !tbaa !20
@@ -283,8 +283,8 @@ get_bits_long.exit.i:                             ; preds = %173, %167
 jxl_u32.exit.i:                                   ; preds = %get_bits_long.exit.i, %144
   %192 = phi i32 [ %.sink.i, %get_bits_long.exit.i ], [ %143, %144 ]
   %.0.i.i273 = phi i32 [ %191, %get_bits_long.exit.i ], [ %156, %144 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %193 = shl i32 %.0.i.i273, 3
   %194 = lshr i32 %192, 3
   %195 = zext nneg i32 %194 to i64
@@ -349,7 +349,7 @@ default.unreachable:                              ; preds = %jxl_u32.exit26.i, %
   unreachable
 
 jpegxl_width_from_ratio.exit.thread.i:            ; preds = %jpegxl_width_from_ratio.exit.i, %jxl_u32.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 16, !tbaa !20
   %224 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %224, align 4, !tbaa !20
@@ -396,11 +396,11 @@ jxl_u32.exit23.sink.split.i:                      ; preds = %243, %241
 
 jxl_u32.exit23.i:                                 ; preds = %jxl_u32.exit23.sink.split.i, %jpegxl_width_from_ratio.exit.thread.i
   %249 = phi i32 [ %248, %jxl_u32.exit23.sink.split.i ], [ %235, %jpegxl_width_from_ratio.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %jpegxl_read_preview_header.exit
 
 250:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 1, ptr %12, align 16, !tbaa !20
   %251 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 65, ptr %251, align 4, !tbaa !20
@@ -408,7 +408,7 @@ jxl_u32.exit23.i:                                 ; preds = %jxl_u32.exit23.sink
   store i32 321, ptr %252, align 8, !tbaa !20
   %253 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1345, ptr %253, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 6, ptr %13, align 16, !tbaa !20
   %254 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 8, ptr %254, align 4, !tbaa !20
@@ -477,8 +477,8 @@ get_bits_long.exit35.i:                           ; preds = %279, %273
 jxl_u32.exit26.i:                                 ; preds = %get_bits_long.exit35.i, %250
   %298 = phi i32 [ %.sink44.i, %get_bits_long.exit35.i ], [ %143, %250 ]
   %.0.i25.i = phi i32 [ %297, %get_bits_long.exit35.i ], [ %262, %250 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %299 = lshr i32 %298, 3
   %300 = zext nneg i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %115, i64 %300
@@ -539,7 +539,7 @@ jpegxl_width_from_ratio.exit37.i:                 ; preds = %327, %324, %320, %3
   br i1 %.not19.i, label %jpegxl_width_from_ratio.exit37.thread.i, label %jpegxl_read_preview_header.exit
 
 jpegxl_width_from_ratio.exit37.thread.i:          ; preds = %jpegxl_width_from_ratio.exit37.i, %jxl_u32.exit26.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 6, ptr %11, align 16, !tbaa !20
   %329 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %329, align 4, !tbaa !20
@@ -586,7 +586,7 @@ jxl_u32.exit29.sink.split.i:                      ; preds = %348, %346
 
 jxl_u32.exit29.i:                                 ; preds = %jxl_u32.exit29.sink.split.i, %jpegxl_width_from_ratio.exit37.thread.i
   %354 = phi i32 [ %353, %jxl_u32.exit29.sink.split.i ], [ %340, %jpegxl_width_from_ratio.exit37.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %jpegxl_read_preview_header.exit
 
 jpegxl_read_preview_header.exit:                  ; preds = %jxl_u32.exit29.i, %jpegxl_width_from_ratio.exit37.i, %jxl_u32.exit23.i, %jpegxl_width_from_ratio.exit.i, %113
@@ -607,7 +607,7 @@ jpegxl_read_preview_header.exit:                  ; preds = %jxl_u32.exit29.i, %
   br i1 %.not209, label %.thread310, label %366
 
 366:                                              ; preds = %jpegxl_read_preview_header.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 100, ptr %35, align 16, !tbaa !20
   %367 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 1000, ptr %367, align 4, !tbaa !20
@@ -615,7 +615,7 @@ jpegxl_read_preview_header.exit:                  ; preds = %jxl_u32.exit29.i, %
   store i32 1, ptr %368, align 8, !tbaa !20
   %369 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 1, ptr %369, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 16, !tbaa !20
   %370 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 0, ptr %370, align 4, !tbaa !20
@@ -690,9 +690,9 @@ get_bits_long.exit:                               ; preds = %395, %401
 jxl_u32.exit:                                     ; preds = %366, %get_bits_long.exit
   %420 = phi i32 [ %.sink, %get_bits_long.exit ], [ %381, %366 ]
   %.0.i = phi i32 [ %419, %get_bits_long.exit ], [ %384, %366 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 1, ptr %33, align 16, !tbaa !20
   %421 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 1001, ptr %421, align 4, !tbaa !20
@@ -700,7 +700,7 @@ jxl_u32.exit:                                     ; preds = %366, %get_bits_long
   store i32 1, ptr %422, align 8, !tbaa !20
   %423 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 1, ptr %423, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 0, ptr %34, align 16, !tbaa !20
   %424 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 0, ptr %424, align 4, !tbaa !20
@@ -775,9 +775,9 @@ get_bits_long.exit277:                            ; preds = %449, %455
 jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_bits_long.exit277
   %474 = phi i32 [ %.sink340, %get_bits_long.exit277 ], [ %435, %jxl_u32.exit ]
   %.0.i228 = phi i32 [ %473, %get_bits_long.exit277 ], [ %438, %jxl_u32.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 16, !tbaa !20
   %475 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 3, ptr %475, align 4, !tbaa !20
@@ -830,7 +830,7 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
 
 501:                                              ; preds = %.sink.split, %jxl_u32.exit229
   %502 = phi i32 [ %486, %jxl_u32.exit229 ], [ %500, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %503 = lshr i32 %502, 3
   %504 = zext nneg i32 %503 to i64
   %505 = getelementptr inbounds nuw i8, ptr %115, i64 %504
@@ -893,7 +893,7 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
   br i1 %or.cond12, label %jpegxl_read_extra_channel_info.exit.thread320, label %537
 
 537:                                              ; preds = %521
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 16, !tbaa !20
   %538 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 1, ptr %538, align 4, !tbaa !20
@@ -901,7 +901,7 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
   store i32 2, ptr %539, align 8, !tbaa !20
   %540 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 1, ptr %540, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 0, ptr %31, align 16, !tbaa !20
   %541 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 0, ptr %541, align 4, !tbaa !20
@@ -934,8 +934,8 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
 
 jxl_u32.exit235:                                  ; preds = %537, %558
   %.0.i234 = phi i32 [ %560, %558 ], [ %555, %537 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %561 = icmp ugt i32 %.0.i234, 4
   %or.cond14 = and i1 %54, %561
   %or.cond16 = and i1 %536, %or.cond14
@@ -997,12 +997,12 @@ jxl_u32.exit235:                                  ; preds = %537, %558
   br i1 %.not.i283, label %597, label %.thread.i
 
 597:                                              ; preds = %583
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 16, !tbaa !20
   store i32 1, ptr %562, align 4, !tbaa !20
   store i32 2, ptr %563, align 8, !tbaa !20
   store i32 18, ptr %564, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 16, !tbaa !20
   store i32 0, ptr %565, align 4, !tbaa !20
   store i32 4, ptr %566, align 8, !tbaa !20
@@ -1073,8 +1073,8 @@ get_bits_long.exit.i286:                          ; preds = %626, %620
 
 jxl_enum.exit.i:                                  ; preds = %get_bits_long.exit.i286, %597
   %.0.i.i.i = phi i32 [ %644, %get_bits_long.exit.i286 ], [ %609, %597 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %645 = icmp ugt i32 %.0.i.i.i, 63
   %or.cond.i288 = select i1 %54, i1 %645, i1 false
   %646 = icmp eq i32 %.0.i.i.i, 4
@@ -1084,7 +1084,7 @@ jxl_enum.exit.i:                                  ; preds = %get_bits_long.exit.
 
 647:                                              ; preds = %jxl_enum.exit.i
   call fastcc void @jpegxl_get_bit_depth(ptr noundef nonnull %37, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 16, !tbaa !20
   store i32 0, ptr %568, align 4, !tbaa !20
   store i32 0, ptr %569, align 8, !tbaa !20
@@ -1131,13 +1131,13 @@ jxl_u32.exit42.sink.split.i:                      ; preds = %667, %665
 
 jxl_u32.exit42.i:                                 ; preds = %jxl_u32.exit42.sink.split.i, %647
   %673 = phi i32 [ %659, %647 ], [ %672, %jxl_u32.exit42.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16, !tbaa !20
   store i32 0, ptr %571, align 4, !tbaa !20
   store i32 16, ptr %572, align 8, !tbaa !20
   store i32 48, ptr %573, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 16, !tbaa !20
   store i32 4, ptr %574, align 4, !tbaa !20
   store i32 5, ptr %575, align 8, !tbaa !20
@@ -1208,8 +1208,8 @@ get_bits_long.exit48.i:                           ; preds = %702, %696
 721:                                              ; preds = %get_bits_long.exit48.i, %jxl_u32.exit42.i
   %.val.i = phi i32 [ %.sink64.i, %get_bits_long.exit48.i ], [ %682, %jxl_u32.exit42.i ]
   %.0.i38.i = phi i32 [ %720, %get_bits_long.exit48.i ], [ %685, %jxl_u32.exit42.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %722 = shl i32 %.0.i38.i, 3
   %.val43.i = load i32, ptr %42, align 4, !tbaa !11
   %723 = sub nsw i32 %.val43.i, %.val.i
@@ -1256,7 +1256,7 @@ get_bits_long.exit48.i:                           ; preds = %702, %696
   br label %765
 
 740:                                              ; preds = %734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 16, !tbaa !20
   store i32 2, ptr %577, align 4, !tbaa !20
   store i32 4, ptr %578, align 8, !tbaa !20
@@ -1300,7 +1300,7 @@ jxl_u32.exit.sink.split.i:                        ; preds = %757, %755
 
 jxl_u32.exit.i285:                                ; preds = %jxl_u32.exit.sink.split.i, %740
   %.val261349 = phi i32 [ %762, %jxl_u32.exit.sink.split.i ], [ %749, %740 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %765
 
 763:                                              ; preds = %734, %.thread61.i
@@ -1360,7 +1360,7 @@ jpegxl_read_extra_channel_info.exit:              ; preds = %581, %.preheader332
   %796 = zext i8 %793 to i32
   %797 = and i32 %spec.select.i290, 7
   store i32 %spec.select.i291, ptr %48, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 16, !tbaa !20
   %798 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 1, ptr %798, align 4, !tbaa !20
@@ -1368,7 +1368,7 @@ jpegxl_read_extra_channel_info.exit:              ; preds = %581, %.preheader332
   store i32 2, ptr %799, align 8, !tbaa !20
   %800 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 18, ptr %800, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 0, ptr %26, align 16, !tbaa !20
   %801 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %801, align 4, !tbaa !20
@@ -1401,8 +1401,8 @@ jpegxl_read_extra_channel_info.exit:              ; preds = %581, %.preheader332
 
 jxl_enum.exit:                                    ; preds = %789, %818
   %.0.i.i = phi i32 [ %820, %818 ], [ %815, %789 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %821 = icmp ugt i32 %.0.i.i, 63
   %or.cond18 = and i1 %54, %821
   br i1 %or.cond18, label %jpegxl_read_extra_channel_info.exit.thread320, label %822
@@ -1419,7 +1419,7 @@ jxl_enum.exit:                                    ; preds = %789, %818
   br i1 %.not213, label %.thread322, label %826
 
 826:                                              ; preds = %825
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 16, !tbaa !20
   %827 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 1, ptr %827, align 4, !tbaa !20
@@ -1427,7 +1427,7 @@ jxl_enum.exit:                                    ; preds = %789, %818
   store i32 2, ptr %828, align 8, !tbaa !20
   %829 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 18, ptr %829, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 0, ptr %24, align 16, !tbaa !20
   %830 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %830, align 4, !tbaa !20
@@ -1462,8 +1462,8 @@ jxl_enum.exit:                                    ; preds = %789, %818
 
 jxl_enum.exit247:                                 ; preds = %826, %849
   %.0.i.i246 = phi i32 [ %851, %849 ], [ %846, %826 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %852 = icmp ugt i32 %.0.i.i246, 63
   %or.cond20 = and i1 %54, %852
   br i1 %or.cond20, label %jpegxl_read_extra_channel_info.exit.thread320, label %853
@@ -1474,7 +1474,7 @@ jxl_enum.exit247:                                 ; preds = %826, %849
   br i1 %854, label %855, label %895
 
 855:                                              ; preds = %853
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 19, ptr %29, align 16, !tbaa !20
   %856 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 19, ptr %856, align 4, !tbaa !20
@@ -1511,8 +1511,8 @@ jxl_u32.exit238:                                  ; preds = %855, %873
   %875 = phi ptr [ %860, %855 ], [ %.pre356, %873 ]
   %876 = phi i32 [ %859, %855 ], [ %.pre355, %873 ]
   %877 = phi i32 [ %869, %855 ], [ %.pre354, %873 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 19, ptr %28, align 16, !tbaa !20
   %878 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 19, ptr %878, align 4, !tbaa !20
@@ -1543,7 +1543,7 @@ jxl_u32.exit238:                                  ; preds = %855, %873
 
 jxl_u32.exit241:                                  ; preds = %jxl_u32.exit238, %893
   %.pre359.pre = phi i32 [ %889, %jxl_u32.exit238 ], [ %.pre359.pre.pre, %893 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %895
 
 895:                                              ; preds = %jxl_u32.exit241, %853
@@ -1552,7 +1552,7 @@ jxl_u32.exit241:                                  ; preds = %jxl_u32.exit238, %8
   br i1 %.not214, label %.thread322, label %896
 
 896:                                              ; preds = %895
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 0, ptr %21, align 16, !tbaa !20
   %897 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 1, ptr %897, align 4, !tbaa !20
@@ -1560,7 +1560,7 @@ jxl_u32.exit241:                                  ; preds = %jxl_u32.exit238, %8
   store i32 2, ptr %898, align 8, !tbaa !20
   %899 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 18, ptr %899, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 16, !tbaa !20
   %900 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %900, align 4, !tbaa !20
@@ -1595,8 +1595,8 @@ jxl_u32.exit241:                                  ; preds = %jxl_u32.exit238, %8
 
 jxl_enum.exit250:                                 ; preds = %896, %919
   %.0.i.i249 = phi i32 [ %921, %919 ], [ %916, %896 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %922 = icmp ugt i32 %.0.i.i249, 63
   %or.cond22 = and i1 %54, %922
   br i1 %or.cond22, label %jpegxl_read_extra_channel_info.exit.thread320, label %923
@@ -1620,7 +1620,7 @@ jxl_enum.exit250:                                 ; preds = %896, %919
 930:                                              ; preds = %.preheader, %928
   %931 = phi i32 [ %.pre360, %.preheader ], [ %.val263, %928 ]
   %.0164336 = phi i32 [ 0, %.preheader ], [ %929, %928 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 19, ptr %27, align 16, !tbaa !20
   store i32 19, ptr %925, align 4, !tbaa !20
   store i32 20, ptr %926, align 8, !tbaa !20
@@ -1650,7 +1650,7 @@ jxl_enum.exit250:                                 ; preds = %896, %919
 
 jxl_u32.exit244:                                  ; preds = %930, %946
   %.val263 = phi i32 [ %942, %930 ], [ %.val263.pre, %946 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.val264 = load i32, ptr %42, align 4, !tbaa !11
   %.not329 = icmp sgt i32 %.val264, %.val263
   br i1 %.not329, label %928, label %jpegxl_read_extra_channel_info.exit.thread320
@@ -1690,7 +1690,7 @@ jxl_u32.exit244:                                  ; preds = %930, %946
   br label %998
 
 971:                                              ; preds = %.thread322
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 16, !tbaa !20
   %972 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 1, ptr %972, align 4, !tbaa !20
@@ -1698,7 +1698,7 @@ jxl_u32.exit244:                                  ; preds = %930, %946
   store i32 2, ptr %973, align 8, !tbaa !20
   %974 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 18, ptr %974, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 16, !tbaa !20
   %975 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %975, align 4, !tbaa !20
@@ -1731,8 +1731,8 @@ jxl_u32.exit244:                                  ; preds = %930, %946
 
 jxl_enum.exit253:                                 ; preds = %971, %992
   %.0.i.i252 = phi i32 [ %994, %992 ], [ %989, %971 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %995 = icmp ugt i32 %.0.i.i252, 63
   %or.cond24 = and i1 %54, %995
   br i1 %or.cond24, label %jpegxl_read_extra_channel_info.exit.thread320, label %996
@@ -1749,7 +1749,7 @@ jxl_enum.exit253:                                 ; preds = %971, %992
   %1000 = phi i32 [ %954, %961 ], [ %.pre363, %996 ]
   %1001 = phi i32 [ %970, %961 ], [ %.pre362, %996 ]
   %.2180 = phi i32 [ %968, %961 ], [ %997, %996 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 16, !tbaa !20
   %1002 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %1002, align 4, !tbaa !20
@@ -1757,7 +1757,7 @@ jxl_enum.exit253:                                 ; preds = %971, %992
   store i32 2, ptr %1003, align 8, !tbaa !20
   %1004 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 18, ptr %1004, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 16, !tbaa !20
   %1005 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %1005, align 4, !tbaa !20
@@ -1790,8 +1790,8 @@ jxl_enum.exit253:                                 ; preds = %971, %992
 
 jxl_enum.exit256:                                 ; preds = %998, %1022
   %.0.i.i255 = phi i32 [ %1024, %1022 ], [ %1019, %998 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %1025 = icmp ugt i32 %.0.i.i255, 63
   %or.cond26 = and i1 %54, %1025
   br i1 %or.cond26, label %jpegxl_read_extra_channel_info.exit.thread320, label %1026
@@ -2039,15 +2039,12 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
 
 jpegxl_read_extra_channel_info.exit.thread320:    ; preds = %765, %jxl_enum.exit.i, %721, %jxl_u32.exit244, %.thread324, %1145, %1046, %jxl_enum.exit256, %jxl_enum.exit253, %jxl_enum.exit250, %jxl_enum.exit247, %jxl_enum.exit, %jxl_u32.exit235, %521, %518, %55, %49, %4
   %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %49 ], [ %56, %55 ], [ -1397118274, %518 ], [ -1094995529, %521 ], [ -1094995529, %jxl_u32.exit235 ], [ -1094995529, %jxl_enum.exit ], [ -1094995529, %jxl_enum.exit247 ], [ -1094995529, %jxl_enum.exit250 ], [ -1094995529, %jxl_enum.exit253 ], [ -1094995529, %jxl_enum.exit256 ], [ %1047, %1046 ], [ -1094995529, %1145 ], [ %spec.select, %.thread324 ], [ -1397118274, %jxl_u32.exit244 ], [ -1397118274, %765 ], [ -1094995529, %jxl_enum.exit.i ], [ -1397118274, %721 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @jpegxl_read_size_header(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1094995529, 1) i32 @jpegxl_read_size_header(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
@@ -2160,9 +2157,9 @@ jpegxl_width_from_ratio.exit:                     ; preds = %23
   br label %jpegxl_width_from_ratio.exit.thread
 
 73:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 9, ptr %7, align 16, !tbaa !20
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 13, ptr %74, align 4, !tbaa !20
@@ -2237,8 +2234,8 @@ get_bits_long.exit:                               ; preds = %99, %105
 jxl_u32.exit:                                     ; preds = %73, %get_bits_long.exit
   %124 = phi i32 [ %.sink, %get_bits_long.exit ], [ %85, %73 ]
   %.0.i = phi i32 [ %123, %get_bits_long.exit ], [ %88, %73 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %125 = add i32 %.0.i, 1
   %126 = lshr i32 %124, 3
   %127 = zext nneg i32 %126 to i64
@@ -2300,9 +2297,9 @@ jpegxl_width_from_ratio.exit39:                   ; preds = %jxl_u32.exit, %136,
   br i1 %.not29, label %jpegxl_width_from_ratio.exit39.thread, label %jpegxl_width_from_ratio.exit.thread
 
 jpegxl_width_from_ratio.exit39.thread:            ; preds = %jxl_u32.exit, %jpegxl_width_from_ratio.exit39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 9, ptr %5, align 16, !tbaa !20
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 13, ptr %156, align 4, !tbaa !20
@@ -2376,8 +2373,8 @@ get_bits_long.exit41:                             ; preds = %181, %187
 
 jxl_u32.exit35:                                   ; preds = %jpegxl_width_from_ratio.exit39.thread, %get_bits_long.exit41
   %.0.i34 = phi i32 [ %205, %get_bits_long.exit41 ], [ %170, %jpegxl_width_from_ratio.exit39.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %206 = add i32 %.0.i34, 1
   br label %jpegxl_width_from_ratio.exit.thread
 
@@ -2419,14 +2416,11 @@ jpegxl_width_from_ratio.exit.thread:              ; preds = %23, %60, %57, %54, 
   ret i32 %.025
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @jpegxl_get_bit_depth(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @jpegxl_get_bit_depth(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = alloca [4 x i32], align 16
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i32], align 16
@@ -2458,7 +2452,7 @@ define internal fastcc void @jpegxl_get_bit_depth(ptr noundef nonnull captures(n
   br i1 %.not, label %81, label %28
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 32, ptr %3, align 16, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 16, ptr %29, align 4, !tbaa !20
@@ -2466,7 +2460,7 @@ define internal fastcc void @jpegxl_get_bit_depth(ptr noundef nonnull captures(n
   store i32 24, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %31, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 16, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %32, align 4, !tbaa !20
@@ -2534,8 +2528,8 @@ get_bits_long.exit:                               ; preds = %51, %57
 jxl_u32.exit10:                                   ; preds = %28, %get_bits_long.exit
   %76 = phi i32 [ %.sink, %get_bits_long.exit ], [ %27, %28 ]
   %.0.i9 = phi i32 [ %75, %get_bits_long.exit ], [ %40, %28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %77 = sub nsw i32 0, %76
   %78 = sub nsw i32 %15, %76
   %79 = icmp slt i32 %76, -4
@@ -2546,7 +2540,7 @@ jxl_u32.exit10:                                   ; preds = %28, %get_bits_long.
   br label %129
 
 81:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 8, ptr %5, align 16, !tbaa !20
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 10, ptr %82, align 4, !tbaa !20
@@ -2554,7 +2548,7 @@ jxl_u32.exit10:                                   ; preds = %28, %get_bits_long.
   store i32 12, ptr %83, align 8, !tbaa !20
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %84, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 16, !tbaa !20
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %85, align 4, !tbaa !20
@@ -2622,8 +2616,8 @@ get_bits_long.exit13:                             ; preds = %104, %110
 
 jxl_u32.exit:                                     ; preds = %81, %get_bits_long.exit13
   %.0.i = phi i32 [ %128, %get_bits_long.exit13 ], [ %93, %81 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 129:                                              ; preds = %jxl_u32.exit, %jxl_u32.exit10
@@ -2641,7 +2635,7 @@ jxl_u32.exit:                                     ; preds = %81, %get_bits_long.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1397118274, 1) i32 @jpegxl_skip_extensions(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
+define internal fastcc range(i32 -1397118274, 1) i32 @jpegxl_skip_extensions(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = tail call fastcc i64 @jxl_u64(ptr noundef %0)
   %3 = getelementptr i8, ptr %0, i64 16
   %.val27 = load i32, ptr %3, align 8, !tbaa !15
@@ -2712,7 +2706,7 @@ define internal fastcc range(i32 -1397118274, 1) i32 @jpegxl_skip_extensions(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ff_jpegxl_collect_codestream_header(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #5 {
+define i32 @ff_jpegxl_collect_codestream_header(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = icmp sgt i32 %1, -1
   br i1 %6, label %bytestream2_init.exit, label %7
 
@@ -2933,7 +2927,7 @@ bytestream2_get_be32.exit70.thread:               ; preds = %bytestream2_get_be3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_bits_long(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #6 {
+define internal fastcc i32 @get_bits_long(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #5 {
   %3 = icmp slt i32 %1, 26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !15
@@ -2985,7 +2979,7 @@ define internal fastcc i32 @get_bits_long(ptr noundef nonnull captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @jxl_u64(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
+define internal fastcc i64 @jxl_u64(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3120,10 +3114,16 @@ default.unreachable:                              ; preds = %1
   ret i64 %.0
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+declare void @abort() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
@@ -3147,14 +3147,14 @@ declare i64 @llvm.bswap.i64(i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }

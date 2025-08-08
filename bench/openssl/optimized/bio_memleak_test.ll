@@ -77,8 +77,8 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_bio_memleak() #0 {
   %1 = alloca %struct.buf_mem_st, align 8
   %2 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @BIO_s_mem() #4
   %4 = tail call ptr @BIO_new(ptr noundef %3) #4
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef %4) #4
@@ -107,15 +107,15 @@ define internal range(i32 0, 2) i32 @test_bio_memleak() #0 {
 14:                                               ; preds = %12, %6, %0
   %.0 = phi i32 [ 0, %6 ], [ 0, %0 ], [ %spec.select, %12 ]
   %15 = call i32 @BIO_free(ptr noundef %4) #4
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bio_get_mem() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !13
   %2 = tail call ptr @BIO_s_mem() #4
   %3 = tail call ptr @BIO_new(ptr noundef %2) #4
@@ -160,7 +160,7 @@ define internal range(i32 0, 2) i32 @test_bio_get_mem() #0 {
   %24 = call i32 @BIO_free(ptr noundef %.0) #4
   %25 = load ptr, ptr %1, align 8, !tbaa !13
   call void @BUF_MEM_free(ptr noundef %25) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.06
 }
 
@@ -168,8 +168,8 @@ define internal range(i32 0, 2) i32 @test_bio_get_mem() #0 {
 define internal range(i32 0, 2) i32 @test_bio_new_mem_buf() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @.str.15, i32 noundef 12) #4
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 79, ptr noundef nonnull @.str.8, ptr noundef %3) #4
   %.not = icmp eq i32 %4, 0
@@ -232,8 +232,8 @@ define internal range(i32 0, 2) i32 @test_bio_new_mem_buf() #0 {
 31:                                               ; preds = %29, %26, %22, %20, %17, %14, %10, %8, %5, %0
   %.0 = phi i32 [ 0, %26 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %29 ]
   %32 = call i32 @BIO_free(ptr noundef %3) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -241,8 +241,8 @@ define internal range(i32 0, 2) i32 @test_bio_new_mem_buf() #0 {
 define internal range(i32 0, 2) i32 @test_bio_rdonly_mem_buf() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @.str.15, i32 noundef 12) #4
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 114, ptr noundef nonnull @.str.8, ptr noundef %3) #4
   %.not = icmp eq i32 %4, 0
@@ -312,15 +312,15 @@ define internal range(i32 0, 2) i32 @test_bio_rdonly_mem_buf() #0 {
   %.0 = phi ptr [ %17, %30 ], [ %17, %26 ], [ %17, %24 ], [ %17, %19 ], [ %17, %14 ], [ null, %10 ], [ null, %8 ], [ null, %5 ], [ null, %0 ], [ %17, %33 ]
   %36 = call i32 @BIO_free(ptr noundef %3) #4
   %37 = call i32 @BIO_free(ptr noundef %.0) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bio_rdwr_rdonly() #0 {
   %1 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @BIO_s_mem() #4
   %3 = tail call ptr @BIO_new(ptr noundef %2) #4
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 155, ptr noundef nonnull @.str.8, ptr noundef %3) #4
@@ -374,14 +374,14 @@ define internal range(i32 0, 2) i32 @test_bio_rdwr_rdonly() #0 {
 25:                                               ; preds = %23, %20, %17, %13, %11, %8, %5, %0
   %.0 = phi i32 [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %23 ]
   %26 = call i32 @BIO_free(ptr noundef %3) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bio_nonclear_rst() #0 {
   %1 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @BIO_s_mem() #4
   %3 = tail call ptr @BIO_new(ptr noundef %2) #4
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 191, ptr noundef nonnull @.str.8, ptr noundef %3) #4
@@ -442,14 +442,14 @@ define internal range(i32 0, 2) i32 @test_bio_nonclear_rst() #0 {
 29:                                               ; preds = %26, %22, %20, %17, %13, %11, %8, %5, %0
   %.0 = phi i32 [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
   %30 = call i32 @BIO_free(ptr noundef %3) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bio_i2d_ASN1_mime() #0 {
   %1 = alloca %struct.buf_mem_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @BIO_s_mem() #4
   %3 = tail call ptr @BIO_new(ptr noundef %2) #4
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 245, ptr noundef nonnull @.str.44, ptr noundef %3) #4
@@ -510,12 +510,9 @@ define internal range(i32 0, 2) i32 @test_bio_i2d_ASN1_mime() #0 {
   %30 = call i32 @BIO_free(ptr noundef %3) #4
   %31 = call i32 @BIO_free(ptr noundef %.010) #4
   call void @PKCS7_free(ptr noundef %.0) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.011
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
@@ -535,9 +532,6 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -555,7 +549,7 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @BIO_error_callback(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, i64 %3, i32 %4, i64 %5, i32 noundef %6, ptr readnone captures(none) %7) #3 {
+define internal range(i64 -2147483648, 2147483648) i64 @BIO_error_callback(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, i64 %3, i32 %4, i64 %5, i32 noundef %6, ptr readnone captures(none) %7) #2 {
   %9 = and i32 %1, 130
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -584,10 +578,16 @@ declare ptr @PKCS7_it() local_unnamed_addr #1
 
 declare void @PKCS7_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

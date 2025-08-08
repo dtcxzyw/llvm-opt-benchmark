@@ -14,8 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @wc_PRF(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.Hmac], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %switch.tableidx = add i32 %6, -1
   %12 = icmp ult i32 %switch.tableidx, 6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
@@ -179,29 +179,23 @@ switch.lookup:                                    ; preds = %9
 
 ForceZero.exit86:                                 ; preds = %.lr.ph29.i83, %9, %switch.lookup
   %.048 = phi i32 [ -232, %9 ], [ -173, %switch.lookup ], [ %.046, %.lr.ph29.i83 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.048
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_PRF_TLSv1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
@@ -209,8 +203,8 @@ define i32 @wc_PRF_TLSv1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nou
   %12 = alloca [128 x i8], align 16
   %13 = add i32 %3, 1
   %14 = lshr i32 %13, 1
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = icmp ugt i32 %13, 521
   br i1 %15, label %ForceZero.exit, label %16
 
@@ -326,8 +320,8 @@ XorWords.exit.i:                                  ; preds = %.lr.ph.i.i, %._crit
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i42, %20, %26, %10, %16
   %.0 = phi i32 [ -132, %16 ], [ -132, %10 ], [ %33, %26 ], [ %24, %20 ], [ 0, %.preheader.i42 ], [ 0, %.lr.ph35.i ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
@@ -338,7 +332,7 @@ define i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nound
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %15 = add i32 %7, %5
   %16 = icmp ult i32 %15, 129
   br i1 %16, label %17, label %.critedge
@@ -353,7 +347,7 @@ define i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nound
   %22 = tail call i32 @llvm.smax.i32(i32 %9, i32 4)
   %spec.store.select = select i1 %21, i32 4, i32 %22
   %23 = call i32 @wc_PRF(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %13, i32 noundef %15, i32 noundef %spec.store.select, ptr noundef %10, i32 noundef %11)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %26
 
 24:                                               ; preds = %12
@@ -361,7 +355,7 @@ define i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nound
   br label %26
 
 .critedge:                                        ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %26
 
 26:                                               ; preds = %24, %.critedge, %17
@@ -400,9 +394,9 @@ define i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @wc_HKDF_Extract_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HKDF_Extract_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_Tls13_HKDF_Extract(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -437,7 +431,7 @@ wc_Tls13_HKDF_Extract_ex.exit:                    ; preds = %6, %12
 ; Function Attrs: nounwind uwtable
 define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = alloca [111 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 111, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = add i32 %7, %5
   %16 = add i32 %15, 4
   %17 = add i32 %16, %9
@@ -527,16 +521,16 @@ define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr no
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %13
   %.041 = phi i32 [ -132, %13 ], [ %46, %.preheader.i ], [ %46, %.lr.ph35.i ]
-  call void @llvm.lifetime.end.p0(i64 111, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.041
 }
 
-declare i32 @wc_HKDF_Expand_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HKDF_Expand_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca [111 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 111, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = add i32 %7, %5
   %14 = add i32 %13, 4
   %15 = add i32 %14, %9
@@ -626,18 +620,24 @@ define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr nound
 
 wc_Tls13_HKDF_Expand_Label_ex.exit:               ; preds = %.lr.ph35.i.i, %11, %.preheader.i.i
   %.041.i = phi i32 [ -132, %11 ], [ %44, %.preheader.i.i ], [ %44, %.lr.ph35.i.i ]
-  call void @llvm.lifetime.end.p0(i64 111, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.041.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

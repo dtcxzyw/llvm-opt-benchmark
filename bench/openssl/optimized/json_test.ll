@@ -310,9 +310,9 @@ define internal range(i32 0, 2) i32 @test_json_enc() #0 {
   %9 = call ptr %8() #6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !13
   %12 = load ptr, ptr %9, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -796,8 +796,8 @@ helper_ensure.exit338.i:                          ; preds = %153, %151, %143, %1
   br label %run_script.exit
 
 run_script.exit:                                  ; preds = %189, %193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %194 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 686, ptr noundef nonnull @.str.2, i32 noundef %190) #6
   %.not = icmp eq i32 %194, 0
   %spec.select = select i1 %.not, i32 0, i32 %.047
@@ -809,16 +809,10 @@ run_script.exit:                                  ; preds = %189, %193
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -837,7 +831,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -852,252 +846,252 @@ declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 declare void @ossl_json_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_null() #5 {
+define internal noundef nonnull ptr @get_script_null() #4 {
   ret ptr @get_script_null.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_obj_empty() #5 {
+define internal noundef nonnull ptr @get_script_obj_empty() #4 {
   ret ptr @get_script_obj_empty.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_array_empty() #5 {
+define internal noundef nonnull ptr @get_script_array_empty() #4 {
   ret ptr @get_script_array_empty.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_bool_false() #5 {
+define internal noundef nonnull ptr @get_script_bool_false() #4 {
   ret ptr @get_script_bool_false.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_bool_true() #5 {
+define internal noundef nonnull ptr @get_script_bool_true() #4 {
   ret ptr @get_script_bool_true.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_u64_0() #5 {
+define internal noundef nonnull ptr @get_script_u64_0() #4 {
   ret ptr @get_script_u64_0.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_u64_1() #5 {
+define internal noundef nonnull ptr @get_script_u64_1() #4 {
   ret ptr @get_script_u64_1.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_u64_10() #5 {
+define internal noundef nonnull ptr @get_script_u64_10() #4 {
   ret ptr @get_script_u64_10.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_u64_12345() #5 {
+define internal noundef nonnull ptr @get_script_u64_12345() #4 {
   ret ptr @get_script_u64_12345.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_u64_18446744073709551615() #5 {
+define internal noundef nonnull ptr @get_script_u64_18446744073709551615() #4 {
   ret ptr @get_script_u64_18446744073709551615.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_0() #5 {
+define internal noundef nonnull ptr @get_script_i64_0() #4 {
   ret ptr @get_script_i64_0.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_1() #5 {
+define internal noundef nonnull ptr @get_script_i64_1() #4 {
   ret ptr @get_script_i64_1.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_2() #5 {
+define internal noundef nonnull ptr @get_script_i64_2() #4 {
   ret ptr @get_script_i64_2.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_10() #5 {
+define internal noundef nonnull ptr @get_script_i64_10() #4 {
   ret ptr @get_script_i64_10.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_12345() #5 {
+define internal noundef nonnull ptr @get_script_i64_12345() #4 {
   ret ptr @get_script_i64_12345.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_9223372036854775807() #5 {
+define internal noundef nonnull ptr @get_script_i64_9223372036854775807() #4 {
   ret ptr @get_script_i64_9223372036854775807.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_m1() #5 {
+define internal noundef nonnull ptr @get_script_i64_m1() #4 {
   ret ptr @get_script_i64_m1.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_m2() #5 {
+define internal noundef nonnull ptr @get_script_i64_m2() #4 {
   ret ptr @get_script_i64_m2.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_m10() #5 {
+define internal noundef nonnull ptr @get_script_i64_m10() #4 {
   ret ptr @get_script_i64_m10.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_m12345() #5 {
+define internal noundef nonnull ptr @get_script_i64_m12345() #4 {
   ret ptr @get_script_i64_m12345.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_m9223372036854775807() #5 {
+define internal noundef nonnull ptr @get_script_i64_m9223372036854775807() #4 {
   ret ptr @get_script_i64_m9223372036854775807.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_i64_m9223372036854775808() #5 {
+define internal noundef nonnull ptr @get_script_i64_m9223372036854775808() #4 {
   ret ptr @get_script_i64_m9223372036854775808.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_empty() #5 {
+define internal noundef nonnull ptr @get_script_str_empty() #4 {
   ret ptr @get_script_str_empty.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_a() #5 {
+define internal noundef nonnull ptr @get_script_str_a() #4 {
   ret ptr @get_script_str_a.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_abc() #5 {
+define internal noundef nonnull ptr @get_script_str_abc() #4 {
   ret ptr @get_script_str_abc.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_quote() #5 {
+define internal noundef nonnull ptr @get_script_str_quote() #4 {
   ret ptr @get_script_str_quote.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_quote2() #5 {
+define internal noundef nonnull ptr @get_script_str_quote2() #4 {
   ret ptr @get_script_str_quote2.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_escape() #5 {
+define internal noundef nonnull ptr @get_script_str_escape() #4 {
   ret ptr @get_script_str_escape.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_len() #5 {
+define internal noundef nonnull ptr @get_script_str_len() #4 {
   ret ptr @get_script_str_len.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_len0() #5 {
+define internal noundef nonnull ptr @get_script_str_len0() #4 {
   ret ptr @get_script_str_len0.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_str_len_nul() #5 {
+define internal noundef nonnull ptr @get_script_str_len_nul() #4 {
   ret ptr @get_script_str_len_nul.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_hex_data0() #5 {
+define internal noundef nonnull ptr @get_script_hex_data0() #4 {
   ret ptr @get_script_hex_data0.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_hex_data() #5 {
+define internal noundef nonnull ptr @get_script_hex_data() #4 {
   ret ptr @get_script_hex_data.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_array_nest1() #5 {
+define internal noundef nonnull ptr @get_script_array_nest1() #4 {
   ret ptr @get_script_array_nest1.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_array_nest2() #5 {
+define internal noundef nonnull ptr @get_script_array_nest2() #4 {
   ret ptr @get_script_array_nest2.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_array_nest3() #5 {
+define internal noundef nonnull ptr @get_script_array_nest3() #4 {
   ret ptr @get_script_array_nest3.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_array_nest4() #5 {
+define internal noundef nonnull ptr @get_script_array_nest4() #4 {
   ret ptr @get_script_array_nest4.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_obj_nontrivial1() #5 {
+define internal noundef nonnull ptr @get_script_obj_nontrivial1() #4 {
   ret ptr @get_script_obj_nontrivial1.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_obj_nontrivial2() #5 {
+define internal noundef nonnull ptr @get_script_obj_nontrivial2() #4 {
   ret ptr @get_script_obj_nontrivial2.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_obj_nest1() #5 {
+define internal noundef nonnull ptr @get_script_obj_nest1() #4 {
   ret ptr @get_script_obj_nest1.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_err_obj_no_key() #5 {
+define internal noundef nonnull ptr @get_script_err_obj_no_key() #4 {
   ret ptr @get_script_err_obj_no_key.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_err_obj_multi_key() #5 {
+define internal noundef nonnull ptr @get_script_err_obj_multi_key() #4 {
   ret ptr @get_script_err_obj_multi_key.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_err_obj_no_value() #5 {
+define internal noundef nonnull ptr @get_script_err_obj_no_value() #4 {
   ret ptr @get_script_err_obj_no_value.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_err_utf8() #5 {
+define internal noundef nonnull ptr @get_script_err_utf8() #4 {
   ret ptr @get_script_err_utf8.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_utf8_2() #5 {
+define internal noundef nonnull ptr @get_script_utf8_2() #4 {
   ret ptr @get_script_utf8_2.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_utf8_3() #5 {
+define internal noundef nonnull ptr @get_script_utf8_3() #4 {
   ret ptr @get_script_utf8_3.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_utf8_4() #5 {
+define internal noundef nonnull ptr @get_script_utf8_4() #4 {
   ret ptr @get_script_utf8_4.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_ijson_int() #5 {
+define internal noundef nonnull ptr @get_script_ijson_int() #4 {
   ret ptr @get_script_ijson_int.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_multi_item() #5 {
+define internal noundef nonnull ptr @get_script_multi_item() #4 {
   ret ptr @get_script_multi_item.script_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @get_script_seq() #5 {
+define internal noundef nonnull ptr @get_script_seq() #4 {
   ret ptr @get_script_seq.script_info
 }
 
@@ -1125,12 +1119,18 @@ declare void @ossl_json_str_hex(ptr noundef, ptr noundef, i64 noundef) #1
 
 declare void @ossl_json_key(ptr noundef, ptr noundef) #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

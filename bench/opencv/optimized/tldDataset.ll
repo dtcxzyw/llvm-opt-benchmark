@@ -190,25 +190,19 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca [100 x i8], align 16
   %4 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE) #11
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
   %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
@@ -288,7 +282,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %32, ptr %0, align 8, !tbaa !20
   %33 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %33, ptr %2, align 8, !tbaa !22
   %34 = icmp ugt i64 %33, 15
   br i1 %34, label %.noexc.i, label %._crit_edge.i.i
@@ -323,9 +317,9 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   %44 = load ptr, ptr %0, align 8, !tbaa !24
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store i8 0, ptr %45, align 1, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -630,6 +624,12 @@ define internal void @_GLOBAL__sub_I_tldDataset.cpp() #10 section ".text.startup
   %3 = tail call ptr @llvm.invariant.start.p0(i64 1920, ptr nonnull @_ZN2cv6detail8tracking3tldL9votInitBBE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

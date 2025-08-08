@@ -336,8 +336,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %Value.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load atomic i32, ptr %Value.i monotonic, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %Buffer.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %if.end.thread.i, label %while.body.i.preheader
 
@@ -369,8 +369,8 @@ _ZN4llvh6utostrB5cxx11Emb.exit:                   ; preds = %while.body.i, %if.e
   store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull %BufPtr.1.lcssa.i, ptr noundef nonnull %add.ptr.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %Buffer.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #21
   %conv8 = trunc i64 %call7 to i32
   %.sroa.speculated109 = call i32 @llvm.umax.i32(i32 %MaxValLen.0118, i32 %conv8)
@@ -2820,7 +2820,7 @@ delete.notnull:                                   ; preds = %entry
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %delete.notnull
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   br i1 %tobool.i.i.i, label %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZN4llvh15PrintStatisticsEv.exit.i
 
 _ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %if.then.i
@@ -2881,7 +2881,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i: ; p
   br label %_ZN4llvh15PrintStatisticsEv.exit.i
 
 _ZN4llvh15PrintStatisticsEv.exit.i:               ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4llvh15PrintStatisticsEv.exit.i, %delete.notnull
@@ -3091,10 +3091,10 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

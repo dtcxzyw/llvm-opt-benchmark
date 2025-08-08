@@ -155,14 +155,8 @@ b2GetLengthAndNormalize.exit:                     ; preds = %7, %40
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @b2CollideCapsuleAndCircle(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #0 {
@@ -338,7 +332,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %61, %68
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @b2CollidePolygonAndCircle(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #4 {
+define void @b2CollidePolygonAndCircle(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %8 = load float, ptr @b2_lengthUnitsPerMeter, align 4, !tbaa !9
   %9 = fmul float %8, 0x3F747AE140000000
@@ -705,7 +699,7 @@ b2Normalize.exit294:                              ; preds = %143, %148
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @b2CollideCapsules(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #4 {
+define void @b2CollideCapsules(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #3 {
   %.sroa.0320.0.copyload = load <2 x float>, ptr %1, align 4
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %3, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0320.0.copyload, i64 0
@@ -1397,12 +1391,12 @@ b2Normalize.exit:                                 ; preds = %383, %381, %387
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #5
+declare float @sqrtf(float noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @b2CollideSegmentAndCapsule(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #4 {
+define void @b2CollideSegmentAndCapsule(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #3 {
   %8 = alloca %struct.b2Capsule, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i64, ptr %1, align 4
   store i64 %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1412,14 +1406,14 @@ define void @b2CollideSegmentAndCapsule(ptr dead_on_unwind noalias writable sret
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store float 0.000000e+00, ptr %13, align 8, !tbaa !17
   call void @b2CollideCapsules(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4 %0, ptr noundef nonnull %8, <2 x float> %2, <2 x float> %3, ptr noundef %4, <2 x float> %5, <2 x float> %6)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2CollidePolygonAndCapsule(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #6 {
+define void @b2CollidePolygonAndCapsule(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #5 {
   %8 = alloca %struct.b2Polygon, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load float, ptr %10, align 4, !tbaa !17
@@ -1482,12 +1476,12 @@ b2MakeCapsule.exit:                               ; preds = %7, %30
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store float %11, ptr %40, align 8, !tbaa !19, !alias.scope !26
   call void @b2CollidePolygons(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef nonnull %8, <2 x float> %5, <2 x float> %6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2CollidePolygons(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #6 {
+define void @b2CollidePolygons(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #5 {
   %8 = alloca %struct.b2Polygon, align 8
   %9 = alloca %struct.b2Polygon, align 4
   %10 = alloca %struct.b2SegmentDistanceResult, align 4
@@ -1526,7 +1520,7 @@ define void @b2CollidePolygons(ptr dead_on_unwind noalias writable sret(%struct.
   %32 = fmul float %.sroa.05.0.vec.extract.i, %28
   %33 = fmul float %.sroa.05.4.vec.extract.i, %27
   %34 = fsub float %32, %33
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %36 = load i32, ptr %35, align 4, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 140
@@ -1545,7 +1539,7 @@ define void @b2CollidePolygons(ptr dead_on_unwind noalias writable sret(%struct.
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.lcssa423 = phi i32 [ %36, %7 ], [ %60, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 140
@@ -1851,7 +1845,7 @@ b2FindMaxSeparation.exit269:                      ; preds = %.lr.ph45.split.i237
   %176 = sext i32 %169 to i64
   %177 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %9, i64 0, i64 %176
   %.sroa.080.0.copyload = load <2 x float>, ptr %177, align 4
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @b2SegmentDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2SegmentDistanceResult) align 4 %10, <2 x float> %.sroa.095.0.copyload, <2 x float> %.sroa.090.0.copyload, <2 x float> %.sroa.085.0.copyload, <2 x float> %.sroa.080.0.copyload) #10
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %179 = load float, ptr %178, align 4, !tbaa !37
@@ -2105,11 +2099,11 @@ b2FindMaxSeparation.exit269:                      ; preds = %.lr.ph45.split.i237
   br label %.critedge225
 
 .critedge225:                                     ; preds = %315, %275, %234, %193, %345
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %347
 
 .critedge:                                        ; preds = %306, %266, %225, %184
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 346:                                              ; preds = %.loopexit419
@@ -2179,12 +2173,12 @@ b2FindMaxSeparation.exit269:                      ; preds = %.lr.ph45.split.i237
   br i1 %385, label %363, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %363, %.critedge, %347, %130
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare void @b2SegmentDistance(ptr dead_on_unwind writable sret(%struct.b2SegmentDistanceResult) align 4, <2 x float>, <2 x float>, <2 x float>, <2 x float>) local_unnamed_addr #7
+declare void @b2SegmentDistance(ptr dead_on_unwind writable sret(%struct.b2SegmentDistanceResult) align 4, <2 x float>, <2 x float>, <2 x float>, <2 x float>) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @b2ClipPolygons(ptr dead_on_unwind noalias nonnull writable writeonly align 4 captures(none) initializes((0, 112)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -2398,7 +2392,7 @@ define internal fastcc void @b2ClipPolygons(ptr dead_on_unwind noalias nonnull w
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @b2CollideSegmentAndCircle(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #0 {
   %8 = alloca %struct.b2Capsule, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i64, ptr %1, align 4
   store i64 %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2408,14 +2402,14 @@ define void @b2CollideSegmentAndCircle(ptr dead_on_unwind noalias writable write
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store float 0.000000e+00, ptr %13, align 8, !tbaa !17
   call void @b2CollideCapsuleAndCircle(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4 %0, ptr noundef nonnull %8, <2 x float> %2, <2 x float> %3, ptr noundef %4, <2 x float> %5, <2 x float> %6)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2CollideSegmentAndPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #6 {
+define void @b2CollideSegmentAndPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6) local_unnamed_addr #5 {
   %8 = alloca %struct.b2Polygon, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load <2 x float>, ptr %1, align 4
   %11 = load <2 x float>, ptr %9, align 4
@@ -2476,7 +2470,7 @@ b2MakeCapsule.exit:                               ; preds = %7, %28
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store float 0.000000e+00, ptr %38, align 8, !tbaa !19, !alias.scope !42
   call void @b2CollidePolygons(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4 %0, ptr noundef nonnull %8, <2 x float> %2, <2 x float> %3, ptr noundef %4, <2 x float> %5, <2 x float> %6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2691,9 +2685,9 @@ b2GetLengthAndNormalize.exit:                     ; preds = %95, %100
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2CollideChainSegmentAndCapsule(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6, ptr noundef %7) local_unnamed_addr #6 {
+define void @b2CollideChainSegmentAndCapsule(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6, ptr noundef %7) local_unnamed_addr #5 {
   %9 = alloca %struct.b2Polygon, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load float, ptr %11, align 4, !tbaa !17
@@ -2756,12 +2750,12 @@ b2MakeCapsule.exit:                               ; preds = %8, %31
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store float %12, ptr %41, align 8, !tbaa !19, !alias.scope !45
   call void @b2CollideChainSegmentAndPolygon(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef nonnull %9, <2 x float> %5, <2 x float> %6, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2CollideChainSegmentAndPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6, ptr noundef %7) local_unnamed_addr #6 {
+define void @b2CollideChainSegmentAndPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Manifold) align 4 captures(none) initializes((0, 112)) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, <2 x float> %5, <2 x float> %6, ptr noundef %7) local_unnamed_addr #5 {
   %9 = alloca [8 x %struct.b2Vec2], align 16
   %10 = alloca [8 x %struct.b2Vec2], align 16
   %11 = alloca %struct.b2DistanceInput, align 4
@@ -2934,8 +2928,8 @@ b2Normalize.exit431:                              ; preds = %b2Normalize.exit412
 113:                                              ; preds = %112
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %115 = load i32, ptr %114, align 4, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %.lr.ph, label %._crit_edge
 
@@ -2945,23 +2939,23 @@ b2Normalize.exit431:                              ; preds = %b2Normalize.exit412
   br label %129
 
 ._crit_edge:                                      ; preds = %129, %113
-  call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %12, ptr noundef nonnull %44, i32 noundef 2, float noundef 0.000000e+00) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %11, ptr noundef nonnull align 4 dereferenceable(72) %12, i64 72, i1 false), !tbaa.struct !48
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %13, ptr noundef nonnull %9, i32 noundef %115, float noundef 0.000000e+00) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %118, ptr noundef nonnull align 4 dereferenceable(72) %13, i64 72, i1 false), !tbaa.struct !48
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %119, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !50
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %120, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !50
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store i8 0, ptr %121, align 4, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %14, ptr noundef %7, ptr noundef nonnull %11, ptr noundef null, i32 noundef 0) #10
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %123 = load float, ptr %122, align 8, !tbaa !56
@@ -4087,22 +4081,22 @@ b2ClipSegments.exit861:                           ; preds = %634, %689
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %b2ClassifyNormal.exit560, %b2ClassifyNormal.exit, %317, %305, %311, %187, %b2ClipSegments.exit861, %603, %b2ClipSegments.exit, %485, %491, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %749
 
 749:                                              ; preds = %112, %.critedge
   ret void
 }
 
-declare void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #7
+declare void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #6
 
-declare void @b2ShapeDistance(ptr dead_on_unwind writable sret(%struct.b2DistanceOutput) align 4, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @b2ShapeDistance(ptr dead_on_unwind writable sret(%struct.b2DistanceOutput) align 4, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @b2ClipSegments(ptr dead_on_unwind noalias nonnull writable writeonly align 4 captures(none) initializes((0, 112)) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, float noundef %6, float noundef %7, i16 noundef zeroext range(i16 0, -254) %8, i16 noundef zeroext range(i16 0, -255) %9) unnamed_addr #8 {
+define internal fastcc void @b2ClipSegments(ptr dead_on_unwind noalias nonnull writable writeonly align 4 captures(none) initializes((0, 112)) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, float noundef %6, float noundef %7, i16 noundef zeroext range(i16 0, -254) %8, i16 noundef zeroext range(i16 0, -255) %9) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %5, i64 1
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %1, i64 0
@@ -4241,18 +4235,24 @@ define internal fastcc void @b2ClipSegments(ptr dead_on_unwind noalias nonnull w
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

@@ -61,10 +61,7 @@ define void @dt_image_cache_init(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @dt_cache_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @dt_cache_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_image_cache_allocate(ptr readnone captures(none) %0, ptr noundef initializes((0, 8), (16, 24)) %1) #0 {
@@ -74,7 +71,7 @@ define internal void @_image_cache_allocate(ptr readnone captures(none) %0, ptr 
   %5 = tail call noalias dereferenceable_or_null(1856) ptr @g_malloc0(i64 noundef 1856) #9
   tail call void @dt_image_init(ptr noundef %5) #8
   store ptr %5, ptr %1, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !18
   %7 = and i32 %6, 256
   %.not = icmp eq i32 %7, 0
@@ -538,7 +535,7 @@ define internal void @_image_cache_allocate(ptr readnone captures(none) %0, ptr 
   %276 = call i32 @sqlite3_finalize(ptr noundef %275) #8
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 1832
   store ptr %1, ptr %277, align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -555,10 +552,7 @@ define internal void @_image_cache_deallocate(ptr readnone captures(none) %0, pt
   ret void
 }
 
-declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_cleanup(ptr noundef %0) local_unnamed_addr #0 {
@@ -566,7 +560,7 @@ define void @dt_image_cache_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @dt_cache_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @dt_cache_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_print(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -613,7 +607,7 @@ define ptr @dt_image_cache_get(ptr noundef %0, i32 noundef %1, i8 noundef signex
   ret ptr %.0
 }
 
-declare ptr @dt_cache_get_with_caller(ptr noundef, i32 noundef, i8 noundef signext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dt_cache_get_with_caller(ptr noundef, i32 noundef, i8 noundef signext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_image_cache_testget(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
@@ -656,7 +650,7 @@ define ptr @dt_image_cache_testget(ptr noundef %0, i32 noundef %1, i8 noundef si
   ret ptr %.0
 }
 
-declare ptr @dt_cache_testget(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
+declare ptr @dt_cache_testget(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_read_release(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -679,7 +673,7 @@ define void @dt_image_cache_read_release(ptr noundef %0, ptr noundef readonly ca
   ret void
 }
 
-declare void @dt_cache_release_with_caller(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dt_cache_release_with_caller(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_write_release_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -709,7 +703,7 @@ define void @dt_image_cache_write_release_info(ptr noundef %0, ptr noundef %1, i
   br i1 %.not.i, label %dt_get_debug_wtime.exit, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #8
   %20 = load i64, ptr %6, align 8, !tbaa !118
   %21 = add nsw i64 %20, -1290608000
@@ -719,7 +713,7 @@ define void @dt_image_cache_write_release_info(ptr noundef %0, ptr noundef %1, i
   %25 = sitofp i64 %24 to double
   %26 = fmul reassoc nsz arcp contract afn double %25, 0x3EB0C6F7A0B5ED8D
   %27 = fadd reassoc nsz arcp contract afn double %26, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dt_get_debug_wtime.exit
 
 dt_get_debug_wtime.exit:                          ; preds = %16, %18
@@ -748,7 +742,7 @@ dt_get_debug_wtime.exit:                          ; preds = %16, %18
   br label %39
 
 39:                                               ; preds = %.sink.split, %dt_get_debug_wtime.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !18
   %41 = and i32 %40, 256
   %.not133 = icmp eq i32 %41, 0
@@ -1457,12 +1451,12 @@ dt_get_debug_wtime.exit:                          ; preds = %16, %18
   br i1 %or.cond, label %dt_get_debug_wtime.exit184.thread, label %dt_get_debug_wtime.exit184
 
 dt_get_debug_wtime.exit184:                       ; preds = %504
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %507 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #8
   %508 = load i64, ptr %5, align 8, !tbaa !118
   %509 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %510 = load i64, ptr %509, align 8, !tbaa !120
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !18
   %511 = and i32 %.pre, 1
   %512 = icmp eq i32 %511, 0
@@ -1483,58 +1477,58 @@ dt_get_debug_wtime.exit184.thread:                ; preds = %dt_get_debug_wtime.
   %521 = getelementptr inbounds nuw i8, ptr %1, i64 1832
   %522 = load ptr, ptr %521, align 8, !tbaa !113
   call void @dt_cache_release_with_caller(ptr noundef %0, ptr noundef %522, ptr noundef nonnull @.str.3, i32 noundef 428) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %523
 
 523:                                              ; preds = %12, %4, %dt_get_debug_wtime.exit184.thread
   ret void
 }
 
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #2
+declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_camera_maker_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_camera_maker_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_camera_model_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_camera_model_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_camera_lens_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_camera_lens_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_whitebalance_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_whitebalance_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_flash_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_flash_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_exposure_program_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_exposure_program_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_metering_mode_id(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_metering_mode_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_image_get_camera_id(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_image_get_camera_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @dt_color_harmony_set(i32 noundef, i64, i32) local_unnamed_addr #2
+declare void @dt_color_harmony_set(i32 noundef, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #1
 
-declare void @dt_image_synch_xmp(i32 noundef) local_unnamed_addr #2
+declare void @dt_image_synch_xmp(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_write_release(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1548,7 +1542,7 @@ define void @dt_image_cache_remove(ptr noundef %0, i32 noundef %1) local_unnamed
   ret void
 }
 
-declare i32 @dt_cache_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dt_cache_remove(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_set_change_timestamp(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1574,7 +1568,7 @@ define void @dt_image_cache_set_change_timestamp(ptr noundef %0, i32 noundef %1)
   ret void
 }
 
-declare i64 @dt_datetime_now_to_gtimespan() local_unnamed_addr #2
+declare i64 @dt_datetime_now_to_gtimespan() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_image_cache_set_change_timestamp_from_image(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1689,36 +1683,42 @@ define void @dt_image_cache_set_print_timestamp(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
-declare void @dt_image_init(ptr noundef) local_unnamed_addr #2
+declare void @dt_image_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @dt_datetime_exif_to_img(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dt_datetime_exif_to_img(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @g_free(ptr noundef) #2
+declare void @g_free(ptr noundef) #1
 
-declare i32 @g_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @g_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @dt_color_harmony_get(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_color_harmony_get(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
@@ -1727,11 +1727,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #3 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

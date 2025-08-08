@@ -250,10 +250,10 @@ sink_checkalloc.exit.i:                           ; preds = %91
   br i1 %132, label %sink_checkphi.exit.i, label %sink_checkalloc.exit.thread.i
 
 sink_checkphi.exit.i:                             ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 64, ptr %3, align 4, !tbaa !35
   %133 = call fastcc i32 @sink_phidep(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %103, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not58.not.i = icmp eq i32 %133, 0
   br i1 %.not58.not.i, label %sink_checkphi.exit.thread.i, label %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i
 
@@ -340,10 +340,10 @@ sink_checkphi.exit.thread.i:                      ; preds = %sink_checkalloc.exi
   br i1 %181, label %sink_checkphi.exit66.i, label %sink_checkphi.exit66.thread76.i
 
 sink_checkphi.exit66.i:                           ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 64, ptr %2, align 4, !tbaa !35
   %182 = call fastcc i32 @sink_phidep(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %151, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not55.not.i = icmp eq i32 %182, 0
   br i1 %.not55.not.i, label %sink_checkphi.exit66.thread.i, label %sink_checkphi.exit66.sink_checkphi.exit66.thread76_crit_edge.i
 
@@ -754,14 +754,8 @@ sink_sweep_ins.exit:                              ; preds = %396, %._crit_edge.i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @sink_phidep(ptr noundef %0, i32 noundef range(i32 32769, 65536) %1, ptr noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @sink_phidep(ptr noundef %0, i32 noundef range(i32 32769, 65536) %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = zext nneg i32 %1 to i64
@@ -810,14 +804,19 @@ define internal fastcc range(i32 0, 2) i32 @sink_phidep(ptr noundef %0, i32 noun
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

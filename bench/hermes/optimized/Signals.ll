@@ -244,7 +244,7 @@ cond.true:                                        ; preds = %if.end24
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !6
   %6 = load ptr, ptr %Argv0, align 8, !noalias !9
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -260,7 +260,7 @@ if.end.i.i:                                       ; preds = %cond.false
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !6
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit, %cond.true
@@ -382,7 +382,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden void @_ZN4llvh3sys20RunInterruptHandlersEv() local_unnamed_addr #4 {
 entry:
   %buf.i.i = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   %0 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0 seq_cst, align 8
   %tobool.not2.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not2.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.lr.ph.i.i
@@ -423,7 +423,7 @@ for.inc.i.i:                                      ; preds = %if.end7.i.i, %if.en
 
 _ZL19RemoveFilesToRemovev.exit:                   ; preds = %for.inc.i.i, %entry
   %5 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 %0 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   ret void
 }
 
@@ -473,7 +473,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %AltStack.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %AltStack.i)
   %call.i = tail call i64 @sysconf(i32 noundef 250) #15
   %add.i = add nsw i64 %call.i, 65536
   %call1.i = tail call i32 @sigaltstack(ptr noundef null, ptr noundef nonnull @_ZL11OldAltStack) #15
@@ -520,7 +520,7 @@ if.then9.i:                                       ; preds = %_ZN4llvh11safe_mall
   br label %_ZL17CreateSigAltStackv.exit
 
 _ZL17CreateSigAltStackv.exit:                     ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN4llvh11safe_mallocEm.exit.i, %if.then9.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %AltStack.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %AltStack.i)
   %sa_flags.i = getelementptr inbounds nuw i8, ptr %NewHandler.i, i64 136
   %sa_mask.i = getelementptr inbounds nuw i8, ptr %NewHandler.i, i64 8
   br label %for.body
@@ -534,7 +534,7 @@ for.body:                                         ; preds = %_ZL17CreateSigAltSt
   %__begin1.0.idx22 = phi i64 [ 0, %_ZL17CreateSigAltStackv.exit ], [ %__begin1.0.add, %for.body ]
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL7IntSigs, i64 %__begin1.0.idx22
   %9 = load i32, ptr %__begin1.0.ptr, align 4
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %NewHandler.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NewHandler.i)
   %10 = load atomic i32, ptr @_ZL20NumRegisteredSignals seq_cst, align 4
   store ptr @_ZL13SignalHandleri, ptr %NewHandler.i, align 8
   store i32 -939524096, ptr %sa_flags.i, align 8
@@ -545,7 +545,7 @@ for.body:                                         ; preds = %_ZL17CreateSigAltSt
   %SigNo.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
   store i32 %9, ptr %SigNo.i, align 8
   %11 = atomicrmw add ptr @_ZL20NumRegisteredSignals, i32 1 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %NewHandler.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NewHandler.i)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx22, 4
   %cmp2.not = icmp eq i64 %__begin1.0.add, 24
   br i1 %cmp2.not, label %for.cond6.preheader, label %for.body
@@ -554,7 +554,7 @@ for.body8:                                        ; preds = %for.cond6.preheader
   %__begin14.0.idx23 = phi i64 [ 0, %for.cond6.preheader ], [ %__begin14.0.add, %for.body8 ]
   %__begin14.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL8KillSigs, i64 %__begin14.0.idx23
   %12 = load i32, ptr %__begin14.0.ptr, align 4
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %NewHandler.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NewHandler.i9)
   %13 = load atomic i32, ptr @_ZL20NumRegisteredSignals seq_cst, align 4
   store ptr @_ZL13SignalHandleri, ptr %NewHandler.i9, align 8
   store i32 -939524096, ptr %sa_flags.i10, align 8
@@ -565,7 +565,7 @@ for.body8:                                        ; preds = %for.cond6.preheader
   %SigNo.i16 = getelementptr inbounds nuw i8, ptr %arrayidx.i14, i64 152
   store i32 %12, ptr %SigNo.i16, align 8
   %14 = atomicrmw add ptr @_ZL20NumRegisteredSignals, i32 1 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %NewHandler.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NewHandler.i9)
   %__begin14.0.add = add nuw nsw i64 %__begin14.0.idx23, 4
   %cmp7.not = icmp eq i64 %__begin14.0.add, 40
   br i1 %cmp7.not, label %cleanup, label %for.body8
@@ -604,7 +604,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %entry, %if.then.i
   %1 = load atomic i64, ptr @_ZZN4llvh3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup monotonic, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.i1 = icmp eq ptr %Filename.coerce0, null
   br i1 %tobool.not.i1, label %if.then.i2, label %if.end.i
 
@@ -619,7 +619,7 @@ if.end.i:                                         ; preds = %_ZN4llvh13ManagedSt
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i2, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %call2.i.i = call noalias ptr @strdup(ptr noundef %call.i.i) #15
@@ -651,7 +651,7 @@ define hidden void @_ZN4llvh3sys22DontRemoveFileOnSignalENS_9StringRefE(ptr %Fil
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %Filename.coerce0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -666,7 +666,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %0 = load atomic i64, ptr @_ZZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4Lock acquire, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
@@ -923,7 +923,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZL18UnregisterHandlersv.exit:                    ; preds = %for.body.i, %entry
   %call = call i32 @sigfillset(ptr noundef nonnull %SigMask) #15
   %call1 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %SigMask, ptr noundef null) #15
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   %4 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0 seq_cst, align 8
   %tobool.not2.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not2.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.lr.ph.i.i
@@ -964,7 +964,7 @@ for.inc.i.i:                                      ; preds = %if.end7.i.i, %if.en
 
 _ZL19RemoveFilesToRemovev.exit:                   ; preds = %for.inc.i.i, %_ZL18UnregisterHandlersv.exit
   %9 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 %4 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   switch i32 %Sig, label %for.body.i2 [
     i32 1, label %if.then
     i32 2, label %if.then
@@ -1120,10 +1120,10 @@ if.end5:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

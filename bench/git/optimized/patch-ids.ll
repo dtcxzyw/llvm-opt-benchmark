@@ -199,7 +199,7 @@ declare void @hashmap_clear_(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local ptr @patch_id_iter_first(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.object_id, align 4
   %4 = alloca %struct.patch_id, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %5, align 8, !tbaa !4
   %.not.i = icmp eq ptr %.val, null
@@ -214,7 +214,7 @@ patch_id_defined.exit:                            ; preds = %2
 8:                                                ; preds = %patch_id_defined.exit
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %0, ptr %10, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -227,7 +227,7 @@ patch_id_defined.exit:                            ; preds = %2
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %0, ptr %17, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -243,7 +243,7 @@ commit_patch_id.exit.i:                           ; preds = %15, %8
   br i1 %.not.i6, label %22, label %init_patch_id_entry.exit.thread
 
 init_patch_id_entry.exit.thread:                  ; preds = %commit_patch_id.exit.i
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 22:                                               ; preds = %commit_patch_id.exit.i
@@ -251,23 +251,17 @@ init_patch_id_entry.exit.thread:                  ; preds = %commit_patch_id.exi
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.val.i, ptr %23, align 8, !tbaa !40
   store ptr null, ptr %4, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = call ptr @hashmap_get(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef null) #6
   br label %25
 
 25:                                               ; preds = %init_patch_id_entry.exit.thread, %patch_id_defined.exit, %22
   %.0 = phi ptr [ %24, %22 ], [ null, %patch_id_defined.exit ], [ null, %init_patch_id_entry.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @patch_id_iter_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -301,7 +295,7 @@ patch_id_defined.exit:                            ; preds = %2
 
 patch_id_defined.exit.thread:                     ; preds = %2, %patch_id_defined.exit
   %7 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #6
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -334,7 +328,7 @@ commit_patch_id.exit.i:                           ; preds = %16, %12
   br i1 %.not.i10, label %20, label %19
 
 19:                                               ; preds = %commit_patch_id.exit.i, %patch_id_defined.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @free(ptr noundef nonnull %7) #6
   br label %22
 
@@ -343,7 +337,7 @@ commit_patch_id.exit.i:                           ; preds = %16, %12
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.val.i, ptr %21, align 8, !tbaa !40
   store ptr null, ptr %7, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @hashmap_add(ptr noundef nonnull %1, ptr noundef nonnull %7) #6
   br label %22
 
@@ -355,7 +349,7 @@ commit_patch_id.exit.i:                           ; preds = %16, %12
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @hashmap_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -363,14 +357,20 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }
 

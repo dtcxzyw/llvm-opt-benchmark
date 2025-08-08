@@ -3096,7 +3096,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit22:           ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit24:           ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit22
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.36, ptr %3, align 8
   store i64 8, ptr %12, align 8
   store ptr %35, ptr %13, align 8
@@ -3111,7 +3111,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit24:           ; preds = %_ZN4absl7debian28Al
           to label %44 unwind label %56
 
 44:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit24
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br i1 %28, label %46, label %45
 
@@ -4132,8 +4132,8 @@ define noundef zeroext i1 @_ZNK10open_spiel24PublicObservationHistory13Correspon
   %8 = alloca i32, align 4
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -4167,8 +4167,8 @@ _ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit: ; preds = %2
   %22 = lshr exact i64 %21, 5
   %23 = trunc i64 %22 to i32
   %24 = add i32 %23, -1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load i32, ptr %25, align 8
   %.not = icmp eq i32 %24, %26
@@ -4179,8 +4179,8 @@ _ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit15: ; preds = %_ZNK
   br i1 %27, label %28, label %.critedge14
 
 28:                                               ; preds = %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = load ptr, ptr %0, align 8
   %30 = load ptr, ptr %12, align 8
   %31 = icmp eq ptr %29, %30
@@ -4204,8 +4204,8 @@ _ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit.i: 
   %36 = ptrtoint ptr %30 to i64
   %37 = ptrtoint ptr %29 to i64
   %38 = sub i64 %36, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = and i64 %38, 137438953440
   %40 = icmp eq i64 %39, 32
   br i1 %40, label %.critedge13, label %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit.i
@@ -4620,8 +4620,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit24: ; pre
 define noundef zeroext i1 @_ZNK10open_spiel24PublicObservationHistory10IsPrefixOfERKNS_5StateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4647,8 +4647,8 @@ _ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit: ; 
   %13 = ptrtoint ptr %7 to i64
   %14 = ptrtoint ptr %5 to i64
   %15 = sub i64 %13, %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = and i64 %15, 137438953440
   %17 = icmp eq i64 %16, 32
   br i1 %17, label %25, label %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit
@@ -4678,8 +4678,8 @@ define noundef zeroext i1 @_ZNK10open_spiel24PublicObservationHistory13IsExtensi
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i32, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4713,8 +4713,8 @@ _ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit: ; preds = %2
   %19 = lshr exact i64 %18, 5
   %20 = trunc i64 %19 to i32
   %21 = add i32 %20, -1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp sgt i32 %7, %21
   br i1 %22, label %53, label %23
 
@@ -4792,8 +4792,8 @@ define noundef zeroext i1 @_ZNK10open_spiel24PublicObservationHistory10IsPrefixO
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -4824,15 +4824,15 @@ _ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit: ; 
   %15 = ptrtoint ptr %9 to i64
   %16 = ptrtoint ptr %7 to i64
   %17 = sub i64 %15, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = and i64 %17, 137438953440
   %19 = icmp eq i64 %18, 32
   br i1 %19, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_EbT_SE_T0_.exit, label %20
 
 20:                                               ; preds = %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -4857,8 +4857,8 @@ _ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit15: 
   %29 = ptrtoint ptr %23 to i64
   %30 = ptrtoint ptr %21 to i64
   %31 = sub i64 %29, %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = and i64 %31, 137438953440
   %33 = icmp eq i64 %32, 32
   br i1 %33, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_EbT_SE_T0_.exit, label %34
@@ -5736,10 +5736,10 @@ declare void @llvm.assume(i1 noundef) #16
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

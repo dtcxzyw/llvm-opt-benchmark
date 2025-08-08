@@ -69,12 +69,6 @@ define dso_local void @folio_invalidate(ptr noundef %0, i64 noundef %1, i64 noun
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @truncate_inode_folio(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -161,7 +155,7 @@ truncate_cleanup_folio.exit:                      ; preds = %42, %46
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @filemap_remove_folio(ptr noundef) local_unnamed_addr #2
+declare dso_local void @filemap_remove_folio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @truncate_inode_partial_folio(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
@@ -384,7 +378,7 @@ truncate_cleanup_folio.exit:                      ; preds = %80, %84
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @folio_wait_writeback(ptr noundef) local_unnamed_addr #2
+declare dso_local void @folio_wait_writeback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @generic_error_remove_folio(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
@@ -536,19 +530,19 @@ define dso_local i64 @mapping_evict_folio(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @filemap_release_folio(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @filemap_release_folio(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @remove_mapping(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i64 @remove_mapping(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @truncate_inode_pages_range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.folio_batch, align 8
   %5 = alloca [15 x i64], align 16
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -919,17 +913,17 @@ truncate_cleanup_folio.exit7:                     ; preds = %201, %205
   br label %145
 
 .loopexit8:                                       ; preds = %145, %141, %131, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @find_lock_entries(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @find_lock_entries(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
@@ -1013,7 +1007,7 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
 56:                                               ; preds = %44
   %57 = getelementptr i64, ptr %2, i64 %45
   %58 = load i64, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %43, align 8, !annotation !13
   store ptr %33, ptr %4, align 8
   store i64 %58, ptr %38, align 8
@@ -1029,7 +1023,7 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
   br label %63
 
 63:                                               ; preds = %61, %56
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %63, %52
@@ -1077,16 +1071,16 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @delete_from_page_cache_batch(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @delete_from_page_cache_batch(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #2
+declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @__filemap_get_folio(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @__filemap_get_folio(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @find_get_entries(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @find_get_entries(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @truncate_inode_pages(ptr noundef %0, i64 noundef %1) #0 align 16 {
@@ -1120,11 +1114,11 @@ define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64
   %6 = alloca [15 x i64], align 16
   %7 = alloca %struct.folio_batch, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %6, i8 0, i64 120, i1 false), !annotation !13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !annotation !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %1, ptr %8, align 8
   store i8 0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -1175,7 +1169,7 @@ define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
   call void @_raw_spin_lock(ptr noundef nonnull %42) #5
   call void @_raw_spin_lock_irq(ptr noundef nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %18, align 8, !annotation !13
   store ptr %17, ptr %5, align 8
   store i64 %40, ptr %19, align 8
@@ -1191,7 +1185,7 @@ define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64
   br label %47
 
 47:                                               ; preds = %45, %38
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %17) #5
   %48 = load volatile ptr, ptr %23, align 8
   %49 = icmp eq ptr %48, null
@@ -1318,17 +1312,17 @@ clear_shadow_entry.exit:                          ; preds = %50, %59
 
 .loopexit3:                                       ; preds = %114, %4
   %118 = phi i64 [ 0, %4 ], [ %110, %114 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %118
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @deactivate_file_folio(ptr noundef) local_unnamed_addr #2
+declare dso_local void @deactivate_file_folio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @folio_batch_remove_exceptionals(ptr noundef) local_unnamed_addr #2
+declare dso_local void @folio_batch_remove_exceptionals(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @invalidate_mapping_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
@@ -1342,9 +1336,9 @@ define dso_local i32 @invalidate_inode_pages2_range(ptr noundef %0, i64 noundef 
   %5 = alloca [15 x i64], align 16
   %6 = alloca %struct.folio_batch, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -1403,7 +1397,7 @@ define dso_local i32 @invalidate_inode_pages2_range(ptr noundef %0, i64 noundef 
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
   call void @_raw_spin_lock(ptr noundef nonnull %45) #5
   call void @_raw_spin_lock_irq(ptr noundef nonnull %19) #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %20, align 8, !annotation !13
   store ptr %19, ptr %4, align 8
   store i64 %43, ptr %21, align 8
@@ -1419,7 +1413,7 @@ define dso_local i32 @invalidate_inode_pages2_range(ptr noundef %0, i64 noundef 
   br label %50
 
 50:                                               ; preds = %48, %41
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #5
   %51 = load volatile ptr, ptr %8, align 8
   %52 = icmp eq ptr %51, null
@@ -1679,17 +1673,17 @@ clear_shadow_entry.exit:                          ; preds = %53, %62
 
 .loopexit10:                                      ; preds = %185, %11, %3
   %189 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %180, %185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %189
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @unmap_mapping_pages(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare dso_local void @unmap_mapping_pages(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @unmap_mapping_folio(ptr noundef) local_unnamed_addr #2
+declare dso_local void @unmap_mapping_folio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @invalidate_inode_pages2(ptr noundef %0) #0 align 16 {
@@ -1711,7 +1705,7 @@ define dso_local void @truncate_pagecache(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @unmap_mapping_range(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @unmap_mapping_range(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @truncate_setsize(ptr noundef captures(none) %0, i64 noundef %1) #0 align 16 {
@@ -1888,10 +1882,10 @@ define dso_local void @pagecache_isize_extended(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @set_page_dirty(ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @set_page_dirty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #2
+declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @truncate_pagecache_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
@@ -1917,67 +1911,73 @@ define dso_local void @truncate_pagecache_range(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__folio_cancel_dirty(ptr noundef) local_unnamed_addr #2
+declare dso_local void @__folio_cancel_dirty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @inode_add_lru(ptr noundef) local_unnamed_addr #2
+declare dso_local void @inode_add_lru(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @workingset_update_node(ptr noundef) #2
+declare dso_local void @workingset_update_node(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @xas_load(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @xas_load(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @xas_store(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @xas_store(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__folio_batch_release(ptr noundef) local_unnamed_addr #2
+declare dso_local void @__folio_batch_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
+declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #2
+declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__folio_lock(ptr noundef) local_unnamed_addr #2
+declare dso_local void @__folio_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
+declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__filemap_remove_folio(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @__filemap_remove_folio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @filemap_free_folio(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @filemap_free_folio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @pagecache_get_page(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @pagecache_get_page(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @folio_mkclean(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @folio_mkclean(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

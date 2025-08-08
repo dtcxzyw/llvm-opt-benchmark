@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -2147483647, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [64 x i8], align 16
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %10
 
@@ -74,7 +74,7 @@ define range(i32 -2147483647, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr
 
 38:                                               ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %37, ptr %9, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !7
@@ -102,7 +102,7 @@ define range(i32 -2147483647, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr
   br i1 %52, label %.thread, label %53
 
 .thread:                                          ; preds = %47, %44, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 53:                                               ; preds = %47
@@ -111,7 +111,7 @@ define range(i32 -2147483647, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr
   %56 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %55, ptr %56, align 4, !tbaa !12
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %41) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !14
@@ -125,49 +125,43 @@ define range(i32 -2147483647, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr
 
 57:                                               ; preds = %22, %19, %10, %.loopexit
   %.041 = phi i32 [ %.039, %.loopexit ], [ 0, %10 ], [ 1, %19 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.041
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @EVP_CIPHER_CTX_reset(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_get0_provider(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_get0_provider(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_rand_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_rand_key(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
+declare i32 @RAND_priv_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @RAND_priv_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_SealFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -184,11 +178,17 @@ define i32 @EVP_SealFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   ret i32 %.0
 }
 
-declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -15,11 +15,11 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hcee2332a
   %13 = alloca <2 x i64>, align 16
   %14 = alloca { { i64, i64 }, i64, i8, [7 x i8] }, align 8
   %15 = alloca { ptr, { ptr, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = add i64 %17, 1
@@ -63,11 +63,11 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
   %.11.i = call i64 @llvm.umin.i64(i64 %30, i64 16)
   %32 = getelementptr inbounds i8, ptr %31, i64 %..i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %31, i64 %.11.i, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %4, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -150,7 +150,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %15, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !noundef !3
   %64 = and i64 %63, %59
@@ -161,7 +161,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 .noexc:                                           ; preds = %60
   %67 = load <2 x i64>, ptr %9, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %67, ptr %8, align 16
   %68 = invoke i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %8)
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit
@@ -174,7 +174,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 .lr.ph.i19:                                       ; preds = %.noexc20, %.noexc22
   %.sroa.0.011.i = phi i64 [ %74, %.noexc22 ], [ %64, %.noexc20 ]
   %.sroa.5.010.i = phi i64 [ %72, %.noexc22 ], [ 0, %.noexc20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %71 = load i64, ptr %62, align 8, !noundef !3
   %72 = add i64 %.sroa.5.010.i, 16
   %73 = add i64 %72, %.sroa.0.011.i
@@ -186,7 +186,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 .noexc21:                                         ; preds = %.lr.ph.i19
   %77 = load <2 x i64>, ptr %9, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %77, ptr %8, align 16
   %78 = invoke i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %8)
           to label %.noexc22 unwind label %.loopexit
@@ -204,10 +204,10 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
   %83 = add i64 %.sroa.0.0.lcssa.i, %82
   %84 = load i64, ptr %62, align 8, !noundef !3
   %85 = and i64 %83, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.val4.i = load ptr, ptr %61, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = getelementptr inbounds i8, ptr %.val4.i, i64 %85
   %87 = load i8, ptr %86, align 1, !noundef !3
   %88 = icmp sgt i8 %87, -1
@@ -233,9 +233,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 95:                                               ; preds = %.noexc24, %._crit_edge.i
   %.0.i.i = phi i64 [ %94, %.noexc24 ], [ %85, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %96 = load i64, ptr %62, align 8, !noundef !3
   %97 = and i64 %96, %59
   %98 = sub i64 %.sroa.03.038, %97
@@ -317,7 +317,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = and i64 %8, %1
@@ -325,7 +325,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %11 = getelementptr inbounds i8, ptr %10, i64 %9
   call void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h046226a9d616b5f6E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %11)
   %12 = load <2 x i64>, ptr %6, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %12, ptr %5, align 16
   %13 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %5)
   %14 = trunc i32 %13 to i16
@@ -335,7 +335,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.sroa.0.011.i = phi i64 [ %19, %.lr.ph.i ], [ %9, %2 ]
   %.sroa.5.010.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = load i64, ptr %7, align 8, !noundef !3
   %17 = add i64 %.sroa.5.010.i, 16
   %18 = add i64 %17, %.sroa.0.011.i
@@ -344,7 +344,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %21 = getelementptr inbounds i8, ptr %20, i64 %19
   call void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h046226a9d616b5f6E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %21)
   %22 = load <2 x i64>, ptr %6, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %22, ptr %5, align 16
   %23 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %5)
   %24 = trunc i32 %23 to i16
@@ -359,10 +359,10 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %28 = add i64 %.sroa.0.0.lcssa.i, %27
   %29 = load i64, ptr %7, align 8, !noundef !3
   %30 = and i64 %28, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val4.i = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds i8, ptr %.val4.i, i64 %30
   %32 = load i8, ptr %31, align 1, !noundef !3
   %33 = icmp sgt i8 %32, -1
@@ -386,9 +386,9 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hc4ccbffa7b2d2916E.exit: ; p
   %40 = phi i64 [ %.pre3, %34 ], [ %29, %._crit_edge.i ]
   %41 = phi ptr [ %.pre, %34 ], [ %.val4.i, %._crit_edge.i ]
   %.0.i.i = phi i64 [ %39, %34 ], [ %30, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = getelementptr inbounds i8, ptr %41, i64 %.0.i.i
   %43 = load i8, ptr %42, align 1, !noundef !3
   %44 = lshr i64 %1, 57
@@ -471,7 +471,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br i1 %43, label %.loopexit, label %34
 
 44:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %29, ptr %7, align 16
   %45 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %7)
   %46 = trunc i32 %45 to i16
@@ -489,7 +489,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
 _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.exit: ; preds = %44, %48
   %.sroa.3.0.i = phi i64 [ %53, %48 ], [ undef, %44 ]
   %.sroa.0.0.i = phi i64 [ 1, %48 ], [ 0, %44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 54:                                               ; preds = %37, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.exit
@@ -518,8 +518,8 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.
   %65 = icmp eq i64 %.sroa.01.1, 1
   call void @llvm.assume(i1 %65)
   %.val13 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = getelementptr inbounds i8, ptr %.val13, i64 %.sroa.4.1
   %67 = load i8, ptr %66, align 1, !noundef !3
   %68 = icmp sgt i8 %67, -1
@@ -539,8 +539,8 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit: ; preds = %64, %69
   %.0.i = phi i64 [ %74, %69 ], [ %.sroa.4.1, %64 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit
@@ -612,10 +612,10 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" "target-features"="+sse2" }

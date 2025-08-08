@@ -35,8 +35,8 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_
   %2 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %3 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %.sroa.0 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h97a667067261ec93E(ptr nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 %2)
   invoke void @_ZN5quote9__private10push_ident17h41f4c241d49e77f0E(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.0e69d7be63cfb1c60dd2b112529465b9.0, i64 3)
           to label %"_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7default17h5e01fd3229da0777E.exit" unwind label %4
@@ -59,8 +59,8 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_
 "_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7default17h5e01fd3229da0777E.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @_ZN3syn11parse_quote5parse17h1b02785d5e97d720E(ptr nonnull sret({ { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }) align 8 %.sroa.0, ptr nonnull align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2507,10 +2507,10 @@ declare void @_ZN12darling_core5error5Error9with_span17hc32100669fe3c076E(ptr sr
 declare void @"_ZN4core3ptr53drop_in_place$LT$darling_core..error..Accumulator$GT$17hc3038f3750324f2aE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

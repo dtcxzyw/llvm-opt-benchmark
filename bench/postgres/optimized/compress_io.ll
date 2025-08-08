@@ -32,15 +32,9 @@ define dso_local ptr @supports_compression(ptr noundef readonly byval(%struct.pg
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @get_compress_algorithm_name(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @get_compress_algorithm_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @AllocateCompressor(ptr noundef readonly byval(%struct.pg_compress_specification) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -77,15 +71,15 @@ define dso_local ptr @AllocateCompressor(ptr noundef readonly byval(%struct.pg_c
   ret ptr %4
 }
 
-declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
-declare void @InitCompressorNone(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressorNone(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
-declare void @InitCompressorGzip(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressorGzip(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
-declare void @InitCompressorLZ4(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressorLZ4(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
-declare void @InitCompressorZstd(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressorZstd(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @EndCompressor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -96,7 +90,7 @@ define dso_local void @EndCompressor(ptr noundef %0, ptr noundef %1) local_unnam
   ret void
 }
 
-declare void @pg_free(ptr noundef) local_unnamed_addr #2
+declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @InitCompressFileHandle(ptr noundef readonly byval(%struct.pg_compress_specification) align 8 captures(none) %0) local_unnamed_addr #0 {
@@ -129,21 +123,21 @@ define dso_local ptr @InitCompressFileHandle(ptr noundef readonly byval(%struct.
   ret ptr %2
 }
 
-declare void @InitCompressFileHandleNone(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressFileHandleNone(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
-declare void @InitCompressFileHandleGzip(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressFileHandleGzip(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
-declare void @InitCompressFileHandleLZ4(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressFileHandleLZ4(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
-declare void @InitCompressFileHandleZstd(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #2
+declare void @InitCompressFileHandleZstd(ptr noundef, ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @InitDiscoverCompressFileHandle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pg_compress_specification, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @pg_strdup(ptr noundef %0) #9
   store ptr %6, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #10
@@ -207,14 +201,14 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30, %hasSuffix.exit21.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %33 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   tail call void @InitCompressFileHandleNone(ptr noundef %33, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
   br label %InitCompressFileHandle.exit
 
 34:                                               ; preds = %hasSuffix.exit, %22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 8
   %.sroa.12.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.12.0..sroa_idx33, i8 0, i64 28, i1 false)
@@ -223,7 +217,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   br label %InitCompressFileHandle.exit
 
 36:                                               ; preds = %hasSuffix.exit16, %28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %3, align 8
   %.sroa.12.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.12.0..sroa_idx37, i8 0, i64 28, i1 false)
@@ -232,7 +226,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   br label %InitCompressFileHandle.exit
 
 38:                                               ; preds = %30, %hasSuffix.exit21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 3, ptr %3, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.12.0..sroa_idx, i8 0, i64 28, i1 false)
@@ -242,7 +236,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 
 InitCompressFileHandle.exit:                      ; preds = %32, %34, %36, %38
   %40 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %5, align 8
   %43 = tail call zeroext i1 %41(ptr noundef %42, i32 noundef -1, ptr noundef %1, ptr noundef nonnull %40) #9
@@ -260,18 +254,18 @@ InitCompressFileHandle.exit._crit_edge:           ; preds = %InitCompressFileHan
   %46 = load i32, ptr %.pre, align 4
   tail call void @free(ptr noundef %42) #9
   store i32 %46, ptr %.pre, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -310,28 +304,34 @@ define dso_local zeroext i1 @EndCompressFileHandle(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }

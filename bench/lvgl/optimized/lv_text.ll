@@ -113,7 +113,7 @@ define internal i32 @lv_text_utf8_conv_wc(i32 noundef %0) #2 {
   br i1 %.not, label %30, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call ptr @lv_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 4) #11
   %7 = load i8, ptr %3, align 1, !tbaa !3
   %8 = zext i8 %7 to i32
@@ -146,7 +146,7 @@ define internal i32 @lv_text_utf8_conv_wc(i32 noundef %0) #2 {
   br i1 %exitcond.not, label %29, label %24, !llvm.loop !8
 
 29:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %29, %1
@@ -407,10 +407,10 @@ lv_text_utf8_size.exit:                           ; preds = %6
   br i1 %exitcond, label %.loopexit, label %6, !llvm.loop !10
 
 .critedge:                                        ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %7, ptr %3, align 4, !tbaa !6
   %22 = call i32 @lv_text_utf8_next(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lv_text_utf8_size.exit, %19, %.critedge
@@ -468,7 +468,7 @@ lv_text_utf8_size.exit:                           ; preds = %6, %9, %12, %15
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @lv_text_utf8_get_char_id(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #4 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -483,14 +483,14 @@ define internal i32 @lv_text_utf8_get_char_id(ptr noundef readonly captures(addr
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %5, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(address_is_null) %0) #4 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !6
   %3 = load i8, ptr %0, align 1, !tbaa !3
   %.not3 = icmp eq i8 %3, 0
@@ -509,7 +509,7 @@ define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(addre
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %5, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.lcssa
 }
 
@@ -560,7 +560,7 @@ define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0,
   br i1 %31, label %lv_text_get_width.exit, label %32
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !6
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %46, label %.lr.ph.i
@@ -597,7 +597,7 @@ lv_text_encoded_letter_next_2.exit.i:             ; preds = %34, %.lr.ph.i
 
 46:                                               ; preds = %._crit_edge.i, %32
   %.016.i = phi i32 [ 0, %32 ], [ %spec.select.i, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %lv_text_get_width.exit
 
 lv_text_get_width.exit:                           ; preds = %28, %46
@@ -646,10 +646,7 @@ lv_text_get_width.exit:                           ; preds = %28, %46
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #7
+declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
@@ -718,7 +715,7 @@ define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null)
   br label %132
 
 26:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %27 = or i32 %6, 4
   br label %28
 
@@ -742,9 +739,9 @@ define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null)
 .lr.ph.lr.ph.i:                                   ; preds = %32
   %37 = icmp eq i32 %30, 0
   %spec.select80 = select i1 %37, i32 %27, i32 %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %38 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %34, ptr noundef nonnull %8)
   %39 = load i32, ptr %8, align 4, !tbaa !6
   store i32 %39, ptr %9, align 4, !tbaa !6
@@ -972,16 +969,16 @@ lv_text_is_a_word.exit104.thread110.i:            ; preds = %87, %lv_text_is_a_w
 
 lv_text_get_next_word.exit.thread:                ; preds = %109
   store i32 %30, ptr %10, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge2
 
 lv_text_get_next_word.exit:                       ; preds = %105, %108, %109
   %.592 = phi i32 [ %.6, %108 ], [ %.6, %105 ], [ %.491, %109 ]
   %.286 = phi i32 [ %.3, %108 ], [ %.3, %105 ], [ %.1, %109 ]
   %.169.i = phi i32 [ %103, %108 ], [ %.174116.i, %105 ], [ %.1.i, %109 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %110 = sub i32 %.155, %.286
   %111 = add i32 %.286, %.060
   %112 = icmp eq i32 %.169.i, 0
@@ -1044,7 +1041,7 @@ lv_text_get_next_word.exit:                       ; preds = %105, %108, %109
 
 .critedge82:                                      ; preds = %125, %130, %129
   %131 = load i32, ptr %10, align 4, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %132
 
 132:                                              ; preds = %.critedge82, %25, %.critedge79, %14, %12
@@ -1066,7 +1063,7 @@ define i32 @lv_text_get_width(ptr noundef readonly captures(address_is_null) %0,
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %25, label %.lr.ph
@@ -1103,16 +1100,13 @@ lv_text_encoded_letter_next_2.exit:               ; preds = %.lr.ph, %13
 
 25:                                               ; preds = %._crit_edge, %11
   %.016 = phi i32 [ 0, %11 ], [ %spec.select, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %8, %4, %25
   %.0 = phi i32 [ %.016, %25 ], [ 0, %4 ], [ 0, %8 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @lv_text_is_cmd(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
@@ -1155,10 +1149,10 @@ define noundef zeroext i1 @lv_text_is_cmd(ptr noundef captures(none) %0, i32 nou
   ret i1 %.1
 }
 
-declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_text_encoded_letter_next_2(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #8 {
+define void @lv_text_encoded_letter_next_2(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #7 {
   %5 = tail call i32 @lv_text_utf8_next(ptr noundef %0, ptr noundef %3)
   store i32 %5, ptr %1, align 4, !tbaa !6
   %.not = icmp eq i32 %5, 0
@@ -1191,7 +1185,7 @@ define i32 @lv_text_get_width_with_flags(ptr noundef readonly captures(address_i
   br i1 %11, label %58, label %12
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %57, label %.lr.ph
@@ -1295,7 +1289,7 @@ lv_text_is_cmd.exit.thread:                       ; preds = %38, %41, %lv_text_e
 
 57:                                               ; preds = %._crit_edge, %12
   %.018 = phi i32 [ 0, %12 ], [ %spec.select, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 58:                                               ; preds = %9, %5, %57
@@ -1389,9 +1383,9 @@ lv_text_utf8_get_byte_id.exit:                    ; preds = %lv_text_utf8_get_by
   ret void
 }
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #7
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #6
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @lv_text_cut(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -1512,7 +1506,7 @@ lv_text_utf8_get_byte_id.exit27:                  ; preds = %.lr.ph.i19, %lv_tex
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @lv_text_set_text_vfmt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr %1)
   %4 = call i32 @lv_vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %0, ptr noundef nonnull %3) #11
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -1527,19 +1521,25 @@ define nonnull ptr @lv_text_set_text_vfmt(ptr noundef %0, ptr noundef %1) local_
 
 8:                                                ; preds = %2
   %9 = call i32 @lv_vsnprintf(ptr noundef nonnull %7, i64 noundef %6, ptr noundef %0, ptr noundef %1) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #9
+declare void @llvm.va_copy.p0(ptr, ptr) #8
 
-declare i32 @lv_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @lv_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #8
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #7
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -1550,10 +1550,10 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 

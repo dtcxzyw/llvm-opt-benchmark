@@ -256,12 +256,6 @@ _ZNSt6vectorIPiSaIS0_EE6resizeEm.exit:            ; preds = %98, %100, %102, %10
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1126,10 +1120,10 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit159:       ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: noreturn
-declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12llama_sbatch12split_simpleEm(ptr dead_on_unwind noalias writable sret(%struct.llama_ubatch) align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
@@ -1700,15 +1694,15 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br i1 %.0.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i, label %190
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i: ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i.ptr.i.i.i, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i55, ptr noundef nonnull align 8 dereferenceable(1) %172, i64 %.sroa.0.019.i.idx.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %199
 
 190:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i.i)
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i.i.i.i, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !108
   %.val3.i14.i.i.i.i.i = load i32, ptr %.pn18.i.i.i.i, align 8, !tbaa !70
@@ -1741,7 +1735,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx6.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.i.i.i.i.i, i64 20, i1 false), !tbaa.struct !108
   %.sroa.57.0..sroa_idx8.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.010.0.lcssa.i.i.i.i.i, i64 24
   store i64 %.val1.i.i.i.i.i, ptr %.sroa.57.0..sroa_idx8.i.i.i.i.i, align 8, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.5.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i.i)
   br label %199
 
 199:                                              ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_T0_.exit.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i
@@ -1756,7 +1750,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorI
 
 .lr.ph.i13.i.i.i:                                 ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_T0_.exit.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_T0_.exit.i18.i.i.i"
   %.sroa.0.07.i.i.i.i = phi ptr [ %209, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_T0_.exit.i18.i.i.i" ], [ %200, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_T0_.exit.i.i.i" ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5.i.i12.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i12.i.i.i)
   %.sroa.04.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.0.07.i.i.i.i, align 8, !tbaa !78
   %.sroa.5.0..sroa_idx.i.i14.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.i.i12.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i.i14.i.i.i, i64 20, i1 false), !tbaa.struct !108
@@ -1793,7 +1787,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx6.i.i20.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.i.i12.i.i.i, i64 20, i1 false), !tbaa.struct !108
   %.sroa.57.0..sroa_idx8.i.i21.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.010.0.lcssa.i.i19.i.i.i, i64 24
   store i64 %.sroa.57.0.copyload.i.i.i.i.i, ptr %.sroa.57.0..sroa_idx8.i.i21.i.i.i, align 8, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.5.i.i12.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i12.i.i.i)
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 32
   %.not.i22.i.i.i = icmp eq ptr %209, %174
   br i1 %.not.i22.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEEZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EvT_SD_T0_.exit", label %.lr.ph.i13.i.i.i, !llvm.loop !111
@@ -1822,7 +1816,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorI
   br i1 %.0.i.i.i41.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i59.i.i.i, label %222
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i59.i.i.i: ; preds = %211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i35.i.i.i, i64 32, i1 false), !tbaa.struct !107
   %216 = getelementptr inbounds nuw i8, ptr %.pn18.i36.i.i.i, i64 64
   %217 = ptrtoint ptr %.sroa.0.019.i35.i.i.i to i64
@@ -1832,11 +1826,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorI
   %221 = getelementptr inbounds %struct.llama_sbatch_seq, ptr %216, i64 %220
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %221, ptr noundef nonnull align 8 dereferenceable(1) %172, i64 %218, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %231
 
 222:                                              ; preds = %211
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5.i.i30.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i30.i.i.i)
   %.sroa.5.0..sroa_idx.i.i42.i.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i36.i.i.i, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.i.i30.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i.i42.i.i.i, i64 20, i1 false), !tbaa.struct !108
   %.val3.i14.i.i43.i.i.i = load i32, ptr %.pn18.i36.i.i.i, align 8, !tbaa !70
@@ -1869,7 +1863,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx6.i.i48.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.i.i30.i.i.i, i64 20, i1 false), !tbaa.struct !108
   %.sroa.57.0..sroa_idx8.i.i49.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.010.0.lcssa.i.i47.i.i.i, i64 24
   store i64 %.val1.i.i38.i.i.i, ptr %.sroa.57.0..sroa_idx8.i.i49.i.i.i, align 8, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.5.i.i30.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i30.i.i.i)
   br label %231
 
 231:                                              ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_T0_.exit.i46.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i59.i.i.i
@@ -2293,7 +2287,7 @@ _ZNSt6vectorIPiSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPiSaI
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_batch_get_one(ptr dead_on_unwind noalias writable writeonly sret(%struct.llama_batch) align 8 captures(none) initializes((0, 56)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @llama_batch_get_one(ptr dead_on_unwind noalias writable writeonly sret(%struct.llama_batch) align 8 captures(none) initializes((0, 56)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store i32 %2, ptr %0, align 8, !tbaa !101
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2302,10 +2296,10 @@ define void @llama_batch_get_one(ptr dead_on_unwind noalias writable writeonly s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @llama_batch_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.llama_batch) align 8 captures(none) initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @llama_batch_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.llama_batch) align 8 captures(none) initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 24, i1 false)
   %.not = icmp eq i32 %2, 0
   %5 = sext i32 %1 to i64
@@ -2357,10 +2351,10 @@ define void @llama_batch_init(ptr dead_on_unwind noalias writable writeonly sret
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @llama_batch_free(ptr noundef readonly byval(%struct.llama_batch) align 8 captures(none) %0) local_unnamed_addr #8 {
+define void @llama_batch_free(ptr noundef readonly byval(%struct.llama_batch) align 8 captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !73
   %.not = icmp eq ptr %3, null
@@ -2440,7 +2434,7 @@ define void @llama_batch_free(ptr noundef readonly byval(%struct.llama_batch) al
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2544,16 +2538,16 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2971,7 +2965,7 @@ _ZNSt12_Vector_baseI16llama_sbatch_seqSaIS0_EE13_M_deallocateEPS0_m.exit38: ; pr
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %2, ptr readonly captures(none) %3) unnamed_addr #12 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %2, ptr readonly captures(none) %3) unnamed_addr #11 {
   %5 = ptrtoint ptr %0 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %6, %5
@@ -3590,7 +3584,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_0EEEvT_T0_SG_T1_T2_"(ptr captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr readonly captures(none) %4) unnamed_addr #13 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_0EEEvT_T0_SG_T1_T2_"(ptr captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr readonly captures(none) %4) unnamed_addr #12 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7
@@ -3913,10 +3907,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_0EEEvT_T0_"(ptr captures(none) %0, ptr readonly captures(none) %1) unnamed_addr #13 {
+define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_0EEEvT_T0_"(ptr captures(none) %0, ptr readonly captures(none) %1) unnamed_addr #12 {
   %3 = load i64, ptr %0, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !85
@@ -4084,7 +4078,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #12 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #11 {
   %4 = alloca %struct.llama_sbatch_seq, align 8
   %5 = alloca %struct.llama_sbatch_seq, align 8
   %6 = alloca %struct.llama_sbatch_seq, align 8
@@ -4132,7 +4126,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %32 = getelementptr inbounds %struct.llama_sbatch_seq, ptr %0, i64 %.08.i.i.i
   %.sroa.08.0.copyload.i.i.i = load i32, ptr %32, align 8, !tbaa !78
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, i64 20, i1 false)
   %.sroa.510.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   %.sroa.510.0.copyload.i.i.i = load i64, ptr %.sroa.510.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !77
@@ -4206,7 +4200,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.i.i.i, i64 20, i1 false)
   %.sroa.538.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i64 %.sroa.510.0.copyload.i.i.i, ptr %.sroa.538.0..sroa_idx.i.i.i.i, align 8, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.4.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %60 = add nsw i64 %.08.i.i.i, -1
   br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_RT0_.exit.i.i", label %31, !llvm.loop !155
@@ -4220,7 +4214,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %62 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -32
   %.sroa.07.0.copyload.i.i.i = load i32, ptr %62, align 8, !tbaa !78
   %.sroa.48.0..sroa.0.0..sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -28
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.4.i.i9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i9.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.i.i9.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.48.0..sroa.0.0..sroa_idx.i.i11.i, i64 20, i1 false)
   %.sroa.59.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.59.0.copyload.i.i.i = load i64, ptr %.sroa.59.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !77
@@ -4313,7 +4307,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i.i.i26.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.i.i9.i, i64 20, i1 false)
   %.sroa.538.0..sroa_idx.i.i.i27.i = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i64 %.sroa.59.0.copyload.i.i.i, ptr %.sroa.538.0..sroa_idx.i.i.i27.i, align 8, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.4.i.i9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i9.i)
   %101 = icmp sgt i64 %64, 32
   br i1 %101, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_T0_.exit", !llvm.loop !156
 
@@ -4347,11 +4341,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %.0.i.i30.i.i, label %116, label %117
 
 116:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
 117:                                              ; preds = %112
@@ -4362,19 +4356,19 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %.0.i.i35.i.i, label %121, label %122
 
 121:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
 122:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
 123:                                              ; preds = %.lr.ph47
@@ -4385,11 +4379,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %.0.i.i40.i.i, label %127, label %128
 
 127:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
 128:                                              ; preds = %123
@@ -4400,19 +4394,19 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %.0.i.i45.i.i, label %132, label %133
 
 132:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
 133:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader": ; preds = %133, %132, %127, %122, %121, %116
@@ -4454,11 +4448,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %145, label %146, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEET_SG_SG_T0_.exit"
 
 146:                                              ; preds = %144
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.1.i.i, i64 32, i1 false), !tbaa.struct !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, i64 32, i1 false), !tbaa.struct !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i", !llvm.loop !159
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP16llama_sbatch_seqSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN12llama_sbatch10from_batchERK11llama_batchmbbE3$_1EEET_SG_SG_T0_.exit": ; preds = %144
@@ -4473,6 +4467,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
 
@@ -4486,20 +4486,20 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { noreturn }

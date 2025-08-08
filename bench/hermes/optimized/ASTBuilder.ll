@@ -2334,10 +2334,10 @@ if.then96:                                        ; preds = %if.end.i.i14950
   %this.val = load ptr, ptr %this, align 8
   %73 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %this.val2698 = load ptr, ptr %73, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp24.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp51.i)
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.then96, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i
@@ -2912,19 +2912,19 @@ sw.default.i:                                     ; preds = %if.end26.i
 if.then100:                                       ; preds = %sw.default.i, %if.then21.i, %if.then9.i, %if.then5.i
   %ref.tmp51.i.sink = phi ptr [ %ref.tmp51.i, %sw.default.i ], [ %ref.tmp24.i, %if.then21.i ], [ %ref.tmp12.i, %if.then9.i ], [ %ref.tmp.i, %if.then5.i ]
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2698, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp51.i.sink, i32 noundef 0) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp24.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
   br label %return
 
 if.end101:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
   %retval.sroa.0.0.i.ph.in = phi ptr [ %retval.0.i.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i ], [ %retval.0.i.i.i210.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i ], [ %retval.0.i.i.i191.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i ], [ %retval.0.i.i.i170.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i ], [ %retval.0.i.i.i151.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i ]
   %retval.sroa.0.0.i.ph = ptrtoint ptr %retval.sroa.0.0.i.ph.in to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp24.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
   %sourceRange_.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.ph.in, i64 24
   store ptr %sourceRng.sroa.0.0, ptr %sourceRange_.i, align 8
   %rng.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.ph.in, i64 32
@@ -2940,10 +2940,10 @@ if.then108:                                       ; preds = %if.end.i.i14969
   %this.val2699 = load ptr, ptr %this, align 8
   %164 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %this.val2700 = load ptr, ptr %164, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i2934)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp25.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2934)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp25.i)
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i.i.i3080, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i.i2940
 
 while.body.i.i.i.i.i.i3080:                       ; preds = %if.then108, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i3100
@@ -3322,10 +3322,10 @@ if.end.i.i.i.i2998:                               ; preds = %if.end27.i
 if.then112:                                       ; preds = %if.then6.i, %if.then22.i, %if.then14.i, %if.then.i2951
   %ref.tmp9.i.sink = phi ptr [ %ref.tmp9.i, %if.then6.i ], [ %ref.tmp25.i, %if.then22.i ], [ %ref.tmp17.i, %if.then14.i ], [ %ref.tmp.i2934, %if.then.i2951 ]
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2700, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9.i.sink, i32 noundef 0) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i2934)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp25.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2934)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp25.i)
   br label %return
 
 if.end113:                                        ; preds = %if.end.i.i.i.i2998, %if.then.i.i.i.i3004
@@ -3343,10 +3343,10 @@ if.end113:                                        ; preds = %if.end.i.i.i.i2998,
   %_raw.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i3001, i64 64
   store ptr %201, ptr %_raw.i.i, align 8
   %212 = ptrtoint ptr %retval.0.i.i.i.i3001 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i2934)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp25.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2934)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp25.i)
   %sourceRange_.i3112 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i3001, i64 24
   store ptr %sourceRng.sroa.0.0, ptr %sourceRange_.i3112, align 8
   %rng.sroa.2.0.sourceRange_.sroa_idx.i3113 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i3001, i64 32
@@ -32295,10 +32295,10 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

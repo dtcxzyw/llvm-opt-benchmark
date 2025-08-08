@@ -131,14 +131,14 @@ define hidden i64 @je_nstime_divide(ptr noundef readonly captures(none) %0, ptr 
 define hidden i64 @je_nstime_ns_since(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = load i64, ptr %0, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %2) #8
   %5 = load i64, ptr %2, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = mul i64 %5, 1000000000
   %9 = add i64 %8, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %10 = icmp ugt i64 %3, %9
   br i1 %10, label %11, label %nstime_update_impl.exit, !prof !13
 
@@ -152,14 +152,8 @@ nstime_update_impl.exit:                          ; preds = %1, %11
   ret i64 %13
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @nstime_monotonic_impl() #5 {
+define internal noundef zeroext i1 @nstime_monotonic_impl() #4 {
   ret i1 true
 }
 
@@ -172,25 +166,25 @@ define internal void @nstime_prof_update_impl(ptr noundef writeonly captures(non
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #8
   %8 = load i64, ptr %3, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %11 = mul i64 %8, 1000000000
   %12 = add i64 %11, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %2) #8
   %15 = load i64, ptr %2, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = mul i64 %15, 1000000000
   %19 = add i64 %18, %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 20:                                               ; preds = %13, %6
@@ -203,7 +197,7 @@ define internal void @nstime_prof_update_impl(ptr noundef writeonly captures(non
 define internal void @nstime_update_impl(ptr noundef captures(none) %0) #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = load i64, ptr %0, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %2) #8
   %5 = load i64, ptr %2, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -211,7 +205,7 @@ define internal void @nstime_update_impl(ptr noundef captures(none) %0) #3 {
   %8 = mul i64 %5, 1000000000
   %9 = add i64 %8, %7
   store i64 %9, ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %10 = icmp ugt i64 %3, %9
   br i1 %10, label %11, label %12, !prof !13
 
@@ -228,7 +222,7 @@ define hidden void @je_nstime_init_update(ptr noundef writeonly captures(none) i
 nstime_update_impl.exit:
   %1 = alloca %struct.timespec, align 8
   store i64 0, ptr %0, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %1) #8
   %3 = load i64, ptr %1, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -236,7 +230,7 @@ nstime_update_impl.exit:
   %6 = mul i64 %3, 1000000000
   %7 = add i64 %6, %5
   store i64 %7, ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -250,25 +244,25 @@ define hidden void @je_nstime_prof_init_update(ptr noundef writeonly captures(no
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #8
   %8 = load i64, ptr %3, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %11 = mul i64 %8, 1000000000
   %12 = add i64 %11, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %nstime_prof_update_impl.exit
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %2) #8
   %15 = load i64, ptr %2, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = mul i64 %15, 1000000000
   %19 = add i64 %18, %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %nstime_prof_update_impl.exit
 
 nstime_prof_update_impl.exit:                     ; preds = %6, %13
@@ -278,7 +272,13 @@ nstime_prof_update_impl.exit:                     ; preds = %6, %13
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #7
@@ -287,9 +287,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

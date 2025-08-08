@@ -690,7 +690,7 @@ define internal void @ALSA_DetectDevices(ptr noundef writeonly captures(none) %0
   br i1 %.not.i, label %7, label %ALSA_guess_device_prefix.exit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %8 = load ptr, ptr @ALSA_snd_device_name_hint, align 8
   %9 = call i32 %8(i32 noundef -1, ptr noundef nonnull @.str.69, ptr noundef nonnull %3) #8
@@ -759,13 +759,13 @@ thread-pre-split.i:                               ; preds = %16
 29:                                               ; preds = %28, %.loopexit.i
   %30 = phi ptr [ @.str.66, %28 ], [ %27, %.loopexit.i ]
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ALSA_guess_device_prefix.exit
 
 ALSA_guess_device_prefix.exit:                    ; preds = %2, %29
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   call fastcc void @ALSA_HotplugIteration(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %31 = load i8, ptr %4, align 1, !range !6, !noundef !7
@@ -791,8 +791,8 @@ ALSA_guess_device_prefix.exit:                    ; preds = %2, %29
   %41 = call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull @ALSA_hotplug_shutdown, i32 noundef 0) #8
   %42 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @ALSA_HotplugThread, ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef null, ptr noundef null) #8
   store ptr %42, ptr @ALSA_hotplug_thread, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -804,7 +804,7 @@ define internal noundef zeroext i1 @ALSA_OpenDevice(ptr noundef initializes((112
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %6 = load i8, ptr %5, align 4, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %9 = load i32, ptr %8, align 4
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.79, i32 noundef %9) #8
@@ -822,7 +822,7 @@ define internal noundef zeroext i1 @ALSA_OpenDevice(ptr noundef initializes((112
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @SDL_strlen_REAL(ptr noundef %17) #8
@@ -858,7 +858,7 @@ define internal noundef zeroext i1 @ALSA_OpenDevice(ptr noundef initializes((112
 
 get_pcm_str.exit:                                 ; preds = %28, %30
   %34 = phi ptr [ %.pre.i, %30 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = icmp eq ptr %34, null
   br i1 %35, label %166, label %36
 
@@ -1063,7 +1063,7 @@ ALSA_pcm_cfg_hw.exit.thread20:                    ; preds = %63, %46, %ALSA_pcm_
 
 .critedge:                                        ; preds = %143, %ALSA_pcm_cfg_sw.exit.thread, %1, %166
   %.0 = phi i1 [ false, %166 ], [ false, %1 ], [ true, %ALSA_pcm_cfg_sw.exit.thread ], [ true, %143 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -1408,17 +1408,11 @@ define internal void @ALSA_FlushRecording(ptr noundef readonly captures(none) %0
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_LoadObject_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_LoadObject_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_LoadFunction_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @SDL_LoadFunction_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @SDL_UnloadObject_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnloadObject_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
@@ -1465,14 +1459,14 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %23 = load ptr, ptr @ALSA_snd_ctl_card_info_sizeof, align 8
   %24 = tail call i64 %23() #8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr @hotplug_devices, align 8
   store ptr %25, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4
   %26 = load ptr, ptr @ALSA_snd_card_next, align 8
   %27 = call i32 %26(ptr noundef nonnull %6) #8
@@ -1485,7 +1479,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   br i1 %30, label %thread-pre-split, label %31
 
 31:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = load ptr, ptr @ALSA_device_prefix, align 8
   %33 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.72, ptr noundef %32, i32 noundef %29) #8
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.73, ptr noundef nonnull %7) #8
@@ -1502,7 +1496,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   br i1 %41, label %.thread39.sink.split, label %42
 
 42:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %8, align 4
   br label %43
 
@@ -1532,7 +1526,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   br i1 %59, label %.thread69, label %43
 
 .thread69:                                        ; preds = %43, %51, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread39.sink.split
 
 60:                                               ; preds = %48
@@ -1541,11 +1535,11 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %63 = call i32 %61(ptr noundef %62) #8
   %64 = load ptr, ptr @ALSA_snd_ctl_card_info_clear, align 8
   call void %64(ptr noundef nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
 .backedge:                                        ; preds = %31, %60
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = load ptr, ptr @ALSA_snd_card_next, align 8
   %66 = call i32 %65(ptr noundef nonnull %6) #8
   %67 = icmp slt i32 %66, 0
@@ -1577,7 +1571,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br i1 %15, label %.loopexit48, label %.loopexit48.sink.split
 
 .thread39.sink.split:                             ; preds = %37, %.thread69
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread39
 
 .thread39:                                        ; preds = %.backedge, %.thread39.sink.split, %21
@@ -1639,21 +1633,21 @@ thread-pre-split42:                               ; preds = %.lr.ph56, %80
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %.loopexit48.sink.split, %._crit_edge62, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %95
 
 95:                                               ; preds = %19, %.loopexit48
   ret void
 }
 
-declare ptr @SDL_AddAudioDevice(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AddAudioDevice(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ALSA_HotplugThread(ptr readnone captures(none) %0) #0 {
@@ -1690,21 +1684,21 @@ define internal noundef i32 @ALSA_HotplugThread(ptr readnone captures(none) %0) 
   ret i32 0
 }
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @hotplug_device_process(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
@@ -1919,36 +1913,36 @@ define internal fastcc range(i32 -1, 1) i32 @hotplug_device_process(ptr noundef 
   ret i32 %.179.ph
 }
 
-declare void @SDL_AudioDeviceDisconnected(ptr noundef) local_unnamed_addr #2
+declare void @SDL_AudioDeviceDisconnected(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #1
 
-declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_UpdatedAudioDeviceFormat(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UpdatedAudioDeviceFormat(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
@@ -2179,7 +2173,7 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   ret i32 %.176
 }
 
-declare ptr @SDL_ClosestAudioFormats(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_ClosestAudioFormats(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull captures(none) initializes((48, 56)) %0) unnamed_addr #0 {
@@ -2228,7 +2222,7 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
   ]
 
 25:                                               ; preds = %23, %23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load ptr, ptr @ALSA_snd_pcm_chmap_print, align 8
   %27 = call i32 %26(ptr noundef nonnull %20, i64 noundef 128, ptr noundef nonnull %4) #8
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.103, ptr noundef nonnull %4) #8
@@ -2321,7 +2315,7 @@ alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
   br i1 %61, label %alsa_chmap_cfg_ordered_fixed_or_paired.exit.i, label %54
 
 .thread.i.i:                                      ; preds = %54, %alsa_chmap_has_duplicate_position.exit.i.i, %alsa_chmap_has_duplicate_position.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %62
 
 62:                                               ; preds = %.thread.i.i, %23, %18
@@ -2332,7 +2326,7 @@ alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
 
 alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
   %65 = call fastcc i32 @alsa_chmap_install(ptr noundef nonnull %0, ptr noundef nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %alsa_chmap_cfg_ordered.exit
 
 .loopexit.i:                                      ; preds = %62
@@ -2356,7 +2350,7 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
   br i1 %.not51.i.i, label %72, label %110
 
 72:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %73 = load ptr, ptr @ALSA_snd_pcm_chmap_print, align 8
   %74 = call i32 %73(ptr noundef nonnull %67, i64 noundef 128, ptr noundef nonnull %3) #8
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.111, ptr noundef nonnull %3) #8
@@ -2465,12 +2459,12 @@ alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i
   br i1 %.not52.i.i, label %._crit_edge68.split.i.i, label %.preheader.i.i, !llvm.loop !23
 
 .thread.i16.i:                                    ; preds = %._crit_edge68.split.i.i, %alsa_chmap_has_duplicate_position.exit.thread.i17.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %110
 
 ._crit_edge68.split.thread.i.i:                   ; preds = %._crit_edge68.split.i.i, %alsa_chmap_has_duplicate_position.exit.i15.i
   %109 = call fastcc i32 @alsa_chmap_install(ptr noundef nonnull %0, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %alsa_chmap_cfg_ordered.exit
 
 110:                                              ; preds = %.thread.i16.i, %70, %.lr.ph75.i.i
@@ -2516,7 +2510,7 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %110
   ]
 
 124:                                              ; preds = %122, %122
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %125 = load ptr, ptr @ALSA_snd_pcm_chmap_print, align 8
   %126 = call i32 %125(ptr noundef nonnull %119, i64 noundef 128, ptr noundef nonnull %2) #8
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.112, ptr noundef nonnull %2) #8
@@ -2625,7 +2619,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
   br i1 %.not55.i, label %._crit_edge72.split.i, label %.preheader.i, !llvm.loop !26
 
 .thread.i:                                        ; preds = %._crit_edge72.split.i, %alsa_chmap_has_duplicate_position.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %161
 
 161:                                              ; preds = %.thread.i, %122, %117
@@ -2636,7 +2630,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
 
 alsa_chmap_cfg_unordered.exit:                    ; preds = %alsa_chmap_has_duplicate_position.exit.i, %._crit_edge72.split.i
   %164 = call fastcc i32 @alsa_chmap_install(ptr noundef nonnull %0, ptr noundef nonnull %148)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %.thread48
 
@@ -2728,7 +2722,7 @@ swizzle_map_compute.exit.thread:                  ; preds = %174, %191, %swizzle
   ret i32 %.0
 }
 
-declare ptr @SDL_ChannelMapDup(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_ChannelMapDup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sdl_6chans_set_rear_or_side_channels_from_alsa_6chans(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -2868,7 +2862,7 @@ define internal fastcc range(i32 -1, 1) i32 @alsa_chmap_install(ptr noundef nonn
   %17 = zext i32 %14 to i64
   %18 = shl nuw nsw i64 %17, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %1, i64 %18, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = load ptr, ptr @ALSA_snd_pcm_chmap_print, align 8
   %20 = call i32 %19(ptr noundef nonnull %15, i64 noundef 128, ptr noundef nonnull %3) #8
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.109, ptr noundef nonnull %3) #8
@@ -2901,7 +2895,7 @@ define internal fastcc range(i32 -1, 1) i32 @alsa_chmap_install(ptr noundef nonn
 
 38:                                               ; preds = %37, %32, %28
   %.1 = phi i32 [ -1, %28 ], [ 0, %32 ], [ 0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %11, %38
@@ -2910,9 +2904,15 @@ define internal fastcc range(i32 -1, 1) i32 @alsa_chmap_install(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -2921,12 +2921,12 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0,1) }

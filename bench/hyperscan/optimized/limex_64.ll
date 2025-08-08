@@ -204,7 +204,7 @@ nfaExecLimEx64_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   br label %moNfaCompressState64.exit
 
 115:                                              ; preds = %nfaExecLimEx64_Compress_Repeats.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %117 = zext i8 %.0.i to i64
   %118 = getelementptr inbounds nuw [256 x i8], ptr %30, i64 0, i64 %117
@@ -218,7 +218,7 @@ nfaExecLimEx64_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   br i1 %.not20.i, label %132, label %124
 
 124:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %126 = load i64, ptr %125, align 16
   %127 = and i64 %126, %.pre17
@@ -227,14 +227,14 @@ nfaExecLimEx64_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   br i1 %.not21.i, label %135, label %128
 
 128:                                              ; preds = %124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %129 = and i64 %126, %122
   store i64 %129, ptr %6, align 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %131 = load i32, ptr %130, align 4
   call void @storecompressed64(ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %131) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.i
 
 132:                                              ; preds = %115
@@ -244,7 +244,7 @@ nfaExecLimEx64_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %128, %132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %moNfaCompressState64.exit
 
 135:                                              ; preds = %124
@@ -252,19 +252,13 @@ nfaExecLimEx64_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   %137 = load i32, ptr %136, align 4
   %138 = zext i32 %137 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %138, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %moNfaCompressState64.exit
 
 moNfaCompressState64.exit:                        ; preds = %113, %111, %106, %104, %99, %94, %86, %85, %82, %.critedge.i, %135
   ret i8 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecLimEx64_expandState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
@@ -361,7 +355,7 @@ partial_load_u64a.exit:                           ; preds = %12, %15, %17, %30, 
   br label %moNfaExpandState64.exit
 
 63:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %65 = zext i8 %4 to i64
   %66 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %65
@@ -375,7 +369,7 @@ partial_load_u64a.exit:                           ; preds = %12, %15, %17, %30, 
   br i1 %.not16.i, label %82, label %72
 
 72:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %74 = load i64, ptr %73, align 16
   %75 = and i64 %74, %70
@@ -388,7 +382,7 @@ partial_load_u64a.exit:                           ; preds = %12, %15, %17, %30, 
   %80 = load i64, ptr %1, align 8
   %81 = or i64 %80, %79
   store i64 %81, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 82:                                               ; preds = %63
@@ -398,7 +392,7 @@ partial_load_u64a.exit:                           ; preds = %12, %15, %17, %30, 
   br label %85
 
 85:                                               ; preds = %82, %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %moNfaExpandState64.exit
 
 moNfaExpandState64.exit:                          ; preds = %partial_load_u64a.exit, %85
@@ -474,7 +468,7 @@ nfaExecLimEx64_Expand_Repeats.exit:               ; preds = %128, %moNfaExpandSt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecLimEx64_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden noundef signext i8 @nfaExecLimEx64_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store i64 0, ptr %4, align 8
@@ -500,7 +494,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_queueInitState(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
@@ -509,7 +503,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr 
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i64 %1, 0
   %.v.i = select i1 %.not, i64 336, i64 344
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.v.i
@@ -599,7 +593,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr 
   br label %moNfaCompressState64.exit
 
 50:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %52 = zext i8 %3 to i64
   %53 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %52
@@ -613,7 +607,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr 
   br i1 %.not20.i, label %67, label %59
 
 59:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %61 = load i64, ptr %60, align 16
   %62 = and i64 %61, %11
@@ -622,14 +616,14 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr 
   br i1 %.not21.i, label %70, label %63
 
 63:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = and i64 %61, %57
   store i64 %64, ptr %7, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %66 = load i32, ptr %65, align 4
   call void @storecompressed64(ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %66) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.i
 
 67:                                               ; preds = %50
@@ -639,7 +633,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr 
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %63, %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %moNfaCompressState64.exit
 
 70:                                               ; preds = %59
@@ -647,8 +641,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_initCompressedState(ptr 
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %73, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %moNfaCompressState64.exit
 
 moNfaCompressState64.exit:                        ; preds = %48, %46, %41, %39, %34, %29, %21, %20, %17, %.critedge.i, %70
@@ -690,7 +684,7 @@ moNfaCompressState64.exit:                        ; preds = %48, %46, %41, %39, 
 
 .loopexit:                                        ; preds = %81, %moNfaCompressState64.exit, %4
   %.0 = phi i8 [ 0, %4 ], [ 1, %moNfaCompressState64.exit ], [ 1, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %.0
 }
 
@@ -753,7 +747,7 @@ moNfaReportCurrent64.exit:                        ; preds = %8, %15
   br i1 %39, label %216, label %40
 
 40:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1073,7 +1067,7 @@ limexExpireExtendedState64.exit:                  ; preds = %197, %._crit_edge, 
 
 .thread:                                          ; preds = %90, %98, %213, %206
   %.5 = phi i8 [ 1, %206 ], [ %215, %213 ], [ 0, %90 ], [ 1, %98 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %216
 
 216:                                              ; preds = %moNfaReportCurrent64.exit.thread, %34, %.thread
@@ -1082,7 +1076,7 @@ limexExpireExtendedState64.exit:                  ; preds = %197, %._crit_edge, 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %8 = load i64, ptr %7, align 16
@@ -2664,7 +2658,7 @@ moNfaReportCurrent64.exit:                        ; preds = %10, %17
   br i1 %41, label %253, label %42
 
 42:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -2732,7 +2726,7 @@ moNfaReportCurrent64.exit:                        ; preds = %10, %17
 
 88:                                               ; preds = %80
   %89 = tail call i64 @llvm.umin.i64(i64 %64, i64 %86)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %90 = load ptr, ptr %76, align 8
   %91 = load i64, ptr %77, align 8
@@ -2761,11 +2755,11 @@ moNfaReportCurrent64.exit:                        ; preds = %10, %17
   %106 = load i64, ptr %4, align 64
   %107 = load ptr, ptr %43, align 8
   store i64 %106, ptr %107, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread137
 
 108:                                              ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %109
 
 109:                                              ; preds = %108, %80
@@ -3042,7 +3036,7 @@ limexExpireExtendedState64.exit:                  ; preds = %234, %._crit_edge, 
 
 .thread137:                                       ; preds = %.thread, %117, %135, %250, %243
   %.7 = phi i8 [ 1, %243 ], [ %252, %250 ], [ 2, %.thread ], [ 2, %117 ], [ 1, %135 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %253
 
 253:                                              ; preds = %moNfaReportCurrent64.exit.thread, %36, %.thread137
@@ -3051,7 +3045,7 @@ limexExpireExtendedState64.exit:                  ; preds = %234, %._crit_edge, 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #4 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %9 = load i64, ptr %8, align 16
@@ -4386,7 +4380,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx64_QR(ptr noundef %0, ptr n
   br i1 %10, label %259, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -4854,7 +4848,7 @@ limexAcceptHasReport.exit:                        ; preds = %.lr.ph120
 
 limexInAccept64.exit:                             ; preds = %limexAcceptHasReport.exit, %250, %.thread
   %258 = phi i8 [ %257, %.thread ], [ 2, %250 ], [ 2, %limexAcceptHasReport.exit ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %259
 
 259:                                              ; preds = %3, %limexInAccept64.exit
@@ -4863,7 +4857,7 @@ limexInAccept64.exit:                             ; preds = %limexAcceptHasRepor
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %8 = load i64, ptr %7, align 16
@@ -6316,7 +6310,7 @@ moNfaReportCurrent64.exit:                        ; preds = %9, %2
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.NFAContext64, align 64
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -6462,12 +6456,12 @@ lazyTug64.exit:                                   ; preds = %repeatHasMatch.exit
   br label %moNfaTestEod64.exit
 
 moNfaTestEod64.exit:                              ; preds = %73, %lazyTug64.exit, %25, %23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i8 0
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %8 = load i64, ptr %7, align 8
@@ -7274,16 +7268,16 @@ lazyTug64.exit:                                   ; preds = %repeatHasMatch.exit
   ret i32 %.
 }
 
-declare void @repeatPack(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @repeatPack(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @storecompressed64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @storecompressed64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @loadcompressed64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @loadcompressed64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @repeatUnpack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @repeatUnpack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash64(ptr noundef readonly captures(none) %0, i64 %.0.val, i64 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash64(ptr noundef readonly captures(none) %0, i64 %.0.val, i64 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
   %6 = and i64 %.0.val1, %.0.val
   %.fr = freeze i64 %6
   %.not.i20 = icmp eq i64 %.fr, 0
@@ -7341,10 +7335,10 @@ moProcessAcceptsImpl64.exit:                      ; preds = %limexRunAccept.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts64(ptr noundef readonly captures(none) %0, i64 %.0.val, i64 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts64(ptr noundef readonly captures(none) %0, i64 %.0.val, i64 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
   %6 = and i64 %.0.val1, %.0.val
   %.fr = freeze i64 %6
   %.not.i25 = icmp eq i64 %.fr, 0
@@ -7401,48 +7395,54 @@ moProcessAcceptsImpl64.exit:                      ; preds = %limexRunAccept.exit
   ret i8 %.035.i22
 }
 
-declare i64 @doAccel64(i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @doAccel64(i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @repeatStoreRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @repeatStoreRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare void @repeatStoreRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @repeatStoreRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare void @repeatStoreBitmap(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @repeatStoreBitmap(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare void @repeatStoreSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @repeatStoreSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare void @repeatStoreTrailer(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @repeatStoreTrailer(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare i32 @repeatHasMatchRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @repeatHasMatchRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @repeatHasMatchRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @repeatHasMatchRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @repeatHasMatchBitmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @repeatHasMatchBitmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @repeatHasMatchSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @repeatHasMatchSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @repeatHasMatchTrailer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @repeatHasMatchTrailer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @repeatLastTopRing(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @repeatLastTopRing(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @repeatLastTopRange(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @repeatLastTopRange(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @repeatLastTopBitmap(ptr noundef) local_unnamed_addr #5
+declare i64 @repeatLastTopBitmap(ptr noundef) local_unnamed_addr #4
 
-declare i64 @repeatLastTopSparseOptimalP(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @repeatLastTopSparseOptimalP(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @repeatLastTopTrailer(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @repeatLastTopTrailer(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind memory(none) }

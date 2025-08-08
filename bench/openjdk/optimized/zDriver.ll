@@ -405,7 +405,7 @@ define hidden void @_ZN12ZDriverMinor2gcERK14ZDriverRequest(ptr noundef nonnull 
   call void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTimer(ptr noundef nonnull align 64 dereferenceable(6720) %34, i32 noundef 0, ptr noundef nonnull %6) #13
   call void @_ZN10ZGCIdMinorD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   call void @_ZN26ZServiceabilityCycleTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #13
   %36 = extractvalue { i64, i64 } %35, 0
   store i64 %36, ptr %3, align 8
@@ -418,7 +418,7 @@ define hidden void @_ZN12ZDriverMinor2gcERK14ZDriverRequest(ptr noundef nonnull 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %16, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 920
   store i32 11, ptr %45, align 8
@@ -721,14 +721,14 @@ define hidden void @_ZN12ZDriverMajor2gcERK14ZDriverRequest(ptr noundef nonnull 
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %11 = load i32, ptr %10, align 8
   call void @_ZN10ZGCIdMajorC1Ejc(ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef %11, i8 noundef signext 79) #13
   %12 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   call void @_ZN14ZGenerationOld7collectEP17ConcurrentGCTimer(ptr noundef nonnull align 64 dereferenceable(6720) %12, ptr noundef nonnull %6) #13
   call void @_ZN10ZGCIdMajorD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 13:                                               ; preds = %2, %9
@@ -739,7 +739,7 @@ define hidden void @_ZN12ZDriverMajor2gcERK14ZDriverRequest(ptr noundef nonnull 
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @_ZN26ZServiceabilityCycleTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #13
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #13
   %19 = extractvalue { i64, i64 } %18, 0
   store i64 %19, ptr %3, align 8
@@ -754,7 +754,7 @@ define hidden void @_ZN12ZDriverMajor2gcERK14ZDriverRequest(ptr noundef nonnull 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %31 = load ptr, ptr %30, align 8
@@ -1268,10 +1268,10 @@ define internal void @_GLOBAL__sub_I_zDriver.cpp() #10 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

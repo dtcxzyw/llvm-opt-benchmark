@@ -128,7 +128,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal noundef i32 @zm_startup_json(i32 %0, i32 noundef %1) #0 {
   %3 = alloca %struct._zend_class_entry, align 8
   %4 = alloca %struct._zend_class_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %4, i8 0, i64 520, i1 false)
   %5 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !4
   %6 = tail call ptr %5(ptr noundef nonnull @.str.23, i64 noundef 16, i1 noundef zeroext true) #13
@@ -139,12 +139,12 @@ define internal noundef i32 @zm_startup_json(i32 %0, i32 noundef %1) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 504
   store ptr @class_JsonSerializable_methods, ptr %9, align 8, !tbaa !28
   %10 = call ptr @zend_register_internal_interface(ptr noundef nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %10, ptr @php_json_serializable_ce, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 384
   store ptr @php_json_implement_json_serializable, ptr %11, align 8, !tbaa !28
   %12 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
   %13 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !4
   %14 = call ptr %13(ptr noundef nonnull @.str.26, i64 noundef 13, i1 noundef zeroext true) #13
@@ -155,7 +155,7 @@ define internal noundef i32 @zm_startup_json(i32 %0, i32 noundef %1) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr null, ptr %17, align 8, !tbaa !28
   %18 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef %12, i32 noundef 0) #13
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %18, ptr @php_json_exception_ce, align 8, !tbaa !29
   call void @zend_register_long_constant(ptr noundef nonnull @.str.27, i64 noundef 12, i64 noundef 1, i32 noundef 1, i32 noundef %1) #13
   call void @zend_register_long_constant(ptr noundef nonnull @.str.28, i64 noundef 12, i64 noundef 2, i32 noundef 1, i32 noundef %1) #13
@@ -217,9 +217,9 @@ define internal void @zm_globals_ctor_json(ptr noundef writeonly captures(none) 
 define dso_local ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca %struct._php_json_encoder, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = call i32 @php_json_escape_string(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #13
   %7 = icmp eq i32 %6, -1
@@ -333,26 +333,20 @@ zend_string_alloc.exit:                           ; preds = %32, %36
 
 smart_str_extract_ex.exit:                        ; preds = %26, %smart_str_0.exit, %39, %zend_string_alloc.exit, %60, %9, %10, %14, %19, %64
   %.0 = phi ptr [ %65, %64 ], [ null, %19 ], [ null, %14 ], [ null, %10 ], [ null, %9 ], [ null, %smart_str_0.exit ], [ %25, %26 ], [ %42, %39 ], [ %50, %60 ], [ %50, %zend_string_alloc.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @php_json_escape_string(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @php_json_escape_string(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @php_json_encode_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._php_json_encoder, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = trunc i64 %3 to i32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -361,17 +355,17 @@ define dso_local i32 @php_json_encode_ex(ptr noundef %0, ptr noundef %1, i32 nou
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !46
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %8
 }
 
-declare i32 @php_json_encode_zval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @php_json_encode_zval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @php_json_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._php_json_encoder, align 4
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 4), align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %5, ptr %6, align 4, !tbaa !44
@@ -379,14 +373,14 @@ define dso_local i32 @php_json_encode(ptr noundef %0, ptr noundef %1, i32 nounde
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !46
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @php_json_decode_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._php_json_parser, align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %3 to i32
   %8 = trunc i64 %4 to i32
   call void @php_json_parser_init(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %7, i32 noundef %8) #13
@@ -428,24 +422,24 @@ php_json_get_error_msg.exit:                      ; preds = %14, %switch.lookup
 
 22:                                               ; preds = %5, %20
   %.0 = phi i32 [ -1, %20 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare void @php_json_parser_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @php_json_parser_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @php_json_yyparse(ptr noundef) local_unnamed_addr #5
+declare i32 @php_json_yyparse(ptr noundef) local_unnamed_addr #4
 
-declare i32 @php_json_parser_error_code(ptr noundef) local_unnamed_addr #5
+declare i32 @php_json_parser_error_code(ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @php_json_validate_ex(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._php_json_parser, align 8
   %6 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @php_json_get_validate_methods() #13
   %8 = trunc i64 %2 to i32
   %9 = trunc i64 %3 to i32
@@ -460,14 +454,14 @@ define dso_local noundef zeroext i1 @php_json_validate_ex(ptr noundef %0, i64 no
   br label %13
 
 13:                                               ; preds = %4, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not
 }
 
-declare ptr @php_json_get_validate_methods() local_unnamed_addr #5
+declare ptr @php_json_get_validate_methods() local_unnamed_addr #4
 
-declare void @php_json_parser_init_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @php_json_parser_init_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_json_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -475,12 +469,12 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr noundef writeonly captur
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 512, ptr %6, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !28
@@ -760,19 +754,19 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
   br label %131
 
 131:                                              ; preds = %.thread, %smart_str_extract_ex.exit, %php_json_get_error_msg.exit, %smart_str_free_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
@@ -780,11 +774,11 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 512, ptr %5, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !28
@@ -798,7 +792,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8, !tbaa !28
   %15 = icmp eq i8 %14, 6
@@ -809,7 +803,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %11
   br i1 %16, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !80
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_ex.exit, %11
@@ -818,7 +812,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = icmp eq i32 %8, 1
   br i1 %21, label %.critedge.thread, label %22, !prof !49
 
@@ -973,13 +967,13 @@ zend_parse_arg_long_ex.exit88..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br label %73
 
 73:                                               ; preds = %.thread, %70, %62, %57, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_json_validate(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -988,9 +982,9 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr noundef writeonly capt
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 512, ptr %6, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !47
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !28
@@ -1004,7 +998,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr noundef writeonly capt
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8, !tbaa !28
   %16 = icmp eq i8 %15, 6
@@ -1015,7 +1009,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %12
   br i1 %17, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !80
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_ex.exit, %12
@@ -1024,7 +1018,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %22 = icmp eq i32 %9, 1
   br i1 %22, label %.critedge.thread, label %23, !prof !49
 
@@ -1125,8 +1119,8 @@ zend_parse_arg_long_ex.exit73..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br label %66
 
 57:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call ptr @php_json_get_validate_methods() #13
   %59 = trunc nuw nsw i64 %43 to i32
   %60 = trunc nuw nsw i64 %47 to i32
@@ -1142,15 +1136,15 @@ zend_parse_arg_long_ex.exit73..critedge_crit_edge: ; preds = %zend_parse_arg_lon
 
 php_json_validate_ex.exit:                        ; preds = %57, %62
   %64 = phi i32 [ 3, %57 ], [ 2, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %64, ptr %65, align 8, !tbaa !28
   br label %66
 
 66:                                               ; preds = %.thread, %php_json_validate_ex.exit, %54, %49, %44, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1177,7 +1171,7 @@ define hidden void @zif_json_last_error(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-declare void @zend_wrong_parameters_none_error() local_unnamed_addr #5
+declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_json_last_error_msg(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -1228,10 +1222,10 @@ php_json_get_error_msg.exit:                      ; preds = %6, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @php_json_implement_json_serializable(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #8 {
+define internal noundef i32 @php_json_implement_json_serializable(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4, !tbaa !83
   %5 = or i32 %4, 2048
@@ -1239,34 +1233,40 @@ define internal noundef i32 @php_json_implement_json_serializable(ptr readnone c
   ret i32 0
 }
 
-declare ptr @zend_register_internal_interface(ptr noundef) local_unnamed_addr #5
+declare ptr @zend_register_internal_interface(ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @php_info_print_table_start() local_unnamed_addr #5
+declare void @php_info_print_table_start() local_unnamed_addr #4
 
-declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #5
+declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #4
 
-declare void @php_info_print_table_end() local_unnamed_addr #5
+declare void @php_info_print_table_end() local_unnamed_addr #4
 
-declare void @_efree(ptr noundef) local_unnamed_addr #5
+declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
 
-declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
@@ -1274,15 +1274,15 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(1) }

@@ -914,8 +914,8 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
   %77 = fdiv float %70, 3.000000e+00
   %78 = fdiv float %73, 3.000000e+00
   %79 = fdiv float %76, 3.000000e+00
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %80 = load float, ptr %8, align 16
   %81 = load float, ptr %18, align 4
   %82 = load float, ptr %11, align 8
@@ -950,8 +950,8 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
   %.sroa.016.4.vec.extract.i = extractelement <4 x float> %104, i64 1
   %107 = call float @llvm.fmuladd.f32(float %85, float %.sroa.016.4.vec.extract.i, float %81)
   %108 = fadd float %85, %107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %109 = fcmp oge float %106, 0.000000e+00
   %110 = fcmp olt float %106, %39
   %or.cond.not51.not55 = and i1 %109, %110
@@ -1238,7 +1238,7 @@ define void @_ZN20EditPickPointsPlugin16drawPickedPointsERSt6vectorIP25PickedPoi
   store i32 -65536, ptr %7, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   call void @_ZN25PickedPointTreeWidgetItem7getNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(85) %42)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %39)
           to label %.noexc.us unwind label %.split.us
 
@@ -1252,7 +1252,7 @@ _ZN3vcg7glLabel4ModeC2Ev.exit.i.us:               ; preds = %.noexc.us
 
 46:                                               ; preds = %_ZN3vcg7glLabel4ModeC2Ev.exit.i.us
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %39) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = load ptr, ptr %8, align 8
   %48 = load atomic i32, ptr %47 monotonic, align 4
   switch i32 %48, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.us [
@@ -1317,7 +1317,7 @@ _ZN7QStringD2Ev.exit.us:                          ; preds = %46, %_ZN9QtPrivate8
   store i32 -65536, ptr %7, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   call void @_ZN25PickedPointTreeWidgetItem7getNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(85) %63)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %39)
           to label %.noexc unwind label %.split
 
@@ -1346,7 +1346,7 @@ _ZN3vcg7glLabel4ModeC2Ev.exit.i:                  ; preds = %.noexc
 
 69:                                               ; preds = %_ZN3vcg7glLabel4ModeC2Ev.exit.i
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %39) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %70 = load ptr, ptr %8, align 8
   %71 = load atomic i32, ptr %70 monotonic, align 4
   switch i32 %71, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -1661,7 +1661,7 @@ define linkonce_odr void @_ZN3vcg9GLPickTriI6CMeshOE22glGetMatrixAndViewportERN5
 12:                                               ; preds = %7
   call void @glGetDoublev(i32 noundef 2983, ptr noundef nonnull %4)
   call void @glGetDoublev(i32 noundef 2982, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1803,7 +1803,7 @@ _ZN5Eigen8internal15call_assignmentINS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEENS_12Cwise
   %126 = load double, ptr %125, align 8
   %127 = fptrunc double %126 to float
   store float %127, ptr %124, align 4
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1914,12 +1914,12 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6v
 
 _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   store float 1.000000e+00, ptr %34, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %8, align 8, !alias.scope !25
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, ptr %56, align 8, !alias.scope !25
   %57 = call noundef zeroext i1 @_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_6numext12not_equal_toIfEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEES7_EEE3anyEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %58 = load ptr, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastm, align 8
   %.not42 = icmp ne ptr %2, %58
   %or.cond.not = select i1 %57, i1 true, i1 %.not42
@@ -1979,8 +1979,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %93, align 4
   %.sroa.22.0..0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 16
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..0..sroa_idx.i.i, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %94 = load float, ptr %9, align 16
   %95 = load float, ptr %79, align 4
   %96 = load float, ptr %80, align 8
@@ -2016,8 +2016,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %.sroa.016.8.vec.extract.i.i = extractelement <4 x float> %116, i64 2
   %.sroa.018.0.vec.insert.i.i = insertelement <2 x float> poison, float %118, i64 0
   %.sroa.018.4.vec.insert.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i, float %120, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %121 = load ptr, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE4pVec, align 8
   %122 = getelementptr inbounds %"class.vcg::Point3", ptr %121, i64 %.020.i
   store <2 x float> %.sroa.018.4.vec.insert.i.i, ptr %122, align 4
@@ -3660,7 +3660,7 @@ declare void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) un
 ; Function Attrs: uwtable
 define void @_ZThn16_N20EditPickPointsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCursor, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -3695,7 +3695,7 @@ define void @_ZThn16_N20EditPickPointsPlugin7endEditER9MeshModelP6GLAreaP26MLSce
   resume { ptr, i32 } %19
 
 _ZN20EditPickPointsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext.exit: ; preds = %4, %9, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4351,7 +4351,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
 
 92:                                               ; preds = %88, %81
   %.sroa.0.0 = phi double [ %89, %88 ], [ 0.000000e+00, %81 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %.sroa.0.0, ptr %5, align 8
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = sitofp i32 %82 to double
@@ -4360,7 +4360,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
           to label %95 unwind label %90
 
 95:                                               ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %.noexc34 unwind label %90
 
@@ -4507,9 +4507,9 @@ define internal void @_GLOBAL__sub_I_editpickpoints.cpp() #14 section ".text.sta
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #24
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -6029,9 +6029,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #23
   call void @_ZdlPv(ptr noundef nonnull %8) #23
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #24
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6042,10 +6042,10 @@ declare void @llvm.assume(i1 noundef) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

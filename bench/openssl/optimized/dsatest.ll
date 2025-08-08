@@ -144,16 +144,16 @@ define internal range(i32 0, 2) i32 @dsa_test() #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !4
   %9 = tail call ptr @BN_GENCB_new() #3
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 82, ptr noundef nonnull @.str.6, ptr noundef %9) #3
@@ -257,14 +257,14 @@ define internal range(i32 0, 2) i32 @dsa_test() #0 {
   %.0 = phi i32 [ 0, %52 ], [ 0, %47 ], [ 0, %44 ], [ 0, %40 ], [ 0, %37 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ 0, %19 ], [ 0, %14 ], [ 0, %11 ], [ 0, %0 ], [ %spec.select, %57 ]
   call void @DSA_free(ptr noundef %.021) #3
   call void @BN_GENCB_free(ptr noundef %9) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -281,25 +281,25 @@ define internal range(i32 0, 2) i32 @dsa_keygen_test() #0 {
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !11
   %12 = tail call ptr @BN_bin2bn(ptr noundef nonnull @dsa_keygen_test.expected_p, i32 noundef 256, ptr noundef null) #3
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 244, ptr noundef nonnull @.str.24, ptr noundef %12) #3
@@ -549,17 +549,17 @@ define internal range(i32 0, 2) i32 @dsa_keygen_test() #0 {
   call void @EVP_PKEY_free(ptr noundef %147) #3
   call void @EVP_PKEY_CTX_free(ptr noundef %.025) #3
   call void @EVP_PKEY_CTX_free(ptr noundef %.022) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -569,11 +569,11 @@ define internal range(i32 0, 2) i32 @test_dsa_sig_infinite_loop() #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @BN_bin2bn(ptr noundef nonnull @out_p, i32 noundef 64, ptr noundef null) #3
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 354, ptr noundef nonnull @.str.76, ptr noundef %5) #3
   %.not = icmp eq i32 %6, 0
@@ -761,10 +761,10 @@ define internal range(i32 0, 2) i32 @test_dsa_sig_infinite_loop() #0 {
   call void @BN_free(ptr noundef %.035) #3
   call void @BN_free(ptr noundef %.036) #3
   call void @DSA_free(ptr noundef %.037) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.038
 }
 
@@ -773,10 +773,10 @@ define internal range(i32 0, 2) i32 @test_dsa_sig_neg_param() #0 {
   %1 = alloca [1 x i8], align 1
   %2 = alloca i32, align 4
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @BN_bin2bn(ptr noundef nonnull @out_p, i32 noundef 64, ptr noundef null) #3
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 443, ptr noundef nonnull @.str.76, ptr noundef %4) #3
   %.not = icmp eq i32 %5, 0
@@ -889,9 +889,9 @@ define internal range(i32 0, 2) i32 @test_dsa_sig_neg_param() #0 {
 
 54:                                               ; preds = %53, %51
   call void @DSA_free(ptr noundef %.029) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.031
 }
 
@@ -900,7 +900,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_dsa_default_paramgen_validate(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !13
   %3 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef null) #3
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 314, ptr noundef nonnull @.str.97, ptr noundef %3) #3
@@ -952,12 +952,9 @@ define internal range(i32 0, 2) i32 @test_dsa_default_paramgen_validate(i32 noun
   call void @EVP_PKEY_free(ptr noundef %29) #3
   call void @EVP_PKEY_CTX_free(ptr noundef %.0) #3
   call void @EVP_PKEY_CTX_free(ptr noundef %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %28
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1026,9 +1023,6 @@ declare void @DSA_free(ptr noundef) local_unnamed_addr #1
 
 declare void @BN_GENCB_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1094,6 +1088,12 @@ declare i32 @DSA_size(ptr noundef) local_unnamed_addr #1
 declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @EVP_PKEY_param_check(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

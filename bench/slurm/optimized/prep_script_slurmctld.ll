@@ -15,14 +15,14 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call ptr @job_common_env_vars(ptr noundef %0, i1 noundef zeroext %1) #3
   store ptr %5, ptr %3, align 8
   %6 = select i1 %1, ptr @.str.2, ptr @.str.3
   %7 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %6) #3
   %8 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %8, ptr %4, align 8
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 944), align 8
   %10 = icmp eq i32 %9, 0
@@ -76,7 +76,7 @@ define dso_local void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) l
 
 ._crit_edge:                                      ; preds = %.lr.ph30, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .lr.ph30:                                         ; preds = %.loopexit, %.lr.ph30
@@ -90,23 +90,23 @@ define dso_local void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !12
 }
 
+declare void @slurmscriptd_run_prepilog(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
+
+declare ptr @job_common_env_vars(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+declare i32 @setenvf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @slurmscriptd_run_prepilog(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
-
-declare ptr @job_common_env_vars(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-declare i32 @setenvf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}

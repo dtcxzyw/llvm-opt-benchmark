@@ -66,7 +66,7 @@ VP8LCheckSignature.exit:                          ; preds = %9
   br i1 %14, label %VP8LCheckSignature.exit.thread, label %15
 
 15:                                               ; preds = %VP8LCheckSignature.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @VP8LInitBitReader(ptr noundef nonnull %6, ptr noundef nonnull %0, i64 noundef %1) #8
   %16 = call i32 @VP8LReadBits(ptr noundef nonnull %6, i32 noundef 8) #8
   %.not.i = icmp eq i32 %16, 47
@@ -112,7 +112,7 @@ VP8LCheckSignature.exit:                          ; preds = %9
 
 ReadImageInfo.exit.thread:                        ; preds = %17, %15, %30, %31
   %.1 = phi i32 [ 1, %31 ], [ 1, %30 ], [ 0, %15 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %VP8LCheckSignature.exit.thread
 
 VP8LCheckSignature.exit.thread:                   ; preds = %9, %VP8LCheckSignature.exit, %5, %ReadImageInfo.exit.thread
@@ -120,13 +120,7 @@ VP8LCheckSignature.exit.thread:                   ; preds = %9, %VP8LCheckSignat
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @VP8LInitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @VP8LInitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #1 {
@@ -471,11 +465,11 @@ VP8LSetError.exit:                                ; preds = %BuildPackedTable.ex
   ret i32 %.0123168
 }
 
-declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @VP8LHtreeGroupsNew(i32 noundef) local_unnamed_addr #3
+declare ptr @VP8LHtreeGroupsNew(i32 noundef) local_unnamed_addr #2
 
-declare i32 @VP8LHuffmanTablesAllocate(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8LHuffmanTablesAllocate(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
@@ -509,7 +503,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   br label %98
 
 24:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %6, i8 0, i64 76, i1 false)
   %25 = tail call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef 4) #8
   %26 = add i32 %25, 4
@@ -533,7 +527,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = call i32 @VP8LHuffmanTablesAllocate(i32 noundef 128, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %.thread75.i, label %34
@@ -672,14 +666,14 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   br label %.thread
 
 .thread:                                          ; preds = %97, %.thread75.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread42
 
 ReadHuffmanCodeLengths.exit:                      ; preds = %49, %select.unfold.i, %45
   call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %98
 
 98:                                               ; preds = %11, %20, %ReadHuffmanCodeLengths.exit
@@ -709,11 +703,11 @@ VP8LSetError.exit:                                ; preds = %104, %.thread42, %1
   ret i32 %.0
 }
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
-declare void @VP8LHuffmanTablesDeallocate(ptr noundef) local_unnamed_addr #3
+declare void @VP8LHuffmanTablesDeallocate(ptr noundef) local_unnamed_addr #2
 
-declare void @VP8LHtreeGroupsFree(ptr noundef) local_unnamed_addr #3
+declare void @VP8LHtreeGroupsFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8LNew() local_unnamed_addr #1 {
@@ -732,7 +726,7 @@ define hidden ptr @VP8LNew() local_unnamed_addr #1 {
   ret ptr %1
 }
 
-declare void @VP8LDspInit() local_unnamed_addr #3
+declare void @VP8LDspInit() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LDelete(ptr noundef %0) local_unnamed_addr #1 {
@@ -1154,9 +1148,9 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 
 .critedge68:                                      ; preds = %.critedge, %86
   %.052 = phi i32 [ %87, %86 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !10
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 232
   br i1 %.not, label %VP8LSetError.exit77, label %93
@@ -1287,8 +1281,8 @@ VP8LSetError.exit77.thread:                       ; preds = %126, %124, %95, %14
   call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %92) #8
   %146 = load ptr, ptr %7, align 8, !tbaa !10
   call void @VP8LHtreeGroupsFree(ptr noundef %146) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread111thread-pre-split
 
 .thread111thread-pre-split:                       ; preds = %43, %15, %30, %VP8LSetError.exit77.thread
@@ -1312,8 +1306,8 @@ VP8LSetError.exit77.thread:                       ; preds = %126, %124, %95, %14
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store ptr %152, ptr %153, align 8, !tbaa !56
   call void @WebPSafeFree(ptr noundef %.070.i) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = icmp sgt i32 %.052, 0
   br i1 %154, label %155, label %161
 
@@ -2217,7 +2211,7 @@ DecodeAlphaData.exit:                             ; preds = %394, %392, %390, %3
   ret i32 %.0
 }
 
-declare void @WebPInitAlphaProcessing() local_unnamed_addr #3
+declare void @WebPInitAlphaProcessing() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #1 {
@@ -3480,11 +3474,11 @@ VP8LSetError.exit:                                ; preds = %VP8LSetError.exit.s
   ret i32 %.0
 }
 
-declare i32 @WebPIoInitFromOptions(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @WebPIoInitFromOptions(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @WebPInitConvertARGBToYUV() local_unnamed_addr #3
+declare void @WebPInitConvertARGBToYUV() local_unnamed_addr #2
 
-declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @ProcessRows(ptr noundef %0, i32 noundef %1) #1 {
@@ -3881,26 +3875,26 @@ SetCropWindow.exit.thread:                        ; preds = %ApplyInverseTransfo
   ret void
 }
 
-declare i32 @VP8LReadBits(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @VP8LReadBits(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @VP8LBuildHuffmanTable(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @VP8LBuildHuffmanTable(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @VP8LDoFillBitWindow(ptr noundef) local_unnamed_addr #3
+declare void @VP8LDoFillBitWindow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @VP8LColorCacheClear(ptr noundef) local_unnamed_addr #3
+declare void @VP8LColorCacheClear(ptr noundef) local_unnamed_addr #2
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @VP8LColorIndexInverseTransformAlpha(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @VP8LColorIndexInverseTransformAlpha(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyBlock32b(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc void @CopyBlock32b(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = sext i32 %1 to i64
   %5 = sub nsw i64 0, %4
   %6 = getelementptr inbounds i32, ptr %0, i64 %5
@@ -4007,21 +4001,27 @@ CopySmallPattern32b.exit:                         ; preds = %.lr.ph, %.preheader
   ret void
 }
 
-declare void @VP8LColorCacheCopy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @VP8LColorCacheCopy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @VP8LInverseTransform(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @VP8LInverseTransform(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPRescalerInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @WebPRescalerInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPRescaleNeededLines(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @WebPRescaleNeededLines(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @WebPMultARGBRows(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @WebPMultARGBRows(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @WebPRescalerImport(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @WebPRescalerImport(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @WebPRescalerExportRow(ptr noundef) local_unnamed_addr #3
+declare void @WebPRescalerExportRow(ptr noundef) local_unnamed_addr #2
 
-declare void @VP8LConvertFromBGRA(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @VP8LConvertFromBGRA(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
@@ -4040,11 +4040,11 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

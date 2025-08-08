@@ -145,7 +145,7 @@ define hidden noundef ptr @_ZN19InstanceMirrorKlass17allocate_instanceEP5KlassP1
 _ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit: ; preds = %9, %21
   %.0.in.i = phi i32 [ %20, %9 ], [ %24, %21 ]
   %.0.i = sext i32 %.0.in.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -154,7 +154,7 @@ _ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit: ; preds = %9, %21
   store i64 %.0.i, ptr %27, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14ClassAllocator, i64 16), ptr %4, align 8
   %28 = call noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %28
 }
 
@@ -424,10 +424,10 @@ declare noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -77,14 +77,14 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
   %58 = load ptr, ptr %57, align 8, !nonnull !3, !noundef !3
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %60 = load i64, ptr %59, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !7
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %41, ptr nonnull align 8 @anon.52c58e60444f7a11faa97e45e4d99f5f.7)
           to label %.noexc unwind label %161
 
@@ -129,9 +129,9 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
   store i64 %70, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %46, i64 88
   store i64 %71, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !7
   %73 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %58, i64 %60
   store ptr %58, ptr %45, align 8, !noalias !7
   %74 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -254,18 +254,18 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
   br i1 %123, label %.loopexit35.i, label %124
 
 124:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %30), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !7
   %125 = invoke i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h424ce9b23cf6a705E(ptr nonnull align 8 %109, ptr nonnull align 8 %121)
           to label %.noexc.i unwind label %.loopexit.i, !noalias !7
 
@@ -387,18 +387,18 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
           to label %_ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i unwind label %.loopexit.i, !noalias !7
 
 _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; preds = %.noexc33.i, %.noexc28.i, %.noexc26.i, %131, %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %30), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !7
   br label %120
 
 159:                                              ; preds = %.loopexit.split-lp.i
@@ -414,35 +414,35 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
 
 163:                                              ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(96) %46, i64 96, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.2.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8, !noalias !15
   %164 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %164, align 8, !noalias !15
@@ -681,31 +681,31 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %250 unwind label %205, !noalias !15
 
 228:                                              ; preds = %223
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.2.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17hbadbd0ed9c176bd5E"(ptr nonnull align 8 %54, ptr nonnull align 8 %52)
           to label %231 unwind label %229
 
@@ -942,10 +942,10 @@ declare void @llvm.assume(i1 noundef) #5
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

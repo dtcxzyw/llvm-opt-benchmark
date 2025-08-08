@@ -35,7 +35,7 @@ define internal void @grid_update(ptr noundef %0, ptr readnone captures(none) %1
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_grid_calc_t, align 8
   %5 = alloca %struct.item_repos_hint_t, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call ptr @lv_obj_get_child(ptr noundef %0, i32 noundef 0) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -835,7 +835,7 @@ grid_align.exit.i:                                ; preds = %grid_align.exit.loo
   br label %calc.exit
 
 calc.exit:                                        ; preds = %8, %grid_align.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_memset(ptr noundef nonnull %5, i8 noundef zeroext 0, i64 noundef 16) #6
   %360 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #6
   %361 = ptrtoint ptr %360 to i64
@@ -1156,7 +1156,7 @@ calc.exit:                                        ; preds = %8, %grid_align.exit
   br i1 %.not150.i, label %592, label %581
 
 581:                                              ; preds = %579, %577
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %582 = load i32, ptr %530, align 4, !tbaa !77
   store i32 %582, ptr %3, align 4, !tbaa !77
   %583 = getelementptr inbounds nuw i8, ptr %530, i64 4
@@ -1175,7 +1175,7 @@ calc.exit:                                        ; preds = %8, %grid_align.exit
   %589 = call i32 @lv_obj_send_event(ptr noundef nonnull %404, i32 noundef 49, ptr noundef nonnull %3) #6
   %590 = call ptr @lv_obj_get_parent(ptr noundef nonnull %404) #6
   %591 = call i32 @lv_obj_send_event(ptr noundef %590, i32 noundef 42, ptr noundef nonnull %404) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %592
 
 592:                                              ; preds = %581, %579
@@ -1299,8 +1299,8 @@ item_repos.exit:                                  ; preds = %400, %406, %620, %6
 
 667:                                              ; preds = %._crit_edge, %665
   %668 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 51, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1365,15 +1365,9 @@ define range(i32 536870811, 536871067) i32 @lv_grid_fr(i8 noundef zeroext %0) lo
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @lv_obj_get_scroll_x(ptr noundef) local_unnamed_addr #2
 
 declare i32 @lv_obj_get_scroll_y(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare zeroext i1 @lv_obj_refr_size(ptr noundef) local_unnamed_addr #2
 
@@ -1414,6 +1408,12 @@ declare void @lv_area_set_width(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @lv_area_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @lv_obj_move_children_by(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

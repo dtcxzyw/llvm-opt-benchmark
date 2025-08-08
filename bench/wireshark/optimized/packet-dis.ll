@@ -6063,7 +6063,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp ult i32 %7, 12
@@ -6093,7 +6093,7 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %30 = load i32, ptr @hf_dis_header_rel_ts, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %32 = and i32 %31, 1
   %33 = lshr i32 %31, 1
@@ -6122,7 +6122,7 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.not.i.i = icmp eq i32 %32, 0
   %.str.5264..str.5263.i.i = select i1 %.not.i.i, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull %.str.5264..str.5263.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load i32, ptr @hf_dis_pdu_length, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %53, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
   %55 = icmp ult i8 %21, 7
@@ -6923,7 +6923,7 @@ parse_persistent_pdu_payload.exit.thread63:       ; preds = %123, %parse_persist
 
 653:                                              ; preds = %4, %parse_persistent_pdu_payload.exit.thread63
   %.0 = phi i32 [ %652, %parse_persistent_pdu_payload.exit.thread63 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -6951,9 +6951,6 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -6987,9 +6984,6 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
@@ -7054,10 +7048,10 @@ define internal fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, pt
   ]
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
   %25 = zext i16 %24 to i32
   store i32 %25, ptr @dissect_DIS_PARSER_ENTITY_STATE_PDU.entitySite, align 4
@@ -7111,7 +7105,7 @@ define internal fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, pt
 
 69:                                               ; preds = %23
   %70 = call ptr @wmem_file_scope()
-  %71 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc0(ptr noundef %70, i64 noundef 2) #7
+  %71 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc0(ptr noundef %70, i64 noundef 2) #6
   store i8 %55, ptr %71, align 1
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store i8 %58, ptr %72, align 1
@@ -7279,10 +7273,10 @@ define internal fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, pt
 
 dissect_DIS_PARSER_ENTITY_STATE_PDU.exit:         ; preds = %.lr.ph.i, %186
   %.0173.lcssa.i = phi i32 [ %190, %186 ], [ %198, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 201:                                              ; preds = %4
@@ -7335,8 +7329,8 @@ dissect_DIS_PARSER_ENTITY_STATE_PDU.exit:         ; preds = %.lr.ph.i, %186
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 248:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %249 = load i32, ptr @ett_entity, align 4
   %250 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 12, i32 noundef 6, i32 noundef %249, ptr noundef null, ptr noundef nonnull @.str.5273)
   %251 = load i32, ptr @hf_dis_entity_id_site, align 4
@@ -7510,8 +7504,8 @@ dissect_DIS_PARSER_ENTITY_STATE_PDU.exit:         ; preds = %.lr.ph.i, %186
 
 dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i, %248
   %.0.lcssa.i = phi i32 [ 28, %248 ], [ %.1.lcssa.i, %._crit_edge7.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 387:                                              ; preds = %4
@@ -7978,7 +7972,7 @@ dissect_DIS_FIELDS_MODULATION_TYPE.exit.i:        ; preds = %573, %switch.lookup
   br i1 %758, label %759, label %835
 
 759:                                              ; preds = %757
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %760 = load i32, ptr @ett_dis_signal_link16_network_header, align 4
   %761 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 32, i32 noundef 16, i32 noundef %760, ptr noundef null, ptr noundef nonnull @.str.5343)
   %762 = load i32, ptr @hf_dis_signal_link16_npg, align 4
@@ -8015,12 +8009,12 @@ dissect_DIS_FIELDS_MODULATION_TYPE.exit.i:        ; preds = %573, %switch.lookup
   br label %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i
 
 parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %784, %780
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %787 = load i32, ptr @ett_dis_signal_link16_message_data, align 4
   %788 = zext i8 %772 to i32
   %789 = call ptr @val_to_str_const(i32 noundef %788, ptr noundef nonnull @DIS_PDU_Message_Type_Identifier_Strings, ptr noundef nonnull @.str.5342)
   %790 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 52, i32 noundef -1, i32 noundef %787, ptr noundef null, ptr noundef nonnull @.str.5341, ptr noundef %789)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %cond.i.i = icmp eq i8 %772, 0
   br i1 %cond.i.i, label %791, label %parse_Link16_Message_Data.exit.i
 
@@ -8039,7 +8033,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %784, %780
   %802 = or disjoint i32 %801, %798
   %803 = load i32, ptr @hf_dis_signal_link16_sdusn, align 4
   %804 = call ptr @proto_tree_add_uint(ptr noundef %790, i32 noundef %803, ptr noundef %0, i32 noundef 52, i32 noundef 8, i32 noundef %802)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, i8 noundef 0, i64 noundef 12, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, i8 noundef 0, i64 noundef 12, i1 noundef false) #7
   %805 = and i32 %728, 16383
   %.not93.i.i = icmp eq i32 %805, 0
   br i1 %.not93.i.i, label %parse_Link16_Message_Data.exit.i, label %.lr.ph.i.i
@@ -8053,7 +8047,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %784, %780
   %.08791.i.i = phi i32 [ %799, %.lr.ph.i.i ], [ %.188.i.i, %830 ]
   %.08990.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %834, %830 ]
   %808 = load ptr, ptr %806, align 8
-  %809 = call noalias dereferenceable_or_null(10) ptr @wmem_alloc(ptr noundef %808, i64 noundef 10) #7
+  %809 = call noalias dereferenceable_or_null(10) ptr @wmem_alloc(ptr noundef %808, i64 noundef 10) #6
   %810 = and i32 %.08990.i.i, 1
   %.not.i.i = icmp eq i32 %810, 0
   br i1 %.not.i.i, label %811, label %820
@@ -8100,7 +8094,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %784, %780
 
 parse_Link16_Message_Data.exit.i:                 ; preds = %830, %791, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i
   %.0.i.i149 = phi i32 [ 52, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i ], [ 60, %791 ], [ %.2.i.i, %830 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @proto_item_set_end(ptr noundef %735, ptr noundef %0, i32 noundef %.0.i.i149)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
@@ -8253,7 +8247,7 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %830, %791, %parse_D
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 972:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %973 = load i32, ptr @ett_entity, align 4
   %974 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 12, i32 noundef 6, i32 noundef %973, ptr noundef null, ptr noundef nonnull @.str.5353)
   %975 = load i32, ptr @hf_dis_entity_id_site, align 4
@@ -8346,7 +8340,7 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %830, %791, %parse_D
 
 dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %.092.lcssa.i = phi i32 [ %1042, %972 ], [ %1050, %.lr.ph.i151 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 1053:                                             ; preds = %4
@@ -8366,7 +8360,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %1067 = tail call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1066, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
   %1068 = load i32, ptr @hf_dis_entity_id_entity, align 4
   %1069 = tail call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1068, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1070 = load i32, ptr @ett_clock_time, align 4
   %1071 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef %1070, ptr noundef null, ptr noundef nonnull @.str.5361)
   %1072 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24)
@@ -8391,8 +8385,8 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %.not.i.i154 = icmp eq i32 %1074, 0
   %.str.5264..str.5263.i.i = select i1 %.not.i.i154, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1087, ptr noundef nonnull %.str.5264..str.5263.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1088 = load i32, ptr @ett_clock_time, align 4
   %1089 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef %1088, ptr noundef null, ptr noundef nonnull @.str.5362)
   %1090 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 32)
@@ -8417,7 +8411,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %.not.i17.i = icmp eq i32 %1092, 0
   %.str.5264..str.5263.i18.i = select i1 %.not.i17.i, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1105, ptr noundef nonnull %.str.5264..str.5263.i18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1106 = load i32, ptr @hf_dis_request_id, align 4
   %1107 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1106, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef 0)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
@@ -8439,7 +8433,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %1122 = tail call ptr @proto_tree_add_item(ptr noundef %1118, i32 noundef %1121, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
   %1123 = load i32, ptr @hf_dis_entity_id_entity, align 4
   %1124 = tail call ptr @proto_tree_add_item(ptr noundef %1118, i32 noundef %1123, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1125 = load i32, ptr @ett_clock_time, align 4
   %1126 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef %1125, ptr noundef null, ptr noundef nonnull @.str.5361)
   %1127 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24)
@@ -8464,7 +8458,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %972
   %.not.i.i156 = icmp eq i32 %1129, 0
   %.str.5264..str.5263.i.i157 = select i1 %.not.i.i156, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1142, ptr noundef nonnull %.str.5264..str.5263.i.i157)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1143 = load i32, ptr @hf_dis_reason, align 4
   %1144 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1143, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0)
   %1145 = load i32, ptr @hf_dis_frozen_behavior, align 4
@@ -8679,7 +8673,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %1318 = tail call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1317, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
   %1319 = load i32, ptr @hf_dis_entity_id_entity, align 4
   %1320 = tail call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1319, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1321 = load i32, ptr @ett_clock_time, align 4
   %1322 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef %1321, ptr noundef null, ptr noundef nonnull @.str.5361)
   %1323 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24)
@@ -8704,8 +8698,8 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %.not.i.i162 = icmp eq i32 %1325, 0
   %.str.5264..str.5263.i.i163 = select i1 %.not.i.i162, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1338, ptr noundef nonnull %.str.5264..str.5263.i.i163)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1339 = load i32, ptr @ett_clock_time, align 4
   %1340 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef %1339, ptr noundef null, ptr noundef nonnull @.str.5362)
   %1341 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 32)
@@ -8730,7 +8724,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %.not.i25.i = icmp eq i32 %1343, 0
   %.str.5264..str.5263.i26.i = select i1 %.not.i25.i, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1356, ptr noundef nonnull %.str.5264..str.5263.i26.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1357 = load i32, ptr @hf_dis_reliability, align 4
   %1358 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1357, ptr noundef %0, i32 noundef 40, i32 noundef 1, i32 noundef 0)
   %1359 = load i32, ptr @hf_dis_padding, align 4
@@ -8756,7 +8750,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %1377 = tail call ptr @proto_tree_add_item(ptr noundef %1373, i32 noundef %1376, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
   %1378 = load i32, ptr @hf_dis_entity_id_entity, align 4
   %1379 = tail call ptr @proto_tree_add_item(ptr noundef %1373, i32 noundef %1378, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1380 = load i32, ptr @ett_clock_time, align 4
   %1381 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef %1380, ptr noundef null, ptr noundef nonnull @.str.5361)
   %1382 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24)
@@ -8781,7 +8775,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %124
   %.not.i.i165 = icmp eq i32 %1384, 0
   %.str.5264..str.5263.i.i166 = select i1 %.not.i.i165, ptr @.str.5264, ptr @.str.5263
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1397, ptr noundef nonnull %.str.5264..str.5263.i.i166)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %1398 = load i32, ptr @hf_dis_reason, align 4
   %1399 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1398, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0)
   %1400 = load i32, ptr @hf_dis_frozen_behavior, align 4
@@ -8965,7 +8959,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %147
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 1546:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1547 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
   %1548 = zext i16 %1547 to i32
   store i32 %1548, ptr @dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.entitySite, align 4
@@ -9093,11 +9087,11 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %147
 
 dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1623
   %.0.lcssa.i184 = phi i32 [ 72, %1623 ], [ %1631, %.lr.ph.i181 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 1634:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1635 = load i32, ptr @ett_entity, align 4
   %1636 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 12, i32 noundef 6, i32 noundef %1635, ptr noundef null, ptr noundef nonnull @.str.5359)
   %1637 = load i32, ptr @hf_dis_entity_id_site, align 4
@@ -9255,7 +9249,7 @@ parseField_VariableRecord.exit.i:                 ; preds = %1740, %dissect_DIS_
 
 dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_VariableRecord.exit.i, %1634
   %.0.lcssa.i193 = phi i32 [ 40, %1634 ], [ %.2.i.i190, %parseField_VariableRecord.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 1747:                                             ; preds = %4
@@ -9295,7 +9289,7 @@ dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_Variable
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 1781:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1782 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
   %1783 = zext i16 %1782 to i32
   store i32 %1783, ptr @dissect_DIS_PARSER_AGGREGATE_STATE_PDU.entitySite, align 4
@@ -9469,7 +9463,7 @@ dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit:      ; preds = %.lr.ph170.i, %._cri
   %1926 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1925, ptr noundef %0, i32 noundef %1923, i32 noundef 4, i32 noundef 0)
   %1927 = add i32 %1923, 4
   %1928 = call fastcc noundef i32 @parseField_DIS_FIELDS_VARIABLE_DATUM(ptr noundef %0, ptr noundef %2, i32 noundef %1927, ptr noundef nonnull @.str.5380, i32 noundef %1924)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit:  ; preds = %.lr.ph.i.i.i175, %.lr.ph.i.i.i, %483, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, %835, %parse_Link16_Message_Data.exit.i, %708, %695, %674, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i, %.preheader.i, %.preheader193.i, %4, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit, %1747, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, %1523, %1521, %1445, %1443, %1410, %1408, %1363, %1304, %1285, %1283, %1213, %1184, %1182, %1153, %1151, %1108, %1053, %dissect_DIS_PARSER_DETONATION_PDU.exit, %914, %875, %840, %516, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit, %201, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit
@@ -9597,7 +9591,7 @@ define internal fastcc noundef i32 @dissect_DIS_PARSER_COMMENT_PDU(ptr noundef %
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -9819,7 +9813,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_bitmask_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -9895,7 +9889,7 @@ define internal fastcc noundef i32 @parseField_DIS_FIELDS_FIXED_DATUM(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @parseField_DIS_FIELDS_VARIABLE_DATUM(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not44 = icmp eq i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
@@ -9934,12 +9928,18 @@ define internal fastcc noundef i32 @parseField_DIS_FIELDS_VARIABLE_DATUM(ptr nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.038.lcssa = phi i32 [ %2, %5 ], [ %26, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.038.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
@@ -9947,11 +9947,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #6 = { allocsize(1) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

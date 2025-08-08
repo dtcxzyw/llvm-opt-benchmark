@@ -55,10 +55,10 @@ define internal noundef zeroext i1 @ivch_init(ptr noundef captures(none) %0, ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %20, align 8
   store i8 1, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 0, ptr %13, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, i8 0, i64 48, i1 false), !annotation !5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
@@ -99,18 +99,18 @@ define internal noundef zeroext i1 @ivch_init(ptr noundef captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %38, %35
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %127
 
 41:                                               ; preds = %18
   %42 = load i8, ptr %13, align 2
   %43 = and i8 %42, 127
   %44 = zext nneg i8 %43 to i32
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i8 0, ptr %16, align 8
   %45 = load i32, ptr %21, align 4
   %46 = icmp eq i32 %45, %44
@@ -123,10 +123,10 @@ define internal noundef zeroext i1 @ivch_init(ptr noundef captures(none) %0, ptr
 48:                                               ; preds = %41
   %49 = load ptr, ptr %20, align 8
   %50 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, i8 0, i64 48, i1 false), !annotation !5
   %51 = zext nneg i8 %43 to i16
   store i16 %51, ptr %11, align 16
@@ -169,15 +169,15 @@ define internal noundef zeroext i1 @ivch_init(ptr noundef captures(none) %0, ptr
   br label %ivch_read.exit
 
 ivch_read.exit:                                   ; preds = %62, %65, %68
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %71 = load ptr, ptr %20, align 8
   %72 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, i8 0, i64 48, i1 false), !annotation !5
   %73 = load i32, ptr %21, align 4
   %74 = trunc i32 %73 to i16
@@ -221,9 +221,9 @@ ivch_read.exit:                                   ; preds = %62, %65, %68
   br label %ivch_read.exit3
 
 ivch_read.exit3:                                  ; preds = %85, %88, %91
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 18
@@ -242,10 +242,10 @@ ivch_read.exit3:                                  ; preds = %85, %88, %91
   %107 = zext i16 %106 to i32
   %108 = load ptr, ptr %20, align 8
   %109 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !5
   %110 = load i32, ptr %21, align 4
   %111 = trunc i32 %110 to i16
@@ -282,9 +282,9 @@ ivch_read.exit3:                                  ; preds = %85, %88, %91
   br label %ivch_read.exit4
 
 ivch_read.exit4:                                  ; preds = %115, %118, %121
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %124 = add nuw nsw i64 %104, 1
   %125 = icmp eq i64 %124, 24
   br i1 %125, label %126, label %103, !llvm.loop !8
@@ -319,10 +319,10 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %12, i8 0, i64 48, i1 false), !annotation !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
@@ -363,9 +363,9 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   br label %.thread
 
 .thread:                                          ; preds = %34, %31
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %109
 
 37:                                               ; preds = %2
@@ -373,13 +373,13 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   %39 = load i8, ptr %38, align 1
   %40 = load i8, ptr %11, align 2
   %41 = and i8 %40, -6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %42 = load ptr, ptr %13, align 8
   %43 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !annotation !5
   %44 = load i32, ptr %17, align 4
   %45 = trunc i32 %44 to i16
@@ -410,14 +410,14 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   br label %59
 
 59:                                               ; preds = %56, %53, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %60 = select i1 %1, i8 5, i8 0
   %61 = or disjoint i8 %41, %60
   %62 = load ptr, ptr %13, align 8
   %63 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !annotation !5
   %64 = load i32, ptr %17, align 4
   %65 = trunc i32 %64 to i16
@@ -447,8 +447,8 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   br label %78
 
 78:                                               ; preds = %75, %72, %59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 18
@@ -465,10 +465,10 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   %90 = phi i32 [ 0, %78 ], [ %107, %106 ]
   %91 = load ptr, ptr %13, align 8
   %92 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !5
   %93 = load i32, ptr %17, align 4
   %94 = trunc i32 %93 to i16
@@ -499,16 +499,16 @@ define internal void @ivch_dpms(ptr noundef readonly captures(none) %0, i1 nound
   br label %.thread2
 
 .thread2:                                         ; preds = %99, %96
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 102:                                              ; preds = %89
   %103 = load i8, ptr %88, align 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %104 = icmp sgt i8 %103, -1
   %105 = xor i1 %1, %104
   br i1 %105, label %.loopexit, label %106
@@ -583,8 +583,8 @@ define internal void @ivch_mode_set(ptr noundef readonly captures(none) %0, ptr 
   %42 = load ptr, ptr %12, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !annotation !5
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = load i32, ptr %45, align 4
@@ -615,12 +615,12 @@ define internal void @ivch_mode_set(ptr noundef readonly captures(none) %0, ptr 
   br label %61
 
 61:                                               ; preds = %58, %55, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %62 = load ptr, ptr %12, align 8
   %63 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !annotation !5
   %64 = load i32, ptr %45, align 4
   %65 = trunc i32 %64 to i16
@@ -650,8 +650,8 @@ define internal void @ivch_mode_set(ptr noundef readonly captures(none) %0, ptr 
   br label %79
 
 79:                                               ; preds = %76, %73, %61
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %80
 
 80:                                               ; preds = %3, %79
@@ -660,8 +660,8 @@ define internal void @ivch_mode_set(ptr noundef readonly captures(none) %0, ptr 
   %83 = load ptr, ptr %12, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load ptr, ptr %84, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !annotation !5
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %87 = load i32, ptr %86, align 4
@@ -693,12 +693,12 @@ define internal void @ivch_mode_set(ptr noundef readonly captures(none) %0, ptr 
   br label %102
 
 102:                                              ; preds = %99, %96, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = load ptr, ptr %12, align 8
   %104 = load ptr, ptr %84, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !5
   %105 = load i32, ptr %86, align 4
   %106 = trunc i32 %105 to i16
@@ -728,8 +728,8 @@ define internal void @ivch_mode_set(ptr noundef readonly captures(none) %0, ptr 
   br label %119
 
 119:                                              ; preds = %116, %113, %102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -748,10 +748,10 @@ define internal zeroext i1 @ivch_get_hw_state(ptr noundef readonly captures(none
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
@@ -799,9 +799,9 @@ define internal zeroext i1 @ivch_get_hw_state(ptr noundef readonly captures(none
 
 33:                                               ; preds = %30, %27, %23
   %34 = phi i1 [ %26, %23 ], [ false, %30 ], [ false, %27 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %34
 }
 
@@ -875,10 +875,10 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %48) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i16 0, ptr %48, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %49) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %49, i8 0, i64 48, i1 false), !annotation !5
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = load i32, ptr %54, align 4
@@ -925,16 +925,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 77:                                               ; preds = %74, %71, %68
   %78 = phi i32 [ %70, %68 ], [ 0, %74 ], [ 0, %71 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %48) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %78) #8
   %79 = load ptr, ptr %50, align 8
   %80 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %44) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %45) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i16 0, ptr %45, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %46, i8 0, i64 48, i1 false), !annotation !5
   %81 = load i32, ptr %54, align 4
   %82 = trunc i32 %81 to i16
@@ -980,16 +980,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 102:                                              ; preds = %99, %96, %94
   %.pre-phi = phi i32 [ %78, %99 ], [ %78, %96 ], [ %.pre, %94 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %.pre-phi) #8
   %103 = load ptr, ptr %50, align 8
   %104 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %42) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i16 0, ptr %42, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %43) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %43, i8 0, i64 48, i1 false), !annotation !5
   %105 = load i32, ptr %54, align 4
   %106 = trunc i32 %105 to i16
@@ -1035,16 +1035,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 126:                                              ; preds = %123, %120, %118
   %.pre-phi2 = phi i32 [ %.pre-phi, %123 ], [ %.pre-phi, %120 ], [ %.pre1, %118 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %42) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %.pre-phi2) #8
   %127 = load ptr, ptr %50, align 8
   %128 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %39) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i16 0, ptr %39, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %40, i8 0, i64 48, i1 false), !annotation !5
   %129 = load i32, ptr %54, align 4
   %130 = trunc i32 %129 to i16
@@ -1090,16 +1090,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 150:                                              ; preds = %147, %144, %142
   %.pre-phi4 = phi i32 [ %.pre-phi2, %147 ], [ %.pre-phi2, %144 ], [ %.pre3, %142 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %.pre-phi4) #8
   %151 = load ptr, ptr %50, align 8
   %152 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %36) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i16 0, ptr %36, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %37, i8 0, i64 48, i1 false), !annotation !5
   %153 = load i32, ptr %54, align 4
   %154 = trunc i32 %153 to i16
@@ -1145,16 +1145,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 174:                                              ; preds = %171, %168, %166
   %.pre-phi6 = phi i32 [ %.pre-phi4, %171 ], [ %.pre-phi4, %168 ], [ %.pre5, %166 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %36) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %.pre-phi6) #8
   %175 = load ptr, ptr %50, align 8
   %176 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %33) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i16 0, ptr %33, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %34, i8 0, i64 48, i1 false), !annotation !5
   %177 = load i32, ptr %54, align 4
   %178 = trunc i32 %177 to i16
@@ -1200,16 +1200,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 198:                                              ; preds = %195, %192, %190
   %.pre-phi8 = phi i32 [ %.pre-phi6, %195 ], [ %.pre-phi6, %192 ], [ %.pre7, %190 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %.pre-phi8) #8
   %199 = load ptr, ptr %50, align 8
   %200 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %30) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i16 0, ptr %30, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %31, i8 0, i64 48, i1 false), !annotation !5
   %201 = load i32, ptr %54, align 4
   %202 = trunc i32 %201 to i16
@@ -1255,16 +1255,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 222:                                              ; preds = %219, %216, %214
   %.pre-phi10 = phi i32 [ %.pre-phi8, %219 ], [ %.pre-phi8, %216 ], [ %.pre9, %214 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %.pre-phi10) #8
   %223 = load ptr, ptr %50, align 8
   %224 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %27) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i16 0, ptr %27, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %28, i8 0, i64 48, i1 false), !annotation !5
   %225 = load i32, ptr %54, align 4
   %226 = trunc i32 %225 to i16
@@ -1310,16 +1310,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 246:                                              ; preds = %243, %240, %238
   %.pre-phi12 = phi i32 [ %.pre-phi10, %243 ], [ %.pre-phi10, %240 ], [ %.pre11, %238 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %.pre-phi12) #8
   %247 = load ptr, ptr %50, align 8
   %248 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i16 0, ptr %24, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %25, i8 0, i64 48, i1 false), !annotation !5
   %249 = load i32, ptr %54, align 4
   %250 = trunc i32 %249 to i16
@@ -1365,16 +1365,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 270:                                              ; preds = %267, %264, %262
   %.pre-phi14 = phi i32 [ %.pre-phi12, %267 ], [ %.pre-phi12, %264 ], [ %.pre13, %262 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %.pre-phi14) #8
   %271 = load ptr, ptr %50, align 8
   %272 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i16 0, ptr %21, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %22, i8 0, i64 48, i1 false), !annotation !5
   %273 = load i32, ptr %54, align 4
   %274 = trunc i32 %273 to i16
@@ -1420,16 +1420,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 294:                                              ; preds = %291, %288, %286
   %.pre-phi16 = phi i32 [ %.pre-phi14, %291 ], [ %.pre-phi14, %288 ], [ %.pre15, %286 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %.pre-phi16) #8
   %295 = load ptr, ptr %50, align 8
   %296 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i16 0, ptr %18, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %19, i8 0, i64 48, i1 false), !annotation !5
   %297 = load i32, ptr %54, align 4
   %298 = trunc i32 %297 to i16
@@ -1475,16 +1475,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 318:                                              ; preds = %315, %312, %310
   %.pre-phi18 = phi i32 [ %.pre-phi16, %315 ], [ %.pre-phi16, %312 ], [ %.pre17, %310 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %.pre-phi18) #8
   %319 = load ptr, ptr %50, align 8
   %320 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i16 0, ptr %15, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, i8 0, i64 48, i1 false), !annotation !5
   %321 = load i32, ptr %54, align 4
   %322 = trunc i32 %321 to i16
@@ -1530,16 +1530,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 342:                                              ; preds = %339, %336, %334
   %.pre-phi20 = phi i32 [ %.pre-phi18, %339 ], [ %.pre-phi18, %336 ], [ %.pre19, %334 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %.pre-phi20) #8
   %343 = load ptr, ptr %50, align 8
   %344 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i16 0, ptr %12, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, i8 0, i64 48, i1 false), !annotation !5
   %345 = load i32, ptr %54, align 4
   %346 = trunc i32 %345 to i16
@@ -1585,16 +1585,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 366:                                              ; preds = %363, %360, %358
   %.pre-phi22 = phi i32 [ %.pre-phi20, %363 ], [ %.pre-phi20, %360 ], [ %.pre21, %358 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %.pre-phi22) #8
   %367 = load ptr, ptr %50, align 8
   %368 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, i8 0, i64 48, i1 false), !annotation !5
   %369 = load i32, ptr %54, align 4
   %370 = trunc i32 %369 to i16
@@ -1640,16 +1640,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 390:                                              ; preds = %387, %384, %382
   %.pre-phi24 = phi i32 [ %.pre-phi22, %387 ], [ %.pre-phi22, %384 ], [ %.pre23, %382 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %.pre-phi24) #8
   %391 = load ptr, ptr %50, align 8
   %392 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !5
   %393 = load i32, ptr %54, align 4
   %394 = trunc i32 %393 to i16
@@ -1695,16 +1695,16 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 414:                                              ; preds = %411, %408, %406
   %.pre-phi26 = phi i32 [ %.pre-phi24, %411 ], [ %.pre-phi24, %408 ], [ %.pre25, %406 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %.pre-phi26) #8
   %415 = load ptr, ptr %50, align 8
   %416 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !5
   %417 = load i32, ptr %54, align 4
   %418 = trunc i32 %417 to i16
@@ -1750,33 +1750,27 @@ define internal void @ivch_dump_regs(ptr noundef readonly captures(none) %0) #0 
 
 438:                                              ; preds = %435, %432, %430
   %.pre-phi28 = phi i32 [ %.pre-phi26, %435 ], [ %.pre-phi26, %432 ], [ %.pre27, %430 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %.pre-phi28) #8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
@@ -1790,8 +1784,8 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
@@ -1822,8 +1816,8 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
   br label %26
 
 26:                                               ; preds = %23, %20, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1839,8 +1833,8 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
   %37 = load i16, ptr %36, align 2
   %38 = load ptr, ptr %6, align 8
   %39 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !5
   %40 = load i32, ptr %11, align 4
   %41 = trunc i32 %40 to i16
@@ -1866,8 +1860,8 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
   br label %51
 
 51:                                               ; preds = %48, %45, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %52 = add nuw nsw i64 %32, 1
   %53 = icmp eq i64 %52, 24
   br i1 %53, label %54, label %31, !llvm.loop !12
@@ -1877,15 +1871,21 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #4
+declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind allocsize(2) }
 attributes #8 = { nounwind }
 

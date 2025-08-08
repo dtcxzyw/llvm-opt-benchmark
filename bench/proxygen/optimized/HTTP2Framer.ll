@@ -218,7 +218,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont18
 
 if.else.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %call.i.i.i.i7 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -228,7 +228,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.else.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc
   %5 = load i32, ptr %val.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i, %if.then.i.i
@@ -254,7 +254,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont18
   br label %invoke.cont22
 
 if.else.i.i16:                                    ; preds = %invoke.cont18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i8)
   %call.i.i.i.i20 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i8, i64 noundef 1)
           to label %call.i.i.i.i.noexc19 unwind label %terminate.lpad
 
@@ -264,7 +264,7 @@ call.i.i.i.i.noexc19:                             ; preds = %if.else.i.i16
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc19
   %12 = load i8, ptr %val.i.i.i8, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i8)
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i, %if.then.i.i13
@@ -286,7 +286,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont22
   br label %invoke.cont24
 
 if.else.i.i.i:                                    ; preds = %invoke.cont22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i.i22 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -303,7 +303,7 @@ if.then.i.i.i.i.i.cont:                           ; preds = %if.then.i.i.i.i.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.i.noexc
   %18 = load i32, ptr %val.i.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
@@ -384,7 +384,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %if.end19.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i10.i = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 1)
           to label %call.i.i.i.i.noexc.i unwind label %terminate.lpad.i
 
@@ -401,7 +401,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.noexc.
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.noexc.i
   %9 = load i8, ptr %val.i.i.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %if.end
@@ -716,7 +716,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %if.end19.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i10.i = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 1)
           to label %call.i.i.i.i.noexc.i unwind label %terminate.lpad.i
 
@@ -733,7 +733,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.noexc.
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.noexc.i
   %9 = load i8, ptr %val.i.i.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %entry
@@ -875,7 +875,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %if.end19.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i10.i = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 1)
           to label %call.i.i.i.i.noexc.i unwind label %terminate.lpad.i
 
@@ -892,7 +892,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.noexc.
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.noexc.i
   %9 = load i8, ptr %val.i.i.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %if.end
@@ -1069,7 +1069,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit
 
 if.else.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %call.i.i.i.i = call noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i, i64 noundef 4)
   %cmp.not.i.i.i.i = icmp eq i64 %call.i.i.i.i, 4
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i, label %if.then.i.i.i.i
@@ -1080,7 +1080,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i: ; preds = %if.else.i.i
   %5 = load i32, ptr %val.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   %.pre = load ptr, ptr %crtPos_.i.i, align 8
   %.pre15 = load ptr, ptr %crtEnd_.i.i, align 8
   %.pre16 = ptrtoint ptr %.pre15 to i64
@@ -1102,7 +1102,7 @@ if.then.i.i8:                                     ; preds = %_ZN5folly2io6detail
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit
 
 if.else.i.i11:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i3)
   %call.i.i.i.i12 = call noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i3, i64 noundef 1)
   %cmp.not.i.i.i.i13 = icmp eq i64 %call.i.i.i.i12, 1
   br i1 %cmp.not.i.i.i.i13, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i, label %if.then.i.i.i.i14
@@ -1113,7 +1113,7 @@ if.then.i.i.i.i14:                                ; preds = %if.else.i.i11
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i: ; preds = %if.else.i.i11
   %9 = load i8, ptr %val.i.i.i3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i3)
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIhEET_v.exit: ; preds = %if.then.i.i8, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i
@@ -1173,7 +1173,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %if.end19.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i10.i = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 1)
           to label %call.i.i.i.i.noexc.i unwind label %terminate.lpad.i
 
@@ -1190,7 +1190,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.noexc.
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.noexc.i
   %9 = load i8, ptr %val.i.i.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %if.end
@@ -1318,7 +1318,7 @@ if.then.i.i.i19:                                  ; preds = %if.end61
   br label %invoke.cont62
 
 if.else.i.i.i21:                                  ; preds = %if.end61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i14)
   %call.i.i.i.i.i24 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i14, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -1328,7 +1328,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.else.i.i.i21
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.i.noexc
   %28 = load i32, ptr %val.i.i.i.i14, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i14)
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i19
@@ -1471,7 +1471,7 @@ if.then.i.i.i:                                    ; preds = %if.end21
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i.i2 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -1488,7 +1488,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.i.noex
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.i.noexc
   %8 = load i32, ptr %val.i.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
@@ -1574,7 +1574,7 @@ if.then.i.i:                                      ; preds = %for.body
   br label %invoke.cont31
 
 if.else.i.i:                                      ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %call.i.i.i.i7 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i, i64 noundef 2)
           to label %call.i.i.i.i.noexc unwind label %terminate.lpad.loopexit
 
@@ -1591,7 +1591,7 @@ if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.inv
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc
   %10 = load i16, ptr %val.i.i.i, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   %.pre = load ptr, ptr %crtPos_.i.i, align 8
   %.pre29 = load ptr, ptr %crtEnd_.i.i, align 8
   %.pre30 = ptrtoint ptr %.pre29 to i64
@@ -1614,7 +1614,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont31
   br label %invoke.cont38
 
 if.else.i.i16:                                    ; preds = %invoke.cont31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i8)
   %call.i.i.i.i20 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i8, i64 noundef 4)
           to label %call.i.i.i.i.noexc19 unwind label %terminate.lpad.loopexit
 
@@ -1624,7 +1624,7 @@ call.i.i.i.i.noexc19:                             ; preds = %if.else.i.i16
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc19
   %15 = load i32, ptr %val.i.i.i8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i8)
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.then.i.i13, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i
@@ -1718,7 +1718,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %if.end19.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i10.i = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 1)
           to label %call.i.i.i.i.noexc.i unwind label %terminate.lpad.i
 
@@ -1735,7 +1735,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.noexc.
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.noexc.i
   %9 = load i8, ptr %val.i.i.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %if.end
@@ -1819,7 +1819,7 @@ if.then.i.i.i18:                                  ; preds = %if.end44
   br label %invoke.cont45
 
 if.else.i.i.i20:                                  ; preds = %if.end44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i13)
   %call.i.i.i.i.i23 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i13, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -1829,7 +1829,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.else.i.i.i20
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.i.noexc
   %20 = load i32, ptr %val.i.i.i.i13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i13)
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i18
@@ -1995,7 +1995,7 @@ if.then.i.i.i:                                    ; preds = %if.end21
   br label %invoke.cont22
 
 if.else.i.i.i:                                    ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i.i10 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -2005,7 +2005,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.else.i.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.i.noexc
   %8 = load i32, ptr %val.i.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
@@ -2028,7 +2028,7 @@ if.then.i.i.i16:                                  ; preds = %invoke.cont22
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i
 
 if.else.i.i.i19:                                  ; preds = %invoke.cont22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i11)
   %call.i.i.i.i.i24 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i11, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc23 unwind label %terminate.lpad
 
@@ -2038,7 +2038,7 @@ call.i.i.i.i.i.noexc23:                           ; preds = %if.else.i.i.i19
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i22: ; preds = %call.i.i.i.i.i.noexc23
   %15 = load i32, ptr %val.i.i.i.i11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i11)
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i22, %if.then.i.i.i16
@@ -2176,7 +2176,7 @@ if.then.i.i.i:                                    ; preds = %if.end
   br label %invoke.cont19
 
 if.else.i.i.i:                                    ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %call.i.i.i.i.i1 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -2193,7 +2193,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.i.noex
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i: ; preds = %call.i.i.i.i.i.noexc
   %7 = load i32, ptr %val.i.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
@@ -2308,7 +2308,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %invoke.cont19
 
 if.else.i.i:                                      ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %call.i.i.i.i15 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -2318,7 +2318,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.else.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc
   %7 = load i32, ptr %val.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i, %if.then.i.i
@@ -2340,7 +2340,7 @@ if.then.i.i21:                                    ; preds = %invoke.cont19
   br label %invoke.cont21
 
 if.else.i.i24:                                    ; preds = %invoke.cont19
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i16)
   %call.i.i.i.i28 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i16, i64 noundef 2)
           to label %call.i.i.i.i.noexc27 unwind label %terminate.lpad
 
@@ -2350,7 +2350,7 @@ call.i.i.i.i.noexc27:                             ; preds = %if.else.i.i24
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc27
   %14 = load i16, ptr %val.i.i.i16, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i16)
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i, %if.then.i.i21
@@ -2373,7 +2373,7 @@ if.then.i.i35:                                    ; preds = %invoke.cont21
   br label %invoke.cont23
 
 if.else.i.i38:                                    ; preds = %invoke.cont21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i30)
   %call.i.i.i.i42 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i30, i64 noundef 1)
           to label %call.i.i.i.i.noexc41 unwind label %terminate.lpad
 
@@ -2383,7 +2383,7 @@ call.i.i.i.i.noexc41:                             ; preds = %if.else.i.i38
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc41
   %21 = load i8, ptr %val.i.i.i30, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i30)
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i, %if.then.i.i35
@@ -2447,7 +2447,7 @@ if.then.i.i51:                                    ; preds = %invoke.cont32
   br label %invoke.cont34
 
 if.else.i.i54:                                    ; preds = %invoke.cont32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i46)
   %call.i.i.i.i59 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i46, i64 noundef 1)
           to label %call.i.i.i.i.noexc58 unwind label %terminate.lpad
 
@@ -2464,7 +2464,7 @@ if.then.i.i.i.i56.cont:                           ; preds = %if.then.i.i.i.i56.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i57: ; preds = %call.i.i.i.i.noexc58
   %32 = load i8, ptr %val.i.i.i46, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i46)
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i57, %if.then.i.i51
@@ -2626,7 +2626,7 @@ if.then.i.i:                                      ; preds = %if.end21
   br label %invoke.cont22
 
 if.else.i.i:                                      ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %call.i.i.i.i6 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i, i64 noundef 2)
           to label %call.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -2636,7 +2636,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.else.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc
   %8 = load i16, ptr %val.i.i.i, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i, %if.then.i.i
@@ -2732,7 +2732,7 @@ if.then.i.i:                                      ; preds = %if.end21
   br label %invoke.cont22
 
 if.else.i.i:                                      ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %call.i.i.i.i6 = invoke noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %val.i.i.i, i64 noundef 2)
           to label %call.i.i.i.i.noexc unwind label %terminate.lpad
 
@@ -2742,7 +2742,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.else.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc
   %8 = load i16, ptr %val.i.i.i, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i, %if.then.i.i
@@ -3400,7 +3400,7 @@ invoke.cont43.thread:                             ; preds = %invoke.cont37
   br label %while.end
 
 if.else.i:                                        ; preds = %invoke.cont37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.40)
           to label %.noexc137 unwind label %terminate.lpad
 
@@ -3429,7 +3429,7 @@ lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %
 
 invoke.cont43:                                    ; preds = %invoke.cont4.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i138.not = icmp eq ptr %call6.i.i, null
   br i1 %cmp.i138.not, label %invoke.cont43.while.end_crit_edge, label %while.body
@@ -3894,7 +3894,7 @@ invoke.cont6.thread:                              ; preds = %if.end111.i
   br label %while.end
 
 if.else.i:                                        ; preds = %if.end111.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.65)
           to label %.noexc21 unwind label %terminate.lpad
 
@@ -3923,7 +3923,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 invoke.cont6:                                     ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i.not, label %while.end, label %while.body
@@ -3964,7 +3964,7 @@ invoke.cont25.thread:                             ; preds = %while.cond19
   br label %while.end34
 
 if.else.i26:                                      ; preds = %while.cond19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i23)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i23, ptr noundef nonnull @.str.66)
           to label %.noexc35 unwind label %terminate.lpad
 
@@ -3993,7 +3993,7 @@ lpad.i.i28:                                       ; preds = %invoke.cont3.i.i33,
 
 invoke.cont25:                                    ; preds = %invoke.cont3.i.i33
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i23) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i23)
   store ptr %call5.i.i34, ptr %_result20, align 8
   %cmp.i38.not = icmp eq ptr %call5.i.i34, null
   br i1 %cmp.i38.not, label %invoke.cont25.while.end34_crit_edge, label %while.body29
@@ -4044,7 +4044,7 @@ invoke.cont46.thread:                             ; preds = %while.cond40
   br label %while.cond56
 
 if.else.i48:                                      ; preds = %while.cond40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i44)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i44, ptr noundef nonnull @.str.67)
           to label %.noexc53 unwind label %terminate.lpad
 
@@ -4073,7 +4073,7 @@ lpad.i.i50:                                       ; preds = %invoke.cont4.i.i, %
 
 invoke.cont46:                                    ; preds = %invoke.cont4.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i44) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i44)
   store ptr %call6.i.i, ptr %_result41, align 8
   %cmp.i56.not = icmp eq ptr %call6.i.i, null
   br i1 %cmp.i56.not, label %invoke.cont46.while.cond56_crit_edge, label %while.body50
@@ -4109,7 +4109,7 @@ invoke.cont65.thread:                             ; preds = %invoke.cont59
   br label %while.end74
 
 if.else.i65:                                      ; preds = %invoke.cont59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i61)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i61, ptr noundef nonnull @.str.40)
           to label %.noexc75 unwind label %terminate.lpad
 
@@ -4138,7 +4138,7 @@ lpad.i.i67:                                       ; preds = %invoke.cont4.i.i72,
 
 invoke.cont65:                                    ; preds = %invoke.cont4.i.i72
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i61) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i61)
   store ptr %call6.i.i73, ptr %_result57, align 8
   %cmp.i78.not = icmp eq ptr %call6.i.i73, null
   br i1 %cmp.i78.not, label %invoke.cont65.while.end74_crit_edge, label %while.body69
@@ -7480,14 +7480,14 @@ if.end26.lr.ph:                                   ; preds = %_ZN5folly2io6detail
 
 if.then3:                                         ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
   %16 = load ptr, ptr %this, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZNK5folly5IOBuf15cloneOneAsValueEv(ptr nonnull sret(%"class.folly::IOBuf") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %16)
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp
 
 invoke.cont5:                                     ; preds = %if.then3
   %call.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN5folly5IOBufaSEOS0_(ptr noundef nonnull align 8 dereferenceable(56) %buf, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i) #25
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %17 = load ptr, ptr %crtPos_.i, align 8
   %crtBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %18 = load ptr, ptr %crtBegin_, align 8
@@ -7646,14 +7646,14 @@ if.end26:                                         ; preds = %if.end26.lr.ph, %if
   br i1 %cmp27, label %if.then28, label %if.else37
 
 if.then28:                                        ; preds = %if.end26
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i57)
   invoke void @_ZNK5folly5IOBuf15cloneOneAsValueEv(ptr nonnull sret(%"class.folly::IOBuf") align 8 %ref.tmp.i57, ptr noundef nonnull align 8 dereferenceable(56) %42)
           to label %invoke.cont30 unwind label %lpad.loopexit
 
 invoke.cont30:                                    ; preds = %if.then28
   %call.i58 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN5folly5IOBufaSEOS0_(ptr noundef nonnull align 8 dereferenceable(56) %buf, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i57) #25
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i57) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i57)
   %43 = load ptr, ptr %crtPos_.i, align 8
   %44 = load ptr, ptr %crtBegin_44, align 8
   %sub.ptr.lhs.cast33 = ptrtoint ptr %43 to i64
@@ -8201,10 +8201,10 @@ entry:
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23

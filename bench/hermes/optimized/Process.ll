@@ -247,9 +247,9 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end8, %if.end12.
   %__first.addr.0112.i.i.i.i.i.i = phi ptr [ %incdec.ptr13.i.i.i.i.i.i, %if.end12.i.i.i.i.i.i ], [ %IgnoreList.val, %if.end8 ]
   %call.i.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0112.i.i.i.i.i.i) #18
   %call2.i.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0112.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i)
   store ptr %call.i.i.i.i.i.i.i.i, ptr %S.i.i.i.i.i.i.i.i, align 8
   store i64 %call2.i.i.i.i.i.i.i.i, ptr %5, align 8
   store i8 5, ptr %LHSKind.i.i.i.i.i.i.i.i.i, align 8
@@ -258,26 +258,26 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end8, %if.end12.
   store i8 5, ptr %LHSKind.i1.i.i.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i.i.i.i.i.i.i)
   %call.i.i.i.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i.i.i.i.i.i.i) #18
   %13 = extractvalue { i32, ptr } %call.i.i.i.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   %14 = load i8, ptr %result.i.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %14 to i1
   %15 = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, i1 %tobool.i.i.i.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i)
   br i1 %15, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 32
   %call.i.i30.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i) #18
   %call2.i.i31.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i27.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i28.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i29.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i27.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i28.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i29.i.i.i.i.i.i)
   store ptr %call.i.i30.i.i.i.i.i.i, ptr %S.i.i27.i.i.i.i.i.i, align 8
   store i64 %call2.i.i31.i.i.i.i.i.i, ptr %6, align 8
   store i8 5, ptr %LHSKind.i.i.i33.i.i.i.i.i.i, align 8
@@ -286,26 +286,26 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   store i8 5, ptr %LHSKind.i1.i.i35.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i36.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i29.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i26.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i26.i.i.i.i.i.i)
   %call.i.i.i37.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i28.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i29.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i26.i.i.i.i.i.i) #18
   %16 = extractvalue { i32, ptr } %call.i.i.i37.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i38.i.i.i.i.i.i = icmp eq i32 %16, 0
   %17 = load i8, ptr %result.i.i.i26.i.i.i.i.i.i, align 1
   %tobool.i.i.i39.i.i.i.i.i.i = trunc i8 %17 to i1
   %18 = select i1 %cmp.i.not.i.i.i38.i.i.i.i.i.i, i1 %tobool.i.i.i39.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i26.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i27.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i28.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i29.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i26.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i27.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i28.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i29.i.i.i.i.i.i)
   br i1 %18, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end4.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %incdec.ptr5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 64
   %call.i.i44.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.i.i.i.i.i.i) #18
   %call2.i.i45.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i41.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i42.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i43.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i41.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i42.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i43.i.i.i.i.i.i)
   store ptr %call.i.i44.i.i.i.i.i.i, ptr %S.i.i41.i.i.i.i.i.i, align 8
   store i64 %call2.i.i45.i.i.i.i.i.i, ptr %7, align 8
   store i8 5, ptr %LHSKind.i.i.i47.i.i.i.i.i.i, align 8
@@ -314,26 +314,26 @@ if.end4.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   store i8 5, ptr %LHSKind.i1.i.i49.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i50.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i43.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i40.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i40.i.i.i.i.i.i)
   %call.i.i.i51.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i42.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i43.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i40.i.i.i.i.i.i) #18
   %19 = extractvalue { i32, ptr } %call.i.i.i51.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i52.i.i.i.i.i.i = icmp eq i32 %19, 0
   %20 = load i8, ptr %result.i.i.i40.i.i.i.i.i.i, align 1
   %tobool.i.i.i53.i.i.i.i.i.i = trunc i8 %20 to i1
   %21 = select i1 %cmp.i.not.i.i.i52.i.i.i.i.i.i, i1 %tobool.i.i.i53.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i40.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i41.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i42.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i43.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i40.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i41.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i42.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i43.i.i.i.i.i.i)
   br i1 %21, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end8.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 96
   %call.i.i58.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.i.i.i.i.i.i) #18
   %call2.i.i59.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i55.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i56.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i57.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i55.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i56.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i57.i.i.i.i.i.i)
   store ptr %call.i.i58.i.i.i.i.i.i, ptr %S.i.i55.i.i.i.i.i.i, align 8
   store i64 %call2.i.i59.i.i.i.i.i.i, ptr %8, align 8
   store i8 5, ptr %LHSKind.i.i.i61.i.i.i.i.i.i, align 8
@@ -342,17 +342,17 @@ if.end8.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
   store i8 5, ptr %LHSKind.i1.i.i63.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i64.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i57.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i54.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i54.i.i.i.i.i.i)
   %call.i.i.i65.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i56.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i57.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i54.i.i.i.i.i.i) #18
   %22 = extractvalue { i32, ptr } %call.i.i.i65.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i66.i.i.i.i.i.i = icmp eq i32 %22, 0
   %23 = load i8, ptr %result.i.i.i54.i.i.i.i.i.i, align 1
   %tobool.i.i.i67.i.i.i.i.i.i = trunc i8 %23 to i1
   %24 = select i1 %cmp.i.not.i.i.i66.i.i.i.i.i.i, i1 %tobool.i.i.i67.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i54.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i55.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i56.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i57.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i54.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i55.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i56.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i57.i.i.i.i.i.i)
   br i1 %24, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12.i.i.i.i.i.i
 
 if.end12.i.i.i.i.i.i:                             ; preds = %if.end8.i.i.i.i.i.i
@@ -379,9 +379,9 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
   %call.i.i72.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.lcssa.i.i.i.i.i.i) #18
   %call2.i.i73.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.lcssa.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i69.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i70.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i71.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i69.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i70.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i71.i.i.i.i.i.i)
   store ptr %call.i.i72.i.i.i.i.i.i, ptr %S.i.i69.i.i.i.i.i.i, align 8
   store i64 %call2.i.i73.i.i.i.i.i.i, ptr %9, align 8
   store i8 5, ptr %LHSKind.i.i.i75.i.i.i.i.i.i, align 8
@@ -390,17 +390,17 @@ sw.bb.i.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
   store i8 5, ptr %LHSKind.i1.i.i77.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i78.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i71.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i68.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i68.i.i.i.i.i.i)
   %call.i.i.i79.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i70.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i71.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i68.i.i.i.i.i.i) #18
   %26 = extractvalue { i32, ptr } %call.i.i.i79.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i80.i.i.i.i.i.i = icmp eq i32 %26, 0
   %27 = load i8, ptr %result.i.i.i68.i.i.i.i.i.i, align 1
   %tobool.i.i.i81.i.i.i.i.i.i = trunc i8 %27 to i1
   %28 = select i1 %cmp.i.not.i.i.i80.i.i.i.i.i.i, i1 %tobool.i.i.i81.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i68.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i69.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i70.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i71.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i68.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i69.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i70.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i71.i.i.i.i.i.i)
   br i1 %28, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end20.i.i.i.i.i.i
 
 if.end20.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
@@ -411,9 +411,9 @@ sw.bb22.i.i.i.i.i.i:                              ; preds = %if.end20.i.i.i.i.i.
   %__first.addr.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i.i.i, %if.end20.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %call.i.i86.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i.i.i.i) #18
   %call2.i.i87.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i83.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i84.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i85.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i83.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i84.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i85.i.i.i.i.i.i)
   store ptr %call.i.i86.i.i.i.i.i.i, ptr %S.i.i83.i.i.i.i.i.i, align 8
   store i64 %call2.i.i87.i.i.i.i.i.i, ptr %10, align 8
   store i8 5, ptr %LHSKind.i.i.i89.i.i.i.i.i.i, align 8
@@ -422,17 +422,17 @@ sw.bb22.i.i.i.i.i.i:                              ; preds = %if.end20.i.i.i.i.i.
   store i8 5, ptr %LHSKind.i1.i.i91.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i92.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i85.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i82.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i82.i.i.i.i.i.i)
   %call.i.i.i93.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i84.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i85.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i82.i.i.i.i.i.i) #18
   %29 = extractvalue { i32, ptr } %call.i.i.i93.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i94.i.i.i.i.i.i = icmp eq i32 %29, 0
   %30 = load i8, ptr %result.i.i.i82.i.i.i.i.i.i, align 1
   %tobool.i.i.i95.i.i.i.i.i.i = trunc i8 %30 to i1
   %31 = select i1 %cmp.i.not.i.i.i94.i.i.i.i.i.i, i1 %tobool.i.i.i95.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i82.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i83.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i84.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i85.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i82.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i83.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i84.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i85.i.i.i.i.i.i)
   br i1 %31, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end25.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i:                             ; preds = %sw.bb22.i.i.i.i.i.i
@@ -443,9 +443,9 @@ sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.
   %__first.addr.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %call.i.i100.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.2.i.i.i.i.i.i) #18
   %call2.i.i101.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.2.i.i.i.i.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i97.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i98.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i99.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %S.i.i97.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i98.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i99.i.i.i.i.i.i)
   store ptr %call.i.i100.i.i.i.i.i.i, ptr %S.i.i97.i.i.i.i.i.i, align 8
   store i64 %call2.i.i101.i.i.i.i.i.i, ptr %11, align 8
   store i8 5, ptr %LHSKind.i.i.i103.i.i.i.i.i.i, align 8
@@ -454,17 +454,17 @@ sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.
   store i8 5, ptr %LHSKind.i1.i.i105.i.i.i.i.i.i, align 8
   store i8 1, ptr %RHSKind.i2.i.i106.i.i.i.i.i.i, align 1
   store ptr %Dir, ptr %ref.tmp2.i.i99.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i96.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i.i96.i.i.i.i.i.i)
   %call.i.i.i107.i.i.i.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs10equivalentERKNS_5TwineES4_Rb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i98.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i99.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result.i.i.i96.i.i.i.i.i.i) #18
   %32 = extractvalue { i32, ptr } %call.i.i.i107.i.i.i.i.i.i, 0
   %cmp.i.not.i.i.i108.i.i.i.i.i.i = icmp eq i32 %32, 0
   %33 = load i8, ptr %result.i.i.i96.i.i.i.i.i.i, align 1
   %tobool.i.i.i109.i.i.i.i.i.i = trunc i8 %33 to i1
   %34 = select i1 %cmp.i.not.i.i.i108.i.i.i.i.i.i, i1 %tobool.i.i.i109.i.i.i.i.i.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i96.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i97.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i98.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i99.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i.i96.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %S.i.i97.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i98.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i99.i.i.i.i.i.i)
   br i1 %34, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12
 
 "_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit": ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i
@@ -523,7 +523,7 @@ _ZN4llvh11SmallStringILj128EEC2ENS_9StringRefE.exit: ; preds = %if.end.i.i.i, %i
 if.then19:                                        ; preds = %_ZN4llvh11SmallStringILj128EEC2ENS_9StringRefE.exit
   %40 = load ptr, ptr %FilePath, align 8
   %41 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !6
   %tobool.not.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -539,7 +539,7 @@ if.end.i.i:                                       ; preds = %if.then19
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !6
   %42 = load i8, ptr %hasVal.i.i, align 8
   %tobool.i.i = trunc i8 %42 to i1
   br i1 %tobool.i.i, label %if.then.i.i20, label %if.else.i.i
@@ -620,7 +620,7 @@ entry:
   %NameStr = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %Name.coerce0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -635,7 +635,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %NameStr) #18
   %call1 = call ptr @getenv(ptr noundef %call) #18
   %tobool.not = icmp eq ptr %call1, null
@@ -730,7 +730,7 @@ entry:
   %RU.i = alloca %struct.rusage, align 8
   %call = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #18
   store i64 %call, ptr %elapsed, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %RU.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %RU.i)
   %call.i = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %RU.i) #18
   %0 = load i64, ptr %RU.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %RU.i, i64 8
@@ -743,7 +743,7 @@ entry:
   %3 = load i64, ptr %tv_usec.i1.i, align 8
   %mul.i.i.i.i.i2.i = mul nsw i64 %2, 1000000
   %add.i.i3.i = add nsw i64 %mul.i.i.i.i.i2.i, %3
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %RU.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %RU.i)
   %mul.i.i.i.i = mul nsw i64 %add.i.i.i, 1000
   store i64 %mul.i.i.i.i, ptr %user_time, align 8
   %mul.i.i.i2.i = mul nsw i64 %add.i.i3.i, 1000
@@ -1005,7 +1005,7 @@ entry:
   br i1 %tobool.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ws.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ws.i)
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.4) #18
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
@@ -1026,7 +1026,7 @@ if.end3.i:                                        ; preds = %if.then.i, %if.end
 
 _ZL10getColumnsi.exit:                            ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi i32 [ %Columns4.0.i, %if.end3.i ], [ %call1.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ws.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ws.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZL10getColumnsi.exit
@@ -1043,7 +1043,7 @@ entry:
   br i1 %tobool.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ws.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ws.i)
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.4) #18
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
@@ -1064,7 +1064,7 @@ if.end3.i:                                        ; preds = %if.then.i, %if.end
 
 _ZL10getColumnsi.exit:                            ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi i32 [ %Columns4.0.i, %if.end3.i ], [ %call1.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ws.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ws.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZL10getColumnsi.exit
@@ -1282,7 +1282,7 @@ if.then5:                                         ; preds = %if.then
 if.end6:                                          ; preds = %if.then, %entry
   %call7 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #18
   %call15 = tail call i32 @getpid() #18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %helper.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper.i)
   %1 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %1, 0
   br i1 %guard.uninitialized.i.i.i, label %init.check.i.i.i, label %_ZN4llvh12hash_combineIJliEEENS_9hash_codeEDpRKT_.exit, !prof !15
@@ -1310,7 +1310,7 @@ _ZN4llvh12hash_combineIJliEEENS_9hash_codeEDpRKT_.exit: ; preds = %if.end6, %ini
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %helper.i, i64 12
   store i32 %call15, ptr %add.ptr.i.i.i, align 8
   %call3.i.i.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper.i)
   %conv19 = trunc i64 %call3.i.i.i to i32
   br label %return
 
@@ -1914,10 +1914,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #17

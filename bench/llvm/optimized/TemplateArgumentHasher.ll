@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @_ZN5clang13serialization30StableHashForTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 {
 _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit:
   %2 = alloca %"class.(anonymous namespace)::TemplateArgumentHasher", align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -79,7 +79,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher8getValueEv.exit: ; preds = %._crit_edg
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasherD2Ev.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasherD2Ev.exit: ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher8getValueEv.exit, %17
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %.lr.ph
@@ -89,9 +89,6 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasherD2Ev.exit: ; preds = %_ZN12_GLOBAL__N_1
   %.not = icmp eq ptr %18, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher19AddTemplateArgumentEN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly byval(%"class.clang::TemplateArgument") align 8 captures(none) %1) unnamed_addr #0 align 2 {
@@ -193,12 +190,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit17: ; preds = %_ZNK5
   %50 = load i32, ptr %11, align 8, !tbaa !19
   %51 = add i32 %50, 1
   store i32 %51, ptr %11, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %10, ptr %4, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %52, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.sroa.09.0.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
@@ -269,9 +266,9 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 87:                                               ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %88 = load i64, ptr %1, align 8, !noalias !35
   %89 = lshr i64 %88, 32
   %90 = trunc nuw i64 %89 to i32
@@ -305,7 +302,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit: ; preds = %_ZN4llvm5APIntD2E
   store i64 %.sink3.i, ptr %7, align 8, !alias.scope !35
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %.sink.i, ptr %102, align 4, !tbaa !40, !alias.scope !35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNK4llvm6APSInt7ProfileERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(13) %7, ptr noundef nonnull align 8 dereferenceable(144) %10) #8
   %103 = load i32, ptr %101, align 8, !tbaa !38
   %104 = icmp ugt i32 %103, 64
@@ -321,7 +318,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit: ; preds = %_ZN4llvm5APIntD2E
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit, %105, %108
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 109:                                              ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
@@ -379,12 +376,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit23: ; preds = %_ZNK5
   %135 = load i32, ptr %11, align 8, !tbaa !19
   %136 = add i32 %135, 1
   store i32 %136, ptr %11, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %10, ptr %3, align 8, !tbaa !31
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %137, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i32, ptr %11, align 8, !tbaa !19
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit11
 
@@ -430,10 +427,10 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %143, 
 155:                                              ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %157) #8
   %158 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher15AddTemplateNameEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %158)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
@@ -484,10 +481,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ;
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %1) unnamed_addr #0 align 2 {
@@ -547,19 +541,19 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZNK5cl
   %30 = load i32, ptr %18, align 8, !tbaa !19
   %31 = add i32 %30, 1
   store i32 %31, ptr %18, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %17, ptr %3, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %32, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %4
   ret void
 }
 
-declare void @_ZNK4llvm6APSInt7ProfileERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(13), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
+declare void @_ZNK4llvm6APSInt7ProfileERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(13), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher15AddTemplateNameEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %1) unnamed_addr #0 align 2 {
@@ -1061,7 +1055,7 @@ define internal fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitor
 define internal fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper22VisitConstantArrayTypeEPKN5clang17ConstantArrayTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.(anonymous namespace)::TypeVisitorHelper", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 16, !noalias !76
@@ -1124,7 +1118,7 @@ _ZNK5clang17ConstantArrayType7getSizeEv.exit:     ; preds = %15, %17, %25, %26
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang17ConstantArrayType7getSizeEv.exit, %31, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %35, align 16, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1184,12 +1178,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %56, %
   %64 = load i32, ptr %52, align 8, !tbaa !19
   %65 = add i32 %64, 1
   store i32 %65, ptr %52, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %51, ptr %3, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %37, ptr %66, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %36, align 8, !tbaa !69
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
@@ -1346,12 +1340,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %44, %
   %52 = load i32, ptr %40, align 8, !tbaa !19
   %53 = add i32 %52, 1
   store i32 %53, ptr %40, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %39, ptr %3, align 8, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %25, ptr %54, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %26, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
@@ -1456,12 +1450,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %27, %
   %35 = load i32, ptr %23, align 8, !tbaa !19
   %36 = add i32 %35, 1
   store i32 %36, ptr %23, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %22, ptr %3, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %37, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %9, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
@@ -1578,11 +1572,11 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %51, %
   %59 = load i32, ptr %47, align 8, !tbaa !19
   %60 = add i32 %59, 1
   store i32 %60, ptr %47, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %46, ptr %3, align 8, !tbaa !31
   store ptr %32, ptr %30, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %33, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
@@ -1654,12 +1648,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %26, %
   %34 = load i32, ptr %22, align 8, !tbaa !19
   %35 = add i32 %34, 1
   store i32 %35, ptr %22, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %21, ptr %4, align 8, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %36, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %8, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
@@ -1670,13 +1664,13 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ;
   br i1 %.not.i, label %43, label %40
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %41, ptr %3, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %39, ptr %42, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_117TypeVisitorHelper7AddTypeEPKN5clang4TypeE.exit
 
 43:                                               ; preds = %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
@@ -1895,12 +1889,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %56, %
   %64 = load i32, ptr %52, align 8, !tbaa !19
   %65 = add i32 %64, 1
   store i32 %65, ptr %52, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %51, ptr %3, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %37, ptr %66, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %38, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
@@ -2121,12 +2115,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %26, %
   %34 = load i32, ptr %22, align 8, !tbaa !19
   %35 = add i32 %34, 1
   store i32 %35, ptr %22, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %21, ptr %4, align 8, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %36, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %6, align 8, !tbaa !69
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
@@ -2189,12 +2183,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i17: ; preds = %57,
   %65 = load i32, ptr %53, align 8, !tbaa !19
   %66 = add i32 %65, 1
   store i32 %66, ptr %53, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %52, ptr %3, align 8, !tbaa !31
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %37, ptr %67, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit18
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit18: ; preds = %39, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i17
@@ -2263,12 +2257,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %25, %
   %33 = load i32, ptr %21, align 8, !tbaa !19
   %34 = add i32 %33, 1
   store i32 %34, ptr %21, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %20, ptr %3, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %35, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8, !tbaa !69
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
@@ -2334,7 +2328,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit6: ; preds = %_ZN12_
   ret void
 }
 
-declare void @_ZNK4llvm5APInt7ProfileERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
+declare void @_ZNK4llvm5APInt7ProfileERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper14VisitArrayTypeEPKN5clang9ArrayTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
@@ -2398,12 +2392,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %25, %
   %33 = load i32, ptr %21, align 8, !tbaa !19
   %34 = add i32 %33, 1
   store i32 %34, ptr %21, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %20, ptr %3, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %35, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8, !tbaa !69
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
@@ -2470,12 +2464,12 @@ _ZN12_GLOBAL__N_117TypeVisitorHelper15VisitQualifiersEN5clang10QualifiersE.exit:
   ret void
 }
 
-declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
+declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
-declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper17VisitFunctionTypeEPKN5clang12FunctionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
@@ -2539,12 +2533,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %25, %
   %33 = load i32, ptr %21, align 8, !tbaa !19
   %34 = add i32 %33, 1
   store i32 %34, ptr %21, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %20, ptr %3, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %35, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit: ; preds = %7, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i
@@ -2745,7 +2739,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit25: ; preds = %_ZNK5
   ret void
 }
 
-declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper7AddDeclEPKN5clang4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
@@ -2804,9 +2798,9 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit: ; preds 
   ret void
 }
 
-declare noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDeclEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDeclEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #1
 
-declare void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #2
+declare void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117TypeVisitorHelper12VisitTagTypeEPKN5clang7TagTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
@@ -2866,7 +2860,7 @@ _ZN12_GLOBAL__N_117TypeVisitorHelper7AddDeclEPKN5clang4DeclE.exit: ; preds = %13
   ret void
 }
 
-declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_122TemplateArgumentHasher18AddDeclarationNameEN5clang15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 %1) unnamed_addr #0 align 2 {
@@ -2986,12 +2980,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %43, %
   %51 = load i32, ptr %39, align 8, !tbaa !19
   %52 = add i32 %51, 1
   store i32 %52, ptr %39, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %38, ptr %4, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %53, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.sroa.09.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
 54:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
@@ -3119,12 +3113,12 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i80: ; preds = %110
   %118 = load i32, ptr %106, align 8, !tbaa !19
   %119 = add i32 %118, 1
   store i32 %119, ptr %106, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %105, ptr %3, align 8, !tbaa !31
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %120, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i76)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
 121:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
@@ -3167,28 +3161,34 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit: ; preds 
   ret void
 }
 
-declare void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144), ptr, i64) local_unnamed_addr #2
+declare void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144), ptr, i64) local_unnamed_addr #1
 
-declare void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, ptr, i64) unnamed_addr #2
+declare void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, ptr, i64) unnamed_addr #1
 
-declare void @_ZNK5clang7APValue7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
+declare void @_ZNK5clang7APValue7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
-declare noundef i32 @_ZNK5clang12TemplateName7getKindEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare noundef i32 @_ZNK5clang12TemplateName7getKindEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
+declare void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
 
-declare noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr, i64) local_unnamed_addr #2
+declare noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
@@ -3200,10 +3200,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

@@ -2139,7 +2139,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit: ; preds = %25
   br i1 %258, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread
 
 _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; preds = %232, %214, %194, %175, %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %259 = add i64 %144, %indvars.iv
   %260 = xor i64 %259, %140
   %261 = load i64, ptr %7, align 8
@@ -2220,7 +2220,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; pred
 .loopexit221:                                     ; preds = %275, %266, %.noexc112
   %.0.i.pn.i = phi ptr [ %267, %266 ], [ %298, %.noexc112 ], [ %279, %275 ]
   %.0.i111 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %301 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 24
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 32
@@ -2949,10 +2949,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

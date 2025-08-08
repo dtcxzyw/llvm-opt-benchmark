@@ -30,7 +30,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = alloca i64, align 8
   %7 = alloca [16384 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16384) %7, i8 0, i64 16384, i1 false)
   %.not49 = icmp eq i64 %2, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
@@ -42,19 +42,19 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
 
 10:                                               ; preds = %.lr.ph, %18
   %.052 = phi i64 [ %2, %.lr.ph ], [ %19, %18 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN3nix6unistd4read17h949cd14f2df1350eE(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %0, ptr noalias noundef nonnull align 1 %7, i64 noundef 16384)
   %11 = load i32, ptr %5, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i32 %11 to i1
   %12 = load i64, ptr %8, align 8
   %13 = load i32, ptr %9, align 4, !range !6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %trunc, label %.loopexit, label %14
 
 ._crit_edge:                                      ; preds = %18, %3, %.loopexit
   %.018 = phi i32 [ %.1, %.loopexit ], [ 134, %3 ], [ 134, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.018
 
 14:                                               ; preds = %10
@@ -67,7 +67,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   br label %.preheader
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.36de252eb2786b37aee3f61249806dab.1, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -80,7 +80,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
 
 18:                                               ; preds = %26
   %19 = sub i64 %.052, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %._crit_edge, label %10
 
@@ -116,7 +116,7 @@ _ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..o
 
 .loopexit:                                        ; preds = %10, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
   %.1 = phi i32 [ %24, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit ], [ %13, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 }
 
@@ -138,12 +138,6 @@ declare hidden void @_ZN4core9panicking13assert_failed17h52d4438103888feaE(i8 no
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare hidden void @_ZN6uu_cat6splice10copy_exact19panic_cold_explicit17h0cd5967c60547272E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
@@ -151,14 +145,20 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"() unnamed_addr #0
 
 ; Function Attrs: nofree nonlazybind uwtable
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { nofree nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}

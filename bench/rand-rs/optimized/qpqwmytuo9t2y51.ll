@@ -47,12 +47,12 @@ define hidden void @"_ZN102_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   %5 = alloca <4 x i64>, align 32
   %6 = load <4 x i64>, ptr %0, align 32
   %7 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <4 x i64> %6, ptr %4, align 32
   store <4 x i64> %7, ptr %3, align 32
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %8 = load <4 x i64>, ptr %5, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %8, ptr %0, align 32
   ret void
 }
@@ -62,11 +62,11 @@ define hidden void @"_ZN104_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   %3 = alloca <4 x i64>, align 32
   %4 = alloca <4 x i64>, align 32
   %5 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <4 x i64> %5, ptr %3, align 32
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %6 = load <4 x i64>, ptr %4, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <4 x i64> %6, ptr %0, align 32
   ret void
 }
@@ -76,11 +76,11 @@ define hidden void @"_ZN104_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   %3 = alloca <4 x i64>, align 32
   %4 = alloca <4 x i64>, align 32
   %5 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <4 x i64> %5, ptr %3, align 32
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %6 = load <4 x i64>, ptr %4, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <4 x i64> %6, ptr %0, align 32
   ret void
 }
@@ -90,11 +90,11 @@ define hidden void @"_ZN104_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   %3 = alloca <4 x i64>, align 32
   %4 = alloca <4 x i64>, align 32
   %5 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <4 x i64> %5, ptr %3, align 32
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %6 = load <4 x i64>, ptr %4, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <4 x i64> %6, ptr %0, align 32
   ret void
 }
@@ -277,19 +277,19 @@ define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$
 define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$14unsafe_read_le17h9246e727e7090980E.llvm.17720110283109806325"(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   %6 = icmp eq i64 %2, 16
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0.copyload.i = load <2 x i64>, ptr %1, align 1, !noalias !4
   store <2 x i64> %.0.copyload.i, ptr %0, align 16
   ret void
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.0.llvm.17720110283109806325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.2.llvm.17720110283109806325) #39
   unreachable
@@ -299,19 +299,19 @@ define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$
 define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$14unsafe_read_le17hecf2f7c299a6e6c0E.llvm.17720110283109806325"(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   %6 = icmp eq i64 %2, 16
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0.copyload.i = load <2 x i64>, ptr %1, align 1, !noalias !7
   store <2 x i64> %.0.copyload.i, ptr %0, align 16
   ret void
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.0.llvm.17720110283109806325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.2.llvm.17720110283109806325) #39
   unreachable
@@ -321,19 +321,19 @@ define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$
 define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$8write_le17h7a653616f7f361bcE.llvm.17720110283109806325"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull writeonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   %6 = icmp eq i64 %2, 16
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = load <2 x i64>, ptr %0, align 16
   store <2 x i64> %8, ptr %1, align 1, !noalias !10
   ret void
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.0.llvm.17720110283109806325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.2.llvm.17720110283109806325) #39
   unreachable
@@ -343,19 +343,19 @@ define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$
 define hidden void @"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$8write_le17he5c8ac9473a05ac7E.llvm.17720110283109806325"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull writeonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   %6 = icmp eq i64 %2, 16
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = load <2 x i64>, ptr %0, align 16
   store <2 x i64> %8, ptr %1, align 1, !noalias !15
   ret void
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.0.llvm.17720110283109806325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.2.llvm.17720110283109806325) #39
   unreachable
@@ -478,8 +478,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h2d0e380752c418a7E.llvm.1
   %4 = alloca <2 x i64>, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !alias.scope !23, !noalias !20, !noundef !25
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %5, i64 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -488,8 +488,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h2d0e380752c418a7E.llvm.1
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3, i64 noundef %7), !noalias !26
   %8 = load <2 x i64>, ptr %4, align 16, !noalias !26
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !20, !noalias !23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -538,8 +538,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h9501dea39ca15171E.llvm.1
   %4 = alloca <2 x i64>, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !alias.scope !45, !noalias !42, !noundef !25
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %5, i64 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -548,8 +548,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h9501dea39ca15171E.llvm.1
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3, i64 noundef %7), !noalias !47
   %8 = load <2 x i64>, ptr %4, align 16, !noalias !47
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !42, !noalias !45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -559,8 +559,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17hd2b2c7b3bf7f47b1E.llvm.1
   %4 = alloca <2 x i64>, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 4, !alias.scope !51, !noalias !48
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %5, i64 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -569,8 +569,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17hd2b2c7b3bf7f47b1E.llvm.1
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3, i64 noundef %7), !noalias !53
   %8 = load <2 x i64>, ptr %4, align 16, !noalias !53
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !48, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -593,8 +593,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17hee800e034347c0abE.llvm.1
   %4 = alloca <2 x i64>, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 4, !alias.scope !62, !noalias !59
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %5, i64 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -603,8 +603,8 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17hee800e034347c0abE.llvm.1
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3, i64 noundef %7), !noalias !64
   %8 = load <2 x i64>, ptr %4, align 16, !noalias !64
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !59, !noalias !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -758,19 +758,19 @@ define hidden void @_ZN10ppv_lite865types7Machine7read_le17h95bb5f99054378e4E.ll
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !128
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !128
   store i64 %2, ptr %5, align 8, !noalias !128
   %6 = icmp eq i64 %2, 16
   br i1 %6, label %"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$14unsafe_read_le17hecf2f7c299a6e6c0E.llvm.17720110283109806325.exit", label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !128
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !128
   store ptr null, ptr %4, align 8, !noalias !128
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.0.llvm.17720110283109806325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.2.llvm.17720110283109806325) #39, !noalias !128
   unreachable
 
 "_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$14unsafe_read_le17hecf2f7c299a6e6c0E.llvm.17720110283109806325.exit": ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !128
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !128
   %.0.copyload.i = load <2 x i64>, ptr %1, align 1, !noalias !130
   store <2 x i64> %.0.copyload.i, ptr %0, align 16, !alias.scope !125, !noalias !133
   ret void
@@ -781,19 +781,19 @@ define hidden void @_ZN10ppv_lite865types7Machine7read_le17hb3b6b2de7525a272E.ll
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !137
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !137
   store i64 %2, ptr %5, align 8, !noalias !137
   %6 = icmp eq i64 %2, 16
   br i1 %6, label %"_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$14unsafe_read_le17h9246e727e7090980E.llvm.17720110283109806325.exit", label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !137
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !137
   store ptr null, ptr %4, align 8, !noalias !137
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.0.llvm.17720110283109806325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.2.llvm.17720110283109806325) #39, !noalias !137
   unreachable
 
 "_ZN106_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..StoreBytes$GT$14unsafe_read_le17h9246e727e7090980E.llvm.17720110283109806325.exit": ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !137
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !137
   %.0.copyload.i = load <2 x i64>, ptr %1, align 1, !noalias !139
   store <2 x i64> %.0.copyload.i, ptr %0, align 16, !alias.scope !134, !noalias !142
   ret void
@@ -904,64 +904,64 @@ define hidden void @"_ZN10ppv_lite866x86_644sse24avx2280_$LT$impl$u20$ppv_lite86
   %29 = alloca <4 x i64>, align 32
   %30 = load <4 x i64>, ptr %1, align 32
   %31 = load <4 x i64>, ptr %2, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store <4 x i64> %30, ptr %28, align 32
   store <4 x i64> %31, ptr %27, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %29, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %28, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %27)
   %32 = load <4 x i64>, ptr %29, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store <4 x i64> %30, ptr %25, align 32
   store <4 x i64> %31, ptr %24, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %26, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %25, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %24)
   %33 = load <4 x i64>, ptr %26, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load <4 x i64>, ptr %34, align 32
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load <4 x i64>, ptr %36, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store <4 x i64> %35, ptr %22, align 32
   store <4 x i64> %37, ptr %21, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %21)
   %38 = load <4 x i64>, ptr %23, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store <4 x i64> %35, ptr %19, align 32
   store <4 x i64> %37, ptr %18, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %20, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %19, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %18)
   %39 = load <4 x i64>, ptr %20, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %40 = load <4 x i64>, ptr %3, align 32
   %41 = load <4 x i64>, ptr %4, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store <4 x i64> %40, ptr %16, align 32
   store <4 x i64> %41, ptr %15, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %15)
   %42 = load <4 x i64>, ptr %17, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <4 x i64> %40, ptr %13, align 32
   store <4 x i64> %41, ptr %12, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %12)
   %43 = load <4 x i64>, ptr %14, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %45 = load <4 x i64>, ptr %44, align 32
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %47 = load <4 x i64>, ptr %46, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <4 x i64> %45, ptr %10, align 32
   store <4 x i64> %47, ptr %9, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9)
   %48 = load <4 x i64>, ptr %11, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <4 x i64> %45, ptr %7, align 32
   store <4 x i64> %47, ptr %6, align 32
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6)
   %49 = load <4 x i64>, ptr %8, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store <4 x i64> %32, ptr %0, align 32
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %42, ptr %.sroa.0.sroa.4.0..sroa_idx, align 32
@@ -991,22 +991,22 @@ define hidden void @"_ZN10ppv_lite866x86_644sse24avx2303_$LT$impl$u20$ppv_lite86
   %9 = load <2 x i64>, ptr %1, align 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load <2 x i64>, ptr %10, align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %9, ptr %7, align 16
   store <2 x i64> %11, ptr %6, align 16
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6)
   %12 = load <4 x i64>, ptr %8, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load <2 x i64>, ptr %13, align 16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load <2 x i64>, ptr %15, align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %14, ptr %4, align 16
   store <2 x i64> %16, ptr %3, align 16
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3)
   %17 = load <4 x i64>, ptr %5, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %12, ptr %0, align 32
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %17, ptr %.sroa.45.0..sroa_idx, align 32
@@ -1024,28 +1024,28 @@ define hidden void @"_ZN10ppv_lite866x86_644sse24avx2303_$LT$impl$u20$ppv_lite86
   %9 = alloca <4 x i64>, align 32
   %10 = alloca <2 x i64>, align 16
   %11 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <4 x i64> %11, ptr %9, align 32
   call void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h8ecb862d7f07b358E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9)
   %12 = load <2 x i64>, ptr %10, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <4 x i64> %11, ptr %7, align 32
   call void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h4bf5b7d814c121ecE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7)
   %13 = load <2 x i64>, ptr %8, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load <4 x i64>, ptr %14, align 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <4 x i64> %15, ptr %5, align 32
   call void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h8ecb862d7f07b358E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5)
   %16 = load <2 x i64>, ptr %6, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <4 x i64> %15, ptr %3, align 32
   call void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h4bf5b7d814c121ecE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %17 = load <2 x i64>, ptr %4, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <2 x i64> %12, ptr %0, align 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %13, ptr %18, align 16
@@ -1120,11 +1120,11 @@ define hidden void @"_ZN110_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   %5 = alloca <4 x i64>, align 32
   %6 = load <4 x i64>, ptr %1, align 32
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <4 x i64> %6, ptr %4, align 32
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %7 = load <4 x i64>, ptr %5, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %7, ptr %0, align 32
   ret void
 }
@@ -1141,10 +1141,10 @@ define hidden void @"_ZN110_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7)
   store <4 x i64> %8, ptr %6, align 32
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %9 = load <4 x i64>, ptr %5, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %9, ptr %0, align 32
   ret void
 }
@@ -1156,11 +1156,11 @@ define hidden void @"_ZN110_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   %5 = alloca <4 x i64>, align 32
   %6 = load <4 x i64>, ptr %1, align 32
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <4 x i64> %6, ptr %4, align 32
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %7 = load <4 x i64>, ptr %5, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %7, ptr %0, align 32
   ret void
 }
@@ -1177,10 +1177,10 @@ define hidden void @"_ZN110_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7)
   store <4 x i64> %8, ptr %6, align 32
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3)
   %9 = load <4 x i64>, ptr %5, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %9, ptr %0, align 32
   ret void
 }
@@ -1298,7 +1298,7 @@ define hidden void @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define hidden noundef i32 @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17h6d7c99b9e8014e9cE.llvm.17720110283109806325"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca [4 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1320,7 +1320,7 @@ define hidden noundef i32 @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %14
   %18 = load i32, ptr %17, align 4, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
 
 19:                                               ; preds = %2
@@ -1335,7 +1335,7 @@ define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
   %9 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   switch i32 %3, label %10 [
     i32 0, label %11
     i32 1, label %13
@@ -1374,7 +1374,7 @@ define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
 19:                                               ; preds = %17, %15, %13, %11
   %20 = load <2 x i64>, ptr %9, align 16
   store <2 x i64> %20, ptr %0, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -1382,10 +1382,10 @@ define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
 define hidden noundef i32 @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17he520c4f4cca03427E.llvm.17720110283109806325"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca <2 x i64>, align 16
   %4 = alloca [4 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load <2 x i64>, ptr %0, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store <2 x i64> %5, ptr %3, align 16, !noalias !152
   %6 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !152
   %7 = bitcast <2 x i64> %5 to <4 x i32>
@@ -1396,7 +1396,7 @@ define hidden noundef i32 @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
   store i32 %9, ptr %10, align 4, !alias.scope !149, !noalias !154
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %11, align 4, !alias.scope !149, !noalias !154
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = zext i32 %1 to i64
   %13 = icmp ult i32 %1, 4
   br i1 %13, label %14, label %17, !prof !148
@@ -1404,7 +1404,7 @@ define hidden noundef i32 @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %12
   %16 = load i32, ptr %15, align 4, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %16
 
 17:                                               ; preds = %2
@@ -1450,12 +1450,12 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %6, ptr %4, align 16
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %3, align 16
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3)
   %7 = load <2 x i64>, ptr %5, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <2 x i64> %7, ptr %0, align 16
   ret void
 }
@@ -1466,12 +1466,12 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %6, ptr %4, align 16
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %3, align 16
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3)
   %7 = load <2 x i64>, ptr %5, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <2 x i64> %7, ptr %0, align 16
   ret void
 }
@@ -1498,12 +1498,12 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %6, ptr %4, align 16
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %3, align 16
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3)
   %7 = load <2 x i64>, ptr %5, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <2 x i64> %7, ptr %0, align 16
   ret void
 }
@@ -1514,12 +1514,12 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %6, ptr %4, align 16
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %3, align 16
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3)
   %7 = load <2 x i64>, ptr %5, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <2 x i64> %7, ptr %0, align 16
   ret void
 }
@@ -1737,7 +1737,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E
   br label %22
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.71034ffa948b4d9b00e2d6c0756fe8d1.16, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
@@ -1755,7 +1755,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E
   br label %22
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.71034ffa948b4d9b00e2d6c0756fe8d1.20, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
@@ -2680,30 +2680,30 @@ define hidden void @"_ZN75_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$core
   %9 = alloca <4 x i64>, align 32
   %10 = load <4 x i64>, ptr %1, align 32
   %11 = load <4 x i64>, ptr %2, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !203
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !203
   store <4 x i64> %10, ptr %5, align 32, !noalias !203
   store <4 x i64> %11, ptr %4, align 32, !noalias !203
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4), !noalias !203
   %12 = load <4 x i64>, ptr %6, align 32, !noalias !203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !203
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load <4 x i64>, ptr %13, align 32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load <4 x i64>, ptr %15, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !208
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !208
   store <4 x i64> %14, ptr %8, align 32, !noalias !208
   store <4 x i64> %16, ptr %7, align 32, !noalias !208
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7), !noalias !208
   %17 = load <4 x i64>, ptr %9, align 32, !noalias !208
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !208
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !208
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store <4 x i64> %12, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %17, ptr %.sroa.4.0..sroa_idx, align 32
@@ -2720,30 +2720,30 @@ define hidden void @"_ZN76_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$core
   %9 = alloca <4 x i64>, align 32
   %10 = load <4 x i64>, ptr %1, align 32
   %11 = load <4 x i64>, ptr %2, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !213
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !213
   store <4 x i64> %10, ptr %5, align 32, !noalias !213
   store <4 x i64> %11, ptr %4, align 32, !noalias !213
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4), !noalias !213
   %12 = load <4 x i64>, ptr %6, align 32, !noalias !213
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !213
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !213
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load <4 x i64>, ptr %13, align 32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load <4 x i64>, ptr %15, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !218
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !218
   store <4 x i64> %14, ptr %8, align 32, !noalias !218
   store <4 x i64> %16, ptr %7, align 32, !noalias !218
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7), !noalias !218
   %17 = load <4 x i64>, ptr %9, align 32, !noalias !218
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !218
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !218
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store <4 x i64> %12, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %17, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3055,34 +3055,34 @@ define hidden void @"_ZN81_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$core
   %8 = alloca <4 x i64>, align 32
   %9 = load <4 x i64>, ptr %1, align 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = load <4 x i64>, ptr %0, align 32, !alias.scope !283, !noalias !286
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !288
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !288
   store <4 x i64> %10, ptr %4, align 32, !noalias !288
   store <4 x i64> %9, ptr %3, align 32, !noalias !288
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !288
   %11 = load <4 x i64>, ptr %5, align 32, !noalias !288
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !288
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !288
   store <4 x i64> %11, ptr %0, align 32, !alias.scope !283, !noalias !286
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load <4 x i64>, ptr %13, align 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load <4 x i64>, ptr %12, align 32, !alias.scope !289, !noalias !292
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !294
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !294
   store <4 x i64> %15, ptr %7, align 32, !noalias !294
   store <4 x i64> %14, ptr %6, align 32, !noalias !294
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6), !noalias !294
   %16 = load <4 x i64>, ptr %8, align 32, !noalias !294
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !294
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !294
   store <4 x i64> %16, ptr %12, align 32, !alias.scope !289, !noalias !292
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -3093,22 +3093,22 @@ define hidden void @"_ZN83_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %5 = alloca <4 x i64>, align 32
   %6 = alloca <4 x i64>, align 32
   %7 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !295
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !295
   store <4 x i64> %7, ptr %3, align 32, !noalias !295
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !295
   %8 = load <4 x i64>, ptr %4, align 32, !noalias !295
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !295
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !295
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load <4 x i64>, ptr %9, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !299
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !299
   store <4 x i64> %10, ptr %5, align 32, !noalias !299
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5), !noalias !299
   %11 = load <4 x i64>, ptr %6, align 32, !noalias !299
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !299
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !299
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %8, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %11, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3122,22 +3122,22 @@ define hidden void @"_ZN83_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %5 = alloca <4 x i64>, align 32
   %6 = alloca <4 x i64>, align 32
   %7 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !303
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !303
   store <4 x i64> %7, ptr %3, align 32, !noalias !303
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !303
   %8 = load <4 x i64>, ptr %4, align 32, !noalias !303
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !303
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !303
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load <4 x i64>, ptr %9, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !307
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !307
   store <4 x i64> %10, ptr %5, align 32, !noalias !307
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5), !noalias !307
   %11 = load <4 x i64>, ptr %6, align 32, !noalias !307
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !307
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !307
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %8, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %11, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3151,22 +3151,22 @@ define hidden void @"_ZN83_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %5 = alloca <4 x i64>, align 32
   %6 = alloca <4 x i64>, align 32
   %7 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !311
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !311
   store <4 x i64> %7, ptr %3, align 32, !noalias !311
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !311
   %8 = load <4 x i64>, ptr %4, align 32, !noalias !311
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !311
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !311
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load <4 x i64>, ptr %9, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !315
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !315
   store <4 x i64> %10, ptr %5, align 32, !noalias !315
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5), !noalias !315
   %11 = load <4 x i64>, ptr %6, align 32, !noalias !315
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !315
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !315
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %8, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %11, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3188,52 +3188,52 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
   %13 = alloca <2 x i64>, align 16
   %14 = alloca <2 x i64>, align 16
   %15 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !319
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !319
   store <2 x i64> %15, ptr %4, align 16, !noalias !319
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %3, align 16, !noalias !319
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !319
   %16 = load <2 x i64>, ptr %5, align 16, !noalias !319
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !319
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !319
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load <2 x i64>, ptr %17, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !323
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !323
   store <2 x i64> %18, ptr %7, align 16, !noalias !323
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %6, align 16, !noalias !323
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6), !noalias !323
   %19 = load <2 x i64>, ptr %8, align 16, !noalias !323
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !323
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !323
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load <2 x i64>, ptr %20, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !327
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !327
   store <2 x i64> %21, ptr %10, align 16, !noalias !327
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %9, align 16, !noalias !327
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9), !noalias !327
   %22 = load <2 x i64>, ptr %11, align 16, !noalias !327
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !327
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load <2 x i64>, ptr %23, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !331
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !331
   store <2 x i64> %24, ptr %13, align 16, !noalias !331
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %12, align 16, !noalias !331
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12), !noalias !331
   %25 = load <2 x i64>, ptr %14, align 16, !noalias !331
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !331
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store <2 x i64> %16, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %19, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3282,52 +3282,52 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
   %13 = alloca <2 x i64>, align 16
   %14 = alloca <2 x i64>, align 16
   %15 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !335
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !335
   store <2 x i64> %15, ptr %4, align 16, !noalias !335
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %3, align 16, !noalias !335
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !335
   %16 = load <2 x i64>, ptr %5, align 16, !noalias !335
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !335
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !335
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load <2 x i64>, ptr %17, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !339
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !339
   store <2 x i64> %18, ptr %7, align 16, !noalias !339
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %6, align 16, !noalias !339
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6), !noalias !339
   %19 = load <2 x i64>, ptr %8, align 16, !noalias !339
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !339
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !339
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load <2 x i64>, ptr %20, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !343
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !343
   store <2 x i64> %21, ptr %10, align 16, !noalias !343
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %9, align 16, !noalias !343
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9), !noalias !343
   %22 = load <2 x i64>, ptr %11, align 16, !noalias !343
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !343
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !343
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load <2 x i64>, ptr %23, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !347
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !347
   store <2 x i64> %24, ptr %13, align 16, !noalias !347
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %12, align 16, !noalias !347
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12), !noalias !347
   %25 = load <2 x i64>, ptr %14, align 16, !noalias !347
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !347
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !347
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store <2 x i64> %16, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %19, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3422,52 +3422,52 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
   %13 = alloca <2 x i64>, align 16
   %14 = alloca <2 x i64>, align 16
   %15 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !351
   store <2 x i64> %15, ptr %4, align 16, !noalias !351
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %3, align 16, !noalias !351
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !351
   %16 = load <2 x i64>, ptr %5, align 16, !noalias !351
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !351
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !351
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load <2 x i64>, ptr %17, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !355
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !355
   store <2 x i64> %18, ptr %7, align 16, !noalias !355
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %6, align 16, !noalias !355
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6), !noalias !355
   %19 = load <2 x i64>, ptr %8, align 16, !noalias !355
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !355
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !355
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load <2 x i64>, ptr %20, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !359
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !359
   store <2 x i64> %21, ptr %10, align 16, !noalias !359
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %9, align 16, !noalias !359
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9), !noalias !359
   %22 = load <2 x i64>, ptr %11, align 16, !noalias !359
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !359
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !359
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load <2 x i64>, ptr %23, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !363
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !363
   store <2 x i64> %24, ptr %13, align 16, !noalias !363
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %12, align 16, !noalias !363
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12), !noalias !363
   %25 = load <2 x i64>, ptr %14, align 16, !noalias !363
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !363
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !363
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store <2 x i64> %16, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %19, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3516,52 +3516,52 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
   %13 = alloca <2 x i64>, align 16
   %14 = alloca <2 x i64>, align 16
   %15 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !367
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !367
   store <2 x i64> %15, ptr %4, align 16, !noalias !367
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %3, align 16, !noalias !367
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !367
   %16 = load <2 x i64>, ptr %5, align 16, !noalias !367
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !367
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !367
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load <2 x i64>, ptr %17, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !371
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !371
   store <2 x i64> %18, ptr %7, align 16, !noalias !371
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %6, align 16, !noalias !371
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6), !noalias !371
   %19 = load <2 x i64>, ptr %8, align 16, !noalias !371
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !371
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !371
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load <2 x i64>, ptr %20, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !375
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !375
   store <2 x i64> %21, ptr %10, align 16, !noalias !375
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %9, align 16, !noalias !375
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9), !noalias !375
   %22 = load <2 x i64>, ptr %11, align 16, !noalias !375
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !375
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !375
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load <2 x i64>, ptr %23, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !379
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !379
   store <2 x i64> %24, ptr %13, align 16, !noalias !379
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %12, align 16, !noalias !379
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12), !noalias !379
   %25 = load <2 x i64>, ptr %14, align 16, !noalias !379
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !379
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !379
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store <2 x i64> %16, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %19, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3847,28 +3847,28 @@ define hidden void @"_ZN89_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %7 = alloca <4 x i64>, align 32
   %8 = alloca <4 x i64>, align 32
   %9 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !383
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !383
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !383
   store <4 x i64> %9, ptr %4, align 32, !noalias !383
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !383
   %10 = load <4 x i64>, ptr %5, align 32, !noalias !383
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !383
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !383
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load <4 x i64>, ptr %11, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !387
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !387
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !387
   store <4 x i64> %12, ptr %7, align 32, !noalias !387
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6), !noalias !387
   %13 = load <4 x i64>, ptr %8, align 32, !noalias !387
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !387
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !387
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <4 x i64> %10, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %13, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3888,40 +3888,40 @@ define hidden void @"_ZN89_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %11 = alloca <4 x i64>, align 32
   %12 = alloca <4 x i64>, align 32
   %13 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <4 x i64> %13, ptr %7, align 32, !noalias !391
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7), !noalias !391
   store <4 x i64> %13, ptr %6, align 32, !noalias !391
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6), !noalias !391
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !391
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !391
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !391
   %14 = load <4 x i64>, ptr %5, align 32, !noalias !391
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !391
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !391
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load <4 x i64>, ptr %15, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <4 x i64> %16, ptr %12, align 32, !noalias !395
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %12), !noalias !395
   store <4 x i64> %16, ptr %11, align 32, !noalias !395
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %11), !noalias !395
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !395
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !395
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %8), !noalias !395
   %17 = load <4 x i64>, ptr %10, align 32, !noalias !395
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !395
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !395
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store <4 x i64> %14, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %17, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3937,28 +3937,28 @@ define hidden void @"_ZN89_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %7 = alloca <4 x i64>, align 32
   %8 = alloca <4 x i64>, align 32
   %9 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !399
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !399
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !399
   store <4 x i64> %9, ptr %4, align 32, !noalias !399
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !399
   %10 = load <4 x i64>, ptr %5, align 32, !noalias !399
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !399
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !399
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load <4 x i64>, ptr %11, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !403
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !403
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !403
   store <4 x i64> %12, ptr %7, align 32, !noalias !403
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6), !noalias !403
   %13 = load <4 x i64>, ptr %8, align 32, !noalias !403
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !403
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !403
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <4 x i64> %10, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %13, ptr %.sroa.4.0..sroa_idx, align 32
@@ -3978,40 +3978,40 @@ define hidden void @"_ZN89_$LT$ppv_lite86..soft..x2$LT$W$C$G$GT$$u20$as$u20$ppv_
   %11 = alloca <4 x i64>, align 32
   %12 = alloca <4 x i64>, align 32
   %13 = load <4 x i64>, ptr %1, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <4 x i64> %13, ptr %7, align 32, !noalias !407
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7), !noalias !407
   store <4 x i64> %13, ptr %6, align 32, !noalias !407
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6), !noalias !407
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !407
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !407
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !407
   %14 = load <4 x i64>, ptr %5, align 32, !noalias !407
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !407
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !407
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load <4 x i64>, ptr %15, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <4 x i64> %16, ptr %12, align 32, !noalias !411
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %12), !noalias !411
   store <4 x i64> %16, ptr %11, align 32, !noalias !411
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %11), !noalias !411
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !411
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !411
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %8), !noalias !411
   %17 = load <4 x i64>, ptr %10, align 32, !noalias !411
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !411
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !411
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store <4 x i64> %14, ptr %0, align 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %17, ptr %.sroa.4.0..sroa_idx, align 32
@@ -4025,12 +4025,12 @@ define hidden void @"_ZN96_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$N
   %6 = alloca <4 x i64>, align 32
   %7 = load <4 x i64>, ptr %1, align 32
   %8 = load <4 x i64>, ptr %2, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <4 x i64> %7, ptr %5, align 32
   store <4 x i64> %8, ptr %4, align 32
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4)
   %9 = load <4 x i64>, ptr %6, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store <4 x i64> %9, ptr %0, align 32
   ret void
 }
@@ -4057,12 +4057,12 @@ define hidden void @"_ZN97_$LT$ppv_lite86..x86_64..sse2..avx2..u32x4x2_avx2$LT$N
   %6 = alloca <4 x i64>, align 32
   %7 = load <4 x i64>, ptr %1, align 32
   %8 = load <4 x i64>, ptr %2, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <4 x i64> %7, ptr %5, align 32
   store <4 x i64> %8, ptr %4, align 32
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4)
   %9 = load <4 x i64>, ptr %6, align 32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store <4 x i64> %9, ptr %0, align 32
   ret void
 }
@@ -4232,295 +4232,295 @@ define hidden void @_ZN11rand_chacha4guts5round17h14075229091f4191E.llvm.1772011
   %.sroa.4.0.copyload = load <4 x i64>, ptr %.sroa.4.0..sroa_idx, align 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55), !noalias !421
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !421
   %80 = load <4 x i64>, ptr %1, align 32, !alias.scope !423, !noalias !424
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57), !noalias !426
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !426
   store <4 x i64> %80, ptr %56, align 32, !noalias !426
   store <4 x i64> %.sroa.0.0.copyload, ptr %55, align 32, !noalias !426
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %57, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %56, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %55), !noalias !426
   %81 = load <4 x i64>, ptr %57, align 32, !noalias !426
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57), !noalias !426
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !426
   store <4 x i64> %81, ptr %1, align 32, !alias.scope !423, !noalias !424
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55), !noalias !421
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56), !noalias !421
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !421
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !421
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58), !noalias !421
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !421
   %83 = load <4 x i64>, ptr %82, align 32, !alias.scope !430, !noalias !431
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60), !noalias !433
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !433
   store <4 x i64> %83, ptr %59, align 32, !noalias !433
   store <4 x i64> %.sroa.4.0.copyload, ptr %58, align 32, !noalias !433
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %60, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %59, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %58), !noalias !433
   %84 = load <4 x i64>, ptr %60, align 32, !noalias !433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60), !noalias !433
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !433
   store <4 x i64> %84, ptr %82, align 32, !alias.scope !430, !noalias !431
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58), !noalias !421
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59), !noalias !421
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !421
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !421
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.sroa.012.0.copyload = load <4 x i64>, ptr %85, align 32
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.sroa.413.0.copyload = load <4 x i64>, ptr %.sroa.413.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store <4 x i64> %.sroa.012.0.copyload, ptr %20, align 32, !noalias !434
   store <4 x i64> %81, ptr %19, align 32, !noalias !434
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50), !noalias !443
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !443
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %50, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %20, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %19), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store <4 x i64> %.sroa.413.0.copyload, ptr %22, align 32, !noalias !447
   store <4 x i64> %84, ptr %21, align 32, !noalias !447
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53), !noalias !443
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !443
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %53, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %21), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !443
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %49, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !452
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51), !noalias !452
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !452
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %51, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %50, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %49), !noalias !452
   %86 = load <4 x i64>, ptr %51, align 32, !noalias !452
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51), !noalias !452
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49), !noalias !443
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !443
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !452
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !443
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !443
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %52, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !456
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54), !noalias !456
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !456
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %54, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %53, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %52), !noalias !456
   %87 = load <4 x i64>, ptr %54, align 32, !noalias !456
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54), !noalias !456
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52), !noalias !443
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !456
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !443
   store <4 x i64> %86, ptr %85, align 32
   store <4 x i64> %87, ptr %.sroa.413.0..sroa_idx, align 32
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61), !noalias !466
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62), !noalias !466
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !466
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !466
   %89 = load <4 x i64>, ptr %88, align 32, !alias.scope !468, !noalias !469
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63), !noalias !471
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !471
   store <4 x i64> %89, ptr %62, align 32, !noalias !471
   store <4 x i64> %86, ptr %61, align 32, !noalias !471
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %63, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %62, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %61), !noalias !471
   %90 = load <4 x i64>, ptr %63, align 32, !noalias !471
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63), !noalias !471
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !471
   store <4 x i64> %90, ptr %88, align 32, !alias.scope !468, !noalias !469
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61), !noalias !466
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62), !noalias !466
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !466
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !466
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64), !noalias !466
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !466
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !466
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !466
   %92 = load <4 x i64>, ptr %91, align 32, !alias.scope !475, !noalias !476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66), !noalias !478
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !478
   store <4 x i64> %92, ptr %65, align 32, !noalias !478
   store <4 x i64> %87, ptr %64, align 32, !noalias !478
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %66, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %65, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %64), !noalias !478
   %93 = load <4 x i64>, ptr %66, align 32, !noalias !478
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66), !noalias !478
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !478
   store <4 x i64> %93, ptr %91, align 32, !alias.scope !475, !noalias !476
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64), !noalias !466
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65), !noalias !466
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !479
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !466
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !466
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !479
   store <4 x i64> %.sroa.0.0.copyload, ptr %14, align 32, !noalias !479
   store <4 x i64> %90, ptr %13, align 32, !noalias !479
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %13), !noalias !479
   %94 = load <4 x i64>, ptr %15, align 32, !noalias !479
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !479
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !488
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !479
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !488
   store <4 x i64> %.sroa.4.0.copyload, ptr %17, align 32, !noalias !488
   store <4 x i64> %93, ptr %16, align 32, !noalias !488
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %18, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %16), !noalias !488
   %95 = load <4 x i64>, ptr %18, align 32, !noalias !488
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !488
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !488
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !493
   store <4 x i64> %94, ptr %43, align 32, !noalias !497
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %40, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %43), !noalias !497
   store <4 x i64> %94, ptr %42, align 32, !noalias !497
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %39, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %42), !noalias !497
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41), !noalias !497
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !497
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %41, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %40, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %39), !noalias !497
   %96 = load <4 x i64>, ptr %41, align 32, !noalias !497
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41), !noalias !497
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39), !noalias !493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40), !noalias !493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42), !noalias !493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47), !noalias !493
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !497
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !493
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !493
   store <4 x i64> %95, ptr %48, align 32, !noalias !501
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %45, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %48), !noalias !501
   store <4 x i64> %95, ptr %47, align 32, !noalias !501
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %44, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %47), !noalias !501
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46), !noalias !501
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !501
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %46, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %45, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %44), !noalias !501
   %97 = load <4 x i64>, ptr %46, align 32, !noalias !501
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46), !noalias !501
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44), !noalias !493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45), !noalias !493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47), !noalias !493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !501
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !493
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !493
   store <4 x i64> %96, ptr %79, align 32
   store <4 x i64> %97, ptr %.sroa.4.0..sroa_idx, align 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !508)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67), !noalias !511
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68), !noalias !511
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !511
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !511
   %98 = load <4 x i64>, ptr %1, align 32, !alias.scope !513, !noalias !514
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69), !noalias !516
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !516
   store <4 x i64> %98, ptr %68, align 32, !noalias !516
   store <4 x i64> %96, ptr %67, align 32, !noalias !516
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %69, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %68, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %67), !noalias !516
   %99 = load <4 x i64>, ptr %69, align 32, !noalias !516
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69), !noalias !516
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !516
   store <4 x i64> %99, ptr %1, align 32, !alias.scope !513, !noalias !514
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67), !noalias !511
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68), !noalias !511
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !511
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !511
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70), !noalias !511
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71), !noalias !511
+  call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !511
+  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !511
   %100 = load <4 x i64>, ptr %82, align 32, !alias.scope !520, !noalias !521
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72), !noalias !523
+  call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !523
   store <4 x i64> %100, ptr %71, align 32, !noalias !523
   store <4 x i64> %97, ptr %70, align 32, !noalias !523
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %72, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %71, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %70), !noalias !523
   %101 = load <4 x i64>, ptr %72, align 32, !noalias !523
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72), !noalias !523
+  call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !523
   store <4 x i64> %101, ptr %82, align 32, !alias.scope !520, !noalias !521
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70), !noalias !511
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71), !noalias !511
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !511
+  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !511
   %.sroa.032.0.copyload = load <4 x i64>, ptr %85, align 32
   %.sroa.433.0.copyload = load <4 x i64>, ptr %.sroa.413.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <4 x i64> %.sroa.032.0.copyload, ptr %10, align 32, !noalias !524
   store <4 x i64> %99, ptr %9, align 32, !noalias !524
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !533
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !533
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <4 x i64> %.sroa.433.0.copyload, ptr %12, align 32, !noalias !537
   store <4 x i64> %101, ptr %11, align 32, !noalias !537
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !533
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !533
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %37, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %11), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !533
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !533
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %33, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !542
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35), !noalias !542
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !542
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %35, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %33), !noalias !542
   %102 = load <4 x i64>, ptr %35, align 32, !noalias !542
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !542
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33), !noalias !533
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !533
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !533
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !533
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !533
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !533
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %36, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !546
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38), !noalias !546
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !546
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %38, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %37, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %36), !noalias !546
   %103 = load <4 x i64>, ptr %38, align 32, !noalias !546
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38), !noalias !546
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !533
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !533
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !546
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !533
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !533
   store <4 x i64> %102, ptr %85, align 32
   store <4 x i64> %103, ptr %.sroa.413.0..sroa_idx, align 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !553)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73), !noalias !556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74), !noalias !556
+  call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !556
+  call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !556
   %104 = load <4 x i64>, ptr %88, align 32, !alias.scope !558, !noalias !559
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75), !noalias !561
+  call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !561
   store <4 x i64> %104, ptr %74, align 32, !noalias !561
   store <4 x i64> %102, ptr %73, align 32, !noalias !561
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %75, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %74, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %73), !noalias !561
   %105 = load <4 x i64>, ptr %75, align 32, !noalias !561
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !561
   store <4 x i64> %105, ptr %88, align 32, !alias.scope !558, !noalias !559
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73), !noalias !556
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74), !noalias !556
+  call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !556
+  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !556
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76), !noalias !556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77), !noalias !556
+  call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !556
+  call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !556
   %106 = load <4 x i64>, ptr %91, align 32, !alias.scope !565, !noalias !566
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78), !noalias !568
+  call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !568
   store <4 x i64> %106, ptr %77, align 32, !noalias !568
   store <4 x i64> %103, ptr %76, align 32, !noalias !568
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %78, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %77, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %76), !noalias !568
   %107 = load <4 x i64>, ptr %78, align 32, !noalias !568
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78), !noalias !568
+  call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !568
   store <4 x i64> %107, ptr %91, align 32, !alias.scope !565, !noalias !566
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76), !noalias !556
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77), !noalias !556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !569
+  call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !556
+  call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !556
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !569
   store <4 x i64> %96, ptr %4, align 32, !noalias !569
   store <4 x i64> %105, ptr %3, align 32, !noalias !569
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !569
   %108 = load <4 x i64>, ptr %5, align 32, !noalias !569
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !569
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !578
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !569
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !578
   store <4 x i64> %97, ptr %7, align 32, !noalias !578
   store <4 x i64> %107, ptr %6, align 32, !noalias !578
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %6), !noalias !578
   %109 = load <4 x i64>, ptr %8, align 32, !noalias !578
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !578
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !578
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !583
   store <4 x i64> %108, ptr %27, align 32, !noalias !587
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %24, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %27), !noalias !587
   store <4 x i64> %108, ptr %26, align 32, !noalias !587
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %26), !noalias !587
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !587
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !587
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %25, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %24, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %23), !noalias !587
   %110 = load <4 x i64>, ptr %25, align 32, !noalias !587
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !587
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31), !noalias !583
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !587
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !583
   store <4 x i64> %109, ptr %32, align 32, !noalias !591
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %29, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %32), !noalias !591
   store <4 x i64> %109, ptr %31, align 32, !noalias !591
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %28, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %31), !noalias !591
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30), !noalias !591
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !591
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %30, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %29, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %28), !noalias !591
   %111 = load <4 x i64>, ptr %30, align 32, !noalias !591
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30), !noalias !591
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31), !noalias !583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !591
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !583
   store <4 x i64> %110, ptr %79, align 32
   store <4 x i64> %111, ptr %.sroa.4.0..sroa_idx, align 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %1, i64 256, i1 false)
@@ -4588,46 +4588,46 @@ define hidden void @_ZN11rand_chacha4guts5round17h72140ea2265f12f8E.llvm.1772011
   %45 = xor <2 x i64> %.sroa.430.0.copyload, %34
   %46 = xor <2 x i64> %.sroa.531.0.copyload, %38
   %47 = xor <2 x i64> %.sroa.632.0.copyload, %42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !622
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !622
   store <2 x i64> %44, ptr %16, align 16, !noalias !622
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %15, align 16, !noalias !622
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %15), !noalias !622
   %48 = load <2 x i64>, ptr %17, align 16, !noalias !622
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !622
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !618
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !626
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !622
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !626
   store <2 x i64> %45, ptr %19, align 16, !noalias !626
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %18, align 16, !noalias !626
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %20, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %18), !noalias !626
   %49 = load <2 x i64>, ptr %20, align 16, !noalias !626
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !626
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !618
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !630
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !626
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !630
   store <2 x i64> %46, ptr %22, align 16, !noalias !630
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %21, align 16, !noalias !630
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %22, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %21), !noalias !630
   %50 = load <2 x i64>, ptr %23, align 16, !noalias !630
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !630
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !618
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !618
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !634
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !630
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !634
   store <2 x i64> %47, ptr %25, align 16, !noalias !634
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %24, align 16, !noalias !634
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %25, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %24), !noalias !634
   %51 = load <2 x i64>, ptr %26, align 16, !noalias !634
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !634
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !618
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !634
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !618
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %53 = load <4 x i32>, ptr %52, align 16, !alias.scope !638, !noalias !643
   %54 = bitcast <2 x i64> %48 to <4 x i32>
@@ -4668,46 +4668,46 @@ define hidden void @_ZN11rand_chacha4guts5round17h72140ea2265f12f8E.llvm.1772011
   %85 = xor <2 x i64> %49, %79
   %86 = xor <2 x i64> %50, %81
   %87 = xor <2 x i64> %51, %83
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !688
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !688
   store <2 x i64> %84, ptr %4, align 16, !noalias !688
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %3, align 16, !noalias !688
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !688
   %88 = load <2 x i64>, ptr %5, align 16, !noalias !688
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !688
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !684
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !692
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !688
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !684
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !692
   store <2 x i64> %85, ptr %7, align 16, !noalias !692
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %6, align 16, !noalias !692
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6), !noalias !692
   %89 = load <2 x i64>, ptr %8, align 16, !noalias !692
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !692
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !684
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !696
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !692
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !684
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !696
   store <2 x i64> %86, ptr %10, align 16, !noalias !696
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %9, align 16, !noalias !696
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9), !noalias !696
   %90 = load <2 x i64>, ptr %11, align 16, !noalias !696
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !696
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !684
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !684
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !700
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !696
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !684
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !700
   store <2 x i64> %87, ptr %13, align 16, !noalias !700
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %12, align 16, !noalias !700
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12), !noalias !700
   %91 = load <2 x i64>, ptr %14, align 16, !noalias !700
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !700
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !684
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !684
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !700
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !684
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !684
   store <2 x i64> %88, ptr %43, align 16
   store <2 x i64> %89, ptr %.sroa.430.0..sroa_idx, align 16
   store <2 x i64> %90, ptr %.sroa.531.0..sroa_idx, align 16
@@ -4801,46 +4801,46 @@ define hidden void @_ZN11rand_chacha4guts5round17h76070a4dfc60bb32E.llvm.1772011
   %45 = xor <2 x i64> %.sroa.430.0.copyload, %34
   %46 = xor <2 x i64> %.sroa.531.0.copyload, %38
   %47 = xor <2 x i64> %.sroa.632.0.copyload, %42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !754
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !754
   store <2 x i64> %44, ptr %16, align 16, !noalias !754
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %15, align 16, !noalias !754
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %15), !noalias !754
   %48 = load <2 x i64>, ptr %17, align 16, !noalias !754
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !754
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !750
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !758
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !754
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !750
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !758
   store <2 x i64> %45, ptr %19, align 16, !noalias !758
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %18, align 16, !noalias !758
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %20, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %18), !noalias !758
   %49 = load <2 x i64>, ptr %20, align 16, !noalias !758
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !758
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !750
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !762
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !758
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !750
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !762
   store <2 x i64> %46, ptr %22, align 16, !noalias !762
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %21, align 16, !noalias !762
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %22, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %21), !noalias !762
   %50 = load <2 x i64>, ptr %23, align 16, !noalias !762
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !762
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !750
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !750
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !766
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !762
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !750
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !750
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !766
   store <2 x i64> %47, ptr %25, align 16, !noalias !766
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %24, align 16, !noalias !766
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %25, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %24), !noalias !766
   %51 = load <2 x i64>, ptr %26, align 16, !noalias !766
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !766
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !750
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !750
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !766
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !750
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !750
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %53 = load <4 x i32>, ptr %52, align 16, !alias.scope !770, !noalias !775
   %54 = bitcast <2 x i64> %48 to <4 x i32>
@@ -4881,46 +4881,46 @@ define hidden void @_ZN11rand_chacha4guts5round17h76070a4dfc60bb32E.llvm.1772011
   %85 = xor <2 x i64> %49, %79
   %86 = xor <2 x i64> %50, %81
   %87 = xor <2 x i64> %51, %83
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !820
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !820
   store <2 x i64> %84, ptr %4, align 16, !noalias !820
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %3, align 16, !noalias !820
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !820
   %88 = load <2 x i64>, ptr %5, align 16, !noalias !820
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !820
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !816
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !824
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !820
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !816
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !824
   store <2 x i64> %85, ptr %7, align 16, !noalias !824
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %6, align 16, !noalias !824
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6), !noalias !824
   %89 = load <2 x i64>, ptr %8, align 16, !noalias !824
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !824
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !816
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !828
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !824
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !816
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !828
   store <2 x i64> %86, ptr %10, align 16, !noalias !828
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %9, align 16, !noalias !828
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9), !noalias !828
   %90 = load <2 x i64>, ptr %11, align 16, !noalias !828
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !828
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !816
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !816
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !832
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !828
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !816
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !816
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !832
   store <2 x i64> %87, ptr %13, align 16, !noalias !832
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %12, align 16, !noalias !832
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12), !noalias !832
   %91 = load <2 x i64>, ptr %14, align 16, !noalias !832
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !832
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !816
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !816
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !832
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !816
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !816
   store <2 x i64> %88, ptr %43, align 16
   store <2 x i64> %89, ptr %.sroa.430.0..sroa_idx, align 16
   store <2 x i64> %90, ptr %.sroa.531.0..sroa_idx, align 16
@@ -5246,60 +5246,60 @@ define hidden void @_ZN11rand_chacha4guts11diagonalize17he2d6c7f89ef2df48E.llvm.
   %.sroa.03.0.copyload = load <4 x i64>, ptr %15, align 32
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.44.0.copyload = load <4 x i64>, ptr %.sroa.44.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !951
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !955
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !951
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !955
   store <4 x i64> %.sroa.03.0.copyload, ptr %3, align 32, !noalias !955
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !955
   %16 = load <4 x i64>, ptr %4, align 32, !noalias !955
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !955
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !951
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !951
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !959
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !955
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !951
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !951
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !959
   store <4 x i64> %.sroa.44.0.copyload, ptr %5, align 32, !noalias !959
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5), !noalias !959
   %17 = load <4 x i64>, ptr %6, align 32, !noalias !959
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !959
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !951
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !959
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !951
   store <4 x i64> %16, ptr %15, align 32
   store <4 x i64> %17, ptr %.sroa.44.0..sroa_idx, align 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.sroa.07.0.copyload = load <4 x i64>, ptr %18, align 32
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.sroa.48.0.copyload = load <4 x i64>, ptr %.sroa.48.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !963
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !967
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !963
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !967
   store <4 x i64> %.sroa.07.0.copyload, ptr %7, align 32, !noalias !967
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7), !noalias !967
   %19 = load <4 x i64>, ptr %8, align 32, !noalias !967
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !967
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !963
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !963
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !971
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !967
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !963
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !963
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !971
   store <4 x i64> %.sroa.48.0.copyload, ptr %9, align 32, !noalias !971
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9), !noalias !971
   %20 = load <4 x i64>, ptr %10, align 32, !noalias !971
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !971
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !963
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !971
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !963
   store <4 x i64> %19, ptr %18, align 32
   store <4 x i64> %20, ptr %.sroa.48.0..sroa_idx, align 32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.sroa.011.0.copyload = load <4 x i64>, ptr %21, align 32
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.sroa.412.0.copyload = load <4 x i64>, ptr %.sroa.412.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !975
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !979
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !975
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !979
   store <4 x i64> %.sroa.011.0.copyload, ptr %11, align 32, !noalias !979
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %11), !noalias !979
   %22 = load <4 x i64>, ptr %12, align 32, !noalias !979
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !979
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !975
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !975
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !983
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !979
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !975
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !975
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !983
   store <4 x i64> %.sroa.412.0.copyload, ptr %13, align 32, !noalias !983
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %13), !noalias !983
   %23 = load <4 x i64>, ptr %14, align 32, !noalias !983
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !983
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !975
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !983
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !975
   store <4 x i64> %22, ptr %21, align 32
   store <4 x i64> %23, ptr %.sroa.412.0..sroa_idx, align 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %1, i64 256, i1 false)
@@ -5378,60 +5378,60 @@ define hidden void @_ZN11rand_chacha4guts13undiagonalize17h7f16d4043461686eE.llv
   %.sroa.03.0.copyload = load <4 x i64>, ptr %15, align 32
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.44.0.copyload = load <4 x i64>, ptr %.sroa.44.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !987
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !991
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !987
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !991
   store <4 x i64> %.sroa.03.0.copyload, ptr %11, align 32, !noalias !991
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %11), !noalias !991
   %16 = load <4 x i64>, ptr %12, align 32, !noalias !991
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !991
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !987
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !987
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !995
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !991
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !987
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !987
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !995
   store <4 x i64> %.sroa.44.0.copyload, ptr %13, align 32, !noalias !995
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %13), !noalias !995
   %17 = load <4 x i64>, ptr %14, align 32, !noalias !995
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !995
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !987
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !995
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !987
   store <4 x i64> %16, ptr %15, align 32
   store <4 x i64> %17, ptr %.sroa.44.0..sroa_idx, align 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.sroa.07.0.copyload = load <4 x i64>, ptr %18, align 32
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.sroa.48.0.copyload = load <4 x i64>, ptr %.sroa.48.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !999
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1003
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !999
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1003
   store <4 x i64> %.sroa.07.0.copyload, ptr %7, align 32, !noalias !1003
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %7), !noalias !1003
   %19 = load <4 x i64>, ptr %8, align 32, !noalias !1003
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1003
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !999
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !999
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !1007
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1003
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !999
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !999
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1007
   store <4 x i64> %.sroa.48.0.copyload, ptr %9, align 32, !noalias !1007
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %9), !noalias !1007
   %20 = load <4 x i64>, ptr %10, align 32, !noalias !1007
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !1007
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !999
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1007
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !999
   store <4 x i64> %19, ptr %18, align 32
   store <4 x i64> %20, ptr %.sroa.48.0..sroa_idx, align 32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.sroa.011.0.copyload = load <4 x i64>, ptr %21, align 32
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.sroa.412.0.copyload = load <4 x i64>, ptr %.sroa.412.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1011
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1015
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1011
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1015
   store <4 x i64> %.sroa.011.0.copyload, ptr %3, align 32, !noalias !1015
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %3), !noalias !1015
   %22 = load <4 x i64>, ptr %4, align 32, !noalias !1015
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1015
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1011
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1011
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1019
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1015
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1011
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1011
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1019
   store <4 x i64> %.sroa.412.0.copyload, ptr %5, align 32, !noalias !1019
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %5), !noalias !1019
   %23 = load <4 x i64>, ptr %6, align 32, !noalias !1019
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1019
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1011
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1019
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1011
   store <4 x i64> %22, ptr %21, align 32
   store <4 x i64> %23, ptr %.sroa.412.0..sroa_idx, align 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %1, i64 256, i1 false)
@@ -5569,14 +5569,14 @@ define hidden void @_ZN11rand_chacha4guts7add_pos17h40c03cedd8896a7bE.llvm.17720
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %2, i64 0
   store <2 x i64> %.8.vec.insert.i, ptr %4, align 16, !noalias !1033
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, i64 noundef 0), !noalias !1033
   %7 = load <2 x i64>, ptr %5, align 16, !noalias !1033
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = add <2 x i64> %7, %6
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !1037, !noalias !1040
   ret void
@@ -5587,14 +5587,14 @@ define hidden void @_ZN11rand_chacha4guts7add_pos17hf4564d8af5ca0741E.llvm.17720
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
   %6 = load <2 x i64>, ptr %1, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %2, i64 0
   store <2 x i64> %.8.vec.insert.i, ptr %4, align 16, !noalias !1042
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, i64 noundef 0), !noalias !1042
   %7 = load <2 x i64>, ptr %5, align 16, !noalias !1042
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = add <2 x i64> %7, %6
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !1046, !noalias !1049
   ret void
@@ -5611,34 +5611,34 @@ define hidden void @_ZN11rand_chacha4guts5d012317h6f3df771071620ceE.llvm.1772011
   %9 = alloca <2 x i64>, align 16
   %10 = alloca <2 x i64>, align 16
   %11 = load <2 x i64>, ptr %1, align 16, !alias.scope !1051, !noalias !1054
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %9, align 16, !noalias !1056
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9, i64 noundef 0), !noalias !1056
   %12 = load <2 x i64>, ptr %10, align 16, !noalias !1056
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> <i64 1, i64 0>, ptr %7, align 16, !noalias !1060
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, i64 noundef 0), !noalias !1060
   %13 = load <2 x i64>, ptr %8, align 16, !noalias !1060
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <2 x i64> <i64 2, i64 0>, ptr %5, align 16, !noalias !1064
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %5, i64 noundef 0), !noalias !1064
   %14 = load <2 x i64>, ptr %6, align 16, !noalias !1064
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x i64> <i64 3, i64 0>, ptr %3, align 16, !noalias !1068
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3, i64 noundef 0), !noalias !1068
   %15 = load <2 x i64>, ptr %4, align 16, !noalias !1068
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = add <2 x i64> %12, %11
   %17 = add <2 x i64> %13, %11
   %18 = add <2 x i64> %14, %11
@@ -5664,34 +5664,34 @@ define hidden void @_ZN11rand_chacha4guts5d012317h8b1b358de0d53713E.llvm.1772011
   %9 = alloca <2 x i64>, align 16
   %10 = alloca <2 x i64>, align 16
   %11 = load <2 x i64>, ptr %1, align 16, !alias.scope !1077, !noalias !1080
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %9, align 16, !noalias !1082
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %9, i64 noundef 0), !noalias !1082
   %12 = load <2 x i64>, ptr %10, align 16, !noalias !1082
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> <i64 1, i64 0>, ptr %7, align 16, !noalias !1086
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7, i64 noundef 0), !noalias !1086
   %13 = load <2 x i64>, ptr %8, align 16, !noalias !1086
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <2 x i64> <i64 2, i64 0>, ptr %5, align 16, !noalias !1090
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %5, i64 noundef 0), !noalias !1090
   %14 = load <2 x i64>, ptr %6, align 16, !noalias !1090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x i64> <i64 3, i64 0>, ptr %3, align 16, !noalias !1094
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3, i64 noundef 0), !noalias !1094
   %15 = load <2 x i64>, ptr %4, align 16, !noalias !1094
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = shufflevector <2 x i64> %12, <2 x i64> %13, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %17 = shufflevector <2 x i64> %11, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.018.16.vecblend = add <4 x i64> %16, %17
@@ -5806,46 +5806,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %69 = alloca <2 x i64>, align 16
   %70 = alloca <2 x i64>, align 16
   %71 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store <2 x i64> <i64 3684054920433006693, i64 0>, ptr %70, align 16, !noalias !1123
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %71, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %70, i64 noundef 7719281312240119090), !noalias !1123
   %72 = load <4 x i32>, ptr %71, align 16, !noalias !1123
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %.sroa.089.0.copyload = load <2 x i64>, ptr %0, align 16
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.090.0.copyload = load <2 x i64>, ptr %73, align 16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0109.0.copyload = load <2 x i64>, ptr %74, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1127
   store <2 x i64> zeroinitializer, ptr %10, align 16, !noalias !1131
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, i64 noundef 0), !noalias !1131
   %75 = load <2 x i64>, ptr %11, align 16, !noalias !1131
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1127
   store <2 x i64> <i64 1, i64 0>, ptr %8, align 16, !noalias !1135
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %8, i64 noundef 0), !noalias !1135
   %76 = load <2 x i64>, ptr %9, align 16, !noalias !1135
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1127
   store <2 x i64> <i64 2, i64 0>, ptr %6, align 16, !noalias !1139
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6, i64 noundef 0), !noalias !1139
   %77 = load <2 x i64>, ptr %7, align 16, !noalias !1139
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1127
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1127
   store <2 x i64> <i64 3, i64 0>, ptr %4, align 16, !noalias !1143
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, i64 noundef 0), !noalias !1143
   %78 = load <2 x i64>, ptr %5, align 16, !noalias !1143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1127
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1127
   %79 = add <2 x i64> %75, %.sroa.0109.0.copyload
   %80 = add <2 x i64> %76, %.sroa.0109.0.copyload
   %81 = add <2 x i64> %77, %.sroa.0109.0.copyload
@@ -5883,34 +5883,34 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %.sroa.11.0.lcssa = phi <4 x i32> [ %72, %3 ], [ %229, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
   %.sroa.6228.0.lcssa = phi <4 x i32> [ %72, %3 ], [ %227, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
   %.sroa.0226.0.lcssa = phi <4 x i32> [ %72, %3 ], [ %225, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1147
   store <2 x i64> zeroinitializer, ptr %18, align 16, !noalias !1151
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %18, i64 noundef 0), !noalias !1151
   %87 = load <2 x i64>, ptr %19, align 16, !noalias !1151
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !1147
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1147
   store <2 x i64> <i64 1, i64 0>, ptr %16, align 16, !noalias !1155
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16, i64 noundef 0), !noalias !1155
   %88 = load <2 x i64>, ptr %17, align 16, !noalias !1155
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !1147
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1147
   store <2 x i64> <i64 2, i64 0>, ptr %14, align 16, !noalias !1159
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %14, i64 noundef 0), !noalias !1159
   %89 = load <2 x i64>, ptr %15, align 16, !noalias !1159
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !1147
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1147
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1147
   store <2 x i64> <i64 3, i64 0>, ptr %12, align 16, !noalias !1163
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12, i64 noundef 0), !noalias !1163
   %90 = load <2 x i64>, ptr %13, align 16, !noalias !1163
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1147
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1147
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1147
   %91 = add <2 x i64> %87, %.sroa.0514.0.copyload
   %92 = add <2 x i64> %88, %.sroa.0514.0.copyload
   %93 = add <2 x i64> %89, %.sroa.0514.0.copyload
@@ -5970,13 +5970,13 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   store <4 x i32> %106, ptr %.sroa.51921.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
   %.sroa.61922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
   store <4 x i32> %118, ptr %.sroa.61922.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !1191
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !1191
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1191
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1191
   store <2 x i64> <i64 4, i64 0>, ptr %20, align 16, !noalias !1195
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %20, i64 noundef 0), !noalias !1195
   %122 = load <2 x i64>, ptr %21, align 16, !noalias !1195
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !1191
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !1191
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1191
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1191
   %123 = add <2 x i64> %122, %91
   store <2 x i64> %123, ptr %74, align 16
   ret void
@@ -6012,46 +6012,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %134 = xor <2 x i64> %.sroa.63.01866, %128
   %135 = xor <2 x i64> %.sroa.64.01865, %130
   %136 = xor <2 x i64> %.sroa.65.01864, %132
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !1206
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1206
   store <2 x i64> %133, ptr %35, align 16, !noalias !1206
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %34, align 16, !noalias !1206
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %35, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %34), !noalias !1206
   %137 = load <2 x i64>, ptr %36, align 16, !noalias !1206
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !1206
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !1199
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !1210
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !1206
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !1210
   store <2 x i64> %134, ptr %38, align 16, !noalias !1210
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %37, align 16, !noalias !1210
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %39, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %38, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %37), !noalias !1210
   %138 = load <2 x i64>, ptr %39, align 16, !noalias !1210
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !1210
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37), !noalias !1199
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !1214
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !1210
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !1214
   store <2 x i64> %135, ptr %41, align 16, !noalias !1214
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %40, align 16, !noalias !1214
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %42, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %41, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %40), !noalias !1214
   %139 = load <2 x i64>, ptr %42, align 16, !noalias !1214
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !1214
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !1199
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !1199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !1218
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !1214
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !1218
   store <2 x i64> %136, ptr %44, align 16, !noalias !1218
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %43, align 16, !noalias !1218
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %44, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %43), !noalias !1218
   %140 = load <2 x i64>, ptr %45, align 16, !noalias !1218
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45), !noalias !1218
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !1199
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !1218
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !1199
   %141 = bitcast <2 x i64> %137 to <4 x i32>
   %142 = add <4 x i32> %.sroa.32.01871, %141
   %143 = bitcast <2 x i64> %138 to <4 x i32>
@@ -6080,46 +6080,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %166 = xor <2 x i64> %138, %160
   %167 = xor <2 x i64> %139, %162
   %168 = xor <2 x i64> %140, %164
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !1226
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1226
   store <2 x i64> %165, ptr %23, align 16, !noalias !1226
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %22, align 16, !noalias !1226
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %24, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %22), !noalias !1226
   %169 = load <4 x i32>, ptr %24, align 16, !noalias !1226
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !1226
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !1222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !1230
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1226
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1222
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1230
   store <2 x i64> %166, ptr %26, align 16, !noalias !1230
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %25, align 16, !noalias !1230
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %27, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %25), !noalias !1230
   %170 = load <4 x i32>, ptr %27, align 16, !noalias !1230
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !1230
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !1222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !1234
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1230
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1222
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1234
   store <2 x i64> %167, ptr %29, align 16, !noalias !1234
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %28, align 16, !noalias !1234
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %30, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %29, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %28), !noalias !1234
   %171 = load <4 x i32>, ptr %30, align 16, !noalias !1234
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !1234
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !1222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !1222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !1238
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !1234
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !1222
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1222
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !1238
   store <2 x i64> %168, ptr %32, align 16, !noalias !1238
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %31, align 16, !noalias !1238
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %33, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %32, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %31), !noalias !1238
   %172 = load <4 x i32>, ptr %33, align 16, !noalias !1238
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !1238
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !1222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !1222
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !1238
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !1222
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !1222
   %173 = add <4 x i32> %169, %142
   %174 = add <4 x i32> %170, %144
   %175 = add <4 x i32> %171, %146
@@ -6152,46 +6152,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %202 = xor <4 x i32> %198, %194
   %203 = xor <4 x i32> %199, %195
   %204 = xor <4 x i32> %200, %196
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !1249
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !1249
   store <4 x i32> %201, ptr %59, align 16, !noalias !1249
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %58, align 16, !noalias !1249
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %60, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %59, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %58), !noalias !1249
   %205 = load <2 x i64>, ptr %60, align 16, !noalias !1249
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !1249
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58), !noalias !1242
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63), !noalias !1253
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !1249
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !1242
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !1253
   store <4 x i32> %202, ptr %62, align 16, !noalias !1253
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %61, align 16, !noalias !1253
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %63, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %62, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %61), !noalias !1253
   %206 = load <2 x i64>, ptr %63, align 16, !noalias !1253
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63), !noalias !1253
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !1242
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !1257
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !1253
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !1242
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !1257
   store <4 x i32> %203, ptr %65, align 16, !noalias !1257
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %64, align 16, !noalias !1257
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %66, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %65, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %64), !noalias !1257
   %207 = load <2 x i64>, ptr %66, align 16, !noalias !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64), !noalias !1242
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68), !noalias !1242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69), !noalias !1261
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !1257
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !1242
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !1242
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !1261
   store <4 x i32> %204, ptr %68, align 16, !noalias !1261
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %67, align 16, !noalias !1261
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %69, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %68, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %67), !noalias !1261
   %208 = load <2 x i64>, ptr %69, align 16, !noalias !1261
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69), !noalias !1261
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67), !noalias !1242
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68), !noalias !1242
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !1261
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !1242
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !1242
   %209 = bitcast <2 x i64> %205 to <4 x i32>
   %210 = add <4 x i32> %189, %209
   %211 = bitcast <2 x i64> %206 to <4 x i32>
@@ -6220,46 +6220,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %234 = xor <2 x i64> %206, %228
   %235 = xor <2 x i64> %207, %230
   %236 = xor <2 x i64> %208, %232
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !1269
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !1269
   store <2 x i64> %233, ptr %47, align 16, !noalias !1269
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %46, align 16, !noalias !1269
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %48, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %47, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %46), !noalias !1269
   %237 = load <4 x i32>, ptr %48, align 16, !noalias !1269
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !1269
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !1265
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !1273
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !1269
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !1265
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !1273
   store <2 x i64> %234, ptr %50, align 16, !noalias !1273
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %49, align 16, !noalias !1273
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %51, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %49), !noalias !1273
   %238 = load <4 x i32>, ptr %51, align 16, !noalias !1273
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51), !noalias !1273
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !1265
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !1277
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !1273
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !1265
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !1277
   store <2 x i64> %235, ptr %53, align 16, !noalias !1277
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %52, align 16, !noalias !1277
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %54, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %53, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %52), !noalias !1277
   %239 = load <4 x i32>, ptr %54, align 16, !noalias !1277
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54), !noalias !1277
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52), !noalias !1265
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !1265
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57), !noalias !1281
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !1277
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !1265
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !1265
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !1281
   store <2 x i64> %236, ptr %56, align 16, !noalias !1281
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %55, align 16, !noalias !1281
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %57, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %56, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %55), !noalias !1281
   %240 = load <4 x i32>, ptr %57, align 16, !noalias !1281
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57), !noalias !1281
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55), !noalias !1265
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !1265
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !1281
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !1265
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !1265
   %241 = add <4 x i32> %237, %210
   %242 = add <4 x i32> %238, %212
   %243 = add <4 x i32> %239, %214
@@ -6821,106 +6821,106 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %269 = alloca <4 x i64>, align 32
   %270 = alloca <4 x i64>, align 32
   %271 = alloca <4 x i64>, align 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %214)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %215)
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   store <2 x i64> <i64 3684054920433006693, i64 0>, ptr %214, align 16, !noalias !1309
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %215, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %214, i64 noundef 7719281312240119090), !noalias !1309
   %272 = load <2 x i64>, ptr %215, align 16, !noalias !1309
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   %.sroa.054.0.copyload = load <2 x i64>, ptr %0, align 16
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.055.0.copyload = load <2 x i64>, ptr %273, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %218)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %219)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %221)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %222)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223), !noalias !1313
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223), !noalias !1313
   store <2 x i64> %272, ptr %222, align 16, !noalias !1313
   store <2 x i64> %272, ptr %221, align 16, !noalias !1313
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %223, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %222, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %221), !noalias !1313
   %274 = load <4 x i64>, ptr %223, align 32, !noalias !1313
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223), !noalias !1313
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %220), !noalias !1313
+  call void @llvm.lifetime.end.p0(ptr nonnull %223), !noalias !1313
+  call void @llvm.lifetime.start.p0(ptr nonnull %220), !noalias !1313
   store <2 x i64> %272, ptr %219, align 16, !noalias !1313
   store <2 x i64> %272, ptr %218, align 16, !noalias !1313
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %220, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %219, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %218), !noalias !1313
   %275 = load <4 x i64>, ptr %220, align 32, !noalias !1313
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220), !noalias !1313
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %225)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %227)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %228)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %229), !noalias !1317
+  call void @llvm.lifetime.end.p0(ptr nonnull %220), !noalias !1313
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %229), !noalias !1317
   store <2 x i64> %.sroa.054.0.copyload, ptr %228, align 16, !noalias !1317
   store <2 x i64> %.sroa.054.0.copyload, ptr %227, align 16, !noalias !1317
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %229, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %228, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %227), !noalias !1317
   %276 = load <4 x i64>, ptr %229, align 32, !noalias !1317
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229), !noalias !1317
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %226), !noalias !1317
+  call void @llvm.lifetime.end.p0(ptr nonnull %229), !noalias !1317
+  call void @llvm.lifetime.start.p0(ptr nonnull %226), !noalias !1317
   store <2 x i64> %.sroa.054.0.copyload, ptr %225, align 16, !noalias !1317
   store <2 x i64> %.sroa.054.0.copyload, ptr %224, align 16, !noalias !1317
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %226, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %225, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %224), !noalias !1317
   %277 = load <4 x i64>, ptr %226, align 32, !noalias !1317
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226), !noalias !1317
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %225)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %230)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %231)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %233)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %234)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235), !noalias !1321
+  call void @llvm.lifetime.end.p0(ptr nonnull %226), !noalias !1317
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235), !noalias !1321
   store <2 x i64> %.sroa.055.0.copyload, ptr %234, align 16, !noalias !1321
   store <2 x i64> %.sroa.055.0.copyload, ptr %233, align 16, !noalias !1321
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %235, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %234, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %233), !noalias !1321
   %278 = load <4 x i64>, ptr %235, align 32, !noalias !1321
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %235), !noalias !1321
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232), !noalias !1321
+  call void @llvm.lifetime.end.p0(ptr nonnull %235), !noalias !1321
+  call void @llvm.lifetime.start.p0(ptr nonnull %232), !noalias !1321
   store <2 x i64> %.sroa.055.0.copyload, ptr %231, align 16, !noalias !1321
   store <2 x i64> %.sroa.055.0.copyload, ptr %230, align 16, !noalias !1321
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %232, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %231, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %230), !noalias !1321
   %279 = load <4 x i64>, ptr %232, align 32, !noalias !1321
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %232), !noalias !1321
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232), !noalias !1321
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.076.0.copyload = load <2 x i64>, ptr %280, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1325
   store <2 x i64> zeroinitializer, ptr %10, align 16, !noalias !1329
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, i64 noundef 0), !noalias !1329
   %281 = load <2 x i64>, ptr %11, align 16, !noalias !1329
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1325
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1325
   store <2 x i64> <i64 1, i64 0>, ptr %8, align 16, !noalias !1333
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %8, i64 noundef 0), !noalias !1333
   %282 = load <2 x i64>, ptr %9, align 16, !noalias !1333
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1325
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1325
   store <2 x i64> <i64 2, i64 0>, ptr %6, align 16, !noalias !1337
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6, i64 noundef 0), !noalias !1337
   %283 = load <2 x i64>, ptr %7, align 16, !noalias !1337
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1325
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1325
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1325
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1325
   store <2 x i64> <i64 3, i64 0>, ptr %4, align 16, !noalias !1341
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, i64 noundef 0), !noalias !1341
   %284 = load <2 x i64>, ptr %5, align 16, !noalias !1341
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1325
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1325
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1325
   %285 = shufflevector <2 x i64> %281, <2 x i64> %282, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %286 = shufflevector <2 x i64> %.sroa.076.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.0662.16.vecblend = add <4 x i64> %285, %286
@@ -6944,238 +6944,238 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %.sroa.28.0.lcssa = phi <4 x i64> [ %279, %3 ], [ %361, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit52.loopexit" ]
   %.sroa.33.0.lcssa = phi <4 x i64> [ %.sroa.0662.16.vecblend, %3 ], [ %362, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit52.loopexit" ]
   %.sroa.41.0.lcssa = phi <4 x i64> [ %.sroa.5664.48.vecblend, %3 ], [ %363, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit52.loopexit" ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %237)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %238)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239)
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   store <2 x i64> %272, ptr %239, align 16, !noalias !1345
   store <2 x i64> %272, ptr %238, align 16, !noalias !1345
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %208, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %239, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %238), !noalias !25
   store <2 x i64> %272, ptr %237, align 16, !noalias !1345
   store <2 x i64> %272, ptr %236, align 16, !noalias !1345
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %211, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %237, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %236), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   %.sroa.0253.0.copyload = load <2 x i64>, ptr %0, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %240)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %241)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %242)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243)
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   store <2 x i64> %.sroa.0253.0.copyload, ptr %243, align 16, !noalias !1349
   store <2 x i64> %.sroa.0253.0.copyload, ptr %242, align 16, !noalias !1349
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %202, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %243, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %242), !noalias !25
   store <2 x i64> %.sroa.0253.0.copyload, ptr %241, align 16, !noalias !1349
   store <2 x i64> %.sroa.0253.0.copyload, ptr %240, align 16, !noalias !1349
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %205, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %241, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %240), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243)
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   %.sroa.0260.0.copyload = load <2 x i64>, ptr %273, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %245)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %246)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   store <2 x i64> %.sroa.0260.0.copyload, ptr %247, align 16, !noalias !1353
   store <2 x i64> %.sroa.0260.0.copyload, ptr %246, align 16, !noalias !1353
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %196, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %247, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %246), !noalias !25
   store <2 x i64> %.sroa.0260.0.copyload, ptr %245, align 16, !noalias !1353
   store <2 x i64> %.sroa.0260.0.copyload, ptr %244, align 16, !noalias !1353
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %199, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %245, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %244), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1357
   store <2 x i64> zeroinitializer, ptr %18, align 16, !noalias !1361
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %18, i64 noundef 0), !noalias !1361
   %289 = load <2 x i64>, ptr %19, align 16, !noalias !1361
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !1357
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1357
   store <2 x i64> <i64 1, i64 0>, ptr %16, align 16, !noalias !1365
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16, i64 noundef 0), !noalias !1365
   %290 = load <2 x i64>, ptr %17, align 16, !noalias !1365
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !1357
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1357
   store <2 x i64> <i64 2, i64 0>, ptr %14, align 16, !noalias !1369
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %14, i64 noundef 0), !noalias !1369
   %291 = load <2 x i64>, ptr %15, align 16, !noalias !1369
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !1357
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1357
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1357
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1357
   store <2 x i64> <i64 3, i64 0>, ptr %12, align 16, !noalias !1373
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12, i64 noundef 0), !noalias !1373
   %292 = load <2 x i64>, ptr %13, align 16, !noalias !1373
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1357
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1357
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1357
   %293 = shufflevector <2 x i64> %289, <2 x i64> %290, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %294 = shufflevector <2 x i64> %.sroa.0268.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.0601.16.vecblend = add <4 x i64> %293, %294
   %295 = shufflevector <2 x i64> %291, <2 x i64> %292, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %296 = shufflevector <2 x i64> %.sroa.0268.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.5603.48.vecblend = add <4 x i64> %295, %296
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210), !noalias !1377
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %210), !noalias !1377
   store <4 x i64> %.sroa.0134.0.lcssa, ptr %209, align 32, !noalias !1377
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %210, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %209, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %208), !noalias !1377
   %297 = load <4 x i64>, ptr %210, align 32, !noalias !1377
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210), !noalias !1377
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213), !noalias !1386
+  call void @llvm.lifetime.end.p0(ptr nonnull %210), !noalias !1377
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
+  call void @llvm.lifetime.start.p0(ptr nonnull %213), !noalias !1386
   store <4 x i64> %.sroa.6136.0.lcssa, ptr %212, align 32, !noalias !1386
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %213, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %212, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %211), !noalias !1386
   %298 = load <4 x i64>, ptr %213, align 32, !noalias !1386
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213), !noalias !1386
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204), !noalias !1391
+  call void @llvm.lifetime.end.p0(ptr nonnull %213), !noalias !1386
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204), !noalias !1391
   store <4 x i64> %.sroa.11138.0.lcssa, ptr %203, align 32, !noalias !1391
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %204, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %203, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %202), !noalias !1391
   %299 = load <4 x i64>, ptr %204, align 32, !noalias !1391
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204), !noalias !1391
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207), !noalias !1400
+  call void @llvm.lifetime.end.p0(ptr nonnull %204), !noalias !1391
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207), !noalias !1400
   store <4 x i64> %.sroa.19.0.lcssa, ptr %206, align 32, !noalias !1400
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %207, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %206, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %205), !noalias !1400
   %300 = load <4 x i64>, ptr %207, align 32, !noalias !1400
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207), !noalias !1400
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %197)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198), !noalias !1405
+  call void @llvm.lifetime.end.p0(ptr nonnull %207), !noalias !1400
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198), !noalias !1405
   store <4 x i64> %.sroa.20154.0.lcssa, ptr %197, align 32, !noalias !1405
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %198, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %197, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %196), !noalias !1405
   %301 = load <4 x i64>, ptr %198, align 32, !noalias !1405
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198), !noalias !1405
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %200)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %201), !noalias !1414
+  call void @llvm.lifetime.end.p0(ptr nonnull %198), !noalias !1405
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201), !noalias !1414
   store <4 x i64> %.sroa.28.0.lcssa, ptr %200, align 32, !noalias !1414
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %201, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %200, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %199), !noalias !1414
   %302 = load <4 x i64>, ptr %201, align 32, !noalias !1414
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201), !noalias !1414
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %190)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %191)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %192), !noalias !1419
+  call void @llvm.lifetime.end.p0(ptr nonnull %201), !noalias !1414
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %192), !noalias !1419
   store <4 x i64> %.sroa.33.0.lcssa, ptr %191, align 32, !noalias !1419
   store <4 x i64> %.sroa.0601.16.vecblend, ptr %190, align 32, !noalias !1419
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %192, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %191, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %190), !noalias !1419
   %303 = load <4 x i64>, ptr %192, align 32, !noalias !1419
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192), !noalias !1419
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %190)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %193)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %194)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %195), !noalias !1428
+  call void @llvm.lifetime.end.p0(ptr nonnull %192), !noalias !1419
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195), !noalias !1428
   store <4 x i64> %.sroa.41.0.lcssa, ptr %194, align 32, !noalias !1428
   store <4 x i64> %.sroa.5603.48.vecblend, ptr %193, align 32, !noalias !1428
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %195, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %194, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %193), !noalias !1428
   %304 = load <4 x i64>, ptr %195, align 32, !noalias !1428
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %195), !noalias !1428
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %193)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %194)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %248)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %249)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %251)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %257)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %260)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %261)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %264)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %266)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %267)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %269)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %270)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %271), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %195), !noalias !1428
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %271), !noalias !1433
   store <4 x i64> %297, ptr %270, align 32, !noalias !1433
   store <4 x i64> %299, ptr %269, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %271, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %270, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %269), !noalias !1433
   %305 = load <4 x i64>, ptr %271, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %271), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %271), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %268), !noalias !1433
   store <4 x i64> %297, ptr %267, align 32, !noalias !1433
   store <4 x i64> %299, ptr %266, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %268, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %267, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %266), !noalias !1433
   %306 = load <4 x i64>, ptr %268, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %265), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %268), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %265), !noalias !1433
   store <4 x i64> %298, ptr %264, align 32, !noalias !1433
   store <4 x i64> %300, ptr %263, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %265, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %264, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %263), !noalias !1433
   %307 = load <4 x i64>, ptr %265, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %265), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %262), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %265), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %262), !noalias !1433
   store <4 x i64> %298, ptr %261, align 32, !noalias !1433
   store <4 x i64> %300, ptr %260, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %262, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %261, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %260), !noalias !1433
   %308 = load <4 x i64>, ptr %262, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %262), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %259), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %262), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %259), !noalias !1433
   store <4 x i64> %301, ptr %258, align 32, !noalias !1433
   store <4 x i64> %303, ptr %257, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %259, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %258, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %257), !noalias !1433
   %309 = load <4 x i64>, ptr %259, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %259), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %259), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %256), !noalias !1433
   store <4 x i64> %301, ptr %255, align 32, !noalias !1433
   store <4 x i64> %303, ptr %254, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %256, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %255, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %254), !noalias !1433
   %310 = load <4 x i64>, ptr %256, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %253), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %256), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %253), !noalias !1433
   store <4 x i64> %302, ptr %252, align 32, !noalias !1433
   store <4 x i64> %304, ptr %251, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %253, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %252, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %251), !noalias !1433
   %311 = load <4 x i64>, ptr %253, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %253), !noalias !1433
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %250), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %253), !noalias !1433
+  call void @llvm.lifetime.start.p0(ptr nonnull %250), !noalias !1433
   store <4 x i64> %302, ptr %249, align 32, !noalias !1433
   store <4 x i64> %304, ptr %248, align 32, !noalias !1433
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %250, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %249, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %248), !noalias !1433
   %312 = load <4 x i64>, ptr %250, align 32, !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250), !noalias !1433
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %248)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %251)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %255)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %257)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %261)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %263)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %264)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %267)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %269)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250), !noalias !1433
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
   store <4 x i64> %305, ptr %2, align 4, !alias.scope !1440, !noalias !1444
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store <4 x i64> %309, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !1440, !noalias !1444
@@ -7191,20 +7191,20 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   store <4 x i64> %308, ptr %315, align 4, !alias.scope !1458, !noalias !1462
   %.sroa.4737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
   store <4 x i64> %312, ptr %.sroa.4737.0..sroa_idx, align 4, !alias.scope !1458, !noalias !1462
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %216)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217), !noalias !1464
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217), !noalias !1464
   store <4 x i64> %.sroa.0601.16.vecblend, ptr %216, align 32, !noalias !1464
   call void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h8ecb862d7f07b358E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %217, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %216), !noalias !1464
   %316 = load <2 x i64>, ptr %217, align 16, !noalias !1464
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217), !noalias !1464
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %216)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !1468
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !1468
+  call void @llvm.lifetime.end.p0(ptr nonnull %217), !noalias !1464
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1468
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1468
   store <2 x i64> <i64 4, i64 0>, ptr %20, align 16, !noalias !1472
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %20, i64 noundef 0), !noalias !1472
   %317 = load <2 x i64>, ptr %21, align 16, !noalias !1472
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !1468
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !1468
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1468
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1468
   %318 = add <2 x i64> %317, %316
   store <2 x i64> %318, ptr %280, align 16
   ret void
@@ -7220,554 +7220,554 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %.sroa.6136.0710 = phi <4 x i64> [ %351, %.lr.ph ], [ %275, %3 ]
   %.sroa.0134.0709 = phi <4 x i64> [ %350, %.lr.ph ], [ %274, %3 ]
   %319 = add nuw i32 %.sroa.01.0717, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92), !noalias !1476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93), !noalias !1476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94), !noalias !1483
+  call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !1476
+  call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !1476
+  call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !1483
   store <4 x i64> %.sroa.0134.0709, ptr %93, align 32, !noalias !1483
   store <4 x i64> %.sroa.11138.0711, ptr %92, align 32, !noalias !1483
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %94, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %93, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %92), !noalias !1483
   %320 = load <4 x i64>, ptr %94, align 32, !noalias !1483
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94), !noalias !1483
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92), !noalias !1476
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93), !noalias !1476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95), !noalias !1476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96), !noalias !1476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97), !noalias !1487
+  call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !1483
+  call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !1476
+  call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !1476
+  call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !1476
+  call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !1476
+  call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !1487
   store <4 x i64> %.sroa.6136.0710, ptr %96, align 32, !noalias !1487
   store <4 x i64> %.sroa.19.0712, ptr %95, align 32, !noalias !1487
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %97, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %96, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %95), !noalias !1487
   %321 = load <4 x i64>, ptr %97, align 32, !noalias !1487
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97), !noalias !1487
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95), !noalias !1476
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96), !noalias !1476
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !1487
+  call void @llvm.lifetime.end.p0(ptr nonnull %95), !noalias !1476
+  call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !1476
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !1491
   store <4 x i64> %.sroa.33.0715, ptr %59, align 32, !noalias !1492
   store <4 x i64> %320, ptr %58, align 32, !noalias !1492
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87), !noalias !1501
+  call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !1501
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %59, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %58), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !1491
   store <4 x i64> %.sroa.41.0716, ptr %61, align 32, !noalias !1505
   store <4 x i64> %321, ptr %60, align 32, !noalias !1505
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90), !noalias !1501
+  call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !1501
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %90, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %61, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %60), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86), !noalias !1501
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !1501
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %86, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !1510
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88), !noalias !1510
+  call void @llvm.lifetime.start.p0(ptr nonnull %88), !noalias !1510
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %88, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %86), !noalias !1510
   %322 = load <4 x i64>, ptr %88, align 32, !noalias !1510
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88), !noalias !1510
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86), !noalias !1501
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87), !noalias !1501
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89), !noalias !1501
+  call void @llvm.lifetime.end.p0(ptr nonnull %88), !noalias !1510
+  call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !1501
+  call void @llvm.lifetime.end.p0(ptr nonnull %87), !noalias !1501
+  call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !1501
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %89, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !1514
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91), !noalias !1514
+  call void @llvm.lifetime.start.p0(ptr nonnull %91), !noalias !1514
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %91, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %90, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %89), !noalias !1514
   %323 = load <4 x i64>, ptr %91, align 32, !noalias !1514
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %91), !noalias !1514
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89), !noalias !1501
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90), !noalias !1501
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98), !noalias !1518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99), !noalias !1518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100), !noalias !1522
+  call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !1514
+  call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !1501
+  call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !1501
+  call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !1518
+  call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !1518
+  call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !1522
   store <4 x i64> %.sroa.20154.0713, ptr %99, align 32, !noalias !1522
   store <4 x i64> %322, ptr %98, align 32, !noalias !1522
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %100, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %99, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %98), !noalias !1522
   %324 = load <4 x i64>, ptr %100, align 32, !noalias !1522
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100), !noalias !1522
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %98), !noalias !1518
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %99), !noalias !1518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %101), !noalias !1518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102), !noalias !1518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103), !noalias !1526
+  call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !1522
+  call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !1518
+  call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !1518
+  call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !1518
+  call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !1518
+  call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !1526
   store <4 x i64> %.sroa.28.0714, ptr %102, align 32, !noalias !1526
   store <4 x i64> %323, ptr %101, align 32, !noalias !1526
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %103, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %102, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %101), !noalias !1526
   %325 = load <4 x i64>, ptr %103, align 32, !noalias !1526
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %103), !noalias !1526
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %101), !noalias !1518
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %102), !noalias !1518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54), !noalias !1530
+  call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !1526
+  call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !1518
+  call void @llvm.lifetime.end.p0(ptr nonnull %102), !noalias !1518
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !1530
   store <4 x i64> %.sroa.11138.0711, ptr %53, align 32, !noalias !1530
   store <4 x i64> %324, ptr %52, align 32, !noalias !1530
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %54, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %53, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %52), !noalias !1530
   %326 = load <4 x i64>, ptr %54, align 32, !noalias !1530
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54), !noalias !1530
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57), !noalias !1539
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !1530
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !1539
   store <4 x i64> %.sroa.19.0712, ptr %56, align 32, !noalias !1539
   store <4 x i64> %325, ptr %55, align 32, !noalias !1539
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %57, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %56, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %55), !noalias !1539
   %327 = load <4 x i64>, ptr %57, align 32, !noalias !1539
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57), !noalias !1539
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !1539
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !1544
   store <4 x i64> %326, ptr %80, align 32, !noalias !1548
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %77, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %80), !noalias !1548
   store <4 x i64> %326, ptr %79, align 32, !noalias !1548
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %76, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %79), !noalias !1548
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78), !noalias !1548
+  call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !1548
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %78, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %77, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %76), !noalias !1548
   %328 = load <4 x i64>, ptr %78, align 32, !noalias !1548
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78), !noalias !1548
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76), !noalias !1544
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77), !noalias !1544
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79), !noalias !1544
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !1548
+  call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !1544
   store <4 x i64> %327, ptr %85, align 32, !noalias !1552
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %82, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %85), !noalias !1552
   store <4 x i64> %327, ptr %84, align 32, !noalias !1552
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %81, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %84), !noalias !1552
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83), !noalias !1552
+  call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !1552
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %83, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %82, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %81), !noalias !1552
   %329 = load <4 x i64>, ptr %83, align 32, !noalias !1552
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83), !noalias !1552
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81), !noalias !1544
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82), !noalias !1544
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84), !noalias !1544
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85), !noalias !1544
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %104), !noalias !1556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105), !noalias !1556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106), !noalias !1560
+  call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !1552
+  call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !1544
+  call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !1544
+  call void @llvm.lifetime.start.p0(ptr nonnull %104), !noalias !1556
+  call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !1556
+  call void @llvm.lifetime.start.p0(ptr nonnull %106), !noalias !1560
   store <4 x i64> %320, ptr %105, align 32, !noalias !1560
   store <4 x i64> %328, ptr %104, align 32, !noalias !1560
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %106, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %105, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %104), !noalias !1560
   %330 = load <4 x i64>, ptr %106, align 32, !noalias !1560
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %106), !noalias !1560
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %104), !noalias !1556
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105), !noalias !1556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107), !noalias !1556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108), !noalias !1556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109), !noalias !1564
+  call void @llvm.lifetime.end.p0(ptr nonnull %106), !noalias !1560
+  call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !1556
+  call void @llvm.lifetime.end.p0(ptr nonnull %105), !noalias !1556
+  call void @llvm.lifetime.start.p0(ptr nonnull %107), !noalias !1556
+  call void @llvm.lifetime.start.p0(ptr nonnull %108), !noalias !1556
+  call void @llvm.lifetime.start.p0(ptr nonnull %109), !noalias !1564
   store <4 x i64> %321, ptr %108, align 32, !noalias !1564
   store <4 x i64> %329, ptr %107, align 32, !noalias !1564
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %109, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %108, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %107), !noalias !1564
   %331 = load <4 x i64>, ptr %109, align 32, !noalias !1564
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109), !noalias !1564
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107), !noalias !1556
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108), !noalias !1556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %109), !noalias !1564
+  call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !1556
+  call void @llvm.lifetime.end.p0(ptr nonnull %108), !noalias !1556
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !1491
   store <4 x i64> %322, ptr %49, align 32, !noalias !1568
   store <4 x i64> %330, ptr %48, align 32, !noalias !1568
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71), !noalias !1577
+  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !1577
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %71, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %49, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %48), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !1491
   store <4 x i64> %323, ptr %51, align 32, !noalias !1581
   store <4 x i64> %331, ptr %50, align 32, !noalias !1581
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74), !noalias !1577
+  call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !1577
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %74, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %51, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %50), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70), !noalias !1577
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !1577
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %70, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !1586
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72), !noalias !1586
+  call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !1586
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %72, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %71, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %70), !noalias !1586
   %332 = load <4 x i64>, ptr %72, align 32, !noalias !1586
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72), !noalias !1586
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70), !noalias !1577
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71), !noalias !1577
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73), !noalias !1577
+  call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !1586
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !1577
+  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !1577
+  call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !1577
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %73, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !1590
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75), !noalias !1590
+  call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !1590
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %75, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %74, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %73), !noalias !1590
   %333 = load <4 x i64>, ptr %75, align 32, !noalias !1590
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75), !noalias !1590
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73), !noalias !1577
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74), !noalias !1577
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110), !noalias !1594
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111), !noalias !1594
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112), !noalias !1598
+  call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !1590
+  call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !1577
+  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !1577
+  call void @llvm.lifetime.start.p0(ptr nonnull %110), !noalias !1594
+  call void @llvm.lifetime.start.p0(ptr nonnull %111), !noalias !1594
+  call void @llvm.lifetime.start.p0(ptr nonnull %112), !noalias !1598
   store <4 x i64> %324, ptr %111, align 32, !noalias !1598
   store <4 x i64> %332, ptr %110, align 32, !noalias !1598
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %112, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %111, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %110), !noalias !1598
   %334 = load <4 x i64>, ptr %112, align 32, !noalias !1598
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %112), !noalias !1598
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %110), !noalias !1594
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111), !noalias !1594
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113), !noalias !1594
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114), !noalias !1594
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115), !noalias !1602
+  call void @llvm.lifetime.end.p0(ptr nonnull %112), !noalias !1598
+  call void @llvm.lifetime.end.p0(ptr nonnull %110), !noalias !1594
+  call void @llvm.lifetime.end.p0(ptr nonnull %111), !noalias !1594
+  call void @llvm.lifetime.start.p0(ptr nonnull %113), !noalias !1594
+  call void @llvm.lifetime.start.p0(ptr nonnull %114), !noalias !1594
+  call void @llvm.lifetime.start.p0(ptr nonnull %115), !noalias !1602
   store <4 x i64> %325, ptr %114, align 32, !noalias !1602
   store <4 x i64> %333, ptr %113, align 32, !noalias !1602
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %115, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %114, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %113), !noalias !1602
   %335 = load <4 x i64>, ptr %115, align 32, !noalias !1602
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115), !noalias !1602
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113), !noalias !1594
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114), !noalias !1594
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44), !noalias !1606
+  call void @llvm.lifetime.end.p0(ptr nonnull %115), !noalias !1602
+  call void @llvm.lifetime.end.p0(ptr nonnull %113), !noalias !1594
+  call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !1594
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1606
   store <4 x i64> %328, ptr %43, align 32, !noalias !1606
   store <4 x i64> %334, ptr %42, align 32, !noalias !1606
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %44, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %43, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %42), !noalias !1606
   %336 = load <4 x i64>, ptr %44, align 32, !noalias !1606
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44), !noalias !1606
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47), !noalias !1615
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !1606
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !1615
   store <4 x i64> %329, ptr %46, align 32, !noalias !1615
   store <4 x i64> %335, ptr %45, align 32, !noalias !1615
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %47, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %46, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %45), !noalias !1615
   %337 = load <4 x i64>, ptr %47, align 32, !noalias !1615
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47), !noalias !1615
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45), !noalias !1491
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46), !noalias !1491
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !1615
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !1491
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !1491
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !1620
   store <4 x i64> %336, ptr %65, align 32, !noalias !1624
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %63, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %65), !noalias !1624
   store <4 x i64> %336, ptr %64, align 32, !noalias !1624
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %62, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %64), !noalias !1624
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !1628
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1628
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %63, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %62), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62), !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63), !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64), !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !1620
   store <4 x i64> %337, ptr %69, align 32, !noalias !1635
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %67, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %69), !noalias !1635
   store <4 x i64> %337, ptr %68, align 32, !noalias !1635
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %66, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %68), !noalias !1635
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !1628
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1628
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %67, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %66), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66), !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67), !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68), !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69), !noalias !1620
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35), !noalias !1639
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !1620
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !1620
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1639
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %35, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %34), !noalias !1639
   %338 = load <4 x i64>, ptr %35, align 32, !noalias !1639
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !1639
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !1628
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !1643
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !1639
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !1628
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !1643
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %37, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %36), !noalias !1643
   %339 = load <4 x i64>, ptr %37, align 32, !noalias !1643
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !1643
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !1628
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38), !noalias !1647
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !1643
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !1628
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !1647
   store <4 x i64> %334, ptr %38, align 32, !noalias !1651
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173), !noalias !1655
+  call void @llvm.lifetime.start.p0(ptr nonnull %173), !noalias !1655
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %173, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %38), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38), !noalias !1647
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !1647
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !1647
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !1647
   store <4 x i64> %335, ptr %39, align 32, !noalias !1662
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %176), !noalias !1655
+  call void @llvm.lifetime.start.p0(ptr nonnull %176), !noalias !1655
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %176, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %39), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39), !noalias !1647
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40), !noalias !1666
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !1647
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !1666
   store <4 x i64> %332, ptr %40, align 32, !noalias !1670
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %133), !noalias !1674
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %133, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %40), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40), !noalias !1666
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41), !noalias !1666
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !1666
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1666
   store <4 x i64> %333, ptr %41, align 32, !noalias !1675
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %135), !noalias !1674
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %135, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %41), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41), !noalias !1666
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166), !noalias !1679
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167), !noalias !1679
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %168), !noalias !1683
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1666
+  call void @llvm.lifetime.start.p0(ptr nonnull %166), !noalias !1679
+  call void @llvm.lifetime.start.p0(ptr nonnull %167), !noalias !1679
+  call void @llvm.lifetime.start.p0(ptr nonnull %168), !noalias !1683
   store <4 x i64> %330, ptr %167, align 32, !noalias !1683
   store <4 x i64> %338, ptr %166, align 32, !noalias !1683
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %168, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %167, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %166), !noalias !1683
   %340 = load <4 x i64>, ptr %168, align 32, !noalias !1683
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %168), !noalias !1683
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166), !noalias !1679
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167), !noalias !1679
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169), !noalias !1679
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170), !noalias !1679
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %171), !noalias !1687
+  call void @llvm.lifetime.end.p0(ptr nonnull %168), !noalias !1683
+  call void @llvm.lifetime.end.p0(ptr nonnull %166), !noalias !1679
+  call void @llvm.lifetime.end.p0(ptr nonnull %167), !noalias !1679
+  call void @llvm.lifetime.start.p0(ptr nonnull %169), !noalias !1679
+  call void @llvm.lifetime.start.p0(ptr nonnull %170), !noalias !1679
+  call void @llvm.lifetime.start.p0(ptr nonnull %171), !noalias !1687
   store <4 x i64> %331, ptr %170, align 32, !noalias !1687
   store <4 x i64> %339, ptr %169, align 32, !noalias !1687
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %171, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %170, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %169), !noalias !1687
   %341 = load <4 x i64>, ptr %171, align 32, !noalias !1687
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %171), !noalias !1687
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %169), !noalias !1679
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %170), !noalias !1679
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %171), !noalias !1687
+  call void @llvm.lifetime.end.p0(ptr nonnull %169), !noalias !1679
+  call void @llvm.lifetime.end.p0(ptr nonnull %170), !noalias !1679
+  call void @llvm.lifetime.start.p0(ptr nonnull %132), !noalias !1674
   store <4 x i64> %340, ptr %132, align 32, !noalias !1691
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %161), !noalias !1700
+  call void @llvm.lifetime.start.p0(ptr nonnull %161), !noalias !1700
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %161, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %133, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %132), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %132), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %133), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %134), !noalias !1674
   store <4 x i64> %341, ptr %134, align 32, !noalias !1704
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164), !noalias !1700
+  call void @llvm.lifetime.start.p0(ptr nonnull %164), !noalias !1700
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %164, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %135, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %134), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160), !noalias !1700
+  call void @llvm.lifetime.end.p0(ptr nonnull %134), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %135), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %160), !noalias !1700
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %160, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !1709
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %162), !noalias !1709
+  call void @llvm.lifetime.start.p0(ptr nonnull %162), !noalias !1709
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %162, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %161, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %160), !noalias !1709
   %342 = load <4 x i64>, ptr %162, align 32, !noalias !1709
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %162), !noalias !1709
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160), !noalias !1700
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %161), !noalias !1700
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163), !noalias !1700
+  call void @llvm.lifetime.end.p0(ptr nonnull %162), !noalias !1709
+  call void @llvm.lifetime.end.p0(ptr nonnull %160), !noalias !1700
+  call void @llvm.lifetime.end.p0(ptr nonnull %161), !noalias !1700
+  call void @llvm.lifetime.start.p0(ptr nonnull %163), !noalias !1700
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %163, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !1713
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165), !noalias !1713
+  call void @llvm.lifetime.start.p0(ptr nonnull %165), !noalias !1713
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %165, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %164, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %163), !noalias !1713
   %343 = load <4 x i64>, ptr %165, align 32, !noalias !1713
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %165), !noalias !1713
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163), !noalias !1700
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164), !noalias !1700
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172), !noalias !1655
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %174), !noalias !1717
+  call void @llvm.lifetime.end.p0(ptr nonnull %165), !noalias !1713
+  call void @llvm.lifetime.end.p0(ptr nonnull %163), !noalias !1700
+  call void @llvm.lifetime.end.p0(ptr nonnull %164), !noalias !1700
+  call void @llvm.lifetime.start.p0(ptr nonnull %172), !noalias !1655
+  call void @llvm.lifetime.start.p0(ptr nonnull %174), !noalias !1717
   store <4 x i64> %342, ptr %172, align 32, !noalias !1717
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %174, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %173, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %172), !noalias !1717
   %344 = load <4 x i64>, ptr %174, align 32, !noalias !1717
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %174), !noalias !1717
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %172), !noalias !1655
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173), !noalias !1655
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175), !noalias !1655
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177), !noalias !1721
+  call void @llvm.lifetime.end.p0(ptr nonnull %174), !noalias !1717
+  call void @llvm.lifetime.end.p0(ptr nonnull %172), !noalias !1655
+  call void @llvm.lifetime.end.p0(ptr nonnull %173), !noalias !1655
+  call void @llvm.lifetime.start.p0(ptr nonnull %175), !noalias !1655
+  call void @llvm.lifetime.start.p0(ptr nonnull %177), !noalias !1721
   store <4 x i64> %343, ptr %175, align 32, !noalias !1721
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %177, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %176, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %175), !noalias !1721
   %345 = load <4 x i64>, ptr %177, align 32, !noalias !1721
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177), !noalias !1721
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %175), !noalias !1655
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176), !noalias !1655
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128), !noalias !1725
+  call void @llvm.lifetime.end.p0(ptr nonnull %177), !noalias !1721
+  call void @llvm.lifetime.end.p0(ptr nonnull %175), !noalias !1655
+  call void @llvm.lifetime.end.p0(ptr nonnull %176), !noalias !1655
+  call void @llvm.lifetime.start.p0(ptr nonnull %126), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %127), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %128), !noalias !1725
   store <4 x i64> %338, ptr %127, align 32, !noalias !1725
   store <4 x i64> %344, ptr %126, align 32, !noalias !1725
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %128, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %127, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %126), !noalias !1725
   %346 = load <4 x i64>, ptr %128, align 32, !noalias !1725
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128), !noalias !1725
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131), !noalias !1734
+  call void @llvm.lifetime.end.p0(ptr nonnull %128), !noalias !1725
+  call void @llvm.lifetime.end.p0(ptr nonnull %126), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %127), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %129), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %130), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %131), !noalias !1734
   store <4 x i64> %339, ptr %130, align 32, !noalias !1734
   store <4 x i64> %345, ptr %129, align 32, !noalias !1734
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %131, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %130, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %129), !noalias !1734
   %347 = load <4 x i64>, ptr %131, align 32, !noalias !1734
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131), !noalias !1734
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %150), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %131), !noalias !1734
+  call void @llvm.lifetime.end.p0(ptr nonnull %129), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %130), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %150), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %151), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %153), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %154), !noalias !1739
   store <4 x i64> %346, ptr %154, align 32, !noalias !1743
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %151, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %154), !noalias !1743
   store <4 x i64> %346, ptr %153, align 32, !noalias !1743
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %150, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %153), !noalias !1743
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %152), !noalias !1743
+  call void @llvm.lifetime.start.p0(ptr nonnull %152), !noalias !1743
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %152, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %151, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %150), !noalias !1743
   %348 = load <4 x i64>, ptr %152, align 32, !noalias !1743
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %152), !noalias !1743
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %150), !noalias !1739
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151), !noalias !1739
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153), !noalias !1739
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %155), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %156), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %159), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %152), !noalias !1743
+  call void @llvm.lifetime.end.p0(ptr nonnull %150), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %151), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %153), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %154), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %155), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %156), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %158), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %159), !noalias !1739
   store <4 x i64> %347, ptr %159, align 32, !noalias !1747
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %156, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %159), !noalias !1747
   store <4 x i64> %347, ptr %158, align 32, !noalias !1747
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %155, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %158), !noalias !1747
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157), !noalias !1747
+  call void @llvm.lifetime.start.p0(ptr nonnull %157), !noalias !1747
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %157, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %156, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %155), !noalias !1747
   %349 = load <4 x i64>, ptr %157, align 32, !noalias !1747
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %157), !noalias !1747
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155), !noalias !1739
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %156), !noalias !1739
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158), !noalias !1739
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159), !noalias !1739
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178), !noalias !1751
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %179), !noalias !1751
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %180), !noalias !1755
+  call void @llvm.lifetime.end.p0(ptr nonnull %157), !noalias !1747
+  call void @llvm.lifetime.end.p0(ptr nonnull %155), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %156), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %158), !noalias !1739
+  call void @llvm.lifetime.end.p0(ptr nonnull %159), !noalias !1739
+  call void @llvm.lifetime.start.p0(ptr nonnull %178), !noalias !1751
+  call void @llvm.lifetime.start.p0(ptr nonnull %179), !noalias !1751
+  call void @llvm.lifetime.start.p0(ptr nonnull %180), !noalias !1755
   store <4 x i64> %340, ptr %179, align 32, !noalias !1755
   store <4 x i64> %348, ptr %178, align 32, !noalias !1755
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %180, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %179, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %178), !noalias !1755
   %350 = load <4 x i64>, ptr %180, align 32, !noalias !1755
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %180), !noalias !1755
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178), !noalias !1751
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179), !noalias !1751
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %181), !noalias !1751
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %182), !noalias !1751
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183), !noalias !1759
+  call void @llvm.lifetime.end.p0(ptr nonnull %180), !noalias !1755
+  call void @llvm.lifetime.end.p0(ptr nonnull %178), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %179), !noalias !1751
+  call void @llvm.lifetime.start.p0(ptr nonnull %181), !noalias !1751
+  call void @llvm.lifetime.start.p0(ptr nonnull %182), !noalias !1751
+  call void @llvm.lifetime.start.p0(ptr nonnull %183), !noalias !1759
   store <4 x i64> %341, ptr %182, align 32, !noalias !1759
   store <4 x i64> %349, ptr %181, align 32, !noalias !1759
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %183, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %182, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %181), !noalias !1759
   %351 = load <4 x i64>, ptr %183, align 32, !noalias !1759
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183), !noalias !1759
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %181), !noalias !1751
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182), !noalias !1751
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %123), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %183), !noalias !1759
+  call void @llvm.lifetime.end.p0(ptr nonnull %181), !noalias !1751
+  call void @llvm.lifetime.end.p0(ptr nonnull %182), !noalias !1751
+  call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %123), !noalias !1674
   store <4 x i64> %342, ptr %123, align 32, !noalias !1763
   store <4 x i64> %350, ptr %122, align 32, !noalias !1763
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145), !noalias !1772
+  call void @llvm.lifetime.start.p0(ptr nonnull %145), !noalias !1772
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %145, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %123, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %122), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %124), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %122), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %123), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %124), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %125), !noalias !1674
   store <4 x i64> %343, ptr %125, align 32, !noalias !1776
   store <4 x i64> %351, ptr %124, align 32, !noalias !1776
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148), !noalias !1772
+  call void @llvm.lifetime.start.p0(ptr nonnull %148), !noalias !1772
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %148, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %125, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %124), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %124), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144), !noalias !1772
+  call void @llvm.lifetime.end.p0(ptr nonnull %124), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %125), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %144), !noalias !1772
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %144, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !1781
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146), !noalias !1781
+  call void @llvm.lifetime.start.p0(ptr nonnull %146), !noalias !1781
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %146, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %145, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %144), !noalias !1781
   %352 = load <4 x i64>, ptr %146, align 32, !noalias !1781
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %146), !noalias !1781
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144), !noalias !1772
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145), !noalias !1772
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147), !noalias !1772
+  call void @llvm.lifetime.end.p0(ptr nonnull %146), !noalias !1781
+  call void @llvm.lifetime.end.p0(ptr nonnull %144), !noalias !1772
+  call void @llvm.lifetime.end.p0(ptr nonnull %145), !noalias !1772
+  call void @llvm.lifetime.start.p0(ptr nonnull %147), !noalias !1772
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %147, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !1785
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149), !noalias !1785
+  call void @llvm.lifetime.start.p0(ptr nonnull %149), !noalias !1785
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %149, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %148, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %147), !noalias !1785
   %353 = load <4 x i64>, ptr %149, align 32, !noalias !1785
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149), !noalias !1785
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147), !noalias !1772
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %148), !noalias !1772
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %184), !noalias !1789
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %185), !noalias !1789
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %186), !noalias !1793
+  call void @llvm.lifetime.end.p0(ptr nonnull %149), !noalias !1785
+  call void @llvm.lifetime.end.p0(ptr nonnull %147), !noalias !1772
+  call void @llvm.lifetime.end.p0(ptr nonnull %148), !noalias !1772
+  call void @llvm.lifetime.start.p0(ptr nonnull %184), !noalias !1789
+  call void @llvm.lifetime.start.p0(ptr nonnull %185), !noalias !1789
+  call void @llvm.lifetime.start.p0(ptr nonnull %186), !noalias !1793
   store <4 x i64> %344, ptr %185, align 32, !noalias !1793
   store <4 x i64> %352, ptr %184, align 32, !noalias !1793
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %186, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %185, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %184), !noalias !1793
   %354 = load <4 x i64>, ptr %186, align 32, !noalias !1793
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186), !noalias !1793
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %184), !noalias !1789
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185), !noalias !1789
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %187), !noalias !1789
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188), !noalias !1789
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189), !noalias !1797
+  call void @llvm.lifetime.end.p0(ptr nonnull %186), !noalias !1793
+  call void @llvm.lifetime.end.p0(ptr nonnull %184), !noalias !1789
+  call void @llvm.lifetime.end.p0(ptr nonnull %185), !noalias !1789
+  call void @llvm.lifetime.start.p0(ptr nonnull %187), !noalias !1789
+  call void @llvm.lifetime.start.p0(ptr nonnull %188), !noalias !1789
+  call void @llvm.lifetime.start.p0(ptr nonnull %189), !noalias !1797
   store <4 x i64> %345, ptr %188, align 32, !noalias !1797
   store <4 x i64> %353, ptr %187, align 32, !noalias !1797
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %189, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %188, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %187), !noalias !1797
   %355 = load <4 x i64>, ptr %189, align 32, !noalias !1797
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189), !noalias !1797
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %187), !noalias !1789
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188), !noalias !1789
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %118), !noalias !1801
+  call void @llvm.lifetime.end.p0(ptr nonnull %189), !noalias !1797
+  call void @llvm.lifetime.end.p0(ptr nonnull %187), !noalias !1789
+  call void @llvm.lifetime.end.p0(ptr nonnull %188), !noalias !1789
+  call void @llvm.lifetime.start.p0(ptr nonnull %116), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %117), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %118), !noalias !1801
   store <4 x i64> %348, ptr %117, align 32, !noalias !1801
   store <4 x i64> %354, ptr %116, align 32, !noalias !1801
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %118, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %117, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %116), !noalias !1801
   %356 = load <4 x i64>, ptr %118, align 32, !noalias !1801
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %118), !noalias !1801
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %116), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %117), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121), !noalias !1810
+  call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !1801
+  call void @llvm.lifetime.end.p0(ptr nonnull %116), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %119), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %120), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %121), !noalias !1810
   store <4 x i64> %349, ptr %120, align 32, !noalias !1810
   store <4 x i64> %355, ptr %119, align 32, !noalias !1810
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %121, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %120, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %119), !noalias !1810
   %357 = load <4 x i64>, ptr %121, align 32, !noalias !1810
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121), !noalias !1810
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %119), !noalias !1674
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120), !noalias !1674
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %121), !noalias !1810
+  call void @llvm.lifetime.end.p0(ptr nonnull %119), !noalias !1674
+  call void @llvm.lifetime.end.p0(ptr nonnull %120), !noalias !1674
+  call void @llvm.lifetime.start.p0(ptr nonnull %136), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %137), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %138), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %139), !noalias !1815
   store <4 x i64> %356, ptr %139, align 32, !noalias !1819
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %137, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %139), !noalias !1819
   store <4 x i64> %356, ptr %138, align 32, !noalias !1819
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %136, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %138), !noalias !1819
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30), !noalias !1823
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1823
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %30, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %137, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %136), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %136), !noalias !1815
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137), !noalias !1815
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138), !noalias !1815
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %136), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %137), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %138), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %139), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %140), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %141), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %142), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %143), !noalias !1815
   store <4 x i64> %357, ptr %143, align 32, !noalias !1830
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %141, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %143), !noalias !1830
   store <4 x i64> %357, ptr %142, align 32, !noalias !1830
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %140, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %142), !noalias !1830
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32), !noalias !1823
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1823
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %32, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %141, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %140), !noalias !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140), !noalias !1815
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141), !noalias !1815
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142), !noalias !1815
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143), !noalias !1815
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31), !noalias !1834
+  call void @llvm.lifetime.end.p0(ptr nonnull %140), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %141), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %142), !noalias !1815
+  call void @llvm.lifetime.end.p0(ptr nonnull %143), !noalias !1815
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !1834
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %31, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %30), !noalias !1834
   %358 = load <4 x i64>, ptr %31, align 32, !noalias !1834
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31), !noalias !1834
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30), !noalias !1823
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !1838
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !1834
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !1823
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !1838
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %33, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %32), !noalias !1838
   %359 = load <4 x i64>, ptr %33, align 32, !noalias !1838
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33), !noalias !1838
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32), !noalias !1823
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !1842
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !1846
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !1838
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !1823
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1842
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1846
   store <4 x i64> %354, ptr %26, align 32, !noalias !1846
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %27, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %26), !noalias !1846
   %360 = load <4 x i64>, ptr %27, align 32, !noalias !1846
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !1846
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !1842
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !1842
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !1850
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1846
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1842
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1842
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !1850
   store <4 x i64> %355, ptr %28, align 32, !noalias !1850
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %29, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %28), !noalias !1850
   %361 = load <4 x i64>, ptr %29, align 32, !noalias !1850
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !1850
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !1842
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !1854
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1858
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1850
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !1842
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1854
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1858
   store <4 x i64> %352, ptr %22, align 32, !noalias !1858
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %22), !noalias !1858
   %362 = load <4 x i64>, ptr %23, align 32, !noalias !1858
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !1858
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !1854
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !1854
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !1862
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1858
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1854
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1854
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1862
   store <4 x i64> %353, ptr %24, align 32, !noalias !1862
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %25, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %24), !noalias !1862
   %363 = load <4 x i64>, ptr %25, align 32, !noalias !1862
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !1862
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !1854
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1862
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1854
   %exitcond.not = icmp eq i32 %319, %1
   br i1 %exitcond.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit52.loopexit", label %.lr.ph
 }
@@ -7959,46 +7959,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %103 = xor <2 x i64> %.sroa.63.01959, %97
   %104 = xor <2 x i64> %.sroa.64.01958, %99
   %105 = xor <2 x i64> %.sroa.65.01957, %101
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !1897
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1897
   store <2 x i64> %102, ptr %17, align 16, !noalias !1897
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %16, align 16, !noalias !1897
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %18, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16), !noalias !1897
   %106 = load <2 x i64>, ptr %18, align 16, !noalias !1897
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !1897
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !1890
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !1901
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1897
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1890
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1901
   store <2 x i64> %103, ptr %20, align 16, !noalias !1901
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %19, align 16, !noalias !1901
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %20, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %19), !noalias !1901
   %107 = load <2 x i64>, ptr %21, align 16, !noalias !1901
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !1901
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !1890
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !1905
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1901
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1890
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1905
   store <2 x i64> %104, ptr %23, align 16, !noalias !1905
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %22, align 16, !noalias !1905
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %24, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %22), !noalias !1905
   %108 = load <2 x i64>, ptr %24, align 16, !noalias !1905
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !1905
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !1890
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !1890
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !1909
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1905
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1890
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1890
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1909
   store <2 x i64> %105, ptr %26, align 16, !noalias !1909
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %25, align 16, !noalias !1909
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %27, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %25), !noalias !1909
   %109 = load <2 x i64>, ptr %27, align 16, !noalias !1909
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !1909
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !1890
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !1890
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1909
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1890
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1890
   %110 = bitcast <2 x i64> %106 to <4 x i32>
   %111 = add <4 x i32> %.sroa.32.01964, %110
   %112 = bitcast <2 x i64> %107 to <4 x i32>
@@ -8027,46 +8027,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %135 = xor <2 x i64> %107, %129
   %136 = xor <2 x i64> %108, %131
   %137 = xor <2 x i64> %109, %133
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1917
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1917
   store <2 x i64> %134, ptr %5, align 16, !noalias !1917
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %4, align 16, !noalias !1917
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4), !noalias !1917
   %138 = load <4 x i32>, ptr %6, align 16, !noalias !1917
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1917
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1913
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1921
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1917
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1913
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1921
   store <2 x i64> %135, ptr %8, align 16, !noalias !1921
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %7, align 16, !noalias !1921
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7), !noalias !1921
   %139 = load <4 x i32>, ptr %9, align 16, !noalias !1921
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1921
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1913
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !1925
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1921
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1913
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1925
   store <2 x i64> %136, ptr %11, align 16, !noalias !1925
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %10, align 16, !noalias !1925
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10), !noalias !1925
   %140 = load <4 x i32>, ptr %12, align 16, !noalias !1925
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1925
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1913
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !1913
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !1929
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1925
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1913
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1913
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1929
   store <2 x i64> %137, ptr %14, align 16, !noalias !1929
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %13, align 16, !noalias !1929
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13), !noalias !1929
   %141 = load <4 x i32>, ptr %15, align 16, !noalias !1929
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !1929
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1913
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !1913
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1929
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1913
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1913
   %142 = add <4 x i32> %138, %111
   %143 = add <4 x i32> %139, %113
   %144 = add <4 x i32> %140, %115
@@ -8099,46 +8099,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %171 = xor <4 x i32> %167, %163
   %172 = xor <4 x i32> %168, %164
   %173 = xor <4 x i32> %169, %165
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !1940
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !1940
   store <4 x i32> %170, ptr %41, align 16, !noalias !1940
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %40, align 16, !noalias !1940
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %42, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %41, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %40), !noalias !1940
   %174 = load <2 x i64>, ptr %42, align 16, !noalias !1940
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !1940
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !1933
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !1944
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !1940
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !1933
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !1944
   store <4 x i32> %171, ptr %44, align 16, !noalias !1944
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %43, align 16, !noalias !1944
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %44, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %43), !noalias !1944
   %175 = load <2 x i64>, ptr %45, align 16, !noalias !1944
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45), !noalias !1944
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !1933
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !1948
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !1944
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !1933
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !1948
   store <4 x i32> %172, ptr %47, align 16, !noalias !1948
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %46, align 16, !noalias !1948
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %48, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %47, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %46), !noalias !1948
   %176 = load <2 x i64>, ptr %48, align 16, !noalias !1948
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !1948
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !1933
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !1933
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !1952
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !1948
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !1933
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !1933
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !1952
   store <4 x i32> %173, ptr %50, align 16, !noalias !1952
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %49, align 16, !noalias !1952
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %51, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %49), !noalias !1952
   %177 = load <2 x i64>, ptr %51, align 16, !noalias !1952
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51), !noalias !1952
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !1933
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !1933
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !1952
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !1933
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !1933
   %178 = bitcast <2 x i64> %174 to <4 x i32>
   %179 = add <4 x i32> %158, %178
   %180 = bitcast <2 x i64> %175 to <4 x i32>
@@ -8167,46 +8167,46 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %203 = xor <2 x i64> %175, %197
   %204 = xor <2 x i64> %176, %199
   %205 = xor <2 x i64> %177, %201
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !1960
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1960
   store <2 x i64> %202, ptr %29, align 16, !noalias !1960
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %28, align 16, !noalias !1960
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %30, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %29, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %28), !noalias !1960
   %206 = load <4 x i32>, ptr %30, align 16, !noalias !1960
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !1960
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !1956
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !1964
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !1960
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !1956
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !1964
   store <2 x i64> %203, ptr %32, align 16, !noalias !1964
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %31, align 16, !noalias !1964
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %33, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %32, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %31), !noalias !1964
   %207 = load <4 x i32>, ptr %33, align 16, !noalias !1964
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !1964
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !1956
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !1968
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !1964
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !1956
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1968
   store <2 x i64> %204, ptr %35, align 16, !noalias !1968
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %34, align 16, !noalias !1968
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %35, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %34), !noalias !1968
   %208 = load <4 x i32>, ptr %36, align 16, !noalias !1968
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !1968
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !1956
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !1956
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !1972
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !1968
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !1956
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !1972
   store <2 x i64> %205, ptr %38, align 16, !noalias !1972
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %37, align 16, !noalias !1972
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %39, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %38, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %37), !noalias !1972
   %209 = load <4 x i32>, ptr %39, align 16, !noalias !1972
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !1972
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37), !noalias !1956
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !1956
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !1972
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !1956
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !1956
   %210 = add <4 x i32> %206, %179
   %211 = add <4 x i32> %207, %181
   %212 = add <4 x i32> %208, %183
@@ -8243,18 +8243,18 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
 define hidden noundef i32 @_ZN11rand_chacha4guts10read_u32le17h1e9a6e032093b8f9E.llvm.17720110283109806325(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #21 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   %5 = icmp eq i64 %1, 4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %7 = load i32, ptr %0, align 1
   ret i32 %7
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   call void @_ZN4core9panicking13assert_failed17h9905ab5e3d5c09b2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.36) #39
   unreachable
@@ -8441,46 +8441,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %75 = xor <2 x i64> %.sroa.65.01892, %69
   %76 = xor <2 x i64> %.sroa.66.01891, %71
   %77 = xor <2 x i64> %.sroa.67.01890, %73
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !1987
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1987
   store <2 x i64> %74, ptr %17, align 16, !noalias !1987
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %16, align 16, !noalias !1987
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %18, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16), !noalias !1987
   %78 = load <2 x i64>, ptr %18, align 16, !noalias !1987
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !1987
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !1979
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !1991
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1987
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1979
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1991
   store <2 x i64> %75, ptr %20, align 16, !noalias !1991
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %19, align 16, !noalias !1991
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %20, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %19), !noalias !1991
   %79 = load <2 x i64>, ptr %21, align 16, !noalias !1991
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !1991
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !1979
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !1995
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1991
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1979
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1995
   store <2 x i64> %76, ptr %23, align 16, !noalias !1995
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %22, align 16, !noalias !1995
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %24, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %22), !noalias !1995
   %80 = load <2 x i64>, ptr %24, align 16, !noalias !1995
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !1995
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !1979
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !1979
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !1999
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1995
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1979
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1979
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1999
   store <2 x i64> %77, ptr %26, align 16, !noalias !1999
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %25, align 16, !noalias !1999
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %27, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %25), !noalias !1999
   %81 = load <2 x i64>, ptr %27, align 16, !noalias !1999
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !1999
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !1979
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !1979
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1999
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1979
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1979
   %82 = bitcast <2 x i64> %78 to <4 x i32>
   %83 = add <4 x i32> %.sroa.34207.01897, %82
   %84 = bitcast <2 x i64> %79 to <4 x i32>
@@ -8509,46 +8509,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %107 = xor <2 x i64> %79, %101
   %108 = xor <2 x i64> %80, %103
   %109 = xor <2 x i64> %81, %105
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2007
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2007
   store <2 x i64> %106, ptr %5, align 16, !noalias !2007
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %4, align 16, !noalias !2007
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4), !noalias !2007
   %110 = load <4 x i32>, ptr %6, align 16, !noalias !2007
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2007
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2003
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2011
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2007
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2003
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2011
   store <2 x i64> %107, ptr %8, align 16, !noalias !2011
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %7, align 16, !noalias !2011
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %7), !noalias !2011
   %111 = load <4 x i32>, ptr %9, align 16, !noalias !2011
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2011
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2003
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2015
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2011
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2003
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2015
   store <2 x i64> %108, ptr %11, align 16, !noalias !2015
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %10, align 16, !noalias !2015
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10), !noalias !2015
   %112 = load <4 x i32>, ptr %12, align 16, !noalias !2015
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !2015
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2003
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2003
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2019
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2015
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2003
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2003
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2019
   store <2 x i64> %109, ptr %14, align 16, !noalias !2019
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %13, align 16, !noalias !2019
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %13), !noalias !2019
   %113 = load <4 x i32>, ptr %15, align 16, !noalias !2019
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !2019
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !2003
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !2003
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2019
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2003
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2003
   %114 = add <4 x i32> %110, %83
   %115 = add <4 x i32> %111, %85
   %116 = add <4 x i32> %112, %87
@@ -8581,46 +8581,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %143 = xor <4 x i32> %139, %135
   %144 = xor <4 x i32> %140, %136
   %145 = xor <4 x i32> %141, %137
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !2030
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !2030
   store <4 x i32> %142, ptr %41, align 16, !noalias !2030
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %40, align 16, !noalias !2030
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %42, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %41, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %40), !noalias !2030
   %146 = load <2 x i64>, ptr %42, align 16, !noalias !2030
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !2030
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !2023
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !2034
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !2030
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !2023
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !2034
   store <4 x i32> %143, ptr %44, align 16, !noalias !2034
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %43, align 16, !noalias !2034
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %44, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %43), !noalias !2034
   %147 = load <2 x i64>, ptr %45, align 16, !noalias !2034
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45), !noalias !2034
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !2023
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !2038
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !2034
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !2023
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !2038
   store <4 x i32> %144, ptr %47, align 16, !noalias !2038
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %46, align 16, !noalias !2038
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %48, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %47, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %46), !noalias !2038
   %148 = load <2 x i64>, ptr %48, align 16, !noalias !2038
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !2038
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !2023
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !2023
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !2042
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !2038
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !2023
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !2023
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !2042
   store <4 x i32> %145, ptr %50, align 16, !noalias !2042
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %49, align 16, !noalias !2042
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %51, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %49), !noalias !2042
   %149 = load <2 x i64>, ptr %51, align 16, !noalias !2042
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51), !noalias !2042
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !2023
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !2023
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !2042
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !2023
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !2023
   %150 = bitcast <2 x i64> %146 to <4 x i32>
   %151 = add <4 x i32> %130, %150
   %152 = bitcast <2 x i64> %147 to <4 x i32>
@@ -8649,46 +8649,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %175 = xor <2 x i64> %147, %169
   %176 = xor <2 x i64> %148, %171
   %177 = xor <2 x i64> %149, %173
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !2050
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !2050
   store <2 x i64> %174, ptr %29, align 16, !noalias !2050
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %28, align 16, !noalias !2050
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %30, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %29, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %28), !noalias !2050
   %178 = load <4 x i32>, ptr %30, align 16, !noalias !2050
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !2050
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !2046
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !2054
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !2050
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !2046
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !2054
   store <2 x i64> %175, ptr %32, align 16, !noalias !2054
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %31, align 16, !noalias !2054
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %33, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %32, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %31), !noalias !2054
   %179 = load <4 x i32>, ptr %33, align 16, !noalias !2054
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !2054
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !2046
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !2058
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !2054
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !2046
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !2058
   store <2 x i64> %176, ptr %35, align 16, !noalias !2058
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %34, align 16, !noalias !2058
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %35, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %34), !noalias !2058
   %180 = load <4 x i32>, ptr %36, align 16, !noalias !2058
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !2058
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !2046
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !2046
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !2062
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !2058
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !2046
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !2046
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !2062
   store <2 x i64> %177, ptr %38, align 16, !noalias !2062
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %37, align 16, !noalias !2062
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %39, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %38, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %37), !noalias !2062
   %181 = load <4 x i32>, ptr %39, align 16, !noalias !2062
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !2062
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37), !noalias !2046
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !2046
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !2062
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !2046
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !2046
   %182 = add <4 x i32> %178, %151
   %183 = add <4 x i32> %179, %153
   %184 = add <4 x i32> %180, %155
@@ -9082,106 +9082,106 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %269 = alloca <4 x i64>, align 32
   %270 = alloca <4 x i64>, align 32
   %271 = alloca <4 x i64>, align 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %214), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %215), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %214), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %215), !noalias !2090
   store <2 x i64> <i64 3684054920433006693, i64 0>, ptr %214, align 16, !noalias !2094
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %215, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %214, i64 noundef 7719281312240119090), !noalias !2094
   %272 = load <2 x i64>, ptr %215, align 16, !noalias !2094
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %214), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %215), !noalias !2090
   %.sroa.019.0.copyload = load <2 x i64>, ptr %0, align 16, !noalias !2098
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.020.0.copyload = load <2 x i64>, ptr %273, align 16, !noalias !2098
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %218), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %219), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %221), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %222), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223), !noalias !2099
+  call void @llvm.lifetime.start.p0(ptr nonnull %218), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %219), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %221), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %222), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %223), !noalias !2099
   store <2 x i64> %272, ptr %222, align 16, !noalias !2099
   store <2 x i64> %272, ptr %221, align 16, !noalias !2099
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %223, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %222, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %221), !noalias !2099
   %274 = load <4 x i64>, ptr %223, align 32, !noalias !2099
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223), !noalias !2099
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %220), !noalias !2099
+  call void @llvm.lifetime.end.p0(ptr nonnull %223), !noalias !2099
+  call void @llvm.lifetime.start.p0(ptr nonnull %220), !noalias !2099
   store <2 x i64> %272, ptr %219, align 16, !noalias !2099
   store <2 x i64> %272, ptr %218, align 16, !noalias !2099
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %220, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %219, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %218), !noalias !2099
   %275 = load <4 x i64>, ptr %220, align 32, !noalias !2099
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220), !noalias !2099
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %225), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %227), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %228), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %229), !noalias !2103
+  call void @llvm.lifetime.end.p0(ptr nonnull %220), !noalias !2099
+  call void @llvm.lifetime.end.p0(ptr nonnull %218), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %219), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %221), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %222), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %224), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %225), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %227), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %228), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %229), !noalias !2103
   store <2 x i64> %.sroa.019.0.copyload, ptr %228, align 16, !noalias !2103
   store <2 x i64> %.sroa.019.0.copyload, ptr %227, align 16, !noalias !2103
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %229, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %228, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %227), !noalias !2103
   %276 = load <4 x i64>, ptr %229, align 32, !noalias !2103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229), !noalias !2103
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %226), !noalias !2103
+  call void @llvm.lifetime.end.p0(ptr nonnull %229), !noalias !2103
+  call void @llvm.lifetime.start.p0(ptr nonnull %226), !noalias !2103
   store <2 x i64> %.sroa.019.0.copyload, ptr %225, align 16, !noalias !2103
   store <2 x i64> %.sroa.019.0.copyload, ptr %224, align 16, !noalias !2103
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %226, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %225, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %224), !noalias !2103
   %277 = load <4 x i64>, ptr %226, align 32, !noalias !2103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226), !noalias !2103
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %225), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %230), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %231), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %233), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %234), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235), !noalias !2107
+  call void @llvm.lifetime.end.p0(ptr nonnull %226), !noalias !2103
+  call void @llvm.lifetime.end.p0(ptr nonnull %224), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %225), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %227), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %228), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %230), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %231), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %233), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %234), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %235), !noalias !2107
   store <2 x i64> %.sroa.020.0.copyload, ptr %234, align 16, !noalias !2107
   store <2 x i64> %.sroa.020.0.copyload, ptr %233, align 16, !noalias !2107
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %235, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %234, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %233), !noalias !2107
   %278 = load <4 x i64>, ptr %235, align 32, !noalias !2107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %235), !noalias !2107
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232), !noalias !2107
+  call void @llvm.lifetime.end.p0(ptr nonnull %235), !noalias !2107
+  call void @llvm.lifetime.start.p0(ptr nonnull %232), !noalias !2107
   store <2 x i64> %.sroa.020.0.copyload, ptr %231, align 16, !noalias !2107
   store <2 x i64> %.sroa.020.0.copyload, ptr %230, align 16, !noalias !2107
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %232, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %231, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %230), !noalias !2107
   %279 = load <4 x i64>, ptr %232, align 32, !noalias !2107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %232), !noalias !2107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %232), !noalias !2107
+  call void @llvm.lifetime.end.p0(ptr nonnull %230), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %231), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %233), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %234), !noalias !2090
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.041.0.copyload = load <2 x i64>, ptr %280, align 16, !noalias !2098
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2111
   store <2 x i64> zeroinitializer, ptr %10, align 16, !noalias !2115
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, i64 noundef 0), !noalias !2115
   %281 = load <2 x i64>, ptr %11, align 16, !noalias !2115
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2111
   store <2 x i64> <i64 1, i64 0>, ptr %8, align 16, !noalias !2119
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %8, i64 noundef 0), !noalias !2119
   %282 = load <2 x i64>, ptr %9, align 16, !noalias !2119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !2111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2111
   store <2 x i64> <i64 2, i64 0>, ptr %6, align 16, !noalias !2123
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6, i64 noundef 0), !noalias !2123
   %283 = load <2 x i64>, ptr %7, align 16, !noalias !2123
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2111
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2111
   store <2 x i64> <i64 3, i64 0>, ptr %4, align 16, !noalias !2127
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, i64 noundef 0), !noalias !2127
   %284 = load <2 x i64>, ptr %5, align 16, !noalias !2127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2111
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2111
   %285 = shufflevector <2 x i64> %281, <2 x i64> %282, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %286 = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.0629.16.vecblend = add <4 x i64> %285, %286
@@ -9202,554 +9202,554 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %.sroa.8101.0677 = phi <4 x i64> [ %321, %.lr.ph ], [ %275, %3 ]
   %.sroa.099.0676 = phi <4 x i64> [ %320, %.lr.ph ], [ %274, %3 ]
   %289 = add nuw i32 %.sroa.01.0.i684, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92), !noalias !2131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93), !noalias !2131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94), !noalias !2138
+  call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !2131
+  call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !2131
+  call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !2138
   store <4 x i64> %.sroa.099.0676, ptr %93, align 32, !noalias !2138
   store <4 x i64> %.sroa.13.0678, ptr %92, align 32, !noalias !2138
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %94, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %93, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %92), !noalias !2138
   %290 = load <4 x i64>, ptr %94, align 32, !noalias !2138
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94), !noalias !2138
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92), !noalias !2131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93), !noalias !2131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95), !noalias !2131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96), !noalias !2131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97), !noalias !2142
+  call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !2138
+  call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !2131
+  call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !2131
+  call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !2131
+  call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !2131
+  call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !2142
   store <4 x i64> %.sroa.8101.0677, ptr %96, align 32, !noalias !2142
   store <4 x i64> %.sroa.21.0679, ptr %95, align 32, !noalias !2142
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %97, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %96, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %95), !noalias !2142
   %291 = load <4 x i64>, ptr %97, align 32, !noalias !2142
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97), !noalias !2142
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95), !noalias !2131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96), !noalias !2131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !2142
+  call void @llvm.lifetime.end.p0(ptr nonnull %95), !noalias !2131
+  call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !2131
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !2146
   store <4 x i64> %.sroa.35.0682, ptr %59, align 32, !noalias !2147
   store <4 x i64> %290, ptr %58, align 32, !noalias !2147
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87), !noalias !2156
+  call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !2156
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %59, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %58), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !2146
   store <4 x i64> %.sroa.43.0683, ptr %61, align 32, !noalias !2160
   store <4 x i64> %291, ptr %60, align 32, !noalias !2160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90), !noalias !2156
+  call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !2156
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %90, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %61, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %60), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86), !noalias !2156
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !2156
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %86, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !2165
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88), !noalias !2165
+  call void @llvm.lifetime.start.p0(ptr nonnull %88), !noalias !2165
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %88, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %86), !noalias !2165
   %292 = load <4 x i64>, ptr %88, align 32, !noalias !2165
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88), !noalias !2165
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86), !noalias !2156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87), !noalias !2156
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89), !noalias !2156
+  call void @llvm.lifetime.end.p0(ptr nonnull %88), !noalias !2165
+  call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !2156
+  call void @llvm.lifetime.end.p0(ptr nonnull %87), !noalias !2156
+  call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !2156
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %89, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !2169
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91), !noalias !2169
+  call void @llvm.lifetime.start.p0(ptr nonnull %91), !noalias !2169
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %91, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %90, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %89), !noalias !2169
   %293 = load <4 x i64>, ptr %91, align 32, !noalias !2169
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %91), !noalias !2169
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89), !noalias !2156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90), !noalias !2156
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98), !noalias !2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99), !noalias !2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100), !noalias !2177
+  call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !2169
+  call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !2156
+  call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !2156
+  call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !2173
+  call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !2173
+  call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !2177
   store <4 x i64> %.sroa.22.0680, ptr %99, align 32, !noalias !2177
   store <4 x i64> %292, ptr %98, align 32, !noalias !2177
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %100, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %99, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %98), !noalias !2177
   %294 = load <4 x i64>, ptr %100, align 32, !noalias !2177
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100), !noalias !2177
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %98), !noalias !2173
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %99), !noalias !2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %101), !noalias !2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102), !noalias !2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103), !noalias !2181
+  call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !2177
+  call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !2173
+  call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !2173
+  call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !2173
+  call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !2173
+  call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !2181
   store <4 x i64> %.sroa.30121.0681, ptr %102, align 32, !noalias !2181
   store <4 x i64> %293, ptr %101, align 32, !noalias !2181
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %103, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %102, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %101), !noalias !2181
   %295 = load <4 x i64>, ptr %103, align 32, !noalias !2181
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %103), !noalias !2181
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %101), !noalias !2173
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %102), !noalias !2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54), !noalias !2185
+  call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !2181
+  call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !2173
+  call void @llvm.lifetime.end.p0(ptr nonnull %102), !noalias !2173
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !2185
   store <4 x i64> %.sroa.13.0678, ptr %53, align 32, !noalias !2185
   store <4 x i64> %294, ptr %52, align 32, !noalias !2185
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %54, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %53, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %52), !noalias !2185
   %296 = load <4 x i64>, ptr %54, align 32, !noalias !2185
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54), !noalias !2185
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57), !noalias !2194
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !2185
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !2194
   store <4 x i64> %.sroa.21.0679, ptr %56, align 32, !noalias !2194
   store <4 x i64> %295, ptr %55, align 32, !noalias !2194
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %57, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %56, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %55), !noalias !2194
   %297 = load <4 x i64>, ptr %57, align 32, !noalias !2194
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57), !noalias !2194
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !2194
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !2199
   store <4 x i64> %296, ptr %80, align 32, !noalias !2203
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %77, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %80), !noalias !2203
   store <4 x i64> %296, ptr %79, align 32, !noalias !2203
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %76, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %79), !noalias !2203
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78), !noalias !2203
+  call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !2203
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %78, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %77, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %76), !noalias !2203
   %298 = load <4 x i64>, ptr %78, align 32, !noalias !2203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78), !noalias !2203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76), !noalias !2199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77), !noalias !2199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79), !noalias !2199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !2203
+  call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !2199
   store <4 x i64> %297, ptr %85, align 32, !noalias !2207
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %82, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %85), !noalias !2207
   store <4 x i64> %297, ptr %84, align 32, !noalias !2207
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %81, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %84), !noalias !2207
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83), !noalias !2207
+  call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !2207
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %83, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %82, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %81), !noalias !2207
   %299 = load <4 x i64>, ptr %83, align 32, !noalias !2207
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83), !noalias !2207
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81), !noalias !2199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82), !noalias !2199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84), !noalias !2199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85), !noalias !2199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %104), !noalias !2211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105), !noalias !2211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106), !noalias !2215
+  call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !2207
+  call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !2199
+  call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !2199
+  call void @llvm.lifetime.start.p0(ptr nonnull %104), !noalias !2211
+  call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !2211
+  call void @llvm.lifetime.start.p0(ptr nonnull %106), !noalias !2215
   store <4 x i64> %290, ptr %105, align 32, !noalias !2215
   store <4 x i64> %298, ptr %104, align 32, !noalias !2215
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %106, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %105, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %104), !noalias !2215
   %300 = load <4 x i64>, ptr %106, align 32, !noalias !2215
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %106), !noalias !2215
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %104), !noalias !2211
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105), !noalias !2211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107), !noalias !2211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108), !noalias !2211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109), !noalias !2219
+  call void @llvm.lifetime.end.p0(ptr nonnull %106), !noalias !2215
+  call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !2211
+  call void @llvm.lifetime.end.p0(ptr nonnull %105), !noalias !2211
+  call void @llvm.lifetime.start.p0(ptr nonnull %107), !noalias !2211
+  call void @llvm.lifetime.start.p0(ptr nonnull %108), !noalias !2211
+  call void @llvm.lifetime.start.p0(ptr nonnull %109), !noalias !2219
   store <4 x i64> %291, ptr %108, align 32, !noalias !2219
   store <4 x i64> %299, ptr %107, align 32, !noalias !2219
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %109, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %108, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %107), !noalias !2219
   %301 = load <4 x i64>, ptr %109, align 32, !noalias !2219
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109), !noalias !2219
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107), !noalias !2211
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108), !noalias !2211
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %109), !noalias !2219
+  call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !2211
+  call void @llvm.lifetime.end.p0(ptr nonnull %108), !noalias !2211
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !2146
   store <4 x i64> %292, ptr %49, align 32, !noalias !2223
   store <4 x i64> %300, ptr %48, align 32, !noalias !2223
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71), !noalias !2232
+  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !2232
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %71, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %49, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %48), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !2146
   store <4 x i64> %293, ptr %51, align 32, !noalias !2236
   store <4 x i64> %301, ptr %50, align 32, !noalias !2236
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74), !noalias !2232
+  call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !2232
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %74, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %51, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %50), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70), !noalias !2232
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !2232
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %70, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !2241
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72), !noalias !2241
+  call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !2241
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %72, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %71, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %70), !noalias !2241
   %302 = load <4 x i64>, ptr %72, align 32, !noalias !2241
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72), !noalias !2241
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70), !noalias !2232
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71), !noalias !2232
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73), !noalias !2232
+  call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !2241
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !2232
+  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !2232
+  call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !2232
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %73, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !2245
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75), !noalias !2245
+  call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !2245
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %75, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %74, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %73), !noalias !2245
   %303 = load <4 x i64>, ptr %75, align 32, !noalias !2245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75), !noalias !2245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73), !noalias !2232
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74), !noalias !2232
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110), !noalias !2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111), !noalias !2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112), !noalias !2253
+  call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !2245
+  call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !2232
+  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !2232
+  call void @llvm.lifetime.start.p0(ptr nonnull %110), !noalias !2249
+  call void @llvm.lifetime.start.p0(ptr nonnull %111), !noalias !2249
+  call void @llvm.lifetime.start.p0(ptr nonnull %112), !noalias !2253
   store <4 x i64> %294, ptr %111, align 32, !noalias !2253
   store <4 x i64> %302, ptr %110, align 32, !noalias !2253
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %112, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %111, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %110), !noalias !2253
   %304 = load <4 x i64>, ptr %112, align 32, !noalias !2253
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %112), !noalias !2253
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %110), !noalias !2249
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111), !noalias !2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113), !noalias !2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114), !noalias !2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115), !noalias !2257
+  call void @llvm.lifetime.end.p0(ptr nonnull %112), !noalias !2253
+  call void @llvm.lifetime.end.p0(ptr nonnull %110), !noalias !2249
+  call void @llvm.lifetime.end.p0(ptr nonnull %111), !noalias !2249
+  call void @llvm.lifetime.start.p0(ptr nonnull %113), !noalias !2249
+  call void @llvm.lifetime.start.p0(ptr nonnull %114), !noalias !2249
+  call void @llvm.lifetime.start.p0(ptr nonnull %115), !noalias !2257
   store <4 x i64> %295, ptr %114, align 32, !noalias !2257
   store <4 x i64> %303, ptr %113, align 32, !noalias !2257
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %115, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %114, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %113), !noalias !2257
   %305 = load <4 x i64>, ptr %115, align 32, !noalias !2257
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115), !noalias !2257
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113), !noalias !2249
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114), !noalias !2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44), !noalias !2261
+  call void @llvm.lifetime.end.p0(ptr nonnull %115), !noalias !2257
+  call void @llvm.lifetime.end.p0(ptr nonnull %113), !noalias !2249
+  call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !2249
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2261
   store <4 x i64> %298, ptr %43, align 32, !noalias !2261
   store <4 x i64> %304, ptr %42, align 32, !noalias !2261
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %44, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %43, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %42), !noalias !2261
   %306 = load <4 x i64>, ptr %44, align 32, !noalias !2261
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44), !noalias !2261
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47), !noalias !2270
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !2261
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !2270
   store <4 x i64> %299, ptr %46, align 32, !noalias !2270
   store <4 x i64> %305, ptr %45, align 32, !noalias !2270
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %47, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %46, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %45), !noalias !2270
   %307 = load <4 x i64>, ptr %47, align 32, !noalias !2270
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47), !noalias !2270
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45), !noalias !2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46), !noalias !2146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !2270
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !2146
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !2146
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !2275
   store <4 x i64> %306, ptr %65, align 32, !noalias !2279
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %63, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %65), !noalias !2279
   store <4 x i64> %306, ptr %64, align 32, !noalias !2279
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %62, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %64), !noalias !2279
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !2283
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !2283
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %63, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %62), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62), !noalias !2275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63), !noalias !2275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64), !noalias !2275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !2275
   store <4 x i64> %307, ptr %69, align 32, !noalias !2290
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %67, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %69), !noalias !2290
   store <4 x i64> %307, ptr %68, align 32, !noalias !2290
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %66, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %68), !noalias !2290
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !2283
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !2283
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %67, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %66), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66), !noalias !2275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67), !noalias !2275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68), !noalias !2275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69), !noalias !2275
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35), !noalias !2294
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !2275
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !2275
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !2294
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %35, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %34), !noalias !2294
   %308 = load <4 x i64>, ptr %35, align 32, !noalias !2294
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !2294
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !2283
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !2298
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !2294
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !2283
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !2298
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %37, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %36), !noalias !2298
   %309 = load <4 x i64>, ptr %37, align 32, !noalias !2298
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !2298
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !2283
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38), !noalias !2302
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !2298
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !2283
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !2302
   store <4 x i64> %304, ptr %38, align 32, !noalias !2306
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173), !noalias !2310
+  call void @llvm.lifetime.start.p0(ptr nonnull %173), !noalias !2310
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %173, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %38), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38), !noalias !2302
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !2302
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !2302
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !2302
   store <4 x i64> %305, ptr %39, align 32, !noalias !2317
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %176), !noalias !2310
+  call void @llvm.lifetime.start.p0(ptr nonnull %176), !noalias !2310
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %176, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %39), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39), !noalias !2302
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40), !noalias !2321
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !2302
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !2321
   store <4 x i64> %302, ptr %40, align 32, !noalias !2325
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %133), !noalias !2329
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %133, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %40), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40), !noalias !2321
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41), !noalias !2321
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !2321
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !2321
   store <4 x i64> %303, ptr %41, align 32, !noalias !2330
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %135), !noalias !2329
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %135, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %41), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41), !noalias !2321
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166), !noalias !2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167), !noalias !2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %168), !noalias !2338
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !2321
+  call void @llvm.lifetime.start.p0(ptr nonnull %166), !noalias !2334
+  call void @llvm.lifetime.start.p0(ptr nonnull %167), !noalias !2334
+  call void @llvm.lifetime.start.p0(ptr nonnull %168), !noalias !2338
   store <4 x i64> %300, ptr %167, align 32, !noalias !2338
   store <4 x i64> %308, ptr %166, align 32, !noalias !2338
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %168, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %167, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %166), !noalias !2338
   %310 = load <4 x i64>, ptr %168, align 32, !noalias !2338
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %168), !noalias !2338
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166), !noalias !2334
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167), !noalias !2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169), !noalias !2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170), !noalias !2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %171), !noalias !2342
+  call void @llvm.lifetime.end.p0(ptr nonnull %168), !noalias !2338
+  call void @llvm.lifetime.end.p0(ptr nonnull %166), !noalias !2334
+  call void @llvm.lifetime.end.p0(ptr nonnull %167), !noalias !2334
+  call void @llvm.lifetime.start.p0(ptr nonnull %169), !noalias !2334
+  call void @llvm.lifetime.start.p0(ptr nonnull %170), !noalias !2334
+  call void @llvm.lifetime.start.p0(ptr nonnull %171), !noalias !2342
   store <4 x i64> %301, ptr %170, align 32, !noalias !2342
   store <4 x i64> %309, ptr %169, align 32, !noalias !2342
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %171, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %170, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %169), !noalias !2342
   %311 = load <4 x i64>, ptr %171, align 32, !noalias !2342
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %171), !noalias !2342
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %169), !noalias !2334
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %170), !noalias !2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %171), !noalias !2342
+  call void @llvm.lifetime.end.p0(ptr nonnull %169), !noalias !2334
+  call void @llvm.lifetime.end.p0(ptr nonnull %170), !noalias !2334
+  call void @llvm.lifetime.start.p0(ptr nonnull %132), !noalias !2329
   store <4 x i64> %310, ptr %132, align 32, !noalias !2346
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %161), !noalias !2355
+  call void @llvm.lifetime.start.p0(ptr nonnull %161), !noalias !2355
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %161, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %133, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %132), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %132), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %133), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %134), !noalias !2329
   store <4 x i64> %311, ptr %134, align 32, !noalias !2359
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164), !noalias !2355
+  call void @llvm.lifetime.start.p0(ptr nonnull %164), !noalias !2355
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %164, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %135, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %134), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160), !noalias !2355
+  call void @llvm.lifetime.end.p0(ptr nonnull %134), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %135), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %160), !noalias !2355
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %160, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !2364
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %162), !noalias !2364
+  call void @llvm.lifetime.start.p0(ptr nonnull %162), !noalias !2364
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %162, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %161, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %160), !noalias !2364
   %312 = load <4 x i64>, ptr %162, align 32, !noalias !2364
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %162), !noalias !2364
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160), !noalias !2355
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %161), !noalias !2355
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163), !noalias !2355
+  call void @llvm.lifetime.end.p0(ptr nonnull %162), !noalias !2364
+  call void @llvm.lifetime.end.p0(ptr nonnull %160), !noalias !2355
+  call void @llvm.lifetime.end.p0(ptr nonnull %161), !noalias !2355
+  call void @llvm.lifetime.start.p0(ptr nonnull %163), !noalias !2355
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %163, i64 noundef 940142975169071882, i64 noundef 361421592464458498, i64 noundef 940142975169071882, i64 noundef 361421592464458498), !noalias !2368
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165), !noalias !2368
+  call void @llvm.lifetime.start.p0(ptr nonnull %165), !noalias !2368
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %165, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %164, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %163), !noalias !2368
   %313 = load <4 x i64>, ptr %165, align 32, !noalias !2368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %165), !noalias !2368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163), !noalias !2355
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164), !noalias !2355
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172), !noalias !2310
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %174), !noalias !2372
+  call void @llvm.lifetime.end.p0(ptr nonnull %165), !noalias !2368
+  call void @llvm.lifetime.end.p0(ptr nonnull %163), !noalias !2355
+  call void @llvm.lifetime.end.p0(ptr nonnull %164), !noalias !2355
+  call void @llvm.lifetime.start.p0(ptr nonnull %172), !noalias !2310
+  call void @llvm.lifetime.start.p0(ptr nonnull %174), !noalias !2372
   store <4 x i64> %312, ptr %172, align 32, !noalias !2372
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %174, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %173, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %172), !noalias !2372
   %314 = load <4 x i64>, ptr %174, align 32, !noalias !2372
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %174), !noalias !2372
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %172), !noalias !2310
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173), !noalias !2310
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175), !noalias !2310
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177), !noalias !2376
+  call void @llvm.lifetime.end.p0(ptr nonnull %174), !noalias !2372
+  call void @llvm.lifetime.end.p0(ptr nonnull %172), !noalias !2310
+  call void @llvm.lifetime.end.p0(ptr nonnull %173), !noalias !2310
+  call void @llvm.lifetime.start.p0(ptr nonnull %175), !noalias !2310
+  call void @llvm.lifetime.start.p0(ptr nonnull %177), !noalias !2376
   store <4 x i64> %313, ptr %175, align 32, !noalias !2376
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %177, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %176, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %175), !noalias !2376
   %315 = load <4 x i64>, ptr %177, align 32, !noalias !2376
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177), !noalias !2376
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %175), !noalias !2310
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176), !noalias !2310
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128), !noalias !2380
+  call void @llvm.lifetime.end.p0(ptr nonnull %177), !noalias !2376
+  call void @llvm.lifetime.end.p0(ptr nonnull %175), !noalias !2310
+  call void @llvm.lifetime.end.p0(ptr nonnull %176), !noalias !2310
+  call void @llvm.lifetime.start.p0(ptr nonnull %126), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %127), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %128), !noalias !2380
   store <4 x i64> %308, ptr %127, align 32, !noalias !2380
   store <4 x i64> %314, ptr %126, align 32, !noalias !2380
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %128, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %127, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %126), !noalias !2380
   %316 = load <4 x i64>, ptr %128, align 32, !noalias !2380
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128), !noalias !2380
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131), !noalias !2389
+  call void @llvm.lifetime.end.p0(ptr nonnull %128), !noalias !2380
+  call void @llvm.lifetime.end.p0(ptr nonnull %126), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %127), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %129), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %130), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %131), !noalias !2389
   store <4 x i64> %309, ptr %130, align 32, !noalias !2389
   store <4 x i64> %315, ptr %129, align 32, !noalias !2389
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %131, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %130, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %129), !noalias !2389
   %317 = load <4 x i64>, ptr %131, align 32, !noalias !2389
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131), !noalias !2389
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %150), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %131), !noalias !2389
+  call void @llvm.lifetime.end.p0(ptr nonnull %129), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %130), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %150), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %151), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %153), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %154), !noalias !2394
   store <4 x i64> %316, ptr %154, align 32, !noalias !2398
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %151, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %154), !noalias !2398
   store <4 x i64> %316, ptr %153, align 32, !noalias !2398
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %150, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %153), !noalias !2398
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %152), !noalias !2398
+  call void @llvm.lifetime.start.p0(ptr nonnull %152), !noalias !2398
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %152, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %151, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %150), !noalias !2398
   %318 = load <4 x i64>, ptr %152, align 32, !noalias !2398
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %152), !noalias !2398
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %150), !noalias !2394
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151), !noalias !2394
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153), !noalias !2394
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %155), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %156), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %159), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %152), !noalias !2398
+  call void @llvm.lifetime.end.p0(ptr nonnull %150), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %151), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %153), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %154), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %155), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %156), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %158), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %159), !noalias !2394
   store <4 x i64> %317, ptr %159, align 32, !noalias !2402
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %156, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %159), !noalias !2402
   store <4 x i64> %317, ptr %158, align 32, !noalias !2402
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %155, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %158), !noalias !2402
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157), !noalias !2402
+  call void @llvm.lifetime.start.p0(ptr nonnull %157), !noalias !2402
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %157, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %156, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %155), !noalias !2402
   %319 = load <4 x i64>, ptr %157, align 32, !noalias !2402
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %157), !noalias !2402
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155), !noalias !2394
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %156), !noalias !2394
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158), !noalias !2394
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159), !noalias !2394
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178), !noalias !2406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %179), !noalias !2406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %180), !noalias !2410
+  call void @llvm.lifetime.end.p0(ptr nonnull %157), !noalias !2402
+  call void @llvm.lifetime.end.p0(ptr nonnull %155), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %156), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %158), !noalias !2394
+  call void @llvm.lifetime.end.p0(ptr nonnull %159), !noalias !2394
+  call void @llvm.lifetime.start.p0(ptr nonnull %178), !noalias !2406
+  call void @llvm.lifetime.start.p0(ptr nonnull %179), !noalias !2406
+  call void @llvm.lifetime.start.p0(ptr nonnull %180), !noalias !2410
   store <4 x i64> %310, ptr %179, align 32, !noalias !2410
   store <4 x i64> %318, ptr %178, align 32, !noalias !2410
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %180, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %179, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %178), !noalias !2410
   %320 = load <4 x i64>, ptr %180, align 32, !noalias !2410
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %180), !noalias !2410
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178), !noalias !2406
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179), !noalias !2406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %181), !noalias !2406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %182), !noalias !2406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183), !noalias !2414
+  call void @llvm.lifetime.end.p0(ptr nonnull %180), !noalias !2410
+  call void @llvm.lifetime.end.p0(ptr nonnull %178), !noalias !2406
+  call void @llvm.lifetime.end.p0(ptr nonnull %179), !noalias !2406
+  call void @llvm.lifetime.start.p0(ptr nonnull %181), !noalias !2406
+  call void @llvm.lifetime.start.p0(ptr nonnull %182), !noalias !2406
+  call void @llvm.lifetime.start.p0(ptr nonnull %183), !noalias !2414
   store <4 x i64> %311, ptr %182, align 32, !noalias !2414
   store <4 x i64> %319, ptr %181, align 32, !noalias !2414
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %183, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %182, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %181), !noalias !2414
   %321 = load <4 x i64>, ptr %183, align 32, !noalias !2414
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183), !noalias !2414
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %181), !noalias !2406
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182), !noalias !2406
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %123), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %183), !noalias !2414
+  call void @llvm.lifetime.end.p0(ptr nonnull %181), !noalias !2406
+  call void @llvm.lifetime.end.p0(ptr nonnull %182), !noalias !2406
+  call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %123), !noalias !2329
   store <4 x i64> %312, ptr %123, align 32, !noalias !2418
   store <4 x i64> %320, ptr %122, align 32, !noalias !2418
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145), !noalias !2427
+  call void @llvm.lifetime.start.p0(ptr nonnull %145), !noalias !2427
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %145, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %123, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %122), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %124), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %122), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %123), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %124), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %125), !noalias !2329
   store <4 x i64> %313, ptr %125, align 32, !noalias !2431
   store <4 x i64> %321, ptr %124, align 32, !noalias !2431
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148), !noalias !2427
+  call void @llvm.lifetime.start.p0(ptr nonnull %148), !noalias !2427
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %148, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %125, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %124), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %124), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144), !noalias !2427
+  call void @llvm.lifetime.end.p0(ptr nonnull %124), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %125), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %144), !noalias !2427
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %144, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !2436
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146), !noalias !2436
+  call void @llvm.lifetime.start.p0(ptr nonnull %146), !noalias !2436
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %146, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %145, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %144), !noalias !2436
   %322 = load <4 x i64>, ptr %146, align 32, !noalias !2436
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %146), !noalias !2436
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144), !noalias !2427
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145), !noalias !2427
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147), !noalias !2427
+  call void @llvm.lifetime.end.p0(ptr nonnull %146), !noalias !2436
+  call void @llvm.lifetime.end.p0(ptr nonnull %144), !noalias !2427
+  call void @llvm.lifetime.end.p0(ptr nonnull %145), !noalias !2427
+  call void @llvm.lifetime.start.p0(ptr nonnull %147), !noalias !2427
   call void @_ZN4core9core_arch3x863avx17_mm256_set_epi64x17h2d22e48682f96690E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %147, i64 noundef 1012478749960636427, i64 noundef 433757367256023043, i64 noundef 1012478749960636427, i64 noundef 433757367256023043), !noalias !2440
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149), !noalias !2440
+  call void @llvm.lifetime.start.p0(ptr nonnull %149), !noalias !2440
   call void @_ZN4core9core_arch3x864avx219_mm256_shuffle_epi817hf07258c66ee89efcE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %149, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %148, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %147), !noalias !2440
   %323 = load <4 x i64>, ptr %149, align 32, !noalias !2440
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149), !noalias !2440
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147), !noalias !2427
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %148), !noalias !2427
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %184), !noalias !2444
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %185), !noalias !2444
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %186), !noalias !2448
+  call void @llvm.lifetime.end.p0(ptr nonnull %149), !noalias !2440
+  call void @llvm.lifetime.end.p0(ptr nonnull %147), !noalias !2427
+  call void @llvm.lifetime.end.p0(ptr nonnull %148), !noalias !2427
+  call void @llvm.lifetime.start.p0(ptr nonnull %184), !noalias !2444
+  call void @llvm.lifetime.start.p0(ptr nonnull %185), !noalias !2444
+  call void @llvm.lifetime.start.p0(ptr nonnull %186), !noalias !2448
   store <4 x i64> %314, ptr %185, align 32, !noalias !2448
   store <4 x i64> %322, ptr %184, align 32, !noalias !2448
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %186, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %185, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %184), !noalias !2448
   %324 = load <4 x i64>, ptr %186, align 32, !noalias !2448
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186), !noalias !2448
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %184), !noalias !2444
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185), !noalias !2444
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %187), !noalias !2444
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188), !noalias !2444
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189), !noalias !2452
+  call void @llvm.lifetime.end.p0(ptr nonnull %186), !noalias !2448
+  call void @llvm.lifetime.end.p0(ptr nonnull %184), !noalias !2444
+  call void @llvm.lifetime.end.p0(ptr nonnull %185), !noalias !2444
+  call void @llvm.lifetime.start.p0(ptr nonnull %187), !noalias !2444
+  call void @llvm.lifetime.start.p0(ptr nonnull %188), !noalias !2444
+  call void @llvm.lifetime.start.p0(ptr nonnull %189), !noalias !2452
   store <4 x i64> %315, ptr %188, align 32, !noalias !2452
   store <4 x i64> %323, ptr %187, align 32, !noalias !2452
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %189, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %188, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %187), !noalias !2452
   %325 = load <4 x i64>, ptr %189, align 32, !noalias !2452
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189), !noalias !2452
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %187), !noalias !2444
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188), !noalias !2444
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %118), !noalias !2456
+  call void @llvm.lifetime.end.p0(ptr nonnull %189), !noalias !2452
+  call void @llvm.lifetime.end.p0(ptr nonnull %187), !noalias !2444
+  call void @llvm.lifetime.end.p0(ptr nonnull %188), !noalias !2444
+  call void @llvm.lifetime.start.p0(ptr nonnull %116), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %117), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %118), !noalias !2456
   store <4 x i64> %318, ptr %117, align 32, !noalias !2456
   store <4 x i64> %324, ptr %116, align 32, !noalias !2456
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %118, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %117, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %116), !noalias !2456
   %326 = load <4 x i64>, ptr %118, align 32, !noalias !2456
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %118), !noalias !2456
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %116), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %117), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121), !noalias !2465
+  call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !2456
+  call void @llvm.lifetime.end.p0(ptr nonnull %116), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %119), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %120), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %121), !noalias !2465
   store <4 x i64> %319, ptr %120, align 32, !noalias !2465
   store <4 x i64> %325, ptr %119, align 32, !noalias !2465
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %121, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %120, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %119), !noalias !2465
   %327 = load <4 x i64>, ptr %121, align 32, !noalias !2465
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121), !noalias !2465
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %119), !noalias !2329
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120), !noalias !2329
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %121), !noalias !2465
+  call void @llvm.lifetime.end.p0(ptr nonnull %119), !noalias !2329
+  call void @llvm.lifetime.end.p0(ptr nonnull %120), !noalias !2329
+  call void @llvm.lifetime.start.p0(ptr nonnull %136), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %137), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %138), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %139), !noalias !2470
   store <4 x i64> %326, ptr %139, align 32, !noalias !2474
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %137, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %139), !noalias !2474
   store <4 x i64> %326, ptr %138, align 32, !noalias !2474
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %136, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %138), !noalias !2474
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30), !noalias !2478
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !2478
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %30, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %137, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %136), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %136), !noalias !2470
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137), !noalias !2470
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138), !noalias !2470
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %136), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %137), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %138), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %139), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %140), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %141), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %142), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %143), !noalias !2470
   store <4 x i64> %327, ptr %143, align 32, !noalias !2485
   call void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %141, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %143), !noalias !2485
   store <4 x i64> %327, ptr %142, align 32, !noalias !2485
   call void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %140, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %142), !noalias !2485
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32), !noalias !2478
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2478
   call void @_ZN4core9core_arch3x864avx215_mm256_or_si25617h593430db05e5efc0E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %32, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %141, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %140), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140), !noalias !2470
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141), !noalias !2470
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142), !noalias !2470
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143), !noalias !2470
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31), !noalias !2489
+  call void @llvm.lifetime.end.p0(ptr nonnull %140), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %141), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %142), !noalias !2470
+  call void @llvm.lifetime.end.p0(ptr nonnull %143), !noalias !2470
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !2489
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %31, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %30), !noalias !2489
   %328 = load <4 x i64>, ptr %31, align 32, !noalias !2489
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31), !noalias !2489
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30), !noalias !2478
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !2493
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !2489
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !2478
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !2493
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h1c9937bc9cbc0837E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %33, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %32), !noalias !2493
   %329 = load <4 x i64>, ptr %33, align 32, !noalias !2493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33), !noalias !2493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32), !noalias !2478
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !2497
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !2501
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !2493
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !2478
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !2497
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !2501
   store <4 x i64> %324, ptr %26, align 32, !noalias !2501
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %27, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %26), !noalias !2501
   %330 = load <4 x i64>, ptr %27, align 32, !noalias !2501
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !2501
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !2497
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !2497
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !2505
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !2501
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !2497
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !2497
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !2505
   store <4 x i64> %325, ptr %28, align 32, !noalias !2505
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217h3bf766d3ac381b73E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %29, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %28), !noalias !2505
   %331 = load <4 x i64>, ptr %29, align 32, !noalias !2505
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !2505
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !2497
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !2509
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !2513
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !2505
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !2497
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !2509
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !2513
   store <4 x i64> %322, ptr %22, align 32, !noalias !2513
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %22), !noalias !2513
   %332 = load <4 x i64>, ptr %23, align 32, !noalias !2513
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !2513
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !2509
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !2509
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !2517
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2513
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2509
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !2509
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !2517
   store <4 x i64> %323, ptr %24, align 32, !noalias !2517
   call void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158e77ea708E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %25, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %24), !noalias !2517
   %333 = load <4 x i64>, ptr %25, align 32, !noalias !2517
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !2517
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !2509
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2517
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !2509
   %exitcond.not = icmp eq i32 %289, %1
   br i1 %exitcond.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit", label %.lr.ph
 
@@ -9767,238 +9767,238 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %.sroa.30121.0.lcssa = phi <4 x i64> [ %279, %3 ], [ %331, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.35.0.lcssa = phi <4 x i64> [ %.sroa.0629.16.vecblend, %3 ], [ %332, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.43.0.lcssa = phi <4 x i64> [ %.sroa.5631.48.vecblend, %3 ], [ %333, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %237), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %238), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %236), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %237), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %238), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %239), !noalias !2090
   store <2 x i64> %272, ptr %239, align 16, !noalias !2521
   store <2 x i64> %272, ptr %238, align 16, !noalias !2521
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %208), !noalias !2090
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %208, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %239, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %238), !noalias !2090
   store <2 x i64> %272, ptr %237, align 16, !noalias !2521
   store <2 x i64> %272, ptr %236, align 16, !noalias !2521
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %211), !noalias !2090
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %211, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %237, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %236), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %236), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %237), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %238), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %239), !noalias !2090
   %.sroa.0218.0.copyload = load <2 x i64>, ptr %0, align 16, !noalias !2098
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %240), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %241), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %242), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %240), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %241), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %242), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %243), !noalias !2090
   store <2 x i64> %.sroa.0218.0.copyload, ptr %243, align 16, !noalias !2525
   store <2 x i64> %.sroa.0218.0.copyload, ptr %242, align 16, !noalias !2525
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %202), !noalias !2090
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %202, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %243, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %242), !noalias !2090
   store <2 x i64> %.sroa.0218.0.copyload, ptr %241, align 16, !noalias !2525
   store <2 x i64> %.sroa.0218.0.copyload, ptr %240, align 16, !noalias !2525
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %205), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %205), !noalias !2090
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %205, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %241, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %240), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %240), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %241), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %242), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %243), !noalias !2090
   %.sroa.0225.0.copyload = load <2 x i64>, ptr %273, align 16, !noalias !2098
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %245), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %246), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %247), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %244), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %245), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %246), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %247), !noalias !2090
   store <2 x i64> %.sroa.0225.0.copyload, ptr %247, align 16, !noalias !2529
   store <2 x i64> %.sroa.0225.0.copyload, ptr %246, align 16, !noalias !2529
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %196), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %196), !noalias !2090
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %196, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %247, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %246), !noalias !2090
   store <2 x i64> %.sroa.0225.0.copyload, ptr %245, align 16, !noalias !2529
   store <2 x i64> %.sroa.0225.0.copyload, ptr %244, align 16, !noalias !2529
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %199), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %199), !noalias !2090
   call void @_ZN4core9core_arch3x863avx17_mm256_setr_m128i17h68d51b8befd49c1aE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %199, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %245, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %244), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %244), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %245), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %246), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %247), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !2533
   store <2 x i64> zeroinitializer, ptr %18, align 16, !noalias !2537
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %18, i64 noundef 0), !noalias !2537
   %334 = load <2 x i64>, ptr %19, align 16, !noalias !2537
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !2533
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2533
   store <2 x i64> <i64 1, i64 0>, ptr %16, align 16, !noalias !2541
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16, i64 noundef 0), !noalias !2541
   %335 = load <2 x i64>, ptr %17, align 16, !noalias !2541
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !2533
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2533
   store <2 x i64> <i64 2, i64 0>, ptr %14, align 16, !noalias !2545
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %14, i64 noundef 0), !noalias !2545
   %336 = load <2 x i64>, ptr %15, align 16, !noalias !2545
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !2533
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2533
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2533
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2533
   store <2 x i64> <i64 3, i64 0>, ptr %12, align 16, !noalias !2549
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12, i64 noundef 0), !noalias !2549
   %337 = load <2 x i64>, ptr %13, align 16, !noalias !2549
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !2533
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2533
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2533
   %338 = shufflevector <2 x i64> %334, <2 x i64> %335, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %339 = shufflevector <2 x i64> %.sroa.0233.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.0568.16.vecblend = add <4 x i64> %338, %339
   %340 = shufflevector <2 x i64> %336, <2 x i64> %337, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %341 = shufflevector <2 x i64> %.sroa.0233.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.5570.48.vecblend = add <4 x i64> %340, %341
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210), !noalias !2553
+  call void @llvm.lifetime.start.p0(ptr nonnull %209), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %210), !noalias !2553
   store <4 x i64> %.sroa.099.0.lcssa, ptr %209, align 32, !noalias !2553
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %210, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %209, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %208), !noalias !2553
   %342 = load <4 x i64>, ptr %210, align 32, !noalias !2553
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210), !noalias !2553
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213), !noalias !2562
+  call void @llvm.lifetime.end.p0(ptr nonnull %210), !noalias !2553
+  call void @llvm.lifetime.end.p0(ptr nonnull %208), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %209), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %212), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %213), !noalias !2562
   store <4 x i64> %.sroa.8101.0.lcssa, ptr %212, align 32, !noalias !2562
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %213, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %212, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %211), !noalias !2562
   %343 = load <4 x i64>, ptr %213, align 32, !noalias !2562
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213), !noalias !2562
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204), !noalias !2567
+  call void @llvm.lifetime.end.p0(ptr nonnull %213), !noalias !2562
+  call void @llvm.lifetime.end.p0(ptr nonnull %211), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %212), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %203), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %204), !noalias !2567
   store <4 x i64> %.sroa.13.0.lcssa, ptr %203, align 32, !noalias !2567
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %204, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %203, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %202), !noalias !2567
   %344 = load <4 x i64>, ptr %204, align 32, !noalias !2567
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204), !noalias !2567
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207), !noalias !2576
+  call void @llvm.lifetime.end.p0(ptr nonnull %204), !noalias !2567
+  call void @llvm.lifetime.end.p0(ptr nonnull %202), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %203), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %206), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %207), !noalias !2576
   store <4 x i64> %.sroa.21.0.lcssa, ptr %206, align 32, !noalias !2576
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %207, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %206, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %205), !noalias !2576
   %345 = load <4 x i64>, ptr %207, align 32, !noalias !2576
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207), !noalias !2576
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %197), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198), !noalias !2581
+  call void @llvm.lifetime.end.p0(ptr nonnull %207), !noalias !2576
+  call void @llvm.lifetime.end.p0(ptr nonnull %205), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %206), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %197), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %198), !noalias !2581
   store <4 x i64> %.sroa.22.0.lcssa, ptr %197, align 32, !noalias !2581
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %198, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %197, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %196), !noalias !2581
   %346 = load <4 x i64>, ptr %198, align 32, !noalias !2581
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198), !noalias !2581
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %200), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %201), !noalias !2590
+  call void @llvm.lifetime.end.p0(ptr nonnull %198), !noalias !2581
+  call void @llvm.lifetime.end.p0(ptr nonnull %196), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %197), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %200), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %201), !noalias !2590
   store <4 x i64> %.sroa.30121.0.lcssa, ptr %200, align 32, !noalias !2590
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %201, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %200, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %199), !noalias !2590
   %347 = load <4 x i64>, ptr %201, align 32, !noalias !2590
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201), !noalias !2590
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %190), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %191), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %192), !noalias !2595
+  call void @llvm.lifetime.end.p0(ptr nonnull %201), !noalias !2590
+  call void @llvm.lifetime.end.p0(ptr nonnull %199), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %200), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %190), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %191), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %192), !noalias !2595
   store <4 x i64> %.sroa.35.0.lcssa, ptr %191, align 32, !noalias !2595
   store <4 x i64> %.sroa.0568.16.vecblend, ptr %190, align 32, !noalias !2595
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %192, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %191, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %190), !noalias !2595
   %348 = load <4 x i64>, ptr %192, align 32, !noalias !2595
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192), !noalias !2595
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %190), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %193), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %194), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %195), !noalias !2604
+  call void @llvm.lifetime.end.p0(ptr nonnull %192), !noalias !2595
+  call void @llvm.lifetime.end.p0(ptr nonnull %190), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %191), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %193), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %194), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %195), !noalias !2604
   store <4 x i64> %.sroa.43.0.lcssa, ptr %194, align 32, !noalias !2604
   store <4 x i64> %.sroa.5570.48.vecblend, ptr %193, align 32, !noalias !2604
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %195, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %194, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %193), !noalias !2604
   %349 = load <4 x i64>, ptr %195, align 32, !noalias !2604
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %195), !noalias !2604
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %193), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %194), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %248), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %249), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %251), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %257), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %260), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %261), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %264), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %266), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %267), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %269), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %270), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %271), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %195), !noalias !2604
+  call void @llvm.lifetime.end.p0(ptr nonnull %193), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %194), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %248), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %249), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %251), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %252), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %254), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %255), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %257), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %258), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %260), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %261), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %263), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %264), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %266), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %267), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %269), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %270), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %271), !noalias !2609
   store <4 x i64> %342, ptr %270, align 32, !noalias !2609
   store <4 x i64> %344, ptr %269, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %271, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %270, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %269), !noalias !2609
   %350 = load <4 x i64>, ptr %271, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %271), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %271), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %268), !noalias !2609
   store <4 x i64> %342, ptr %267, align 32, !noalias !2609
   store <4 x i64> %344, ptr %266, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %268, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %267, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %266), !noalias !2609
   %351 = load <4 x i64>, ptr %268, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %265), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %268), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %265), !noalias !2609
   store <4 x i64> %343, ptr %264, align 32, !noalias !2609
   store <4 x i64> %345, ptr %263, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %265, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %264, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %263), !noalias !2609
   %352 = load <4 x i64>, ptr %265, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %265), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %262), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %265), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %262), !noalias !2609
   store <4 x i64> %343, ptr %261, align 32, !noalias !2609
   store <4 x i64> %345, ptr %260, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %262, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %261, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %260), !noalias !2609
   %353 = load <4 x i64>, ptr %262, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %262), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %259), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %262), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %259), !noalias !2609
   store <4 x i64> %346, ptr %258, align 32, !noalias !2609
   store <4 x i64> %348, ptr %257, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %259, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %258, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %257), !noalias !2609
   %354 = load <4 x i64>, ptr %259, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %259), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %259), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %256), !noalias !2609
   store <4 x i64> %346, ptr %255, align 32, !noalias !2609
   store <4 x i64> %348, ptr %254, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %256, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %255, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %254), !noalias !2609
   %355 = load <4 x i64>, ptr %256, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %253), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %256), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %253), !noalias !2609
   store <4 x i64> %347, ptr %252, align 32, !noalias !2609
   store <4 x i64> %349, ptr %251, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h10e5073979630b56E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %253, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %252, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %251), !noalias !2609
   %356 = load <4 x i64>, ptr %253, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %253), !noalias !2609
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %250), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %253), !noalias !2609
+  call void @llvm.lifetime.start.p0(ptr nonnull %250), !noalias !2609
   store <4 x i64> %347, ptr %249, align 32, !noalias !2609
   store <4 x i64> %349, ptr %248, align 32, !noalias !2609
   call void @_ZN4core9core_arch3x864avx225_mm256_permute2x128_si25617h2c70faa74167575dE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %250, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %249, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %248), !noalias !2609
   %357 = load <4 x i64>, ptr %250, align 32, !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250), !noalias !2609
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %248), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %251), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %255), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %257), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %261), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %263), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %264), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %267), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %269), !noalias !2090
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %270), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %250), !noalias !2609
+  call void @llvm.lifetime.end.p0(ptr nonnull %248), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %249), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %251), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %252), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %254), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %255), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %257), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %258), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %260), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %261), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %263), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %264), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %266), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %267), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %269), !noalias !2090
+  call void @llvm.lifetime.end.p0(ptr nonnull %270), !noalias !2090
   store <4 x i64> %350, ptr %2, align 4, !alias.scope !2616, !noalias !2620
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store <4 x i64> %354, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !2616, !noalias !2620
@@ -10014,20 +10014,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   store <4 x i64> %353, ptr %360, align 4, !alias.scope !2634, !noalias !2638
   %.sroa.4704.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
   store <4 x i64> %357, ptr %.sroa.4704.0..sroa_idx, align 4, !alias.scope !2634, !noalias !2638
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %216), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217), !noalias !2640
+  call void @llvm.lifetime.start.p0(ptr nonnull %216), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %217), !noalias !2640
   store <4 x i64> %.sroa.0568.16.vecblend, ptr %216, align 32, !noalias !2640
   call void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h8ecb862d7f07b358E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %217, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %216), !noalias !2644
   %361 = load <2 x i64>, ptr %217, align 16, !noalias !2640
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217), !noalias !2640
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %216), !noalias !2090
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !2645
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !2645
+  call void @llvm.lifetime.end.p0(ptr nonnull %217), !noalias !2640
+  call void @llvm.lifetime.end.p0(ptr nonnull %216), !noalias !2090
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2645
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2645
   store <2 x i64> <i64 4, i64 0>, ptr %20, align 16, !noalias !2649
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %20, i64 noundef 0), !noalias !2653
   %362 = load <2 x i64>, ptr %21, align 16, !noalias !2649
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !2645
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !2645
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2645
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !2645
   %363 = add <2 x i64> %362, %361
   store <2 x i64> %363, ptr %280, align 16, !noalias !2098
   ret void
@@ -10362,46 +10362,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %69 = alloca <2 x i64>, align 16
   %70 = alloca <2 x i64>, align 16
   %71 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70), !noalias !2682
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71), !noalias !2682
+  call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !2682
+  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !2682
   store <2 x i64> <i64 3684054920433006693, i64 0>, ptr %70, align 16, !noalias !2686
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %71, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %70, i64 noundef 7719281312240119090), !noalias !2686
   %72 = load <4 x i32>, ptr %71, align 16, !noalias !2686
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70), !noalias !2682
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71), !noalias !2682
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !2682
+  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !2682
   %.sroa.019.0.copyload = load <2 x i64>, ptr %0, align 16
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.020.0.copyload = load <2 x i64>, ptr %73, align 16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.039.0.copyload = load <2 x i64>, ptr %74, align 16, !noalias !2690
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2691
   store <2 x i64> zeroinitializer, ptr %10, align 16, !noalias !2695
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %10, i64 noundef 0), !noalias !2695
   %75 = load <2 x i64>, ptr %11, align 16, !noalias !2695
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2691
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2691
   store <2 x i64> <i64 1, i64 0>, ptr %8, align 16, !noalias !2699
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %8, i64 noundef 0), !noalias !2699
   %76 = load <2 x i64>, ptr %9, align 16, !noalias !2699
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !2691
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2691
   store <2 x i64> <i64 2, i64 0>, ptr %6, align 16, !noalias !2703
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %6, i64 noundef 0), !noalias !2703
   %77 = load <2 x i64>, ptr %7, align 16, !noalias !2703
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2691
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2691
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2691
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2691
   store <2 x i64> <i64 3, i64 0>, ptr %4, align 16, !noalias !2707
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4, i64 noundef 0), !noalias !2707
   %78 = load <2 x i64>, ptr %5, align 16, !noalias !2707
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2691
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2691
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2691
   %79 = add <2 x i64> %75, %.sroa.039.0.copyload
   %80 = add <2 x i64> %76, %.sroa.039.0.copyload
   %81 = add <2 x i64> %77, %.sroa.039.0.copyload
@@ -10444,46 +10444,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %97 = xor <2 x i64> %.sroa.65.01799, %91
   %98 = xor <2 x i64> %.sroa.66.01798, %93
   %99 = xor <2 x i64> %.sroa.67.01797, %95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !2718
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !2718
   store <2 x i64> %96, ptr %35, align 16, !noalias !2718
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %34, align 16, !noalias !2718
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %35, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %34), !noalias !2718
   %100 = load <2 x i64>, ptr %36, align 16, !noalias !2718
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !2718
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !2711
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !2722
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !2718
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !2711
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !2722
   store <2 x i64> %97, ptr %38, align 16, !noalias !2722
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %37, align 16, !noalias !2722
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %39, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %38, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %37), !noalias !2722
   %101 = load <2 x i64>, ptr %39, align 16, !noalias !2722
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !2722
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37), !noalias !2711
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !2726
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !2722
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !2711
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !2726
   store <2 x i64> %98, ptr %41, align 16, !noalias !2726
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %40, align 16, !noalias !2726
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %42, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %41, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %40), !noalias !2726
   %102 = load <2 x i64>, ptr %42, align 16, !noalias !2726
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !2726
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !2711
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !2711
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !2730
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !2726
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !2711
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2711
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !2730
   store <2 x i64> %99, ptr %44, align 16, !noalias !2730
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %43, align 16, !noalias !2730
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %44, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %43), !noalias !2730
   %103 = load <2 x i64>, ptr %45, align 16, !noalias !2730
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45), !noalias !2730
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !2711
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !2711
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !2730
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !2711
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !2711
   %104 = bitcast <2 x i64> %100 to <4 x i32>
   %105 = add <4 x i32> %.sroa.34197.01804, %104
   %106 = bitcast <2 x i64> %101 to <4 x i32>
@@ -10512,46 +10512,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %129 = xor <2 x i64> %101, %123
   %130 = xor <2 x i64> %102, %125
   %131 = xor <2 x i64> %103, %127
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !2738
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !2738
   store <2 x i64> %128, ptr %23, align 16, !noalias !2738
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %22, align 16, !noalias !2738
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %24, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %22), !noalias !2738
   %132 = load <4 x i32>, ptr %24, align 16, !noalias !2738
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !2738
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !2734
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !2742
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !2738
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2734
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !2742
   store <2 x i64> %129, ptr %26, align 16, !noalias !2742
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %25, align 16, !noalias !2742
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %27, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %25), !noalias !2742
   %133 = load <4 x i32>, ptr %27, align 16, !noalias !2742
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !2742
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !2734
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !2746
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !2742
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2734
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !2746
   store <2 x i64> %130, ptr %29, align 16, !noalias !2746
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %28, align 16, !noalias !2746
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %30, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %29, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %28), !noalias !2746
   %134 = load <4 x i32>, ptr %30, align 16, !noalias !2746
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !2746
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !2734
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !2734
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !2750
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !2746
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !2734
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2734
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !2750
   store <2 x i64> %131, ptr %32, align 16, !noalias !2750
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %31, align 16, !noalias !2750
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %33, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %32, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %31), !noalias !2750
   %135 = load <4 x i32>, ptr %33, align 16, !noalias !2750
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !2750
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !2734
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !2734
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !2750
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !2734
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !2734
   %136 = add <4 x i32> %132, %105
   %137 = add <4 x i32> %133, %107
   %138 = add <4 x i32> %134, %109
@@ -10584,46 +10584,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %165 = xor <4 x i32> %161, %157
   %166 = xor <4 x i32> %162, %158
   %167 = xor <4 x i32> %163, %159
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !2761
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !2761
   store <4 x i32> %164, ptr %59, align 16, !noalias !2761
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %58, align 16, !noalias !2761
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %60, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %59, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %58), !noalias !2761
   %168 = load <2 x i64>, ptr %60, align 16, !noalias !2761
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !2761
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58), !noalias !2754
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63), !noalias !2765
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !2761
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !2754
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !2765
   store <4 x i32> %165, ptr %62, align 16, !noalias !2765
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %61, align 16, !noalias !2765
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %63, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %62, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %61), !noalias !2765
   %169 = load <2 x i64>, ptr %63, align 16, !noalias !2765
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63), !noalias !2765
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !2754
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !2769
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !2765
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !2754
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !2769
   store <4 x i32> %166, ptr %65, align 16, !noalias !2769
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %64, align 16, !noalias !2769
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %66, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %65, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %64), !noalias !2769
   %170 = load <2 x i64>, ptr %66, align 16, !noalias !2769
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !2769
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64), !noalias !2754
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68), !noalias !2754
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69), !noalias !2773
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !2769
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !2754
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !2754
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !2773
   store <4 x i32> %167, ptr %68, align 16, !noalias !2773
   store <2 x i64> <i64 361421592464458498, i64 940142975169071882>, ptr %67, align 16, !noalias !2773
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %69, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %68, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %67), !noalias !2773
   %171 = load <2 x i64>, ptr %69, align 16, !noalias !2773
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69), !noalias !2773
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67), !noalias !2754
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68), !noalias !2754
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !2773
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !2754
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !2754
   %172 = bitcast <2 x i64> %168 to <4 x i32>
   %173 = add <4 x i32> %152, %172
   %174 = bitcast <2 x i64> %169 to <4 x i32>
@@ -10652,46 +10652,46 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %197 = xor <2 x i64> %169, %191
   %198 = xor <2 x i64> %170, %193
   %199 = xor <2 x i64> %171, %195
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !2781
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !2781
   store <2 x i64> %196, ptr %47, align 16, !noalias !2781
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %46, align 16, !noalias !2781
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %48, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %47, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %46), !noalias !2781
   %200 = load <4 x i32>, ptr %48, align 16, !noalias !2781
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !2781
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !2777
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !2785
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !2781
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !2777
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !2785
   store <2 x i64> %197, ptr %50, align 16, !noalias !2785
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %49, align 16, !noalias !2785
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %51, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %49), !noalias !2785
   %201 = load <4 x i32>, ptr %51, align 16, !noalias !2785
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51), !noalias !2785
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !2777
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !2789
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !2785
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !2777
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !2789
   store <2 x i64> %198, ptr %53, align 16, !noalias !2789
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %52, align 16, !noalias !2789
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %54, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %53, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %52), !noalias !2789
   %202 = load <4 x i32>, ptr %54, align 16, !noalias !2789
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54), !noalias !2789
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52), !noalias !2777
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !2777
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57), !noalias !2793
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !2789
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !2777
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !2777
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !2793
   store <2 x i64> %199, ptr %56, align 16, !noalias !2793
   store <2 x i64> <i64 433757367256023043, i64 1012478749960636427>, ptr %55, align 16, !noalias !2793
   call void @_ZN4core9core_arch3x865ssse316_mm_shuffle_epi817hb20ff9bb120002d4E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %57, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %56, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %55), !noalias !2793
   %203 = load <4 x i32>, ptr %57, align 16, !noalias !2793
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57), !noalias !2793
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55), !noalias !2777
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !2777
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !2793
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !2777
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !2777
   %204 = add <4 x i32> %200, %173
   %205 = add <4 x i32> %201, %175
   %206 = add <4 x i32> %202, %177
@@ -10749,34 +10749,34 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %.sroa.13160.0.lcssa = phi <4 x i32> [ %72, %3 ], [ %192, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.8158.0.lcssa = phi <4 x i32> [ %72, %3 ], [ %190, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.0156.0.lcssa = phi <4 x i32> [ %72, %3 ], [ %188, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !2797
   store <2 x i64> zeroinitializer, ptr %18, align 16, !noalias !2801
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %18, i64 noundef 0), !noalias !2801
   %232 = load <2 x i64>, ptr %19, align 16, !noalias !2801
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !2797
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2797
   store <2 x i64> <i64 1, i64 0>, ptr %16, align 16, !noalias !2805
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %16, i64 noundef 0), !noalias !2805
   %233 = load <2 x i64>, ptr %17, align 16, !noalias !2805
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !2797
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2797
   store <2 x i64> <i64 2, i64 0>, ptr %14, align 16, !noalias !2809
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %14, i64 noundef 0), !noalias !2809
   %234 = load <2 x i64>, ptr %15, align 16, !noalias !2809
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !2797
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2797
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2797
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2797
   store <2 x i64> <i64 3, i64 0>, ptr %12, align 16, !noalias !2813
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %12, i64 noundef 0), !noalias !2813
   %235 = load <2 x i64>, ptr %13, align 16, !noalias !2813
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !2797
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2797
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2797
   %236 = add <2 x i64> %232, %.sroa.0448.0.copyload
   %237 = add <2 x i64> %233, %.sroa.0448.0.copyload
   %238 = add <2 x i64> %234, %.sroa.0448.0.copyload
@@ -10836,13 +10836,13 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   store <4 x i32> %251, ptr %.sroa.51854.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
   %.sroa.61855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
   store <4 x i32> %263, ptr %.sroa.61855.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !2841
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !2841
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2841
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2841
   store <2 x i64> <i64 4, i64 0>, ptr %20, align 16, !noalias !2845
   call void @_ZN4core9core_arch6x86_645sse4116_mm_insert_epi6417hc9526be9bafba74fE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<2 x i64>) align 16 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %20, i64 noundef 0), !noalias !2849
   %267 = load <2 x i64>, ptr %21, align 16, !noalias !2845
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !2841
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !2841
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2841
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !2841
   %268 = add <2 x i64> %267, %236
   store <2 x i64> %268, ptr %74, align 16, !noalias !2690
   ret void
@@ -12203,9 +12203,9 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e63
   %12 = trunc nuw i64 %11 to i32
   %13 = shl i32 %1, 1
   %14 = or disjoint i32 %13, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !3018
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3018
   switch i32 %14, label %15 [
     i32 3, label %17
     i32 1, label %16
@@ -12227,13 +12227,13 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e63
 
 "_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1": ; preds = %16, %17
   %18 = load <2 x i64>, ptr %6, align 16, !noalias !3018
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3018
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3018
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = trunc i64 %2 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !3022
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3022
   switch i32 %13, label %20 [
     i32 0, label %21
     i32 2, label %22
@@ -12255,9 +12255,9 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e63
 
 "_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit": ; preds = %21, %22
   %23 = load <2 x i64>, ptr %9, align 16, !noalias !3022
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !3022
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3022
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store <2 x i64> %23, ptr %10, align 16
   ret void
 }
@@ -12461,7 +12461,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %.sroa.0.0.copyload18.i = load <4 x i32>, ptr %11, align 16, !alias.scope !3054
   %12 = shl i32 %1, 1
   %13 = or disjoint i32 %12, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3057
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3057
   %14 = extractelement <4 x i32> %.sroa.0.0.copyload18.i, i64 1
   %15 = extractelement <4 x i32> %.sroa.0.0.copyload18.i, i64 2
   %16 = extractelement <4 x i32> %.sroa.0.0.copyload18.i, i64 3
@@ -12483,10 +12483,10 @@ _ZN11rand_chacha4guts16get_stream_param9impl_sse217hf8805e56ac12e674E.llvm.17720
   %23 = extractelement <4 x i32> %.sroa.0.0.copyload18.i, i64 0
   %24 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %20
   %25 = load i32, ptr %24, align 4, !noalias !3057, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3057
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3057
   %26 = zext i32 %25 to i64
   %27 = shl nuw i64 %26, 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3067
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3067
   store i32 %23, ptr %4, align 4, !alias.scope !3070, !noalias !3073
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %14, ptr %28, align 4, !alias.scope !3070, !noalias !3073
@@ -12497,7 +12497,7 @@ _ZN11rand_chacha4guts16get_stream_param9impl_sse217hf8805e56ac12e674E.llvm.17720
   %31 = zext nneg i32 %12 to i64
   %32 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4, !noalias !3067, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3067
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3067
   %34 = zext i32 %33 to i64
   %35 = or disjoint i64 %27, %34
   br label %38
@@ -12519,7 +12519,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
   %.sroa.0.0.copyload19 = load <4 x i32>, ptr %5, align 16
   %6 = shl i32 %1, 1
   %7 = or disjoint i32 %6, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3075
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3075
   %8 = extractelement <4 x i32> %.sroa.0.0.copyload19, i64 1
   %9 = extractelement <4 x i32> %.sroa.0.0.copyload19, i64 2
   %10 = extractelement <4 x i32> %.sroa.0.0.copyload19, i64 3
@@ -12541,10 +12541,10 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
   %17 = extractelement <4 x i32> %.sroa.0.0.copyload19, i64 0
   %18 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %14
   %19 = load i32, ptr %18, align 4, !noalias !3075, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3075
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3075
   %20 = zext i32 %19 to i64
   %21 = shl nuw i64 %20, 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3083
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3083
   store i32 %17, ptr %4, align 4, !alias.scope !3086, !noalias !3089
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %22, align 4, !alias.scope !3086, !noalias !3089
@@ -12555,7 +12555,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
   %25 = zext nneg i32 %6 to i64
   %26 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4, !noalias !3083, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3083
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3083
   %28 = zext i32 %27 to i64
   %29 = or disjoint i64 %21, %28
   ret i64 %29
@@ -12571,9 +12571,9 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   %.sroa.0.0.copyload = load <2 x i64>, ptr %7, align 16
   %8 = shl i32 %1, 1
   %9 = or disjoint i32 %8, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3091
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3091
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3094)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x i64> %.sroa.0.0.copyload, ptr %4, align 16, !noalias !3097
   %10 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %4), !noalias !3097
   %11 = bitcast <2 x i64> %.sroa.0.0.copyload to <4 x i32>
@@ -12582,7 +12582,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   store i32 %12, ptr %13, align 4, !alias.scope !3094, !noalias !3099
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %10, ptr %14, align 4, !alias.scope !3094, !noalias !3099
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = zext i32 %9 to i64
   %16 = icmp ult i32 %8, 4
   br i1 %16, label %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17he520c4f4cca03427E.llvm.17720110283109806325.exit", label %17, !prof !148
@@ -12595,12 +12595,12 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   %18 = extractelement <4 x i32> %11, i64 0
   %19 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %15
   %20 = load i32, ptr %19, align 4, !noalias !3091, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3091
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3091
   %21 = zext i32 %20 to i64
   %22 = shl nuw i64 %21, 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !3100
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3100
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3103)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store <2 x i64> %.sroa.0.0.copyload, ptr %3, align 16, !noalias !3106
   %23 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias noundef nonnull align 16 captures(none) dereferenceable(16) %3), !noalias !3106
   store i32 %18, ptr %6, align 4, !alias.scope !3103, !noalias !3108
@@ -12608,11 +12608,11 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   store i32 %12, ptr %24, align 4, !alias.scope !3103, !noalias !3108
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %23, ptr %25, align 4, !alias.scope !3103, !noalias !3108
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = zext nneg i32 %8 to i64
   %27 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4, !noalias !3100, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3100
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3100
   %29 = zext i32 %28 to i64
   %30 = or disjoint i64 %22, %29
   ret i64 %30
@@ -12626,7 +12626,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param8impl_avx17h55
   %.sroa.0.0.copyload10 = load <4 x i32>, ptr %5, align 16
   %6 = shl i32 %1, 1
   %7 = or disjoint i32 %6, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3109
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3109
   %8 = extractelement <4 x i32> %.sroa.0.0.copyload10, i64 1
   %9 = extractelement <4 x i32> %.sroa.0.0.copyload10, i64 2
   %10 = extractelement <4 x i32> %.sroa.0.0.copyload10, i64 3
@@ -12648,10 +12648,10 @@ _ZN11rand_chacha4guts16get_stream_param7fn_impl17hb061ba77decb59a1E.llvm.1772011
   %17 = extractelement <4 x i32> %.sroa.0.0.copyload10, i64 0
   %18 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %14
   %19 = load i32, ptr %18, align 4, !noalias !3109, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3109
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3109
   %20 = zext i32 %19 to i64
   %21 = shl nuw i64 %20, 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3119
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3119
   store i32 %17, ptr %4, align 4, !alias.scope !3122, !noalias !3125
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %22, align 4, !alias.scope !3122, !noalias !3125
@@ -12662,7 +12662,7 @@ _ZN11rand_chacha4guts16get_stream_param7fn_impl17hb061ba77decb59a1E.llvm.1772011
   %25 = zext nneg i32 %6 to i64
   %26 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4, !noalias !3119, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3119
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3119
   %28 = zext i32 %27 to i64
   %29 = or disjoint i64 %21, %28
   ret i64 %29
@@ -12676,7 +12676,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param9impl_sse217hf
   %.sroa.0.0.copyload18 = load <4 x i32>, ptr %5, align 16
   %6 = shl i32 %1, 1
   %7 = or disjoint i32 %6, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3127
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3127
   %8 = extractelement <4 x i32> %.sroa.0.0.copyload18, i64 1
   %9 = extractelement <4 x i32> %.sroa.0.0.copyload18, i64 2
   %10 = extractelement <4 x i32> %.sroa.0.0.copyload18, i64 3
@@ -12698,10 +12698,10 @@ _ZN11rand_chacha4guts16get_stream_param7fn_impl17h08baf2e4c3103d25E.llvm.1772011
   %17 = extractelement <4 x i32> %.sroa.0.0.copyload18, i64 0
   %18 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %14
   %19 = load i32, ptr %18, align 4, !noalias !3127, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3127
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3127
   %20 = zext i32 %19 to i64
   %21 = shl nuw i64 %20, 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3137
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3137
   store i32 %17, ptr %4, align 4, !alias.scope !3140, !noalias !3143
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %22, align 4, !alias.scope !3140, !noalias !3143
@@ -12712,7 +12712,7 @@ _ZN11rand_chacha4guts16get_stream_param7fn_impl17h08baf2e4c3103d25E.llvm.1772011
   %25 = zext nneg i32 %6 to i64
   %26 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4, !noalias !3137, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3137
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3137
   %28 = zext i32 %27 to i64
   %29 = or disjoint i64 %21, %28
   ret i64 %29
@@ -13113,10 +13113,10 @@ declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) unnamed_addr
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #36
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #36
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #37

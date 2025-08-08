@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @hwloc_add_uname_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.utsname, align 1
-  call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %6 = load i32, ptr %5, align 8, !tbaa !3
@@ -37,7 +37,7 @@ define hidden void @hwloc_add_uname_info(ptr noundef %0, ptr noundef %1) local_u
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %10 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %7, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !13
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str) #8
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str) #7
   %.not.not.i = icmp eq i32 %12, 0
   br i1 %.not.not.i, label %hwloc_get_info_by_name.exit, label %8
 
@@ -71,7 +71,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br i1 %.not47, label %16, label %19
 
 16:                                               ; preds = %15
-  %17 = call i32 @uname(ptr noundef nonnull %3) #7
+  %17 = call i32 @uname(ptr noundef nonnull %3) #8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %39, label %19
 
@@ -86,7 +86,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br i1 %.not48, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull %.0.sroa.phi20) #7
+  %22 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull %.0.sroa.phi20) #8
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -95,7 +95,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br i1 %.not49, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0.sroa.phi26) #7
+  %26 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0.sroa.phi26) #8
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -104,7 +104,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br i1 %.not50, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0.sroa.phi32) #7
+  %30 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0.sroa.phi32) #8
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -113,7 +113,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br i1 %.not51, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0.sroa.phi38) #7
+  %34 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0.sroa.phi38) #8
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -122,37 +122,31 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br i1 %.not52, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %.0.sroa.phi44) #7
+  %38 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %.0.sroa.phi44) #8
   br label %39
 
 39:                                               ; preds = %35, %37, %16, %hwloc_get_info_by_name.exit
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @hwloc__add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @hwloc__add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias ptr @hwloc_progname(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
+define hidden noalias ptr @hwloc_progname(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @program_invocation_name, align 8, !tbaa !18
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #8
+  %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #7
   %.not10 = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.0 = select i1 %.not10, ptr %2, ptr %5
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %.0) #7
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %.0) #8
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -161,23 +155,29 @@ define hidden noalias ptr @hwloc_progname(ptr noundef readnone captures(none) %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

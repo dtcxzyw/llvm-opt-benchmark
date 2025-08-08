@@ -105,7 +105,7 @@ define internal i32 @md_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 
 ; Function Attrs: nounwind uwtable
 define internal i32 @md_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @BIO_get_data(ptr noundef %0) #4
   %6 = tail call i32 @EVP_MD_CTX_get_size_ex(ptr noundef %5) #4
   %7 = icmp slt i32 %2, %6
@@ -120,7 +120,7 @@ define internal i32 @md_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 
 
 12:                                               ; preds = %8, %3
   %.0 = phi i32 [ 0, %3 ], [ %spec.select, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -261,9 +261,6 @@ define internal i64 @md_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr nounde
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #1
 
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #1
@@ -277,9 +274,6 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -304,6 +298,12 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

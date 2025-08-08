@@ -100,7 +100,7 @@ define dso_local void @_ZN23btCollisionDispatcherMtC2EP24btCollisionConfiguratio
           to label %22 unwind label %56
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -128,11 +128,11 @@ define dso_local void @_ZN23btCollisionDispatcherMtC2EP24btCollisionConfiguratio
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %27, %31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = invoke noundef ptr @_Z18btGetTaskSchedulerv()
           to label %36 unwind label %56
 
@@ -144,7 +144,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %27, %31
           to label %41 unwind label %56
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %42, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -172,11 +172,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %27, %31
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #12
+  call void @__clang_call_terminate(ptr %53) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit17: ; preds = %46, %50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 20880
   store i8 0, ptr %54, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 20884
@@ -191,22 +191,22 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit17: ; preds = %46, %5
 58:                                               ; preds = %22
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %62
 
 60:                                               ; preds = %41
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 62:                                               ; preds = %60, %58, %56
   %.pn10.pn = phi { ptr, i32 } [ %61, %60 ], [ %57, %56 ], [ %59, %58 ]
-  call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #11
-  call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #11
-  call void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816) %0) #11
+  call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #12
+  call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #12
+  call void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816) %0) #12
   resume { ptr, i32 } %.pn10.pn
 }
 
@@ -247,7 +247,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IP20btPersistent
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #12
+  tail call void @__clang_call_terminate(ptr %20) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %9, %17
@@ -365,11 +365,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2ERKS2_.exit: ; preds = %51, 
 
 declare noundef ptr @_Z18btGetTaskSchedulerv() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not.i.i = icmp ne ptr %3, null
@@ -396,15 +393,12 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentMan
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #12
+  tail call void @__clang_call_terminate(ptr %13) #11
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !16
   %4 = icmp sgt i32 %3, 0
@@ -436,7 +430,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IP20btPersistent
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #12
+  tail call void @__clang_call_terminate(ptr %17) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit.i.i: ; preds = %14, %6
@@ -476,12 +470,12 @@ _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE7destroyEii.exit.i: ; pred
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #12
+  tail call void @__clang_call_terminate(ptr %31) #11
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816)) unnamed_addr #5
+declare void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN23btCollisionDispatcherMt14getNewManifoldEPK17btCollisionObjectS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(20888) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -491,8 +485,8 @@ define dso_local noundef ptr @_ZN23btCollisionDispatcherMt14getNewManifoldEPK17b
   %7 = load i32, ptr %6, align 8, !tbaa !41
   %8 = and i32 %7, 2
   %.not = icmp eq i32 %8, 0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %3
@@ -519,8 +513,8 @@ define dso_local noundef ptr @_ZN23btCollisionDispatcherMt14getNewManifoldEPK17b
 26:                                               ; preds = %3, %9
   %.in = phi ptr [ %25, %9 ], [ @gContactBreakingThreshold, %3 ]
   %27 = load float, ptr %.in, align 4, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %29 = load float, ptr %28, align 4, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 188
@@ -947,7 +941,7 @@ define dso_local void @_ZN23btCollisionDispatcherMt25dispatchAllCollisionPairsEP
   br i1 %10, label %135, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV26CollisionDispatcherUpdater, i64 16), ptr %5, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1214,7 +1208,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i60: ; p
   br i1 %129, label %98, label %.preheader, !llvm.loop !90
 
 ._crit_edge89:                                    ; preds = %130, %.preheader
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %135
 
 130:                                              ; preds = %.lr.ph88, %130
@@ -1235,12 +1229,12 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i60: ; p
 declare void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD2Ev(ptr noundef nonnull align 8 dereferenceable(20888) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD2Ev(ptr noundef nonnull align 8 dereferenceable(20888) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV23btCollisionDispatcherMt, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20852
   %3 = load i32, ptr %2, align 4, !tbaa !16
@@ -1273,7 +1267,7 @@ define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD2Ev(ptr noundef
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #12
+  tail call void @__clang_call_terminate(ptr %17) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit.i.i.i: ; preds = %14, %6
@@ -1305,7 +1299,7 @@ _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE7destroyEii.exit.i.i: ; pr
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #12
+  tail call void @__clang_call_terminate(ptr %29) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE7destroyEii.exit.i.i, %26
@@ -1345,7 +1339,7 @@ _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev.exit: ; preds = %_ZN2
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #12
+  tail call void @__clang_call_terminate(ptr %46) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit.i.i.i9: ; preds = %43, %35
@@ -1377,7 +1371,7 @@ _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE7destroyEii.exit.i.i1: ; p
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #12
+  tail call void @__clang_call_terminate(ptr %58) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev.exit11: ; preds = %_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE7destroyEii.exit.i.i1, %55
@@ -1386,13 +1380,13 @@ _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev.exit11: ; preds = %_Z
   store i32 0, ptr %31, align 4, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20824
   store i32 0, ptr %59, align 8, !tbaa !17
-  tail call void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816) %0) #11
+  tail call void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816) %0) #12
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD0Ev(ptr noundef nonnull align 8 dereferenceable(20888) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN23btCollisionDispatcherMtD2Ev(ptr noundef nonnull align 8 dereferenceable(20888) %0) #11
+define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD0Ev(ptr noundef nonnull align 8 dereferenceable(20888) %0) unnamed_addr #5 comdat align 2 {
+  tail call void @_ZN23btCollisionDispatcherMtD2Ev(ptr noundef nonnull align 8 dereferenceable(20888) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 20888) #13
   ret void
 }
@@ -1434,14 +1428,14 @@ define linkonce_odr dso_local noundef ptr @_ZN21btCollisionDispatcher26getIntern
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN21btCollisionDispatcher23getInternalManifoldPoolEv(ptr noundef nonnull align 8 dereferenceable(20816) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZN21btCollisionDispatcher23getInternalManifoldPoolEv(ptr noundef nonnull align 8 dereferenceable(20816) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK21btCollisionDispatcher23getInternalManifoldPoolEv(ptr noundef nonnull align 8 dereferenceable(20816) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK21btCollisionDispatcher23getInternalManifoldPoolEv(ptr noundef nonnull align 8 dereferenceable(20816) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   ret ptr %3
@@ -1452,7 +1446,7 @@ declare noundef ptr @_ZN21btCollisionDispatcher26allocateCollisionAlgorithmEi(pt
 declare void @_ZN21btCollisionDispatcher22freeCollisionAlgorithmEPv(ptr noundef nonnull align 8 dereferenceable(20816), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN26CollisionDispatcherUpdaterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN26CollisionDispatcherUpdaterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #13
   ret void
 }
@@ -1488,19 +1482,19 @@ define linkonce_odr dso_local void @_ZNK26CollisionDispatcherUpdater7forLoopEii(
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #12
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1648,7 +1642,7 @@ _ZNK20btAlignedObjectArrayIS_IP20btPersistentManifoldEE4copyEiiPS2_.exit: ; pred
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #12
+  tail call void @__clang_call_terminate(ptr %58) #11
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit.i: ; preds = %55, %47
@@ -1687,22 +1681,28 @@ _ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEE10deallocateEv.exit: ; pre
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
 attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

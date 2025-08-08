@@ -137,7 +137,7 @@ define internal void @_ZL11_LMBCSCloseP10UConverter(ptr noundef captures(none) %
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = icmp sgt i32 %5, 0
@@ -307,7 +307,7 @@ define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %.critedge
 
 .critedge:                                        ; preds = %77, %.lr.ph, %.critedge.sink.split, %80, %90
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -324,8 +324,8 @@ define internal void @_ZL17_LMBCSFromUnicodeP25UConverterFromUnicodeArgsP10UErro
   %11 = alloca i32, align 4
   %12 = alloca [3 x i8], align 1
   %13 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -512,7 +512,7 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
   %89 = zext nneg i8 %59 to i64
   %90 = getelementptr inbounds nuw [20 x ptr], ptr %17, i64 0, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %92 = zext i16 %.fr438 to i32
   %93 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %91, i32 noundef %92, ptr noundef nonnull %11, i8 noundef signext 0)
   %94 = icmp sgt i32 %93, 0
@@ -610,7 +610,7 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99, %109, %132
   %.10366 = phi i8 [ %59, %109 ], [ %59, %132 ], [ %.0356451, %99 ]
   %.0.i237 = phi i32 [ 0, %109 ], [ %136, %132 ], [ 0, %99 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %137
 
 137:                                              ; preds = %82, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit, %_ZL17FindLMBCSUniRangeDs.exit.thread
@@ -653,7 +653,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
 
 148:                                              ; preds = %145
   %149 = load ptr, ptr %29, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %150 = zext i16 %.fr438 to i32
   %151 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %149, i32 noundef %150, ptr noundef nonnull %10, i8 noundef signext 0)
   %152 = icmp sgt i32 %151, 0
@@ -729,7 +729,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250.thread: ; preds = %158, %161
   %.11.ph = phi i8 [ %.2358383, %158 ], [ 1, %161 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %188
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %166, %180
@@ -737,7 +737,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   %184 = ptrtoint ptr %.4.i245 to i64
   %185 = ptrtoint ptr %.1384 to i64
   %186 = sub i64 %184, %185
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %187 = trunc i64 %186 to i32
   %.not212 = icmp eq i32 %187, 0
   br i1 %.not212, label %188, label %.thread432
@@ -745,7 +745,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
 188:                                              ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250.thread, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250
   %.11388 = phi i8 [ %.11.ph, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250.thread ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250 ]
   %189 = load ptr, ptr %17, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %190 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %189, i32 noundef %150, ptr noundef nonnull %9, i8 noundef signext 0)
   %191 = icmp sgt i32 %190, 0
   br i1 %191, label %192, label %200
@@ -809,7 +809,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
 
 .thread394:                                       ; preds = %200, %192
   %.12367.ph = phi i8 [ %.11388, %200 ], [ 0, %192 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %224
 
 219:                                              ; preds = %201, %215
@@ -817,7 +817,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   %220 = ptrtoint ptr %.4.i255 to i64
   %221 = ptrtoint ptr %.1384 to i64
   %222 = sub i64 %220, %221
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %223 = trunc i64 %222 to i32
   %.not213 = icmp eq i32 %223, 0
   br i1 %.not213, label %224, label %.thread432
@@ -828,7 +828,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   %226 = zext i8 %225 to i64
   %227 = getelementptr inbounds nuw [20 x ptr], ptr %17, i64 0, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %229 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %228, i32 noundef %150, ptr noundef nonnull %8, i8 noundef signext 0)
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %231, label %235
@@ -925,14 +925,14 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %235, %245, %268
   %.13368 = phi i8 [ %225, %245 ], [ %225, %268 ], [ %.12367398, %235 ]
   %.0.i261 = phi i32 [ 0, %245 ], [ %272, %268 ], [ 0, %235 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %319
 
 273:                                              ; preds = %145
   %274 = zext i8 %146 to i64
   %275 = getelementptr inbounds nuw [20 x ptr], ptr %17, i64 0, i64 %274
   %276 = load ptr, ptr %275, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %277 = zext i16 %.fr438 to i32
   %278 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %276, i32 noundef %277, ptr noundef nonnull %7, i8 noundef signext 0)
   %279 = icmp sgt i32 %278, 0
@@ -1025,7 +1025,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %280, %292, %314
   %.14369 = phi i8 [ %146, %292 ], [ %146, %314 ], [ %.2358383, %280 ]
   %.0.i274 = phi i32 [ 0, %292 ], [ %318, %314 ], [ 0, %280 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %319
 
 319:                                              ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273
@@ -1060,7 +1060,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
   %328 = zext i8 %320 to i64
   %329 = getelementptr inbounds nuw [20 x ptr], ptr %17, i64 0, i64 %328
   %330 = load ptr, ptr %329, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %331 = zext i16 %.fr438 to i32
   %332 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %330, i32 noundef %331, ptr noundef nonnull %6, i8 noundef signext 0)
   %333 = icmp sgt i32 %332, 0
@@ -1154,7 +1154,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %334, %347, %370
   %.15 = phi i8 [ %320, %347 ], [ %320, %370 ], [ %.3359404, %334 ]
   %.0.i287 = phi i32 [ 0, %347 ], [ %374, %370 ], [ 0, %334 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %375
 
 375:                                              ; preds = %324, %325, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299, %.thread400
@@ -1183,7 +1183,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
   %386 = zext i8 %.5361 to i64
   %387 = getelementptr inbounds nuw [20 x ptr], ptr %17, i64 0, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %389 = zext i16 %.fr438 to i32
   %390 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %388, i32 noundef %389, ptr noundef nonnull %5, i8 noundef signext 0)
   %391 = icmp sgt i32 %390, 0
@@ -1276,7 +1276,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %392, %405, %428
   %.0.i300 = phi i32 [ %432, %428 ], [ 0, %392 ], [ 0, %405 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %433
 
 433:                                              ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312, %375
@@ -1312,7 +1312,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %
   br i1 %.not219, label %449, label %489
 
 449:                                              ; preds = %446
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %450 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef nonnull %445, i32 noundef %438, ptr noundef nonnull %4, i8 noundef signext 0)
   %451 = icmp sgt i32 %450, 0
   br i1 %451, label %453, label %452
@@ -1401,7 +1401,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325: ; preds = %452, %462, %485
   %.17 = phi i8 [ %.0181443, %462 ], [ %.0181443, %485 ], [ %.8364442, %452 ]
   %.0.i313 = phi i32 [ 0, %462 ], [ %488, %485 ], [ 0, %452 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %489
 
 489:                                              ; preds = %442, %446, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325
@@ -1420,7 +1420,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325: ; preds = %
 
 495:                                              ; preds = %494
   %496 = load ptr, ptr %17, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %497 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %496, i32 noundef %438, ptr noundef nonnull %3, i8 noundef signext 0)
   %498 = icmp sgt i32 %497, 0
   br i1 %498, label %499, label %507
@@ -1491,7 +1491,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325: ; preds = %
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit335: ; preds = %507, %499, %525
   %.18 = phi i8 [ 0, %499 ], [ 0, %525 ], [ %.9365, %507 ]
   %.0.i326 = phi i32 [ 0, %499 ], [ %527, %525 ], [ 0, %507 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %528
 
 528:                                              ; preds = %494, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit335
@@ -1594,8 +1594,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit335: ; preds = %
   br i1 %570, label %32, label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %32, %.critedge75.thread, %2, %40
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -1650,15 +1650,15 @@ declare void @ucnv_getCompleteUnicodeSet_77(ptr noundef, ptr noundef, i32 nounde
 define internal fastcc void @_ZL16_LMBCSOpenWorkerP10UConverterP18UConverterLoadArgsP10UErrorCodeh(ptr noundef captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.UConverterNamePieces, align 4
   %6 = alloca %struct.UConverterLoadArgs, align 8
-  %7 = tail call noalias dereferenceable_or_null(168) ptr @uprv_malloc_77(i64 noundef 168) #9
+  %7 = tail call noalias dereferenceable_or_null(168) ptr @uprv_malloc_77(i64 noundef 168) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %60, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 40, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, i8 0, i64 168, i1 false)
@@ -1737,8 +1737,8 @@ define internal fastcc void @_ZL16_LMBCSOpenWorkerP10UConverterP18UConverterLoad
   br label %_ZL11_LMBCSCloseP10UConverter.exit
 
 _ZL11_LMBCSCloseP10UConverter.exit:               ; preds = %.critedge29, %33, %36
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 38:                                               ; preds = %26
@@ -1762,8 +1762,8 @@ _ZL11_LMBCSCloseP10UConverter.exit:               ; preds = %.critedge29, %33, %
   br i1 %46, label %47, label %54
 
 47:                                               ; preds = %.preheader.i31
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #10
-  %49 = call i32 @strncmp(ptr noundef nonnull %44, ptr noundef nonnull readonly %41, i64 noundef %48) #10
+  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #9
+  %49 = call i32 @strncmp(ptr noundef nonnull %44, ptr noundef nonnull readonly %41, i64 noundef %48) #9
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %56
 
@@ -1786,8 +1786,8 @@ _ZL15FindLMBCSLocalePKc.exit:                     ; preds = %54, %56, %38, %42, 
   %.012.i = phi i8 [ %53, %51 ], [ 0, %42 ], [ 0, %38 ], [ 1, %56 ], [ 1, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 161
   store i8 %.012.i, ptr %59, align 1, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 60:                                               ; preds = %4
@@ -1798,32 +1798,26 @@ _ZL15FindLMBCSLocalePKc.exit:                     ; preds = %54, %56, %38, %42, 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @ucnv_loadSharedData_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @ucnv_unloadSharedDataIfReady_77(ptr noundef) local_unnamed_addr #1
 
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL24_LMBCSGetNextUCharWorkerP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
@@ -1983,13 +1977,13 @@ switch.early.test:                                ; preds = %9
   br label %.thread
 
 80:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = load ptr, ptr %41, align 8, !tbaa !12
   store i8 %.fr, ptr %3, align 1, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %71, ptr %82, align 1, !tbaa !42
   %83 = call i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef %81, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 84:                                               ; preds = %33
@@ -2138,20 +2132,25 @@ define internal void @_ZL12_LMBCSOpen19P10UConverterP18UConverterLoadArgsP10UErr
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { allocsize(0) }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #8 = { allocsize(0) }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -257,8 +257,8 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nou
   %2 = alloca %class.ReferenceLocateClosure, align 8
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = alloca %class.CLDToOopClosure, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -276,12 +276,12 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -346,7 +346,7 @@ _ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i: ; preds = %_ZN10O
   br i1 %or.cond.i, label %_ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit, label %20
 
 _ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit: ; preds = %_ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %43, label %.sink.split, label %46
 
 .sink.split:                                      ; preds = %_ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit, %1
@@ -568,7 +568,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %30
   %41 = trunc i8 %40 to i1
   %42 = select i1 %41, i32 0, i32 2
   call void @_ZNK5frame16oops_do_internalEP10OopClosureP14NMethodClosureP17DerivedOopClosure27DerivedPointerIterationModePK11RegisterMapb(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef %42, ptr noundef nonnull %20, i1 noundef zeroext true) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load i8, ptr %15, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %_ZN16StackFrameStream4nextEv.exit, label %45
@@ -601,7 +601,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %38, %_ZNK5frame6senderEP11RegisterMap.exit.i
   %53 = phi i8 [ %43, %38 ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = trunc i8 %53 to i1
   br i1 %54, label %_ZN16StackFrameStream7is_doneEv.exit.thread, label %24, !llvm.loop !13
 
@@ -700,7 +700,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = alloca %class.ReferenceLocateClosure, align 8
   %5 = alloca %struct.RootCallbackInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -775,12 +775,12 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
   br i1 %57, label %25, label %.loopexit7, !llvm.loop !9
 
 .loopexit:                                        ; preds = %44, %2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 .loopexit7:                                       ; preds = %50, %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -799,11 +799,11 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %67 = load i8, ptr %66, align 8
   %68 = trunc i8 %67 to i1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %68, label %.sink.split, label %69
 
 69:                                               ; preds = %.loopexit7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %70 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -822,7 +822,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_r
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %80, label %.sink.split, label %81
 
 81:                                               ; preds = %69
@@ -846,7 +846,7 @@ define hidden void @_ZN12RootResolver7resolveER12RootCallback(ptr noundef nonnul
   %4 = alloca %class.ReferenceToThreadRootClosure, align 8
   %5 = alloca %class.ReferenceToRootClosure, align 8
   call void @_ZN9MarkScopeC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %6, align 8
@@ -865,7 +865,7 @@ define hidden void @_ZN12RootResolver7resolveER12RootCallback(ptr noundef nonnul
 
 _ZN28ReferenceToThreadRootClosureC2ER12RootCallback.exit: ; preds = %8, %10
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %7) #8
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = load i8, ptr %6, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %18, label %15
@@ -1447,10 +1447,10 @@ declare noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef no
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

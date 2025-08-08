@@ -34,7 +34,7 @@ declare i32 @ff_ass_subtitle_header_default(ptr noundef) #0
 ; Function Attrs: nounwind uwtable
 define internal i32 @text_decode_frame(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca %struct.AVBPrint, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -86,7 +86,7 @@ define internal i32 @text_decode_frame(ptr noundef readonly captures(none) %0, p
 
 36:                                               ; preds = %17, %29
   %.0 = phi i32 [ %35, %29 ], [ %26, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -121,9 +121,6 @@ define internal i32 @linebreak_init(ptr noundef %0) #3 {
 
 declare ptr @av_default_item_name(ptr noundef) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 declare void @ff_ass_bprint_text_event(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -133,7 +130,10 @@ declare i32 @ff_ass_add_rect(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
